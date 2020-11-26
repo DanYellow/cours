@@ -1,0 +1,21 @@
+.enfant {
+  border-width: 3px 4px;
+  border-style: solid;
+  padding: 10px;
+}
+
+.enfant:nth-child(3n + 1) {
+  background-color: blue;
+  border-color: maroon;
+  color: #ffffff;
+}
+
+.enfant:nth-child(3n + 2) {
+  background-color: rgb(150, 90, 100);
+  border-color: blueviolet;
+}
+
+.enfant:nth-child(3n + 3) {
+  background-color: rgb(0, 201, 27);
+  border-color: darkgoldenrod;
+}

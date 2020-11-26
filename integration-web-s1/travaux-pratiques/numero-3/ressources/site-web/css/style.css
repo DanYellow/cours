@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1280px;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+
+  background: #d9a7c7;
+  background: linear-gradient(to bottom, #fffcdc, #d9a7c7);
+}
+
+.main {
+  margin-top: 25px;
+}
+
+.main p {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+.main img {
+  width: 100%;
+}
+
+.galerie li {
+  display: inline-block;
+}
+
+h1 {
+  font-size: 4.5rem;
+  padding: 0.15em;
+  padding-right: 2em;
+  background-color: aliceblue;
+  display: inline-block;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  height: 25vh;
+}

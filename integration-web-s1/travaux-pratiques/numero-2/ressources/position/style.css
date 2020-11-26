@@ -1,0 +1,48 @@
+.conteneur {
+  margin-left: 45px;
+  height: 100%;
+}
+
+.position-relative {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.position-absolute {
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+.position-fixed {
+  position: fixed;
+  top: auto;
+  left: auto;
+}
+
+.position-sticky {
+  position: sticky;
+  top: auto;
+}
+
+.example-box {
+  width: 405px;
+  height: 195px;
+  display: inline-block;
+  margin: 0 25px;
+  border: #333333 1px solid;
+}
+
+.body-scroll {
+  height: 2000px;
+}
+
+.is-green {
+  background-color: #83cb99;
+}
+
+.is-pink {
+  background-color: #d9a1f5;
+  width: 450px;
+}

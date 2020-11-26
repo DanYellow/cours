@@ -1,0 +1,87 @@
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/hero-arriere-plan.jpg");
+  height: 67.70833333vh; /*((520 x 100) / 768) */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+  font-family: var(--police-segoe);
+}
+
+@media screen and (max-height: 500px) {
+  .hero {
+    height: 105vh;
+  }
+}
+
+.hero-contenu h1 {
+  font-size: 7.375rem;
+  font-weight: bold;
+  color: white;
+  line-height: 0.7;
+  padding-top: 9.114583333vh;
+}
+
+.hero-contenu p {
+  font-size: 1.625rem;
+  margin-top: 22px;
+  color: white;
+}
+
+.hero-contenu,
+.nav-principale ul {
+  max-width: var(--largeur-max-site);
+  margin: 0 auto;
+}
+
+.nav-principale {
+  top: 0;
+  z-index: 2;
+  position: sticky;
+
+  font-family: var(--police-segoe);
+  background-color: #b9252ed9;
+  margin-top: -106px;
+  margin-bottom: 16px;
+  border-top: white 2px solid;
+}
+
+.nav-principale ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  font-size: 1.5rem;
+  max-width: var(--largeur-max-site);
+  margin: 0 auto;
+  padding: 0 25px;
+
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.nav-principale ul a {
+  display: block;
+  padding: 15px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+/* tablette + mobile */
+@media screen and (max-width: 1112px) {
+  .nav-principale ul {
+    justify-content: flex-start;
+  }
+
+  .hero-contenu {
+    padding: 0 2.66666666667%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-contenu h1 {
+    font-size: 3.95rem;
+  }
+}

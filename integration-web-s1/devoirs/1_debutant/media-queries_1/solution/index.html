@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_débutant - media-queries_1 - Solution</title>
+    <link rel="stylesheet" href="../../css_media-queries/normalize.css" />
+    <link rel="stylesheet" href="../../css_media-queries/style.css" />
+
+    <style>
+      body {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      ul {
+        /* A ne pas oublier, sinon le reste ne sera pas appliqué */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      ul li {
+        /* On ne met pas 25% parce qu'on veut une marge entre les éléments "naturelle" */
+        flex: 0 0 24%;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <style media="screen and (max-width: 767px)">
+      ul li {
+        /* On peut mettre 100 % car on veut une colonne, 
+        on pourrait mettre moins pour avoir une petite marge sur les côtés.
+        Essayez ! */
+        flex: 0 0 100%;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <style media="screen and (min-width: 768px) and (max-width: 1100px)">
+      ul li {
+        /* Même chose ici, on met pas 50%. Voir le commentaire plus haut. */
+        flex: 0 0 48%;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>1_débutant - media-queries_1 - Solution</h1>
+    <ul>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+      <li><img src="https://picsum.photos/600" alt="" /></li>
+    </ul>
+  </body>
+</html>

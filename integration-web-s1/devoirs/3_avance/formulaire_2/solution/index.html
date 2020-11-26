@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3_avance - formulaire_1 - Solution</title>
+    <link rel="stylesheet" href="../../css_formulaires/normalize.css" />
+    <link rel="stylesheet" href="../../css_formulaires/style.css" />
+
+    <style>
+      :root {
+        --couleur-facultatif: tomato;
+      }
+
+      /* 3_avance - formulaire_1 - Solution pour plus d'explications
+      */
+      .conteneur-champ > input,
+      .conteneur-champ > .conteneur-liste-deroulante {
+        order: 1;
+      }
+
+      .conteneur-champ > label {
+        order: 0;
+      }
+
+      :optional + label::after {
+        content: " (optionnel)";
+      }
+
+      .conteneur-liste-deroulante {
+        border: 2px solid black;
+        /* On cache tous élément qui dépasse avec la ligne suivante */
+        overflow: hidden;
+        padding: 5px 0;
+        position: relative;
+      }
+
+      .conteneur-liste-deroulante::after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        right: 10px;
+
+        /* Les lignes suivantes permettent de générer un triangle 
+        Réalisé grâce un générateur : http://apps.eky.hk/css-triangle-generator/
+        */
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: black transparent transparent transparent;
+      }
+
+      /* On "désactive" le style de la balise sélect 
+      En augmentant la taille du select on cache sa flèche à droite
+      */
+      .conteneur-liste-deroulante select {
+        width: 105%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>3_avance - formulaire_2 - Solution</h1>
+
+    <form action="#" method="POST">
+      <div class="conteneur-champ">
+        <input
+          type="text"
+          id="nom_site"
+          name="nom_site"
+          placeholder="exemple.com"
+          required
+        />
+        <label for="nom_site"> Nom du site </label>
+      </div>
+      <div class="conteneur-champ">
+        <input
+          type="url"
+          id="url_site"
+          name="url_site"
+          placeholder="http://example.com"
+          required
+          maxlength="42"
+          pattern="https://.*"
+        />
+        <label for="url_site"> Url du site </label>
+      </div>
+
+      <div class="conteneur-champ">
+        <input
+          type="email"
+          id="email_webmaster"
+          name="email_webmaster"
+          placeholder="holden.caulfield@yopmail.com"
+          required
+        />
+        <label for="email_webmaster"> Courriel du webmaster </label>
+      </div>
+
+      <div class="conteneur-champ">
+        <input
+          type="tel"
+          id="tel_webmaster"
+          name="tel_webmaster"
+          placeholder="+33123456789"
+          required
+        />
+        <label for="tel_webmaster"> Téléphone du webmaster </label>
+      </div>
+
+      <div class="conteneur-champ">
+        <div class="conteneur-liste-deroulante">
+          <select name="target" id="target">
+            <option value="">Choisir une valeur</option>
+            <option value="_self">Même onglet</option>
+            <option value="_blank">Autre onglet / fenêtre</option>
+          </select>
+        </div>
+        <label for="target">Target</label>
+      </div>
+
+      <button type="submit" class="btn-soumission">
+        <span>Envoyer</span>
+      </button>
+    </form>
+  </body>
+</html>

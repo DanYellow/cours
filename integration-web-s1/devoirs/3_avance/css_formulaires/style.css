@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--vert);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.conteneur-champ {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.liste-choix input[type="radio"],
+.liste-choix input[type="checkbox"] {
+  margin: 0 20px 0 5px;
+}
+
+.liste-choix {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-soumission {
+  background-color: cadetblue;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px 15px;
+}
+
+.btn-soumission:hover {
+  filter: brightness(0.8);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  /* Eh oui, une image est de type inline à la base.
+  On rajoute cette déclaration pour enlever un espace qui se crée entre la balise <img /> et son conteneur */
+  display: block;
+}
