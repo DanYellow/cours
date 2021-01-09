@@ -88,6 +88,14 @@ gulp.task("copy:assets", async () => {
 
 gulp.task("build", async () => {
   return gulp.series(
+    "clean",
+    ...startTasks,
+    gulp.parallel(["copy:html", "minify:css", "copy:imgs", "copy:assets"])
+  )();
+});
+
+gulp.task("build:start", async () => {
+  return gulp.series(
     ["clean"],
     gulp.parallel(...startTasks)
   )();
@@ -115,5 +123,5 @@ gulp.task("watch", () => {
 });
 
 
+exports.default = gulp.series("build:start", "serve", "watch")
 
-exports.default = gulp.series("build", "serve", "watch")
