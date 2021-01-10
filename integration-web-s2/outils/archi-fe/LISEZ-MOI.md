@@ -1,6 +1,8 @@
 # Architecture front-end
 
-De nos jours, rares sont les projets web où les développeurs écrivent directement du HTML/CSS. Malgré leur universalité ces langages souffrent de beaucoup de problèmes, notamment la répétivité du code HTML. Alors, les développeurs web passent par des langages intermédiaires, il en existe de multitudes, chacun ayant leurs avantages et inconvénients. Dans le cadre de cette architecture, nous allons utiliser [nunjunks](https://mozilla.github.io/nunjucks/) pour le HTML et [sc|ass](https://sass-lang.com/) pour le CSS. Quelque soit le langage intermédiaire utilisé, ils ne peuvent pas être lus directement par le navigateur, ils doivent être compilés que l'intermédiaire d'un serveur javascript, un serveur Node.
+De nos jours, rares sont les projets web où les développeurs écrivent directement du HTML/CSS. Malgré leur universalité ces langages souffrent de beaucoup de problèmes, notamment la répétivité du code HTML. Alors, les développeurs web passent par des langages intermédiaires, il en existe de multitudes, chacun ayant leurs avantages et inconvénients. Dans le cadre de cette architecture, nous allons utiliser [nunjunks](https://mozilla.github.io/nunjucks/) pour le HTML et [sc|ass](https://sass-lang.com/) pour le CSS. Quelque soit le langage intermédiaire utilisé, ils ne peuvent pas être lus directement par le navigateur, ils doivent être compilés que l'intermédiaire d'un serveur javascript, un serveur Node. D'où ce projet, cette architecture front-end.
+
+Notez que dans le milieu professionnel, on attend pas forcément de vous que vous soyez un architecte mais au moins que vous soyez familiers avec l'environnement nodejs et le terminal.
 
 ## Prérequis
 
@@ -8,15 +10,15 @@ De nos jours, rares sont les projets web où les développeurs écrivent directe
 - Téléchargez et installer Nodejs sur le site officiel de nodejs. [Accéder au site officiel de nodejs](https://nodejs.org/en/)
   Sélectionnez la version LTS (il est possible que le numéro de version diffère par rapport à la capture). Laissez les options par défaut lors de l'inscription
 
-- Téléchargez et installez [cmder](https://cmder.net/) (Windows), télécharger la version "complète (full)"
+- Téléchargez et installez [cmder](https://cmder.net/) (Windows), télécharger la version "complète (full)" - Facultatif, mais cmder est bien meilleur que l'invite de commande de Windows (et Powershell)
 - Validez l'installation de nodejs
-  - Ouvrez cmder
+  - Ouvrez cmder (ou l'invite de commande / Terminal sur MacOS)
   - Entrez "node -v"
   - Vous devriez voir la chose suivante
   ![](_sources-LISEZ-MOI/cmder.jpg)
 
 ### Fichiers
-- Téléchargez le dossier du projet https://downgit.github.io/#/home
+- [Téléchargez le dossier du projet](https://downgit.github.io/#/home?url=https://github.com/DanYellow/cours/tree/main/integration-web-s2/outils/archi-fe)
 - Décompressez l'archive (et placez le dossier où vous voulez travailler)
 - Avec cmder, écrivez `cd ` (l'espace est très important)
 - Glissez le dossier fraîchement récupéré dans cmder

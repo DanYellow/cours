@@ -1,6 +1,31 @@
 {% extends "layouts/_base.html" %}
 
+{% block title %} Accueil {% endblock %}
 
 {% block content %}
-J'hérite du fichier _base.html
+<p>
+    J'hérite du fichier _base.html.
+</p>
+
+<form class="form" action="" data-testid="identite-form">
+    <fieldset>
+        <legend>Identité</legend>
+
+        <div class="el-form">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" data-testid="champ-prenom">
+        </div>
+
+        <div class="el-form">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" data-testid="champ-nom">
+        </div>
+
+        <div class="el-form">
+            <button type="submit" class="btn-submit">
+                Soumettre
+            </button>
+        </div>
+    </fieldset>
+</form>
 {% endblock %}

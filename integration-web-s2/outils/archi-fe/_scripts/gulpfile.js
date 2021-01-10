@@ -12,10 +12,9 @@ const imagemin = require("gulp-imagemin");
 
 sass.compiler = require("node-sass");
 
-console.log("__dirname", path.dirname("src"))
 const PATHS = {
   nunjucks: "../src/views/**/*.html",
-  scss: ["../src/assets/css/**/*.s(c|a)ss", "../src/assets/css/**/*.css"],
+  scss: ["../src/assets/css/**/*.{scss,.sass}", "../src/assets/css/**/*.css"],
   images: "../src/assets/images/**/*",
   assets: "../src/assets/**",
   dist: "../dist",
@@ -48,7 +47,7 @@ gulp.task("compile:sass", function () {
     gulp
       // Compile tous les fichiers ayant une extension .scss, .sass ou .css
       // sauf ceux dont le nom commence par "_"
-      .src([...PATHS.scss, "!../src/assets/css/**/_*.(s)(c|a)ss"])
+      .src([...PATHS.scss, "!../src/assets/css/**/_*.{scss,.sass}"])
       .pipe(sass().on("error", sass.logError))
       .pipe(gulp.dest(`${PATHS.dist}/assets/css`))
       .pipe(livereload())
@@ -87,7 +86,7 @@ gulp.task("copy:imgs", async () => {
 gulp.task("copy:assets", async () => {
   const folder = argv.env === "prod" ? PATHS.build : PATHS.dist;
   return gulp
-    .src(["src/assets/**", "!src/assets/images/**/*", "!src/assets/css/**/*"])
+    .src([PATHS.assets, `!${PATHS.assets}`, `!${PATHS.images}`])
     .pipe(gulp.dest(`${folder}/assets`));
 });
 
@@ -124,7 +123,6 @@ gulp.task("serve", async () => {
 });
 
 gulp.task("watch", () => {
-
   gulp.watch([PATHS.nunjucks, ...PATHS.scss], gulp.parallel(startTasks));
 });
 
