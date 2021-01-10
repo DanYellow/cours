@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp --env=dev --gulpfile _scripts/gulpfile.js",
     "build": "gulp build --env=prod --gulpfile _scripts/gulpfile.js",
-    "tasks": "gulp --tasks --gulpfile _scripts/gulpfile.js"
+    "tasks": "gulp --tasks --gulpfile _scripts/gulpfile.js",
+    "screenshots": "node _/scripts/screenshots.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "minimist": "^1.2.5",
     "node-sass": "^5.0.0",
     "puppeteer": "^5.5.0",
-    "query-string": "^6.13.8"
+    "query-string": "^6.13.8",
+    "voca": "^1.4.0"
   }
 }

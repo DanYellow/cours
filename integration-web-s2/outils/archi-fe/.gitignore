@@ -2,5 +2,7 @@
 .DS_STORE
 node_modules/
 dist/
-
 build/
+__screenshots/
+
+screenshots.tar
