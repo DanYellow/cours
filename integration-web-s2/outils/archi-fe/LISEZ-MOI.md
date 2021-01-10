@@ -43,13 +43,14 @@ Ceci indique que nous sommes dans le dossier "outils"
 2. Attendre le lancement du projet. Votre navigateur web défini par défaut va s'ouvrir
 
 ## Structure des dossiers (simplifiée)
+* [_scripts/](.\archi-fe\dist) (Dossier contenant un ensemble de scripts liés à l'architecture. Théoriquement, vous n'avez pas besoin d'y toucher pour travailler. Voir plus bas pour plus d'informations)
 * [dist/](.\archi-fe\dist) (Dossier crée après le premier `npm start`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`)
 * * [build/](.\archi-fe\build) (Dossier crée après `npm run build`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`) Version de production du site
 * [node_modules/](.\archi-fe\node_modules) (Contient les dépendances, ne **jamais** copier ce dossier, `npm install` sert à ça)
 * [src/](.\archi-fe\src) (Dossier dans lequel vous travaillerez)
   * [assets/](.\archi-fe\src\assets) (Ouvrir pour regarder plus en détails)
   * [views/](.\archi-fe\src\views) (Ouvrir pour regarder plus en détails, c'est ici que vous devez définir vos fichiers HTML)
-* [gulpfile.js](.\archi-fe\gulpfile.js) (Fichier définissant l'architecture du projet)
+* [tests/](.\archi-fe\tests) (Ensemble de tests unitaires faits avec l'outil puppeteer, partie non finie)
 * [package-lock.json](.\archi-fe\package-lock.json) (Fichier définissant la version exacte des dépendances)
 * [package.json](.\archi-fe\package.json) (Fichier définissant les dépendances du projet et la liste des commandes `npm run ...`)
 
@@ -76,3 +77,13 @@ Dans le projet, il y a deux tâches majeures :
 
 ### BrowserSync
 Outil permettant de synchroniser vos navigateurs. Grâce à l'utilisation d'un serveur node pour faire tourner le site local, il est maintenant possible d'accéder au site depuis n'importe quel appareil sur le réseau local, idéal pour tester sur smartphone. Si vous voulez tester avec votre smartphone, il vous suffit d'accéder sur son navigateur, à votre adresse ip suivi du port de votre serveur. Vous pouvez obtenir ces informations en accédant à l'url : http://localhost:3002
+
+## Tâches
+Le projet s'articule autour de tâches, elles sont listées dans le fichier package.json dans la clef "scripts". Toute les tâches, pour être appelées, doivent être précédée de "npm run _nom-de-la-tache_". Exemple : "npm run build"
+* (npm run) build : Produit une version de production du projet. Le CSS est minifié pour gagner en poids de fichier
+* (npm run) start : Lance le serveur de développement, voir plus haut pour plus d'information
+* (npm run) screenshots : Génère une capture d'écran de toutes les pages html présentes dans le dossier dist pour différents écrans. Ces écrans sont définis dans le fichier _scripts/screenshots.config.js. Notez les choses suivantes à propos de ce script :
+  * Le script crée un dossier __screenshots et une archive ./screenshots.tar
+  * Le script ne fonctionnera pas si le dossier ./dist n'existe pas
+  * Il faut impérativement que vous ayez installé imagemagick sur votre ordinateur (Télécharger imagemagick)[https://imagemagick.org/script/download.php]
+  * Le script peut prendre un peu de temps dépendamment du nombre de pages et de la puissance de votre ordinateur
