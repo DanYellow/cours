@@ -1,3 +1,5 @@
+const path = require('path')
+
 const gulp = require("gulp");
 const nunjucks = require("gulp-nunjucks");
 const livereload = require("gulp-livereload");
@@ -10,11 +12,14 @@ const imagemin = require("gulp-imagemin");
 
 sass.compiler = require("node-sass");
 
+console.log("__dirname", path.dirname("src"))
 const PATHS = {
-  nunjucks: "src/views/**/*.html",
-  scss: ["src/assets/css/**/*.s(c|a)ss", "src/assets/css/**/*.css"],
-  dist: "./dist",
-  build: "./build",
+  nunjucks: "../src/views/**/*.html",
+  scss: ["../src/assets/css/**/*.s(c|a)ss", "../src/assets/css/**/*.css"],
+  images: "../src/assets/images/**/*",
+  assets: "../src/assets/**",
+  dist: "../dist",
+  build: "../build",
 };
 
 const startTasks = [
@@ -29,7 +34,7 @@ gulp.task("compile:nunjucks", () => {
     gulp
       // Compile tous les fichiers ayant une extension .html
       // sauf ceux dont le nom commence par "_"
-      .src([PATHS.nunjucks, "!src/views/**/_*.html"])
+      .src([PATHS.nunjucks, "!../src/views/**/_*.html"])
       .pipe(nunjucks.compile())
       // Déplace ces fichiers vers le dossier défini dans la variable "PATHS.dist"
       .pipe(gulp.dest(PATHS.dist))
@@ -43,7 +48,7 @@ gulp.task("compile:sass", function () {
     gulp
       // Compile tous les fichiers ayant une extension .scss, .sass ou .css
       // sauf ceux dont le nom commence par "_"
-      .src([...PATHS.scss, "!src/assets/css/**/_*.(s)(c|a)ss"])
+      .src([...PATHS.scss, "!../src/assets/css/**/_*.(s)(c|a)ss"])
       .pipe(sass().on("error", sass.logError))
       .pipe(gulp.dest(`${PATHS.dist}/assets/css`))
       .pipe(livereload())
@@ -73,15 +78,15 @@ gulp.task("copy:html", () =>
 
 gulp.task("copy:imgs", async () => {
   const folder = argv.env === "prod" ? PATHS.build : PATHS.dist;
-  gulp
-    .src("src/assets/images/**/*")
+  return gulp
+    .src(PATHS.images)
     .pipe(imagemin())
     .pipe(gulp.dest(`${folder}/assets/images`));
 });
 
 gulp.task("copy:assets", async () => {
   const folder = argv.env === "prod" ? PATHS.build : PATHS.dist;
-  gulp
+  return gulp
     .src(["src/assets/**", "!src/assets/images/**/*", "!src/assets/css/**/*"])
     .pipe(gulp.dest(`${folder}/assets`));
 });
@@ -103,7 +108,7 @@ gulp.task("build:start", async () => {
 
 gulp.task("clean", async () => {
   const folder = argv.env === "prod" ? PATHS.build : PATHS.dist;
-  return del([folder]);
+  return del([folder], {force: true});
 });
 
 gulp.task("serve", async () => {
@@ -119,6 +124,7 @@ gulp.task("serve", async () => {
 });
 
 gulp.task("watch", () => {
+
   gulp.watch([PATHS.nunjucks, ...PATHS.scss], gulp.parallel(startTasks));
 });
 
