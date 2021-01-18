@@ -24,6 +24,8 @@ Notez que dans le milieu professionnel, on attend pas forcément de vous que vou
 - Glissez le dossier fraîchement récupéré dans cmder
 - Appuyer sur Entrée
 
+**Note : Si vous êtes sous Windows, que votre dossier de travail est dans un dossier différent du disque C et que vous utilisez "cmd" (appelé aussi "invite de commande"), vous devez impérativement changer de disque avec la commande suivante : `-nom-de-votre-disque:` par exemple `e:` (pas besoin de mettre la lettre en majuscule)**
+
 Si tout s'est bien passé la console devrait afficher quelque chose comme ceci :
 ![](_sources-LISEZ-MOI/chemin-change.png)
 Ceci indique que nous sommes dans le dossier "outils"
@@ -55,7 +57,7 @@ Ceci indique que nous sommes dans le dossier "outils"
 * [package.json](.\archi-fe\package.json) (Fichier définissant les dépendances du projet et la liste des commandes `npm run ...`)
 
 ## Outils utilisés
-Le but de cette partie est de définir très brièvement leur fonctionnement. Je vous invite donc à regarder la documentation officiels (et autres didacticiels) pour en savoir plus.
+Le but de cette partie est de définir très brièvement leur fonctionnement. Je vous invite donc à regarder la documentation officielle de chacun de outils (et autres didacticiels) pour en savoir plus.
 
 ### Nunjucks
 L'un des gros problèmes du HTML est le fait qu'on doive répéter le code à plusieurs reprises, ainsi s'il y a une partie commune à plusieurs pages, il faut la reporter sur chacune des pages. Ca peut créer des erreurs, et surtout rend le travail redondant. Il existe une multitude de templates HTML. Dans le cadre du projet, c'est nunjucks qui est utilisé. Sa syntaxe est très proche du HTML et surtout de Jinja et de Twig, moteurs de templating HTML utilisés pour Django (Python) et Symfony (PHP).
