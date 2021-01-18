@@ -5,17 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/reset.css"><!-- On pense toujours à mettre les fichiers CSS externe en premier, et "reset.css" en premier -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <title>Architecture - {% block title %} {% endblock %}</title>
-
+  <title>Architecture - {% block title %} <!-- Le contenu hérité s'affichera ici -->{% endblock %}</title>
 </head>
 
 <body>
   <main>
-    {% block content %} {% endblock %}
+    <p>Ce projet est un exemple, vous pouvez retirer tout ce qu'il y a dans la balise &lt;body&gt; pour travailler sur
+      vos projets</p>
+    {% block content %}
+    <!-- Le contenu hérité s'affichera ici -->
+    {% endblock %}
   </main>
+
+  <!-- Si vous avez du javascript, il doit se mettre avant la fermeture du javascript -->
 </body>
 
 </html>

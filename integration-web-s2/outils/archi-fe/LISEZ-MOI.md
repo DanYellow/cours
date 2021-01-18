@@ -44,6 +44,9 @@ Ceci indique que nous sommes dans le dossier "outils"
   Note : sans `npm install` la commande précédente ne fonctionnera pas
 2. Attendre le lancement du projet. Votre navigateur web défini par défaut va s'ouvrir
 
+Note : Vous devez faire ceci (se mettre dans le bon dossier avec les lignes de commande + `npm start`)
+Note 2 : Vous pouvez arrêter le serveur appuyant sur les touches `ctrl + c`
+
 ## Structure des dossiers (simplifiée)
 * [_scripts/](.\archi-fe\dist) (Dossier contenant un ensemble de scripts liés à l'architecture. Théoriquement, vous n'avez pas besoin d'y toucher pour travailler. Voir plus bas pour plus d'informations)
 * [dist/](.\archi-fe\dist) (Dossier crée après le premier `npm start`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`)
@@ -62,6 +65,11 @@ Le but de cette partie est de définir très brièvement leur fonctionnement. Je
 ### Nunjucks
 L'un des gros problèmes du HTML est le fait qu'on doive répéter le code à plusieurs reprises, ainsi s'il y a une partie commune à plusieurs pages, il faut la reporter sur chacune des pages. Ca peut créer des erreurs, et surtout rend le travail redondant. Il existe une multitude de templates HTML. Dans le cadre du projet, c'est nunjucks qui est utilisé. Sa syntaxe est très proche du HTML et surtout de Jinja et de Twig, moteurs de templating HTML utilisés pour Django (Python) et Symfony (PHP).
 * [Voir documentation de Nunjucks](https://mozilla.github.io/nunjucks/)
+* 
+L'une des grandes forces des ces systèmes c'est la notion d'héritage, dans le projet nous avons un fichier layouts/_base.html et un fichier index.html. Vous remarquez que ce dernier est quelque peu léger en terme de code et pourtant, il est totatement valide ! Tout ceci grâce au système d'héritage de template.
+![](_sources-LISEZ-MOI/nunjucks.jpg)
+
+
 
 ### SASS/SCSS
 Permet de contrevenir à certaines limites du CSS en ajoutant des fonctionnalités non-négligeables les fonctions, des mixins, l'import, un héritage comme dans les langages de programmation comme le C++ ou le Javascript. A noter que le SASS/SCSS proposent également des variables, toutefois, contrairement aux variables CSS, les variables SCSS/SASS sont compilées.
