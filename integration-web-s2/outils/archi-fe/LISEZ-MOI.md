@@ -65,10 +65,10 @@ Le but de cette partie est de définir très brièvement leur fonctionnement. Je
 ### Nunjucks
 L'un des gros problèmes du HTML est le fait qu'on doive répéter le code à plusieurs reprises, ainsi s'il y a une partie commune à plusieurs pages, il faut la reporter sur chacune des pages. Ca peut créer des erreurs, et surtout rend le travail redondant. Il existe une multitude de templates HTML. Dans le cadre du projet, c'est nunjucks qui est utilisé. Sa syntaxe est très proche du HTML et surtout de Jinja et de Twig, moteurs de templating HTML utilisés pour Django (Python) et Symfony (PHP).
 * [Voir documentation de Nunjucks](https://mozilla.github.io/nunjucks/)
-* 
-L'une des grandes forces des ces systèmes c'est la notion d'héritage, dans le projet nous avons un fichier layouts/_base.html et un fichier index.html. Vous remarquez que ce dernier est quelque peu léger en terme de code et pourtant, il est totatement valide ! Tout ceci grâce au système d'héritage de template.
+  
+L'une des grandes forces de ces systèmes c'est la notion d'héritage, dans le projet nous avons un fichier layouts/_base.html et un fichier index.html. Vous remarquez que ce dernier est quelque peu léger en terme de code et pourtant, il est totatement valide ! Tout ceci grâce au système d'héritage de template.
 ![](_sources-LISEZ-MOI/nunjucks.jpg)
-
+Note : Dans le cadre de cette architecture, il est préférable de préfixer d'un underscore (_) tous les fichiers de mise en page ou fichier qui ne doivent pas être de vraies pages au final.
 
 
 ### SASS/SCSS
