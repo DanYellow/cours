@@ -1,3 +1,5 @@
 https://docs.microsoft.com/fr-fr/azure/machine-learning/algorithm-cheat-sheet
 
 https://larevueia.fr/tutoriel-kaggle-titanic-machine-learning-from-disaster/
+
+https://dataanalyticspost.com/Lexique/random-forest/
