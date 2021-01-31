@@ -101,7 +101,7 @@ body {
   font-size: 1.3rem;
 }
 
-footer {
+.pied-de-page {
   padding: 15px;
   background-color: #333;
   margin-top: 25px;
@@ -109,7 +109,7 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
-  .liste-emissions {
+  .liste-emissions, .en-tete {
     flex-direction: column;
   }
 }
