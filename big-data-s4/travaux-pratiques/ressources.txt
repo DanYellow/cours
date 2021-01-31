@@ -3,3 +3,7 @@ https://docs.microsoft.com/fr-fr/azure/machine-learning/algorithm-cheat-sheet
 https://larevueia.fr/tutoriel-kaggle-titanic-machine-learning-from-disaster/
 
 https://dataanalyticspost.com/Lexique/random-forest/
+
+https://www.theguardian.com/data
+
+https://www.theguardian.com/news/datablog/2020/dec/22/interactive-map-which-areas-of-australia-were-hit-by-multiple-disasters-in-2020
