@@ -1,11 +1,11 @@
 Intégration Web S2
 
-TP1 :
-TP2 :
-TP3 :
-TP4 :
+TP1 : Reprendre TP3 préprocesseurs
+TP2 : Reprendre TP3 préprocesseurs
+TP3 : Avancement correction devoir maison
+TP4 : Reprendre TP3 préprocesseurs
 
-TD1 :
-TD2 :
+TD1 : /
+TD2 : /
 
 CM :
