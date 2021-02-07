@@ -7,3 +7,9 @@ https://dataanalyticspost.com/Lexique/random-forest/
 https://www.theguardian.com/data
 
 https://www.theguardian.com/news/datablog/2020/dec/22/interactive-map-which-areas-of-australia-were-hit-by-multiple-disasters-in-2020
+
+https://quoidansmonassiette.fr/tromper-avec-graphiques-representations-visuelles-pour-manipuler-opinion-publique-guide/
+
+http://www.tylervigen.com/spurious-correlations
+
+https://viz.wtf/
