@@ -1,7 +1,7 @@
 Intégration Web S2
 
 TP1 : Avancement correction devoir maison
-TP2 : Reprendre TP3 préprocesseurs
+TP2 : Avancement correction devoir maison
 TP3 : Avancement correction devoir maison
 TP4 : Avancement correction devoir maison
 
