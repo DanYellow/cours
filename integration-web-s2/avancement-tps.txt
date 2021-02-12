@@ -6,6 +6,10 @@ TP3 : Avancement correction devoir maison
 TP4 : Avancement correction devoir maison
 
 TD1 : /
-TD2 : /
+TD2 : Fin cours sur l'UX
 
 CM :
+
+
+TP4 - Intégration Web S2
+TP2 - Big Data S4
