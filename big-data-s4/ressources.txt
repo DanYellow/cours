@@ -22,3 +22,5 @@ https://github.com/awesomedata/awesome-public-datasets
 lm.score(X,y)
 
 dataset.loc[(dataset['Age'] > 16) & (dataset['Age'] <= 32), 'Age'] = 1
+
+entrainement_df['AgeBand'] = pd.cut(entrainement_df['Age'], 5)
