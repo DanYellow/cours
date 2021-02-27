@@ -1,0 +1,19 @@
+Age - Age du joueur en question
+MP - Minutes Played: nombre de minutes jouées à travers la saison
+PER - Player Efficiency Rating: Contribution pondérée du joueur
+TS% - True Shooting %: Pourcentage des tirs rentrés prenant en compte les 3 Points, les 2 Points et les free throws
+FG - Field Goals: Nombre de tirs réussis
+FGA - Field Goal Attempted: Nombre de tirs essayés
+FG% - Field Goal Percentage: Pourcentage des tirs réussis
+3P - 3 Pointers: Nombre de 3Point réussis
+3PA - 3 Pointers Attempted: Nombre de 3 points essayés
+3P% - 3 Point Pourcentage: Pourcentage de 3 point réussis
+eFG% - Efficient Field Goal %: Pourcentage des tirs réussis en fonction des 3P et des 2P
+FT% - Free Throw %: Pourcentage des free throws réussis (1 point)
+ORB - Offensive Rebound: Nombre d'offensive rebounds
+DRB - Defensive Rebound: Nombre de defensive rebounds
+AST - Assists: Nombre d'assistes compté durant la saison
+STL - Steals: Nombre de steals compté durant la saison
+BLK - Blocks: Nombre de blocks compté durant la saison
+PTS - Points: Nombre de points compté durant la saison
+Salary - Salaire du joueur
