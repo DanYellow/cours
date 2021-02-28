@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travaux Dirigés - Numéro 2 - icônes</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consignes.css">
+</head>
+
+<body>
+    <section class="banniere avertissement">
+        <article class="conteneur">
+            <p>Pensez bien à activer l'extension SASS</p>
+
+            <img src="images/_sass-status-bar.jpg" alt="Activer l'extension SASS">
+        </article>
+    </section>
+    <main class="conteneur">
+        <section class="consignes-conteneur">
+            <h1 class="h1">Consignes de la pratique - Partie 1</h1>
+            <ul class="liste-consignes">
+                <li><a href="https://www.favicon-generator.org/" target="_blank">Aller sur le site de génération de
+                        favicon (nouvel onglet)</a></li>
+                <li>Sélectionner une image</li>
+                <li>Générer le favicon</li>
+                <li>Ajouter un favicon</li>
+            </ul>
+        </section>
+
+        <section class="consignes-conteneur">
+            <h1 class="h1">Utilisation de icomoon</h1>
+            <details>
+                <summary>Afficher / cacher étapes pour gérer les icônes</summary>
+                <article class="block-consigne">
+                    <figure>
+                        <img src="images/icomoon-1.jpg" alt="Première étape utilisation icomoon">
+                        <figcaption>On clique sur le bouton "IcoMoon App"</figcaption>
+                    </figure>
+                    <ul class="liste-consignes">
+                        <li> Aller sur le site <a href="https://icomoon.io/">icomoon.io</a></li>
+                    </ul>
+                </article>
+                <article class="block-consigne">
+                    <figure>
+                        <img src="images/icomoon-2.jpg" alt="Deuxième étape utilisation icomoon">
+                        <figcaption>On sélectionne (B) ou importe nos icones (A)</figcaption>
+                    </figure>
+                    <ul class="liste-consignes">
+                        <li>A : Permet d'importer des icones personnalisées. Format .svg ou .json</li>
+                        <li>B : Permet de sélectionner des des icônes proposées par icomoon</li>
+                    </ul>
+                </article>
+                <article class="block-consigne">
+                    <figure>
+                        <img src="images/icomoon-3.jpg" alt="Troisième étape utilisation icomoon">
+                        <figcaption>On clique sur le bouton "Generate font"</figcaption>
+                    </figure>
+                </article>
+                <article class="block-consigne">
+                    <figure>
+                        <img src="images/icomoon-4.jpg" alt="Quatrième étape utilisation icomoon">
+                        <figcaption>On clique sur le bouton "Generate font"</figcaption>
+                    </figure>
+                    <ul class="liste-consignes">
+                        <li>A : Affiche les préférences de notre iconfont</li>
+                        <li>B : Affiche le contenu de notre iconfont
+                            <ul class="liste-consignes">
+                                <li>B1 : icône</li>
+                                <li>B2 : nom de l'icône (modifiable)</li>
+                                <li>B3 : valeur du caractère</li>
+                            </ul>
+                        </li>
+                        <li>C : Permet de télécharger notre iconfont (et tout ce qui va avec)</li>
+                        <li>D : Permet de retourner à l'étape précédente</li>
+                    </ul>
+                </article>
+            </details>
+
+            <article>
+                <h1 class="h1">Consignes de la pratique - Partie 2</h1>
+                <ul class="liste-consignes">
+                    <li>Sélectionner des icônes parmi celles proposées par icomoon (8-9)</li>
+                    <li>Télécharger l'iconfont</li>
+                    <li>(Désarchiver et) Déplacer le contenu de l'archive dans la ressource</li>
+                    <li>Lier le fichier .css à la ressource</li>
+                    <li>Afficher une icône à côté de chaque champ de formulaire</li>
+                    <li>Afficher une icône dans le texte et bien l'aligner</li>
+                    <li>Ajouter des transitions au hover (couleur, rotation, échelle...) sur les icônes
+                        <ul class="liste-consignes">
+                            <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:hover" target="_blank">Voir la
+                                    documentation de la pseudo-classe ":hover" (nouvel onglet)</a></li>
+                            <li>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition"
+                                    target="_blank">Voir
+                                    la documentation des transitions css (nouvel onglet)</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="consignes-conteneur">
+            <h1 class="h1">Consignes de la pratique - Partie 3</h1>
+            <ul class="liste-consignes">
+                <li>Télécharger une icône sur le site <a href="https://iconmonstr.com/" target="_blank">iconmonstr
+                        (nouvel onglet)</a> (désactivez votre bloqueur de pub)</li>
+                <li>Télécharger une icône de flèche vers le bas (arrow) et une icône lié à l'envoi (avion en papier par
+                    exemple / plane en anglais)</li>
+                <li>Retourner sur le site icomoon.io</li>
+                <li>Importer vos fichiers svg et le fichier selection.json</li>
+                <li>Sélectionner les icônes dont vous avez besoin (garder celles que vous avez déjà)</li>
+                <li>Télécharger la nouvelle version de votre iconfont</li>
+                <li>Mettre en place l'icône de flèche sur le select (position:absolute) et l'icône d'envoi dans le
+                    bouton "Envoyer"</li>
+            </ul>
+        </section>
+
+        <h1 class="titre-principal">Travaux Dirigés - Icônes</h1>
+
+
+        <form action="" class="form-resaux-sociaux">
+            <fieldset>
+                <legend>Liez vos comptes à notre service</legend>
+
+                <section class="liste-champs">
+                    <div class="champ-conteneur">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" id="facebook" name="facebook_compte">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="twitter">Twitter</label>
+                        <input type="text" id="twitter" name="twitter_compte">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="discord">Discord</label>
+                        <input type="text" id="discord" name="discord_compte">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="slack">Slack</label>
+                        <input type="text" id="slack" name="slack_compte">
+
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="youtube">Youtube</label>
+                        <input type="text" id="youtube" name="youtube_compte">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="instagram">Reddit</label>
+                        <input type="text" id="instagram" name="instagram_compte">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="github">Github</label>
+                        <input type="text" id="github" name="github_compte">
+                    </div>
+                </section>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Autres options</legend>
+
+                <section class="liste-champs colonne">
+                    <div class="champ-conteneur">
+                        <label for="volume">Volume</label>
+                        <input type="range" id="volume" name="volume" value="5" min="0" max="20">
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="notification">Fréquence de notifications</label>
+
+                        <div class="select-conteneur">
+                            <select name="notification" id="notification">
+                                <option value="nanosecondes">Toutes les nanosecondes</option>
+                                <option value="heures">Toutes les heures</option>
+                                <option value="jours">Tous les jours</option>
+                                <option value="semaines">Toutes les semaines</option>
+                                <option value="mois">Toutes les mois</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+            </fieldset>
+
+            <button type="submit" class="btn-soumission">Envoyer</button>
+        </form>
+    </main>
+</body>
+
+</html>
