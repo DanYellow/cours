@@ -14,6 +14,8 @@ img {
   --text-couleur-principale: #334357;
 }
 
+// Permet d'activer un thème sombre 
+// pour les utilisateurs qui ont activé le thème sombre sur leur ordinateur
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-couleur: #181e24;
@@ -42,6 +44,7 @@ html {
   --bg-couleur: #000;
   --bordure-couleur: #000;
   --text-couleur: #fff;
+
   @media (prefers-color-scheme: dark) {
     --bg-couleur: #fff;
     --bordure-couleur: var(--bg-couleur);
@@ -51,7 +54,7 @@ html {
   legend {
     background-color: var(--bg-couleur);
     color: var(--text-couleur);
-    padding: 3px 6px;
+    padding: 0.1875rem 0.375rem;
     margin-bottom: 1rem;
     font-size: 2rem;
   }
@@ -67,6 +70,11 @@ html {
     }
   }
 
+  .informations {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
   .liste-champs {
     // Ici on n'utilise pas de flexbox, mais du CSS Grid
     // C'est la petite-soeur de flexbox, beaucoup plus puissant
@@ -74,7 +82,7 @@ html {
     // Il existe des générateurs en ligne
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
+    grid-gap: 0.975rem;
     align-items: center;
 
     @media screen and (max-width: 767px) {
@@ -101,7 +109,7 @@ html {
 
     input,
     select {
-      padding: 10px 8px;
+      padding: 0.625rem 0.5rem;
       margin-left: 0.9rem;
       width: 100%;
       font-size: 1rem;
