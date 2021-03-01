@@ -1,3 +1,13 @@
+@media (prefers-color-scheme: dark) {
+  a:link {
+    color: white;
+  }
+
+  a:visited {
+    color: yellow;
+  }
+}
+
 .consignes-conteneur {
   padding: 0.75rem;
   border: 0.125rem solid #d1d1e5;
