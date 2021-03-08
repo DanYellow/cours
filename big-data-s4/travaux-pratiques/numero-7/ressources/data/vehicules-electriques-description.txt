@@ -1,0 +1,14 @@
+- Brand : constructeur du véhicule
+- model : modèle du véhicule
+- Accel : temps d'accelération 0 - 100km/h
+- TopSpeed : Vitesse maximale en km/h
+- Range : Autonomie en km
+- Efficience : Consommation de Wh/km (Watt heure / km)
+- FastCharge : Autonomie de la charge rapide en km
+- RapidCharge : Possède la charge rapide
+- PowerTrain : type de transmission
+- PlugType : Type de prises
+- BodyStyle : Type de véhicule (Berline, citadine...)
+- Segment : Classement automobile. Plus d'infos - https://fr.wikipedia.org/wiki/Classification_des_automobiles#Europe
+- Seats : Nombre de sièges
+- PriceEuro : Prix en euros
