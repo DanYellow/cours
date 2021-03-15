@@ -4,8 +4,8 @@
   "description": "Architecture basique front-end, sans javascript, mais des tests unitaires",
   "main": "index.js",
   "scripts": {
-    "start": "gulp --env=dev --gulpfile _scripts/gulpfile.js",
-    "build": "gulp build --env=prod --gulpfile _scripts/gulpfile.js",
+    "start": "gulp --env=dev --cwd . --gulpfile _scripts/gulpfile.js",
+    "build": "gulp build --env=prod  --cwd . --gulpfile _scripts/gulpfile.js",
     "screenshots": "node _scripts/screenshots.js"
   },
   "keywords": [],
