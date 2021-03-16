@@ -1,8 +1,8 @@
 # Architecture front-end
 
-De nos jours, rares sont les projets web où les développeurs écrivent directement du HTML/CSS. Malgré leur universalité ces langages souffrent de beaucoup de problèmes, notamment la répétivité du code HTML. Alors, les développeurs web passent par des langages intermédiaires, il en existe de multitudes, chacun ayant leurs avantages et inconvénients. Dans le cadre de cette architecture, nous allons utiliser [nunjunks](https://mozilla.github.io/nunjucks/) pour le HTML et [sc|ass](https://sass-lang.com/) pour le CSS. Quelque soit le langage intermédiaire utilisé, ils ne peuvent pas être lus directement par le navigateur, ils doivent être compilés que l'intermédiaire d'un serveur javascript, un serveur Node. D'où ce projet, cette architecture front-end.
+De nos jours, rares sont les projets web où les développeurs écrivent directement du HTML/CSS. Malgré leur universalité ces langages souffrent de beaucoup de problèmes, notamment la répétivité du code HTML. Alors, les développeurs web passent par des langages intermédiaires, il en existe de multitudes, chacun ayant leurs avantages et inconvénients. Dans le cadre de cette architecture, nous allons utiliser [nunjunks](https://mozilla.github.io/nunjucks/) pour le HTML et [sc|ass](https://sass-lang.com/) pour le CSS. Quelque soit le langage intermédiaire utilisé, ils ne peuvent pas être lus directement par le navigateur, ils doivent être compilés que l'intermédiaire d'un serveur javascript, un serveur nodejs pour être précis. D'où ce projet, cette architecture front-end.
 
-Notez que dans le milieu professionnel, on attend pas forcément de vous que vous soyez un architecte mais au moins que vous soyez familiers avec l'environnement nodejs et le terminal.
+**Notez que dans le milieu professionnel, on attend pas forcément de vous que vous soyez un architecte front-end mais au moins que vous soyez familier avec l'environnement nodejs et le terminal.**
 
 ## Prérequis
 
@@ -16,6 +16,7 @@ Notez que dans le milieu professionnel, on attend pas forcément de vous que vou
   - Entrez "node -v"
   - Vous devriez voir la chose suivante
   ![](_sources-LISEZ-MOI/cmder.jpg)
+  - Ceci valide l'installation de nodejs sur votre ordinateur
 
 ### Fichiers
 - [Téléchargez le dossier du projet](https://downgit.github.io/#/home?url=https://github.com/DanYellow/cours/tree/main/integration-web-s2/outils/archi-fe)
@@ -35,6 +36,7 @@ Ceci indique que nous sommes dans le dossier "outils"
   ```sh
    npm install
   ```
+Note : sauf problèmes, vous devez entrer cette commande qu'une seule fois par projet.
 
 ## Lancement du projet
 1. Entrer la commande suivante à la racine de votre dossier de travail
@@ -50,11 +52,12 @@ Note 2 : Vous pouvez arrêter le serveur appuyant sur les touches `ctrl + c`
 ## Structure des dossiers (simplifiée)
 * [_scripts/](.\archi-fe\dist) (Dossier contenant un ensemble de scripts liés à l'architecture. Théoriquement, vous n'avez pas besoin d'y toucher pour travailler. Voir plus bas pour plus d'informations)
 * [dist/](.\archi-fe\dist) (Dossier crée après le premier `npm start`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`)
-* * [build/](.\archi-fe\build) (Dossier crée après `npm run build`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`) Version de production du site
+* * [build/](.\archi-fe\build) (Dossier crée après `npm run build`. **Ne jamais éditer ce dossier manuellement**, les modifications seront écrasées par les modifications faites dans le dossier `src/`) Version de production du site, version que vous mettrez en ligne.
 * [node_modules/](.\archi-fe\node_modules) (Contient les dépendances, ne **jamais** copier ce dossier, `npm install` sert à ça)
 * [src/](.\archi-fe\src) (Dossier dans lequel vous travaillerez)
   * [assets/](.\archi-fe\src\assets) (Ouvrir pour regarder plus en détails)
   * [views/](.\archi-fe\src\views) (Ouvrir pour regarder plus en détails, c'est ici que vous devez définir vos fichiers HTML)
+  * [favicons/] : A rajouter si vous souhaitez gérer les favicons dans votre projet
 * [tests/](.\archi-fe\tests) (Ensemble de tests unitaires faits avec l'outil puppeteer, partie non finie)
 * [package-lock.json](.\archi-fe\package-lock.json) (Fichier définissant la version exacte des dépendances)
 * [package.json](.\archi-fe\package.json) (Fichier définissant les dépendances du projet et la liste des commandes `npm run ...`)
@@ -63,23 +66,25 @@ Note 2 : Vous pouvez arrêter le serveur appuyant sur les touches `ctrl + c`
 Le but de cette partie est de définir très brièvement leur fonctionnement. Je vous invite donc à regarder la documentation officielle de chacun de outils (et autres didacticiels) pour en savoir plus.
 
 ### Nunjucks
-L'un des gros problèmes du HTML est le fait qu'on doive répéter le code à plusieurs reprises, ainsi s'il y a une partie commune à plusieurs pages, il faut la reporter sur chacune des pages. Ca peut créer des erreurs, et surtout rend le travail redondant. Il existe une multitude de templates HTML. Dans le cadre du projet, c'est nunjucks qui est utilisé. Sa syntaxe est très proche du HTML et surtout de Jinja et de Twig, moteurs de templating HTML utilisés pour Django (Python) et Symfony (PHP).
+L'un des gros problèmes du HTML est le fait qu'on doive répéter le code à plusieurs reprises, ainsi s'il y a une partie commune à plusieurs pages, il faut la reporter sur chacune des pages. Ça peut créer des erreurs, et surtout rend le travail très redondant. Il existe une multitude de moteur de templates HTML. Dans le cadre du projet, c'est nunjucks qui est utilisé. Sa syntaxe est très proche du HTML et surtout de Jinja et de Twig, moteurs de templating HTML utilisés pour Django (Python) et Symfony (PHP) respectivement.
 * [Voir documentation de Nunjucks](https://mozilla.github.io/nunjucks/)
   
-L'une des grandes forces de ces systèmes c'est la notion d'héritage, dans le projet nous avons un fichier layouts/_base.html et un fichier index.html. Vous remarquez que ce dernier est quelque peu léger en terme de code et pourtant, il est totatement valide ! Tout ceci grâce au système d'héritage de template.
+L'une des grandes forces de ces moteurs de templates HTML c'est la notion d'héritage, dans le projet nous avons un fichier layouts/\_base.html et un fichier index.html. Vous remarquez que ce dernier est quelque peu léger en terme de code et pourtant, il est totalement valide du point de vue HTML ! Tout ceci grâce au système d'héritage de template.
 ![](_sources-LISEZ-MOI/nunjucks.jpg)
-Note : Dans le cadre de cette architecture, il est préférable de préfixer d'un underscore (_) tous les fichiers de mise en page ou fichier qui ne doivent pas être de vraies pages au final.
+L'image ci-dessus explique cette notion d'imbrication / héritage entre fichiers. Il est bien possible de faire un héritage d'héritage ou encore d'inclure des fragments d'autres fichiers.
+
+Note : Dans le cadre de cette architecture, il est préférable de préfixer d'un underscore (\_) tous les fichiers de mise en page ou fichier qui ne doivent pas être de vraies pages au final. Ceci va éviter la création de pages .html inutiles.
 
 
 ### SASS/SCSS
 Permet de contrevenir à certaines limites du CSS en ajoutant des fonctionnalités non-négligeables les fonctions, des mixins, l'import, un héritage comme dans les langages de programmation comme le C++ ou le Javascript. A noter que le SASS/SCSS proposent également des variables, toutefois, contrairement aux variables CSS, les variables SCSS/SASS sont compilées.
 Notez également que l'architecture du projet permet de gérer le SASS et le SCSS, toutefois, il est préférable de choisir un des deux langages.
-* [Voir documentation de SASS/SCSS](https://sass-lang.com/)
+* [Voir documentation officielle de SASS/SCSS (anglais)](https://sass-lang.com/)
+* [Présentation de SASS/SCSS](https://la-cascade.io/se-lancer-dans-sass/)
 
 ### Gulpjs
 Gulpjs est un outil permettant de définir des tâches qui se réaliseront sous des conditions définies. Ces tâches s'articulent autour de plugins qui sont installées via npm, le gestionnaire de dépendances du langage javascript. Dans le fichier ./gulpfile.js, vous trouverez  sont définies dans le fichier gulpfile.js présent à la racine du projet. Vous n'avez pas besoin d'éditer le fichier, mais pourquoi pas essayer de rajouter une nouvelle tâche :
 * [gulp-zip](https://github.com/sindresorhus/gulp-zip) : zipper le dossier build
-* [gulp-inject](https://www.npmjs.com/package/gulp-inject) : injecter automatiquement les fichiers CSS
 
 Dans le projet, il y a deux tâches majeures :
 * gulp build : permet de générer un dossier pour la production (`npm run build`)

@@ -38,7 +38,6 @@ const mergeScreenshots = async ({ listImgsName, dir }) => {
   // magick convert food1.jpg -background white -splice 0x1 -background black -splice 0x1 -trim +repage -chop 0x1 trim_foo.jpg
 
   const deleteCmd = [
-    // `echo "test"`
     `rm -f ${listCleanedPaths.join(" ")} _tmp-${fileName}.jpg`,
   ];
 

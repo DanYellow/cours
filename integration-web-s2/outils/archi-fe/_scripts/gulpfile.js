@@ -7,8 +7,9 @@ const del = require('del')
 const cleanCSS = require('gulp-clean-css')
 const argv = require('minimist')(process.argv.slice(2))
 const imagemin = require('gulp-imagemin')
+const sourcemaps = require('gulp-sourcemaps')
 
-sass.compiler = require('node-sass')
+sass.compiler = require('sass')
 
 const PATHS = {
   nunjucks: 'src/views/**/*.html',
@@ -25,7 +26,7 @@ const startTasks = [
   'compile:sass',
   'copy:imgs',
   'copy:assets',
-  'copy:favicons'
+  'copy:favicons',
 ]
 
 gulp.task('compile:nunjucks', () => {
@@ -53,7 +54,9 @@ gulp.task('compile:sass', function () {
       // Compile tous les fichiers ayant une extension .scss, .sass ou .css
       // sauf ceux dont le nom commence par "_"
       .src([...PATHS.scss, '!src/assets/css/**/_*.{scss,.sass}'])
+      .pipe(sourcemaps.init())
       .pipe(sass().on('error', sass.logError))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest(`${PATHS.dist}/assets/css`))
       .pipe(livereload())
       .pipe(browserSync.stream())
@@ -90,9 +93,7 @@ gulp.task('copy:imgs', async () => {
 
 gulp.task('copy:favicons', async () => {
   const folder = argv.env === 'prod' ? PATHS.build : PATHS.dist
-  return gulp
-    .src(PATHS.favicons)
-    .pipe(gulp.dest(`${folder}`))
+  return gulp.src(PATHS.favicons).pipe(gulp.dest(`${folder}`))
 })
 
 gulp.task('copy:assets', async () => {

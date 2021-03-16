@@ -1,7 +1,7 @@
 {
   "name": "archi-fe-mmi",
   "version": "1.0.0",
-  "description": "Architecture basique front-end, sans javascript, mais des tests unitaires",
+  "description": "Architecture basique front-end, sans gestion du javascript, mais des tests unitaires avec puppeteer",
   "main": "index.js",
   "scripts": {
     "start": "gulp --env=dev --cwd . --gulpfile _scripts/gulpfile.js",
@@ -20,10 +20,11 @@
     "gulp-livereload": "^4.0.2",
     "gulp-nunjucks": "^5.1.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "minimist": "^1.2.5",
-    "node-sass": "^5.0.0",
     "puppeteer": "^5.5.0",
     "query-string": "^6.13.8",
+    "sass": "^1.32.8",
     "voca": "^1.4.0"
   }
 }
