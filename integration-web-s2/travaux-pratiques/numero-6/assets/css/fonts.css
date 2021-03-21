@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'tp-fonts';
+  src:
+    url('fonts/tp-fonts.ttf?d1yh7e') format('truetype'),
+    url('fonts/tp-fonts.woff?d1yh7e') format('woff'),
+    url('fonts/tp-fonts.svg?d1yh7e#tp-fonts') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tp-fonts' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-copyright:before {
+  content: "\e900";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-youtube2:before {
+  content: "\ea9e";
+}
