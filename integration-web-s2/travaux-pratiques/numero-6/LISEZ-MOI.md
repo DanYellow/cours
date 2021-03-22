@@ -1,11 +1,11 @@
 # Travaux Pratiques Numéro 6
 Pratique sur l'outil [bootstrap de Twitter](https://getbootstrap.com/docs/5.0/getting-started/introduction/) pour renforcer ses connaissances. Travail suivant la technique dite du "pomodoro" :
-- ~20 minutes de pratique en autonomie
-- ~25 minutes de correction et explications
+- ~25 minutes de pratique en autonomie
+- ~20 minutes de correction et explications
 
 ## Objectifs
 - Continuer l'intégration du fichier index.html fourni et s'arranger pour que ça ressemble le plus possible au design des fichiers design-mobile.jpg et design-pc grâce à bootstrap
-  - Pour les images, voici une liste de banques en ligne si vous savez pas où chercher :
+  - Pour les images, voici une liste de banques en ligne si vous savez pas où trouver des images :
     - https://placeholder.com/
     - https://loremflickr.com/
     - https://placekitten.com/
@@ -18,3 +18,4 @@ Pratique sur l'outil [bootstrap de Twitter](https://getbootstrap.com/docs/5.0/ge
 - Pensez bien à la version tablette, même s'il n'y a pas de design proposé
 - Vous n'êtes pas obligé d'être iso avec le design, vous êtes encouragé(e) à vous approprier le design
 - Pas besoin de gérer le retrait latéral des titres de section
+- L'icône © se trouve dans l'iconfonts (déjà chargée dans la ressource)
