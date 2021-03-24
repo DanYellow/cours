@@ -20,5 +20,4 @@ Pratique sur l'outil [bootstrap de Twitter](https://getbootstrap.com/docs/5.0/ge
 - Pas besoin de gérer le retrait latéral des titres de section
 - L'icône © se trouve dans l'iconfonts (déjà chargée dans la ressource)
 
-
 Lien de cette ressource : https://downgit.github.io/#/home?url=https://github.com/DanYellow/cours/tree/main/integration-web-s2/travaux-pratiques/numero-6
