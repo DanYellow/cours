@@ -19,5 +19,6 @@ Pratique sur l'outil [bootstrap de Twitter](https://getbootstrap.com/docs/5.0/ge
 - Vous n'êtes pas obligé d'être iso avec le design, vous êtes encouragé(e) à vous approprier le design
 - Pas besoin de gérer le retrait latéral des titres de section
 - L'icône © se trouve dans l'iconfonts (déjà chargée dans la ressource)
+- Ne justifiez pas le texte, n'oubliez pas que c'est une mauvaise chose au niveau de l'accessibilité
 
 Lien de cette ressource : https://downgit.github.io/#/home?url=https://github.com/DanYellow/cours/tree/main/integration-web-s2/travaux-pratiques/numero-6
