@@ -7,10 +7,10 @@ Pratique sur l'outil [bootstrap de Twitter](https://getbootstrap.com/docs/5.0/ge
 - Continuer l'intégration du fichier index.html fourni et s'arranger pour que ça ressemble le plus possible au design des fichiers design-pc.jpg grâce à bootstrap
   - Pour les images, voici une liste de banques en ligne si vous savez pas où trouver des images :
     - [https://placeholder.com/](https://placeholder.com/)
-    - [https://loremflickr.com/](https://loremflickr.com/)
     - [https://placekitten.com/](https://placekitten.com/)
     - [https://placeimg.com/](https://placeimg.com/)
 - Remplacer les placeholders par le contenu approprié
+- Gérer avec des ancres, les entrées de la navigation vers les deux parties du site 
 
 ## Notes
 - La gestion responsive des images est facultative
