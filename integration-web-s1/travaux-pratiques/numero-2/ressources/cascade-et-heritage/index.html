@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP2 - Pratiquons ! - Cascade et héritage</title>
+    <link rel="stylesheet" href="consignes.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Consignes de la pratique</h1>
+          (cliquer pour afficher)
+        </summary>
+        <ul class="liste-consignes">
+          <li>
+            Ajouter les déclarations et sélecteurs CSS de façon à ce que le code
+            corresponde aux critères définit pour chaque bloc et ce sans
+            modifier le code déjà présent dans le fichier style.css. Les
+            propriétés CSS ont été mise entre parenthèse (pensez à faire une
+            recherche sur le site mdn "nom de la propriété" + "mdn" pour
+            comprendre comment elles fonctionnent)
+          </li>
+          <li>
+            <p>bloc:1</p>
+            <ul>
+              <li>
+                Le texte doit être de couleur (propriété CSS "color") verte
+                (green)
+              </li>
+              <li>
+                Le texte doit avoir une marge haute (propriété CSS "margin-top")
+                de 2rem
+              </li>
+              <li>
+                Le texte doit avoir une couleur d'arrière-plan (propriété CSS
+                "background-color") égale à "rgb(240, 255, 255)"
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>bloc:2</p>
+            <ul>
+              <li>
+                Tout élément ayant la classe "titre-principal" doit être de
+                couleur (propriété CSS "color") violette (purple) et avoir une
+                taille de texte (propriété CSS "font-size") de 1.35rem
+              </li>
+              <li>
+                Tout élément ayant la classe "description" doit avoir une marge
+                interne gauche (propriété CSS "padding-left") de 1rem
+              </li>
+              <li>
+                Tout élément ayant la classe "nouvelle" doit avoir une marge
+                externe basse (propriété CSS "margin-bottom") de 1.5rem
+              </li>
+              <li>
+                Tout élément ayant la classe "txt-gras" doit être gras
+                (déclaration CSS "font-weight: bold")
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Note : Les valeurs sont proposées à titre indicatif, vous pouvez bien
+          évidemment mettre les valeurs qui vous plaisent. La documentation des
+          propriétés CSS vous aidera à comprendre les valeurs attendues.
+        </p>
+      </details>
+    </header>
+    <main>
+      <!-- bloc:1 -->
+      <h1 class="titre-principal">Je suis le texte exemple du TP</h1>
+      <!-- /bloc:1 -->
+
+      <!-- bloc:2 -->
+      <article class="nouvelle">
+        <h1 class="titre-principal">
+          Bachelor universitaire de technologie en métiers du
+          <span class="txt-gras">multimédia et de l'Internet</span>
+        </h1>
+        <p class="description">
+          Cette formation orientée Web permet d’apprendre la programmation
+          informatique, la conception de bases de données, le développement de
+          contenus sur réseaux, la création numérique et sur mobiles (responsive
+          web design).
+          <span class="txt-gras">
+            Elle implique une véritable compétence en gestion et encadrement de
+            projet où la maîtrise de la communication, de l’audiovisuel et de
+            l’infographie joue un rôle important.
+          </span>
+        </p>
+      </article>
+      <article class="nouvelle">
+        <h1 class="titre-principal">
+          Bachelor universitaire de technologie en métiers du multimédia et de
+          l'Internet
+        </h1>
+        <p class="description">
+          Cette formation orientée Web permet d’apprendre la programmation
+          informatique, la conception de bases de données, le développement de
+          contenus sur réseaux, la création numérique et sur mobiles (responsive
+          web design) . Elle implique une véritable compétence en gestion et
+          encadrement de projet où la maîtrise de la communication, de
+          l’audiovisuel et de l’infographie joue un rôle important.
+        </p>
+      </article>
+      <!-- /bloc:2 -->
+    </main>
+  </body>
+</html>

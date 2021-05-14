@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP2 - Pratiquons ! - Écrivons notre fichier .css</title>
+    <link rel="stylesheet" href="consignes.css" />
+
+  </head>
+  <body>
+    <header class="consignes-conteneur">
+      <h1 class="h1">Consignes de la pratique</h1>
+      <ul class="liste-consignes">
+        <li>
+          Créer un fichier .css au même niveau que le fichier index.html appelé
+          style.css
+        </li>
+        <li>
+          Lier le fichier .css à ce fichier index.html, grâce à la balise
+          &lt;link> (voir dans le &lt;head> pour avoir un exemple)
+        </li>
+        <li>
+          Ecrire le contenu des attributs "style" dans le fichier style.css que
+          vous venez de créer avec les sélecteurs de classe associés (vous devez
+          impérativement créer des classes CSS si la balise n'en possède pas)
+        </li>
+        <li>Supprimer ensuite les attributs "style" et leur valeurs</li>
+        <li>
+          Ajouter une nouvelle balise, associez-lui une des classes que vous
+          avez crée précédemment
+        </li>
+      </ul>
+    </header>
+    <!-- 
+        Balise <main> permettant de définir le contenu principal du site. 
+        Pas vraiment obligatoire, mais préférable pour l'accessibilité.
+    -->
+    <main>
+      <!-- 
+        Ici on a une classe appelée "conteneur". 
+        Vu qu'il n'a pas encore de fichier .css contenant le sélecteur ".conteneur"
+        celui-ci ne fait rien
+      -->
+      <section
+        class="conteneur"
+        style="background: #ffe7e8; border: 2px solid #e66465"
+      >
+        <p style="margin: 15px; line-height: 1.5; text-align: center">
+          L'attribut universel style contient des déclarations CSS afin de
+          mettre en forme l'élément. Attention, il est recommandé de définir les
+          règles de mise en forme dans un ou plusieurs fichiers séparés. Cet
+          attribut, ainsi que l'élément <code>&lt;style&gt;</code> ont
+          simplement pour but de permettre une mise en forme rapide, notamment
+          pour tester.
+        </p>
+        <p
+          style="margin: 15px; line-height: 1.5; text-align: center; color: red"
+        >
+          Cette méthode n'est pas vraiment recommandée, ainsi qu'utiliser la
+          balise &lt;style&gt;. On l'a vu en cours mais on arrêtera après.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
