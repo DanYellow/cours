@@ -11,9 +11,9 @@ html {
 }
 
 .consignes-conteneur ul, .consignes-conteneur ol {
-  margin-left: 1.2rem;
   list-style: revert;
-  margin-bottom: 1.4rem;
+  margin: revert;
+  padding: revert;
 }
 
 .consignes-conteneur .h1 {
