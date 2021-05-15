@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Découvrons flexbox - TP3</title>
+    <link rel="stylesheet" href="consignes.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Consignes de la pratique</h1>
+          (cliquer pour afficher)
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <p>Première partie :</p>
+            <ol>
+              <li>Rajouter une classe contenant la déclaration CSS "display: flex"</li>
+              <li>Cette classe (celle crée à l'étape précédente) sur la balise &lt;section> </li>
+
+              <ul>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/fr/docs/Web/CSS/flex"
+                    target="_blank"
+                    >documentation propriété flex (ouverture dans un
+                    nouvel onglet)</a
+                  >
+                </li>
+              </ul>
+            </ol>
+          </li>
+          <li>
+            <p>Deuxième partie :</p>
+            <p>Rajouter dans la classe écrite dans la partie 1 la déclaration CSS "flex-direction: column;"</p>
+          </li>
+        </ol>
+      </details>
+    </header>
+
+    <main>
+      <section>
+        <article class="enfant"><p>
+          L'élément HTML &lt;summary> représente une boîte permettant de révéler le contenu d'un résumé ou d'une légende pour le contenu d'un élément &lt;details>. En cliquant sur l'élément &lt;summary>, on passe de l'état affiché à l'état masqué (et vice versa) de l'élément &lt;details> parent.
+        </p></article>
+        <article class="enfant">
+          <img
+            src="https://via.placeholder.com/400/7dfBff/000000.png"
+            alt=""
+          />
+        </article>
+        <article class="enfant">
+          <p>Si la mise en forme est surchargée avec display: block, l'icône triangulaire qui révèle le contenu sera masquée.
+            Voir la section ci-après sur la compatibilité des navigateurs à ce sujet car certains navigateurs ne prennent pas en charge tout ces aspects.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
