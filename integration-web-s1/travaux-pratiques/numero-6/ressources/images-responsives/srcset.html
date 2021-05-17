@@ -3,111 +3,155 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>srcset/sizes - Images responsives</title>
+    <title>srcset/sizes - Images responsives - TP7</title>
     <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="../consignes.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header>
-      <h1>Travaux pratiques sur les images responsives</h1>
-      <p>
-        But du TP : Voir les attributs <code>srcset</code> et <code>sizes</code>
-      </p>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Consignes de la pratique</h1>
+          (cliquer pour afficher)
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <p>Partie 1 - Adaptation de l'image</p>
+            <ol>
+              <li>
+                Chargez une image ayant une grande largeur (> 1 400px) (Si vous
+                n'avez pas d'images il y a une image
+                "assets/images/panorama.jpg")
+              </li>
+              <li>
+                Redimensionnez la fenêtre de votre navigateur de façon à ce
+                qu'elle soit moins large que l'image que vous venez de charger
+              </li>
+              <li>
+                Ajouter une classe "img-responsive" contenant le code suivant
+                <!-- prettier-ignore -->
+                <code> 
+  .img-responsive { 
+    max-width: 100 %; 
+    height: auto; 
+  } 
+</code>
+              </li>
+              <li>
+                Redimensionnez votre fenêtre, votre image va s'adapter en
+                fonction de la taille de la fenêtre
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Partie 2 - Attributs srcset (Résolution)</p>
+            <ol>
+              <li>
+                Ajouter une balise &lt;img> chargeant l'image
+                "assets/images/attribut-srcset/densite/pizza@1x.jpg"
+              </li>
+              <li>
+                Chargez les images du dossier
+                "assets/images/attribut-srcset/densite" en utilisant les
+                attributs "srcset" et "src"
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.alsacreations.com/article/lire/1621-responsive-images-srcset.html"
+                      target="_blank"
+                      >Exemples d'utilisations (ouverture dans un nouvel
+                      onglet)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Ajouter_des_images_adaptatives_%C3%A0_une_page_web"
+                      target="_blank"
+                      >Documentation (ouverture dans un nouvel onglet)</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Définissez la valeur de l'attribut srcset avec autant de valeurs
+                qu'il y a d'images dans le dossier
+                "assets/images/attribut-srcset/densite" avec le descripteur de
+                densité (x) jusqu'à 3x
+              </li>
+              <li>
+                Tester avec le mode responsive du navigateur en changeant
+                d'appareil et sa résolution
+                <ul>
+                  <li>
+                    Raccourci : <kbd>ctrl </kbd> + <kbd>maj</kbd> +
+                    <kbd>m</kbd> sur Firefox
+                  </li>
+                  <li>
+                    Clic droit -> Inspecter (Examiner l'élément) -> cliquer sur
+                    le smartphone à gauche (à droite de la fenêtre sur Firefox)
+                    de l'onglet "éléments" de la console du navigateur
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Partie 3 - Attributs srcset et sizes (Largeur)</p>
+            <ol>
+              <li>
+                Refaire la même chose que la partie 2 mais cette fois-ci en
+                chargeant l'image
+                "assets/images/attribut-srcset/densite/image-320.png"
+              </li>
+              <li>
+                Définissez la valeur de l'attribut srcset avec autant de valeurs
+                qu'il y a d'images dans le dossier
+                "assets/images/attribut-srcset/largeur" avec le descripteur de
+                densité (w). Exemple :
+                <!-- prettier-ignore -->
+                <code> 
+  &lt;img src="mon-image.jpg"
+    srcset="mon-image-320.jpg 320w, mon-image-640.jpg 640w"
+    sizes="(max-width: 600px) 480px, 800px"
+    alt="">
+</code>
+              </li>
+              <li>
+                Testez avec le mode responsive du navigateur en changeant
+                d'appareil
+                <ul>
+                  <li>
+                    Raccourci : <kbd>ctrl </kbd> + <kbd>maj</kbd> +
+                    <kbd>m</kbd> sur Firefox
+                  </li>
+                  <li>
+                    Clic droit -> Inspecter (Examiner l'élément) -> cliquer sur
+                    le smartphone à gauche (à droite de la fenêtre sur Firefox)
+                    de l'onglet "éléments" de la console du navigateur
+                  </li>
+                </ul>
+                ou redimensionnez votre fenêtre pour voir votre image être modifiée
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </details>
     </header>
 
-    <section class="exercice">
-      <h2>Image responsive - Partie 1</h2>
-      <p>
-        Consigne : Afficher une image d'une grande largeur (> 1400px) <br />
-        Redimensionnez votre fenêtre. L'image devrait "dépasser" de la fenêtre
-        et créer un défilement horizontal. <br />
-        Si vous n'avez pas d'images il y a une image
-        <code>assets/images/panorama.jpg</code>
-      </p>
-      <!-- Faire votre TP ici -->
-
-      <hr />
-      <h2>Image responsive - Partie 2</h2>
-      <p>
-        Consigne : Ajouter une classe "img-responsive" dans un fichier css avec
-        les déclarations suivantes : max-width: 100 %; height: auto; <br />
-        Ajouter la classe sur l'image précédemment mise ou vous pouvez mettre
-        en-dessous une image avec la classe que vous avez ajouté
-      </p>
-
-      <!-- Faire votre TP ici -->
-    </section>
-
-    <section class="exercice">
-      <h2>Attributs <code>srcset</code> et <code>sizes</code> - Partie 1</h2>
-      <p>Consignes</p>
-      <ul>
-        <li>
-          Ajouter une balise &lt;img /&gt; avec les attributs srcset et src
-        </li>
-        <li>
-          Mettre comme valeur pour l'attribut src, une image du dossier
-          "assets/images/attribut-srcset/densite"
-        </li>
-        <li>
-          Définir la valeur de l'attribut srcset avec autant de valeurs qu'il y
-          a d'images dans le dossier "assets/images/attribut-srcset/densite"
-          avec le descripteur de densité (x) jusqu'à 3x
-        </li>
-        <li>
-          Tester avec le mode responsive du navigateur (ctrl + maj + m sur
-          Firefox et Chrome / Clic droit -> Inspecter -> cliquer sur le
-          smartphone à gauche de l'onglet "éléments" de la console du
-          navigateur) <br />
-          Jouer sur la taille de la fenêtre responsive
-        </li>
-      </ul>
-      <!-- Faire votre TP ici -->
-
-      <img
-        src="assets/images/attribut-srcset/densite/pizza@1x.jpg"
-        srcset=""
-        alt=""
-      />
-
-      <hr />
-      <h2>Attributs <code>srcset</code> et <code>sizes</code> - Partie 2</h2>
-      <p>Consignes</p>
-      <ul>
-        <li>
-          Refaire la même chose avec des descripteurs de largeur (w) avec comme
-          valeur le nombre contenu dans le nom de l'image. Les images contenues
-          dans le dossier "assets/images/attribut-srcset/largeur"
-        </li>
-        <li>
-          Ajouter l'attribut sizes avec des media queries et une taille <br />
-          Exemple : Ex : (max-width : 480px) 100vw, (min-width : 481px) 50vw
-          <br />
-          Ne pas oublier la valeur par défaut
-        </li>
-        <li>
-          Tester avec le mode responsive du navigateur (ctrl + maj + m sur
-          Firefox et Chrome / Clic droit -> Inspecter -> cliquer sur le
-          smartphone à gauche de l'onglet "éléments" de la console du
-          navigateur) <br />
-          Jouer sur la taille de l'écran
-        </li>
-      </ul>
-      <!-- Faire votre TP ici -->
-      <div class="conteneur">
-        <figure>
-          <img
-            src="assets/images/attribut-srcset/largeur/image-320.png"
-            srcset="assets/images/attribut-srcset/largeur/image-320.png 320w"
-            alt=""
-          />
-          <figcaption>
-            Le navigateur va choisir la taille adéquate en fonction des tailles
-            fournies. Si l'attribut "sizes n'est pas défini, le navigateur
-            estime"
-          </figcaption>
-        </figure>
-      </div>
-    </section>
+    <main class="main">
+      <section class="exercice">
+        <h2>Partie 1</h2>
+        <!-- Faire votre TP ici -->
+      </section>
+      <section class="exercice">
+        <h2>Partie 2</h2>
+        <!-- Faire votre TP ici -->
+      </section>
+      <section class="exercice">
+        <h2>Partie 3</h2>
+        <!-- Faire votre TP ici -->
+      </section>
+    </main>
   </body>
 </html>

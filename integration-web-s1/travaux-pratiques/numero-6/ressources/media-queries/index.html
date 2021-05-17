@@ -3,106 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ressource - Media queries</title>
+    <title>Media queries - TP7</title>
     <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="../consignes.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header>
-      <h1>Travaux pratiques sur les media queries</h1>
-      <p>But de la pratique : Voir les media queries</p>
-      <p>Consignes :</p>
-      <ul>
-        <li>
-          Éditer la règle @media de façon à ce que le titre "Ma galerie
-          d'images" plus gros sur un appareil dont la largeur d'écran est
-          inférieure ou égale à 320px
-        </li>
-        <li>
-          Ajouter une règle @media pour gérer un écran dont la taille est
-          supérieure ou égale à 400px et appliquer des déclarations sur
-          n'importe quel sélecteur CSS
-        </li>
-        <li>
-          Ajouter une règle @media pour gérer un écran ayant l'orientation
-          paysage (landscape en anglais)
-        </li>
-      </ul>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Consignes de la pratique</h1>
+          (cliquer pour afficher)
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <p>Partie 1</p>
+            <ul>
+              <li>
+                Éditer la règle @media de façon à ce que le titre "Ma galerie
+                d'images" plus gros sur un appareil dont la largeur d'écran est
+                inférieure ou égale à 320px
+              </li>
+              <li>Ajouter une règle @media pour gérer un écran dont la taille est
+                supérieure ou égale à 400px et appliquer des déclarations CSS sur
+                n'importe quel sélecteur CSS</li>
+    
+              <li>Ajouter une règle @media pour gérer un écran ayant l'orientation
+                paysage (landscape en anglais) et appliquer des déclarations CSS sur
+                n'importe quel sélecteur CSS</li>
+            </ul>
+          </li>
+          <li>
+            <p>Partie 2</p>
+            <ol>
+              <li>
+                Lister le nombre de règles @media contenues dans le fichier style.css
+              </li>
+              <li>Créer autant de fichiers .css qu'il y a de règles @media qui ont été écrites dans le fichier style.css dans la partie 1</li>
+              <li>Lier le ficher "index.html" aux fichiers css (ne pas oublier les attributs media)</li>
+              <li>Placer le contenu des règles @media dans les bons fichiers</li>
+              <ul>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Requ%C3%Aates_m%C3%A9dia/Utiliser_les_Media_queries" target="_blank">Documentation des media queries (ouverture dans un nouvel onglet)</a>
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link" target="_blank" title="Ouverture dans un nouvel onglet">Documentation de la balise &lt;link></a>
+                </li>
+              </ul>
+            </ol>
+          </li>
+        </ol>
+      </details>
     </header>
 
-    <nav class="nav-principale">
-      <ul>
-        <li><a href="#pratique-1">Pratique 1</a></li>
-        <li><a href="#pratique-2">Pratique 2</a></li>
-        <li><a href="#pratique-3">Pratique 3</a></li>
-        <li><a href="#pratique-4">Pratique 4</a></li>
+    <main class="main">
+      <nav class="nav-principale">
+        <ul>
+          <li><a href="#pratique-1">Pratique 1</a></li>
+          <li><a href="#pratique-2">Pratique 2</a></li>
+          <li><a href="#pratique-3">Pratique 3</a></li>
+          <li><a href="#pratique-4">Pratique 4</a></li>
+        </ul>
+      </nav>
+
+      <ul class="slide-images">
+        <li>
+          <figure>
+            <img src="assets/images/slide-1.jpg" alt="" />
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="assets/images/slide-2.jpg" alt="" />
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="assets/images/slide-3.jpg" alt="" />
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="assets/images/slide-4.jpg" alt="" />
+          </figure>
+        </li>
       </ul>
-    </nav>
 
-    <ul class="slide-images">
-      <li>
-        <figure>
-          <img src="assets/images/slide-1.jpg" alt="" />
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <img src="assets/images/slide-2.jpg" alt="" />
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <img src="assets/images/slide-3.jpg" alt="" />
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <img src="assets/images/slide-4.jpg" alt="" />
-        </figure>
-      </li>
-    </ul>
+      <h2>Ma galerie d'images</h2>
+      <ul class="liste-images">
+        <li>
+          <img src="assets/images/chien-2.png" alt="Chien content" />
+        </li>
+        <li>
+          <img src="assets/images/chat.jpg" alt="Chat suspicieux" />
+        </li>
+        <li>
+          <img src="assets/images/muffins.jpg" alt="Muffins chocolat-banane" />
+        </li>
+        <li>
+          <img
+            src="assets/images/panorama.jpg"
+            alt="Photo d'un paysage de Gaspésie, Québec"
+          />
+        </li>
+        <li>
+          <img src="assets/images/chien.jpg" alt="Chien reniflant ?" />
+        </li>
+        <li>
+          <img src="assets/images/chien-banque.jpg" alt="" />
+        </li>
+      </ul>
 
-    <h2>Ma galerie d'images</h2>
-    <ul class="liste-images">
-      <li>
-        <img src="assets/images/chien-2.png" alt="Chien content" />
-      </li>
-      <li>
-        <img src="assets/images/chat.jpg" alt="Chat suspicieux" />
-      </li>
-      <li>
-        <img src="assets/images/muffins.jpg" alt="Muffins chocolat-banane" />
-      </li>
-      <li>
-        <img
-          src="assets/images/panorama.jpg"
-          alt="Photo d'un paysage de Gaspésie, Québec"
-        />
-      </li>
-      <li>
-        <img src="assets/images/chien.jpg" alt="Chien reniflant ?" />
-      </li>
-      <li>
-        <img src="assets/images/chien-banque.jpg" alt="" />
-      </li>
-    </ul>
+      <div class="video-responsive">
+        <iframe
+          src="https://player.vimeo.com/video/343406069"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
 
-    <div class="video-responsive">
-      <iframe src="https://player.vimeo.com/video/249675407"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    </div>
+      <section class="textes">
+        <p>
+          Tous les jours, une demi-heure de reportage sans commentaire. Inspirés
+          par la célébrissime émission de radio américaine This American Life,
+          "Les Pieds sur Terre" s’organisent désormais autour de récits,
+          d’histoires vraies, une, deux ou trois par émission, qui tournent
+          autour d’un même thème. Ces histoires sont racontées à la première
+          personne et nourries d’éléments de reportage.
+        </p>
 
-    <section class="textes">
-      <p>
-        Tous les jours, une demi-heure de reportage sans commentaire. Inspirés
-        par la célébrissime émission de radio américaine This American Life,
-        "Les Pieds sur Terre" s’organisent désormais autour de récits,
-        d’histoires vraies, une, deux ou trois par émission, qui tournent autour
-        d’un même thème. Ces histoires sont racontées à la première personne et
-        nourries d’éléments de reportage.
-      </p>
-
-      <p>Si deux valeurs <grid-line> sont utilisées pour la propriété, la valeur de grid-column-start sera définie avec la première valeur avant la barre oblique et la valeur de grid-column-end sera définie avec celle qui est située après la barre oblique. <br>
-        Un mot-clé qui indique que la propriété ne contribue pas au placement de l'élément sur la grille. Cela indique un placement automatique, une taille de fragment (span) automatique ou une taille par défaut de 1.</p>
-    </section>
+        <p>
+          Si deux valeurs grid-line sont utilisées pour la propriété, la valeur
+          de grid-column-start sera définie avec la première valeur avant la
+          barre oblique et la valeur de grid-column-end sera définie avec celle
+          qui est située après la barre oblique. <br />
+          Un mot-clé qui indique que la propriété ne contribue pas au placement
+          de l'élément sur la grille. Cela indique un placement automatique, une
+          taille de fragment (span) automatique ou une taille par défaut de 1.
+        </p>
+      </section>
+    </main>
   </body>
 </html>

@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;picture&gt; - Images responsives</title>
+    <title>&lt;picture&gt; - Images responsives - TP7</title>
     <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="../consignes.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <style>
@@ -16,64 +17,65 @@
   </head>
   <body>
     <header>
-      <h1>Travaux pratiques sur les images responsives</h1>
-      <p>But de la pratique : Voir la balise <code>&lt;picture&gt;</code></p>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Consignes de la pratique</h1>
+          (cliquer pour afficher)
+        </summary>
+        <ul class="liste-consignes">
+          <li>
+            <p>Compléter le code suivant de façon à ce que :</p>
+            <ul>
+              <li>
+                L'image "assets/images/balise-picture/salameche.png" s'affiche
+                pour un écran dont la taille est inférieure ou égale à 767px
+                (déjà présente dans le code)
+              </li>
+              <li>
+                L'image "assets/images/balise-picture/reptincel.png" s'affiche
+                pour un écran dont la taille est comprise entre 768px et 1024px
+              </li>
+              <li>
+                L'image "assets/images/balise-picture/dracaufeu.png" s'affiche
+                pour un écran dont la taille est comprise entre 1025px et 1099px
+              </li>
+              <li>
+                L'image "assets/images/balise-picture/mega-dracaufeu-x.png"
+                s'affiche pour un écran dont la densité de pixel est égale à 2
+              </li>
+              <li>
+                L'image "assets/images/balise-picture/mega-dracaufeu-y.png"
+                s'affiche pour un écran dont la densité de pixel est égale à 3
+              </li>
+              <li>
+                L'image "assets/images/balise-picture/defaut.png" s'affiche
+                lorsqu'aucune des condititions suscitées n'est appliquable
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </details>
     </header>
 
-    <section class="exercice balise-picture">
-      <h2>Balise <code>&lt;picture&gt;</code></h2>
-      <p>Consigne : Compléter le code suivant de façon à ce que</p>
-      <ul>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/salameche.png</code> s'affiche
-          pour un écran dont la taille est inférieure ou égale à 767px (déjà
-          présent dans le code)
-        </li>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/reptincel.png</code> s'affiche
-          pour un écran dont la taille est comprise entre 768px et 1024px
-        </li>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/dracaufeu.png</code> s'affiche
-          pour un écran dont la taille est comprise entre 1025px et 1099px
-        </li>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/mega-dracaufeu-x.png</code>
-          s'affiche pour un écran dont la densité de pixel est égale à 2
-        </li>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/mega-dracaufeu-y.png</code>
-          s'affiche pour un écran dont la densité de pixel est égale à 3
-        </li>
-        <li>
-          L'image
-          <code> assets/images/balise-picture/defaut.png</code>
-          s'affiche lorsqu'aucune des condititions suscitées n'est appliquable.
-        </li>
-      </ul>
-
-      <picture>
-        <source
-          srcset="assets/images/balise-picture/salameche.png"
-          media="(max-width: 767px)"
-        />
-
-        <img
-          src="assets/images/balise-picture/defaut.png"
-          alt="Famille d'évolution de Salamèche"
-        />
+    <main class="main">
+      <section class="exercice balise-picture">
+        <picture>
+          <source
+            srcset="assets/images/balise-picture/salameche.png"
+            media="(max-width: 767px)"
+          />
+          <img
+            src="assets/images/balise-picture/defaut.png"
+            alt="Famille d'évolution de Salamèche"
+          />
+        </picture>
         <figcaption>
           <span class="est-mobile">Salamèche</span>
           <span class="est-tablette-portrait">Reptincel</span>
           <span class="est-tablette-paysage">Dracaufeu</span>
           <span class="est-pc-bureau">La famille d'évolution entière</span>
         </figcaption>
-      </picture>
-    </section>
+      </section>
+    </main>
   </body>
 </html>
