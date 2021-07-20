@@ -6,6 +6,7 @@ Langage HTML
 Langage CSS
 	mise en page flexbox
 	gestion des couleurs
+	CSS transition
 	modèle de boite (propriétés CSS border, margin, padding, outiline, width / height)
 	responsive design
 		
