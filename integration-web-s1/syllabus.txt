@@ -1,0 +1,15 @@
+Voir les bases de la programmation d’un site web
+Langage HTML
+	Balises : a, hx, div, span...
+	Liens / ancres
+	Formulaire
+Langage CSS
+	mise en page flexbox
+	gestion des couleurs
+	modèle de boite (propriétés CSS border, margin, padding, outiline, width / height)
+	responsive design
+		
+Sensibilisation au web : design et programmation
+	Accessibilité
+	Bonnes pratiques
+	Ergonomie 
