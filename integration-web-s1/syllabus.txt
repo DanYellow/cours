@@ -1,16 +1,37 @@
-Voir les bases de la programmation d’un site web
-Langage HTML
-	Balises : a, hx, div, span...
-	Liens / ancres
-	Formulaire
-Langage CSS
-	mise en page flexbox
-	gestion des couleurs
-	CSS transition
-	modèle de boite (propriétés CSS border, margin, padding, outiline, width / height)
-	responsive design
+Cours assurés par M. Linardi et M. Jean-Louis (danielo.jean-louis@cyu.fr)
+Découpage du cours :
+ - 3 CM
+ - 5 TD
+ - 6 TP
+
+Apprentissages critiques :
+	- AC4101 : Exploiter de manière autonome un environnement de développement efficace et productif
+	- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
+
+Apprentissage du cours :
+- Voir les bases de la programmation d’un site web : 
+	- Langage HTML
+		Balises : a, hx, div, span...
+		Liens / ancres
+		Formulaire
+	- Langage CSS
+		Mise en page flexbox
+		Gestion des couleurs
+		CSS transition
+		Modèle de boite (propriétés CSS border, margin, padding, outiline, width / height)
+		responsive design
 		
-Sensibilisation au web : design et programmation
-	Accessibilité
-	Bonnes pratiques
-	Ergonomie 
+- Sensibilisation au web : design et programmation
+	- Accessibilité
+	- Bonnes pratiques / sémantique web
+	- Ergonomie
+
+But du cours :
+	- Être capable de réaliser un site web responsive et accessible avec uniquement du HTML et du CSS
+	- Réaliser avec succès la SAÉ 105 – Produire un site Web
+	- Réaliser l'audit d'un site sur sa partie technique, accessibilité et ergonomie
+
+Mode d'évaluation (changements possibles) :
+	- Test sur ENT
+	- SAÉ 105 – Produire un site Web
+Note : des tests facultatifs seront proposés pour valider vos connaissances suite aux cours
