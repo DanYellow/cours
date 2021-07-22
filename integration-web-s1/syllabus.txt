@@ -1,5 +1,5 @@
 Cours assurés par M. Linardi et M. Jean-Louis (danielo.jean-louis@cyu.fr)
-Découpage du cours :
+Découpage du cours (un TD et des TP seront assignés à un enseignant) :
  - 3 CM
  - 5 TD
  - 6 TP
@@ -28,7 +28,7 @@ Apprentissage du cours :
 
 But du cours :
 	- Être capable de réaliser un site web responsive et accessible avec uniquement du HTML et du CSS
-	- Réaliser avec succès la SAÉ 105 – Produire un site Web
+	- Réaliser avec succès la SAÉ 105 – Produire un site Web. (SAÉ aura lieu début janvier 2022)
 	- Réaliser l'audit d'un site sur sa partie technique, accessibilité et ergonomie
 
 Mode d'évaluation (changements possibles) :
