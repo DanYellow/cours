@@ -4,33 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP2 - Pratiquons ! - Écrivons notre fichier .css</title>
-    <link rel="stylesheet" href="consignes.css" />
+    <title>TP2 - Écrivons notre fichier .css</title>
+    <link rel="stylesheet" href="../../../consignes.css" />
 
+    <style>
+      .lien {
+        color: #0400de;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <header class="consignes-conteneur">
       <h1 class="h1">Consignes de la pratique</h1>
-      <ul class="liste-consignes">
+      <ol class="liste-consignes">
         <li>
-          Créer un fichier .css au même niveau que le fichier index.html appelé
+          Créez un fichier .css au même niveau que le fichier index.html appelé
           style.css
         </li>
         <li>
-          Lier le fichier .css à ce fichier index.html, grâce à la balise
+          Liez le fichier .css à ce fichier index.html, grâce à la balise
           &lt;link> (voir dans le &lt;head> pour avoir un exemple)
         </li>
         <li>
-          Ecrire le contenu des attributs "style" dans le fichier style.css que
-          vous venez de créer avec les sélecteurs de classe associés (vous devez
-          impérativement créer des classes CSS si la balise n'en possède pas)
+          Coupez-collez le contenu de la balise &lt;style> dans le fichier
+          style.css (que vous venez de créer) puis supprimez la balise vidée de son contenu
         </li>
-        <li>Supprimer ensuite les attributs "style" et leur valeurs</li>
         <li>
-          Ajouter une nouvelle balise, associez-lui une des classes que vous
+          Ecrivez le contenu des attributs "style" dans le fichier style.css (que
+          vous venez de créer) avec les sélecteurs de classe associés (vous
+          devez impérativement créer des classes CSS si la balise n'en possède
+          pas et lui associer la classe)
+        </li>
+        <li>Supprimez ensuite les attributs "style" et leur valeurs</li>
+        <li>
+          Ajoutez une nouvelle balise, associez-lui une des classes que vous
           avez crée précédemment
         </li>
-      </ul>
+        <li>Confirmez la bonne réalisation de l'opération en consultant la page sur votre </li>
+      </ol>
     </header>
     <!-- 
         Balise <main> permettant de définir le contenu principal du site. 
@@ -59,6 +71,12 @@
         >
           Cette méthode n'est pas vraiment recommandée, ainsi qu'utiliser la
           balise &lt;style&gt;. On l'a vu en cours mais on arrêtera après.
+          <br />
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link"
+            class="lien"
+            >Voir documentation de la balise link</a
+          >
         </p>
       </section>
     </main>
