@@ -1,6 +1,6 @@
 Cours assurés par M. Linardi et M. Jean-Louis (danielo.jean-louis@cyu.fr)
-Découpage du cours (un TD et des TP seront assignés à un enseignant) :
- - 3 CM
+Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un enseignant) :
+ - 2 CM
  - 5 TD
  - 6 TP
 
@@ -18,7 +18,7 @@ Apprentissage du cours :
 		Mise en page flexbox
 		Gestion des couleurs
 		CSS transition
-		Modèle de boite (propriétés CSS border, margin, padding, outiline, width / height)
+		Modèle de boite (propriétés CSS border, margin, padding, outline, width / height)
 		responsive design
 		
 - Sensibilisation au web : design et programmation
@@ -32,6 +32,7 @@ But du cours :
 	- Réaliser l'audit d'un site sur sa partie technique, accessibilité et ergonomie
 
 Mode d'évaluation (changements possibles) :
-	- Test sur ENT
+	- Tests sur ENT
 	- SAÉ 105 – Produire un site Web
+
 Note : des tests facultatifs seront proposés pour valider vos connaissances suite aux cours
