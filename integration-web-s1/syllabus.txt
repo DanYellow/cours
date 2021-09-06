@@ -19,9 +19,9 @@ Apprentissage du cours :
 		Gestion des couleurs
 		CSS transition
 		Modèle de boite (propriétés CSS border, margin, padding, outline, width / height)
-		responsive design
+		Responsive web design
 		
-- Sensibilisation au web : design et programmation
+- Sensibilisation au web : design et programmation
 	- Accessibilité
 	- Bonnes pratiques / sémantique web
 	- Ergonomie
@@ -34,5 +34,3 @@ But du cours :
 Mode d'évaluation (changements possibles) :
 	- Tests sur ENT
 	- SAÉ 105 – Produire un site Web
-
-Note : des tests facultatifs seront proposés pour valider vos connaissances suite aux cours

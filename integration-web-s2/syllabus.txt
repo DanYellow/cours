@@ -1,0 +1,18 @@
+Cours assurés par M. Linardi 
+Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un enseignant) :
+
+
+Apprentissages critiques :
+
+Apprentissage du cours :
+- CSS transition
+- SCSS (?)
+		
+- Sensibilisation au web : design et programmation
+	- Accessibilité
+	- Bonnes pratiques / sémantique web
+	- Ergonomie
+
+But du cours :
+
+Mode d'évaluation (changements possibles) :
