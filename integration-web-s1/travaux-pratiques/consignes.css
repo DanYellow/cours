@@ -98,3 +98,13 @@ kbd {
 .consignes-conteneur img {
   max-width: 100%;
 }
+
+.liste-consignes ul,
+.consignes-conteneur ul,
+.consignes-conteneur ol,
+.consignes-conteneur .h1, 
+.consignes-conteneur li {
+  margin: revert;
+  padding: revert;
+  list-style: revert;
+}

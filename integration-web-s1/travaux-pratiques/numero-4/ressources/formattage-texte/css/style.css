@@ -30,7 +30,7 @@ body {
   La syntaxe du background multiple veut que le premier background affiché soit le premier sur la pile de background,
   et ainsi de suite. De ce fait, si un background ne s'affiche pas, c'est peut être qu'il est caché par un autre. */
   background: url("../asfalt-dark.png") repeat,
-    linear-gradient(to bottom, #243b55, #141e30);
+    linear-gradient(to bottom, #0c2038, #141e30);
 
   color: var(--blanc);
 }
