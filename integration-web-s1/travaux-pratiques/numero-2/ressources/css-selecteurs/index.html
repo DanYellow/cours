@@ -216,6 +216,7 @@
         </tr>
       </tbody>
     </table>
+    <button data-clear-answers type="button">Vider les réponses</button>
 
     <script>
       (function () {
@@ -224,17 +225,30 @@
         );
 
         const saveUserData = (e, idx) => {
-            listSavedData[idx] = e.target.value.trim()
+          // Stocke les données dans le local storage
+          listSavedData[idx] = e.target.value.trim();
+          localStorage.setItem("listAnswers", JSON.stringify(listSavedData));
+        };
 
-            localStorage.setItem("listAnswers", JSON.stringify(listSavedData))
-        }
-
-        document
+        const listTextarea = document
           .querySelectorAll("[data-textarea-answer]")
-          .forEach((element, idx) => {
+
+        /**
+         * Sélectionne tous les éléments ayant de le data-attribute "data-textarea-answer"
+         * Et leur met comme valeur par défaut celle trouvée dans le localStorage
+         * Et leur lie un event au "change" pour appeler la fonction "saveUserData"
+         */
+         listTextarea.forEach((element, idx) => {
             element.value = listSavedData[idx] || "";
-            element.addEventListener('change', (e) => saveUserData(e, idx))
+            element.addEventListener("change", (e) => saveUserData(e, idx));
           });
+
+        document.querySelector("[data-clear-answers]").addEventListener('click', () => {
+            listTextarea.forEach(function(item) {
+                item.value = ""
+            })
+            localStorage.setItem("listAnswers", "[]");
+        })
       })();
     </script>
   </body>
