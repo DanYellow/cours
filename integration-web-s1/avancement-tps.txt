@@ -1,11 +1,13 @@
-IntŽgration Web S1
+Integration Web S1
 
 TP1 :
 TP2 :
 TP3 :
 TP4 :
 
-TD1 : 
+TD1 : Fin partie 1 - notre première page web
 TD2 : 
 
-CM :
+CM : Fin TP1
+
+https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
