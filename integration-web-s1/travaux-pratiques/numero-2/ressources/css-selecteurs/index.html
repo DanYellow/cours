@@ -82,6 +82,9 @@
                 nouvel onglet)
               </a>
             </li>
+            <li>
+                Note : Les informations que vous avez remplis sont sauvegardées sur ce navigateur
+            </li>
           </ul>
         </ol>
       </details>
@@ -102,7 +105,7 @@
           </td>
           <td class="tg-0lax">
             <pre>
-                <code id="htmlViewer" style="color:rgb(68, 68, 68); font-weight:400;background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color:rgb(136, 0, 0); font-weight:700;">&lt;p&gt;</span></code></pre>
+                <code id="htmlViewer" style="color:rgb(68, 68, 68); font-weight:400;background-color:rgb(240, 240, 240);background:rgb(240, 240, 240);display:block;padding: .5em;"><span style="color:rgb(136, 0, 0); font-weight:700;">&lt;p&gt;&lt;/p&gt;</span></code></pre>
           </td>
         </tr>
         <tr>
@@ -220,6 +223,9 @@
 
     <script>
       (function () {
+          /**
+           * Récupère les données dans le localstorage 
+           **/
         const listSavedData = JSON.parse(
           localStorage.getItem("listAnswers") || "[]"
         );
@@ -230,8 +236,7 @@
           localStorage.setItem("listAnswers", JSON.stringify(listSavedData));
         };
 
-        const listTextarea = document
-          .querySelectorAll("[data-textarea-answer]")
+        const listTextarea = document.querySelectorAll("[data-textarea-answer]")
 
         /**
          * Sélectionne tous les éléments ayant de le data-attribute "data-textarea-answer"
