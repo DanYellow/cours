@@ -33,6 +33,8 @@ body {
     linear-gradient(to bottom, #0c2038, #141e30);
 
   color: var(--blanc);
+
+  font-size: 1.25rem;
 }
 
 a {
@@ -47,4 +49,19 @@ p {
   padding: 0.5em;
   line-height: 1.2;
   color: var(--blanc, white);
+}
+
+.listes {
+  display: flex;
+}
+
+.listes article {
+  flex: 0 0 50%;
+}
+
+.titre {
+  margin: 1rem 0;
+  font-size: 1.75rem;
+  text-align: center;
+  font-weight: bold;
 }
