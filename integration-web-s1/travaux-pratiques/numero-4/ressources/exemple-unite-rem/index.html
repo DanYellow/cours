@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP4 - Exemple unité rem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p class="description">
+        Déplacez le slider pour faire varier la valeur de la font-size de la balise html (le root) pour ainsi faire
+        varier les valeurs en rem. La valeur de la propriété "font-size" de la classe ".titre" est 1.5rem. <br>
+        Cet exemple vise à simuler le changement de la taille de police par défaut du navigateur, fonctionnalité souvent
+        utilisée par les personnes ayant des problèmes de vue.
+    </p>
+    <hr>
+    <section class="titre-section">
+        <h1 class="titre">
+            Unité rem
+        </h1>
+    </section>
+    <p class="description">Valeur de la propriété "font-size" pour la balise &lt;html> : <span
+            data-root-font-size></span>px
+    </p>
+    <p class="description">
+        Valeur de la propriété "font-size" pour la classe ".titre" : <span data-font-size></span>px = (1.5 * <span
+            data-root-font-size></span>)
+    </p>
+
+    <hr>
+
+    <section class="slider-container">
+        <input type="range" id="volume" name="volume" min="10" max="200" step="1" data-slider>
+        <label for="volume">Valeur du slider : <span data-slider-value></span></label>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
