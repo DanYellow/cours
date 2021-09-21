@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP2 - CSS link - Écrivons notre fichier .css</title>
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
 
     <style>
       .lien {
@@ -15,34 +18,64 @@
     </style>
   </head>
   <body>
-    <header class="consignes-conteneur">
-      <h1 class="h1">Consignes de la pratique</h1>
-      <ol class="liste-consignes">
-        <li>
-          Créez un fichier .css au même niveau que le fichier index.html appelé
-          style.css
-        </li>
-        <li>
-          Liez le fichier .css à ce fichier index.html, grâce à la balise
-          &lt;link> (voir dans le &lt;head> pour avoir un exemple)
-        </li>
-        <li>
-          Coupez-collez le contenu de la balise &lt;style> dans le fichier
-          style.css (que vous venez de créer) puis supprimez la balise vidée de son contenu
-        </li>
-        <li>
-          Ecrivez le contenu des attributs "style" dans le fichier style.css (que
-          vous venez de créer) avec les sélecteurs de classe associés (vous
-          devez impérativement créer des classes CSS si la balise n'en possède
-          pas et lui associer la classe)
-        </li>
-        <li>Supprimez ensuite les attributs "style" et leur valeurs</li>
-        <li>
-          Ajoutez une nouvelle balise, associez-lui une des classes que vous
-          avez crée précédemment
-        </li>
-        <li>Confirmez la bonne réalisation de l'opération en consultant la page sur votre </li>
-      </ol>
+    <header>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+            cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un nouveau fichier html (avec la structure de base d'un site
+            web. Rappel, vous avez le raccourci "html:5")
+          </li>
+          <li>
+            Copiez la balise &lt;main> (et son contenu) dans le fichier que vous
+            venez de créer
+          </li>
+        </ol>
+      </details>
+
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Consignes de la pratique (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+
+        <ol class="liste-consignes">
+          <li>
+            Créez un fichier .css au même niveau que le fichier index.html
+            appelé style.css (ou un autre nom)
+          </li>
+          <li>
+            Liez le fichier .css à ce fichier index.html, grâce à la balise
+            &lt;link> (voir dans le &lt;head> pour avoir un exemple)
+          </li>
+          <li>
+            Coupez-collez le contenu de la balise &lt;style> dans le fichier
+            style.css (que vous venez de créer) puis supprimez la balise vidée
+            de son contenu
+          </li>
+          <li>
+            Ecrivez le contenu des attributs "style" dans le fichier style.css
+            (que vous venez de créer) avec les sélecteurs de classe associés
+            (vous devez impérativement créer des classes CSS si la balise n'en
+            possède pas et lui associer la classe)
+          </li>
+          <li>Supprimez ensuite les attributs "style" et leurs valeurs</li>
+          <li>
+            Ajoutez une nouvelle balise, associez-lui une des classes que vous
+            avez crée précédemment
+          </li>
+          <li>
+            Confirmez la bonne réalisation de l'opération en consultant la page
+            sur votre navigateur
+          </li>
+        </ol>
+      </details>
     </header>
     <!-- 
         Balise <main> permettant de définir le contenu principal du site. 

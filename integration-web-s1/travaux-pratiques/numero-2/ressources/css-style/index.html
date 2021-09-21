@@ -6,10 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP2 - CSS style - Écrivons notre fichier .css</title>
 
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
   </head>
   <body>
     <header>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Pré-consignes de la pratique - facultatives (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un nouveau fichier html (avec la structure de base d'un site
+            web. Rappel, vous avez le raccourci "html:5")
+          </li>
+          <li>
+            Copiez la balise &lt;main> (et son contenu) dans le fichier que vous venez de créer
+          </li>
+        </ol>
+      </details>
       <details class="consignes-conteneur" open>
         <summary>
           <h1 class="h1">
@@ -18,11 +37,23 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Ecrire le contenu des attributs "style" des balises dans la balise &lt;main> dans une balise &lt;style> que vous mettrez dans la balise &lt;head> avec les sélecteurs associés
+            Déplacez le contenu des attributs "style" des balises présentes dans
+            la balise &lt;main> dans une balise &lt;style>
+            <ul>
+              <li>
+                Note 1 : Pensez bien à mettre la balise &lt;style> dans la
+                balise &lt;head>
+              </li>
+              <li>Note 2 : N'oubliez pas d'écrire les sélecteurs</li>
+            </ul>
           </li>
-          <li>Supprimer ensuite les attributs "style" et leur valeurs</li>  
+          <li>Supprimez ensuite les attributs "style" et leur valeurs</li>
           <li>
-            Sauvegarder le fichier (<kbd>Ctrl/command (⌘)</kbd> <kbd>s</kbd>) puis consultez votre page sur votre navigateur
+            Sauvegardez le fichier (<kbd>Ctrl/command (⌘)</kbd> <kbd>s</kbd>)
+            puis consultez votre page sur votre navigateur.
+            <ul>
+              <li>Et vous devriez avoir la même chose que que vous aviez au début</li>
+            </ul> 
           </li>
         </ol>
       </details>
@@ -33,13 +64,16 @@
         Pas vraiment obligatoire, mais préférable pour l'accessibilité.
     -->
     <main>
-      <p style="color: red; font-size: 1.3rem; border: 2px solid black">Je suis le texte exemple du TP</p>
-      <ol style="margin-top: 2rem;">
-        <li style="font-weight: bold; font-size: 0.95rem;">Aller à l'école</li>
-        <li style="font-weight: bold; font-size: 0.95rem;">Suivre les cours</li>
-        <li style="font-weight: bold; font-size: 0.95rem;">Obtenir son diplôme</li>
+      <p style="color: red; font-size: 1.3rem; border: 2px solid black">
+        Je suis le texte exemple du TP
+      </p>
+      <ol style="margin-top: 2rem">
+        <li style="font-weight: bold; font-size: 0.95rem">Aller à l'école</li>
+        <li style="font-weight: bold; font-size: 0.95rem">Suivre les cours</li>
+        <li style="font-weight: bold; font-size: 0.95rem">
+          Obtenir son diplôme
+        </li>
       </ol>
     </main>
   </body>
 </html>
-
