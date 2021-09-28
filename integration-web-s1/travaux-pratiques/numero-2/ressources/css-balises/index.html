@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>TP2 — CSS Balises - Écrivons notre premier CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-  </head>
-  <body>
-    <header class="consignes-conteneur">
-      <h1 class="h1">Consignes de la pratique</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>TP2 — CSS Balises - Écrivons notre premier CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+</head>
+
+<body>
+  <header>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+          cacher)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Créez un nouveau fichier html (avec la structure de base d'un site
+          web. Rappel, vous avez le raccourci "html:5")
+        </li>
+        <li>
+          Copiez la balise &lt;main> (et son contenu de ce fichier) dans le fichier que vous
+          venez de créer
+        </li>
+        <li>Sauvegardez-le et commencez votre TP dedans</li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur" open>
+      <summary>
+        <h1 class="h1">Consignes de la pratique</h1>
+      </summary>
       <ol class="liste-consignes">
         <li>
           Ajouter l'attribut "style" à la balise &lt;p&gt; avec la valeur
@@ -22,7 +47,7 @@
             actualiser votre page
           </li>
         </ul>
-        
+
         <li>Ajouter sur la même balise, la déclaration "font-size: 2rem;"</li>
         <ul>
           <li>
@@ -43,13 +68,15 @@
           </li>
         </ul>
       </ol>
-    </header>
-    <!-- 
+    </details>
+  </header>
+  <!-- 
         Balise permettant de définir le contenu principal du site. 
         Pas vraiment obligatoire, mais préférable pour l'accessibilité.
     -->
-    <main>
-      <p>Je suis le texte exemple du TP</p>
-    </main>
-  </body>
+  <main>
+    <p>Je suis le texte exemple du TP</p>
+  </main>
+</body>
+
 </html>
