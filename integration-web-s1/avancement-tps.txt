@@ -5,7 +5,11 @@ TP2 :
 TP3 :
 TP4 :
 
-TD1 : Fin partie 1 - notre premiere page web
+TD1 : Fin partie 1 - notre première page web
 TD2 : 
 
 CM : Fin TP1
+
+https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
+
+https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Ftravaux-pratiques%2Fnumero-1%2Fressources
