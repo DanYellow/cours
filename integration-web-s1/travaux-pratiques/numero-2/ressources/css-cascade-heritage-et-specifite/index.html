@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP2 - Cascade et héritage</title>
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body,
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+          cacher)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Créez un nouveau fichier html
+        </li>
+        <li>
+          Sauvegardez le fichier (il faut impérativement qu'il ait l'extension ".html" autrement dit qu'il finisse pas
+          ".html")
+        </li>
+        <li>
+          Définissez la base d'une page html. Rappel : vous avez le raccourci "html:5"
+        </li>
+        <li>
+          Copiez la balise &lt;main> (et son contenu de la balise) dans le fichier que vous
+          venez de créer
+        </li>
+        <li>Sauvegardez-le et commencez votre TP dedans</li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Consignes de la pratique - Cascade</h1>
+        (cliquer pour afficher)
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          <a target="_blank" rel="noopener noreferrer"
+            href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#la_cascade">Voir
+            documentation de la cascade</a>
+        </li>
+      </ul>
+      <ol class="liste-consignes">
+        <li>A la fin du fichier "style.css", ajoutez des classes identiques à celles déjà présentent dans le fichier
+        </li>
+        <li>Ajoutez aux classes que vous venez d'ajouter avec les mêmes déclarations CSS (que celles déjà présentent
+          dans le fichier) avec des valeurs différentes</li>
+        <li>Sauvegardez et regardez dans votre navigateur
+          <ul>
+            <li>Qu'observez-vous ?</li>
+          </ul>
+        </li>
+        <li>Déplacez les classes que vous avez ajouté (et leur contenu) au début du fichier "style.css" (donc au-dessus
+          des classes initialement présentes dans le fichier)</li>
+        <li>Sauvegardez et regardez dans votre navigateur
+          <ul>
+            <li>Qu'observez-vous ?</li>
+          </ul>
+        </li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Consignes de la pratique - Héritage</h1>
+        (cliquer pour afficher)
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          <a target="_blank" rel="noopener noreferrer"
+            href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#h%C3%A9ritage">Voir
+            documentation de la héritage</a>
+        </li>
+      </ul>
+      <ol class="liste-consignes">
+        <li>
+          Ajoutez la déclaration CSS "font-weight: bold" sur la classe "liens-utiles"
+          <ul>
+            <li>Ajoutez le sélecteur pour la classe "liens-utiles" si elle n'est pas présente dans le fichier
+              "style.css"</li>
+            <li>Sauvegardez et regardez dans votre navigateur
+              <ul>
+                <li>Qu'observez-vous ?</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Consignes de la pratique - Spécificité</h1>
+        (cliquer pour afficher)
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          <a target="_blank" rel="noopener noreferrer"
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/Descendant_combinator">Voir
+            documentation de la héritage</a>
+        </li>
+      </ul>
+      <ol class="liste-consignes">
+        <li>
+          Appliquez des déclarations CSS à tout élément ayant la classe "titre-principal" contenu dans un élément ayant
+          la
+          classe "en-tete"
+          <ul>
+            <li>Liste de propriétés CSS que vous pouvez appliquer :
+              <ul>
+                <li>
+                  background-color: <a target="_blank" rel="noopener noreferrer"
+                    href="https://developer.mozilla.org/fr/docs/Web/CSS/background-color">Voir
+                    documentation de la propriété background-color (ouverture dans un nouvel onglet)</a>
+                </li>
+                <li>
+                  padding: <a target="_blank" rel="noopener noreferrer"
+                    href="https://developer.mozilla.org/fr/docs/Web/CSS/padding">Voir
+                    documentation de la propriété padding (ouverture dans un nouvel onglet)</a>
+                </li>
+                <li>
+                  margin: <a target="_blank" rel="noopener noreferrer"
+                    href="https://developer.mozilla.org/fr/docs/Web/CSS/margin">Voir
+                    documentation de la propriété margin (ouverture dans un nouvel onglet)</a>
+                </li>
+                <li>Vous pouvez bien évidemment utiliser celles qu'on a vu auparavant comme : font-size, color,
+                  text-decoration...</li>
+              </ul>
+            </li>
+            <li>
+              <b>
+                Note : le contenu de votre sélecteur ne doit en aucun cas affecter un élément ayant la classe
+                "titre-principal" contenu dans un élément ayant la
+                classe "nouvelle"
+              </b>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Appliquez des déclarations CSS à tout élément ayant la classe "titre-principal" contenu dans un élément ayant
+          la
+          classe "nouvelle"
+          <ul>
+            <li>Voir plus haut pour voir la liste des propriétés CSS utilisables</li>
+            <li>
+              <b>
+                Note : le contenu de votre sélecteur ne doit en aucun cas affecter un élément ayant la classe
+                "titre-principal" contenu dans un élément ayant la
+                classe "en-tete"
+              </b>
+            </li>
+          </ul>
+        </li>
+        <li>
+          En utilisant des classes, appliquez une couleur spécifique pour chaque lien wikipédia décrivant le contenu
+          d'un BUT.
+          <ul>
+            Note : La classe utilisée doit être la même pour chaque lien, il faudrait obligatoirement jouer sur le
+            sélecteur descendant (donc la spécificité) pour réaliser cette tâche
+          </ul>
+        </li>
+      </ol>
+    </details>
+  </header>
+  <main>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/1/16/Universit%C3%A9_de_Cergy-Pontoise_-_site_des_Ch%C3%AAnes.jpg"
+        height="360" alt="Université CY Paris Université">
+    </figure>
+    <section class="en-tete">
+      <h1 class="titre-principal">Je suis le texte exemple du TP</h1>
+      <p class="description">
+        Cet exercice vise à découvrir les notions de spécification, cascade et héritage du CSS. Ces notions sont clés
+        pour
+        la compréhension de la matière, ce n'est pas à apprendre par coeur, mais à mettre dans un coin de sa tête pour
+        debbuger ses problèmes de CSS.
+      </p>
+      <ul class="liens-utiles">
+        <li>
+          <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
+            class="lien-css">Lien vers la documentation du CSS sur
+            mdn (ouverture dans un nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noopener noreferrer"
+            class="lien-html">Lien vers la documentation du HTML
+            sur mdn (ouverture dans un nouvel onglet)</a>
+        </li>
+      </ul>
+    </section>
+
+    <article class="nouvelle">
+      <h1 class="titre-principal">
+        Bachelor universitaire de technologie en métiers du
+        <span class="txt-gras">multimédia et de l'Internet</span>
+      </h1>
+      <p class="description">
+        Cette formation orientée Web permet d’apprendre la programmation
+        informatique, la conception de bases de données, le développement de
+        contenus sur réseaux, la création numérique et sur mobiles (responsive
+        web design).
+        <span class="txt-gras">
+          Elle implique une véritable compétence en gestion et encadrement de
+          projet où la maîtrise de la communication, de l’audiovisuel et de
+          l’infographie joue un rôle important.
+        </span>
+      </p>
+      <a href="https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie_en_m%C3%A9tiers_du_multim%C3%A9dia_et_de_l%27Internet"
+        target="_blank" rel="noopener noreferrer">Voir la fiche du BUT MMI (ouverture dans un nouvel onglet)</a>
+    </article>
+    <article class="nouvelle">
+      <h1 class="titre-principal">
+        Bachelor universitaire de technologie en techniques de commercialisation
+      </h1>
+      <p class="description">
+        Le BUT en techniques de commercialisation, connu aussi comme BUT Tech de Co ou BUT TC, forme des chargés
+        d’études commerciales, des conseillers de clientèle, des assistants chef de produit, des commerciaux et des
+        responsables des achats. Ils évoluent ensuite dans des fonctions marketing et commerciales vers des postes à
+        responsabilité (encadrement d’une force de vente).
+      </p>
+      <a href="https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie_en_techniques_de_commercialisation"
+        target="_blank" rel="noopener noreferrer">Voir la fiche du BUT TC (ouverture dans un nouvel onglet)</a>
+    </article>
+    <article class="nouvelle">
+      <h1 class="titre-principal">
+        Bachelor universitaire de technologie en génie du conditionnement et de l'emballage
+      </h1>
+      <p class="description">
+        Le bachelor universitaire de technologie en génie du conditionnement et de l'emballage, créé en septembre 2000
+        par l'IUT Léonard de Vinci de Reims, forme en France des techniciens supérieurs en emballage.
+      </p>
+      <a href="https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie_en_g%C3%A9nie_du_conditionnement_et_de_l%27emballage"
+        target="_blank" rel="noopener noreferrer">Voir la fiche du BUT GCE (ouverture dans un nouvel onglet)</a>
+    </article>
+
+  </main>
+</body>
+
+</html>
