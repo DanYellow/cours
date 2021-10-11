@@ -5,8 +5,13 @@ Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un
 Apprentissages critiques :
 
 Apprentissage du cours :
+... ce qui est recalé du S1 ...
 - CSS transition
+- responsive design
 - SCSS (?)
+- tag VIDEO
+- intro Javascript (à voir avec Flavien)
+- Flavien (intervien sur bootstrap)
 		
 - Sensibilisation au web : design et programmation
 	- Accessibilité
