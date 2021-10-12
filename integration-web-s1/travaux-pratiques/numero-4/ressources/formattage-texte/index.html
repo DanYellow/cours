@@ -5,8 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <link rel="stylesheet" href="css/consignes.css">
+
+  <link rel="stylesheet" href="css/style.css" />
+
   <title>TP4 — Formattage-texte</title>
 </head>
 
@@ -14,11 +17,40 @@
   <header>
     <details class="consignes-conteneur">
       <summary>
-        <h1 class="h1">Consignes de la pratique (cliquer pour afficher / cacher)</h1>
+        <h1 class="h1">
+          Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+          cacher)
+        </h1>
       </summary>
       <ol class="liste-consignes">
         <li>
-          En utilisant une classe dédiée, changez l'alignement des paragraphes (différent pour chaque paragraphe)
+          Créez un nouveau fichier html
+        </li>
+        <li>
+          Sauvegardez le fichier (il faut impérativement qu'il ait l'extension ".html" autrement dit qu'il finisse pas
+          ".html")
+        </li>
+        <li>
+          Définissez la base d'une page html. Rappel : vous avez le raccourci "html:5"
+        </li>
+        <li>
+          Copiez la balise &lt;main> (et son contenu de la balise) dans le fichier que vous
+          venez de créer
+        </li>
+        <li>Sauvegardez-le et commencez votre TP dedans</li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Consignes de la pratique (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ul class="liste-consignes">
+        <li class="text-bold">Pensez bien à utiliser une classe CSS dédiée pour chaque étape de la consigne</li>
+      </ul>
+      <ol class="liste-consignes">
+        <li>
+          <span class="text-bold">En utilisant une classe CSS dédiée,</span> changez l'alignement des paragraphes
+          (différent pour chaque paragraphe)
           <ul>
             <li>
               <a href="https://developer.mozilla.org/fr/docs/Web/CSS/text-align" target="_blank">Voir documentation
@@ -78,26 +110,26 @@
   </header>
 
   <main>
-    <p>
+    <p class="paragraphe">
       Il y avait en Vestphalie, dans le château de M. le baron de Thunder-ten-tronckh, un jeune garçon à qui la nature
       avait donné les moeurs les plus douces. Sa physionomie annonçait
       son âme. Il avait le jugement assez droit, avec l’esprit le plus simple ; c’est, je crois, pour cette raison qu’on
       le nommait Candide.
     </p>
 
-    <p>
+    <p class="paragraphe">
       Si vous voulez vraiment que je vous dise, alors sûrement la première chose que vous allez demander c’est où je
       suis né, et à quoi ça a ressemblé, ma saloperie d’enfance, et toutes ces conneries à la David Copperfield, mais
       j’ai pas envie de raconter ça et tout.
     </p>
 
-    <p>
+    <p class="paragraphe">
       Dans la chambrette, simplement meublée d’une table, d’un lit et de deux chaises, qu’il occupait au cinquième étage
       d’une maison de la Canebière, à Marseille, l’ingénieur Goël Mordax était en train de mettre au net une épure des
       plus compliquées, lorsqu’on frappa timidement à sa porte.
     </p>
 
-    <p>La première chose que je peux vous dire c’est qu’on habitait au sixième à pied et que pour Madame Rosa, avec tous
+    <p class="paragraphe">La première chose que je peux vous dire c’est qu’on habitait au sixième à pied et que pour Madame Rosa, avec tous
       ces kilos qu’elle portait sur elle et seulement deux jambes, c’était une vraie source de vie quotidienne, avec
       tous les soucis et les peines.
     </p>
@@ -105,10 +137,13 @@
     <h1 class="titre">Listes</h1>
     <section class="listes">
       <article>
-        lait
-        œufs
-        pain
-        houmous
+        <p>Liste de courses</p>
+        <ul>
+          <li>lait</li>
+          <li>œufs</li>
+          <li>pain</li>
+          <li>houmous</li>
+        </ul>
       </article>
       <article>
         Roulez jusqu'au bout de la route
@@ -116,6 +151,10 @@
         Allez tout droit aux deux premiers ronds-points
         Tournez à gauche au troisième rond-point
         Roulez sur 300 mètres, l'école est sur votre droite
+      </article>
+      <article>
+        <p>Membres du conseil d'admistration</p>
+        Stéphanie Jeanne Pierre Thomas Noémie Isabelle
       </article>
     </section>
   </main>
