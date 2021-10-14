@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP3 — Formulaire basique</title>
+
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header>
+    <p>
+      Le but de cette pratique est de construire notre premier formulaire en
+      y ajoutant au fur et à mesure des éléments de formulaire tels que la
+      balise &lt;input /> ou encore &lt;select>. Les formulaires sont des
+      éléments clés du web 2.0 et 3.0, grâce à eux, et aux serveurs,
+      l'utilisateur peut communiquer avec le site ou même d'autres
+      internautes. Ainsi, il est promordial d'apporter beaucoup de soin à la
+      construction des formulaires pour éviter de nuire à l'expérience de
+      vos internautes. Sur un bon site, un internaute prend toujours du
+      plaisir à y revenir.
+    </p>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+          cacher)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Créez un nouveau fichier html (avec la structure de base d'un site
+          web. Rappel, vous avez le raccourci "html:5")
+        </li>
+        <li>
+          Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que vous
+          venez de créer (si elle existe)
+        </li>
+        <li>
+          Copiez les balises &lt;link> présentes dans le &lt;head> dans le fichier html que vous
+          venez de créer
+        </li>
+        <li>Sauvegardez-le et commencez votre TP dedans</li>
+      </ol>
+    </details>
+
+    <h1 class="h1">Consignes de la pratique</h1>
+    <details class="consignes-conteneur" open>
+      <summary>
+        <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Ajoutez l'attribut "action" avec la valeur "" pour la balise &lt;form>
+        </li>
+        <li>
+          Ajoutez, au sein du formulaire déjà présent, un nouveau champ &lt;input>
+          <ul>
+            <li>Ne pas oublier de rendre le champ accessible. N'oubliez pas :
+              <ul>
+                <li>La balise &lt;label> </li>
+                <li>Les attributs associés aux balises et leurs valeurs</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Ajoutez dans le même formulaire un autre champ input avec un
+          type "intelligent" (exemple &lt;input type="email">).
+          <ul>
+            <li>Ne pas oublier de rendre le champ accessible. N'oubliez pas :
+              <ul>
+                <li>La balise &lt;label> </li>
+                <li>Les attributs associés aux balises et leurs valeurs</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <ul class="liste-consignes">
+        <li>Aidez-vous de l'exemple déjà présent si vous avez un doute ou consultez les liens ci-dessous pour avoir des exemples</li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" target="_blank"
+            rel="noopener noreferrer">Voir
+            documentation de la balise &lt;label> (ouverture dans un
+            nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text" target="_blank"
+            rel="noopener noreferrer">Voir
+            documentation de la balise &lt;input>
+            (ouverture dans un nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Form" target="_blank"
+            rel="noopener noreferrer">Voir documentation
+            de la balise &lt;form> (ouverture dans un
+            nouvel onglet)</a>
+        </li>
+      </ul>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          Rajoutez un élément de formulaire permettant sa soumission
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button" target="_blank"
+                rel="noopener noreferrer">Voir documentation
+                de la balise &lt;button> (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button" target="_blank"
+                rel="noopener noreferrer">Voir documentation
+                de la balise &lt;input> (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Soumettez le formulaire et observez l'url de la page dans votre navigateur
+        </li>
+      </ul>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Rajouter une balise &lt;textarea> avec le label associé et les bons attributs
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea" target="_blank"
+                rel="noopener noreferrer">Voir documentation &lt;textarea> (ouverture dans un nouvel
+                onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>Rajouter des inputs type radio (min. 2)
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Learn/Forms/Basic_native_form_controls#bouton_radio"
+                target="_blank">Voir documentation des boutons radio (ouverture dans un nouvel
+                onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Rajouter des inputs type checkbox
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Les_blocs_de_formulaires_natifs#%C3%89l%C3%A9ments_%C3%A0_cocher"
+                target="_blank">Voir documentation des cases à cocher (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Soumettez le formulaire et observez l'url de la page dans votre navigateur
+          <ul>
+            <li>Note : Si l'url devient trop longue, n'hésitez pas à la copier et la coller dans VS Code pour l'observer aussi facilement</li>
+          </ul>
+        </li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Rajouter une liste déroulante simple
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select" rel="noopener noreferrer"
+                target="_blank">Voir documentation de la liste déroulante (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+            <li>
+              <a href="https://accessify.com/tools-and-wizards/developer-tools/insta-select/" target="_blank"
+                rel="noopener noreferrer">Outil pour générer une liste rapidement (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Rajoutez l'attribut "required" sur l'un des champs ajouté précédemment (plusieurs si vous le souhaitez)
+        </li>
+        <li>Soumettez le formulaire sans remplir les champs que vous avez défini comme requis</li>
+
+      </ol>
+    </details>
+  </header>
+
+  <main>
+    <form method="get">
+      <article>
+        <label for="pseudo">Pseudo</label>
+        <input type="text" id="pseudo" name="pseudo" />
+      </article>
+    </form>
+  </main>
+</body>
+
+</html>
