@@ -1,0 +1,14 @@
+Cours assurés par M. Jean-Louis (danielo.jean-louis@cyu.fr)
+Découpage du cours :
+ 	- 0 CM
+ 	- 1 TD
+
+Apprentissage du cours :
+	- Voir les mauvaises pratiques d'ergonomie ou d'accessibilité en action
+
+But du cours :
+	- Être capable d'auditer un site du point de vue accessible ou encore ergonomique et apporter des arguments factuels
+	- Réaliser avec succès la SAÉ 201 – Exploration des usages
+
+Mode d'évaluation (changements possibles) :
+	- SAÉ 201 – Exploration des usages
