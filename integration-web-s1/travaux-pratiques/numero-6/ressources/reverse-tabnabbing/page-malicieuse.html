@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ressource</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-        console.log("window.opener", window.opener)
-        if (window.opener) {
-           window.opener.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
-       </script>
-  </head>
-  <body>
-    <main>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP6 — Page malicieuse - Reverse tabnabbing</title>
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+</head>
+
+<body>
+  <main>
+    Si vous avez cliqué sur le lien "Lien vulnérable", regardez l'onglet précédent
+  </main>
+  <script>
+    if (window.opener) {
+      window.opener.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
+  </script>
+</body>
+
 </html>
