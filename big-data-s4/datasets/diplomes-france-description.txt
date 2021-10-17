@@ -1,0 +1,6 @@
+nd : donnée non disponible
+/// : absence de résultat due à la nature des choses
+1. Classe préparatoire à l'apprentissage (CPA), classe d'initiation préprofessionnelle par alternance (CLIPA), dispositif d'initiation aux métiers en alternance (DIMA)
+Note : les millésimes correspondent à la rentrée scolaire
+Lecture : à la rentrée scolaire 2020, 57 452 apprentis préparent un baccalauréat professionnel, 43 855 un brevet professionnel et 22 929 un diplôme de niveau IV.
+Champ : France métropolitaine + DROM (hors Mayotte jusqu’en 2010)
