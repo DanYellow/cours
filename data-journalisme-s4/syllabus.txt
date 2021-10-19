@@ -2,7 +2,7 @@ Cours assurés par M. Jean-Louis (danielo.jean-louis@cyu.fr)
 
 But du cours :
 	- Découvrir les enjeux du journalisme du futur
-	- Être capable d'utiliser les connaissances vues dans le cours de big data dans la rédaction d'articles
+	- Être capable d'utiliser les connaissances vues dans le cours de big data dans la rédaction d'articles journalistiques
 	- Raconter des histoires avec des infographies et des cartes
 	- Apprendre à vérifer ses sources 
 
