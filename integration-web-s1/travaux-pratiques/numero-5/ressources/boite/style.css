@@ -2,14 +2,31 @@ body, html {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.main-conteneur {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .informations-conteneur {
   display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  grid-template-rows: 1fr; 
-  column-gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: 1fr;
+  overflow: hidden;
 }
 
 .informations {
   color: rgb(230, 230, 230);
   font-weight: bold;
 }
+
+
+.test {
+  width: 600px;
+  padding: 40px;
+}
+
