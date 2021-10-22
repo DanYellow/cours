@@ -1,0 +1,15 @@
+body, html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.informations-conteneur {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  column-gap: 0.5rem;
+}
+
+.informations {
+  color: rgb(230, 230, 230);
+  font-weight: bold;
+}

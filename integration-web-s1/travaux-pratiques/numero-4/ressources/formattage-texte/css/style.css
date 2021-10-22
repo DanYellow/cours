@@ -33,15 +33,22 @@ body {
     linear-gradient(to bottom, #0c2038, #141e30);
 
   color: var(--blanc);
-
   font-size: 1.25rem;
 }
 
-a {
-  color: lightgray;
+ul {
+  list-style: disc;
 }
 
-p {
+ol {
+  list-style: decimal;
+}
+
+a {
+  color: rgb(233, 144, 10);
+}
+
+.paragraphe {
   /* Ici on surcharge la variable blanc, 
   ce n'est plus la valeur rgb(243, 235, 235) qui est utilisée */
   --blanc: white;
@@ -51,12 +58,15 @@ p {
   color: var(--blanc, white);
 }
 
+
 .listes {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.listes article {
+.listes > * {
   flex: 0 0 50%;
+  margin-bottom: 2rem;
 }
 
 .titre {
