@@ -1,84 +1,127 @@
-<!-- 
-  But de cette pratique :
-  - Réaliser la mise en page définie dans le fichier design-mise-en-page-flexbox.jpg
-  - Appliquer les propriétés que nous avons vues en cours notamment les propriétés relatives au modèle de boite
-  - Découvrir certaines fonctionnalités de la propriété flexbox
-  - Découvrir de nouvelles pseudo-classes
-  Note : Il vous faudra impérativement rajouter des balises / classes CSS pour réussir cette pratique 
--->
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ressource - mise en page</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav class="navigation-principale">
-      <ul>
-        <li>
-          <a href="#">Accueil</a>
-        </li>
-        <li><a href="#">Galerie</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
 
-    <aside class="liste-cursus">
-      <ul>
-        <li>MMI</li>
-        <li>GEII</li>
-        <li>TC</li>
-        <li>TSI</li>
-      </ul>
-    </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pâ-ti-sse-ries</title>
+  <link rel="stylesheet" href="ressources/css/reset.css" />
+  <link rel="stylesheet" href="ressources/css/style.css" />
+</head>
 
-    <div class="description">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
+<body>
+  <header>
+    <h1 class="titre-principal">
+      PÂ<span aria-hidden="true">-</span>TI<span aria-hidden="true">-</span>SSE<span aria-hidden="true">-</span>RIES
+    </h1>
+  </header>
 
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/000000/fff" alt="" />
-      </figure>
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/7df4ff/000000" alt="" />
-      </figure>
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/000000/fff" alt="" />
-      </figure>
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/7df4ff/000000" alt="" />
-      </figure>
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/000000/fff" alt="" />
-      </figure>
-      <figure class="image-complementaire">
-        <img src="https://dummyimage.com/600x480/7df4ff/000000" alt="" />
-      </figure>
-    </div>
-  </body>
+  <main>
+    <p class="description">
+      La pâtisserie désigne à la fois certaines préparations culinaires sucrées à base de pâte, l'ensemble des opérations pour leur confection, la boutique où se vendent ces préparations faites par un pâtissier ou par l'industrie agroalimentaire, ainsi que cette même industrie de transformation et de commercialisation de ces produits : gâteaux et tartes notamment.
+    </p>
+
+    <ul class="liste-patisseries-principales">
+      <li class="patisserie">
+        <section class="conteneur-patisserie">
+          <figure>
+            <img src="ressources/images/tarte-normande.jpg" alt="">
+          </figure>
+          <article>
+            <h2 class="titre">
+              Tarte Normande
+            </h2>
+            <p class="description">
+              Allié de choix comme un dessert à la fin d’un repas copieux. La tarte normande nous vient de Normandie. Normalement, c’est avec une pâte brisée, mais nous, nous la faisons avec une pâte sablée avec de la vergeoise blonde, c'est plus gourmand. Et vu que ce n’était pas assez, on a rajouté des amandes en poudre.
+            </p>
+          </article>
+        </section>
+      </li>
+      <li class="patisserie">
+        <section class="conteneur-patisserie">
+          <figure>
+            <img src="ressources/images/flan-praline.jpg" alt="">
+          </figure>
+          <article>
+            <h2 class="titre">
+              Flan au praliné
+            </h2>
+            <p class="description">
+              Douceur étonnante aux noix, le flan au praliné a fait une entrée tonitruante l’année dernière dans notre cartes. Comme d’habitude, nous utilisons notre pâte sablée à la vergeoise brune, parfumée et délicieuse.
+
+              Notre flan existe également sans praliné, car nous avons pensé à celles et ceux qui sont allergiques aux noix.            </p>
+          </article>
+        </section>
+      </li>
+    </ul>
+
+    <ul class="liste-patisseries">
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/cookies.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Cookies
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/muffins-red-velvet.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Muffins Red Velvet
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/financiers.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Financiers
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/cake-fruits-confits.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Cake aux fruits confits
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/dunes-blanches.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Dunes blanches
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/carolines.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Carolines
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/donuts.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Donuts
+        </p>
+      </li>
+      <li class="patisserie">
+        <figure class="img-conteneur">
+          <img src="ressources/images/muffins-bananes-chocolat.jpg" alt="">
+        </figure>
+        <p class="titre">
+          Muffins bananes chocolat
+        </p>
+      </li>
+    </ul>
+  </main>
+</body>
+
 </html>

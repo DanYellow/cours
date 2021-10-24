@@ -1,0 +1,13 @@
+.liste-patisseries {
+  display: flex;
+  gap: 3.75rem 0.8rem;
+}
+
+.liste-patisseries-principales {
+    flex-flow: wrap column;
+}
+
+/* Peut également être fait avec une classe spécifique */
+.liste-patisseries-principales .patisserie:nth-child(odd) .conteneur-patisserie {
+    flex-direction: row-reverse;
+}

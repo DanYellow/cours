@@ -1,3 +1,11 @@
+<!-- 
+  But de cette pratique :
+  - Réaliser la mise en page définie dans le fichier design-mise-en-page-flexbox.jpg
+  - Appliquer les propriétés que nous avons vues en cours notamment les propriétés relatives au modèle de boite
+  - Découvrir certaines fonctionnalités de la propriété flexbox
+  - Découvrir de nouvelles pseudo-classes
+  Note : Il vous faudra impérativement rajouter des balises / classes CSS pour réussir cette pratique 
+-->
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,34 +13,169 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP4 — Site flexbox</title>
+    <title>TP Flexbox — Consignes</title>
 
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
 </head>
 
 <body>
     <header>
-        <h1 class="h1">Consignes et buts de la pratique</h1>
-        <section class="consignes-conteneur">
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Consignes</h1>
+            </summary>
             <ul class="liste-consignes">
                 <li>
-                    Partir du code fourni et le transformer pour qu'il ressemble au fichier
-                    "design-mise-en-page-flexbox.jpg/.psd" fourni
-                </li>
-                <li>
-                    Réaliser son "premier" site
-                </li>
-                <li>
-                    Voir plus en détails la propriété flexbox et d'autres propriétés liées
-                </li>
-                <li>
-                    Apprendre les bonnes pratiques de développement de site web
-                </li>
-                <li>
-                    Découvrir les outils de débuggage
+                    Complétez le fichier index.html pour qu'il ressemble <b>au plus proche</b> au fichier
+                    "maquette-flexbox.jpg/.psd" fourni
+                    <ul>
+                        <li>
+                            Pour le texte en bas de page (après la grande image), il vous faudra également rajouter la
+                            structure HTML. Les textes ne sont pas soulignés pour rien, utilisez la balise appropriée
+                        </li>
+                        <li>
+                            La grande image en bas de la maquette représente une vidéo youtube. A implémenter quand vous
+                            aurez fini la mise en
+                            page des parties du haut (voire partie "pour aller plus loin" pour plus d'infos)
+                        </li>
+                        <li>
+                            Votre travail concernera principalement l'édition du fichier CSS
+                            ("ressources/css/style.css") à propos de flexbox.
+                            <ul>
+                                <li>
+                                    Avant de développer. Pensez bien à utiliser la console du navigateur pour mieux comprendre
+                                    le code fourni
+                                </li>
+                                <li>
+                                    Les images sont déjà dimensionnées correctement. Les problèmes se situent
+                                    principalement au niveau de la structure de flexbox. Propriétés CSS manquantes
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </section>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Pour aller plus loin</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>Ajoutez un favicon au site avec l'image de votre choix
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Glossary/Favicon" target="_blank"
+                                rel="noopener noreferrer">
+                                Qu'est-ce qu'un favicon ? (ouverture dans un nouvel onglet)
+                            </a></li>
+                        <li>
+                            <a href="https://favicon.io/" target="_blank" rel="noopener noreferrer">Générateur de
+                                favicon (ouverture dans un nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Vidéo Youtube
+                    <ul>
+                        <li>
+                            Ajoutez une vidéo (de votre choix) en provenance de Youtube
+                            <ul>
+                                <li>
+                                    <b>Ne pas télécharger la vidéo,</b> la vidéo doit être embarquée (cherchez sur le
+                                    web comment faire)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Rendre la video youtube responsive
+                            <ul>
+                                <li>
+                                    <a href="https://yesyouweb.com/video-youtube-responsive/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Voir tutorial pour rendre une vidéo Youtube responsive
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Ajoutez une version sombre du site (pensez bien aux contrastes). <b>Il faudra impérativement
+                        utiliser des variables CSS. Ne pas utiliser du javascript</b>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/prefers-color-scheme"
+                                target="_blank" rel="noopener noreferrer">
+                                Documentation de la règle at "prefers-color-scheme"
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css
+                            " target="_blank" rel="noopener noreferrer">
+                                Exemple de la règle at "prefers-color-scheme"
+                            </a>
+                        </li>
+                        <li>Regardez la présentation sur les trucs et astuces sur le cours pour activer/désactiver le
+                            mode sombre avec la console du navigateur</li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Pour aller encore plus loin</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>
+                    Mettre des liens sur les pâtisseries en bas de page, elles doivent afficher une nouvelle page
+                    reprenant la photo de la pâtisserie, un texte descriptif (de votre choix, vous pouvez prendre une
+                    courte citation de la page wikipédia) et un prix
+                    <ul>
+                        <li>Vous devez utilisez la même page pour afficher chaque pâtisserie. <br>
+                            <b>Vous devez impérativement utiliser le langage de programmation PHP</b>
+                        </li>
+                        <li>Rappelez-vous des notions suivantes :
+                            <ul>
+                                <li>Les paramètres GET dans une URL</li>
+                                <li>
+                                    Les structures tableaux et dictionnaires pour stocker vos données
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Conseils / Aides</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>
+                    Prenez bien le temps d'observez le site avec la console du navigateur.
+                </li>
+                <li>
+                    Utilisez le panneau de droite de la console du navigateur (après avoir sélectionné un élément)
+                    pour tester des choses en CSS rapidement ou comprendre le rôle de certaines propriétés
+                </li>
+                <li>Pensez à la technique du zoning. N'hésitez pas à dessiner sur les fichiers de maquette</li>
+                <li>
+                    Liens qui peuvent vous aider concernant flexbox :
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank"
+                                rel="noopener noreferrer">
+                                Accéder à la documentation de Flexbox (ouverture dans un nouvel onglet)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://flexboxfroggy.com/#fr" target="_blank" rel="noopener noreferrer">
+                                Rejouer à flexboxfroggy pour revoir le fonctionnement des propriétés (ouverture
+                                dans un nouvel onglet)
+                            </a>
+                        </li>
+                        <li>Vous pouvez également aller voir les liens mis dans la présentation du TP</li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
     </header>
 </body>
 

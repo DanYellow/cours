@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --purple: #ff00c6;
+  --couleur-arriere-plan: #f5f5f5;
+}
+
+body,
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  background-color: var(--couleur-arriere-plan);
+}
+
+body {
+  max-width: 1100px; /* Notre site ne peut pas avoir une largeur supérieure à 1100px */
+  margin: 0 auto;
+  padding: 2rem 1.875rem 0;
+}
+
+.titre-principal {
+  text-align: center;
+  font-size: 6.875rem;
+  font-weight: bold;
+  text-shadow: 5px 5px 0px var(--purple);
+  margin-bottom: 2.625rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.description::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 25%;
+  height: 3px;
+  background-color: var(--purple);
+  margin-top: 1.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.liste-patisseries-principales {
+  display: flex;
+  margin-top: 2.5rem;
+  margin-bottom: 3.75rem;
+  row-gap: 2rem;
+}
+
+.conteneur-patisserie {
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.conteneur-patisserie img {
+  border-radius: 0.8rem;
+}
+
+.conteneur-patisserie .titre {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  margin-top: 0.9rem;
+}
+
+.conteneur-patisserie .description {
+  font-size: 1rem;
+}
+
+.conteneur-patisserie .description::after {
+  /* Pour annuler le ::before de la classe "description" qui a une spécificité plus large */
+  content: none;
+}
+
+.liste-patisseries {
+  flex-wrap: wrap;
+}
+
+.liste-patisseries .patisserie {
+  /* 
+    Ici on indique que 
+    notre élément doit occuper 25% au maximum 
+  */
+  flex: 0 0 24.0384654%;
+}
+
+.liste-patisseries .patisserie:hover img {
+  transform: rotateZ(15deg) scale(1.5);
+}
+
+.liste-patisseries .titre {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  padding-right: 0.8rem;
+}
+
+.liste-patisseries .img-conteneur {
+  overflow: hidden;
+  border-radius: 0.8rem;
+}
+
+.liste-patisseries img {
+  max-width: 100%;
+  height: auto;
+  transition: 250ms;
+  transform-origin: center;
+}
