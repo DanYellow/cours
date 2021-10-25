@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
-  .consignes-conteneur  {
+  .consignes-conteneur {
     background-color: #333;
     color: white;
   }
@@ -16,7 +16,7 @@
 .consignes-conteneur {
   font-family: Helvetica, Arial, sans-serif;
   padding: 0.75rem;
-  border: .125rem solid #d1d1e5;
+  border: 0.125rem solid #d1d1e5;
   margin: 1rem 0;
   border-radius: 0.5rem;
 }
@@ -61,6 +61,11 @@
   font-size: 1.5rem;
 }
 
+.consignes-conteneur .description {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
 .titre-principal {
   font-size: 2.5rem;
   font-weight: bold;
@@ -68,7 +73,7 @@
   margin-top: 2.5rem;
 }
 
-.banniere {
+.consignes-conteneur .banniere {
   padding: 0.5rem;
   background-color: rgb(255, 161, 94);
   border-bottom: chocolate 2px solid;
@@ -76,11 +81,11 @@
   font-size: 1.25rem;
 }
 
-.banniere .conteneur {
+.consignes-conteneur .banniere .conteneur {
   margin: 0 auto;
 }
 
-kbd {
+.consignes-conteneur kbd {
   background-color: #eee;
   border-radius: 3px;
   border: 1px solid #b4b4b4;
@@ -102,7 +107,7 @@ kbd {
 .liste-consignes ul,
 .consignes-conteneur ul,
 .consignes-conteneur ol,
-.consignes-conteneur .h1, 
+.consignes-conteneur .h1,
 .consignes-conteneur li {
   margin: revert;
   padding: revert;

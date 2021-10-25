@@ -19,3 +19,6 @@
 - ts_pct : (True shooting percentage) Efficacité du joueur au tir (tous tirs confondus)
 - ast_pct : Pourcentage de passes décisives
 - season : Saison concernée
+
+Voir lien pour plus d'informations sur les champs
+https://www.nba.com/stats/help/glossary/ - anglais

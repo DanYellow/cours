@@ -1,0 +1,3 @@
+Certains datasets sont stockés dans des archives car ils ont sont trop trop lourds.
+Par ailleurs, certains datasets sont anglophones ou possèdent des noms de champs qui peuvent être un peu incompréhensibles 
+alors ils sont accompagnés d'un document visant à mieux expliquer certains champs, parfois vous trouverez des liens vers le détail des champs.
