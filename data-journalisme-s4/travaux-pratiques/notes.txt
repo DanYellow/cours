@@ -58,7 +58,8 @@ https://towcenter.gitbooks.io/curious-journalist-s-guide-to-data/content/
 
 Ressources pour authentifier des documents : 
 https://gijn.org/2020/05/14/guide-pour-authentifier-une-video/ 
-https://gijn.org/2019/04/23/trois-techniques-pour-verifier-des-images-via-un-smartphone/ https://gijn.org/six-techniques-pour-verifier-lauthenticite-dun-document/
+https://gijn.org/2019/04/23/trois-techniques-pour-verifier-des-images-via-un-smartphone/
+ https://gijn.org/six-techniques-pour-verifier-lauthenticite-dun-document/
 https://gijn.org/2019/02/14/comment-suivre-la-trace-des-navires/
 
 Identifier bateaux
@@ -87,13 +88,20 @@ https://www.python-graph-gallery.com/
 http://tylervigen.com/spurious-correlations
 
 
-
+https://www.sirene.fr/sirene/public/recherche
 
 Simon Rogers website : https://simonrogers.net/
 Samanthasunne.com (site génial avec des tutos) : https://www.samanthasunne.com/tutorials/
 
+Big data : données qui ne peuvent plus être exploitées par notre ordinateur à cause de :
+- du volume
+- variété
+- vélocité (vitesse de création)
 
 
+https://openrefine.org/download.html
+
+linkurious
 
 
 Utilisation base de données
