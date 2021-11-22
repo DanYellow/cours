@@ -1,108 +1,144 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP6 — Liens</title>
 
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-    <style>
-      .marge-haute {
-        display: block;
-        margin-top: 1300px;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP6 — Liens</title>
 
-  <body>
-    <header>
-      <h1 class="h1">Consignes de la pratique</h1>
-      <details class="consignes-conteneur" open>
-        <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Rajoutez une balise &lt;a> permettant de faire une ancre au sein de
-            cette page. N'oubliez pas l'attribut "href" dont la valeur sera
-            précédée d'un croisillon (#)
-            <ul>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a"
-                  target="_blank"
-                  >Voir documentation de la balise &lt;a> (ouverture dans un
-                  nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a#cr%C3%A9er_un_lien_vers_un_%C3%A9l%C3%A9ment_de_la_m%C3%AAme_page"
-                  target="_blank"
-                >
-                  Voir la documentation de la balise &lt;a> d'un lien vers un
-                  élément de la même page (ouverture dans un nouvel onglet)
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            Rajoutez une balise (de votre choix) et mettez-lui l'attribut id
-            dont la valeur sera égale à la valeur de l'attribut "href" de la
-            balise &lt;a> que vous avez précédemment définie. <br />
-            Note : le défilement ne peut se voir que si votre page est assez
-            haute. Rajoutez la classe "marge-haute" à votre balise cible (celle qu'on doit atteindre au clic) de votre
-            ancre pour créer de la hauteur sur le site et donc voir le
-            déplacement.
-          </li>
-          <li>
-            Cliquez sur votre lien. Vous devriez atteindre la cible de votre
-            ancre (la balise que vous venez de définir).
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Créez un nouveau fichier .html (avec le squelette d'une page) au même niveau que celui-ci</li>
-          <li>Rajoutez un lien (balise &lt;a>) dans ce fichier html</li>
-          <li>
-            Faites pointer (attribut href) ce lien vers le fichier que vous avez crée dans la
-            première étape. La valeur de l'attribut "href" doit donc être égale au nom
-          </li>
-          <li>
-            Cliquez sur votre lien. Vous devriez atteindre la page que vous venez de créer.
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Dans le fichier .html que vous avez crée dans la partie 2
-              <ol>
-                <li>Rajoutez une image (relative ou absolue)</li>
-                <li>Faites pointer cette image vers cette page html (index.html) <br>
-                    Il faudra donc mettre votre balise &lt;img> dans une balise &lt;a>.
-                </li>
-              </ol>
-          </li>
-          <li>
-            Cliquez sur votre image. Vous devriez atteindre la page index.html.
-          </li>
-        </ol>
-      </details>
-    </header>
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <style>
+    .marge-haute {
+      display: block;
+      margin-top: 1300px;
+    }
+  </style>
+</head>
 
-    <main>
-      <!-- Commencer le TP ici -->
-    </main>
-  </body>
+<body>
+  <header>
+    <h1 class="h1">Consignes de la pratique</h1>
+    <details class="consignes-conteneur" open>
+      <summary>
+        <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Rajoutez une balise &lt;a> permettant de faire une ancre au sein de
+          cette page. N'oubliez pas l'attribut "href" dont la valeur sera
+          précédée d'un croisillon (#)
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_blank">Voir documentation de
+                la balise &lt;a> (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a#cr%C3%A9er_un_lien_vers_un_%C3%A9l%C3%A9ment_de_la_m%C3%AAme_page"
+                target="_blank">
+                Voir la documentation de la balise &lt;a> d'un lien vers un
+                élément de la même page (ouverture dans un nouvel onglet)
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Rajoutez une balise (de votre choix) et mettez-lui l'attribut id
+          dont la valeur sera égale à la valeur de l'attribut "href" de la
+          balise &lt;a> que vous avez précédemment définie. <br />
+          Note : le défilement ne peut se voir que si votre page est assez
+          haute. Rajoutez la classe "marge-haute" à votre balise cible (celle qu'on doit atteindre au clic) de votre
+          ancre pour créer de la hauteur sur le site et donc voir le
+          déplacement.
+        </li>
+        <li>
+          Cliquez sur votre lien. Vous devriez atteindre la cible de votre
+          ancre (la balise que vous venez de définir).
+        </li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Créez un nouveau fichier .html (avec le squelette d'une page) au même niveau que celui-ci</li>
+        <li>Rajoutez un lien (balise &lt;a>) dans ce fichier html</li>
+        <li>
+          Faites pointer (attribut href) ce lien vers le fichier que vous avez crée dans la
+          première étape. La valeur de l'attribut "href" doit donc être égale au nom
+        </li>
+        <li>
+          Cliquez sur votre lien. Vous devriez atteindre la page que vous venez de créer.
+        </li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Dans le fichier .html que vous avez crée dans la partie 2
+          <ol>
+            <li>Rajoutez une image (relative ou absolue)</li>
+            <li>Faites pointer cette image vers cette page html (index.html) <br>
+              Il faudra donc mettre votre balise &lt;img> dans une balise &lt;a>.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Cliquez sur votre image. Vous devriez atteindre la page index.html.
+        </li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Rajoutez une pseudo-classe ":hover" sur les liens et changez le style des liens lorsqu'ils sont survolés.
+          <br>
+          Vous pouvez par exemple changer
+          <ul>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/color" target="_blank"
+              rel="noopener noreferrer">
+                La couleur du texte (propriété color) (ouverture dans un nouvel onglet)
+              </a></li>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/font-weight" target="_blank"
+              rel="noopener noreferrer">
+                La graisse du texte (propriété font-weight) (ouverture dans un nouvel onglet)
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration" target="_blank"
+              rel="noopener noreferrer">
+                La décoration du texte (propriété text-decoration) (ouverture dans un nouvel onglet)
+              </a>
+            </li>
+          </ul>
+          <hr>
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/:hover" target="_blank"
+                rel="noopener noreferrer">Documentation de la pseudo-classe ":hover"</a>
+            </li>
+            <li>
+              Rappel : Pour qu'une pseudo-classe soit effective, elle doit être dans une balise &lt;style> ou un fichier CSS externe
+            </li>
+          </ul>
+        </li>
+        <li>
+          Testez-votre code en survolant vos liens, ils devraient changer d'apparence.
+        </li>
+      </ol>
+    </details>
+  </header>
+
+  <main>
+    <!-- Commencer le TP ici -->
+  </main>
+</body>
+
 </html>
