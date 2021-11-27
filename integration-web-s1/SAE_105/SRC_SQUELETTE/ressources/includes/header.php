@@ -3,7 +3,6 @@
         <li>ACCUEIL</li>
         <li>A PROPOS</li>
         <li>CONTACT</li>
-        <li>SUR LES MÉDIAS</li>
     </ul>
 </nav>
 
