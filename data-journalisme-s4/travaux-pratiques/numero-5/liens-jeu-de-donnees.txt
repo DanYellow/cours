@@ -1,0 +1,108 @@
+Rechercher des données, les extraire, les trier et les nettoyer : le tableur, vérifier les données
+Raconter des histoires avec des infographies et des cartes : choisir les bons graphiques en fonction du sujet, datavisualisation
+
+Généralités
+https://gijn.org/
+https://ejc.net/training
+https://journalismcourses.org/
+https://learn.ire.org/free-videos/
+https://newsinitiative.withgoogle.com/training/
+
+
+datajournalism.com : suivre les comptes twitter  d’Alberto Cairo,  Simon rogers et @manhack
+
+https://newsonair.withgoogle.com/gni-live-en
+https://www.intotheminds.com/blog/medias-4-projets-de-data-journalisme-quil-faut-connaitre/
+Fact checking : http://guillaume-rouan.net/blog/2017/09/30/fact-checking-methodes-et-outils/
+Sigma awards : https://sigmaawards.org/
+Travaux d’étudiants en datajournalisme : https://datajournalismelab.fr/
+Représentations cartographiques : https://visionscarto.net/
+https://carto.com/
+Datawrapper
+
+Exemple datavisualisation faite au collège : http://clemi.ac-creteil.fr/spip.php?article714
+Outils OSINT : https://www.lemondeinformatique.fr/actualites/lire-8-outils-osint-pour-le-cyber-renseignement-80484.html
+OSINT – exemples d’enquêtes https://sector035.nl/articles/2020-49
+OSINT généralités : https://osint.link/
+https://osintframework.com/
+https://github.com/jivoi/awesome-osint
+https://osintcurio.us/
+https://www.cjr.org/tow_center_reports/guide-to-osint-and-hostile-communities.php#six
+https://firstdraftnews.org/articles/the-skills-every-digital-investigator-needs/
+
+Démarche de l’OSINT https://medium.com/secjuice/osint-as-a-mindset-7d42ad72113d
+
+enquêtes Bellingcat et guides https://www.bellingcat.com/category/resources/how-tos/
+
+Outils investigation utilisés par journalistes : https://gijn.org/2020/12/15/my-favorite-tools-2020-top-investigative-journalists-tell-us-what-theyre-using/
+Outils datajournalistes : https://www.journaliststoolbox.org/2021/06/28/online_journalism/
+Ressources pour débuter en datajournalisme : https://www.americanpressinstitute.org/publications/reports/strategy-studies/data-resources/
+Recherche avancée : https://start.me/p/b56G5Q/search-engines?locale=fr
+https://www.lorandbodo.com/blog/constructing-searchqueries-osint
+https://lecoledurecrutement.fr/liste-complete-operateurs-booleens-recrutement/
+https://www.manhack.net/
+
+
+Investigations sur Twitter https://www.eeie.fr/webinar-eeie-09-investigations-sur-twitter/
+Wedodata https://wedodata.fr/index.php
+Datahub https://old.datahub.io/dataset
+Cours journalisme dont datajournalisme https://www.kccourses.org/
+Alternatives Google : https://nomoregoogle.com/
+
+Ressources investigations https://ijec.org/car-and-data-syllabi/
+
+Travail sur les données https://schoolofdata.org/
+https://towcenter.gitbooks.io/curious-journalist-s-guide-to-data/content/
+
+
+
+Ressources pour authentifier des documents : 
+https://gijn.org/2020/05/14/guide-pour-authentifier-une-video/ 
+https://gijn.org/2019/04/23/trois-techniques-pour-verifier-des-images-via-un-smartphone/
+ https://gijn.org/six-techniques-pour-verifier-lauthenticite-dun-document/
+https://gijn.org/2019/02/14/comment-suivre-la-trace-des-navires/
+
+Identifier bateaux
+globalfishingwatch.org : récupérer code mmsi – que bateau de pêches
+marinetraffic.com : toutes les flottes
+
+Ressources datajournalistes
+https://www.europeandatajournalism.eu/fre/
+
+https://journaliststudio.google.com/?fbclid=IwAR0gksw04Q_CvyeT8y4XU9MtdWHTRVNAaTi7z9QDCXliCs0fSpkXIYw5CEg
+
+Exemples et outils datavisualisation https://public.tableau.com/fr-fr/s/authors#!/
+https://informationisbeautiful.net/
+https://datavizcatalogue.com/
+http://www.infographicsblog.com/
+https://www.littlemissdata.com/blog/data-storytelling
+https://www.theguardian.com/data
+https://www.texastribune.org/series/news-apps-graphics-databases/
+
+Conditions climatiques : https://openfacto.fr/2019/02/02/les-releves-meteorologiques-en-sources-ouvertes/
+
+Choisir le bon graphique : http://www.infographicsblog.com/chart-suggestions-a-thought-starter-andrew-abela/
+
+https://datavizcatalogue.com/
+https://www.python-graph-gallery.com/
+http://tylervigen.com/spurious-correlations
+
+
+https://www.sirene.fr/sirene/public/recherche
+
+Simon Rogers website : https://simonrogers.net/
+Samanthasunne.com (site génial avec des tutos) : https://www.samanthasunne.com/tutorials/
+
+Big data : données qui ne peuvent plus être exploitées par notre ordinateur à cause de :
+- du volume
+- variété
+- vélocité (vitesse de création)
+
+
+https://openrefine.org/download.html
+
+linkurious
+
+
+Utilisation base de données
+Vérification informations

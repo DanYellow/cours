@@ -1,6 +1,4 @@
-- https://www.leparisien.fr/val-d-oise-95/covid-19-la-cinquieme-vague-impose-le-retour-du-masque-en-exterieur-dans-le-val-doise-26-11-2021-UCHFC66APBGATCQPOJFOVNOYYA.php
-
-- https://www.franceinter.fr/economie/faciliter-le-teletravail-la-deputee-frederique-lardet-propose-un-titre-teletravail-de-600-euros-par-an
+Insee 
 
 - https://www.lesechos.fr/monde/europe/covid-leurope-ferme-ses-frontieres-face-au-nouveau-variant-dafrique-du-sud-1367312
 
@@ -15,3 +13,11 @@
 - https://www.lexpress.fr/actualite/societe/en-images-les-parisiens-fuient-la-capitale-pour-se-mettre-au-vert_2121121.html
 
 - https://www.capital.fr/votre-argent/bientot-autant-de-pacses-que-de-maries-en-france-1359622
+
+
+ec.europa.eu
+- https://www.francebleu.fr/infos/economie-social/covid-19-le-teletravail-en-hausse-ces-dernieres-semaines-1617861436
+
+
+data.gouv.fr
+- https://www.leparisien.fr/val-d-oise-95/covid-19-la-cinquieme-vague-impose-le-retour-du-masque-en-exterieur-dans-le-val-doise-26-11-2021-UCHFC66APBGATCQPOJFOVNOYYA.php
