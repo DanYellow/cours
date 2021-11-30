@@ -2,3 +2,7 @@ Liste de sites où des données open sources sont proposées, et ce, de façon g
 - https://opendata.socrata.com/
 - https://github.com/fivethirtyeight/data
 - https://www.data.gouv.fr/fr/
+- https://data.education.gouv.fr/
+- https://data.world/datasets/
+- https://data.europa.eu/data/datasets?locale=fr
+- https://www.insee.fr/fr/statistiques?debut=0&categorie=3
