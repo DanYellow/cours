@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!-- https://umap.openstreetmap.fr/fr/map/carte-tp-data-journalisme_687541 -->
 
 <head>
   <meta charset="UTF-8" />
@@ -90,7 +91,8 @@
           <p>Remarquez que l'enregistrement a fait changer l'url du navigateur et a affiché une URL dans une popup
             pensez bien à la garder de côté pour pouvoir éditer votre carte plus tard</p>
           <p>Si vous perdez cette URL, il vous faudra exporter la carte puis la réimporter. Pour exporter la carte, il
-            faudra cliquer sur l'icône <img src="images/capture-6.png" style="margin: 0;" alt=""> (menu de gauche), exporter la carte
+            faudra cliquer sur l'icône <img src="images/capture-6.png" style="margin: 0;" alt=""> (menu de gauche),
+            exporter la carte
             depuis le panneau apparu à droite. Et le fichier au format .umap devra être importé. Pensez à réenregistrer
             la carte pour avoir une nouvelle URL secrète.</p>
           <figure>
@@ -110,8 +112,10 @@
         <ol class="liste-consignes">
           <li>
             <p>
-              Sélectionnez l'option "Importer des données" et importez le fichier "alimconfiance95.csv" contenu dans la ressource. Ce fichier
-              contient les résultats des contrôles officiels réalisés en matière de sécurité sanitaire des aliments depuis
+              Sélectionnez l'option "Importer des données" et importez le fichier "alimconfiance95.csv" contenu dans la
+              ressource. Ce fichier
+              contient les résultats des contrôles officiels réalisés en matière de sécurité sanitaire des aliments
+              depuis
               le 1er mars 2017 dans le Val-d'Oise (le document original contient plus de données, mais on a filtré le
               document avec pandas et fait quelques modifications au niveau des colonnes).
             </p>
@@ -120,42 +124,67 @@
                   href="https://www.data.gouv.fr/fr/datasets/resultats-des-controles-officiels-sanitaires-dispositif-dinformation-alimconfiance/">Voir
                   source du dataset (ouverture dans un nouvel onglet)</a></li>
             </ul>
-            <p>Si tout s'est bien passé, vous devriez voir des points apparaître sur votre carte (comme l'image ci-dessous), ils représentent les entrées du jeu de données. Le bandeau d'erreur n'est pas très important, c'est juste que le fichier a mal été nettoyé.</p>
+            <p>Si tout s'est bien passé, vous devriez voir des points apparaître sur votre carte (comme l'image
+              ci-dessous), ils représentent les entrées du jeu de données. Le bandeau d'erreur n'est pas très important,
+              c'est juste que le fichier a mal été nettoyé.</p>
             <img src="images/capture-8.png" width="1000" alt="">
-            <p>Notez un point sur cette fonctionnalité d'import de fichiers csv. Il faut impérativement qu'il contienne les colonnes "lon" et "lat" pour qu'il puisse savoir où placer vos points.</p>
+            <p>Notez un point sur cette fonctionnalité d'import de fichiers csv. Il faut impérativement qu'il contienne
+              les colonnes "lon" et "lat" pour qu'il puisse savoir où placer vos points.</p>
           </li>
         </ol>
         <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
-          <p>Génial. Nous avons nos points. Enregistrez la carte puis cliquez sur "Désactiver l'édition". Si on clique sur les points, ça n'affiche pas le nom du lieu. Changeons ceci.</p>
+          <p>Génial. Nous avons nos points. Enregistrez la carte puis cliquez sur "Désactiver l'édition". Si on clique
+            sur les points, ça n'affiche pas le nom du lieu. Changeons ceci.</p>
         </section>
         <ol class="liste-consignes" start="2">
           <li>
-            <p>Cliquez sur "Gérer gérer les calques". Ceci devrait afficher le panneau latéral et n'afficher qu'un seul calque. Cliquez sur l'icône éditeur (voir image ci-dessous)</p>
-            <img src="images/capture-9.png"  width="1000" alt="">
+            <p>Cliquez sur "Gérer gérer les calques". Ceci devrait afficher le panneau latéral et n'afficher qu'un seul
+              calque. Cliquez sur l'icône éditeur (voir image ci-dessous)</p>
+            <img src="images/capture-9.png" width="1000" alt="">
           </li>
           <li>
-            <p>Cliquez sur "Option d'interaction". Dans "Gabarit du contenu de la popup", il vous est donné la possibilité de définir ce qui doit être affiché dans la popup, le tout fonctionne via un système de templating, vous pourrez trouver plus de détails en cliquant sur le point t'interrogation à côté de "Gabarit du contenu de la popup".</p>
-            <p>Si on regarde le contenu, uMap affiche la valeur des colonnes "name" et "description" pour chaque point or si on regarde notre fichier (voir image ci-dessous), on remarque que ces clés n'existent pas.</p>
-            <img src="images/capture-10.png"  width="1000" alt="">
+            <p>Cliquez sur "Option d'interaction". Dans "Gabarit du contenu de la popup", il vous est donné la
+              possibilité de définir ce qui doit être affiché dans la popup, le tout fonctionne via un système de
+              templating, vous pourrez trouver plus de détails en cliquant sur le point t'interrogation à côté de
+              "Gabarit du contenu de la popup".</p>
+            <p>Si on regarde le contenu, uMap affiche la valeur des colonnes "name" et "description" pour chaque point
+              or si on regarde notre fichier (voir image ci-dessous), on remarque que ces clés n'existent pas.</p>
+            <img src="images/capture-10.png" width="1000" alt="">
           </li>
-          <li>Modifiez le contenu de l'option "Gabarit du contenu de la popup" de façon à afficher le nom de l'établissement. Pensez à enregistrer puis désactiver l'édition pour valider vos modifications.</li>
-          <li>Expérimentez. Essayez d'afficher d'autres choses. Pensez à enregistrer puis désactiver l'édition pour valider vos modifications.</li>
+          <li>Modifiez le contenu de l'option "Gabarit du contenu de la popup" de façon à afficher le nom de
+            l'établissement. Pensez à enregistrer puis désactiver l'édition pour valider vos modifications.</li>
+          <li>Expérimentez. Essayez d'afficher d'autres choses. Pensez à enregistrer puis désactiver l'édition pour
+            valider vos modifications.</li>
         </ol>
         <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
-          <p>Nous savons désormais comment éditer le contenu de nos popups, nous en avons assez pour mettre des cartes interactives dans nos articles de presse. Nous allons voir comment faire des clusters (groupement) de points pour améliorer la lisibilité.</p>
+          <p>Nous savons désormais comment éditer le contenu de nos popups, nous en avons assez pour mettre des cartes
+            interactives dans nos articles de presse. Nous allons voir comment faire des clusters (groupement) de points
+            pour améliorer la lisibilité.</p>
         </section>
         <ol class="liste-consignes" start="6">
           <li>
-            <p>Retournez sur sur "Gérer gérer les calques". Ceci devrait afficher le panneau latéral et n'afficher qu'un seul calque. Cliquez sur l'icône éditeur (voir plus haut). Cliquez sur la liste déroulante "Type de calque" et sélectionnez "Avec cluster" (voir image ci-dessous)</p>
-            <img src="images/capture-11.png"  width="1000" alt="">
-            <p>L'activation de cette option reste facultative, normalement l'outil est censé pouvoir décider par défaut dépendamment du nombre de points</p>
+            <p>Retournez sur sur "Gérer gérer les calques". Ceci devrait afficher le panneau latéral et n'afficher qu'un
+              seul calque. Cliquez sur l'icône éditeur (voir plus haut). Cliquez sur la liste déroulante "Type de
+              calque" et sélectionnez "Avec cluster" (voir image ci-dessous)</p>
+            <img src="images/capture-11.png" width="1000" alt="">
+            <p>L'activation de cette option reste facultative, normalement l'outil est censé pouvoir décider par défaut
+              dépendamment du nombre de points</p>
           </li>
         </ol>
         <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
-          <p>Nous savons importer des fichiers, nous avons éditer le contenu des popups, faire des clusters. Il nous manque plus qu'à afficher notre carte ailleurs. Alors oui, nous pouvons partager le lien actuel, mais nous pouvons aussi afficher notre carte dans une page web.</p>
+          <p>Nous savons importer des fichiers, nous avons éditer le contenu des popups, faire des clusters. Il nous
+            manque plus qu'à afficher notre carte ailleurs. Alors oui, nous pouvons partager le lien actuel, mais nous
+            pouvons aussi afficher notre carte dans une page web.</p>
         </section>
         <ol class="liste-consignes" start="7">
-          <li>Cliquez sur le bouton de partage dans le menu de gauche <img src="images/capture-6.png" style="margin: 0;" alt="">. Ceci va afficher un panneau à droite, copiez le contenu de la zone de texte et collez-le dans ce ficher dans la balise &lt;main>. Sauvegardez le fichier et actualisez la page, vous devriez voir votre carte.</li>
+          <li>Cliquez sur le bouton de partage dans le menu de gauche <img src="images/capture-6.png" style="margin: 0;"
+              alt="">. Ceci va afficher un panneau à droite, copiez le contenu de la zone de texte et collez-le dans ce
+            ficher dans la balise &lt;main>. Sauvegardez le fichier et actualisez la page, vous devriez voir votre
+            carte.
+            <ul class="liste-consignes" >
+              <li>Note : La carte ne s'affichera pas si cette page web ne tourne pas sur un serveur (php/nodejs...)</li>
+            </ul>
+          </li>
         </ol>
       </summary>
     </details>
