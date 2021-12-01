@@ -1,0 +1,619 @@
+,APP_Libelle_etablissement,Adresse_2_UA,Code_postal,Libelle_commune,Numero_inspection,Date_inspection,APP_Libelle_activite_etablissement,Synthese_eval_sanit,Agrement,filtre,lat,lon
+908,PETIT BATEAU,198 AV DE LA DIVISION LECLERC,93430,VILLETANEUSE,16165428,2021-09-17T02:00:00+02:00,_,Satisfaisant,,,48.951416,2.342849
+1123,MARCHE EGYPTE,32 AV JEAN JAURES,93500,Pantin,21-055392-1,2021-07-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.901345,2.389855
+1198,SOCIETE GUERRIDA,7 RUE HENRI MAILLARD,93220,Gagny,21-051739-1,2021-06-15T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.884827,2.534815
+1277,BOUCHERIE DU TASSILI,97 RUE ROBESPIERRE,93170,Bagnolet,21-026061-1,2021-03-30T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.862528,2.419361
+1302,BOUCHERIE MADOUNI,57 AVENUE DE LA REPUBLIQUE,93140,Bondy,21-026327-1,2021-03-29T02:00:00+02:00,Métier de bouche,Très satisfaisant,,,48.900148,2.479499
+1316,CLINIQUE DU BOIS D'AMOUR,"19, AVENUE DU BOIS D'AMOUR",93700,Drancy,21-038568-1,2021-05-17T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.913431,2.459911
+1319,CLINIQUE DU BOIS D'AMOUR,"19, AVENUE DU BOIS D'AMOUR",93700,Drancy,21-038574-1,2021-05-17T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.913431,2.459911
+1322,O'DELICES PANTIN,129 AVENUE JEAN LOLIVE,93500,Pantin,21-039922-1,2021-05-19T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.892936,2.4114
+1437,I.E.M. APF,23 RUE DE L UNIVERSITE,93160,Noisy-le-Grand,21-039987-1,2021-05-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.836975,2.554322
+1548,CHICKEN FACTORY,81 BD MAXIME GORKI,93240,Stains,20-088238-1,2020-12-09T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.950455,2.385838
+1592,ALIMENTATION DE LA GARE,ALIMENTATION DE LA GARE,93380,Pierrefitte-sur-Seine,21-007770-1,2021-01-27T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.968316,2.359784
+1594,CRISPY CHICKEN - LE CHATEAU ROUGE,44 AV DES BEAUDOTTES,93270,Sevran,21-055903-1,2021-07-12T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.945218,2.519355
+1607,SI RESTAURATION COLLECTIVE BLANC MESNIL,"6, rue Gustave Roussy",93150,Le Blanc-Mesnil,21-020451-1,2021-03-11T01:00:00+01:00,Restauration collective,Très satisfaisant,93007005,Restauration collective,48.945378,2.474545
+1675,MF DISTRIBUTION,61 RUE DANIELLE CASANOVA,93200,Saint-Denis,21-055920-3,2021-07-12T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.926181,2.366761
+1721,DARE WOK,46 AVENUE HENRI BARBUSSE,93700,Drancy,21-027003-1,2021-03-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.916711,2.44509
+1760,MF DISTRIBUTION,61 RUE DANIELLE CASANOVA,93200,Saint-Denis,21-055920-2,2021-07-12T02:00:00+02:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,48.926181,2.366761
+1829,LPC - LIVRAISON,67 RUE ANDRE KARMAN,93300,Aubervilliers,21-040427-1,2021-05-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906684,2.384339
+1875,COLLEGE CLOS SAINT VINCENT,3 Mail du Clos Saint-Vincent,93160,Noisy-le-Grand,20-085333-1,2020-12-04T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.845327,2.55486
+1879,SEPT BR,10 RUE DE LA FRATERNITE,93230,Romainville,21-074690-1,2021-09-20T02:00:00+02:00,Restauration collective,Très satisfaisant,93063001,Restauration collective,48.877102,2.445614
+1887,COEUR ET MAIN TENDUE,21 RUE DE LORRAINE,93200,Saint-Denis,21-036779-1,2021-05-05T02:00:00+02:00,Commerce alimentaire,Satisfaisant,,,48.925394,2.368521
+1900,LE PAIN D'OR,10 CHE DE SAVIGNY,93270,Sevran,21-070456-1,2021-09-07T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.940838,2.522316
+2090,MONTREUIL VIANDE 1,1 RUE DIDIER DAURAT,93100,Montreuil,21-029399-1,2021-04-13T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.870897,2.452337
+2173,P.N.F,217 AVENUE HENRI BARBUSSE,93700,Drancy,21-030704-1,2021-03-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.922463,2.456537
+2175,ASIAFRO CHICKEN KING,145 RUE RATEAU,93120,La Courneuve,21-072121-1,2021-09-08T02:00:00+02:00,Entreposage non spécialisé de denrées alimentaires,Satisfaisant,,,48.924896,2.414678
+2260,MIAM MIAM,2 PAS MARCEAU,93400,Saint-Ouen-sur-Seine,21-040880-1,2021-05-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.901526,2.342706
+2585,CRISPY CHICKEN - LE CHATEAU ROUGE,44 AV DES BEAUDOTTES,93270,Sevran,21-057029-1,2021-07-12T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.945218,2.519355
+2600,ABIRA ALIMENTATION,79 RUE DE STRASBOURG,93200,Saint-Denis,21-057023-1,2021-07-12T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.936413,2.370147
+2672,DOUDOU FOOD-TRUCK,13 RUE RENE THUILLIER,93700,Drancy,21-086830-1,2021-10-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.927566,2.440555
+2729,SALAISONS MAURIAC,17 RUE MAURICE PAILLARD,93430,Villetaneuse,21-029795-1,2021-04-13T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,93079001,,48.954327,2.34626
+2814,SALAISONS MAURIAC,17 RUE MAURICE PAILLARD,93430,Villetaneuse,21-029795-3,2021-04-13T02:00:00+02:00,Entreposage de viande de boucherie,Satisfaisant,93079001,,48.954327,2.34626
+2870,SO FOODS,1 AV DE LA REPUBLIQUE,93800,Épinay-sur-Seine,21-041557-1,2021-05-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.952971,2.316091
+2878,S.B POISSONNERIE,marché couvert de la courneuve,93120,La Courneuve,21-047588-1,2021-05-28T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,,
+2948,CIRAGAN,47 AV HENRI BARBUSSE,93700,Drancy,21-041589-1,2021-05-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.916582,2.444458
+2961,MASSALA LOUNGE,80 AVENUE EMILE COSSONNEAU,93160,Noisy-le-Grand,20-095092-1,2021-02-22T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.849278,2.563755
+3019,ECOLE MTERNELLE PUB V VAN GOGH,ECOLE MTERNELLE PUB V VAN GOGH,93160,Noisy-le-Grand,21-042178-1,2021-05-27T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,,
+3023,BOUCHERIE FIDELE,Marché des 4 Routes,93120,La Courneuve,21-041865-1,2021-05-28T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,,
+3041,CIVIL MARVIN,8 RUE DU PONT DE PIERRE,93500,Pantin,21-057548-1,2021-07-16T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.914693,2.408703
+3076,LE DELICE ORIENTAL,Marché des 4 routes.,93120,La Courneuve,21-042198-1,2021-05-28T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+3091,TE - CREATEUR D'INSTANTS,"216, rue de Rosny",93100,Montreuil,21-051254-1,2021-06-29T02:00:00+02:00,Restauration collective,Satisfaisant,93048703,Restauration collective,48.867945,2.460953
+3102,RESIDENCE AUTONOMIE CAMILLE BARROY,"15, 31 rue Jean Mermoz",93110,Rosny-sous-Bois,21-071408-1,2021-09-09T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.879558,2.487816
+3119,LE GARGOTIER,123 RUE DU DOCTEUR BAUER,93400,Saint-Ouen-sur-Seine,21-042153-1,2021-05-31T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.905802,2.343631
+3343,CUISINE CENTRALE DEPARTEMENTALE JEAN LURCAT,22 RUE D'ALEMBERT,93200,Saint-Denis,21-053582-1,2021-06-25T02:00:00+02:00,Restauration collective,Très satisfaisant,93066779,Restauration collective,48.935525,2.380057
+3358,CRECHE DEPARTEMENTALE,"4, rue Guynemer",93440,Dugny,20-087073-1,2020-12-10T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.954815,2.419528
+3431,SARL ABM ENTREPRISE,63 AVENUE EDOUARD VAILLANT,93500,Pantin,21-006953-1,2021-01-27T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.901359,2.394069
+3485,OLAB FOOD,126 ALLEE DE MONTFERMEIL,93390,Clichy-sous-Bois,21-076000-1,2021-09-22T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.897234,2.532511
+3648,DAO FOOD,109 AVENUE JEAN JAURES,93300,Aubervilliers,20-095661-1,2021-03-30T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906534,2.394921
+3714,DELICE DES PAINS,RUE DE SAVOIE,93330,Neuilly-sur-Marne,20-093281-1,2021-01-07T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.868616,2.530603
+3718,LES 3 AMIS,109 AV MICHELET,93400,Saint-Ouen-sur-Seine,20-095036-1,2021-02-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.904586,2.34435
+3728,ASCM,8 RUE DES ROULETTES,93100,Montreuil,20-084886-1,2020-12-02T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.860672,2.432196
+3751,LA MAISON BLEUE - VAUJOURS,18 RUE RABELAIS,93410,Vaujours,20-091196-1,2020-12-22T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.939217,2.570849
+3829,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-6,2021-03-02T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,93027080,,48.928748,2.385314
+3835,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-4,2021-03-02T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,93027080,,48.928748,2.385314
+3881,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-5,2021-03-02T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.928748,2.385314
+3884,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-3,2021-03-02T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,,,48.928748,2.385314
+3957,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-2,2021-03-02T01:00:00+01:00,Transport de denrées alimentaires,Satisfaisant,,,48.928748,2.385314
+3960,DAVIMA,80 AVENUE DU GENERAL LECLERC,93120,La Courneuve,21-017793-1,2021-03-02T01:00:00+01:00,Transformation de produits de la pêche,Satisfaisant,93027080,,48.928748,2.385314
+4017,SODEXO ENTREPRISES,2 RUE GALIEN,93400,Saint-Ouen-sur-Seine,21-049110-1,2021-06-22T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.907096,2.318791
+4043,BOUCHERIE DE LA GARE,4 AV FRANCIS DE PRESSENSE,93350,Le Bourget,21-092776-1,2021-11-17T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.932246,2.425128
+4144,ELLA PRONTO,75 RUE JULES AUFFRET,93500,Pantin,20-096369-1,2021-06-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.884694,2.411369
+4172,PETIT CAMEROUN,19 RUE EUGENE MASSE,93190,Livry-Gargan,21-060398-1,2021-07-28T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.924501,2.544796
+4474,KUAILE,21 RUE DU DR ROUX,93120,La Courneuve,20-095346-1,2021-03-10T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,48.923683,2.406918
+4709,SARL T & B,3 AVENUE DES PRIMEVERES,93270,Sevran,21-044013-1,2021-06-03T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.940393,2.519824
+4758,ASSOCIATION MERKAZ HATORAH,29 Chemin des Bourdons,93220,Gagny,20-094868-1,2021-02-03T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.888352,2.528525
+4848,ECOLE MATERNELLE PUB JOLIOT CURIE,Rue Henri-Barbusse,93440,Dugny,21-008424-1,2021-02-02T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.955555,2.415269
+4927,RIMAL PARIS,205 AVENUE DU PRESIDENT WILSON,93210,Saint-Denis,21-068604-5,2021-08-31T02:00:00+02:00,Entreposage de produits de la pêche,Satisfaisant,93066001,,48.91319,2.357899
+4944,EXPLOITATION HAMON,ETAL MARCHE RUE DAMOISELET,93130,Noisy-le-Sec,21-059094-1,2021-07-23T02:00:00+02:00,Commerce alimentaire,Satisfaisant,,,48.890877,2.455358
+5031,MD VIANDE,42 RUE DE MARSEILLE,93800,Épinay-sur-Seine,20-085288-1,2020-12-02T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.958771,2.293872
+5170,I.M.E TOULOUSE LAUTREC,RUE MICHEL ANGE,93600,Aulnay-sous-Bois,21-045222-1,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.955297,2.487791
+5183,RIMAL PARIS,205 AVENUE DU PRESIDENT WILSON,93210,Saint-Denis,21-068604-1,2021-08-31T02:00:00+02:00,Découpe de viande de boucherie,Satisfaisant,93066001,,48.91319,2.357899
+5310,AGADIR,51 AV JEAN JAURES,93300,Aubervilliers,21-045181-1,2021-06-09T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.90352,2.39165
+5446,ABCT  ALIMENTATION GENERALE,17 rue de la Tournelle,93410,Vaujours,21-037265-1,2021-05-11T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.932938,2.576609
+5541,LYES,36 RUE DU CAPITAINE DREYFUS,93100,Montreuil,21-045503-1,2021-06-10T02:00:00+02:00,Traiteur,A améliorer,,Traiteur,48.858945,2.439175
+5658,AMARA,3 PL DU COMMERCE,93330,Neuilly-sur-Marne,21-053884-1,2021-07-06T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.868316,2.532427
+5703,CHICKEN SPOT,CHICKEN SPOT,93330,Neuilly-sur-Marne,21-050239-1,2021-06-24T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.864605,2.537616
+5828,SOGAROX,Place du 8 mai 1945,93120,La Courneuve,21-046012-1,2021-05-28T02:00:00+02:00,Poissonnerie,Très satisfaisant,,Poissonnerie,48.920362,2.410498
+5876,RESTAURANT KATHMANDU,1 RUE MARC VIEVILLE,93250,Villemomble,21-031507-1,2021-04-21T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.883036,2.511985
+5897,BUN' S HUMMERS,30 AVENUE ROGER SALENGRO,93290,Tremblay-en-France,21-076755-1,2021-09-22T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.941885,2.573331
+5969,BOUCHERIE DES FRERES A.O.,marché couvert des 4 routes,93120,La Courneuve,21-046395-1,2021-05-28T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+6000,LELLA MERYAM,14 RUE BERTHIER,93500,Pantin,21-017962-1,2021-03-02T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,48.901273,2.392832
+6193,VERED,VERED,93700,Drancy,21-048397-1,2021-06-17T02:00:00+02:00,Traiteur,A améliorer,,Traiteur,48.926024,2.444902
+6207,RIMAL PARIS,205 AVENUE DU PRESIDENT WILSON,93210,Saint-Denis,21-068604-2,2021-08-31T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,93066001,,48.91319,2.357899
+6345,LE VOLAILLER DE LA COURNEUVE,marché des 4 routes,93120,La Courneuve,21-047302-1,2021-05-28T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+6369,COLLEGE PASTEUR,"110, GRANDE RUE",93250,Villemomble,21-048668-1,2021-06-18T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.882686,2.515456
+6430,BOUCHERIE DJURDJURA,51 AV PAUL VAILLANT COUTURIER,93120,La Courneuve,21-082079-1,2021-10-06T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.920506,2.410048
+6437,LYCEE GENERAL TECHNOLOGIQUE G. EIFFEL,16 CHEMIN DE LA RENARDIERE,93220,Gagny,20-085771-1,2020-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.888707,2.541258
+6440,BOUCHERIE LES TILLEULS,14 ALLEE VIOLLET LEDUC,93150,Le Blanc-Mesnil,21-060448-1,2021-07-26T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.948611,2.451817
+6753,LPC LE GRAND,12 BD MONT D EST,93160,Noisy-le-Grand,21-048316-1,2021-06-17T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.844105,2.548388
+6834,BIKER'S FOOD,3 AV DU MARECHAL JOFFRE,93460,Gournay-sur-Marne,21-048501-1,2021-06-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.864414,2.575599
+6926,MINHOTOS DE BRAGA,4 RUE LEDRU ROLLIN,93330,Neuilly-sur-Marne,21-048564-1,2021-06-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.855381,2.533276
+6940,BON EPI,54 T BD FOCH,93800,Épinay-sur-Seine,20-095740-1,2021-04-07T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.949373,2.32978
+6968,OASIS DE TUNIS,89 AVENUE EDOUARD VAILLANT,93500,Pantin,21-096365-1,2021-11-25T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.902817,2.392716
+7062,DNCH 2,51 RUE DU LIEUTENANT THOMAS,93170,Bagnolet,21-077622-1,2021-09-27T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.858522,2.416446
+7086,BM EPI D'OR,236 AV ARISTIDE BRIAND,93320,Les Pavillons-sous-Bois,21-027312-1,2021-04-02T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.910392,2.511878
+7102,CYBER PHONE,8 ALL FRANCIS GARNIER,93270,Sevran,21-049435-1,2021-06-03T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.946598,2.519916
+7212,BANGLA STORE,69 RUE D ORANG,93200,Saint-Denis,21-026872-1,2021-04-01T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.935908,2.367188
+7260,BOUCHERIE DES ANDALOUSES,1 ALL PIERRE DE MONTEREAU,93150,Le Blanc-Mesnil,21-053886-1,2021-07-07T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.949205,2.452254
+7311,DOSSO,56 RUE GAETAN LAMY,93300,Aubervilliers,21-056548-1,2021-07-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.91647,2.366514
+7353,BOUCHERIE 27,46 BD FOCH,93800,Épinay-sur-Seine,20-093633-1,2021-01-14T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.948746,2.330798
+7442,KASSA FOOD AFRIKA,53 RUE DES CITES,93300,Aubervilliers,21-049445-1,2021-06-22T02:00:00+02:00,Libre service|Alimentation générale,A corriger de manière urgente,,Libre service|Alimentation générale,48.90518,2.38706
+7488,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-1,2021-10-13T02:00:00+02:00,Transformation de produits carnés,A améliorer,93005093,,48.948726,2.482342
+7493,TRIPERIE GAUCHET FRANCK,rue OTTINO,93400,Saint-Ouen-sur-Seine,21-052068-1,2021-06-18T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.904657,2.332274
+7547,HUNGRY,74 RUE DE MITRY,93600,Aulnay-sous-Bois,21-049653-1,2021-06-22T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.94056,2.50287
+7604,VILLE,28 GRANDE RUE,93250,Villemomble,21-029811-1,2021-04-14T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.8836,2.511242
+7616,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-2,2021-10-13T02:00:00+02:00,Transformation de produits carnés,A améliorer,93005093,,48.948726,2.482342
+7778,ROSNY SOLEIL,RUE PHILIBERT HOFFMANN,93110,Rosny-sous-Bois,20-090006-1,2020-12-16T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.881032,2.485998
+7837,ASS  GESTION CTRE TOULOUSE-LAUTREC,RUE MICHEL ANGE,93600,Aulnay-sous-Bois,21-045204-1,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,93005286,Restauration collective,48.955297,2.487791
+7884,JESIKA SARL,46 rue Marcellin Berthelot,93120,La Courneuve,21-050400-1,2021-06-24T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.920881,2.414941
+7886,RESTAURANT UNIV LES VERGERS/CUISINE CENTRALE,"99, AVENUE JEAN BAPTISTE CLÉMENT",93430,Villetaneuse,21-054663-1,2021-07-07T02:00:00+02:00,Restauration collective,Satisfaisant,93079009,Restauration collective,48.956595,2.338335
+7896,CLEMENT LIVRY GARGAN,2 AVENUE DE LA REPUBLIQUE,93190,Livry-Gargan,21-077157-1,2021-09-21T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.90821,2.517925
+7993,LM,21 RUE DES ECOLES,93300,Aubervilliers,21-051002-1,2021-06-25T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.905279,2.387579
+8150,ASS  GESTION CTRE TOULOUSE-LAUTREC,RUE MICHEL ANGE,93600,Aulnay-sous-Bois,21-045248-1,2021-06-08T02:00:00+02:00,Transport de denrées alimentaires,Très satisfaisant,,,48.955297,2.487791
+8184,NADIR,27 RUE AUGUSTE DELAUNE,93200,Saint-Denis,21-037257-1,2021-05-11T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.936557,2.347892
+8240,ARPAVIE,64 AVENUE DU MARECHAL FOCH,93360,Neuilly-Plaisance,21-065361-1,2021-08-18T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.861246,2.508034
+8241,ARTHUR-ANNA,34 AVENUE DE CHAMPS,93460,Gournay-sur-Marne,21-051113-1,2021-06-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.85937,2.581087
+8255,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-5,2021-06-08T02:00:00+02:00,"VH, VSM, préparation viandes volailles lagomorphes",Satisfaisant,93027003,,48.924893,2.403623
+8276,GRANDE NATURE,1 AVENUE DU DOCTEUR SCHAFFNER,93270,Sevran,21-031055-1,2021-04-20T02:00:00+02:00,Libre service|Alimentation générale,Très satisfaisant,,Libre service|Alimentation générale,48.936512,2.512612
+8285,MEENUHA,34 RUE MARCELIN BERTHELOT,93120,La Courneuve,21-050943-1,2021-06-24T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.921072,2.414335
+8303,AKR CASH & CARRY,33 RUE MAURICE LACHATRE,93120,La Courneuve,21-050961-1,2021-06-24T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.920655,2.415016
+8327,LE FOURNIL DE GABRIEL/HOUMANI,2 RUE AUGUSTE POULLAIN,93200,Saint-Denis,20-089339-1,2020-12-16T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.940724,2.356285
+8459,L'ALLIANCE,95 BD ROBERT BALLANGER,93420,Villepinte,21-057162-1,2021-07-16T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.954973,2.537108
+8515,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-2,2021-06-08T02:00:00+02:00,Découpe de viandes de volailles/lagomorphe,Satisfaisant,93027003,,48.924893,2.403623
+8527,B.L. 93,7 PL CHALGRIN,93150,Le Blanc-Mesnil,21-051677-1,2021-06-22T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.948229,2.452009
+8534,DESBOYAUX SARA,2 AVENUE DE STALINGRAD,93240,Stains,21-050135-1,2021-06-22T02:00:00+02:00,Production d'abats,Satisfaisant,93072005,,48.947526,2.375416
+8535,BOULANGERIE LE FESTIVAL,41 RUE ETIENNE MARCEL,93500,Pantin,20-088897-1,2020-12-15T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,48.894593,2.403965
+8609,BOUCHERIE HAYAT,120 RUE HELENE COCHENNEC,93300,Aubervilliers,20-089568-1,2020-12-16T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.919973,2.394455
+8660,LA MAISON KANGOUROU PN2,"22, avenue des Nations",93420,Villepinte,21-011930-1,2021-02-16T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.97341,2.508361
+8668,LE FOURNIL DE ROUGEMONT,2 RUE PIERRE BROSSOLETTE,93270,Sevran,20-084815-1,2020-12-01T01:00:00+01:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.933571,2.511027
+8807,S.M ALIMENTATION,107 AV DU GENERAL DE GAULLE,93330,Neuilly-sur-Marne,21-051637-1,2021-06-10T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.858005,2.533403
+8816,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-1,2021-06-08T02:00:00+02:00,Découpe de viande de boucherie,Satisfaisant,93027003,,48.924893,2.403623
+8840,P.S.K ALIMENTATION,23 RUE DES POSTES,93300,Aubervilliers,20-084609-1,2020-12-01T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.903415,2.389511
+8912,KIM SAN,11 ALL CLEMENCET,93340,Le Raincy,21-024268-1,2021-03-22T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.889735,2.512723
+8952,ROSSE,125 RUE DIDEROT,93700,Drancy,21-091055-1,2021-11-09T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.919724,2.428826
+8959,CHARLY INDUSTRIE SERVICE,"15, BOULEVARD JEANNE D'ARC",93512,Montreuil,21-038414-3,2021-05-18T02:00:00+02:00,Transformation de produits de la pêche,Très satisfaisant,93048357,,48.855421,2.445356
+8962,CHARLY INDUSTRIE SERVICE,"15, BOULEVARD JEANNE D'ARC",93512,Montreuil,21-038414-1,2021-05-18T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Très satisfaisant,93048357,,48.855421,2.445356
+8971,CHARLY INDUSTRIE SERVICE,"15, BOULEVARD JEANNE D'ARC",93512,Montreuil,21-038414-2,2021-05-18T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,93048357,,48.855421,2.445356
+9083,BOUCHERIE DU ROND POINT,51 AVENUE ARISTIDE BRIAND,93240,Stains,21-033729-1,2021-04-29T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.962513,2.379193
+9108,BOUCHERIE DE LA MAIRIE BOUCHERIE DE BAGNOLET,41 RUE SADI CARNOT,93170,Bagnolet,21-084668-1,2021-10-18T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.868318,2.418846
+9128,ICADE PROPERTY MANAGEMENT,50 AVENUE DU PRESIDENT WILSON,93210,Aubervilliers,21-058742-1,2021-07-22T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.903814,2.35904
+9131,DRANCY VIANDE 2M,Rue OTTINO,93400,Saint-Ouen-sur-Seine,21-052246-1,2021-06-18T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.904657,2.332274
+9182,ARPAVIE,4 PROMENADE DE LA BASILIQUE,93200,Saint-Denis,20-085073-1,2020-12-03T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.942614,2.385538
+9267,SARL LA VICTOIRE,45 AV ARISTIDE BRIAND,93190,Livry-Gargan,21-052909-1,2021-06-29T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.911089,2.515127
+9291,ANKA GROUPE,AEROPORT DE PARIS BOURGET,93350,Le Bourget,21-082787-4,2021-10-13T02:00:00+02:00,Entreposage non spécialisé de denrées alimentaires,Très satisfaisant,93013003,,48.944426,2.432786
+9305,CHARLY INDUSTRIE SERVICE,"15, BOULEVARD JEANNE D'ARC",93512,Montreuil,21-038414-4,2021-05-18T02:00:00+02:00,Préparation de produits composés,Très satisfaisant,,,48.855421,2.445356
+9316,MOMEN MOHAMED,13 RUE FERRAGUS,93300,Aubervilliers,20-085843-1,2020-12-07T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.914081,2.379998
+9321,CAT,2 RUE 18 JUIN 1940,93110,Rosny-sous-Bois,21-053151-1,2021-07-05T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.863288,2.491451
+9449,INSTANT GOURMAND,6 ROND POINT DE MONTFERMEIL,93340,Le Raincy,20-093931-1,2021-01-20T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.895827,2.526158
+9509,CHEZ JARRE,39 RTE DE SEVRAN,93420,Villepinte,21-052967-1,2021-06-29T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.950859,2.532672
+9515,ANKA GROUPE,AEROPORT DE PARIS BOURGET,93350,Le Bourget,21-082787-3,2021-10-13T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Très satisfaisant,93013003,,48.944426,2.432786
+9518,ANKA GROUPE,AEROPORT DE PARIS BOURGET,93350,Le Bourget,21-082787-2,2021-10-13T02:00:00+02:00,Découpe de viandes de volailles/lagomorphe,Très satisfaisant,93013003,,48.944426,2.432786
+9521,ANKA GROUPE,AEROPORT DE PARIS BOURGET,93350,Le Bourget,21-082787-1,2021-10-13T02:00:00+02:00,Découpe de viande de boucherie,Très satisfaisant,93013003,,48.944426,2.432786
+9539,LES CUISTOTS MIGRATEURS,22 RUE CONDORCET,93100,Montreuil,21-091604-1,2021-11-10T01:00:00+01:00,Restauration collective,Très satisfaisant,93048008,Restauration collective,48.858466,2.445152
+9567,SABINE EVENTS SERVICES,24 avenue du Belvédère,93310,Le Pré-Saint-Gervais,21-060341-1,2021-07-29T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.880296,2.41034
+9603,ASSIL,4 BD BOISSIERE,93230,Romainville,21-071569-1,2021-09-09T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.87857,2.450157
+9675,DELICES DE BAGNOLET,26 RUE SADI CARNOT,93170,Bagnolet,20-086366-1,2020-12-07T01:00:00+01:00,Boulangerie-Pâtisserie,Très satisfaisant,,Boulangerie-Pâtisserie,48.867374,2.418327
+9687,NOUR,85 AV EDOUARD VAILLANT,93000,Bobigny,20-095650-1,2021-03-26T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.910588,2.46626
+9892,COLLEGE HONORE DE BALZAC,65 RUE PAUL ET CAMILLE THOMOUX,93330,Neuilly-sur-Marne,20-086816-1,2020-12-07T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.860691,2.530283
+9904,L' ETOILE DE TUNIS,42  RUE MAGENTA,93500,Pantin,20-093477-1,2021-01-11T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.900355,2.394753
+9960,LA TRADITION,8 RUE LAPEROUSE,93500,Pantin,20-091581-1,2020-12-28T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.900475,2.393401
+9961,CHEZ TANTY,137 B AV DE STALINGRAD,93240,Stains,20-093512-1,2021-01-12T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.952646,2.388983
+10049,LE BAL PERDU,2 RUE CHARLES GRAINDORGE,93170,Bagnolet,21-054332-1,2021-07-06T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.868558,2.417654
+10127,SOCIETE FRANCAISE DE RESTAURATION ET SERVICES,8 BD EMILE ZOLA,93390,Clichy-sous-Bois,20-086733-1,2020-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.905884,2.552493
+10151,BOULANGERIE SAINT MARTIN,88 AVENUE DE LA REPUBLIQUE,93300,Aubervilliers,20-094363-1,2021-01-25T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.907535,2.388053
+10298,LYCEE POLYVALENT HENRI SELLIER,"73, avenue du Colonel Fabien",93190,Livry-Gargan,20-090050-1,2020-12-16T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.918285,2.516013
+10314,SUPER VIANDE 2,3 PL ANTOINE RENARD,93160,Noisy-le-Grand,20-095242-1,2021-01-26T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.838787,2.573555
+10427,LUCKY WOK,RTE DES PETITS PONTS,93270,Sevran,21-055039-1,2021-07-08T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.950311,2.525143
+10454,SOCIETE FRANCAISE DE RESTAURATION ET SERVICES,8 BD EMILE ZOLA,93390,Clichy-sous-Bois,20-086733-2,2020-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.905884,2.552493
+10455,O'BRAS,8 RUE AUGUSTE GILLOT,93200,Saint-Denis,21-022006-1,2021-03-16T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.940138,2.35523
+10517,COLLEGE ARETHA FRANKLIN,85 RUE JULIAN GRIMAU,93700,Drancy,20-089102-1,2020-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.923927,2.420747
+10630,CHICKEN SPOT,77 RUE SADI CARNOT,93170,Bagnolet,21-061126-1,2021-06-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.870227,2.420145
+10658,SAM MARKET,41 RUE DE PARIS,93100,Montreuil,21-013797-1,2021-02-22T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.857671,2.434356
+10732,MAISON GUERRIDA,34 AV OUTREBON,93250,Villemomble,21-018567-1,2021-03-04T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.888789,2.511155
+10761,L' EPI D' ORIENT,67 AV DU PRESIDENT WILSON,93200,Saint-Denis,21-077805-1,2021-09-29T02:00:00+02:00,Boulangerie-Pâtisserie,A corriger de manière urgente,,Boulangerie-Pâtisserie,48.910524,2.35757
+10783,LA PERLE BLEUE,PLACE ROSA PARKS,93300,Aubervilliers,21-072558-1,2021-09-14T02:00:00+02:00,Poissonnerie,A améliorer,,Poissonnerie,,
+10788,NTA POISSONNERIE,,93300,Aubervilliers,21-072568-1,2021-09-14T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.912832,2.386579
+10878,ECOLE ELEMENTAIRE PUB VICTOR HUGO,ECOLE ELEMENTAIRE PUB VICTOR HUGO,93000,Bobigny,21-011007-1,2021-02-11T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.900831,2.43891
+10972,LES 2 AMIS,62 AVENUE EDOUARD VAILLANT,93500,Pantin,21-072785-1,2021-09-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.902629,2.393594
+10979,BO BUN,43-45-RUE DE LA HAIE COQ,93300,Aubervilliers,21-050772-1,2021-06-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.90758,2.37302
+10988,BOULANGERIE PATISSERIE CHOISYENNE,13 PLACE DE LA GARE,93250,Villemomble,21-019118-1,2021-03-08T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.889289,2.510857
+11029,LA ROSERAIE (SARL),"143, avenue Henri Barbusse",93700,Drancy,21-042980-1,2021-06-01T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.920089,2.451681
+11049,119 ROYAL CHICKEN,119 AVENUE DE STALINGRAD,93240,Stains,21-041592-1,2021-05-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.951493,2.387739
+11129,GRILL ISTANBUL,8 BD CARNOT,93250,Villemomble,21-010885-1,2021-02-11T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,48.888963,2.512161
+11191,ETOILE 2000,78 Avenue Jean Jaures,93700,Drancy,21-068287-1,2021-08-30T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.919935,2.450975
+11220,CHARCUTERIE DU CENTRE,place Rosa PARKS,93300,Aubervilliers,21-072936-1,2021-09-14T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+11272,LE CHEVAL D'OR,10 PLACE DU GENERAL LECLERC,93600,Aulnay-sous-Bois,20-096300-1,2021-05-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.927754,2.490302
+11279,STREET FOOD,44 AVENUE LOUIS ARAGON,93000,Bobigny,21-065265-1,2021-08-03T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.91413,2.439638
+11296,ALDI MARCHE,20 RUE GENIN,93200,Saint-Denis,21-073227-1,2021-09-15T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.929289,2.353967
+11307,LINE,194 BD THEOPHILE SUEUR,93100,Montreuil,21-011805-1,2021-02-10T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.86247,2.46596
+11358,BOUCHERIE ABZ,"98, avenue Gabriel-Péri",93400,Saint-Ouen-sur-Seine,21-027566-1,2021-04-02T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.90492,2.3313
+11458,DESBOYAUX SARA,2 AVENUE DE STALINGRAD,93240,Stains,21-050135-2,2021-06-22T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,93072005,,48.947526,2.375416
+11487,BOUCHERIE DES FRERES A.O.,Place Rosa PARKS,93300,Aubervilliers,21-073491-1,2021-09-14T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+11497,CHICKEN STREET,162 BD DE LA BOISSIERE,93100,Montreuil,21-011832-1,2021-02-10T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.877358,2.461534
+11560,CRECHE COLLECTIVE HENRY DUNANT,10 AVENUE LEON BLUM,93330,Neuilly-sur-Marne,21-050891-2,2021-06-28T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.869323,2.538195
+11574,ECOLE MATERNELLE VICTOR HUGO,"31, rue Gabriel",93270,Sevran,21-044517-1,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.932547,2.53008
+11607,EFES,15 BD DE LA REPUBLIQUE,93130,Noisy-le-Sec,21-073716-1,2021-09-16T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.895522,2.461824
+11643,CHECK BOBY,42 RUE DE PARIS,93380,Pierrefitte-sur-Seine,21-086701-1,2021-10-20T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.966486,2.361286
+11663,SOLVAY OPERATIONS FRANCE,52 RUE DE LA HAIE COQ,93300,Aubervilliers,20-095707-1,2021-03-31T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.907518,2.372903
+11814,ROYAL TOKYO,1 RUE DES BERTHAUDS,93110,Rosny-sous-Bois,21-068715-1,2021-08-31T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.874527,2.484061
+11851,PLACOPLATRE,354 RUE DE MEAUX,93410,Vaujours,21-081982-1,2021-10-11T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.937742,2.595057
+11884,MER SEA - MER SEA IGLOO,60 RUE FRANCIS DE PRESSENSE,93200,Saint-Denis,21-025875-3,2021-03-26T01:00:00+01:00,Préparation de produits composés,Satisfaisant,,,48.924164,2.372936
+11939,ECOLE MATERNELLE PUB ANNE FRANCK,RUE ANNE FRANK,93000,Bobigny,20-086605-1,2020-12-09T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.904573,2.442548
+12025,TMF SERVICE IVOIRE,6 RUE PAUL ELUARD,93200,Saint-Denis,20-096893-1,2021-09-28T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.938764,2.349998
+12059,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-3,2021-04-29T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,,,48.901776,2.389007
+12070,Etablissement Public de Service d'Aide par le Travail Henry MARSO,64/66  rue Robespierre,93105,Montreuil,21-078192-3,2021-09-16T02:00:00+02:00,Transport de denrées alimentaires,Très satisfaisant,,,,
+12087,ISATIS,211 AV JEAN JAURES,93300,Aubervilliers,21-058607-1,2021-07-22T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.913875,2.402993
+12112,ELA,55 RUE DE PARIS,93100,Montreuil,21-006714-1,2021-01-26T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.857528,2.433562
+12120,M.S,10 AV LENINE,93380,Pierrefitte-sur-Seine,21-013612-1,2021-02-18T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.962196,2.358914
+12124,HALAL FRIED CHIKEN,106 AVENUE DE LA REPUBLIQUE,93300,Aubervilliers,21-030712-1,2021-04-19T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.906358,2.389195
+12245,LAJUGIE HERVE,place de l'église Saint SULPICE,93600,Aulnay-sous-Bois,21-026657-1,2021-03-17T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.920526,2.511991
+12304,POISSONNERIE NEIGE,rue Roger Salengro,93700,Drancy,21-013300-1,2021-02-16T01:00:00+01:00,Poissonnerie,Très satisfaisant,,Poissonnerie,48.917627,2.436241
+12360,DASSONVILLE,rue Roger Salengro,93700,Drancy,21-013410-1,2021-02-16T01:00:00+01:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.917627,2.436241
+12361,LE COCON,77 AVENUE DU MARECHAL FOCH,93460,Gournay-sur-Marne,21-009690-1,2021-02-08T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.861774,2.566631
+12480,AUX DELICES D'ITALIE,MARCHE COUVERT DE LA COURNEUVE,93120,La Courneuve,21-012429-1,2021-02-17T01:00:00+01:00,Commerce alimentaire,Très satisfaisant,,,,
+12497,AU QG,3 RUE DE VARSOVIE,93140,Bondy,21-074263-1,2021-09-17T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.893387,2.478343
+12531,SJM SUPERETTE,30 rue beaufils,93120,La Courneuve,21-013539-1,2021-02-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.926734,2.382131
+12588,ATMO,130 RTE DE MITRY,93600,Aulnay-sous-Bois,21-010463-1,2021-02-10T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.943106,2.506481
+12695,JP MARKET,9 BD MICHELET,93130,Noisy-le-Sec,21-074641-1,2021-09-16T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.889047,2.457533
+12702,ECOLE ELEMENTAIRE PUB E HERRIOT,10 AVENUE ARISTIDE BRIAND,93360,Neuilly-Plaisance,21-071057-1,2021-09-08T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.87215,2.510537
+12750,BOULANGERIE BREAD ET MUST,151 BD VICTOR HUGO,93400,Saint-Ouen-sur-Seine,20-094876-1,2021-02-08T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.904606,2.322091
+12802,CAO VAN,PLACE JEAN JAURES,93200,Saint-Denis,21-059090-1,2021-07-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.936519,2.357625
+12848,LE ROYAL TOKYO,4 RUE EUGENE MASSE,93190,Livry-Gargan,21-078274-1,2021-09-30T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.923434,2.544792
+12861,LE CORSAIRE,9 RUE DE L EGLISE,93100,Montreuil,20-092005-1,2020-12-29T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.863889,2.442297
+12946,COMPTOIR DU PAIN,37 RUE DANIELLE CASANOVA,93200,Saint-Denis,20-096455-1,2021-06-11T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.927977,2.363387
+13026,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-4,2021-06-08T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,93027003,,48.924893,2.403623
+13030,SIP SARL,209 RTE DE SAINT LEU,93800,Épinay-sur-Seine,21-059435-1,2021-07-26T02:00:00+02:00,Libre service|Alimentation générale,A corriger de manière urgente,,Libre service|Alimentation générale,48.956344,2.331942
+13053,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-7,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.924893,2.403623
+13081,BOUCHERIE DE L AVENUE,63 AVENUE JEAN LOLIVE,93500,Pantin,20-095694-1,2021-03-30T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.89157,2.404068
+13090,VIVRE AUTREMENT,89 RUE BENOIT FRACHON,93000,Bobigny,21-092451-1,2021-11-16T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.902357,2.430022
+13111,KOSKAS & FILS,53 RUE ANDRE KARMAN,93300,Aubervilliers,21-034984-1,2021-06-14T02:00:00+02:00,Transformation de produits de la pêche,A améliorer,93001066,,48.905932,2.384125
+13228,PIZZA FEU DE BOIS,50 RUE MAXIMILIEN ROBESPIERRE,93600,Aulnay-sous-Bois,21-070281-1,2021-09-06T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.946288,2.499479
+13278,RYOMA sarl,107 BIS GRANDE RUE,93250,Villemomble,21-077680-1,2021-09-28T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.882678,2.517429
+13331,LA MAISON BLEUE NOISY,1 RUE DU CENTRE,93160,Noisy-le-Grand,21-046335-1,2021-06-09T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.838472,2.545376
+13420,LE COMPTOIR,50 RUE MAXIMILIEN ROBESPIERRE,93600,Aulnay-sous-Bois,21-070310-1,2021-09-06T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.946288,2.499479
+13426,AUX DELICES DE BONDY,31 RUE JULES GUESDE,93140,Bondy,21-075434-1,2021-09-22T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.903797,2.477238
+13569,COLLEGE HONORE DE BALZAC,65 RUE PAUL ET CAMILLE THOMOUX,93330,Neuilly-sur-Marne,20-086801-1,2020-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,93050006,Restauration collective,48.860691,2.530283
+13575,LIMAWA PAIN & TRADITION,61 RUE DU RHIN,93110,Rosny-sous-Bois,21-000454-1,2021-01-05T01:00:00+01:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.867723,2.497849
+13608,COLLEGE HONORE DE BALZAC,65 RUE PAUL ET CAMILLE THOMOUX,93330,Neuilly-sur-Marne,20-086801-2,2020-12-07T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.860691,2.530283
+13702,ARMOR CUISINE,2 à 12 RUE LAVOISIER,93000,Bobigny,21-085906-1,2021-10-21T02:00:00+02:00,Restauration collective,Très satisfaisant,93008008,Restauration collective,48.902387,2.433409
+13782,ARMOR CUISINE,2 à 12 RUE LAVOISIER,93000,Bobigny,21-085909-1,2021-10-21T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.902387,2.433409
+13792,CROUSTI POULET,7 PL DES ARCADES,93800,Épinay-sur-Seine,21-007088-1,2021-01-27T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.958474,2.327321
+13795,SAMARA,57 AV DU MARECHAL LECLERC,93190,Livry-Gargan,21-061130-1,2021-07-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.919534,2.538564
+13807,ARIAM,2 B RTE D ARGENTEUIL,93800,Épinay-sur-Seine,21-001384-1,2021-01-06T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,48.961569,2.294669
+13828,ORGANISME GESTION ETS J.B.DE LA SALLE,6-8 place de la Résistance,93200,Saint-Denis,21-014852-1,2021-01-07T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.932783,2.355016
+13831,WOK GRILL,2 BD DU MARECHAL FOCH,93330,Neuilly-sur-Marne,21-061308-1,2021-08-02T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.854153,2.520262
+13861,ORGANISME GESTION ETS J.B.DE LA SALLE,6-8 place de la Résistance,93200,Saint-Denis,21-014852-4,2021-01-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.932783,2.355016
+13905,ILYAN,148 AV JEAN JAURES,93800,Épinay-sur-Seine,21-008328-1,2021-02-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.958388,2.325805
+13966,CUISINE CENTRALE DEPARTEMENTALE ANATOLE FRANCE,53 AV GEORGES BACH,93320,Les Pavillons-sous-Bois,21-080693-1,2021-09-30T02:00:00+02:00,Restauration collective,Très satisfaisant,93057167,Restauration collective,48.911728,2.496581
+13995,COJEAN SAS,50 RUE ARDOIN,93400,Saint-Ouen-sur-Seine,21-019446-1,2021-02-25T01:00:00+01:00,Restauration collective,Satisfaisant,93070002,Restauration collective,48.911625,2.325091
+14057,M'THAI,70 RUE DE LA COMMUNE DE PARIS,93300,Aubervilliers,21-040615-1,2021-05-27T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.909385,2.378933
+14180,ORGANISME GESTION ETS J.B.DE LA SALLE,6-8 place de la Résistance,93200,Saint-Denis,21-014852-2,2021-01-07T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.932783,2.355016
+14198,H.B FISH,Place Jean JAURES,93200,Saint-Denis,21-074283-1,2021-09-17T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.936171,2.357118
+14210,ORGANISME GESTION ETS J.B.DE LA SALLE,6-8 place de la Résistance,93200,Saint-Denis,21-014852-3,2021-01-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.932783,2.355016
+14270,P. K.,23 AV ARISTIDE BRIAND,93320,Les Pavillons-sous-Bois,21-061472-1,2021-06-24T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.908053,2.494454
+14275,SYND INTERCOMMUNAL POUR LA RESTAURATION COLLECTIVE,68 RUE GALLIENI,93000,Bobigny,21-010442-1,2021-02-08T01:00:00+01:00,Restauration collective,Satisfaisant,93008017,Restauration collective,48.902205,2.434399
+14330,ECOLE PRIMAIRE SEVIGNE,1 ALL DE SEVIGNE,93270,Sevran,21-033480-1,2021-04-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.940436,2.537781
+14366,TELMMA,268 avenue du président Wilson,93200,Saint-Denis,21-088454-1,2021-10-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,,
+14466,RESIDENCE PERSONNES AGEES LA CERISAIE,18 AVENUE JEAN JAURES,93220,Gagny,21-038223-2,2021-05-18T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.884204,2.531545
+14548,MY PRO CENTER,16 RUE SAINT ANDRE,93000,Bobigny,21-028673-1,2021-03-31T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,,,48.904595,2.425086
+14569,NOSAMIS,32 RUE BERNARD,93000,Bobigny,21-009172-1,2021-01-15T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.902571,2.427423
+14633,SYND INTERCOMMUNAL POUR LA RESTAURATION COLLECTIVE,68 RUE GALLIENI,93000,Bobigny,21-010442-2,2021-02-08T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.902205,2.434399
+14807,BOITON ET RABAIN,Place Jean Jaurès,93200,Saint-Denis,21-074274-1,2021-09-17T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.936171,2.357118
+14848,BOUCHERIE DES TROIS COMMUNES,23 ROUTE DE MONTREUIL,93230,Romainville,21-003416-1,2021-01-12T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.877256,2.4495
+14971,MOLDOVAN,26 BD ROBERT SCHUMAN,93190,Livry-Gargan,21-063401-1,2021-06-29T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.930574,2.555559
+14981,O 3 SIGNATURE LINANI,65 grande rue,93250,Villemomble,21-021443-1,2021-03-11T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.882914,2.513961
+15012,CLINIQUE AMBROISE PARE,2 AV JEAN MOULIN,93140,Bondy,21-062144-1,2021-08-05T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.893056,2.492006
+15093,SUYED,4 RUE ERNEST PREVOST,93300,Aubervilliers,21-009169-1,2021-01-06T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.9023,2.389248
+15096,SUYED,4 rue Ernest Prévost,93300,Aubervilliers,21-009131-1,2021-01-06T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.9023,2.389248
+15217,JLM SERVICES,54 AV MICHELET,93400,Saint-Ouen-sur-Seine,21-041735-1,2021-05-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908863,2.343994
+15251,STE MARTHE,1 RUE DU LIEUTENANT LEBRUN,93000,Bobigny,21-087058-1,2021-10-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.906583,2.440112
+15276,NOVAEDIA,29 RUE D AMIENS,93240,Stains,21-006678-2,2021-01-26T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.952477,2.369281
+15303,GUEROULT THIERRY,41 AV MOUTIER,93190,Livry-Gargan,21-012424-1,2021-02-17T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.925572,2.536242
+15385,NOSAMIS,32 RUE BERNARD,93000,Bobigny,21-009173-1,2021-01-15T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,,,48.902571,2.427423
+15390,RESIDENCE MARIE,91 AVENUE DE LA REPUBLIQUE,93170,Bagnolet,21-083437-1,2021-10-14T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.860427,2.420869
+15483,LA BAGUETTE DU CHAMPY/ AFRICANFOOD,allée duj bataillon Hildevert,93160,Noisy-le-Grand,21-064063-1,2021-08-12T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.843408,2.577721
+15491,LA TRADITION GOURMANDE,49 RUE AUGUSTE POULLAIN,93200,Saint-Denis,20-093141-1,2021-01-06T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.940724,2.356285
+15505,CHEZ LA GAZELLE,50 avenue Victor HUGO,93320,Les Pavillons-sous-Bois,21-071384-1,2021-09-09T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908959,2.515893
+15531,COLLEGE REPUBLIQUE,66-84 rue de la République,93000,Bobigny,21-019347-1,2021-03-04T01:00:00+01:00,Restauration collective,A améliorer,,Restauration collective,48.906847,2.434377
+15533,HOPITAL DE JOUR 93G04 LA COURNEUVE,6 ALLEE DU VERCORS,93120,La Courneuve,21-032869-1,2021-04-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.931493,2.396723
+15600,NOSAMIS,32 RUE BERNARD,93000,Bobigny,21-009174-1,2021-01-15T01:00:00+01:00,Entreposage non spécialisé de denrées alimentaires,Très satisfaisant,,,48.902571,2.427423
+15632,NOVAEDIA,29 RUE D AMIENS,93240,Stains,21-051841-1,2021-06-30T02:00:00+02:00,Restauration collective,Très satisfaisant,93072009,Restauration collective,48.952477,2.369281
+15634,KOYUN ELIF,97 RUE GUTENBERG,93700,Drancy,21-064574-1,2021-08-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.920511,2.429054
+15695,MAIRIE COMMUNE DE LIVRY GARGAN,Allée Paul Vieille,93190,Livry-Gargan,21-064068-1,2021-08-11T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.934812,2.54805
+15924,ROULE MA POULE,3 AV DU GENERAL LECLERC,93270,Sevran,21-009445-1,2021-02-05T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.937418,2.528783
+16069,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-3,2021-10-13T02:00:00+02:00,Transformation de produits carnés,A améliorer,93005093,,48.948726,2.482342
+16133,ASSOCIATION DU RESTAURANT INTERENTREPRISES YVOIRE,88 RUE ANDRE JOINEAU,93310,Le Pré-Saint-Gervais,21-064898-1,2021-08-13T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.882607,2.402968
+16135,SOUS-PREFECTURE DU RAINCY,"6, allée de l'Église",93340,Le Raincy,21-070366-1,2021-09-06T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.899334,2.520226
+16146,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-3,2021-06-08T02:00:00+02:00,Vente en gros de viande de boucherie,Satisfaisant,,,48.924893,2.403623
+16155,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-7,2021-10-13T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,A améliorer,93005093,,48.948726,2.482342
+16167,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-6,2021-10-13T02:00:00+02:00,Découpe de viandes de volailles/lagomorphe,A améliorer,93005093,,48.948726,2.482342
+16195,ALEXLION,52 AVENUE DU GENERAL DE GAULLE,93330,Neuilly-sur-Marne,21-039180-1,2021-05-20T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.856486,2.529752
+16240,OVIYAMALAR,45 AV JEAN JAURES,93700,Drancy,21-085984-1,2021-10-14T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.921409,2.449168
+16274,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-5,2021-10-13T02:00:00+02:00,Découpe de viande de boucherie,A améliorer,93005093,,48.948726,2.482342
+16291,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-044645-6,2021-06-08T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,,,48.924893,2.403623
+16366,SARL AOUIDETTS FRERES,4 RUE CLAUDE MONET,93400,Saint-Ouen-sur-Seine,21-027930-1,2021-04-08T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.910979,2.33827
+16381,LYCEE TECHNO ET PROFES BLAISE PASCAL,"18, rue Vieville",93250,Villemomble,21-083667-1,2021-10-14T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.882271,2.511298
+16408,AFRICAN EVASION,68 AV JEAN JAURES,93320,Les Pavillons-sous-Bois,21-092619-1,2021-10-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.905762,2.500665
+16458,G & D,251 AV JEAN JAURES,93300,Aubervilliers,21-082147-1,2021-09-29T02:00:00+02:00,Libre service|Alimentation générale,Très satisfaisant,,Libre service|Alimentation générale,48.917106,2.406365
+16468,ROHIT ALIMENTATION,81 AV DE LA REPUBLIQUE,93300,Aubervilliers,21-005911-1,2021-01-21T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.907706,2.388256
+16607,LE GALANCA,5 PL CECILE BRUNSCHVICG,93500,Pantin,21-065652-1,2021-08-18T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.895047,2.417753
+16645,BOUB ET LES AMIS,42 RUE ANSELME,93400,Saint-Ouen-sur-Seine,21-016625-1,2021-03-01T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.909304,2.335613
+16663,ROTUNDA,1 RUE DU PONT DE PIERRE,93500,Pantin,21-066227-1,2021-08-18T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.914194,2.407566
+16697,TIME ALIMENTATION,146 RUE ANDRE KARMAN,93300,Aubervilliers,21-005931-1,2021-01-21T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.911055,2.38516
+16702,VIHAAN,3 AV HENRI BARBUSSE,93220,Gagny,21-066241-1,2021-08-17T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.884828,2.532747
+16738,SOUN SOUN,AVENUE JEAN MOULIN,93240,Stains,21-031780-2,2021-04-21T02:00:00+02:00,Préparation de produits composés,A améliorer,,,48.958133,2.39437
+16750,GOMATI,13/17 RUE ANDRE JOINEAU,93310,Le Pré-Saint-Gervais,21-030632-1,2021-04-06T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.887299,2.404009
+16803,FERIEL PECHE,Avenue Suzanne BUISSON,93140,Bondy,21-066547-1,2021-08-10T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.914081,2.481139
+16831,DEUX AMIS,230 BOULEVARD ANATOLE FRANCE,93200,Saint-Denis,21-077600-1,2021-09-29T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.917102,2.339915
+16840,MULTI ACCUEIL COLLECTIF MUNICIPAL,4 rue Guynemer,93440,Dugny,21-009211-1,2021-02-04T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.954815,2.419528
+16865,COLLEGE JEAN DE BEAUMONT,30 Rue du Huit Mai 1945,93250,Villemomble,21-039078-1,2021-05-20T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.885492,2.494428
+16874,SOUN SOUN,AVENUE JEAN MOULIN,93240,Stains,21-057306-1,2021-07-16T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,93072338,,48.958133,2.39437
+16921,BOUCHERIE BONNE VILLE,Avenue Suzanne BUISSON,93140,Bondy,21-066554-1,2021-08-10T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.914081,2.481139
+17019,LA BAGUIDA,26 AV ARISTIDE BRIAND,93190,Livry-Gargan,21-066814-1,2021-07-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.912924,2.523588
+17112,LE FOURNIL DE DRANCY,15 RUE ROGER SALENGRO,93700,Drancy,21-082343-1,2021-10-12T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.920682,2.440397
+17179,CRECHE COLLECTIVE HENRY DUNANT,10 AVENUE LEON BLUM,93330,Neuilly-sur-Marne,21-050891-1,2021-06-28T02:00:00+02:00,Restauration collective,Très satisfaisant,93050002,Restauration collective,48.869323,2.538195
+17181,AFPA ENTREPRISES,3 RUE FRANKLIN,93100,Montreuil,21-067171-1,2021-08-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.8618,2.443557
+17231,BETC KITCHEN,1 RUE DE L ANCIEN CANAL,93500,Pantin,21-066806-1,2021-08-24T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.894627,2.416081
+17262,ZAM ZAM,64 RUE DE PARIS,93380,Pierrefitte-sur-Seine,21-011173-1,2021-02-12T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.967268,2.361846
+17293,KHAN BOUCHERIE ALIMENTATION,69 RUE DE PARIS,93380,Pierrefitte-sur-Seine,21-038776-1,2021-05-18T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.966675,2.361293
+17455,B.H.B.,4 - 7 Square Stéphenson,93130,Noisy-le-Sec,21-082070-1,2021-10-06T02:00:00+02:00,Métier de bouche,A améliorer,,,48.887575,2.462318
+17518,ZIYI,11 AV PASTEUR,93290,Tremblay-en-France,21-080606-1,2021-10-06T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.942523,2.571288
+17527,BROCKERS,121 AVENUE DES PIVOINES,93370,Montfermeil,21-007328-1,2021-01-27T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.886319,2.549777
+17548,CHARCUTERIE DES 3 FRERES,27 ALLEE DUGUESCLIN,93600,Aulnay-sous-Bois,21-007342-1,2021-01-27T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.917612,2.493846
+17650,LES DELICES DE SARTROUVILLE,47 RUE LENAIN DE TILLEMONT,93100,Montreuil,21-038794-1,2021-05-18T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.860797,2.45974
+17656,ZIYI,11 AV PASTEUR,93290,Tremblay-en-France,21-068042-1,2021-08-27T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.942523,2.571288
+17706,AGORA,39 RUE MAGENTA,93500,Pantin,21-011049-1,2021-02-12T01:00:00+01:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.900471,2.394604
+17888,PARISIEN EXOTIQUE,8 RUE SOLFERINO,93300,Aubervilliers,21-007676-1,2021-01-06T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.901934,2.388656
+17998,SAFE,82 BOULEVARD MICHELET,93130,Noisy-le-Sec,21-073809-1,2021-09-16T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.893323,2.46121
+18051,BOUCHERIE D'ISTANBUL,4 RUE ALBERT EINSTEIN,93240,Stains,21-068666-1,2021-08-11T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.953484,2.388792
+18106,RIMAL PARIS,205 AVENUE DU PRESIDENT WILSON,93210,Saint-Denis,21-068604-4,2021-08-31T02:00:00+02:00,Préparation de produits composés,Satisfaisant,,,48.91319,2.357899
+18108,MAISON LARCHERON,67 BD DU GENERAL LECLERC,93260,Les Lilas,21-074017-1,2021-09-16T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.881279,2.426663
+18127,BOUCHERIE D'ISTANBUL,4 RUE ALBERT EINSTEIN,93240,Stains,21-068660-1,2021-08-11T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.953484,2.388792
+18170,ASS OUVRIERE COMPAGNON DEVOIR TOUR FRANC,22 RUE DES GRILLES,93500,Pantin,21-068493-1,2021-08-30T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.890469,2.406939
+18195,CUISINE CENTRALE DEPARTEMENTALE DU 9EME COLLEGE,12-26 RUE DES JARDINS DUFOUR,93100,Montreuil,21-008431-2,2021-02-02T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.86739,2.459584
+18209,AR RAHMAN,5 RPT QUESNAY,93320,Les Pavillons-sous-Bois,21-068557-1,2021-08-31T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.914541,2.508184
+18213,CARREFOUR SUPPLY CHAIN,51 RUE DE VERDUN,93120,La Courneuve,21-080845-1,2021-10-07T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,93027005,,48.93125,2.414447
+18292,ZERDA,106 AV DE LA REPUBLIQUE,93300,Aubervilliers,21-069438-1,2021-09-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906358,2.389195
+18313,DAILYFOOD,8 RUE PAUL BERT,93300,Aubervilliers,21-012367-1,2021-02-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.909093,2.389147
+18368,ELIDA,2 AVENUE SAINT REMY,93200,Saint-Denis,21-086672-1,2021-10-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.935643,2.368342
+18494,GANAPATHY,172 AV JEAN JAURES,93000,Bobigny,21-073283-1,2021-09-16T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.908553,2.438112
+18561,ELRES,7 RUE RIGAUD,93350,Le Bourget,21-046984-1,2021-06-15T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.932832,2.420722
+18570,MOLDOVAN,26 BD ROBERT SCHUMAN,93190,Livry-Gargan,21-063399-1,2021-06-29T02:00:00+02:00,Libre service,Très satisfaisant,,Libre service,48.930574,2.555559
+18588,ANADOLU,"12bis, route de Bondy",93600,Aulnay-sous-Bois,20-090578-1,2020-12-17T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.931007,2.493556
+18607,PANTIN,2-8 RUE VAUCANSON,93500,Pantin,20-086220-1,2020-12-08T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.88954,2.40514
+18712,PRIMEVERES,38 RUE D AULNAY,93270,Sevran,21-049594-1,2021-06-03T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.940038,2.51903
+18727,S.F. EUROPEAN MANAGEMENT SAS,CTRE COMMERC BEAUDOTTES,93270,Sevran,21-069923-1,2021-09-03T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.946941,2.522152
+19071,FAIM 2 NIGHT,4 rue de Montreuil à Claye,93130,Noisy-le-Sec,21-070463-1,2021-09-06T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.884774,2.467677
+19111,BOULANGERIE  AUX DELICES,45 AV GABRIEL PERI,93400,Saint-Ouen-sur-Seine,20-092022-1,2020-12-22T01:00:00+01:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.908511,2.332825
+19120,BIG GROUPE,35 RUE MAGENTA,93500,Pantin,21-045266-1,2021-05-25T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.90054,2.394085
+19172,KHAN BOUCHERIE ALIMENTATION,69 RUE DE PARIS,93380,Pierrefitte-sur-Seine,21-047535-1,2021-05-26T02:00:00+02:00,Métier de bouche,Très satisfaisant,,,48.966675,2.361293
+19248,L'EPICERIE DU ROND POINT,5 ROND POINT QUESNAY,93320,Les Pavillons-sous-Bois,21-070839-1,2021-08-31T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.914541,2.508184
+19278,INSTANT SUSHI AUBERVILLIERS,20 RUE DE LA COMMUNE DE PARIS,93300,Aubervilliers,21-010110-1,2021-02-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.913143,2.381559
+19284,GOOD TIME,44 AVENUE JEAN LOLIVE,93500,Pantin,21-020356-1,2021-03-10T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.890651,2.400856
+19319,BOUCHERIE EL MOURADIA,198 RUE DE PARIS,93100,Montreuil,21-022664-1,2021-03-17T01:00:00+01:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,48.855592,2.421927
+19356,NEW ZAIQA,26 AV PAUL VAILLANT COUTURIER,93120,La Courneuve,21-071063-1,2021-09-08T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.919154,2.409149
+19359,DANTON BAR BRASSERIE,91 AV JEAN JAURES,93120,La Courneuve,21-071036-1,2021-09-08T02:00:00+02:00,Boulangerie-Pâtisserie,A corriger de manière urgente,,Boulangerie-Pâtisserie,48.922983,2.406391
+19377,TIAN WEI KAO QUAN YANG,22 RUE VILLEBOIS MAREUIL,93300,Aubervilliers,21-080494-1,2021-10-06T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.912051,2.377662
+19500,LABEL GAMELLE,2 AV PDT SALVADOR ALLENDE,93100,Montreuil,21-010474-3,2021-02-09T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.868927,2.456123
+19514,DUPONT RESTAURATION,15 PRO JEAN ROSTAND,93000,Bobigny,21-026805-1,2021-03-29T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.909151,2.453996
+19532,LA SANDWICHERIE,"3, rue Carnot",93240,Stains,21-043413-1,2021-05-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.955922,2.382632
+19642,SYND INTERCOMMUNAL POUR LA RESTAURATION COLLECTIVE,68 RUE GALLIENI,93000,Bobigny,21-010449-1,2021-02-08T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.902205,2.434399
+19668,TRADITION DES 4 CHEMINS,49 AV JEAN JAURES,93300,Aubervilliers,21-092308-1,2021-11-17T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.903447,2.39157
+19680,SNACK BURGERS,171 RUE DES CITES,93300,Aubervilliers,21-089440-1,2021-11-03T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.913971,2.388632
+19727,LABEL GAMELLE,2 AV PDT SALVADOR ALLENDE,93100,Montreuil,21-010474-2,2021-02-09T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.868927,2.456123
+19813,ECOLE ELEMENTAIRE PUB A ST-EXUPERY,49 - 51 AVENUE DES ROSES,93250,Villemomble,21-026456-1,2021-03-26T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.878063,2.519164
+19840,ELRES,"41, RUE DE LA FOSSE AUX BERGERS",93250,Villemomble,21-026519-3,2021-03-29T02:00:00+02:00,Transport de denrées alimentaires,Très satisfaisant,,,48.885732,2.495221
+19878,ISS BUSINESS,40 AV HENRI BARBUSSE,93700,Drancy,21-026728-1,2021-03-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.916445,2.444543
+19885,ROJIN,2 PL DEGEYTER,93420,Villepinte,21-089843-1,2021-10-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.946964,2.563103
+20010,POINT B,2 RUE JACQUES ANQUETIL,93600,Aulnay-sous-Bois,21-026878-1,2021-02-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.960613,2.497062
+20027,CENTRE MATERNEL,CENTRE MATERNEL,93400,Saint-Ouen-sur-Seine,19-121148-1,2020-12-03T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.90933,2.331549
+20115,SARL LE BARATHEON,1 AVENUE ROMAIN ROLLAND,93200,Saint-Denis,20-096613-1,2021-07-09T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.937506,2.372931
+20202,L'ATELIER DU PAIN,144 AVENUE DE LA REPUBLIQUE,93300,Aubervilliers,21-050658-1,2021-06-22T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.903873,2.391607
+20233,ROYAL SUSHI 93,37 RUE DU CAPITAINE DREYFUS,93100,Montreuil,21-077617-1,2021-09-28T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.859461,2.440178
+20423,LE COMPTOIR DU BOUCHER,427 AV DU 8 MAI 1945,93330,Neuilly-sur-Marne,21-090921-1,2021-10-26T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.86708,2.534003
+20618,RAYAN,233 RUE DE PARIS,93100,Montreuil,21-027764-1,2021-04-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.854927,2.419048
+20631,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-1,2021-04-29T02:00:00+02:00,Découpe de viande de boucherie,Satisfaisant,93001050,,48.901776,2.389007
+20709,COLLEGE PIERRE SEMARD,"85, rue Pierre-Sémard",93000,Bobigny,21-003144-1,2021-01-12T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.910815,2.446534
+20712,ALIMENTATION JEAN JAURES,27 AVENUE JEAN JAURES,93310,Le Pré-Saint-Gervais,21-027736-1,2021-04-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.882877,2.409111
+20755,GAZOUILLIS BOBIGNY,"40, rue Hector Berlioz",93000,Bobigny,21-005170-1,2021-01-19T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.906298,2.453751
+20760,SM ALIMENTATION,87 RUE MICHELET,93100,Montreuil,21-027813-1,2021-04-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.853063,2.42838
+20871,BOUCHERIE DE LA PAIX,84 RUE CHARLES TILLON,93300,Aubervilliers,21-008698-1,2021-02-03T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.918983,2.393705
+20878,CRI,132 BD VICTOR HUGO,93400,Saint-Ouen-sur-Seine,20-094179-1,2021-01-22T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.905384,2.322989
+20951,POURQUOI PAS AUBERVILLIERS,67 RUE ANDRE KARMAN,93300,Aubervilliers,21-040443-1,2021-05-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906684,2.384339
+21183,NATURE,9 BD JEAN JAURES,93400,Saint-Ouen-sur-Seine,21-034856-1,2021-04-30T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.914449,2.337101
+21194,COCOSUN,181 RUE DE PARIS,93100,Montreuil,21-033197-1,2021-04-28T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.85543,2.421872
+21206,ASSOCIATION MERKAZ HATORAH,65 BOULEVARD DU MIDI,93340,Le Raincy,20-095451-1,2021-03-11T01:00:00+01:00,Restauration collective,Satisfaisant,93062009,Restauration collective,48.894261,2.52479
+21232,L'ENTRE-POTES,42 RUE DES ENTREPOTS,93400,Saint-Ouen-sur-Seine,21-034556-1,2021-05-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.902102,2.345633
+21282,CLINIQUE DU PRE SAINT GERVAIS,10 RUE SIMONNOT,93310,Le Pré-Saint-Gervais,21-070825-1,2021-08-18T02:00:00+02:00,Restauration collective,Très satisfaisant,93061027,Restauration collective,48.885014,2.401759
+21298,ASSOCIATION MERKAZ HATORAH,65 BOULEVARD DU MIDI,93340,Le Raincy,20-095452-1,2021-03-11T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.894261,2.52479
+21428,LA MEIDA DU MARCHE,26 RUE GEORGES SEURAT,93600,Aulnay-sous-Bois,21-011032-1,2021-02-02T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.953036,2.498384
+21444,FOYER DEPARTEMENTAL DE L'ENFANCE,Avenue du Président Coty,93420,Villepinte,21-056025-1,2021-07-09T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.956759,2.557708
+21509,LE PALAIS DE LA MER,MARCHE COUVERT DE LA COURNEUVE,93120,La Courneuve,21-047873-1,2021-05-28T02:00:00+02:00,Commerce alimentaire,Très satisfaisant,,,,
+21549,LPH ROMAINVILLE,34 RUE DE LA REPUBLIQUE,93230,Romainville,21-059369-1,2021-07-26T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.882223,2.439557
+21560,COJEAN SAS,50 RUE ARDOIN,93400,Saint-Ouen-sur-Seine,21-019449-1,2021-02-25T01:00:00+01:00,Restauration collective,A améliorer,,Restauration collective,48.911625,2.325091
+21601,LA MEDINA,129 AV PAUL VAILLANT COUTURIER,93120,La Courneuve,21-047286-1,2021-06-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.924787,2.41482
+21608,FIVE PANTIN,19 RUE DU PRE SAINT GERVAIS,93500,Pantin,21-085122-1,2021-10-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.890465,2.403066
+21621,LA BASE,37 RUE DE SEVRAN,93600,Aulnay-sous-Bois,21-019350-1,2021-02-02T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.940571,2.501245
+21749,BOUCHERIE DES MARRONNIERS 3K,1 CHE DE LA TOURELLE,93390,Clichy-sous-Bois,21-075659-1,2021-09-22T02:00:00+02:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,48.908837,2.553746
+21813,MER SEA - MER SEA IGLOO,60 RUE FRANCIS DE PRESSENSE,93200,Saint-Denis,21-025875-2,2021-03-26T01:00:00+01:00,Mareyage et préparation de produits de la pêche,Satisfaisant,93066002,,48.924164,2.372936
+21891,RIMAL PARIS,205 AVENUE DU PRESIDENT WILSON,93210,Saint-Denis,21-068604-3,2021-08-31T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,93066001,,48.91319,2.357899
+21897,BOUCHERIE 2 M,14 RUE BORDIER,93300,Aubervilliers,21-031545-1,2021-04-21T02:00:00+02:00,Commerce alimentaire,Très satisfaisant,,,48.903451,2.38685
+21934,B.B.A FOOD,12 AV DE LA PAIX,93290,Tremblay-en-France,21-075715-1,2021-09-22T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.950431,2.567825
+21997,RAMI,65 AV PAUL VAILLANT COUTURIER,93120,La Courneuve,21-082391-1,2021-10-12T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.921252,2.410855
+22011,SARL GALACTIC,222 RUE DE PARIS,93100,Montreuil,21-031343-1,2021-04-06T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.855289,2.420268
+22045,SARL DADA,47 AV JEAN JAURES,93120,La Courneuve,21-014790-1,2021-02-18T01:00:00+01:00,Libre service|Alimentation générale,A améliorer,,Libre service|Alimentation générale,48.924239,2.403145
+22062,FOOD SERVICE,39 ALL DE GAGNY,93390,Clichy-sous-Bois,21-075956-1,2021-09-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908322,2.550189
+22129,BEJI FOOD 2,1 RUE CAMILLE DRAMART,93350,Le Bourget,21-014792-1,2021-02-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.935137,2.426596
+22217,A TABLE,28 RUE DES ACACIAS,93800,Épinay-sur-Seine,21-070966-1,2021-09-08T02:00:00+02:00,Restauration collective,A améliorer,93031001,Restauration collective,48.94863,2.327554
+22279,SPEED MARKET 3,15 BOULEVARD MARX DORMOY,93190,Livry-Gargan,21-026587-1,2021-03-23T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.909592,2.526938
+22310,O'TRAM,3 BD JEAN MERMOZ,93380,Pierrefitte-sur-Seine,21-015176-1,2021-02-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.963994,2.36103
+22380,CLEMENT VILLEPINTE TREMBLAY EN FRANCE,33 avenue Georges CLEMENCEAU,93420,Villepinte,21-080026-1,2021-10-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.954891,2.563166
+22482,WADAM SUSHI,2 AV DE LA DIVISION LECLERC,93240,Stains,21-015296-1,2021-02-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.951195,2.381903
+22511,PROMO FRAIS,40 BD ANATOLE FRANCE,93300,Aubervilliers,21-077161-1,2021-09-24T02:00:00+02:00,Alimentation générale|Boucherie-Charcuterie,A améliorer,,Alimentation générale|Boucherie-Charcuterie,48.918039,2.382309
+22583,HOPITAL RENE MURET,52 AVENUE DOCTEUR SCHAFFNER,93270,Sevran,21-067834-1,2021-08-26T02:00:00+02:00,Restauration collective,Satisfaisant,93071009,Restauration collective,48.935252,2.508507
+22618,LA GERBE DE BLE,78 AV JEAN JAURES,93500,Pantin,21-081874-1,2021-10-05T02:00:00+02:00,Métier de bouche,Très satisfaisant,,,48.903762,2.39236
+22707,HOPITAL RENE MURET,52 AVENUE DOCTEUR SCHAFFNER,93270,Sevran,21-067840-1,2021-08-26T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.935252,2.508507
+22738,BOULANGERIE DU CANAL,9 RUE LORGET,93200,Saint-Denis,21-077333-1,2021-09-28T02:00:00+02:00,Boulangerie-Pâtisserie,A corriger de manière urgente,,Boulangerie-Pâtisserie,48.930723,2.353339
+22844,LA GOURMANDISE DU RAINCY,119 ALL DE MONTFERMEIL,93340,Le Raincy,21-077631-1,2021-09-28T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.896557,2.52955
+22985,LA PETITE AUBERGE,101 RUE HENRI BARBUSSE,93300,Aubervilliers,21-078012-1,2021-09-29T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.90942,2.390717
+23018,LE DREYFUS,31 RUE DU CAPITAINE DREYFUS,93100,Montreuil,21-090697-1,2021-11-05T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.859338,2.439966
+23186,LA MAISON DE L EGLANTIER,58 avenue Antonioz de Gaulle,93140,Bondy,21-076239-1,2021-09-23T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.894556,2.48844
+23192,CLINIQUE DE L ESTREE,35 rue d'Amiens,93240,Stains,21-043883-1,2021-06-04T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.954823,2.367643
+23267,YAKI COOK TRAITEUR,"9, rue Paul Doumer",93300,Aubervilliers,20-096564-1,2021-06-30T02:00:00+02:00,Restauration collective,Satisfaisant,93001363,Restauration collective,48.917603,2.385762
+23421,ESAT LE COLIBRI OEUVRE FALRET,128 AV JEAN JAURES,93500,Pantin,21-043244-1,2021-06-03T02:00:00+02:00,Restauration collective,Très satisfaisant,93055001,Restauration collective,48.906902,2.39589
+23489,LA BOUL'ANGE,23 RUE HENRI BARBUSSE,93370,Montfermeil,21-090657-1,2021-11-08T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.900545,2.565417
+23571,SODIVIAS,136 AVENUE DE LA REPUBLIQUE,93300,Aubervilliers,21-084076-1,2021-10-14T02:00:00+02:00,Métier de bouche,Très satisfaisant,,,48.904287,2.391214
+23708,LES QUATRE B,99 AV MICHELET,93400,Saint-Ouen-sur-Seine,21-034211-1,2021-04-30T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.905577,2.34436
+23787,BNP PARIBAS PARTNERS FOR INNOVATION,59 RUE DE LA REPUBLIQUE,93100,Montreuil,21-019170-1,2021-03-08T01:00:00+01:00,Restauration collective,A améliorer,,Restauration collective,48.852691,2.418988
+23800,BOUCHERIE DE GAGNY,73 AV JEAN JAURES,93220,Gagny,21-046097-1,2021-06-11T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.882787,2.52633
+23938,BLANC BLANC,87 AV PAUL VAILLANT COUTURIER,93150,Le Blanc-Mesnil,21-025023-1,2021-03-23T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.927204,2.473221
+24191,LE BOEUF LIMOUSIN,Centre Commercial  Beau Sevran,93270,Sevran,20-093972-1,2021-01-19T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,,
+24437,KAY FRITAY,14 RUE DESCARTES,93170,Bagnolet,21-080324-1,2021-10-02T02:00:00+02:00,Infrastructure de Marché,Très satisfaisant,,,48.869692,2.426237
+24462,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-2,2021-04-29T02:00:00+02:00,Découpe de viandes de volailles/lagomorphe,Satisfaisant,,,48.901776,2.389007
+24465,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-4,2021-04-29T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,,,48.901776,2.389007
+24654,PLUME MARCEAU,14 RUE MARCEAU,93100,Montreuil,21-083423-1,2021-10-06T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.855366,2.425777
+24663,TEMPTATION-BY CHARLES DAVID,126 RUE DE PARIS,93260,Les Lilas,21-019436-1,2021-02-25T01:00:00+01:00,Traiteur,Satisfaisant,,Traiteur,48.880209,2.417783
+24676,LE PTIT TROU,37 RUE DE STRASBOURG,93200,Saint-Denis,21-019684-1,2021-02-25T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.936288,2.363077
+24700,LE CLASSICO,216 RUE DE PARIS,93100,Montreuil,21-094935-1,2021-11-24T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.855378,2.420768
+24707,KIRPA,71 AV EDOUARD VAILLANT,93500,Pantin,21-080899-1,2021-10-05T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.901737,2.393703
+24725,EXO MONDE,6 AV LEON BLUM,93800,Épinay-sur-Seine,21-080917-1,2021-10-05T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.958963,2.313162
+24772,KORIAN LES CEDRES,30 bis avenue de la Station,93250,Villemomble,21-089643-1,2021-11-04T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.886383,2.522097
+24775,LA MAISON BLEUE,6 RUE PIERRE,93700,Drancy,21-041983-1,2021-05-31T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.914456,2.451956
+24948,BANGLA MARKET,1 RUE LECUYER,93300,Aubervilliers,21-095311-1,2021-11-25T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,48.904638,2.391619
+24971,RESTALLIANCE,55 RUE HENRI BARBUSSE,93308,Aubervilliers,21-081378-1,2021-10-08T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.905246,2.389392
+25099,ANNA,251 AV JEAN JAURES,93300,Aubervilliers,21-081820-1,2021-09-29T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.917106,2.406365
+25105,90 92,90 RUE HENRI GAUTIER,93000,Bobigny,21-042024-1,2021-05-19T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,,,48.905472,2.425219
+25114,RUPOSHI  BANGLA LE DEUX RIVE,20 RUE GABRIELLE JOSSERAND,93500,Pantin,21-020476-1,2021-02-25T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.90382,2.394726
+25120,S.L ALIMENTATION,51 RUE DE SAINT GRATIEN,93800,Épinay-sur-Seine,21-081861-1,2021-10-05T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.961443,2.301065
+25169,NAAN FOOD CITY,20 B PROMJEAN ROSTAND,93000,Bobigny,21-076713-1,2021-09-17T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.90922,2.454842
+25202,AU DELICES DU CHENAY,11 ALL GEORGES GUYONNET,93220,Gagny,21-085327-1,2021-10-19T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.877898,2.552978
+25270,REV',DELICE'S,93100,Montreuil,21-082137-1,2021-09-30T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,,
+25272,LE MUSTANG,24 RUE JULES GUESDE,93140,Bondy,21-024948-1,2021-03-24T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.903617,2.476534
+25373,HOME' LETTE,8 AVENUE DE LA RESISTANCE,93340,Le Raincy,21-020926-1,2021-03-11T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.891182,2.51242
+25417,NEDHIF GHOMRASNI SAID,CHE DE LA TOURELLE,93390,Clichy-sous-Bois,21-082363-1,2021-10-12T02:00:00+02:00,Boulangerie-Pâtisserie,A corriger de manière urgente,,Boulangerie-Pâtisserie,48.909119,2.552721
+25447,BILLY'S,6 ALLEE DE BOUGAINVILLE,93320,Les Pavillons-sous-Bois,21-010288-1,2021-02-09T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.916,2.492857
+25564,LE PAK,39 AVENUE JEAN JAURES,93350,Le Bourget,21-090297-1,2021-11-04T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.932833,2.425171
+25568,MINI MARKET,1 RUE DES ECOLES,93320,Les Pavillons-sous-Bois,21-021165-1,2021-03-11T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.908239,2.498289
+25583,COSY FACTORY,2 AV DU RAINCY,93250,Villemomble,21-021145-1,2021-03-11T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.884947,2.5077
+25599,PIZZA CINQ,4 BD CARNOT,93250,Villemomble,21-021397-1,2021-03-11T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.889083,2.511766
+25803,POISSONNERIE KS,rue Danielle CASANOVA,93150,Le Blanc-Mesnil,21-021842-1,2021-03-10T01:00:00+01:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.924589,2.473201
+25805,BASILIC RESTAURATION,10 RUE GISELE HALIMI,93000,Bobigny,21-067557-1,2021-08-26T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.904287,2.443882
+25926,L'INSTANT GOURMAND,74 RUE ANATOLE FRANCE,93700,Drancy,21-092560-1,2021-11-17T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.926713,2.450567
+25934,THE BBQ BROTHERS,72 RUE SAINT DENIS,93100,Montreuil,21-083467-1,2021-10-02T02:00:00+02:00,Autres activités de remise directe,Très satisfaisant,,,48.871595,2.456068
+25981,MAVI MARKET,290 AV JEAN JAURES,93700,Drancy,21-083508-1,2021-10-14T02:00:00+02:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,48.912469,2.463769
+26125,BOULANGERIE BAHMANE,195 AVENUE ELISEE RECLUS,93380,Pierrefitte-sur-Seine,21-036827-1,2021-05-05T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.950669,2.357904
+26155,CUISINE CENTRALE MUNICIPALE,107 RUE GIRARDOT,93170,Bagnolet,20-090340-1,2020-12-15T01:00:00+01:00,Restauration collective,Satisfaisant,93006011,Restauration collective,48.872606,2.432458
+26241,FAST GOOD,FAST GOOD,93000,Bobigny,21-084367-1,2021-10-14T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,,
+26334,WAKIL,44 rue de Saint-Denis,93400,Saint-Ouen-sur-Seine,21-040858-1,2021-05-26T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.917825,2.332447
+26341,SUNY 2,7 RUE DES HALLES,93160,Noisy-le-Grand,21-022633-1,2021-01-15T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.829586,2.566577
+26350,SUNY 2,7 RUE DES HALLES,93160,Noisy-le-Grand,21-022635-1,2021-01-15T01:00:00+01:00,Poissonnerie,Très satisfaisant,,Poissonnerie,48.829586,2.566577
+26411,ROSHANTH,1 RUE DU COLONEL MOLL,93600,Aulnay-sous-Bois,21-022678-1,2021-03-17T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.934106,2.493778
+26547,CEYLON CHICKEN,5 AV LENINE,93120,La Courneuve,21-038322-1,2021-05-11T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.920447,2.411484
+26683,CJ RIVIERE,,93600,Aulnay-sous-Bois,21-023961-1,2021-03-17T01:00:00+01:00,Poissonnerie,Très satisfaisant,,Poissonnerie,48.936098,2.492228
+26686,CJ RIVIERE,,93600,Aulnay-sous-Bois,21-023201-1,2021-03-17T01:00:00+01:00,Poissonnerie,Satisfaisant,,Poissonnerie,48.936098,2.492228
+26861,LYCEE POLYVALENT JEAN ROSTAND,"8, rue Pierre-Audat",93420,Villepinte,20-089849-1,2020-12-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.960131,2.546545
+26919,DISTRIBUTION CASINO FRANCE,25 AVENUE HENRI BARBUSSE,93150,Le Blanc-Mesnil,21-029579-1,2021-04-14T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.937187,2.458923
+26922,BRASSERIE DU VIEUX PAYS,24 RTE DE ROISSY,93290,Tremblay-en-France,21-085765-1,2021-10-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.980918,2.555764
+26928,BIG FOOD,62 AV PAUL VAILLANT COUTURIER,93200,Saint-Denis,21-088412-1,2021-10-29T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.932252,2.365576
+26961,MOUH ABDELLAH,8 PL DU GENERAL LECLERC,93600,Aulnay-sous-Bois,21-023977-1,2021-03-17T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.927817,2.490306
+27034,STREET THAI,93 RUE DE STRASBOURG,93200,Saint-Denis,21-085757-1,2021-10-20T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.937001,2.371375
+27123,TRIPLETTA EDITION AUBERVILLIERS,67 RUE ANDRE KARMAN,93300,Aubervilliers,21-039960-1,2021-05-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906684,2.384339
+27124,AVENUE ALIMENTATION,114 AVENUE EMILE COSSONNEAU,93160,Noisy-le-Grand,21-024055-1,2021-03-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.849302,2.567529
+27152,YANKADI,32 BD ANATOLE FRANCE,93300,Aubervilliers,20-096443-1,2021-06-09T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.917016,2.381981
+27222,A COEUR OUVERT,15 rue Paul Belmondo,93160,Noisy-le-Grand,21-024280-1,2021-03-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.834202,2.554292
+27332,SPEED MARKET 2,124 RUE JULES GUESDE,93220,Gagny,21-023933-1,2021-03-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.880042,2.544258
+27379,DZIRI BILLAL,63 AV BARBES,93420,Villepinte,21-086732-1,2021-10-22T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.952295,2.538677
+27392,CONCAUD,Place de l'église Saint Sulpice,93600,Aulnay-sous-Bois,21-024372-1,2021-03-17T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.920526,2.511991
+27414,LE CAPRICORNE,73 RUE RATEAU,93120,La Courneuve,21-086981-1,2021-10-25T02:00:00+02:00,Transport de denrées alimentaires,Satisfaisant,,,48.924893,2.403623
+27416,MAIGNAN PRUCIAN,ZI DE LA FOSSE BARBIERE,93600,Aulnay-sous-Bois,21-086722-1,2021-10-22T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.952839,2.479548
+27491,MF DISTRIBUTION,61 RUE DANIELLE CASANOVA,93200,Saint-Denis,21-055920-1,2021-07-12T02:00:00+02:00,Alimentation générale,A améliorer,,Alimentation générale,48.926181,2.366761
+27504,CAPTAIN SUSHI,70 AV HENRI BARBUSSE,93150,Le Blanc-Mesnil,21-024663-1,2021-03-23T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,48.939968,2.462366
+27506,ALDI MARCHE,20 RUE GENIN,93200,Saint-Denis,21-028104-1,2021-04-08T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.929289,2.353967
+27544,SABAIDI,60 AV DU 8 MAI 1945,93150,Le Blanc-Mesnil,21-024602-1,2021-03-23T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,48.943839,2.43432
+27565,BOUCHERIE FRANCO MUSULMANE,5 7,93190,Livry-Gargan,21-092356-1,2021-11-10T01:00:00+01:00,Métier de bouche,Très satisfaisant,,,48.918285,2.534703
+27613,O PALMIER,20 PLACE GASTON BUSSIERE,93270,Sevran,21-089142-1,2021-11-02T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.93777,2.52953
+27668,GRILL ISTANBUL,179 RUE DE MEAUX,93410,Vaujours,21-029004-1,2021-04-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.935831,2.575279
+27671,PIERRE JEAN,10 RUE ABRAHAM DUQUESNE,93600,Aulnay-sous-Bois,21-087237-1,2021-10-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.955228,2.501609
+27856,BILL'S BURGER,8 RUE DES CAHOUETTES,93360,Neuilly-Plaisance,21-092150-1,2021-11-16T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.861479,2.5091
+27955,THUSITHA,336 B AVENUE DU 8 MAI 1945,93330,Neuilly-sur-Marne,21-087892-1,2021-10-26T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.866259,2.534278
+27966,H MARKET,"14, rue Léon Jouhaux",93600,Aulnay-sous-Bois,21-088021-1,2021-10-27T02:00:00+02:00,Libre service,A améliorer,,Libre service,48.954244,2.481996
+27995,DJURDJURA,87 AVENUE GABRIEL PERI,93400,Saint-Ouen-sur-Seine,21-044156-1,2021-06-04T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.904881,2.331602
+28044,Etablissement Public de Service d'Aide par le Travail Henry MARSO,64/66  rue Robespierre,93100,Montreuil,21-035533-1,2021-03-16T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.851551,2.424056
+28052,LABEL GAMELLE,2 AV PDT SALVADOR ALLENDE,93100,Montreuil,21-010474-1,2021-02-09T01:00:00+01:00,Restauration collective,Très satisfaisant,93048007,Restauration collective,48.868927,2.456123
+28324,OPARINOR CHICKEN,CENTRE COMMERCIAL O PARINOR,93600,Aulnay-sous-Bois,21-065216-1,2021-08-17T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.956718,2.476239
+28403,ECOLE ELEMENTAIRE APPLICA JACOB 2,ECOLE ELEMENTAIRE APPLICA JACOB 2,93190,Livry-Gargan,21-043161-1,2021-06-02T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.924848,2.544847
+28537,SARL IYYAPPAN,15 AVENUE JEAN JAURES,93220,Gagny,21-064998-1,2021-08-17T02:00:00+02:00,Libre service|Alimentation générale,A corriger de manière urgente,,Libre service|Alimentation générale,48.884497,2.532449
+28589,EPI DE L'ILE,15 BOULEVARD MARCEL PAUL,93450,L'Île-Saint-Denis,21-025783-1,2021-03-23T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.919978,2.326761
+28622,MER SEA - MER SEA IGLOO,60 RUE FRANCIS DE PRESSENSE,93200,Saint-Denis,21-025875-5,2021-03-26T01:00:00+01:00,Transport de denrées alimentaires,Très satisfaisant,,,48.924164,2.372936
+28741,COLLEGE LES MOUSSEAUX,"239, boulevard Robert Ballanger",93420,Villepinte,21-045979-1,2021-06-11T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.955566,2.539001
+28834,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-5,2021-04-29T02:00:00+02:00,"VH, VSM, préparation viandes volailles lagomorphes",Satisfaisant,,,48.901776,2.389007
+28884,BOUCHERIE DE LA PORTE DE LA VILLETTE,6 BIS RUE SOLFERINO,93300,Aubervilliers,21-036089-6,2021-04-29T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,93001050,,48.901776,2.389007
+28922,N.D.R TRAITEUR,MONTREUIL SOUS BOIS,93100,Montreuil,21-053830-1,2021-07-06T02:00:00+02:00,Traiteur,Très satisfaisant,,Traiteur,48.863074,2.458312
+28992,RT,27 RUE JULES GUESDE,93140,Bondy,21-079651-1,2021-10-04T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.904038,2.476564
+29077,EAU CANAL,1 AV EDOUARD VAILLANT,93500,Pantin,21-065487-1,2021-08-18T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.89655,2.400822
+29152,ECOLE MATERNELLE ROBILLARD,"8, ALLEE ROBILLARD",93320,Les Pavillons-sous-Bois,20-089828-1,2020-12-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.905213,2.50565
+29170,KM EXOTIQUE,78 AV DE LA REPUBLIQUE,93300,Aubervilliers,20-095897-1,2021-04-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908454,2.387165
+29191,BOUCHERIE 786,79 RUE DE PARIS,93380,Pierrefitte-sur-Seine,21-033734-1,2021-04-29T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.967145,2.3616
+29223,CENTRE HOSPITALIER DE VILLE-EVRARD,202 AVENUE JEAN JAURES,93332,Neuilly-sur-Marne,21-032942-1,2021-04-27T02:00:00+02:00,Restauration collective,Satisfaisant,93050238,Restauration collective,48.861597,2.547712
+29238,DIANA FOOD HOUSE,44 RUE PAUL LAFARGUE,93380,Pierrefitte-sur-Seine,21-050080-1,2021-06-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.971367,2.372024
+29276,TAXI PIZZA,109 allée  de montfermeil,93340,Le Raincy,21-093097-1,2021-11-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.896175,2.52799
+29335,MAS EXOTIQUE,112 BD CHARLES DE GAULLE,93380,Pierrefitte-sur-Seine,21-034046-1,2021-04-29T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.965059,2.370787
+29350,PIZZERIA MAXIMINA,60  AVENUE DU HUIT MAI 1945,93350,Le Blanc-Mesnil,21-089132-1,2021-10-29T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,,
+29362,ELRES,"41, RUE DE LA FOSSE AUX BERGERS",93250,Villemomble,21-026519-1,2021-03-29T02:00:00+02:00,Restauration collective,Satisfaisant,93077002,Restauration collective,48.885732,2.495221
+29365,ELRES,"41, RUE DE LA FOSSE AUX BERGERS",93250,Villemomble,21-026519-2,2021-03-29T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.885732,2.495221
+29473,WASS,164 AVENUE JEAN JAURES,93500,Pantin,21-044066-1,2021-06-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908906,2.398054
+29508,PRIMEUR MARKET,196 RUE DE BREMENT,93130,Noisy-le-Sec,21-034317-1,2021-04-19T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.887033,2.467533
+29574,JEYAM,39 rue Maurice Lachatre,93120,La Courneuve,21-050670-1,2021-06-24T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.921173,2.415574
+29589,CONFOREX,1 BD CHARLES DE GAULLE,93380,Pierrefitte-sur-Seine,20-095002-1,2021-02-17T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.96767,2.362323
+29623,MER SEA - MER SEA IGLOO,60 RUE FRANCIS DE PRESSENSE,93200,Saint-Denis,21-056822-1,2021-07-08T02:00:00+02:00,Restauration collective,Très satisfaisant,93066002,Restauration collective,48.924164,2.372936
+29656,WU WEI YUAN,"5, RUE DES LILAS",93100,Montreuil,21-049104-1,2021-06-22T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Très satisfaisant,93048363,,48.869419,2.430962
+29659,WU WEI YUAN,"5, RUE DES LILAS",93100,Montreuil,21-049104-3,2021-06-22T02:00:00+02:00,Transformation de produits de la pêche,Très satisfaisant,93048363,,48.869419,2.430962
+29674,WU WEI YUAN,"5, RUE DES LILAS",93100,Montreuil,21-049104-2,2021-06-22T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,93048363,,48.869419,2.430962
+29798,BREMENT EXOTIQUE,221 RUE DE BREMENT,93130,Noisy-le-Sec,21-034386-1,2021-04-19T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.886953,2.46963
+29806,VIET - HUNG,57 AVENUE DE STRASBOURG,93130,Noisy-le-Sec,21-082957-1,2021-10-13T02:00:00+02:00,Transformation de produits carnés,A améliorer,93052002,,48.896197,2.466782
+29815,VIET - HUNG,57 AVENUE DE STRASBOURG,93130,Noisy-le-Sec,21-082957-2,2021-10-13T02:00:00+02:00,Transport de denrées alimentaires,Satisfaisant,,,48.896197,2.466782
+29907,BONILLA JESSICA,167 RUE DE PARIS,93260,Les Lilas,21-079382-1,2021-10-02T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.880717,2.419033
+29937,NAN BURGER PIZZA,21 AV ANATOLE FRANCE,93500,Pantin,21-043959-1,2021-06-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.893648,2.424647
+30006,LAJOIE,9 BD JEAN JAURES,93400,Saint-Ouen-sur-Seine,21-035482-1,2021-04-30T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.914449,2.337101
+30096,PLANET'S BURGER,16 B RUE FLOREAL,93170,Bagnolet,21-036098-1,2021-05-04T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.878152,2.428621
+30114,WOK & SUSHI,139 AV GAMBETTA,93170,Bagnolet,21-039198-1,2021-05-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.873528,2.420162
+30146,SUNY 2,7 RUE DES HALLES,93160,Noisy-le-Grand,21-022630-1,2021-01-15T01:00:00+01:00,Libre service,Satisfaisant,,Libre service,48.829586,2.566577
+30191,LE MARCHE DE TREICHVILLE,1 AV WEBER,93500,Pantin,21-035236-1,2021-05-04T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.904315,2.395535
+30200,SUSHYNE,81 AV PASTEUR,93260,Les Lilas,21-035289-1,2021-05-04T02:00:00+02:00,Restaurant,A corriger de manière urgente,,Restaurant,48.876182,2.415029
+30231,DES AMIS,53 BOULEVARD ANATOLE FRANCE,93300,Aubervilliers,21-035966-1,2021-04-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.919138,2.382458
+30263,ASSETOU EXOTIQUES,26 RUE MAGENTA,93500,Pantin,21-039792-1,2021-05-25T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.90059,2.392912
+30358,LYCEE POLYVALENT FRANCOIS RABELAIS,1 rue François-Rabelais,93440,Dugny,21-078584-1,2021-09-30T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.948444,2.41625
+30406,BM SEVRAN PAIN CHAUD,2 ALL FRANCIS GARNIER,93270,Sevran,21-049850-1,2021-06-24T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.946048,2.520249
+30416,GANAPATHY,172 AV JEAN JAURES,93000,Bobigny,21-073311-1,2021-09-16T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.908553,2.438112
+30622,POKE ME,58 AV HENRI BARBUSSE,93150,Le Blanc-Mesnil,21-061555-1,2021-06-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.939254,2.461797
+30660,KUAILE,21 RUE DU DR ROUX,93120,La Courneuve,21-077612-1,2021-09-28T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,93027004,,48.923683,2.406918
+30740,H MARKET,RUE JEAN LOLIVE,93600,Aulnay-sous-Bois,21-090332-1,2021-11-08T01:00:00+01:00,Métier de bouche,Satisfaisant,,,48.953952,2.480315
+30775,FD MEAT,ZONE INDUSTRIELLE DES MARDELLES,93600,Aulnay-sous-Bois,21-083200-4,2021-10-13T02:00:00+02:00,Transformation de produits carnés,A améliorer,93005093,,48.948726,2.482342
+30820,WOK GRILL,97 Avenue De lattre De Tassigny,93800,Épinay-sur-Seine,21-060413-1,2021-07-23T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.958627,2.30742
+30873,PLANET BOLLYFOOD,186 AV JEAN JAURES,93370,Montfermeil,21-052827-1,2021-07-02T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.898819,2.54857
+30876,PETER MICHEL,36 RUE HENRI BARBUSSE,93370,Montfermeil,21-011435-1,2021-02-10T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,48.900325,2.567618
+30898,FOYER AIPEI,15 RUE LEO DESJARDINS,93250,Villemomble,21-086901-1,2021-10-25T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.892239,2.502211
+30950,DELICES DE SEVRES 92,136 avenue de la République,93300,Aubervilliers,21-069227-1,2021-09-02T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.904287,2.391214
+30997,LA PERICOLE,16 RUE DU PLAISIR,93400,Saint-Ouen-sur-Seine,21-037363-1,2021-05-10T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.902968,2.336309
+31145,SASU EKH,26 AV DE LA RESISTANCE,93340,Le Raincy,21-037676-1,2021-05-12T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.892444,2.512854
+31165,MOUNA BOUTIQUE,27 AV JEAN JAURES,93300,Aubervilliers,20-092814-1,2021-01-06T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.902497,2.390538
+31243,LA PETITE LULU,18 BOULEVARD GALLIENI,93360,Neuilly-Plaisance,20-094269-1,2021-01-25T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.85276,2.513675
+31262,LE MUST,41 RUE DES 7 ARPENTS,93500,Pantin,21-073231-1,2021-09-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.889682,2.401616
+31268,LAURE,38 RUE JULES VALLES,93400,Saint-Ouen-sur-Seine,21-044717-1,2021-06-08T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.901886,2.338455
+31318,KORIAN SULLY,62-64 AVENUE SULLY,93190,Livry-Gargan,21-027765-1,2021-04-02T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.915829,2.525127
+31430,LE CAPRI,LE CAPRI,93100,Montreuil,21-080137-1,2021-10-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.863728,2.449364
+31478,LA RESIDENCE SOCIALE - ESAT PLEYEL,29 RUE D AMIENS,93240,Stains,21-034961-1,2021-05-04T02:00:00+02:00,Restauration collective,Satisfaisant,93072008,Restauration collective,48.952477,2.369281
+31497,KIKAR 52,11 AV DU GENERAL GALLIENI,93250,Villemomble,21-061928-1,2021-06-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.890205,2.509718
+31538,KAHINA S.A.R.L,21 RUE BENONI EUSTACHE,93250,Villemomble,21-030099-1,2021-04-14T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.875837,2.521572
+31584,A TABLE,28 RUE DES ACACIAS,93800,Épinay-sur-Seine,21-070966-2,2021-09-08T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,A améliorer,,,48.94863,2.327554
+31598,WARABA FOOD,32 PL DE LA LIBERATION,93150,Le Blanc-Mesnil,21-030225-1,2021-03-23T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.94364,2.466817
+31719,RESIDENCE PERSONNES AGEES LA CERISAIE,18 AVENUE JEAN JAURES,93220,Gagny,21-038223-1,2021-05-18T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.884204,2.531545
+31734,RANIA,CENTRE COMMERCIAL PARINOR,93600,Aulnay-sous-Bois,21-065391-1,2021-08-17T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.956661,2.476537
+31761,BAO DELIVERY,67 RUE ANDRE KARMAN,93300,Aubervilliers,21-039982-1,2021-05-21T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.906684,2.384339
+31928,ESB,17 RUE FERAGUS,93300,Aubervilliers,21-042993-1,2021-06-01T02:00:00+02:00,Commerce alimentaire,Très satisfaisant,,,48.914178,2.379713
+31991,FRANPRIX,17 à 27 Avenue Jean Lolive,93500,Pantin,21-039120-1,2021-05-20T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.890828,2.400105
+32046,ROSNY-S/B EXO,68 AV DU GENERAL DE GAULLE,93110,Rosny-sous-Bois,21-030568-1,2021-03-31T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.877674,2.479722
+32069,COEUR ET MAIN TENDUE,21 RUE DE LORRAINE,93200,Saint-Denis,21-036830-1,2021-05-05T02:00:00+02:00,Transport de denrées alimentaires,Très satisfaisant,,,48.925394,2.368521
+32085,AFRICASIE,AFRICASIE,93310,Le Pré-Saint-Gervais,21-030610-1,2021-04-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.884145,2.405377
+32097,SARL AN,23 RUE FRANCOIS MITTERRAND,93170,Bagnolet,20-086291-1,2020-12-08T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.877062,2.423103
+32187,BOUCHERIE DE L ATLAS,54 RUE DE PARIS,93800,Épinay-sur-Seine,20-093727-1,2021-01-13T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.95424,2.310118
+32189,BOUCHERIE D'AUBERVILLIERS,BOUCHERIE D'AUBERVILLIERS,93300,Aubervilliers,21-094714-1,2021-11-23T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.908537,2.369615
+32221,MR DISTRIBUTION,8 RUE JEAN JAURES,93130,Noisy-le-Sec,21-030719-1,2021-04-19T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,48.891055,2.454329
+32415,L'EPICERIE DES BEAUDOTTES,6 ALLEE FRANCIS GARNIER,93270,Sevran,21-044375-1,2021-06-03T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.946848,2.519791
+32521,CS W5,57 AV GALLIENI,93800,Épinay-sur-Seine,21-038061-1,2021-05-17T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.962632,2.296549
+32542,Etablissement Public de Service d'Aide par le Travail Henry MARSO,64/66  rue Robespierre,93100,Montreuil,21-078192-1,2021-09-16T02:00:00+02:00,Restauration collective,Satisfaisant,93048006,Restauration collective,48.851551,2.424056
+32556,AARADHYA,196 RUE DE PARIS,93130,Noisy-le-Sec,21-031050-1,2021-04-19T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.903676,2.470107
+32695,NABILA ENTREPRISE,81 AV DE LA REPUBLIQUE,93300,Aubervilliers,21-073301-1,2021-09-15T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.907706,2.388256
+32697,ID AISSA,25 rue Auguste Delaune,93200,Saint-Denis,21-036057-1,2021-05-04T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,48.936617,2.348072
+32869,JP ET FAB VOLAILLE,,93350,Le Bourget,21-012444-1,2021-02-17T01:00:00+01:00,Métier de bouche,Satisfaisant,,,48.933991,2.424002
+32965,BOUCHERIE BARBUSSE,53 AVENUE HENRI BARBUSSE,93700,Drancy,21-043520-1,2021-06-01T02:00:00+02:00,Métier de bouche,Très satisfaisant,,,48.916875,2.444956
+33003,LA MAISON DE L ALISIER,"44, RUE GUEROUX",93380,Pierrefitte-sur-Seine,21-087534-1,2021-10-26T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.96233,2.36294
+33019,ASS  GESTION CTRE TOULOUSE-LAUTREC,29 RUE DE LA BALANCE,93600,Aulnay-sous-Bois,21-069268-1,2021-09-02T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.9548,2.504686
+33032,LE DANUBE,"16, rue de Romainville",93260,Les Lilas,21-091080-1,2021-11-09T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.876928,2.415125
+33124,AMENA ALIMENTATION,29 BD MARCEL SEMBAT,93200,Saint-Denis,21-038537-1,2021-05-12T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.932454,2.351852
+33202,BOUCHERIE MARHABA CHEZ ZENATI,21 AV NELSON MANDELA,93290,Tremblay-en-France,21-031912-1,2021-04-22T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.950585,2.569323
+33283,C.A.T,6 ALLEE DES FOUGERES,93340,Le Raincy,21-047756-1,2021-06-17T02:00:00+02:00,Restauration collective,Satisfaisant,93062066,Restauration collective,48.89313,2.507452
+33412,S.K.P.J,"32, ave Henri Barbusse",93700,Drancy,21-031285-1,2021-03-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.91618,2.443988
+33517,LA NOUVELLE ETOILE,35 AVENUE EDOUARD VAILLANT,93500,Pantin,21-064205-1,2021-08-13T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.899479,2.396355
+33534,SAS EHPAD AUBERVILLIERS,81-83  RUE DU PORT,93300,Aubervilliers,21-054149-1,2021-07-07T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.919595,2.373318
+33569,I B  BOUCHERIE,26 AVENUE NELSON MANDELA,93290,Tremblay-en-France,21-031929-1,2021-04-22T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.950421,2.569548
+33634,CUISINE CENTRALE,11 RUE JEAN BAPTISTE CLÉMENT,93800,Épinay-sur-Seine,21-082234-1,2021-09-14T02:00:00+02:00,Restauration collective,Satisfaisant,93031031,Restauration collective,48.961712,2.29868
+33635,CUISINE CENTRALE DEPARTEMENTALE DU 9EME COLLEGE,12-26 RUE DES JARDINS DUFOUR,93100,Montreuil,21-008431-1,2021-02-02T01:00:00+01:00,Restauration collective,Très satisfaisant,93048702,Restauration collective,48.86739,2.459584
+33642,CRECHE VERLAINE,"1, rue Paul-Verlaine",93120,La Courneuve,20-093844-1,2021-01-19T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.933807,2.391748
+33730,MAXIN CHICKEN,67 RUE GABRIEL PERI,93200,Saint-Denis,21-038925-1,2021-05-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.934688,2.355804
+33828,POISSONNERIE SAPHIR,"11, rue FERRAGUS",93300,Aubervilliers,21-032215-1,2021-04-23T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.914118,2.380156
+34266,CHICKEN FARM,20 promenade Jean Rostand,93000,Bobigny,21-076886-1,2021-09-17T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.90922,2.454842
+34335,SALAISONS MAURIAC,17 RUE MAURICE PAILLARD,93430,Villetaneuse,21-029795-2,2021-04-13T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,93079001,,48.954327,2.34626
+34387,BOUCHERIE DES 4 FRERES(2),104 MAIL EUGENE VARLIN,93160,Noisy-le-Grand,21-075015-1,2021-09-21T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.839478,2.548622
+34554,RESTAURANT LAKAY,51 RUE DENIS PAPIN,93500,Pantin,21-080101-1,2021-09-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,48.902886,2.398466
+34559,ESPACE BOUCHERIE LES MOBILES,171 AVENUE DE LA REPUBLIQUE,93800,Épinay-sur-Seine,21-029061-1,2021-04-12T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.94974,2.330462
+34583,LE FOURNIL DE CHANZY,1 AVENUE DE CHANZY,93320,Les Pavillons-sous-Bois,21-070601-1,2021-09-07T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,48.908709,2.517731
+34615,AUX DELICES DE SHADEN,32 RUE DE PARIS,93100,Montreuil,21-033015-1,2021-04-27T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,48.857832,2.434429
+34619,SEVERINE SUPER MARCHE,6 PL SEVERINE,93310,Le Pré-Saint-Gervais,21-027640-1,2021-04-06T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.882199,2.409356
+34627,SUPERMARCHE,"94, avenue Jean Jaurès",93500,Pantin,20-088603-1,2020-12-09T01:00:00+01:00,Rayon boucherie-charcuterie,Très satisfaisant,,Rayon boucherie-charcuterie,48.904425,2.393198
+34691,NATAL'AFFAIRES,3 RUE RAYMOND QUENEAU,93000,Bobigny,21-085807-1,2021-10-14T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.89591,2.425627
+34713,HOPITAL DE JOUR 93G09 ROSNY SOUS BOIS,81 AVENUE JEAN JAURES,93110,Rosny-sous-Bois,21-040632-1,2021-05-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.866493,2.487081
+34757,LE NOUVEAU DAKAR,70 B AV DU MAL DE LATTRE DE TASSIGNY,93140,Bondy,21-050117-1,2021-06-24T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.902808,2.482783
+34825,RG TKW,67 rue André KERMAN,93300,Aubervilliers,21-039614-1,2021-05-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.906684,2.384339
+34865,ZOZAN,32 AVENUE JEAN JAURES,93500,Pantin,21-019986-1,2021-03-09T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.901345,2.389855
+34873,SUPERMARCHE,"94, avenue Jean Jaurès",93500,Pantin,20-091000-1,2020-12-09T01:00:00+01:00,Rayon traiteur,Très satisfaisant,,Rayon traiteur,48.904425,2.393198

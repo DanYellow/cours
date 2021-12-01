@@ -6,3 +6,5 @@ Liste de sites où des données open sources sont proposées, et ce, de façon g
 - https://data.world/datasets/
 - https://data.europa.eu/data/datasets?locale=fr
 - https://www.insee.fr/fr/statistiques?debut=0&categorie=3
+- http://www.stats.environnement.developpement-durable.gouv.fr/Eider/series.do
+- https://old.datahub.io/dataset
