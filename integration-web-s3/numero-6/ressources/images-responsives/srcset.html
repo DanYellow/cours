@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP7 — srcset/sizes - Images responsives</title>
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1 class="h1">Consignes de la pratique</h1>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Partie 1 (cliquer pour afficher / cacher)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Chargez une image ayant une grande largeur (> 1 400px) (Si vous
+          n'avez pas d'images il y a une image
+          "assets/images/panorama.jpg")
+        </li>
+        <li>
+          Redimensionnez la fenêtre de votre navigateur de façon à ce
+          qu'elle soit moins large que l'image que vous venez de charger.
+          Ceci va provoquer un défilement horizontal, ceci est laid et nous souhaitons éviter
+        </li>
+        <li>
+          Ajouter une classe "img-responsive" contenant les déclarations CSS suivantes :
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <table>
+              <tr>
+                <td>
+                  <pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre>
+                </td>
+                <td>
+                  <pre style="margin: 0; line-height: 125%">
+    <span style="color: #008800; font-weight: bold">max-width</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">100</span> <span style="color: #333333">%</span>; 
+    <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">auto</span>; 
+</pre>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          Redimensionnez votre fenêtre, votre image va s'adapter en
+          fonction de la taille de la fenêtre, elle ne devrait plus dépasser
+        </li>
+      </ol>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Partie 2 - Attributs srcset (Résolution)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Ajouter une balise &lt;img> chargeant l'image
+          "assets/images/attribut-srcset/densite/pizza@1x.jpg"
+        </li>
+        <li>
+          Chargez les images du dossier
+          "assets/images/attribut-srcset/densite" en utilisant les
+          attributs "srcset" et "src"
+          <ul>
+            <li>
+              <a href="https://www.alsacreations.com/article/lire/1621-responsive-images-srcset.html"
+                target="_blank">Exemples d'utilisations (ouverture dans un nouvel
+                onglet)</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Ajouter_des_images_adaptatives_%C3%A0_une_page_web"
+                target="_blank">Documentation (ouverture dans un nouvel onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Définissez la valeur de l'attribut srcset avec autant de valeurs
+          qu'il y a d'images dans le dossier
+          "assets/images/attribut-srcset/densite" avec le descripteur de
+          densité (x) jusqu'à 3x
+        </li>
+        <li>
+          Tester avec le mode responsive du navigateur en changeant
+          d'appareil et sa résolution
+          <ul>
+            <li>
+              Raccourci : <kbd>ctrl </kbd> + <kbd>maj</kbd> +
+              <kbd>m</kbd> sur Firefox
+            </li>
+            <li>
+              Clic droit -> Inspecter (Examiner l'élément) -> cliquer sur
+              le smartphone à gauche (à droite de la fenêtre sur Firefox)
+              de l'onglet "éléments" de la console du navigateur
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Partie 3 - Attributs srcset et sizes (Largeur)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Refaire la même chose que la partie 2 mais cette fois-ci en
+          chargeant l'image
+          "assets/images/attribut-srcset/densite/image-320.png"
+        </li>
+        <li>
+          Définissez la valeur de l'attribut srcset avec autant de valeurs
+          qu'il y a d'images dans le dossier
+          "assets/images/attribut-srcset/largeur" avec le descripteur de
+          densité (w). Exemple :
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <table>
+              <tr>
+                <td>
+                  <pre style="margin: 0; line-height: 125%">1</pre>
+                </td>
+                <td>
+                  <pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;img</span> <span style="color: #0000CC">src=</span><span style="background-color: #fff0f0">&quot;mon-image.jpg&quot;</span> <span style="color: #0000CC">srcset=</span><span style="background-color: #fff0f0">&quot;mon-image-320.jpg 320w, mon-image-640.jpg 640w&quot;</span> <span style="color: #0000CC">sizes=</span><span style="background-color: #fff0f0">&quot;(max-width: 600px) 480px, 800px&quot;</span> <span style="color: #0000CC">alt=</span><span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #007700">&gt;</span> 
+</pre>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          Testez avec le mode responsive du navigateur en changeant
+          d'appareil
+          <ul>
+            <li>
+              Raccourci : <kbd>ctrl </kbd> + <kbd>maj</kbd> +
+              <kbd>m</kbd> sur Firefox
+            </li>
+            <li>
+              Clic droit -> Inspecter (Examiner l'élément) -> cliquer sur
+              le smartphone à gauche (à droite de la fenêtre sur Firefox)
+              de l'onglet "éléments" de la console du navigateur
+            </li>
+          </ul>
+          ou redimensionnez votre fenêtre pour voir votre image être modifiée
+        </li>
+      </ol>
+    </details>
+  </header>
+
+  <main class="main">
+    <section class="exercice">
+      <h2>Partie 1</h2>
+      <!-- Faire votre TP ici -->
+    </section>
+    <section class="exercice">
+      <h2>Partie 2</h2>
+      <!-- Faire votre TP ici -->
+    </section>
+    <section class="exercice">
+      <h2>Partie 3</h2>
+      <!-- Faire votre TP ici -->
+    </section>
+  </main>
+</body>
+
+</html>
