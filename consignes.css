@@ -21,14 +21,25 @@
   border-radius: 0.5rem;
 }
 
-.consignes-conteneur .h1 {
-  font-size: 2rem;
+.consignes-conteneur a:hover {
+  text-decoration: none;
+}
+
+.titre-consignes {
+  font-size: 2.25rem;
   font-weight: bold;
   display: inline-block;
 }
 
+.consignes-conteneur .h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0.75rem 0;
+}
+
 .consignes-conteneur .liste-consignes {
-  margin-left: 30px;
+  margin-left: 1.85rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   list-style: revert;
@@ -57,13 +68,12 @@
 }
 
 .consignes-conteneur summary {
-  margin-top: 1rem;
   font-size: 1.5rem;
 }
 
 .consignes-conteneur .description {
   font-size: 1.25rem;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .titre-principal {
@@ -107,9 +117,12 @@
 .liste-consignes ul,
 .consignes-conteneur ul,
 .consignes-conteneur ol,
-.consignes-conteneur .h1,
 .consignes-conteneur li {
   margin: revert;
   padding: revert;
   list-style: revert;
+}
+
+.consignes-conteneur .texte-gras {
+  font-weight: bold;
 }
