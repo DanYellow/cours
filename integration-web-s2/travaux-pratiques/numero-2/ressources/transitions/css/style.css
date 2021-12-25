@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  --bg-c: rgba(255, 255, 255, 0.75);
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: var(--bg-c);
+  padding: 1.1rem;
+}
+
+.main {
+  padding: 0 0.75em 0.75em;
+}
+
+.lien-moodle {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.lien-moodle:hover {
+  color: coral;
+}
+
+/* vous n'avez pas besoin d'y toucher */
+.lien-moodle a, .lien-moodle:hover a {
+  color: inherit;
+}
+
+mon-sélecteur {
+  /* propriétés CSS */
+  transition: color 500ms;
+}
