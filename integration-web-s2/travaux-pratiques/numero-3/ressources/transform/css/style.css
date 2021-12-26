@@ -61,6 +61,7 @@ body {
 .conteneur .textes {
   position: absolute;
   padding-left: 1rem;
+  top: 0;
 }
 
 .conteneur .titre {
