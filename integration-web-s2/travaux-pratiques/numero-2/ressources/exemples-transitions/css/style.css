@@ -1,25 +1,26 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   max-width: 1000px;
-  font-size: 16px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 0 auto;
   background: #2f3238;
   color: #fff;
 }
 
-h1 {
+.titre {
   text-align: center;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 1rem 0;
   font-size: 2.75rem;
 }
 
 .conteneur-principal {
-  margin-top: 25px;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -32,15 +33,13 @@ h1 {
   max-width: 480px;
   max-height: 360px;
   background: #3085a3;
-  cursor: pointer;
   border-radius: 10px;
   border: solid 3px whitesmoke;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
 }
 
 .element-conteneur img {
   display: block;
-  backface-visibility: hidden; /* active l'accélération 3d */
 }
 
 .element-conteneur .textes {
