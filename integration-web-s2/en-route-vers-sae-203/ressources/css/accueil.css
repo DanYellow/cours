@@ -1,0 +1,52 @@
+.menu-tuiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.25rem;
+  height: 43.75rem;
+  grid-template-areas:
+    "tartes cakes"
+    "tartes mignardises";
+}
+
+.menu-tuiles [class^="tuile-"] {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+[class^="tuile-"] .titre {
+  position: absolute;
+  bottom: 1.625rem;
+  left: 1.625rem;
+  font-size: 3rem;
+}
+
+[class^="tuile-"] a {
+  display: block;
+}
+
+[class^="tuile-"] .titre {
+  font-weight: bold;
+  color: var(--noir-txt);
+}
+
+.tuile-tartes {
+  grid-area: tartes;
+  background-image: url("../images/tartes.png");
+}
+
+.tuile-cakes {
+  grid-area: cakes;
+  background-image: url("../images/cakes.png");
+}
+
+.tuile-mignardises {
+  grid-area: mignardises;
+  background-image: url("../images/mignardises.png");
+}
+
+.description-accueil {
+  margin-top: 2.5rem;
+  width: 71%;
+}
