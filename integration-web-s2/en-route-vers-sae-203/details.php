@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Salon de thé de l'IUT</title>
+    <title>Cakes - Salon de thé de l'IUT</title>
 
     <link rel="stylesheet" href="ressources/css/reset.css">
     <link rel="stylesheet" href="ressources/css/global.css">
@@ -47,7 +47,7 @@
                             </section>
                             <section class='liste-boutons'>
                                 <button type='button' class='primaire'>Ajouter au panier</button>
-                                <button type='button' class='secondaire'>Voir plus d'infos</button>
+                                <a href='#' class='secondaire'>Voir plus d'infos</a>
                             </section>
                         </section>
                     </li>

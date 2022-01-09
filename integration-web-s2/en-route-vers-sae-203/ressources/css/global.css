@@ -137,7 +137,12 @@ body {
     padding: 4.125rem 12.25rem 2.25rem;
 }
 
-button:is(.primaire, .secondaire) + button:is(.primaire, .secondaire) {
+/* 
+    La fonction is() permet d'éviter d'écrire le code suivant :
+    .primaire + .primaire, .secondaire + .secondaire, .primaire + .secondaire, .seconaire + .primaire {}
+    Documentation : https://developer.mozilla.org/fr/docs/Web/CSS/:is
+*/
+:is(.primaire, .secondaire) + :is(.primaire, .secondaire) {
     margin-top: 0.8125rem;
 }
 
@@ -145,12 +150,15 @@ button:is(.primaire, .secondaire) + button:is(.primaire, .secondaire) {
 .secondaire {
     appearance: none;
     border: none;
+    display: block;
+    text-decoration: none;
     padding: 0.3rem 2rem;
     border-radius: 1.25rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     font-size: 1rem;
     border: 0.1875rem solid transparent;
+    line-height: normal;
 }
 
 .primaire {
