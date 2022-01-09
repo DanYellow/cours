@@ -139,15 +139,15 @@ body {
 
 /* 
     La fonction is() permet d'éviter d'écrire le code suivant :
-    .primaire + .primaire, .secondaire + .secondaire, .primaire + .secondaire, .seconaire + .primaire {}
+    .cta-primaire + .cta-primaire, .cta-secondaire + .cta-secondaire, .cta-primaire + .cta-secondaire, .seconaire + .cta-primaire {}
     Documentation : https://developer.mozilla.org/fr/docs/Web/CSS/:is
 */
-:is(.primaire, .secondaire) + :is(.primaire, .secondaire) {
+:is(.cta-primaire, .cta-secondaire) + :is(.cta-primaire, .cta-secondaire) {
     margin-top: 0.8125rem;
 }
 
-.primaire,
-.secondaire {
+.cta-primaire,
+.cta-secondaire {
     appearance: none;
     border: none;
     display: block;
@@ -159,14 +159,15 @@ body {
     font-size: 1rem;
     border: 0.1875rem solid transparent;
     line-height: normal;
+    text-align: center;
 }
 
-.primaire {
+.cta-primaire {
     background-color: var(--violet-bg-pied-de-page);
     color: var(--rose-pale);
 }
 
-.secondaire {
+.cta-secondaire {
     color: var(--violet-bg-pied-de-page);
     border-color: var(--violet-bg-pied-de-page);
     background-color: transparent;

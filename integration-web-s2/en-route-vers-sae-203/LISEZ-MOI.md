@@ -20,6 +20,7 @@ Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le 
 ### Développement Web
 - MySQL
 - Sessions PHP
+- PHP
 
 Bien évidemment les notions vues durant le semestre précédent vous seront plus qu'utiles pour réaliser ce devoir. N'attendez pas le dernier moment pour le faire, **essayez d'ajouter les fonctionnalités au fur et à mesure des cours,** ça devrait être plus simple les notions étant encore fraîches dans votre tête.
 
@@ -50,8 +51,14 @@ Les transitions mises sont là en guise d'exemple, libre à vous de reproduire l
 
 ### Développement Web (PHP/MySQL)
 - Qualité du code
-  - Utilisation de la f
+  - Utilisation de la fonction include() pour réutiliser des parties de html entre les pages
+  - Utilisation de fonctions (quand c'est nécessaire) 
 # Pour aller plus loin
 Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter :
 - Un tunnel d'achat pour payer sa commande
-- 
+  - Stocker toutes les commandes passées
+  - Afficher un récaptiulatif de la commande 
+- Ajouter un mode sombre
+  - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
+  - C'est à vous de faire le design
+- Indiquer les éléments déjà dans le panier dans la page détails

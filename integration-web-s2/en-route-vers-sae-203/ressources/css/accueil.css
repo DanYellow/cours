@@ -46,6 +46,11 @@
   background-image: url("../images/mignardises.png");
 }
 
+.tuile-boissons {
+  grid-area: boissons;
+  background-image: url("../images/mignardises.png");
+}
+
 .description-accueil {
   margin-top: 2.5rem;
   width: 71%;
