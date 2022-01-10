@@ -27,7 +27,10 @@ Apprentissage du cours :
 	- Ergonomie
 
 But du cours :
-- Renforcer les connaissances acquises en S1 puis 
+- Renforcer les connaissances acquises en S1
+- Initiation au langage de programmation javascript
+- Réaliser avec succès la SAÉ 203 - Site web et base de données
+- Découvrir l'importation de polices d'écriture personnalisée
 
 Mode d'évaluation (changements possibles) :
 - SAÉ 203 - Site Web et Base de données
