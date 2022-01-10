@@ -1,4 +1,4 @@
-Cours assurés par M. Linardi 
+Cours assurés par M. Linardi et M JEAN-LOUIS
 Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un enseignant) :
 
 
@@ -7,12 +7,12 @@ Apprentissages critiques :
 Apprentissage du cours :
 ... ce qui est recalé du S1 ...
 - CSS transition
-- responsive design
-- SCSS (?)
-- tag VIDEO
-- intro Javascript (à voir avec Flavien)
-- Flavien (intervien sur bootstrap)
-		
+- CSS Transform
+- Iconfonts
+- Bootstrap
+- Introduction javascript
+- Positionnement (position absolute, relative...)
+
 - Sensibilisation au web : design et programmation
 	- Accessibilité
 	- Bonnes pratiques / sémantique web
@@ -21,3 +21,6 @@ Apprentissage du cours :
 But du cours :
 
 Mode d'évaluation (changements possibles) :
+- SAÉ 203 - Site Web et Base de données
+- Préparation à la SAÉ 203
+- Quiz sur les notions vues en S1 et S2
