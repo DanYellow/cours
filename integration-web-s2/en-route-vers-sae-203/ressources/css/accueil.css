@@ -9,6 +9,17 @@
     "tartes mignardises";
 }
 
+@media screen and (max-width: 500px) {
+  .menu-tuiles {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "tartes"
+      "cakes"
+      "mignardises";
+  }
+}
+
 .menu-tuiles [class^="tuile-"] {
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +30,7 @@
   position: absolute;
   bottom: 1.625rem;
   left: 1.625rem;
-  font-size: 3rem;
+  font-size: s3rem;
 }
 
 [class^="tuile-"] a {
@@ -54,4 +65,10 @@
 .description-accueil {
   margin-top: 2.5rem;
   width: 71%;
+}
+
+@media screen and (max-width: 500px) {
+  .description-accueil {
+    width: 100%;
+  }
 }

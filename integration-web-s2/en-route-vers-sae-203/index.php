@@ -33,13 +33,13 @@
 
     <main class="contenu-principal">
         <nav class="menu-tuiles">
-            <a class="tuile-tartes" href="">
+            <a class="tuile-tartes" href="details.php">
                 <h2 class="titre">TARTES</h2>
             </a>
-            <a class="tuile-cakes" href="">
+            <a class="tuile-cakes" href="details.php">
                 <h2 class="titre">CAKES</h2>
             </a>
-            <a class="tuile-mignardises" href="">
+            <a class="tuile-mignardises" href="details.php">
                 <h2 class="titre">MIGNARDISES</h2>
             </a>
         </nav>

@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* 
@@ -9,132 +9,144 @@
   les animations pour les personnes qui ont décidé de les désactiver 
 */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-        animation-delay: -1ms !important;
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-        background-attachment: initial !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0s !important;
-        transition-delay: 0s !important;
-    }
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
 }
 
 :root {
-    --noir-txt: #333333;
-    --rose-bg-pied-de-page: #f0d2cb;
-    --rose-pale: #faecfe;
-    --violet-bg-pied-de-page: #9e0064;
+  --noir-txt: #333333;
+  --rose-bg-pied-de-page: #f0d2cb;
+  --rose-pale: #faecfe;
+  --violet-bg-pied-de-page: #9e0064;
 }
 
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: url("../images/motif.jpg") repeat;
-    padding-top: 3.125rem;
-    color: var(--noir-txt);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("../images/motif.jpg") repeat;
+  padding-top: 3.125rem;
+  color: var(--noir-txt);
 }
 
 .en-tete,
 .contenu-principal,
 .pied-de-page .conteneur {
-    max-width: 1100px;
-    margin: 0 auto;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+  .en-tete,
+  .contenu-principal,
+  .pied-de-page .conteneur {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .en-tete .titre {
-    font-size: 4.5rem;
-    font-weight: bold;
-    color: var(--noir-txt);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: var(--noir-txt);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .en-tete .description {
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .en-tete .titre span {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .en-tete .titre span:first-child {
-    margin-bottom: -0.8rem;
+  margin-bottom: -0.8rem;
 }
 
 .en-tete .titre span::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: var(--rose-bg-pied-de-page);
-    height: 65%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--rose-bg-pied-de-page);
+  height: 65%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .nav-principale {
-    margin: 2rem 0 1.75rem;
+  margin: 2rem 0 1.75rem;
+  overflow: scroll;
+  padding-bottom: 0.8rem;
 }
 
 .nav-principale ul {
-    display: flex;
-    font-weight: bold;
+  display: flex;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .nav-principale li {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .nav-principale li::before {
-    content: "|";
-    display: inline-block;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+  content: "|";
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .nav-principale li:first-child {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 
 .nav-principale li:is(:first-child, :nth-child(2))::before {
-    content: none;
+  content: none;
 }
 
 .nav-principale a {
-    text-decoration: none;
-    color: var(--noir-txt);
+  text-decoration: none;
+  color: var(--noir-txt);
 }
 
 .pied-de-page {
-    border-top: var(--violet-bg-pied-de-page) 1px solid;
-    background: url("../images/motif-pied-de-page.svg") repeat,
-        var(--rose-bg-pied-de-page);
-    margin-top: 6.25rem;
+  border-top: var(--violet-bg-pied-de-page) 1px solid;
+  background: url("../images/motif-pied-de-page.svg") repeat,
+    var(--rose-bg-pied-de-page);
+  margin-top: 6.25rem;
 }
 
 .pied-de-page .conteneur {
-    text-align: center;
-    padding-bottom: 16.875rem;
+  text-align: center;
+  padding-bottom: 16.875rem;
 }
 
 .pied-de-page .conteneur h1 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .pied-de-page .contenu {
-    margin: 0 auto;
-    width: 95.27272727%;
-    margin-top: -1.625rem;
-    background-color: white;
-    padding: 4.125rem 12.25rem 2.25rem;
+  margin: 0 auto;
+  width: 95.27272727%;
+  margin-top: -1.625rem;
+  background-color: white;
+  padding: 4.125rem 18.70229008% 2.25rem;
 }
 
 /* 
@@ -143,32 +155,32 @@ body {
     Documentation : https://developer.mozilla.org/fr/docs/Web/CSS/:is
 */
 :is(.cta-primaire, .cta-secondaire) + :is(.cta-primaire, .cta-secondaire) {
-    margin-top: 0.8125rem;
+  margin-top: 0.8125rem;
 }
 
 .cta-primaire,
 .cta-secondaire {
-    appearance: none;
-    border: none;
-    display: block;
-    text-decoration: none;
-    padding: 0.3rem 2rem;
-    border-radius: 1.25rem;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 0.1875rem solid transparent;
-    line-height: normal;
-    text-align: center;
+  appearance: none;
+  border: none;
+  display: block;
+  text-decoration: none;
+  padding: 0.3rem 2rem;
+  border-radius: 1.25rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 0.1875rem solid transparent;
+  line-height: normal;
+  text-align: center;
 }
 
 .cta-primaire {
-    background-color: var(--violet-bg-pied-de-page);
-    color: var(--rose-pale);
+  background-color: var(--violet-bg-pied-de-page);
+  color: var(--rose-pale);
 }
 
 .cta-secondaire {
-    color: var(--violet-bg-pied-de-page);
-    border-color: var(--violet-bg-pied-de-page);
-    background-color: transparent;
+  color: var(--violet-bg-pied-de-page);
+  border-color: var(--violet-bg-pied-de-page);
+  background-color: transparent;
 }

@@ -38,7 +38,7 @@
                     echo "
                     <li class='patisserie'>
                         <figure>
-                            <img width='540' src='ressources/images/patisseries/financiers.jpg' alt=''>
+                            <img src='ressources/images/patisseries/financiers.jpg' alt=''>
                         </figure>
                         <section class='details'>
                             <section class='textes'>
