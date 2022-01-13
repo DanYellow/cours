@@ -62,6 +62,7 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
   - Pas de classes au nom étrange
   - Limitation du nombre de classes CSS 
   - Réutilisation des classes CSS
+    - N'oubliez pas qu'une balise peut avoir plusieurs divs
   - Organisation du code
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
