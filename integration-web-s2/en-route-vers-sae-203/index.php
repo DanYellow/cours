@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Salon de thé de l'IUT</title>
 
-    <link rel="stylesheet" href="ressources/css/reset.css">
-    <link rel="stylesheet" href="ressources/css/global.css">
-    <link rel="stylesheet" href="ressources/css/accueil.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@
         </nav>
 
         <p class="description-accueil">Toutes nos pâtisseries sont faites maison. Respectant la Nature, notre carte change au fil des saisons.<br>
-            Ainsi, même si notre tarte aux fraises enchante les papilles de nos consommateurs, vous ne la trouverez pas sur la carte en janvier. </p>
+            Ainsi, même si notre tarte aux fraises enchante les papilles de nos consommateurs, vous ne la trouverez pas sur la carte en janvier car les fraises poussent d'avril à août. </p>
     </main>
     <?php include_once("ressources/includes/footer.php") ?>
 </body>
