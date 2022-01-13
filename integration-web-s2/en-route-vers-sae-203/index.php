@@ -44,7 +44,7 @@
             </a>
         </nav>
 
-        <p class="description-accueil">Toutes nos pâtisseries sont faites maison. Respectant la Nature, notre carte change au fil des saisons.<br>
+        <p class="description-accueil">Toutes nos pâtisseries sont faites maison et si possible avec des produits locaux. Nos farines sont faites avec le blé de Gonesse. Respectant la Nature, notre carte change au fil des saisons.<br>
             Ainsi, même si notre tarte aux fraises enchante les papilles de nos consommateurs, vous ne la trouverez pas sur la carte en janvier car les fraises poussent d'avril à août. </p>
     </main>
     <?php include_once("ressources/includes/footer.php") ?>

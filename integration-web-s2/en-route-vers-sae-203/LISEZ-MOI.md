@@ -1,6 +1,6 @@
 # En route vers la SAÉ 203 - Site web et Base de données (BDD)
 
-Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement.
+Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est.
 
 - [Accéder au projet Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
@@ -19,7 +19,7 @@ Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le 
 ### Développement Web
 
 - PHP
-- MySQL
+- MySQL / Base de données
 
 Bien évidemment les notions vues durant le semestre précédent vous seront plus qu'utiles pour réaliser ce devoir. N'attendez pas le dernier moment pour le faire, **essayez d'ajouter les fonctionnalités au fur et à mesure des cours,** ça devrait être plus simple les notions étant encore fraîches dans votre tête.
 
@@ -34,7 +34,7 @@ N'oubliez pas de créer une cohérence dans vos animations : n'allez pas faire u
 
 Les images sont distantes, ça sera à vous de reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.**
 
-# Icones
+# Icônes
 
 Les icônes sont des svg, ils ne doivent pas être au format .jpg dans votre projet. Il faudra utiliser une webfont comme vu en TP. Pour rappel, votre police d'écriture est générée grâce au site [icomoon.io](https://icomoon.io/).
 
@@ -54,10 +54,10 @@ La base de données doit être utilisée pour les parties suivantes :
 
 # Astuces
 
-- A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez-la.** Ce fichier possède une base saine pour créer une nouvelle page
+- A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
 - Nous vous avons fourni une base de données à remplir et remplie. Premier réflexe : l'importer dans phpMyAdmin
-- Inutile d'aller modifier le code CSS fourni, créer vos propres fichier pour limiter les effets de bords et alter le code CSS fourni
+- Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autres choses. Vous pouvez récupérer les propriétés CSS suivantes :
   - font-size
   - width (dans une moindre mesure)
@@ -89,13 +89,15 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
     - Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée
-    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
-      - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
+    
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Fichier(s) javascript sont chargés avant la fermeture de la balise &lt;body>
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
+  - Unité des police d'écriture en rem
+    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
+      - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 ### Développement Web (PHP/MySQL)
@@ -116,10 +118,16 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
 - [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
   - [ ] Mettre un état actif pour la page courante
   - [ ] Générer ma webfont pour les icônes 
+  - [ ] Ne pas oublier les normes d'accessibilité (liste non exhaustive)
+    - [ ] Mes images possèdent un attribut "alt"
+    - [ ] L'unité de la propriété "font-size" est rem
+    - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
-  - [ ] Créer une archive avec votre nom
+  - [ ] Créer une archive avec votre nom-prénom qui contient :
+    - [ ] Le code
+    - [ ] La base de données
 
 # Pour aller plus loin
 
@@ -129,7 +137,15 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
   - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
   - C'est à vous de faire le design
 - Indiquer les éléments déjà dans le panier dans la page détails
+  - Vous pouvez utiliser une icône pour l'indiquer par exemple
 - Afficher une notification à chaque fois qu'on rajoute un élément au panier
   - Indiquer également si on dépasse 100 -> bloquer l'ajout
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas.
+- Écrire votre **CSS** en SCSS ou SASS
+  - Cette partie de ce tutoriel sera amplement suffisant 
+    - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
+  - [La documentation en anglais](https://sass-lang.com/guide)
+  - Il vous faudra un outil pour compiler
+    - [En ligne (je déconseille)](https://jsonformatter.org/scss-to-css)
+    - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript
