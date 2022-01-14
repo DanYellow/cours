@@ -2,7 +2,7 @@
 
 Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est.
 
-- [Accéder au projet Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
+- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
 Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. Vous verrez donc durant ce semestre :
 
@@ -57,6 +57,7 @@ La base de données doit être utilisée pour les parties suivantes :
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
 - Nous vous avons fourni une base de données à remplir et remplie. Premier réflexe : l'importer dans phpMyAdmin
+- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
 - Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autres choses. Vous pouvez récupérer les propriétés CSS suivantes :
   - font-size
@@ -77,8 +78,8 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
 
 
 # Notation
-
-### Intégration Web
+Les critères suivants seront évalués 
+### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
   - Pas de classes au nom étrange
@@ -111,17 +112,17 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
     - Pour changer le contenu de la page "details.php", Vous ne devez en aucun cas créer une page php pour chaque catégorie 
 
 
-# Liste à faire
+# Votre liste à faire
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
-- [ ] S'approprier le code, bien le regarder (HTML et CSS)
+- [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
 - [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
   - [ ] Mettre un état actif pour la page courante
   - [ ] Générer ma webfont pour les icônes 
-  - [ ] Ne pas oublier les normes d'accessibilité (liste non exhaustive)
-    - [ ] Mes images possèdent un attribut "alt"
-    - [ ] L'unité de la propriété "font-size" est rem
-    - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+- [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
+  - [ ] Mes images possèdent un attribut "alt"
+  - [ ] L'unité de la propriété "font-size" est rem
+  - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
@@ -131,7 +132,7 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'auraz pas plus de points pour autant :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant :
 
 - Ajouter un mode sombre
   - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
