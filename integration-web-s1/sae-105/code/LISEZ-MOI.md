@@ -58,6 +58,8 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
   - les couleurs
   - font-weight
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
+- flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
+  - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
 
 # Rendus attendus
 - Une archive nommée nom-prénom (celui du chef de projet) contenant :
@@ -90,6 +92,7 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
       - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
+  - Les champs de formulaire sont liés à un label (attributs "for" et "id")
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 

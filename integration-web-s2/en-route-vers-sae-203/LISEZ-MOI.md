@@ -1,6 +1,8 @@
 # En route vers la SAÉ 203 - Site web et Base de données (BDD)
 
-Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est.
+Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. 
+
+Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
@@ -50,7 +52,6 @@ La base de données doit être utilisée pour les parties suivantes :
   - Le menu avec les images peut rester comme il est
 - Le contenu des popups
 - Le détail d'une catégorie
-- 
 
 # Astuces
 
@@ -71,7 +72,7 @@ La base de données doit être utilisée pour les parties suivantes :
 
 - Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
-  - HTML/PHP/CSS/javascript
+  - HTML/PHP/CSS/javascript...
 - URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
 Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.
@@ -85,7 +86,7 @@ Les critères suivants seront évalués
   - Pas de classes au nom étrange
   - Limitation du nombre de classes CSS
   - Réutilisation des classes CSS
-    - N'oubliez pas qu'une balise peut avoir plusieurs divs
+    - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS
   - Organisation du code
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
@@ -129,6 +130,7 @@ Les critères suivants seront évalués
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
     - [ ] La base de données
+  - [ ] Nommer l'archive avec mon nom-prénom
 
 # Pour aller plus loin
 
