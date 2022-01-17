@@ -60,16 +60,18 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
+  
+  En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>.
 
 # Rendus attendus
-- Une archive nommée nom-prénom (celui du chef de projet) contenant :
+- **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
   - Un fichier texte contenant l'URL de votre site hébergé
   - Un rapport de ressenti par membre de groupe nommé nom-prénom
     - Ceci n'est pas noté, mais vous aidera pour le portfolio que vous devez remplir
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail et/ou à l'oral. Des points pourront être retirés ou la note nulle si le devoir est rendu en retard.
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail et précisée à l'endroit où vous devrez remettre votre rendu. Des points pourront être retirés ou la note nulle si le devoir est rendu en retard.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.

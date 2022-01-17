@@ -1,4 +1,4 @@
-Liste de sites où des données open sources sont proposées, et ce, de façon gratuite et sans inscriptions :
+Liste de sites où des données open sources gratuites (s'il n'est pas précisé, le site ne nécessite pas d'inscription) :
 - https://opendata.socrata.com/
 - https://github.com/fivethirtyeight/data
 - https://www.data.gouv.fr/fr/
@@ -12,3 +12,5 @@ Liste de sites où des données open sources sont proposées, et ce, de façon g
 - https://www-oecd-ilibrary-org.bibdocs.u-cergy.fr/statistics#databases (Payant, mais gratuit avec votre compte ucp)
 - https://fr-statista-com.bibdocs.u-cergy.fr/ (Payant, mais gratuit avec votre compte ucp)
 - https://www.kaggle.com/ (gratuit mais nécessite une inscription)
+- https://fbref.com/
+- https://github.com/statsbomb/open-data

@@ -125,6 +125,7 @@ Les critères suivants seront évalués
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 - [ ] Rajouter un favicon (image au choix)
+- [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
   - [ ] Créer une archive avec votre nom-prénom qui contient :
@@ -148,7 +149,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
-  - Il vous faudra un outil pour compiler
+  - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
     - [En ligne (je déconseille)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript

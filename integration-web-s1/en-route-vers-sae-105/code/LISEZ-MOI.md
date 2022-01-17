@@ -79,7 +79,6 @@ Les critères suivants seront évalués
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
-- [ ] Rajouter un favicon (image au choix)
 - [ ] Rendre le projet
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
@@ -87,5 +86,9 @@ Les critères suivants seront évalués
 
 # Pour aller plus loin
 Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant :
+- Rajouter un favicon (image au choix)
+- Rajouter de nouvelles pages
+  - Ne pas oublier de le faire correspondre au design
+  - Ne pas oublier de les rendre accessibles, de les lier aux autres pages
 
 
