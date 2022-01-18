@@ -51,7 +51,7 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
 - **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration.
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
-- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autres choses. Vous pouvez récupérer les propriétés CSS suivantes :
+- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes :
   - font-size
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
@@ -76,8 +76,8 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
 
-### Intégration Web (HTML/CSS)
-Cette partie sera évaluée par MM. Jean-Louis et Linardi
+## Partie 1 - Intégration Web (HTML/CSS)
+Cette partie sera évaluée par MM. Jean-Louis et Linardi.
 - Qualité du code
   - Pas de classes au nom étrange
   - Limitation du nombre de classes CSS
@@ -98,9 +98,8 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 
-### Développement Web (PHP)
-Cette partie sera évaluée par M. Roch
-
+## Partie 2 - Développement Web (PHP)
+Cette partie sera évaluée par M. Roch.
 - Qualité du code
   - Utilisation de la fonction include()
 - Bon fonctionnement du formulaire
@@ -108,6 +107,7 @@ Cette partie sera évaluée par M. Roch
 # Votre liste à faire
   - [x] Lire les consignes
   - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
+    - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
   - [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
     - [ ] Mes images possèdent un attribut "alt"
