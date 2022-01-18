@@ -40,8 +40,8 @@
   width: 634px;
   height: 500px;
   transition: transform 0.3s;
-  mask: url("../images/bulle.svg") no-repeat center / contain;
-  -webkit-mask: url("../images/bulle.svg") no-repeat center / contain;
+  mask: url("../../images/bulle.svg") no-repeat center / contain;
+  -webkit-mask: url("../../images/bulle.svg") no-repeat center / contain;
 }
 
 .bulle-icone-bordure {
@@ -52,8 +52,8 @@
   width: 634px;
   height: 510px;
   transition: transform 0.3s;
-  mask: url("../images/bulle-bordure.svg") no-repeat center / contain;
-  -webkit-mask: url("../images/bulle-bordure.svg") no-repeat center / contain;
+  mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
+  -webkit-mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
 }
 
 .bulle-icone-bordure.rose {

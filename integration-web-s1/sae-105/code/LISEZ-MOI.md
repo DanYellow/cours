@@ -41,7 +41,7 @@ La page contact possède trois états :
   
   A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéo ne doivent en aucun cas être téléchargées**
 - **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les
-règles précédemment citées. A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer du code en ligne
+règles précédemment citées. A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en s’assurant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
 
@@ -61,7 +61,9 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
   
-  En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>.
+  En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
+- Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
+- Votre projet doit impérativement avoir un fichier "index.php"
 
 # Rendus attendus
 - **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :

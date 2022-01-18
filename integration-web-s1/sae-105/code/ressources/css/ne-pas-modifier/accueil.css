@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  background: url("../images/montage-cyu.jpg") no-repeat center center;
+  background: url("../../images/montage-cyu.jpg") no-repeat center center;
   text-decoration: none;
   overflow: hidden;
   transition: background-size 0.5s;
