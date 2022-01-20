@@ -54,8 +54,6 @@ Ressources investigations https://ijec.org/car-and-data-syllabi/
 Travail sur les données https://schoolofdata.org/
 https://towcenter.gitbooks.io/curious-journalist-s-guide-to-data/content/
 
-
-
 Ressources pour authentifier des documents : 
 https://gijn.org/2020/05/14/guide-pour-authentifier-une-video/ 
 https://gijn.org/2019/04/23/trois-techniques-pour-verifier-des-images-via-un-smartphone/
