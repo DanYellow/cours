@@ -144,7 +144,8 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
   - Vous pouvez utiliser une icône pour l'indiquer par exemple
 - Afficher une notification à chaque fois qu'on rajoute un élément au panier
   - Indiquer également si on dépasse 100 -> bloquer l'ajout
-- Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas.
+- Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
+  - Il vous faudra un fichier .htaccess
 - Écrire votre **CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
