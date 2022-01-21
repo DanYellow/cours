@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="ressources/css/reset.css">
-    <link rel="stylesheet" href="ressources/css/global.css">
-    <link rel="stylesheet" href="ressources/css/header.css">
-    <link rel="stylesheet" href="ressources/css/accueil.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
 </head>
 
 <body>
