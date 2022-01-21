@@ -1,8 +1,8 @@
 # En route vers la SAÉ 203 - Site web et Base de données (BDD)
 
-Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL) tout au long du semestre. 
+Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues tout au long du semestre en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL). 
 
-Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est.
+Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
@@ -29,7 +29,7 @@ Notez également que certaines données (descriptions, contenu du menu...) seron
 
 ## CSS Transform & CSS Transition
 
-Les transitions mises sont là en guise d'exemple, libre à vous de reproduire les mêmes ou en inventer de nouvelles. Mais votre projet doit contenir des CSS transition ou des CSS transform.
+Les transitions dans la maquette Adobe XD sont là à titre d'exemple, libre à vous de reproduire les mêmes ou en inventer de nouvelles. Mais votre projet doit contenir des CSS transition ou des CSS transform.
 N'oubliez pas de créer une cohérence dans vos animations : n'allez pas faire une animation qui dure 5 secondes à un endroit et à un autre une animation qui en dure 1, surtout sur les deux éléments se ressemblent
 
 # Images
@@ -56,6 +56,7 @@ La base de données doit être utilisée pour les parties suivantes :
 # Astuces
 
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
+  - Évitez de nommer vos fichiers index2, index3..., nommer ses fichiers, c'est comme les classes, ça doit être explicite
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
 - Nous vous avons fourni une base de données à remplir et remplie. Premier réflexe : l'importer dans phpMyAdmin
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
@@ -95,10 +96,10 @@ Les critères suivants seront évalués
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
-  - Fichier(s) javascript sont chargés avant la fermeture de la balise &lt;body>
+  - Fichier(s) javascript sont chargés **avant** la fermeture de la balise &lt;body>
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
   - Unité des police d'écriture en rem
-    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
+    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
       - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
@@ -117,13 +118,14 @@ Les critères suivants seront évalués
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
-- [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
+- [ ] Continuer l'intégration, la rendre le plus fidèle possible à la maquette
   - [ ] Mettre un état actif pour la page courante
   - [ ] Générer ma webfont pour les icônes 
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+  - [ ] Toutes les pages ont un &lt;titre> unique
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
 - [ ] Rendre le projet
@@ -142,12 +144,13 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
   - C'est à vous de faire le design
 - Indiquer les éléments déjà dans le panier dans la page détails
   - Vous pouvez utiliser une icône pour l'indiquer par exemple
+  - Vous pouvez stocker les éléments dans le panier dans le localStorage
 - Afficher une notification à chaque fois qu'on rajoute un élément au panier
   - Indiquer également si on dépasse 100 -> bloquer l'ajout
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess
 - Écrire votre **CSS** en SCSS ou SASS
-  - Cette partie de ce tutoriel sera amplement suffisant 
+  - Cette partie de ce tutoriel sera amplement suffisante
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
