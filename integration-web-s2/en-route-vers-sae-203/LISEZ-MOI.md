@@ -125,6 +125,7 @@ Les critères suivants seront évalués
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+  - [ ] Toutes les pages ont un &lt;titre> unique
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
 - [ ] Rendre le projet
