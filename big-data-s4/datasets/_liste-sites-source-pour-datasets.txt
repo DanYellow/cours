@@ -3,6 +3,7 @@ Liste de sites où des données open sources gratuites (s'il n'est pas précisé
 - https://github.com/fivethirtyeight/data
 - https://www.data.gouv.fr/fr/
 - https://data.education.gouv.fr/
+- https://data.enseignementsup-recherche.gouv.fr/
 - https://data.world/datasets/
 - https://data.europa.eu/data/datasets?locale=fr
 - https://www.insee.fr/fr/statistiques?debut=0&categorie=3
@@ -17,3 +18,4 @@ Liste de sites où des données open sources gratuites (s'il n'est pas précisé
 - https://app.dvf.etalab.gouv.fr/
 - https://data.sncf.com/pages/accueil/
 - https://data.europa.eu/en
+- https://archives-statistiques-depp.education.gouv.fr/Default/search.aspx?SC=CATALOGUE&QUERY_LABEL=#/Search/(query:(FacetFilter:'%7B%22_372%22:%22ELEVES%20DE%20FORMATION%20ALTERNEE%7C%7CELEVES%20DE%20FORMATION%20CONTINUE%7C%7CELEVES%20DU%201ER%20DEGRE%7C%7CELEVES%20DU%202ND%20DEGRE%22,%22_366%22:%22Tableaux%20statistiques%20Excel%22%7D',ForceSearch:!t,InitialSearch:!f,Page:0,PageRange:3,QueryGuid:'41fe7bc1-3d4c-4c7c-9e98-b27bd468cf7f',QueryString:'*:*',ResultSize:20,ScenarioCode:CATALOGUE,ScenarioDisplayMode:display-standard,SearchGridFieldsShownOnResultsDTO:!(),SearchLabel:'',SearchTerms:'',SortField:!n,SortOrder:0,TemplateParams:(Scenario:'',Scope:Default,Size:!n,Source:'',Support:'',UseCompact:!f),UseSpellChecking:!n),sst:4)
