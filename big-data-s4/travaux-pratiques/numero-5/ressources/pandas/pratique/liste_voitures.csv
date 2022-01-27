@@ -1,0 +1,39 @@
+modele,marque,gamme,vitesse_max km/h,nbre_sieges,longueur (mm),motorisation,annee_sortie,prix €
+AMG,BMW,supercars ,270,2,4500,essence,2010,65000
+XC60,Volvo,SUV,160,7,4150,essence,2011,56750
+Ka,Ford,compacte,120,4,2400,bio-ethanol,2020,12500
+Cactus,Citroen,berline,130,5,2500,diesel,2002,32000
+iq,Toyota,compacte,130,2,1950,hybride non rechargeable,2014,12000
+RAV4,Toyota,SUV,210,5,3500,hybride non rechargeable,2019,45000
+Enzo,Ferrari,supercars ,340,2,2750,essence,2020,280000
+S,Tesla,berline,240,5,2950,électrique,2021,105000
+X,Tesla,berline,220,7,4100,électrique,2020,140000
+Corolla,Toyota,compacte,200,5,3800,hybride non rechargeable,2020,35000
+Civic,Honda,berline,210,5,4000,essence,2021,45000
+Yaris,Honda,compacte,200,5,3100,hybride non rechargeable,2018,12000
+Clio,Renault,compacte,250,5,2850,électrique,2017,13000
+LaFerrari,Ferrari,supercars ,350,2,4750,essence,2016,1000000
+C1,Citroen,compacte,250,4,2950,essence,2014,9560
+Classe E,Mercedes,berline,280,5,3450,essence,2012,35600
+Twingo ,Renault,compacte,250,5,2900,diesel,2011,12000
+Kuga,Ford,SUV,230,5,4100,diesel,2014,25600
+C5,Citroen,berline,280,5,4500,diesel,2015,35000
+Prius,Toyota,berline,240,5,4300,hybride non rechargeable,2014,30000
+GT,Citroen,supercars ,280,2,4350,essence,2010,0
+Panamera,Porsche,berline,260,5,4400,essence,2014,54000
+Taycan,Porsche,supercars ,280,2,4350,essence,2018,180000
+206,Peugeot,compacte,250,5,3950,essence,2006,15000
+Talisman,Renault,berline,260,5,4600,essence,2013,26000
+911,Porsche,supercars ,310,2,4000,essence,2018,105000
+Camry,Toyota,berline,200,5,4100,hybride non rechargeable,2014,35060
+3008,Peugeot,SUV,200,5,4230,essence,2016,25000
+Y,Tesla,berline,230,5,4250,électrique,2015,11100
+Mustang,Ford,coupé,240,5,4350,essence,2017,75000
+Aygo,Toyota,compacte,210,4,3000,hybride non rechargeable,2016,12000
+Duster,Dacia,SUV,230,5,3450,essence,2014,15000
+CLS,Mercedes,berline,300,5,3980,essence,2022,48000
+X1,BMW,SUV,310,5,4100,essence,2021,52000
+Captur ,Renault,SUV,310,5,3950,essence,2016,25000
+Vel Satis,Renault,berline,280,5,3850,essence,2009,30000
+Modus ,Renault,compacte,210,5,3950,essence,2010,18000
+Alpine II,Renault,supercars ,240,2,3850,essence,2010,68000
