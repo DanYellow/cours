@@ -1,8 +1,11 @@
 # En route vers la SAÉ 203 - Site web et Base de données (BDD)
+_Les consignes pourront être modifiées_
 
 Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de données (BDD), vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues tout au long du semestre en cours aussi bien en Intégration Web (HTML/CSS/JS) que Développement Web (PHP/MySQL). 
 
-Vu que vous partez d'un code fourni, pensez bien à le regarder (console du navigateur notamment), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
+> Si le projet est individuel, vous avez tout à fait le droit de communiquer entre vous, de vous entre-aider
+
+Vu que vous partez d'un code fourni, **pensez bien à le regarder (console du navigateur notamment),** faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
@@ -16,7 +19,7 @@ Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le 
 - CSS Transform
 - CSS Transition
 - Iconfonts
-- Langage de programmation javascript (initiation)
+- Langage de programmation javascript
 
 ### Développement Web
 
@@ -25,16 +28,16 @@ Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le 
 
 Bien évidemment les notions vues durant le semestre précédent vous seront plus qu'utiles pour réaliser ce devoir. N'attendez pas le dernier moment pour le faire, **essayez d'ajouter les fonctionnalités au fur et à mesure des cours,** ça devrait être plus simple les notions étant encore fraîches dans votre tête.
 
-Notez également que certaines données (descriptions, contenu du menu...) seront gérées via la base de données MySQL, inutile donc d'écrire tous les textes à la main, il faudra donc les remplacer via la base de données.
+Notez également que certaines données (descriptions, contenu du menu...) seront gérées via la base de données MySQL, inutile donc d'écrire tous les textes à la main, il faudra donc les charger depuis la base de données.
 
 ## CSS Transform & CSS Transition
 
-Les transitions dans la maquette Adobe XD sont là à titre d'exemple, libre à vous de reproduire les mêmes ou en inventer de nouvelles. Mais votre projet doit contenir des CSS transition ou des CSS transform.
-N'oubliez pas de créer une cohérence dans vos animations : n'allez pas faire une animation qui dure 5 secondes à un endroit et à un autre une animation qui en dure 1, surtout sur les deux éléments se ressemblent
+Les CSS transitions dans la maquette Adobe XD sont là à titre d'exemple, libre à vous de reproduire les mêmes ou en inventer de nouvelles. Mais votre projet doit contenir des CSS transitions et des CSS transform.
+N'oubliez pas de créer une cohérence dans vos animations : n'allez pas faire une animation qui dure 5 secondes à un endroit et à un autre une animation qui en dure 1, surtout sur les deux éléments se ressemblent.
 
 # Images
 
-Les images sont distantes, ça sera à vous de reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.**
+Les images sont distantes, dans le rendu final, il faudra impérativement reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.**
 
 # Icônes
 
@@ -53,12 +56,18 @@ La base de données doit être utilisée pour les parties suivantes :
 - Le contenu des popups
 - Le détail d'une catégorie
 
+**Un fichier de base de données vous sera remis ultérieurement.**
+
+# Page boissons
+Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
+
 # Astuces
 
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
   - Évitez de nommer vos fichiers index2, index3..., nommer ses fichiers, c'est comme les classes, ça doit être explicite
-- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
-- Nous vous avons fourni une base de données à remplir et remplie. Premier réflexe : l'importer dans phpMyAdmin
+- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et pas grave
+- Nous vous avons fourni une base de données à remplir et remplie.  
+  - Premier réflexe : l'importer dans phpMyAdmin
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
 - Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autres choses. Vous pouvez récupérer les propriétés CSS suivantes :
@@ -76,7 +85,7 @@ La base de données doit être utilisée pour les parties suivantes :
   - HTML/PHP/CSS/javascript...
 - URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.
+**Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.**
 
 
 # Notation
@@ -127,7 +136,7 @@ Les critères suivants seront évalués
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
   - [ ] Toutes les pages ont un &lt;titre> unique
 - [ ] Rajouter un favicon (image au choix)
-- [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
+- [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
   - [ ] Créer une archive avec votre nom-prénom qui contient :
