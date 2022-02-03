@@ -1,0 +1,5 @@
+Ensemble de liens qui viennent compléter ce TP
+- http://www.tylervigen.com/spurious-correlations
+- https://viz.wtf/
+- https://quoidansmonassiette.fr/tromper-avec-graphiques-representations-visuelles-pour-manipuler-opinion-publique-guide/
+- https://datajournos.fr/
