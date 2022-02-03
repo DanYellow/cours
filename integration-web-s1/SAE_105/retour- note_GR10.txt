@@ -1,0 +1,2 @@
+Le site respecte bien le style proposé dans la maquette.
+Dans la page CONTACT le message les messages (erreur et bien envoyé) ne s'affichent pas.

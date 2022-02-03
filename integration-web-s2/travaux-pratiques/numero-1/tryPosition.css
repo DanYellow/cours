@@ -1,0 +1,64 @@
+.positionStatic
+{
+    border: 1px solid black;
+    position: static;
+    top: 10px;
+    display: inline;
+    padding: 2px;
+    margin: 2px;
+}
+
+.positionRelative
+{
+    border: 1px solid black;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    display: inline;
+    padding: 2px;
+    margin: 2px;
+}
+
+.positionAbsolute
+{
+    border: 1px solid black;
+    position: absolute;
+    display: inline;
+    padding: 2px;
+    margin: 2px;
+    top: 50px;
+    left: 10px;
+}
+
+
+.positionFixed
+{
+    border: 1px solid black;
+    background-color: green;
+    color: white;
+    position: fixed;
+    display: inline;
+    padding: 2px;
+    margin: 2px;
+    z-index:   1;
+   
+}
+
+.positionSticky
+{
+
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+    position: sticky;
+    display: inline;
+    padding: 2px;
+    margin: 2px;
+    top: 0;
+    z-index: 0;
+}
+.block_bottom
+{
+    border: 1px solid black; 
+    padding-bottom: 2000px;
+}
