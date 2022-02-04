@@ -51,10 +51,12 @@ Les icônes sont des svg, ils ne doivent pas être au format .jpg dans votre pro
 La catégorie "cakes" est volontairement vide, il faudra utiliser pour la page associée à cette catégorie le template de la page vide, celle qui propose à l'internaute d'être notifié quand il y aura des produits.
 
 La base de données doit être utilisée pour les parties suivantes :
-- Les catégories du menu
+- Les catégories du menu (dans l'en-tête)
   - Le menu avec les images peut rester comme il est
 - Le contenu des popups
 - Le détail d'une catégorie
+- Enregistrer les adresses e-mail des utilisateurs
+  - Faites bien attention à sécuriser les entrées avant de les insérer dans la base
 
 **Un fichier de base de données vous sera remis ultérieurement.**
 
@@ -62,14 +64,15 @@ La base de données doit être utilisée pour les parties suivantes :
 Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
 
 # Formulaire
-Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, de ce fait, l'utilisation de WAMP/MAMP est indispensable. **La validation du formulaire côté serveur est tout aussi indispensable.** Quant au message de réussite ou échec, à vous de voir pour le design, vous avez tout a fait le droit de reprendre celui de la SAÉ 105.
+Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, de ce fait, l'utilisation de WAMP/MAMP est indispensable. **La validation du formulaire côté serveur est tout aussi indispensable.** Quant au message de réussite ou échec, à vous de voir pour le design, vous avez tout à fait le droit de reprendre celui de la SAÉ 105.
 
 # Astuces
 
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
-  - Évitez de nommer vos fichiers index2, index3..., nommer ses fichiers, c'est comme les classes, ça doit être explicite
+- Pour éviter de vous perdre dans vos fichiers, pensez bien à glisser votre dossier de travail dans VS Code
+- Évitez de nommer vos fichiers index2, index3..., nommer ses fichiers, c'est comme les classes, ça doit être explicite
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et pas grave
-- Nous vous avons fourni une base de données à remplir et remplie.  
+- Nous vous avons fourni une base de données à remplir et remplie  
   - Premier réflexe : l'importer dans phpMyAdmin
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
 - Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
@@ -88,7 +91,7 @@ Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, d
   - HTML/PHP/CSS/javascript...
 - URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
-**Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.**
+**Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.** Plusieurs rappels de cette date seront faits par e-mail, ainsi, nous nous réservons le droit de vous mettre un 0 si vous rendez le devoir en retard. Faites donc le devoir au fur et à mesure des TP de Développement Web et Intégration Web.
 
 
 # Notation
@@ -99,11 +102,14 @@ Les critères suivants seront évalués
   - Pas de classes au nom étrange
   - Limitation du nombre de classes CSS
   - Réutilisation des classes CSS
-    - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS
+    - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS. Chaque classe devant être séparée par un espace
   - Organisation du code
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
     - Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée
+    - Un formulaire non accessible sera sanctionné
+    - Absence d'attribut alt sur la balise &lt;img> sera sanctionné
+      - **L'attribut alt doit toujours être présent même vide**
     
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
