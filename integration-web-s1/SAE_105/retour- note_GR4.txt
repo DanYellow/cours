@@ -1,5 +1,0 @@
-GR4:
-- Accueil : la bannière JPO n'est pas alignée à la colonne et le footer n'est pas centré,
-- (Erreur très grave) la navigation ne fonction pas.
-- "À propos" : le style n'est pas conforme à la maquette. Le travail dans la feuille css a été négligé.
-- "Contact" : style défaillant, pas de message d'erreur (message pas envoyé) 

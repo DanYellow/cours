@@ -1,5 +1,0 @@
-GR2:
-- "Accueil" : deux boxes manquent.
-- "À propos" : la mise en page n'est pas conforme (voir maquette).
-- "Contact" :  La bande rouge ne s'affiche pas si le message n'est pas envoyé,  position et taille du texte à améliorer.
-- Le contenu de la nouvelle page n'est pas assez claire. Qu'est-ce le but de la page ?

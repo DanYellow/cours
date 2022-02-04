@@ -1,5 +1,0 @@
-GR6:
- -Accueil : pourquoi la bannière a été modifiée. Le style n'est pas conforme à la maquette ! 
-- À propos : Taille de texte pas uniforme sur la page,  la taille du texte dans le formulaire ne convient pas,
-- Sur le media: le style de la page n'est pas respecté ! 
-- Nouvelle page : Travail minimaliste. Le tableau ne communique (presque) rien. 
