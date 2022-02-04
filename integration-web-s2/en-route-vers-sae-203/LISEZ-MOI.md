@@ -156,7 +156,7 @@ Les critères suivants seront évalués
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter, vous n'aurez pas plus de points pour autant :
 
 - Ajouter un mode sombre
   - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
