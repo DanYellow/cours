@@ -5,7 +5,7 @@ Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de donnée
 
 > Si le projet est individuel, vous avez tout à fait le droit de communiquer entre vous, de vous entre-aider
 
-Vu que vous partez d'un code fourni, **pensez bien à le regarder (console du navigateur notamment),** faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
+Vu que vous partez d'un code fourni, **pensez bien à le regarder (console du navigateur notamment),** faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** (c'est pour ça qu'ils sont dans un dossier "ne-pas-modifier") c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
@@ -60,6 +60,9 @@ La base de données doit être utilisée pour les parties suivantes :
 
 # Page boissons
 Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
+
+# Formulaire
+Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, de ce fait, l'utilisation de WAMP/MAMP est indispensable. **La validation du formulaire côté serveur est tout aussi indispensable.** Quant au message de réussite ou échec, à vous de voir pour le design, vous avez tout a fait le droit de reprendre celui de la SAÉ 105.
 
 # Astuces
 
@@ -166,3 +169,5 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
     - [En ligne (je déconseille)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript
+- Utilisation d'expressions régulières (appelée aussi Regex) pour valider l'adresse e-mail côté serveur
+  - Vous pouvez aussi utiliser la fonction `filter_var` de PHP [voir documentation de la fonction `filter_var`](https://www.php.net/manual/en/function.filter-var.php) pour valider l'adresse e-mail côté serveur
