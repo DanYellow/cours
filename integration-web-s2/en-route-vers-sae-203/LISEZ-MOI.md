@@ -150,6 +150,7 @@ Les critères suivants seront évalués
   - [ ] **Exporter la base de données**
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
+    - [ ] Les ressources (fichiers image et autres)
     - [ ] La base de données
   - [ ] Nommer l'archive avec mon nom-prénom
 
