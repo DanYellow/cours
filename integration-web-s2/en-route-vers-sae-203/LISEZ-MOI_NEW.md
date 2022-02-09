@@ -80,7 +80,10 @@ La base de données doit être utilisée pour les parties suivantes :
 - Enregistrer les adresses e-mail des utilisateurs
   - Faites bien attention à sécuriser les entrées avant de les insérer dans la base
 
-**Un fichier de base de données vous sera remis ultérieurement.**
+
+[Script SQL pour créer la base de données Mysql](salon_the_IUT.sql)
+
+
 
 # Page boissons
 Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
