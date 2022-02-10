@@ -13,16 +13,15 @@ Vu que vous partez d'un code fourni, **pensez bien à le regarder (console du na
 
 L'IUT de Sarcelles (CY Cergy Paris Université) veut ouvrir un salon de thé en ligne et vous confie sa réalisation.
 
-Le site en question permettra la vente en-ligne de plusieurs types des pâtisseries divisés en catégories (par exemple : Cakes, Tartes, Mignardises, etc.) et des boissons qui pourront aussi être divisé en plusieurs catégories comme : soft, boissons chaudes, etc.
-Prévoir une seule catégorie boissons est aussi une option envisageable.
-Dans le site, le salon de thé prévoit une page pour chaque catégorie ou l'utilisateur pourra visualiser la liste des produits concernés. Toutes les pages seront accessible par un menu de navigation fixe.  
-Pour chacun des produits dans une page l'utilisateur a d'abord  la possibilité d'afficher une description supplémentaire (qui apparaît dans une nouvelle fenêtre (pop-up) dans la même page) et  d'ajouter le produit au panier. 
+Le site en question permettra la vente en ligne de plusieurs produits divisés en catégories.
+Dans le site, le salon de thé prévoit une page pour chaque catégorie ou l'utilisateur pourra visualiser la liste des produits concernés. Toutes les pages seront accessible par un menu de navigation fixe.
+Pour chacun des produits dans une page l'utilisateur a d'abord la possibilité d'afficher une description supplémentaire (qui apparaît dans une pop-up dans la même page) et d'ajouter le produit au panier. 
 
-Le but principal du salon est celle de privilégier la saisonnalité des produits.  Pour cette raison certains produits ne pourront pas être disponibles et ils devront donc s'afficher avec un libellé spécial qui mentionne la rupture saisonnière. De la même manière,   les produits épuisés seront aussi libellés.
+Le but principal du salon est celle de privilégier la saisonnalité des produits. Pour cette raison certains produits ne pourront pas être disponibles et ils devront donc s'afficher avec un libellé spécial qui mentionne la rupture saisonnière, **les saisons devront être gérées en fonction de la date du jour.** De la même manière, les produits épuisés seront aussi libellés.
 
-Si le produit est épuisé, l'utilisateur devrait avoir la possibilité de renseigner son adresse mail pour recevoir une notification lors du  retour en stock du produit choisi. 
+Si le produit est épuisé, l'utilisateur devrait avoir la possibilité de renseigner son adresse mail pour recevoir une notification lors du retour en stock du produit choisi.
 
-**Pour comprendre mieux les besoins fonctionnels du site et le design vous trouvez une maquette interactive ici :** 
+**Pour comprendre mieux les besoins fonctionnels du site et le design vous trouvez une maquette interactive ici :** 
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
