@@ -7,9 +7,30 @@ Dans le but de mieux vous préparer à la SAÉ 203 - Site web et Base de donnée
 
 Vu que vous partez d'un code fourni, **pensez bien à le regarder (console du navigateur notamment),** faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** (c'est pour ça qu'ils sont dans un dossier "ne-pas-modifier") c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est **dans vos propres fichiers.**
 
+
+
+## Description générale et contexte
+
+L'IUT de Sarcelles (CY Cergy Paris Université) veut ouvrir un salon de thé en ligne et vous confie sa réalisation.
+
+Le site en question permettra la vente en ligne de plusieurs produits divisés en catégories.
+Dans le site, le salon de thé prévoit une page pour chaque catégorie ou l'utilisateur pourra visualiser la liste des produits concernés. Toutes les pages seront accessible par un menu de navigation fixe.
+Pour chacun des produits dans une page l'utilisateur a d'abord la possibilité d'afficher une description supplémentaire (qui apparaît dans une pop-up dans la même page) et d'ajouter le produit au panier. 
+
+Le but principal du salon est celle de privilégier la saisonnalité des produits. Pour cette raison certains produits ne pourront pas être disponibles et ils devront donc s'afficher avec un libellé spécial qui mentionne la rupture saisonnière, **les saisons devront être gérées en fonction de la date du jour.** De la même manière, les produits épuisés seront aussi libellés.
+
+Si le produit est épuisé, l'utilisateur devrait avoir la possibilité de renseigner son adresse mail pour recevoir une notification lors du retour en stock du produit choisi.
+
+**Pour comprendre mieux les besoins fonctionnels du site et le design vous trouvez une maquette interactive ici :** 
+
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
-Ainsi, vous ne serez pas forcément apte dès le début du semestre à faire le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. Vous verrez donc durant ce semestre :
+## Notez bien
+
+Vous ne serez pas forcément apte dès le début du semestre à faire le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. 
+
+
+Vous verrez donc durant ce semestre :
 
 ## Notions
 
@@ -45,20 +66,24 @@ Les icônes sont des svg, ils ne doivent pas être au format .jpg dans votre pro
 
 # Base de données
 
-![](schema-db.jpg "Schéma de la base de données")
+![](BD_SalonThe_IUT_new.png "Schéma de la base de données")
 <p style="text-align: center">Schéma de la base de données</p>
 
-La catégorie "cakes" est volontairement vide, il faudra utiliser pour la page associée à cette catégorie le template de la page vide, celle qui propose à l'internaute d'être notifié quand il y aura des produits.
+<!--La catégorie "cakes" est volontairement vide, il faudra utiliser pour la page associée à cette catégorie le template de la page vide, celle qui propose à l'internaute d'être notifié quand il y aura des produits. -->
 
 La base de données doit être utilisée pour les parties suivantes :
 - Les catégories du menu (dans l'en-tête)
   - Le menu avec les images peut rester comme il est
 - Le contenu des popups
 - Le détail d'une catégorie
+- Le notifications pour les clients qui sont en attente d'un produit.
 - Enregistrer les adresses e-mail des utilisateurs
   - Faites bien attention à sécuriser les entrées avant de les insérer dans la base
 
-**Un fichier de base de données vous sera remis ultérieurement.**
+
+[Script SQL pour créer la base de données Mysql](salon_the_IUT.sql)
+
+
 
 # Page boissons
 Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
