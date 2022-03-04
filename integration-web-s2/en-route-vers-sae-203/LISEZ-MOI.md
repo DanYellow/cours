@@ -71,10 +71,40 @@ La base de données doit être utilisée pour les parties suivantes :
 - Les catégories du menu (dans l'en-tête)
   - Le menu avec les images peut rester comme il est
 - Le contenu des popups
-- Le détail d'une produit
+- Le détail d'un produit
   - Attention : la colonne "description" de la table produit retourne du HTML. **Ne mettez pas son contenu dans une balise &lt;p> et encore moins dans une balise &lt;span>**
 - Enregistrer les adresses e-mail des utilisateurs qui veulent être notifiés quand un produit est disponible
   - Faites bien attention à sécuriser les entrées avant de les insérer dans la base
+
+#### Saisonnalité des produits
+Certains produits possède une valeur concernant la saison. Il faudra donc indiquer (via un pictogramme vectoriel) la saison du produit et le rendre impossible à la vente lorsque nous ne sommes pas dans la saison. 
+![](table_saisons.jpg)
+<p style="text-align: center">Schéma de la table saisons</p>
+Il faudra donc, à partir des colonnes jour_debut, mois_debut, jour_fin et mois_fin, reconstruire les dates des saisons pour ensuite rendre disponible ou non le produit. En php, ça donne quelque chose comme ceci :
+```php
+// Les valeurs des variables jour_debut, mois_debut, jour_fin et mois_fin doivent venir de la base de données.
+
+$mois_debut_ete = "6";
+$jour_debut_ete = "21";
+$mois_fin_ete = "9";
+$jour_fin_ete = "22";
+
+// On récupère l'année courante
+$annee = date("Y");
+
+// On crée des objets de type "date" pour le début et la fin de la saison été
+$debut_ete = date_create("$jour_debut_ete/$mois_debut_ete/$annee");
+$fin_ete = date_create("$jour_fin_ete/$mois_fin_ete/$annee");
+
+// On décide d'afficher notre date au format jour/mois/année (facultatif, c'est pour notre test)
+echo date_format($fin_ete, "d/m/Y");
+echo date_format($debut_ete, "d/m/Y");
+
+// Et pour récupérer la date courante 
+$aujourdhui = date_create();
+
+// A partir de là, vous devez rajouter la condition permettant de s'assurer que la date du jour est comprise dans la saison cible.
+```
 
 
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](salon_the_IUT.sql).
@@ -193,9 +223,6 @@ Les critères suivants seront évalués
 
 Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter, vous n'aurez pas plus de points pour autant :
 
-- Ajouter un mode sombre
-  - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
-  - C'est à vous de faire le design
 - Indiquer les éléments déjà dans le panier dans la page détails
   - Vous pouvez utiliser une icône pour l'indiquer par exemple
   - Vous pouvez stocker les éléments dans le panier dans le localStorage
@@ -216,3 +243,6 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Indiquer à l'utilisateur que son e-mail est déjà sur liste d'attente lorsqu'il essaye de se réinscrire dans la même catégorie
   - Il faut donc vérifier en base l'adresse e-mail ET la catégorie
 - Une page listant tous les e-mails des clients sur liste d'attente
+- Ajouter un mode sombre
+  - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
+  - C'est à vous de faire le design
