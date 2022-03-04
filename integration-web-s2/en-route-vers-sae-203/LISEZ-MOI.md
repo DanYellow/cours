@@ -56,37 +56,47 @@ Notez également que certaines données (descriptions, contenu du menu...) seron
 Les CSS transitions dans la maquette Adobe XD sont là à titre d'exemple, libre à vous de reproduire les mêmes ou en inventer de nouvelles. Mais votre projet doit contenir des CSS transitions et des CSS transform.
 N'oubliez pas de créer une cohérence dans vos animations : n'allez pas faire une animation qui dure 5 secondes à un endroit et à un autre une animation qui en dure 1, surtout sur les deux éléments se ressemblent.
 
-# Images
-
-Les images sont distantes, dans le rendu final, il faudra impérativement reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.**
-
 # Icônes
 
 Les icônes sont des svg, ils ne doivent pas être au format .jpg dans votre projet. Il faudra utiliser une webfont comme vu en TP. Pour rappel, votre police d'écriture est générée grâce au site [icomoon.io](https://icomoon.io/).
 
 # Base de données
 
-![](BD_SalonThe_IUT_new.png "Schéma de la base de données")
+![](schema-bdd.png "Schéma de la base de données")
 <p style="text-align: center">Schéma de la base de données</p>
 
-<!--La catégorie "cakes" est volontairement vide, il faudra utiliser pour la page associée à cette catégorie le template de la page vide, celle qui propose à l'internaute d'être notifié quand il y aura des produits. -->
+La catégorie "cakes" est volontairement vide, il faudra utiliser pour la page associée à cette catégorie le template de la page vide, celle qui propose à l'internaute d'être notifié quand il y aura des produits.
 
 La base de données doit être utilisée pour les parties suivantes :
 - Les catégories du menu (dans l'en-tête)
   - Le menu avec les images peut rester comme il est
 - Le contenu des popups
-- Le détail d'une catégorie
-- Le notifications pour les clients qui sont en attente d'un produit.
-- Enregistrer les adresses e-mail des utilisateurs
+- Le détail d'une produit
+  - Attention : la colonne "description" de la table produit retourne du HTML. **Ne mettez pas son contenu dans une balise &lt;p> et encore moins dans une balise &lt;span>**
+- Enregistrer les adresses e-mail des utilisateurs qui veulent être notifiés quand un produit est disponible
   - Faites bien attention à sécuriser les entrées avant de les insérer dans la base
 
 
-[Script SQL pour créer la base de données Mysql](salon_the_IUT.sql)
+[Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](salon_the_IUT.sql).
+Ce fichier devra être importé dans le menu "import" de phpmyadmin.
 
 
 
 # Page boissons
-Tout en respectant la direction artistique du site, ça sera à vous de proposer un design pour cette page, elle devra donc lister les informations en provenance de la base de données.
+Tout en respectant la direction artistique du site, **ça sera à vous de proposer un design** pour cette page, elle devra donc lister les informations en provenance de la base de données. N'hésitez pas à vous inspirer de ce que vous avez vu et aimé sur le web, c'est votre page.
+
+Notez bien que nous ne vous proposons aucune image pour la 
+
+# Images
+
+Les images sont distantes, dans le rendu final, il faudra impérativement reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.** 
+Le domaine est https://danyellow.net/route-sae-203/images/, le nom de chaque image est dans la base de données. Ainsi si vous voulez afficher une image, il faudra écrire, par exemple :
+```php
+$baseURL = "https://danyellow.net/route-sae-203/images";
+
+// L'image correcte s'affichera sur le site
+<img src="$baseURL/mon-image-base-de-donnees.jpg" alt="" />
+```
 
 # Formulaire
 Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, de ce fait, l'utilisation de WAMP/MAMP est indispensable. **La validation du formulaire côté serveur est tout aussi indispensable.** Quant au message de réussite ou échec, à vous de voir pour le design, vous avez tout à fait le droit de reprendre celui de la SAÉ 105.
@@ -114,7 +124,7 @@ Lorsqu'une catégorie de produits est vide, un formulaire doit être affiché, d
 - Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
-- URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+- URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données. Il faut donc l'exporter depuis phpymyadmin
 
 **Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.** Plusieurs rappels de cette date seront faits par e-mail, ainsi, nous nous réservons le droit de vous mettre un 0 si vous rendez le devoir en retard. Faites donc le devoir au fur et à mesure des TP de Développement Web et Intégration Web.
 
@@ -142,7 +152,7 @@ Les critères suivants seront évalués
   - Fichier(s) javascript sont chargés **avant** la fermeture de la balise &lt;body>
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
   - Unité des police d'écriture en rem
-    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
+    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, **il faut utiliser l'unité rem**
       - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
@@ -175,7 +185,7 @@ Les critères suivants seront évalués
   - [ ] **Exporter la base de données**
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
-    - [ ] Les ressources (fichiers image et autres)
+    - [ ] Les ressources (fichiers images et autres)
     - [ ] La base de données
   - [ ] Nommer l'archive avec mon nom-prénom
 
@@ -194,7 +204,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess
 - Écrire votre **CSS** en SCSS ou SASS
-  - Cette partie de ce tutoriel sera amplement suffisante
+  - Cette partie de ce tutoriel concernant les langages SCSS et SASS sera amplement suffisante
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
@@ -203,3 +213,6 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Ajouter des plugins **pertinents** en javascript
 - Utilisation d'expressions régulières (appelée aussi Regex) pour valider l'adresse e-mail côté serveur
   - Vous pouvez aussi utiliser la fonction `filter_var` de PHP [voir documentation de la fonction `filter_var`](https://www.php.net/manual/en/function.filter-var.php) pour valider l'adresse e-mail côté serveur
+- Indiquer à l'utilisateur que son e-mail est déjà sur liste d'attente lorsqu'il essaye de se réinscrire dans la même catégorie
+  - Il faut donc vérifier en base l'adresse e-mail ET la catégorie
+- Une page listant tous les e-mails des clients sur liste d'attente
