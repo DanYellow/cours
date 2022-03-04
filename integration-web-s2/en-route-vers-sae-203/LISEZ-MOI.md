@@ -81,6 +81,7 @@ Certains produits possède une valeur concernant la saison. Il faudra donc indiq
 ![](table_saisons.jpg)
 <p style="text-align: center">Schéma de la table saisons</p>
 Il faudra donc, à partir des colonnes jour_debut, mois_debut, jour_fin et mois_fin, reconstruire les dates des saisons pour ensuite rendre disponible ou non le produit. En php, ça donne quelque chose comme ceci :
+
 ```php
 // Les valeurs des variables jour_debut, mois_debut, jour_fin et mois_fin doivent venir de la base de données.
 
@@ -107,6 +108,7 @@ $aujourdhui = date_create();
 ```
 
 
+
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](salon_the_IUT.sql).
 Ce fichier devra être importé dans le menu "import" de phpmyadmin.
 
@@ -115,17 +117,26 @@ Ce fichier devra être importé dans le menu "import" de phpmyadmin.
 # Page boissons
 Tout en respectant la direction artistique du site, **ça sera à vous de proposer un design** pour cette page, elle devra donc lister les informations en provenance de la base de données. N'hésitez pas à vous inspirer de ce que vous avez vu et aimé sur le web, c'est votre page.
 
-Notez bien que nous ne vous proposons aucune image pour la 
+Notez bien que nous ne vous proposons aucune image pour cette catégorie.
 
 # Images
 
 Les images sont distantes, dans le rendu final, il faudra impérativement reconstruire leur URL à partir du domaine et de la base de données. **Vous ne devez pas les télécharger.** 
-Le domaine est https://danyellow.net/route-sae-203/images/, le nom de chaque image est dans la base de données. Ainsi si vous voulez afficher une image, il faudra écrire, par exemple :
+La racine URL des images est https://danyellow.net/route-sae-203/, le nom de chaque image est dans la base de données. Il y a deux dossiers pour les images :
+- minatures : utilisé dans la liste des produits
+  - URL : https://danyellow.net/route-sae-203/miniatures/
+- full : utilisé dans la popup des produits
+  - URL : https://danyellow.net/route-sae-203/full/
+
+Ainsi si vous voulez afficher une image, il faudra écrire, par exemple (ici le cas d'une miniature) :
+
 ```php
-$baseURL = "https://danyellow.net/route-sae-203/images";
+$baseURLMiniatures = "https://danyellow.net/route-sae-203/images/miniatures";
 
 // L'image correcte s'affichera sur le site
-<img src="$baseURL/mon-image-base-de-donnees.jpg" alt="" />
+<img src="$baseURLMiniatures/mon-image-base-de-donnees.jpg" alt="" loading="lazy" />
+
+// L'attribut "loading" avec la valeur "lazy" permet de charger une image à la demande, c'est un bon moyen simple de l'optimiser
 ```
 
 # Formulaire
