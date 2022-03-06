@@ -103,14 +103,22 @@ echo date_format($debut_ete, "d/m/Y");
 // Et pour récupérer la date courante 
 $aujourdhui = date_create();
 
-// A partir de là, vous devez rajouter la condition permettant de s'assurer que la date du jour est comprise dans la saison cible.
+// A partir de là, vous devez rajouter la condition permettant de s'assurer que la date du jour est comprise dans la saison cible. La logique est identique à celle qui nous permet de savoir si un nombre est compris entre deux nombre.
 ```
 
 
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](salon_the_IUT.sql).
 Ce fichier devra être importé dans le menu "import" de phpmyadmin.
 
+#### Clients en attente
+Vous avez dû le remarquer, entre les tables "categorie" et "client_attente", il s'agit d'une table intermédiaire, on dit que la relation est Many-to-Many. Autrement dit, le même client (en attente) peut attendre pour plusieurs catégories. Pour insérer une entrée dans ce genre de relation, il faut insérer, dans notre cas, l'adresse e-mail du client (dans la table client_attente), récupérer l'id de la dernière entrée et le mettre dans client_attente_categorie. Voici le code MySQL pour réaliser ceci pour vous aider :
 
+```mysql
+INSERT IGNORE INTO client_attente (email) VALUES (ADRESSE-EMAIL-UTILISATEUR);
+SET @client_id = LAST_INSERT_ID();
+INSERT INTO client_attente_categorie (client_attente_id,categorie_id) VALUES(@client_id, ID-DE-LA-CATEGORIE); 
+```
+A vous d'adapter les valeurs pour réussir vos insertions en Many-To-Many.
 
 # Page boissons
 Tout en respectant la direction artistique du site, **ça sera à vous de proposer un design** pour cette page, elle devra donc lister les informations en provenance de la base de données. N'hésitez pas à vous inspirer de ce que vous avez vu et aimé sur le web, c'est votre page.
