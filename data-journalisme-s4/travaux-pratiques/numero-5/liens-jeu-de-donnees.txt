@@ -1,2 +1,0 @@
-Voir : https://raw.githubusercontent.com/DanYellow/cours/main/big-data-s4/datasets/_liste-sites-source-pour-datasets.txt
-Ou voir : https://github.com/DanYellow/cours/tree/main/big-data-s4/datasets
