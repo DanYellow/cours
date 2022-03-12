@@ -113,7 +113,7 @@ $aujourdhui = date_create();
 Ce fichier devra être importé dans le menu "import" de phpmyadmin.
 
 #### Clients en attente
-Vous avez dû le remarquer, entre les tables "categorie" et "client_attente", il s'agit d'une table intermédiaire, on dit que la relation est Many-to-Many. Autrement dit, le même client (en attente) peut attendre pour plusieurs catégories. Pour insérer une entrée dans ce genre de relation, il faut insérer, dans notre cas, l'adresse e-mail du client (dans la table client_attente), récupérer l'id de la dernière entrée et le mettre dans client_attente_categorie. Voici le code MySQL pour réaliser ceci pour vous aider :
+Vous avez dû le remarquer, il y a un table entre les tables "categorie" et "client_attente", il s'agit d'une table intermédiaire, on dit que la relation est Many-to-Many. Autrement dit, le même client (en attente) peut attendre pour plusieurs catégories. Pour insérer une entrée dans ce genre de relation, il faut insérer, dans notre cas, l'adresse e-mail du client (dans la table client_attente), récupérer l'id de la dernière entrée et le mettre dans client_attente_categorie. Voici le code MySQL pour réaliser ceci pour vous aider :
 
 ```mysql
 INSERT IGNORE INTO client_attente (email) VALUES (ADRESSE-EMAIL-UTILISATEUR);
