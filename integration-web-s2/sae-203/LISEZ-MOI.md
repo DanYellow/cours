@@ -23,14 +23,16 @@ Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de donn
 
 Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être null, un article peut donc avoir aucun auteur.
 
-Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour n'est mise à jour à chaque mise à jour d'un article (`UPDATE`).
+Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour est mise à jour à chaque mise à jour d'un article (`UPDATE`).
 
+[Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
 # Administration
 
 Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap. Dans le dossier `/administration`, vous trouverez un gabarit sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
+    - On doit pouvoir associer un auteur à un article
   - Edition d'article
   - Liste d'articles
 - Auteur
@@ -40,10 +42,9 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Message
   - Liste des messages reçus
 
-
 Vu que vous êtes encore débutant en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichiers REQUETES-SQL.md pour mieux comprendre les requêtes.**
 
-La partie "Auteur" est presque complète, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
+La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
 
 
 ### Redirection après soumission

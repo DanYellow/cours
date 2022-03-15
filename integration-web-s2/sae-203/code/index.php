@@ -7,7 +7,6 @@ require_once('./ressources/includes/connexion-bdd.php');
 $listeArticlesCommande = $clientMySQL->prepare('SELECT * FROM article');
 $listeArticlesCommande->execute();
 $listeArticles = $listeArticlesCommande->fetchAll();
-print_r($listeArticles[0]);
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ print_r($listeArticles[0]);
                             <section class='textes'>
                                 <h1 class='titre'>{$article["titre"]}</h1>
                                 <p class='description'>
-                                Initier les étudiants et les étudiantes aux bases de la programmation de pages HTML. On y apprend les langages HTML et CSS, simples mais énormément pratiques. Le web ayant été pensé pour être accessible, le cours enseigne également les normes d'accessibilités comme le contraste des couleurs ou encore la taille des polices d'écriture.
+                                {$article["chapo"]}
                                 </p>
                             </section>
                         </article>
