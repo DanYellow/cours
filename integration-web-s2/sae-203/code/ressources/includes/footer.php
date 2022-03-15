@@ -31,7 +31,7 @@
         </li>
     </ul>
 
-    <p class="txt-credits">© 2013–2021 - BUT MMI - CY Paris Université</p>
+    <p class="txt-credits">© 2013–<?php echo date("Y"); ?> - BUT MMI - CY Paris Université</p>
 
     <figure class="logo">
         <!-- Format svg est un format vectoriel, il se charge comme une image normale -->

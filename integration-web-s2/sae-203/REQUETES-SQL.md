@@ -96,7 +96,7 @@ $articleCommande->execute([
 Comme tour à l'heure, nous exécutons notre requête, toutefois contrairement à tout à l'heure, nous passons un tableau associatif en paramètre à la méthode `execute()`.
 Le fonctionnement est très simple, on définit un ensemble de clef => valeur. Dans notre cas, `:id` va être remplacé par `42`.
 
-Généralement la valeur provient de l'URL de la page. On pourrait être bien s'imaginer que notre 42 soit remplacé par `$_GET["id"]`, on récupère donc le paramètre "id" de l'URL.
+Généralement la valeur provient de l'URL de la page. On pourrait s'imaginer que notre 42 soit remplacé par `$_GET["id"]`, on récupèrerait donc le paramètre "id" de l'URL.
 
 ```php
 $article = $articleCommande->fetch();
@@ -150,7 +150,8 @@ Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois i
 
 ## Éditez vos données
 
-Dernier point : la mise à jour d'un élément. Parfois (souvent même), vous devrez mettre à un jour un élément, c'est là qu'entre en jeu le mot-clez `UPDATE`. Premier point : il ne doit s'utiliser que un élément (ou des éléments) spécifiques, sinon vous mettre à jour toute la table, l'utilisation de `WHERE` est donc indispensable.
+Dernier type de requête : la mise à jour d'un élément. Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
+Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la base de donnés et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
 UPDATE auteur
@@ -160,9 +161,9 @@ WHERE id = :id
 
 - `UPDATE auteur` : le mot-clé permet d'indiquer que nous allons mettre à jour la table "auteur"
 - `SET` : la syntaxe ressemble plus ou moins à ce qu'on a vu avec notre `SELECT ... WHERE` sauf qu'on a plus de clef. On liste juste l'ensemble des champs que l'on souhaite mettre à jour, il est donc possible de modifier qu'un seul champ
-- `WHERE` : on indique quel élément doit être modifié. Pour rappel, en absence du `WHERE`, **vous modifierez toute la table**
+- `WHERE` : on indique quel élément doit être modifié. Pour rappel, en absence du `WHERE` dans ce contexte, **vous modifierez toute la table**
 
-> **Attention :**  Sauf cas très, très spécifique, vous ne devrez jamais mettre à jour la valeur du champ "id"
+> **Attention :**  Sauf cas très, très spécifiques, vous ne devrez jamais mettre à jour la valeur du champ "id"
 
 Maintenant le code PHP (ici on met à jour un auteur)
 
@@ -174,9 +175,9 @@ $majAuteurCommande = $clientMySQL->prepare("
 ");
 
 $majAuteurCommande->execute([
-    "nom" => "",
-    "prenom" => "",
-    "avatar" => "",
+    "nom" => $_POST["nom"],
+    "prenom" => $_POST["prenom"],
+    "avatar" => $_POST["avatar"],
     "id" => $_POST["id"]
 ]);
 ```

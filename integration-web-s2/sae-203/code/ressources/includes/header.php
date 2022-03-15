@@ -1,4 +1,4 @@
-<nav class="navigation-principale semigras">
+<nav class="navigation-principale">
     <ul>
         <li <?php if ($page_active == "index") {
                 echo "class='active'";

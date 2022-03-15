@@ -6,25 +6,25 @@ $pageCourante = "REMPLACER";
 $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists("id", $_GET);
 
-$auteur = null;
+$entite = null;
 if ($entree_mise_a_jour) {
-    $chercherAuteurCommande = $clientMySQL->prepare('SELECT * FROM REMPLACER WHERE id = :id');
-    $chercherAuteurCommande->execute([
+    $commande = $clientMySQL->prepare('SELECT * FROM REMPLACER WHERE id = :id');
+    $commande->execute([
         "id" => $_GET["id"]
     ]);
 
-    $auteur = $chercherAuteurCommande->fetch();
+    $entite = $commande->fetch();
 }
 
 if ($formulaire_soumis) {
     // On crée une nouvelle entrée
-    $majAuteurCommande = $clientMySQL->prepare("
-        UPDATE auteur
+    $commande = $clientMySQL->prepare("
+        UPDATE REMPLACER
         SET nom = :nom, prenom = :prenom, avatar = :avatar
         WHERE id = :id
     ");
 
-    $majAuteurCommande->execute([
+    $commande->execute([
         "nom" => $_POST["nom"],
         "prenom" => "A REMPLACER",
         "avatar" => "A REMPLACER",
@@ -56,23 +56,13 @@ if ($formulaire_soumis) {
                 <?php if ($auteur) { ?>
                     <form method="POST">
                         <section class="row flex-column">
-                            <input type="hidden" value="<?php echo $auteur["id"]; ?>" name="id">
+                            <input type="hidden" value="" name="id">
 
                             <div class="mb-3 col-md-6">
                                 <label for="prenom" class="form-label">Nom</label>
-                                <input type="text" value="<?php echo $auteur["nom"]; ?>" name="nom" class="form-control" id="prenom">
+                                <input type="text" value="" name="nom" class="form-control" id="prenom">
                             </div>
-                            <div class="mb-3  col-md-6">
-                                <label for="prenom" class="form-label">Prénom</label>
-                                <input type="text" value="<?php echo $auteur["prenom"]; ?>" name="prenom" class="form-control" id="prenom">
-                            </div>
-                            <div class="mb-3  col-md-6">
-                                <label for="avatar" class="form-label">Avatar</label>
-                                <input type="text" value="<?php echo $auteur["avatar"]; ?>" name="avatar" class="form-control" id="avatar">
-                                <div class="form-text">
-                                    Mettre l'URL de l'avatar
-                                </div>
-                            </div>
+                            
                             <div class="mb-3  col-md-6">
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>

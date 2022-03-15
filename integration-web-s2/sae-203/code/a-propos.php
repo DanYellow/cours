@@ -25,7 +25,7 @@ $page_active = "apropos";
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal">
-            <ul class="liste-ancres semigras">
+            <ul class="liste-ancres">
                 <li><a href="#presentation">Présentation</a></li>
                 <li><a href="#sae">SAÉ</a></li>
                 <li class="dernier"><a href="#exemple-sae">Exemples de SAÉ</a></li>

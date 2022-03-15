@@ -8,28 +8,30 @@ Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y t
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, deux pour être exacts :
-- Article : lorsqu'on clique sur un article sur la page d'accueil, on doit accéder à son contenu
-- La liste des auteurs du site (rajoutez une page dans la navigation)
+- Article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu
+- La liste des auteurs du site (rajoutez une page dans la navigation pour pouvoir y accéder)
 
-Pour ces trois pages, c'est à vous de réaliser le design.
+Pour ces deux pages, c'est à vous de réaliser le design.
 
-Et en plus, vous allez devoir réaliser le back-office du site, vous trouverez plus d'information concernant cette partie dans la partie dédiée dans ce document.
+En plus, vous allez devoir réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
 # Base de données
 
-Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Cette du projet ressemble à ceci :
+Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Celle du projet ressemble à ceci :
 
 ![](schema-bdd.png "Schéma de la base de données")
 <p style="text-align: center">Schéma de la base de données</p>
 
-Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être null, un article peut donc avoir aucun auteur.
+Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être nulle, un article peut donc avoir aucun auteur.
 
-Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour est mise à jour à chaque mise à jour d'un article (`UPDATE`).
+Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`).
+
+Comprennez également que le chapo d'un article est affiché sur la page d'accueil (la liste des articles) et il doit également se retrouver dans le détail de l'article, et ce, avant son contenu (champ "contenu").
 
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
 # Administration
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap. Dans le dossier `/administration`, vous trouverez un gabarit sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -42,14 +44,15 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Message
   - Liste des messages reçus
 
-Vu que vous êtes encore débutant en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichiers REQUETES-SQL.md pour mieux comprendre les requêtes.**
+Vu que vous êtes encore débutant en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre les requêtes.**
 
 La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
 
+> Bien évidemment, une interface d'administration nécessite une formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
 
 ### Redirection après soumission
 
-Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires. C'est normal, il manque le comportement du navigateur après la soumission. Deux choix s'offrent à vous : 
+Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires du point de vue visuel. C'est normal, il manque le comportement du navigateur après la soumission (car les données ont bien été enregistrées). Deux choix s'offrent à vous : 
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
@@ -67,15 +70,12 @@ $pageRedirection = "remplacer-par-url";
 header("Location: $pageRedirection"); 
 ```
 
-~~Vous donnerez également la possibilité à l'utilisateur de pouvoir supprimer un article.~~
-
-
 # Astuces
 
 - Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier "squelette.php" à la racine du dossier puis reconommez-le
-- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration`
-- 
+- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration` et renommez-le
+- Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreur
 
 # Rendus attendus
 
@@ -150,11 +150,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez plus de nouvelles connaissances :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances :
 
-- Ajouter un mode sombre
-  - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
-  - C'est à vous de faire le design
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
 - Écrire votre **CSS** en SCSS ou SASS
@@ -166,6 +163,11 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur 
-- Utiliser une Regex (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
-- Ajouter la fonctionnalité suivante : A partir d'un article, on doit être capable d'accéder à la page de l'auteur de l'article
+- Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
+- Permettre, à partir d'un article, d'accéder à la page de l'auteur de l'article
   - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur
+- Ajouter un "flash message" après création ou édition d'un élément dans le backoffice
+  - Il faudra utiliser les sessions en php pour ce faire
+- Donner la possibilité de supprimer un message ou article
+- Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
+- Afficher en temps réel l'image mise dans le champ "avatar" lors de l'édition d'un auteur

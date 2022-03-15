@@ -29,7 +29,7 @@ $pageCourante = "REMPLACER";
                 </div>
             </header>
 
-            <table class="table align-middle">
+            <table class="table align-middle table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

@@ -4,7 +4,7 @@
         <img src="ressources/images/image-article.png" alt="">
     </figure>
     <section class='textes'>
-        <h2 class="titre semigras">Reportage vidéo SAÉ <?php echo $nb_sae; ?></h2>
+        <h2 class="titre">Reportage vidéo SAÉ <?php echo $nb_sae; ?></h2>
         <p class='description'>Apprendre les bases du reportage vidéo sur un sujet libre</p>
     </section>
 </article>

@@ -29,7 +29,7 @@ $pageCourante = "auteurs";
                 </div>
             </header>
 
-            <table class="table align-middle">
+            <table class="table align-middle table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

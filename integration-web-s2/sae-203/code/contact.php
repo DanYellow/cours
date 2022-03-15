@@ -64,14 +64,14 @@ if ($formulaire_soumis) {
     if ($formulaire_soumis && !$formulaire_a_erreurs) {
         echo "
                 <section class='banniere-alerte succes' role='alert' aria-live='polite'>
-                    <p class='semigras'>Message envoyé !</p>
+                    <p>Message envoyé !</p>
                 </section>
             ";
     }
     if ($formulaire_soumis && $formulaire_a_erreurs) {
         echo "
                 <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
-                    <p class='semigras'>Votre message possède une erreur !</p>
+                    <p>Votre message possède une erreur !</p>
                 </section>
             ";
     }
