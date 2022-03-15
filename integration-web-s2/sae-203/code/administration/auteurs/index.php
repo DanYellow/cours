@@ -62,7 +62,6 @@ $pageCourante = "auteurs";
                         <td>{$auteur["nom"]}</td>
                         <td>
                             <a href='edition.php?id={$auteur["id"]}' class='link-primary'>Modifier</a>
-                            <a href='#' class='link-secondary'>Consulter</a>
                         </td>
                     </tr>
                 ";

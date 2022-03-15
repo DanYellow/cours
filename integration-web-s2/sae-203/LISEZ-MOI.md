@@ -7,11 +7,9 @@ Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y t
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
-Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, trois pour être exacts :
+Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, deux pour être exacts :
 - Article : lorsqu'on clique sur un article sur la page d'accueil, on doit accéder à son contenu
-- Auteur : A partir d'un article, on doit être capable d'accéder à la page de l'auteur de l'article
-  - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur
-- La liste des auteurs
+- La liste des auteurs du site (rajoutez une page dans la navigation)
 
 Pour ces trois pages, c'est à vous de réaliser le design.
 
@@ -34,7 +32,6 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Articles
   - Création d'article
   - Edition d'article
-  - Consulation d'article
   - Liste d'articles
 - Auteur
   - Création d'auteur
@@ -75,6 +72,8 @@ header("Location: $pageRedirection");
 # Astuces
 
 - Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
+- Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier "squelette.php" à la racine du dossier puis reconommez-le
+- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration`
 - 
 
 # Rendus attendus
@@ -84,7 +83,7 @@ header("Location: $pageRedirection");
   - HTML/PHP/CSS/javascript...
 - URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement. Un seul rendu est nécessaire par groupe, ça sera du chef d'équipe.
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement. Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
@@ -150,13 +149,13 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez plus de nouvelles connaissances :
 
 - Ajouter un mode sombre
   - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
   - C'est à vous de faire le design
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
-  - Il vous faudra un fichier .htaccess
+  - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
 - Écrire votre **CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
@@ -167,3 +166,5 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Ajouter des plugins **pertinents** en javascript
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur 
 - Utiliser une Regex (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
+- Ajouter la fonctionnalité suivante : A partir d'un article, on doit être capable d'accéder à la page de l'auteur de l'article
+  - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur

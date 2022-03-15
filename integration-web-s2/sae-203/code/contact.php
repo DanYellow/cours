@@ -17,7 +17,7 @@ if ($formulaire_soumis) {
         ";
 
         // On prépare la requête
-        $insertRecipe = $clientMySQL->prepare($insertionMessageRequete);
+        $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
 
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
@@ -27,7 +27,7 @@ if ($formulaire_soumis) {
 
         // On l'exécute 
         // et on remplace les placeholders de la requête par nos valeurs
-        $insertRecipe->execute([
+        $messageCommande->execute([
             'nom' => $nom,
             'prenom' => $prenom,
             'contenu' => 'A-REMPLACER',
