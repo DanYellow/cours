@@ -1,0 +1,80 @@
+.jpo-banniere {
+  width: 34.375%;
+  height: 45.625rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: url("../../images/montage-cyu.jpg") no-repeat center center;
+  text-decoration: none;
+  overflow: hidden;
+  transition: background-size 0.5s;
+  background-size: 100% 100%;
+}
+
+.jpo-banniere:hover {
+  background-size: 105% 105%;
+}
+
+.jpo-banniere:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid white;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1, 1.1);
+  top: 50%;
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.1s;
+}
+
+.jpo-banniere:hover:before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(0.96, 0.98);
+}
+
+.jpo-banniere:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.72;
+  background-image: linear-gradient(to top, #ef509f 0%, #a50253 100%);
+}
+
+.jpo-banniere .logo {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+}
+
+.jpo-banniere .textes {
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.62);
+}
+
+.jpo-banniere .textes .txt-petit {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.jpo-banniere .textes .txt-grand {
+  font-size: 3rem;
+  margin-bottom: 0.875rem;
+}
+
+.jpo-banniere .textes .en-savoir-plus {
+  text-align: center;
+  font-weight: 600;
+}

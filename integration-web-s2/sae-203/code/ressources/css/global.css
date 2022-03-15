@@ -1,0 +1,83 @@
+/* 
+    Le code ci-dessous permet d'effectuer une transition lors clic 
+    mais ceci n'est pas optimal pour l'accessibilité...
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+/* 
+    ...alors on utilise les lignes de code suivantes pour désactiver 
+    les animations pour les utilisateurs
+    qui n'en souhaitent pas, leur désactivation est faite au niveau du système d'exploitation */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+.navigation-principale li {
+    padding-top: 2.25rem;
+}
+
+.navigation-principale a {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-principale a:hover {
+    color: #ef509f;
+}
+
+.navigation-principale .active a {
+    color: #ef509f;
+}
+
+.pied-de-page-principal .liste-liens {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 8px;
+}
+
+.pied-de-page-principal .remonter-lien {
+    color: #707070;
+    text-decoration: none;
+}
+
+.pied-de-page-principal a {
+    color: #0066ff;
+}
+
+.pied-de-page-principal .logo {
+    margin-top: 46px;
+}
+
+.pied-de-page-principal .txt-credits {
+    margin-top: 20px;
+}
+
+.paragraphe {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+}
+
+.paragraphe:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.semigras {
+    font-weight: 600;
+}
+
+.texte-gras {
+    font-weight: bold;
+}
