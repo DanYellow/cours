@@ -1,24 +1,81 @@
 # SAÉ 203 - Site web et Base de données (BDD)
+_Les consignes pourront être modifiées_
 
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105. Donc à vous de voir si vous souhaitez repartir du code que vous (et votre groupe) avez fourni le semestre précédent ou la correction (disponible sur ENT).
+CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105. Vous partirez de la correction du projet (disponible sur ENT).
 
-Notez que dans le code de la correction, il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y toucher, il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est.
+Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y toucher, il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez en revanche copier un sélecteur CSS présent dans le code de base pour le surcharger si besoin est.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, trois pour être exacts :
-- Article : lorsqu'on clique sur un article sur la page d'accueil, on doit accéder à son détail
+- Article : lorsqu'on clique sur un article sur la page d'accueil, on doit accéder à son contenu
 - Auteur : A partir d'un article, on doit être capable d'accéder à la page de l'auteur de l'article
   - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur
-- 
+- La liste des auteurs
+
+Pour ces trois pages, c'est à vous de réaliser le design.
+
+Et en plus, vous allez devoir réaliser le back-office du site, vous trouverez plus d'information concernant cette partie dans la partie dédiée dans ce document.
+# Base de données
+
+Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Cette du projet ressemble à ceci :
+
+![](schema-bdd.png "Schéma de la base de données")
+<p style="text-align: center">Schéma de la base de données</p>
+
+Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être null, un article peut donc avoir aucun auteur.
+
+Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour n'est mise à jour à chaque mise à jour d'un article (`UPDATE`).
+
+
+# Administration
+
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap. Dans le dossier `/administration`, vous trouverez un gabarit sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+- Articles
+  - Création d'article
+  - Edition d'article
+  - Consulation d'article
+  - Liste d'articles
+- Auteur
+  - Création d'auteur
+  - Edition d'auteur
+  - Liste d'auteurs
+- Message
+  - Liste des messages reçus
+
+
+Vu que vous êtes encore débutant en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichiers REQUETES-SQL.md pour mieux comprendre les requêtes.**
+
+La partie "Auteur" est presque complète, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
+
+
+### Redirection après soumission
+
+Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires. C'est normal, il manque le comportement du navigateur après la soumission. Deux choix s'offrent à vous : 
+- Rester sur la page avec les données mises à jour
+- Rediriger l'utilisateur vers une autre page
+
+Voici le code pour les deux cas. Ce code est à mettre **après** les données ont été enregistrées dans la base.
+
+```php
+// L'utilisateur reste sur la même page
+$pageRedirection = $_SERVER['HTTP_REFERER'];
+header("Location: $pageRedirection"); 
+```
+
+```php
+// L'utilisateur va ailleurs
+$pageRedirection = "remplacer-par-url";
+header("Location: $pageRedirection"); 
+```
+
+~~Vous donnerez également la possibilité à l'utilisateur de pouvoir supprimer un article.~~
+
 
 # Astuces
 
-- A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
-- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
-- Nous vous avons fourni une base de données à remplir et remplie. Premier réflexe : l'importer dans phpMyAdmin
-- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
-- Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
+- Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
+- 
 
 # Rendus attendus
 
@@ -27,16 +84,14 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
   - HTML/PHP/CSS/javascript...
 - URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.
-
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement. Un seul rendu est nécessaire par groupe, ça sera du chef d'équipe.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
+Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
 ### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
-  - Pas de classes au nom étrange
-  - Limitation du nombre de classes CSS
+  - Pas de classes CSS au nom étrange
   - Réutilisation des classes CSS
     - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS
   - Organisation du code

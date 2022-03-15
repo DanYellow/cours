@@ -5,9 +5,38 @@ $page_active = "contact";
 $formulaire_a_erreurs = false;
 $formulaire_soumis = !empty($_POST);
 
+require_once('./ressources/includes/connexion-bdd.php');
+
 if ($formulaire_soumis) {
     // La fonction isset peut prendre en paramètre une liste de variables, ceci rend plus ismple son utilisation
-    if (!isset($_POST["prenom"],  $_POST["nom_de_famille"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
+    if (isset($_POST["prenom"],  $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
+        // Requête pour envoyer un message :
+        $insertionMessageRequete = "
+            INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+            VALUES (:nom, :prenom, :contenu, :email, :type, :date)
+        ";
+
+        // On prépare la requête
+        $insertRecipe = $clientMySQL->prepare($insertionMessageRequete);
+
+        $nom = htmlentities($_POST["nom"]);
+        $prenom = htmlentities($_POST["prenom"]);
+
+        // On récupère la date du jour
+        $date = new DateTimeImmutable();
+
+        // On l'exécute 
+        // et on remplace les placeholders de la requête par nos valeurs
+        $insertRecipe->execute([
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'contenu' => 'A-REMPLACER',
+            'email' => 'A-REMPLACER',
+            'type' => $_POST["je_suis"],
+            'date' => $date->format('Y-m-d H:i:s')
+        ]);
+        $formulaire_a_erreurs = false;
+    } else {
         $formulaire_a_erreurs = true;
     }
 }
@@ -31,21 +60,21 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <?php 
-        if($formulaire_soumis && !$formulaire_a_erreurs) {
-            echo "
+    <?php
+    if ($formulaire_soumis && !$formulaire_a_erreurs) {
+        echo "
                 <section class='banniere-alerte succes' role='alert' aria-live='polite'>
                     <p class='semigras'>Message envoyé !</p>
                 </section>
             ";
-        }
-        if($formulaire_soumis && $formulaire_a_erreurs) {
-            echo "
+    }
+    if ($formulaire_soumis && $formulaire_a_erreurs) {
+        echo "
                 <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
                     <p class='semigras'>Votre message possède une erreur !</p>
                 </section>
             ";
-        }
+    }
     ?>
 
     <section class="conteneur-1280">
@@ -69,8 +98,8 @@ if ($formulaire_soumis) {
                     <input type="text" class="champ" name="prenom" id="prenom">
                 </article>
                 <article class="champ-conteneur">
-                    <label for="nom_de_famille" class="label-champ texte-gras">Nom de famille</label>
-                    <input type="text" class="champ" name="nom_de_famille" id="nom_de_famille">
+                    <label for="nom" class="label-champ texte-gras">Nom de famille</label>
+                    <input type="text" class="champ" name="nom" id="nom">
                 </article>
                 <article class="champ-conteneur">
                     <label for="email" class="label-champ texte-gras">Adresse e-mail</label>
@@ -86,8 +115,8 @@ if ($formulaire_soumis) {
                     <p class="label-champ texte-gras">Je suis</p>
                     <ul class="liste-choix">
                         <li class="choix">
-                            <input type="radio" name="je_suis" id="pas_de_choix" value="pas_de_choix">
-                            <label for="pas_de_choix">Je ne souhaite pas le préciser</label>
+                            <input type="radio" name="je_suis" id="pas_precise" value="pas_precise">
+                            <label for="pas_precise">Je ne souhaite pas le préciser</label>
                         </li>
                         <li class="choix">
                             <input type="radio" name="je_suis" id="etudiant" value="etudiant">

@@ -1,6 +1,14 @@
 <?php
 $couleur_bulle_classe = "rose";
 $page_active = "index";
+
+require_once('./ressources/includes/connexion-bdd.php');
+
+$listeArticlesCommande = $clientMySQL->prepare('SELECT * FROM article');
+$listeArticlesCommande->execute();
+$listeArticles = $listeArticlesCommande->fetchAll();
+print_r($listeArticles[0]);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,14 +38,14 @@ $page_active = "index";
 
             <section class="colonne">
                 <section class="liste-articles">
-                    <?php for ($i = 0; $i < 3; $i++) {
+                    <?php foreach ($listeArticles as $article) {
                         echo "
                        <article class='article'>
                             <figure>
                                 <img src='ressources/images/image-article.png' alt=''>
                             </figure>
                             <section class='textes'>
-                                <h1 class='titre'>Développement web</h1>
+                                <h1 class='titre'>{$article["titre"]}</h1>
                                 <p class='description'>
                                 Initier les étudiants et les étudiantes aux bases de la programmation de pages HTML. On y apprend les langages HTML et CSS, simples mais énormément pratiques. Le web ayant été pensé pour être accessible, le cours enseigne également les normes d'accessibilités comme le contraste des couleurs ou encore la taille des polices d'écriture.
                                 </p>
@@ -52,7 +60,7 @@ $page_active = "index";
                     <section class="textes">
                         <p class="txt-petit">Journée portes <br /> ouvertes</p>
                         <p class="txt-grand">
-                            12/02/2022, <br />
+                            12/02/<?php echo date('Y') ?>, <br />
                             de 10h à 17h
                         </p>
                         <p class="en-savoir-plus">EN SAVOIR PLUS</p>

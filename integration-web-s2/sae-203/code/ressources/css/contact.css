@@ -31,12 +31,14 @@
     display: flex;
     align-items: center;
     column-gap: 0.6rem;
+    white-space: nowrap;
 }
 
 .formulaire-contact .liste-choix input[type="radio"] {
     width: 28px;
     height: 28px;
     margin: 0;
+    flex: 1 0 auto;
 }
 
 .formulaire-contact .btn-envoi {

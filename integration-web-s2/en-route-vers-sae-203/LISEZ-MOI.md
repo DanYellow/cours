@@ -25,9 +25,7 @@ Si le produit est épuisé, l'utilisateur devrait avoir la possibilité de rense
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/1e0c8482-b0f1-4dd2-b161-4ceb9128896b-4b5f/)
 
-## Notez bien
-
-Vous ne serez pas forcément apte dès le début du semestre à faire le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. 
+Notez bien que vous ne serez pas forcément apte dès le début du semestre à faire le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. 
 
 
 Vous verrez donc durant ce semestre :
