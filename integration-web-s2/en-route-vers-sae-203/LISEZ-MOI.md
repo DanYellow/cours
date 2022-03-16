@@ -230,6 +230,7 @@ Les critères suivants seront évalués
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
+    - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
     - [ ] Les ressources (fichiers images et autres)
@@ -252,7 +253,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
-    - [En ligne (je déconseille)](https://jsonformatter.org/scss-to-css)
+    - [En ligne (déconseillé)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript
 - Utilisation d'expressions régulières (appelée aussi Regex) pour valider l'adresse e-mail côté serveur

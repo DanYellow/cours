@@ -17,7 +17,7 @@ if ($entree_mise_a_jour) {
 }
 
 if ($formulaire_soumis) {
-    // On crée une nouvelle entrée
+    // On crée un nouvel auteur
     $majAuteurCommande = $clientMySQL->prepare("
         UPDATE auteur
         SET nom = :nom, prenom = :prenom, avatar = :avatar

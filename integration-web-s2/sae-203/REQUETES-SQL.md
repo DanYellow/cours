@@ -21,7 +21,8 @@ La `requête` ci-dessus pourrait se traduire en "Récupère-moi toutes les ligne
 - Les mots-clés `SELECT` et `FROM`
   - `SELECT` : Il signifie littéralement "sélectionne"
   - `FROM` : Indique dans quel table on veut effectuer notre opération ici "article"
-- Le caractère "\*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne
+- Le caractère "\*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne. Si on souhaite préciser les champs, il suffit de les nommer est les séparer par une virgule. Par exemple :
+  - `SELECT champ1, champ2,... FROM table`
 - L'écriture en majuscule des mots-clés (ici `SELECT` et `FROM`). Ce n'est pas obligatoire, mais par convention, on fait comme ça en MySQL
 
 Nous avons notre requête, elle fonctionne très bien en MySQL, toutefois, il faudrait qu'on puisse utiliser son résultat dans notre site et donc php.
@@ -32,11 +33,11 @@ Nous avons notre requête, elle fonctionne très bien en MySQL, toutefois, il fa
 $articleCommande = $mysqlClient->prepare('SELECT * FROM article');
 ```
 
-Vous l'avez remarqué, nous avons réutilisé notre requête MySQL dans une méthode `prepare`. On ne va pas entrer dans les détails, mais comprenez bien que ceci est indipensable tout comme ce qui va suivre.
+Vous l'avez remarqué, nous avons réutilisé notre requête MySQL dans une méthode `prepare`. On ne va pas entrer dans les détails, mais comprenez bien que ceci est indipensable tout comme ce qui va suivre et vous serez obligé de l'utiliser à chaque fois que vous souhaitez communiquer avec la base.
 
 ##### Deuxième étape : exécution de notre requête + récupération des données
 
-La code précédent s'il nous permet d'effectuer une requête, son résultat est inexploitable. Ainsi, nous allons devoir exécuter notre commande puis en récupérer le résultat.
+La code précédent s'il nous permet d'effectuer une requête, son résultat est inexploitable. Ainsi, nous allons devoir exécuter notre requête puis en récupérer le résultat.
 
 ```php
 $listeArticlesCommand->execute();
@@ -85,7 +86,7 @@ Analysons le code ligne par ligne.
 $articleCommande = $mysqlClient->prepare('SELECT * FROM article WHERE id = :id');
 ```
 
-Notre `SELECT`reste identique, nous avons juste rajouté le `WHERE` et précisé quel champ nous allons effectuer le filtre. Pour des questions de sécurité, il ne faut jamais faire une contaténation pour une requête, vous vous exposez aux injections SQL. Le `:id` est un élément qui sera substitué par notre valeur après.
+Notre `SELECT` reste identique, nous avons juste rajouté le `WHERE` et précisé quel champ nous allons effectuer le filtre. Pour des questions de sécurité, il ne faut jamais faire une contaténation pour une requête, vous vous exposez aux injections SQL. Le `:id` est un élément qui sera substitué par notre valeur après.
 
 ```php
 $articleCommande->execute([
@@ -102,15 +103,15 @@ Généralement la valeur provient de l'URL de la page. On pourrait s'imaginer qu
 $article = $articleCommande->fetch();
 ```
 
-Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse.
+Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse. De fait, notre résultat sera un tableau associatif et non un tableau de tableaux associatifs.
 
 Donc la requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore remplir le formulaire nous permettant d'éditer un article.
 
 ## Insérer des données
 
-Nous avons vu précédemment comment lire des données en provenance de la base, maintenant, il est temps de voir comment ajouter des données (et après, on verra comment les mettre à jour). `INSERT INTO` est le mot-clé permettant d'ajouter des données à une table, il signifie littéralement "insert dans".
+Nous avons vu précédemment comment lire des données en provenance de la base, maintenant, il est temps de voir comment ajouter des données (après, on verra comment les mettre à jour). `INSERT INTO` est le mot-clé permettant d'ajouter des données à une table, il signifie littéralement "insert dans".
 
-Voici un exemple (cette fois-ci avec un "message")
+Voici un exemple (cette fois-ci on ajouter un "message")
 
 ```sql
 INSERT INTO message (nom, prenom, contenu, email, type, date_creation)
@@ -123,7 +124,7 @@ Analysons tout ça :
 - On liste entre parenthèses les champs qui vont recevoir une donnée
 - `VALUES(...)` on liste les valeurs qu'on veut insérer. Comme dit précédemment **on ne doit jamais concaténer une requête SQL avec des données externes**, c'est pour ça qu'on utilise des placeholders, ces clefs précédées de deux-points `:`
 
-Point important : l'ordre des champs dans la première parenthèses doit être identique à celui dans deuxième parenthèses, sinon vous ne mettrez pas les valeurs dans les bons champs. Au final, ça nous donne ceci :
+> **Point important :** l'ordre des champs dans la première parenthèses doit être identique à celui dans la deuxième parenthèse, sinon vous ne mettrez pas les valeurs dans les bons champs. Au final, ça nous donne ceci :
 
 ```php
 // Requête pour envoyer un message :
@@ -146,7 +147,7 @@ Point important : l'ordre des champs dans la première parenthèses doit être i
 
 > **Attention :** Pensez toujours à nettoyer des données avant de les envoyer en base. Utilisez la fonction `htmlentities()` sur les variables que vous allez entrer en base pour vous prévenir d'un éventuel piratage de votre site.
 
-Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois il reste à compléter.
+Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois il reste à le compléter.
 
 ## Éditez vos données
 
@@ -187,6 +188,15 @@ Rien de bien nouveau dans ce code. On récupère les valeurs du formulaire pour 
 Ici la valeur pour le champ "id" provient d'un champ caché dont la valeur (attribut "value") est égale à valeur du paramètre d'url "id".
 
 Ce code est issu du fichier `administration/auteurs/edition.php`, il est incomplet, vous devez le compléter.
+
+
+## En résumé
+
+- `INSERT INTO` : ajout d'une nouvelle entrée
+- `UPDATE` : modification d'une ou plusieurs entrées
+  - On ne met jamais à jour la valeur de l'id
+- `SELECT` : Sélection d'éléments
+  - `WHERE` : permet de filter selon un critère
 
 Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour le projet individuel "route-vers-la-sae-203". 
 

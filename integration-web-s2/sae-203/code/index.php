@@ -22,7 +22,7 @@ $listeArticles = $listeArticlesCommande->fetchAll();
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
-    
+
     <link rel="stylesheet" href="ressources/css/global.css">
     <link rel="stylesheet" href="ressources/css/accueil.css">
 </head>
@@ -37,21 +37,21 @@ $listeArticles = $listeArticlesCommande->fetchAll();
 
             <section class="colonne">
                 <section class="liste-articles">
-                    <?php foreach ($listeArticles as $article) {
-                        echo "
-                       <article class='article'>
-                            <figure>
-                                <img src='ressources/images/image-article.png' alt=''>
-                            </figure>
-                            <section class='textes'>
-                                <h1 class='titre'>{$article["titre"]}</h1>
-                                <p class='description'>
-                                {$article["chapo"]}
-                                </p>
-                            </section>
+                    <?php foreach ($listeArticles as $article) { ?>
+                        <article class='article'>
+                            <a href="?">
+                                <figure>
+                                    <img src='ressources/images/image-article.png' alt=''>
+                                </figure>
+                                <section class='textes'>
+                                    <h1 class='titre'><?php echo $article["titre"]; ?></h1>
+                                    <p class='description'>
+                                        <?php echo $article["chapo"]; ?>
+                                    </p>
+                                </section>
+                            </a>
                         </article>
-                       ";
-                    } ?>
+                    <?php } ?>
                 </section>
                 <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" target="_blank" href="https://www.cyu.fr/salons-journee-portes-ouvertes">
                     <img src="ressources/images/logo-cyu-blanc.png" width="200" class="logo" alt="">

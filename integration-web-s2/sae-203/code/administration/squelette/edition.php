@@ -62,7 +62,7 @@ if ($formulaire_soumis) {
                                 <label for="prenom" class="form-label">Nom</label>
                                 <input type="text" value="" name="nom" class="form-control" id="prenom">
                             </div>
-                            
+                            <!-- A compléter -->
                             <div class="mb-3  col-md-6">
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>

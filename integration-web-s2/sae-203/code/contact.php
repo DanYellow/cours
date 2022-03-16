@@ -8,8 +8,9 @@ $formulaire_soumis = !empty($_POST);
 require_once('./ressources/includes/connexion-bdd.php');
 
 if ($formulaire_soumis) {
-    // La fonction isset peut prendre en paramètre une liste de variables, ceci rend plus ismple son utilisation
-    if (isset($_POST["prenom"],  $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
+    // La fonction isset peut prendre en paramètre une liste de variables, 
+    // ceci rend plus simple son utilisation et notre condition plus claire
+    if (isset($_POST["prenom"], $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
         // Requête pour envoyer un message :
         $insertionMessageRequete = "
             INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
@@ -30,9 +31,11 @@ if ($formulaire_soumis) {
         $messageCommande->execute([
             'nom' => $nom,
             'prenom' => $prenom,
-            'contenu' => 'A-REMPLACER',
-            'email' => 'A-REMPLACER',
+            'contenu' => 'A-COMPLETER',
+            'email' => 'A-COMPLETER',
             'type' => $_POST["je_suis"],
+            // La date est formattée en chaîne de caractères
+            // Sinon, elle ne pourra pas être insérées
             'date' => $date->format('Y-m-d H:i:s')
         ]);
         $formulaire_a_erreurs = false;

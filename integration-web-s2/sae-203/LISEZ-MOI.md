@@ -8,7 +8,7 @@ Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y t
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, deux pour être exacts :
-- Article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu
+- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu
 - La liste des auteurs du site (rajoutez une page dans la navigation pour pouvoir y accéder)
 
 Pour ces deux pages, c'est à vous de réaliser le design.
@@ -23,7 +23,7 @@ Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de donn
 
 Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être nulle, un article peut donc avoir aucun auteur.
 
-Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`).
+Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
 Comprennez également que le chapo d'un article est affiché sur la page d'accueil (la liste des articles) et il doit également se retrouver dans le détail de l'article, et ce, avant son contenu (champ "contenu").
 
@@ -31,7 +31,7 @@ Comprennez également que le chapo d'un article est affiché sur la page d'accue
 
 # Administration
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -44,7 +44,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Message
   - Liste des messages reçus
 
-Vu que vous êtes encore débutant en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre les requêtes.**
+Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
 La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
 
@@ -56,7 +56,7 @@ Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettr
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
-Voici le code pour les deux cas. Ce code est à mettre **après** les données ont été enregistrées dans la base.
+Voici le code pour les deux cas. Ce code est à mettre **après** que les données ont été enregistrées dans la base.
 
 ```php
 // L'utilisateur reste sur la même page
@@ -73,18 +73,19 @@ header("Location: $pageRedirection");
 # Astuces
 
 - Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
+  - **Evitez d'avoir les mêmes noms de fichiers**
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier "squelette.php" à la racine du dossier puis reconommez-le
-- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration` et renommez-le
-- Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreur
+- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le
+- Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreurs
 
 # Rendus attendus
 
 - Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
-- URL du site en ligne **(facultatif).** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+- URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement. Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
+Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
@@ -97,7 +98,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - Organisation du code
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
-    - Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée
+    - **Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée**
     
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
@@ -123,18 +124,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
 - [ ] J'ai réalisé toutes fonctionnalités :
-  - [ ] Les champs en erreur sont **clairement** indiqués après soumission du formulaire
-    - Note : Les attributs "required" doivent être supprimés
-    - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
-    - La bannière originale doit rester
-  - Développement de la cinquième page principale
-    - Sa mise en page utilise bootstrap
-    - Son accès est disponible depuis la page de menu
+  - [ ] Gestion de l'administration
+  - [ ] Page avec tous les auteurs
+    - [ ] Son accès est dans le menu
   - [ ] Développement de la page "article"
-    - [ ] Chaque article doit charger un article différent
-  - [ ] Développement de la page "auteur"
-  - [ ] Rajouter une table pour enregistrer les messages envoyés depuis la page contact
-  - [ ] Enregistrement dans la base de données les messages envoyés
+    - [ ] Chaque article (sur la page d'accueil) doit charger un article différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
@@ -143,6 +137,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
+    - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
     - [ ] La base de données
@@ -159,7 +154,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
-    - [En ligne (je déconseille)](https://jsonformatter.org/scss-to-css)
+    - [En ligne (déconseillé)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 - Ajouter des plugins **pertinents** en javascript
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur 
@@ -171,3 +166,8 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Donner la possibilité de supprimer un message ou article
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
 - Afficher en temps réel l'image mise dans le champ "avatar" lors de l'édition d'un auteur
+- Les champs en erreur sont **clairement** indiqués après soumission du formulaire
+    - Note : Les attributs "required" doivent être supprimés
+    - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
+    - La bannière originale doit rester
+  - Développement de la cinquième page principale
