@@ -10,7 +10,8 @@ $auteur = null;
 if ($entree_mise_a_jour) {
     $chercherAuteurCommande = $clientMySQL->prepare('SELECT * FROM auteur WHERE id = :id');
     $chercherAuteurCommande->execute([
-        "id" => $_GET["id"]
+        // On force la valeur du paramètre en entier
+        "id" => (int)$_GET["id"]
     ]);
 
     $auteur = $chercherAuteurCommande->fetch();

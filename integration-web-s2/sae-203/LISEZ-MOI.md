@@ -29,7 +29,7 @@ Comprennez également que le chapo d'un article est affiché sur la page d'accue
 
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
-# Administration
+# Administration (appelé également backoffice)
 
 Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
@@ -41,6 +41,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
   - Création d'auteur
   - Edition d'auteur
   - Liste d'auteurs
+> A noter que pour l'édition / création d'auteur, vous devrez (via javascript) afficher en temps réel l'image qui a été définie pour l'avatar
 - Message
   - Liste des messages reçus
 
@@ -77,12 +78,14 @@ header("Location: $pageRedirection");
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier "squelette.php" à la racine du dossier puis reconommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le
 - Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreurs
+- Pour le backoffice (administration), n'allez pas réinventer la roue, bootstrap propose suffisament de composants pour l'intégrer
 
 # Rendus attendus
 
 - Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
+  - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
 - URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
@@ -125,9 +128,10 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
 - [ ] J'ai réalisé toutes fonctionnalités :
   - [ ] Gestion de l'administration
+    - [ ] J'ai mis dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
   - [ ] Page avec tous les auteurs
     - [ ] Son accès est dans le menu
-  - [ ] Développement de la page "article"
+  - [ ] Page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un article différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
@@ -165,7 +169,6 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
   - Il faudra utiliser les sessions en php pour ce faire
 - Donner la possibilité de supprimer un message ou article
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
-- Afficher en temps réel l'image mise dans le champ "avatar" lors de l'édition d'un auteur
 - Les champs en erreur sont **clairement** indiqués après soumission du formulaire
     - Note : Les attributs "required" doivent être supprimés
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web

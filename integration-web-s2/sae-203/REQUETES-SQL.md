@@ -69,7 +69,7 @@ Vous trouvez cet exemple au complet dans le fichier `index.php` et une adaptatio
 
 ###### Sélectionner avec plus de précision
 
-On a vu plus haut que la requête `SELECT * FROM article` nous permettait de sélectionner tous les éléments contenu dans une table. Sachez qu'il est possible d'apporter plus de précisions dans notre sélection via d'autres mots-clés, il y en a plein d'autres qu'on peut utiliser dans ce contexte, nous allons nous intéresser au mot-clé `WHERE`. Ce dernier nous permet de sélectionner un élément sur la valeur d'un champ. Par exemple : _Essayons de récupérer un élément ayant la valeur 42 pour le champ id dans la table article_.
+On a vu plus haut que la requête `SELECT * FROM article` nous permettait de sélectionner tous les éléments contenu dans une table. Sachez qu'il est possible d'apporter plus de précisions dans notre sélection via d'autres mots-clés, il y en a plein d'autres qu'on peut utiliser dans un `SELECT`, mais nous allons nous intéresser au mot-clé `WHERE`. Ce dernier nous permet de sélectionner un élément sur la valeur d'un champ. Par exemple : _Essayons de récupérer un élément ayant la valeur 42 pour le champ id dans la table article_.
 
 ```php
 $articleCommande = $mysqlClient->prepare('SELECT * FROM article WHERE id = :id');
@@ -94,7 +94,7 @@ $articleCommande->execute([
 ]);
 ```
 
-Comme tour à l'heure, nous exécutons notre requête, toutefois contrairement à tout à l'heure, nous passons un tableau associatif en paramètre à la méthode `execute()`.
+Comme tout à l'heure, nous exécutons notre requête, toutefois contrairement à tout à l'heure, nous passons un tableau associatif en paramètre à la méthode `execute()`.
 Le fonctionnement est très simple, on définit un ensemble de clef => valeur. Dans notre cas, `:id` va être remplacé par `42`.
 
 Généralement la valeur provient de l'URL de la page. On pourrait s'imaginer que notre 42 soit remplacé par `$_GET["id"]`, on récupèrerait donc le paramètre "id" de l'URL.
@@ -105,7 +105,9 @@ $article = $articleCommande->fetch();
 
 Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse. De fait, notre résultat sera un tableau associatif et non un tableau de tableaux associatifs.
 
-Donc la requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore remplir le formulaire nous permettant d'éditer un article.
+> Note : Si la requête ne retourne rien, `fetch()` retournera rien (null). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
+
+La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
 
 ## Insérer des données
 
