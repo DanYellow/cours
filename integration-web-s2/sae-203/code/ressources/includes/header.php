@@ -10,6 +10,9 @@
         <li <?php if ($page_active == "apropos") {
                 echo "class='active'";
             } ?>><a href="a-propos.php">A PROPOS</a></li>
+        <li <?php if ($page_active == "") {
+                echo "class='active'";
+            } ?>><a href="">ÉQUIPE DE RÉDACTION</a></li>
         <li <?php if ($page_active == "contact") {
                 echo "class='active'";
             } ?>><a href="contact.php">CONTACT</a></li>
