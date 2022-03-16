@@ -3,7 +3,7 @@
     padding: 1rem 3rem 1rem 1rem;
     background-color: #F9F9F9;
     width: fit-content;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     margin-bottom: 1.5rem;
 }
 
@@ -61,6 +61,6 @@
 .liste-axes {
     list-style: inherit;
     list-style-position: inside;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     margin-top: -1.25rem;
 }

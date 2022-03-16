@@ -9,7 +9,9 @@ Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", merci de ne pas y t
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, les ajouts que vous allez devoir faire seront de nouvelles pages, deux pour être exacts :
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu
-- La liste des auteurs du site (rajoutez une page dans la navigation pour pouvoir y accéder)
+  - Page déjà présente (`article.php`), elle doit être complétée
+- La liste des auteurs du site 
+  - L'entrée pour y accéder est déjà là mais pas la page
 
 Pour ces deux pages, c'est à vous de réaliser le design.
 
