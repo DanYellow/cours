@@ -52,16 +52,19 @@ body {
   width: fit-content;
   overflow: hidden;
   position: relative;
+  max-width: 500px;
 }
 
 .conteneur img {
   display: block;
+  max-width: 100%;
 }
 
 .conteneur .textes {
   position: absolute;
   padding-left: 1rem;
   top: 0;
+  z-index: 2;
 }
 
 .conteneur .titre {

@@ -66,7 +66,7 @@
                 </li>
                 <li>
                     Utilisez la propriété "transition" pour appliquer la transformation effectuée à l'étape précédente
-                    au survol
+                    au survol (pseudo-classe ":hover")
                     <ul>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transition" rel="noopener noreferrer"
@@ -84,7 +84,7 @@
                 <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Complétez le sélecteur ".conteneur::after" de façon à rajouter un arrière-plan (aplat de couleur ou
+                <li>Complétez le sélecteur ".conteneur::after" (il est en bas du fichier "style.css") de façon à rajouter un arrière-plan (aplat de couleur ou
                     dégradé) permettant de faire
                     ressortir le texte non-visible
                     <ul>
@@ -133,6 +133,9 @@
                 <li>Utilisez la pseudo-classe "hover" pour afficher le background au survol l'arrière-plan précédemment
                     affiché
                     <ul>
+                        <li>Il faudra utiliser le sélecteur CSS <code>.conteneur:hover::after {}</code>
+                            <ul>Ce sélecteur signifie littéralement "Au survol de la classe 'conteneur' on fait ceci sur le pseudo-élément '::after'"</ul>
+                        </li>
                         <li>Au lieu d'utiliser la propriété CSS "transform" vous pouvez utiliser la propriété CSS
                             "opacity"
                             <ul>
@@ -176,16 +179,7 @@
                 <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Copiez la balise "conteneur-principal" et son contenu et collez-la après la première balise
-                    "conteneur-principal"</li>
-                <li>Maintenant que vous avez expérimenté de façon guidée les transitions et transformation à vous de
-                    jouer. Essayez de faire vos propres transitions sur l'élément fraichement ajouté. N'hésitez pas à
-                    ajouter des balises si vous avez une idée en tête et que la structure actuelle ne vous plait pas. Vous pouvez :
-                    <ul>
-                        <li>Changer l'image</li>
-                        <li>Changer les textes</li>
-                        <li>...</li>
-                    </ul>
+                <li>Créez une balise et ses enfants, et animez-les avec ce que vous avez appris avant.
                 </li>
             </ol>
         </details>
