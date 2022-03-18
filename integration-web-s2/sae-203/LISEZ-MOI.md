@@ -29,9 +29,12 @@ Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de donn
 
 Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être nulle, un article peut donc avoir aucun auteur.
 
-Concernant la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
+Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
 Comprennez également que le chapo d'un article est affiché sur la page d'accueil (la liste des articles) et il doit également se retrouver dans le détail de l'article, et ce, avant son contenu (champ "contenu").
+
+### Images et base de données
+Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
 
 [Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
@@ -41,11 +44,11 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
-  - Edition d'article
+    - Édition d'article
   - Liste d'articles
 - Auteur
   - Création d'auteur
-  - Edition d'auteur
+  - Édition d'auteur
   - Liste d'auteurs
 > A noter que pour l'édition / création d'auteur, vous devrez (via javascript) afficher en temps réel l'image qui a été définie pour l'avatar
 - Message
@@ -175,7 +178,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
 - Ajouter un "flash message" après création ou édition d'un élément dans le backoffice
   - Il faudra utiliser les sessions en php pour ce faire
 - Donner la possibilité de supprimer un message ou article
-  - Il faudra utiliser la requête `DELETE FROM`
+  - Il faudra utiliser la requête `DELETE FROM ... WHERE`
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
 - Les champs en erreur sont **clairement** indiqués après soumission du formulaire
     - Note : Les attributs "required" doivent être supprimés

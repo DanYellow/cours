@@ -28,7 +28,7 @@ CREATE TABLE `article` (
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `chapo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `contenu` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lien_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date_creation` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
   `date_derniere_mise_a_jour` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
   PRIMARY KEY (`id`),
@@ -58,7 +58,7 @@ CREATE TABLE `auteur` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lien_avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
