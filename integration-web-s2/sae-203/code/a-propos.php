@@ -20,11 +20,11 @@ $page_active = "apropos";
 </head>
 
 <body>
-    <section class="conteneur-1280">
+    <section>
         <?php require_once('./ressources/includes/header.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <ul class="liste-ancres">
                 <li><a href="#presentation">Présentation</a></li>
                 <li><a href="#sae">SAÉ</a></li>

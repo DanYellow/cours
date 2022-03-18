@@ -1,4 +1,4 @@
-<nav class="navigation-principale">
+<nav class="navigation-principale conteneur-1280">
     <ul>
         <li <?php if ($page_active == "index") {
                 echo "class='active'";
@@ -22,7 +22,7 @@
     </ul>
 </nav>
 
-<header class="bulle">
+<header class="bulle conteneur-1280">
     <article class="titre">
         <h1 class="txt-grand">
             <span>Bachelor</span>

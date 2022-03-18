@@ -28,11 +28,11 @@ $article = $articleCommand->fetch();
 </head>
 
 <body>
-    <section class="conteneur-1280">
+    <section>
         <?php require_once('./ressources/includes/header.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <h1 class="titre-page"><?php echo $article["titre"]; ?></h1>
             <p>A vous de faire le design de l'article</p>
             

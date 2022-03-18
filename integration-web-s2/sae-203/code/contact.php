@@ -80,11 +80,11 @@ if ($formulaire_soumis) {
     }
     ?>
 
-    <section class="conteneur-1280">
+    <section>
         <?php require_once('./ressources/includes/header.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <h1 class="titre-page">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
 
             <section>
