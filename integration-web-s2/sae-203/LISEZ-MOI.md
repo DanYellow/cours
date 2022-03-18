@@ -13,7 +13,11 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
 - La liste des auteurs du site 
   - L'entrée pour y accéder est déjà là mais pas la page
 
-Pour ces deux pages, c'est à vous de réaliser le design.
+Pour ces deux pages, c'est à vous de réaliser le design. N'hésitez pas à utiliser ce que nous avons vu, et allons voir durant ce semestre :
+- Positionnement CSS
+- CSS Transform
+- CSS Transition
+- ...
 
 En plus, vous allez devoir réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
 # Base de données
@@ -151,10 +155,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances :
 
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
+- Mettre un système de pagination 
 - Écrire votre **CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
@@ -170,9 +175,11 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonction
 - Ajouter un "flash message" après création ou édition d'un élément dans le backoffice
   - Il faudra utiliser les sessions en php pour ce faire
 - Donner la possibilité de supprimer un message ou article
+  - Il faudra utiliser la requête `DELETE FROM`
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
 - Les champs en erreur sont **clairement** indiqués après soumission du formulaire
     - Note : Les attributs "required" doivent être supprimés
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
   - Développement de la cinquième page principale
+
