@@ -78,4 +78,5 @@ body {
 .conteneur::after {
   content: "";
   display: block;
+  opacity: 0;
 }
