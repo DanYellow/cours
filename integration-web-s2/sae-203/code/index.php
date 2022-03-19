@@ -29,6 +29,7 @@ $listeArticles = $listeArticlesCommande->fetchAll();
 
 <body>
     <?php require_once('./ressources/includes/header.php'); ?>
+    <?php require_once('./ressources/includes/bulle.php'); ?>
 
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
@@ -37,8 +38,8 @@ $listeArticles = $listeArticlesCommande->fetchAll();
         <section class="colonne">
             <section class="liste-articles">
                 <?php foreach ($listeArticles as $article) { ?>
-                    <article class='article'>
-                        <a href="article.php?">
+                    <a href="article.php?" class='article'>
+                    
                             <figure>
                                 <img src='ressources/images/image-article.png' alt=''>
                             </figure>
@@ -48,8 +49,8 @@ $listeArticles = $listeArticlesCommande->fetchAll();
                                     <?php echo $article["chapo"]; ?>
                                 </p>
                             </section>
-                        </a>
-                    </article>
+                      
+                </a>
                 <?php } ?>
             </section>
             <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" target="_blank" href="https://www.cyu.fr/salons-journee-portes-ouvertes">

@@ -23,6 +23,7 @@ $page_active = "medias";
 <body>
     <section>
         <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">

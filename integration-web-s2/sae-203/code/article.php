@@ -4,6 +4,7 @@ $page_active = "index";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
+// à adapter
 $articleCommand = $clientMySQL->prepare('SELECT * FROM article WHERE id=2');
 $articleCommand->execute();
 $article = $articleCommand->fetch();
@@ -30,6 +31,11 @@ $article = $articleCommand->fetch();
 <body>
     <section>
         <?php require_once('./ressources/includes/header.php'); ?>
+        <?php 
+            // A supprimer si vous n'en avez pas besoin.
+            // Mettre une couleur dédiée pour cette bulle si vous gardez la bulle
+            require_once('./ressources/includes/bulle.php'); 
+        ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">

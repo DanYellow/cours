@@ -105,7 +105,7 @@ $article = $articleCommande->fetch();
 
 Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse. De fait, notre résultat sera un tableau associatif et non un tableau de tableaux associatifs.
 
-> Note : Si la requête ne retourne rien, `fetch()` retournera rien (null). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
+> Note : Si la requête ne retourne rien, `fetch()` retournera faux (booléen "false"). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
 
 La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
 

@@ -82,6 +82,7 @@ if ($formulaire_soumis) {
 
     <section>
         <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
@@ -89,7 +90,7 @@ if ($formulaire_soumis) {
 
             <section>
                 <p class="paragraphe">
-                    <span class="texte-gras">La formation s'ouvre à tous les bacheliers,</span> pour rappel. Avoir des connaissances en programmation, design ou encore audiovisuel n'est pas obligatoire mais reste un bon atout, car il faut aimer la curiosité dans cette formation pluridisciplinaire. <span class="texte-gras">Il est également possible de faire la formation après une reprise d'études ou une réorientation.</span>
+                    <span class="texte-gras">La formation s'ouvre à tous les bacheliers.</span> Avoir des connaissances en programmation, design ou encore audiovisuel n'est pas obligatoire mais reste un bon atout, car il faut aimer la curiosité dans cette formation pluridisciplinaire. <span class="texte-gras">Il est également possible de faire la formation après une reprise d'études ou une réorientation.</span>
                 </p>
             </section>
 
