@@ -1,50 +1,51 @@
 <?php
-$couleur_bulle_classe = "jaune";
-$page_active = "contact";
+    $couleur_bulle_classe = "jaune";
+    $page_active = "contact";
 
-$formulaire_a_erreurs = false;
-$formulaire_soumis = !empty($_POST);
+    $formulaire_a_erreurs = false;
+    $formulaire_soumis = !empty($_POST);
 
-require_once('./ressources/includes/connexion-bdd.php');
+    require_once('./ressources/includes/connexion-bdd.php');
 
-if ($formulaire_soumis) {
-    // La fonction isset peut prendre en paramètre une liste de variables, 
-    // ceci rend plus simple son utilisation et notre condition plus claire
-    if (isset($_POST["prenom"], $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
-        // Requête pour envoyer un message :
-        $insertionMessageRequete = "
-            INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
-            VALUES (:nom, :prenom, :contenu, :email, :type, :date)
-        ";
+    if ($formulaire_soumis) {
+        // La fonction isset peut prendre en paramètre une liste de variables, 
+        // ceci rend plus simple son utilisation et notre condition plus claire
+        if (isset($_POST["prenom"], $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
+            // Requête pour écrire le message dans la base :
+            $insertionMessageRequete = "
+                INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+                VALUES (:nom, :prenom, :contenu, :email, :type, :date)
+            ";
 
-        // On prépare la requête
-        $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
+            // On prépare la requête
+            $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
 
-        $nom = htmlentities($_POST["nom"]);
-        $prenom = htmlentities($_POST["prenom"]);
+            $nom = htmlentities($_POST["nom"]);
+            $prenom = htmlentities($_POST["prenom"]);
 
-        // On récupère la date du jour
-        $date = new DateTimeImmutable();
+            // On récupère la date du jour
+            $date = new DateTimeImmutable();
 
-        // On l'exécute 
-        // et on remplace les placeholders de la requête par nos valeurs
-        $messageCommande->execute([
-            'nom' => $nom,
-            'prenom' => $prenom,
-            'contenu' => 'A-COMPLETER',
-            'email' => 'A-COMPLETER',
-            'type' => $_POST["je_suis"],
-            // La date est formattée en chaîne de caractères
-            // Sinon, elle ne pourra pas être insérées
-            'date' => $date->format('Y-m-d H:i:s')
-        ]);
-        $formulaire_a_erreurs = false;
-    } else {
-        $formulaire_a_erreurs = true;
+            // On l'exécute 
+            // et on remplace les placeholders de la requête par nos valeurs
+            $messageCommande->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'contenu' => 'A-COMPLETER',
+                'email' => 'A-COMPLETER',
+                'type' => $_POST["je_suis"],
+                // La date est formattée en chaîne de caractères
+                // Sinon, elle ne pourra pas être 
+                // insérée dans la base de données
+                'date' => $date->format('Y-m-d H:i:s')
+            ]);
+            $formulaire_a_erreurs = false;
+        } else {
+            $formulaire_a_erreurs = true;
+        }
     }
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -64,20 +65,20 @@ if ($formulaire_soumis) {
 
 <body>
     <?php
-    if ($formulaire_soumis && !$formulaire_a_erreurs) {
-        echo "
+        if ($formulaire_soumis && !$formulaire_a_erreurs) {
+            echo "
                 <section class='banniere-alerte succes' role='alert' aria-live='polite'>
                     <p>Message envoyé !</p>
                 </section>
             ";
-    }
-    if ($formulaire_soumis && $formulaire_a_erreurs) {
-        echo "
+        }
+        if ($formulaire_soumis && $formulaire_a_erreurs) {
+            echo "
                 <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
                     <p>Votre message possède une erreur !</p>
                 </section>
             ";
-    }
+        }
     ?>
 
     <section>

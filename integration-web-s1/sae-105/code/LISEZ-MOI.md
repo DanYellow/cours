@@ -13,7 +13,7 @@ d’hébergement standard
 
 L'Université, pour sa part, nous fournit le style et la forme qu'elle souhaiterait donner au site, ainsi que delà des idées sur le contenu.
 
-À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq, le site en suivant la maquette interactive (Adobe XD) qui vous trouvez ici :
+À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq environ, le site en suivant la maquette interactive (Adobe XD) qui vous se trouve ici :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 
@@ -23,17 +23,17 @@ Dans le site sont prévues cinq pages qui partagent une structure commune compos
   - [Accéder au didacticiel sur l’utilisation d’Adobe XD]()
 
 Les pages web du site à réaliser sont donc :
-- **Accueil.** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes 2022. Cette page a commencé à être développée et est présente dans le squelette fourni
-- **À propos.** Page qui contient 3 sous-sections accessibles par 3 liens (ancres) placés en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
-- **Contact.** Contient un formulaire qui permet à l’utilisateur d’envoyer une requête d’information.
+- **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Cette page a commencé à être développée et est présente dans le squelette fourni
+- **À propos :** Page qui contient 3 sous-sections accessibles par 3 ancres placées en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
+- **Contact :** Contient un formulaire qui permet à l’utilisateur d’envoyer une requête d’information.
 La page contact possède trois états :
     <ol type="a">
         <li>Défaut (pas de bannière)</li>
         <li>Message envoyé avec succès (bandeau vert)</li>
         <li>Message envoyé avec erreur (bandeau rouge)</li>
     </ol>
-    Le bandeau (succès ou erreur) n’est visible qu’après avoir soumis le formulaire. Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation de php est indispensable pour réussir cette tâche (récupération des valeurs des champs du formulaire). Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de le définir
-- **Sur les médias.** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants : 
+    Le bandeau (succès ou erreur) n’est visible qu’après avoir soumis le formulaire. Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation de php est **indispensable** pour réussir cette tâche (récupération des valeurs des champs du formulaire). Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de le définir. Vous pouvez très bien imaginer que si l'adresse e-mail est égale à une valeur bien spécifique alors on affiche le message d'erreur
+- **Sur les médias :** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants : 
   - https://www.youtube.com/watch?v=oiEbQF7qfBU
   - https://www.youtube.com/watch?v=SyjF4h2Zb7Q
   - https://www.youtube.com/watch?v=t72pdxpNjyc
@@ -78,7 +78,7 @@ Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera don
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
 
-## Partie 1 - Intégration Web (HTML/CSS)
+## Intégration Web (HTML/CSS)
 Cette partie sera évaluée par MM. Jean-Louis et Linardi.
 - Qualité du code
   - Pas de classes au nom étrange
@@ -100,7 +100,7 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi.
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 
-## Partie 2 - Développement Web (PHP)
+## Développement Web (PHP)
 Cette partie sera évaluée par M. Roch.
 - Qualité du code
   - Utilisation de la fonction include()

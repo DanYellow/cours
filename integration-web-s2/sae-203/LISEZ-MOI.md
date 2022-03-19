@@ -1,9 +1,17 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées_
 
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105. Vous partirez de la correction du projet. Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
+CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
+- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
+- AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
+- AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
+- AC4105 : Modéliser les données et les traitements d’une application Web - AC4106 : Utiliser et adapter un modèle d’accès aux données
 
-Notez qu'il y a un dossier "ressources/css/ne-pas-modifier", **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+
+Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
+
+Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
@@ -147,7 +155,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
 - [ ] J'ai réalisé toutes fonctionnalités :
   - [ ] Gestion de l'administration
-    - [ ] J'ai mis dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
+    - [ ] J'ai écrit dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
   - [ ] Page avec tous les auteurs
     - [ ] Son accès est dans le menu
   - [ ] Page "article"
@@ -157,13 +165,14 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 - [ ] Rajouter un favicon (image au choix)
-- [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée)
+- [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - [ ] Créer une archive avec votre nom-prénom qui contient :
     - [ ] Le code
     - [ ] La base de données
+    - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
   - [ ] Nommer l'archive avec mon nom-prénom
 
 # Pour aller plus loin
@@ -198,4 +207,3 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
   - Développement de la cinquième page principale
-
