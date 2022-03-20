@@ -153,13 +153,13 @@ Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois i
 
 ## Éditez vos données
 
-Dernier type de requête : la mise à jour d'un élément. Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
+Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
 Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la base de donnés et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
 UPDATE auteur
 SET nom = :nom, prenom = :prenom, avatar = :avatar
-WHERE id = :id
+WHERE id = :id;
 ```
 
 - `UPDATE auteur` : le mot-clé permet d'indiquer que nous allons mettre à jour la table "auteur"
@@ -191,14 +191,38 @@ Ici la valeur pour le champ "id" provient d'un champ caché dont la valeur (attr
 
 Ce code est issu du fichier `administration/auteurs/edition.php`, il est incomplet, vous devez le compléter.
 
-
 ## En résumé
 
-- `INSERT INTO` : ajout d'une nouvelle entrée
-- `UPDATE` : modification d'une ou plusieurs entrées
+- `INSERT INTO ... VALUES ...` : ajout d'une nouvelle entrée
+- `UPDATE ... WHERE ...` : modification d'une ou plusieurs entrées
   - On ne met jamais à jour la valeur de l'id
 - `SELECT` : Sélection d'éléments
   - `WHERE` : permet de filter selon un critère
+
+## Sélections avancées (jointures)
+
+Dernière partie de ce petit mémo : les jointures. Vous l'avez vu dans les consignes de la SAE ([voir consignes](LISEZ-MOI.md)), le schéma de base de données comporte une relation entre les tables `auteur` et `article`, cette relation est dite `One-to-Many`, un auteur peut avoir plusieurs articles, mais pas l'inverse.
+
+Ce genre de relation permet de rendre la manipulation des données plus simple et évite d'avoir des tables trop complexes et donc lourdes.
+
+Présentement, si vous faites la requête suivante :
+```sql
+SELECT * FROM article WHERE id = 42;
+```
+Vous obtiendrez le tableau suivant :
+```php
+  $article = [
+    "id" => 42,
+    "titre" => "LES SAE en DUT MMI",
+    "chapo" => "...",
+    "contenu" => "...",
+    "lien_image" => "...",
+    "date_creation" => "...",
+    "date_derniere_mise_a_jour" => "...",
+    "auteur_id" => 21
+  ]
+```
+Vous remarquez que dans la réponse si on obtient bien l'article, l'auteur lui n'est représenté que par son id dans la table auteur. Comment faire pour récupérer les informations de l'auteur ? On pourrait faire la requête `SELECT * auteur WHERE id = 21`, ceci fonctionnerait mais ça nous oblige à faire deux requêtes
 
 Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour le projet individuel "route-vers-la-sae-203". 
 

@@ -16,8 +16,13 @@ Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, deux pour être exacts :
-- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu
-  - Page déjà présente (`article.php`), elle doit être complétée
+- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, il doit être complété. Un article doit contenir : 
+  - Son titre
+  - Son chapô + contenu (dans cet ordre)
+  - Son image
+  - Sa date de rédaction
+  - Son auteur
+    - Mettre une valeur par défaut s'il n'y pas d'auteur
 - La liste des auteurs du site 
   - L'entrée pour y accéder est déjà dans la navigation mais pas la page
 
@@ -34,10 +39,10 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - CSS Transform
 - CSS Transition
 - Pseudo-éléments ::before / ::after
-- langage de programmation javascript
+- Langage de programmation javascript
 - ...
 
-En plus, vous allez devoir réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
+Vous allez devoir également réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
 # Base de données
 
 Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Celle du projet ressemble à ceci :
