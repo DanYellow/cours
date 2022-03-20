@@ -21,12 +21,12 @@ $page_active = "medias";
 </head>
 
 <body>
-
-    <section class="conteneur-1280">
+    <section>
         <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <h1 class="titre-page">Les actualités et les évènements important du BUT et de l'IUT CY Paris Université dans les médias.</h1>
 
             <ul class="liste-videos">

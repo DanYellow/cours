@@ -25,10 +25,14 @@ require_once('./ressources/includes/connexion-bdd.php');
 </head>
 
 <body>
-    <section class="conteneur-1280">
+    <section>
         <?php require_once('./ressources/includes/header.php'); ?>
+        <?php 
+            // facultatif
+            // require_once('./ressources/includes/bulle.php'); 
+        ?> 
 
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         </main>
         <?php require_once('./ressources/includes/footer.php'); ?>

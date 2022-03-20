@@ -1,5 +1,5 @@
 .jpo-banniere {
-  width: 34.375%;
+  width: 37.375%;
   height: 45.625rem;
   position: relative;
   display: flex;
@@ -77,4 +77,42 @@
 .jpo-banniere .textes .en-savoir-plus {
   text-align: center;
   font-weight: 600;
+}
+
+.colonne {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article:focus {
+  outline: dotted 1px black;
+}
+
+.article {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+.article .titre {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.article .textes {
+  padding: 34px 100px 80px 60px;
+}
+
+.article .description {
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.article {
+  width: 750px;
+  box-shadow: 0px 3px 6px #00000029;
+  margin-bottom: 2.15rem;
 }

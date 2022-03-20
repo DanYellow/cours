@@ -1,4 +1,4 @@
-<footer class="pied-de-page-principal">
+<footer class="pied-de-page-principal conteneur-1280">
     <p>Certains textes sont issus de Wikipédia</p>
     <ul class="liste-liens">
         <li>

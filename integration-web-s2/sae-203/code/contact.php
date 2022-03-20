@@ -11,11 +11,11 @@ if ($formulaire_soumis) {
     // La fonction isset peut prendre en paramètre une liste de variables, 
     // ceci rend plus simple son utilisation et notre condition plus claire
     if (isset($_POST["prenom"], $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
-        // Requête pour envoyer un message :
+        // Requête pour écrire le message dans la base :
         $insertionMessageRequete = "
-            INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
-            VALUES (:nom, :prenom, :contenu, :email, :type, :date)
-        ";
+                INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+                VALUES (:nom, :prenom, :contenu, :email, :type, :date)
+            ";
 
         // On prépare la requête
         $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
@@ -35,7 +35,8 @@ if ($formulaire_soumis) {
             'email' => 'A-COMPLETER',
             'type' => $_POST["je_suis"],
             // La date est formattée en chaîne de caractères
-            // Sinon, elle ne pourra pas être insérées
+            // Sinon, elle ne pourra pas être 
+            // insérée dans la base de données
             'date' => $date->format('Y-m-d H:i:s')
         ]);
         $formulaire_a_erreurs = false;
@@ -43,8 +44,8 @@ if ($formulaire_soumis) {
         $formulaire_a_erreurs = true;
     }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -63,33 +64,33 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <?php
-    if ($formulaire_soumis && !$formulaire_a_erreurs) {
-        echo "
+    <section>
+        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php
+        if ($formulaire_soumis && !$formulaire_a_erreurs) {
+            echo "
                 <section class='banniere-alerte succes' role='alert' aria-live='polite'>
                     <p>Message envoyé !</p>
                 </section>
             ";
-    }
-    if ($formulaire_soumis && $formulaire_a_erreurs) {
-        echo "
+        }
+        if ($formulaire_soumis && $formulaire_a_erreurs) {
+            echo "
                 <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
                     <p>Votre message possède une erreur !</p>
                 </section>
             ";
-    }
-    ?>
-
-    <section class="conteneur-1280">
-        <?php require_once('./ressources/includes/header.php'); ?>
+        }
+        ?>
+        <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
+        <main class="conteneur-principal conteneur-1280">
             <h1 class="titre-page">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
 
             <section>
                 <p class="paragraphe">
-                    <span class="texte-gras">La formation s'ouvre à tous les bacheliers,</span> pour rappel. Avoir des connaissances en programmation, design ou encore audiovisuel n'est pas obligatoire mais reste un bon atout, car il faut aimer la curiosité dans cette formation pluridisciplinaire. <span class="texte-gras">Il est également possible de faire la formation après une reprise d'études ou une réorientation.</span>
+                    <span class="texte-gras">La formation s'ouvre à tous les bacheliers.</span> Avoir des connaissances en programmation, design ou encore audiovisuel n'est pas obligatoire mais reste un bon atout, car il faut aimer la curiosité dans cette formation pluridisciplinaire. <span class="texte-gras">Il est également possible de faire la formation après une reprise d'études ou une réorientation.</span>
                 </p>
             </section>
 
@@ -136,7 +137,9 @@ if ($formulaire_soumis) {
                     </ul>
                 </article>
                 <article class="champ-conteneur">
-                    <input type="submit" value="ENVOYER" class="btn-envoi texte-gras">
+                    <button type="submit" class="btn-envoi texte-gras">
+                        ENVOYER
+                    </button>
                 </article>
             </form>
 

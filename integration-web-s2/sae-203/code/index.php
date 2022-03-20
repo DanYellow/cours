@@ -28,47 +28,46 @@ $listeArticles = $listeArticlesCommande->fetchAll();
 </head>
 
 <body>
-    <section class="conteneur-1280">
-        <?php require_once('./ressources/includes/header.php'); ?>
+    <?php require_once('./ressources/includes/header.php'); ?>
+    <?php require_once('./ressources/includes/bulle.php'); ?>
 
-        <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
-        <main class="conteneur-principal">
-            <h1 class="titre-page">Articles sur le BUT MMI</h1>
+    <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
+    <main class="conteneur-principal conteneur-1280">
+        <h1 class="titre-page">Articles sur le BUT MMI</h1>
 
-            <section class="colonne">
-                <section class="liste-articles">
-                    <?php foreach ($listeArticles as $article) { ?>
-                        <article class='article'>
-                            <a href="?">
-                                <figure>
-                                    <img src='ressources/images/image-article.png' alt=''>
-                                </figure>
-                                <section class='textes'>
-                                    <h1 class='titre'><?php echo $article["titre"]; ?></h1>
-                                    <p class='description'>
-                                        <?php echo $article["chapo"]; ?>
-                                    </p>
-                                </section>
-                            </a>
-                        </article>
-                    <?php } ?>
-                </section>
-                <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" target="_blank" href="https://www.cyu.fr/salons-journee-portes-ouvertes">
-                    <img src="ressources/images/logo-cyu-blanc.png" width="200" class="logo" alt="">
-
-                    <section class="textes">
-                        <p class="txt-petit">Journée portes <br /> ouvertes</p>
-                        <p class="txt-grand">
-                            12/02/<?php echo date('Y') ?>, <br />
-                            de 10h à 17h
-                        </p>
-                        <p class="en-savoir-plus">EN SAVOIR PLUS</p>
-                    </section>
+        <section class="colonne">
+            <section class="liste-articles">
+                <?php foreach ($listeArticles as $article) { ?>
+                    <a href="article.php?" class='article'>
+                    
+                            <figure>
+                                <img src='ressources/images/image-article.png' alt=''>
+                            </figure>
+                            <section class='textes'>
+                                <h1 class='titre'><?php echo $article["titre"]; ?></h1>
+                                <p class='description'>
+                                    <?php echo $article["chapo"]; ?>
+                                </p>
+                            </section>
+                      
                 </a>
+                <?php } ?>
             </section>
-        </main>
-        <?php require_once('./ressources/includes/footer.php'); ?>
-    </section>
+            <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" target="_blank" href="https://www.cyu.fr/salons-journee-portes-ouvertes">
+                <img src="ressources/images/logo-cyu-blanc.png" width="200" class="logo" alt="">
+
+                <section class="textes">
+                    <p class="txt-petit">Journée portes <br /> ouvertes</p>
+                    <p class="txt-grand">
+                        12/02/<?php echo date('Y') ?>, <br />
+                        de 10h à 17h
+                    </p>
+                    <p class="en-savoir-plus">EN SAVOIR PLUS</p>
+                </section>
+            </a>
+        </section>
+    </main>
+    <?php require_once('./ressources/includes/footer.php'); ?>
 </body>
 
 </html>

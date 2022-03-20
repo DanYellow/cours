@@ -21,9 +21,9 @@ La `requête` ci-dessus pourrait se traduire en "Récupère-moi toutes les ligne
 - Les mots-clés `SELECT` et `FROM`
   - `SELECT` : Il signifie littéralement "sélectionne"
   - `FROM` : Indique dans quel table on veut effectuer notre opération ici "article"
-- Le caractère "\*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne. Si on souhaite préciser les champs, il suffit de les nommer est les séparer par une virgule. Par exemple :
+- Le caractère "*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne. Si on souhaite préciser les champs, il suffit de les nommer est les séparer par une virgule. Par exemple :
   - `SELECT champ1, champ2,... FROM table`
-- L'écriture en majuscule des mots-clés (ici `SELECT` et `FROM`). Ce n'est pas obligatoire, mais par convention, on fait comme ça en MySQL
+- L'écriture en majuscules des mots-clés (ici `SELECT` et `FROM`). Ce n'est pas obligatoire, mais par convention, on fait comme ça en MySQL
 
 Nous avons notre requête, elle fonctionne très bien en MySQL, toutefois, il faudrait qu'on puisse utiliser son résultat dans notre site et donc php.
 
@@ -48,6 +48,7 @@ Notre variable `$listeArticles` contient un tableau, et ce même tableau contien
 
 ```php
   array(
+    "id" => "valeur",
     "titre" => "valeur",
     "chapo" => "valeur",
     "image" => "valeur",
@@ -105,9 +106,15 @@ $article = $articleCommande->fetch();
 
 Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse. De fait, notre résultat sera un tableau associatif et non un tableau de tableaux associatifs.
 
-> Note : Si la requête ne retourne rien, `fetch()` retournera rien (null). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
+> Note : Si la requête ne retourne rien, `fetch()` retournera faux (booléen "false"). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
 
 La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
+
+Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `WHERE`, par exemple : 
+```sql
+SELECT * FROM article WHERE id = :id AND titre = :titre
+```
+Dans ce code ci-dessus, on cherche un article avec une valeur spécifique pour le champ `id` **et** une valeur spécifique pour le champ `titre`. Et si vous souhaitez qu'une des deux conditions soit remplie, il faudra remplacer `AND` par `OR`.
 
 ## Insérer des données
 
@@ -153,13 +160,13 @@ Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois i
 
 ## Éditez vos données
 
-Dernier type de requête : la mise à jour d'un élément. Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
+Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
 Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la base de donnés et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
 UPDATE auteur
 SET nom = :nom, prenom = :prenom, avatar = :avatar
-WHERE id = :id
+WHERE id = :id;
 ```
 
 - `UPDATE auteur` : le mot-clé permet d'indiquer que nous allons mettre à jour la table "auteur"
@@ -191,14 +198,14 @@ Ici la valeur pour le champ "id" provient d'un champ caché dont la valeur (attr
 
 Ce code est issu du fichier `administration/auteurs/edition.php`, il est incomplet, vous devez le compléter.
 
-
 ## En résumé
 
-- `INSERT INTO` : ajout d'une nouvelle entrée
-- `UPDATE` : modification d'une ou plusieurs entrées
+- `INSERT INTO ... VALUES ...` : ajout d'une nouvelle entrée
+- `UPDATE ... WHERE ...` : modification d'une ou plusieurs entrées
   - On ne met jamais à jour la valeur de l'id
 - `SELECT` : Sélection d'éléments
   - `WHERE` : permet de filter selon un critère
+
 
 Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour le projet individuel "route-vers-la-sae-203". 
 

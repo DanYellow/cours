@@ -47,7 +47,7 @@ $pageCourante = "auteurs";
                         <td>
                             <img 
                                 width='40' 
-                                src='{$auteur["avatar"]}' 
+                                src='{$auteur["lien_avatar"]}' 
                                 class='img-thumbnail rounded-circle' 
                                 alt='Portrait {$auteur["prenom"]}'
                             />
