@@ -21,9 +21,9 @@ La `requête` ci-dessus pourrait se traduire en "Récupère-moi toutes les ligne
 - Les mots-clés `SELECT` et `FROM`
   - `SELECT` : Il signifie littéralement "sélectionne"
   - `FROM` : Indique dans quel table on veut effectuer notre opération ici "article"
-- Le caractère "\*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne. Si on souhaite préciser les champs, il suffit de les nommer est les séparer par une virgule. Par exemple :
+- Le caractère "*" qui signifie "tout". Dans notre cas, ce sont toutes les valeurs de chaque ligne. Si on souhaite préciser les champs, il suffit de les nommer est les séparer par une virgule. Par exemple :
   - `SELECT champ1, champ2,... FROM table`
-- L'écriture en majuscule des mots-clés (ici `SELECT` et `FROM`). Ce n'est pas obligatoire, mais par convention, on fait comme ça en MySQL
+- L'écriture en majuscules des mots-clés (ici `SELECT` et `FROM`). Ce n'est pas obligatoire, mais par convention, on fait comme ça en MySQL
 
 Nous avons notre requête, elle fonctionne très bien en MySQL, toutefois, il faudrait qu'on puisse utiliser son résultat dans notre site et donc php.
 
@@ -48,6 +48,7 @@ Notre variable `$listeArticles` contient un tableau, et ce même tableau contien
 
 ```php
   array(
+    "id" => "valeur",
     "titre" => "valeur",
     "chapo" => "valeur",
     "image" => "valeur",
@@ -108,6 +109,12 @@ Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simpl
 > Note : Si la requête ne retourne rien, `fetch()` retournera faux (booléen "false"). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
 
 La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
+
+Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `WHERE`, par exemple : 
+```sql
+SELECT * FROM article WHERE id = :id AND titre = :titre
+```
+Dans ce code ci-dessus, on cherche un article avec une valeur spécifique pour le champ `id` **et** une valeur spécifique pour le champ `titre`. Et si vous souhaitez qu'une des deux conditions soit remplie, il faudra remplacer `AND` par `OR`.
 
 ## Insérer des données
 
@@ -199,30 +206,6 @@ Ce code est issu du fichier `administration/auteurs/edition.php`, il est incompl
 - `SELECT` : Sélection d'éléments
   - `WHERE` : permet de filter selon un critère
 
-## Sélections avancées (jointures)
-
-Dernière partie de ce petit mémo : les jointures. Vous l'avez vu dans les consignes de la SAE ([voir consignes](LISEZ-MOI.md)), le schéma de base de données comporte une relation entre les tables `auteur` et `article`, cette relation est dite `One-to-Many`, un auteur peut avoir plusieurs articles, mais pas l'inverse.
-
-Ce genre de relation permet de rendre la manipulation des données plus simple et évite d'avoir des tables trop complexes et donc lourdes.
-
-Présentement, si vous faites la requête suivante :
-```sql
-SELECT * FROM article WHERE id = 42;
-```
-Vous obtiendrez le tableau suivant :
-```php
-  $article = [
-    "id" => 42,
-    "titre" => "LES SAE en DUT MMI",
-    "chapo" => "...",
-    "contenu" => "...",
-    "lien_image" => "...",
-    "date_creation" => "...",
-    "date_derniere_mise_a_jour" => "...",
-    "auteur_id" => 21
-  ]
-```
-Vous remarquez que dans la réponse si on obtient bien l'article, l'auteur lui n'est représenté que par son id dans la table auteur. Comment faire pour récupérer les informations de l'auteur ? On pourrait faire la requête `SELECT * auteur WHERE id = 21`, ceci fonctionnerait mais ça nous oblige à faire deux requêtes
 
 Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour le projet individuel "route-vers-la-sae-203". 
 

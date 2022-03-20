@@ -24,7 +24,7 @@ img {
     justify-content: flex-end;
     column-gap: 2.625rem;
     font-size: 1.05rem;
-    margin-bottom: 5.375rem;
+    /* margin-bottom: 5.375rem; */
 }
 
 .titre-page {
@@ -40,4 +40,9 @@ img {
     font-size: 1.05rem;
     margin-bottom: 2rem;
     margin-top: 9.125rem;
+}
+
+button {
+    background: transparent;
+    border: none;
 }

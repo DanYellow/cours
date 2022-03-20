@@ -16,15 +16,32 @@ Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, deux pour être exacts :
-- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, il doit être complété. Un article doit contenir : 
+- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
   - Son titre
   - Son chapô + contenu (dans cet ordre)
   - Son image
-  - Sa date de rédaction
+  - Sa date de création
+  - La date de la dernière mise à jour
+    - Ne pas afficher si la date est égale à celle de création
   - Son auteur
-    - Mettre une valeur par défaut s'il n'y pas d'auteur
+    - Mettre une valeur par défaut s'il n'y a pas d'auteur
+  - Sa vidéo youtube. S'il y en a une
+    - **La vidéo doit s'afficher sur la page de votre site**
+    - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
+    ```html
+    <article class="youtube-video-conteneur">
+      <!-- code pour afficher la vidéo -->
+    </article>
+    ```
 - La liste des auteurs du site 
-  - L'entrée pour y accéder est déjà dans la navigation mais pas la page
+  - L'entrée pour y accéder est déjà dans la navigation mais pas le fichier
+  - Afficher pour chaque auteur : 
+    - Image
+    - Prénom
+    - Nom
+    - Lien vers le compte twitter
+      - Facultif
+      - Vous pouvez mettre le lien vers n'importe quel compte twitter dans la mesure du raisonnable
 
 Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
@@ -40,6 +57,8 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - CSS Transition
 - Pseudo-éléments ::before / ::after
 - Langage de programmation javascript
+- MySQL
+- PHP
 - ...
 
 Vous allez devoir également réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
@@ -53,8 +72,6 @@ Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de donn
 Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être nulle, un article peut donc avoir aucun auteur.
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
-
-Comprennez également que le chapô d'un article est affiché sur la page d'accueil (la liste des articles) et il doit également se retrouver dans le détail de l'article, et ce, avant son contenu (champ "contenu").
 
 ### Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
@@ -73,15 +90,17 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
   - Création d'auteur
   - Édition d'auteur
   - Liste d'auteurs
-> A noter que pour l'édition / création d'auteur, vous devrez (via javascript) afficher en temps réel l'image qui a été définie pour l'avatar
 - Message
   - Liste des messages reçus
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
-La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que tout fonctionne comme prévu.
+> N'hésitez pas à tester vos requêtes dans phpmyadmin
 
-> Bien évidemment, une interface d'administration nécessite une formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
+La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées.
+
+> En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
+> Toutefois si vous souhaitez le faire, allez-y.
 
 ### Redirection après soumission
 
@@ -103,9 +122,14 @@ $pageRedirection = "remplacer-par-url";
 header("Location: $pageRedirection"); 
 ```
 
+# Javascript
+Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Elles devront être utilisées :
+- Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
+- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée au à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser
+
 # Astuces
 
-- **Les fichiers possèdent des commentaires, ne négligez pas leur lecture**
+- **Les fichiers possèdent des commentaires, ne négligez pas leur lecture**, ils sont là pour vous aider
 - Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
   - **Evitez d'avoir les mêmes noms de fichiers**
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
@@ -159,12 +183,15 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
 - [ ] J'ai réalisé toutes fonctionnalités :
-  - [ ] Gestion de l'administration
+  - [ ] Gestion de l'administration 
+    - [ ] Je peux ajouter / éditer :
+      - [ ] Un article / auteur
+    - [ ] Je peux lister :
+      - [ ] Tous les articles / auteurs / messages
     - [ ] J'ai écrit dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
   - [ ] Page avec tous les auteurs
-    - [ ] Son accès est dans le menu
   - [ ] Page "article"
-    - [ ] Chaque article (sur la page d'accueil) doit charger un article différent
+    - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem

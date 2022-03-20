@@ -1,5 +1,5 @@
 .jpo-banniere {
-  width: 34.375%;
+  width: 37.375%;
   height: 45.625rem;
   position: relative;
   display: flex;
@@ -95,17 +95,24 @@
 }
 
 .article .titre {
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .article .textes {
-  padding: 34px 100px 100px 60px;
+  padding: 34px 100px 80px 60px;
+}
+
+.article .description {
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
 }
 
 .article {
-  width: 800px;
+  width: 750px;
   box-shadow: 0px 3px 6px #00000029;
   margin-bottom: 2.15rem;
 }
