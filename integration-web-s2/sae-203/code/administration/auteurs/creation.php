@@ -6,13 +6,15 @@ $pageCourante = "auteurs";
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
-    // On crée une nouvelle entrée
-    $creerAuteurCommande = $clientMySQL->prepare('INSERT INTO auteur(prenom, nom, avatar) VALUES (:prenom, :nom, :avatar)');
-    $creerAuteurCommande->execute([
-        "nom" => "A REMPLACER",
-        "prenom" => "A REMPLACER",
-        "avatar" => "A REMPLACER"
-    ]);
+    if (isset($_POST["prenom"], $_POST["nom"], $_POST["lien_avatar"])) {
+        // On crée une nouvelle entrée
+        $creerAuteurCommande = $clientMySQL->prepare('INSERT INTO auteur(prenom, nom, lien_avatar) VALUES (:prenom, :nom, :lien_avatar)');
+        $creerAuteurCommande->execute([
+            "nom" => "A REMPLACER",
+            "prenom" => "A REMPLACER",
+            "lien_avatar" => "A REMPLACER"
+        ]);
+    }
 }
 ?>
 
@@ -41,16 +43,20 @@ if ($formulaire_soumis) {
                             <label for="prenom" class="form-label">Nom</label>
                             <input type="text" name="nom" class="form-control" id="prenom">
                         </div>
-                        <div class="mb-3  col-md-6">
+                        <div class="mb-3 col-md-6">
                             <label for="prenom" class="form-label">Prénom</label>
                             <input type="text" name="prenom" class="form-control" id="prenom">
                         </div>
-                        <div class="mb-3  col-md-6">
-                            <label for="avatar" class="form-label">Avatar</label>
+                        <div class="mb-3 col-md-6">
+                            <label for="avatar" class="form-label">Lien avatar</label>
                             <input type="text" name="avatar" class="form-control" id="avatar">
                             <div class="form-text">
-                                Mettre l'URL de l'avatar
+                                Mettre l'URL de l'avatar (chemin absolu)
                             </div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="avatar" class="form-label">Lien twitter</label>
+                            <input type="text" value="" name="lien_twitter" class="form-control" id="avatar">
                         </div>
                         <div class="mb-3  col-md-6">
                             <button type="submit" class="btn btn-primary">Envoyer</button>

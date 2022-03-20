@@ -21,14 +21,14 @@ if ($formulaire_soumis) {
     // On crée un nouvel auteur
     $majAuteurCommande = $clientMySQL->prepare("
         UPDATE auteur
-        SET nom = :nom, prenom = :prenom, avatar = :avatar
+        SET nom = :nom, prenom = :prenom, lien_avatar = :lien_avatar
         WHERE id = :id
     ");
 
     $majAuteurCommande->execute([
         "nom" => $_POST["nom"],
         "prenom" => "A REMPLACER",
-        "avatar" => "A REMPLACER",
+        "lien_avatar" => "A REMPLACER",
         "id" => $_POST["id"]
     ]);
 }
@@ -58,23 +58,26 @@ if ($formulaire_soumis) {
                     <form method="POST">
                         <section class="row flex-column">
                             <input type="hidden" value="<?php echo $auteur["id"]; ?>" name="id">
-
                             <div class="mb-3 col-md-6">
                                 <label for="prenom" class="form-label">Nom</label>
                                 <input type="text" value="<?php echo $auteur["nom"]; ?>" name="nom" class="form-control" id="prenom">
                             </div>
-                            <div class="mb-3  col-md-6">
+                            <div class="mb-3 col-md-6">
                                 <label for="prenom" class="form-label">Prénom</label>
                                 <input type="text" value="<?php echo $auteur["prenom"]; ?>" name="prenom" class="form-control" id="prenom">
                             </div>
-                            <div class="mb-3  col-md-6">
-                                <label for="avatar" class="form-label">Avatar</label>
-                                <input type="text" value="<?php echo $auteur["avatar"]; ?>" name="avatar" class="form-control" id="avatar">
+                            <div class="mb-3 col-md-6">
+                                <label for="avatar" class="form-label">Lien avatar</label>
+                                <input type="text" value="<?php echo $auteur["lien_avatar"]; ?>" name="lien_avatar" class="form-control" id="avatar">
                                 <div class="form-text">
-                                    Mettre l'URL de l'avatar
+                                    Mettre l'URL de l'avatar (chemin absolu)
                                 </div>
                             </div>
-                            <div class="mb-3  col-md-6">
+                            <div class="mb-3 col-md-6">
+                                <label for="avatar" class="form-label">Lien twitter</label>
+                                <input type="text" value="<?php echo $auteur["lien_twitter"]; ?>" name="lien_twitter" class="form-control" id="avatar">
+                            </div>
+                            <div class="mb-3 col-md-6">
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>
                         </section>

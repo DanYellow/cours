@@ -21,12 +21,12 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
   - Son chapô + contenu (dans cet ordre)
   - Son image
   - Sa date de création
-  - La date de la dernière mise à jour
+  - La date de sa dernière mise à jour
     - Ne pas afficher si la date est égale à celle de création
   - Son auteur
     - Mettre une valeur par défaut s'il n'y a pas d'auteur
   - Sa vidéo youtube. S'il y en a une
-    - **La vidéo doit s'afficher sur la page de votre site**
+    - **Le lecteur Youtube doit s'afficher sur la page de votre site**
     - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
     ```html
     <article class="youtube-video-conteneur">
@@ -93,6 +93,8 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 - Message
   - Liste des messages reçus
 
+> Il faudra indiquer à l'utilisateur quand l'entrée a bien été ajoutée / mise à jour
+
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
 > N'hésitez pas à tester vos requêtes dans phpmyadmin
@@ -144,6 +146,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - HTML/PHP/CSS/javascript...
   - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
 - URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
@@ -239,3 +242,4 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
   - Développement de la cinquième page principale
+- Améliorer le code de façon à ce que l'édition et la création d'une entité soit fait sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse un édition ou une création d'entité

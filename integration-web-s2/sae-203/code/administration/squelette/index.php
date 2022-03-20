@@ -1,6 +1,7 @@
 <?php
 require_once('../../ressources/includes/connexion-bdd.php');
 
+// A adapter
 $commande = $clientMySQL->prepare('SELECT * FROM TABLE');
 $commande->execute();
 $liste = $commande->fetchAll();
@@ -33,34 +34,23 @@ $pageCourante = "REMPLACER";
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Avatar</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prénom</th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listeAuteurs as $auteur) {
-                        echo "
-                    <tr>
-                        <th scope='row'>{$auteur["id"]}</th>
-                        <td>
-                            <img 
-                                width='40' 
-                                src='{$auteur["avatar"]}' 
-                                class='img-thumbnail rounded-circle' 
-                                alt='Portrait {$auteur["prenom"]}'
-                            />
-                        </td>
-                        <td>{$auteur["prenom"]}</td>
-                        <td>{$auteur["nom"]}</td>
-                        <td>
-                            <a href='edition.php?id={$auteur["id"]}' class='link-primary'>Modifier</a>
-                        </td>
-                    </tr>
-                ";
-                    } ?>
-
+                    <?php
+                    foreach ($liste as $element) {
+                        $lien = "";
+                    ?>
+                        <tr>
+                            <th scope='row'><?php echo $element["id"]; ?></th>
+                            <td></td>   
+                            <td>
+                                <a href='<?php echo "edition.php?id={$auteur["id"]}"; ?>' class='link-primary'>Modifier</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </main>

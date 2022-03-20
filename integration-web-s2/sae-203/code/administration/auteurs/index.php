@@ -6,7 +6,6 @@ $listeAuteursCommande->execute();
 $listeAuteurs = $listeAuteursCommande->fetchAll();
 
 $pageCourante = "auteurs";
-
 ?>
 
 <!DOCTYPE html>
@@ -32,35 +31,38 @@ $pageCourante = "auteurs";
             <table class="table align-middle table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Avatar</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
+                        <th scope="col">Twitter</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listeAuteurs as $auteur) {
-                        echo "
-                    <tr>
-                        <th scope='row'>{$auteur["id"]}</th>
-                        <td>
-                            <img 
-                                width='40' 
-                                src='{$auteur["lien_avatar"]}' 
-                                class='img-thumbnail rounded-circle' 
-                                alt='Portrait {$auteur["prenom"]}'
-                            />
-                        </td>
-                        <td>{$auteur["prenom"]}</td>
-                        <td>{$auteur["nom"]}</td>
-                        <td>
-                            <a href='edition.php?id={$auteur["id"]}' class='link-primary'>Modifier</a>
-                        </td>
-                    </tr>
-                ";
-                    } ?>
-
+                    <?php 
+                        foreach ($listeAuteurs as $auteur) { 
+                        $lien = "";
+                    ?>
+                        <tr>
+                            <th scope='row'><?php echo $auteur["id"]; ?></th>
+                            <td>
+                                <img 
+                                    width='60' 
+                                    height='60' 
+                                    src='<?php echo $auteur["lien_avatar"]; ?>' 
+                                    loading="lazy"
+                                    alt='<?php echo "Portrait {$auteur["prenom"]}"; ?>' 
+                                />
+                            </td>
+                            <td><?php echo $auteur["prenom"]; ?></td>
+                            <td><?php echo $auteur["nom"]; ?></td>
+                            <td><?php echo $auteur["lien_twitter"]; ?></td>
+                            <td>
+                                <a href='<?php echo "edition.php?id={$auteur["id"]}"; ?>' class='link-primary'>Modifier</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </main>
