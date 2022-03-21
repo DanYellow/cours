@@ -24,9 +24,9 @@ $pageCourante = "REMPLACER";
         <div class="b-example-divider"></div>
         <main class="flex-fill">
             <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Liste auteurs</p>
+                <p class="fs-1">Liste éléments</p>
                 <div>
-                    <a href="creation.php" class="link-primary">Ajouter un auteur</a>
+                    <a href="creation.php" class="link-primary">Ajouter un élément</a>
                 </div>
             </header>
 
@@ -39,15 +39,12 @@ $pageCourante = "REMPLACER";
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($liste as $element) {
-                        $lien = "";
-                    ?>
+                    <?php foreach ($liste as $element) { ?>
                         <tr>
                             <th scope='row'><?php echo $element["id"]; ?></th>
                             <td></td>   
                             <td>
-                                <a href='<?php echo "edition.php?id={$auteur["id"]}"; ?>' class='link-primary'>Modifier</a>
+                                <a href='<?php echo "edition.php?id={$element["id"]}"; ?>' class='link-primary'>Modifier</a>
                             </td>
                         </tr>
                     <?php } ?>

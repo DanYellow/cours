@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP - Transform</title>
+
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">
+                    Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+                    cacher)
+                </h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Créez un nouveau fichier html (avec la structure de base d'un site
+                    web. Rappel, vous avez le raccourci "html:5")
+                </li>
+                <li>
+                    Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que vous
+                    venez de créer (si elle existe)
+                </li>
+                <li>
+                    Copiez les balises &lt;link> présentes dans le &lt;head> dans le fichier html que vous
+                    venez de créer
+                </li>
+                <li>Sauvegardez-le et commencez votre TP dedans</li>
+            </ol>
+        </details>
+
+        <h1 class="titre-consignes">Consignes de la pratique</h1>
+
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Appliquez une transformation (de votre choix sur l'élément - classe "conteneur" - présent sur la
+                    page)
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la propriété
+                                transform
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform-function"
+                                rel="noopener noreferrer" target="_blank">Voir listes des fonctions de transformation                              transform
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Utilisez la propriété "transition" pour appliquer la transformation effectuée à l'étape précédente
+                    au survol (pseudo-classe ":hover")
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transition" rel="noopener noreferrer"
+                                target="_blank">Voir documentation de la propriété
+                                transition
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Complétez le sélecteur ".conteneur::after" (il est en bas du fichier "style.css") de façon à rajouter un arrière-plan (aplat de couleur ou
+                    dégradé) permettant de faire
+                    ressortir le texte non-visible
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::after" rel="noopener noreferrer"
+                                target="_blank">Voir documentation du pseudo-élément "after"
+                                transition
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément "before"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color"
+                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément
+                                "background-color"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://cssgradient.io/" rel="noopener noreferrer" target="_blank">Générateur de
+                                dégradé
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>Rappel : Pour étirer une balise en position absolute (ou relative), aidez-vous du code
+                            ci-dessous.
+                            <pre>
+                                <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">mon-sélecteur {
+    <span style="color:rgb(156, 220, 254); font-weight:400;">position</span>: absolute;
+    <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+    <span style="color:rgb(156, 220, 254); font-weight:400;">left</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+    <span style="color:rgb(156, 220, 254); font-weight:400;">right</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+    <span style="color:rgb(156, 220, 254); font-weight:400;">bottom</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+    <span style="color:rgb(87, 166, 74); font-weight:400;">/* propriétés CSS */</span>
+}</code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Utilisez la pseudo-classe "hover" pour afficher le background au survol l'arrière-plan précédemment
+                    affiché
+                    <ul>
+                        <li>Il faudra utiliser le sélecteur CSS <code>.conteneur:hover::after {}</code>
+                            <ul>Ce sélecteur signifie littéralement "Au survol de la classe 'conteneur' on fait ceci sur le pseudo-élément '::after'"</ul>
+                        </li>
+                        <li>Vu que le sélecteur ".conteneur::after" a une opacité nulle (déclaration CSS "opacity: 0")</li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Utilisez la propriété CSS transform et la fonction translate() (translateX() ou translateY() ) pour
+                    déplacer les textes présents sur l'image.
+                    <ul>
+                        <li>Il faudra utiliser le sélecteur ".conteneur" + le sélecteur du texte (il faut mettre un espace entre les deux). Exemple : ".conteneur .titre".</li>
+                        <li>Vous pouvez déplacer les deux textes ensemble ou un seul à la fois à vous de voir</li>
+                        <li>Utilisez la console du navigateur pour trouver les sélecteurs</li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform" rel="noopener noreferrer"
+                                target="_blank">Voir documentation de la propriété
+                                transform
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Créez une balise et ses enfants, et animez-les avec ce que vous avez appris avant.
+                    <ul>
+                        <li>Vous trouverez des exemples de CSS transitions dans le dossier exemples-transitions/</li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+    </header>
+    <main>
+        <section class="conteneur-principal">
+            <figure class="conteneur">
+                <img src="images/dunes-blanches.jpg" alt="">
+                <figcaption class="textes">
+                    <p class="titre">DUNES BLANCHES</p>
+                    <p class="description">Délicats choux fourrés à la chantilly au mascarpone</p>
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+</body>
