@@ -40,38 +40,38 @@
         </details>
 
         <h1 class="titre-consignes">Consignes de la pratique</h1>
-
+        <p>Le but de ce TP est de découvrir ensemble les bases du javascript.
+            L'idée étant d'être opérationnel pour réussir les tâches qui vous seront demandées pour la SAE 203 - Site
+            web et base de données (bdd)
+        </p>
         <details class="consignes-conteneur" open>
             <summary>
                 <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Appliquez une transformation (de votre choix sur l'élément - classe "conteneur" - présent sur la
-                    page)
+                <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML (Balise
+                    &lt;head> ou avant fermeture de la balise &lt;body>). Exemple de code pour importer un fichier
+                    javascript (adapter le chemin et le nom de fichier en fonction).
+                    <pre>
+                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
+                </li>
+                <li>Créez deux variables, une contenant un entier et l'autre une chaîne de caractères
                     <ul>
                         <li>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"
-                                rel="noopener noreferrer" target="_blank">Voir documentation de la propriété
-                                transform
-                                (ouverture dans un
-                                nouvel onglet)</a>
-                        </li>
-                        <li>
-                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform-function"
-                                rel="noopener noreferrer" target="_blank">Voir listes des fonctions de transformation                              transform
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/Variables"
+                                rel="noopener noreferrer" target="_blank">Voir documentation des variables javascript
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Utilisez la propriété "transition" pour appliquer la transformation effectuée à l'étape précédente
-                    au survol (pseudo-classe ":hover")
+                    Affichez leur contenu dans la méthode <code>console.log()</code>
                     <ul>
                         <li>
-                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transition" rel="noopener noreferrer"
-                                target="_blank">Voir documentation de la propriété
-                                transition
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
+                                console.log()
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
@@ -83,61 +83,72 @@
             <summary>
                 <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
             </summary>
+            <p>
+                Comme tout langage de programmation, il est également possible en javascript d'écrire des fonctions, le
+                mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
+                Exemple :
+            </p>
+            <pre>
+                <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maPremiereFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;">param1, param2</span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> param1 + param2;
+}
+maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</span>, <span style="color:rgb(184, 215, 163); font-weight:400;">20</span>);
+               </code></pre>
+            <p>Dans le code ci-dessus, on définit une variable nommée "maPremiereFonction" prenant deux paramètres et
+                retourne leur addition. Puis on appelle notre fonction avec comme paramètres les nombres 45 et 20.
+                C'est très simple mais c'est très bien pour commencer. A noter que les opérateurs mathématiques de base
+                sont les mêmes qu'en php (+, /, *, -).</p>
+            <p>
+                Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code>.
+                Cette ligne ne sera pas interprétée. Attention : Comme le HTML et le CSS, les commentaires en javascript
+                sont accessibles à l'utilisateur final. Par conséquent : ne mettez pas de données sensibles dedans.
+            </p>
             <ol class="liste-consignes">
-                <li>Complétez le sélecteur ".conteneur::after" (il est en bas du fichier "style.css") de façon à rajouter un arrière-plan (aplat de couleur ou
-                    dégradé) permettant de faire
-                    ressortir le texte non-visible
+                <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
+                    <code>console.log()</code>
                     <ul>
                         <li>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::after" rel="noopener noreferrer"
-                                target="_blank">Voir documentation du pseudo-élément "after"
-                                transition
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
+                                console.log()
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
                         <li>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
-                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément "before"
+                            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions"
+                                rel="noopener noreferrer" target="_blank">Voir documentation des fonctions
                                 (ouverture dans un
                                 nouvel onglet)</a>
-                        </li>
-                        <li>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color"
-                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément
-                                "background-color"
-                                (ouverture dans un
-                                nouvel onglet)</a>
-                        </li>
-                        <li>
-                            <a href="https://cssgradient.io/" rel="noopener noreferrer" target="_blank">Générateur de
-                                dégradé
-                                (ouverture dans un
-                                nouvel onglet)</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>Rappel : Pour étirer une balise en position absolute (ou relative), aidez-vous du code
-                            ci-dessous.
-                            <pre>
-                                <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">mon-sélecteur {
-    <span style="color:rgb(156, 220, 254); font-weight:400;">position</span>: absolute;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">left</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">right</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">bottom</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(87, 166, 74); font-weight:400;">/* propriétés CSS */</span>
-}</code></pre>
                         </li>
                     </ul>
                 </li>
-                <li>Utilisez la pseudo-classe "hover" pour afficher le background au survol l'arrière-plan précédemment
-                    affiché
+                <li>Créez les fonctions suivantes :
                     <ul>
-                        <li>Il faudra utiliser le sélecteur CSS <code>.conteneur:hover::after {}</code>
-                            <ul>Ce sélecteur signifie littéralement "Au survol de la classe 'conteneur' on fait ceci sur le pseudo-élément '::after'"</ul>
+                        <li>Une fonction qui prend en paramètre un entier et le multiplie par lui-même</li>
+                        <li>Une fonction qui prend en paramètres deux chaînes de caractères et souhaite bonjour à cette
+                            personne
+                            <ul>
+                                <li>Pour ce faire, il faudra concaténer une chaîne de caractères. <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals"
+                                        rel="noopener noreferrer" target="_blank">Voilà la documentation sur la
+                                        contacténation de chaînes de caractères (ouverture dans un
+                                        nouvel onglet)</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>Vu que le sélecteur ".conteneur::after" a une opacité nulle (déclaration CSS "opacity: 0")</li>
+                        <li>Une fonction qui prend en paramètres deux entiers, les multiplie et retourne <span
+                                class="texte-gras">toujours</span> un <span class="texte-gras">produit strictement
+                                positif</span> </li>
+                        <li>Une fonction qui prend en paramètres deux entiers qui les multiplie <span
+                                class="texte-gras">sans utiliser</span> l'opérateur de multiplication</span></li>
                     </ul>
+                    <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
+                        "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>. Exemple :
+                        <pre>
+                            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
+}
+<span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
                 </li>
             </ol>
         </details>
@@ -146,18 +157,24 @@
                 <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Utilisez la propriété CSS transform et la fonction translate() (translateX() ou translateY() ) pour
-                    déplacer les textes présents sur l'image.
+                <li>Créez les fonctions suivantes : 
                     <ul>
-                        <li>Il faudra utiliser le sélecteur ".conteneur" + le sélecteur du texte (il faut mettre un espace entre les deux). Exemple : ".conteneur .titre".</li>
-                        <li>Vous pouvez déplacer les deux textes ensemble ou un seul à la fois à vous de voir</li>
-                        <li>Utilisez la console du navigateur pour trouver les sélecteurs</li>
-                        <li>
-                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform" rel="noopener noreferrer"
-                                target="_blank">Voir documentation de la propriété
-                                transform
-                                (ouverture dans un
-                                nouvel onglet)</a>
+                        <li>Une fonction qui prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT de Sarcelles"</li>
+                        <li>Une fonction qui prend en paramètre un nombre entier et qui retourne une chaîne de caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos besoins) :
+                            <ul>
+                                <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
+                                <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
+                                <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
+                                <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées</li>
+                            </ul>
+                            <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
+                                "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>. Exemple :
+                                <pre>
+                                    <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
+}
+<span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
                         </li>
                     </ul>
                 </li>
@@ -170,6 +187,12 @@
             <ol class="liste-consignes">
                 <li>Créez une balise et ses enfants, et animez-les avec ce que vous avez appris avant.
                     <ul>
+                        const listeElementsMaClasse = document.querySelectorAll(".ma-classe");
+for (let i = 0; i < listeElementsMaClasse.length; i++) {
+  // On récupère un à un les éléments ayant la classe "ma-classe"
+  // on leur assigne l'évènement "click" appelant la classe "maFonction"
+  listeElementsMaClasse[i].addEventListener('click', maFonction) 
+}
                         <li>Vous trouverez des exemples de CSS transitions dans le dossier exemples-transitions/</li>
                     </ul>
                 </li>
