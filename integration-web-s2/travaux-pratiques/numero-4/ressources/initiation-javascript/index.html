@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP - Transform</title>
+    <title>TP - Initiation javascript</title>
 
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
@@ -143,8 +143,9 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 class="texte-gras">sans utiliser</span> l'opérateur de multiplication</span></li>
                     </ul>
                     <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
-                        "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>. Exemple :
-                        <pre>
+                        "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>.
+                    Exemple :
+                    <pre>
                             <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
     <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
 }
@@ -157,20 +158,27 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Créez les fonctions suivantes : 
+                <li>Créez les fonctions suivantes :
                     <ul>
-                        <li>Une fonction qui prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT de Sarcelles"</li>
-                        <li>Une fonction qui prend en paramètre un nombre entier et qui retourne une chaîne de caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos besoins) :
+                        <li>Une fonction qui prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
+                            du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
+                            Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
+                            de Sarcelles"</li>
+                        <li>Une fonction qui prend en paramètre un nombre entier et qui retourne une chaîne de
+                            caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
+                            besoins) :
                             <ul>
                                 <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
                                 <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
                                 <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
                                 <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
-                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées</li>
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées
+                                </li>
                             </ul>
                             <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
-                                "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>. Exemple :
-                                <pre>
+                                "return")</span> et doivent voir leur résultat être affiché dans un
+                            <code>console.log()</code>. Exemple :
+                            <pre>
                                     <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
     <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
 }
@@ -185,15 +193,72 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Créez une balise et ses enfants, et animez-les avec ce que vous avez appris avant.
+                <li>Ajoutez un bouton (balise &lt;button type="button">) et appelez une des fonctions que vous avez crée
+                    précédemment
                     <ul>
-                        const listeElementsMaClasse = document.querySelectorAll(".ma-classe");
-for (let i = 0; i < listeElementsMaClasse.length; i++) {
-  // On récupère un à un les éléments ayant la classe "ma-classe"
-  // on leur assigne l'évènement "click" appelant la classe "maFonction"
-  listeElementsMaClasse[i].addEventListener('click', maFonction) 
-}
-                        <li>Vous trouverez des exemples de CSS transitions dans le dossier exemples-transitions/</li>
+                        <li><a
+                                href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button> (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte" en cliquant sur le bouton précédemment crée
+                    <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur chaque élément. Par exemple : </p>
+                    <pre>
+                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
+<span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
+    listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
+}</code></pre>
+                    <ul>
+                        <li><a
+                                href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Toujours au clic sur le même bouton, arrangez pour qu'on ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()" de la propriété "classList".
+                    <ul>
+                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css. Pensez à mettre des propriétés CSS dans la classe</li>
+                        <li><a
+                            href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
+                            rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList (ouverture dans un
+                            nouvel onglet)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
+                    <article class="note-information"><p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets. Exemple :</p> 
+                        <pre>
+                            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
+                            <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant le data-attribute "mon-data-attribute"</p>
+                    </article>
+                </li>
+                <li>Optionnel : Ajoutez le même data-attribute sur les éléments ayant la classe "mon-texte" avec une valeur. Arrangez-vous pour qu'au clic sur le bouton, les éléments ayant la classe "mon-texte" changent de texte (propriété "textContent") pour valeur de leur data-attribute
+                    <ul>
+                        <li><a
+                            href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                            rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent (ouverture dans un
+                            nouvel onglet)</a>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes" target="_blank" rel="noopener noreferrer">
+                            Voir documentation des data-attributes, elle montre comment récupérer la valeur d'un data-attribute (ouverture dans un
+                            nouvel onglet)
+                        </a>
+                    </li>
                     </ul>
                 </li>
             </ol>
@@ -201,13 +266,8 @@ for (let i = 0; i < listeElementsMaClasse.length; i++) {
     </header>
     <main>
         <section class="conteneur-principal">
-            <figure class="conteneur">
-                <img src="images/dunes-blanches.jpg" alt="">
-                <figcaption class="textes">
-                    <p class="titre">DUNES BLANCHES</p>
-                    <p class="description">Délicats choux fourrés à la chantilly au mascarpone</p>
-                </figcaption>
-            </figure>
+            <p class="mon-texte">Mon texte</p>
+               <p class="mon-texte">Mon autre texte</p>
         </section>
     </main>
 </body>

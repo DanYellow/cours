@@ -134,6 +134,13 @@
     background-color: #f6969638;
 }
 
+.consignes-conteneur .note-information {
+    border-left: 5px solid rgb(4, 0, 255);
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #96d4f638;
+}
+
 .consignes-conteneur code {
     font-family: monospace;
     letter-spacing: 1.2px;

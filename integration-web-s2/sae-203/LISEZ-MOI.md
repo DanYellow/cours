@@ -80,7 +80,7 @@ Dans les tables "article" et "auteur" sont gérés des images, ces dernières de
 
 # Administration (appelé également backoffice)
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, l'administration du site, accessible via l'url mon.site/administration, permettra d'ajouter des nouveaux contenus au site. Elle sera l'occasion de mettre en application les connaissances vues sur bootstrap, en base de données et javascript. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -92,8 +92,6 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
   - Liste d'auteurs
 - Message
   - Liste des messages reçus
-
-> Il faudra indiquer à l'utilisateur quand l'entrée a bien été ajoutée / mise à jour
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
