@@ -288,13 +288,18 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                         </li>
                     </ul>
                 </li>
-                <li>Ajoutez le même data-attribute sur les éléments ayant la classe "mon-texte" avec une valeur
-                    différente pour chaque data-attribute.
-                    Arrangez-vous pour qu'au clic sur le bouton, les éléments ayant le data-attribute que vous avez
-                    défini changent de texte (propriété "textContent") pour valeur de leur data-attribute.
+                <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais des valeurs différentes.</span>
+                    Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton (propriété "textContent") change pour la valeur du data-attribute.
+                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code></p>
+
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
                                 rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Event/target"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (evt.)target
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
