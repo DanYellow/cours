@@ -19,6 +19,7 @@
     border: 0.125rem solid #d1d1e5;
     margin: 1rem 0;
     border-radius: 0.5rem;
+    font-size: 1.15rem;
 }
 
 .consignes-conteneur a:hover {
@@ -149,3 +150,8 @@
     color: white;
     border: 1px solid #b4b4b4;
 }
+
+.consignes-conteneur p {
+    margin: 0.8rem 0;
+}
+

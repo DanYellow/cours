@@ -73,14 +73,17 @@ Cette base de données est composée de trois tables dont une relation One-to-Ma
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
-### Images et base de données
+Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, il faudra toutefois modifier les paramètres pour que la connexion fonctionne. Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+
+[Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
+
+## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
 
-[Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
 # Administration (appelé également backoffice)
 
-Grosse partie de cette SAE, l'administration du site, accessible via l'url mon.site/administration, permettra d'ajouter des nouveaux contenus au site. Elle sera l'occasion de mettre en application les connaissances vues sur bootstrap, en base de données et javascript. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -190,9 +193,10 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs / messages
     - [ ] J'ai écrit dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
-  - [ ] Page avec tous les auteurs
-  - [ ] Page "article"
+  - [ ] Complétion de la page "équipe de rédaction"
+  - [ ] Complétion de la page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
+  - [ ] Mettre à jour la liste des entrées du menu dans l'administration
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
@@ -202,11 +206,10 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
-  - [ ] Créer une archive avec votre nom-prénom qui contient :
+  - [ ] Créer une archive avec le nom-prénom du chef de projet qui contient :
     - [ ] Le code
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
-  - [ ] Nommer l'archive avec mon nom-prénom
 
 # Pour aller plus loin
 

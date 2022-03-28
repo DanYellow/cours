@@ -14,11 +14,16 @@ $listeEntreesMenu = [
         "lien" => "",
         "nom" => "Messages",
         "clef" => "messages"
+    ],
+    [
+        "lien" => "",
+        "nom" => "Accéder au site",
+        "clef" => "site"
     ]
 ];
 ?>
 
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-menu-gradient" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4">Administration</span>
     </a>
@@ -26,12 +31,19 @@ $listeEntreesMenu = [
     <ul class="nav nav-pills flex-column mb-auto">
         <?php foreach ($listeEntreesMenu as $entreeMenu) {
             $entreeClasse = 'nav-link';
+            $ariaCurrentAttr = "";
             if ($pageCourante === $entreeMenu["clef"]) {
-                $entreeClasse = 'nav-link active';
+                $ariaCurrentAttr = "aria-current='page'";
+                $entreeClasse = "$entreeClasse active";
             }
+
+            if ($entreeMenu["clef"] === "site") {
+                $entreeClasse = "$entreeClasse mt-5";
+            }
+
             echo "
                 <li class='nav-item'>
-                    <a href='{$entreeMenu["lien"]}' class='{$entreeClasse}' aria-current='page'>
+                    <a href='{$entreeMenu["lien"]}' class='$entreeClasse text-white' $ariaCurrentAttr>
                         {$entreeMenu["nom"]}
                     </a>
                 </li>

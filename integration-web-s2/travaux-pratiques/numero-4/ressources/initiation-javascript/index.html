@@ -88,14 +88,15 @@
                 mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
                 Exemple :
             </p>
-            <pre>
-                <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maPremiereFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;">param1, param2</span>) </span>{
+            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maPremiereFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;">param1, param2</span>) </span>{
     <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> param1 + param2;
 }
 maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</span>, <span style="color:rgb(184, 215, 163); font-weight:400;">20</span>);
                </code></pre>
             <p>Dans le code ci-dessus, on définit une variable nommée "maPremiereFonction" prenant deux paramètres et
-                retourne leur addition. Puis on appelle notre fonction avec comme paramètres les nombres 45 et 20.
+                retourne leur addition. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
+                donc dire que, dans la fonction "maPremiereFonction", les variables "param1" et "param2" ont pour valeur
+                45 et 20 respectivement.
                 C'est très simple mais c'est très bien pour commencer. A noter que les opérateurs mathématiques de base
                 sont les mêmes qu'en php (+, /, *, -).</p>
             <p>
@@ -172,7 +173,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
                                 <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
                                 <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
-                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou n'est pas une valeur correcte
                                 </li>
                             </ul>
                             <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
@@ -196,41 +197,51 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <li>Ajoutez un bouton (balise &lt;button type="button">) et appelez une des fonctions que vous avez crée
                     précédemment
                     <ul>
-                        <li><a
-                                href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
-                                rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button> (ouverture dans un
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button>
+                                (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte" en cliquant sur le bouton précédemment crée
-                    <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur chaque élément. Par exemple : </p>
+                    En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte"
+                    en cliquant sur le bouton précédemment crée
+                    <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra
+                        impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur
+                        chaque élément. Par exemple : </p>
                     <pre>
                         <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
 <span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
     listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
 }</code></pre>
                     <ul>
-                        <li><a
-                                href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent (ouverture dans un
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
+                                (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Toujours au clic sur le même bouton, arrangez pour qu'on ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()" de la propriété "classList".
+                    Toujours au clic sur le même bouton, arrangez-vous pour qu'on ait le comportement suivant :
                     <ul>
-                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css. Pensez à mettre des propriétés CSS dans la classe</li>
-                        <li><a
-                            href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
-                            rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList (ouverture dans un
-                            nouvel onglet)</a></li>
+                        <li></li>
+                    </ul>
+                    ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()"
+                    de la propriété "classList".
+                    <ul>
+                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
+                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications.</li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
+                                (ouverture dans un
+                                nouvel onglet)</a></li>
                     </ul>
                 </li>
                 <li>
-                    Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
+                    Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span
+                        class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
                 </li>
             </ol>
         </details>
@@ -239,35 +250,90 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
-                    <article class="note-information"><p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets. Exemple :</p> 
+                <li>Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span
+                        class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte". Il faut donc
+                    utiliser un data-attribute sur l'élément que l'on souhaite cibler.
+                    <article class="note-information">
+                        <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
+                            Exemple :</p>
                         <pre>
                             <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
-                            <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant le data-attribute "mon-data-attribute"</p>
+                        <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
+                            le data-attribute "mon-data-attribute". A noter que cette syntaxe est aussi valable dans le
+                            CSS.</p>
                     </article>
                 </li>
-                <li>Optionnel : Ajoutez le même data-attribute sur les éléments ayant la classe "mon-texte" avec une valeur. Arrangez-vous pour qu'au clic sur le bouton, les éléments ayant la classe "mon-texte" changent de texte (propriété "textContent") pour valeur de leur data-attribute
+                <li>Réutilisez la fonction écrite plus haut (dans la partie 3), celle affichant un message dépendamment l'âge de l'utilisateur. Sauf que cette fois-ci l'utilisateur devra entrer la valeur dans un champ de texte (&lt;input type="text" />) et le message devra s'afficher dans une balise &lt;p> 
+                    <p class="note-information">
+                        Il faudra utiliser l'évènement "change" pour écouter les changements de valeurs dans la balise "input". Encore une fois, vous devrez utiliser la propriété ".textContent" pour changer le texte de la balise &lt;p>.
+                    </p>
                     <ul>
-                        <li><a
-                            href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
-                            rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent (ouverture dans un
-                            nouvel onglet)</a>
-                    </li>
-                    <li>
-                        <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes" target="_blank" rel="noopener noreferrer">
-                            Voir documentation des data-attributes, elle montre comment récupérer la valeur d'un data-attribute (ouverture dans un
-                            nouvel onglet)
-                        </a>
-                    </li>
+                            <li><a
+                                href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
                     </ul>
                 </li>
             </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ul>
+                <li>Ajoutez une balise &lt;select> (pas besoin de la mettre dans un formulaire) avec une liste de choix
+                    que vous aurez choisi (n'oubliez pas la
+                    valeur de l'attribut "value" pour chaque "option"). Et une balise &lt;img>. Lors de la sélection
+                    d'un élément dans le &lt;select> l'image doit changer.
+                    <p class="note-information">N'oubliez pas de rajouter un data-attribute sur les balises &lt;select>
+                        &lt;img> pour pouvoir y accéder dans le javascript</p>
+                    <p class="note-information">Il faudra télécharger des images (celles que vous voulez) et mettre le
+                        nom des images comme valeur de l'attribut "value". Quant à l'accès à l'attribut "src" de la
+                        balise &lt;img> dans le javascript, il faut tout simplement accéder à la propriété "src" de la balise &lt;img> dans le javascript (donc grâce à document.querySelector()).</p>
+                    <ul>
+                        <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>. <a
+                                href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais des valeurs différentes.</span>
+                    Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton (propriété "textContent") change pour la valeur du data-attribute.
+                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code></p>
+
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Event/target"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (evt.)target
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
+                                target="_blank" rel="noopener noreferrer">
+                                Voir documentation des data-attributes, elle montre comment récupérer la valeur d'un
+                                data-attribute (ouverture dans un
+                                nouvel onglet)
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </details>
     </header>
     <main>
         <section class="conteneur-principal">
             <p class="mon-texte">Mon texte</p>
-               <p class="mon-texte">Mon autre texte</p>
+            <p class="mon-texte">Mon autre texte</p>
+            <p class="mon-texte">Un troisième texte</p>
         </section>
     </main>
 </body>
