@@ -173,7 +173,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
                                 <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
                                 <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
-                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou n'est pas une valeur correcte
                                 </li>
                             </ul>
                             <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
@@ -263,6 +263,19 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                             CSS.</p>
                     </article>
                 </li>
+                <li>Réutilisez la fonction écrite plus haut (dans la partie 3), celle affichant un message dépendamment l'âge de l'utilisateur. Sauf que cette fois-ci l'utilisateur devra entrer la valeur dans un champ de texte (&lt;input type="text" />) et le message devra s'afficher dans une balise &lt;p> 
+                    <p class="note-information">
+                        Il faudra utiliser l'évènement "change" pour écouter les changements de valeurs dans la balise "input". Encore une fois, vous devrez utiliser la propriété ".textContent" pour changer le texte de la balise &lt;p>.
+                    </p>
+                    <ul>
+                            <li><a
+                                href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -313,7 +326,6 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </details>
     </header>
