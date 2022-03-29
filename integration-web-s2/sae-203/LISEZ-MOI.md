@@ -2,10 +2,19 @@
 _Les consignes pourront être modifiées_
 
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
+
+R212 – Intégration
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
+
+R213 – Développement Web
 - AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
+- AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+R213 – Développement Web &  R215 – Hébergement
 - AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
-- AC4105 : Modéliser les données et les traitements d’une application Web - AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+R214 – Système d’information
+- AC4105 : Modéliser les données et les traitements d’une application Web 
 
 Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
@@ -146,7 +155,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
   - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
-- URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+- URL du site en ligne. Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
   - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
@@ -210,6 +219,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Le code
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
+    - [ ] URL vers le site
 
 # Pour aller plus loin
 
