@@ -52,9 +52,9 @@
                 <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML (Balise
                     &lt;head> ou avant fermeture de la balise &lt;body>). Exemple de code pour importer un fichier
                     javascript (adapter le chemin et le nom de fichier en fonction).
-                    <pre>
-                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
-                </li>
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
+                        <p>Ici notre fichier de code javascript s'appelle "scripts" et se trouve dans le dossier "ressources"</p>
+                    </li>
                 <li>Créez deux variables, une contenant un entier et l'autre une chaîne de caractères
                     <ul>
                         <li>
@@ -146,8 +146,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
                         "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>.
                     Exemple :
-                    <pre>
-                            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
     <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
 }
 <span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
@@ -179,8 +178,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                             <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
                                 "return")</span> et doivent voir leur résultat être affiché dans un
                             <code>console.log()</code>. Exemple :
-                            <pre>
-                                    <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+                            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
     <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
 }
 <span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
@@ -210,8 +208,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra
                         impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur
                         chaque élément. Par exemple : </p>
-                    <pre>
-                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
 <span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
     listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
 }</code></pre>
@@ -224,11 +221,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     </ul>
                 </li>
                 <li>
-                    Toujours au clic sur le même bouton, arrangez-vous pour qu'on ait le comportement suivant :
-                    <ul>
-                        <li></li>
-                    </ul>
-                    ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()"
+                    Toujours au clic sur le même bouton, arrangez-vous pour qu'on ait le comportement suivant : Ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()"
                     de la propriété "classList".
                     <ul>
                         <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
@@ -256,8 +249,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-                        <pre>
-                            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
                         <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
                             le data-attribute "mon-data-attribute". A noter que cette syntaxe est aussi valable dans le
                             CSS.</p>
