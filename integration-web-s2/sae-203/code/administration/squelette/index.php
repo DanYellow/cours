@@ -39,12 +39,15 @@ $pageCourante = "REMPLACER";
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($liste as $element) { ?>
+                    <?php
+                        foreach ($liste as $element) {
+                        $lienEdition = "edition.php?id={$element["id"]}";
+                    ?>
                         <tr>
                             <th scope='row'><?php echo $element["id"]; ?></th>
-                            <td></td>   
+                            <td></td>
                             <td>
-                                <a href='<?php echo "edition.php?id={$element["id"]}"; ?>' class='link-primary'>Modifier</a>
+                                <a href='<?php echo $lienEdition; ?>' class='link-primary'>Modifier</a>
                             </td>
                         </tr>
                     <?php } ?>
