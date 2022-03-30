@@ -40,43 +40,10 @@ body {
 
 .conteneur-principal {
   margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .conteneur {
   border-radius: 10px;
   border: solid 3px #333;
   margin-bottom: 1.5625rem;
-  width: fit-content;
-  overflow: hidden;
-  position: relative;
-  max-width: 500px;
-}
-
-.conteneur img {
-  display: block;
-  max-width: 100%;
-}
-
-.conteneur .textes {
-  position: absolute;
-  padding-left: 1rem;
-  top: 0;
-  z-index: 2;
-}
-
-.conteneur .titre {
-  background-color: #2f3238;
-  display: inline-block;
-  font-size: 2em;
-  padding: 2px 20px 2px 5px;
-  color: aliceblue;
-}
-
-.conteneur::after {
-  content: "";
-  display: block;
-  opacity: 0;
 }

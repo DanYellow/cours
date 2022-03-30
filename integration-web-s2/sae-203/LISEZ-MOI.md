@@ -2,10 +2,19 @@
 _Les consignes pourront être modifiées_
 
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
+
+R212 – Intégration
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
+
+R213 – Développement Web
 - AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
+- AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+R213 – Développement Web &  R215 – Hébergement
 - AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
-- AC4105 : Modéliser les données et les traitements d’une application Web - AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+R214 – Système d’information
+- AC4105 : Modéliser les données et les traitements d’une application Web 
 
 Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
@@ -73,10 +82,13 @@ Cette base de données est composée de trois tables dont une relation One-to-Ma
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
-### Images et base de données
+Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, il faudra toutefois modifier les paramètres pour que la connexion fonctionne. Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+
+[Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
+
+## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
 
-[Script SQL pour créer la base de données Mysql (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 
 # Administration (appelé également backoffice)
 
@@ -92,8 +104,6 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
   - Liste d'auteurs
 - Message
   - Liste des messages reçus
-
-> Il faudra indiquer à l'utilisateur quand l'entrée a bien été ajoutée / mise à jour
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
@@ -145,7 +155,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
   - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
-- URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+- URL du site en ligne. Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
   - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
@@ -192,9 +202,10 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs / messages
     - [ ] J'ai écrit dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
-  - [ ] Page avec tous les auteurs
-  - [ ] Page "article"
+  - [ ] Complétion de la page "équipe de rédaction"
+  - [ ] Complétion de la page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
+  - [ ] Mettre à jour la liste des entrées du menu dans l'administration
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
@@ -204,11 +215,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Rendre le projet
   - [ ] **Exporter la base de données**
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
-  - [ ] Créer une archive avec votre nom-prénom qui contient :
+  - [ ] Créer une archive avec le nom-prénom du chef de projet qui contient :
     - [ ] Le code
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
-  - [ ] Nommer l'archive avec mon nom-prénom
+    - [ ] URL vers le site
 
 # Pour aller plus loin
 

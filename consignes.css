@@ -19,6 +19,7 @@
     border: 0.125rem solid #d1d1e5;
     margin: 1rem 0;
     border-radius: 0.5rem;
+    font-size: 1.15rem;
 }
 
 .consignes-conteneur a:hover {
@@ -134,6 +135,13 @@
     background-color: #f6969638;
 }
 
+.consignes-conteneur .note-information {
+    border-left: 5px solid rgb(4, 0, 255);
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #96d4f638;
+}
+
 .consignes-conteneur code {
     font-family: monospace;
     letter-spacing: 1.2px;
@@ -142,3 +150,8 @@
     color: white;
     border: 1px solid #b4b4b4;
 }
+
+.consignes-conteneur p {
+    margin: 0.8rem 0;
+}
+
