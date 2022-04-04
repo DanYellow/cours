@@ -49,8 +49,9 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
     - Prénom
     - Nom
     - Lien vers le compte twitter
-      - Facultif
-      - Vous pouvez mettre le lien vers n'importe quel compte twitter dans la mesure du raisonnable
+      - Facultatif
+      - Mettez le lien vers le compte twitter de l'université :
+        - https://twitter.com/UniversiteCergy
 
 Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
