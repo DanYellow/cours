@@ -16,7 +16,7 @@ R213 – Développement Web &  R215 – Hébergement
 R214 – Système d’information
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion à condition que deux membres au minimum soient dans le même TP. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
 Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
 
