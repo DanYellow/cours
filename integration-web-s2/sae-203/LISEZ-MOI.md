@@ -168,7 +168,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
+Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral.
 ### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
@@ -227,6 +227,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
     - [ ] URL vers le site
+      - **Facultatif**
 
 # Pour aller plus loin
 
