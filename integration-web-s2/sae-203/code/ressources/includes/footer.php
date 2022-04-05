@@ -9,13 +9,13 @@
 
             Plus d'informations ici : https://developer.mozilla.org/fr/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
          -->
-            <a aria-label="Ouverture dans un nouvel onglet" href="https://fr-fr.facebook.com/CYCergyParisUniversite/" title="Ouverture dans un nouvel onglet">Facebook</a>
+            <a aria-label="Ouverture dans un nouvel onglet" href="https://fr-fr.facebook.com/CYCergyParisUniversite/" title="Ouverture dans un nouvel onglet" target="_blank">Facebook</a>
         </li>
         <li>
-            <a aria-label="Ouverture dans un nouvel onglet" href="https://twitter.com/universitecergy?lang=fr" title="Ouverture dans un nouvel onglet">Twitter</a>
+            <a aria-label="Ouverture dans un nouvel onglet" href="https://twitter.com/universitecergy?lang=fr" title="Ouverture dans un nouvel onglet"  target="_blank">Twitter</a>
         </li>
         <li>
-            <a aria-label="Ouverture dans un nouvel onglet" href="https://fr-fr.facebook.com/CYCergyParisUniversite/" title="Ouverture dans un nouvel onglet">Université CY Paris Université</a>
+            <a aria-label="Ouverture dans un nouvel onglet" href="https://fr-fr.facebook.com/CYCergyParisUniversite/" title="Ouverture dans un nouvel onglet"  target="_blank">Université CY Paris Université</a>
         </li>
         <!--
             L'attribut "aria-hidden" permet d'empêcher les lecteurs d'écran de lire un élément
@@ -27,7 +27,7 @@
             •
         </li>
         <li>
-            <a href="#top" class="remonter-lien">Remonter</a>
+            <a aria-label="Ouverture dans un nouvel onglet"  target="_blank" href="/administration">Accéder à l'administration</a>
         </li>
     </ul>
 

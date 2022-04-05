@@ -1,17 +1,28 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées_
 
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
-- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
-- AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
-- AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
-- AC4105 : Modéliser les données et les traitements d’une application Web - AC4106 : Utiliser et adapter un modèle d’accès aux données
+CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+R212 – Intégration
+- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
+
+R213 – Développement Web
+- AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
+- AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+R213 – Développement Web &  R215 – Hébergement
+- AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
+
+R214 – Système d’information
+- AC4105 : Modéliser les données et les traitements d’une application Web 
+
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion à condition que deux membres au minimum soient dans le même TP. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
 Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
 
 Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+
+Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal il est préférable d'éditer le dossier ressource à la racine du projet, si vous avez à éditer l'administration, il faudra travailler dans le dossier administration/ressources.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
@@ -40,8 +51,9 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
     - Prénom
     - Nom
     - Lien vers le compte twitter
-      - Facultif
-      - Vous pouvez mettre le lien vers n'importe quel compte twitter dans la mesure du raisonnable
+      - Facultatif
+      - Mettez le lien vers le compte twitter de l'université :
+        - https://twitter.com/UniversiteCergy
 
 Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
@@ -128,7 +140,11 @@ header("Location: $pageRedirection");
 # Javascript
 Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Elles devront être utilisées :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée au à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser
+- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
+```js
+  // A adapter
+  monInput.addEventListener("blur", maFonction)
+```
 
 # Astuces
 
@@ -146,13 +162,13 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
   - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
-- URL du site en ligne **(facultatif)** Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données
+- URL du site en ligne. Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
   - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
+Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral.
 ### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
@@ -210,6 +226,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Le code
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
+    - [ ] URL vers le site
+      - **Facultatif**
 
 # Pour aller plus loin
 

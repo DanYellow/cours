@@ -42,7 +42,7 @@ $pageCourante = "auteurs";
                 <tbody>
                     <?php 
                         foreach ($listeAuteurs as $auteur) { 
-                        $lien = "";
+                        $lienEdition = "edition.php?id={$auteur["id"]}";
                     ?>
                         <tr>
                             <th scope='row'><?php echo $auteur["id"]; ?></th>
@@ -59,7 +59,7 @@ $pageCourante = "auteurs";
                             <td><?php echo $auteur["nom"]; ?></td>
                             <td><?php echo $auteur["lien_twitter"]; ?></td>
                             <td>
-                                <a href='<?php echo "edition.php?id={$auteur["id"]}"; ?>' class='link-primary'>Modifier</a>
+                                <a href='<?php echo $lienEdition ?>' class='link-primary'>Modifier</a>
                             </td>
                         </tr>
                     <?php } ?>
