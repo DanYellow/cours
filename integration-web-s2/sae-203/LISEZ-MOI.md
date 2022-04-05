@@ -1,7 +1,7 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées_
 
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
+CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 R212 – Intégration
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
@@ -21,6 +21,8 @@ Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les
 Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
 
 Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+
+Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal il est préférable d'éditer le dossier ressource à la racine du projet, si vous avez à éditer l'administration, il faudra travailler dans le dossier administration/ressources.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
@@ -138,7 +140,11 @@ header("Location: $pageRedirection");
 # Javascript
 Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Elles devront être utilisées :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée au à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser
+- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
+```js
+  // A adapter
+  monInput.addEventListener("blur", maFonction)
+```
 
 # Astuces
 
