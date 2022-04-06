@@ -1,18 +1,18 @@
 <?php
 require_once('./classes/DotEnv.php');
 
-$envFilePath = $_SERVER['DOCUMENT_ROOT'] . '/.env.prod';
+$fichierEnvChemin = $_SERVER['DOCUMENT_ROOT'] . '/.env.prod';
 
-$whiteList = array(
+$listDomaineLocaux = array(
     '127.0.0.1',
     '::1'
 );
 
-if (in_array($_SERVER['REMOTE_ADDR'], $whiteList)) {
-    $envFilePath = $_SERVER['DOCUMENT_ROOT'] . '/.env.dev';
+if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
+    $fichierEnvChemin = $_SERVER['DOCUMENT_ROOT'] . '/.env.dev';
 }
 
-(new DotEnv($envFilePath))->load();
+(new DotEnv($fichierEnvChemin))->load();
 
 try {
     $nomBDD = getenv('NOM_BDD');
@@ -25,6 +25,6 @@ try {
         getenv('MDP_BDD'),
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
-} catch (\Exception $e) {
+} catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
