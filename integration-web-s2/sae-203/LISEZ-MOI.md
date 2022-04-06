@@ -26,7 +26,10 @@ Notez également qu'il y a deux dossiers "ressources", un à la racine du projet
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
-Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, deux pour être exacts :
+
+Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargé dans une base de donnés.
+Le deux pages à réaliser sont : 
+
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
   - Son titre
   - Son chapô + contenu (dans cet ordre)
@@ -62,6 +65,9 @@ Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soi
 La présence des bulles (`<?php require_once('./ressources/includes/bulle.php'); ?>`) est facultative dans ces deux nouvelles pages.
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
+
+Nous vous demandons aussi d'apporter d'amélioration aux éléments du site qui sont déjà existants.   
+À cet effet, dans la "home page" (accueil) nous voudrons appliquer des animations lors du survol des boutons  (carré composé : image + texte) qui permettent d'accéder aux différents articles.  L'animation devrait être appliquée à l'image et au texte. Ici vous avez la liberté de choisir un état de survol qui vous semble adapté (par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique).
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
