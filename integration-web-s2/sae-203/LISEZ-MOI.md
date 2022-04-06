@@ -85,9 +85,10 @@ Cette base de données est composée de trois tables dont une relation One-to-Ma
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
-Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, il faudra toutefois modifier les paramètres pour que la connexion fonctionne. Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, **il faudra toutefois modifier les paramètres pour que la connexion fonctionne.** Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
 
 [Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
+Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
 
 ## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
@@ -110,7 +111,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
-> N'hésitez pas à tester vos requêtes dans phpmyadmin
+> N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
 La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées.
 
@@ -138,13 +139,18 @@ header("Location: $pageRedirection");
 ```
 
 # Javascript
-Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Elles devront être utilisées :
+Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Le javascript devra être utilisé pour :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
+- Dans le backoffice, il faudra utiliser le backoffice pour afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
 ```js
-  // A adapter
+  // Lorsqu'on sort le focus du champ, alors on appelle la fonction "maFonction"
+  // Code à adapter
+  const monInput = document.querySelector('[data-mon-champ]')
   monInput.addEventListener("blur", maFonction)
 ```
+
+# Transitions CSS
+Vues durant ce semestre, **vous devrez appliquer des transitions CSS sur le projet.** Par exemple, le bouton de soumission de la page contact peut voir sa couleur d'arrière-plan (`background-color`) changer quand on le survole (pseudo-classe ":hover").
 
 # Astuces
 
@@ -153,22 +159,25 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - **Evitez d'avoir les mêmes noms de fichiers**
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
+  - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
 - Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreurs
 - Pour le backoffice (administration), n'allez pas réinventer la roue, bootstrap propose suffisament de composants pour l'intégrer
 
 # Rendus attendus
 
-- Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
+- Une archive nommée nom-prénom du chef de groupe contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
-  - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
-- URL du site en ligne. Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
-  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
+  - Le fichier "rapport-ressenti.odt" **pour chaque membre du groupe et dûment complété**
+- URL du site en ligne
+  - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
+  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier "code/ressources/includes/connexion-bdd.php"
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral.
+Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
+
 ### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
@@ -179,7 +188,6 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
     - **Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée**
-    
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
@@ -202,6 +210,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
+- [ ] Mettre des CSS transitions
 - [ ] J'ai réalisé toutes fonctionnalités :
   - [ ] Gestion de l'administration 
     - [ ] Je peux ajouter / éditer :
@@ -231,15 +240,17 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances, ceci permettra de valoriser votre CV pour vos stages et emplois futurs :
 
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
   - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter ces SAÉ
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
-- Mettre un système de pagination pour les articles de la page d'accueil
-- Écrire **votre CSS** en SCSS ou SASS
+- Mettre un système de pagination pour les articles de la page d'accueil. Il vous faudra :
+  - Limiter le nombre d'entrées par requêtes SQL avec le mot-clé `LIMIT`
+  - Définir le décalage dans la requêtes avec le mot-clé `OFFSET`
+- (Ré)Écrire **votre CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
@@ -262,3 +273,5 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - La bannière originale doit rester
   - Développement de la cinquième page principale
 - Améliorer le code de façon à ce que l'édition et la création d'une entité soit fait sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse un édition ou une création d'entité
+
+> C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
