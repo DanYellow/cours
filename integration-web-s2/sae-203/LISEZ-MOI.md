@@ -66,8 +66,8 @@ La présence des bulles (`<?php require_once('./ressources/includes/bulle.php');
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
 
-Nous vous demandons aussi d'apporter d'amélioration aux éléments du site qui sont déjà existants.   
-À cet effet, dans la "home page" (accueil) nous voudrons appliquer des animations lors du survol des boutons  (carré composé : image + texte) qui permettent d'accéder aux différents articles.  L'animation devrait être appliquée à l'image et au texte. Ici vous avez la liberté de choisir un état de survol qui vous semble adapté (par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique).
+Nous vous demandons aussi d'apporter des améliorations aux éléments du site qui sont déjà existants.
+À cet effet, dans la "home page" (accueil) nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
@@ -91,7 +91,9 @@ Cette base de données est composée de trois tables dont une relation One-to-Ma
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
-Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, **il faudra toutefois modifier les paramètres pour que la connexion fonctionne.** Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, **il faudra toutefois modifier les paramètres pour que la connexion fonctionne.** Pour ce faire, vous devrez éditer le fichier ".env.dev" à la racine du dossier "code/". Vous devrez remplacer la valeur des variables.
+
+Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
 
 [Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
@@ -155,8 +157,9 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   monInput.addEventListener("blur", maFonction)
 ```
 
-# Transitions CSS
-Vues durant ce semestre, **vous devrez appliquer des transitions CSS sur le projet.** Par exemple, le bouton de soumission de la page contact peut voir sa couleur d'arrière-plan (`background-color`) changer quand on le survole (pseudo-classe ":hover").
+# Mise en production
+Lorsque vous mettre votre site en ligne. Assurez-vous bien d'exporter la base de données. De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL.
+Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.
 
 # Astuces
 
