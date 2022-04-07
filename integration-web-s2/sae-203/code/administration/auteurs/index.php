@@ -1,5 +1,5 @@
 <?php
-require_once("{$_SERVER['DOCUMENT_ROOT']}ressources/includes/connexion-bdd.php");
+require_once('../../ressources/includes/connexion-bdd.php');
 
 $listeAuteursCommande = $clientMySQL->prepare('SELECT * FROM auteur');
 $listeAuteursCommande->execute();
