@@ -281,6 +281,6 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
   - Développement de la cinquième page principale
-- Améliorer le code de façon à ce que l'édition et la création d'une entité soit fait sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse un édition ou une création d'entité
+- Améliorer le code de façon à ce que l'édition et la création d'une entité soit fait sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
