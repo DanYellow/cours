@@ -26,7 +26,7 @@ $pageCourante = "REMPLACER";
             <header class="d-flex justify-content-between align-items-center p-3">
                 <p class="fs-1">Liste éléments</p>
                 <div>
-                    <a href="creation.php" class="link-primary">Ajouter un élément</a>
+                    <a href="./creation.php" class="link-primary">Ajouter un élément</a>
                 </div>
             </header>
 
@@ -41,7 +41,7 @@ $pageCourante = "REMPLACER";
                 <tbody>
                     <?php
                         foreach ($liste as $element) {
-                        $lienEdition = "edition.php?id={$element["id"]}";
+                        $lienEdition = "./edition.php?id={$element["id"]}";
                     ?>
                         <tr>
                             <th scope='row'><?php echo $element["id"]; ?></th>
