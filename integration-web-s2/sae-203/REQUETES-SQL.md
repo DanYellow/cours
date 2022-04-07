@@ -4,7 +4,7 @@ Le but de cette partie est de voir brièvement le fonctionnement des requêtes S
 
 ## Connexion à la base de données
 
-Pour lire nos données, il nous faut impérativement un accès à une base de données. Dans le cadre du projet, vous n'aurez pas à vous s'occuper de cette partie. La connexion est déjà faite dans le fichier `ressources/includes/connexion-bdd.php` toutefois, il faudra modifier les paramètres de connexion (utilisateur et mot de passe) avec les vôtres.
+Pour lire nos données, il nous faut impérativement un accès à une base de données. Dans le cadre du projet, vous n'aurez pas à vous s'occuper de cette partie. La connexion est déjà faite dans le fichier `ressources/includes/connexion-bdd.php` toutefois, il faudra modifier les paramètres de connexion (utilisateur et mot de passe) avec les vôtres. Pour le développement local, vous modifierez le fichier .env.dev et pour la mise en production, vous modifierez le fichier .env.prod.
 
 ## Sélectionner des entrées
 
