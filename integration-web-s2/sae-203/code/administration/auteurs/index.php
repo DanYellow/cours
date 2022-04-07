@@ -1,11 +1,14 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once("{$_SERVER['DOCUMENT_ROOT']}ressources/includes/connexion-bdd.php");
 
 $listeAuteursCommande = $clientMySQL->prepare('SELECT * FROM auteur');
 $listeAuteursCommande->execute();
 $listeAuteurs = $listeAuteursCommande->fetchAll();
 
 $pageCourante = "auteurs";
+$racineURL = $_SERVER['REQUEST_URI'];
+
+$URLCreation = "{$racineURL}/creation.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +27,7 @@ $pageCourante = "auteurs";
             <header class="d-flex justify-content-between align-items-center p-3">
                 <p class="fs-1">Liste auteurs</p>
                 <div>
-                    <a href="./creation.php" class="link-primary">Ajouter un auteur</a>
+                    <a href="<?php echo $URLCreation ?>" class="link-primary">Ajouter un auteur</a>
                 </div>
             </header>
 
@@ -42,7 +45,7 @@ $pageCourante = "auteurs";
                 <tbody>
                     <?php 
                         foreach ($listeAuteurs as $auteur) { 
-                        $lienEdition = "./edition.php?id={$auteur["id"]}";
+                        $lienEdition = "{$racineURL}/edition.php?id={$auteur["id"]}";
                     ?>
                         <tr>
                             <th scope='row'><?php echo $auteur["id"]; ?></th>

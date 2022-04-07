@@ -7,7 +7,9 @@ $commande->execute();
 $liste = $commande->fetchAll();
 
 $pageCourante = "REMPLACER";
+$racineURL = $_SERVER['REQUEST_URI'];
 
+$URLCreation = "{$racineURL}/creation.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ $pageCourante = "REMPLACER";
             <header class="d-flex justify-content-between align-items-center p-3">
                 <p class="fs-1">Liste éléments</p>
                 <div>
-                    <a href="./creation.php" class="link-primary">Ajouter un élément</a>
+                    <a href="<?php echo $URLCreation ?>" class="link-primary">Ajouter un élément</a>
                 </div>
             </header>
 
@@ -41,7 +43,7 @@ $pageCourante = "REMPLACER";
                 <tbody>
                     <?php
                         foreach ($liste as $element) {
-                        $lienEdition = "./edition.php?id={$element["id"]}";
+                            $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
                     ?>
                         <tr>
                             <th scope='row'><?php echo $element["id"]; ?></th>

@@ -11,7 +11,7 @@ $listDomaineLocaux = array(
 );
 
 if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
-    $fichierEnvChemin = $_SERVER['DOCUMENT_ROOT'] . '/.env.dev';
+    $fichierEnvChemin = "{$racineServerChemin}/.env.dev";
 }
 
 (new DotEnv($fichierEnvChemin))->load();
