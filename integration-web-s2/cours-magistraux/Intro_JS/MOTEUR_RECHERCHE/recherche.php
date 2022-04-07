@@ -27,7 +27,7 @@
             <section class = "boxResearch">
                 <article class=logotext>IUT-OOGLE</article>
                 <input id="texteRecherche" class="rechercheInput" type="text"/>
-                <button class="rechercheButton" onclick= "recherche()">RECHERCHE</button>
+                <button class="rechercheButton" onclick= "rechercheSmart()">RECHERCHE</button>
                  <p id="rechercheResultats" class=resultatsParagraphe ></p>
             </section>
 

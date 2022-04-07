@@ -1,7 +1,7 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées_
 
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les apprentissages critiques suivants : 
+CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 R212 – Intégration
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
@@ -16,15 +16,20 @@ R213 – Développement Web &  R215 – Hébergement
 R214 – Système d’information
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion à condition que deux membres au minimum soient dans le même TP. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
 Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
 
 Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
+Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal il est préférable d'éditer le dossier ressource à la racine du projet, si vous avez à éditer l'administration, il faudra travailler dans le dossier administration/ressources.
+
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
-Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, deux pour être exacts :
+
+Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargé dans une base de donnés.
+Le deux pages à réaliser sont : 
+
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
   - Son titre
   - Son chapô + contenu (dans cet ordre)
@@ -49,8 +54,9 @@ Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez
     - Prénom
     - Nom
     - Lien vers le compte twitter
-      - Facultif
-      - Vous pouvez mettre le lien vers n'importe quel compte twitter dans la mesure du raisonnable
+      - Facultatif
+      - Mettez le lien vers le compte twitter de l'université :
+        - https://twitter.com/UniversiteCergy
 
 Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
@@ -59,6 +65,9 @@ Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soi
 La présence des bulles (`<?php require_once('./ressources/includes/bulle.php'); ?>`) est facultative dans ces deux nouvelles pages.
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
+
+Nous vous demandons aussi d'apporter des améliorations aux éléments du site qui sont déjà existants.
+À cet effet, dans la "home page" (accueil) nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
@@ -82,9 +91,12 @@ Cette base de données est composée de trois tables dont une relation One-to-Ma
 
 Toujours à propos de la table article, la colonne "date_creation" n'est mise à jour **que** lors de la création d'un article (`INSERT INTO`) tandis que la clef date_derniere_mise_a_jour **est mise à jour à chaque mise à jour d'un article** (`UPDATE`). Pour la gestion des dates (et donc mettre à jour ces clefs), il faudra vous inspirer de ce qui a été fait dans le fichier `contact.php`.
 
-Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, il faudra toutefois modifier les paramètres pour que la connexion fonctionne. Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, **il faudra toutefois modifier les paramètres pour que la connexion fonctionne.** Pour ce faire, vous devrez éditer le fichier ".env.dev" à la racine du dossier "code/". Vous devrez remplacer la valeur des variables.
+
+Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
 
 [Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
+Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
 
 ## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront être gérées par des liens, vous n'avez pas à gérer un système d'upload. Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
@@ -107,7 +119,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
-> N'hésitez pas à tester vos requêtes dans phpmyadmin
+> N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
 La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées.
 
@@ -135,9 +147,19 @@ header("Location: $pageRedirection");
 ```
 
 # Javascript
-Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Elles devront être utilisées :
+Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Le javascript devra être utilisé pour :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans le backoffice, il faudra utiliser le backoffice pour afficher en temps réel l'image associée au à un article et à un auteur. C'est l'évènement javascript `blur` qu'il faudra utiliser
+- Dans le backoffice, il faudra utiliser le backoffice pour afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
+```js
+  // Lorsqu'on sort le focus du champ, alors on appelle la fonction "maFonction"
+  // Code à adapter
+  const monInput = document.querySelector('[data-mon-champ]')
+  monInput.addEventListener("blur", maFonction)
+```
+
+# Mise en production
+Lorsque vous mettre votre site en ligne. Assurez-vous bien d'exporter la base de données. De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL.
+Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.
 
 # Astuces
 
@@ -146,22 +168,25 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   - **Evitez d'avoir les mêmes noms de fichiers**
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
+  - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
 - Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreurs
 - Pour le backoffice (administration), n'allez pas réinventer la roue, bootstrap propose suffisament de composants pour l'intégrer
 
 # Rendus attendus
 
-- Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
+- Une archive nommée nom-prénom du chef de groupe contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
-  - Le fichier "rapport-ressenti.odt" pour chaque membre du groupe et dûment complété
-- URL du site en ligne. Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
-  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention
+  - Le fichier "rapport-ressenti.odt" **pour chaque membre du groupe et dûment complété**
+- URL du site en ligne
+  - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
+  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier "code/ressources/includes/connexion-bdd.php"
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée lors d'un oral.
+Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
+
 ### Intégration Web (HTML/CSS/javascript)
 
 - Qualité du code
@@ -172,7 +197,6 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
     - **Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée**
-    
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
@@ -195,6 +219,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
+- [ ] Mettre des CSS transitions
 - [ ] J'ai réalisé toutes fonctionnalités :
   - [ ] Gestion de l'administration 
     - [ ] Je peux ajouter / éditer :
@@ -220,18 +245,21 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
     - [ ] URL vers le site
+      - **Facultatif**
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances :
+Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances, ceci permettra de valoriser votre CV pour vos stages et emplois futurs :
 
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
   - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter ces SAÉ
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
-- Mettre un système de pagination pour les articles de la page d'accueil
-- Écrire **votre CSS** en SCSS ou SASS
+- Mettre un système de pagination pour les articles de la page d'accueil. Il vous faudra :
+  - Limiter le nombre d'entrées par requêtes SQL avec le mot-clé `LIMIT`
+  - Définir le décalage dans la requêtes avec le mot-clé `OFFSET`
+- (Ré)Écrire **votre CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
   - [La documentation en anglais](https://sass-lang.com/guide)
@@ -254,3 +282,5 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - La bannière originale doit rester
   - Développement de la cinquième page principale
 - Améliorer le code de façon à ce que l'édition et la création d'une entité soit fait sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse un édition ou une création d'entité
+
+> C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
