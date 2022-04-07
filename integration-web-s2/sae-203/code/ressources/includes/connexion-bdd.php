@@ -1,7 +1,9 @@
 <?php
-require_once('./classes/DotEnv.php');
 
-$fichierEnvChemin = $_SERVER['DOCUMENT_ROOT'] . '/.env.prod';
+$racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
+require_once("{$racineServerChemin}/classes/DotEnv.php");
+
+$fichierEnvChemin = "{$racineServerChemin}/.env.prod";
 
 $listDomaineLocaux = array(
     '127.0.0.1',
