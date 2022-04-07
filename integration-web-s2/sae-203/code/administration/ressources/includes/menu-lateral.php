@@ -6,7 +6,7 @@ $listeEntreesMenu = [
         "clef" => "articles"
     ],
     [
-        "lien" => "/administration/auteurs/index.php",
+        "lien" => "/administration/auteurs",
         "nom" => "Auteurs",
         "clef" => "auteurs"
     ],
@@ -16,7 +16,7 @@ $listeEntreesMenu = [
         "clef" => "messages"
     ],
     [
-        "lien" => "",
+        "lien" => "/",
         "nom" => "Accéder au site",
         "clef" => "site"
     ]
