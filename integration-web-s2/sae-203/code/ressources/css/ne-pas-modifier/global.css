@@ -64,3 +64,11 @@ button {
   background: transparent;
   border: none;
 }
+
+.lien-admin {
+  background-color: black;
+}
+
+.navigation-principale .lien-admin a {
+  color: aliceblue;
+}

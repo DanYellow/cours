@@ -1,9 +1,18 @@
 <?php
 
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
-require_once("{$racineServerChemin}/classes/DotEnv.php");
 
-$fichierEnvChemin = "{$racineServerChemin}/.env.prod";
+$url = $_SERVER['REQUEST_URI'];
+$urlParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
+$racineDossier = $urlParts[1];
+
+if($racineDossier !== "") {
+    $racineDossier = "/{$racineDossier}";
+}
+
+require_once("{$racineServerChemin}{$racineDossier}/classes/DotEnv.php");
+
+$fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.prod";
 
 $listDomaineLocaux = array(
     '127.0.0.1',
@@ -11,7 +20,7 @@ $listDomaineLocaux = array(
 );
 
 if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
-    $fichierEnvChemin = "{$racineServerChemin}/.env.dev";
+    $fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.dev";
 }
 
 (new DotEnv($fichierEnvChemin))->load();

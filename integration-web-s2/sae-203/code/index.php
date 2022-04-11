@@ -13,6 +13,8 @@ $listeArticles = $listeArticlesCommande->fetchAll();
 <html lang="fr">
 
 <head>
+    <base href="<?php echo getenv('CHEMIN_BASE') ?>">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,18 +41,18 @@ $listeArticles = $listeArticlesCommande->fetchAll();
             <section class="liste-articles">
                 <?php foreach ($listeArticles as $article) { ?>
                     <a href="article.php?" class='article'>
-                    
-                            <figure>
-                                <img src='ressources/images/image-article.png' alt=''>
-                            </figure>
-                            <section class='textes'>
-                                <h1 class='titre'><?php echo $article["titre"]; ?></h1>
-                                <p class='description'>
-                                    <?php echo $article["chapo"]; ?>
-                                </p>
-                            </section>
-                      
-                </a>
+
+                        <figure>
+                            <img src='ressources/images/image-article.png' alt=''>
+                        </figure>
+                        <section class='textes'>
+                            <h1 class='titre'><?php echo $article["titre"]; ?></h1>
+                            <p class='description'>
+                                <?php echo $article["chapo"]; ?>
+                            </p>
+                        </section>
+
+                    </a>
                 <?php } ?>
             </section>
             <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" target="_blank" href="https://www.cyu.fr/salons-journee-portes-ouvertes">

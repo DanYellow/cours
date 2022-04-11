@@ -118,9 +118,9 @@ Dans ce code ci-dessus, on cherche un article avec une valeur spécifique pour l
 
 ## Insérer des données
 
-Nous avons vu précédemment comment lire des données en provenance de la base, maintenant, il est temps de voir comment ajouter des données (après, on verra comment les mettre à jour). `INSERT INTO` est le mot-clé permettant d'ajouter des données à une table, il signifie littéralement "insert dans".
+Nous avons vu précédemment comment lire des données en provenance de la base de données, maintenant, il est temps de voir comment ajouter des données (après, on verra comment les mettre à jour). `INSERT INTO` est le mot-clé permettant d'ajouter des données à une table, il signifie littéralement "insert dans".
 
-Voici un exemple (cette fois-ci on ajouter un "message")
+Voici un exemple (cette fois-ci on ajoute un "message")
 
 ```sql
 INSERT INTO message (nom, prenom, contenu, email, type, date_creation)
@@ -161,7 +161,7 @@ Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois i
 ## Éditez vos données
 
 Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
-Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la base de donnés et ce n'est pas forcément ce que vous souhaitez faire.
+Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la table sélectionnée et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
 UPDATE auteur
@@ -185,9 +185,9 @@ $majAuteurCommande = $clientMySQL->prepare("
 ");
 
 $majAuteurCommande->execute([
-    "nom" => $_POST["nom"],
-    "prenom" => $_POST["prenom"],
-    "avatar" => $_POST["avatar"],
+    "nom" => htmlentities($_POST["nom"]),
+    "prenom" => htmlentities($_POST["prenom"]),
+    "avatar" => htmlentities($_POST["avatar"]),
     "id" => $_POST["id"]
 ]);
 ```
@@ -207,6 +207,6 @@ Ce code est issu du fichier `administration/auteurs/edition.php`, il est incompl
   - `WHERE` : permet de filter selon un critère
 
 
-Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour le projet individuel "route-vers-la-sae-203". 
+Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes SQL que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour vos autres projets. 
 
 

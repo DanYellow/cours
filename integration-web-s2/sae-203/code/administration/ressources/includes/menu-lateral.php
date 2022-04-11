@@ -1,22 +1,23 @@
 <?php
+// Editez le tableau de dictionnaires ci-dessous
 $listeEntreesMenu = [
     [
-        "lien" => "",
+        "lien" => "./administration",
         "nom" => "Articles",
         "clef" => "articles"
     ],
     [
-        "lien" => "/administration/auteurs",
+        "lien" => "./administration/auteurs",
         "nom" => "Auteurs",
         "clef" => "auteurs"
     ],
     [
-        "lien" => "",
+        "lien" => "./administration",
         "nom" => "Messages",
         "clef" => "messages"
     ],
     [
-        "lien" => "/",
+        "lien" => "./",
         "nom" => "Accéder au site",
         "clef" => "site"
     ]
