@@ -22,6 +22,9 @@ if ($formulaire_soumis) {
 
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
+        $message = htmlentities($_POST["message"]);
+        $email = htmlentities($_POST["email"]);
+        $type = htmlentities($_POST["je_suis"]);
 
         // On récupère la date du jour
         $date = new DateTimeImmutable();
@@ -31,10 +34,11 @@ if ($formulaire_soumis) {
         $messageCommande->execute([
             'nom' => $nom,
             'prenom' => $prenom,
-            'contenu' => 'A-COMPLETER',
-            'email' => 'A-COMPLETER',
-            'type' => $_POST["je_suis"],
+            'contenu' => $message,
+            'email' => $email,
+            'type' => $type,
             // La date est formattée en chaîne de caractères
+            // au format Année-mois-jour Heure:minutes:secondes
             // Sinon, elle ne pourra pas être 
             // insérée dans la base de données
             'date' => $date->format('Y-m-d H:i:s')
