@@ -107,7 +107,7 @@ Dans les tables "article" et "auteur" sont gérés des images, ces dernières de
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changera en fonction de l'environnement. Voici une petite description des différentes variables de ces fichiers .env.
 ```
 # Contient le dossier qui contient votre projet. Par exemple si votre projet (le contenu du dossier code) est dans un dossier nommé "toto", il faudra mettre comme valeur "toto/".
-Dans le fichier .env.prod, la valeur est / car on part du principe que le contenu du dossier "code/" sera à la racine du projet. Mais si c'est dans un autre dossier, il faudra mettre une valeur. 
+Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du projet. Mais si c'est dans un autre dossier, il faudra mettre une valeur. 
 CHEMIN_BASE= 
 
 # Nom de la base de données. Normalement, cette valeur n'a pas à changer

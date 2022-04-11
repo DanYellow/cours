@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
 
@@ -6,8 +9,14 @@ $url = $_SERVER['REQUEST_URI'];
 $urlParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
 $racineDossier = $urlParts[1];
 
-if($racineDossier !== "") {
+if(
+    $racineDossier !== "" &&
+    !str_contains($racineDossier, ".") &&
+    $racineDossier !== "administration"
+) {
     $racineDossier = "/{$racineDossier}";
+} else {
+    $racineDossier = "";
 }
 
 require_once("{$racineServerChemin}{$racineDossier}/classes/DotEnv.php");

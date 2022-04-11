@@ -2,7 +2,7 @@
     <ul>
         <li <?php if ($page_active == "index") {
                 echo "class='active'";
-            } ?>><a href="./index.php">ACCUEIL</a>
+            } ?>><a href="./">ACCUEIL</a>
         </li>
         <li <?php if ($page_active == "apropos") {
                 echo "class='active'";
