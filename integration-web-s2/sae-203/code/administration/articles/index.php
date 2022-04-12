@@ -54,7 +54,7 @@ $URLCreation = "{$racineURL}/creation.php";
                         <th scope="col">Titre</th>
                         <th scope="col">Chapô</th>
                         <th scope="col">A REMPLACER</th>
-                        <th scope="col">A REMPLACER</th>
+                        <th scope="col">Date dernière édition</th>
                         <th scope="col">Auteur</th>
                         <th scope="col"></th>
                     </tr>
@@ -64,7 +64,7 @@ $URLCreation = "{$racineURL}/creation.php";
                     foreach ($liste as $element) {
                         $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
 
-                        $date = new DateTime($element["date_creation_article"]);
+                        $dateCreation = new DateTime($element["date_creation_article"]);
                         $dateMiseAJour = new DateTime($element["date_derniere_mise_a_jour_article"]);
                         $auteurArticle = $element["prenom_auteur"] . " " . $element["nom_auteur"];
                         if (strlen(trim($auteurArticle)) === 0) {
@@ -77,7 +77,7 @@ $URLCreation = "{$racineURL}/creation.php";
                             </td>
                             <td><?php echo $element["titre_article"]; ?></td>
                             <td><?php echo $element["chapo_article"]; ?></td>
-                            <td><?php echo $date->format('d/m/Y H:i:s'); ?></td>
+                            <td><?php echo $dateCreation->format('d/m/Y H:i:s'); ?></td>
                             <td><?php echo $dateMiseAJour->format('d/m/Y H:i:s'); ?></td>
                             <td>
                                 <?php echo $auteurArticle; ?>
