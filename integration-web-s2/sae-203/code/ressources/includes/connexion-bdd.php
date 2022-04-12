@@ -6,18 +6,26 @@ error_reporting(E_ALL);
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
 
 $url = $_SERVER['REQUEST_URI'];
-$urlParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
-$racineDossier = $urlParts[1];
+$urlListParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
+$urlListParts = array_filter($urlListParts);
+$racineDossierRaw = [];
 
-if(
-    $racineDossier !== "" &&
-    !str_contains($racineDossier, ".") &&
-    $racineDossier !== "administration"
-) {
-    $racineDossier = "/{$racineDossier}";
-} else {
-    $racineDossier = "";
+$listeDossiersExclure = ["administration"];
+
+foreach ($urlListParts as $urlPart) {
+    if(in_array($urlPart, $listeDossiersExclure)) {
+        break;
+    }
+
+    if (
+        !str_contains($urlPart, ".") 
+        && !in_array($urlPart, glob("**", GLOB_ONLYDIR))
+    ) {
+        $racineDossierRaw[] = $urlPart;
+    }
 }
+
+$racineDossier = "/" . join("/", $racineDossierRaw);
 
 require_once("{$racineServerChemin}{$racineDossier}/classes/DotEnv.php");
 

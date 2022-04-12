@@ -6,13 +6,20 @@ $pageCourante = "auteurs";
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
-    if (isset($_POST["prenom"], $_POST["nom"], $_POST["lien_avatar"])) {
+    if (isset($_POST["prenom"], $_POST["nom"], $_POST["lien_avatar"], $_POST["lien_twitter"])) {
         // On crée une nouvelle entrée
         $creerAuteurCommande = $clientMySQL->prepare('INSERT INTO auteur(prenom, nom, lien_avatar) VALUES (:prenom, :nom, :lien_avatar)');
+        
+        $nom = htmlentities($_POST["nom"]);
+        $prenom = htmlentities($_POST["prenom"]);
+        $lienAvatar = htmlentities($_POST["lien_avatar"]);
+        $lienTwitter = htmlentities($_POST["lien_twitter"]);
+        
         $creerAuteurCommande->execute([
-            "nom" => "A REMPLACER",
-            "prenom" => "A REMPLACER",
-            "lien_avatar" => "A REMPLACER"
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "lien_avatar" => $lienAvatar,
+            "lien_twitter" => $lienTwitter,
         ]);
     }
 }
@@ -31,7 +38,7 @@ if ($formulaire_soumis) {
     <div class="d-flex h-100">
         <?php include_once("../ressources/includes/menu-lateral.php"); ?>
         <div class="b-example-divider"></div>
-        <main class="flex-fill ">
+        <main class="flex-fill">
             <header class="d-flex justify-content-between align-items-center p-3">
                 <p class="fs-1">Créer</p>
             </header>
@@ -58,7 +65,7 @@ if ($formulaire_soumis) {
                             <label for="avatar" class="form-label">Lien twitter</label>
                             <input type="text" value="" name="lien_twitter" class="form-control" id="avatar">
                         </div>
-                        <div class="mb-3  col-md-6">
+                        <div class="mb-3 col-md-6">
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                         </div>
                     </section>

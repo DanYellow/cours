@@ -40,8 +40,13 @@ $listeArticles = $listeArticlesCommande->fetchAll();
         <section class="colonne">
             <section class="liste-articles">
                 <?php foreach ($listeArticles as $article) { ?>
-                    <a href="article.php?" class='article'>
-
+                    <!-- 
+                        Nous avons passé un paramètre d'URL GET nommé "id".
+                        Ainsi quand l'utilisateur va arriver sur la page "article.php",
+                        elle va recevoir la valeur envoyée dans l'URL. 
+                        Vous pourrez récupérer la valeur en php grâce à $_GET["id"]
+                     -->
+                    <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
                         <figure>
                             <img src='ressources/images/image-article.png' alt=''>
                         </figure>
