@@ -27,7 +27,7 @@
             •
         </li>
         <li>
-            <a aria-label="Ouverture dans un nouvel onglet"  target="_blank" href="/administration">Accéder à l'administration</a>
+            <a href="./administration">Accéder à l'administration</a>
         </li>
     </ul>
 
