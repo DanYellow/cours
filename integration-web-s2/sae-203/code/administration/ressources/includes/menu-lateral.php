@@ -12,7 +12,7 @@ $listeEntreesMenu = [
         "clef" => "auteurs"
     ],
     [
-        "lien" => "./administration",
+        "lien" => "./administration/messages",
         "nom" => "Messages",
         "clef" => "messages"
     ],
@@ -52,6 +52,6 @@ $listeEntreesMenu = [
         } ?>
     </ul>
     <hr>
-    <?php include_once("../ressources/includes/footer.php"); ?>
+    <?php include_once("../ressources/includes/menu-lateral-footer.php"); ?>
 
 </div>
