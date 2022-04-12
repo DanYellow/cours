@@ -48,7 +48,7 @@ $URLCreation = "{$racineURL}/creation.php";
                         $lienEdition = "{$racineURL}/edition.php?id={$auteur["id"]}";
                     ?>
                         <tr>
-                            <th scope='row'><?php echo $auteur["id"]; ?></th>
+                            <td scope='row'><?php echo $auteur["id"]; ?></td>
                             <td>
                                 <img 
                                     width='60' 

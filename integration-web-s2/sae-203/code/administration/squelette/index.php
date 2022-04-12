@@ -26,7 +26,7 @@ $URLCreation = "{$racineURL}/creation.php";
         <div class="b-example-divider"></div>
         <main class="flex-fill">
             <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Liste éléments</p>
+                <p class="fs-1">Liste A REMPLACER</p>
                 <div>
                     <a href="<?php echo $URLCreation ?>" class="link-primary">Ajouter un élément</a>
                 </div>
@@ -46,7 +46,7 @@ $URLCreation = "{$racineURL}/creation.php";
                             $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
                     ?>
                         <tr>
-                            <th scope='row'><?php echo $element["id"]; ?></th>
+                            <td scope='row'><?php echo $element["id"]; ?></td>
                             <td></td>
                             <td>
                                 <a href='<?php echo $lienEdition; ?>' class='link-primary'>Modifier</a>

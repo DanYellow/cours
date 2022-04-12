@@ -3,17 +3,17 @@ _Les consignes pourront être modifiées_
 
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
-R212 – Intégration
+**R212 – Intégration**
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
 
-R213 – Développement Web
+**R213 – Développement Web**
 - AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
 - AC4106 : Utiliser et adapter un modèle d’accès aux données
 
-R213 – Développement Web &  R215 – Hébergement
+**R213 – Développement Web &  R215 – Hébergement**
 - AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
-R214 – Système d’information
+**R214 – Système d’information**
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
 Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion à condition que deux membres au minimum soient dans le même TP. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 

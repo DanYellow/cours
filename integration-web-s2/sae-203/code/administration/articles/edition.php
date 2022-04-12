@@ -1,14 +1,14 @@
 <?php
 require_once('../../ressources/includes/connexion-bdd.php');
 
-$pageCourante = "REMPLACER";
+$pageCourante = "articles";
 
 $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
 if ($entree_mise_a_jour) {
-    $commande = $clientMySQL->prepare('SELECT * FROM REMPLACER WHERE id = :id');
+    $commande = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
     $commande->execute([
         "id" => $_GET["id"]
     ]);
@@ -40,7 +40,7 @@ if ($formulaire_soumis) {
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
 
-    <title>Editeur REMPLACER - Administration</title>
+    <title>Editer REMPLACER - Administration</title>
 </head>
 
 <body>

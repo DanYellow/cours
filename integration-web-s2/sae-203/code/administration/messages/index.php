@@ -43,7 +43,7 @@ $pageCourante = "messages";
                         foreach ($listeMessages as $message) { 
                     ?>
                         <tr>
-                            <th scope='row'><?php echo $message["id"]; ?></th>
+                            <td scope='row'><?php echo $message["id"]; ?></td>
                             <td><?php echo $message["nom"]; ?></td>
                             <td><?php echo $message["prenom"]; ?></td>
                         </tr>

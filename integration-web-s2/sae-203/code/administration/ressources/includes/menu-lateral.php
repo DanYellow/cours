@@ -2,7 +2,7 @@
 // Editez le tableau de dictionnaires ci-dessous
 $listeEntreesMenu = [
     [
-        "lien" => "./administration",
+        "lien" => "./administration/articles",
         "nom" => "Articles",
         "clef" => "articles"
     ],
