@@ -51,7 +51,7 @@ require_once('./ressources/includes/connexion-bdd.php');
             </section>
 
             <figure class="img-quebec">
-                <img src="ressources/images/img-quebec.png" alt="">
+                <img src="ressources/images/img-quebec.jpeg" alt="">
             </figure>
 
             <section>
