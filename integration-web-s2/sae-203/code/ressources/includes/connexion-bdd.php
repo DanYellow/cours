@@ -18,8 +18,8 @@ foreach ($urlListParts as $urlPart) {
     }
 
     if (
-        !str_contains($urlPart, ".") 
-        && !in_array($urlPart, glob("**", GLOB_ONLYDIR))
+        strpos($urlPart, ".") === false &&
+        !in_array($urlPart, glob("**", GLOB_ONLYDIR))
     ) {
         $racineDossierRaw[] = $urlPart;
     }
