@@ -12,8 +12,7 @@ $commande = $clientMySQL->prepare('
         ar.date_creation AS date_creation_article,
         ar.date_derniere_mise_a_jour AS date_derniere_mise_a_jour_article,
         ar.auteur_id AS article_auteur_id, 
-        auteur.nom AS nom_auteur, 
-        auteur.prenom AS prenom_auteur 
+        CONCAT(auteur.nom, " ", auteur.prenom) AS auteur
     FROM article AS ar 
     LEFT JOIN auteur 
     ON ar.auteur_id = auteur.id;
@@ -66,8 +65,8 @@ $URLCreation = "{$racineURL}/creation.php";
 
                         $dateCreation = new DateTime($element["date_creation_article"]);
                         $dateMiseAJour = new DateTime($element["date_derniere_mise_a_jour_article"]);
-                        $auteurArticle = $element["prenom_auteur"] . " " . $element["nom_auteur"];
-                        if (strlen(trim($auteurArticle)) === 0) {
+                        $auteurArticle = $element["auteur"];
+                        if (is_null($auteurArticle)) {
                             $auteurArticle = "/";
                         }
                     ?>

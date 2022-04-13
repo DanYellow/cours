@@ -27,7 +27,7 @@
             •
         </li>
         <li>
-            <a href="./administration">Accéder à l'administration</a>
+            <a href="./administration" class="lien-admin">Accéder à l'administration</a>
         </li>
     </ul>
 
