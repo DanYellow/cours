@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 
+  Le code ci-dessous permet de retirer 
+  les animations pour les personnes qui ont décidé de les désactiver 
+*/refers-
+@media (preduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  --bg-c: rgba(255, 255, 255, 0.75);
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: var(--bg-c);
+  padding: 1.1rem;
+}
+
+.main {
+  padding: 0 0.75em 0.75em;
+}
+
+.lien-moodle {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+ 
+}
+
+
+
+.lien-moodle:hover{
+  color: red;
+
+}
+
+/* vous n'avez pas besoin d'y toucher */
+.lien-moodle a, .lien-moodle:hover a {
+  color: inherit;
+}
+.conteneur .lien-moodle, .conteneur p
+{
+  transition : padding-left 2s;
+}
+
+.conteneur:hover .lien-moodle, .conteneur:hover p
+{
+  padding-left: 20px;
+}
