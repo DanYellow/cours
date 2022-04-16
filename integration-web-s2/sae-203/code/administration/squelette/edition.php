@@ -17,7 +17,7 @@ if ($entree_mise_a_jour) {
 }
 
 if ($formulaire_soumis) {
-    // On crée une nouvelle entrée
+    // On met à jour l'entrée
     $commande = $clientMySQL->prepare("
         UPDATE REMPLACER
         SET nom = :nom, prenom = :prenom, avatar = :avatar
@@ -54,7 +54,7 @@ if ($formulaire_soumis) {
 
             <section class="p-3">
                 <?php if ($entite) { ?>
-                    <form method="POST">
+                    <form method="POST" action="">
                         <section class="row flex-column">
                             <input type="hidden" value="" name="id">
 

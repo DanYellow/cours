@@ -44,7 +44,7 @@ if ($formulaire_soumis) {
             </header>
 
             <section class="p-3">
-                <form method="POST">
+                <form method="POST" action="">
                     <section class="row flex-column">
                         <div class="mb-3 col-md-6">
                             <label for="prenom" class="form-label">Nom</label>
