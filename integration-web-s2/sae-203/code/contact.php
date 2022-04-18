@@ -10,7 +10,8 @@ require_once('./ressources/includes/connexion-bdd.php');
 if ($formulaire_soumis) {
     // La fonction isset peut prendre en paramètre une liste de variables, 
     // ceci rend plus simple son utilisation et notre condition plus claire
-    if (isset($_POST["prenom"], $_POST["nom"], $_POST["message"], $_POST["email"], $_POST["je_suis"])) {
+
+    if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["message"]) && !empty($_POST["email"]) && !empty($_POST["je_suis"])) {
         // Requête pour écrire le message dans la base :
         $insertionMessageRequete = "
                 INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
