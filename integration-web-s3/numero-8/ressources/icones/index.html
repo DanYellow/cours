@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Icônes</title>
+
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">
+                    Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+                    cacher)
+                </h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Créez un nouveau fichier html (avec la structure de base d'un site
+                    web. Rappel, vous avez le raccourci "html:5")
+                </li>
+                <li>
+                    Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que vous
+                    venez de créer (si elle existe)
+                </li>
+                <li>
+                    Copiez les balises &lt;link> présentes dans le &lt;head> dans le fichier html que vous
+                    venez de créer
+                </li>
+                <li>Sauvegardez-le et commencez votre TP dedans</li>
+            </ol>
+        </details>
+        <h1 class="titre-consignes">Consignes de la pratique</h1>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Générez un favicon
+                    <ul>
+                        <li><a href="https://www.favicon-generator.org/" target="_blank">Aller sur le site de génération
+                                de favicon (ouverture dans un nouvel onglet)</a></li>
+                    </ul>
+                </li>
+                <li>Téléchargez l'archive générée par le site (Cliquez sur "Download the generated favicon") </li>
+                <li>Déarchivez l'archive</li>
+                <li>Copiez les fichiers : "favicon-16x16", "favicon-32x32" et "favicon-96x96" à la racine de votre
+                    projet (les fichiers ne doivent pas être dans un dossier) </li>
+                <li>Copiez le code généré uniquement la partie suivante :
+                    <section>
+                        <pre>
+                            <code id="htmlViewer" style="color:rgb(0, 0, 0); font-weight:400;background-color:rgb(255, 255, 255);background:rgb(255, 255, 255);display:block;padding: .5em;">&lt;link rel=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(0, 0, 255); font-weight:400;">type</span>=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;image/png&quot;</span> sizes=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;32x32&quot;</span> href=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;/favicon-32x32.png&quot;</span>&gt;
+&lt;link rel=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(0, 0, 255); font-weight:400;">type</span>=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;image/png&quot;</span> sizes=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;96x96&quot;</span> href=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;/favicon-96x96.png&quot;</span>&gt;
+&lt;link rel=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(0, 0, 255); font-weight:400;">type</span>=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;image/png&quot;</span> sizes=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;16x16&quot;</span> href=<span style="color:rgb(163, 21, 21); font-weight:400;">&quot;/favicon-16x16.png&quot;</span>&gt;</code></pre>
+                    </section>
+                </li>
+                <li>Collez le code dans la balise &lt;head></li>
+            </ol>
+        </details>
+
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Accédez au site icomoon (voir encart "Afficher / cacher étapes pour gérer les icônes")
+                    <ul class="liste-consignes">
+                        <li>Accéder au site <a href="https://icomoon.io/" target="_blank">icomoon.io (nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Récupérez les icônes sur icomoon pour les réseaux suivants : Facebook, Twitter, Discord, Slack,
+                    Youtube, Github (voir encart "Afficher / cacher étapes pour gérer les icônes")
+                </li>
+            </ol>
+            <details class="consignes-conteneur">
+                <summary>Afficher / cacher étapes pour gérer les icônes</summary>
+                <ol class="liste-consignes">
+                    <li>
+                        <figure>
+                            <img src="images/icomoon-1.jpg" alt="Première étape utilisation icomoon" />
+                            <figcaption>Cliquez sur le bouton "IcoMoon App"</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="images/icomoon-2.jpg" alt="Deuxième étape utilisation icomoon" />
+                            <figcaption>
+                                Sélectionnez (B) ou importez vos icones (A)
+                            </figcaption>
+                        </figure>
+                        <ul class="liste-consignes">
+                            <li>
+                                A : Permet d'importer des icones personnalisées. Image au format .svg ou
+                                un ensemble d'icônes au format .json
+                            </li>
+                            <li>
+                                B : Permet de sélectionner des des icônes proposées par icomoon
+                            </li>
+                            <li>C : Boite à outils</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="images/icomoon-3.jpg" alt="Troisième étape utilisation icomoon" />
+                            <figcaption>Cliquez sur le bouton "Generate font"</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="images/icomoon-4.jpg" alt="Quatrième étape utilisation icomoon" />
+                            <figcaption>Cliquez sur le bouton "Download"</figcaption>
+                        </figure>
+                        <ul class="liste-consignes">
+                            <li>A : Affiche les préférences de notre iconfont</li>
+                            <li>
+                                B : Affiche le contenu de notre iconfont
+                                <ul class="liste-consignes">
+                                    <li>B1 : icône</li>
+                                    <li>B2 : nom de l'icône (modifiable) - Qui sera utilisé comme nom de classe</li>
+                                    <li>B3 : valeur du caractère</li>
+                                </ul>
+                            </li>
+                            <li>
+                                C : Permet de télécharger notre iconfont (et tout ce qui va
+                                avec)
+                            </li>
+                            <li>D : Permet de retourner à l'étape précédente</li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+            <ol class="liste-consignes" start="3">
+                <li>(Désarchivez et) Déplacez le contenu de l'archive dans la ressource</li>
+                <li>Liez le fichier .css à la ressource</li>
+                <li>Affichez les icônes au bon endroit
+                    <ul class="liste-consignes">
+                        <li>Pensez à flexbox pour bien aligner les icônes au texte</li>
+                        <li>Pensez à la balise &lt;span> pour mettre les classes associées aux icônes </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Ajoutez des transitions au hover (couleur, rotation, échelle...) sur les icônes
+                    <ul class="liste-consignes">
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/:hover" target="_blank">Voir la
+                                documentation de la pseudo-classe ":hover" (nouvel
+                                onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank">Voir
+                                la documentation des transitions css (nouvel
+                                onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Téléchargez l'icône de votre choix au format svg sur le site iconmonstr (désactivez votre bloqueur
+                    de pub)
+                    <ul class="liste-consignes">
+                        <li> <a href="https://iconmonstr.com/" target="_blank">Accéder au site iconmonstr (ouverture
+                                dans un nouvel onglet)</a></li>
+                    </ul>
+                </li>
+                <li>Téléchargez une icône d'envoi de votre choix au format svg sur le site iconmonstr (désactivez votre
+                    bloqueur
+                    de pub) ou svgrepo. Les mots-clés "arrow", "send" ou "plane" vous aiderons à trouver l'icône appropriée
+                    <ul class="liste-consignes">
+                        <li> <a href="https://iconmonstr.com/" target="_blank">Accéder au site iconmonstr (ouverture
+                                dans un nouvel onglet)</a></li>
+                        <li> <a href="https://www.svgrepo.com/" target="_blank">Accéder au site svgrepo (ouverture
+                                dans un nouvel onglet)</a></li>
+                    </ul>
+                </li>
+                <li>Uploadez le fichier selection.json que vous avez généré tout à l'heure sur le site icomoon ainsi que
+                    les fichiers svg que vous avez téléchargé
+                    <ul class="liste-consignes">
+                        <li>Accéder au site <a href="https://icomoon.io/" target="_blank">icomoon.io (nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Sélectionnez les icônes à utiliser</li>
+                <li>Regénérez votre police</li>
+                <li>Réimportez-la dans votre projet</li>
+                <li>Utilisez les nouvelles icônes dans votre projet notamment pour le bouton Envoyer</li>
+            </ol>
+        </details>
+    </header>
+    <main>
+        <form action="" class="form-resaux-sociaux">
+            <fieldset>
+                <legend>Liez vos comptes à notre service</legend>
+                <p class="informations">
+                    Entrez votre pseudonyme pour chacun de ces services
+                </p>
+
+                <section class="liste-champs">
+                    <div class="champ-conteneur">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" id="facebook" name="facebook_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="twitter">Twitter</label>
+                        <input type="text" id="twitter" name="twitter_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="discord">Discord</label>
+                        <input type="text" id="discord" name="discord_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="slack">Slack</label>
+                        <input type="text" id="slack" name="slack_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="youtube">Youtube</label>
+                        <input type="text" id="youtube" name="youtube_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="reddit">Reddit</label>
+                        <input type="text" id="reddit" name="reddit_compte" />
+                    </div>
+
+                    <div class="champ-conteneur">
+                        <label for="github">Github</label>
+                        <input type="text" id="github" name="github_compte" />
+                    </div>
+                </section>
+            </fieldset>
+
+            <button type="submit" class="btn-soumission">
+                <span>Envoyer</span>
+            </button>
+        </form>
+    </main>
+</body>
+
+</html>
