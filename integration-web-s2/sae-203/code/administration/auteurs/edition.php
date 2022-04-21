@@ -55,7 +55,7 @@ if ($formulaire_soumis) {
 
             <section class="p-3">
                 <?php if ($auteur) { ?>
-                    <form method="POST">
+                    <form method="POST" action="">
                         <section class="row flex-column">
                             <input type="hidden" value="<?php echo $auteur["id"]; ?>" name="id">
                             <div class="mb-3 col-md-6">

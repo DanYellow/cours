@@ -54,7 +54,7 @@ if ($formulaire_soumis) {
 
             <section class="p-3">
                 <?php if ($entite) { ?>
-                    <form method="POST">
+                    <form method="POST" action="">
                         <section class="row flex-column">
                             <input type="hidden" value="" name="id">
 

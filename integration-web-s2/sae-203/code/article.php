@@ -5,8 +5,10 @@ $page_active = "index";
 require_once('./ressources/includes/connexion-bdd.php');
 
 // à adapter
-$articleCommand = $clientMySQL->prepare('SELECT * FROM article WHERE id=2');
-$articleCommand->execute();
+$articleCommand = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
+$articleCommand->execute([
+    'id' => 2,
+]);
 $article = $articleCommand->fetch();
 
 ?>

@@ -16,9 +16,9 @@ CY Cergy Paris Université nous confie la réalisation d'un site web dédié au 
 **R214 – Système d’information**
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion à condition que deux membres au minimum soient dans le même TP. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Toutefois, il est préférable que deux membres au minimum soient dans le même TP, ceci pour éviter qu'un membre se retrouve seul à travailler lors d'un cours. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
-Vous partirez de la correction du projet (dossier `"code/"`). Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
+Vous partirez de la correction du projet (dossier `"code/"`). Cette correction contient près de 75% du projet final, une très grande partie du projet a été produite. Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
 
 Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
@@ -27,7 +27,7 @@ Notez également qu'il y a deux dossiers "ressources", un à la racine du projet
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 
-Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargé dans une base de donnés.
+Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés dans une base de données.
 Le deux pages à réaliser sont : 
 
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
@@ -47,8 +47,8 @@ Le deux pages à réaliser sont :
       <!-- code pour afficher la vidéo -->
     </article>
     ```
-- La liste des auteurs du site 
-  - L'entrée pour y accéder est déjà dans la navigation mais pas le fichier
+- La liste des auteurs du site ("équipe de rédaction")
+  - L'entrée pour y accéder est déjà dans la navigation mais pas le fichier php
   - Afficher pour chaque auteur : 
     - Image
     - Prénom
