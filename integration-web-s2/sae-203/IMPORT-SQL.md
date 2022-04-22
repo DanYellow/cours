@@ -20,4 +20,6 @@ Parfois, comme dans le cadre de cette SAÉ, il vous arrivera de travailler avec 
 3. Cliquez sur "Exécuter"
    - Le bouton peut ne pas être visible de prime à bord si la fenêtre est trop petite. Défilez la page pour le trouver (souvent en bas de page) 
 
-Normalement, vous devriez avoir importé votre base de données. Des erreurs peuvent avoir lieu, notamment si votre fichier .sql créer une base de données mais que vous n'êtes pas autorisé à le faire. Dans ce cas là des manipulations supplémentaires sont à effectuer. A noter que ce problème risque plus d'arriver sur un hébergeur distant.
+Normalement, vous devriez avoir importé votre base de données. Les tables et la bdd nouvellement ajoutées seront visibles à gauche de l'interface.
+
+Des erreurs peuvent avoir lieu, notamment si votre fichier .sql créer une base de données mais que vous n'êtes pas autorisé à le faire. Dans ce cas là des manipulations supplémentaires sont à effectuer. A noter que ce problème risque plus d'arriver sur un hébergeur distant.
