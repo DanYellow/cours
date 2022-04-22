@@ -2,7 +2,7 @@
 
 Parfois, comme dans le cadre de cette SAÉ, il vous arrivera de travailler avec des bases de données (bdd) déjà faites partiellement ou non. De ce fait, vous serez dans l'obligation d'importer cette base pour pouvoir travailler. Le but de cet didacticiel est de vous montrer comment importer un fichier .sql dans phypmyadmin.
 
-> Les captures d'écran ont été faites sous une version personnalisée de phpmyadmin, toutefois le principe reste le même, et ce, quelque soit votre version. Certains textes peuvent être amener à changer mais le sens restera toujours le même.
+> Les captures d'écran ont été faites sous une version personnalisée de phpmyadmin, toutefois le principe reste le même, et ce, quelque soit votre version. Certains textes peuvent être amener à changer en fonction de la version mais le sens restera toujours le même.
 
 ## 1. Accès à l'onglet "Import"
 ![](captures-ecran/sql-1.png)
