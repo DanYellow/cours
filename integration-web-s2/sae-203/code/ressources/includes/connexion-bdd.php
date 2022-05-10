@@ -13,7 +13,7 @@ $racineDossierRaw = [];
 $listeDossiersExclure = ["administration"];
 
 foreach ($urlListParts as $urlPart) {
-    if(in_array($urlPart, $listeDossiersExclure)) {
+    if (in_array($urlPart, $listeDossiersExclure)) {
         break;
     }
 
@@ -38,6 +38,13 @@ $listDomaineLocaux = array(
 
 if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
     $fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.dev";
+
+    // Permet de gérer un fichier env.local.dev 
+    // pour la configuration s'il existe 
+    $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.dev";
+    if (file_exists($cheminDist)) {
+        $fichierEnvChemin = $cheminDist;
+    }
 }
 
 (new DotEnv($fichierEnvChemin))->load();

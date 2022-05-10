@@ -129,3 +129,6 @@ correction*
 __MACOSX/
 
 .~lock.*
+
+*.dist.*
+*.local.*

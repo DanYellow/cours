@@ -181,8 +181,10 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 # Astuces
 
 - **Les fichiers possèdent des commentaires, ne négligez pas leur lecture**, ils sont là pour vous aider
-- Vous travaillez en groupe, ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
-  - **Evitez d'avoir les mêmes noms de fichiers**
+- Vous travaillez en groupe :
+  - Ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
+    - **Evitez d'avoir les mêmes noms de fichiers**
+  - Rien ne vous empêche de travailler à deux sur les mêmes fonctionnalités et le même ordinateur
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
   - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
