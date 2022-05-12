@@ -10,7 +10,7 @@ CY Cergy Paris Université nous confie la réalisation d'un site web dédié au 
 - AC4103 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
 - AC4106 : Utiliser et adapter un modèle d’accès aux données
 
-**R213 – Développement Web &  R215 – Hébergement**
+**R213 – Développement Web & R215 – Hébergement**
 - AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
 **R214 – Système d’information**
@@ -224,6 +224,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - **Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem**
       - Conversion px -> rem : Diviser la valeur en pixels par 16 pour obtenir la valeur en rem
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
+- L'aspect final du site, comment il s'affiche dans un navigateur
+  - Le site sera testé sur Firefox et/ou Chrome
 
 ### Développement Web (PHP/MySQL)
 
