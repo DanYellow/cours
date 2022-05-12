@@ -58,6 +58,13 @@ if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
     if (file_exists($cheminDist)) {
         $fichierEnvChemin = $cheminDist;
     }
+} else {
+    // Permet de gérer un fichier env.local.dev 
+    // pour la configuration s'il existe 
+    $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.prod";
+    if (file_exists($cheminDist)) {
+        $fichierEnvChemin = $cheminDist;
+    }
 }
 
 (new DotEnv($fichierEnvChemin))->load();
@@ -65,7 +72,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
 try {
     $nomBDD = getenv('NOM_BDD');
     $serveurBDD = getenv('SERVEUR_BDD');
-
+    
     // On se connecte à notre base de donnée
     $clientMySQL = new PDO(
         "mysql:host={$serveurBDD};dbname={$nomBDD};charset=utf8",
