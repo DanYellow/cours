@@ -20,14 +20,15 @@ if ($formulaire_soumis) {
     // On crée une nouvelle entrée
     $commande = $clientMySQL->prepare("
         UPDATE REMPLACER
-        SET nom = :nom, prenom = :prenom, avatar = :avatar
+        SET titre = :titre, chapo = :chapo, contenu = :contenu, COMPLETER
         WHERE id = :id
     ");
 
     $commande->execute([
-        "nom" => $_POST["nom"],
-        "prenom" => "A REMPLACER",
-        "avatar" => "A REMPLACER",
+        "titre" => $_POST["titre"],
+        "chapo" => "A REMPLACER",
+        "contenu" => "A REMPLACER",
+        // ...COMPLETER
         "id" => $_POST["id"]
     ]);
 }
@@ -59,8 +60,8 @@ if ($formulaire_soumis) {
                             <input type="hidden" value="" name="id">
 
                             <div class="mb-3 col-md-6">
-                                <label for="prenom" class="form-label">Nom</label>
-                                <input type="text" value="" name="nom" class="form-control" id="prenom">
+                                <label for="titre" class="form-label">Titre</label>
+                                <input type="text" value="<?php echo $entite['titre']; ?>" name="titre" class="form-control" id="titre">
                             </div>
                             <!-- A compléter -->
                             <div class="mb-3  col-md-6">

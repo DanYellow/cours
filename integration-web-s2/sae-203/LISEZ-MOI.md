@@ -1,6 +1,8 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées_
 
+> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. 
+
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 **R212 – Intégration**
@@ -245,12 +247,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
       - [ ] Un article / auteur
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs / ~~messages~~
-    - [ ] J'ai écrit dans le fichier `ressources/includes/menu-lateral.php` la liste des membres de mon groupe
   - [ ] Complétion de la page "équipe de rédaction"
   - [ ] Complétion de la page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
   - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
-    - Edition à réaliser dans le fichier "administration/ressources/includes/menu-lateral-footer.php"
+    - Edition à réaliser dans le fichier `administration/ressources/includes/menu-lateral-footer.php`
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem

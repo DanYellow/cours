@@ -3,6 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if(PHP_VERSION_ID < 70000) {
+    $versionPHP = phpversion();
+    die("ERREUR : Version de PHP trop ancienne : {$versionPHP}. Votre version de PHP doit être supérieure à 7.0.0. Veuillez installer une version plus à jour.");
+}
+
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
 
 $url = $_SERVER['REQUEST_URI'];
