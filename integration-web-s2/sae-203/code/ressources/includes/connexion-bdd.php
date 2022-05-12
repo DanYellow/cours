@@ -13,7 +13,7 @@ $PHP_TARGETED_VERSION = 70000;
 
 if(PHP_VERSION_ID < $PHP_TARGETED_VERSION) {
     $versionPHP = phpversion();
-    die("ERREUR : Version de PHP trop ancienne : {$versionPHP}. Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus à jour.");
+    die("ERREUR : Version de PHP trop ancienne : {$versionPHP}. Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
 }
 
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
