@@ -1,0 +1,5 @@
+- Intégration : 
+  - Comportement dans l'entreprise : retard, relation avec l'équipe...
+- Conditions de travail : matériel, présentiel / distanciel, organisation/point avancement, les missions réalisées, à venir
+- Problématique et plan du mémoire de stage > études supérieurs (et non du rapport de stage > 3ème)
+- Souhaite-t-il prendre de nouveau un étudiant l'année prochaine ?

@@ -35,8 +35,12 @@ if ($formulaire_soumis) {
                 <form method="POST" action="">
                     <section class="row flex-column">
                         <div class="mb-3 col-md-6">
-                            <label for="prenom" class="form-label">Nom</label>
-                            <input type="text" name="nom" class="form-control" id="prenom">
+                            <label for="titre" class="form-label">Titre</label>
+                            <input type="text" name="titre" class="form-control" id="titre">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="chapo" class="form-label">Chapô</label>
+                            <textarea type="text" name="chapo" class="form-control" id="chapo"></textarea>
                         </div>
                         <div class="mb-3  col-md-6">
                             <button type="submit" class="btn btn-primary">Envoyer</button>
