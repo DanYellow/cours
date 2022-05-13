@@ -13,7 +13,7 @@ $PHP_TARGETED_VERSION = 70000;
 
 if(PHP_VERSION_ID < $PHP_TARGETED_VERSION) {
     $versionPHP = phpversion();
-    die("ERREUR : Version de PHP trop ancienne : {$versionPHP}. Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
+    die("ERREUR : Version de PHP trop ancienne ({$versionPHP}). Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
 }
 
 $racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
@@ -49,12 +49,24 @@ $listDomaineLocaux = array(
     '::1'
 );
 
-if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
+$REMOTE_ADDR = $_SERVER['REMOTE_ADDR'];
+
+$estEnvLocal = in_array($REMOTE_ADDR, $listDomaineLocaux) || 
+    !filter_var($REMOTE_ADDR, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+
+if ($estEnvLocal) {
     $fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.dev";
 
     // Permet de gérer un fichier env.local.dev 
     // pour la configuration s'il existe 
     $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.dev";
+    if (file_exists($cheminDist)) {
+        $fichierEnvChemin = $cheminDist;
+    }
+} else {
+    // Permet de gérer un fichier env.local.dev 
+    // pour la configuration s'il existe 
+    $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.prod";
     if (file_exists($cheminDist)) {
         $fichierEnvChemin = $cheminDist;
     }
@@ -65,7 +77,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $listDomaineLocaux)) {
 try {
     $nomBDD = getenv('NOM_BDD');
     $serveurBDD = getenv('SERVEUR_BDD');
-
+    
     // On se connecte à notre base de donnée
     $clientMySQL = new PDO(
         "mysql:host={$serveurBDD};dbname={$nomBDD};charset=utf8",
