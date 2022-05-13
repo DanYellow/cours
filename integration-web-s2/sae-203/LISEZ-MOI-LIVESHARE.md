@@ -8,12 +8,12 @@ Nous allons, vous proposer deux méthodes :
 - Utilisation de l'extension gratuite VS Code "PHP Server" - Plus simple
 - Modification de la configuration de MAMP/XAMPP/WAMPP - Plus "compliqué"
 
-**Quelque soit la solution choisie, une seule personne a besoin de partager son serveur à la fois.**
+**Quelque soit la solution choisie, une seule personne a besoin de partager son serveur à la fois.** Ainsi, vous pourrez tous éditer les fichiers du même projet et consulter les modifications sur votre ordinateur.
 # Récupérer son adresse ip locale
 
 Dans le but de partager votre serveur avec des tiers, qui sont sur le même réseau, il faut faudra impérativement récupérer votre adresse ip **locale**. Dépendamment de votre système d'exploitation l'exécution n'est pas la même.
 
-### Windows
+## Windows
 
 1. Ouvrez l'application "invite de commande"
 2. Ecrivez la commande  `ipconfig` et appuyez sur la touche `Entrée`
@@ -21,7 +21,7 @@ Dans le but de partager votre serveur avec des tiers, qui sont sur le même rés
 3. Récupérez l'adresse ip locale et transmettez-la aux membres de votre groupe
 
 
-### MacOS
+## MacOS
 1. Ouvrez l'application "Préférences système"
 2. Choississez le menu "Réseau"
 ![](captures-ecran/pref-sys.png)
@@ -32,7 +32,7 @@ Une fois que vous avez récupérer l'adresse ip local de votre serveur (l'ordina
 
 # Partage de serveur - WAMP/MAMP/XAMPP
 
-Si les conditions précédentes sont remplies, l'ordinateur hôte (celui qui lance le serveur liveshare) doit récupérer son adresse ip locale et la partager avec les membres de son groupe. Ainsi, vous pourrez tous éditer les fichiers du même projet et consulter les modifications sur votre ordinateur.
+Si vous souhaitez partager un serveur WAMP/MAMP/XAMPP..., l'ordinateur hôte (celui qui lance le serveur liveshare) doit récupérer son adresse ip locale et la partager avec les membres de son groupe. Toutefois Windows peut se montrer un peu contraignant dans son utilisation.
 ##### Note pour les hôtes sous Windows - Windows 10
 
 Le système d'exploitation peut potentiellement bloquer les requêtes venant de l'extérieur en direction de votre serveur. Dans le cas où l'hôte est sous Windows, il vous faudra rajouter le serveur au pare-feu Windows. Pour ce faire, suivez les étapes suivantes :
