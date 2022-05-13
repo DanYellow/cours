@@ -30,3 +30,5 @@ Maintenant, vous pouvez tous travailler sur le même projet tout en voyant les m
 
 > Note : Des manipulations supplémentaires peuvent être à effectuer **si l'ordinateur hôte utilise XAMPP**. Vous trouverez des informations sur ce site : [Accéder au didacticiel (anglais)](
 https://www.mrtekno.net/2019/08/how-to-access-localhost-xampp-vm.html)
+
+Ceci peut également fonctionner à distance, mais ceci nécessite des outils externes comme localtunnel (gratuit) - [accéder au site de localtunnel](https://localtunnel.github.io/www/).
