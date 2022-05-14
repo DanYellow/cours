@@ -5,8 +5,8 @@ L'utilisation de l'extenson liveshare de VS Code est très pratique pour travail
 > - Le projet tourne sur un serveur (MAMP/WAMP/XAMPP...)
 
 Nous allons, vous proposer deux méthodes :
-- Utilisation de l'extension gratuite VS Code "PHP Server" - Plus simple
 - Modification de la configuration de MAMP/XAMPP/WAMPP - Plus "compliqué"
+- Utilisation de l'extension gratuite VS Code "PHP Server" - Plus simple
 
 **Quelque soit la solution choisie, une seule personne a besoin de partager son serveur à la fois.** Ainsi, vous pourrez tous éditer les fichiers du même projet et consulter les modifications sur votre ordinateur.
 # Récupérer son adresse ip locale
@@ -95,6 +95,9 @@ L'extension est maintenat prête. Vous pouvez donc aller ouvrir un fichier .php 
 
 Normalement, un onglet va être ouvert dans votre navigateur par défaut. Et des utilisateurs externes pourront accéder à votre projet via votre adresse ip, et ce, tant que votre serveur tournera.
 
+> Note : Si l'utilisation de cette extension vous dispense de mettre votre dossier de travail dans le dossier `www/` ou `htdocs/`. Il est impératif, dans le cadre de la SAE, d'avoir un serveur SQL qui tourne. Conséquemment, vous devez lancer le logiciel WAMP/MAMP/XAMPP pour voir un serveur SQL.
+
 
 ---
-L'accès à votre travail local peut également être accessible à distance, mais ceci nécessite des outils externes comme localtunnel (gratuit) - [accéder au site de localtunnel](https://localtunnel.github.io/www/).
+L'accès à votre travail local peut également être accessible à distance, mais ceci nécessite des outils externes comme localtunnel (gratuit).
+- [Accéder au site de localtunnel](https://localtunnel.github.io/www/)
