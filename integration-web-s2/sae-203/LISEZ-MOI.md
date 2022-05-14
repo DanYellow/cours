@@ -1,8 +1,14 @@
 # SAÉ 203 - Site web et Base de données (BDD)
-_Les consignes pourront être modifiées_
+_Les consignes pourront être modifiées._
 
 > **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. 
 
+## Didacticiels
+- [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
+- [Mémo sur les requêtes SQL](LISEZ-MOI-REQUETES-SQL.md)
+- [Travailler à plusieurs sur le même serveur php](LISEZ-MOI-LIVESHARE.md)
+
+## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 **R212 – Intégration**
@@ -29,7 +35,7 @@ Notez également qu'il y a deux dossiers "ressources", un à la racine du projet
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 
-Nous vous remettons le lien vers la maquette Adobe XD, toutefois vous n'en aurez pas trop besoin, en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés dans une base de données.
+Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas trop besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés dans une base de données.
 Le deux pages à réaliser sont : 
 
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
@@ -64,7 +70,7 @@ Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soi
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
 - Le pied de page (footer) (`<?php require_once('./ressources/includes/footer.php'); ?>`)
 
-La présence des bulles (`<?php require_once('./ressources/includes/bulle.php'); ?>`) est facultative dans ces deux nouvelles pages.
+La présence des bulles (`<?php require_once('./ressources/includes/bulle.php'); ?>`) est **facultative dans ces deux nouvelles pages.**
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
 

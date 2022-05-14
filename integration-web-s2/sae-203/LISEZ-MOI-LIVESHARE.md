@@ -73,7 +73,7 @@ Maintenant, vous pouvez tous travailler sur le même projet tout en voyant les m
 https://www.mrtekno.net/2019/08/how-to-access-localhost-xampp-vm.html)
 
 
-# Partage de serveur - VS Code
+# Partage de serveur - Extenstion "PHP Server" pour VS Code
 
 Vs Code permet l'utilisation d'extension. La place de marché des extensions est accessible en cliquant sur les quatre carrés à gauche de la fenêtre du logiciel. 
 
