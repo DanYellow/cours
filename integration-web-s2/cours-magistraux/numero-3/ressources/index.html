@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP2 - Input dynamique</title>
+    <title>TP3 - Input dynamique</title>
 
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-    
-    <link rel="stylesheet" href="style.css" />
 
     <script defer src="script.js"></script>
 </head>
+
 <body>
     <header>
         <details class="consignes-conteneur" open>
@@ -23,22 +23,18 @@
             </summary>
             <p>
                 Le but de ce mini-projet est de développer dans une des fonctionnalités javascript attendue pour la SAE
-                203 : Cacher la bannière affichée après soumission du formulaire au clic sur un bouton. Pour ce faire, nous aurons donc besoin de deux
-                éléments : une balise button type "button" et une balise contenant votre bannière. Une fois ces deux éléments ajoutés, nous
+                203 : Afficher l'image mise dans un article / auteur. Pour ce faire, nous aurons donc besoin de deux
+                éléments : une balise input type "text" et une balise img. Une fois ces deux éléments ajoutés, nous
                 allons rajouter des data-attributes à chacun de ses éléments pour pouvoir y accéder dans le javascript.
             </p>
-            <section class="note-importante">
-                <p>
-                    Un bouton ne doit jamais être remplacé par la balise &lt;a> pour appeler une fonction au clic. <span class="texte-gras">Si vous devez appeler une fonction au clic sur un élément, il faut utiliser la balise &lt;button type="button">.</span>
-                </p>
-            </section>
             <section class="note-information">
                 <p>
                     Rappel - data-attributes : Ces sont des attributs personnalisés que vous pouvez mettre sur n'importe
                     quelle balise HTML. Vous pouvez les nommer comme vous le souhaitez. <span class="texte-gras">Un
                         data-attribut doit impérativement commencer par "data-" et ne pas contenir.</span>
                     d'espaces. Un data-attribute peut également contenir une valeur qui ne peut être qu'une chaîne de
-                    caractères ou un nombre.
+                    caractères ou un
+                    nombre.
                 </p>
                 <ul>
                     <li>
@@ -47,7 +43,6 @@
                     </li>
                 </ul>
             </section>
-
             <p>
                 Maintenant que nous vous avons mis en place notre structure HTML, nous pouvons passer au javascript.
                 Nous avons donc crée un fichier avec une extension ".js" et chargé dans cette page HTML grâce à la
@@ -63,10 +58,11 @@
     </header>
 
     <main>
-        <section class="banniere" data-banniere>
-            <p>Message envoyé</p>
-            <button data-fermeture-banniere="">Fermer</button>
-        </section>
+        <form action="" method="">
+            <input type="text" data-input>
+            <img src="" alt="Image manquante" width="350" data-image>
+        </form>
     </main>
 </body>
+
 </html>

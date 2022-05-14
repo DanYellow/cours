@@ -1,0 +1,12 @@
+.banniere {
+    display: flex;
+    border: 2px solid black;
+    margin: 2rem;
+    padding: 0.8rem;
+    justify-content: space-between;
+    width: 1000px;
+}
+
+.banniere.cache {
+    display: none;
+}
