@@ -11,7 +11,7 @@ Nous allons, vous proposer deux méthodes :
 **Quelque soit la solution choisie, une seule personne a besoin de partager son serveur à la fois.** Ainsi, vous pourrez tous éditer les fichiers du même projet et consulter les modifications sur votre ordinateur.
 # Récupérer son adresse ip locale
 
-Dans le but de partager votre serveur avec des tiers, qui sont sur le même réseau, il faut faudra impérativement récupérer votre adresse ip **locale**. Dépendamment de votre système d'exploitation l'exécution n'est pas la même.
+Dans le but de partager votre serveur avec des tiers, qui sont sur le même réseau, il faut faudra impérativement récupérer votre adresse ip **locale**. Dépendamment de votre système d'exploitation l'exécution n'est pas la même. L'adresse ip locale **n'est nécessaire que** pour la personne qui va partager son serveur local.
 
 ## Windows
 
@@ -37,7 +37,7 @@ Si vous souhaitez partager un serveur WAMP/MAMP/XAMPP..., l'ordinateur hôte (ce
 
 Le système d'exploitation peut potentiellement bloquer les requêtes venant de l'extérieur en direction de votre serveur. Dans le cas où l'hôte est sous Windows, il vous faudra rajouter le serveur au pare-feu Windows. Pour ce faire, suivez les étapes suivantes :
 
-1. Ouvrez le logiciel "Sécurité Windows". Vous pouvez utiliser le raccourci `Windows + S` pour afficher le menu de recherche.
+1. Ouvrez le logiciel "Sécurité Windows". Vous pouvez utiliser le raccourci `Windows + S` pour afficher le menu de recherche et chercher "Sécurité Windows".
 ![](captures-ecran/pare-feu-1.png)
 
 2. Sélectionnez "Pare-feu et protection du réseau"
@@ -64,10 +64,7 @@ Il vous faudra également éditer le fichier `httpd-vhosts.conf`. Pour y accéde
 3. Remplacez dans le fichier "Require local" en "Require all granted" puis sauvegardez le fichier
 4. Redémarrez le WAMP
 
-Maintenant l'accès depuis l'extérieur au serveur hôte fonctionnera.
-
-
-Maintenant, vous pouvez tous travailler sur le même projet tout en voyant les modifications en local.
+Maintenant l'accès depuis l'extérieur au serveur hôte sera actif. Vous pourrez tous travailler sur le même projet tout en voyant les modifications en local.
 
 > Note : Des manipulations supplémentaires peuvent être à effectuer **si l'ordinateur hôte utilise XAMPP**. Vous trouverez des informations sur ce site : [Accéder au didacticiel (anglais)](
 https://www.mrtekno.net/2019/08/how-to-access-localhost-xampp-vm.html)
@@ -75,7 +72,7 @@ https://www.mrtekno.net/2019/08/how-to-access-localhost-xampp-vm.html)
 
 # Partage de serveur - Extenstion "PHP Server" pour VS Code
 
-Vs Code permet l'utilisation d'extension. La place de marché des extensions est accessible en cliquant sur les quatre carrés à gauche de la fenêtre du logiciel. 
+VS Code permet l'utilisation d'extensions. La place de marché des extensions est accessible en cliquant sur les quatre carrés à gauche de la fenêtre du logiciel. 
 
 1. Recherchez "PHP Server"
 ![](captures-ecran/php-ext-1.png)
@@ -87,7 +84,7 @@ Une fois l'installation effectuée, vous ne verrez aucune modification visuelle 
 1. Retournez dans le menu "Extension", cherchez et sélectionnez "PHP Server"
 2. Cliquez sur la roue dentée et sélectionnez "Extension Settings"
 ![](captures-ecran/php-ext-3.png)
-3. Remplacez "localhost" par votre adresse ip locale
+3. Remplacez "localhost" par votre adresse ip locale (voir plus haut pour savoir comment la récupérer)
 ![](captures-ecran/php-ext-4.png)
 
 L'extension est maintenat prête. Vous pouvez donc aller ouvrir un fichier .php du projet avec VSCode puis faire un clic droit. Sélectionnez l'option "PHP Server: Serve project".
@@ -95,7 +92,7 @@ L'extension est maintenat prête. Vous pouvez donc aller ouvrir un fichier .php 
 
 Normalement, un onglet va être ouvert dans votre navigateur par défaut. Et des utilisateurs externes pourront accéder à votre projet via votre adresse ip, et ce, tant que votre serveur tournera.
 
-> Note : Si l'utilisation de cette extension vous dispense de mettre votre dossier de travail dans le dossier `www/` ou `htdocs/`. Il est impératif, dans le cadre de la SAE, d'avoir un serveur SQL qui tourne. Conséquemment, vous devez lancer le logiciel WAMP/MAMP/XAMPP pour voir un serveur SQL.
+> Note : Si l'utilisation de cette extension vous dispense de mettre votre dossier de travail dans le dossier `www/` ou `htdocs/`. Il est impératif, dans le cadre de la SAE, d'avoir un serveur SQL qui tourne. **Conséquemment, vous devez lancer le logiciel WAMP/MAMP/XAMPP pour voir un serveur SQL.**
 
 
 ---
