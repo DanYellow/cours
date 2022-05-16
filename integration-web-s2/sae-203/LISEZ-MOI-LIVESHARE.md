@@ -94,6 +94,13 @@ Normalement, un onglet va être ouvert dans votre navigateur par défaut. Et des
 
 > Note : Si l'utilisation de cette extension vous dispense de mettre votre dossier de travail dans le dossier `www/` ou `htdocs/`. Il est impératif, dans le cadre de la SAE, d'avoir un serveur SQL qui tourne. **Conséquemment, vous devez lancer le logiciel WAMP/MAMP/XAMPP pour voir un serveur SQL.**
 
+## Erreur "PHP not found"
+L'erreur "PHP not found" peut être levée par l'extension "PHP server", cette erreur, très facile à corriger, est liée au fait que l'extension ne trouve pas PHP sur l'ordinateur. Pour ce faire, il faudra retourner dans les paramètres de l'extension et mettre le chemin vers l'exécutable PHP. Si vous avez installé WAMP, l'exécutable se trouve dans le dossier `wamp64/bin/php/phpX.X.X/php.exe`
+> Vous devrez remplacer phpX.X.X par une des versions de PHP isntallée sur votre ordinateur. Préférez la plus récente et supérieure ou égale à la version 7.0.0.
+
+Récupérez le chemin puis mettez-le dans le paramètre "phpserver PHP Path".
+![](captures-ecran/phpserve-error.jpg)
+Et si vous avez mis le bon chemin, vous pouvez lancer le serveur sans problèmes.
 
 ---
 L'accès à votre travail local peut également être accessible à distance, mais ceci nécessite des outils externes comme localtunnel (gratuit).
