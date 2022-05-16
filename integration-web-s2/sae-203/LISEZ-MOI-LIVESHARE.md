@@ -1,7 +1,7 @@
 L'utilisation de l'extenson liveshare de VS Code est très pratique pour travailler en groupe sur le même projet. Néanmoins, vous avez dû remarquer que si vous pouvez bien modifier les fichiers chez l'hôte, il vous est impossible de voir les modifications sur votre ordinateur local, ce qui limite fortement le travail collaboratif.
 
 > Note : **Les instructions suivantes ne fonctionneront que si et seulement si les conditions suivantes sont toutes réunies :**
-> - Les ordinateurs, qui veulent voir les modifications en local, sont sur le même réseau. Par exemple à l'IUT.
+> - Les ordinateurs, qui veulent voir les modifications en local, sont sur le même réseau. Par exemple à l'IUT. Attention à l'IUT les réseaux Wi-Fi et Ethernet sont séparés. **Ce sont deux réseaux différents.**
 > - Le projet tourne sur un serveur (MAMP/WAMP/XAMPP...)
 
 Nous allons, vous proposer deux méthodes :
@@ -11,7 +11,7 @@ Nous allons, vous proposer deux méthodes :
 **Quelque soit la solution choisie, une seule personne a besoin de partager son serveur à la fois.** Ainsi, vous pourrez tous éditer les fichiers du même projet et consulter les modifications sur votre ordinateur.
 # Récupérer son adresse ip locale
 
-Dans le but de partager votre serveur avec des tiers, qui sont sur le même réseau, il faut faudra impérativement récupérer votre adresse ip **locale**. Dépendamment de votre système d'exploitation l'exécution n'est pas la même. L'adresse ip locale **n'est nécessaire que** pour la personne qui va partager son serveur local.
+Dans le but de partager votre serveur avec des tiers, qui sont sur le même réseau, il faut faudra impérativement récupérer votre adresse ip **locale**. Dépendamment de votre système d'exploitation la récupération n'est pas la même. L'adresse ip locale **n'est nécessaire que** pour la personne qui va partager son serveur local.
 
 ## Windows
 
