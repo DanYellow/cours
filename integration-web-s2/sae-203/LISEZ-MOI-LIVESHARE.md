@@ -53,6 +53,8 @@ Le système d'exploitation peut potentiellement bloquer les requêtes venant de 
 5. Cliquez sur le bouton "Parcourir" puis sélectionnez le fichier `httpd.exe` dans le dossier `wamp64\bin\apache\apache2.4.51\bin` et validez l'opération
 ![](captures-ecran/pare-feu-5.png)
 
+> Le pare-feu peut également être géré par un anti-virus. Regardez sa configuration pour désactiver le pare-feu.
+
 Il vous faudra également éditer le fichier `httpd-vhosts.conf`. Pour y accéder et l'éditer suivez les étapes suivantes :
 
 1. Cliquez sur le logo de WAMP dans la barre de status de Windows. Puis Survolez "Apache ..."
