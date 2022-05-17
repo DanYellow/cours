@@ -30,6 +30,8 @@ Dans le but de partager votre serveur avec des tiers, qui sont sur le même rés
 
 Une fois que vous avez récupérer l'adresse ip local de votre serveur (l'ordinateur qui fait le partage liveshare), vous pouvez la partager avec les membres de votre groupe qui pourront accéder au site depuis le navigateur de leur ordinateur. Par exemple 192.168.X.X/sae203.
 
+> **Note importante :** Votre adresse ip peut changer à fois que vous vous connectez. Pensez bien à la revérifier et faire les actions nécessaires, si c'est le cas.
+
 # Partage de serveur - WAMP/MAMP/XAMPP
 
 Si vous souhaitez partager un serveur WAMP/MAMP/XAMPP..., l'ordinateur hôte (celui qui lance le serveur liveshare) doit récupérer son adresse ip locale et la partager avec les membres de son groupe. Toutefois Windows peut se montrer un peu contraignant dans son utilisation.
