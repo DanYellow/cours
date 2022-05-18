@@ -52,9 +52,12 @@
                 <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML (Balise
                     &lt;head> ou avant fermeture de la balise &lt;body>). Exemple de code pour importer un fichier
                     javascript (adapter le chemin et le nom de fichier en fonction).
-                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
-                        <p>Ici notre fichier de code javascript s'appelle "scripts" et se trouve dans le dossier "ressources"</p>
-                    </li>
+                    <pre>
+                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
+                    <p class="note-information">L'attribut 'defer' permet de charger notre fichier javascript après que
+                        la partie HTML a été chargée.</p>
+
+                </li>
                 <li>Créez deux variables, une contenant un entier et l'autre une chaîne de caractères
                     <ul>
                         <li>
@@ -108,7 +111,9 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
                     <code>console.log()</code>
                     <ul>
-                        <li>Vous devez mettre l'appel de la fonction dans la méthode console.log(). <br> Exemple : <code>console.log(maFonction(41, "hello"))</code></li>
+                        <li>Vous devez mettre l'appel de la fonction dans la méthode console.log(). <br> Exemple :
+                            <code>console.log(maFonction(41, "hello"))</code>
+                        </li>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
                                 rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
@@ -173,7 +178,8 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
                                 <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
                                 <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
-                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou n'est pas une valeur correcte
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou
+                                    n'est pas une valeur correcte
                                 </li>
                             </ul>
                             <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
@@ -222,22 +228,6 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                         </li>
                     </ul>
                 </li>
-                <li>
-                    Toujours au clic sur le même bouton, arrangez-vous pour qu'on ait le comportement suivant : Ajoute une classe et retire la même classe au clic suivant. Il faudra utiliser la méthode "toggle()"
-                    de la propriété "classList".
-                    <ul>
-                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
-                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications.</li>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
-                                (ouverture dans un
-                                nouvel onglet)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span
-                        class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte"
-                </li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -245,8 +235,8 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Toujours au clic sur le même bouton, changez le texte ou ajoutez une classe CSS <span
-                        class="texte-gras">que d'un seul élément</span> ayant la classe "mon-texte". Il faut donc
+                <li>Toujours au clic sur le même bouton, ajoutez une classe CSS <span class="texte-gras">sur un seul
+                        élément</span>. Il faudra
                     utiliser un data-attribute sur l'élément que l'on souhaite cibler.
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
@@ -256,14 +246,34 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                             le data-attribute "mon-data-attribute". A noter que cette syntaxe est aussi valable dans le
                             CSS.</p>
                     </article>
-                </li>
-                <li>Réutilisez la fonction écrite plus haut (dans la partie 3), celle affichant un message dépendamment l'âge de l'utilisateur. Sauf que cette fois-ci l'utilisateur devra entrer la valeur dans un champ de texte (&lt;input type="text" />) et le message devra s'afficher dans une balise &lt;p> 
-                    <p class="note-information">
-                        Il faudra utiliser l'évènement "change" pour écouter les changements de valeurs dans la balise "input". Encore une fois, vous devrez utiliser la propriété ".textContent" pour changer le texte de la balise &lt;p>.
-                    </p>
                     <ul>
-                            <li><a
-                                href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
+                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications.</li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
+                                (ouverture dans un
+                                nouvel onglet)</a></li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Ajoutez un champ de texte de type "text" (pas besoin de le mettre dans un formulaire)</li>
+                <li>Ciblez le champ et ajoutez l'évènement "change"</li>
+                <li>Affichez un message sur une balise &lt;p> en fonction du texte entré par l'utilisateur
+                    <article class="note-information">
+                        <p>Pour récupérer le texte écrit, il faudra récupérer l'argument de notre notion d'évènement. Par exemple :</p>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;change&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> (<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) </span>{
+    <span style="color:rgb(87, 166, 74); font-weight:400;">// textChamp contient le texte actuellement dans le champ de texte</span>
+    <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> textChamp = evt.target.value;
+})</code></pre>
+                    </article>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
                                 rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
                                 (ouverture dans un
                                 nouvel onglet)</a>
@@ -285,7 +295,8 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                         &lt;img> pour pouvoir y accéder dans le javascript</p>
                     <p class="note-information">Il faudra télécharger des images (celles que vous voulez) et mettre le
                         nom des images comme valeur de l'attribut "value". Quant à l'accès à l'attribut "src" de la
-                        balise &lt;img> dans le javascript, il faut tout simplement accéder à la propriété "src" de la balise &lt;img> dans le javascript (donc grâce à document.querySelector()).</p>
+                        balise &lt;img> dans le javascript, il faut tout simplement accéder à la propriété "src" de la
+                        balise &lt;img> dans le javascript (donc grâce à document.querySelector()).</p>
                     <ul>
                         <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>. <a
                                 href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
@@ -295,9 +306,14 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                         </li>
                     </ul>
                 </li>
-                <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais des valeurs différentes.</span>
-                    Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton (propriété "textContent") change pour la valeur du data-attribute.
-                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code></p>
+                <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais
+                        des valeurs différentes.</span>
+                    Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton
+                    (propriété "textContent") change pour la valeur du data-attribute.
+                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e
+                        est un paramètre de la fonction de la méthode
+                        <code>addEventListener("nom-evenement", fonction)</code>
+                    </p>
 
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
@@ -318,11 +334,13 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 nouvel onglet)
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <li>
-                    <a href="https://htmldom.dev/" target="_blank" rel="noopener noreferrer">Explorez et testez une large gamme de possibilités en javascript (en anglais - ouverture dans un nouvel onglet)</a>. N'hésitez pas à modifier le code fourni, ceci vous permettra de renforcer vos connaissances.
+                    <a href="https://htmldom.dev/" target="_blank" rel="noopener noreferrer">Explorez et testez une
+                        large gamme de possibilités en javascript (en anglais - ouverture dans un nouvel onglet)</a>.
+                    N'hésitez pas à modifier le code fourni, ceci vous permettra de renforcer vos connaissances.
                 </li>
             </ul>
         </details>
