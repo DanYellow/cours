@@ -151,13 +151,13 @@ La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra r
 > En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
 > Toutefois si vous souhaitez le faire, allez-y.
 
-### Redirection après soumission
+### Redirection après soumission (Administration)
 
 Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires du point de vue visuel. C'est normal, il manque le comportement du navigateur après la soumission (car les données ont bien été enregistrées). Deux choix s'offrent à vous : 
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
-Voici le code pour les deux cas. Ce code est à mettre **après** que les données ont été enregistrées dans la base.
+Voici le code pour les deux cas. Ce code est à mettre **après** que les données ont été enregistrées dans la base. Donc après l'appel de la méthode `execute()`.
 
 ```php
 // L'utilisateur reste sur la même page
@@ -166,9 +166,12 @@ header("Location: $pageRedirection");
 ```
 
 ```php
-// L'utilisateur va ailleurs
-$pageRedirection = "remplacer-par-url";
-header("Location: $pageRedirection"); 
+// L'utilisateur retourne à la liste des éléments.
+// Par exemple : 
+// Je crée un article. Je soumets le formulaire. Je suis redirigé vers la liste d'articles grâce au code suivant.
+$racineURL = pathinfo($_SERVER['REQUEST_URI']);
+$pageRedirection = $racineURL['dirname'];
+header("Location: $pageRedirection");
 ```
 
 # Javascript
@@ -183,7 +186,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
 ```
 
 # Mise en production
-Lorsque vous mettre votre site en ligne. Assurez-vous bien d'exporter la base de données. De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL.
+Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
 Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.
 
 # Astuces
@@ -215,7 +218,6 @@ Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera d
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
 
 ### Intégration Web (HTML/CSS/javascript)
-
 - Qualité du code
   - Pas de classes CSS au nom étrange
   - Réutilisation des classes CSS
@@ -236,7 +238,6 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - Le site sera testé sur Firefox et/ou Chrome
 
 ### Développement Web (PHP/MySQL)
-
 - Qualité du code
   - Utilisation de la fonction include()
     - Une partie du code fourni nécessite d'être optimisée avec la fonction include()

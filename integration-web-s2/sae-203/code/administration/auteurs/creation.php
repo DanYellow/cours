@@ -9,12 +9,12 @@ if ($formulaire_soumis) {
     if (isset($_POST["prenom"], $_POST["nom"], $_POST["lien_avatar"], $_POST["lien_twitter"])) {
         // On crée une nouvelle entrée
         $creerAuteurCommande = $clientMySQL->prepare('INSERT INTO auteur(prenom, nom, lien_avatar) VALUES (:prenom, :nom, :lien_avatar)');
-        
+
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
         $lienAvatar = htmlentities($_POST["lien_avatar"]);
         $lienTwitter = htmlentities($_POST["lien_twitter"]);
-        
+
         $creerAuteurCommande->execute([
             "nom" => $nom,
             "prenom" => $prenom,
