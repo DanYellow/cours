@@ -6,7 +6,8 @@ _Les consignes pourront être modifiées._
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
 - [Mémo sur les requêtes SQL](LISEZ-MOI-REQUETES-SQL.md)
-- [Travailler à plusieurs sur le même serveur php](LISEZ-MOI-LIVESHARE.md)
+- [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
+- [Travailler avec liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 
 ## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -175,7 +176,7 @@ header("Location: $pageRedirection");
 ```
 
 # Javascript
-Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Le javascript devra être utilisé pour :
+Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Le javascript devra **impérativement** être utilisé pour :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
 - Dans le backoffice, il faudra utiliser le backoffice pour afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
 ```js
