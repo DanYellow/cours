@@ -1,0 +1,189 @@
+,APP_Libelle_etablissement,Adresse_2_UA,Code_postal,Libelle_commune,Numero_inspection,Date_inspection,APP_Libelle_activite_etablissement,Synthese_eval_sanit,Agrement,filtre,lat,lon
+389,XL PIZZA (P.A PIZZA),6 RUE MARCEL MICHEAU,77220,TOURNAN EN BRIE,16048449,2021-06-17T02:00:00+02:00,_,Satisfaisant,,,48.740559,2.765515
+954,TRATTORIA DU VAL,49 RUE DU VAL,77160,PROVINS,16351846,2022-02-25T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,48.56082,3.296002
+1027,CLASS PIZZA (PIZZA DU PARC DE THORIGNY),6 RUE CORNILLIOT,77400,THORIGNY SUR MARNE,16173026,2021-09-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.884126,2.71059
+1457,ASSOCIATION FAMILLES RURALES DE LA BASSEE,"75, rue Simone Veil",77480,Bray-sur-Seine,21-025361-1,2021-03-25T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.412399,3.242935
+1529,LES TOURNESOLS,2 RUE DES TOURNESOLS,77130,Cannes-Écluse,20-095773-1,2021-04-13T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.359075,2.984074
+1596,SARL AS EDEN,CENTRE COMMERCIAL EDEN,77170,Servon,21-040644-1,2021-05-26T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,,
+1921,DELICE IKBAR,89 bis av du Marechal Leclerc,77460,Souppes-sur-Loing,21-045439-1,2021-05-27T02:00:00+02:00,Transformation de produits carnés,A améliorer,77458004.0,,48.188262,2.729265
+2488,COMPAGNIE GENERALE DE RESTAURATION,280 IMP ANITA CONTI,77127,Lieusaint,22-001066-1,2022-01-10T01:00:00+01:00,Restauration collective,Très satisfaisant,77251001.0,Restauration collective,48.617781,2.559554
+2860,EARL DU PAVE,73 RUE VICTOR CLAIRET,77910,Varreddes,21-107567-1,2021-12-10T01:00:00+01:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.004473,2.928496
+3075,BOUCHE DISTRIBUTION,8 BD DE LA MARNE ZI,77120,Coulommiers,21-099917-1,2021-12-07T01:00:00+01:00,Rayon poissonnerie,Très satisfaisant,,Rayon poissonnerie,,
+3472,MJ AWAN,1 RUE DU PRESIDENT POINCARE,77220,Tournan-en-Brie,21-073117-1,2021-09-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.739474,2.762507
+3508,FROMAGERIE ROUZAIRE,1 RUE DE VILLE,77220,Tournan-en-Brie,21-065882-1,2021-06-08T02:00:00+02:00,Entreposage de produits laitiers,Très satisfaisant,77470004.0,,48.740711,2.772869
+3533,PIRES VIEIRA RAMIRO,RUE DE LA NOUE,77320,Choisy-en-Brie,21-032829-1,2021-04-26T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,77116001.0,,48.759223,3.21369
+3573,CUISINE CENTRALE,rue de la Fontaine des Noues,77130,Varennes-sur-Seine,21-036420-1,2021-05-07T02:00:00+02:00,Restauration collective,Très satisfaisant,77482001.0,Restauration collective,48.375953,2.936502
+3647,RESIDENCE DES ROSEAUX,"4 bis, rue de la croix",77160,Chenoise-Cucharmoy,21-040546-1,2021-05-27T02:00:00+02:00,Restauration collective,Satisfaisant,77109001.0,Restauration collective,48.615567,3.187033
+3991,REPOTEL,"512, Chemin d'Arvigny",77176,Savigny-le-Temple,21-095170-1,2021-11-24T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.59375,2.577028
+4241,LES AMIS DE KAREN ASSOCIATION,1 BIS ROUTE DE VALENCE,77670,Vernou-la-Celle-sur-Seine,21-044067-1,2021-06-07T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.396069,2.869261
+4312,FROMAGERIE LOISEAU,39 RUE CLOZEAU,77760,Achères-la-Forêt,21-065846-1,2021-07-08T02:00:00+02:00,Transformation de lait ou produits laitiers,Satisfaisant,77001001.0,,48.345432,2.564661
+4498,SOCIETE EXPLOITATION CLINIQUE DE TOURNAN,"2, rue Jules Lefèvre",77220,Tournan-en-Brie,21-042634-1,2021-05-11T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.742341,2.757855
+4707,FAM LES PRES NEUFS,FAM LES PRES NEUFS,77000,Vaux-le-Pénil,21-038181-1,2021-05-17T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.52075,2.718008
+4817,LA CROIX BLANCHE,LA CROIX BLANCHE,77220,Tournan-en-Brie,21-079490-1,2021-10-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.739096,2.773685
+5341,ASSOCIATION CLOS NOTRE DAME,RTE DE CHARTRETTE,77000,Livry-sur-Seine,21-040050-1,2021-05-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.513846,2.681467
+5356,ABBAYE DE NOTRE DAME,6 RUE MONTMORIN,77640,Jouarre,22-007972-1,2022-02-01T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.926944,3.131771
+5580,CHARDON MELANIE,35 RUE DES GALACHES,77460,Chaintreaux,21-076686-1,2021-09-24T02:00:00+02:00,Commerce alimentaire,Très satisfaisant,,,48.182096,2.797972
+5606,ABATTOIR YOUSSFI,183 QUAI VOLTAIRE,77190,Dammarie-les-Lys,21-031129-1,2021-04-13T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Très satisfaisant,77152001.0,,48.532844,2.64271
+5722,ASSOCIATION PERSONNES AGEES LES BRUYERES,1058 RUE DE SEINE,77350,Boissise-la-Bertrand,22-004046-1,2022-01-19T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.533799,2.570341
+5808,ELRES,RUE DU STADE,77310,Saint-Fargeau-Ponthierry,21-105993-2,2021-12-17T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.529232,2.541846
+5834,ECOLE ELEMENT ELISE ET CELESTIN FREINET,RUE JOSEPH LESURQUES,77240,Vert-Saint-Denis,21-076852-1,2021-09-24T02:00:00+02:00,Restauration collective,Satisfaisant,77495002.0,Restauration collective,48.562392,2.616737
+5938,OGEC GASNIER GUY STE BATHILDE,28 rue du Tir,77500,Chelles,21-042429-1,2021-06-01T02:00:00+02:00,Restauration collective,Satisfaisant,77108001.0,Restauration collective,48.88934,2.59631
+6186,ELRES,RUE DU STADE,77310,Saint-Fargeau-Ponthierry,21-105993-1,2021-12-17T01:00:00+01:00,Restauration collective,Satisfaisant,77407002.0,Restauration collective,48.529232,2.541846
+6207,ECOLE ELEMENTAIRE PUBLIQUE LOUISE MICHEL,2 RUE LOUISE MICHEL,77240,Vert-Saint-Denis,21-090883-1,2021-11-08T01:00:00+01:00,Restauration collective,Satisfaisant,77495001.0,Restauration collective,48.565008,2.621517
+6261,SARL WAN SEN,5 RUE DES TISSERANDS ZI TORCY,77200,Torcy,21-099729-1,2021-12-07T01:00:00+01:00,Transformation de produits de la pêche,Satisfaisant,77468002.0,,48.847498,2.654751
+6264,SARL WAN SEN,5 RUE DES TISSERANDS ZI TORCY,77200,Torcy,21-099700-1,2021-12-07T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,77468002.0,,48.847498,2.654751
+6365,MAIRIE COMMUNE PROVINS,21 rue Valentin Abeille,77160,Provins,21-048983-1,2021-06-22T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.561906,3.296876
+6919,BOUCHERIE DU CENTRE,46 PLACE DU 14 JUILLET 1789,77550,Moissy-Cramayel,21-074163-1,2021-09-14T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.628258,2.590422
+7049,PIZZERIA FAVINA,2 rue du Moulin,77220,Tournan-en-Brie,21-065259-1,2021-07-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.739343,2.763807
+7104,LES VIANDES DU LYS,252 RUE MARC SEGUIN,77190,Dammarie-les-Lys,21-039515-1,2021-05-07T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,77152011.0,,48.51164,2.612586
+7107,LES VIANDES DU LYS,252 RUE MARC SEGUIN,77190,Dammarie-les-Lys,21-039515-3,2021-05-07T02:00:00+02:00,Découpe de viande de boucherie,Satisfaisant,77152011.0,,48.51164,2.612586
+7166,LA GIRANDIERE LE CLOS BAILLY,34 RUE DU BOIS DE TROU,77700,Bailly-Romainvilliers,21-098998-1,2021-12-03T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.849979,2.823154
+7378,SOLIDARITE OUMMA,44 avenue de valvins,77210,Avon,21-050077-1,2021-06-19T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,48.420935,2.736842
+7468,KOBANE,36 RUE DE PARIS,77220,Tournan-en-Brie,21-083337-1,2021-10-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.739595,2.763635
+7581,INSTITUT MEDICO - EDUCATIF,4 RUE DES PETITS CHAMPS,77820,Le Châtelet-en-Brie,21-042219-1,2021-05-31T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.510135,2.79967
+7812,BOUCHERIE CHEZ TOI,24 RUE EDOUARD VAILLANT,77176,Savigny-le-Temple,21-025353-1,2021-06-16T02:00:00+02:00,Alimentation générale|Boucherie-Charcuterie,Satisfaisant,,Alimentation générale|Boucherie-Charcuterie,48.59443,2.58175
+7980,LA FERME NOUVELLE,D401,77230,Montgé-en-Goële,21-029502-1,2021-04-08T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,77308003.0,,49.027766,2.752311
+8113,LES SAVEURS DE L'ORIENT,7 RTE DE CHALAUTRE LA PETITE,77160,Provins,22-011853-1,2022-02-17T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.555489,3.304261
+8436,BOUCHERIE DE LA FERME,14 RUE NEUVE,77127,Lieusaint,21-040605-1,2021-05-26T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.633297,2.553038
+8488,CENTRE DE PRODUCTION ET DE DISTRIBUTION AVICOLE BOULAJERI,ROUTE DE VILLEPATOUR,77220,Presles-en-Brie,21-034105-1,2021-04-29T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.710175,2.740262
+8532,SAINTEMARIE JEAN,3 rue du Moulin Bertin,77169,Saint-Germain-sous-Doue,21-031432-1,2021-04-16T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,48.848853,3.145513
+8718,LES VIANDES DU LYS,252 RUE MARC SEGUIN,77190,Dammarie-les-Lys,21-039515-2,2021-05-07T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,77152011.0,,48.51164,2.612586
+9122,OGUZ,20 RUE HENRY BECQUEREL,77290,Mitry-Mory,21-046463-1,2021-06-11T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,77294016.0,,48.97932,2.642461
+9422,RESIDENCE QUIETUDE,"420, rue des Ormes",77590,Chartrettes,21-107042-1,2022-01-10T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.486909,2.68339
+9488,LILAS,route de prairie,77160,Poigny,21-103402-1,2021-12-16T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.545348,3.285461
+9494,LA FROMAGERE,4 RUE DU CLOS GUIGNOT,77120,Coulommiers,21-062735-1,2021-07-05T02:00:00+02:00,Caves d'affinage,Très satisfaisant,,,48.803562,3.098121
+9532,AS PROCESS,76 RUE DE COULOMMES,77860,Quincy-Voisins,21-031859-4,2021-04-22T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Très satisfaisant,77382001.0,,48.897834,2.884082
+9732,AS PROCESS,76 RUE DE COULOMMES,77860,Quincy-Voisins,21-031859-1,2021-04-22T02:00:00+02:00,Découpe de viande de boucherie,Très satisfaisant,77382001.0,,48.897834,2.884082
+9738,AS PROCESS,76 RUE DE COULOMMES,77860,Quincy-Voisins,21-031859-3,2021-04-22T02:00:00+02:00,Entreposage de viande de volailles,Très satisfaisant,,,48.897834,2.884082
+9741,AS PROCESS,76 RUE DE COULOMMES,77860,Quincy-Voisins,21-031859-2,2021-04-22T02:00:00+02:00,Entreposage de viande de boucherie,Très satisfaisant,,,48.897834,2.884082
+10174,EURODISNEY - CUISINE CENTRALE NEWPORT BAY CLUB,Avenue Robert Schuman,77700,Chessy,21-098123-1,2021-11-22T01:00:00+01:00,Restauration collective,Satisfaisant,77111002.0,Restauration collective,48.871904,2.797694
+10316,BRIES DE SAINT REMY,19 AV DU GRAND MORIN,77169,Saint-Siméon,21-039533-1,2021-08-17T02:00:00+02:00,Transformation de lait ou produits laitiers,Satisfaisant,77436002.0,,48.798759,3.207036
+10382,BONNY PARIS L'ESPRIT GOURMET,14 IMP DENIS PAPIN,77220,Gretz-Armainvilliers,21-039525-2,2021-07-27T02:00:00+02:00,Découpe de viande de boucherie,Satisfaisant,77215001.0,,48.72961,2.731045
+10674,ACM DE MITRY,12 PL BELLEVUE,77290,Mitry-Mory,21-072248-1,2021-08-24T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.973551,2.63562
+10823,BONNY PARIS L'ESPRIT GOURMET,14 IMP DENIS PAPIN,77220,Gretz-Armainvilliers,21-039525-1,2021-07-27T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,77215001.0,,48.72961,2.731045
+11190,BRIES DE SAINT REMY,MONTMOGIS,77320,Saint-Rémy-la-Vanne,21-039528-1,2021-07-29T02:00:00+02:00,Collecte de lait,Satisfaisant,77432004.0,,48.817647,3.244398
+11522,FROMAGERIE LOISEAU,39 RUE CLOZEAU,77760,Achères-la-Forêt,21-065846-2,2021-07-08T02:00:00+02:00,Entreposage de produits laitiers,Satisfaisant,77001001.0,,48.345432,2.564661
+11800,FROMAGERIE LOISEAU,39 RUE CLOZEAU,77760,Achères-la-Forêt,21-039530-1,2021-07-08T02:00:00+02:00,Caves d'affinage,Satisfaisant,77001001.0,,48.345432,2.564661
+11920,BUFFALO GRILL,BOULEVARD DES ARTISANS,77700,Bailly-Romainvilliers,21-067067-1,2021-08-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.846331,2.828794
+12058,LA FROMENTELLERIE,FERME DE BEAULIEU,77970,Pécy,21-029497-1,2021-07-13T02:00:00+02:00,Transformation de lait ou produits laitiers,Très satisfaisant,77357001.0,,48.651329,3.069447
+12158,ECOLE ELEMENTAIRE PUBLIQUE VILLEFERMOY,RUE DE VILLEFERMOY,77150,Lésigny,21-103487-1,2021-12-16T01:00:00+01:00,Restauration collective,Très satisfaisant,77249002.0,Restauration collective,48.732316,2.596915
+12164,O BON GOUT DE BUSSY,20 RUE JEAN MONNET,77600,Bussy-Saint-Georges,21-074192-1,2021-09-13T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.839343,2.71138
+12326,LA DERIVE & FRERES POISSONS,17 QUAI DE LA REPUBLIQUE,77920,Samois-sur-Seine,21-074327-1,2021-09-17T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,48.450873,2.757968
+12364,ESAT LES ATELIERS DE L AMBRESIS,12 RUE DE L INDUSTRIE,77270,Villeparisis,21-063103-1,2021-08-11T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.951588,2.624377
+12417,BOUCHERIE DE VARENNES,"1, avenue du 8 mai 1945",77130,Varennes-sur-Seine,21-091111-1,2021-11-09T01:00:00+01:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,48.376209,2.945117
+12428,CUISINE CENTRALE,3 AVENUE DU PALOISEL,77380,Combs-la-Ville,21-058208-2,2021-07-19T02:00:00+02:00,Restauration collective,A améliorer,,Restauration collective,48.661366,2.563168
+12743,LES TROIS SOLEILS,19 RUE DU CHATEAU,77310,Boissise-le-Roi,21-031348-1,2021-04-19T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.525745,2.572155
+12771,FONDATION ELLEN POIDATZ,1 RUE ELLEN POIDATZ,77310,Saint-Fargeau-Ponthierry,21-031066-1,2021-04-20T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.553689,2.523491
+12846,ECOLE ELEMENTAIRE PUBLIQUE VILLEFERMOY,RUE DE VILLEFERMOY,77150,Lésigny,21-103487-2,2021-12-16T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,48.732316,2.596915
+12871,LES REPAS LIVRES,"19, RUE DE BRETAGNE",77430,Champagne-sur-Seine,21-070321-1,2021-09-06T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,48.395741,2.79429
+13472,COMPAGNIE FROMAGERE EDMOND DE ROTHSCHILD,Domaine des 30 Arpents,77220,Favières,21-039532-1,2021-06-10T02:00:00+02:00,Transformation de lait ou produits laitiers,Satisfaisant,77177001.0,,48.789046,2.793401
+13732,BOUCHERIE MDS RECEPTIONS,5 RUE DE LA CHENOISE,77160,Chenoise-Cucharmoy,21-107677-1,2022-01-18T01:00:00+01:00,Traiteur,Satisfaisant,,Traiteur,48.614851,3.183296
+13734,METRO FRANCE,RUE DE LA PLAINE DE LA CROIX BESNARD,77000,Vaux-le-Pénil,21-101558-1,2021-12-13T01:00:00+01:00,Entreposage de produits de la pêche,Satisfaisant,77487001.0,,48.532237,2.695116
+13753,BOUCHERIE MDS RECEPTIONS,5 RUE DE LA CHENOISE,77160,Chenoise-Cucharmoy,21-107673-1,2022-01-18T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.614851,3.183296
+13896,SPAGHETTI HOUSE EINSALATINA MIDA ROFFINI,Rue de Strasbourg,77340,Pontault-Combault,20-097000-1,2021-12-13T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,77373001.0,,48.794988,2.624358
+14316,API RESTAURATION,3 RUE BONNERET,77230,Moussy-le-Neuf,21-028514-1,2021-07-09T02:00:00+02:00,Restauration collective,Satisfaisant,77322003.0,Restauration collective,49.063942,2.594849
+14514,EHPAD DU CENTRE,chemin des grattons,77160,Provins,20-096274-1,2021-05-20T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.545265,3.299762
+14608,ASS JEANNE D ARC DE MELUN,30 RUE BANCEL,77000,Melun,21-034656-1,2021-05-03T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.542051,2.662494
+14803,CONVIVIO,12 RUE LOUIS ARMAND,77330,Ozoir-la-Ferrière,21-078076-1,2021-09-29T02:00:00+02:00,Restauration collective,Satisfaisant,77350001.0,Restauration collective,48.765112,2.688909
+15189,SAVS DE VILLEBOUVET,39 RUE DU LAITON,77176,Savigny-le-Temple,21-034646-1,2021-05-03T02:00:00+02:00,Responsable de restauration collective,Satisfaisant,,,48.592819,2.588835
+15294,BOUCHERIE DU CENTRE,8 RUE DE PARIS,77420,Champs-sur-Marne,21-031370-1,2021-04-21T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.852292,2.601825
+15563,EHPAD MATHURIN FOUQUET,1 RUE DU PETIT PONT,77920,Samois-sur-Seine,21-042602-1,2021-06-02T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.450714,2.751633
+15832,GROUPE DEPREYTERE RESTAURATION,RUE DES MONTELIEVRES,77250,Moret-Loing-et-Orvanne,21-080508-1,2021-10-05T02:00:00+02:00,Restauration collective,Satisfaisant,77166002.0,Restauration collective,48.368604,2.840218
+16160,RESIDENCE AUTONOMIE ROSA BONHEUR ET LORRAINE,"3, rue de Lorraine",77300,Fontainebleau,21-065653-1,2021-08-19T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.41366,2.709854
+16695,RESTAURANT UNIVERS LE CROUS CLUB-CUISINE CENTRALE,10 BD ISAAC NEWTON,77420,Champs-sur-Marne,21-101388-1,2021-12-10T01:00:00+01:00,Restauration collective,A améliorer,77083001.0,Restauration collective,48.835742,2.592986
+17084,ARPAVIE,2 RUE DE NISCEVILLE,77570,Château-Landon,21-067664-1,2021-08-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.146321,2.696163
+17596,BRIES DE SAINT REMY,MONTMOGIS,77320,Saint-Rémy-la-Vanne,21-039535-1,2021-07-29T02:00:00+02:00,Transformation de lait ou produits laitiers,Satisfaisant,77432004.0,,48.817647,3.244398
+17786,MR FOCH FOOD,2 AV DU MARECHAL FOCH,77100,Meaux,21-082176-1,2021-10-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.952939,2.883212
+17795,FIVE GUYS,ALL DU PREAMBULE,77127,Lieusaint,21-073015-1,2021-09-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.61332,2.549058
+17821,DOMITYS LA COURTINE,2 RUE DU CAPITAINE BASTIEN,77000,Melun,21-028473-1,2021-04-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.540048,2.669899
+17924,E. LECLERC,ZI,77160,Provins,22-013096-1,2022-02-22T01:00:00+01:00,Rayon poissonnerie|Rayon fromagerie|Rayon boucherie-charcuterie,Très satisfaisant,,Rayon poissonnerie|Rayon fromagerie|Rayon boucherie-charcuterie,,
+18120,AMIR EVENTS,5 RUE GASPARD MONGE,77380,Combs-la-Ville,21-106013-1,2021-12-08T01:00:00+01:00,Traiteur,Satisfaisant,,Traiteur,48.653614,2.559512
+18349,HARLE ALEX,94 RUE DE METZ,77260,Sammeron,22-004153-1,2022-01-20T01:00:00+01:00,Métier de bouche,Satisfaisant,,,48.94805,3.074207
+18689,CHAHADA BOUCHERIE,20 RUE BERTRAND FLORNOY,77120,Coulommiers,21-025343-1,2021-04-28T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.811385,3.082996
+19111,ESAT DU VAL D'EUROPE,19 Boulevard des Artisans,77700,Bailly-Romainvilliers,21-025769-1,2021-03-30T02:00:00+02:00,Restauration collective,Satisfaisant,77018002.0,Restauration collective,48.845828,2.828076
+19497,SOGERES,"1109, Avenue Saint Just  Z.I.",77000,Vaux-le-Pénil,21-105533-1,2021-12-27T01:00:00+01:00,Restauration collective,Satisfaisant,77487004.0,Restauration collective,48.533965,2.690374
+19568,DUC,RUE DU CHATEAU DE FLAMBOIN,77114,Gouaix,21-039526-1,2021-07-12T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,77208001.0,,48.470532,3.287669
+19603,MAIRIE COMMUNE NANGIS,4 BOULEVARD VOLTAIRE,77370,Nangis,21-044611-1,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.558096,3.015265
+19886,N&N VDE,7 PLACE DE LA TOSCANE,77711,Serris,21-102978-1,2021-12-14T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.855846,2.784537
+20010,EARL BIRCKEL,FERME DIEULAMANT,77470,Villemareuil,21-039098-1,2021-05-20T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,77505002.0,,48.921085,2.97205
+20150,L'ANGELUS,31 GRANDE RUE,77630,Barbizon,21-107494-1,2022-01-14T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.44459,2.607585
+20322,ASSOCIATION LES PETITS BRIARDS,17 rue Georges Dromigny,77160,Poigny,21-056937-1,2021-07-16T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.553463,3.293303
+20365,SOC LES FONTAINES,54 BD ARISTIDE BRIAND,77000,Melun,21-108627-1,2022-02-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.543372,2.650517
+20525,RM DELICES,5 AV DU GENERAL LECLERC,77390,Chaumes-en-Brie,21-092259-1,2021-11-16T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,48.667488,2.842774
+21296,COLLEGE ALFRED SISLEY,RUE DU GYMNASE B.P. 23,77250,Moret-Loing-et-Orvanne,22-007659-1,2022-02-01T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.368395,2.814374
+21521,FOYER ENFANCE RUBELLES  HAM. DU MOULIN,123 RUE DES MEUNIERS,77950,Rubelles,21-039433-1,2021-05-21T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.554492,2.673384
+21527,SARL ABATTOIR KISSI II,"2,CHEMIN DE L'ARANGE",77181,Courtry,21-026868-1,2021-03-24T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,77139001.0,,48.91995,2.608504
+21834,BOUCHERIE DE LA MAIRIE,16 place du maréchal Leclerc,77160,Provins,21-098731-1,2021-12-03T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.560369,3.29887
+21887,LA FROMAGERE,4 RUE DU CLOS GUIGNOT,77120,Coulommiers,21-054420-1,2021-07-06T02:00:00+02:00,Transformation de lait ou produits laitiers,Très satisfaisant,77131002.0,,48.803562,3.098121
+22002,LES RESIDENCES ST BENOIT,9 AVENUE DE CHELLES,77420,Champs-sur-Marne,21-091867-1,2021-11-15T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.852619,2.599255
+22277,AUX DELICES DU PORTUGAL,7 ALLEE DENIS PAPIN,77170,Brie-Comte-Robert,21-028038-1,2021-04-08T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,48.70093,2.605027
+23036,NEWREST FRANCE CDG,12 RUE ANTOINE DE SAINT EXUPERY,77290,Compans,21-039519-1,2021-05-06T02:00:00+02:00,Restauration collective,Très satisfaisant,77123001.0,Restauration collective,48.996506,2.651033
+23174,KING FOOD,8 RUE DE L EGLISE,77430,Champagne-sur-Seine,21-083523-1,2021-10-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.405257,2.798536
+23265,CENTRE FRANCOIS VILLON,RUE FRANCOIS VILLON,77140,Darvault,21-044741-1,2021-06-08T02:00:00+02:00,Restauration collective,Satisfaisant,77333005.0,Restauration collective,48.269491,2.706815
+23917,LYCEE GENERAL INTERNAT D'EXCELLENCE,100 RUE DE PARIS,77171,Sourdun,21-097450-1,2021-11-30T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.533305,3.373799
+24315,PICARD SURGELES,1 RTE MILITAIRE,77300,Fontainebleau,21-080052-1,2021-10-04T02:00:00+02:00,Transport de denrées alimentaires,Satisfaisant,,,48.398563,2.723255
+24323,KORIAN LA FERME DU MARAIS,565 AVENUE DE MARCHE MARAIS,77350,Le Mée-sur-Seine,21-026351-1,2021-03-31T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.546868,2.638338
+24332,L'ABATTOIR DE JOSSIGNY,2 CHEMIN DES CHAUDRONNIERS,77600,Jossigny,21-105403-1,2021-12-15T01:00:00+01:00,Chaîne d'abattage d'animaux boucherie/Gibier ongulé élevage,Satisfaisant,77237006.0,,48.833765,2.75139
+24345,BENZIANE,2 RUE DU PRESIDENT DESPATYS,77000,Melun,21-039340-1,2021-05-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.54193,2.65594
+24404,EARL DE LA NOZAIE,6 ROUTE DE MONTEREAU,77140,Nonville,21-056673-1,2021-07-13T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,A améliorer,,,48.289399,2.793392
+24542,SOCIETE D'EXPLOITATION DES ETABLISSEMENTS CUSAC,23 AVENUE CHARLES MONIER,77240,Cesson,20-096494-1,2021-06-15T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,48.562769,2.6062
+24572,PARIS AIR CATERING,"15, rue de la Grande Borne",77990,Le Mesnil-Amelot,21-091589-1,2021-11-09T01:00:00+01:00,Restauration collective,Satisfaisant,77291004.0,Restauration collective,49.015171,2.600791
+24582,BIOCOOP VARENNES,Centre commercial LE BREAU,77130,Varennes-sur-Seine,21-099625-1,2021-12-07T01:00:00+01:00,Rayon boucherie-charcuterie,Satisfaisant,,Rayon boucherie-charcuterie,48.376499,2.930012
+24869,BOUGAINVILLE,RD 319,77170,Brie-Comte-Robert,21-082066-1,2021-10-11T02:00:00+02:00,Libre service|Boucherie-Charcuterie,Satisfaisant,,Libre service|Boucherie-Charcuterie,48.685418,2.627273
+24985,LES POMMES D'ABIT,1019 FORTAIL,77320,Beton-Bazoches,21-081247-1,2021-10-07T02:00:00+02:00,Fromagerie|Alimentation générale|Glacier|Boucherie-Charcuterie,Satisfaisant,,Fromagerie|Alimentation générale|Glacier|Boucherie-Charcuterie,48.699635,3.267739
+25057,CHAMPIN,DOMAINE DE LA CHARLOTTERIE,77390,Ozouer-le-Voulgis,21-031437-1,2021-04-22T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,48.659784,2.774421
+25356,ECOLE MATERNELLE PUBLIQUE CLOS ST JEAN,"1, rue du Clos Saint-Jean",77140,Saint-Pierre-lès-Nemours,21-042397-1,2021-06-01T02:00:00+02:00,Restauration collective,Satisfaisant,77431001.0,Restauration collective,48.268607,2.699983
+25490,KASHMIR,RD 306,77240,Vert-Saint-Denis,21-108152-1,2022-01-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,48.564945,2.630029
+25884,STEF LOGISTIQUE LIEUSAINT,BD D ESPAGNE,77127,Lieusaint,22-005826-1,2022-01-26T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,77251002.0,,48.642929,2.546852
+25973,CENTRE D ACTIVITE LES ORMES,12  R  DU PERRE,77950,Rubelles,21-051062-1,2021-06-28T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.551632,2.671852
+26115,GROUPEMENT D'INTERET ECONOMIQUE DES VIGNES,31 RUE GRANDE,77820,Les Écrennes,21-053581-1,2021-07-06T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Très satisfaisant,77165001.0,,48.504335,2.859131
+26316,CARREFOUR,RTE RN 7,77190,Villiers-en-Bière,21-076279-1,2021-09-23T02:00:00+02:00,Rayon pain/viennoiserie/pâtisserie,Satisfaisant,,Rayon pain/viennoiserie/pâtisserie,48.478677,2.598551
+26443,CARREFOUR,RTE RN 7,77190,Villiers-en-Bière,21-076284-1,2021-09-23T02:00:00+02:00,Rayon traiteur,Satisfaisant,,Rayon traiteur,48.478677,2.598551
+26967,PIZZA NOVA,16 RUE GRANDE,77940,Voulx,21-086110-1,2021-10-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.281591,2.969271
+27315,SOVIAM,12 rue Vide Arpent,77100,Meaux,21-093384-1,2021-11-19T01:00:00+01:00,Découpe de viande de boucherie,Satisfaisant,77284018.0,,48.965007,2.904459
+27983,VIVRE MIEUX,22 RUE DE LA MARE BLANCHE,77186,Noisiel,21-026746-1,2021-03-31T02:00:00+02:00,Alimentation générale,A corriger de manière urgente,,Alimentation générale,48.850087,2.625711
+28390,EARL DELPECH,16 RUE DE MAROLLES,77520,Montigny-Lencoup,21-029478-1,2021-04-15T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,48.440304,3.046352
+28600,RESTAURANT UNIVERSITAIRE L'ARLEQUIN,AVENUE PIERRE POINT,77127,Lieusaint,21-043891-1,2021-06-04T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.628385,2.5607
+28928,QUADRATURE RESTAURATION,8 RUE DES ACACIAS,77230,Villeneuve-sous-Dammartin,21-025377-1,2021-03-25T01:00:00+01:00,Restauration collective,Satisfaisant,77511004.0,Restauration collective,49.032342,2.639002
+29350,BOUCHERIE DU SOLEIL,2 PROM P ET M CURIE,77370,Nangis,21-108720-1,2022-02-08T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.55092,3.019152
+29356,COMMUNE OZOIR LA FERRIERE,Place des Sports / Allée André Boyer,77330,Ozoir-la-Ferrière,21-030382-1,2021-03-29T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,48.765264,2.673404
+30323,AMINECOV MEAUX,12 RUE DU VIDE ARPENT,77100,Meaux,20-097030-1,2021-12-14T01:00:00+01:00,Chaîne d'abattage d'animaux boucherie/Gibier ongulé élevage,Satisfaisant,77284015.0,,48.964775,2.904155
+30398,BOROWIEC,D21 entre Crécy-la-Chapelle et La Haute-Maison,77580,Sancy,21-092483-1,2021-11-12T01:00:00+01:00,Transformation de lait ou produits laitiers,Satisfaisant,77443001.0,,48.873692,2.971996
+30454,MAIRIE COMMUNE DE BUSSY ST GEORGES,1 RUE JEAN DE BRUNHOFF,77600,Bussy-Saint-Georges,21-056306-1,2021-07-09T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.840166,2.709322
+30877,UCP Cuisine Centrale EURO DISNEY ASSOCIES SAS,21 AV CHRISTIAN DOPPLER,77700,Bailly-Romainvilliers,21-098446-1,2021-11-30T01:00:00+01:00,Restauration collective,Satisfaisant,77018001.0,Restauration collective,48.842267,2.798701
+30896,AUCHAN,3 avenue Roland Moreno,77124,Chauconin-Neufmontiers,21-094667-1,2021-11-23T01:00:00+01:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,48.958267,2.862828
+31059,BELLA PIZZA,22 RUE MONTGAUDIER,77890,Beaumont-du-Gâtinais,21-032928-1,2021-04-27T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.137334,2.475932
+31131,CHEZ GENNARO,76 rue de Coulommes,77860,Quincy-Voisins,21-053577-1,2021-07-05T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,48.897834,2.884082
+31132,AMINECOV MEAUX,12 RUE DU VIDE ARPENT,77100,Meaux,21-105154-1,2021-12-13T01:00:00+01:00,Chaîne d'abattage d'animaux boucherie/Gibier ongulé élevage,Satisfaisant,77284015.0,,48.964775,2.904155
+31260,INTERMARCHE,BOULEVARD GEORGES BIDAULT,77183,Croissy-Beaubourg,21-033169-1,2021-04-28T02:00:00+02:00,Rayon fromagerie|Rayon boucherie-charcuterie,Satisfaisant,,Rayon fromagerie|Rayon boucherie-charcuterie,48.828757,2.643558
+31531,MAXIMO,13 RUE DES CHAMPARTS,77820,Le Châtelet-en-Brie,21-053273-1,2021-07-05T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,,,48.498034,2.794278
+31532,ELRES,2 ALL RENE LALIQUE,77380,Combs-la-Ville,21-108771-1,2022-02-09T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.663356,2.564811
+31621,CHICKEN FOOD,3 RUE DU SOUVENIR,77140,Nemours,21-033237-1,2021-04-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.267526,2.69875
+31786,CARREFOUR MARKET,126 RUE JEAN MONNET,77120,Mouroux,21-093560-1,2021-11-18T01:00:00+01:00,Rayon boucherie-charcuterie,Satisfaisant,,Rayon boucherie-charcuterie,48.816787,3.051908
+31792,CARREFOUR MARKET,126 RUE JEAN MONNET,77120,Mouroux,21-093575-1,2021-11-18T01:00:00+01:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,48.816787,3.051908
+32167,LYCEE GENERAL TECHNOLOGIQUE PROFESSIONNEL AGRICOLE,LA BRETONNIERE,77120,Chailly-en-Brie,21-100796-1,2021-12-09T01:00:00+01:00,Producteur fermier,Satisfaisant,,Producteur fermier,48.813906,3.15214
+32282,EARL DELPECH,16 RUE DE MAROLLES,77520,Montigny-Lencoup,21-029478-2,2021-04-15T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,48.440304,3.046352
+32328,CARREFOUR,R.N.3 - B.P. 70,77410,Claye-Souilly,21-102287-1,2021-12-14T01:00:00+01:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,48.941246,2.639877
+32472,GROUPE SOS SENIORS,RUE DU POITOU,77410,Villevaudé,21-102029-1,2021-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.917879,2.648489
+32475,GROUPE HOSPITALIER DU SUD ILE DE FRANCE,270 AV MARC JACQUET,77000,Melun,21-105922-1,2021-12-28T01:00:00+01:00,Restauration collective,Satisfaisant,77288001.0,Restauration collective,48.556272,2.639638
+32896,BOUCHERIE MONDIALE,"30, rue du Général Leclerc",77370,Nangis,21-083180-1,2021-10-12T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.556326,3.011864
+32916,EHPAD SAINT AILE,RUE DE SAINT-AILE,77510,Rebais,22-002064-1,2022-01-13T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.842174,3.227362
+32959,MAISON DE RETRAITE LA GARENNE,46 ROUTE D'EGREVILLE,77460,Souppes-sur-Loing,21-070330-1,2021-09-06T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.179659,2.742364
+33079,CHAMPIN,DOMAINE DE LA CHARLOTTERIE,77390,Ozouer-le-Voulgis,21-031437-2,2021-04-22T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,48.659784,2.774421
+33404,SINGLY,4 BOULEVARD DE STRASBOURG,77600,Bussy-Saint-Georges,21-036765-1,2021-05-11T02:00:00+02:00,Transformation de produits de la pêche,Très satisfaisant,77058001.0,,48.830347,2.735229
+33528,DE SICA,Rue de Strasbourg,77340,Pontault-Combault,20-097001-1,2021-12-13T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,77373002.0,,48.794988,2.624358
+33697,VIANDES DE L'OISE,ZAC LE GRAND CHAMP rue De La Têt,77440,Ocquerre,21-097377-1,2021-12-01T01:00:00+01:00,Découpe de viande de boucherie,Satisfaisant,77343001.0,,49.039207,3.059643
+33755,LYCEE POLYVALENT DE LA MARE CARREE,Rue de la Mare Carrée,77550,Moissy-Cramayel,21-026295-1,2021-03-29T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.628465,2.579352
+33919,A TEX (SAS),29 ALLEE DU CLOS DES CHARMES,77400,Collégien,21-049706-1,2021-06-23T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,77121001.0,,,
+33924,BERTO ILE DE FRANCE SUD,8 RUE DE LA BORNE BLANCHE,77380,Combs-la-Ville,21-104806-1,2021-12-21T01:00:00+01:00,Transport de denrées alimentaires,Satisfaisant,,,48.657029,2.552328
+33954,LA BARAKA,"32, rue des Chesnois",77130,Montereau-Fault-Yonne,21-033414-1,2021-04-27T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,48.39638,2.956676
+34091,MAIRIE COMMUNE LOGNES,1 Bis rue Mithridate,77185,Lognes,21-039827-1,2021-05-25T02:00:00+02:00,Restauration collective,Satisfaisant,77258001.0,Restauration collective,48.841762,2.629903
+34156,SINGLY,4 BOULEVARD DE STRASBOURG,77600,Bussy-Saint-Georges,21-036768-1,2021-05-11T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,77058001.0,,48.830347,2.735229
+34182,CREMERIE DU FAUBOURG,14 BIS AVENUE DE SENS,77250,Moret-Loing-et-Orvanne,21-030826-1,2021-04-20T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,77166001.0,,48.370417,2.827578
+34240,SEINE PORT,41 RUE DE SEINE,77240,Seine-Port,22-002723-1,2022-01-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.559324,2.54406
+34279,ESAT LA PYRAMIDE,1 RUE ROBERT SCHUMAN,77330,Ozoir-la-Ferrière,21-092897-1,2021-11-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,48.76749,2.686129
+34536,EHPAD LES JARDINS DE CHAGOT,"36, rue de l'Hotel de Ville",77890,Beaumont-du-Gâtinais,21-036034-1,2021-05-06T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,48.137003,2.476757
+34937,O'DELICES,108 AVENUE DU MARECHAL LECLERC,77460,Souppes-sur-Loing,21-056821-1,2021-07-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,48.186171,2.732013
+35070,ACTIV INTERNATIONAL,16 RUE HENRI BECQUEREL,77290,Mitry-Mory,21-039527-1,2021-07-07T02:00:00+02:00,Transformation de produits de la pêche,Très satisfaisant,77294008.0,,48.979313,2.643425
+35145,EARL VECTEN PASCAL,11 RUE DU CHARDONNERET,77165,Le Plessis-l'Évêque,21-064483-1,2021-08-12T02:00:00+02:00,Centre d'emballage des oeufs,Très satisfaisant,77366001.0,,48.9993,2.795135
+35475,CUISINE CENTRALE,3 AVENUE DU PALOISEL,77380,Combs-la-Ville,21-058208-1,2021-07-19T02:00:00+02:00,Restauration collective,A améliorer,77122004.0,Restauration collective,48.661366,2.563168

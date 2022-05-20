@@ -1,0 +1,472 @@
+,APP_Libelle_etablissement,Adresse_2_UA,Code_postal,Libelle_commune,Numero_inspection,Date_inspection,APP_Libelle_activite_etablissement,Synthese_eval_sanit,Agrement,filtre,lat,lon
+1213,L'ARCHE OISE,CAT-FOYER-MAS FORESTIERE,60350,Trosly-Breuil,22-016048-1,2022-03-04T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.395887,2.969693
+1242,LE COMPTOIR DES SAISONS,8 PL DE L'HOTEL DE VILLE,60360,Crèvecoeur-le-Grand,21-104720-1,2021-12-14T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.60823,2.076602
+1278,LES 2 AMIS,719 RUE DE PARIS,60520,La Chapelle-en-Serval,21-055481-1,2021-07-08T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.126107,2.533497
+1302,REF A55263,385 AV LOUIS ARAGON,60140,Liancourt,22-018603-1,2022-02-25T01:00:00+01:00,Restauration collective,Très satisfaisant,60360002.0,Restauration collective,49.330849,2.457046
+1309,LA TABLE GOURMANDE,11 RUE DU GENERAL LECLERC,60200,Compiègne,22-000780-1,2022-01-07T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.418696,2.823813
+1326,MAIRIE COMMUNE DE BALAGNY SUR THERAIN,4 rue Marcel Oudin,60250,Balagny-sur-Thérain,21-072212-1,2021-09-09T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.298103,2.334506
+1360,COLLEGE DE MARLY,74 AVENUE MONTESQUIEU,60170,Ribécourt-Dreslincourt,22-016166-1,2022-03-04T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.507956,2.922857
+1464,SOCIETE BEAUVAISIENNE DE RESTAURATION,HAMEAU DE CAMPDEVILLE,60112,Milly-sur-Thérain,21-101467-1,2021-12-07T01:00:00+01:00,Restauration collective,Satisfaisant,60403001.0,Restauration collective,49.487433,2.026799
+1471,INTERLOTS,RUE JEAN MONNET,60180,Nogent-sur-Oise,22-008550-1,2022-01-25T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.286666,2.460999
+1514,RESIDENCE LES MARAIS,RUE DES ECOLES,60280,Margny-lès-Compiègne,21-076588-1,2021-09-23T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.421967,2.811859
+1556,LEFEBVRE BRUNO,8 B PL MAURICE SEGONDS,60930,Bailleul-sur-Thérain,22-004854-1,2022-01-19T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.383137,2.223923
+1594,LE FLY KEBAB,9 PLACE DE VERDUN,60850,Saint-Germer-de-Fly,22-000922-1,2022-01-06T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.442509,1.78053
+1675,PARIS KABOUL MARKET,114 RUE HENRI PAUQUET,60100,Creil,22-000945-1,2022-01-06T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.266558,2.477801
+1686,DELICATESSEN,12 RUE DE BRAISNE,60113,Monchy-Humières,22-000988-1,2022-01-10T01:00:00+01:00,Alimentation générale|Traiteur,Très satisfaisant,,Alimentation générale|Traiteur,49.470822,2.758239
+1698,CLINIQUE EUGENIE,RUE DU FOUR A CHAUX,60350,Pierrefonds,22-019772-1,2022-03-18T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.32894,2.950372
+1711,VIANDES DE L OISE,14 PL DE L HOTEL DE VILLE,60110,Méru,21-045791-1,2021-06-09T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.236288,2.135071
+1749,SARL SAADA,94 RUE JEAN JAURES,60160,Montataire,22-005067-1,2022-01-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.256529,2.437884
+1857,LEGEIN DOMINIQUE,7 LE MENIVAL,60220,Lannoy-Cuillère,21-099128-1,2021-12-01T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,,,49.712702,1.760445
+1898,SAKURA WOK,ZONE ARTISANALE DES 8 CURES,60270,Gouvieux,22-002134-1,2022-01-05T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.203178,2.460457
+1961,AU PECHE GOURMAND,43 RUE DU GENERAL DE GAULLE,60520,Thiers-sur-Thève,21-086993-1,2021-10-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.151075,2.574077
+1999,SARL BOUCHERIE CHARCUTERIE CAMUS,8 RUE DE LA MARE DU FOUR,60510,Bresles,21-076750-1,2021-09-16T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,49.409813,2.25362
+2003,COMPASS GROUP FRANCE 7073,"59, Rue d'Amiens",60000,Beauvais,21-028266-1,2021-04-06T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.441265,2.090342
+2252,AYMRG,49 RUE ANDRE CARON,60230,Chambly,21-076883-1,2021-09-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.167019,2.243678
+2301,LE CAFE DE PARIS,LE CAFE DE PARIS,60000,Beauvais,22-001866-1,2022-01-13T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.419007,2.09498
+2319,LES BOSPHORES 3,LES BOSPHORES 3,60660,Cires-lès-Mello,21-084560-1,2021-10-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.285879,2.348767
+2351,UME SUSHI,26 AV JEAN JAURES,60290,Rantigny,22-001963-1,2022-01-13T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.326666,2.441735
+2371,DEGUINE,"14, rue du Général Leclerc",60210,Grandvilliers,21-098771-1,2021-12-01T01:00:00+01:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,49.666052,1.940196
+2425,LA FERMIERE,22 RUE DE SOISSONS,60350,Jaulzy,21-097134-1,2021-11-30T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.396403,3.071683
+2487,SARL PUNCH SERVICE,12 RUE DE LA REPUBLIQUE,60410,Verberie,21-041534-1,2021-05-27T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.309463,2.727959
+2517,ANTIOCHE,83 RUE HENRI PAUQUET,60100,Creil,22-002041-1,2022-01-06T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.265723,2.476092
+2519,OGEC DE L'INSTITUTION JEAN-PAUL II,3 rue de l'orangerie,60200,Compiègne,21-105221-1,2021-12-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.415064,2.830818
+2520,PIZZA KING,82 RUE DU GENERAL LECLERC,60690,Marseille-en-Beauvaisis,20-095680-1,2021-03-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.575418,1.955206
+2534,EARL DE LA FERME DE LA VALLEE,"365, route de Clermont",60480,Montreuil-sur-Brêche,22-011893-1,2022-02-01T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,,,49.504481,2.282963
+2557,SUSHI TORI,PL DE L'HOTEL DE VILLE,60430,Noailles,21-041535-1,2021-05-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.329278,2.20083
+2563,PLANET PIZZA,66 RUE DE LA REPUBLIQUE,60280,Clairoix,21-041575-1,2021-05-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.442281,2.861204
+2585,SITIS VILLERS ST PAUL,4 B BD DE LA REPUBLIQUE,60870,Villers-Saint-Paul,22-002291-1,2022-01-13T01:00:00+01:00,Libre service|Alimentation générale,A améliorer,,Libre service|Alimentation générale,49.288129,2.479523
+2641,MELINE,10 RUE SOLFERINO,60200,Compiègne,22-016097-1,2022-03-03T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.419245,2.823976
+2642,JETLAG FOOD,RD922,60520,La Chapelle-en-Serval,21-072161-1,2021-09-07T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.126247,2.528524
+2735,BAYART OLIVIER,73 RUE DE PARIS,60400,Noyon,22-002400-1,2022-01-17T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.578865,2.995312
+2908,EARL PAYEN-FLECHY,2 RUE DE LA RUELLETTE,60120,Fléchy,21-088637-1,2021-10-01T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.65912,2.226914
+2926,EHPAD,85 B RUE DU GENERAL LECLERC,60250,Mouy,22-011494-1,2022-01-27T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.314446,2.320018
+2987,MARMARIS,16 AV DU GEN FRERE,60120,Breteuil,22-002744-1,2022-01-03T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.630831,2.292554
+3011,UNITE PRODUCTION CULINAIRE,66 rue de Tilloy,60000,Beauvais,21-084480-1,2021-10-12T02:00:00+02:00,Restauration collective,Satisfaisant,60057016.0,Restauration collective,49.445098,2.103145
+3040,LE TRIO,LE TRIO,60350,Jaulzy,22-002735-1,2022-01-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.385578,3.04422
+3063,PICARDIE VENAISON,PICARDIE VENAISON,60200,Compiègne,21-098826-1,2021-11-30T01:00:00+01:00,Découpe de gibier sauvage,Satisfaisant,60159004.0,,49.399186,2.809531
+3066,PICARDIE VENAISON,PICARDIE VENAISON,60200,Compiègne,21-099104-1,2021-11-30T01:00:00+01:00,Traitement du gibier sauvage,Satisfaisant,60159004.0,,49.399186,2.809531
+3076,LA LIOVETTE SALAMANDRE,35 RUE ARNAUD BISSON,60000,Beauvais,21-041126-1,2021-05-20T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.420581,2.075433
+3145,RESTAURANT SCOLAIRE,22 RUE HUBERT GRISON,60160,Thiverny,21-074315-1,2021-09-16T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.248707,2.43099
+3184,FOYER LA SAGESSE,rue des érables,60800,Crépy-en-Valois,21-061563-1,2021-07-19T02:00:00+02:00,Restauration collective,Satisfaisant,60176001.0,Restauration collective,49.224024,2.900162
+3415,LE WOOD,27 PL DU CHANGE,60200,Compiègne,21-066264-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416596,2.825146
+3460,SOCIETE DES QUATRE VENTS,Ferme du Moulin,60640,Guiscard,21-037837-1,2021-04-21T02:00:00+02:00,Transformation de lait ou produits laitiers,Satisfaisant,60291031.0,,49.658453,3.061616
+3582,THEBAULT FRANCIS,24 CHEMIN DE CAPPY,60410,Saint-Vaast-de-Longmont,21-064687-1,2021-08-10T02:00:00+02:00,Commerce alimentaire,Très satisfaisant,,,49.301247,2.730015
+3599,SOCIETE LAITIERE DE CLERMONT,"2, Rue Henri Breuil",60600,Clermont,21-101074-1,2021-12-10T01:00:00+01:00,Transformation de lait ou produits laitiers,Très satisfaisant,60157031.0,,49.385072,2.410879
+3673,CENTRE HOSPITALIER GENERAL,EOLE HEMATOLOGIE ONCOLOGIE,60000,Beauvais,21-060148-1,2021-07-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.41732,2.092066
+3681,CENTRE HOSPITALIER GENERAL,Avenue Léon Blum,60000,Beauvais,21-060789-1,2021-07-27T02:00:00+02:00,Restauration collective,Très satisfaisant,60057020.0,Restauration collective,49.45111,2.072654
+3787,SOCIETE LAITIERE DE CLERMONT,"2, Rue Henri Breuil",60600,Clermont,22-011314-1,2022-01-04T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,60157031.0,,49.385072,2.410879
+3850,R PREETHY,72 RUE VOLTAIRE,60160,Montataire,22-004180-1,2022-01-18T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.25855,2.429574
+3910,LE JANVILLE,65 RUE RENE RICHARD,60150,Janville,22-004425-1,2022-01-21T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.454102,2.861581
+3916,DALI RESTAURATION,29 RUE DU PORT A BATEAUX,60200,Compiègne,21-061140-1,2021-08-02T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.414978,2.820366
+3934,EPICERIE DU COIN,30 RUE ROGER SALENGRO,60160,Montataire,22-004411-1,2022-01-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.261415,2.429853
+3971,LE JARDIN DU CLOITRE,9 rue saint corneille,60200,Compiègne,22-005025-1,2022-01-24T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.417289,2.824762
+4018,PIZZA LINA,23 RUE ROGER SALENGRO,60160,Montataire,22-004810-1,2022-01-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.260781,2.430047
+4027,CAISSE PRIMAIRE D ASSURANCE MALADIE,1 RUE DE SAVOIE,60000,Beauvais,22-001095-1,2022-01-07T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.437892,2.09985
+4080,LEFEBVRE BRUNO,8 B PL MAURICE SEGONDS,60930,Bailleul-sur-Thérain,22-004917-1,2022-01-19T01:00:00+01:00,Fromagerie,Satisfaisant,,Fromagerie,49.383137,2.223923
+4110,COLGATE-PALMOLIVE INDUSTRIEL,avenue du vermandois,60200,Compiègne,21-057348-1,2021-07-19T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.429369,2.838595
+4281,BOUCHERIE HECQUET,6 PL GEORGES TAINTURIER,60940,Cinqueux,22-005109-1,2022-01-14T01:00:00+01:00,Traiteur|Boucherie-Charcuterie,A améliorer,,Traiteur|Boucherie-Charcuterie,49.319362,2.526332
+4458,ELRES,400 RUE PATRICK SIMIAND,60700,Les Ageux,21-081593-1,2021-10-01T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.310679,2.599563
+4473,PIZZA VENEZIA,12 RUE DE PARIS,60530,Neuilly-en-Thelle,21-076812-1,2021-09-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.223421,2.284293
+4557,CARREFOUR MARKET,rue des hiebles,60120,Breteuil,22-005537-1,2022-01-03T01:00:00+01:00,Rayon traiteur|Rayon boucherie-charcuterie,Satisfaisant,,Rayon traiteur|Rayon boucherie-charcuterie,49.637546,2.286113
+4590,CARREFOUR MARKET,rue des hiebles,60120,Breteuil,22-005670-1,2022-01-03T01:00:00+01:00,Rayon fromagerie,Satisfaisant,,Rayon fromagerie,49.637546,2.286113
+4677,CFAI OISE,6 AVENUE PAUL HENRI SPAAK,60000,Beauvais,21-086886-1,2021-10-20T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.449412,2.100258
+4717,CHEZ HELENA,2 RUE SAINT MARTIN,60510,Laversines,22-005948-1,2022-01-26T01:00:00+01:00,Libre service|Alimentation générale,A améliorer,,Libre service|Alimentation générale,49.427188,2.193608
+4860,CHEZ HELENA,2 RUE SAINT MARTIN,60510,Laversines,22-006333-1,2022-01-26T01:00:00+01:00,Traiteur,A améliorer,,Traiteur,49.427188,2.193608
+4890,EPICERIE DU COIN,30 RUE ROGER SALENGRO,60160,Montataire,22-004230-1,2022-01-18T01:00:00+01:00,Libre service|Alimentation générale,A améliorer,,Libre service|Alimentation générale,49.261415,2.429853
+4924,LA BARAKA,111 PL CHARLES DE GAULLE,60230,Chambly,21-076769-1,2021-09-21T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.166307,2.24812
+4926,METRO FRANCE,rue de la Révolution Française,60740,Saint-Maximin,21-075125-1,2021-09-15T02:00:00+02:00,Entreposage de distribution de denrées alimentaires,Très satisfaisant,60589093.0,,49.235159,2.463932
+4928,CHICKEN TANDOORI,1 AV DU 8 MAI,60180,Nogent-sur-Oise,22-006392-1,2022-01-25T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.276157,2.464619
+4944,CBV,2 ALL DU GENERAL CHARLES AUBRY,60960,Feuquières,21-045550-1,2021-06-07T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.649345,1.841867
+4989,LA BOITE A GATEAUX,2 RUE DE L'IMAGE,60940,Cinqueux,21-090797-1,2021-10-06T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.319479,2.526748
+5088,LIDL,LIDL,60340,Saint-Leu-d'Esserent,22-006221-1,2022-01-19T01:00:00+01:00,Rayon pain/viennoiserie/pâtisserie,Très satisfaisant,,Rayon pain/viennoiserie/pâtisserie,49.225314,2.419746
+5100,L'HIPPOCAMPE DE CHANTILLY,115 RUE DU CONNETABLE,60500,Chantilly,22-006299-1,2022-01-26T01:00:00+01:00,Traiteur,Satisfaisant,,Traiteur,49.194078,2.46755
+5205,CARREFOUR MARKET,CARREFOUR MARKET,60360,Crèvecoeur-le-Grand,22-006348-1,2022-01-27T01:00:00+01:00,Libre service,Très satisfaisant,,Libre service,49.603508,2.084884
+5207,O'COUSCOUS ROYAL,2 AVENUE DE SENLIS,60800,Crépy-en-Valois,21-099119-1,2021-11-19T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.232263,2.88589
+5299,CMA BEAUVAIS,3 RUE LEONARD DE VINCI,60006,Beauvais,21-025525-1,2021-03-24T01:00:00+01:00,Découpe de viande de boucherie,Très satisfaisant,60057014.0,,49.444514,2.098667
+5309,PARC ASTERIX,PARC ASTERIX,60128,Plailly,21-063043-1,2021-08-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.133169,2.572071
+5370,LE FLAMBONNEAU,20 RUE GAMBETTA,60100,Creil,21-046423-1,2021-06-08T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.263234,2.474073
+5401,TAJ MAHAL,24 PLACE DU GENERAL LECLERC,60600,Clermont,20-096747-1,2021-07-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.379168,2.416896
+5561,AUX 3 CANONS,2 RUE JULES JUILLET,60100,Creil,22-008065-1,2022-01-27T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.264332,2.471671
+5785,CAFE HOTEL RESTAURANT DE LA GARE DE VILLERS,2 RUE DU MARAIS,60870,Villers-Saint-Paul,22-002386-1,2022-01-13T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.282677,2.489129
+5831,PIZZA CROUSTY,36 RUE DU PONT ROYAL,60180,Nogent-sur-Oise,22-008713-1,2022-01-27T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.26661,2.47354
+5853,DELARGILLIERE VINCENT,29 rue du Bray,60112,Pierrefitte-en-Beauvaisis,21-099479-1,2021-12-07T01:00:00+01:00,Transformation de lait ou produits laitiers,Satisfaisant,60490001.0,,49.478647,1.949184
+5958,EL FTAH,48 AVENUE DU PRESIDENT KENNEDY,60800,Crépy-en-Valois,21-041194-1,2021-05-26T02:00:00+02:00,Commerce alimentaire,Satisfaisant,,,49.226375,2.883247
+6049,BOULANGERIE PATISSERIE SAINT HONORE,16 RUE DU CHATEAU,60130,Bulles,21-081685-1,2021-10-06T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.46021,2.326493
+6058,EPICERIE DU VILLAGE AKWABA,32 RUE CHARLES DE GAULLE,60460,Précy-sur-Oise,22-008763-1,2022-02-01T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.206829,2.369922
+6106,MARCELINE EXOTIC,43 RUE DE LA TAPISSERIE,60000,Beauvais,21-048220-1,2021-06-15T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.427458,2.083636
+6216,HS GO,27 AV PASTEUR,60800,Crépy-en-Valois,20-095761-1,2021-04-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.229422,2.893303
+6223,PIZZA CROUSTY,11 RUE DORNAT,60220,Formerie,20-096015-1,2021-04-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.649593,1.732034
+6248,LA POPOTE,16 B RUE SAINT JEAN,60350,Vieux-Moulin,22-009281-1,2022-01-28T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.392047,2.932474
+6279,LA MAIN DE FATMA,25 RUE DU VINGT SEPT JUIN,60000,Beauvais,22-008818-1,2022-02-01T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.434214,2.086839
+6291,PIZZA ROMA,21 PL DU 11 NOVEMBRE,60510,Bresles,21-048089-1,2021-06-17T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.408435,2.249849
+6326,PIZZA DELICE,54 RUE PASTEUR,60540,Bornel,21-059895-1,2021-07-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.196697,2.206555
+6406,PECHON MORGAN,21 RUE DE PARIS,60190,Gournay-sur-Aronde,22-016130-1,2022-03-04T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.49175,2.67437
+6582,SYND REGROUP PEDAGOGIQUE CONCENTRE  BACOUEL TARTIGNY LE MESNIL-ST-FIRMIN ROCQUENCOURT SERIVILLERS BROYES PLAINVILLE,1 RUE DE LA GARE,60120,Bacouël,22-009162-1,2022-01-17T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.623573,2.384258
+6674,PAUSE CAFE,4 BD SAINT ANDRE,60000,Beauvais,21-103344-1,2021-12-14T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.433059,2.089971
+6791,ROBERT JEAN,64 RUE DE L ABBAYE,60600,Agnetz,22-010522-1,2022-02-10T01:00:00+01:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,49.398911,2.386747
+6827,AUCHAN HYPERMARCHE,RUE MARCEL COQUET,60110,Méru,22-010703-1,2022-02-10T01:00:00+01:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,49.224622,2.137069
+6909,SHISO SUSHI,79 RUE DU FG ST MARTIN,60300,Senlis,21-062938-1,2021-08-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.200252,2.580149
+6953,LE BOSPHORE D'ISTANBUL,326 RUE DE PARIS,60170,Ribécourt-Dreslincourt,22-010892-1,2022-02-14T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.508058,2.919969
+7043,EURL LE FRIOUL,EURL LE FRIOUL,60170,Ribécourt-Dreslincourt,22-010808-1,2022-02-14T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.516213,2.923003
+7064,KARS KEBAB,43 RUE DE LA REPUBLIQUE,60160,Montataire,22-010883-1,2022-02-08T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.256837,2.43287
+7156,AUCHAN HYPERMARCHE,RUE MARCEL COQUET,60110,Méru,22-010660-1,2022-02-10T01:00:00+01:00,Rayon boucherie-charcuterie,Très satisfaisant,,Rayon boucherie-charcuterie,49.224622,2.137069
+7192,AMEERA,45 PL ST MEDARD,60100,Creil,20-095748-1,2021-04-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.258754,2.477414
+7194,FERME DU PRE SAS,La Fosse Mostelle,60590,Sérifontaine,21-062488-1,2021-08-03T02:00:00+02:00,Production d'œuf liquide d'ovoproduit et produits à base œuf,Très satisfaisant,60616001.0,,49.389029,1.780799
+7314,CHEZ BIBI,CHEZ BIBI,60160,Montataire,22-010616-1,2022-02-08T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,,
+7368,BOULANGERIE ANGE,RUE DE LA LIBERTE,60740,Saint-Maximin,22-010733-1,2022-02-08T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.242202,2.469522
+7399,PROMOCASH,PROMOCASH,60000,Beauvais,21-103989-1,2021-12-15T01:00:00+01:00,Entreposage de distribution de denrées alimentaires,Satisfaisant,60057002.0,,49.440124,2.084626
+7784,FOURNIER SYLVAIN,BOUCHERIE CHARCUTERIE SAINT LAZARE,60750,Choisy-au-Bac,22-012115-1,2022-02-18T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.437344,2.874422
+7963,SENNEUR JEAN,"24, rue Dornat",60220,Formerie,21-027105-1,2021-03-31T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.649214,1.732769
+8012,PIZZA EL NAPOLI,8 RUE DU COMMERCE,60350,Attichy,22-012497-1,2022-02-21T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.411314,3.048361
+8100,PAUSE CAFE BEAUVAIS,4 boulevard Saint André,60000,Beauvais,22-011782-1,2022-02-01T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.433059,2.089971
+8162,SUPERETTE CREIL,23 RUE ANTOINE CHANUT,60100,Creil,21-051628-1,2021-06-29T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.26213,2.471308
+8173,JSP INTERNATIONAL,route de francières,60190,Estrées-Saint-Denis,21-051334-1,2021-06-07T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.428524,2.651185
+8224,DELICE RANTIGNY,route de liancourt,60290,Rantigny,20-096751-1,2021-07-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.323787,2.446534
+8463,SARL TENART,37 RUE DE L EGLISE,60310,Cuy,22-012386-1,2022-01-04T01:00:00+01:00,Libre service|Alimentation générale,Très satisfaisant,,Libre service|Alimentation générale,49.58253,2.900969
+8484,HOPITAL GEORGES DECROZE,5 rue Ambroise Croisat,60700,Pont-Sainte-Maxence,22-012512-1,2022-02-11T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.295552,2.607229
+8606,AUX GALERIES DE LA CROISETTE,"35, rue de Solférino",60200,Compiègne,21-064622-1,2021-08-12T02:00:00+02:00,Rayon boucherie-charcuterie,Satisfaisant,,Rayon boucherie-charcuterie,49.418513,2.825044
+8621,LE P'TI BOUGNAT,8 place du marché aux herbes,60200,Compiègne,21-070905-1,2021-08-12T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.417313,2.823865
+8622,OMER SUPERSTORE,65 RUE GAMBETTA,60100,Creil,21-051675-1,2021-06-29T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.264858,2.473624
+8649,LOF,2 RUE HENRI BECQUEREL,60230,Chambly,21-097649-1,2021-11-22T01:00:00+01:00,Restauration collective,Satisfaisant,60139003.0,Restauration collective,49.15713,2.251097
+8789,INSTITUT MEDICAL DE BRETEUIL,32 RUE DE PARIS,60120,Breteuil,22-000828-1,2022-01-07T01:00:00+01:00,Restauration collective,A améliorer,,Restauration collective,49.631317,2.298543
+8800,B.BOLLYWOOD,26 RUE DE LA REPUBLIQUE,60300,Senlis,22-012682-1,2022-02-16T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.201762,2.582458
+8814,ACCUEIL DE JOUR DE BEAUVAIS,RUE SANS TERRE,60000,Beauvais,21-081581-1,2021-10-06T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.426258,2.118779
+8818,AUX GALERIES DE LA CROISETTE,"35, rue de Solférino",60200,Compiègne,21-064681-1,2021-08-12T02:00:00+02:00,Rayon traiteur|Rayon boucherie-charcuterie,Très satisfaisant,,Rayon traiteur|Rayon boucherie-charcuterie,49.418513,2.825044
+8869,COMMUNE DE VERBERIE,13 RUE DES REMPARTS,60410,Verberie,21-041452-1,2021-05-27T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.306023,2.728056
+8870,COPPENS NICOLAS,269 RUE LOUIS PORTEBOIS,60290,Laigneville,21-058215-1,2021-07-02T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.295329,2.445548
+8902,LE LOUNGE,4 place du jeu de paume,60120,Breteuil,22-013672-1,2022-01-28T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.634982,2.293969
+8904,MAIRIE COMMUNE DE NOGENT SUR OISE,1 rue faidherbe,60180,Nogent-sur-Oise,22-008991-1,2022-02-03T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.279177,2.460102
+8912,BOUCHERIE DE L'ABBAYE,16 B RUE SAINT CORNEILLE,60200,Compiègne,21-052826-1,2021-07-02T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.417359,2.824448
+8981,8 A HUIT,14 PLACE MARIUS HAUSSY,60890,Mareuil-sur-Ourcq,21-053066-1,2021-06-30T02:00:00+02:00,Libre service,Satisfaisant,,Libre service,49.13776,3.077628
+9070,BENITAH SYLVIE,21 RUE DE BILLY,60330,Le Plessis-Belleville,21-055355-1,2021-07-06T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.0964,2.756685
+9126,L'HOSTAL,23 RUE D AMIENS,60120,Breteuil,22-013634-1,2022-01-28T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.634383,2.293649
+9344,CENTRE HOSPITALIER DE CLERMONT,RUE FREDERIQUE REBOISSON,60600,Clermont,20-096670-1,2021-07-12T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.381408,2.411851
+9365,ELRES,17 RUE PAUL JOURNEE,60240,Chaumont-en-Vexin,22-009059-1,2022-02-03T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.274858,1.878359
+9405,8 A HUIT,14 PLACE MARIUS HAUSSY,60890,Mareuil-sur-Ourcq,21-053152-1,2021-06-30T02:00:00+02:00,Rayon pain/viennoiserie/pâtisserie,Satisfaisant,,Rayon pain/viennoiserie/pâtisserie,49.13776,3.077628
+9814,RESTAURANT LE RELAI DE SAINT LEU,_,60850,Cuigy-en-Bray,21-041263-1,2021-05-27T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.428902,1.834838
+9905,MDF CHANTILLY,4 LES HUIT CURES,60270,Gouvieux,21-098962-1,2021-11-25T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.203001,2.460645
+9947,CREP'S,40 RUE DE LA REPUBLIQUE,60700,Pont-Sainte-Maxence,20-096451-1,2021-06-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.305067,2.604355
+10059,LA BODEGA,12 RUE SAINT CORNEILLE,60200,Compiègne,21-085329-1,2021-10-19T02:00:00+02:00,Commerce alimentaire,Satisfaisant,,,49.417414,2.824628
+10060,SUSHI TORI,732 RUE DE PARIS,60520,La Chapelle-en-Serval,21-087063-1,2021-10-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.126294,2.533628
+10215,SARL MAISON ANCELIN,"85, Rue du Général Leclerc",60640,Guiscard,21-043463-1,2021-06-01T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.656989,3.052138
+10217,LE FOUR A BOIS,14 RUE ROGER DUPLESSIS,60140,Liancourt,21-099774-1,2021-11-19T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.328657,2.465556
+10292,BISTRO N17,Carrefour des quatre routes,60520,La Chapelle-en-Serval,21-072286-1,2021-09-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.100031,2.529415
+10349,ECOLE ELEMENTAIRE MARCEL PAGNOL,Rue de Sénéfontaine,60000,Beauvais,22-016081-1,2022-03-04T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.41833,2.071456
+10377,LG CREATION,PL JACQUES TATI,60880,Jaux,21-056521-1,2021-07-13T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.402342,2.774945
+10529,HANDI AIDE,9 RUE DE LA LIBERATION,60120,Ansauvillers,21-075107-1,2021-08-13T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.561535,2.381193
+10563,ALYAZ,11 R JOHN FITZGERALD KENNEDY,60510,Bresles,21-045651-1,2021-06-08T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.411198,2.249555
+10576,AKZO NOBEL DECORATIVE PAINTS FRANCE,16 RUE DES DEPORTES,60160,Montataire,21-079095-1,2021-09-16T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.253581,2.436939
+10652,O BISTROT CHIC,62 RUE DU CONNETABLE,60500,Chantilly,21-072725-1,2021-08-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.194466,2.474464
+10782,DANA INVESTISSEMENTS,21BIS RUE DU BOIS TILLET,60800,Crépy-en-Valois,21-069957-1,2021-04-15T02:00:00+02:00,Préparation de produits composés,Satisfaisant,,,49.22787,2.903639
+10797,ECOLE ELEMENTAIRE GEORGES DARTOIS,"29, Avenue des Ecoles",60000,Beauvais,22-012104-1,2022-02-16T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.447271,2.081481
+10918,BOUCHERIE FRAIS,RUE JEAN MONNET,60180,Nogent-sur-Oise,20-096294-1,2021-05-18T02:00:00+02:00,Alimentation générale|Boucherie-Charcuterie,Satisfaisant,,Alimentation générale|Boucherie-Charcuterie,49.286666,2.460999
+11008,CHEZ DAN,5 RUE PAUL GREBER,60000,Allonne,21-061812-1,2021-08-04T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.408393,2.120928
+11011,MAISON DE SANTE,rue de Choisy,60170,Tracy-le-Mont,22-000156-1,2022-01-03T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.477778,2.996091
+11159,LE SUN,7 RUE GAMBETTA,60440,Nanteuil-le-Haudouin,21-105410-1,2021-12-10T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.139266,2.809425
+11214,BOUCHERIE DE LA VICTOIRE,10 RUE DE NORMANDIE,60200,Compiègne,21-094089-1,2021-11-18T01:00:00+01:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.403414,2.817541
+11216,DELARGILLIERE VINCENT,29 rue du Bray,60112,Pierrefitte-en-Beauvaisis,21-048240-1,2021-06-08T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.478647,1.949184
+11288,CHARCUTERIE RICHARD,27 RUE DE L'INDUSTRIE,60000,Beauvais,21-103938-1,2021-11-29T01:00:00+01:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,60057013.0,,49.416818,2.123299
+11440,BISTROT DE L'IMPREVU,BISTROT DE L'IMPREVU,60200,Compiègne,22-012263-1,2022-02-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,,
+11552,MARCHE FRAIS LEADER PRICE,11 Avenue Montaigne,60000,Beauvais,21-062929-1,2021-08-04T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.412725,2.106582
+11581,CHARCUTERIE RICHARD,27 RUE DE L'INDUSTRIE,60000,Beauvais,21-103928-1,2021-11-29T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,60057013.0,,49.416818,2.123299
+11679,SARL VIANDES DE L OISE,5 RUE MAURICE SEGONDS,60000,Beauvais,21-032085-1,2021-04-13T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.421555,2.073917
+11690,MAMAIOLE,33 ALL DES ARTISANS,60700,Pont-Sainte-Maxence,22-018076-1,2022-03-08T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.306027,2.579618
+12011,ECOLE ELEMENTAIRE PUB R BLONDEAU,Place de la Foulerie.,60240,Chaumont-en-Vexin,21-076893-1,2021-09-21T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.263934,1.885029
+12041,LA MER DE SABLE,RN 330,60950,Ermenonville,21-090366-1,2021-10-27T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.111838,2.72164
+12107,PEPPOLE PIZZA,33 RUE SAINT CORNEILLE,60200,Compiègne,21-032212-1,2021-04-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.41679,2.823336
+12110,PARIS KEBAB,5 PLACE DU MARECHAL LECLERC,60530,Neuilly-en-Thelle,22-008932-1,2022-02-01T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.224265,2.285203
+12243,AUCHAN HYPERMARCHE,RUE MARCEL COQUET,60110,Méru,22-010531-1,2022-02-10T01:00:00+01:00,Rayon fromagerie|Rayon boucherie-charcuterie,Satisfaisant,,Rayon fromagerie|Rayon boucherie-charcuterie,49.224622,2.137069
+12473,LES ALYSSES,124 RUE DE LA 4EME DIVISION D'INFANTERIE COLONIALE,60130,Lieuvillers,21-065119-1,2021-07-22T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.486924,2.504128
+12525,S 2 R SOCIETE DE RESTAURATION RAPIDE,PLATEAU DE CREIL,60100,Creil,22-018270-1,2022-03-03T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.25818,2.479018
+12718,CTRE READAP ALPHONSE DE ROTHSCHILD,20 rue Victor HUGO,60500,Gouvieux,21-090210-1,2021-11-02T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.186897,2.458553
+12792,RESTAURANT LE SOLEIL,227 RUE DE LA REPUBLIQUE,60280,Clairoix,21-108817-1,2022-02-10T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.432408,2.839917
+12874,EARL DE LA PISCICULTURE DE BULLES,25 RUE DU HOUSSOY,60130,Bulles,21-059356-1,2021-07-12T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.454607,2.322564
+12967,ASSOCIATION SAINT JOSEPH,30 RUE ANNE-MARIE JAVOUHAY,60120,Le Mesnil-Saint-Firmin,22-009141-1,2022-01-17T01:00:00+01:00,Restauration collective,Très satisfaisant,60399002.0,Restauration collective,49.628302,2.410715
+13104,LE SAINT TROPEZ,17 RUE DE L ESTACADE,60200,Compiègne,21-088749-1,2021-10-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.426125,2.83483
+13168,ECOLE PRIMAIRE PUBLIQUE,"15, rue Georges Hernoux",60112,Herchies,21-036816-1,2021-05-07T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.487898,2.008379
+13591,DANA INVESTISSEMENTS,21BIS RUE DU BOIS TILLET,60800,Crépy-en-Valois,21-040369-1,2021-04-15T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,60176052.0,,49.22787,2.903639
+13768,SUN BURGER,13 RUE CHARLES DE GAULLE,60800,Crépy-en-Valois,21-057450-1,2021-07-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.233894,2.887439
+13841,ANATOLIA,57 RUE HENRI DUNANT,60100,Creil,21-039440-1,2021-05-18T02:00:00+02:00,Alimentation générale|Boucherie-Charcuterie,Satisfaisant,,Alimentation générale|Boucherie-Charcuterie,49.250965,2.466993
+13861,EARL DE MESENGUY,2 rue de Mesenguy,60390,Les Hauts Talican,21-104956-1,2021-12-08T01:00:00+01:00,Découpe de viande de boucherie,Satisfaisant,60054001.0,,49.351281,2.009897
+13901,CENTRE HOSPITALIER INTERCOMMUNAL COMPIEGNE NOYON,CHICN,60200,Compiègne,21-061324-1,2021-08-02T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.405934,2.844366
+14067,CARREFOUR,route nationale 31,60280,Venette,21-060456-1,2021-07-29T02:00:00+02:00,Rayon fromagerie,Satisfaisant,,Rayon fromagerie,49.416856,2.807303
+14128,"SI BERTHECOURT,PONCHON,VILLERS ST SEPULC",40 RUE JULES FERRY,60370,Berthecourt,21-060628-1,2021-07-29T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.351452,2.22794
+14369,PARISTANBUL EXPRESS,171 RUE JEAN MONNET,60180,Nogent-sur-Oise,22-008790-1,2022-01-26T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.286666,2.460999
+14403,BIGOT MAURICE,15 PLACE DE L HOTEL DE VILLE,60350,Pierrefonds,21-101654-1,2021-12-13T01:00:00+01:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.347752,2.978242
+14450,SARL L'ASIANE,63 RUE DE PARIS,60400,Noyon,21-062528-1,2021-08-04T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.579083,2.995711
+14455,BIGOT MAURICE,15 PLACE DE L HOTEL DE VILLE,60350,Pierrefonds,21-061553-1,2021-07-30T02:00:00+02:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.347752,2.978242
+14472,LEROY FLORENCE,11 PLACE DU PAON,60800,Crépy-en-Valois,21-077400-1,2021-09-08T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,49.23479,2.88764
+14492,LE PONTARME,42 GRANDE RUE,60520,Pontarmé,21-061124-1,2021-07-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.153287,2.549013
+14530,PIZZA PASTA DEL ARTE,PIZZA PASTA DEL ARTE,60740,Saint-Maximin,22-013104-1,2022-02-17T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,,
+14672,COMITE ENTREPRISE CPAM,RUE RIBOT,60100,Creil,21-090459-1,2021-10-28T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.260641,2.477314
+14773,CHICK'N MAX,25 RUE GAMBETTA,60100,Creil,21-045789-1,2021-06-08T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.263537,2.473801
+14912,CARREFOUR,route nationale 31,60280,Venette,21-063397-1,2021-07-28T02:00:00+02:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,49.416856,2.807303
+14951,ZHONG CHUAN,13 RUE JEANNE D ARC,60800,Crépy-en-Valois,21-052586-1,2021-06-30T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.236171,2.886836
+14992,EARL DE MESENGUY,2 rue de Mesenguy,60390,Les Hauts Talican,21-104986-1,2021-12-08T01:00:00+01:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,60054001.0,,49.351281,2.009897
+15166,FERME DU PRE SAS,LA FOSSE MOSTELLE,60590,Éragny-sur-Epte,21-062896-1,2021-08-03T02:00:00+02:00,Production d'œuf liquide d'ovoproduit et produits à base œuf,Très satisfaisant,60211041.0,,49.314694,1.775321
+15393,ROUSSEL VINCENT,CAFE DE LA POSTE,60430,Warluis,22-012041-1,2022-02-15T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,,
+15558,LES DELICES DE LA TABLE,23  R   JULES FERRY,60610,Lacroix-Saint-Ouen,22-005544-1,2022-01-24T01:00:00+01:00,Métier de bouche,Satisfaisant,,,49.356003,2.783689
+15587,INTERMARCHE,route de Beauvais,60250,Angy,21-037839-1,2021-05-04T02:00:00+02:00,Rayon poissonnerie,Satisfaisant,,Rayon poissonnerie,49.320743,2.332255
+15627,LA CITEE SUSPENDUE HOTEL,Parc Asterix,60128,Plailly,21-064198-1,2021-08-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.133169,2.572071
+15655,CARPE DIEM ROYALLIEU,2 RUE CHARLES GAND,60200,Compiègne,21-088551-1,2021-10-29T02:00:00+02:00,Restauration collective,Très satisfaisant,60159002.0,Restauration collective,49.40309,2.803359
+15814,MAISON SAVARY,16 RUE DES GRANDS PRES,60230,Chambly,21-098768-1,2021-12-03T01:00:00+01:00,Préparation de produits composés,Satisfaisant,60139002.0,,49.176988,2.226942
+15880,ANTENNE DU CROUS,"52, Bd  St André",60000,Beauvais,21-095721-1,2021-11-23T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.431455,2.08977
+15903,L'HIPPOCAMPE DE CHANTILLY,115 RUE DU CONNETABLE,60500,Chantilly,22-006249-1,2022-01-26T01:00:00+01:00,Poissonnerie,Satisfaisant,,Poissonnerie,49.194078,2.46755
+15970,LA CALABRAISE,22 RUE DES LOMBARDS,60200,Compiègne,21-064360-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416355,2.826551
+16050,BY SAM,1 RUE DES CORDELIERS,60200,Compiègne,21-064725-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416348,2.826367
+16072,"CUIS""IN""D'ANTAN",134 B RUE GONDOT,60940,Monceaux,21-064598-1,2021-08-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.319906,2.549395
+16084,AUX GALERIES DE LA CROISETTE,"35, rue de Solférino",60200,Compiègne,21-064699-1,2021-08-12T02:00:00+02:00,Rayon fromagerie,Très satisfaisant,,Rayon fromagerie,49.418513,2.825044
+16135,BY SAM,20 rue des Lombards,60200,Compiègne,21-064782-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416382,2.82649
+16183,BOUCHERIE-CHARCUTERIE-TRAITEUR,4 RUE CALVIN,60400,Noyon,21-062647-1,2021-08-04T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Très satisfaisant,,Traiteur|Boucherie-Charcuterie,49.58185,2.998587
+16214,SNACK DU TK,CHE DE RIVECOURT,60410,Verberie,21-065752-1,2021-08-17T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.303991,2.724628
+16259,LA PECHERIE DIEPPOISE,15 ALL DES ARCADES,60260,Lamorlaye,21-046910-1,2021-06-10T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.155054,2.44154
+16289,SUB CARNOT BEAUVAIS,49 RUE CARNOT,60000,Beauvais,21-065912-1,2021-08-19T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.432223,2.084147
+16326,MAISON DE RETRAITE,272 RUE ISIDORE DE POMMERY,60400,Cuts,21-053324-1,2021-06-04T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.531219,3.10465
+16451,LES JARDINS D'IROISE DE LABOISSIERE EN THELLE,"50, Rue de MERU",60570,Laboissière-en-Thelle,21-104179-1,2021-12-16T01:00:00+01:00,Restauration collective,Satisfaisant,60330001.0,Restauration collective,49.287171,2.159806
+16458,BOULANGERIE LA ROCHEFOUCAULD,9 PL DE LA ROCHEFOUCAULD,60140,Liancourt,21-059154-1,2021-07-02T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.329825,2.464313
+16461,PAUSE PIZZA,21 RUE DE LA MADELEINE,60420,Maignelay-Montigny,21-028798-1,2021-04-08T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.551606,2.52032
+16523,EL FTAH,48 AVENUE DU PRESIDENT KENNEDY,60800,Crépy-en-Valois,21-041042-1,2021-05-26T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,49.226375,2.883247
+16567,THULEAU THIERRY,14 RUE SAINT-PIERRE,60410,Verberie,21-043592-1,2021-06-02T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.310028,2.728089
+16610,RESTAURANT LES TROIS BRASSEURS,AV JEAN MOULIN,60880,Jaux,21-028894-1,2021-04-09T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.406077,2.776697
+16743,CMA COMPIEGNE,1 B RUE JOSEPH CUGNOT,60200,Compiègne,21-043607-1,2021-06-02T02:00:00+02:00,Découpe de viande de boucherie,Très satisfaisant,60159003.0,,49.392692,2.783861
+16745,PIZZA TIME,42 RUE DE LA REPUBLIQUE,60700,Pont-Sainte-Maxence,20-096250-1,2021-04-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.305147,2.604353
+16827,LE CORDELIER,11 RUE DE SENLIS,60200,Compiègne,21-066402-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.396229,2.804077
+16883,GROUPE HOSPITALIER PUBLIC DU SUD DE L OISE,BD LAENNEC,60100,Creil,22-018142-1,2022-03-03T01:00:00+01:00,Restauration collective,Très satisfaisant,60175002.0,Restauration collective,49.248791,2.462394
+17061,L'ARTISAN,34 AV JULES UHRY,60100,Creil,21-076594-1,2021-09-24T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.263475,2.470042
+17085,BERRICH MEHREZ,33 rue victor hugo,60100,Creil,22-012653-1,2022-02-18T01:00:00+01:00,Alimentation générale,Satisfaisant,,Alimentation générale,49.26417,2.475891
+17137,CCMO EVEIL,8 AVENUE DU BEAUVAISIS,60000,Beauvais,22-000881-1,2022-01-05T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.436802,2.121983
+17150,MAIRIE COMMUNE DE NOGENT SUR OISE,9BIS AVENUE DU 8 MAI,60180,Nogent-sur-Oise,22-006362-1,2022-01-25T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.276157,2.464619
+17253,ELIOR ENTREPRISES,B. P. n° 2 -,60550,Verneuil-en-Halatte,21-077020-1,2021-09-17T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.279391,2.521525
+17270,UNION DEPART SAPEURS POMPIERS OISE,1 RUE GABRIEL PREVOST,60210,Cempuis,21-068070-1,2021-08-25T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.65857,1.981143
+17372,BANTOU,43 PL ST MEDARD,60100,Creil,21-061044-1,2021-07-07T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.258809,2.477315
+17445,L'ETRIER,8 RUE DU CONNETABLE,60500,Chantilly,21-101471-1,2021-12-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.194679,2.479166
+17589,SODIRIB,ZAC de la Grérie,60170,Ribécourt-Dreslincourt,21-068040-1,2021-08-27T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.514938,2.924743
+17670,MAISON DE RETRAITE LA COMPASSION,MAISON DE RETRAITE LA COMPASSION,60420,Domfront,21-068153-1,2021-08-25T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,,
+17734,LA PREGO,LA PREGO,60500,Chantilly,21-103978-1,2021-12-17T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.188222,2.461897
+17797,BANTOU,43 PL ST MEDARD,60100,Creil,21-061030-1,2021-07-07T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.258809,2.477315
+17844,MKD,RTE DE PARIS,60600,Breuil-le-Vert,21-068494-1,2021-08-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.363759,2.420931
+18008,GREVIN ET COMPAGNIE,,60128,Plailly,21-068505-1,2021-08-05T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.102673,2.582166
+18011,GREVIN ET COMPAGNIE,,60128,Plailly,21-062759-1,2021-08-05T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.102673,2.582166
+18014,GREVIN ET COMPAGNIE,,60128,Plailly,21-063642-1,2021-08-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.102673,2.582166
+18233,SODIRIB,ZAC de la Grérie,60170,Ribécourt-Dreslincourt,21-070031-1,2021-09-03T02:00:00+02:00,Poissonnerie,Très satisfaisant,,Poissonnerie,49.514938,2.924743
+18261,SAS LAMBRECHT WALTER,Les 8 bornes,60360,Auchy-la-Montagne,21-099204-1,2021-12-02T01:00:00+01:00,Découpe de viandes de volailles/lagomorphe,Satisfaisant,60026021.0,,49.573343,2.119412
+18288,GREVIN ET COMPAGNIE,,60128,Plailly,21-062985-1,2021-08-05T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.102673,2.582166
+18294,GREVIN ET COMPAGNIE,,60128,Plailly,21-062726-1,2021-08-05T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.102673,2.582166
+18344,SARL L'ANGE GOURMAND,10 RUE DU CHATEAU,60820,Boran-sur-Oise,21-099046-1,2021-11-30T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.168282,2.359215
+18404,EARL DE WOIMAISON,3 route de Marseille,60690,Haute-Épine,21-082057-1,2021-09-29T02:00:00+02:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,,,49.587818,2.003376
+18406,GREVIN ET COMPAGNIE,,60128,Plailly,21-068590-1,2021-08-05T02:00:00+02:00,Traiteur,Très satisfaisant,,Traiteur,49.102673,2.582166
+18407,EARL DE WOIMAISON,3 route de Marseille,60690,Haute-Épine,21-079592-1,2021-09-29T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.587818,2.003376
+18490,LA P'TITE MARMITE,2 PLACE CHARLES DE GAULLE,60190,Estrées-Saint-Denis,21-070019-1,2021-07-29T02:00:00+02:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.426016,2.644207
+18494,ROYAL PIZZA,26 rue de la république,60600,Clermont,21-070447-1,2021-08-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.376809,2.414204
+18585,MC DONALD'S FRANCE SA,6 Avenue de l'Europe Zac De,60280,Venette,21-028836-1,2021-04-09T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.409223,2.782176
+18615,RESTAURANT LE BOUDOIR,100 rue du Connétable,60500,Chantilly,21-067968-1,2021-08-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.194348,2.470736
+18631,SODIRIB,ZAC de la Grérie,60170,Ribécourt-Dreslincourt,21-069915-1,2021-09-03T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.514938,2.924743
+18706,GONTIER LAURENT,"50, rue Victor Hugo",60700,Sacy-le-Grand,21-094422-1,2021-10-27T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.352773,2.546329
+18748,SARL L'ANGE GOURMAND,10 RUE DU CHATEAU,60820,Boran-sur-Oise,21-099077-1,2021-11-30T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.168282,2.359215
+18778,MCDONALD'S,rue thomas edison,60230,Chambly,21-084404-1,2021-10-15T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.154884,2.253855
+18920,DOUILLET JEROME,526 RUE DE LA REPUBLIQUE,60290,Laigneville,21-051096-1,2021-05-27T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.292371,2.444111
+19186,AUCHAN HYPERMARCHE,RUE MARCEL COQUET,60110,Méru,22-010754-1,2022-02-10T01:00:00+01:00,Rayon pain/viennoiserie/pâtisserie,Très satisfaisant,,Rayon pain/viennoiserie/pâtisserie,49.224622,2.137069
+19238,LEO LAGRANGE NORD,RUE JULES FERRY,60840,Catenoy,22-009028-1,2022-01-14T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.369268,2.511728
+19269,ADAM HERVE,Centre Commercial Beauséjour,60400,Noyon,21-056543-1,2021-07-09T02:00:00+02:00,Traiteur|Boucherie-Charcuterie,Satisfaisant,,Traiteur|Boucherie-Charcuterie,49.580025,2.990413
+19614,ELRES,385 AVENUE LOUIS ARAGON,60140,Liancourt,21-042241-1,2021-05-21T02:00:00+02:00,Restauration collective,Satisfaisant,60360001.0,Restauration collective,49.330849,2.457046
+19657,LES PECHERIES DU THELLE,73 RN1,60730,Sainte-Geneviève,21-089732-1,2021-10-27T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,49.299719,2.210128
+19669,MAJOKA FOOD & BAR,2 RUE PHILEAS LEBESGUE,60200,Compiègne,21-085416-1,2021-10-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.407359,2.80206
+19757,CARREFOUR,route nationale 31,60280,Venette,21-027801-1,2021-04-02T02:00:00+02:00,Rayon boucherie-charcuterie,Satisfaisant,,Rayon boucherie-charcuterie,49.416856,2.807303
+19760,CARREFOUR,route nationale 31,60280,Venette,21-064290-1,2021-08-12T02:00:00+02:00,Rayon pain/viennoiserie/pâtisserie,Satisfaisant,,Rayon pain/viennoiserie/pâtisserie,49.416856,2.807303
+19766,CARREFOUR,route nationale 31,60280,Venette,21-064787-1,2021-07-28T02:00:00+02:00,Rayon traiteur,Satisfaisant,,Rayon traiteur,49.416856,2.807303
+19890,AU PANIER DE CLEM,AU PANIER DE CLEM,60220,Formerie,21-027159-1,2021-03-31T02:00:00+02:00,Fromagerie|Alimentation générale,Satisfaisant,,Fromagerie|Alimentation générale,49.649617,1.731687
+19938,DISTRI VAILLANT,30 RUE DESCARTES,60100,Creil,21-109176-1,2022-02-16T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.253284,2.489833
+20107,DISTRI VAILLANT,30 RUE DESCARTES,60100,Creil,21-109172-1,2022-02-16T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.253284,2.489833
+20114,AUBERGE DE PONT L'EVEQUE,1  RUE   JEANNE D'ARC,60400,Pont-l'Évêque,21-064193-1,2021-08-11T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.564331,2.98859
+20221,BBK JAUX,91 AVENUE JEAN MOULIN,60880,Jaux,21-059107-1,2021-07-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.403925,2.778595
+20255,LE FROMAGER DE BEAUVAIS,9 RUE PAUL GREBER,60000,Beauvais,21-088585-1,2021-10-26T02:00:00+02:00,Libre service,Très satisfaisant,,Libre service,49.431514,2.084493
+20313,RESIDENCE SAINT JACQUES,"1, rue Surveillance",60200,Compiègne,21-085293-1,2021-10-19T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.417731,2.827158
+20354,CENTRE EDUCATIF FERME,"18, Rue EMMAUS",60000,Beauvais,21-086792-1,2021-10-14T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.422728,2.098084
+20433,DISTRI VAILLANT,30 RUE DESCARTES,60100,Creil,21-109179-1,2022-02-16T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.253284,2.489833
+20503,COLLEGE JULES VERNE,rue gabrielle chanel,60610,Lacroix-Saint-Ouen,22-011294-1,2022-01-24T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.357662,2.787771
+20564,MAIRIE COMMUNE DE LACHAPELLE-SAINT-PIERRE,MAIRIE,60730,Lachapelle-Saint-Pierre,22-002157-1,2022-01-14T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.266768,2.235183
+20591,SUN KAFE,2 place de la gare,60290,Rantigny,20-096752-1,2021-07-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.32456,2.445082
+20616,AYANE,139 PLACE DE L HOTEL DE VILLE,60230,Chambly,21-109365-1,2022-02-24T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.166743,2.244768
+20692,AUX DELICES DE JULES,310 RUE JEAN DUPUY,60130,Wavignies,21-091840-1,2021-10-28T02:00:00+02:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,49.547698,2.361496
+20847,MISS BIOT,86 BD CARNOT,60400,Noyon,21-092411-1,2021-11-05T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.577628,3.002059
+20907,FOLASTRE CHRISTOPHE TRAITEUR,5 bis rue Boileau,60149,Saint-Crépin-Ibouvillers,21-043887-1,2021-06-03T02:00:00+02:00,Traiteur,Très satisfaisant,,Traiteur,49.264813,2.076609
+21019,PIZZA NOVA,26 RUE DE LA REPUBLIQUE,60120,Breteuil,21-038006-1,2021-05-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.632707,2.294719
+21029,TURC'OISE,4 rue Lefevre Lesueur,60320,Béthisy-Saint-Pierre,21-043816-1,2021-06-02T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.301739,2.80071
+21198,LE MILANO,44 BD CARNOT,60400,Noyon,21-074461-1,2021-09-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.577666,2.99885
+21207,HOSTELLERIE DU ROYAL-LIEU,9 RUE DE SENLIS,60200,Compiègne,21-066482-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.396989,2.804275
+21414,FOYER D'HEBERGEMENT LE VERGER,LE TILLET,60660,Cires-lès-Mello,21-086784-1,2021-10-13T02:00:00+02:00,Restauration collective,Satisfaisant,60155051.0,Restauration collective,49.259067,2.337603
+21510,PIZZERIA NICOLETTA,10 PL MARIUS HAUSSY,60890,Mareuil-sur-Ourcq,21-052493-1,2021-06-30T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.137623,3.077507
+21537,SARL FERME DES HAUTS PRES,29 RUE DE L'EGLISE,60600,Maimbeville,21-075003-1,2021-07-09T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,49.415344,2.521448
+21577,MA PIZZA,4 RUE JULIETTE ADAM,60410,Verberie,21-050266-1,2021-06-23T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.308209,2.729444
+21606,TRADITION DE NOYON,6 RUE DU MARECHAL LECLERC,60400,Noyon,21-084478-1,2021-10-18T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.582311,3.004148
+21631,DRAGON,ZAC DU BOIS DES FENETRES,60740,Saint-Maximin,21-094195-1,2021-11-18T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,43.993461,4.450348
+21650,HOPITAL DE CREPY EN VALOIS,16 rue saint lazarre,60800,Crépy-en-Valois,22-017974-1,2022-02-21T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.233321,2.890985
+21751,ETABLISSEMENTS CHEVALLIER FERME DU MARRONNIER,27 rue de Méru,60110,Corbeil-Cerf,21-093821-1,2021-11-16T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,60532021.0,,49.278677,2.103585
+22040,SODIRIB,ZAC de la Grérie,60170,Ribécourt-Dreslincourt,21-076246-1,2021-09-03T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.514938,2.924743
+22060,LIDL,LIDL,60340,Saint-Leu-d'Esserent,22-006174-1,2022-01-19T01:00:00+01:00,Libre service,Satisfaisant,,Libre service,49.225314,2.419746
+22089,SARL LA VALOUISE,CHE DEPARTEMENTAL 123,60129,Orrouy,21-065544-1,2021-08-18T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.289888,2.878105
+22122,DELICE PIZZA,DELICE PIZZA,60600,Breuil-le-Vert,21-093796-1,2021-11-19T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.368234,2.421675
+22168,ZEN'FOOD,415 RTE DE PARIS,60600,Breuil-le-Vert,21-093798-1,2021-11-19T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.365294,2.420592
+22247,CREIL EXPRESS,CREIL EXPRESS,60100,Creil,21-076703-1,2021-09-24T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.257209,2.460756
+22569,MAISON DE RETRAITE DIFFUSEURS DE PRESSE,766  Rue   LOUIS BARTHOU,60280,Margny-lès-Compiègne,21-058905-1,2021-07-23T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.423199,2.808109
+22687,MARTIN CHRISTINA,59 bis rue de Buzenval,60000,Beauvais,22-008872-1,2022-02-01T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.444927,2.072115
+22714,SYND INTERCOM VOCATION SCOLAIRE CHAUSSEE-DU-BOIS-D ECU MAULERS MUIDORGE PUITS-LA-VALLEE OURSEL-MAISON,16 grande rue,60480,Maulers,21-076706-1,2021-09-14T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.547318,2.167624
+22938,MC MARECHAL,9 AV DU MAL JOFFRE,60500,Chantilly,21-062887-1,2021-08-03T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.192691,2.465077
+22950,LA P'TITE MARMITE,2 PLACE CHARLES DE GAULLE,60190,Estrées-Saint-Denis,21-104375-1,2021-12-16T01:00:00+01:00,Traiteur,A améliorer,,Traiteur,49.426016,2.644207
+22975,COLLEGE LES FONTAINETTES,35 RUE DE GISORS,60650,Saint-Aubin-en-Bray,21-041199-1,2021-05-27T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.434489,1.893733
+23070,AU PALAIS DE LA VIANDE,5 RUE DE BEAUVAIS,60530,Neuilly-en-Thelle,21-077477-1,2021-09-22T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.224764,2.285279
+23122,BOUCHERIE CHARCUTERIE DE LA POSTE,144 R DE PARIS,60170,Ribécourt-Dreslincourt,22-011203-1,2022-02-15T01:00:00+01:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.509348,2.921829
+23221,LA SIRENE,4 RUE DE TOURAINE,60000,Beauvais,21-045897-1,2021-06-10T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.436443,2.097522
+23309,FERME DE LA ROSERAIE,113 rue du brule,60640,Guiscard,21-045964-1,2021-06-08T02:00:00+02:00,Centre d'emballage des oeufs,Très satisfaisant,60291001.0,,49.650216,3.070033
+23315,AL IHSAN,5 RUE GAMBETTA,60100,Creil,21-090337-1,2021-10-27T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.262866,2.473911
+23395,ENERCON SERVICE FRANCE,rue du tourteret,60880,Le Meux,22-011365-1,2022-01-24T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.360804,2.758276
+23717,ETS LUCIEN,130 RUE DES 40 MINES,60000,Allonne,21-094346-1,2021-11-17T01:00:00+01:00,Découpe de viandes de volailles/lagomorphe,Très satisfaisant,60009001.0,,49.414646,2.127596
+23862,SAS LAMBRECHT WALTER,Les 8 bornes,60360,Auchy-la-Montagne,21-101287-1,2021-12-02T01:00:00+01:00,Découpe de viande de boucherie,Satisfaisant,60026021.0,,49.573343,2.119412
+23950,DOUCES SAVEURS,15 RUE DE LA REPUBLIQUE,60120,Breteuil,21-037699-1,2021-05-12T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.632918,2.294938
+24156,ETS LUCIEN,130 RUE DES 40 MINES,60000,Allonne,21-094112-1,2021-11-17T01:00:00+01:00,Découpe de viande de boucherie,Très satisfaisant,60009001.0,,49.414646,2.127596
+24175,ENS. SANTE & SERV. HOTELIER 6694,RUE DE L'EGLISE,60420,Domfront,21-067994-1,2021-08-25T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.603211,2.556097
+24354,PHARMATIS,ZONE ACTIVITE EST N° 1,60190,Estrées-Saint-Denis,21-029012-1,2021-04-12T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,,
+24402,RESIDENCE DES DEUX CHATEAUX,1  RUE  DU PARC,60350,Attichy,21-060858-1,2021-07-30T02:00:00+02:00,Restauration collective,Satisfaisant,60025701.0,Restauration collective,49.411756,3.045791
+24436,SKY FOOD,RTE DE MOUY CD 137,60290,Cauffry,21-097120-1,2021-11-15T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.320775,2.43892
+24613,SAS LAMBRECHT WALTER,Les 8 bornes,60360,Auchy-la-Montagne,21-103808-1,2021-12-02T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,60026021.0,,49.573343,2.119412
+24797,FRESH N'FROZEN,RUE ALBERT EINSTEIN,60740,Saint-Maximin,21-081905-1,2021-10-08T02:00:00+02:00,Entreposage non spécialisé de denrées alimentaires,Satisfaisant,,,49.238086,2.461342
+24920,TOUT BIO TOUT ROOSE,37 rue du Grand Bout,60690,Haute-Épine,21-098767-1,2021-12-02T01:00:00+01:00,Transformation de lait ou produits laitiers,Très satisfaisant,60304001.0,,49.586813,2.007442
+25174,WAY,4 BOULEVARD SAINT ANDRE,60000,Beauvais,21-049541-1,2021-06-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.433059,2.089971
+25204,LE MARQUIS,1 RUE DU GENERAL LECLERC,60750,Choisy-au-Bac,21-084978-1,2021-10-19T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.43829,2.877918
+25244,AUMALIA,RTE D'APREMONT,60500,Vineuil-Saint-Firmin,20-096655-1,2021-06-30T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.208712,2.496887
+25260,CORNILLON-MARCINIAK CATHERINE,2 rue de l'Abreuvoir,60690,Roy-Boissy,21-082107-1,2021-10-05T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,49.583362,1.921638
+25449,BOUGDAOUA AYAD,"43, Boulevard Carnot",60400,Noyon,21-088953-1,2021-10-05T02:00:00+02:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.577905,2.999566
+25500,EARL DU VAL DE NOYE,2 RUE DU PONT DES ANES,60120,Paillart,21-101606-1,2021-11-24T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Très satisfaisant,60486001.0,,49.667328,2.327813
+25570,HOPITAL GEORGES DECROZE,5 rue Ambroise Croisat,60700,Pont-Sainte-Maxence,22-012374-1,2022-02-11T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.295552,2.607229
+25610,CAT LES PEUPLIERS,1 TER RUE DE BAILLY,60126,Longueil-Sainte-Marie,22-005859-1,2022-01-10T01:00:00+01:00,Restauration collective,Très satisfaisant,60369001.0,Restauration collective,49.35023,2.720608
+25621,GUSTAVE !,21 RUE LOUVET,60000,Beauvais,20-096910-1,2021-10-14T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.43044,2.084063
+25674,ASSOCIATION COMMUNAUTE EMMAUS DU CLERMONTOIS FONDATION ABBE PIERRE,RUE PASTEUR BP N 3,60600,Erquery,21-109069-1,2022-02-11T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.406857,2.460165
+26076,BOULANGERIE ZIETARA,69 RUE CHARLES DE GAULLE,60460,Précy-sur-Oise,21-109308-1,2022-02-22T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.205318,2.3692
+26170,BOULANGERIE ZIETARA,69 RUE CHARLES DE GAULLE,60460,Précy-sur-Oise,21-109306-1,2022-02-22T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.205318,2.3692
+26183,CRECHE RIBAMBELLE,50 RUE AMPERE,60700,Pont-Sainte-Maxence,22-011165-1,2022-02-10T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.305808,2.595675
+26267,SAVEURS DE CREIL,32 PL ST MEDARD,60100,Creil,21-109159-1,2022-02-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.259121,2.476736
+26323,LE MARIGNY,457 AVENUE ARISTIDE BRIAND,60230,Chambly,21-084487-1,2021-10-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.162894,2.252754
+26494,FERME LE MERLET,"40, rue de la Côte Blanche",60220,Canny-sur-Thérain,21-067912-1,2021-08-25T02:00:00+02:00,Producteur fermier,Satisfaisant,,Producteur fermier,49.613036,1.71589
+26638,Restaurant BEL AIR d'Asie,56  RUE GAMBETTA,60100,Creil,21-091677-1,2021-11-09T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.264337,2.473815
+26712,OISEDIS,AVENUE DU GROS GRELOT,60150,Thourotte,21-085209-1,2021-10-18T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,49.483539,2.868318
+26815,MAIN ET LEVAIN,138 AV MARCEL DASSAULT,60000,Beauvais,22-005069-1,2022-01-20T01:00:00+01:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.443506,2.092347
+26867,M.E.C.S.,"24, rue d'Amiens",60210,Grandvilliers,21-049327-1,2021-06-21T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.66671,1.944072
+26981,CARREFOUR MARKET,CARREFOUR MARKET,60360,Crèvecoeur-le-Grand,21-024536-1,2021-03-23T01:00:00+01:00,Rayon traiteur|Rayon boucherie-charcuterie,Satisfaisant,,Rayon traiteur|Rayon boucherie-charcuterie,49.603541,2.084214
+26987,CARREFOUR MARKET,CARREFOUR MARKET,60360,Crèvecoeur-le-Grand,22-006346-1,2022-01-27T01:00:00+01:00,Rayon boucherie-charcuterie,Satisfaisant,,Rayon boucherie-charcuterie,49.603541,2.084214
+27158,CARREFOUR,route nationale 31,60280,Venette,21-060509-1,2021-07-28T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416856,2.807303
+27224,SOCIETE JOUVIN,53 RUE CORBIER THIEBAUT,60270,Gouvieux,21-086620-1,2021-12-13T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,60282002.0,,49.192028,2.417514
+27256,BOSTIK FINDLEY,route de Bailly,60771,Ribécourt-Dreslincourt,22-002826-1,2022-01-18T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,,
+27297,BOUCHERIE DU STADE,2 RUE PIERRE ET MARIE CURIE,60000,Beauvais,22-007190-1,2022-01-28T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.414889,2.113709
+27339,SAS BELVACENDIS,4 BD SAINT ANDRE,60000,Beauvais,22-001952-1,2022-01-12T01:00:00+01:00,Libre service,Satisfaisant,,Libre service,49.433059,2.089971
+27348,SAS BELVACENDIS,4 BD SAINT ANDRE,60000,Beauvais,22-002342-1,2022-01-12T01:00:00+01:00,Boucherie-Charcuterie,Satisfaisant,,Boucherie-Charcuterie,49.433059,2.089971
+27364,FOYER D'HEBERGEMENT LE COLOMBIER,Le Tillet,60660,Cires-lès-Mello,21-086050-1,2021-10-14T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.259067,2.337603
+27376,INSTITUT SAINT JOSEPH DE MONCEL,8 PL DE L EGLISE,60700,Pont-Sainte-Maxence,21-096609-1,2021-11-23T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.300288,2.606309
+27433,SAS BELVACENDIS,4 BD SAINT ANDRE,60000,Beauvais,22-002382-1,2022-01-12T01:00:00+01:00,Poissonnerie,Très satisfaisant,,Poissonnerie,49.433059,2.089971
+27437,LEVEL,1 PL JAMMY SCHMIDT,60000,Beauvais,21-108596-1,2022-02-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.414479,2.081845
+27560,LE FLAMBONNEAU,20 RUE GAMBETTA,60100,Creil,21-046328-1,2021-06-08T02:00:00+02:00,Traiteur,Satisfaisant,,Traiteur,49.263234,2.474073
+27616,BUFFALO GRILL,RD 1032,60400,Noyon,22-002478-1,2022-01-17T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,,
+27654,LES SALAISONS DU VAL DU SILLET,4 IMPASSE DE L ETANG,60430,Silly-Tillard,21-105279-1,2021-12-09T01:00:00+01:00,Transformation de produits de la pêche,Très satisfaisant,60620001.0,,49.326856,2.159731
+27657,LES SALAISONS DU VAL DU SILLET,4 IMPASSE DE L ETANG,60430,Silly-Tillard,21-105083-1,2021-12-09T01:00:00+01:00,Transformation de produits carnés,Très satisfaisant,60620001.0,,49.326856,2.159731
+27729,LA FERME DE CHOQUEUSE,1 PLACE DE L'EGLISE,60360,Choqueuse-les-Bénards,21-096371-1,2021-11-18T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Très satisfaisant,60153021.0,,49.65199,2.080159
+27868,COLLEGE SAINT EXUPERY,Rue Brachedal,60240,Chaumont-en-Vexin,22-018075-1,2022-03-11T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.26248,1.872625
+27903,FRAIKIN FRANCE,172 AVENUE MARCEL DASSAULT,60000,Beauvais,21-087971-1,2021-10-27T02:00:00+02:00,Transport de denrées alimentaires,Très satisfaisant,,,49.445414,2.093838
+28035,BOULANGERIE THELLIEZ,49 RUE ETIENNE DOLET,60700,Sacy-le-Grand,21-027379-1,2021-04-06T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.353922,2.542997
+28082,VOLAILLES 2000 ZAKARIA,"10, rue Charles Somasco",60100,Creil,21-104664-1,2021-12-21T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Très satisfaisant,60175021.0,,49.26455,2.482371
+28098,CAFE DE PARIS,2 RUE DE PARIS,60410,Verberie,21-025486-1,2021-03-23T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.307854,2.729044
+28147,LE MERY'S BAR,2 RUE DE TRICOT,60420,Méry-la-Bataille,21-096309-1,2021-11-26T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,49.54701,2.627985
+28154,O SAVEURS D'ISABELLE,8 RUE ARISTIDE BRIAND,60000,Goincourt,22-009882-1,2022-02-09T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.426377,2.037365
+28291,BOUCHERIE JEAN JAURES,15 RUE JEAN JAURES,60100,Creil,21-105089-1,2021-12-23T01:00:00+01:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.262072,2.470765
+28408,MAIRIE COMMUNE DE REMY,boulevard de la gare,60190,Remy,21-025835-1,2021-03-29T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.43752,2.706612
+28674,SUSHI AVENUE,2 AV DE SENLIS,60800,Crépy-en-Valois,21-107287-1,2022-01-06T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.232263,2.88589
+28793,COLLEGE PRIVE JEANNE D'ARC,75 RUE S. GUILLAUME DE LA ROQUE,60600,Agnetz,22-005803-1,2022-01-06T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.38676,2.391277
+28833,LHERMITE JEAN,763 RUE SAINT PIERRE,60700,Pontpoint,21-094459-1,2021-09-23T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.300335,2.654557
+28879,ATOUT'HEURE,47 RTE DE REIMS,60350,Trosly-Breuil,22-005552-1,2022-01-24T01:00:00+01:00,Boulangerie-Pâtisserie,A améliorer,,Boulangerie-Pâtisserie,49.401538,2.988441
+28895,CUINET PATRICIA,rue saint corneille et avenue du 25e RGA,60200,Compiègne,22-000807-1,2022-01-07T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.417019,2.823894
+28935,BOCQUET THOMAS,53 rue d'Amiens,60360,Auchy-la-Montagne,21-094858-1,2021-11-04T01:00:00+01:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.573053,2.122632
+29259,BOUCHERIE MIDAR 60,13 RUE DU BERRY,60000,Beauvais,21-076974-1,2021-09-22T02:00:00+02:00,Boucherie-Charcuterie,Très satisfaisant,,Boucherie-Charcuterie,49.43442,2.105843
+29290,RESTAURANT LE GOUTILLON,61 rue du Connétable,60500,Chantilly,21-068024-1,2021-08-26T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.194329,2.473388
+29382,O'FLANDRE,93 AV DE FLANDRE,60190,Estrées-Saint-Denis,21-051679-1,2021-06-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.427383,2.638308
+29473,LE COMPTOIR DU MALT,RUE JACQUES GODDET,60000,Beauvais,22-006436-1,2022-01-27T01:00:00+01:00,Restaurant,Très satisfaisant,,Restaurant,49.437448,2.112722
+29701,LYCEE GEN TECHNOLOGIQUE FELIX FAURE,31 BOULEVARD DE L ASSAUT,60000,Beauvais,21-027177-1,2021-04-01T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.434839,2.089273
+29737,LA TRADITION DE COMPIEGNE,4 RUE ALEXANDRE DUMAS,60200,Compiègne,21-067895-1,2021-08-26T02:00:00+02:00,Boulangerie-Pâtisserie,Satisfaisant,,Boulangerie-Pâtisserie,49.407148,2.803234
+29767,ANTENNE DU CROUS,"52, Bd  St André",60000,Beauvais,21-096567-1,2021-11-23T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.431455,2.08977
+29834,AU BON ACCUEIL,16 RUE GAMBETTA,60540,Bornel,20-096674-1,2021-07-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.197958,2.206005
+29841,NAMELIX,5 RUE GAMBETTA,60250,Mouy,21-096697-1,2021-11-26T01:00:00+01:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.319154,2.319539
+29876,MILLE ET 1 PIZZA,12 RUE DE LA GARE,60390,Auneuil,21-032028-1,2021-04-16T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.371859,1.991063
+29992,LE ROYAL,943 RUE PASTEUR,60700,Pont-Sainte-Maxence,21-037178-1,2021-05-11T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.307206,2.59036
+30023,SUSHI JAP BEAUVAIS,33 RUE DE LA MADELEINE,60000,Beauvais,21-032181-1,2021-04-22T02:00:00+02:00,Restaurant,Très satisfaisant,,Restaurant,49.42914,2.084848
+30143,FERME DU PRE SAS,LD LE PRE,60590,Flavacourt,21-062852-1,2021-08-03T02:00:00+02:00,Production d'œuf liquide d'ovoproduit et produits à base œuf,Très satisfaisant,60235001.0,,49.320918,1.857576
+30197,NOGENT BURGER EURL,1 AVENUE DE L EUROPE,60180,Nogent-sur-Oise,21-087142-1,2021-10-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.270369,2.482174
+30384,CATSTEEVEN,39 RUE SAINT CORNEILLE,60200,Compiègne,21-070595-1,2021-09-07T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416668,2.823026
+30417,SHENE,3 B RUE LAMARTINE,60000,Beauvais,21-032144-1,2021-04-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.430442,2.084778
+30481,PROMEO CENTRE DE FORMATION D APPRENTIS DE L INDUSTRIE DE PICARDIE PROMEO CFAI PICARDIE,87 AV GESSART,60280,Venette,21-097319-1,2021-11-30T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.41581,2.773284
+30537,BROUAYE EMMANUEL,21 RUE D'EN HAUT,60120,Le Mesnil-Saint-Firmin,21-096221-1,2021-11-26T01:00:00+01:00,Transformation de lait ou produits laitiers,Satisfaisant,60399001.0,,49.628754,2.409798
+30540,BROUAYE EMMANUEL,21 RUE D'EN HAUT,60120,Le Mesnil-Saint-Firmin,21-096544-1,2021-11-26T01:00:00+01:00,Producteur fermier,Satisfaisant,,Producteur fermier,49.628754,2.409798
+30638,SAS LENA'S,33 RUE MARIE ROTSEN,60800,Crépy-en-Valois,21-099651-1,2021-11-19T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.227778,2.887686
+30831,MDF CHANTILLY,4 LES HUIT CURES,60270,Gouvieux,21-098899-1,2021-11-25T01:00:00+01:00,Libre service,Satisfaisant,,Libre service,49.203001,2.460645
+30870,CROCODILE,CROCODILE,60740,Saint-Maximin,22-010399-1,2022-02-03T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.235653,2.469805
+30919,EARL HOUET,4 rue Alexis Maillet,60380,Grémévillers,21-093433-1,2021-11-16T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,Satisfaisant,,,49.562231,1.915081
+30950,SANOFI WINTHROP INDUSTRIE,"56, rue de Choisy",60200,Compiègne,21-080215-1,2021-10-05T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.429686,2.858259
+30992,VASSEUR ANTOINE,256 RUE DE LA MAIRIE,60310,Laberlière,21-101242-1,2021-12-01T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,49.57741,2.760009
+31001,LES JARDINS DE HAUTEFONTAINE ET DE BETHANCOURT EN,2 GRANDE RUE,60350,Hautefontaine,21-100265-1,2021-12-01T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,49.365258,3.062948
+31052,L'ETOUYSIENNE,57 RUE DE CREVECOEUR,60600,Étouy,20-095855-1,2021-03-25T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.420091,2.360974
+31065,AUCHAN HYPERMARCHE,ZAC DU MONT RENAUD,60400,Noyon,22-011322-1,2022-02-15T01:00:00+01:00,Rayon poissonnerie|Rayon traiteur|Rayon pain/viennoiserie/pâtisserie|Rayon boucherie-charcuterie,Satisfaisant,,Rayon poissonnerie|Rayon traiteur|Rayon pain/viennoiserie/pâtisserie|Rayon boucherie-charcuterie,49.581556,2.988962
+31084,ISTANBUL,2 RUE DE PARIS,60128,Plailly,21-070057-1,2021-09-01T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.103289,2.585
+31118,LES ABATTOIRS DE CREIL,510 RUE GALILEE,60100,Creil,21-102813-1,2021-12-09T01:00:00+01:00,Chaîne d'abattage de volaille/lagomorphe/petit gibier,A améliorer,60175022.0,,49.241813,2.460186
+31155,O.S.L. SUPERETTE,5 RUE JEANNE D ARC,60800,Crépy-en-Valois,21-099515-1,2021-11-19T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.236088,2.887164
+31235,MAISON DE RETRAITE PUBLIQUE,2  RUE  DU CHATEAU,60620,Antilly,21-070964-1,2021-08-06T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.152694,2.980166
+31451,MAIRIE COMMUNE DE SAINT GERMER DE FLY,rue Gabriel Pernot,60850,Saint-Germer-de-Fly,22-001005-1,2022-01-06T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.442492,1.779063
+31529,GROUPE BIGARD,Rue de Gaillefontaine,60220,Formerie,21-096856-1,2021-11-19T01:00:00+01:00,Chaîne d'abattage d'animaux boucherie/Gibier ongulé élevage,Très satisfaisant,60245003.0,,49.651598,1.722955
+31554,EARL FERME DU METZ,26 RUE DU CHAT,60190,Bailleul-le-Soc,21-101218-1,2021-12-01T01:00:00+01:00,Commerce alimentaire,Satisfaisant,,,49.418964,2.574185
+31703,SUN,66 RUE GAMBETTA,60000,Beauvais,21-030663-1,2021-04-13T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.434208,2.085826
+31749,Pizza Napoli,5 AVENUE DU GENERAL LECLERC,60500,Chantilly,20-096768-1,2021-08-06T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.182311,2.458365
+31778,A MA FERME,zac de Frier,60590,Sérifontaine,21-101790-1,2021-12-09T01:00:00+01:00,Producteur fermier,Satisfaisant,,Producteur fermier,49.358448,1.771336
+31788,EHPAD,9  RUE DE NOYON,60310,Beaulieu-les-Fontaines,21-053977-1,2021-06-04T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.6577,2.914668
+31885,IBIS SENLIS,AV EUGENE GAZEAU,60300,Senlis,22-009048-1,2022-02-02T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.207433,2.603782
+31997,EARL CHAMPIGNOLLES,LIEU DIT CHAMPIGNOLLES,60590,Sérifontaine,21-101288-1,2021-12-09T01:00:00+01:00,Centre d'emballage des oeufs,Satisfaisant,60616042.0,,49.355452,1.78082
+32004,RESTAURANT LE JARDIN IMPERIAL,"12, avenue Foch",60300,Senlis,21-069675-1,2021-08-31T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.207181,2.590207
+32006,YOUSSRA FOOD,13 PLACE CANTREL,60250,Mouy,21-037882-1,2021-05-04T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.319605,2.319399
+32063,ECOLE ELEMENTAIRE PUBLIQUE,21 RUE DES VIGNES MONDAINES,60350,Trosly-Breuil,22-014627-1,2022-02-28T01:00:00+01:00,Restauration collective,Très satisfaisant,,Restauration collective,49.399271,2.975216
+32094,RESTAURANT MUNICIPAL FLORA TRISTAN,6 rue Conti,60230,Chambly,21-104116-1,2021-12-14T01:00:00+01:00,Restauration collective,Très satisfaisant,60139701.0,Restauration collective,49.164763,2.242543
+32256,REGAL PIZZA,8 RUE ALEXANDRE DUMAS,60200,Compiègne,21-085418-1,2021-10-21T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.407062,2.803113
+32279,PIZZERIA BAR CHEZ FRED,5 RUE DE PROVINLIEU,60480,Froissy,21-048161-1,2021-06-15T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.567856,2.222378
+32291,PARIS KEBAB,40 B RUE DE PARIS,60128,Plailly,21-025890-1,2021-03-25T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.104131,2.581981
+32324,LA PECHERIE DIEPPOISE,15 ALL DES ARCADES,60260,Lamorlaye,21-046474-1,2021-06-10T02:00:00+02:00,Poissonnerie,Satisfaisant,,Poissonnerie,49.155054,2.44154
+32383,GROUPE BIGARD,Rue de Gaillefontaine,60220,Formerie,21-080140-1,2021-09-30T02:00:00+02:00,Découpe de viande de boucherie,Très satisfaisant,60245003.0,,49.651598,1.722955
+32434,EVENT BURGER,12 SQ ANDRE MALRAUX,60750,Choisy-au-Bac,21-101255-1,2021-12-01T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.446213,2.882707
+32650,SALAISONS SAINT JUST'OISE,12 rue brunehaut,60130,Saint-Just-en-Chaussée,21-054098-1,2021-06-15T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,60581001.0,,49.515255,2.434741
+32707,LE CHEVAL BLANC,16 PLACE GABRIEL PERI,60250,Balagny-sur-Thérain,21-064293-1,2021-08-11T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.295442,2.336194
+32812,EARL DE MESENGUY,2 rue de Mesenguy,60390,Les Hauts Talican,21-104117-1,2021-12-08T01:00:00+01:00,Transformation de produits carnés,Satisfaisant,60054001.0,,49.351281,2.009897
+33054,EARL BIZET,1 rue de Bruneval,60000,Allonne,21-091768-1,2021-11-04T01:00:00+01:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.410959,2.140761
+33064,FRAICHEUR DES TROIS ROIS,20 PL DES TROIS ROIS,60180,Nogent-sur-Oise,22-006380-1,2022-01-25T01:00:00+01:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.273211,2.465646
+33240,ECOLE ELEMENTAIRE ALBERT CAMUS,19 RUE DUVOIR,60140,Liancourt,21-078878-1,2021-09-27T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.327812,2.467203
+33273,SAS LAMBRECHT WALTER,Les 8 bornes,60360,Auchy-la-Montagne,21-103836-1,2021-12-02T01:00:00+01:00,"VH, VSM, préparation viandes volailles lagomorphes",Satisfaisant,60026021.0,,49.573343,2.119412
+33337,COMMUNAUTE DE COMMUNES DU VEXIN THELLE,rue Bertinot Juël,60240,Chaumont-en-Vexin,21-089339-1,2021-10-29T02:00:00+02:00,Restauration collective,Très satisfaisant,,Restauration collective,49.267559,1.889295
+33376,TIERS TEMPS COMPIEGNE,"9, rue des Bouvines",60200,Compiègne,21-032083-1,2021-04-23T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.416231,2.82146
+33398,POINT C,73 RUE DE LA REPUBLIQUE,60100,Creil,21-104871-1,2021-12-22T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.258176,2.477656
+33405,SECOURS POPULAIRE FRANCAIS,Rue du Stade,60134,Villers-Saint-Sépulcre,21-066763-1,2021-08-20T02:00:00+02:00,Alimentation générale,Satisfaisant,,Alimentation générale,49.370841,2.202387
+33414,OVC,17 PL DU GEN DE GAULLE,60100,Creil,21-104000-1,2021-12-09T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.263286,2.46935
+33438,ODF CHICKEN,RUE CORREUS,60000,Beauvais,21-041415-1,2021-05-20T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.426102,2.09756
+33712,LE COMPTOIR ITALIEN MAMMA MIA,PLACE JACQUES TATI,60880,Jaux,21-094062-1,2021-11-18T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.402342,2.774945
+33771,LE HENDRIX,33 RUE FOURNIER SARLOVEZE,60200,Compiègne,21-070475-1,2021-08-12T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.416019,2.827476
+33826,MAISON DE RETRAITE,84  RUE DU GENERAL LECLERC,60690,Marseille-en-Beauvaisis,21-103458-1,2021-12-13T01:00:00+01:00,Restauration collective,A améliorer,,Restauration collective,49.575697,1.954985
+33989,DESTOCK BARBES,185 RUE DE PARIS,60200,Compiègne,21-105921-1,2021-12-29T01:00:00+01:00,Boucherie-Charcuterie,A améliorer,,Boucherie-Charcuterie,49.406503,2.812525
+34213,SUSHI & WOK,11 RUE DE PARIS,60600,Clermont,20-095621-1,2021-03-25T01:00:00+01:00,Restaurant,A corriger de manière urgente,,Restaurant,49.375965,2.413567
+34329,ANZI,9 RUE DE PARIS,60128,Plailly,21-069467-1,2021-09-01T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.103626,2.584001
+34395,VIVAL,7 PLACE DE L HOTEL DE VILLE,60360,Crèvecoeur-le-Grand,21-037924-1,2021-05-05T02:00:00+02:00,Libre service|Alimentation générale,Satisfaisant,,Libre service|Alimentation générale,49.608488,2.076555
+34454,INDIAN EXPRESS,9 RUE DE PONTOISE,60000,Beauvais,22-000834-1,2022-01-05T01:00:00+01:00,Restaurant,A améliorer,,Restaurant,49.424032,2.084766
+34561,FERME DU PRE SAS,LA FOSSE MOSTELLE,60590,Éragny-sur-Epte,21-062630-1,2021-08-03T02:00:00+02:00,Production d'œuf liquide d'ovoproduit et produits à base œuf,Très satisfaisant,60211041.0,,49.314694,1.775321
+34585,RAMEN TAKARA FRANCE,RUE DE MADRID,60110,Amblainville,21-071682-1,2021-09-03T02:00:00+02:00,Transformation de produits carnés,Très satisfaisant,60010001.0,,49.215476,2.122984
+34714,GAEC DE LA CROIX VERTE,24 rue de la Croix Verte,60600,Agnetz,21-094446-1,2021-09-09T02:00:00+02:00,Producteur fermier,Très satisfaisant,,Producteur fermier,49.388051,2.398825
+34746,UNAPEI DE L'OISE,11 RUE GUSTAVE EIFFEL,60800,Crépy-en-Valois,21-082406-1,2021-09-08T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.223479,2.909989
+34758,SARL AUBERGE DU PONT DE RETHONDES,21 RUE DU MARECHAL FOCH,60153,Rethondes,21-086124-1,2021-10-21T02:00:00+02:00,Restaurant,A améliorer,,Restaurant,49.415993,2.938714
+34799,CHEZ MARTINE,8 RUE PRINCIPALE,60400,Nampcel,21-058963-1,2021-07-22T02:00:00+02:00,Restaurant,Satisfaisant,,Restaurant,49.486499,3.098511
+35002,HUDSON,PL JACQUES TATI,60880,Jaux,22-000111-1,2022-01-03T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.402342,2.774945
+35025,ECOLE NOTRE DAME,"31, rue Buzenval",60000,Beauvais,21-027032-1,2021-03-30T02:00:00+02:00,Restauration collective,Satisfaisant,,Restauration collective,49.432768,2.085932
+35313,HUYART-ROUYERE,28 RUE DIOGENE MAILLART,60480,Lachaussée-du-Bois-d'Écu,21-058808-1,2021-07-02T02:00:00+02:00,Centre d'emballage des oeufs,Très satisfaisant,60336006.0,,49.560985,2.174104
+35323,MAISON FAMILIALE DE VERTEFEUILLE,R   SOEUR AURELIE,60350,Pierrefonds,22-014160-1,2022-02-25T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.34555,2.970667
+35342,SOCIETE JOUVIN,7 RUE THOMAS EDISON,60180,Nogent-sur-Oise,21-056573-1,2021-06-11T02:00:00+02:00,Transformation de produits carnés,Satisfaisant,60463013.0,,49.269746,2.487321
+35357,BEAUTE RECHERCHE & INDUSTRIES,RTE DE NOYON,60310,Lassigny,22-000441-1,2022-01-04T01:00:00+01:00,Restauration collective,Satisfaisant,,Restauration collective,49.589732,2.855056
+35447,SOCIETE JOUVIN,7 RUE THOMAS EDISON,60180,Nogent-sur-Oise,21-056862-1,2021-06-11T02:00:00+02:00,"VH, VSM, préparation viandes boucherie",Satisfaisant,60463013.0,,49.269746,2.487321
+35533,LES TERRASSES D'HUMIERES,RUE DE GOURNAY,60113,Monchy-Humières,22-000956-1,2022-01-10T01:00:00+01:00,Restaurant,Satisfaisant,,Restaurant,49.469873,2.743738
+35581,LYCEE POLYVALENT LYCEE DES METIERS CHARLES DE GAULLE,Rue Jacques Daguerre,60200,Compiègne,21-079590-1,2021-10-04T02:00:00+02:00,Restauration collective,Très satisfaisant,60159015.0,Restauration collective,49.388141,2.783562
