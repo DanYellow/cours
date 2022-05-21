@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- https://umap.openstreetmap.fr/fr/map/carte-tp-data-journalisme_687541 -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP5 - Cartes</title>
+
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 0.75rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <details class="consignes-conteneur" open>
+      <summary>
+        <h1 class="h1">
+          Consignes de la pratique (cliquer pour afficher / cacher) - Partie 1
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          Allez sur le site de uMap
+          <ul>
+            <li>
+              <a href="https://umap.openstreetmap.fr/fr/" target="_blank">Accéder au site de uMap (ouverture dans un
+                nouvel onglet)</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Cliquez sur le bouton "Créer une carte"
+          <ul>
+            <li>
+              <p>Vous devriez tomber sur une interface comme celle-ci</p>
+              <img src="images/capture-1.jpg" height="750" alt="">
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
+        <p>Vous êtes face à l'interface de création de cartes. Ici nous n'utilisons pas GoogleMaps mais
+          openstreetmap (osm), ces cartes ont été faits par la communauté, d'ailleurs si vous le souhaitez vous pouvez y
+          contribuer en rajoutant des chemins par exemple.
+          C'est l'équivalent gratuit et sans tracker de Google Maps. Avec uMap, nous allons pouvoir créer nos cartes
+          personnalisées, l'interface (d'édition) est composée de deux menus
+          latéraux, pour l'édition seul celui de droite nous
+          intéresse pour le moment. Détails du menu latéral : </p>
+      </section>
+      <section style="display: flex; margin-left: 30px;">
+        <figure>
+          <img src="images/capture-2.jpg" alt="">
+        </figure>
+        <section>
+          <ul class="liste-consignes">
+            <li>Ajouter un marqueur</li>
+            <li>Designer une ligne</li>
+            <li>Designer un polygone</li>
+          </ul>
+          <hr>
+          <ul class="liste-consignes">
+            <li>
+              <p>Importer des données</p>
+              <p>C'est ce qui va nous intéresser dans cet exercice</p>
+            </li>
+            <li>Editer les paramètres</li>
+            <li>Changer le fond de carte</li>
+            <li>Gérer gérer les calques</li>
+            <li>Enregistrer le zoom et le centre actuel</li>
+            <li>Changer les permissions et éditeurs (nécessite d'être connecté)</li>
+          </ul>
+        </section>
+      </section>
+      <ol start="3" class="liste-consignes">
+        <li>
+          <p>Donnez un nom à la carte (celui que vous voulez) et enregistrez-la.</p>
+          <figure>
+            <img src="images/capture-3.jpg" width="1000" alt="">
+          </figure>
+          <figure>
+            <img src="images/capture-4.jpg" width="1000" alt="">
+          </figure>
+          <p>Remarquez que l'enregistrement a fait changer l'url du navigateur et a affiché une URL dans une popup en
+            haut de la fenêtre (voir image ci-dessous)
+            pensez bien à la garder de côté pour pouvoir éditer votre carte plus tard.</p>
+          <section class="note-importante">Vous n'avez qu'une seule occasion d'afficher cette URL d'édition</section>
+          <p>Si vous perdez cette URL, il vous faudra exporter la carte puis la réimporter. Pour exporter la carte, il
+            faudra cliquer sur l'icône <img src="images/capture-6.jpg" style="margin: 0;" alt=""> (menu de gauche),
+            exporter la carte
+            depuis le panneau apparu à droite. Et le fichier au format .umap devra être importé. Pensez à réenregistrer
+            la carte pour avoir une nouvelle URL secrète.</p>
+          <figure>
+            <img src="images/capture-5.jpg" width="1000" alt="">
+          </figure>
+        </li>
+        <li>Essayez un peu d'expérimenter les trois premières options du menu de droite pour mieux vous familliariser
+          avec l'éditeur de carte.
+        </li>
+      </ol>
+    </details>
+
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Consignes de la pratique (cliquer pour afficher / cacher) - Partie 2
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>
+          <p>
+            Sélectionnez l'option "Importer des données" ( <img src="images/import.jpg" alt="" /> ) et importez un des
+            fichiers commençant par "alimconfiance" contenu dans la
+            ressource. Ce fichier
+            contient les résultats des contrôles officiels réalisés en matière de sécurité sanitaire des aliments
+            depuis
+            le 1er mars 2017 dans un département (le document original contient plus de données, mais on a filtré le
+            document avec pandas et fait quelques modifications au niveau des colonnes).
+          </p>
+          <ul class="liste-consignes">
+            <li><a target="_blank"
+                href="https://www.data.gouv.fr/fr/datasets/resultats-des-controles-officiels-sanitaires-dispositif-dinformation-alimconfiance/">Voir
+                source du dataset (ouverture dans un nouvel onglet)</a></li>
+          </ul>
+          <p>Si tout s'est bien passé, vous devriez voir des points apparaître sur votre carte (comme l'image
+            ci-dessous), ils représentent les entrées du jeu de données. Le bandeau d'erreur n'est pas très important,
+            c'est juste que le fichier a mal été nettoyé.</p>
+          <img src="images/capture-8.jpg" width="1000" alt="">
+          <p>Notez un point sur cette fonctionnalité d'import de fichiers csv. Il faut impérativement qu'il contienne
+            les colonnes "lon" et "lat" pour qu'il puisse savoir où placer vos points.</p>
+        </li>
+      </ol>
+      <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
+        <p>Génial. Nous avons nos points. Enregistrez la carte puis cliquez sur "Désactiver l'édition". Si on clique
+          sur les points, ça n'affiche pas le nom du lieu. Changeons ceci.</p>
+      </section>
+      <section class="note-importante">
+        Si vous n'avez pas enregistré votre carte, l'option "Désactiver l'édition" n'apparaîtra pas. L'option à gauche
+        du bouton "Enregistrer"
+      </section>
+      <ol class="liste-consignes" start="2">
+        <li>
+          <p>Cliquez sur "Gérer gérer les calques". Ceci devrait afficher le panneau latéral et n'afficher qu'un seul
+            calque. Cliquez sur l'icône éditeur (voir image ci-dessous)</p>
+          <img src="images/capture-9.jpg" width="1000" alt="">
+        </li>
+        <li>
+          <p>Cliquez sur "Option d'interaction" puis "Gabarit du contenu de la popup".</p>
+          <img src="images/menu-lateral-gabarit.jpg" alt="">
+          <p>Dans "Gabarit du contenu de la popup", il vous est donné la
+            possibilité de définir ce qui doit être affiché dans la popup, le tout fonctionne via un système de
+            gabarits, vous pourrez trouver plus de détails en cliquant sur le point d'interrogation à côté de
+            "Gabarit du contenu de la popup".</p>
+          <p>Si on regarde le contenu, uMap affiche la valeur des colonnes "name" et "description" pour chaque point
+            or si on regarde notre fichier (voir image ci-dessous), on remarque que ces clés n'existent pas.</p>
+          <img src="images/capture-10.jpg" width="1000" alt="">
+        </li>
+        <li>Modifiez le contenu de l'option "Gabarit du contenu de la popup" de façon à afficher le nom de
+          l'établissement (clé "APP_Libelle_etablissement") lorsque l'on clique sur un point sur la carte. Pensez à enregistrer puis désactiver l'édition pour valider
+          vos modifications.</li>
+        <li>Expérimentez. Essayez d'afficher d'autres choses. Et n'oubliez pas d'enregistrer puis désactiver l'édition
+          pour
+          valider vos modifications.</li>
+      </ol>
+      <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
+        <p>Nous savons désormais comment éditer le contenu de nos popups, nous en avons assez pour mettre des cartes
+          interactives dans nos articles de presse. Nous allons voir comment faire des clusters (groupement) de points
+          pour améliorer la lisibilité.</p>
+      </section>
+      <ol class="liste-consignes" start="6">
+        <li>
+          <p>Retournez sur sur "Gérer gérer les calques" (<img src="images/gerer-des-calques.jpg" alt="">) . Ceci
+            devrait afficher le panneau latéral et n'afficher qu'un
+            seul calque. Cliquez sur l'icône éditeur (voir plus haut). Cliquez sur la liste déroulante "Type de
+            calque" et sélectionnez "Avec cluster" (voir image ci-dessous)</p>
+          <img src="images/capture-11.jpg" width="1000" alt="">
+          <p>L'activation de cette option reste facultative, normalement l'outil est censé pouvoir décider par défaut
+            dépendamment du nombre de points</p>
+        </li>
+      </ol>
+      <section style="margin-left: 30px; font-size: 1.25rem; margin-bottom: 0.7rem;">
+        <p>Nous savons importer des fichiers, nous avons éditer le contenu des popups, faire des clusters. Il nous
+          manque plus qu'à afficher notre carte ailleurs. Alors oui, nous pouvons partager le lien actuel, mais nous
+          pouvons aussi afficher notre carte dans une page web.</p>
+      </section>
+      <ol class="liste-consignes" start="7">
+        <li>Cliquez sur le bouton de partage dans le menu de gauche <img src="images/capture-6.jpg" style="margin: 0;"
+            alt="">. Ceci va afficher un panneau à droite, copiez le contenu de la zone de texte et collez-le dans ce
+          ficher dans la balise &lt;main>. Sauvegardez le fichier et actualisez la page, vous devriez voir votre
+          carte.
+          <ul class="liste-consignes">
+            <li>Note : La carte ne s'affichera pas si cette page web ne tourne pas sur un serveur (php/nodejs...)</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Voilà, vous savez maintenant comment créer une carte interactive sans avoir écrit une seule ligne de code. Rappelons quand même que ceci ne fonctionnera (avec uMap) que si et seulement si votre jeu de données possède les colonnes lon et lat. Il faudra donc impérativement nettoyer votre jeu de données.</p>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <h1 class="h1">
+          Pour aller plus loin
+        </h1>
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          <a href="https://roberto-marcolin.canoprof.fr/eleve/tutorial/12_tutorial_umap.pdf" target="_blank"
+            rel="noopener noreferrer">Didacticiel sur umap pdf (ouverture dans un nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://www.patrimoine-et-numerique.fr/tutoriels/60-37-faire-une-carte-avec-umap" target="_blank"
+            rel="noopener noreferrer">Didacticiel sur umap (ouverture dans un nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=-gR4IN1meOY" target="_blank" rel="noopener noreferrer">Didacticiel
+            vidéo en français sur umap (ouverture dans un nouvel onglet)</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/earth/outreach/learn/visualize-your-data-on-a-custom-map-using-google-my-maps/"
+            target="_blank" rel="noopener noreferrer">Didacticiel sur les cartes personnalisées avec Google Maps
+            (ouverture dans un nouvel onglet)</a>
+        </li>
+      </ul>
+    </details>
+  </header>
+
+  <main>
+    <!-- Collez votre carte ici-->
+  </main>
+</body>
+
+</html>
