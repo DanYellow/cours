@@ -7,7 +7,7 @@ _Les consignes pourront être modifiées._
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
 - [Mémo sur les requêtes SQL](LISEZ-MOI-REQUETES-SQL.md)
 - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
-- [Travailler avec liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
+- [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 
 ## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -31,7 +31,7 @@ Vous partirez de la correction du projet (dossier `"code/"`). Cette correction c
 
 Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
-Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal il est préférable d'éditer le dossier ressource à la racine du projet, si vous avez à éditer l'administration, il faudra travailler dans le dossier administration/ressources.
+Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal il est préférable d'éditer le dossier "ressources" à la racine du projet, si vous avez à éditer l'administration, il faudra travailler dans le dossier administration/ressources.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
@@ -185,6 +185,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   const monInput = document.querySelector('[data-mon-champ]')
   monInput.addEventListener("blur", maFonction)
 ```
+Les deux fonctionnalités seront dévelopées et expliquées durant un cours dédié.
 
 # Mise en production
 Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
@@ -197,6 +198,9 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
   - Ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
     - **Evitez d'avoir les mêmes noms de fichiers**
   - Rien ne vous empêche de travailler à deux sur les mêmes fonctionnalités et le même ordinateur
+  - Il existe l'extension liveshare pour travailler à plusieurs et vous pouvez partager votre serveur :
+    - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
+    - [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
   - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
