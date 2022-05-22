@@ -64,7 +64,7 @@ if ($estEnvLocal) {
         $fichierEnvChemin = $cheminDist;
     }
 } else {
-    // Permet de gérer un fichier env.local.dev 
+    // Permet de gérer un fichier env.local.prod 
     // pour la configuration s'il existe 
     $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.prod";
     if (file_exists($cheminDist)) {

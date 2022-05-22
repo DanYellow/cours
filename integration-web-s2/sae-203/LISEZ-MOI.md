@@ -198,7 +198,7 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
   - Ayez la même structure de fichiers, ça sera plus simple après pour tout fusionner
     - **Evitez d'avoir les mêmes noms de fichiers**
   - Rien ne vous empêche de travailler à deux sur les mêmes fonctionnalités et le même ordinateur
-  - Il existe l'extension liveshare pour travailler à plusieurs et vous pouvez partager votre serveur :
+  - Il existe l'extension liveshare pour travailler à plusieurs et vous pouvez partager votre serveur WAMP, XAMP... :
     - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
     - [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
