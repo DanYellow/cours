@@ -176,9 +176,9 @@ header("Location: $pageRedirection");
 ```
 
 # Javascript
-Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Le javascript devra **impérativement** être utilisé pour :
+Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Il devra **impérativement** être utilisé pour :
 - Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans le backoffice, il faudra utiliser le backoffice pour afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
+- Dans l'administration (backoffice), il faudra afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
 ```js
   // Lorsqu'on sort le focus du champ, alors on appelle la fonction "maFonction"
   // Code à adapter
