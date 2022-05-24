@@ -9,9 +9,10 @@ const baliseInput = document.querySelector("[data-input]");
 // Ceci ne fonctionnera que si et seulement s'il y a du contenu dans le champ [data-input]
 baliseImage.src = baliseInput.value;
 
-// On place un écouteur d'évènements sur l'évènement "input" pour appeler notre fonction lorsque l'on écrit, entre ou quitte le chmap
-// - Voir documentation de l'évènement input : https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event
-// La méthode "addEventListener" pourrait se traduire littéralement en "ajoute un écouteur d'évènement". Ici on a décidé que ça soit à l'interaction avec  "baliseInput"
-baliseInput.addEventListener("input", function (evt) {
+// On place un écouteur d'évènements sur l'évènement "blur" pour appeler notre fonction lorsque l'on quitte le champ (à condition d'être entré dans le champ avant)
+// - Voir documentation de l'évènement input : https://developer.mozilla.org/fr/docs/Web/API/GlobalEventHandlers/onblur
+// La méthode "addEventListener" pourrait se traduire littéralement en "ajoute un écouteur d'évènement". 
+// Ici on a décidé que ça soit à l'interaction avec "baliseInput"
+baliseInput.addEventListener("blur", function (evt) {
     baliseImage.src = evt.target.value;
 });
