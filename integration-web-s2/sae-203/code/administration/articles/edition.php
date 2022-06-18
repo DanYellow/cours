@@ -64,7 +64,7 @@ if ($formulaire_soumis) {
                                 <input type="text" value="<?php echo $entite['titre']; ?>" name="titre" class="form-control" id="titre">
                             </div>
                             <!-- A compléter -->
-                            <div class="mb-3  col-md-6">
+                            <div class="mb-3 col-md-6">
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>
                         </section>
