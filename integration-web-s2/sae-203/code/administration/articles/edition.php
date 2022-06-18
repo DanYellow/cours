@@ -8,6 +8,7 @@ $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
 if ($entree_mise_a_jour) {
+    // On cherche l'article à éditer
     $commande = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
     $commande->execute([
         "id" => $_GET["id"]
@@ -32,7 +33,6 @@ if ($formulaire_soumis) {
         "id" => $_POST["id"]
     ]);
 }
-
 ?>
 
 <!DOCTYPE html>
