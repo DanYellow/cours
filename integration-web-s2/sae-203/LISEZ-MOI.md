@@ -185,7 +185,7 @@ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer
   const monInput = document.querySelector('[data-mon-champ]')
   monInput.addEventListener("blur", maFonction)
 ```
-Les deux fonctionnalités seront dévelopées et expliquées durant un cours dédié.
+**Les deux fonctionnalités seront dévelopées et expliquées durant un cours dédié.**
 
 # Mise en production
 Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
@@ -213,9 +213,9 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
   - Le fichier "rapport-ressenti.odt" **pour chaque membre du groupe et dûment complété**
-- URL du site en ligne
+- URL du site en ligne - Facultatif
   - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
-  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier "code/ressources/includes/connexion-bdd.php"
+  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
@@ -260,7 +260,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Je peux ajouter / éditer :
       - [ ] Un article / auteur
     - [ ] Je peux lister :
-      - [ ] Tous les articles / auteurs / ~~messages~~
+      - [ ] Tous les articles / auteurs
   - [ ] Complétion de la page "équipe de rédaction"
   - [ ] Complétion de la page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
@@ -279,12 +279,12 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Le code
     - [ ] La base de données
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
-    - [ ] URL vers le site
-      - **Facultatif**
+    - [ ] URL vers le site dans un fichier .txt - **Facultatif**
+      
 
 # Pour aller plus loin
 
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances, ceci permettra de valoriser votre CV pour vos stages et emplois futurs :
+Pour aller plus loin sur le projet, voici une liste **(non-exhaustive et non-ordonnée)** de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant, mais vous acquirerez de nouvelles connaissances, ceci permettra de valoriser votre CV pour vos stages et emplois futurs :
 
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
@@ -307,7 +307,7 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
 - Permettre, à partir d'un article, d'accéder à la page de l'auteur de l'article
   - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur et il vous faudra faire le design
 - Ajouter un "flash message" après création ou édition d'un élément dans le backoffice
-  - Il faudra utiliser les sessions en php pour ce faire
+  - Il faudra utiliser les sessions ($_SESSION[]) en php pour ce faire. [Voir documentation de la super variable $_SESSION](https://www.php.net/manual/fr/reserved.variables.session.php)
 - Donner la possibilité de supprimer un message ou article
   - Il faudra utiliser la requête `DELETE FROM ... WHERE`
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
@@ -315,7 +315,6 @@ Pour aller plus loin sur le projet, voici une liste (non-exhaustive et non-ordon
     - Note : Les attributs "required" doivent être supprimés
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
-  - Développement de la cinquième page principale
 - Améliorer le code de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
