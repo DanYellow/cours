@@ -8,6 +8,7 @@ $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
 if ($entree_mise_a_jour) {
+    // On cherche l'article à éditer
     $commande = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
     $commande->execute([
         "id" => $_GET["id"]
@@ -32,7 +33,6 @@ if ($formulaire_soumis) {
         "id" => $_POST["id"]
     ]);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ if ($formulaire_soumis) {
                                 <input type="text" value="<?php echo $entite['titre']; ?>" name="titre" class="form-control" id="titre">
                             </div>
                             <!-- A compléter -->
-                            <div class="mb-3  col-md-6">
+                            <div class="mb-3 col-md-6">
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>
                         </section>

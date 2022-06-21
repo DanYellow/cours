@@ -30,9 +30,9 @@ require_once('./ressources/includes/connexion-bdd.php');
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
             <ul class="liste-ancres">
-                <li><a href="#presentation">Présentation</a></li>
-                <li><a href="#sae">SAÉ</a></li>
-                <li class="dernier"><a href="#exemple-sae">Exemples de SAÉ</a></li>
+                <li><a href="./a-propos.php#presentation">Présentation</a></li>
+                <li><a href="./a-propos.php#sae">SAÉ</a></li>
+                <li class="dernier"><a href="./a-propos.php#exemple-sae">Exemples de SAÉ</a></li>
             </ul>
 
             <section>
