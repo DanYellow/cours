@@ -255,14 +255,15 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 # Votre liste à faire
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
-- [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
+- [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests pour mieux comprendre le code
 - [ ] Mettre des CSS transitions
-- [ ] J'ai réalisé toutes fonctionnalités :
+- [ ] Réaliser toutes fonctionnalités :
   - [ ] Gestion de l'administration 
     - [ ] Je peux ajouter / éditer :
       - [ ] Un article / auteur
     - [ ] Je peux lister :
-      - [ ] Tous les articles / auteurs / ~~messages~~
+      - [ ] Tous les articles / auteurs
+  - [ ] Design des pages "article" et "équipe de rédaction"
   - [ ] Complétion de la page "équipe de rédaction"
   - [ ] Complétion de la page "article"
     - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
@@ -278,8 +279,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - [ ] **Exporter la base de données**
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - [ ] Créer une archive avec le nom-prénom du chef de projet qui contient :
-    - [ ] Le code
-    - [ ] La base de données
+    - [ ] Le code source du projet
     - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
-    - [ ] URL vers le site
-      - **Facultatif**
+    - [ ] La base de données - **Facultatif**
+    - [ ] URL vers le site - **Facultatif**
