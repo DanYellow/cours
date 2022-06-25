@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header>
+  <header style="max-width: 1280px; margin: 0 auto;">
     <details class="consignes-conteneur" open>
       <summary>
         <h1 class="h1">
@@ -23,17 +23,17 @@
         </h1>
       </summary>
       <p>Parfois, il arrivera qu'une (User) Story soit trop grosse pour être gérée durant un sprint, elle ne respecte
-        donc pas le "S" d'INVEST (Independant, Negociable, Valuable, Estimable, Small et Testable pour rappel), dans ce
-        cas, on parlera d'epic (ou épopée), et vous devrez découper cet epic en plusieurs (User) Stories. Ceci est le
-        but de cet exercices. Parmi, les cinq epics proposées dans la partie 1, listez (seul ou à plusieurs), autant
-        d'(User) Stories associées.</p>
+        donc pas le "S" d'INVEST (Independant, Negociable, Valuable, Estimable, <span class="texte-gras">Small</span> et Testable pour rappel), dans ce
+        cas, on parlera d'epic (ou épopée), et vous devrez découper cet epic en plusieurs (User) Stories. Le but de cet exerice, (seul ou à plusieurs) est de partir d'un epic jusqu'à un backlog priorisé. Si vous travaillez à plusieurs, n'hésitez pas à discuter des vos Story pour vous
+        assurer qu'elles sont utiles, comme le ferait une équipe Agile.</p>
       <p>Pour rappel, une (User) Story, il est préférable qu'elle ait le format suivant :</p>
       <h2 style="font-size: 2rem; font-style: italic; text-align: center;">« En tant que [persona], je veux [quoi] afin
         de [pourquoi] »</h2>
 
       <ul>
         <li>
-          <a href="https://1qtspv2a8qad3nf2xr3pzat3-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/HW-Story-Splitting-Flowchart-FR.pdf" target="_blank">
+          <a href="https://1qtspv2a8qad3nf2xr3pzat3-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/HW-Story-Splitting-Flowchart-FR.pdf"
+            target="_blank">
             Guide - Comment découper une Story (ouverture dans un nouvel onglet)
           </a>
         </li>
@@ -45,257 +45,48 @@
     <details class="consignes-conteneur" open>
       <summary>
         <h1 class="h1">
-          Partie 1 (cliquer pour afficher / cacher) - Liste des epics (un au choix)
+          Partie 1 (cliquer pour afficher / cacher) - Liste des epics
         </h1>
       </summary>
+      <p>Créez les Stories associées à un des epics suivant. Note : Vous n'avez pas à développer ces fonctionnalités. Essayez d'être ambitieux.</p>
       <ul class="liste-consignes">
         <li>Gérer les cours à l'IUT (pour les étudiants)</li>
         <li>Créer un compte sur un forum</li>
-        <li>Gestion du panier (sur un site d'e-commerce)</li>
+        <li>Système d'achat de contenus additionnels pour un jeu vidéo (type de jeu au choix)</li>
         <li>Rechercher une offre d'emploi</li>
+        <li>Gestion du panier (sur un site d'e-commerce)</li>
+        <li>Système de pagination</li>
       </ul>
     </details>
     <details class="consignes-conteneur">
       <summary>
         <h1 class="h1">
-          Partie 2 (cliquer pour afficher / cacher) - Position absolute
+          Partie 2 (cliquer pour afficher / cacher) - Critères d'acceptation
         </h1>
       </summary>
-      <ol class="liste-consignes">
-        <li>
-          Ajoutez une nouvelle balise (vous pouvez copier la balise section
-          ayant la classe "positionnement")
-          <ul>
-            <li>
-              Arrangez-vous pour que la balise ait une balise après pour bien
-              voir les effets
-            </li>
-          </ul>
-        </li>
-        <li>
-          Retirez toute classe différente de "positionnement" (si vous avez
-          copié la balise section du début)
-        </li>
-        <li>
-          Mettez cette nouvelle balise en positionnement absolue (<span class="texte-gras">utilisez une classe</span>)
-        </li>
-        <li>
-          Au sein de la même classe jouez sur les propriétés "top", "bottom",
-          "left" ou "right" pour déplacer la balise
-          <ul>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété position (ouverture dans
-                un nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/top" rel="noopener noreferrer" target="_blank">Voir
-                documentation de la propriété top (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/bottom" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété bottom (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/left" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété left (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/right" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété right (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-          </ul>
-        </li>
-      </ol>
+      <p>On a vu précédemment que si la rédaction de Stories permettait de mieux définir une tâche pour l'équipe de
+        développement. Elles ne sont pas suffisantes, c'est pourquoi on y adjoint des tests d'acceptation qui sont là
+        pour s'assurer, lors du développement, que la tâche réalisée sera conforme aux attentes de l'équipe (et du
+        client).</p>
+      <p>Rédigez les critères d'acceptation relatifs aux (user) stories que vous avez rédigés précédemment.</p>
+      <p>Pour rappel, un critière d'acceptation peut s'exprimer sous forme d'une phrase simple ou respecter le format suivant :</p>
+      <h2 style="font-size: 2rem; font-style: italic; text-align: center;">« Étant donné que [état précédent/contexte], quand [action] alors [résultat] »</h2>
     </details>
     <details class="consignes-conteneur">
       <summary>
         <h1 class="h1">
-          Partie 3 (cliquer pour afficher / cacher) - Position fixed
+          Partie 3 (cliquer pour afficher / cacher) - Prioriser les Stories
         </h1>
       </summary>
-      <ol class="liste-consignes">
-        <li>
-          Ajoutez une nouvelle balise (vous pouvez copier la balise section
-          ayant la classe "positionnement")
-          <ul>
-            <li>
-              Arrangez-vous pour que la balise ait une balise après pour bien
-              voir les effets
-            </li>
-          </ul>
-        </li>
-        <li>
-          Retirez toute classe différente de "positionnement" (si vous avez
-          copié la balise section du début)
-        </li>
-        <li>
-          Mettez cette nouvelle balise en positionnement absolue (<span class="texte-gras">utilisez une classe</span>)
-        </li>
-        <li>
-          Au sein de la même classe jouez sur les propriétés "top", "bottom",
-          "left" ou "right" pour déplacer la balise
-        </li>
-        <li>
-          Défilez sur la page normalement, la balise restera toujours visible
-          <ul>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété position (ouverture dans
-                un nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/top" rel="noopener noreferrer" target="_blank">Voir
-                documentation de la propriété top (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/bottom" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété bottom (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/left" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété left (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/right" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété right (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-          </ul>
-        </li>
-      </ol>
+      <p>La priorisation des Stories permet d'optimiser la valeur du produit, et donc apporter de l'argent (au plus tôt vu qu'on déploie régulièrement avec SCRUM). Cette étape est donc à ne pas négliger. Il existe deux façons de faire pour prioriser : </p>
+      <ul>
+        <li>Matrice de KANO</li>
+        <li>Méthode MoSCoW</li>
+      </ul>
+      <p>Ces méthodes ne sont là qu'à titre indicatif, vous n'êtes pas obligé de les suivre.</p>
+      <p>Pour cette dernière partie, vous allez devoir prioriser vos Stories.</p>
     </details>
-    <details class="consignes-conteneur">
-      <summary>
-        <h1 class="h1">
-          Partie 4 (cliquer pour afficher / cacher) - Position sticky
-        </h1>
-      </summary>
-      <ol class="liste-consignes">
-        <li>
-          Ajoutez une nouvelle balise (vous pouvez copier la balise section
-          ayant la classe "positionnement")
-          <ul>
-            <li>
-              Arrangez-vous pour que la balise ait une balise après pour bien
-              voir les effets
-            </li>
-          </ul>
-        </li>
-        <li>
-          Retirez toute classe différente de "positionnement" (si vous avez
-          copié la balise section du début)
-        </li>
-        <li>
-          Mettez cette nouvelle balise en positionnement sticky (<span class="texte-gras">utilisez une classe</span>)
-        </li>
-        <li>
-          Au sein de la même classe jouez sur les propriétés "top", "bottom",
-          "left" ou "right" pour déplacer la balise
-        </li>
-        <li>
-          Défilez sur la page normalement, une fois la balise atteinte elle
-          restera visible mais reprendra sa place lorsque vous remonterez
-          <ul>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété position (ouverture dans
-                un nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/top" rel="noopener noreferrer" target="_blank">Voir
-                documentation de la propriété top (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/bottom" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété bottom (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/left" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété left (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/right" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété right (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </details>
-    <details class="consignes-conteneur">
-      <summary>
-        <h1 class="h1">
-          Partie 5 (cliquer pour afficher / cacher) - z-index
-        </h1>
-      </summary>
-      <ol class="liste-consignes">
-        <li>
-          Ajoutez une nouvelle balise (vous pouvez copier la balise section
-          ayant la classe "positionnement") en position absolue
-        </li>
-        <li>
-          Retirez toute classe différente de "positionnement" (si vous avez
-          copié la balise section du début)
-        </li>
-        <li>
-          Arrangez-vous pour que la balise chevauche de l'autre balise en
-          position absolue créée précédemment
-          <ul>
-            <li>
-              Il faut utiliser les propriétés "top", "bottom", "left" ou
-              "right" pour déplacer la balise pour rappel
-            </li>
-          </ul>
-        </li>
-        <li>
-          Utilisez la propriété "z-index" pour changer le chevauchement des
-          balises
-          <ul>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/z-index" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété z-index (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété position (ouverture dans
-                un nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/top" rel="noopener noreferrer" target="_blank">Voir
-                documentation de la propriété top (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/bottom" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété bottom (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/left" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété left (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/right" rel="noopener noreferrer"
-                target="_blank">Voir documentation de la propriété right (ouverture dans un
-                nouvel onglet)</a>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </details>
+
   </header>
 </body>
 
