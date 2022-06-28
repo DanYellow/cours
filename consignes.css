@@ -40,14 +40,9 @@
 }
 
 .consignes-conteneur .liste-consignes {
-    margin-left: 1.85rem;
     margin-bottom: 1rem;
     font-size: 1.25rem;
     list-style: revert;
-}
-
-.consignes-conteneur .liste-consignes li {
-    margin-bottom: 0.95rem;
 }
 
 .consignes-conteneur .block-consigne {
