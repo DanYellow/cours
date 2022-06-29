@@ -2,7 +2,7 @@
 
 Au lieu de vous faire coder des morceaux de code par-ci par-là pour apprendre le HTML et le CSS, nous avons décidé de vous faire pratiquer sur un site sur lequel vous utiliserez les notions abordées en cours.
 
-> Pensez bien à ramener votre projet (et son avancement) à chaque cours
+> Pensez bien à ramener votre projet (et son avancement) à chaque cours pour avancer en fonction du thème abordé
 
 Ce travail est noté, vous pouvez travailler en binôme (**à condition que vous soyez dans le même TP**). 
 
@@ -12,9 +12,13 @@ A partir du code donné, vous allez devoir compléter le site de façon à ce qu
 
 Vous partirez d'une base de code assez minimaliste, nous vous invitons à le regarder (notamment en utilisant la console du navigateur), faire des tests avant de vous lancer à corps perdu dans le développement. **Vous ne devez en aucun cas modifier les fichiers contenus dans le dossier "ne-pas-modifier" ou préfixé de "npm-",** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration.
 
-- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/46ba4791-6b66-407d-8d2e-e4451c98e243-13e9/specs/)
+- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/0fba5fee-dd79-4d0e-b45a-9f15d3fe18d2-5ae9/)
 
-Vous ne serez pas forcément apte dès le début du semestre à intégrer le site, toutefois au fur et à mesure des cours votre site ressemblera de plus en plus au design attendu. Vous verrez donc durant ce semestre :
+Vous ne serez pas forcément apte dès le début du semestre à intégrer le site, toutefois au fur et à mesure des cours votre site ressemblera de plus en plus au design attendu. 
+
+> En plus de l'intégration du site, vous devrez rajouter un encart (ou une nouvelle page) concernant une brève biographie de votre personne accompagnée d'images. C'est votre encart, exprimez-vous en terme de design / mise en page.
+
+Vous verrez donc durant ce semestre :
 
 ## Notions
 
@@ -29,6 +33,7 @@ Vous ne serez pas forcément apte dès le début du semestre à intégrer le sit
 - Modèle de boite
   - propriétés margin / padding / border...
 - Accessibilité Web
+- ...
 
 # Astuces
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
@@ -46,7 +51,7 @@ Vous ne serez pas forcément apte dès le début du semestre à intégrer le sit
   - HTML/CSS...
   - Un fichier texte avec les membres du binôme
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date ainsi que le lien du dépôt seront donnés ultérieurement.
 
 # Notation
 Les critères suivants seront évalués 
