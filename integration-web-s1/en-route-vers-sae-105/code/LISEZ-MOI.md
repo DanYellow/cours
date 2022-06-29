@@ -1,12 +1,20 @@
-# En route vers la SAÉ 105 - Produire un site web
+# Préparons la SAÉ 105 - Produire un site web
 
-Dans le but de mieux vous préparer à la SAÉ 105 - Produire un site web, vous allez devoir travailler de façon **individuelle** sur un devoir **noté** fleuve. A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues en cours aussi bien en Intégration Web (HTML/CSS) que Développement Web (PHP) tout au long du semestre.
+Au lieu de vous faire coder des morceaux de code par-ci par-là pour apprendre le HTML et le CSS, nous avons décidé de vous faire pratiquer sur un site sur lequel vous utiliserez les notions abordées en cours.
 
-Le code de base étant fourni, nous vous invitons à le regarder (notamment en utilisant la console du navigateur), faire des tests avant de vous lancer à corps perdu dans le développement. Par ailleurs, **vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est.
+> Pensez bien à ramener votre projet (et son avancement) à chaque cours
 
-- [Accéder à la maquette Adobe XD]()
+Ce travail est noté, vous pouvez travailler en binôme (**à condition que vous soyez dans le même TP**). 
 
-Ainsi, vous ne serez pas forcément apte dès le début du semestre à intégrer le site, toutefois au fur et à mesure des cours vous verrez de nouvelles fonctionnalités qui vous permettront d'avancer sur le site. Vous verrez donc durant ce semestre :
+> Si vous êtes en binôme, pensez à expérimenter la programmation pair-à-pair. Ceci consiste, notamment, à développer à deux sur le même ordinateur.
+
+A partir du code donné, vous allez devoir compléter le site de façon à ce qu'il ressemble le plus possible au projet Adobe XD (voir lien plus bas) mais surtout l'agrémenter des fonctionnalités vues en cours tout au long du semestre.
+
+Vous partirez d'une base de code assez minimaliste, nous vous invitons à le regarder (notamment en utilisant la console du navigateur), faire des tests avant de vous lancer à corps perdu dans le développement. **Vous ne devez en aucun cas modifier les fichiers contenus dans le dossier "ne-pas-modifier" ou préfixé de "npm-",** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration.
+
+- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/46ba4791-6b66-407d-8d2e-e4451c98e243-13e9/specs/)
+
+Vous ne serez pas forcément apte dès le début du semestre à intégrer le site, toutefois au fur et à mesure des cours votre site ressemblera de plus en plus au design attendu. Vous verrez donc durant ce semestre :
 
 ## Notions
 
@@ -22,28 +30,21 @@ Ainsi, vous ne serez pas forcément apte dès le début du semestre à intégrer
   - propriétés margin / padding / border...
 - Accessibilité Web
 
-### Développement Web
-- Langage PHP
-- Gestion des formulaires en PHP
-
-
-Bien évidemment les notions vues durant le semestre précédent vous seront plus qu'utiles pour réaliser ce devoir. N'attendez pas le dernier moment pour le faire, **essayez d'ajouter les fonctionnalités au fur et à mesure des cours,** ça devrait être plus simple les notions étant encore fraîches dans votre tête.
-
-
 # Astuces
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
 - Inutile d'aller modifier le code CSS fourni, créer vos propres fichiers CSS pour limiter les effets de bords et altérer le code CSS fourni
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autres choses. Vous pouvez récupérer les propriétés CSS suivantes :
-  - font-size
+  - font-size (**A CONVERTIR EN REM IMPÉRATIVEMENT**)
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
   - les couleurs
   - font-weight
-- Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
+- Pensez bien à lire les notes présentes sur la maquette Adobe, elles apportent des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 
 # Rendus attendus
 - Une archive nommée nom-prénom contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
-  - HTML/PHP/CSS...
+  - HTML/CSS...
+  - Un fichier texte avec les membres du binôme
 
 Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement.
 
@@ -73,8 +74,6 @@ Les critères suivants seront évalués
 
 # Votre liste à faire
 - [x] Lire les consignes
-- [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
-- [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
