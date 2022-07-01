@@ -1,5 +1,12 @@
 # SAÉ 105 - Produire un site web
 
+> **IMPORTANT :** Le code fournit 
+
+## Didacticiels
+- [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
+- [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
+
+## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
 L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants : 
 - AC4101 : Exploiter de manière autonome un environnement de développement
@@ -11,7 +18,9 @@ des interactions simples
 - AC4104 : Mettre en ligne une application Web en utilisant une solution
 d’hébergement standard
 
-L'Université, pour sa part, nous fournit le style et la forme qu'elle souhaiterait donner au site, ainsi que delà des idées sur le contenu.
+L'Université, pour sa part, vous fournit le style et la forme qu'elle souhaiterait donner au site.
+
+> Ce n'est un exercice de rédaction, vous pouvez très bien récupérer du contenu en ligne.
 
 À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq environ, le site en suivant la maquette interactive (Adobe XD) qui vous se trouve ici :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
@@ -46,10 +55,11 @@ règles précédemment citées. A noter que cette SAÉ n'est pas un exercice ré
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en s’assurant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
 
 # Astuces
+- La navigation principale du site se trouve dans le fichier `ressources/css/includes/header.php`
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
-- **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration.
+- **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" et commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes :
   - font-size
@@ -70,10 +80,10 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
   - Un fichier texte contenant l'URL de votre site hébergé
-  - Un rapport de ressenti par membre de groupe nommé nom-prénom
-    - Ceci n'est pas noté, mais vous aidera pour le portfolio que vous devez remplir
+  - **Un rapport de ressenti par membre de groupe** nommé nom-prénom
+    - Ceci n'est pas noté, mais vous aidera pour le portfolio que vous devez remplir et nous pour nous améliorer
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail et précisée à l'endroit où vous devrez remettre votre rendu. Des points pourront être retirés ou la note nulle si le devoir est rendu en retard.
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail et précisée à l'endroit où vous devrez remettre votre rendu. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
@@ -115,17 +125,3 @@ Cette partie sera évaluée par M. Roch.
     - [ ] Mes images possèdent un attribut "alt"
     - [ ] L'unité de la propriété "font-size" est rem
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
-
-# Pour aller plus loin
-
-Pour aller plus loin sur le projet, voici une liste (non-exhaustive) de fonctionnalités que vous pouvez rajouter pour aller plus loin, vous n'aurez pas plus de points pour autant :
-- Afficher un favicon
-  - [Accèder au générateur de favicon](https://www.favicon-generator.org/)
-    - Vous pouvez sélectionner l'option "Generate only 16x16 favicon.ico" pour générer moins de fichiers
-    - Dans le code généré pensez à retirer la barre oblique devant les noms de fichiers. Par exemple `<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">` doit devenir `<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">`
-- Indiquer la page active dans la navigation
-  - Ceci ne se fait pas avec la pseudo-classe ":active". Aidez-vous de la gestion de la couleur des bulles
-- Ajouter un mode sombre
-  - [Voir didacticiel sur le mode sombre](https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css)
-  - C'est à vous de faire le design
-

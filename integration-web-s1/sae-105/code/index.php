@@ -8,12 +8,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A REMPLACER !!!</title>
 
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-global.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-header.css">
+
+    <!-- Vous n'avez pas besoin de fichiers sur les autres pages. Ca allège le temps de chargement et diminue la consommation d'électricité -->
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-accueil.css">
 </head>
 
 <body>
@@ -31,7 +33,7 @@
                     <section class="textes">
                         <p class="txt-petit">Journée portes <br /> ouvertes</p>
                         <p class="txt-grand">
-                            12/02/2022, <br />
+                            11/02/2023, <br />
                             de 10h à 17h
                         </p>
                         <p class="en-savoir-plus">EN SAVOIR PLUS</p>

@@ -219,7 +219,7 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
   - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
   - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier "code/ressources/includes/connexion-bdd.php"
 
-Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
+Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.

@@ -1,6 +1,8 @@
 <nav class="navigation-principale">
     <ul>
-        <li>ACCUEIL</li>
+        <li>
+            <a href="">ACCUEIL</a>
+        </li>
         <li>A PROPOS</li>
         <li>CONTACT</li>
     </ul>
