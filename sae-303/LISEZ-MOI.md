@@ -29,7 +29,7 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 
 > Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte.
 
-Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire.
+Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire. Il vous faudra donc utiliser des formules pour en extraire des données.
 
 ## Infographie
 Si vous faites le choix du design pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
