@@ -24,7 +24,7 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 
 Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous partirez de jeux de données propres qui vous seront fournis, et vous les explorerez avec excel (ou tout autre logiciel de tableur).
 
-- [Accéder aux jeux de données]()
+- [Accéder aux jeux de données](datasets/)
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
 > Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte.
@@ -32,7 +32,7 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire.
 
 ## Infographie
-Si vous faites le choix du design pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne.
+Si vous faites le choix du design pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement.
 
