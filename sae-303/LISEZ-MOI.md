@@ -31,6 +31,8 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 
 Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire. Il vous faudra donc utiliser des formules pour en extraire des données.
 
+> Vous n'êtes pas obligé d'utiliser un jeu de données dans son entièreté, vous pouvez très bien utiliser qu'une partie. Par exemple, vous focaliser que sur une seule année.
+
 ## Infographie
 Si vous faites le choix du design pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
@@ -46,6 +48,7 @@ Il n'y a pas réellement de format attendu pour cette infographie, elle devra qu
 - Format A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
 - Taille de texte minimum : 12px
 - Et bien évidemment le contenu
+  - Si possible traduisez-le en français
 
 ### Conseils - Infographie
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
@@ -64,7 +67,9 @@ Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google M
 
 Votre jeu de données devra impérativement être chargé, il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à une stratégie pour indiquer à l'utilisateur que les données chargent.
 
-> Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json
+> Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirait pour vous)
+
+Pour manipuler les données, les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
