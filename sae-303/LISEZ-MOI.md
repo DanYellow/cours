@@ -61,13 +61,13 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 ## Application interactive en javascript 
 
-Autre proposition de rendu, l'application interactive en javascript sera l'occasion d'approfondir vos connaissances en javascript. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner des une carte, car tous les utilisateurs peuvent s'y trouver.
+Autre proposition de rendu, l'application interactive en javascript sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner des une carte, car tous les utilisateurs peuvent s'y trouver.
 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 
 Votre jeu de données devra impérativement être chargé, il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à une stratégie pour indiquer à l'utilisateur que les données chargent.
 
-> Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirait pour vous)
+> Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 
 Pour manipuler les données, les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
