@@ -45,7 +45,9 @@ Pensez également à aggrémenter votre travail de quelques textes servant de pr
 Il n'y a pas réellement de format attendu pour cette infographie, elle devra quand même respecter les règles suivantes :
 - Indiquer vos sources
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
-- Format A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
+- Formats print et instagram :
+  - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
+  - Instagram : Format carré (possibilité d'avoir plusieurs images)
 - Taille de texte minimum : 12px
 - Et bien évidemment le contenu
   - Si possible traduisez-le en français
