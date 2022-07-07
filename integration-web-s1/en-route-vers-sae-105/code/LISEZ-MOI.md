@@ -25,12 +25,12 @@ Vous verrez donc durant ce semestre :
 ### Integration Web
 - Balises HTML
   - Sémantique
-- Langage CSS
-- Formulaires
-- Mise en page flexbox
-- Liens (balise &lt;a>)
-- Formattage du texte
-- Modèle de boite
+- Langage CSS (TP3)
+- Formulaires (TP2)
+- Mise en page flexbox (TP7)
+- Liens (balise &lt;a>) (TP6)
+- Formattage du texte (TP4)
+- Modèle de boite (TP5)
   - propriétés margin / padding / border...
 - Accessibilité Web
 - ...

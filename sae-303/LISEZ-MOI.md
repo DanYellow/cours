@@ -75,6 +75,7 @@ Pour manipuler les données, les transformer dans le but de les rendre utilisabl
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
 - [Voir carte sur les notes d'hygiène des restaurants de New-York (anglais)](http://archive.nytimes.com/www.nytimes.com/interactive/dining/new-york-health-department-restaurant-ratings-map.html)
 - [Popularité des prénoms](https://dataaddict.fr/prenoms/)
+- [Assiduité des députés Français à l'Assemblée Nationale](https://www.nosdeputes.fr/)
 
 # Votre liste à faire
   - [x] Lire les consignes
