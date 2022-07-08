@@ -2,7 +2,9 @@
 _Les consignes pourront être modifiées._
 
 ## Contexte de la SAÉ
-Dans un monde où la donnée se fait de plus en plus présente, l'internaute a de moins en moins le temps (ou l'envie) de prendre du temps de lire. La donnée permet également d'enrichir une information ou d'outil de communication. Cet atout peut s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral.
+De nos jours, le mot "data" ou "donnée" se réfèrent à l’information dématérialisée capable de circuler à travers un réseau de télécommunication ou informatique.
+Dans un monde où la data se fait de plus en plus présente, l'internaute sollicite des outils et des supports de visualisation qui lui permettent de lire et interpréter correctement des flux d'informations de plus en plus énormes.  
+Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral.
 
 Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants : 
 
@@ -14,7 +16,7 @@ Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants
 - AC24.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
 
 Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
-- Une infographie
+- Une infographie (plusieurs formats attendus)
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
 
