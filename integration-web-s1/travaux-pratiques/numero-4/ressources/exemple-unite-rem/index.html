@@ -7,21 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP5 — Exemple unité rem</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <header>
         <p class="description">
-            Déplacez le slider (ci-dessous) pour faire varier la valeur de la propriété "font-size" de la balise
-            &lt;html>
-            (le root/la racine) pour ainsi faire
-            varier les valeurs en rem. La valeur de la propriété "font-size" de la classe ".titre" est 1.5rem, elle sera
+            Déplacez le slider ci-dessous pour faire varier la valeur de la propriété "font-size" de la balise
+            &lt;html> pour ainsi faire
+            varier la taille de texte des balises enfant qui ont pour unité "rem". La valeur de la propriété "font-size" de la classe ".titre" (texte "unité rem") est 1.5rem, elle sera
             dont toujours 1.5x plus grande que celle du root, et ce, sans toucher la propriété "font-size" de la classe
-            ".titre".<br>
-            Cet exemple vise à simuler le changement de la taille de police par défaut du navigateur, fonctionnalité
+            ".titre". Cet exemple vise à simuler le changement de la taille de police par défaut du navigateur, fonctionnalité
             souvent
             utilisée par les personnes ayant des problèmes de vue.
         </p>
+        <p class="description">C'est pour ça qu'il ne faut absolument pas utiliser l'unité "px" pour la propriété CSS "font-size".</p>
         <p class="description">
             Notez également que l'espace entre le slider et "valeur du slider" est également en rem, il sera donc
             également influencé par le déplacement du slider.
@@ -46,12 +46,12 @@
         <hr>
 
         <section class="slider-container">
-            <input type="range" id="volume" name="volume" min="10" max="200" step="1" data-slider>
+            <input type="range" id="volume" name="volume" min="10" max="250" step="1" data-slider>
             <label for="volume">Valeur du slider : <span data-slider-value></span></label>
         </section>
     </main>
 
-    <script src="script.js"></script>
+    
 </body>
 
 </html>
