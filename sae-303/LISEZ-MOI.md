@@ -15,6 +15,12 @@ Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants
 - AC24.01 | Produire des pages et applications Web responsives
 - AC24.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
 
+Et de mettre en application les connaissances vues dans les ressources suivantes : 
+- R3.09 | Création et design interactif (UI)
+- R3.10 | Culture artistique
+- R3.12 | Développement Front et intégration
+- R3.15 | Représentation et traitement de l’information
+
 Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
 - Une infographie (plusieurs formats attendus)
 - Une application interactive en javascript
