@@ -26,7 +26,7 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
 
-**Dans tous les cas**, le résultat final devra être accessible sur un site web développé avec boostrap (vu en S2 et S3).
+**Dans tous les cas**, le résultat final devra être accessible sur un **site web développé avec boostrap** (vu en S2 et S3).
 
 > **La date butoir vous sera remise ultérieurement.**
 
@@ -35,7 +35,7 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 - [Accéder aux jeux de données](datasets/)
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
-> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte.
+> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive.
 
 Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire. Il vous faudra donc utiliser des formules pour en extraire des données.
 
