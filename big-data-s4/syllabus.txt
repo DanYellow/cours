@@ -1,9 +1,0 @@
-Cours assurés par M. Jean-Louis (danielo.jean-louis@cyu.fr)
-
-But du cours :
-	- Découvrir les enjeux et l'environnement du big data et de l'open data
-	- Découvrir le langage de programmation Python et les outils Pandas, seaborn et matplotlib
-	- Découvrir les bases du Machine Learning
-
-Mode d'évaluation (changements possibles) :
-	- Réalisation de notebook dans un environnement iPython

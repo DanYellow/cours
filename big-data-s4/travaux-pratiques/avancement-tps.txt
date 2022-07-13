@@ -1,3 +1,0 @@
-Big Data S4
-
-TP2 : pandas sans chargement des données csv
