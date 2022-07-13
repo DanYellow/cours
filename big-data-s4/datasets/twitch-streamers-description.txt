@@ -1,9 +1,0 @@
-- top count : index
-- screen name : pseudo
-- watch time : temps de visionnage
-- stream time : temps de stream
-- peak viewers : max de spectateurs
-- average viewers : vues moyenne
-- followers : nombre de followers
-- followers gained : nombre de followers gagnés
-- views gained : nombre de vues gagnées

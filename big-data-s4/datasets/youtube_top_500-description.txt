@@ -1,6 +1,0 @@
-- Rank : classement de la chaîne
-- Grade : Note de la chaîne (A++, A+, A)
-- Ch_name : Nom de la chaîne
-- Upload : Nombre de vidéos
-- Subscriptions : Nombre d'abonnés
-- Viewers : Nombre de vues
