@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 - Apprentissage React</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" defer></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" defer></script>
+
+    <!-- NE JAMAIS UTILISER CECI EN PRODUCTION. JAMAIS ! -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+</head>
+
+<body>
+    <header>
+        <h1 class="h1">Consignes de la pratique</h1>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Essayez de modifier le retour de la fonction "MyApp"
+                </li>
+            </ol>
+        </details>
+    </header>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function MyApp() {
+            return <h1>Hello, world!</h1>;
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+    </script>
+</body>
+
+</html>
