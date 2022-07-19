@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP3 - Patterns - boucles</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" defer></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" defer></script>
+
+    <!-- NE JAMAIS UTILISER CECI EN PRODUCTION. JAMAIS ! -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function MyApp() {
+            const listItems = [{
+                race: "Abyssin",
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Valentino.jpg?20060323201052",
+                region: "Asie"
+            }, {
+                race: "Anatoli",
+                img: "https://upload.wikimedia.org/wikipedia/commons/9/94/Cat_0063.JPG",
+                region: "Turquie"
+            }, {
+                race: "Singapura",
+                img: "https://upload.wikimedia.org/wikipedia/commons/d/da/Raffles_singapura_cat.jpg?uselang=fr",
+                region: "Singapour"
+            }, {
+                race: "Pixie-bob",
+                img: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Ponderosa_Klondike_ofAstonwoods11.JPG?uselang=fr",
+                region: "États-Unis"
+            }]
+
+            return (
+                <>
+                </>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+    </script>
+</body>
+
+</html>
