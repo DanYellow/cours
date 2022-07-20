@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consignes TP5 - nodejs</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <script src="script.js" defer></script>
+
+    <style>
+        .tab-wrapper {}
+
+        .tab-wrapper .list-tabs {
+            list-style: none;
+            display: flex;
+            overflow: hidden;
+            width: fit-content;
+            column-gap: 0.7rem;
+            padding: 0;
+        }
+
+        .tab-wrapper .list-tabs button {
+            padding: 14px 16px;
+            appearance: none;
+            border: none;
+        }
+
+        .tab-wrapper .list-tabs button.active {
+            background-color: cadetblue;
+            color: white;
+        }
+
+        .tab-wrapper .tab-content {
+            display: none;
+        }
+
+        .tab-wrapper .list-tab-content {
+            border: 1px solid white;
+            padding: 0.5rem;
+        }
+
+        @media (prefers-color-scheme: light) {
+            .tab-wrapper .list-tab-content {
+                border: 1px solid black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="h1">Consignes de la pratique</h1>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Installez nodejs sur votre ordinateur
+                    <ul>
+                        <li><a href="https://nodejs.org/en/download/" target="_blank">Installez nodejs (ouverture dans
+                                un nouvel onglet)</a> - Prenez la version LTS, plus stable</li>
+                    </ul>
+                </li>
+                <li>
+                    Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal (MacOS)
+                </li>
+                <li>Entrez la commande "node" puis tapez entrée. Si l'installation de node s'est bien passée,
+                    vous devriez voir le numéro de version
+                    <ul>
+                        <li>Appuyez sur les touches (<kbd>Ctrl/command (⌘)</kbd> + <kbd>c</kbd>) deux fois pour sortir
+                            de ce mode</li>
+                    </ul>
+                </li>
+
+                <li>Ouvrez votre dossier de travail, celui où vous comptez faire votre TP
+                    <section class="tab-wrapper">
+                        <ul class="list-tabs">
+                            <li><button data-tab-name="windows">Windows</button></li>
+                            <li><button data-tab-name="macos">MacOS</button></li>
+                        </ul>
+
+                        <section class="list-tab-content">
+                            <article class="tab-content" data-tab-content="windows">
+                                <ol>
+                                    <li>Ecrivez "cd" suivi d'un espace dans le logiciel invite de commandes / cmd</li>
+                                    <li>Glissez le dossier de travail</li>
+                                    <li>Appuyez sur la touche Entrée</li>
+                                </ol>
+                            </article>
+                            <article class="tab-content" data-tab-content="macos">
+                                <ol>
+                                    <li>Ecrivez "cd" suivi d'un espace dans le logiciel Terminal</li>
+                                    <li>Glissez le dossier de travail</li>
+                                    <li>Appuyez sur la touche Entrée</li>
+                                </ol>
+                            </article>
+                        </section>
+                    </section>
+                </li>
+                <li>Vous devriez voir dans le terminal (ou cmd) le chemin de votre dossier suivi d'un ">"
+                    <ul>
+                        <li>Par exemple : <code>E:\mes_projets\tps\developpement_front\nodejs></code> </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <p class="note-information">Assurez-vous bien d'être dans votre dossier de travail dans le terminal !</p>
+            <ol class="liste-consignes">
+                <li>
+                    Entrez la commande <code>npm init -y</code>
+                </li>
+                <li>
+                    Installez le node_modules "lodash"
+                    <ul>
+                        <li>Rappel, l'installation se fait grâce à la ligne de commande "npm install" dans le terminal</li>
+                        <li><a href="https://www.npmjs.com/package/lodash" target="_blank">Voir la fiche npm de lodash (ouverture dans un nouvel onglet)</a></li>
+                    </ul> 
+                </li>
+                <li>Qu'observez-vous dans le fichier package.json ?</li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Créez un fichier "index.js"
+                </li>
+                <li>
+                    Importez-y lodash
+                </li>
+                <li>
+                    Appliquez une fonction dans votre fichier "index.js"
+                    <ul>
+                        <li>
+                            <a href="https://lodash.com/" target="_blank">Voir documentation de lodash</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Modifiez le fichier package.json de façon à ajouter une tâche "start" qui va exécuter votre fichier "index.js"
+                    <ul>
+                        <li>Pour rappel, les tâches doivent être mises dans la partie "scripts" du fichier package.json</li>
+                    </ul>
+                </li>
+                <li>Entrez la commande <code>npm run start</code> dans le terminal et appuyez sur la touche entrée</li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Créez un module et exportez-le
+                    <ul>
+                        <li>Pour rappel, vous ne pouvez avoir qu'un seul <code>export default</code> par module</li>
+                        <li>Pour rappel, vous pouvez exporter à peu près ce que vous voulez (fonction, chaîne de caractères...)</li>
+                    </ul>
+                </li>
+                <li>Importez et utilisez votre module exporté dans index.js</li>
+                <li>Observez le résultat dans le terminal grâce à la commande <code>npm run start</code></li>
+            </ol>
+        </details>
+    </header>
+
+</body>
+
+</html>

@@ -18,16 +18,53 @@
             </summary>
             <ol class="liste-consignes">
                 <li>
-                    Choissiez une API qui renvoie une liste d'éléments ou un élément de votre choix. Et affichez-en le contenu.
+                    Choissiez une API qui renvoie une liste d'éléments ou un élément de votre choix. Et affichez-en le
+                    contenu.
                     <ul>
                         <li>Pensez bien à regarder le fonctionnement des API avant de développer</li>
-                        <li>Vous pourrez trouver des API ici (ouvertures dans un nouvel onglet) : 
+                        <li>Vous pourrez trouver des API ici (ouvertures dans un nouvel onglet) :
                             <ul>
-                                <li><a href="https://restcountries.com/" target="_blank">https://restcountries.com/</a> - Liste de pays </li>
-                                <li><a href="https://alexwohlbruck.github.io/cat-facts/docs/" target="_blank">https://alexwohlbruck.github.io/cat-facts/docs/</a> - Faits aléatoires sur les chats (en anglais) </li>
+                                <li><a href="https://restcountries.com/" target="_blank">https://restcountries.com/</a>
+                                    - Liste de pays </li>
+                                <li><a href="https://alexwohlbruck.github.io/cat-facts/docs/"
+                                        target="_blank">https://alexwohlbruck.github.io/cat-facts/docs/</a> - Faits
+                                    aléatoires sur les chats (en anglais) </li>
+                                <li>
+                                    <a href="https://disneyapi.dev/" target="_blank">https://disneyapi.dev/</a> - Disney
+                                    (en anglais)
+                                </li>
+                                <li>
+                                    <a href="https://docs.api.jikan.moe/"
+                                        target="_blank">https://docs.api.jikan.moe/</a> - Anime (en anglais)
+                                </li>
+                                <li>
+                                    <a href="https://www.fishwatch.gov/developers"
+                                        target="_blank">https://www.fishwatch.gov/developers</a> - Anime (en anglais)
+                                </li>
                             </ul>
-
                         </li>
+                        <li>
+                            Utiliser un des fichiers json proposés lors de la SAE 303. <a
+                                href="https://github.com/DanYellow/cours/tree/main/sae-303/datasets"
+                                target="_blank">Voir fichiers (ouverture dans un nouvel onglet)</a>
+                            <ul>
+                                <li>Ceci ne fonctionnera pas sans serveur. Utilisez wamp ou équivalent.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="https://free-apis.github.io/#/categories" target="_blank">Ensemble d'API en tout genres</a>
+                            <ul>
+                                <li>Assurez-vous que l'API ne nécessite pas de se connecter ou d'avoir un token pour l'utiliser</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Attention, certaines API ne retournent pas directement les informations qui vous intéressent. Il
+                    faudra donc récupérer la clef vous intéresse. Par convention, essayez de respecter les règles
+                    suivantes :
+                    <ul>
+                        <li>Si vous attendez une liste d'éléments, vous mettez un tableau dans votre state</li>
+                        <li>Si vous attendez un seul élément, vous mettez un objet dans votre state</li>
                     </ul>
                 </li>
             </ol>
@@ -38,9 +75,11 @@
             </summary>
             <ol class="liste-consignes">
                 <li>
-                    Indiquez que votre application est en train de charger
+                    Indiquez que votre application est en train de charger des données
                     <ul>
-                        <li>N'oubliez pas de gérer ceci avec un state dédiée</li>
+                        <li>N'oubliez pas de gérer ceci avec un state dédiée. Par exemple, "isLoading" ou "loadingData".
+                        </li>
+                        <li>Vous pouvez afficher du texte ou une image pour indiquer le chargement</li>
                     </ul>
                 </li>
             </ol>
