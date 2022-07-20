@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consignes TP6 - create-react-app</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <script src="script.js" defer></script>
+
+    <style>
+        .tab-wrapper .list-tabs {
+            list-style: none;
+            display: flex;
+            overflow: hidden;
+            width: fit-content;
+            column-gap: 0.7rem;
+            padding: 0;
+        }
+
+        .tab-wrapper .list-tabs button {
+            padding: 14px 16px;
+            appearance: none;
+            border: none;
+        }
+
+        .tab-wrapper .list-tabs button.active {
+            background-color: cadetblue;
+            color: white;
+        }
+
+        .tab-wrapper .tab-content {
+            display: none;
+        }
+
+        .tab-wrapper .list-tab-content {
+            border: 1px solid white;
+            padding: 0.5rem;
+        }
+
+        @media (prefers-color-scheme: light) {
+            .tab-wrapper .list-tab-content {
+                border: 1px solid black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="h1">Consignes de la pratique</h1>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Ouvrez votre dossier de travail, celui où vous voulez que cra crée l'environnement
+                </li>
+                <li>
+                    Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal (MacOS)
+                </li>
+                <li>Entrez la commande <code>npx create-react-app nom-de-votre-dossier</code> puis tapez entrée.
+                    <ul>
+                        <li>Note : la commande va prendre du temps dépendamment de la vitesse de votre connexion Internet car cra télécharge et installe toutes les dépendances dont il a besoin</li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <p class="note-information">Assurez-vous bien d'être dans votre dossier de travail dans le terminal !</p>
+            <ol class="liste-consignes">
+                <li>
+                    Choissiez un des projets suivants et réalisez-le avec react et cra 
+                    <ul>
+                        <li>
+                            Moteur de recherche (avec l'API que vous souhaitez)
+                        </li>
+                        <li>
+                            Un convertisseur kilomètres / miles
+                        </li>
+                        <li>Un carnet d'adresses qui permet de lister, ajouter, modifier et supprimer un contact</li>
+                        <li>Une liste de lecture permettant d'écouter de la musique</li>
+                    </ul> 
+                </li>
+            </ol>
+        </details>
+    </header>
+
+</body>
+
+</html>
