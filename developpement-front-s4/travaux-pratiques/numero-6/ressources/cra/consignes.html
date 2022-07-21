@@ -7,45 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consignes TP6 - create-react-app</title>
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-
-    <script src="script.js" defer></script>
-
-    <style>
-        .tab-wrapper .list-tabs {
-            list-style: none;
-            display: flex;
-            overflow: hidden;
-            width: fit-content;
-            column-gap: 0.7rem;
-            padding: 0;
-        }
-
-        .tab-wrapper .list-tabs button {
-            padding: 14px 16px;
-            appearance: none;
-            border: none;
-        }
-
-        .tab-wrapper .list-tabs button.active {
-            background-color: cadetblue;
-            color: white;
-        }
-
-        .tab-wrapper .tab-content {
-            display: none;
-        }
-
-        .tab-wrapper .list-tab-content {
-            border: 1px solid white;
-            padding: 0.5rem;
-        }
-
-        @media (prefers-color-scheme: light) {
-            .tab-wrapper .list-tab-content {
-                border: 1px solid black;
-            }
-        }
-    </style>
+    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
 </head>
 
 <body>
@@ -57,16 +19,22 @@
             </summary>
             <ol class="liste-consignes">
                 <li>
-                    Ouvrez votre dossier de travail, celui où vous voulez que cra crée l'environnement
+                    Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal (MacOS)
                 </li>
                 <li>
-                    Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal (MacOS)
+                    Accédez à votre dossier de travail dans le terminal
                 </li>
                 <li>Entrez la commande <code>npx create-react-app nom-de-votre-dossier</code> puis tapez entrée.
                     <ul>
-                        <li>Note : la commande va prendre du temps dépendamment de la vitesse de votre connexion Internet car cra télécharge et installe toutes les dépendances dont il a besoin</li>
+                        <li>Note : la commande va prendre du temps dépendamment de la vitesse de votre connexion
+                            Internet car cra télécharge et installe toutes les dépendances dont il a besoin</li>
                     </ul>
                 </li>
+                <li>
+                    Entrez la commande <code>cd nom-de-votre-dossier</code>
+                </li>
+                <li>Entrez la commande <code>npm start</code>. Et voilà, votre serveur est lancé et devrait ouvrir votre
+                    navigateur.</li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -76,17 +44,79 @@
             <p class="note-information">Assurez-vous bien d'être dans votre dossier de travail dans le terminal !</p>
             <ol class="liste-consignes">
                 <li>
-                    Choissiez un des projets suivants et réalisez-le avec react et cra 
+                    Choissiez un des projets suivants et réalisez-le avec react et cra
+
+                    <section class="tab-wrapper">
+                        <ul class="list-tabs">
+                            <li><button data-tab-name="moteur-recherche">Moteur de recherche</button></li>
+                            <li><button data-tab-name="carnet-adresses">Carnet d'adresses</button></li>
+                            <li><button data-tab-name="magasin">Animalerie</button></li>
+                            <li><button data-tab-name="upload">Upload d'images multiple</button></li>
+                        </ul>
+
+                        <section class="list-tab-content">
+                            <article class="tab-content" data-tab-content="moteur-recherche">
+                                <p>Développez un moteur de recherche permettant de chercher des données en provenance
+                                    d'une API (celle que vous souhaitez).</p>
+                                <p>Pensez bien à gérer l'état de chargement ou encore évitez les requêtes inutiles</p>
+                            </article>
+                            <article class="tab-content" data-tab-content="carnet-adresses">
+                                <p>Permettez à vos utilisateurs de lister, ajouter, modifier et supprimer un contact. Un
+                                    contact doit contenir au minimum :
+                                </p>
+                                <ul>
+                                    <li>Avatar (Utilisez une image en ligne)</li>
+                                    <li>Nom et prénom</li>
+                                    <li>Numéro de téléphone</li>
+                                    <li>Date d'anniversaire</li>
+                                    <li>Adresse e-mail</li>
+                                </ul>
+                            </article>
+                            <article class="tab-content" data-tab-content="magasin">
+                                <p>Projet d'animalerie féline. Vous devrez permettre à vos utilisateurs de gérer leur
+                                    panier (ajout / retrait de produit) et voir le total.
+                                    Un dossier nommé "servers/store-server", vous est fourni, il contient un ensemble de
+                                    produits contenant les données suivantes :
+                                <ul>
+                                    <li>Nom</li>
+                                    <li>Prix</li>
+                                    <li>Description</li>
+                                    <li>Images</li>
+                                    <li>Avis</li>
+                                </ul>
+                                </p>
+                                <article class="note-information">
+                                    <p>Le serveur est un serveur node, il vous faudra donc installer les dépendances via
+                                        la
+                                        commande <code>npm install</code>. Puis démarrez le serveur via la commande
+                                        <code>npm start</code>. Les articles sont disponibles via l'url
+                                        http://127.0.0.1:{port}/produit. {port} sera a remplacé par le port de votre
+                                        server,
+                                        il sera affiché dans le terminal après avoir lancé le serveur. Par exemple :
+                                    </p>
+                                    <figure><img src="images/capture-1.jpg" alt="">
+                                        <figcaption>Ici notre port est 3000</figcaption>
+                                    </figure>
+                                </article>
+                                <p class="note-information">
+                                    Les données retournées par le serveur sont aléatoires, ne vous étonnez pas si vous
+                                    trouvez des données aberrantes.
+                                </p>
+                            </article>
+                            <article class="tab-content" data-tab-content="upload">
+                                <p>Upload d'images en glisser-déposer. Un serveur nommé "upload-server.js", vous est
+                                    fourni, il vous permettra de réellement déplacer les images.</p>
+                            </article>
+                        </section>
+                    </section>
+                    <hr>
                     <ul>
-                        <li>
-                            Moteur de recherche (avec l'API que vous souhaitez)
-                        </li>
-                        <li>
-                            Un convertisseur kilomètres / miles
-                        </li>
-                        <li>Un carnet d'adresses qui permet de lister, ajouter, modifier et supprimer un contact</li>
-                        <li>Une liste de lecture permettant d'écouter de la musique</li>
-                    </ul> 
+                        <li>La liste des fonctionnalités attendues est volontairement très vague, c'est votre projet
+                            soyez ambitieux</li>
+                        <li>Pensez bien à la partie accessibilité et responsive dans votre projet</li>
+                        <li>N'oubliez pas de décomposer votre application composants, c'est plus facile à maintenir par
+                            la suite</li>
+                    </ul>
                 </li>
             </ol>
         </details>
