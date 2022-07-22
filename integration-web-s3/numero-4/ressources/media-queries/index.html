@@ -40,24 +40,35 @@
 
       <h1 class="titre-consignes">Consignes de la pratique</h1>
 
-      <details class="consignes-conteneur" open>
+      <details class="consignes-conteneur" open data-instructions-container>
         <summary>
-          <h1 class="h1">
-            Partie 1 (cliquer pour afficher / cacher) - Position relative
-          </h1>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
         </summary>
-        <p>Les règles @media à éditer sont déjà présentes à la fin du fichier "style.css".</p>
+        <p>
+          Les règles @media à éditer sont déjà présentes à la fin du fichier
+          "style.css".
+        </p>
         <ol class="liste-consignes">
           <li>
             Éditer la règle @media de façon à ce que le titre "Ma galerie
             d'images" plus gros sur un appareil dont la largeur d'écran est
             inférieure ou égale à 320px.
             <ul>
-              <li> 
-                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media" target="_blank" rel="noopener noreferrer">Voir documentation de la règle at-media</a>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/@media"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Voir documentation de la règle at-media</a
+                >
               </li>
               <li>
-                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">Voir documentation sur les media queries</a>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries/Using_media_queries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Voir documentation sur les media queries</a
+                >
               </li>
             </ul>
           </li>
@@ -71,30 +82,41 @@
             paysage (landscape en anglais) et appliquer des déclarations CSS sur
             n'importe quel sélecteur CSS
           </li>
-          <li>Ajouter / Editer le site pour le rendre responsive. Autrement dit rendre l'expérience agréable aussi bien sur PC, tablette et mobile.</li>
+          <li>
+            Ajouter / Editer le site pour le rendre responsive. Autrement dit
+            rendre l'expérience agréable aussi bien sur PC, tablette et mobile.
+          </li>
         </ol>
       </details>
 
-      <details class="consignes-conteneur">
+      <details class="consignes-conteneur" data-instructions-container>
         <summary>
-          <h1 class="h1">
-            Partie 2 (cliquer pour afficher / cacher) - Position relative
-          </h1>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+          <a href="?a=1" class="link">Laisser ouvert</a>
         </summary>
         <ol class="liste-consignes">
           <li>
-            Lister le nombre de règles @media contenues dans le fichier
-            style.css
+            Listez le nombre de règles @media
+            <span class="texte-gras">différentes</span> contenues dans le
+            fichier style.css
           </li>
           <li>
-            Créer autant de fichiers .css qu'il y a de règles @media qui ont été
-            écrites dans le fichier style.css dans la partie 1
+            Choississez 2 ou 3 règles @media et créez les fichiers CSS qui
+            contiendront les sélecteurs associés écrits dans la partie 1.
+            <ul>
+              <li>
+                Par exemple, j'ai la règle
+                <code>@media screen and (max-width: 320px) </code>, je vais
+                créer un fichier nommé (par exemple) style-320.css et mettre mes
+                sélecteurs dedans.
+              </li>
+            </ul>
           </li>
           <li>
-            Lier le ficher "index.html" aux fichiers css (ne pas oublier les
+            Liez le ficher "index.html" aux fichiers css (ne pas oublier les
             attributs media)
           </li>
-          <li>Placer le contenu des règles @media dans les bons fichiers</li>
+          <li>Placez le contenu des règles @media dans les bons fichiers</li>
           <ul>
             <li>
               <a
