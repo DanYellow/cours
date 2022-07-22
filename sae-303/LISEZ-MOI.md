@@ -42,7 +42,7 @@ Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'e
 > Vous n'êtes pas obligé d'utiliser un jeu de données dans son entièreté, vous pouvez très bien utiliser qu'une partie. Par exemple, vous focaliser que sur une seule année.
 
 ## Infographie
-Si vous faites le choix du design pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement.
 
@@ -57,9 +57,9 @@ Il n'y a pas réellement de format attendu pour cette infographie, elle devra qu
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
   - Instagram : Format carré (possibilité d'avoir plusieurs images)
 - Taille de texte minimum : 12px
+  - ça peut être plus petit pour vos sources et les auteurs
 - Et bien évidemment le contenu
-  - Si possible traduisez-le en français
-
+  - Vous vous adressez à des francophones, si votre jeu de données est dans une langue étrangère, il faudra le traduire
 ### Conseils - Infographie
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
 - [Voir subreddit Infographics](https://www.reddit.com/r/Infographics/)
@@ -95,4 +95,3 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
     - [ ] Votre site web (développé avec bootstrap)
     - [ ] Un fichier texte contenant les membres du groupe
     - [ ] Votre réalisation (app interactive ou infographie)
-
