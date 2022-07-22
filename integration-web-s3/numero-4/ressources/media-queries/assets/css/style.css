@@ -131,9 +131,13 @@ h2 {
   }
 
   .slide-images li {
-    flex: 0 0 93.19088319%;
+    flex: 0 0 100%;
     margin-right: 10px;
   }
+}
+
+@media screen and (max-width: 320px) {
+
 }
 
 @media only screen and (orientation: landscape) {

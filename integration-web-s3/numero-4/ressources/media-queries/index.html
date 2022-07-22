@@ -5,66 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Media queries - TP7</title>
     <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="../consignes.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Consignes de la pratique</h1>
-          (cliquer pour afficher)
+          <h1 class="h1">
+            Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+            cacher)
+          </h1>
         </summary>
         <ol class="liste-consignes">
           <li>
-            <p>Partie 1</p>
+            Créez un nouveau fichier html (avec la structure de base d'un site
+            web. Rappel, vous avez le raccourci "html:5")
+          </li>
+          <li>
+            Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que
+            vous venez de créer (si elle existe)
+          </li>
+          <li>
+            Copiez les balises &lt;link> présentes dans le &lt;head> dans le
+            fichier html que vous venez de créer
+          </li>
+          <li>Sauvegardez-le et commencez votre TP dedans</li>
+        </ol>
+      </details>
+
+      <h1 class="titre-consignes">Consignes de la pratique</h1>
+
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Partie 1 (cliquer pour afficher / cacher) - Position relative
+          </h1>
+        </summary>
+        <p>Les règles @media à éditer sont déjà présentes à la fin du fichier "style.css".</p>
+        <ol class="liste-consignes">
+          <li>
+            Éditer la règle @media de façon à ce que le titre "Ma galerie
+            d'images" plus gros sur un appareil dont la largeur d'écran est
+            inférieure ou égale à 320px.
             <ul>
-              <li>
-                Éditer la règle @media de façon à ce que le titre "Ma galerie
-                d'images" plus gros sur un appareil dont la largeur d'écran est
-                inférieure ou égale à 320px
+              <li> 
+                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media" target="_blank" rel="noopener noreferrer">Voir documentation de la règle at-media</a>
               </li>
-              <li>Ajouter une règle @media pour gérer un écran dont la taille est
-                supérieure ou égale à 400px et appliquer des déclarations CSS sur
-                n'importe quel sélecteur CSS</li>
-    
-              <li>Ajouter une règle @media pour gérer un écran ayant l'orientation
-                paysage (landscape en anglais) et appliquer des déclarations CSS sur
-                n'importe quel sélecteur CSS</li>
+              <li>
+                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">Voir documentation sur les media queries</a>
+              </li>
             </ul>
           </li>
           <li>
-            <p>Partie 2</p>
-            <ol>
-              <li>
-                Lister le nombre de règles @media contenues dans le fichier style.css
-              </li>
-              <li>Créer autant de fichiers .css qu'il y a de règles @media qui ont été écrites dans le fichier style.css dans la partie 1</li>
-              <li>Lier le ficher "index.html" aux fichiers css (ne pas oublier les attributs media)</li>
-              <li>Placer le contenu des règles @media dans les bons fichiers</li>
-              <ul>
-                <li>
-                  <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Requ%C3%Aates_m%C3%A9dia/Utiliser_les_Media_queries" target="_blank">Documentation des media queries (ouverture dans un nouvel onglet)</a>
-                </li>
-                <li>
-                  <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link" target="_blank" title="Ouverture dans un nouvel onglet">Documentation de la balise &lt;link></a>
-                </li>
-              </ul>
-            </ol>
+            Ajouter une règle @media pour gérer un écran dont la taille est
+            supérieure ou égale à 400px et appliquer des déclarations CSS sur
+            n'importe quel sélecteur CSS
           </li>
+          <li>
+            Éditer une règle @media pour gérer un écran ayant l'orientation
+            paysage (landscape en anglais) et appliquer des déclarations CSS sur
+            n'importe quel sélecteur CSS
+          </li>
+          <li>Ajouter / Editer le site pour le rendre responsive. Autrement dit rendre l'expérience agréable aussi bien sur PC, tablette et mobile.</li>
         </ol>
       </details>
+
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Partie 2 (cliquer pour afficher / cacher) - Position relative
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Lister le nombre de règles @media contenues dans le fichier
+            style.css
+          </li>
+          <li>
+            Créer autant de fichiers .css qu'il y a de règles @media qui ont été
+            écrites dans le fichier style.css dans la partie 1
+          </li>
+          <li>
+            Lier le ficher "index.html" aux fichiers css (ne pas oublier les
+            attributs media)
+          </li>
+          <li>Placer le contenu des règles @media dans les bons fichiers</li>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/fr/docs/Web/CSS/Requ%C3%Aates_m%C3%A9dia/Utiliser_les_Media_queries"
+                target="_blank"
+                >Documentation des media queries (ouverture dans un nouvel
+                onglet)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link"
+                target="_blank"
+                title="Ouverture dans un nouvel onglet"
+                >Documentation de la balise &lt;link></a
+              >
+            </li>
+          </ul>
+        </ol>
+      </details>
+
+      <hr />
     </header>
 
     <main class="main">
       <nav class="nav-principale">
         <ul>
-          <li><a href="#pratique-1">Pratique 1</a></li>
-          <li><a href="#pratique-2">Pratique 2</a></li>
-          <li><a href="#pratique-3">Pratique 3</a></li>
-          <li><a href="#pratique-4">Pratique 4</a></li>
+          <li><a href="#pratique-1">Accueil</a></li>
+          <li><a href="#pratique-2">Galerie</a></li>
+          <li><a href="#pratique-3">Vidéos</a></li>
+          <li><a href="#pratique-4">A propos</a></li>
         </ul>
       </nav>
+
+      <h1 class="titre">Ma galerie d'images</h1>
 
       <ul class="slide-images">
         <li>
@@ -87,27 +152,13 @@
             <img src="assets/images/slide-4.jpg" alt="" />
           </figure>
         </li>
-      </ul>
-
-      <h2>Ma galerie d'images</h2>
-      <ul class="liste-images">
         <li>
-          <img src="assets/images/chien-2.png" alt="Chien content" />
-        </li>
-        <li>
-          <img src="assets/images/chat.jpg" alt="Chat suspicieux" />
-        </li>
-        <li>
-          <img src="assets/images/muffins.jpg" alt="Muffins chocolat-banane" />
-        </li>
-        <li>
-          <img
-            src="assets/images/panorama.jpg"
-            alt="Photo d'un paysage de Gaspésie, Québec"
-          />
-        </li>
-        <li>
-          <img src="assets/images/chien.jpg" alt="Chien reniflant ?" />
+          <figure>
+            <img
+              src="assets/images/panorama.jpg"
+              alt="Photo d'un paysage de Gaspésie, Québec"
+            />
+          </figure>
         </li>
         <li>
           <img src="assets/images/chien-banque.jpg" alt="" />
