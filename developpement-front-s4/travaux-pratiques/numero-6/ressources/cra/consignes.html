@@ -52,6 +52,7 @@
                             <li><button data-tab-name="carnet-adresses">Carnet d'adresses</button></li>
                             <li><button data-tab-name="magasin">Animalerie</button></li>
                             <li><button data-tab-name="upload">Upload d'images multiple</button></li>
+                            <li><button data-tab-name="quiz">Quiz</button></li>
                         </ul>
 
                         <section class="list-tab-content">
@@ -90,7 +91,7 @@
                                         la
                                         commande <code>npm install</code>. Puis démarrez le serveur via la commande
                                         <code>npm start</code>. Les articles sont disponibles via l'url
-                                        http://127.0.0.1:{port}/produit. {port} sera a remplacé par le port de votre
+                                        http://127.0.0.1:{port}/produits. {port} sera a remplacé par le port de votre
                                         server,
                                         il sera affiché dans le terminal après avoir lancé le serveur. Par exemple :
                                     </p>
@@ -107,6 +108,10 @@
                                 <p>Upload d'images en glisser-déposer. Un serveur nommé "upload-server.js", vous est
                                     fourni, il vous permettra de réellement déplacer les images.</p>
                             </article>
+                            <article class="tab-content" data-tab-content="quiz">
+                                <p>Un jeu de quiz basé sur l'API <a href="https://opentdb.com/" target="_blank">open
+                                        trivia</a> ou <a href="https://the-trivia-api.com/docs/" target="_blank" rel="noopener noreferrer">the-trivia-api</a></p>
+                            </article>
                         </section>
                     </section>
                     <hr>
@@ -116,6 +121,10 @@
                         <li>Pensez bien à la partie accessibilité et responsive dans votre projet</li>
                         <li>N'oubliez pas de décomposer votre application composants, c'est plus facile à maintenir par
                             la suite</li>
+                        <li>Pour le design, vous avez tout à fait le droit d'utiliser une framework comme bootstrap.
+                            Après, rien ne vous empêche d'en découvrir de nouveaux comme Tailwind CSS ou Bulma.</li>
+                        <li>Comme vu en S3 concernant les méthodologies AGILE, avancez petit et ajoutez petit à petit de
+                            la valeur au produit. Par exemple sur le jeu de quiz, vous pouvez commencez à charger les propositions dans un certain ordre puis mélanger les propositions à chaque nouvelle question.</li>
                     </ul>
                 </li>
             </ol>
