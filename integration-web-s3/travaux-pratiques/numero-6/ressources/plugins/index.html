@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP - Plugin javascript</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Partie 1 (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Chargez la bibliothèque lodash. Utilisez une de ces fonctions (voir
+            documentation pour voir des exemples à copier dans votre code) et
+            affichez le résultat dans la console du navigateur.
+            <ul>
+              <li>
+                <a href="https://lodash.com/" target="_blank">
+                  Accéder au site de lodash (ouverture dans un nouvel onglet)
+                </a>
+              </li>
+              <li>
+                N'hésitez pas à tester d'autres fonctions. Lodash est une
+                bibliothèque javascript très puissante et utile pour manipuler
+                les données (tableaux et objets).
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p class="note-information">
+          Vous pouvez télécharger le plugin ou utiliser le lien CDN pour charger
+          le script à distance. Dans tous les cas, il faudra utiliser la balise
+          &lt;script> pour charger le script, et n'oubliez pas l'attribut
+          "defer" pour charger le script après le chargement des balises.
+        </p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Partie 2 (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <a href="https://www.chartjs.org/docs/latest/getting-started/">
+              Suivez le didacticiel de chartjs (ouveture dans un nouvel onglet)
+            </a>
+          </li>
+          <li>
+            Utilisez les données du fichier "donnees-ligne.js" et affichez une courbe
+            <ul>
+              <li>
+                <a
+                  href="https://www.chartjs.org/docs/latest/charts/line.html"
+                  target="_blank"
+                >
+                  Voir documentation du graphique en bâtons de chartjs
+                  (ouverture dans un nouvel onglet)
+                </a>
+              </li>
+              <li>
+                Le fichier contient l'évolution du prénom Pauline de 1900 à nos jours.
+              </li>
+              <li>
+                Astuce : pour charger les données, vous n'avez qu'à charger le
+                fichier "donnees-courbe.js" avant votre script, ainsi vous
+                pourrez accéder à la variable "prenomPaulineEvolution" qui contient
+                les données.
+              </li>
+              <li>
+                Astuce 2 : pour utiliser ces données, il faudra les formater,
+                voici le code qu'il faudra utiliser :
+                <pre>
+                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
+const departement = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.dpt)</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Utilisez les données du fichier "donnees-batons.js" et affichez un
+            graphique en bâtons
+            <ul>
+              <li>
+                <a
+                  href="https://www.chartjs.org/docs/latest/charts/bar.html"
+                  target="_blank"
+                >
+                  Voir documentation du graphique en bâtons de chartjs
+                  (ouverture dans un nouvel onglet)
+                </a>
+              </li>
+              <li>
+                Le fichier contient toutes les naissances du prénom "Anthony" en
+                Ile-de-France durant l'année 2005
+              </li>
+              <li>
+                Astuce : pour charger les données, vous n'avez qu'à charger le
+                fichier "donnees-batons.js" avant votre script, ainsi vous
+                pourrez accéder à la variable "prenomAnthony2005" qui contient
+                les données.
+              </li>
+              <li>
+                Astuce 2 : pour utiliser ces données, il faudra les formater,
+                voici le code qu'il faudra utiliser :
+                <pre>
+                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
+const labels = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.dpt)</code></pre>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+    </header>
+    <!-- Balise représentant le contenu principal d'un site. Une seule par page -->
+    <main class="conteneur"></main>
+  </body>
+</html>
