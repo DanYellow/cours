@@ -57,9 +57,23 @@
             <a href="https://www.chartjs.org/docs/latest/getting-started/">
               Suivez le didacticiel de chartjs (ouveture dans un nouvel onglet)
             </a>
+            et essayez d'afficher quelques graphiques. Une fois suffisamment à
+            l'aise avec la bibliothèque passez à la partie suivante.
           </li>
+        </ol>
+      </details>
+
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Partie 3 (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
           <li>
-            Utilisez les données du fichier "donnees-ligne.js" et affichez une courbe
+            Utilisez les données du fichier "donnees-courbe.js" et affichez une
+            courbe. Le fichier contient l'évolution des naissances du prénom
+            Pauline de 1900 à nos jours
             <ul>
               <li>
                 <a
@@ -70,21 +84,21 @@
                   (ouverture dans un nouvel onglet)
                 </a>
               </li>
-              <li>
-                Le fichier contient l'évolution du prénom Pauline de 1900 à nos jours.
-              </li>
+              <li>Si vous voulez conserver</li>
               <li>
                 Astuce : pour charger les données, vous n'avez qu'à charger le
                 fichier "donnees-courbe.js" avant votre script, ainsi vous
-                pourrez accéder à la variable "prenomPaulineEvolution" qui contient
-                les données.
+                pourrez accéder à la variable "prenomPaulineEvolution" qui
+                contient les données.
               </li>
               <li>
                 Astuce 2 : pour utiliser ces données, il faudra les formater,
                 voici le code qu'il faudra utiliser :
                 <pre>
-                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
-const departement = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.dpt)</code></pre>
+                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomPauline.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
+        const listeAnnees = prenomPaulineEvolution.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.annais)</code></pre>
+                Ensuite, il faudra les utiliser pour les bons paramètres pour
+                afficher le graphique.
               </li>
             </ul>
           </li>
@@ -102,21 +116,43 @@ const departement = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255);
                 </a>
               </li>
               <li>
-                Le fichier contient toutes les naissances du prénom "Anthony" en
+                Le fichier contient toutes les naissances du prénom "Jérôme" en
                 Ile-de-France durant l'année 2005
               </li>
               <li>
                 Astuce : pour charger les données, vous n'avez qu'à charger le
                 fichier "donnees-batons.js" avant votre script, ainsi vous
-                pourrez accéder à la variable "prenomAnthony2005" qui contient
+                pourrez accéder à la variable "prenomJerome2005" qui contient
                 les données.
               </li>
               <li>
                 Astuce 2 : pour utiliser ces données, il faudra les formater,
                 voici le code qu'il faudra utiliser :
                 <pre>
-                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
-const labels = prenomAnthony2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.dpt)</code></pre>
+                <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(0, 36, 81);background:rgb(0, 36, 81);display:block;padding: .5em;">const data = prenomJerome2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.nombre)
+        const labels = prenomJerome2005.map(<span style="color:rgb(255, 255, 255); font-weight:400;"><span style="color:rgb(255, 197, 143); font-weight:400;">(item)</span> =&gt;</span> item.dpt)</code></pre>
+                Ensuite, il faudra les utiliser pour les bons paramètres pour
+                afficher le graphique.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Pour aller plus loin (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Réutilisez le code utilisé dans la partie 2 pour afficher les mêmes graphiques que précédemment, à la différence près que les données ne doivent pas provenir des fichiers "donnees-batons.js" et "donnees-courbe.js" mais des fichiers "jerome.json" et "pauline.json" (présents dans la ressource)
+            <ul>
+              <li>Pour ce faire, vous devrez impérativement utiliser un serveur WAMP et utiliser l'API fetch de javascript. L'idée est de récupérer le contenu des fichiers via fetch puis utiliser les données pour afficher les graphiques comme fait précédemment
+                <ul>
+                  <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Fetch_API" target="_blank" rel="noopener noreferrer">Voir documentation de l'API fetch (ouverture dans un nouvel onglet)</a></li>
+                </ul>
               </li>
             </ul>
           </li>
