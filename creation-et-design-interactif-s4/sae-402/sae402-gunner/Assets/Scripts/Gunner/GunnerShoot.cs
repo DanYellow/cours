@@ -55,7 +55,7 @@ public class GunnerShoot : MonoBehaviour
 
     void Shoot()
     {
-        var bullet = Instantiate(
+        GameObject bullet = Instantiate(
             _bulletPrefab, 
             _muzzleFlash.transform.position, 
             Quaternion.identity
