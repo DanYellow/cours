@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         //  _moveSpeed = 0.02f;
          _moveSpeed = 20.0f;
-        // _rb.velocity = transform.right * _moveSpeed;
+        _rb.velocity = transform.right * _moveSpeed;
         // On veut que la balle se détruise d'elle-même 5 secondes après avoir été tirée
         Destroy(gameObject, 3f);
     }
