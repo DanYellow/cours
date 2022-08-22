@@ -36,6 +36,26 @@ public class GunnerShoot : MonoBehaviour
         //     next_fire = Time.time + fire_rate;
         //     fire();
         // }
+
+
+        //  RaycastHit2D hit;
+        // if (Physics2D.Raycast(transform.position, transform.right, out hit, 10))
+        // {
+        //     Debug.DrawRay(transform.position, transform.right * 10, Color.red);
+
+        // }
+    }
+
+    void FixedUpdate()
+    {
+         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+
+          if (hit.collider != null) {
+
+            Debug.Log(hit.collider.name);
+         Debug.DrawRay(transform.position, transform.right * 10, Color.red);
+
+          }
     }
 
     void ShowMuzzle(bool show)
@@ -56,11 +76,13 @@ public class GunnerShoot : MonoBehaviour
     void Shoot()
     {
         GameObject bullet = Instantiate(
-            _bulletPrefab, 
-            _muzzleFlash.transform.position, 
+            _bulletPrefab,
+            _muzzleFlash.transform.position,
             Quaternion.identity
         );
         bullet.transform.localScale = transform.localScale;
+
+        // Nous permet d'orienter le projectile toujours dans le sens du tireur
         bullet.transform.right = transform.right.normalized;
     }
 }

@@ -12,7 +12,7 @@ public class GunnerMovement : MonoBehaviour
 
     [Range(100.0f, 1000.0f)]
     [SerializeField]
-    private float _moveSpeed = 175.0f;
+    private float _moveSpeed;
 
     private bool _isFacingRight = true;
     private bool _isOnTheGround = true;
@@ -37,6 +37,7 @@ public class GunnerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _moveSpeed = 175.0f;
     }
 
     // La méthode est appelée toutes les frames. Par exemple, si notre jeu tourne à 60 frames par seconde (fps)
