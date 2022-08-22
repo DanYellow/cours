@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunnerMovement : MonoBehaviour
@@ -15,12 +13,9 @@ public class GunnerMovement : MonoBehaviour
     private float _moveSpeed;
 
     [SerializeField]
-    private float _jumpForce = 15.0f;
     private bool _isFacingRight = true;
-    private bool _isGrounded = true;
-    private bool _isJumping = false;
-
     [Header("Ground Management")]
+    private bool _isGrounded = true;
     public LayerMask listCollisionLayers;
     public Transform _groundCheck;
     [SerializeField]
@@ -41,9 +36,6 @@ public class GunnerMovement : MonoBehaviour
     void Start()
     {
         _moveSpeed = 275.0f;
-
-        Debug.Log(_capsuleCollider.bounds.extents);
-        Debug.Log(transform);
     }
 
     // La méthode est appelée toutes les frames. Par exemple, si notre jeu tourne à 60 frames par seconde (fps)
@@ -58,35 +50,21 @@ public class GunnerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        Jump();
 
-        _isGrounded = isGrounded();
-        // _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, listCollisionLayers);
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, listCollisionLayers);
     }
 
     void CheckInputs()
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal") * _moveSpeed;
-
-        if(Input.GetKeyDown(KeyCode.C)) {
-            _isJumping = true;
-        }
     }
 
     void ManageAnimator()
     {
-        _animator.SetFloat("Speed", Mathf.Abs(_horizontalMovement * Time.fixedTime));
+        _animator.SetFloat("HorizontalSpeed", Mathf.Abs(_horizontalMovement * Time.fixedTime));
+        _animator.SetFloat("VerticalSpeed", _rb.velocity.y);
     }
 
-    bool isGrounded()
-    {
-        float extraHeight = 0.5f; // On veut avoir une petite marge d'erreur concernant le longueur de notre Raycast
-        RaycastHit2D raycastHit = Physics2D.Raycast(_capsuleCollider.bounds.center, Vector2.down, _capsuleCollider.bounds.extents.y + extraHeight, listCollisionLayers);
-
-        Debug.DrawRay(_capsuleCollider.bounds.center, Vector2.down * (_capsuleCollider.bounds.extents.y + extraHeight));
-
-        return raycastHit.collider != null;
-    }
 
     void Move()
     {
@@ -97,15 +75,6 @@ public class GunnerMovement : MonoBehaviour
             _isFacingRight = !_isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
-    }
-
-    private void Jump()
-    {
-        if(!_isJumping) {
-            return;
-        }
-        _rb.AddForce(new Vector2(0.0f, _jumpForce), ForceMode2D.Force);
-        _isJumping = false;
     }
 
     void OnDrawGizmosSelected()

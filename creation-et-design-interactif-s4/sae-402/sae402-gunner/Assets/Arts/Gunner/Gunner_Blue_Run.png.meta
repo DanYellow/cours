@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 48
-        height: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,7 +118,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dc003b65457444c9490f69c63101d8
+      spriteID: d705d24d422b34e4c9a05c745a2f7675
       internalID: -158033090
       vertices: []
       indices: 
@@ -129,9 +129,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 8
+        y: 0
         width: 48
-        height: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ba990d9dd33b9e479d95179f1a761d8
+      spriteID: e44af6a592101ee41b0e6c69c7786300
       internalID: -1316435762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunner_Blue_Run_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4f2f46b809acb4c98ec196af28a4e2
+      internalID: 997066044
       vertices: []
       indices: 
       edges: []
@@ -150,9 +171,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 8
+        y: 0
         width: 48
-        height: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c153b601d2a5f4f9080df10a1bcaa1
+      spriteID: 67ee017cbcf967d47b9540371f6a774e
       internalID: 1166324831
       vertices: []
       indices: 
@@ -171,9 +192,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 8
+        y: 0
         width: 48
-        height: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +202,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd267fd09d620f941bc850f647eaaf9c
+      spriteID: ebf3e73ff067ce24c839e83ea533ee0e
       internalID: -1188814540
       vertices: []
       indices: 
@@ -192,9 +213,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 8
+        y: 0
         width: 48
-        height: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,29 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fcab4a6624646f4db4a5e67ea91cc10
+      spriteID: 548036b701f053f46a36644c3d09588f
       internalID: -836719620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner_Blue_Run_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 8
-        width: 48
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31105e41649c1b6459dff614b430b123
-      internalID: 997066044
       vertices: []
       indices: 
       edges: []
