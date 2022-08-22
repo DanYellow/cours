@@ -14,11 +14,11 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-         _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
-         _moveSpeed = 10.0f;
+        _moveSpeed = 10.0f;
         _rb.velocity = transform.right * _moveSpeed;
 
         // On veut que la balle se détruise d'elle-même 5 secondes après avoir été tirée
@@ -27,11 +27,13 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("feffe");
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+
         // Debug.Log(collision.contacts[0].normal.x);
         Destroy(gameObject);
-        Destroy(collision.gameObject);
-        // collision.gameObject.GetComponent<SpriteRenderer>().enabled
     }
 
     void ShowStream()

@@ -9,14 +9,21 @@ public class GunnerShoot : MonoBehaviour
     [SerializeField]
     private GameObject _bulletPrefab;
 
+    [SerializeField]
+    private float _shootingRate;
+    private float _nextShootTime = 0f;
+
+    public int maxAmmo = 42;
+
     void Awake()
     {
         _muzzleFlash = GameObject.Find("MuzzleFlash");
-
     }
+
     // Start is called before the first frame update
     void Start()
     {
+        _shootingRate = 0.3f;
         ShowMuzzle(false);
     }
 
@@ -25,37 +32,16 @@ public class GunnerShoot : MonoBehaviour
     // C'est notamment dans cette fonction que nous pouvons récupérer les entrées utilisateurs comme les touches appuyées
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Debug.Log(Time.time >= _nextShootTime);
+        if (Time.time >= _nextShootTime)
         {
-            Shoot();
-            StartCoroutine(FlashMuzzle());
+            if (Input.GetKeyDown(KeyCode.Space) && maxAmmo > 0)
+            {
+                _nextShootTime = Time.time + _shootingRate;
+                Shoot();
+                StartCoroutine(FlashMuzzle());
+            }
         }
-
-        // if (Time.time > next_fire)
-        // {
-        //     next_fire = Time.time + fire_rate;
-        //     fire();
-        // }
-
-
-        //  RaycastHit2D hit;
-        // if (Physics2D.Raycast(transform.position, transform.right, out hit, 10))
-        // {
-        //     Debug.DrawRay(transform.position, transform.right * 10, Color.red);
-
-        // }
-    }
-
-    void FixedUpdate()
-    {
-         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
-
-          if (hit.collider != null) {
-
-            Debug.Log(hit.collider.name);
-         Debug.DrawRay(transform.position, transform.right * 10, Color.red);
-
-          }
     }
 
     void ShowMuzzle(bool show)
@@ -69,12 +55,13 @@ public class GunnerShoot : MonoBehaviour
     IEnumerator FlashMuzzle()
     {
         ShowMuzzle(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(_shootingRate);
         ShowMuzzle(false);
     }
 
     void Shoot()
     {
+        maxAmmo--;
         GameObject bullet = Instantiate(
             _bulletPrefab,
             _muzzleFlash.transform.position,
