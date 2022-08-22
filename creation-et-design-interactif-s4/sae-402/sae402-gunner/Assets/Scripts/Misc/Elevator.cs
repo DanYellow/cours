@@ -6,11 +6,15 @@ public class Elevator : MonoBehaviour
 {
     private bool _isPlayerIn;
 
+    private float _speed = 2.0f;
+    private float _globalSpeed;
+
     private Vector2 _targetPosition;
     private Vector2 _originPosition;
 
 
-    void Awake() {
+    void Awake()
+    {
         _targetPosition = transform.Find("TargetPosition").transform.position;
     }
     // Start is called before the first frame update
@@ -22,11 +26,19 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
+
+    void Move()
+    {
+        _globalSpeed = _speed * Time.deltaTime;
         if (_isPlayerIn)
         {
-            float step = 10.0f * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, step);
-            // transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _globalSpeed);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _originPosition, _globalSpeed);
         }
     }
 
@@ -35,5 +47,10 @@ public class Elevator : MonoBehaviour
         _isPlayerIn = true;
 
         Debug.Log("Hello");
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        _isPlayerIn = false;
     }
 }
