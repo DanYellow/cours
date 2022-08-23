@@ -19,14 +19,19 @@ Dans le cadre du cours de création numérique, nous avons pu découvrir le logi
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
-- f
+- Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)
+    - Vous pouvez également gérer la récupération de munitions
+- 
     
 
 ### Liste des personnes à créditer (pas utile de mettre le lien)
 - https://szadiart.itch.io/pixel-fantasy-caves
 - https://secrethideout.itch.io/team-wars-platformer-battle
 
-### Ressources utilisables, source non exhaustives
+### Ressources graphiques utilisables, source non exhaustives
 - https://www.kenney.nl/assets
 - https://ansimuz.itch.io/magic-cliffs-environment
 - https://maaot.itch.io/mossy-cavern
+
+###
+- http://madwomb.com/tutorials/GameDesign_Unity2DTilemap.html

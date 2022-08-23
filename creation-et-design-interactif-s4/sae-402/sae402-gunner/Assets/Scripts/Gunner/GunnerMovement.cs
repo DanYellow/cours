@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GunnerMovement : MonoBehaviour
 {
-    private CapsuleCollider2D _capsuleCollider;
     private Animator _animator;
+
+    [Header("Physics")]
     private Rigidbody2D _rb;
+    private CapsuleCollider2D _capsuleCollider;
 
     private float _horizontalMovement;
 
@@ -12,7 +14,6 @@ public class GunnerMovement : MonoBehaviour
     [SerializeField]
     private float _moveSpeed;
 
-    [SerializeField]
     private bool _isFacingRight = true;
     [Header("Ground Management")]
     private bool _isGrounded = true;
@@ -20,6 +21,8 @@ public class GunnerMovement : MonoBehaviour
     public Transform _groundCheck;
     [SerializeField]
     private float _groundCheckRadius;
+
+    private PlayerListSkills _playerSkills;
 
     void Awake()
     {
@@ -30,12 +33,12 @@ public class GunnerMovement : MonoBehaviour
         _capsuleCollider = this.GetComponent<CapsuleCollider2D>();
         _animator = this.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-
+        _playerSkills = PlayerListSkills.GetInstance();
     }
     // Start is called before the first frame update
     void Start()
     {
-        _moveSpeed = 275.0f;
+        _moveSpeed = 380.0f;
     }
 
     // La méthode est appelée toutes les frames. Par exemple, si notre jeu tourne à 60 frames par seconde (fps)
@@ -57,6 +60,14 @@ public class GunnerMovement : MonoBehaviour
     void CheckInputs()
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal") * _moveSpeed;
+        if(Input.GetKeyDown(KeyCode.G)) {
+            DebugListSkills();
+        }
+    }
+
+    void DebugListSkills() {
+        Debug.Log(_playerSkills.GetPlayerSkills());
+        Debug.Log(_playerSkills.isSkillUnlocked(PlayerListSkills.SkillType.Jump));
     }
 
     void ManageAnimator()
@@ -64,7 +75,6 @@ public class GunnerMovement : MonoBehaviour
         _animator.SetFloat("HorizontalSpeed", Mathf.Abs(_horizontalMovement * Time.fixedTime));
         _animator.SetFloat("VerticalSpeed", _rb.velocity.y);
     }
-
 
     void Move()
     {

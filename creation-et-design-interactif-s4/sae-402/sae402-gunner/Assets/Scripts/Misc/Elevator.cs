@@ -12,6 +12,9 @@ public class Elevator : MonoBehaviour
     private Vector2 _targetPosition;
     private Vector2 _originPosition;
 
+    [SerializeField]
+    private bool _isActive = false;
+
 
     void Awake()
     {
@@ -31,26 +34,33 @@ public class Elevator : MonoBehaviour
 
     void Move()
     {
-        _globalSpeed = _speed * Time.deltaTime;
-        if (_isPlayerIn)
+        if (_isActive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _globalSpeed);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, _originPosition, _globalSpeed);
+            _globalSpeed = _speed * Time.deltaTime;
+
+            if (_isPlayerIn)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _globalSpeed);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, _originPosition, _globalSpeed);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         _isPlayerIn = true;
-
-        Debug.Log("Hello");
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         _isPlayerIn = false;
+    }
+
+    void ToggleActivation()
+    {
+        _isActive = !_isActive;
     }
 }

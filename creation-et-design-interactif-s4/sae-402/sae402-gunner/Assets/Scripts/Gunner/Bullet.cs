@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     }
     void Start()
     {
-        _moveSpeed = 10.0f;
+        _moveSpeed = 12.0f;
         _rb.velocity = transform.right * _moveSpeed;
 
         // On veut que la balle se détruise d'elle-même 5 secondes après avoir été tirée
