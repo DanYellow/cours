@@ -14,13 +14,13 @@ public class ObjectPickedPanel : MonoBehaviour
         _name = transform.Find("Name").GetComponent<Text>();
         _description = transform.Find("Description").GetComponent<Text>();
 
-        enabled = false;
+        gameObject.SetActive(false);
         PowerUp.onPickup += Show;
     }
 
     void Show(PowerUpData powerUpData)
     {
-        enabled = true;
+        gameObject.SetActive(true);
         if (powerUpData.sprite)
         {
             _imageContainer.sprite = powerUpData.sprite;
@@ -35,6 +35,11 @@ public class ObjectPickedPanel : MonoBehaviour
     IEnumerator Hide()
     {
         yield return new WaitForSeconds(3.0f);
-        enabled = false;
+        gameObject.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        PowerUp.onPickup -= Show;
     }
 }

@@ -32,7 +32,6 @@ public class GunnerShoot : MonoBehaviour
     // C'est notamment dans cette fonction que nous pouvons récupérer les entrées utilisateurs comme les touches appuyées
     void Update()
     {
-        // Debug.Log(Time.time >= _nextShootTime);
         if (Time.time >= _nextShootTime)
         {
             if (Input.GetKeyDown(KeyCode.Space) && maxAmmo > 0)
