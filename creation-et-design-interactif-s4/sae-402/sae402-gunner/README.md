@@ -10,28 +10,29 @@ Dans le cadre du cours de création numérique, nous avons pu découvrir le logi
     - un écran où sont crédités tous les assets utilisés (voir plus bas pour les auteurs des assets utilisés)
     - un écran d'accueil où l'on peut commencer le jeu
  - Vous pouvez utiliser des choses non libres de droits, mais évitez si possible
-- Donner la possibilité au joueur de sauter (+ animation)
+- Donner la possibilité au joueur de sauter (déplacement du sprite + animation)
     - Il existe plusieurs tutoriels en ligne pour le faire. Voici une petite liste (non exhaustive) :
         - https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics - anglais
         - https://www.youtube.com/watch?v=fE3agO5xfFw - français. La démonstration a lieu vers 28:00
-> Pour la gestion de l'animation du saut, le sprite associé a déjà été implémenté et découpé. Il faudra donc créer l'animation et définir sa condition dans l'animator.
+> Pour la gestion de l'animation du saut, le sprite associé a déjà été implémenté et découpé. Il faudra donc créer l'animation et définir sa condition dans l'animator. Après quelques tests "850" semble être une bonne valeur pour la gravité.
 - Donner la possibilité au joueur de mettre en pause le jeu (et bien évidemment le relancer)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)
     - Vous pouvez également gérer la récupération de munitions
-- 
+- Temps pour terminer le niveau
+- Mort du personnage 
     
 
 ### Liste des personnes à créditer (pas utile de mettre le lien)
 - https://szadiart.itch.io/pixel-fantasy-caves
 - https://secrethideout.itch.io/team-wars-platformer-battle
+- https://oco.itch.io/medieval-fantasy-character-pack
 
 ### Ressources graphiques utilisables, source non exhaustives
 - https://www.kenney.nl/assets
 - https://ansimuz.itch.io/magic-cliffs-environment
-- https://maaot.itch.io/mossy-cavern
 
 ###
 - http://madwomb.com/tutorials/GameDesign_Unity2DTilemap.html

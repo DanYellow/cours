@@ -23,6 +23,10 @@ public class GunnerMovement : MonoBehaviour
     [SerializeField]
     private float _groundCheckRadius;
 
+    private bool _isJumping = false;
+    [SerializeField]
+    private float _jumpForce;
+
     private PlayerListSkills _playerSkills;
 
     void Awake()
@@ -53,9 +57,9 @@ public class GunnerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-
         _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, listCollisionLayers);
+        Move();
+        Jump();
     }
 
     void CheckInputs()
@@ -64,11 +68,15 @@ public class GunnerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.G)) {
             DebugListSkills();
         }
+
+        if(Input.GetKeyDown(KeyCode.N)){
+            _isJumping = true;
+        }
     }
 
     void DebugListSkills() {
         Debug.Log(_playerSkills.GetPlayerSkills());
-        Debug.Log(_playerSkills.isSkillUnlocked(PlayerListSkills.SkillType.Jump));
+        Debug.Log("Jump : " + _playerSkills.isSkillUnlocked(PlayerListSkills.SkillType.Jump));
     }
 
     void ManageAnimator()
@@ -85,6 +93,14 @@ public class GunnerMovement : MonoBehaviour
         {
             _isFacingRight = !_isFacingRight;
             transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    void Jump() {
+        if(_isJumping) {
+            Debug.Log("Jump");
+            _rb.AddForce(new Vector2(0f, _jumpForce));
+            _isJumping = false;
         }
     }
 

@@ -34,7 +34,7 @@ public class GunnerShoot : MonoBehaviour
     {
         if (Time.time >= _nextShootTime)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && maxAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 _nextShootTime = Time.time + _shootingRate;
                 Shoot();

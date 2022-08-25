@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680febb8ffd9a2446a8d63d8ee32e3c1, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  powerUpName: Jump
-  description: Permet de sauter. Vous pouvez maintenant atteindre de nouveaux endroits.
+  powerUpName: "Chaussures de pous\xE9e"
+  description: Permettent de sauter. Vous pouvez maintenant atteindre de nouveaux
+    endroits.
   sprite: {fileID: 21300000, guid: eeaac5e6f552b4d429f2b19815d2efd0, type: 3}
   skill: 0

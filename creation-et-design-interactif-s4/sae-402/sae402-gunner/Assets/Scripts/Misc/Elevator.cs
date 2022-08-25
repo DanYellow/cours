@@ -9,6 +9,8 @@ public class Elevator : MonoBehaviour
     private float _speed = 2.0f;
     private float _globalSpeed;
 
+    private Animator _animator;
+
     private Vector2 _targetPosition;
     private Vector2 _originPosition;
 
@@ -18,7 +20,9 @@ public class Elevator : MonoBehaviour
 
     void Awake()
     {
+        _animator = GetComponent<Animator>();
         _targetPosition = transform.Find("TargetPosition").transform.position;
+        _targetPosition.x = transform.position.x;
     }
     // Start is called before the first frame update
     void Start()
@@ -59,8 +63,19 @@ public class Elevator : MonoBehaviour
         _isPlayerIn = false;
     }
 
-    void ToggleActivation()
+    public void SwitchState(bool state)
     {
-        _isActive = !_isActive;
+        _isActive = state;
+        
+    }
+
+    void OnBecameVisible()
+    {
+        StartCoroutine(SwitchStateVisually());
+    }
+
+    IEnumerator SwitchStateVisually() {
+        yield return new WaitForSeconds(1.5f);
+        _animator.SetBool("IsActivated", _isActive);
     }
 }

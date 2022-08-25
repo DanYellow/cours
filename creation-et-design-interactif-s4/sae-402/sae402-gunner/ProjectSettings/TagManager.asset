@@ -41,6 +41,9 @@ TagManager:
   - name: Landscape
     uniqueID: 3028305661
     locked: 0
+  - name: Interactable
+    uniqueID: 4065307095
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

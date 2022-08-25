@@ -3864,7 +3864,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 1}
+        - {x: -3, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 658b235edab464f4d9e43265866147fc
@@ -3885,7 +3890,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: -6}
       tessellationDetail: 0
       bones: []
       spriteID: 87f5fe24801444d4887faa28a3dbdacb
@@ -3906,7 +3915,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 3}
+        - {x: -6, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 1d8b30676331eca45be1d9731cf28279
@@ -3927,7 +3941,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 4}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: -6}
       tessellationDetail: 0
       bones: []
       spriteID: 850b0013b86319549b17b0c70f767112
@@ -4003,7 +4021,6 @@ TextureImporter:
       - - {x: -8, y: -8}
         - {x: 8, y: -8}
         - {x: 8, y: 4}
-        - {x: 4, y: 2}
         - {x: -8, y: -6}
       tessellationDetail: 0
       bones: []
@@ -4025,7 +4042,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: 8}
+        - {x: -8, y: 3}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: fba93a1e6dfaa914884eec7dd27556b4
@@ -4046,7 +4068,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -7}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 1}
       tessellationDetail: 0
       bones: []
       spriteID: 60243abdfbb4f9547971523002f53506
@@ -4067,7 +4093,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 3, y: 8}
+        - {x: -8, y: 1}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: dd2b5309e36dd3d44b598ba72e585b01
@@ -4088,7 +4119,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -6}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 1}
       tessellationDetail: 0
       bones: []
       spriteID: bfd49450b1c6be3488f4eeed468a38e5
@@ -4109,7 +4144,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 3, y: 8}
+        - {x: -8, y: 0}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 2949b8b97dad979419b6373b346c2643
@@ -19168,11 +19208,11 @@ TextureImporter:
       cave-tilemap_691: 236484975
       cave-tilemap_611: 1771445895
       cave-tilemap_765: 1171207485
-      cave-tilemap_333: 1277120857
       cave-tilemap_412: 1432814564
-      cave-tilemap_175: 714738502
       cave-tilemap_466: -1746099028
+      cave-tilemap_175: 714738502
       cave-tilemap_796: -128937702
+      cave-tilemap_333: 1277120857
       cave-tilemap_199: 405133689
       cave-tilemap_615: -762593052
       cave-tilemap_189: 1821057707

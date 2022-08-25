@@ -29,7 +29,10 @@ public class Bullet : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Destroy(collision.gameObject);
+            if(collision.gameObject.GetComponent<Animator>()) {
+                collision.gameObject.GetComponent<Animator>().SetTrigger("IsHit");
+            }
+            // Destroy(collision.gameObject);
         }
 
         // Debug.Log(collision.contacts[0].normal.x);
