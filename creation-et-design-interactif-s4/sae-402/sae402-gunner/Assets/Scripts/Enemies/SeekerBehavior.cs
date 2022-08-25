@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CyclopsBat : MonoBehaviour
+public class SeekerBehavior : MonoBehaviour
 {
     private bool _isSeekingPlayer = false;
     private Animator _animator;
@@ -13,16 +11,16 @@ public class CyclopsBat : MonoBehaviour
     [SerializeField]
     private bool _isNotInLevelFlow;
 
+    float amplitudeX = 10.0f;
+    float amplitudeY = 5.0f;
+    float omegaX = 1.0f;
+    float omegaY = 5.0f;
+    float index;
+
     private void Awake()
     {
         _animator = transform.GetComponent<Animator>();
         _spriteRenderer = transform.GetComponent<SpriteRenderer>();
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        // InvokeRepeating("LaunchProjectile", 10.0f, 1f);
     }
 
     // Update is called once per frame
@@ -32,6 +30,11 @@ public class CyclopsBat : MonoBehaviour
         {
             SeekPlayer();
         }
+
+        index += Time.deltaTime * 0.5f;
+        float x = amplitudeX * Mathf.Cos(omegaX * index);
+        float y = Mathf.Abs(amplitudeY * Mathf.Sin(omegaY * index));
+        transform.localPosition = new Vector3(x, y, 0);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -52,12 +55,13 @@ public class CyclopsBat : MonoBehaviour
 
     private void SeekPlayer()
     {
-        transform.position = Vector2.SmoothDamp(
-            transform.position,
-            new Vector2(_player.transform.position.x, transform.position.y),
-            ref _velocity,
-            1.3f
-        );
+        transform.position += transform.right * Mathf.Sin(Time.time * 3f + 1f) * 1f; ;
+        // transform.position = Vector2.SmoothDamp(
+        //     transform.position,
+        //     new Vector2(_player.transform.position.x, transform.position.y),
+        //     ref _velocity,
+        //     1.3f
+        // );
     }
 
     private void FlipDirection()
@@ -78,10 +82,5 @@ public class CyclopsBat : MonoBehaviour
         {
             _animator.SetTrigger("IsHit");
         }
-    }
-
-    public void Die()
-    {
-        Destroy(gameObject);
     }
 }
