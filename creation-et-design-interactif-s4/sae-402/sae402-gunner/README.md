@@ -1,29 +1,39 @@
 # SAE 402- Création d'un jeu vidéo
+_Les consignes pourront être modifiées._
 
-Dans le cadre du cours de création numérique, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et découvrir de nouvelles connaissances vis-à-vis de l'outil.
+Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et découvrir de nouvelles connaissances vis-à-vis de l'outil. Le tout dans le but de valider les Apprendtissage Critiques (AC) suivants : 
 
+- AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
+- AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
+- AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
+- AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
 ## Liste des choses impératives à faire. Vous devez toutes les faire
 - Ajouter un nouveau niveau (décors et mécaniques compris)
-    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer une nouvelle tilemp ou même utiliser celle déjà présentes dans le projet
-- Ajouter des écrans :
-    - un écran où sont crédités tous les assets utilisés (voir plus bas pour les auteurs des assets utilisés)
-    - un écran d'accueil où l'on peut commencer le jeu
+    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemps ou même utiliser celles déjà présentes dans le projet
+- Ajouter un écran où sont crédités tous les assets utilisés (voir plus bas pour les auteurs des assets utilisés)
  - Vous pouvez utiliser des choses non libres de droits, mais évitez si possible
 - Donner la possibilité au joueur de sauter (déplacement du sprite + animation)
     - Il existe plusieurs tutoriels en ligne pour le faire. Voici une petite liste (non exhaustive) :
         - https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics - anglais
         - https://www.youtube.com/watch?v=fE3agO5xfFw - français. La démonstration a lieu vers 28:00
 > Pour la gestion de l'animation du saut, le sprite associé a déjà été implémenté et découpé. Il faudra donc créer l'animation et définir sa condition dans l'animator. Après quelques tests "850" semble être une bonne valeur pour la gravité.
+> Le saut ne doit être utilisable que si et seulement si le joueur a débloqué la capacité. Il faudra donc jouer sur la 
 - Donner la possibilité au joueur de mettre en pause le jeu (et bien évidemment le relancer)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
+- Ajouter une musique
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)
     - Vous pouvez également gérer la récupération de munitions
-- Temps pour terminer le niveau
-- Mort du personnage 
-    
+- Temps imparti pour terminer le niveau avec les mécaniques associées (mort du personnage, game over)
+- Mort du personnage
+- Ajouter un nouveau skill "Tir automatique". Pour ce faire, vous devrez :
+    - Ajouter un nouveau scriptable object et son sprite associé. Vous pouvez utiliser le fichier `Assets/Arts/Misc/Power-ups.psd` pour vous aider à faire un nouveau icône
+    - Ajouter ce nouveau powerup dans l'enum SkillType dans le fichier `Assets/Scripts/Player/PlayerShoot.cs`
+    - Ajouter le powerup dans la scene (via le script `Assets/Scripts/Misc/PowerUp.cs`)
+    - Gérer le tout dans `Assets/Scripts/PlayerShoot.cs`
+- Un écran d'accueil où l'on peut commencer le jeu
 
 ### Liste des personnes à créditer (pas utile de mettre le lien)
 - https://szadiart.itch.io/pixel-fantasy-caves
@@ -32,7 +42,7 @@ Dans le cadre du cours de création numérique, nous avons pu découvrir le logi
 
 ### Ressources graphiques utilisables, source non exhaustives
 - https://www.kenney.nl/assets
-- https://ansimuz.itch.io/magic-cliffs-environment
+- https://ansimuz.itch.io/magic-cliffs-environment (le site itch.io propose plein de ressources)
 
 ###
 - http://madwomb.com/tutorials/GameDesign_Unity2DTilemap.html

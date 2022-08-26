@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class Elevator : MonoBehaviour
 {
     private bool _isPlayerIn;
+    private bool _isAlreadyVisible = false;
 
     private float _speed = 2.0f;
     private float _globalSpeed;
 
     private Animator _animator;
+    private ItemActivable _itemActivable;
 
-    private Vector2 _targetPosition;
+    private Vector2 _destinationPosition;
     private Vector2 _originPosition;
-
-    [SerializeField]
-    private bool _isActive = false;
-
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
-        _targetPosition = transform.Find("TargetPosition").transform.position;
-        _targetPosition.x = transform.position.x;
+        _itemActivable = GetComponent<ItemActivable>();
+        _destinationPosition = transform.Find("DestinationPosition").transform.position;
+        _destinationPosition.x = transform.position.x;
     }
     // Start is called before the first frame update
     void Start()
@@ -33,49 +31,60 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (_itemActivable.IsActive())
+        {
+            Move();
+            if(GetComponent<Renderer>().isVisible && _isAlreadyVisible) {
+                StartCoroutine(SwitchStateVisually());
+            }
+        }
     }
 
     void Move()
     {
-        if (_isActive)
-        {
-            _globalSpeed = _speed * Time.deltaTime;
+        _globalSpeed = _speed * Time.deltaTime;
 
-            if (_isPlayerIn)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _globalSpeed);
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, _originPosition, _globalSpeed);
-            }
+        if (_isPlayerIn)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _destinationPosition, _globalSpeed);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _originPosition, _globalSpeed);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        _isPlayerIn = true;
+        if (collider.CompareTag("Player"))
+        {
+            _isPlayerIn = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        _isPlayerIn = false;
-    }
-
-    public void SwitchState(bool state)
-    {
-        _isActive = state;
-        
+        if (collider.CompareTag("Player"))
+        {
+            _isPlayerIn = false;
+        }
     }
 
     void OnBecameVisible()
     {
-        StartCoroutine(SwitchStateVisually());
+        if (_itemActivable.IsActive())
+        {
+            StartCoroutine(SwitchStateVisually());
+        }
+
+        if(!_itemActivable.IsActive() && !_isAlreadyVisible) {
+            _isAlreadyVisible = true;
+        }
     }
 
-    IEnumerator SwitchStateVisually() {
+    IEnumerator SwitchStateVisually()
+    {
         yield return new WaitForSeconds(1.5f);
-        _animator.SetBool("IsActivated", _isActive);
+        _animator.SetBool("IsActivated", _itemActivable.IsActive());
     }
 }

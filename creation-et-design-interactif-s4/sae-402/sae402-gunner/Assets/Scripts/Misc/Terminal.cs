@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Terminal : MonoBehaviour
@@ -7,7 +5,7 @@ public class Terminal : MonoBehaviour
     private Animator _animator;
     public GameObject itemToActivate;
 
-    private Elevator _elevator;
+    private ItemActivable _itemActivable;
     private bool _fulfillHisRole;
 
     public delegate void OnActivationDelegate(Vector2 position);
@@ -16,22 +14,22 @@ public class Terminal : MonoBehaviour
     void Awake() {
         _fulfillHisRole = false;
         _animator = GetComponent<Animator>();
-        _elevator = itemToActivate.GetComponent<Elevator>();
+        _itemActivable = itemToActivate.GetComponent<ItemActivable>();
     }
 
     void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.CompareTag("Player") && !_fulfillHisRole)
         {
-            Debug.Log("Activate");
             Activate();
         }
     }
 
     void Activate() {
-        _elevator.SwitchState(true);
+        _itemActivable.SwitchState(true);
         _animator.SetBool("IsActivated", true);
-        onActivationDelegate?.Invoke(_elevator.transform.position);
+        onActivationDelegate?.Invoke(_itemActivable.transform.position);
+        
         _fulfillHisRole = true;
     }
 }
