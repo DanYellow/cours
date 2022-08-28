@@ -6,9 +6,8 @@ public class Door : MonoBehaviour
 {
     private bool _isAlreadyVisible = false;
 
-    private float _speed = 2.0f;
-    private float _globalSpeed;
-
+    [SerializeField]
+    private float _moveSpeed = 2.0f;
     private ItemActivable _itemActivable;
     private Vector2 _targetPosition;
 
@@ -30,8 +29,6 @@ public class Door : MonoBehaviour
 
     void Move()
     {
-        _globalSpeed = _speed * Time.deltaTime;
-
-        transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _globalSpeed);
+        transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _moveSpeed * Time.deltaTime);
     }
 }

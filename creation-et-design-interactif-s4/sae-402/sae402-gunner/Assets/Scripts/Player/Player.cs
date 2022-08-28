@@ -34,8 +34,6 @@ public class Player : MonoBehaviour
         {
             collider.enabled = false;
         }
-
-
         // Destroy(gameObject, 0.75f);
     }
 
@@ -56,6 +54,15 @@ public class Player : MonoBehaviour
         if (hit.collider != null)
         {
             hit.collider.transform.parent.transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log(other.contacts[0].normal.x);
+            // _animator.SetTrigger("IsHit");
         }
     }
 }

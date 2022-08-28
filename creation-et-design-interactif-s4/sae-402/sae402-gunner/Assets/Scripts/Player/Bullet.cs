@@ -18,24 +18,34 @@ public class Bullet : MonoBehaviour
     }
     void Start()
     {
+    }
+
+    private void OnEnable() {
         _moveSpeed = 12.0f;
         _rb.velocity = transform.right * _moveSpeed;
+        StartCoroutine(AutoDestroy());
+    }
 
-        // On veut que la balle se détruise d'elle-même 5 secondes après avoir été tirée
-        // Pour rappel, détruire les objets est une bonne chose pour la RAM de l'ordinateur
-        Destroy(gameObject, 3f);
+    IEnumerator AutoDestroy()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy") 
+        )
         {
-            if(collision.gameObject.TryGetComponent<Health>(out Health health)) {
+            if (collision.gameObject.TryGetComponent<Health>(out Health health))
+            {
                 health.TakeDamage(3);
             }
         }
+            gameObject.SetActive(false);
 
         // Debug.Log(collision.contacts[0].normal.x);
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }

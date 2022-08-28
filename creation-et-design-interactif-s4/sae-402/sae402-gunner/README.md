@@ -23,22 +23,27 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
 - Ajouter une musique
 
-## Liste des choses à faire au choix. Vous devez au moins en faire une
+## Liste des choses à faire au choix. Vous devez au moins en faire une (+ le dernier point de la liste)
 - Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)
     - Vous pouvez également gérer la récupération de munitions
 - Temps imparti pour terminer le niveau avec les mécaniques associées (mort du personnage, game over)
 - Mort du personnage
+
 - Ajouter un nouveau skill "Tir automatique". Pour ce faire, vous devrez :
     - Ajouter un nouveau scriptable object et son sprite associé. Vous pouvez utiliser le fichier `Assets/Arts/Misc/Power-ups.psd` pour vous aider à faire un nouveau icône
     - Ajouter ce nouveau powerup dans l'enum SkillType dans le fichier `Assets/Scripts/Player/PlayerShoot.cs`
     - Ajouter le powerup dans la scene (via le script `Assets/Scripts/Misc/PowerUp.cs`)
     - Gérer le tout dans `Assets/Scripts/PlayerShoot.cs`
 - Un écran d'accueil où l'on peut commencer le jeu
+- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies :
+    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, il pourra être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
 
 ### Liste des personnes à créditer (pas utile de mettre le lien)
+> Mettez juste le pseudo de la personne + le site où vous avez trouvez la ressource.
 - https://szadiart.itch.io/pixel-fantasy-caves
 - https://secrethideout.itch.io/team-wars-platformer-battle
 - https://oco.itch.io/medieval-fantasy-character-pack
+- https://pixelplant.itch.io/chicken-sprite-sheet
 
 ### Ressources graphiques utilisables, source non exhaustives
 - https://www.kenney.nl/assets
@@ -46,3 +51,4 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 
 ###
 - http://madwomb.com/tutorials/GameDesign_Unity2DTilemap.html
+

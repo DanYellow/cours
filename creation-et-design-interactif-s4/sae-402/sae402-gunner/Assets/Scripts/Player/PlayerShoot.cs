@@ -57,14 +57,17 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(
-            _bulletPrefab,
-            _muzzleFlash.transform.position,
-            transform.rotation
-        );
-        bullet.transform.localScale = transform.localScale;
+        GameObject bullet = ObjectPooling.instance.GetPooledObject();
 
-        // Nous permet d'orienter le projectile toujours dans le sens du tireur
-        bullet.transform.right = transform.right.normalized;
+        if (bullet != null)
+        {
+            // Nous permet d'orienter le projectile toujours dans le sens du tireur
+            bullet.transform.right = transform.right.normalized;
+
+            bullet.transform.position = _muzzleFlash.transform.position;
+            bullet.transform.rotation = transform.rotation;
+
+            bullet.SetActive(true);
+        }
     }
 }

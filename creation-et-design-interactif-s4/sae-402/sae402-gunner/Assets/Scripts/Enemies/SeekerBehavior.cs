@@ -8,32 +8,32 @@ public class SeekerBehavior : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _rb;
 
+    public float moveSpeed;
+
     private Vector2 _velocity = Vector2.zero;
+    Vector2 _moveDirection;
+    Vector3 _originPosition;
 
     private void Awake()
     {
         _animator = transform.GetComponent<Animator>();
         _rb = transform.GetComponent<Rigidbody2D>();
-        Debug.Log("_rb " + _rb);
-
+        _originPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_isSeekingPlayer)
         {
-            // Debug.Log("_isSeekingPlayer " + _isSeekingPlayer);
-            // SeekPlayer();
-            // return;
+            _moveDirection = (_player.transform.position - transform.position).normalized;
+        } else {
+            _moveDirection = (_originPosition - transform.position).normalized;
         }
     }
 
-    private void FixedUpdate() {
-        // if(_isSeekingPlayer) {
-        //     Debug.Log("_isSeekingPlayer " + _isSeekingPlayer);
-        //     _rb.velocity = new Vector2(_player.transform.position.x,  _player.transform.position.y) * 2.0f * Time.fixedDeltaTime;
-        // }
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -50,13 +50,11 @@ public class SeekerBehavior : MonoBehaviour
         _isSeekingPlayer = false;
     }
 
-    private void SeekPlayer()
+    private void Move()
     {
-        transform.position = Vector2.SmoothDamp(
-            transform.position,
-            new Vector2(_player.transform.position.x, transform.position.y),
-            ref _velocity,
-            1.3f
-        );
+        if (_rb)
+        {
+            _rb.velocity = new Vector2(_moveDirection.x, _moveDirection.y) * (_isSeekingPlayer ? moveSpeed : moveSpeed * 1.5f);
+        }
     }
 }

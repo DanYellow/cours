@@ -38,7 +38,7 @@ public class ObjectPickedPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         PowerUp.onPickup -= Show;
     }

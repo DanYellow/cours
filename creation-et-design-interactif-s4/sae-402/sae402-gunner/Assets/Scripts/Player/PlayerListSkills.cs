@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerListSkills
@@ -6,11 +5,13 @@ public class PlayerListSkills
     public enum SkillType
     {
         Jump,
+        Dash,
+        Debug
     }
 
     public static PlayerListSkills _instance { get; private set; }
 
-    private List<SkillType> listUnlockedSkills = new List<SkillType>();
+    private List<SkillType> listUnlockedSkills =  new List<SkillType>{SkillType.Dash};
 
 
     public static PlayerListSkills GetInstance()
@@ -29,12 +30,12 @@ public class PlayerListSkills
 
     public void UnlockSkill(SkillType skillType)
     {
-        if(!isSkillUnlocked(skillType)) {
+        if(!IsSkillUnlocked(skillType)) {
             listUnlockedSkills.Add(skillType);
         }
     }
 
-    public bool isSkillUnlocked(SkillType skillType)
+    public bool IsSkillUnlocked(SkillType skillType)
     {
         return listUnlockedSkills.Contains(skillType);
     }

@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 
     private SpriteRenderer _sprite;
 
-    private PlayerListSkills _playerSkills;
+    private PlayerListSkills _listSkills;
 
     private GameObject _powerUpPanel;
 
@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
     {
         _sprite = GetComponent<SpriteRenderer>();
         _sprite.sprite = powerUpData.sprite;
-        _playerSkills = PlayerListSkills.GetInstance();
+        _listSkills = PlayerListSkills.GetInstance();
 
         _powerUpPanel = GameObject.Find("PowerUpPanel");
     }
@@ -34,8 +34,10 @@ public class PowerUp : MonoBehaviour
 
     void Pickup(Collider2D player)
     {
-        _playerSkills.UnlockSkill(powerUpData.skill);
-        onPickup?.Invoke(powerUpData);
+        _listSkills.UnlockSkill(powerUpData.skill);
+        if(!_listSkills.IsSkillUnlocked(powerUpData.skill)) {
+            onPickup?.Invoke(powerUpData);
+        }
 
         Destroy(gameObject);
     }

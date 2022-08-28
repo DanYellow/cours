@@ -8,6 +8,9 @@ public class Health : MonoBehaviour
     public delegate void OnDieDelegate();
     public OnDieDelegate onDie;
 
+    public delegate void OnHitDelegate();
+    public OnHitDelegate onHit;
+
     void Start()
     {
         currentHealth = _maxHealth;
@@ -17,12 +20,12 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
 
+        onHit?.Invoke();
         if (currentHealth <= 0)
         {
             onDie?.Invoke();
         }
     }
-
     public void SetHealth(int health)
     {
         currentHealth += health;
