@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
 
     [Header("Physics")]
-    private Rigidbody2D _rb;
+    public Rigidbody2D rb;
     private CapsuleCollider2D _capsuleCollider;
 
     private float _horizontalMovement;
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     // private int _dashSide;
     private bool _canDash = true;
     private bool _isDashing = false;
-    private float _dashingSpeed = 35f;
+    public float dashingSpeed = 35f;
     private float _dashingTime = 0.15f;
     private float _dashingCooldown = 0.75f;
     private bool _isPressingDashKey = false;
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         _capsuleCollider = this.GetComponent<CapsuleCollider2D>();
         _animator = this.GetComponent<Animator>();
         _trailRenderer = this.GetComponent<TrailRenderer>();
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         _playerSkills = PlayerListSkills.GetInstance();
 
         // _trailRenderer.enabled = false;
@@ -114,12 +114,12 @@ public class PlayerMovement : MonoBehaviour
     void ManageAnimator()
     {
         _animator.SetFloat("HorizontalSpeed", Mathf.Abs(_horizontalMovement * Time.fixedTime));
-        _animator.SetFloat("VerticalSpeed", _rb.velocity.y);
+        _animator.SetFloat("VerticalSpeed", rb.velocity.y);
     }
 
     void Move()
     {
-        _rb.velocity = new Vector2(_horizontalMovement, _rb.velocity.y);
+        rb.velocity = new Vector2(_horizontalMovement, rb.velocity.y);
 
         if (_horizontalMovement > 0 && !_isFacingRight || _horizontalMovement < 0 && _isFacingRight)
         {
@@ -128,23 +128,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void StartDash() {
-        
-    }
-
     IEnumerator Dash()
     {
         _trailRenderer.emit = true;
         _canDash = false;
         _isDashing = true;
-        float originalGravity = _rb.gravityScale;
+        float originalGravity = rb.gravityScale;
         Time.timeScale = 0.65f;
 
-        _rb.gravityScale = 0f;
-        _rb.velocity = new Vector2(transform.right.normalized.x * _dashingSpeed, 0f);
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.right.normalized.x * dashingSpeed, 0f);
 
         yield return new WaitForSeconds(_dashingTime);
-        _rb.gravityScale = originalGravity;
+        rb.gravityScale = originalGravity;
         _isDashing = false;
         Time.timeScale = 1f;
         _trailRenderer.ClearTrail();
@@ -152,13 +148,6 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(_dashingCooldown);
         _canDash = true;
-    }
-
-    public IEnumerator EndDash() {
-        Debug.Log("Ennd");
-        yield return new WaitForSeconds(1.5f);
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
-
     }
 
     void OnDrawGizmosSelected()

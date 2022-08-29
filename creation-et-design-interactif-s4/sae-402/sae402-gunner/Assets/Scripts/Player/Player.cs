@@ -75,9 +75,11 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), true);
             if (other.gameObject.TryGetComponent<Health>(out Health health) && _playerMovement.IsDashing())
             {
+                _playerMovement.rb.velocity = new Vector2(transform.right.normalized.x * _playerMovement.dashingSpeed, 0f);
                 Debug.Log(other.contacts[0].normal.x);
                 health.TakeDamage(10);
             }
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
         }
     }
 
@@ -85,7 +87,6 @@ public class Player : MonoBehaviour
     {
         if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
         }
     }
 
