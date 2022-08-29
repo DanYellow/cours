@@ -35,7 +35,10 @@ public class ObjectPickedPanel : MonoBehaviour
     IEnumerator Hide()
     {
         yield return new WaitForSeconds(3.0f);
-        gameObject.SetActive(false);
+        _imageContainer.sprite = null;
+        _name.text = "";
+        _description.text = "";
+        gameObject.SetActive(false); 
     }
 
     void OnDestroy()

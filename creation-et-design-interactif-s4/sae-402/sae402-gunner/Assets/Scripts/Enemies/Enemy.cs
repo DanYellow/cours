@@ -35,6 +35,14 @@ public class Enemy : MonoBehaviour
         }
 
         _originPosition = transform.position;
+
+        // Collider2D[] listColliders = transform.GetComponents<Collider2D>();
+        // foreach (Collider2D collider in listColliders)
+        // {
+        //     if(transform.Find("Collider").GetComponent<BoxCollider2D>() != null) {
+        //         Physics2D.IgnoreCollision(transform.Find("Collider").GetComponent<BoxCollider2D>(), collider);
+        //     }
+        // }
     }
 
     private void FixedUpdate()
@@ -52,7 +60,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         transform.Rotate(0, 0, 90f);
-        Collider2D[] listColliders = transform.GetComponentsInChildren<Collider2D>();
+        Collider2D[] listColliders = transform.GetComponents<Collider2D>();
         foreach (Collider2D collider in listColliders)
         {
             collider.enabled = false;
@@ -74,17 +82,30 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnDamageProxy() {
+    void OnDamageProxy()
+    {
         _animator.SetTrigger("IsHit");
         StartCoroutine(OnDamage());
     }
 
-     IEnumerator OnDamage()
+    IEnumerator OnDamage()
     {
         this.GetComponent<Renderer>().material.color = UnityEngine.Color.clear;
         yield return new WaitForSeconds(0.05f);
-        this.GetComponent<Renderer>().material.color = UnityEngine.Color.white;        
+        this.GetComponent<Renderer>().material.color = UnityEngine.Color.white;
         yield return new WaitForSeconds(0.05f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        // if(other.collider.gameObject.tag == "Player") {
+        //     Debug.Log(other.contacts[0].normal.y);
+        //     Debug.Log(other.contacts[0].normal.x);
+        // }
+        // if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        // {
+            // _animator.SetTrigger("IsHit");
+        // }
     }
 
 

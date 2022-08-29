@@ -8,7 +8,8 @@ public class SeekerBehavior : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _rb;
 
-    public float moveSpeed;
+    [SerializeField]
+    public float _moveSpeed;
 
     private Vector2 _velocity = Vector2.zero;
     Vector2 _moveDirection;
@@ -26,7 +27,9 @@ public class SeekerBehavior : MonoBehaviour
         if (_isSeekingPlayer)
         {
             _moveDirection = (_player.transform.position - transform.position).normalized;
-        } else {
+        }
+        else
+        {
             _moveDirection = (_originPosition - transform.position).normalized;
         }
     }
@@ -47,14 +50,18 @@ public class SeekerBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        _isSeekingPlayer = false;
+        if (other.CompareTag("Player"))
+        {
+            _isSeekingPlayer = false;
+        }
     }
 
     private void Move()
     {
+        // transform.position = Vector2.MoveTowards(transform.position, new Vector2(_moveDirection.x, _moveDirection.y), 2f);
         if (_rb)
         {
-            _rb.velocity = new Vector2(_moveDirection.x, _moveDirection.y) * (_isSeekingPlayer ? moveSpeed : moveSpeed * 1.5f);
+            _rb.velocity = new Vector2(_moveDirection.x, _moveDirection.y) * (_isSeekingPlayer ? _moveSpeed : _moveSpeed * 1.5f);
         }
     }
 }

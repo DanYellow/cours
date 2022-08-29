@@ -3,11 +3,8 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public PowerUpData powerUpData;
-
     private SpriteRenderer _sprite;
-
     private PlayerListSkills _listSkills;
-
     private GameObject _powerUpPanel;
 
     public delegate void OnPickupDelegate(PowerUpData powerUpData);
@@ -34,10 +31,10 @@ public class PowerUp : MonoBehaviour
 
     void Pickup(Collider2D player)
     {
-        _listSkills.UnlockSkill(powerUpData.skill);
         if(!_listSkills.IsSkillUnlocked(powerUpData.skill)) {
             onPickup?.Invoke(powerUpData);
         }
+        _listSkills.UnlockSkill(powerUpData.skill);
 
         Destroy(gameObject);
     }

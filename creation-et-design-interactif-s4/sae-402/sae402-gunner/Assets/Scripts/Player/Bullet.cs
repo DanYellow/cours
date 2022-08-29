@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     private float _moveSpeed;
 
     private Rigidbody2D _rb;
-    // Start is called before the first frame update
 
     public GameObject stream;
 
@@ -20,10 +19,12 @@ public class Bullet : MonoBehaviour
     {
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         _moveSpeed = 12.0f;
         _rb.velocity = transform.right * _moveSpeed;
         StartCoroutine(AutoDestroy());
+        // Physics2D.IgnoreCollision(GameObject.FindWithTag("PlayerBlocker").GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
     }
 
     IEnumerator AutoDestroy()
@@ -35,7 +36,7 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (
-            collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy") 
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
         )
         {
             if (collision.gameObject.TryGetComponent<Health>(out Health health))
@@ -43,7 +44,7 @@ public class Bullet : MonoBehaviour
                 health.TakeDamage(3);
             }
         }
-            gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
         // Debug.Log(collision.contacts[0].normal.x);
         // Destroy(gameObject);

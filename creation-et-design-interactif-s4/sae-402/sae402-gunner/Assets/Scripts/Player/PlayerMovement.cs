@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     // private int _dashSide;
     private bool _canDash = true;
     private bool _isDashing = false;
-    private float _dashingSpeed = 25f;
+    private float _dashingSpeed = 35f;
     private float _dashingTime = 0.15f;
     private float _dashingCooldown = 0.75f;
     private bool _isPressingDashKey = false;
@@ -63,13 +63,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _moveSpeed = 380.0f;
+        _moveSpeed = 8.0f;
         // _dashCount = _startDashCount;
     }
 
     // La méthode est appelée toutes les frames. Par exemple, si notre jeu tourne à 60 frames par seconde (fps)
-    // Alors la méthode sera appelée 60 fps par secondes.
-    // C'est notamment dans cette fonction que nous pouvons récupérer les entrées utilisateurs comme les touches appuyées
+    // Alors la méthode sera appelée 60 fois par seconde.
+    // C'est notamment dans cette fonction que nous pouvons récupérer les touches appuyées
     void Update()
     {
         if (_isDashing) return;
@@ -105,15 +105,10 @@ public class PlayerMovement : MonoBehaviour
 
     void DebugListSkills()
     {
-        Debug.Log(_playerSkills.GetPlayerSkills().ToArray());
-
-        // foreach (var item in System.Enum.GetNames(typeof(PlayerListSkills)))
-        // {
-        //     Debug.Log("Jump : " + item);
-        // }
-        Debug.Log("Jump : " + _playerSkills.IsSkillUnlocked(PlayerListSkills.SkillType.Jump));
-        Debug.Log("Dash : " + _playerSkills.IsSkillUnlocked(PlayerListSkills.SkillType.Dash));
-        Debug.Log("Debug : " + _playerSkills.IsSkillUnlocked(PlayerListSkills.SkillType.Debug));
+        foreach (PlayerListSkills.SkillType val in System.Enum.GetValues(typeof(PlayerListSkills.SkillType)))
+        {
+            Debug.Log(val + " is unlocked :" + _playerSkills.IsSkillUnlocked(val));
+        }
     }
 
     void ManageAnimator()
@@ -124,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        _rb.velocity = new Vector2(_horizontalMovement * Time.fixedDeltaTime, _rb.velocity.y);
+        _rb.velocity = new Vector2(_horizontalMovement, _rb.velocity.y);
 
         if (_horizontalMovement > 0 && !_isFacingRight || _horizontalMovement < 0 && _isFacingRight)
         {
@@ -133,12 +128,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void StartDash() {
+        
+    }
+
     IEnumerator Dash()
     {
         _trailRenderer.emit = true;
         _canDash = false;
         _isDashing = true;
         float originalGravity = _rb.gravityScale;
+        Time.timeScale = 0.65f;
 
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(transform.right.normalized.x * _dashingSpeed, 0f);
@@ -146,11 +146,21 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(_dashingTime);
         _rb.gravityScale = originalGravity;
         _isDashing = false;
+        Time.timeScale = 1f;
         _trailRenderer.ClearTrail();
         _trailRenderer.emit = false;
+
         yield return new WaitForSeconds(_dashingCooldown);
         _canDash = true;
     }
+
+    public IEnumerator EndDash() {
+        Debug.Log("Ennd");
+        yield return new WaitForSeconds(1.5f);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
+
+    }
+
     void OnDrawGizmosSelected()
     {
         if (_groundCheck == null)
@@ -160,7 +170,8 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
     }
 
-    public bool IsDashing() {
+    public bool IsDashing()
+    {
         return _isDashing;
     }
 }

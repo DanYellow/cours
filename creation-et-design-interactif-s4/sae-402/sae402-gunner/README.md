@@ -18,10 +18,13 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
         - https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics - anglais
         - https://www.youtube.com/watch?v=fE3agO5xfFw - français. La démonstration a lieu vers 28:00
 > Pour la gestion de l'animation du saut, le sprite associé a déjà été implémenté et découpé. Il faudra donc créer l'animation et définir sa condition dans l'animator. Après quelques tests "850" semble être une bonne valeur pour la gravité.
-> Le saut ne doit être utilisable que si et seulement si le joueur a débloqué la capacité. Il faudra donc jouer sur la 
+> Le saut ne doit être utilisable que si et seulement si le joueur a débloqué la capacité. Il faudra donc jouer sur la classe "PlayerListSkills". Vous pourrez trouver un exemple d'utilisation dans le fichier `Assets/Scripts/Player/` 
 - Donner la possibilité au joueur de mettre en pause le jeu (et bien évidemment le relancer)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
-- Ajouter une musique
+- Ajouter une musique. Vous pourrez en trouver sur ces sites :
+    - http://dig.ccmixter.org/games
+    - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
+    - https://github.com/OpenSourceMusic
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une (+ le dernier point de la liste)
 - Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)

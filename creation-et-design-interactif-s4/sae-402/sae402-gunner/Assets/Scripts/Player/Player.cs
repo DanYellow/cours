@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private PlayerMovement _playerMovement;
+    private CapsuleCollider2D _capsuleCollider;
+
     private void Awake()
     {
         gameObject.GetComponent<Health>().onDie += Die;
         gameObject.GetComponent<Health>().SetHealth(100);
+
+        // Physics2D.IgnoreCollision(transform.Find("Collider").GetComponent<CapsuleCollider2D>(), GetComponent<CapsuleCollider2D>());
+        _playerMovement = gameObject.GetComponent<PlayerMovement>();
+        _capsuleCollider = this.GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -14,14 +21,18 @@ public class Player : MonoBehaviour
         DetectedByEnemy();
     }
 
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.H)) {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
             Hurt();
         }
     }
 
-    void Hurt() {
-        if(gameObject.TryGetComponent<Health>(out Health health)) {
+    void Hurt()
+    {
+        if (gameObject.TryGetComponent<Health>(out Health health))
+        {
             health.TakeDamage(3);
         }
     }
@@ -61,8 +72,21 @@ public class Player : MonoBehaviour
     {
         if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log(other.contacts[0].normal.x);
-            // _animator.SetTrigger("IsHit");
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), true);
+            if (other.gameObject.TryGetComponent<Health>(out Health health) && _playerMovement.IsDashing())
+            {
+                Debug.Log(other.contacts[0].normal.x);
+                health.TakeDamage(10);
+            }
         }
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
+        }
+    }
+
 }
