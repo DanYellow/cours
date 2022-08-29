@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _maxHealth;
-    public int currentHealth = 10;
+    [SerializeField]
+    private int _maxHealth = 10;
+    private int _currentHealth = 10;
 
     public delegate void OnDieDelegate();
     public OnDieDelegate onDie;
@@ -13,21 +14,25 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        currentHealth = _maxHealth;
+        _currentHealth = _maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        _currentHealth -= damage;
 
         onHit?.Invoke();
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             onDie?.Invoke();
         }
     }
     public void SetHealth(int health)
     {
-        currentHealth += health;
+        _currentHealth += health;
+    }
+
+    public int GetHealth() {
+        return _currentHealth;
     }
 }

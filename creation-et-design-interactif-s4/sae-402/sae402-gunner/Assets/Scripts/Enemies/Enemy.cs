@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private EnemyType type;
-
     private Vector3 _originPosition;
 
     private void Awake()
@@ -35,19 +34,6 @@ public class Enemy : MonoBehaviour
         }
 
         _originPosition = transform.position;
-
-        // Collider2D[] listColliders = transform.GetComponents<Collider2D>();
-        // foreach (Collider2D collider in listColliders)
-        // {
-        //     if(transform.Find("Collider").GetComponent<BoxCollider2D>() != null) {
-        //         Physics2D.IgnoreCollision(transform.Find("Collider").GetComponent<BoxCollider2D>(), collider);
-        //     }
-        // }
-    }
-
-    private void FixedUpdate()
-    {
-        // Physics.IgnoreLayerCollision(Enemy.collider, Enemy.collider);
     }
 
     private void Update()
@@ -59,7 +45,6 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        transform.Rotate(0, 0, 90f);
         Collider2D[] listColliders = transform.GetComponents<Collider2D>();
         foreach (Collider2D collider in listColliders)
         {
@@ -98,23 +83,19 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // if(other.collider.gameObject.tag == "Player") {
-        //     Debug.Log(other.contacts[0].normal.y);
-        //     Debug.Log(other.contacts[0].normal.x);
-        // }
-        // if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        // {
-            // _animator.SetTrigger("IsHit");
-        // }
+        if (other.collider.gameObject.CompareTag("Player"))
+        {
+            PlayerMovement playerMovement = other.collider.gameObject.GetComponent<PlayerMovement>();
+            Health playerHealth = other.collider.gameObject.GetComponent<Health>();
+
+            if (!playerMovement.IsDashing())
+            {
+                // Le joueur prend des dégâts si le joueur n'a pas effectué un "dash" sur l'ennemi
+                Debug.Log(other.contacts[0].normal.x);
+                Debug.Log(other.contacts[0].normal.y);
+                playerHealth.TakeDamage(0);
+            }
+
+        }
     }
-
-
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.collider.gameObject.layer == LayerMask.NameToLayer("Projectile"))
-    //     {
-    //         // Debug.Log(collision.contacts[0].normal.x);
-    //         _animator.SetTrigger("IsHit");
-    //     }
-    // }
 }

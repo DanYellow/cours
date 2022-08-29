@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Health>().onDie += Die;
         gameObject.GetComponent<Health>().SetHealth(100);
 
-        // Physics2D.IgnoreCollision(transform.Find("Collider").GetComponent<CapsuleCollider2D>(), GetComponent<CapsuleCollider2D>());
         _playerMovement = gameObject.GetComponent<PlayerMovement>();
         _capsuleCollider = this.GetComponent<CapsuleCollider2D>();
     }
@@ -70,17 +69,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), true);
-            if (other.gameObject.TryGetComponent<Health>(out Health health) && _playerMovement.IsDashing())
-            {
-                _playerMovement.rb.velocity = new Vector2(transform.right.normalized.x * _playerMovement.dashingSpeed, 0f);
-                Debug.Log(other.contacts[0].normal.x);
-                health.TakeDamage(10);
-            }
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Enemy"), false);
-        }
+        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")){}
     }
 
     private void OnCollisionExit2D(Collision2D other)
