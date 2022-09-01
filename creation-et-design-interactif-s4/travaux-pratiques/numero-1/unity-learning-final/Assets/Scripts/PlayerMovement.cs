@@ -41,16 +41,6 @@ public class PlayerMovement : MonoBehaviour
             _horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
         }
 
-        // if (transform.position.x > beginLevel.transform.position.x)
-        // {
-        //     isLevelStarted = true;
-        // }
-        // else if(!isLevelStarted)
-        // {
-        //     // isLevelStarted = true;
-        //     _horizontalMovement = 0.5f * moveSpeed; // 0.1f
-        // }
-
         ManageAnimator();
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
