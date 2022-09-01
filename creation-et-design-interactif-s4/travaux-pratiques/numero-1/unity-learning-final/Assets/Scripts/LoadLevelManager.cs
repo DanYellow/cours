@@ -3,14 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelManager : MonoBehaviour
 {
-    public Health playerHealth;
+    // public Health playerHealth;
     public static LoadLevelManager instance;
 
-    private bool isGamePaused = false;
 
     private void OnEnable()
     {
-        playerHealth.onDie += PlayerDie;
+        // playerHealth.onDie += PlayerDie;
     }
 
     private void Awake()
@@ -31,18 +30,11 @@ public class LoadLevelManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isGamePaused = !isGamePaused;
-        }
-
-        if (isGamePaused)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
+        if(Input.GetKey(KeyCode.M)) {
+            Time.timeScale = 0.05f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        } else {
+            Time.timeScale = 1f;
         }
     }
 
@@ -58,6 +50,10 @@ public class LoadLevelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        playerHealth.onDie -= PlayerDie;
+        // playerHealth.onDie -= PlayerDie;
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }

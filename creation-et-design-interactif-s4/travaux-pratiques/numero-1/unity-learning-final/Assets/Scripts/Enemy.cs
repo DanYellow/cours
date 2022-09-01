@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
                 Animator playerAnimator = other.gameObject.GetComponent<Animator>();
                 Destroy(gameObject, 0.75f);
 
-                Time.timeScale = 0.05f;
+                // StartCoroutine(TakeDamage(other.gameObject));
+                // Time.timeScale = 0.05f;
+                playerAnimator.speed = 0.5f;
                 playerAnimator.SetTrigger("StompedEnemy");
                 other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.up * 5f;
-                Time.timeScale = 1f;
+                // Time.timeScale = 1f;
             }
             else
             {
@@ -35,6 +37,17 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator TakeDamage(GameObject other)
+    {
+        Animator playerAnimator = other.GetComponent<Animator>();
+        Time.timeScale = 0.5f;
+        playerAnimator.SetTrigger("StompedEnemy");
+        Debug.Log("playerAnimator" + playerAnimator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(playerAnimator.GetCurrentAnimatorStateInfo(0).length * 10);
+        other.GetComponent<Rigidbody2D>().velocity += Vector2.up * 5f;
+        Time.timeScale = 1f;
     }
 }
 
