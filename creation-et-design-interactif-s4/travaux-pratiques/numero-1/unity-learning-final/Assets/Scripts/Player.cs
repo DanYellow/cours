@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     bool _isInvincible = false;
     public Rigidbody2D rb;
 
+    private Key currentKey;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -65,5 +67,13 @@ public class Player : MonoBehaviour
     {
         playerHealth.onDamage -= TakeDamage;
         playerHealth.onDie -= Die;
+    }
+
+    public void SetKey(Key key) {
+        currentKey = key;
+    }
+
+    public Key GetKey() {
+        return currentKey;
     }
 }
