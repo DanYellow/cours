@@ -1,18 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeathInfo : MonoBehaviour
+public class HUD : MonoBehaviour
 {
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
 
+    public Text coinCount;
+
     Image[] _listHeartsContainers = new Image[] { };
 
     private void Awake()
     {
-        this.enabled = false;
-        _listHeartsContainers = GetComponentsInChildren<Image>();
+        GameObject healthBar = transform.Find("HealthBar").gameObject;
+        _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();
     }
 
     public void SetHealth(float health)
@@ -35,5 +37,9 @@ public class HeathInfo : MonoBehaviour
                 _listHeartsContainers[i].sprite = emptyHeart;
             }
         }
+    }
+
+    public void SetCoinCount(int coin) {
+        coinCount.text = coin.ToString();
     }
 }

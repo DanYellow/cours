@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     public delegate void OnDamageDelegate();
     public OnDamageDelegate onDamage;
 
-    public HeathInfo heathInfo;
+    public HUD heathInfo;
 
     void Start()
     {

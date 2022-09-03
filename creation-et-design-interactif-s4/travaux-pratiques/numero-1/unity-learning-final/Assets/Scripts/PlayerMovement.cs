@@ -20,12 +20,24 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
+    public static PlayerMovement instance;
 
     private Vector3 _velocity = Vector3.zero;
     private bool rotating;
     private bool isLevelStarted = false;
 
     public GameObject beginLevel;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de " + GetType().Name + " dans la scène");
+            return;
+        }
+
+        instance = this;
+    }
 
     // Update is called once per frame - http://web4.ensiie.fr/~guillaume.bouyer/RVIG/Unity.pdf
     void Update()
@@ -45,14 +57,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            // isJumping = true;
+            isJumping = true;
             Jump(false);
-            // isJumping = false;
+            isJumping = false;
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             Jump(true);
         }
     }

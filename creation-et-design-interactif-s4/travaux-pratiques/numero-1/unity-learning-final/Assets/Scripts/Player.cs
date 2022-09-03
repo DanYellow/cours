@@ -11,7 +11,11 @@ public class Player : MonoBehaviour
     bool _isInvincible = false;
     public Rigidbody2D rb;
 
+    private int coinsCount;
+
     private Key currentKey;
+
+    public HUD hud;
 
 
     // Start is called before the first frame update
@@ -25,21 +29,31 @@ public class Player : MonoBehaviour
 
     void TakeDamage()
     {
-        _isInvincible = true;
-        StartCoroutine(InvincibilityFlash());
-        StartCoroutine(HandleInvincibilityDelay());
+        if (playerHealth.GetHealth() > 0)
+        {
+            _isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
+            StartCoroutine(HandleInvincibilityDelay());
+        }
     }
 
-     public void Die()
+    public void Die()
     {
-        // Disable playermovement
-        
-        //  PlayerMovement.instance.enabled = false;
-        // PlayerMovement.instance.animator.SetTrigger("Die");
-        // PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;
-        // PlayerMovement.instance.rb.velocity = Vector3.zero;
-        // PlayerMovement.instance.playerCollider.enabled = false;
+        // Désactiver le mouvement
+        // Lancer l'animation de mort
+        // Arrêter le mouvement
+        // Supprimer les collisions
+
+
+        GetComponent<Animator>().SetTrigger("Die");
+        // GetComponent<Animator>().Play("PlayerDie");
+
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        PlayerMovement.instance.enabled = false;
+        PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Static;
+        PlayerMovement.instance.rb.velocity = Vector3.zero;
     }
+
 
     public IEnumerator InvincibilityFlash()
     {
@@ -69,11 +83,22 @@ public class Player : MonoBehaviour
         playerHealth.onDie -= Die;
     }
 
-    public void SetKey(Key key) {
+    public void SetKey(Key key)
+    {
         currentKey = key;
     }
 
-    public Key GetKey() {
+    public Key GetKey()
+    {
         return currentKey;
+    }
+
+    public int GetCoins() {
+        return coinsCount;
+    }
+
+    public void AddCoins(int coin) {
+        coinsCount += coin;
+        hud.SetCoinCount(coinsCount);
     }
 }
