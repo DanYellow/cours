@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
                 // StartCoroutine(TakeDamage(other.gameObject));
                 // Time.timeScale = 0.05f;
-                playerAnimator.speed = 0.5f;
+                // playerAnimator.speed = 0.5f;
                 playerAnimator.SetTrigger("StompedEnemy");
                 other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.up * 5f;
                 // Time.timeScale = 1f;

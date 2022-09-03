@@ -45,13 +45,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            isJumping = true;
+            // isJumping = true;
             Jump(false);
-            isJumping = false;
+            // isJumping = false;
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             Jump(true);
         }
     }
@@ -92,7 +93,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump(bool shortJump = false)
     {
-        rb.velocity = new Vector2(rb.velocity.x, (shortJump ? jumpForce * 0.5f : jumpForce));
+        float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
     }
 
     void OnDrawGizmosSelected()

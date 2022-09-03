@@ -1,4 +1,7 @@
-- Assets récupérés ici : https://www.kenney.nl/assets/pixel-platformer
+- Assets récupérés ici : 
+	- https://www.kenney.nl/assets/pixel-platformer
+	- https://www.kenney.nl/assets/input-prompts-pixel-16
 - Characters : Taille 24 x 24
 - Tiles: Taille 18 x 18
 - Background : Taille 24 x 24
+- Inputs : Taille 16 x 16
