@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         // Arrêter le mouvement
         // Supprimer les collisions
 
-
+        Debug.Log("Death");
         GetComponent<Animator>().SetTrigger("Die");
         // GetComponent<Animator>().Play("PlayerDie");
 
