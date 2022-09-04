@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Animator animator;
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,12 +19,13 @@ public class Enemy : MonoBehaviour
                 }
 
                 Animator playerAnimator = other.gameObject.GetComponent<Animator>();
-                Destroy(gameObject, 0.75f);
+                // Destroy(gameObject, 0.75f);
 
                 // StartCoroutine(TakeDamage(other.gameObject));
                 // Time.timeScale = 0.05f;
                 // playerAnimator.speed = 0.5f;
                 playerAnimator.SetTrigger("StompedEnemy");
+                animator.SetTrigger("Die");
                 other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.up * 5f;
                 // Time.timeScale = 1f;
             }
@@ -37,6 +40,11 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject, 0.75f);
     }
 
     IEnumerator TakeDamage(GameObject other)

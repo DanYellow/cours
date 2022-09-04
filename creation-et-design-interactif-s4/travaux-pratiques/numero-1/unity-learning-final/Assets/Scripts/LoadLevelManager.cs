@@ -29,7 +29,7 @@ public class LoadLevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartLevel();
         }
 
         if (Input.GetKey(KeyCode.M))
@@ -46,6 +46,11 @@ public class LoadLevelManager : MonoBehaviour
     public static void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void RestartLevel() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayerDie()

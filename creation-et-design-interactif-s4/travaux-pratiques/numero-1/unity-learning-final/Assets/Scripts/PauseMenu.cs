@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseMenuUI;
+    public GameObject pauseMenuUI;
     private bool isGamePaused = false;
     // Start is called before the first frame update
     void Start()
     {
-        PauseMenuUI.SetActive(isGamePaused);
+        pauseMenuUI.SetActive(isGamePaused);
     }
 
     // Update is called once per frame
@@ -17,8 +18,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isGamePaused = !isGamePaused;
-
             if (isGamePaused)
             {
                 Resume();
@@ -33,13 +32,18 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1.0f;
-        PauseMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(false);
+        isGamePaused = false;
+        PlayerMovement.instance.enabled = true;
     }
 
     void Pause()
     {
         Time.timeScale = 0f;
-        PauseMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(true);
+        isGamePaused = true;
+        PlayerMovement.instance.enabled = false;
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("PauseMenu/Resume"));
     }
 
     public bool IsGamePaused() {
