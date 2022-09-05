@@ -64982,6 +64982,8 @@ MonoBehaviour:
   sceneToLoad: MainMenu
   openDoorSprite: {fileID: -1053599359, guid: f2727e9d15319634e89121cbb84160c0, type: 3}
   spriteRenderer: {fileID: 529826238}
+  animator: {fileID: 529826240}
+  type: 1
 --- !u!61 &529826237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72593,7 +72595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015998038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.92, y: 13.79, z: 0.014054131}
+  m_LocalPosition: {x: 35.9, y: 13.51, z: 0.014054131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -5,28 +5,60 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     GameObject inputIndicator;
+
+    [SerializeField]
     private bool isDoorOpened = false;
     private bool isPlayerInRange = false;
     public string sceneToLoad;
     public Sprite openDoorSprite;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
+    private GameObject player;
+
+    public Transform destination;
+
+    public enum Type
+    {
+        Normal,
+        Portal,
+    }
+
+    public Type type;
 
     // Start is called before the first frame update
     void Start()
     {
         inputIndicator = gameObject.transform.Find("Input").gameObject;
         inputIndicator.SetActive(false);
+        if (isDoorOpened)
+        {
+            if (type == Type.Normal)
+            {
+                animator.SetTrigger("Unlock");
+            }
+            else
+            {
+                animator.SetTrigger("UnlockPortal");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDoorOpened && isPlayerInRange && Input.GetAxisRaw("Vertical") == 1)
+        if (isDoorOpened && isPlayerInRange && Input.GetAxisRaw("Vertical") == 1 && type == Type.Normal)
         {
             LoadLevelManager.LoadScene(sceneToLoad);
         }
 
-        // if()
+        if (isDoorOpened && isPlayerInRange && Input.GetKeyDown(KeyCode.UpArrow) && type == Type.Portal && player != null)
+        // if (isDoorOpened && isPlayerInRange && Input.GetAxisRaw("Vertical") == 1 && type == Type.Portal && player != null)
+        {
+            player.transform.position = destination.position;
+        }
+
+        // Debug.Log("ff " + Input.GetKeyDown("Vertical"));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,14 +73,23 @@ public class Door : MonoBehaviour
                 key.SetFollowTarget(this.transform);
                 PlayerInventory.instance.SetKey(null);
                 isDoorOpened = true;
-                spriteRenderer.sprite = openDoorSprite;
                 key.transform.gameObject.SetActive(false);
                 Destroy(key.gameObject);
+
+                if (type == Type.Normal)
+                {
+                    animator.SetTrigger("Unlock");
+                }
+                else
+                {
+                    animator.SetTrigger("UnlockPortal");
+                }
             }
 
             if (isDoorOpened)
             {
                 inputIndicator.SetActive(true);
+                player = other.gameObject;
             }
         }
     }
@@ -59,6 +100,7 @@ public class Door : MonoBehaviour
         {
             inputIndicator.SetActive(false);
             isPlayerInRange = false;
+            player = null;
         }
     }
 }
