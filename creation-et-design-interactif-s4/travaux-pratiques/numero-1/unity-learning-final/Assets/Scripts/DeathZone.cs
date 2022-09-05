@@ -14,7 +14,10 @@ public class DeathZone : MonoBehaviour
         {
             Health health = other.gameObject.GetComponent<Health>();
             health.TakeDamage(0.5f);
-            other.transform.position = playerSpawn.position;
+            if (health.GetHealth() > 0)
+            {
+                other.transform.position = playerSpawn.position;
+            }
         }
     }
 }

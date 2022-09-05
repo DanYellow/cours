@@ -15,6 +15,8 @@ public class HUD : MonoBehaviour
     {
         GameObject healthBar = transform.Find("HealthBar").gameObject;
         _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();
+
+        PlayerInventory.instance.onUpdateCoins += SetCoinCount;
     }
 
     public void SetHealth(float health)

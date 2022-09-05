@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
+    public Transform roofCheck;
     public static PlayerMovement instance;
 
     private Vector3 _velocity = Vector3.zero;
@@ -80,9 +81,14 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listCollisionLayers);
+    }
+
+    public bool IsRoofed()
+    {
+        return Physics2D.OverlapCircle(roofCheck.position, groundCheckRadius, listCollisionLayers);
     }
 
     void Move()

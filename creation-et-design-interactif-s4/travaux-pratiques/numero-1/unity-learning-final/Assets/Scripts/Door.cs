@@ -35,16 +35,15 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            Player player = other.gameObject.GetComponent<Player>();
-            Key key = player.GetKey();
+            Key key = PlayerInventory.instance.GetKey();
             if (key != null)
             {
                 key.SetFollowTarget(this.transform);
-                player.SetKey(null);
+                PlayerInventory.instance.SetKey(null);
                 isDoorOpened = true;
                 spriteRenderer.sprite = openDoorSprite;
-                // Destroy(key);
                 key.transform.gameObject.SetActive(false);
+                Destroy(key.gameObject);
             }
 
             if (isDoorOpened)

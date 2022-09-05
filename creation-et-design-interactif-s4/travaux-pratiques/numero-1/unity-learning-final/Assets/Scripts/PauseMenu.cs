@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,26 +25,30 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
 
     public void Resume()
     {
-        Time.timeScale = 1.0f;
         pauseMenuUI.SetActive(false);
-        isGamePaused = false;
         PlayerMovement.instance.enabled = true;
+        Time.timeScale = 1;
+        isGamePaused = false;
     }
 
     void Pause()
     {
-        Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
-        isGamePaused = true;
         PlayerMovement.instance.enabled = false;
         EventSystem.current.SetSelectedGameObject(GameObject.Find("PauseMenu/Resume"));
+        Time.timeScale = 0;
+        isGamePaused = true;
     }
 
-    public bool IsGamePaused() {
+    public bool IsGamePaused()
+    {
         return isGamePaused;
     }
 }

@@ -7,7 +7,6 @@ public class Checkpoint : MonoBehaviour
     private void Awake()
     {
         playerSpawnTransform = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
-        Debug.Log("playerSpawnTransform " + playerSpawnTransform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

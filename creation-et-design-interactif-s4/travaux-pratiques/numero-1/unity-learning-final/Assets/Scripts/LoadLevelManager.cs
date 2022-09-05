@@ -3,16 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelManager : MonoBehaviour
 {
-    public Health playerHealth;
     public static LoadLevelManager instance;
-
-    private void OnEnable()
-    {
-        if (playerHealth != null)
-        {
-            playerHealth.onDie += PlayerDie;
-        }
-    }
 
     private void Awake()
     {
@@ -31,16 +22,6 @@ public class LoadLevelManager : MonoBehaviour
         {
             RestartLevel();
         }
-
-        if (Input.GetKey(KeyCode.M))
-        {
-            Time.timeScale = 0.05f;
-            Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
     }
 
     public static void LoadScene(string sceneName)
@@ -48,7 +29,7 @@ public class LoadLevelManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void RestartLevel() 
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -58,13 +39,6 @@ public class LoadLevelManager : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    private void OnDisable()
-    {
-        if (playerHealth != null)
-        {
-            playerHealth.onDie -= PlayerDie;
-        }
-    }
 
     public void QuitGame()
     {

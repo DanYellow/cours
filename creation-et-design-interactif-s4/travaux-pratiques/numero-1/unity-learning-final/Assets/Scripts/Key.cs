@@ -7,7 +7,6 @@ public class Key : MonoBehaviour
     private bool isFollowingPlayer = false;
     public Transform followTarget;
     public float followSpeed;
-
     private float oscillationSpeed = 2f;
     private float oscillationHeight = 0.15f;
     // Start is called before the first frame update
@@ -35,7 +34,7 @@ public class Key : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Player>().SetKey(this);
+            PlayerInventory.instance.SetKey(this);
             isFollowingPlayer = true;
         }
     }

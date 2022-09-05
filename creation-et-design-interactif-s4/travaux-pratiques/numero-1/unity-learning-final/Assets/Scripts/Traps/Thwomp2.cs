@@ -2,35 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thwomp : MonoBehaviour
+public class Thwomp2 : MonoBehaviour
 {
     private Vector3 originPosition;
-
+    public Transform targetPosition;
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
+    public Transform roofCheck;
     public Rigidbody2D rb;
     public Animator animator;
 
-    public float speed = 5f;
+    public float speed = 2f;
     public float stayUpTime = 2.0f;
     public float stayDownTime = 3.0f;
 
     void Awake()
     {
-        rb = null;
         originPosition = transform.position;
-    }
-
-    void Start()
-    {
-        // StartCoroutine(UpAndDown());
-        // 
-    }
-
-    private void Update()
-    {
-        animator.SetFloat("VerticalSpeed", GetComponent<Rigidbody2D>().velocity.y);
     }
 
     private bool IsGrounded()
@@ -49,19 +38,12 @@ public class Thwomp : MonoBehaviour
             }
         }
 
-        if (IsGrounded())
-        {
-            StartCoroutine(BackToOrigin());
-        }
+        StartCoroutine(BackToOrigin());
+        // if (IsGrounded())
+        // {
+        // }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (IsGrounded())
-        {
-            Debug.Log("fef");
-            StartCoroutine(BackToOrigin());
-        }
-    }
 
     IEnumerator BackToOrigin()
     {
@@ -83,5 +65,14 @@ public class Thwomp : MonoBehaviour
         }
         yield return new WaitForSeconds(stayUpTime);
         rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
     }
 }

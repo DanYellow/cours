@@ -13,8 +13,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
-            player.AddCoins((int)value);
+            PlayerInventory.instance.AddCoins((int)value);
             Destroy(gameObject);
         }
     }

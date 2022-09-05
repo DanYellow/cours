@@ -13,10 +13,6 @@ public class Player : MonoBehaviour
 
     private int coinsCount;
 
-    private Key currentKey;
-
-    public HUD hud;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -25,11 +21,12 @@ public class Player : MonoBehaviour
         playerHealth.onDie += Die;
     }
 
+
     // LoadLevelManager.instance.PlayerDie();
 
     void TakeDamage()
     {
-        if (playerHealth.GetHealth() > 0)
+        if (playerHealth.GetHealth() >= 0)
         {
             _isInvincible = true;
             StartCoroutine(InvincibilityFlash());
@@ -45,13 +42,16 @@ public class Player : MonoBehaviour
         // Supprimer les collisions
 
         Debug.Log("Death");
-        GetComponent<Animator>().SetTrigger("Die");
-        // GetComponent<Animator>().Play("PlayerDie");
 
         GetComponent<CapsuleCollider2D>().enabled = false;
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Static;
         PlayerMovement.instance.rb.velocity = Vector3.zero;
+
+        GetComponent<Animator>().SetFloat("VerticalSpeed", 0);
+        GetComponent<Animator>().enabled = false;
+        GetComponent<Animator>().enabled = true;
+        GetComponent<Animator>().SetTrigger("Die");
     }
 
 
@@ -81,24 +81,5 @@ public class Player : MonoBehaviour
     {
         playerHealth.onDamage -= TakeDamage;
         playerHealth.onDie -= Die;
-    }
-
-    public void SetKey(Key key)
-    {
-        currentKey = key;
-    }
-
-    public Key GetKey()
-    {
-        return currentKey;
-    }
-
-    public int GetCoins() {
-        return coinsCount;
-    }
-
-    public void AddCoins(int coin) {
-        coinsCount += coin;
-        hud.SetCoinCount(coinsCount);
     }
 }

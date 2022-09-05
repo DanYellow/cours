@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
     private PlayerMovement _playerMovement;
     private CapsuleCollider2D _capsuleCollider;
 
+    bool isGamePaused = false;
+
     private void Awake()
     {
         gameObject.GetComponent<Health>().onDie += Die;
@@ -25,6 +27,19 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             Hurt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+            isGamePaused = !isGamePaused;
         }
     }
 
