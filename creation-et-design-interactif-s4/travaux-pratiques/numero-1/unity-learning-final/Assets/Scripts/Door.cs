@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -16,7 +14,7 @@ public class Door : MonoBehaviour
 
     private GameObject player;
 
-    public Transform destination;
+    public Door destination;
 
     public enum Type
     {
@@ -47,18 +45,17 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDoorOpened && isPlayerInRange && Input.GetAxisRaw("Vertical") == 1 && type == Type.Normal)
+        if (isDoorOpened && isPlayerInRange && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            LoadLevelManager.LoadScene(sceneToLoad);
+            if (type == Type.Normal)
+            {
+                LoadLevelManager.LoadScene(sceneToLoad);
+            }
+            else if (type == Type.Portal && player != null && destination.isDoorOpened)
+            {
+                player.transform.position = destination.transform.position;
+            }
         }
-
-        if (isDoorOpened && isPlayerInRange && Input.GetKeyDown(KeyCode.UpArrow) && type == Type.Portal && player != null)
-        // if (isDoorOpened && isPlayerInRange && Input.GetAxisRaw("Vertical") == 1 && type == Type.Portal && player != null)
-        {
-            player.transform.position = destination.position;
-        }
-
-        // Debug.Log("ff " + Input.GetKeyDown("Vertical"));
     }
 
     private void OnTriggerEnter2D(Collider2D other)

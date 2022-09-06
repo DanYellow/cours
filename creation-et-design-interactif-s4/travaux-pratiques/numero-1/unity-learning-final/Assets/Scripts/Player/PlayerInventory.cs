@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private int coinsCount;
-    private Key currentKey;
+    private Key currentKey = null;
 
     public static PlayerInventory instance;
 

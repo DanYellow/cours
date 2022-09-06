@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     void TakeDamage()
     {
+        Debug.Log("Damage");
         if (playerHealth.GetHealth() >= 0)
         {
             _isInvincible = true;

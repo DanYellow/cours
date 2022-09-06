@@ -26,6 +26,7 @@ public class LoadLevelManager : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
+        LoadAndSaveData.instance.Save();
         SceneManager.LoadScene(sceneName);
     }
 

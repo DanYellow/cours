@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bumper : MonoBehaviour
@@ -19,7 +17,8 @@ public class Bumper : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && other.contacts[0].normal.y < -0.5f)
         {
             _spriteRenderer.sprite = expandedSprite;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
+            Vector2 bounceForce = Vector2.up * bounce;
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
         }
     }
 

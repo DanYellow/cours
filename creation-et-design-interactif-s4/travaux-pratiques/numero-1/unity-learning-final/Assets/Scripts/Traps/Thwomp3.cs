@@ -45,7 +45,10 @@ public class Thwomp3 : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, originPosition.position, speed * Time.deltaTime);
         }
         animator.SetBool("IsFalling", isFalling);
+    }
 
+    private void FixedUpdate()
+    {
         if (IsGrounded())
         {
             StartCoroutine(Impact());

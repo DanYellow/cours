@@ -28,7 +28,7 @@ public class LoadAndSaveData : MonoBehaviour
     // Update is called once per frame
     public void Load()
     {
-        // Inventory.instance.nbCoins = PlayerPrefs.GetInt("coins", 0);
+        PlayerInventory.instance.AddCoins(PlayerPrefs.GetInt("coins", 0));
         // Inventory.instance.UpdateTextUI();
 
         // string[] itemsSaved = PlayerPrefs.GetString("inventoryItems", "").Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
@@ -50,7 +50,7 @@ public class LoadAndSaveData : MonoBehaviour
     public void Save()
     {
         // Ne lève pas d'erreur en cas d'erreur
-        // PlayerPrefs.SetInt("coins", Inventory.instance.nbCoins);
+        PlayerPrefs.SetInt("coins", PlayerInventory.instance.GetCoins());
 
         // if (CurrentSceneManager.instance.levelToUnlock > PlayerPrefs.GetInt("levelReached", 1))
         // {

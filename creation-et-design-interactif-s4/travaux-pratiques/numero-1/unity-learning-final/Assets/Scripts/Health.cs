@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         _currentHealth = _maxHealth;
-        heathInfo.SetHealth(_maxHealth);
+        UpdateHeathInfo(_maxHealth);
     }
 
     void Update()
@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
-        UpdateHeathInfo();
+        UpdateHeathInfo(_currentHealth);
         onDamage?.Invoke();
         if (_currentHealth <= 0)
         {
@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
     {
         if(_currentHealth >= _maxHealth) return;
         _currentHealth += health;
-        UpdateHeathInfo();
+        UpdateHeathInfo(_currentHealth);
     }
 
     public float GetHealth()
@@ -55,11 +55,11 @@ public class Health : MonoBehaviour
         return _currentHealth;
     }
 
-    public void UpdateHeathInfo()
+    public void UpdateHeathInfo(float health)
     {
         if (heathInfo != null)
         {
-            heathInfo.SetHealth(_currentHealth);
+            heathInfo.SetHealth(health);
         }
     }
 }
