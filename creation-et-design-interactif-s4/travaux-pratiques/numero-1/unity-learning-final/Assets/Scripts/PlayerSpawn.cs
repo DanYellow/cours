@@ -6,7 +6,7 @@ public class PlayerSpawn : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         // Debug.Log("fezfez" + player.GetComponent<Health>().GetHealth())
-            player.transform.position = transform.position;
+        player.transform.position = transform.position;
         if (player.GetComponent<Health>().GetHealth() > 0)
         {
         }

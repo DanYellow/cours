@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     private int coinsCount;
 
+    public Animator animator;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -44,15 +46,21 @@ public class Player : MonoBehaviour
 
         Debug.Log("Death");
 
+        StartCoroutine(CameraShake.instance.Shake(0.15f));
+
         GetComponent<CapsuleCollider2D>().enabled = false;
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Static;
         PlayerMovement.instance.rb.velocity = Vector3.zero;
 
-        GetComponent<Animator>().SetFloat("VerticalSpeed", 0);
-        GetComponent<Animator>().enabled = false;
-        GetComponent<Animator>().enabled = true;
-        GetComponent<Animator>().SetTrigger("Die");
+        animator.SetFloat("VerticalSpeed", 0);
+        animator.enabled = false;
+        animator.enabled = true;
+        animator.SetTrigger("Die");
+
+        if(CurrentSceneManager.instance.isPlayerHereByDefault) {
+            DontDestroyOnLoadScene.instance.MoveInMainScene();
+        } 
     }
 
 

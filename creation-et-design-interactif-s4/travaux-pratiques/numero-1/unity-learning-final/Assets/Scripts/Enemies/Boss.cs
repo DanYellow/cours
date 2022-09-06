@@ -11,12 +11,9 @@ public class Boss : MonoBehaviour
     [SerializeField] float speed = 20;
     private bool isAttacking;
     private bool isChargingAttack = false;
-    private bool sawPlayer = false;
 
     private bool isFacingRight = false;
     public Transform player;
-
-    public float fallSpeed = 10f;
 
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
@@ -28,111 +25,48 @@ public class Boss : MonoBehaviour
     public float jumpHeight;
 
     private bool isGrounded;
+    private bool isAttackFinished = true;
+    private bool isDead = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public Health health;
+
+    private void Start()
     {
-        // Debug.Log("start GetComponent<Rigidbody2D>().inertia " + GetComponent<Rigidbody2D>().inertia);
-        // StartCoroutine(Attack());
+        // health.onDamage += TakeDamage;
+        health.onDie += Die;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead) return;
         animator.SetBool("IsAttacking", isAttacking);
-        // if (sawPlayer)
-        // {
-        //     transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
-        //     //  transform.Translate(destination * Time.deltaTime * speed);
-        // }
 
-        // if (Mathf.Abs(transform.position.y - destination.y) < 0.01f && sawPlayer)
-        // {
-        //     // sawPlayer = false;
-        //     Vector3 newDestination = new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z);
-        //     transform.position = Vector2.MoveTowards(transform.position, newDestination, fallSpeed * Time.deltaTime);
-        //     // StartCoroutine(Attack());
-        // }
-        // LookAtPlayer();
-
-        if (Input.GetKeyDown(KeyCode.M) && IsGrounded())
-        {
-            isChargingAttack = true;
-
-            destination = new Vector2(player.position.x, player.position.y + jumpHeight);
-
-            float distanceFromPlayer = player.position.x - transform.position.x;
-        }
-
-        if (isChargingAttack)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, destination) < 0.01f)
-            {
-                isAttacking = true;
-            }
-        }
-
-        if (isAttacking)
-        {
-            isChargingAttack = false;
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                new Vector2(transform.position.x, player.position.y),
-                speed * Time.deltaTime
-            );
-        }
+        LookAtPlayer();
+        Attack();
     }
 
     void FixedUpdate()
     {
-        // DetectPlayer();
-
-        isGrounded = IsGrounded();
-        // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-
-        if (isAttacking)
-        {
-
-            Attack();
-
-            // JumpAttack();
-            // isAttacking = false;
-        }
+        if (isDead) return;
+        DetectPlayer();
     }
 
-    // void DetectPlayer()
-    // {
-    //     GetDirections();
-
-    //     for (int i = 0; i < listDirections.Length; i++)
-    //     {
-    //         Debug.DrawRay(transform.position, listDirections[i], Color.red);
-    //         RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, playerLayer);
-    //         // RaycastHit2D foo = Physics2D.BoxCast()
-    //         if (hit.collider != null && !sawPlayer)
-    //         {
-    //             sawPlayer = true;
-    //             destination = new Vector3(hit.collider.transform.position.x, hit.collider.transform.position.y + 5.0f, hit.collider.transform.position.z);
-    //             // destination = listDirections[i];
-    //         }
-    //     }
-    // }
-
-    void JumpAttack()
+    void DetectPlayer()
     {
-        float distanceFromPlayer = player.position.x - transform.position.x;
-        if (isGrounded)
+        GetDirections();
+
+        for (int i = 0; i < listDirections.Length; i++)
         {
-            Debug.Log("player.position.x " + distanceFromPlayer + " " + player.position.x);
-            GetComponent<Rigidbody2D>().inertia = 100f;
-            // GetComponent<Rigidbody2D>().velocity = new Vector2(distanceFromPlayer, jumpHeight);
-            Debug.Log("GetComponent<Rigidbody2D>().inertia " + GetComponent<Rigidbody2D>().inertia);
-            // rb.velocity = Vector3.zero;
-            // rb.angularVelocity = 0;
-            // Debug.Log("ffefe " + new Vector2(distanceFromPlayer, jumpHeight));
-            // GetComponent<Rigidbody2D>().AddForce(new Vector2(distanceFromPlayer, jumpHeight), ForceMode2D.Impulse);
-            rb.AddForce(new Vector2(distanceFromPlayer, jumpHeight), ForceMode2D.Impulse);
+            Debug.DrawRay(transform.position, listDirections[i], Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, playerLayer);
+            // RaycastHit2D foo = Physics2D.BoxCast()
+            if (hit.collider != null && IsGrounded() && isAttackFinished == true)
+            {
+                isChargingAttack = true;
+                isAttackFinished = false;
+                destination = new Vector2(player.position.x, player.position.y + jumpHeight);
+            }
         }
     }
 
@@ -155,6 +89,8 @@ public class Boss : MonoBehaviour
                     Health playerHealth = other.gameObject.GetComponent<Health>();
 
                     Player player = other.gameObject.GetComponent<Player>();
+                    other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.left * 10f;
+
                     if (!player.IsInvisible())
                     {
                         playerHealth.TakeDamage(1f);
@@ -177,7 +113,9 @@ public class Boss : MonoBehaviour
 
                     GetComponent<Health>().TakeDamage(0.5f);
                     StartCoroutine(Reverse(0));
-                } else {
+                }
+                else
+                {
                     Health playerHealth = other.gameObject.GetComponent<Health>();
 
                     Player player = other.gameObject.GetComponent<Player>();
@@ -194,14 +132,34 @@ public class Boss : MonoBehaviour
     {
         Vector3 angles = transform.rotation.eulerAngles;
 
-        return angles.z == 180f;
+        return angles.z > 170f;
     }
 
     void Attack()
     {
-        Vector3 angles = transform.rotation.eulerAngles;
-        angles.z = 180f;
-        transform.rotation = Quaternion.Euler(angles);
+        if (isChargingAttack)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, destination) < 0.01f)
+            {
+                isAttacking = true;
+            }
+        }
+
+        if (isAttacking)
+        {
+            // rb.mass = 0;
+            isChargingAttack = false;
+            Vector3 angles = transform.rotation.eulerAngles;
+            angles.z = 180f;
+            transform.rotation = Quaternion.Euler(angles);
+
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                new Vector2(transform.position.x, player.position.y),
+                1.5f * speed * Time.deltaTime
+            );
+        }
     }
 
     IEnumerator Reverse(float waitTime = 2f)
@@ -211,9 +169,10 @@ public class Boss : MonoBehaviour
         Vector3 angles = transform.rotation.eulerAngles;
         angles.z = 0f;
         transform.rotation = Quaternion.Euler(angles);
+        isAttackFinished = true;
 
     }
-    public void LookAtPlayer()
+    void LookAtPlayer()
     {
         // 	Vector3 flipped = transform.localScale;
         // 	flipped.z *= -1f;
@@ -230,6 +189,21 @@ public class Boss : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             isFacingRight = true;
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Death boss");
+        GetComponent<BoxCollider2D>().enabled = false;
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.velocity = Vector3.zero;
+
+        animator.enabled = false;
+        animator.enabled = true;
+        animator.SetTrigger("Die");
+        isDead = true;
+
+        Destroy(gameObject, 0.75f);
     }
 
     private bool IsGrounded()

@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if(CameraShake.instance.IsShaking()) return;
         _nextPosition = player.transform.position + posOffset;
 
         transform.position = Vector3.SmoothDamp(
