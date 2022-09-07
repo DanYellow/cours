@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -30,10 +29,17 @@ public class Boss : MonoBehaviour
 
     public Health health;
 
+    public BossInfo bossInfo;
+
+    public CircleCollider2D fightDetection;
+
     private void Start()
     {
-        // health.onDamage += TakeDamage;
+        health.onDamage += TakeDamage;
         health.onDie += Die;
+
+        bossInfo.SetHealth(health.GetMaxHealth(), health.GetMaxHealth());
+        bossInfo.SetName("Test - le mangeur");
     }
 
     // Update is called once per frame
@@ -50,6 +56,12 @@ public class Boss : MonoBehaviour
     {
         if (isDead) return;
         DetectPlayer();
+    }
+
+    void TakeDamage()
+    {
+        Debug.Log("ff "+ health.GetHealth());
+        bossInfo.SetHealth(health.GetHealth(), health.GetMaxHealth());
     }
 
     void DetectPlayer()
@@ -82,21 +94,21 @@ public class Boss : MonoBehaviour
         {
             isAttacking = false;
 
-            if (other.gameObject.CompareTag("Player"))
-            {
-                if (other.contacts[0].normal.y > 0.5f)
+                if (other.gameObject.CompareTag("Player"))
                 {
-                    Health playerHealth = other.gameObject.GetComponent<Health>();
-
-                    Player player = other.gameObject.GetComponent<Player>();
-                    other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.left * 10f;
-
-                    if (!player.IsInvisible())
+                    if (other.contacts[0].normal.y > 0.5f)
                     {
-                        playerHealth.TakeDamage(1f);
+                        Health playerHealth = other.gameObject.GetComponent<Health>();
+
+                        Player player = other.gameObject.GetComponent<Player>();
+                        other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.left * 10f;
+
+                        if (!player.IsInvisible())
+                        {
+                            playerHealth.TakeDamage(1f);
+                        }
                     }
                 }
-            }
 
             StartCoroutine(Reverse());
         }
@@ -111,7 +123,7 @@ public class Boss : MonoBehaviour
                     playerAnimator.SetTrigger("StompedEnemy");
                     other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.up * 10f;
 
-                    GetComponent<Health>().TakeDamage(0.5f);
+                    health.TakeDamage(0.5f);
                     StartCoroutine(Reverse(0));
                 }
                 else
@@ -148,7 +160,6 @@ public class Boss : MonoBehaviour
 
         if (isAttacking)
         {
-            // rb.mass = 0;
             isChargingAttack = false;
             Vector3 angles = transform.rotation.eulerAngles;
             angles.z = 180f;
@@ -193,7 +204,6 @@ public class Boss : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Death boss");
         GetComponent<BoxCollider2D>().enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
         rb.velocity = Vector3.zero;
@@ -202,6 +212,8 @@ public class Boss : MonoBehaviour
         animator.enabled = true;
         animator.SetTrigger("Die");
         isDead = true;
+
+        bossInfo.gameObject.SetActive(false);
 
         Destroy(gameObject, 0.75f);
     }
@@ -217,5 +229,17 @@ public class Boss : MonoBehaviour
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player")) {
+            bossInfo.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        health.onDie -= Die;
     }
 }

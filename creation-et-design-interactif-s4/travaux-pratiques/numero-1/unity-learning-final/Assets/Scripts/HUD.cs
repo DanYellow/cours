@@ -11,18 +11,22 @@ public class HUD : MonoBehaviour
 
     Image[] _listHeartsContainers = new Image[] { };
 
+    void OnEnable()
+    {
+        PlayerInventory.instance.onUpdateCoins += SetCoinCount;
+    }   
+
     private void Awake()
     {
         GameObject healthBar = transform.Find("HealthBar").gameObject;
-        _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();
-
-        PlayerInventory.instance.onUpdateCoins += SetCoinCount;
+        _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();        
     }
 
     public void SetHealth(float health)
-    {
+    { 
         bool isInt = health == (int)health;
         float currentHealth = Mathf.Ceil(health);
+
 
         for (var i = 0; i < _listHeartsContainers.Length; i++)
         {
@@ -41,7 +45,23 @@ public class HUD : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        PlayerInventory.instance.onUpdateCoins -= SetCoinCount;
+    }
+
     public void SetCoinCount(int coin) {
         coinCount.text = coin.ToString();
     }
 }
+
+
+// public class Rotate : MonoBehaviour
+// {
+//     [SerializeField] private float speed = 2f;
+
+//     private void Update()
+//     {
+//         transform.Rotate(0, 0, 360 * speed * Time.deltaTime);
+//     }
+// }

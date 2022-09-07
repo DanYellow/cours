@@ -42,6 +42,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Move()
+    {
+        // float newY = (Mathf.Sin(Time.time * speed) * height) + _originPosition.y;
+        // transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+    }
+
     public void Die()
     {
         Destroy(gameObject, 0.75f);

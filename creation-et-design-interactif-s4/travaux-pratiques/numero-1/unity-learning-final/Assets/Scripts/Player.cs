@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Health playerHealth;
+    public Health health;
     public SpriteRenderer spriteRenderer;
     float invincibilityFlashDelay = 0.2f;
     float invincibilityTimeAfterHit = 2.5f;
@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
 
     public Animator animator;
 
+    public HUD heathInfo;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        playerHealth.onDamage += TakeDamage;
-        playerHealth.onDie += Die;
+    private void Start() {
+        health.onDamage += TakeDamage;
+        health.onDie += Die;
+        heathInfo.SetHealth(health.GetMaxHealth());
     }
 
 
@@ -28,9 +28,10 @@ public class Player : MonoBehaviour
 
     void TakeDamage()
     {
-        Debug.Log("Damage");
-        if (playerHealth.GetHealth() >= 0)
+        // Debug.Log("Damage");
+        if (health.GetHealth() >= 0)
         {
+            heathInfo.SetHealth(health.GetHealth());
             _isInvincible = true;
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerHealth.onDamage -= TakeDamage;
-        playerHealth.onDie -= Die;
+        health.onDamage -= TakeDamage;
+        health.onDie -= Die;
     }
 }

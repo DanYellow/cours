@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         // https://stackoverflow.com/questions/63604203/when-do-you-multiply-by-time-deltatime-in-unity
         // Temps écoulé depuis la dernière "frame". Utilisation obligatoire pour s'assurer que le jeu tourne de la même façon sur tous les machines
         
-        if(!isLevelStarted && transform.position.x < beginLevel.transform.position.x) {
+        if(!isLevelStarted && beginLevel != null && transform.position.x < beginLevel.transform.position.x) {
             _horizontalMovement = 0.5f * moveSpeed;
         } else {
             isLevelStarted = true;

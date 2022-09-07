@@ -1,5 +1,3 @@
-using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DontDestroyOnLoadScene : MonoBehaviour
@@ -19,18 +17,18 @@ public class DontDestroyOnLoadScene : MonoBehaviour
 
         instance = this;
 
-        foreach (var element in listObjects)
-        {
-            // Permet de garder des éléments (avec le même "statut") d'une scène à une autre
-            DontDestroyOnLoad(element);
-        }
+        // foreach (var element in listObjects)
+        // {
+        //     // Permet de garder des éléments (avec le même "statut") d'une scène à une autre
+        //     DontDestroyOnLoad(element);
+        // }
     }
 
     public void MoveInMainScene() 
     {
-        foreach (var element in listObjects)
-        {
-            SceneManager.MoveGameObjectToScene(element, SceneManager.GetActiveScene());
-        }
+        // foreach (var element in listObjects)
+        // {
+        //     SceneManager.MoveGameObjectToScene(element, SceneManager.GetActiveScene());
+        // }
     }
 }

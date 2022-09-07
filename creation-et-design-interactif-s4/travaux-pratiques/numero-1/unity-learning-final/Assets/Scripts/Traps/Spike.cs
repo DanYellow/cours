@@ -24,7 +24,7 @@ public class Spike : MonoBehaviour
     // Start is called before the first frame update
     void  OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Health>(out Health health))
+        if (collision.gameObject.TryGetComponent<Health>(out Health health) && !collision.CompareTag("Boss"))
         {
             if(collision.gameObject.TryGetComponent<Player>(out Player player)) {
                 if (player.IsInvisible())
@@ -33,7 +33,7 @@ public class Spike : MonoBehaviour
                 }
             }
             
-            health.TakeDamage(1f);
+            // health.TakeDamage(1f);
         }
     }
 

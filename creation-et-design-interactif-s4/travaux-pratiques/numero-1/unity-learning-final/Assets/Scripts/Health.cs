@@ -3,21 +3,18 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private float _maxHealth = 10;
+    private float maxHealth = 10;
     private float _currentHealth;
 
     public delegate void OnDieDelegate();
-    public OnDieDelegate onDie;
+    public event OnDieDelegate onDie;
 
     public delegate void OnDamageDelegate();
-    public OnDamageDelegate onDamage;
-
-    public HUD heathInfo;
+    public event OnDamageDelegate onDamage;
 
     void Start()
     {
-        _currentHealth = _maxHealth;
-        UpdateHeathInfo(_maxHealth);
+        _currentHealth = maxHealth;
     }
 
     void Update()
@@ -36,7 +33,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
-        UpdateHeathInfo(_currentHealth);
         onDamage?.Invoke();
         if (_currentHealth <= 0)
         {
@@ -45,9 +41,8 @@ public class Health : MonoBehaviour
     }
     public void SetHealth(float health)
     {
-        if(_currentHealth >= _maxHealth) return;
+        if (_currentHealth >= maxHealth) return;
         _currentHealth += health;
-        UpdateHeathInfo(_currentHealth);
     }
 
     public float GetHealth()
@@ -55,11 +50,8 @@ public class Health : MonoBehaviour
         return _currentHealth;
     }
 
-    public void UpdateHeathInfo(float health)
+    public float GetMaxHealth()
     {
-        if (heathInfo != null)
-        {
-            heathInfo.SetHealth(health);
-        }
+        return maxHealth;
     }
 }

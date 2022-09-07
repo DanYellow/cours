@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5782796476250385701}
   - component: {fileID: 5782796476250385707}
   - component: {fileID: 5782796476250385702}
+  - component: {fileID: 1615760620}
   m_Layer: 6
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 5782796477152464025}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5782796476250385711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,13 +131,15 @@ MonoBehaviour:
   player: {fileID: 0}
   listCollisionLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   groundCheck: {fileID: 5782796477152464025}
   groundCheckRadius: 0.25
   animator: {fileID: 5782796476250385705}
   rb: {fileID: 5782796476250385702}
   jumpHeight: 5
   health: {fileID: 5782796476250385701}
+  bossInfo: {fileID: 0}
+  fightDetection: {fileID: 0}
 --- !u!114 &5782796476250385701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdeafcdaf69942439fa163a2d4b3461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1.5
-  heathInfo: {fileID: 0}
+  maxHealth: 3
 --- !u!61 &5782796476250385707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,11 +162,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 5782796476250385710}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69325dac9ac49cc4194b56147caadedd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.093725204}
+  m_Offset: {x: -0.013666153, y: -0.093725204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,7 +177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.92, y: 1.911972}
+  m_Size: {x: 1.5646744, y: 1.911972}
   m_EdgeRadius: 0
 --- !u!50 &5782796476250385702
 Rigidbody2D:
@@ -198,6 +200,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!58 &1615760620
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782796476250385710}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 16.56
 --- !u!1 &5782796477152464024
 GameObject:
   m_ObjectHideFlags: 0
