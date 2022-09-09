@@ -1,4 +1,5 @@
 <?php
+// NOTE : SAUF CAS EXCEPTIONNEL, VOUS N'AVEZ PAS BESOIN DE MODIFIER CE FICHIER
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);

@@ -60,7 +60,6 @@ public class Boss : MonoBehaviour
 
     void TakeDamage()
     {
-        Debug.Log("ff "+ health.GetHealth());
         bossInfo.SetHealth(health.GetHealth(), health.GetMaxHealth());
     }
 
