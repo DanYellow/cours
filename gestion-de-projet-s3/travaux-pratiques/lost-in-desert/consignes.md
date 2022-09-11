@@ -31,7 +31,7 @@ Débrief :
 https://blog.talanlabs.com/get-lost-in-the-desert-and-work-on-product-vision/
 https://insight.typepad.co.uk/lost_at_sea.pdf
 
-| 00 - 25  | Excellent    | Vous avez su démontrer de très bonnes capacités de survie. On vous a récupéré dans très bonne santé  |
+| 00 - 25  | Excellent    | Vous avez su démontrer de très bonnes capacités de survie. On vous a récupéré en très bonne santé  |
 |---------:|--------------|-------------------------------------------------------------|
 | 26 - 32  | Bien         | Vous avez su montrer de bonnes capacités de survie          |
 | 33 - 45  | Moyen        | Fatigué, un peu affamé mais vous avez été sauvé             |
