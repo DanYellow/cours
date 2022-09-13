@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3935393414219811234}
   - component: {fileID: 3935393414219811235}
-  - component: {fileID: 1695272142052735984}
   m_Layer: 0
   m_Name: CurrentSceneManager
   m_TagString: Untagged
@@ -46,16 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerHereByDefault: 1
---- !u!114 &1695272142052735984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935393414219811260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f66991e73a1cde8478a83f8c0daeae40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayerHereByDefault: 1
+  respawnPoint: {x: 0, y: 0, z: 0}

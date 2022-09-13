@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioMixerGroup soundEffectMixer;
     public AudioClip[] playlist;
     private int musicIndex;
 
@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     {
         musicIndex = (musicIndex + 1) % playlist.Length;
         audioSource.clip = playlist[musicIndex];
+        audioSource.outputAudioMixerGroup = soundEffectMixer;
         audioSource.Play();
     }
 }

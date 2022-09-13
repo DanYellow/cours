@@ -4,7 +4,7 @@ Nous l'avons vu précédemment, Unity est un logiciel visant à rendre accessibl
 > [Accéder à l'asset store](https://assetstore.unity.com/)
 
 Pour permettre le développement de jeux vidéo, Unity se repose sur le langage C# (à prononcer cee-sharp), c'est un langage orienté objet fortement typé. Autrement dit, le langage se base sur des classes et chaque élément doit avoir un type et n'a pas le droit d'en changer contrairement à javascript. Si le typage peut être contraignant il permet d'être plus discipliné dans sa façon de coder. Il est donc important de connaître les bases du langage. A noter que le but du cours n'est pas de faire de vous apprendre C# mais Unity. Si le sujet vous intéresse, voici une série de vidéos en français :
-- [Tutoriel C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Je vous conseille de regarder au moins les 5 premières vidéos
+- [Liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Je vous conseille de regarder au moins les trois premières vidéos. Ceci devrait vous prendre un peu moins de 40 minutes.
 
 > Petit point sur les tutoriels en ligne concernant Unity, s'il y en a beaucoup et permettent d'accomplir des choses impressionantes, le code montré n'est pas forcément le mieux optimisé, faites attention. Car la programmation de jeux vidéo, en plus d'être un domaine complexe, est un domaine où on va chercher la meilleure optimisation.
 
@@ -14,9 +14,9 @@ Comme tout langage de programmation le C# permet de créer des variables, la syn
 [niveau de visibilité] [type] [nom de variable];
 ```
 - Niveau de visibilité : Cette partie peut avoir la valeur "protected", "public" ou "private". Dans Unity, vous utilisez principalement :
-    - public : la variable est accessible dans l'éditeur d'Unity. Un autre élément peut accéder à la variable
-    - private : la variable n'est accessible qu'au sein de la classe et seul cette dernière peut la modifier
-> Dans Unity, si une variable est, par défaut, privée, il est souhaitable de mettre son niveau de visibilité
+    - public : la variable est accessible dans l'éditeur d'Unity. On peut y accéder (et donc la modifier) depuis n'importe où dans le code
+    - private : **la variable n'est accessible qu'au sein de la classe** et seule cette dernière peut la modifier
+> Dans Unity, si une variable est, par défaut, privée, il est souhaitable de mettre explicitement son niveau de visibilité
 - type : 
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite
 
@@ -39,9 +39,10 @@ public void Addition(int num1, int num2)
     Debug.Log(num1 + num2);
 }
 ``` 
-> La méthode `Debug.Log()` permet d'afficher des choses dans la console. Par ailleurs, toutes les instructions en C# doivent impérativement avoir un point-virgule (;).
+> La méthode `Debug.Log()` permet d'afficher des choses dans la console. Par ailleurs, toutes les instructions en C# doivent impérativement terminer par un point-virgule (;).
 
-Nous n'allons pas voir les `if/else` ou encore boucle `for` car la syntaxe est la même comparée à d'autres langages.
+Nous n'allons pas voir les `if/else` ou encore boucle `for` car la syntaxe est la même comparée à d'autres langages que vous avez pu voir durant votre BUT. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
+- [Voir liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) 
 
 # Script de base
 
@@ -64,7 +65,7 @@ public class MyClass : MonoBehaviour
 }
 ```
 Ci-dessus vous avez une classe de base dans Unity à chaque fois que vous allez créer un nouveau script, vous aurez au minimum le code ci-dessus. Vous pouvez bien évidemment supprimer ou ajouter des lignes.
-> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre sinon Unity lèvera une erreur.**
+> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.**
 
 ### Méthode Start()
 La méthode Start() est appelée

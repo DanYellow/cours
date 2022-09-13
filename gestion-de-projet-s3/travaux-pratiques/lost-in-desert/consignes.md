@@ -1,6 +1,6 @@
 # Perdus dans le desert - Jeu Agile
-Vous êtes survivants d'un crash avion et vous avez atterri dans le désert. Par chance personne n'a été blessé mais l'avion a grandement dévié de son couloir aérien d'environ 80km et vous êtes à 110 km de la ville la plus proche. Vous avez avec vous les 15 objets suivants. 
-Durant les 10 prochaines minutes, vous allez personnellement prioriser ces objets du plus important au moins important ensuite faire la même chose mais avec votre groupe (15 minutes).
+Vous êtes survivants d'un crash avion et vous avez atterri dans **le désert.** Par chance personne n'a été blessé mais l'avion a grandement dévié de son couloir aérien d'environ 80km et vous êtes à 110 km de la ville la plus proche. Vous avez avec vous les 15 objets suivants. 
+Durant les 10 prochaines minutes (environ), vous allez personnellement prioriser ces objets du plus important au moins important ensuite faire la même chose mais avec votre groupe (15 minutes).
 
 Débrief :
 - Montrer les résultats

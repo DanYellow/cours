@@ -1,13 +1,22 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    private bool isGamePaused = false;
+    private bool isGamePaused = true;
+
+    public AudioMixer audioMixer;
+    public Slider musicSlider;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioMixer.GetFloat("Music", out float musicValueForSlider);
+        musicSlider.value = musicValueForSlider;
+
         pauseMenuUI.SetActive(isGamePaused);
     }
 
@@ -28,6 +37,11 @@ public class PauseMenu : MonoBehaviour
 
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
+    }
+
+    public void MusicVolume(float volume)
+    {
+        audioMixer.SetFloat("Music", volume);
     }
 
     public void Resume()
