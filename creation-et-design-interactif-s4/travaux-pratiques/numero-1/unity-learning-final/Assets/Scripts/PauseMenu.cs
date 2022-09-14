@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    private bool isGamePaused = true;
+    private bool isGamePaused = false;
 
     public AudioMixer audioMixer;
     public Slider musicSlider;
+
+
 
     // Start is called before the first frame update
     void Start()

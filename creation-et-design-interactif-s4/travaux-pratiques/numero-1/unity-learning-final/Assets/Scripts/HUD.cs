@@ -11,15 +11,11 @@ public class HUD : MonoBehaviour
 
     Image[] _listHeartsContainers = new Image[] { };
 
-    void OnEnable()
-    {
-        PlayerInventory.instance.onUpdateCoins += SetCoinCount;
-    }   
-
     private void Awake()
     {
         GameObject healthBar = transform.Find("HealthBar").gameObject;
         _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();        
+        PlayerInventory.instance.onUpdateCoins += SetCoinCount;
     }
 
     public void SetHealth(float health)
@@ -45,7 +41,7 @@ public class HUD : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         PlayerInventory.instance.onUpdateCoins -= SetCoinCount;
     }

@@ -5,9 +5,9 @@ public class Thwomp : MonoBehaviour
 {
     public Transform targetPosition;
     public Transform originPosition;
-    private Transform origin;
+    // private Transform origin;
     public float stayDownTime = 3.0f;
-    public float speed = 5.0f;
+    public float upSpeed = 3.0f;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
 
@@ -17,23 +17,27 @@ public class Thwomp : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
 
-    public float fallSpeed = 10.0f;
+    public float fallSpeed = 7.0f;
 
     private void Awake()
     {
-        origin = transform;
+        // origin = transform;
     }
 
     private void Update()
     {
         if (transform.position.y >= originPosition.position.y)
         {
-            isFalling = true;
+            StartCoroutine(ToggleStatus(true));
+            // isFalling = true;
         }
         if (transform.position.y <= targetPosition.position.y)
         {
-            isFalling = false;
+            StartCoroutine(ToggleStatus(false));
+            // isFalling = false;
         }
+
+       
 
         if (isFalling)
         {
@@ -41,9 +45,14 @@ public class Thwomp : MonoBehaviour
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, originPosition.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, originPosition.position, upSpeed * Time.deltaTime);
         }
         animator.SetBool("IsFalling", isFalling);
+    }
+
+    IEnumerator ToggleStatus(bool val) {
+        yield return new WaitForSeconds(3f);
+        isFalling = val;
     }
 
     private void FixedUpdate()
@@ -59,7 +68,7 @@ public class Thwomp : MonoBehaviour
         spriteRenderer.color = new Color(1f, 0.511f, 1f, 1f);
         yield return new WaitForSeconds(0.5f);
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.7f);
     }
 
     void OnDrawGizmosSelected()

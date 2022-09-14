@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,7 +17,12 @@ public class Player : MonoBehaviour
 
     public HUD heathInfo;
 
-    private void Start() {
+    public Sound[] playlist;
+
+    public AudioClip deathSound;
+
+    private void Start()
+    {
         health.onDamage += TakeDamage;
         health.onDie += Die;
         heathInfo.SetHealth(health.GetMaxHealth());
@@ -45,7 +50,12 @@ public class Player : MonoBehaviour
         // Arrêter le mouvement
         // Supprimer les collisions
 
-        Debug.Log("Death");
+
+        AudioClip deathClip = playlist
+            .Where(item => item.name == "death")
+            .Select(item => item.clip).First();
+
+        AudioManager.instance.PlayClipAt(deathClip, transform.position);
 
         StartCoroutine(CameraShake.instance.Shake(0.15f));
 
@@ -59,9 +69,10 @@ public class Player : MonoBehaviour
         animator.enabled = true;
         animator.SetTrigger("Die");
 
-        if(CurrentSceneManager.instance.isPlayerHereByDefault) {
+        if (CurrentSceneManager.instance.isPlayerHereByDefault)
+        {
             DontDestroyOnLoadScene.instance.MoveInMainScene();
-        } 
+        }
     }
 
 
@@ -92,4 +103,11 @@ public class Player : MonoBehaviour
         health.onDamage -= TakeDamage;
         health.onDie -= Die;
     }
+}
+
+[System.Serializable]
+public class Sound
+{
+    public string name;
+    public AudioClip clip;
 }
