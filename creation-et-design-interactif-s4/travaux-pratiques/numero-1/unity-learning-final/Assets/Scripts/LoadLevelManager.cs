@@ -26,8 +26,11 @@ public class LoadLevelManager : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
-        LoadAndSaveData.instance.Save();
+        // Debug.Log("saveData " + saveData);
         SceneManager.LoadScene(sceneName);
+        // if(saveData) {
+        //     LoadAndSaveData.instance.Save();
+        // }
     }
 
     public void RestartLevel()

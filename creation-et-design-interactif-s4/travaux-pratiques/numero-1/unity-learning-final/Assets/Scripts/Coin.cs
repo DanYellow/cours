@@ -8,13 +8,16 @@ public class Coin : MonoBehaviour
     }
 
     public Value value;
+    public AudioClip clip;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlayClipAt(clip, transform.position);
             PlayerInventory.instance.AddCoins((int)value);
-            Destroy(gameObject);
+            GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject, clip.length);
         }
     }
 }

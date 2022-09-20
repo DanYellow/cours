@@ -33,7 +33,7 @@ public class Spike : MonoBehaviour
                 }
             }
             
-            // health.TakeDamage(1f);
+            health.TakeDamage(1f);
         }
     }
 

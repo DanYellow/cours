@@ -64,7 +64,8 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            Key key = PlayerInventory.instance.GetKey();
+            Key key = PlayerInventory.instance?.GetKey();
+
             if (key != null)
             {
                 key.SetFollowTarget(this.transform);

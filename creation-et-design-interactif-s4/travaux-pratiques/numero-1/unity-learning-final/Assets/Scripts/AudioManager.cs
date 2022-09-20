@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+// public static class
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;

@@ -12,6 +12,9 @@ public class Health : MonoBehaviour
     public delegate void OnDamageDelegate();
     public event OnDamageDelegate onDamage;
 
+    public delegate void OnHealDelegate();
+    public event OnHealDelegate onHeal;
+
     void Start()
     {
         _currentHealth = maxHealth;
@@ -43,6 +46,7 @@ public class Health : MonoBehaviour
     {
         if (_currentHealth >= maxHealth) return;
         _currentHealth += health;
+        onHeal?.Invoke();
     }
 
     public float GetHealth()

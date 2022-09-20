@@ -107,8 +107,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0.050000012}
-  m_Size: {x: 0.8547958, y: 1.2}
+  m_Offset: {x: 0.00999999, y: 0.024844408}
+  m_Size: {x: 0.8547958, y: 1.2503114}
   m_Direction: 0
 --- !u!50 &6239666560981424082
 Rigidbody2D:
@@ -127,9 +127,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 69325dac9ac49cc4194b56147caadedd, type: 2}
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &6239666560981424111
 Animator:
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdeafcdaf69942439fa163a2d4b3461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  maxHealth: 2.5
 --- !u!114 &6239666560981424109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +204,9 @@ MonoBehaviour:
   rb: {fileID: 6239666560981424082}
   animator: {fileID: 6239666560981424111}
   heathInfo: {fileID: 0}
+  playlist:
+  - name: death
+    clip: {fileID: 8300000, guid: c1b82651d8e2cd54e959ee171ff27e72, type: 3}
 --- !u!114 &6239666560981424106
 MonoBehaviour:
   m_ObjectHideFlags: 0

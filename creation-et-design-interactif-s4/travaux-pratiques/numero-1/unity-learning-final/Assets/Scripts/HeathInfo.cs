@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Deprecated
 public class HeathInfo : MonoBehaviour
 {
     public Sprite fullHeart;
@@ -8,11 +9,13 @@ public class HeathInfo : MonoBehaviour
     public Sprite emptyHeart;
 
     Image[] _listHeartsContainers = new Image[] { };
+    Animation[] listHeartsAnimation = new Animation[] { };
 
     private void Awake()
     {
         this.enabled = false;
         _listHeartsContainers = GetComponentsInChildren<Image>();
+        listHeartsAnimation = GetComponentsInChildren<Animation>();
     }
 
     public void SetHealth(float health)

@@ -44,6 +44,7 @@ public class PlayerInventory : MonoBehaviour
 
     public Key GetKey()
     {
+        Debug.Log("currentKey " + currentKey is null);
         return currentKey;
     }
 }

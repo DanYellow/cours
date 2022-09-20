@@ -19,11 +19,10 @@ public class Player : MonoBehaviour
 
     public Sound[] playlist;
 
-    public AudioClip deathSound;
-
     private void Start()
     {
         health.onDamage += TakeDamage;
+        health.onHeal += Heal;
         health.onDie += Die;
         heathInfo.SetHealth(health.GetMaxHealth());
     }
@@ -41,6 +40,11 @@ public class Player : MonoBehaviour
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
         }
+    }
+
+    void Heal()
+    {
+        heathInfo.SetHealth(health.GetHealth());
     }
 
     public void Die()
@@ -69,10 +73,10 @@ public class Player : MonoBehaviour
         animator.enabled = true;
         animator.SetTrigger("Die");
 
-        if (CurrentSceneManager.instance.isPlayerHereByDefault)
-        {
-            DontDestroyOnLoadScene.instance.MoveInMainScene();
-        }
+        // if (CurrentSceneManager.instance.isPlayerHereByDefault)
+        // {
+        //     DontDestroyOnLoadScene.instance.MoveInMainScene();
+        // }
     }
 
 

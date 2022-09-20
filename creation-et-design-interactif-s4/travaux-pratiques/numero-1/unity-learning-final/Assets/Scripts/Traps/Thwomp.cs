@@ -114,11 +114,11 @@ public class Thwomp : MonoBehaviour
                 playerHeath.TakeDamage(100f);
             }
 
-            // if (other.contacts[0].normal.y < -0.5f)
-            // {
-            //     other.gameObject.transform.parent = transform;
+            if (other.contacts[0].normal.y < -0.5f)
+            {
+                other.gameObject.transform.parent = transform;
 
-            // }
+            }
         }
     }
 
