@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
 
     void TakeDamage()
     {
-        // Debug.Log("Damage");
         if (health.GetHealth() >= 0)
         {
             heathInfo.SetHealth(health.GetHealth());

@@ -38,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         instance = this;
-        Debug.Log("animator " + animator);
-        Debug.Log("rb " + rb);
         // Application.targetFrameRate = 60;
     }
 
