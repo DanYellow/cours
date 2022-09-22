@@ -16,7 +16,8 @@ gabarits
 
 # LES OBJETS
 - Création
-- Placement
+- Placement 
+- Alignement
 - Transformation
 - Duplication
 
