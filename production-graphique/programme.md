@@ -32,3 +32,8 @@ fichiers importés
 - Contrôle en amont
 - Génération de PDF
 - Exportations
+
+https://static.fnac-static.com/multimedia/editorial/pdf/9782212144444.pdf
+
+TP3 : découverte du logiciel InDesign
+TP4 et TP2 : travailler sur la planche de storyboard
