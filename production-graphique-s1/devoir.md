@@ -9,13 +9,13 @@ Chaque page doit donner la possibilité de dessiner **six scènes** ainsi que d'
 - Description de la scène : espace, valeur de plan, mouvement et angle caméra, description scène
 - Raccord de plan
 
-**Chaque scène bloc doit donner la possibilité d'écrire les informations précédemment listées**. 
+**Chaque scène bloc doit donner la possibilité d'écrire les informations précédemment listées**. Notez bien qu'on doit pouvoir écrire / dessiner dans ces zones, donnez donc suffisamment de places.
 
 Par exemple :
 
 ![](exemple.jpg)
 
-En bas à droite, devra se trouver un encart pour écrire l'auteur.
+En bas à droite de votre planche A3, il devra se trouver un encart pour écrire l'auteur.
 
 ![](nom.jpg)
 
