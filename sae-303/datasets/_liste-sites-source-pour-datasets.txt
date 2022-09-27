@@ -1,2 +1,0 @@
-Liste de sites où des données open sources gratuites (s'il n'est pas précisé, le site ne nécessite pas d'inscription et est gratuit) :
-- Les mariages en France (2020) : https://www.insee.fr/fr/statistiques/6052205?sommaire=5419788&q=mariage#consulter
