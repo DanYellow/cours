@@ -128,11 +128,11 @@ h2 {
     overflow: auto;
     white-space: nowrap;
     flex-wrap: nowrap;
+    column-gap: 10px;
   }
 
   .slide-images li {
     flex: 0 0 100%;
-    margin-right: 10px;
   }
 }
 
