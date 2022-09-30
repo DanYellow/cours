@@ -1,0 +1,26 @@
+
+Name: Nom des céréales
+mfr: Marque fabricant ces céréales
+    A = American Home Food Products;
+    G = General Mills
+    K = Kelloggs
+    N = Nabisco
+    P = Post
+    Q = Quaker Oats
+    R = Ralston Purina 
+type: comment ces céréales doivent être consommées (température du lait)
+    cold
+    hot 
+calories: kilocalories par portion
+protein: quantité de protéines en grammes par portion
+fat: quantité de lipides en grammes par portion
+sodium: quantité de sodium (sel) en milligrammes par portion
+fiber: quantité de fibres en grammes par portion
+carbo: quantité de glucides en grammes par portion
+sugars: quantité de sucre en grammes par portion
+potass:  quantité de potassium en milligrammes par portion
+vitamins: Vitamines et minéraux représente le pourcentage d'apports journalier recommandé par la FDA (Food Drugs Administration)
+shelf: Position dans les étagères des magasins (du bas vers le haut)
+weight: Poids en onces (1 oz = 28,35g) d'une portion
+cups: nombre de tasse par portion
+rating: Note des consommateurs
