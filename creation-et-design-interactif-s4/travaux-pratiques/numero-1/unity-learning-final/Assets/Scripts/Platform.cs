@@ -30,7 +30,7 @@ public class Platform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player.transform.parent = transform;
+            other.gameObject.transform.parent = transform;
         }
     }
 
@@ -39,7 +39,7 @@ public class Platform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player.transform.parent = null;
+            other.gameObject.transform.parent = null;
         }
     }
 }

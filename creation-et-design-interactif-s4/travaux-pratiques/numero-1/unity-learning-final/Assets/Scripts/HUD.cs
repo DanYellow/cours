@@ -18,6 +18,9 @@ public class HUD : MonoBehaviour
         _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();
         listHeartsAnimation = GetComponentsInChildren<Animation>();
 
+    }
+
+    void Start() {
         PlayerInventory.instance.onUpdateCoins += SetCoinCount;
     }
 
@@ -52,7 +55,7 @@ public class HUD : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerInventory.instance.onUpdateCoins -= SetCoinCount;
+        // PlayerInventory.instance.onUpdateCoins -= SetCoinCount;
     }
 
     public void SetCoinCount(int coin)

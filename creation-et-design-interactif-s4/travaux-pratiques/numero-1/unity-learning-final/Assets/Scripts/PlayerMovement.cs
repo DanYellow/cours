@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     private float _horizontalMovement;
-    private bool _isFacingRight = false;
+    private bool _isFacingRight = true;
     public float moveSpeed;
     public float jumpForce;
 
@@ -102,11 +102,11 @@ public class PlayerMovement : MonoBehaviour
         if (_horizontalMovement > 0 && !_isFacingRight || _horizontalMovement < 0 && _isFacingRight)
         {
             _isFacingRight = !_isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            // Vector3 localScale = transform.localScale;
+            // localScale.x *= -1f;
+            // transform.localScale = localScale;
 
-            // transform.Rotate(0f, 180f, 0f);
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 

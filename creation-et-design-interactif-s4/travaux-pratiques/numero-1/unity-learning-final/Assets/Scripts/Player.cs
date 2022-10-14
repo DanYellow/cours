@@ -25,8 +25,9 @@ public class Player : MonoBehaviour
         health.onHeal += Heal;
         health.onDie += Die;
         heathInfo.SetHealth(health.GetMaxHealth());
-    }
 
+        
+    }
 
     // LoadLevelManager.instance.PlayerDie();
 
