@@ -47,6 +47,14 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    void PlayRandomSoundClip()
+    {
+        musicIndex = (musicIndex + Random.Range(1, playlist.Length - 1)) % playlist.Length;
+        audioSource.clip = playlist[musicIndex];
+        audioSource.outputAudioMixerGroup = musicEffectMixer;
+        audioSource.Play();
+    }
+
     public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
     {
         GameObject tempGO = new GameObject("TempAudio");

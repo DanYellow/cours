@@ -2350,6 +2350,7 @@ MonoBehaviour:
   halfHeart: {fileID: 514828515, guid: 8b68d4d4aa2c1a44696166f492a815af, type: 3}
   emptyHeart: {fileID: -1395039031, guid: 8b68d4d4aa2c1a44696166f492a815af, type: 3}
   coinCount: {fileID: 7010841478868647632}
+  health1: {fileID: 11400000, guid: 210bf06f2a4be8d4a877cb44852b0d42, type: 2}
 --- !u!1 &7010841480375416567
 GameObject:
   m_ObjectHideFlags: 0

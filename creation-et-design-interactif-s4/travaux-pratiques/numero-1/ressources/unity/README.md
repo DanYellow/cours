@@ -118,7 +118,14 @@ Enfin, notez les choses suivantes sur les classes :
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour`](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 # Exercice
-Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. Notez bien qu'Unity ne permet pas d'appeler directement un script, il faut impérativement qu'il soit lié à un GameObject.
+Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.
+
+---
+> Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
+Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement. Si vous souhaitez utiliser VS Code ou Sublime Text, il faudra installer des extensions :
+- [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
+- [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
+---
 
 Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la méthode `Debug.Log()`)
 - Un nombre décimal
@@ -128,3 +135,13 @@ Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la m�
     - N'oubliez pas d'appeler la fonction
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
     - N'oubliez pas d'appeler la fonction
+
+Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. DUrant ce cours nous aurons l'occasion de faire un petit jeu où nous aborderons les notions suivantes (liste non exhaustive) :
+- Gestion des sprites 2D
+- Gestion du son / physique
+- Animation
+
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait.
+
+Dernier point : nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous voulez voir ceci en vidéo, vous avez ceci : 
+- [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8) 

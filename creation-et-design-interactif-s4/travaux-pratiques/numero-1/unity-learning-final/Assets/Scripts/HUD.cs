@@ -12,16 +12,23 @@ public class HUD : MonoBehaviour
     Image[] _listHeartsContainers = new Image[] { };
     Animation[] listHeartsAnimation = new Animation[] { };
 
+    public ScriptableObj.Health health1;
+
     private void Awake()
     {
         GameObject healthBar = transform.Find("HealthBar").gameObject;
         _listHeartsContainers = healthBar.GetComponentsInChildren<Image>();
         listHeartsAnimation = GetComponentsInChildren<Animation>();
 
+        SetHealth(health1.GetHealth());
     }
 
     void Start() {
         PlayerInventory.instance.onUpdateCoins += SetCoinCount;
+    }
+
+    private void Update() {
+        SetHealth(health1.GetHealth());
     }
 
     public void SetHealth(float health)

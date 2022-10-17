@@ -5,6 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Health health;
+
+    public ScriptableObj.Health health1;
+
+    private float currentHealth;
+
     public SpriteRenderer spriteRenderer;
     float invincibilityFlashDelay = 0.2f;
     float invincibilityTimeAfterHit = 2.5f;
@@ -24,9 +29,26 @@ public class Player : MonoBehaviour
         health.onDamage += TakeDamage;
         health.onHeal += Heal;
         health.onDie += Die;
-        heathInfo.SetHealth(health.GetMaxHealth());
+        // heathInfo.SetHealth(health.GetMaxHealth());
 
-        
+        currentHealth = health1.GetHealth();
+
+        Debug.Log(Screen.resolutions);
+        Debug.Log(Screen.resolutions, this);
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            health1.Heal(0.5f);
+            Debug.Log("hp : " + health1.GetHealth());
+        }
+
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            health1.TakeDamage(0.5f);
+            Debug.Log("hp : " + health1.GetHealth());
+        }
     }
 
     // LoadLevelManager.instance.PlayerDie();
@@ -79,7 +101,6 @@ public class Player : MonoBehaviour
         // }
     }
 
-
     public IEnumerator InvincibilityFlash()
     {
         while (_isInvincible)
@@ -106,7 +127,19 @@ public class Player : MonoBehaviour
     {
         health.onDamage -= TakeDamage;
         health.onDie -= Die;
+        health.onHeal -= Heal;
     }
+
+    // [ContextMenu("Save")]
+    // private void OnApplicationQuit()
+    // {
+    //     Debug.Log("OnApplicationQuit", this);
+    // }
+
+    // void OnApplicationPause(bool pauseStatus)
+    // {
+    //      Debug.Log("OnApplicationPause", this);
+    // }
 }
 
 [System.Serializable]

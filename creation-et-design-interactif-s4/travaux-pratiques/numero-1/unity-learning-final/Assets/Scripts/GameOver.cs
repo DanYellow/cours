@@ -17,4 +17,9 @@ public class GameOver : MonoBehaviour
         gameOverUI.SetActive(true);
         EventSystem.current.SetSelectedGameObject(GameObject.Find("GameOver/Restart"));
     }
+
+    private void OnDestroy()
+    {
+        playerHealth.onDie -= PlayerDeath;
+    }
 }

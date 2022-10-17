@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Deprecated
 public class Health : MonoBehaviour
 {
     [SerializeField]
@@ -45,8 +46,8 @@ public class Health : MonoBehaviour
     public void SetHealth(float health)
     {
         if (_currentHealth >= maxHealth) return;
-        _currentHealth += health;
-        onHeal?.Invoke();
+        // _currentHealth += health;
+        // onHeal?.Invoke();
     }
 
     public float GetHealth()

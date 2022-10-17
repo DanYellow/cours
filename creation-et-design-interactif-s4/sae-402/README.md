@@ -10,7 +10,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 
 ## Liste des choses impératives à faire. Vous devez toutes les faire
 - Ajouter un nouveau niveau (décors et mécaniques compris)
-    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemps ou même utiliser celles déjà présentes dans le projet
+    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou même utiliser celles déjà présentes dans le projet
 - Ajouter un écran où sont crédités tous les assets utilisés (voir plus bas pour les auteurs des assets utilisés)
  - Vous pouvez utiliser des choses non libres de droits, mais évitez si possible
 - Donner la possibilité au joueur de sauter (déplacement du sprite + animation)
