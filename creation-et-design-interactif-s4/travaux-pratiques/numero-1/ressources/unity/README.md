@@ -88,7 +88,7 @@ Ci-dessus vous avez une classe de base dans Unity à chaque fois que vous allez 
 > **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenu dans un fichier appelé MyClass.cs. Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans un dossier Assets.
 
 ### public class MyClass : MonoBehaviour
-Cette ligne nous permet de définir notre classe. Tout ce qui est avant `:` nous est familier car la syntaxe est identique à celle des variables, ici on utilise le type `class`. En revanche la synaxe `: MonoBehaviour` nous est nouvelle, elle désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`.  
+Cette ligne nous permet de définir notre classe. Tout ce qui est avant `:` nous est familier car la syntaxe est identique à celle des variables et méthodes, ici on utilise le type `class`. En revanche la synaxe `: MonoBehaviour` nous est nouvelle, elle désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`.  
 
 ### Méthode Start()
 La méthode Start() est appelée lorsque le script est instancié. Par exemple, dans votre jeu vous pourriez définir les points de vie par défaut de votre personnage.
@@ -141,7 +141,9 @@ Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le
 - Gestion du son / physique
 - Animation
 
-Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait.
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. N'hésitez pas à utiliser les outils mis à votre disposition pour créer des ressources pour vos créations :
+- [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
+- [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
 
 Dernier point : nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous voulez voir ceci en vidéo, vous avez ceci : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8) 

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     public Health health;
 
     public ScriptableObj.Health health1;
+
+    public FloatVariable hp;
 
     private float currentHealth;
 
@@ -24,11 +27,14 @@ public class Player : MonoBehaviour
 
     public Sound[] playlist;
 
+    // public UnityEvent DamageEvent;
+    public UnityEvent DeathEvent;
+
     private void Start()
     {
-        health.onDamage += TakeDamage;
-        health.onHeal += Heal;
-        health.onDie += Die;
+        // health.onDamage += TakeDamage;
+        // health.onHeal += Heal;
+        // health.onDie += Die;
         // heathInfo.SetHealth(health.GetMaxHealth());
 
         currentHealth = health1.GetHealth();
@@ -37,37 +43,44 @@ public class Player : MonoBehaviour
         Debug.Log(Screen.resolutions, this);
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
+            hp.RuntimeValue += 0.5f;
             health1.Heal(0.5f);
-            Debug.Log("hp : " + health1.GetHealth());
+            Debug.Log("hp : " + hp.RuntimeValue);
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
+            hp.RuntimeValue -= 0.5f;
             health1.TakeDamage(0.5f);
-            Debug.Log("hp : " + health1.GetHealth());
+            Debug.Log("hp : " + hp.RuntimeValue);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F)) {
+            DeathEvent.Invoke();
         }
     }
 
     // LoadLevelManager.instance.PlayerDie();
 
-    void TakeDamage()
-    {
-        if (health.GetHealth() >= 0)
-        {
-            heathInfo.SetHealth(health.GetHealth());
-            _isInvincible = true;
-            StartCoroutine(InvincibilityFlash());
-            StartCoroutine(HandleInvincibilityDelay());
-        }
-    }
+    // void TakeDamage()
+    // {
+    //     if (health.GetHealth() >= 0)
+    //     {
+    //         heathInfo.SetHealth(health.GetHealth());
+    //         _isInvincible = true;
+    //         StartCoroutine(InvincibilityFlash());
+    //         StartCoroutine(HandleInvincibilityDelay());
+    //     }
+    // }
 
-    void Heal()
-    {
-        heathInfo.SetHealth(health.GetHealth());
-    }
+    // void Heal()
+    // {
+    //     heathInfo.SetHealth(health.GetHealth());
+    // }
 
     public void Die()
     {
@@ -76,7 +89,7 @@ public class Player : MonoBehaviour
         // Arrêter le mouvement
         // Supprimer les collisions
 
-
+        Debug.Log("Die");
         AudioClip deathClip = playlist
             .Where(item => item.name == "death")
             .Select(item => item.clip).First();
@@ -123,12 +136,12 @@ public class Player : MonoBehaviour
         return _isInvincible;
     }
 
-    private void OnDestroy()
-    {
-        health.onDamage -= TakeDamage;
-        health.onDie -= Die;
-        health.onHeal -= Heal;
-    }
+    // private void OnDestroy()
+    // {
+    //     health.onDamage -= TakeDamage;
+    //     health.onDie -= Die;
+    //     health.onHeal -= Heal;
+    // }
 
     // [ContextMenu("Save")]
     // private void OnApplicationQuit()

@@ -13,6 +13,9 @@ namespace ScriptableObj
         [SerializeField]
         private float currentValue;
 
+        [Multiline]
+        public string DeveloperDescription = "";
+
 
         public delegate void OnDieDelegate();
         public event OnDieDelegate onDie;
@@ -26,6 +29,10 @@ namespace ScriptableObj
         private void OnEnable()
         {
             currentValue = maxValue;
+        }
+
+        private void OnDisable() {
+            Debug.Log("fffefe");
         }
 
         public void TakeDamage(float damage)
