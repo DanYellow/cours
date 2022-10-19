@@ -21,7 +21,7 @@ Et de mettre en application les connaissances vues dans les ressources suivantes
 - R3.12 | Développement Front et intégration
 - R3.15 | Représentation et traitement de l’information
 
-Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
+Par groupe au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
 - Une infographie (plusieurs formats attendus)
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
@@ -30,28 +30,37 @@ Par groupe de quatre personnes maximum, vous devrez, à partir d'un jeu de donn�
 
 > **La date butoir vous sera remise ultérieurement.**
 
-Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous partirez de jeux de données propres qui vous seront fournis, et vous les explorerez avec excel (ou tout autre logiciel de tableur).
+Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous avez à votre disposition des jeux de données propres et très limités en contenu. De ce fait, les sujets seront plus ou moins fermés (surtout pour les jeux de données pour le sujet infographie)
+Ces jeux de données sont facilement explorables avec excel ou encore LibreOffice Calc.
 
 - [Accéder aux jeux de données](datasets/)
+> Les jeux de données sont été partagés en deux groupe : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement.
+
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
 > Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive.
 
-Le but de cette phase d'exploration est de s'approprier le sujet dans le but d'en extraire des indicateurs statistiques pertinents (moyenne, médiane, somme...) ou permettre à votre utilisateur de les extraire. Il vous faudra donc utiliser des formules pour en extraire des données.
-
-> Vous n'êtes pas obligé d'utiliser un jeu de données dans son entièreté, vous pouvez très bien utiliser qu'une partie. Par exemple, vous focaliser que sur une seule année.
+> Les jeux de données ont des titres relativement explicites, mais si vous avez un doute n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
-Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs ainsi que l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+
+> Vous pouvez, si vous le souhaitez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement.
 
-> Ne rendez pas un seul graphique, votre note risque de ne pas être très élevée.
+> Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée.
 
-Pensez également à aggrémenter votre travail de quelques textes servant de présentation et/ou de commentaires. **Rappelez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
+Pensez également à aggrémenter votre travail de quelques textes servant de présentation et/ou de commentaires, ils serviront à mieux amener votre histoire et mieux contextualiser vos données. L'émission le dessous des cartes ou encore DataGueule le font très bien.
+- [Voir émission _Le Dessous des cartes_ sur Youtube](https://www.youtube.com/c/LeDessousdesCartesARTE)
+- [Voir émission _Le chiffroscope_ sur Youtube](https://www.youtube.com/playlist?list=PLTWD_IG2XnYtps4vw7RmOAttFlMm2qlcv)
+- [Voir émission _DataGueule_ sur Youtube](https://www.youtube.com/user/datagueule)
+
+**Rappelez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
 
 Il n'y a pas réellement de format attendu pour cette infographie, elle devra quand même respecter les règles suivantes :
-- Indiquer vos sources
+- Indiquer vos sources 
+  - Carton final si en vidéo motion design
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
 - Formats print et instagram :
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
@@ -94,4 +103,4 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [ ] Générer une archive contenant :
     - [ ] Votre site web (développé avec bootstrap)
     - [ ] Un fichier texte contenant les membres du groupe
-    - [ ] Votre réalisation (app interactive ou infographie)
+    - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
