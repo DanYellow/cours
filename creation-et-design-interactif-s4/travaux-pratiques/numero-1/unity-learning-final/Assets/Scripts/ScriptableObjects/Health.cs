@@ -32,7 +32,7 @@ namespace ScriptableObj
         }
 
         private void OnDisable() {
-            Debug.Log("fffefe");
+            // Debug.Log("fffefe");
         }
 
         public void TakeDamage(float damage)

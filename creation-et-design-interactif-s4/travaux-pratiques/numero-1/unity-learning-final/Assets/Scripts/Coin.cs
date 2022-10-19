@@ -20,4 +20,8 @@ public class Coin : MonoBehaviour
             Destroy(gameObject, clip.length);
         }
     }
+
+    public void TestValue (int value) {
+        Debug.Log("value " + value);
+    }
 }

@@ -43,7 +43,7 @@ Ces jeux de données sont facilement explorables avec excel ou encore LibreOffic
 > Les jeux de données ont des titres relativement explicites, mais si vous avez un doute n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
-Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours de première année, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
 > Vous pouvez, si vous le souhaitez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
@@ -89,6 +89,8 @@ Votre jeu de données devra impérativement être chargé, il faudra donc utilis
 > Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 
 Pour manipuler les données, les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
+
+> Vous avez appris à utiliser git. Pensez-y pour garder une trace de votre travail et travailler à plusieurs.
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
