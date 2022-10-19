@@ -10,8 +10,8 @@ public class EventEditor : Editor
 
         GUI.enabled = Application.isPlaying;
 
-        GameEvent e = target as GameEvent;
+        VoidEventSO e = target as VoidEventSO;
         if (GUILayout.Button("Raise"))
-            e.Raise();
+            e.RaiseEvent();
     }
 }

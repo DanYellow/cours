@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
     public Sound[] playlist;
 
     // public UnityEvent DamageEvent;
-    public IntEvent DeathEvent;
-    // public UnityEvent DeathEvent;
+    // public IntEvent DeathEvent;
+    public UnityEvent DeathEvent;
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.F)) {
-            DeathEvent.Invoke(42);
+            DeathEvent.Invoke();
         }
     }
 

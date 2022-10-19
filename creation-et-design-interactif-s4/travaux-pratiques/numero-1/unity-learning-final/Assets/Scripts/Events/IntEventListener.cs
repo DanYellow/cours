@@ -13,24 +13,23 @@ public class IntEventListener : MonoBehaviour
     public IntEventSO Event;
 
     // Function to call when the Event is invoked
-    public IntEvent OnEventRaised;
+    public IntEvent Callback;
 
     private void OnEnable()
 	{
 		if (Event != null)
-			Event.OnEventRaised += Respond;
+			Event.OnEventRaised += OnEventRaised;
 	}
 
 	private void OnDisable()
 	{
 		if (Event != null)
-			Event.OnEventRaised -= Respond;
+			Event.OnEventRaised -= OnEventRaised;
 	}
 
-	private void Respond(int value)
+	private void OnEventRaised(int value)
 	{
-        Debug.Log("Event " + value);
 		if (Event != null)
-			OnEventRaised.Invoke(value);
+			Callback.Invoke(value);
 	}
 }
