@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class VoidEventListener : MonoBehaviour
 {
     // Event to register
-    public VoidEventSO Event;
+    public VoidEventChannelSO Event;
 
     // Function to call when the Event is invoked
     public UnityEvent Callback;

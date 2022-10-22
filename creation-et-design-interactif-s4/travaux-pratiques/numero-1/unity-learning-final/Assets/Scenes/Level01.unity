@@ -123560,17 +123560,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7705132923867725362, guid: 6450f1b4692b26f45af1c2cdddf36803, type: 3}
   m_PrefabInstance: {fileID: 7705132923851129761}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &233186182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7705132923867725369, guid: 6450f1b4692b26f45af1c2cdddf36803, type: 3}
-  m_PrefabInstance: {fileID: 7705132923851129761}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233186181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531c8472981a7ef4ca0c178d08da0e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &233186187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123583,22 +123572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba795ce86f7ada46834fc06fb7858cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 58e587c0cbaa2264fa746e72c4eade99, type: 2}
-  Response:
+  Event: {fileID: 0}
+  Callback:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &233186188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123612,21 +123589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: b10a594241c0736418449d6b53d9edbc, type: 2}
-  OnEventRaised:
+  Callback:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 233186182}
-        m_TargetAssemblyTypeName: Coin, Assembly-CSharp
-        m_MethodName: TestValue
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &244260121
 GameObject:
   m_ObjectHideFlags: 0
@@ -132534,10 +132499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2a7c1edf5b80947a187c0773bb9c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 0}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1512364248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132550,10 +132511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2a7c1edf5b80947a187c0773bb9c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 0}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1514494574
 GameObject:
   m_ObjectHideFlags: 0
@@ -132617,22 +132574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2a7c1edf5b80947a187c0773bb9c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 2bda457f933df114cb4a0f24acaccaa0, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1514494574}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 1
 --- !u!1001 &1583332140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142258,7 +142199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6626700171814576476}
   animator: {fileID: 6626700171814576481}
-  moveSpeed: 400
+  moveSpeed: 5
   jumpForce: 12
   listCollisionLayers:
     serializedVersion: 2
@@ -142325,10 +142266,10 @@ MonoBehaviour:
   DeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: b10a594241c0736418449d6b53d9edbc, type: 2}
-        m_TargetAssemblyTypeName: IntEventSO, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 58e587c0cbaa2264fa746e72c4eade99, type: 2}
+        m_TargetAssemblyTypeName: VoidEventSO, Assembly-CSharp
         m_MethodName: RaiseEvent
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

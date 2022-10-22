@@ -95,9 +95,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        Vector3 targetVelocity = new Vector2(_horizontalMovement * Time.fixedDeltaTime, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref _velocity, .05f);
+        // Vector3 targetVelocity = new Vector2(_horizontalMovement * Time.fixedDeltaTime, rb.velocity.y);
+        // rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref _velocity, .05f);
         // rb.velocity = new Vector2(_horizontalMovement * Time.fixedDeltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(_horizontalMovement, rb.velocity.y);
 
         if (_horizontalMovement > 0 && !_isFacingRight || _horizontalMovement < 0 && _isFacingRight)
         {

@@ -2,15 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class IntEvent : UnityEvent<int>
-{
-
-}
+public class IntEvent : UnityEvent<int>{}
 
 public class IntEventListener : MonoBehaviour
 {
     // Event to register
-    public IntEventSO Event;
+    public IntEventChannelSO Event;
 
     // Function to call when the Event is invoked
     public IntEvent Callback;
