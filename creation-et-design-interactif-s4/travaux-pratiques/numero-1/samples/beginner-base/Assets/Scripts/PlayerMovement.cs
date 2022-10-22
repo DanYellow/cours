@@ -39,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) 
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            // isJumping = true;
             // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             isShortJump = true;
         }
@@ -79,13 +80,10 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(bool shortJump = false)
     {
         float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        Debug.Log($"shortJump {shortJump}");
         if (jumpCount < maxJumpCount)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            if(!shortJump) {
-                jumpCount = jumpCount + 1;
-            }
+            jumpCount = jumpCount + 1;
         }
 
         isJumping = false;
@@ -105,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ToggleState(bool state) {
+    public void ToggleState(bool state)
+    {
         enabled = !state;
     }
 }

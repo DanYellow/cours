@@ -6,7 +6,7 @@ public class IntEventChannelSO : ScriptableObject
 {
     public UnityAction<int> OnEventRaised;
 
-	public void RaiseEvent(int value)
+	public void Raise(int value)
 	{
 		if (OnEventRaised != null)
 			OnEventRaised.Invoke(value);

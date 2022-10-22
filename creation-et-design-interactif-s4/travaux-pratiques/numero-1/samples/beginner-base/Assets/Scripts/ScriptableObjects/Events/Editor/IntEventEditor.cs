@@ -18,6 +18,6 @@ public class IntEventEditor : Editor
         value = EditorGUILayout.IntField("Number of clones:", value);
     
         if (GUILayout.Button("Raise"))
-            e.RaiseEvent(value);
+            e.Raise(value);
     }
 }

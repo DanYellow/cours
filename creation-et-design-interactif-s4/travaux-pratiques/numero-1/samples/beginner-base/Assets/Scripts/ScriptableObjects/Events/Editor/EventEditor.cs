@@ -12,6 +12,6 @@ public class EventEditor : Editor
 
         VoidEventChannelSO e = target as VoidEventChannelSO;
         if (GUILayout.Button("Raise"))
-            e.RaiseEvent();
+            e.Raise();
     }
 }

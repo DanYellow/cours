@@ -4,9 +4,8 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public BoolEventChannelSO togglePauseEvent;
+    public BoolEventChannelSO onTogglePauseEvent;
 
-    public UnityEvent<bool> PauseEvent;
     bool isGamePaused = false;
     void Update()
     {
@@ -33,16 +32,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         isGamePaused = false;
-        togglePauseEvent.RaiseEvent(isGamePaused);
-        PauseEvent.Invoke(isGamePaused);
+        onTogglePauseEvent.Raise(isGamePaused);
     }
 
     void Pause()
     {
         isGamePaused = true;
         Time.timeScale = 0;
-        togglePauseEvent.RaiseEvent(isGamePaused);
-        PauseEvent.Invoke(isGamePaused);
+        onTogglePauseEvent.Raise(isGamePaused);
     }
 
     public bool IsGamePaused()

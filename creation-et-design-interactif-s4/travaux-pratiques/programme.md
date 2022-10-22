@@ -1,10 +1,10 @@
 - GameObject
 - Sprite
 - Collision / Rigidbody
-- Script : Système de mouvement (saut et déplacements)
+- Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
+- Zone de trigger / Ennemis
 - Prefab
-- Zone de trigger
 - Scripts : système de vie
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
 - Camera

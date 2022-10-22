@@ -6,7 +6,7 @@ public class BoolEventChannelSO : ScriptableObject
 {
     public UnityAction<bool> OnEventRaised;
 
-	public void RaiseEvent(bool value)
+	public void Raise(bool value)
 	{
 		if (OnEventRaised != null)
 			OnEventRaised.Invoke(value);
