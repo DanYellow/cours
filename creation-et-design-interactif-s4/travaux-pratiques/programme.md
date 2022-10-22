@@ -1,0 +1,15 @@
+- GameObject
+- Sprite
+- Collision / Rigidbody
+- Script : Système de mouvement (saut et déplacements)
+- Inputs (Saut et autres actions)
+- Prefab
+- Zone de trigger
+- Scripts : système de vie
+- Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
+- Camera
+- Menu Pause
+- Animations
+- Scènes 
+- Ecran de crédits
+- Sound design
