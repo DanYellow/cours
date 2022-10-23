@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    private float moveDirection;
+    private float moveDirectionX;
     private bool isFacingRight = true;
     public float moveSpeed;
     public float jumpForce;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = Input.GetAxisRaw("Horizontal");
+        moveDirectionX = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumpCount)
         {
@@ -41,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            // isJumping = true;
-            // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             isShortJump = true;
         }
 
@@ -60,9 +58,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
         Flip();
-        if (isJumping || isShortJump)
+        if ((isJumping && isGrounded) || isShortJump)
         {
             Jump(isShortJump);
         }
@@ -70,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (moveDirection > 0 && !isFacingRight || moveDirection < 0 && isFacingRight)
+        if (moveDirectionX > 0 && !isFacingRight || moveDirectionX < 0 && isFacingRight)
         {
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);

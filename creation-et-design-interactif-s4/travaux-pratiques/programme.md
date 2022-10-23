@@ -3,11 +3,11 @@
 - Collision / Rigidbody
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
+- Camera
 - Zone de trigger / Ennemis
 - Prefab
 - Scripts : système de vie
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
-- Camera
 - Menu Pause
 - Animations
 - Scènes 
