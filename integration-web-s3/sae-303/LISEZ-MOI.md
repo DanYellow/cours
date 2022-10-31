@@ -47,7 +47,7 @@ Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que 
 
 > Vous pouvez, si vous le souhaitez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
-**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement.
+**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
 
 > Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée.
 
@@ -84,11 +84,11 @@ Autre proposition de rendu, l'application interactive en javascript sera l'occas
 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 
-Votre jeu de données devra impérativement être chargé, il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à une stratégie pour indiquer à l'utilisateur que les données chargent.
+Votre jeu de données devra impérativement être chargé, il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à  indiquer à l'utilisateur que les données chargent.
 
 > Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 
-Pour manipuler les données, les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
+Pour manipuler les données ou les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
 > Vous avez appris à utiliser git. Pensez-y pour garder une trace de votre travail et travailler à plusieurs.
 
