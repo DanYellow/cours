@@ -22,7 +22,7 @@ Et de mettre en application les connaissances vues dans les ressources suivantes
 - R3.15 | Représentation et traitement de l’information
 
 Par groupe au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
-- Un élément graphique (infographie - plusieurs formats attendus ou vidéo motion)
+- Un élément graphique (infographie - plusieurs formats attendus ou vidéo en motion design)
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
 
