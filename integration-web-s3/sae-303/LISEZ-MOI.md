@@ -26,7 +26,7 @@ Par groupe au sein du même TP (pour des questions logistique), vous devrez, à 
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
 
-**Dans tous les cas**, le résultat final devra être accessible sur un **site web développé avec boostrap** (vu en S2 et S3).
+**Dans tous les cas**, le résultat final devra être accessible sur un **site web développé** (bootstrap, wordpress ou autre).
 
 > **La date butoir vous sera remise ultérieurement.**
 
@@ -103,6 +103,6 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
   - [ ] Respecter les attentes
   - [ ] Générer une archive contenant :
-    - [ ] Votre site web (développé avec bootstrap)
+    - [ ] Votre site web (bootstrap, wordpress ou autre)
     - [ ] Un fichier texte contenant les membres du groupe
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
