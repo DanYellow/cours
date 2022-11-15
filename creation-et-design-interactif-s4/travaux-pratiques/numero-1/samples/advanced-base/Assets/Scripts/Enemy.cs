@@ -50,15 +50,15 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        this.gameObject.transform.Rotate(0f, 0f, 45f);
         this.GetComponent<BoxCollider2D>().enabled = false;
+        this.gameObject.transform.Rotate(0f, 0f, 45f);
     }
 
     void OnBecameInvisible()
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject, 0.75f);
+            Destroy(gameObject, 0.15f);
         }
     }
 }

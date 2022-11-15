@@ -1,5 +1,4 @@
 - GameObject
-- Sprite
 - Collision / Rigidbody
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
@@ -8,7 +7,8 @@
 - Prefab
 - Scripts : système de vie
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
-- Menu Pause
+- Menu Pause (Montrer les animations qui ne sont pas victimes du temps)
+- Sprite
 - Animations
 - Scènes 
 - Ecran de crédits
