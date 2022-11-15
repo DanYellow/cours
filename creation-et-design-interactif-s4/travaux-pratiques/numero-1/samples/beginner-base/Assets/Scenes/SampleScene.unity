@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 63497453}
   - component: {fileID: 63497454}
   - component: {fileID: 63497455}
+  - component: {fileID: 63497456}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63497451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1782feb843c282147a70b5d5c54cd449, type: 3}
   m_Name: 
@@ -267,7 +268,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63497451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ba795ce86f7ada46834fc06fb7858cf, type: 3}
   m_Name: 
@@ -288,6 +289,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &63497456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63497451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076ad453e5e03d244b434458c281317f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillImage: {fileID: 728364130}
+  slider: {fileID: 63497453}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0.048927307, a: 1}
+    key2: {r: 1, g: 0.78867036, b: 0.26666665, a: 0}
+    key3: {r: 1, g: 0.71093756, b: 0, a: 0}
+    key4: {r: 0, g: 0.6603774, b: 0.05601386, a: 0}
+    key5: {r: 0, g: 1, b: 0.19503093, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 21588
+    ctime2: 21781
+    ctime3: 46260
+    ctime4: 46453
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
 --- !u!1 &182577991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2064,7 @@ GameObject:
   - component: {fileID: 1748196186}
   - component: {fileID: 1748196187}
   - component: {fileID: 1748196188}
+  - component: {fileID: 1748196189}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2202,7 +2247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748196180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd0aaabfd5a2c345bed6690f62d1879, type: 3}
   m_Name: 
@@ -2275,6 +2320,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1748196189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748196180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e486902b26864542864afd16631258e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  healthBar: {fileID: 63497456}
+  gameOverScreen: {fileID: 1368025507}
 --- !u!1 &1762810426
 GameObject:
   m_ObjectHideFlags: 0

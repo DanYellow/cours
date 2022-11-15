@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (
-            other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
+           // other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
+           other.gameObject.TryGetComponent<HealthBadExample>(out HealthBadExample playerHealth) &&
             other.gameObject.CompareTag("Player") &&
             other.contacts[0].normal.y > -0.5f
             )
@@ -30,15 +31,23 @@ public class Enemy : MonoBehaviour
         {
             currentHealth -= 1f;
             Vector2 bounceForce = Vector2.up * bounce;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
 
-            Debug.Log("currentHealth " + currentHealth);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
 
             if (currentHealth <= 0)
             {
+                StartCoroutine(SlowTime());
                 Die();
             }
         }
+    }
+
+    IEnumerator SlowTime()
+    {
+        Time.timeScale = 0.5f;
+        // yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSecondsRealtime(0.25f);
+        Time.timeScale = 1f;
     }
 
     private void Die()
