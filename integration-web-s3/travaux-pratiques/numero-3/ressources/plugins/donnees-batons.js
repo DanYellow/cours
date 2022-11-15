@@ -1,4 +1,4 @@
-const prenomAnthony2005 = [
+const prenomJerome2005 = [
   { preusuel: 'JEROME', dpt: '60', nombre: 2144 },
   { preusuel: 'JEROME', dpt: '75', nombre: 8017 },
   { preusuel: 'JEROME', dpt: '77', nombre: 2193 },
