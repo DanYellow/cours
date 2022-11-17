@@ -15,22 +15,18 @@ Pour permettre le développement de jeux vidéo, Unity se repose sur le langage 
 ## Variables 
 Comme tout langage de programmation le C# permet de créer des variables, la syntaxe est la suivante (sans les crochets):
 ```cs
-[niveau de visibilité] [type] [nom de variable];
+[type] [nom de variable];
 ```
-- Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
-    - public : la variable est accessible dans l'inspecteur d'Unity. On peut la lire (et la modifier) depuis n'importe où dans le code
-    - private : **la variable n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
-> Dans Unity, si une variable est, par défaut, privée, il est souhaitable de mettre explicitement son niveau de visibilité
-- type : Définit la nature d'une variable. Autrement dit, les actions que peut effectuer la variable. Par exemple, si on définit une varible de type entier (int), il n'est pas possible d'utilisr des méthodes liées à une chaîne de caractères (string). Notez bien qu'en C#, contrairement au javascript, le typage est obligatoire et immuable. Un entier ne peut pas devenir une chaîne de caractères et vice-versa. Durant le cours, nous aurons l'occasion de voir plein de types et même de créer les nôtres
+- type : Définit la nature d'une variable. Autrement dit, les actions que peut effectuer la variable. Par exemple, si on définit une varible de type entier (int), il n'est pas possible d'utilisr des méthodes liées à une chaîne de caractères (string). Notez bien qu'en C#, contrairement au javascript, **le typage est obligatoire** et immuable. Un entier ne peut pas devenir une chaîne de caractères et vice-versa. Durant le cours, nous aurons l'occasion de voir plein de types et même de créer les nôtres
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite, c'est pratique pour s'y retrouver
 
 Voici des exemples de variables :
 ```cs
-public int anneesBUT = 3;
-public string playerName = "player1";
+int anneesBUT = 3;
+string playerName = "player1";
 
 // Un tableau de chaînes de caractères
-public string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
+string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
 
 ### Liste ou tableau ?
@@ -38,7 +34,7 @@ Petit point : En C# (et d'autres langages de programmation), il existe une diff�
 
 ```cs
 // Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove()
-public List<string> listFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
+List<string> listFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 ```
 - [Différence Liste et Tableau en C# - anglais](https://www.shekhali.com/c-array-vs-list)
 
@@ -50,12 +46,15 @@ public List<string> listFormations = new List<string>(){"MMI", "TC", "GE2I", "MT
     // Instructions
 }
 ``` 
-- Niveau de visibilité : on l'a vu précemment
+- Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
+    - public : la fonction est accessible dans l'inspecteur d'Unity. On peut la lire (et la modifier) depuis n'importe où dans notre projet
+    - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
+        - Par défaut, les fonctions sont privées en C#, mais pensez à le préciser.
 - Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. A noter qu'une fonctione ne peut retourner qu'un seul type à la fois et si votre fonction ne doit rien retourner, on mettra la valeur "void"
 - NomDeFonction : Comme les variables, le nom est arbitraire mais certains noms sont interdits et bien évidemment on nommera nos fonctions avec un nom explicite. A noter qu'en C# les fonctions commencent par une majuscule, par convention
 - Les paramètres : tout comme les variables, ils doivent avoir un type et sont séparés par une virgule. **Et les paramètres ne sont accessibles que dans la fonction qui les définit**
 
-Par exemple, une fonction qui affiche dans la console la somme de deux entiers :
+Par exemple, une fonction qui affiche dans la console la somme de deux entiers. **Elle ne renvoie rien** :
 ```cs
 public void Addition(int num1, int num2)
 {
@@ -64,9 +63,9 @@ public void Addition(int num1, int num2)
 }
 ```
 
-> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode, **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement terminer par un point-virgule (;).
+> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode, **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;).
 
-Voici le même exemple, mais cette fois-ci, notre fonction retourne le résultat :
+Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
 ```cs
 public int Addition(int num1, int num2)
 {
@@ -81,6 +80,8 @@ Debug.Log("Résultat somme : " + sum);
 Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` ou `while` car la syntaxe est la même comparée aux autres langages que vous avez pu voir durant votre BUT. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
 - [Voir liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) 
 
+> Comme les noms de variables, les nom de fonctions doivent avoir un nom unique
+
 # Script Unity de base
 
 ```cs
@@ -90,12 +91,6 @@ using UnityEngine;
 
 public class MyClass : MonoBehaviour
 {
-    /*
-    *
-    * [Liste des propriétés de la classe]
-    *
-    */
-    
     // Appelée (la méthode) avant le premier appel de la méthode "Update"
     void Start()
     {
@@ -144,7 +139,7 @@ Enfin, notez les choses suivantes sur les classes :
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 # Exercice
-Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.
+Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
@@ -158,13 +153,14 @@ Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la m�
 - Une chaîne de caractères
 - Un tableau contenant des nombres
 - Une fonction qui **retourne** "Bonjour" + la chaine de caractères passée en paramètre
-    - N'oubliez pas d'appeler la fonction
+    - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
-    - N'oubliez pas d'appeler la fonction
+    - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Affichez le nom de la touche touche appuyée quand elle l'est
-    - Note : Vous pouvez écrire le nom de la touche en dur, le message ne doit pas être dynamique
+    - Vous pouvez écrire le nom de la touche appuyée en dur
+    - Ce code devra impérativement être exécuté au sein de la méthode "Update()", sinon ça ne fonctionnera pas (voir exemple plus haut)
 
-Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. DUrant ce cours nous aurons l'occasion de faire un petit jeu où nous aborderons les notions suivantes (liste non exhaustive) :
+Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
 - Gestion du son / physique
 - Animation
@@ -173,5 +169,33 @@ Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occas
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
 
-Dernier point : nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous voulez voir ceci en vidéo, vous avez ceci : 
-- [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8) 
+Nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous voulez voir ceci en vidéo, vous avez ceci : 
+- [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
+
+
+## Propriétés de classes
+Pour terminer, petit mémo sur les propriétés de classes en C#. Il faut se rappeler que les variables ont une portée qui leur est spécifique. Ainsi, si vous définissez une variable dans une méthode, elle n'existe que dans la méthode, c'est là qu'entre en jeu les propriétés de classes. C'est un type de variables qui peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
+
+```cs
+[niveau de visibilité] [type] [nom de variable];
+```
+- Niveau de visibilité : On l'a vu précemment
+    - Par défaut les propriétés sont "private", mais il est préférable de le préciser
+- Type et nom de variable : On l'a vu précemment
+
+
+Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
+```cs
+/* [...] */
+public class MyClass : MonoBehaviour
+{
+    // Ces propriétés sont accessibles partout au sein de notre classe "MyClass"
+    public string university = "CY Paris Université";
+    private int nbYearsBUT = 3;
+
+    void Start()
+    {
+    }
+    /* [...] */
+}
+```

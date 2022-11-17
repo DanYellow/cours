@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     [ReadOnlyInspector]
     public float currentHealth;
 
+    public VoidEventChannelSO onEnemyDeath;
+
     private void Start()
     {
         currentHealth = maxHealth.CurrentValue;
@@ -54,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         this.gameObject.transform.Rotate(0f, 0f, 45f);
         this.GetComponent<BoxCollider2D>().enabled = false;
+        onEnemyDeath.Raise();
 
     }
 
