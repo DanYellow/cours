@@ -2,9 +2,9 @@
 _Les consignes pourront être modifiées._
 
 ## Contexte de la SAÉ
-De nos jours, le mot "data" ou "donnée" se réfèrent à l’information dématérialisée capable de circuler à travers un réseau de télécommunication ou informatique.
+De nos jours, les mots "data" ou "donnée" se réfèrent à l’information dématérialisée capable de circuler à travers un réseau de télécommunication ou informatique.
 Dans un monde où la data se fait de plus en plus présente, l'internaute sollicite des outils et des supports de visualisation qui lui permettent de lire et interpréter correctement des flux d'informations de plus en plus énormes.  
-Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral.
+Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral. Ainsi, cette SAE est l'occasion de données vie (et envie) à un jeu de données que vous aurez choisi, parmi ceux triés par nos soins (voir plus bas).
 
 Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants : 
 
@@ -30,11 +30,14 @@ Par groupe au sein du même TP (pour des questions logistique), vous devrez, à 
 
 > **La date butoir vous sera remise ultérieurement.**
 
-Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous avez à votre disposition des jeux de données propres et très limités en contenu. De ce fait, les sujets seront plus ou moins fermés (surtout pour les jeux de données pour le sujet infographie)
-Ces jeux de données sont facilement explorables avec excel ou encore LibreOffice Calc.
+Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous avez à votre disposition des jeux de données propres et très limités en contenu. De ce fait, les sujets seront plus ou moins fermés (surtout pour les jeux de données pour le sujet infographie).
+Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc.
 
-- [Accéder aux jeux de données](datasets/)
-> Les jeux de données sont été partagés en deux groupe : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement.
+- [Accéder aux jeux de données proposés](datasets/)
+
+Les jeux de données sont été partagés en deux groupes : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement.
+
+> Note : Vous pouvez tout à fait ajouter des jeux de données externes (et sourcés) pour appuyer votre création. N'hésitez pas !
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
@@ -56,7 +59,7 @@ Pensez également à aggrémenter votre travail de quelques textes servant de pr
 - [Voir émission _Le chiffroscope_ sur Youtube](https://www.youtube.com/playlist?list=PLTWD_IG2XnYtps4vw7RmOAttFlMm2qlcv)
 - [Voir émission _DataGueule_ sur Youtube](https://www.youtube.com/user/datagueule)
 
-**Rappelez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
+**Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
 
 Il n'y a pas réellement de format attendu pour cette infographie, elle devra quand même respecter les règles suivantes :
 - Indiquer vos sources 
@@ -80,11 +83,13 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 ## Application interactive en javascript 
 
-Autre proposition de rendu, l'application interactive en javascript sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner des une carte, car tous les utilisateurs peuvent s'y trouver.
+Autre proposition de rendu, l'application interactive en javascript sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver.
 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
+- [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
+  - Pensez bien à sélectionner l'onglet "Javascript" pour le code
 
-Votre jeu de données devra impérativement être chargé, il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à  indiquer à l'utilisateur que les données chargent.
+**Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à indiquer à l'utilisateur que les données chargent.
 
 > Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 

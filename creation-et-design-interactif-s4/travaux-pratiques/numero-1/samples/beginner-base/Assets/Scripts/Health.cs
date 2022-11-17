@@ -7,15 +7,10 @@ public class Health : MonoBehaviour
     public FloatVariable currentHealth;
     public FloatVariable maxHealth;
 
-    // public float maxHealth;
-    // public float currentHealth;
-
     [InspectorName("16 bits")]
     public int test = 41;
 
     public VoidEventChannelSO onPlayerDeath;
-
-    // public FillStatusBar healthBar;
 
     private void Start()
     {

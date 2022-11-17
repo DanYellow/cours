@@ -8,7 +8,11 @@
     <title>Exemple graphique courbe avec requête asynchrone chartjs</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <!-- Si vous utilisez WAMP / MAMP -->
     <script src="<?php echo $_SERVER['REQUEST_URI']; ?>/script.js" defer></script>
+    
+    <!-- Si vous utilisez liveserver -->
+    <!-- <script src="/correction/fetch/script.js" defer></script> -->
   </head>
   <body>
     <div>

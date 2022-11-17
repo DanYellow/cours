@@ -16,3 +16,5 @@ https://stackoverflow.com/questions/32306704/how-to-pass-data-and-references-bet
 - https://odininspector.com/attributes
 - https://unity.com/how-to/architect-game-code-scriptable-objects
 - https://www.youtube.com/watch?v=raQ3iHhE_Kk&t=1964s
+
+- https://forum.unity.com/threads/ui-not-tied-to-player-or-gamecontoller.1324710/#post-8379801
