@@ -35,6 +35,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             isPlayerInRange = false;
             isDialogueStarted = false;
+            dialogueManager.EndDialogue();
         }
     }
 
