@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     public FloatVariable currentHealth;
     public FloatVariable maxHealth;
-
-    [InspectorName("16 bits")]
-    public int test = 41;
 
     public VoidEventChannelSO onPlayerDeath;
 
@@ -25,13 +20,15 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            TakeDamage(10);
+        }
     }
 
     public void TakeDamage(float damage)
     {
-        // currentHealth -= damage;
-        // healthBar.SetHealth(currentHealth / maxHealth);
-
         currentHealth.CurrentValue -= damage;
         if (currentHealth.CurrentValue <= 0)
         {

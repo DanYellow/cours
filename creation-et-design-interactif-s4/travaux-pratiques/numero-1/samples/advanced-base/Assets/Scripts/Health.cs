@@ -9,6 +9,11 @@ public class Health : MonoBehaviour
 
     public VoidEventChannelSO onPlayerDeath;
 
+    public enum AnimationCallback
+    {
+        Death,
+    }
+
 
     private void Start()
     {
@@ -38,5 +43,14 @@ public class Health : MonoBehaviour
         onPlayerDeath.Raise();
         this.gameObject.transform.Rotate(0f, 0f, 45f);
         gameObject.GetComponent<Animator>().SetTrigger("OnPlayerDeath");
+    }
+
+    public void AlertObservers(AnimationCallback animationCallback)
+    {
+        if (animationCallback == AnimationCallback.Death)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            // Do other things based on an attack ending.
+        }
     }
 }

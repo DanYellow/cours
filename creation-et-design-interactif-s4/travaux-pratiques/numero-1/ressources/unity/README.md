@@ -156,8 +156,7 @@ Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la m�
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
-- Affichez le nom de la touche touche appuyée quand elle l'est
-    - Vous pouvez écrire le nom de la touche appuyée en dur
+- Une fonction qui fait ce que vous souhaitez mais qui est appelée quand on appuie sur une touche
     - Ce code devra impérativement être exécuté au sein de la méthode "Update()", sinon ça ne fonctionnera pas (voir exemple plus haut)
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :

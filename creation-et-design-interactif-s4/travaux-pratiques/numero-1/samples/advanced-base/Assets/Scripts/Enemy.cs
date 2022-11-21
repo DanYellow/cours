@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         spriteRenderer.color = Color.black; 
         yield return new WaitForSeconds(0.25f);
-        spriteRenderer.color = new Color (1, 1, 1, 1);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     private void Die()

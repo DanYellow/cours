@@ -12,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private bool isShortJump = false;
 
+    [SerializeField]
+    private float fallingThreshold = -20f;
+
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
 
     [SerializeField]
     bool isGrounded;
+
+    bool isFalling;
 
     [SerializeField]
     private int jumpCount;
@@ -48,6 +53,16 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             jumpCount = 0;
+        }
+
+        if (rb.velocity.y < fallingThreshold)
+        {
+            isFalling = true;
+        }
+
+        if (isFalling && isGrounded) {
+            Debug.Log("rb.velocity.y : " + rb.velocity.y);
+            isFalling = false;
         }
     }
 

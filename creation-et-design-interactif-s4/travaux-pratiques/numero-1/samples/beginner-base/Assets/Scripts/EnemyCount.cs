@@ -12,9 +12,11 @@ public class EnemyCount : MonoBehaviour
      
     void Start()
     {
+        // FindGameObjectsWithTag() est plus efficace que Find()
+        // https://docs.unity3d.com/ScriptReference/GameObject.Find.html
          GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
          numberOfEnemies = enemies.Length;
-         text.text = $"Nombre ennemis restants : {numberOfEnemies}";
+         text.text = $"Nombre ennemis restants : <color=#FF0000>{numberOfEnemies}</color>";
     }
 
     // Update is called once per frame
@@ -25,6 +27,6 @@ public class EnemyCount : MonoBehaviour
 
     public void UpdateEnemiesCount() {
         numberOfEnemies -= 1;
-        text.text = $"Nombre ennemis restants : {numberOfEnemies}";
+        text.text = $"Nombre ennemis restants : <color=#FF0000>{numberOfEnemies}</color>";
     }
 }
