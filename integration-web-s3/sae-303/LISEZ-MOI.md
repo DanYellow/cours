@@ -125,3 +125,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser ces cours.**
 - Est-il possible de réaliser ce travail seul(e) ?
   - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
+- Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?
+  - Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
+- Puis effectuer plusieurs images pour Instagram
+  - Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.
