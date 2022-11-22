@@ -111,3 +111,17 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
     - [ ] Votre site web (bootstrap, wordpress ou autre)
     - [ ] Un fichier texte contenant les membres du groupe
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
+
+# FAQ - Foire Aux Questions
+- Est-ce que je peux utiliser des jeux de données additionnels ?
+  - Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
+- J'ai choisi le sujet "infographie" devrais-je également faire du développement ?
+  - Oui, mais dans une moindre mesure. Votre travail d'infographie (ou de vidéo) devra être être présenté sur un site
+- J'ai choisi de faire une vidéo, comment l'afficher sur mon site ?
+  - Hébergez-la, si possible, sur une plateforme comme Youtube (en privé) et affichez-la sur votre site. Youtube génére pour vous le code HTML à mettre sur votre site
+- Est-ce que je peux limiter le jeu de données ?
+  - Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
+- Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?
+  - Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser ces cours.**
+- Est-il possible de réaliser ce travail seul(e) ?
+  - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.

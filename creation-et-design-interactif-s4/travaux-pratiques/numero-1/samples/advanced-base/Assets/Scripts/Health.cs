@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public enum AnimationCallback
     {
         Death,
+        None
     }
 
 
@@ -45,7 +46,7 @@ public class Health : MonoBehaviour
         gameObject.GetComponent<Animator>().SetTrigger("OnPlayerDeath");
     }
 
-    public void AlertObservers(AnimationCallback animationCallback)
+    public void AlertObservers(AnimationCallback animationCallback = AnimationCallback.None)
     {
         if (animationCallback == AnimationCallback.Death)
         {

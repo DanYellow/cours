@@ -8,6 +8,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private DialogueManager dialogueManager;
 
+    public BoolEventChannelSO onToggleDialogueEvent;
+
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -41,10 +43,12 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        onToggleDialogueEvent?.Raise(true);
         if(isDialogueStarted) {
             dialogueManager.DisplayNextSentence();
             if(dialogueManager.isDialogueEnded) {
                 isDialogueStarted = false;
+                onToggleDialogueEvent?.Raise(false);
             }
         } else {
             Debug.Log("Start Dialogue");
