@@ -9,32 +9,27 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     public float moveSpeed;
     public float jumpForce;
-    private bool isJumping = false;
-    private bool isShortJump = false;
 
     public LayerMask listGroundLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
 
     [SerializeField]
-    bool isGrounded;
+    private bool isGrounded;
 
     public Animator animator;
 
-    [ReadOnlyInspector]
+    [SerializeField, ReadOnlyInspector]
     private int jumpCount = 0;
     public int maxJumpCount;
 
-    private void Awake() {
-        this.enabled = false;        
+    private void Awake()
+    {
+        this.enabled = false;
     }
 
-    // private void Start()
-    // {
-    //     jumpCount = 0;
-    // }
-
-    public void Activate () {
+    public void Activate()
+    {
         enabled = true;
     }
 
@@ -43,27 +38,29 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && jumpCount < maxJumpCount)
+        if (isGrounded && !Input.GetButton("Jump"))
+        {
+            jumpCount = 0;
+        }
+
+        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
         {
             Jump(false);
-            // isJumping = true;
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            // Jump(true);
+            Jump(true);
         }
 
-        isGrounded = IsGrounded();
-        if (isGrounded)
-        {
-            jumpCount = 0;
-        }
+        Flip();
     }
 
     private void FixedUpdate()
     {
         Move();
+
+        isGrounded = IsGrounded();
     }
 
     private void Move()
@@ -73,12 +70,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("MoveDirectionX", Mathf.Abs(moveDirectionX));
         animator.SetFloat("MoveDirectionY", rb.velocity.y);
         animator.SetBool("IsGrounded", isGrounded);
-
-        Flip();
-        // if ((isJumping && isGrounded) || isShortJump)
-        // {
-        //     Jump(isShortJump);
-        // }
     }
 
     private void Flip()
@@ -93,18 +84,14 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(bool shortJump = false)
     {
         float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        if (jumpCount < maxJumpCount)
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        if (!shortJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpCount = jumpCount + 1;
         }
-
-        Debug.Log("jumpCount " + jumpCount);
-        isJumping = false;
-        isShortJump = false;
     }
 
-    public bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
