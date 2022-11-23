@@ -17,36 +17,26 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
     - Il existe plusieurs tutoriels en ligne pour le faire. Voici une petite liste (non exhaustive) :
         - https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics - anglais
         - https://www.youtube.com/watch?v=fE3agO5xfFw - français. La démonstration a lieu vers 28:00
-> Pour la gestion de l'animation du saut, le sprite associé a déjà été implémenté et découpé. Il faudra donc créer l'animation et définir sa condition dans l'animator. Après quelques tests "850" semble être une bonne valeur pour la gravité.
-> Le saut ne doit être utilisable que si et seulement si le joueur a débloqué la capacité. Il faudra donc jouer sur la classe "PlayerListSkills". Vous pourrez trouver un exemple d'utilisation dans le fichier `Assets/Scripts/Player/` 
 - Donner la possibilité au joueur de mettre en pause le jeu (et bien évidemment le relancer)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore afficher des crédits
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
     - https://github.com/OpenSourceMusic
+    - https://opengameart.org/
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une (+ le dernier point de la liste)
-- Gestion des munitions (pensez bien à afficher le nombre de munitions restantes)
-    - Vous pouvez également gérer la récupération de munitions
-- Temps imparti pour terminer le niveau avec les mécaniques associées (mort du personnage, game over)
-- Mort du personnage
-
-- Ajouter un nouveau skill "Tir automatique". Pour ce faire, vous devrez :
-    - Ajouter un nouveau scriptable object et son sprite associé. Vous pouvez utiliser le fichier `Assets/Arts/Misc/Power-ups.psd` pour vous aider à faire un nouveau icône
-    - Ajouter ce nouveau powerup dans l'enum SkillType dans le fichier `Assets/Scripts/Player/PlayerShoot.cs`
-    - Ajouter le powerup dans la scene (via le script `Assets/Scripts/Misc/PowerUp.cs`)
-    - Gérer le tout dans `Assets/Scripts/PlayerShoot.cs`
+- Mort du personnage + écran de game over
 - Un écran d'accueil où l'on peut commencer le jeu
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies :
     > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, il pourra être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
 
-### Liste des personnes à créditer (pas utile de mettre le lien)
-> Mettez juste le pseudo de la personne + le site où vous avez trouvez la ressource.
-- https://szadiart.itch.io/pixel-fantasy-caves
-- https://secrethideout.itch.io/team-wars-platformer-battle
-- https://oco.itch.io/medieval-fantasy-character-pack
-- https://pixelplant.itch.io/chicken-sprite-sheet
+### Liste des personnes à créditer 
+> Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
+- https://pixelfrog-assets.itch.io/pixel-adventure-2
+- https://pixelfrog-assets.itch.io/pixel-adventure-1
+- https://opengameart.org/content/8bit-style-music
+- Et vous bien évidemment (pensez également à mettre le logo de l'université + l'année + le nom de la formation)
 
 ### Ressources graphiques utilisables, source non exhaustives
 - https://www.kenney.nl/assets

@@ -51,11 +51,9 @@ public class DialogueTrigger : MonoBehaviour
                 onToggleDialogueEvent?.Raise(false);
             }
         } else {
-            Debug.Log("Start Dialogue");
+            Debug.Log("Starting Dialogue");
             dialogueManager.OpenDialogueBox(dialogue);
             isDialogueStarted = true;
         }
-
     }
-
 }

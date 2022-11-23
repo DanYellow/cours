@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSource.clip = playlist[0];
-        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -33,16 +32,18 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    void PlayRandomSoundClip()
-    {
-        musicIndex = (musicIndex + Random.Range(1, playlist.Length - 1)) % playlist.Length;
-        audioSource.clip = playlist[musicIndex];
-        audioSource.outputAudioMixerGroup = musicEffectMixer;
-        audioSource.Play();
-    }
+    // void PlayRandomSoundClip()
+    // {
+    //     musicIndex = (musicIndex + Random.Range(1, playlist.Length - 1)) % playlist.Length;
+    //     audioSource.clip = playlist[musicIndex];
+    //     audioSource.outputAudioMixerGroup = musicEffectMixer;
+    //     audioSource.Play();
+    // }
 
-    public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
+    public void PlayClipAt(GameObject go)
     {
+        AudioClip clip = go.GetComponent<PickupItem>().audioClip;
+        Vector3 pos = go.transform.position;
         GameObject tempGO = new GameObject("TempAudio");
         tempGO.transform.position = pos;
         AudioSource audioSource = tempGO.AddComponent<AudioSource>();
@@ -50,6 +51,5 @@ public class AudioManager : MonoBehaviour
         audioSource.outputAudioMixerGroup = soundEffectMixer;
         audioSource.Play();
         Destroy(tempGO, clip.length);
-        return audioSource;
     }
 }

@@ -45,12 +45,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumpCount)
         {
-            isJumping = true;
+            Jump(false);
+            // isJumping = true;
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            isShortJump = true;
+            // Jump(true);
         }
 
         isGrounded = IsGrounded();
@@ -74,10 +75,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
 
         Flip();
-        if ((isJumping && isGrounded) || isShortJump)
-        {
-            Jump(isShortJump);
-        }
+        // if ((isJumping && isGrounded) || isShortJump)
+        // {
+        //     Jump(isShortJump);
+        // }
     }
 
     private void Flip()
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = jumpCount + 1;
         }
 
+        Debug.Log("jumpCount " + jumpCount);
         isJumping = false;
         isShortJump = false;
     }
