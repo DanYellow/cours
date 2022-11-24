@@ -22,7 +22,13 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
     - https://github.com/OpenSourceMusic
     - https://opengameart.org/
 - Afficher un écran de fin de partie (Game Over)
- - A vous de décider les conditions de Game Over ainsi que ses conséquences
+    - A vous de décider les conditions de Game Over ainsi que ses conséquences
+- Créer une props de votre choix (ennemi, panneau...) et l'intégrer dans le jeu
+    - Pas besoin que votre props colle avec la DA du jeu
+    - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
+    - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
+- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
+    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une (+ le dernier point de la liste)
 - Mort du personnage + écran de game over
