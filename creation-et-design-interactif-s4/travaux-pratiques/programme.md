@@ -7,7 +7,7 @@
 - Prefab
 - Scripts : système de vie
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
-- Menu Pause (Montrer les animations qui ne sont pas victimes du temps)
+- Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
 - Sprite
 - Animations
 - Scènes 
