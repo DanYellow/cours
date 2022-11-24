@@ -8,6 +8,8 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
+Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeux, et bien évidemment des assets que vous pourrez utiliser. Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions.
+
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Un écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir le logo de l'université
@@ -57,6 +59,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - Respecter les attentes
 - Générer une archive contenant :
     - Votre build du jeu
+        - Pensez à tester votre jeu
     - Un fichier texte contenant les membres de votre groupe
 
 # FAQ - Foire Aux Questions
