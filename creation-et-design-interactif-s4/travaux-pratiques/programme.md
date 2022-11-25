@@ -10,6 +10,13 @@
 - Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
 - Sprite
 - Animations
+    - has exit time : permet à l'animation de se jouer directement
+    - transition duration : permet de passer d'une anim à l'autre
+    - From Any State -> other state :
+        - laisser has exit time
+        - exit time = 1
+        - transition duration = 0
+        - laisser fixed duration
 - Scènes 
 - Ecran de crédits
 - Sound design

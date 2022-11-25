@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float bounce;
+    public float bounce = 2f;
     public FloatVariable maxHealth;
 
     [ReadOnlyInspector]
     public float currentHealth;
 
     public SpriteRenderer spriteRenderer;
+    public BoxCollider2D bc2d;
+    public Animator animator;
 
     private void Start()
     {
@@ -43,14 +45,21 @@ public class Enemy : MonoBehaviour
     IEnumerator TakeDamage(float damage)
     {
         currentHealth -= damage;
-        spriteRenderer.color = Color.black; 
-        yield return new WaitForSeconds(0.25f);
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        if (animator)
+        {
+            animator.SetTrigger("IsHit");
+        }
+        else
+        {
+            spriteRenderer.color = Color.black;
+            yield return new WaitForSeconds(0.25f);
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
     }
 
     private void Die()
     {
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        bc2d.enabled = false;
         this.gameObject.transform.Rotate(0f, 0f, 45f);
     }
 

@@ -1,35 +1,67 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource mainAudioSource;
     public AudioMixerGroup soundEffectMixer;
     public AudioMixerGroup musicEffectMixer;
     public AudioClip[] playlist;
     private int musicIndex;
+    private float elapsedTime = 0;
+    private bool isGamePaused;
+    private float volumeOnPaused = 0.15f;
+    private float volumeOnPlay = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource.clip = playlist[0];
+        mainAudioSource.clip = playlist[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!mainAudioSource.isPlaying)
         {
             PlayNextMusic();
+        }
+
+        if (isGamePaused)
+        {
+           StartCoroutine(DecreaseVolume());
+        }
+        else
+        {
+           StartCoroutine(IncreaseVolume());
+        }
+    }
+
+    IEnumerator IncreaseVolume()
+    {
+        while (mainAudioSource.volume < volumeOnPlay)
+        {
+            mainAudioSource.volume += 0.0003f;
+            yield return null;
+        }
+    }
+
+    IEnumerator DecreaseVolume()
+    {
+        while (mainAudioSource.volume > volumeOnPaused)
+        {
+            mainAudioSource.volume -= 0.0003f;
+            yield return null;
         }
     }
 
     void PlayNextMusic()
     {
         musicIndex = (musicIndex + 1) % playlist.Length;
-        audioSource.clip = playlist[musicIndex];
-        audioSource.outputAudioMixerGroup = musicEffectMixer;
-        audioSource.Play();
+        mainAudioSource.clip = playlist[musicIndex];
+        mainAudioSource.outputAudioMixerGroup = musicEffectMixer;
+        mainAudioSource.Play();
     }
 
     // void PlayRandomSoundClip()
@@ -51,5 +83,15 @@ public class AudioManager : MonoBehaviour
         audioSource.outputAudioMixerGroup = soundEffectMixer;
         audioSource.Play();
         Destroy(tempGO, clip.length);
+    }
+
+    public void OnTogglePause(bool _isGamePaused)
+    {
+        isGamePaused = _isGamePaused;
+        // if(isGamePaused) {
+        //     mainAudioSource.volume = 0.25f;
+        // } else {
+        //     mainAudioSource.volume = 1;
+        // }
     }
 }

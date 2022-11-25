@@ -5,10 +5,12 @@ public class LoadLevelManager : MonoBehaviour
 {
     void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();
         }
+        #endif
     }
 
     public void LoadScene(string sceneName)
@@ -26,7 +28,6 @@ public class LoadLevelManager : MonoBehaviour
         Debug.Log("Display Gameover");
         // SceneManager.LoadScene("GameOver");
     }
-
 
     public void QuitGame()
     {

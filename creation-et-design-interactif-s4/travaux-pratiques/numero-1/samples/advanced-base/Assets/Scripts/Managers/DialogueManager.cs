@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour {
@@ -11,13 +10,10 @@ public class DialogueManager : MonoBehaviour {
 
 	public Animator animator;
 	internal bool isDialogueEnded = true;
-
-
 	private Queue<string> listSentences;
 
     private Dialogue currentDialogue;
 
-	// Use this for initialization
 	void Start () {
 		listSentences = new Queue<string>();
 		dialogueText.text = "";
@@ -34,7 +30,6 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	IEnumerator StartDialogue ()
-	// IEnumerator StartDialogue ()
 	{
 		yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 		// nameText.text = dialogue.name;
@@ -70,8 +65,7 @@ public class DialogueManager : MonoBehaviour {
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			yield return new WaitForSeconds(0.05f);
-			// yield return null;
+			yield return null;
 		}
 	}
 
