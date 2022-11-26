@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public FloatVariable currentHealth;
     public FloatVariable maxHealth;
 
     public VoidEventChannelSO onPlayerDeath;
+    public Animator animator;
 
     public enum AnimationCallback
     {
@@ -21,7 +22,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.F9))
         {
             Die();
         }
@@ -39,8 +40,8 @@ public class Health : MonoBehaviour
     private void Die()
     {
         onPlayerDeath.Raise();
-        this.gameObject.transform.Rotate(0f, 0f, 45f);
-        gameObject.GetComponent<Animator>().SetTrigger("OnPlayerDeath");
+        transform.Rotate(0f, 0f, 45f);
+        animator.SetTrigger("OnPlayerDeath");
     }
 
     public void AlertObservers(AnimationCallback animationCallback = AnimationCallback.None)

@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (
-            other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
+            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
             other.gameObject.CompareTag("Player") &&
             other.contacts[0].normal.y > -0.5f
             )
@@ -40,6 +40,10 @@ public class Enemy : MonoBehaviour
                 Die();
             }
         }
+
+        if(other.gameObject.CompareTag("Saw")) {
+            Die();
+        }
     }
 
     IEnumerator TakeDamage(float damage)
@@ -51,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            spriteRenderer.color = UnityEngine.Color.white;
+            spriteRenderer.color = UnityEngine.Color.black;
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }

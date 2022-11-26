@@ -22,6 +22,8 @@ Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme posséda
 - Système de pause (Appui sur le bouton Echap)
     - Il n'y a pas de menu de Pause, c'est une des tâches que vous devez effectuer
     - Il n'est pas forcément complet, il y a des choses à rajouter notamment la gestion des déplacements
+- Un Gestionnaire de Son / Musique
+    - Les sons (par exemple, les pommmes) sont gérés via des scriptables objects
 
 et bien évidemment des assets que vous pourrez utiliser pour cette SAE.
 
@@ -30,12 +32,17 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - Plus d'explications sur la scène de bootstrap
 
-> Le projet contient quelques Assets (Assets/Imports) qui n'ont pas forcément été utilisé, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérez lors du premier TP, mais si vous avez perdu le lien, il se trouve ici :
-    - fef
+> Le projet contient quelques Assets (Assets/Imports) qui n'ont pas forcément été utilisé, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérez lors du premier TP, mais si vous avez perdu le lien, il se trouve ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+
+Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) :
+- Touche R : Relance le niveau actuel
+- Touche F9 : Tue le joueur d'un coup 
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Un écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir le logo de l'université
+    - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
+    - Pour rappel, ici il faudra utiliser un Canvas
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou même utiliser celles déjà présentes dans le projet
     - Pensez bien à créer la condition pour aller au niveau suivant
@@ -55,6 +62,9 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
     > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
 - Système de santé du joueur
+    - Possibilité (au choix) de proposer le regain de vie
+- Terminer la gestion de la mort du personnage
+    - A l'heure actuelle, il y a juste un évènement (OnPlayerDeathSO) sur le GameObject "Player"
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
@@ -82,6 +92,10 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - https://www.kenney.nl/assets
 - https://www.itch.io
 - https://opengameart.org/
+
+# Astuces et conseils
+- Le code fournit essaye le plus possible d'éviter le trop fort couplage entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
+- Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs.
 
 # Votre liste à faire
 - [x] Lire les consignes

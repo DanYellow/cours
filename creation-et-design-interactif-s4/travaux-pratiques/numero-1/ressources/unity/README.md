@@ -133,13 +133,15 @@ void Update()
 Enfin, notez les choses suivantes sur les classes :
 - Les méthodes telles que `Start()` ou `Update()` sont propres à la classe `MonoBehaviour`, de ce fait, elles sont automatiquement appelées
 - Toutes les classes n'ont pas à hériter de `MonoBehaviour`
+    - Nous aurons l'occasion de réaliser des classes n'héritant pas de MonoBehaviour
 - Il est possible de définir plusieurs classes dans le même fichier
-- Vous pouvez définir des propriétés propres à une classe. Par convention, on les met au début de la classe. Nous aurons l'occasion de voir ceci durant le cours.
+- Vous pouvez définir des propriétés propres à une classe. Par convention, on les met au début de la classe. Nous aurons l'occasion de voir ceci durant le cours
 - `MonoBehaviour` possède d'autres méthodes (nous en utiliseront d'autres), prenez bien en compte que ces méthodes ont un ordre d'appel
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 # Exercice
 Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
+Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty.
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.

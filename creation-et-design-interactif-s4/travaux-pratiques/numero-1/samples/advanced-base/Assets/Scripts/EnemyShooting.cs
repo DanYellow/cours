@@ -8,9 +8,13 @@ public class EnemyShooting : MonoBehaviour
 
     // From where the projectile will be shot
     public Transform firePoint;
+    public SpriteRenderer spriteRenderer;
 
     [Range(0, 5)]
     public float timeDelayBetweenShots = 0f;
+
+    [Tooltip("Warning time before first shot")]
+    public float delayBeforeFirstShot = 0.5f;
     public int nbOfConsecutiveShots = 3;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,16 +30,23 @@ public class EnemyShooting : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
             StopAllCoroutines();
         }
     }
 
     private IEnumerator PlayAnimInterval(int nbIterations)
     {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(delayBeforeFirstShot);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+
         while (nbIterations > 0)
         {
             animator.Play("PlantAttack", -1, 0f);
             --nbIterations;
+
+            // yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
         }
     }
