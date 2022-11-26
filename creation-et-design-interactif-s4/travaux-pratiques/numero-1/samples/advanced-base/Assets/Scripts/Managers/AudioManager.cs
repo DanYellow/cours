@@ -9,10 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup musicEffectMixer;
     public AudioClip[] playlist;
     private int musicIndex;
-    private float elapsedTime = 0;
-    private bool isGamePaused;
-    private float volumeOnPaused = 0.15f;
+    private float volumeOnPaused = 0.35f;
     private float volumeOnPlay = 1f;
+    private float volumeStep = 0.005f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,22 +27,13 @@ public class AudioManager : MonoBehaviour
         {
             PlayNextMusic();
         }
-
-        if (isGamePaused)
-        {
-           StartCoroutine(DecreaseVolume());
-        }
-        else
-        {
-           StartCoroutine(IncreaseVolume());
-        }
     }
 
     IEnumerator IncreaseVolume()
     {
         while (mainAudioSource.volume < volumeOnPlay)
         {
-            mainAudioSource.volume += 0.0003f;
+            mainAudioSource.volume += volumeStep;
             yield return null;
         }
     }
@@ -51,7 +42,7 @@ public class AudioManager : MonoBehaviour
     {
         while (mainAudioSource.volume > volumeOnPaused)
         {
-            mainAudioSource.volume -= 0.0003f;
+            mainAudioSource.volume -= volumeStep;
             yield return null;
         }
     }
@@ -63,14 +54,6 @@ public class AudioManager : MonoBehaviour
         mainAudioSource.outputAudioMixerGroup = musicEffectMixer;
         mainAudioSource.Play();
     }
-
-    // void PlayRandomSoundClip()
-    // {
-    //     musicIndex = (musicIndex + Random.Range(1, playlist.Length - 1)) % playlist.Length;
-    //     audioSource.clip = playlist[musicIndex];
-    //     audioSource.outputAudioMixerGroup = musicEffectMixer;
-    //     audioSource.Play();
-    // }
 
     public void PlayClipAt(GameObject go)
     {
@@ -85,13 +68,14 @@ public class AudioManager : MonoBehaviour
         Destroy(tempGO, clip.length);
     }
 
-    public void OnTogglePause(bool _isGamePaused)
+    public void OnTogglePause(bool isGamePaused)
     {
-        isGamePaused = _isGamePaused;
-        // if(isGamePaused) {
-        //     mainAudioSource.volume = 0.25f;
-        // } else {
-        //     mainAudioSource.volume = 1;
-        // }
+        if(isGamePaused) {
+            StopAllCoroutines();
+            StartCoroutine(DecreaseVolume());
+        } else {
+            StopAllCoroutines();
+            StartCoroutine(IncreaseVolume());
+        }
     }
 }

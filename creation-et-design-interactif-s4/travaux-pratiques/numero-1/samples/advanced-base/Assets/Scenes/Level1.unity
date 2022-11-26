@@ -564,6 +564,36 @@ Tilemap:
   m_GameObject: {fileID: 423251872}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -11, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -10, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -9, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -1, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -594,36 +624,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -11, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -10, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -9, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
@@ -633,11 +633,11 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3bd50a88b6d679a4d972f90da40a6342, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 21d9ece0a684e0e4c9b0cd145a183440, type: 2}
+    m_Data: {fileID: 11400000, guid: 6ae6fa4609af27348948981ac13b5563, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7544461f5c0907f43a84a71ac1233add, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 6ae6fa4609af27348948981ac13b5563, type: 2}
+    m_Data: {fileID: 11400000, guid: 21d9ece0a684e0e4c9b0cd145a183440, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -1150044129, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
@@ -646,11 +646,11 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -1199748372, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1526066833, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
+    m_Data: {fileID: -735750313, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -480234426, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -735750313, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
+    m_Data: {fileID: -1526066833, guid: 9eb5ec40a858d3344b67f7fe2547adb1, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 6
     m_Data:
@@ -2349,15 +2349,14 @@ PrefabInstance:
       value: Saw
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
-      propertyPath: listWaypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1233865244}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
-      propertyPath: listWaypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1071945022}
-    m_RemovedComponents:
-    - {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
+      propertyPath: listWaypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
 --- !u!1 &1233865243
 GameObject:
@@ -3995,8 +3994,8 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: 35e608246bc670349981e18e00ddc936, type: 2}
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -4055,9 +4054,9 @@ MonoBehaviour:
   Callback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1756634946}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 1756634945}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_isKinematic
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4205,6 +4204,7 @@ GameObject:
   - component: {fileID: 1889033544}
   - component: {fileID: 1889033547}
   - component: {fileID: 1889033548}
+  - component: {fileID: 1889033549}
   m_Layer: 6
   m_Name: PlantEnemy
   m_TagString: Untagged
@@ -4341,7 +4341,7 @@ MonoBehaviour:
   animator: {fileID: 1889033541}
   projectile: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
   firePoint: {fileID: 1821656468}
-  delayBetweenShots: 0
+  timeDelayBetweenShots: 0
 --- !u!114 &1889033546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4407,6 +4407,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1889033549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889033540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1a4dbeb37bb144a9e9f6f90e318824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &3783148718287381545
 PrefabInstance:
   m_ObjectHideFlags: 0

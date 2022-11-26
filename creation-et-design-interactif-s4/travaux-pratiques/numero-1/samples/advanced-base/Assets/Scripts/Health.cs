@@ -48,7 +48,6 @@ public class Health : MonoBehaviour
         if (animationCallback == AnimationCallback.Death)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            // Do other things based on an attack ending.
         }
     }
 }

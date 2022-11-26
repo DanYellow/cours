@@ -11,6 +11,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeu, et bien évidemment des assets que vous pourrez utiliser pour cette SAE. Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
+    - Plus d'explications sur la scène de bootstrap
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Un écran d'accueil (écran qui permet de commencer le jeu)
@@ -19,22 +20,25 @@ Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme posséda
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou même utiliser celles déjà présentes dans le projet
     - Pensez bien à créer la condition pour aller au niveau suivant
         - Exemple : Une zone de trigger
-- Ajouter un écran de crédits (voir plus bas pour son contenu)
-- Donner la possibilité au joueur de mettre en pause le jeu (et bien évidemment le relancer)
+- Ajouter un écran des crédits (voir plus bas pour son contenu)
+- Afficher un menu de pause
+    - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
+    - La gestion du menu pause est faites grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore retourner au menu principal
-- Afficher un écran de fin de partie (Game Over)
-    - A vous de décider les conditions de Game Over ainsi que ses conséquences
-- Créer une props de votre choix (ennemi, panneau...) et l'intégrer dans le jeu
+- Créer **une** props de votre choix (ennemi, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons
+- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
+    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
+- Système de santé du joueur
 
-## Liste des choses à faire au choix. Vous devez au moins en faire une (+ le dernier point de la liste)
-- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies :
-    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, il pourra être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
+## Liste des choses à faire au choix. Vous devez au moins en faire une
+- Afficher un écran de fin de partie (Game Over)
+    - A vous de décider les conditions qui conduisent à la fin de la partie
 - Mort du personnage + écran de game over
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
@@ -43,8 +47,10 @@ Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme posséda
     - https://opengameart.org/
 - Un système de score
     - A vous de définir les règles de bonus / malus de score
+- Des bruitages lors d'actions (sauts, tir...)
+    - Pourquoi pas ne pas réaliser vous-même ces bruitages
 
-### Contenu de l'écran de crédits 
+### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
 - https://pixelfrog-assets.itch.io/pixel-adventure-2
 - https://pixelfrog-assets.itch.io/pixel-adventure-1

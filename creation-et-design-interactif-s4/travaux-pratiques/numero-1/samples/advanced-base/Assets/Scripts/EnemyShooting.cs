@@ -10,12 +10,13 @@ public class EnemyShooting : MonoBehaviour
     public Transform firePoint;
 
     [Range(0, 5)]
-    public float delayBetweenShots = 0;
+    public float timeDelayBetweenShots = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            
             StopAllCoroutines();
             StartCoroutine(PlayAnimInterval(3));
         }
@@ -35,7 +36,7 @@ public class EnemyShooting : MonoBehaviour
         {
             animator.Play("PlantAttack", -1, 0f);
             --nbIterations;
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + delayBetweenShots);
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
         }
     }
 
