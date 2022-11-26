@@ -813,7 +813,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1624425038}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2226,7 +2227,7 @@ Transform:
   - {fileID: 295759372}
   - {fileID: 1693106665}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951540214
 GameObject:
@@ -2260,7 +2261,7 @@ Transform:
   - {fileID: 1233865244}
   - {fileID: 1071945022}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071945021
 GameObject:
@@ -2272,7 +2273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071945022}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SawWaypoint2
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2302,7 +2303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3783148718577746492, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746492, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2368,7 +2369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1233865244}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SawWaypoint1
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3675,13 +3676,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624425035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3527, y: 9.4185, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.3527, y: 9.4185, z: 10}
   m_LocalScale: {x: 63.57211, y: 35.46735, z: 3.5925965}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1624425039
 MonoBehaviour:
@@ -3692,9 +3693,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1624425035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb3567fdf725794384359ca7fb09e2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 53ecf9d556818604695047526bc0af58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.3
+  render: {fileID: 1624425036}
 --- !u!1 &1653855058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4124,7 @@ GameObject:
   - component: {fileID: 1767902785}
   - component: {fileID: 1767902784}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4146,7 +4149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767902783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4155,7 +4158,7 @@ Transform:
   - {fileID: 1372454146}
   - {fileID: 423251873}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1821656467
 GameObject:
@@ -4298,7 +4301,7 @@ Transform:
   m_Children:
   - {fileID: 1821656468}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1889033544
 BoxCollider2D:
@@ -4342,6 +4345,7 @@ MonoBehaviour:
   projectile: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
   firePoint: {fileID: 1821656468}
   timeDelayBetweenShots: 0
+  nbOfConsecutiveShots: 3
 --- !u!114 &1889033546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4419,7 +4423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1a4dbeb37bb144a9e9f6f90e318824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1756634944}
+  isFacingRight: 0
+  thresholdDistanceBeforeLookAt: Infinity
 --- !u!1001 &3783148718287381545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4474,6 +4480,10 @@ PrefabInstance:
     - target: {fileID: 3783148718577746493, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_Name
       value: Saw
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: listWaypoints.Array.data[0]

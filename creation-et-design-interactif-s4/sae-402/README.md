@@ -8,10 +8,30 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
-Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeu, et bien évidemment des assets que vous pourrez utiliser pour cette SAE. Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet unity contient deux scènes :
+Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
+- Gestion des déplacements du joueur
+    - Déplacement gauche / droite
+    - Multi sauts
+- Suivi du joueur par la caméra
+- Ennemis
+    - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger
+- Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
+    - Pause / Relance du jeu
+    - Nombre de points de vie des ennemis de base
+    - ...
+- Système de pause (Appui sur le bouton Echap)
+    - Il n'y a pas de menu de Pause, c'est une des tâches que vous devez effectuer
+    - Il n'est pas forcément complet, il y a des choses à rajouter notamment la gestion des déplacements
+
+et bien évidemment des assets que vous pourrez utiliser pour cette SAE.
+
+Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - Plus d'explications sur la scène de bootstrap
+
+> Le projet contient quelques Assets (Assets/Imports) qui n'ont pas forcément été utilisé, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérez lors du premier TP, mais si vous avez perdu le lien, il se trouve ici :
+    - fef
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Un écran d'accueil (écran qui permet de commencer le jeu)

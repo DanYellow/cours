@@ -6,19 +6,19 @@ public class EnemyShooting : MonoBehaviour
     public Animator animator;
     public GameObject projectile;
 
-    // D'où on va tirer notre projectile
+    // From where the projectile will be shot
     public Transform firePoint;
 
     [Range(0, 5)]
-    public float timeDelayBetweenShots = 0;
+    public float timeDelayBetweenShots = 0f;
+    public int nbOfConsecutiveShots = 3;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            
             StopAllCoroutines();
-            StartCoroutine(PlayAnimInterval(3));
+            StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
         }
     }
 
@@ -32,7 +32,7 @@ public class EnemyShooting : MonoBehaviour
 
     private IEnumerator PlayAnimInterval(int nbIterations)
     {
-        while (nbIterations >= 0)
+        while (nbIterations > 0)
         {
             animator.Play("PlantAttack", -1, 0f);
             --nbIterations;

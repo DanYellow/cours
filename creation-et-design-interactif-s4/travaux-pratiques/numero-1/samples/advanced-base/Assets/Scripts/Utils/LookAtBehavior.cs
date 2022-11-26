@@ -1,13 +1,13 @@
 using UnityEngine;
 
 /**
-* @description Allow any Gameobject to look towards another one
+* @description Allow any Gameobject to look towards another one according to a distance threshold
 **/
 public class LookAtBehavior : MonoBehaviour
 {
     public Transform target;
     public bool isFacingRight = true;
-    public float thresholdDistanceBeforeLookAt = 1 / 0f;
+    public float thresholdDistanceBeforeLookAt = 1 / 0f; // Returns infinity
 
     // Update is called once per frame
     void Update()
