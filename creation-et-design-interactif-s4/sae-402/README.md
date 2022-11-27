@@ -124,3 +124,5 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     - Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
 - Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?
     - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la.
+- Sommes-nous obligés d'utiliser les Scriptables Objects ?
+    - Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulité à extraire un GameObject / Composant. Par ailleurs, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra

@@ -15,7 +15,7 @@ public class BoolEventEditor : Editor
 
         BoolEventChannelSO e = target as BoolEventChannelSO;
 
-        value = EditorGUILayout.Toggle("Active", value);
+        value = EditorGUILayout.Toggle("Is Active", value);
     
         if (GUILayout.Button("Raise")) {
             Debug.Log("value " + value);

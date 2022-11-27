@@ -15,7 +15,7 @@ public class IntEventEditor : Editor
 
         IntEventChannelSO e = target as IntEventChannelSO;
 
-        value = EditorGUILayout.IntField("Number of clones:", value);
+        value = EditorGUILayout.IntField("Value:", value);
     
         if (GUILayout.Button("Raise"))
             e.Raise(value);
