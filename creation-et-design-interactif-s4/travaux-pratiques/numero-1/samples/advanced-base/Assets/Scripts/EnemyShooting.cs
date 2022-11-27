@@ -43,10 +43,9 @@ public class EnemyShooting : MonoBehaviour
 
         while (nbIterations > 0)
         {
-            animator.Play("PlantAttack", -1, 0f);
-            --nbIterations;
+            animator.Play("PlantAttack");
+            nbIterations = nbIterations - 1;
 
-            // yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
         }
     }

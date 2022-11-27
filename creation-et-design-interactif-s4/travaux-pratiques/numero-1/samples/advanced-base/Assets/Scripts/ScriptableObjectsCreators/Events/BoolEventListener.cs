@@ -1,16 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class BoolEvent : UnityEvent<bool>{}
-
 public class BoolEventListener : MonoBehaviour
 {
     // Event to register
     public BoolEventChannelSO Event;
 
     // Function to call when the Event is invoked
-    public BoolEvent Callback;
+    public UnityEvent<bool> Callback;
 
     private void OnEnable()
 	{

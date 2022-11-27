@@ -10,7 +10,7 @@ public class IntEventListener : MonoBehaviour
     public IntEventChannelSO Event;
 
     // Function to call when the Event is invoked
-    public IntEvent Callback;
+    public UnityEvent<int> Callback;
 
     private void OnEnable()
 	{

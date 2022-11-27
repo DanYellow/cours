@@ -13,7 +13,7 @@ public class PickupItem : MonoBehaviour
             sc.content = audioClip;
 
             GameObject impactEffect = Instantiate(collectedEffect, transform.position, transform.rotation);
-            // Destroy (impactEffect, impactEffect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); 
+            Destroy (impactEffect, impactEffect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); 
 
             onPickUpItem.Raise(gameObject);
             Destroy(gameObject);

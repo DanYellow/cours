@@ -78,6 +78,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Un système de score
     - A vous de définir les règles de bonus / malus de score
 - Des bruitages lors d'actions (sauts, tir...)
+    - Vous avez un exemple de fonctionnement de bruitage dans la Prefab "Apple"
     - Pourquoi pas ne pas réaliser vous-même ces bruitages
 
 ### Contenu de l'écran des crédits 
@@ -95,7 +96,15 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter le trop fort couplage entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
-- Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs.
+- Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
+- Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
+- Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de nommage ainsi que nommer très clairement vos variables
+    - Par exemple : évitez d'appeler une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
+- Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs
+    - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs.
+    - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
+Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
+> Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
 
 # Votre liste à faire
 - [x] Lire les consignes
@@ -113,3 +122,5 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettestant
 - J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?
     - Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
+- Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?
+    - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la.
