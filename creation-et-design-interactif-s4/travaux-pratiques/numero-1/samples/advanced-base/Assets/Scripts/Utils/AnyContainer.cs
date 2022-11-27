@@ -5,5 +5,6 @@ using UnityEngine;
 **/
 public class AnyContainer : MonoBehaviour
 {
+    [SerializeField]
     public object content;
 }

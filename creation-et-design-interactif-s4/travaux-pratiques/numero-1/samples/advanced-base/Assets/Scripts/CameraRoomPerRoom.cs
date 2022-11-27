@@ -17,8 +17,14 @@ public class CameraRoomPerRoom : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 
-    public void MoveToRoomAt(Vector2 nextRoomPosition)
+    public void MoveToRoomAt(GameObject go)
     {
-        currentPosX = nextRoomPosition.x;
+        Vector2 isFromLeft = (Vector2)go.GetComponent<Test>().roomToDisplay;
+        currentPosX = isFromLeft.x;
+    }
+
+    public void Move(Vector2 go)
+    {
+        currentPosX = go.x;
     }
 }
