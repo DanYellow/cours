@@ -56,15 +56,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
-- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
-    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
-        - Il y a un sprite avec les différents contrôles et boutons
+
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
     > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
 - Système de santé du joueur
     - Possibilité (au choix) de proposer le regain de vie
-- Terminer la gestion de la mort du personnage
-    - A l'heure actuelle, il y a juste un évènement (OnPlayerDeathSO) sur le GameObject "Player"
+- Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
+    - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
+    - une animation de mort du personnage (testable avec la touche F9)
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
@@ -80,6 +79,9 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Des bruitages lors d'actions (sauts, tir...)
     - Vous avez un exemple de fonctionnement de bruitage dans la Prefab "Apple"
     - Pourquoi pas ne pas réaliser vous-même ces bruitages
+- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
+    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
+        - Il y a un sprite avec les différents contrôles et boutons
 
 ### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.

@@ -1109,6 +1109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0cab6b631ab594a85dd0abf82a679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 3, y: 2, z: -10}
+  smoothTime: 0.25
   target: {fileID: 1748196185}
 --- !u!1 &532084874
 GameObject:
@@ -2377,6 +2379,7 @@ GameObject:
   - component: {fileID: 1748196187}
   - component: {fileID: 1748196188}
   - component: {fileID: 1748196189}
+  - component: {fileID: 1748196190}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2427,7 +2430,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -2675,9 +2678,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPlayerDeath2:
-    m_PersistentCalls:
-      m_Calls: []
+  spriteRenderer: {fileID: 1748196184}
+--- !u!95 &1748196190
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748196180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1762810426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2922,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 3844855279764680396, guid: d405b956ff36dc244b8f843da45d7d09, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1748196190}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2023849488

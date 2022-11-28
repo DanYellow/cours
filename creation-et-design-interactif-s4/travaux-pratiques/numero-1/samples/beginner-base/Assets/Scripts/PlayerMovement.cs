@@ -63,11 +63,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("rb.velocity.y : " + rb.velocity.y);
             isFalling = false;
         }
+
+         Flip();
     }
 
     private void FixedUpdate()
     {
         Move();
+
+        isGrounded = IsGrounded();
     }
 
     private void Move()

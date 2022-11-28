@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
             other.contacts[0].normal.y > -0.5f
             )
         {
-            playerHealth.TakeDamage(1f);
+           playerHealth.TakeDamage(1f);
         }
 
         if (other.contacts[0].normal.y < -0.5f)

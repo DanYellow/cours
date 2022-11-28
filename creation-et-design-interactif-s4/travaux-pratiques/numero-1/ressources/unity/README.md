@@ -175,7 +175,7 @@ Nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous v
 
 
 ## Propriétés de classes
-Pour terminer, petit mémo sur les propriétés de classes en C#. Il faut se rappeler que les variables ont une portée qui leur est spécifique. Ainsi, si vous définissez une variable dans une méthode, elle n'existe que dans la méthode, c'est là qu'entre en jeu les propriétés de classes. C'est un type de variables qui peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
+Pour terminer, petit mémo sur les propriétés de classes en C#. Il faut se rappeler que les variables ont une portée qui leur est spécifique. Ainsi, si vous définissez une variable dans une méthode, elle **n'existe que** dans la méthode, c'est là qu'entre en jeu les propriétés de classes. C'est un type de variables qui peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
 
 ```cs
 [niveau de visibilité] [type] [nom de variable];
@@ -196,6 +196,12 @@ public class MyClass : MonoBehaviour
 
     void Start()
     {
+        // Note : Avec le site $, il est possible d'afficher une variable dans une chaîne de caractères
+        Debug.Log($"nbYearsBUT {nbYearsBUT}");
+    }
+
+    void MyMethod() {
+        nbYearsBUT = 7;
     }
     /* [...] */
 }

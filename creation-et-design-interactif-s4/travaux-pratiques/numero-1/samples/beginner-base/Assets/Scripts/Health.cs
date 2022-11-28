@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -6,6 +7,14 @@ public class Health : MonoBehaviour
     public FloatVariable maxHealth;
 
     public VoidEventChannelSO onPlayerDeath;
+
+    public SpriteRenderer spriteRenderer;
+
+    bool isInvincible = false;
+
+    float invincibilityFlashDelay = 0.2f;
+    float invincibilityTimeAfterHit = 2.5f;
+
 
     private void Start()
     {
@@ -29,6 +38,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
         currentHealth.CurrentValue -= damage;
         if (currentHealth.CurrentValue <= 0)
         {
@@ -41,5 +51,29 @@ public class Health : MonoBehaviour
         Debug.Log("Die");
         onPlayerDeath.Raise();
         this.gameObject.transform.Rotate(0f, 0f, 45f);
+    }
+
+    public IEnumerator InvincibilityFlash()
+    {
+
+        while (isInvincible)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(invincibilityFlashDelay);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(invincibilityFlashDelay);
+        }
+    }
+
+    public IEnumerator HandleInvincibilityDelay()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityTimeAfterHit);
+        isInvincible = false;
+    }
+
+    public bool IsInvincible()
+    {
+        return isInvincible;
     }
 }
