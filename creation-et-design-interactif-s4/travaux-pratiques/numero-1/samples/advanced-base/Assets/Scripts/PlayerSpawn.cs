@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    public Vector3Variable currentCheckpoint;
-    private void Awake() {
-        if(currentCheckpoint?.CurrentValue != null) {
-            transform.position = currentCheckpoint.CurrentValue;
-        }
+    [Tooltip("Define where the player will spawn if there is an issue")]
+    public Vector3 currentSpawnPosition;
+
+    [Tooltip("Define where the player started the game")]
+    public Vector3 initialSpawnPosition;
+    private void Awake()
+    {
+        currentSpawnPosition = gameObject.transform.position;
+        initialSpawnPosition = gameObject.transform.position;
     }
 }

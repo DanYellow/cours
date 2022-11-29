@@ -10,7 +10,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 
 Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
-    - Déplacement gauche / droite
+    - Déplacements horizontaux
     - Multi sauts
 - Suivi du joueur par la caméra
 - Ennemis
@@ -82,6 +82,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons
+- Animer les checkpoints
 
 ### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.

@@ -1,7 +1,6 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
     public BoolEventChannelSO onTogglePauseEvent;
 

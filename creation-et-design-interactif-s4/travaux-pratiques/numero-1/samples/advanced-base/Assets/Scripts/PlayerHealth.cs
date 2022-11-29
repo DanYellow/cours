@@ -15,9 +15,9 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    private void Start()
+    private void Awake()
     {
-        currentHealth.CurrentValue = maxHealth.CurrentValue;
+        currentHealth.CurrentValue = PlayerPrefs.GetFloat("currentHealth", maxHealth.CurrentValue);
     }
 
     private void Update()

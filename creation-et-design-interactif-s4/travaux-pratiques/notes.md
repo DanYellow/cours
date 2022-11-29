@@ -18,3 +18,8 @@ https://stackoverflow.com/questions/32306704/how-to-pass-data-and-references-bet
 - https://www.youtube.com/watch?v=raQ3iHhE_Kk&t=1964s
 
 - https://forum.unity.com/threads/ui-not-tied-to-player-or-gamecontoller.1324710/#post-8379801
+
+https://www.reddit.com/r/Unity3D/comments/mp29s8/gamecontroller_events_vs_singleton_invocations/
+https://gamedevbeginner.com/events-and-delegates-in-unity/#event_based_systems
+
+https://opengameart.org/content/8bit-style-music

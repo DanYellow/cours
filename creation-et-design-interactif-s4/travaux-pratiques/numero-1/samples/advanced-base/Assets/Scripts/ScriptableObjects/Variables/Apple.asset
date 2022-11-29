@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace51e6df81d61a4a96dcbea33e92c55, type: 3}
-  m_Name: OnCheckpointReachedSO
+  m_Script: {fileID: 11500000, guid: a9fd7fa84cf441248abd41f4e6a9c722, type: 3}
+  m_Name: Apple
   m_EditorClassIdentifier: 
+  title: Apple
+  value: 50
+  audioClip: {fileID: 8300000, guid: 01b20bbbf1e61064b9b967d9a458ec58, type: 3}
+  onCollect: {fileID: 11400000, guid: bf2305d8cabcf3c47b3cc7caf29d8c6d, type: 2}

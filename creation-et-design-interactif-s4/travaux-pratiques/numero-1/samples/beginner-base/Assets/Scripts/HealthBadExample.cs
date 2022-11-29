@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class HealthBadExample : MonoBehaviour
 {
+    [UnityEngine.Serialization.FormerlySerializedAs("rotationAmount")]
     public float maxHealth;
     [ReadOnlyInspector]
     public float currentHealth;

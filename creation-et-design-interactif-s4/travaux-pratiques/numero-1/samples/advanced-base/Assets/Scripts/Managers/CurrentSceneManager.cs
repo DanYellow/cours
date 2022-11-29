@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLevelManager : MonoBehaviour
+public class CurrentSceneManager : MonoBehaviour
 {
-    public Vector2 currentCheckpoint;
-
     void Update()
     {
         #if UNITY_EDITOR
@@ -29,11 +27,6 @@ public class LoadLevelManager : MonoBehaviour
     {
         Debug.Log("Display Gameover");
         // SceneManager.LoadScene("GameOver");
-    }
-
-    public void SetCheckpoint(GameObject go)
-    {
-        currentCheckpoint = go.transform.position;
     }
 
     public void QuitGame()
