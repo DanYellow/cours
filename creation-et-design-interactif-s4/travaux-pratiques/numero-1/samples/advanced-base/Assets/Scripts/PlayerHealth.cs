@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public VoidEventChannelSO onPlayerDeath;
     public Animator animator;
 
+    public bool needResetHP = true;
+
     public enum AnimationCallback
     {
         Death,
@@ -17,7 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth.CurrentValue = PlayerPrefs.GetFloat("currentHealth", maxHealth.CurrentValue);
+        if(needResetHP) {
+            currentHealth.CurrentValue = maxHealth.CurrentValue;
+        }
     }
 
     private void Update()

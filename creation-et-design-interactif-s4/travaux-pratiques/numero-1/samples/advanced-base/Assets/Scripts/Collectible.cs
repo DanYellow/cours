@@ -7,7 +7,6 @@ public class Collectible : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     private void Awake() {
-        Debug.Log("spriteRenderer " + spriteRenderer);
         spriteRenderer.sprite = data.sprite;
     }
 

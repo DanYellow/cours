@@ -29,6 +29,8 @@ string playerName = "player1";
 string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
 
+> Si vous souhaitez définir une constante (variable dont la valeur ne peut pas changer au cours du temps), il suffit juste de mettre "const" devant le type de la variable. Exemple : `const string cours = "Unity"`.
+
 ### Liste ou tableau ?
 Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau. Alors qu'une liste a une dimension dynamique.
 
@@ -141,7 +143,7 @@ Enfin, notez les choses suivantes sur les classes :
 
 # Exercice
 Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
-Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script". 
+Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier Assets/Scripts). 
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
@@ -152,25 +154,35 @@ Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré 
 
 Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la méthode `Debug.Log()`)
 - Un nombre décimal
+    - A définir dans la fonction `Start()`
 - Une chaîne de caractères
+    - A définir dans la fonction `Start()`
 - Un tableau contenant des nombres
+    - A définir dans la fonction `Start()`
 - Une fonction qui **retourne** "Bonjour" + la chaine de caractères passée en paramètre
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui fait ce que vous souhaitez mais qui est appelée quand on appuie sur une touche
-    - Ce code devra impérativement être exécuté au sein de la méthode "Update()", sinon ça ne fonctionnera pas (voir exemple plus haut)
+    - L'appel de la fonction devra impérativement être fait au sein de la méthode "Update()", sinon ça ne fonctionnera pas (voir exemple plus haut)
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
+- Déplacement du joueur
 - Gestion du son / physique
 - Animation
+- Scriptable Objects
 
-Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. N'hésitez pas à utiliser les outils mis à votre disposition pour créer des ressources pour vos créations :
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
 
-Nous verrons dans les grandes lignes, l'interface d'Unity. Néanmoins, si vous voulez voir ceci en vidéo, vous avez ceci : 
+Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
+- [https://itch.io/](https://itch.io/)
+- [https://opengameart.org/](https://opengameart.org/)
+- [https://www.mixamo.com/ - Ressources 3D](https://www.mixamo.com/)
+
+Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
 
 
