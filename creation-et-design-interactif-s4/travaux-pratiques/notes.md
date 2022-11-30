@@ -1,5 +1,6 @@
 - has exit time : permet à l'animation de se jouer directement
 - transition duration : permet de passer d'une anim à l'autre
+    - Mettre à 1 lorsqu'on va d'une animation qui provient de any state vers une anim normale
 
 
 - https://github.com/nickbota/Unity-Platformer-Episode-9/blob/main/Assets/Scripts/Enemies/Spikehead.cs
@@ -23,3 +24,5 @@ https://www.reddit.com/r/Unity3D/comments/mp29s8/gamecontroller_events_vs_single
 https://gamedevbeginner.com/events-and-delegates-in-unity/#event_based_systems
 
 https://opengameart.org/content/8bit-style-music
+
+https://www.pekalicious.com/blog/unity3d-reusing-animator-controllers-with-animatoroverridecontroller/

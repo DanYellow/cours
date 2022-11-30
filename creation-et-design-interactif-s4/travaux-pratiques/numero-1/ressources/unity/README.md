@@ -141,7 +141,7 @@ Enfin, notez les choses suivantes sur les classes :
 
 # Exercice
 Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
-Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty.
+Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script". 
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
