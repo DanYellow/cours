@@ -26,3 +26,7 @@ https://gamedevbeginner.com/events-and-delegates-in-unity/#event_based_systems
 https://opengameart.org/content/8bit-style-music
 
 https://www.pekalicious.com/blog/unity3d-reusing-animator-controllers-with-animatoroverridecontroller/
+
+# Scriptable objects
+// https://github.com/UnityTechnologies/open-project-1/blob/devlogs/2-scriptable-objects/UOP1_Project/Assets/Scripts/Events/IntEventListener.cs
+// https://www.youtube.com/watch?v=WLDgtRNK2VE

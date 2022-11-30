@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class VoidEventListener : MonoBehaviour
+
+public class PlaySoundAtEventListener : MonoBehaviour
 {
     // Event to register
-    public VoidEventChannelSO Event;
+    public PlaySoundAtEventChannelSO Event;
 
     // Function to call when the Event is invoked
-    public UnityEvent Callback;
+    public UnityEvent<AudioClip, Vector3> Callback;
 
     private void OnEnable()
 	{
@@ -21,9 +22,9 @@ public class VoidEventListener : MonoBehaviour
 			Event.OnEventRaised -= OnEventRaised;
 	}
 
-	private void OnEventRaised()
+	private void OnEventRaised(AudioClip sound, Vector3 position)
 	{
 		if (Event != null)
-			Callback.Invoke();
+			Callback.Invoke(sound, position);
 	}
 }

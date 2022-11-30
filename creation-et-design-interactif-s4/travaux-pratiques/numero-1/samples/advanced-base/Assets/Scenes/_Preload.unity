@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 9194846822252313329}
   - component: {fileID: 9194846822252313344}
   - component: {fileID: 9194846822252313345}
+  - component: {fileID: 9194846822252313346}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194846822252313340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d864f8c9a31e3f24aa113d18d09cec36, type: 3}
   m_Name: 
@@ -366,6 +367,34 @@ MonoBehaviour:
       - m_Target: {fileID: 9194846822252313342}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: OnTogglePause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9194846822252313346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194846822252313340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad614159ed5f2564aa2371b6f313f2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 9ebe5a0637e1d63489d2097e440f238c, type: 2}
+  Callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9194846822252313342}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClipAt
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

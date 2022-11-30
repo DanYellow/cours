@@ -8,7 +8,11 @@ public class VoidEventChannelSO : ScriptableObject
 
 	public void Raise()
 	{
-		if (OnEventRaised != null)
+		// We wheck if someone is really listening to our event
+		if (OnEventRaised != null) {
 			OnEventRaised.Invoke();
+		} else {
+			Debug.LogWarning("Some gameobject raised");
+		}
 	}
 }

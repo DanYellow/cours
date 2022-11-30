@@ -55,12 +55,12 @@ public class AudioManager : MonoBehaviour
         mainAudioSource.Play();
     }
 
-    public void PlayClipAt(GameObject go)
+    public void PlayClipAt(AudioClip clip, Vector3 position)
     {
-        AudioClip clip = go.GetComponent<AnyContainer>().content as AudioClip;
-        Vector3 pos = go.transform.position;
+        // AudioClip clip = go.GetComponent<AnyContainer>().content as AudioClip;
+        // Vector3 pos = go.transform.position;
         GameObject tempGO = new GameObject("TempAudio");
-        tempGO.transform.position = pos;
+        tempGO.transform.position = position;
         AudioSource audioSource = tempGO.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.outputAudioMixerGroup = soundEffectMixer;
