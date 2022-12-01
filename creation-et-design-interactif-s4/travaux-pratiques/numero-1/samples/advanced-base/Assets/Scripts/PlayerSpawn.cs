@@ -5,7 +5,7 @@ public class PlayerSpawn : MonoBehaviour
     [Tooltip("Define where the player will spawn if there is an issue")]
     public Vector3 currentSpawnPosition;
 
-    [Tooltip("Define where the player started the game")]
+    [Tooltip("Define where the player started the level")]
     public Vector3 initialSpawnPosition;
     private void Awake()
     {
