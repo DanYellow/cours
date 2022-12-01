@@ -14,8 +14,6 @@ public class RockHead : MonoBehaviour
 
     public Transform[] listChecks;
 
-    private Transform currentCheck;
-
     private Vector3[] directions = new Vector3[4];
 
     [SerializeField]
@@ -32,9 +30,6 @@ public class RockHead : MonoBehaviour
         directions[1] = transform.up;//Right direction
         directions[2] = -transform.right;   //Up direction
         directions[3] = -transform.up;   //Down direction
-
-
-        // GetCurrentListChecks();
     }
 
     // Update is called once per frame
@@ -51,33 +46,39 @@ public class RockHead : MonoBehaviour
             Debug.Log("rb.velocity " + rb.velocity);
             Debug.Log("rb " + (rb.velocity == Vector2.zero));
             Debug.Log("string " + (currentList != string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray())));
-            // GetCurrentListChecks();
-
-            // foreach (var x in listChecks.Select(x => IsContact(x)).ToArray())
-            // {
-            //     Debug.Log(x);
-            // }
-            // Debug.Log();
         }
     }
 
-    void FixedUpdate() {
-        if(rb.velocity == Vector2.zero && currentList != string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray())) {
-            // if(IsContact(listChecks[2]) && !IsContact(listChecks[3])) {
-            //     rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation; 
-            // } else {
-            //      rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            // }
+    void FixedUpdate()
+    {
+        if (rb.velocity == Vector2.zero && currentList != string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray()))
+        {
+            // 0 : bottom
+            // 1 : right
+            // 2 : top
+            // 3 : left
+
             // Dont move anymore
-            // Debug.Log("Dont move " + currentIndex + " | " + directions[currentIndex]);
-            // rb.AddForce(directions[currentIndex] * speed);
-            rb.AddRelativeForce(directions[currentIndex] * speed);
-            Debug.Log(" fff" + directions[currentIndex] * speed);
-            // rb.velocity = Vector3.Lerp(rb.velocity, directions[currentIndex] , speed * Time.fixedDeltaTime);
-            currentList = string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray());
-            currentIndex = (currentIndex + 1) % directions.Length;
-            // rb.gravityScale = Vector2.zero;
+            if ((IsContact(listChecks[0]) && IsContact(listChecks[3])) || IsContact(listChecks[2]) && IsContact(listChecks[1]))
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            }
+            else if ((IsContact(listChecks[0]) && IsContact(listChecks[1])) || IsContact(listChecks[2]) && IsContact(listChecks[3]))
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            }
+            
+            rb.AddForce(directions[currentIndex] * speed);
+            StartCoroutine(ChangeDirection());
         }
+    }
+
+    IEnumerator ChangeDirection()
+    {
+        yield return new WaitForSeconds(2f);
+        currentList = string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray());
+        currentIndex = (currentIndex + 1) % directions.Length;
+
     }
 
     private bool IsContact(Transform t)
