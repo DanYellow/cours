@@ -1,25 +1,25 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class RockHead2 : MonoBehaviour
 {
-    public float range = 100;
+    private float range = 100;
     public Rigidbody2D rb;
 
     public LayerMask listTriggerLayers;
     private Collider2D currentTrigger;
 
-    public float speed; // 30
+    private Vector3[] listDirections = new Vector3[4];
 
-    public List<Transform> listDirections = new List<Transform>();
+    public float speed;
 
     private Vector3 destination;
 
     public GameObject[] listTriggers;
     private float delayBetweenMoves = 1.2f;
 
-    private int currentIndex = 1;
+    private int currentIndex = 0;
+    private int directionChecked = 0;
 
     public Animator animator;
 
@@ -27,7 +27,18 @@ public class RockHead2 : MonoBehaviour
     void Start()
     {
         EnableTriggers();
-        CheckForTriggers();
+        Debug.Log("currentIndex " + currentIndex);
+        listDirections[0] = transform.right * range; // Right direction
+        listDirections[1] = -transform.right * range; // Left direction
+        listDirections[2] = transform.up * range; // Up direction
+        listDirections[3] = -transform.up * range; // Down direction
+    }
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.N)) {
+            CheckForTriggers();
+            Debug.Log(rb.velocity);
+        }
     }
 
     void EnableTriggers()
@@ -44,13 +55,12 @@ public class RockHead2 : MonoBehaviour
 
     private void CheckForTriggers()
     {
-        CalculateDirections();
-
         // Check in all directions if detects trigger 
-        for (int i = 0; i < listDirections.Count; i++)
+        for (int i = 0; i < listDirections.Length; i++)
         {
-            Debug.DrawRay(transform.position, listDirections[i].localPosition * range, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i].localPosition * range, range, listTriggerLayers);
+            directionChecked = (directionChecked + 1) % listTriggers.Length;
+            Debug.DrawRay(transform.position, listDirections[i], Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, listTriggerLayers);
             if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
             {
                 StartCoroutine(ChangeDirection(-hit.normal));
@@ -77,35 +87,29 @@ public class RockHead2 : MonoBehaviour
         EnableTriggers();
     }
 
-    private void CalculateDirections()
+    private void OnCollisionStay2D(Collision2D other)
     {
-        // for (int i = 0; i < listDirections.Count; i++)
-        // {
-        //     GameObject t = new GameObject();
-        //     t.transform.position = listDirections[i].position * range;
-        //     listDirections.Insert(i, t.transform);
-        // }
+        if (rb.velocity == Vector2.zero)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            {
+                if (destination.y > 0)
+                {
+                    animator.SetTrigger("HitTop");
+                }
+                else if (destination.y < 0)
+                {
+                    animator.SetTrigger("HitBottom");
+                }
 
-        // directions[0] = transform.right * range; // Right direction
-        // directions[1] = -transform.right * range; // Left direction
-        // directions[2] = transform.up * range; // Up direction
-        // directions[3] = -transform.up * range; // Down direction
-    }
-
-    private void OnCollisionStay2D(Collision2D other) {
-        if(rb.velocity == Vector2.zero){
-            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)) {
-            if(destination.y > 0) {
-                animator.SetTrigger("HitTop");
-            } else if (destination.y < 0) {
-                animator.SetTrigger("HitBottom");
-            }
-
-            if(destination.x > 0) {
-                animator.SetTrigger("HitRight");
-            } else if (destination.x < 0) {
-                animator.SetTrigger("HitLeft");
-            }
+                if (destination.x > 0)
+                {
+                    animator.SetTrigger("HitRight");
+                }
+                else if (destination.x < 0)
+                {
+                    animator.SetTrigger("HitLeft");
+                }
             }
             CheckForTriggers();
         }

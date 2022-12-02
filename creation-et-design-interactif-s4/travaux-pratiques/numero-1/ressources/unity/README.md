@@ -26,7 +26,7 @@ int anneesBUT = 3;
 string playerName = "player1";
 
 // Un tableau de chaînes de caractères
-string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
+string[] tableauFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
 
 > Si vous souhaitez définir une constante (variable dont la valeur ne peut pas changer au cours du temps), il suffit juste de mettre "const" devant le type de la variable. Exemple : `const string cours = "Unity"`.
@@ -35,11 +35,12 @@ string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
 Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau. Alors qu'une liste a une dimension dynamique.
 
 ```cs
-// Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove()
-List<string> listFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
+// Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove() ou même en remplacer à un index précis grâce à la méthode .Insert().
+List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 ```
 - [Différence Liste et Tableau en C# - anglais](https://www.shekhali.com/c-array-vs-list)
 
+> Autre point important : Il existe une autre différence entre les listes et les tableaux en C#. Pour accéder au nombre d'éléments, on utilisera la propriété "Length", là où on utilisera la propriété "Count" pour les listes.
 
 ## Fonctions
 ```cs
