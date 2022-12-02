@@ -1389,7 +1389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &458762469
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,14 +1678,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 150
   rb: {fileID: 599809351}
-  listGroundLayers:
+  listTriggerLayers:
     serializedVersion: 2
     m_Bits: 128
   speed: 300
+  listDirections:
+  - {fileID: 458762469}
+  - {fileID: 2048172613}
   listTriggers:
   - {fileID: 159779956}
   - {fileID: 795796687}
-  currentTrigger: {fileID: 0}
   animator: {fileID: 599809349}
 --- !u!50 &599809351
 Rigidbody2D:
@@ -12911,16 +12913,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 150
   rb: {fileID: 2002631542}
-  listGroundLayers:
+  listTriggerLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   speed: 3000
+  listDirections: []
   listTriggers:
   - {fileID: 1167563621}
   - {fileID: 618122406}
   - {fileID: 1144551259}
   - {fileID: 603998506}
-  currentTrigger: {fileID: 0}
   animator: {fileID: 2002631546}
 --- !u!50 &2002631542
 Rigidbody2D:
@@ -13106,7 +13108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2048172613
 Transform:
   m_ObjectHideFlags: 0
