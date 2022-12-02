@@ -7,25 +7,29 @@ public class RockHead2 : MonoBehaviour
     public float range = 100;
     public Rigidbody2D rb;
 
-    private Color[] listColors = new Color[4];
+    private float _shootingRate;
+    private float _nextShootTime = 0f;
+
     public LayerMask listGroundLayers;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed; // 30
 
     private Vector3 destination;
 
     public GameObject[] listTriggers;
+    public Collider2D currentTrigger;
     private float delayBetweenMoves = 1.2f;
 
-    public int currentIndex = 0;
+    // [SerializeField, ReadOnlyInspector]
+    private int currentIndex = 0;
 
     public Animator animator;
-
-    public Vector2 prevVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
         EnableTriggers();
+        CheckForTriggers();
+        // currentIndex = 0;
     }
 
     void EnableTriggers()
@@ -36,29 +40,20 @@ public class RockHead2 : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Logger();
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.N)) {
+            CheckForTriggers();
         }
     }
 
     private void FixedUpdate()
     {
-        CheckForPlayer();
+        // CheckForTriggers();
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
 
     }
 
-    void Logger()
-    {
-        Debug.Log("rb " + rb.velocity);
-        Debug.Log("Testtttt " + destination);
-        Debug.Log("currentIndex " + currentIndex);
-    }
-
-    private void CheckForPlayer()
+    private void CheckForTriggers()
     {
         CalculateDirections();
 
@@ -67,21 +62,30 @@ public class RockHead2 : MonoBehaviour
         {
             Debug.DrawRay(transform.position, directions[i], Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, listGroundLayers);
-            if (hit.collider != null && rb.velocity == Vector2.zero)
+            if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
             {
-                prevVelocity = rb.velocity;
-                StartCoroutine(ChangeDirection(i));
+                StartCoroutine(ChangeDirection(i, -hit.normal));
+                currentTrigger = hit.collider;
+                // rb.AddForce(-hit.normal * speed, ForceMode2D.Impulse);
+                // currentIndex = currentIndex + 1;
             }
         }
     }
 
-    IEnumerator ChangeDirection(int i)
-    {
-        yield return new WaitForSeconds(delayBetweenMoves);
-        destination = directions[i];
-        currentIndex = i;
+    // public static void DumpToConsole(object obj)
+    // {
+    //     var output = JsonUtility.ToJson(obj, true);
+    //     Debug.Log(output);
+    // }
 
-        if (i == 0 || i == 2)
+    IEnumerator ChangeDirection(int i, Vector2 dir)
+    {
+        Debug.Log("currentIndex " + currentIndex);
+        yield return new WaitForSeconds(delayBetweenMoves);
+        destination = dir;//directions[i];
+        currentIndex = (currentIndex + 1) % directions.Length;
+
+        if (dir.x == 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
@@ -95,98 +99,36 @@ public class RockHead2 : MonoBehaviour
 
     private void CalculateDirections()
     {
-        directions[1] = transform.right * range; //Right direction
-        directions[3] = -transform.right * range; //Left direction
-        directions[2] = transform.up * range; //Up direction
-        directions[0] = -transform.up * range; //Down direction
-
-        // directions[0] = transform.right * range; //Right direction
-        // directions[1] = -transform.right * range; //Left direction
+        // directions[1] = transform.right * range; //Right direction
+        // directions[3] = -transform.right * range; //Left direction
         // directions[2] = transform.up * range; //Up direction
-        // directions[3] = -transform.up * range; //Down direction
-    }
+        // directions[0] = -transform.up * range; //Down direction
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        // if ((this.transform.position.x - other.collider.transform.position.x) < 0) {
-        //         print("hit left 2");
-        //     } else if ((this.transform.position.x - other.collider.transform.position.x) > 0) {
-        //         print("hit right 2");
-        //     }
-
-        // if(other.transform.position.y < transform.position.y) {
-        //     animator.SetTrigger("HitTop");
-        // }
-
-        // if(other.transform.position.y > transform.position.y) {
-        //     animator.SetTrigger("HitBottom");
-        // }
-
-        // Debug.Log("fff " + (other.transform.position.x < transform.position.x));
-        // if(other.transform.position.x < transform.position.x) {
-        //     animator.SetTrigger("LeftTop");
-        // }
-
-        // if(other.transform.position.x > transform.position.x) {
-        //     animator.SetTrigger("RightTop");
-        // }
-        // ContactPoint2D[] contacts = new ContactPoint2D[4];
-
-        // Debug.Log("Contact " + other.contacts.Length);
-        // print("contactCount " + other.contactCount);
-        // Debug.Log("top " + other.GetContacts(contacts));
-        // Debug.Log("top " + (other.contacts[0].normal.y > -0.5f));
-        // Debug.Log("Bottom " + (other.contacts[0].normal.y < 0.5f));
-        // Debug.Log("Left " + (other.contacts[0].normal.x > -0.5f));
-        // Debug.Log("Right " + (other.contacts[0].normal.x > -0.5f));
-
+        directions[0] = transform.right * range; //Right direction
+        directions[1] = -transform.right * range; //Left direction
+        directions[2] = transform.up * range; //Up direction
+        directions[3] = -transform.up * range; //Down direction
     }
 
     private void OnCollisionStay2D(Collision2D other) {
-        if(rb.velocity == Vector2.zero && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)){
-            Debug.Log("Stopped " + destination);
-
+        if(rb.velocity == Vector2.zero){
+            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)) {
+                // Debug.Log(destination);
+            
             if(destination.y > 0) {
                 animator.SetTrigger("HitTop");
-                Debug.Log("top ");
             } else if (destination.y < 0) {
-                Debug.Log("bottom");
                 animator.SetTrigger("HitBottom");
             }
 
             if(destination.x > 0) {
-                Debug.Log("right ");
                 animator.SetTrigger("HitRight");
             } else if (destination.x < 0) {
-                Debug.Log("left");
                 animator.SetTrigger("HitLeft");
             }
+            }
+            // _nextShootTime = Time.time + _shootingRate;
+            CheckForTriggers();
         }
-        // if(rb.velocity == Vector2.zero && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
-        //     if(other.contacts[0].normal.x < -0.5f) {
-        //         animator.SetTrigger("HitBottom");
-        //     } else if(other.contacts[0].normal.x > 0.5f) {
-        //         animator.SetTrigger("HitTop");
-        //     }
-
-        //     if(other.contacts[0].normal.y < -0.5f) {
-        //         animator.SetTrigger("HitLeft");
-        //     } else if(other.contacts[0].normal.y > 0.5f) {
-        //         animator.SetTrigger("HitRight");
-        //     }
-        //     // Debug.Log("normal.y " + other.contacts[0].normal.y);
-        //     // Debug.Log("normal.x " + other.contacts[0].normal.x);
-        //     // if ((this.transform.position.x - other.collider.transform.position.x) < 0) {
-        //     //     print("hit left");
-        //     // } else if ((this.transform.position.x - other.collider.transform.position.x) > 0) {
-        //     //     print("hit right");
-        //     // }
-        // }
-
-        
     }
-
-    // private void OnTriggerExit2D(Collider2D other) {
-    //     Debug.Log("OnTriggerExit2D");
-    // }
 }
