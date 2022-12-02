@@ -65,7 +65,7 @@ public void Addition(int num1, int num2)
 }
 ```
 
-> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode, **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;).
+> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
 
 Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
 ```cs
@@ -78,6 +78,7 @@ public int Addition(int num1, int num2)
 int sum = Addition(5, 6);
 Debug.Log("Résultat somme : " + sum);
 ```
+On remarque qu'en plus d'avoir le mot-clé "return", "void" a été remplacé par "int" car notre fonction retourne une variable de type entier (int).
 
 Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` ou `while` car la syntaxe est la même comparée aux autres langages que vous avez pu voir durant votre BUT. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
 - [Voir liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) 
