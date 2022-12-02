@@ -57,8 +57,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClipAt(AudioClip clip, Vector3 position)
     {
-        // AudioClip clip = go.GetComponent<AnyContainer>().content as AudioClip;
-        // Vector3 pos = go.transform.position;
         GameObject tempGO = new GameObject("TempAudio");
         tempGO.transform.position = position;
         AudioSource audioSource = tempGO.AddComponent<AudioSource>();
