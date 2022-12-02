@@ -1,7 +1,5 @@
-using System.Linq;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class RockHead2 : MonoBehaviour
 {
@@ -14,7 +12,6 @@ public class RockHead2 : MonoBehaviour
     [SerializeField] private float speed;
 
     private Vector3 destination;
-    private bool attacking = false;
 
     public GameObject[] listTriggers;
     private float delayBetweenMoves = 1.2f;
@@ -23,18 +20,15 @@ public class RockHead2 : MonoBehaviour
 
     public Animator animator;
 
+    public Vector2 prevVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < listColors.Length; i++)
-        {
-            listColors[i] = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-        }
-        EnableTrigger();
-
+        EnableTriggers();
     }
 
-    void EnableTrigger()
+    void EnableTriggers()
     {
         for (int i = 0; i < listTriggers.Length; i++)
         {
@@ -44,7 +38,6 @@ public class RockHead2 : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.N))
         {
             Logger();
@@ -54,11 +47,8 @@ public class RockHead2 : MonoBehaviour
     private void FixedUpdate()
     {
         CheckForPlayer();
+        rb.AddForce(destination * speed, ForceMode2D.Impulse);
 
-            rb.AddForce(destination * speed);
-        if (attacking)
-        {
-        }
     }
 
     void Logger()
@@ -77,8 +67,9 @@ public class RockHead2 : MonoBehaviour
         {
             Debug.DrawRay(transform.position, directions[i], Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, listGroundLayers);
-            if (hit.collider != null && rb.velocity == Vector2.zero) //  && Time.time >= nextShootTime
+            if (hit.collider != null && rb.velocity == Vector2.zero)
             {
+                prevVelocity = rb.velocity;
                 StartCoroutine(ChangeDirection(i));
             }
         }
@@ -88,7 +79,6 @@ public class RockHead2 : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBetweenMoves);
         destination = directions[i];
-        attacking = true;
         currentIndex = i;
 
         if (i == 0 || i == 2)
@@ -100,7 +90,7 @@ public class RockHead2 : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
 
-        EnableTrigger();
+        EnableTriggers();
     }
 
     private void CalculateDirections()
@@ -119,18 +109,18 @@ public class RockHead2 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         // if ((this.transform.position.x - other.collider.transform.position.x) < 0) {
-        //         print("hit left");
+        //         print("hit left 2");
         //     } else if ((this.transform.position.x - other.collider.transform.position.x) > 0) {
-        //         print("hit right");
+        //         print("hit right 2");
         //     }
 
-        if(other.transform.position.y < transform.position.y) {
-            animator.SetTrigger("HitTop");
-        }
+        // if(other.transform.position.y < transform.position.y) {
+        //     animator.SetTrigger("HitTop");
+        // }
 
-        if(other.transform.position.y > transform.position.y) {
-            animator.SetTrigger("HitBottom");
-        }
+        // if(other.transform.position.y > transform.position.y) {
+        //     animator.SetTrigger("HitBottom");
+        // }
 
         // Debug.Log("fff " + (other.transform.position.x < transform.position.x));
         // if(other.transform.position.x < transform.position.x) {
@@ -142,12 +132,7 @@ public class RockHead2 : MonoBehaviour
         // }
         // ContactPoint2D[] contacts = new ContactPoint2D[4];
 
-        // Vector2 direction = other.GetContact(1).normal;
-        // if(direction.x == 1) print("right");
-        // if(direction.x == -1) print("left");
-        // if(direction.y == 1) print("up");
-        // if(direction.y == -1) print("down");
-        Debug.Log("Contact");
+        // Debug.Log("Contact " + other.contacts.Length);
         // print("contactCount " + other.contactCount);
         // Debug.Log("top " + other.GetContacts(contacts));
         // Debug.Log("top " + (other.contacts[0].normal.y > -0.5f));
@@ -156,4 +141,52 @@ public class RockHead2 : MonoBehaviour
         // Debug.Log("Right " + (other.contacts[0].normal.x > -0.5f));
 
     }
+
+    private void OnCollisionStay2D(Collision2D other) {
+        if(rb.velocity == Vector2.zero && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)){
+            Debug.Log("Stopped " + destination);
+
+            if(destination.y > 0) {
+                animator.SetTrigger("HitTop");
+                Debug.Log("top ");
+            } else if (destination.y < 0) {
+                Debug.Log("bottom");
+                animator.SetTrigger("HitBottom");
+            }
+
+            if(destination.x > 0) {
+                Debug.Log("right ");
+                animator.SetTrigger("HitRight");
+            } else if (destination.x < 0) {
+                Debug.Log("left");
+                animator.SetTrigger("HitLeft");
+            }
+        }
+        // if(rb.velocity == Vector2.zero && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+        //     if(other.contacts[0].normal.x < -0.5f) {
+        //         animator.SetTrigger("HitBottom");
+        //     } else if(other.contacts[0].normal.x > 0.5f) {
+        //         animator.SetTrigger("HitTop");
+        //     }
+
+        //     if(other.contacts[0].normal.y < -0.5f) {
+        //         animator.SetTrigger("HitLeft");
+        //     } else if(other.contacts[0].normal.y > 0.5f) {
+        //         animator.SetTrigger("HitRight");
+        //     }
+        //     // Debug.Log("normal.y " + other.contacts[0].normal.y);
+        //     // Debug.Log("normal.x " + other.contacts[0].normal.x);
+        //     // if ((this.transform.position.x - other.collider.transform.position.x) < 0) {
+        //     //     print("hit left");
+        //     // } else if ((this.transform.position.x - other.collider.transform.position.x) > 0) {
+        //     //     print("hit right");
+        //     // }
+        // }
+
+        
+    }
+
+    // private void OnTriggerExit2D(Collider2D other) {
+    //     Debug.Log("OnTriggerExit2D");
+    // }
 }

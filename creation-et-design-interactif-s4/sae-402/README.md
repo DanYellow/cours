@@ -43,10 +43,12 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - L'écran doit contenir le logo de l'université
     - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
     - Pour rappel, ici il faudra utiliser un Canvas
+    - **Ceci nécessite donc de donner un nom à votre jeu également**
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
-    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou même utiliser celles déjà présentes dans le projet
+    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou  utiliser celles déjà présentes dans le projet
     - Pensez bien à créer la condition pour aller au niveau suivant
         - Exemple : Une zone de trigger
+    - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
 - Afficher un menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
