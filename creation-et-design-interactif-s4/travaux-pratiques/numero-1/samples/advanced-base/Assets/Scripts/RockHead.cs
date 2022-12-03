@@ -1,95 +1,155 @@
-using System.Linq;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class RockHead : MonoBehaviour
 {
-    public float speed = 0.10f;
-    public LayerMask listGroundLayers;
-
+    private float range = 100;
     public Rigidbody2D rb;
 
-    public float checkRadius = 0.25f;
+    public LayerMask listTriggerLayers;
+    private Collider2D currentTrigger;
 
-    public Transform[] listChecks;
+    private Vector3[] listDirections = new Vector3[4];
 
-    private Vector3[] directions = new Vector3[4];
+    public float speed;
 
-    [SerializeField]
+    private Vector3 destination;
+
+    public GameObject[] listTriggers;
+    public float delayBetweenMoves;
+
     private int currentIndex = 0;
 
-    [SerializeField]
-    private string currentList = "";
-
-    public Transform[] listMagnets;
-
-    private float shootingRate = 2f;
-    private float nextShootTime = 0f;
-
+    public Animator animator;
+    private string lastAnimationPlayed = "";
 
     // Start is called before the first frame update
     void Start()
     {
-        directions[0] = transform.right;//Left direction
-        directions[1] = transform.up;//Right direction
-        directions[2] = -transform.right;   //Up direction
-        directions[3] = -transform.up;   //Down direction
+        EnableTriggers();
+        listDirections[0] = transform.right * range; // Right direction
+        listDirections[1] = -transform.right * range; // Left direction
+        listDirections[2] = transform.up * range; // Up direction
+        listDirections[3] = -transform.up * range; // Down direction
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            // Debug.Log("Test " + string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray()));
-            // rb.AddForce(-transform.right * speed);
-
-            Debug.Log("Debug " + string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray()));
-            // Debug.Log("currentIndex " + currentIndex);
-            // Debug.Log("directions " + directions[currentIndex]);
-            // Debug.Log("rb.velocity " + rb.velocity);
-            Debug.Log("rb " + (rb.velocity == Vector2.zero));
-            Debug.Log("string " + (currentList != string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray())));
+            CheckForTriggers();
         }
     }
 
-    void FixedUpdate()
+    void EnableTriggers()
     {
-        if (rb.velocity == Vector2.zero && currentList != string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray()) && Time.time >= nextShootTime)
+        for (int i = 0; i < listTriggers.Length; i++)
         {
-            // 0 : bottom
-            // 1 : right
-            // 2 : top
-            // 3 : left
-        Debug.Log("fffff");
-            // Dont move anymore
-            if ((IsContact(listChecks[0]) && IsContact(listChecks[3])) || IsContact(listChecks[2]) && IsContact(listChecks[1]))
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-            }
-            else if ((IsContact(listChecks[0]) && IsContact(listChecks[1])) || IsContact(listChecks[2]) && IsContact(listChecks[3]))
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            }
-
-            rb.AddForce(directions[currentIndex] * speed);
-            currentList = string.Join(", ", listChecks.Select(x => IsContact(x)).ToArray());
-            currentIndex = (currentIndex + 1) % directions.Length;
-            nextShootTime = Time.time + shootingRate;
+            listTriggers[i].SetActive(i == currentIndex);
         }
     }
-
-    private bool IsContact(Transform t)
+    private void FixedUpdate()
     {
-        return Physics2D.OverlapCircle(t.position, checkRadius, listGroundLayers);
+        CheckForTriggers();
+        rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
-    void OnDrawGizmosSelected()
+    private void CheckForTriggers()
     {
-        foreach (Transform t in listChecks)
+        // Check in all directions if detects any trigger 
+        for (int i = 0; i < listDirections.Length; i++)
         {
-            Gizmos.DrawWireSphere(t.position, checkRadius);
+            Debug.DrawRay(transform.position, listDirections[i], Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, listTriggerLayers);
+            if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
+            {
+                StartCoroutine(ChangeDirection(-hit.normal));
+                currentTrigger = hit.collider;
+            }
         }
+    }
+
+    IEnumerator ChangeDirection(Vector2 dir)
+    {
+        yield return new WaitForSeconds(delayBetweenMoves);
+        destination = dir;
+        currentIndex = (currentIndex + 1) % listTriggers.Length;
+        if (dir.x == 0)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+        EnableTriggers();
+        CheckForTriggers();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (
+            other.gameObject.CompareTag("Player")
+            )
+        {
+            DetectCollision(other);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (rb.velocity == Vector2.zero)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            {
+                if (destination.y > 0 && lastAnimationPlayed != "HitTop")
+                {
+                    animator.SetTrigger("HitTop");
+                    lastAnimationPlayed = "HitTop";
+                }
+                else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
+                {
+                    animator.SetTrigger("HitBottom");
+                    lastAnimationPlayed = "HitBottom";
+                }
+                if (destination.x > 0 && lastAnimationPlayed != "HitRight")
+                {
+                    lastAnimationPlayed = "HitRight";
+                    animator.SetTrigger("HitRight");
+                }
+                else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
+                {
+                    lastAnimationPlayed = "HitLeft";
+                    animator.SetTrigger("HitLeft");
+                }
+            }
+        }
+
+        if (
+            other.gameObject.CompareTag("Player")
+            )
+        {
+            DetectCollision(other);
+        }
+    }
+
+    private void DetectCollision(Collision2D other)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[10];
+        other.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
+        {
+            if (
+                ((contact.normal.y > 0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.y < -0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)) &&
+                other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
+            )
+            {
+                health.TakeDamage(float.MaxValue);
+            }
+        };
     }
 }

@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        if (needResetHP)
+        if (needResetHP || currentHealth.CurrentValue <= 0)
         {
             currentHealth.CurrentValue = maxHealth.CurrentValue;
         }
@@ -60,33 +60,4 @@ public class PlayerHealth : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
-
-    // private void OnCollisionStay2D(Collision2D other)
-    // {
-    //     if (
-    //        other.gameObject.CompareTag("Saw")
-    //        )
-    //     {
-    //         ContactPoint2D[] contacts = new ContactPoint2D[10];
-
-    //         other.GetContacts(contacts);
-
-    //         foreach (ContactPoint2D contact in contacts)
-    //         {
-    //             Debug.Log(contact.normal.y);
-    //             if (
-    //             // (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
-    //             // (contact.normal.x > 0.5 && contact.normalImpulse > 1000) ||
-    //             // From top 
-    //             // (contact.normal.y < -0.5 && contact.normalImpulse > 1000) ||
-    //             // Collide to roof
-    //             (contact.normal.y > 0.5 && contact.normalImpulse > 1000)
-    //             )
-    //             {
-    //                 Debug.Log("test " + contact.normalImpulse);
-    //                 Debug.Break();
-    //             }
-    //         }
-    //     }
-    // }
 }

@@ -7,7 +7,7 @@ public class LookAtBehavior : MonoBehaviour
 {
     public Transform target;
     public bool isFacingRight = true;
-    public float thresholdDistanceBeforeLookAt = 1 / 0f; // Returns infinity
+    public float thresholdDistanceBeforeLookAt = float.MaxValue;
 
     // Update is called once per frame
     void Update()
