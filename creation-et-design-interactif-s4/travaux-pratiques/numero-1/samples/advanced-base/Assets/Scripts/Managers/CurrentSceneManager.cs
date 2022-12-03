@@ -8,6 +8,7 @@ public class CurrentSceneManager : MonoBehaviour
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Time.timeScale = 1f;
             RestartLevel();
         }
         #endif

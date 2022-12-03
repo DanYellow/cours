@@ -9,8 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+    [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
     public Transform groundCheck;
+    public Transform topCheck;
+    public Transform leftCheck;
+    public Transform rightCheck;
     public float groundCheckRadius;
 
     [SerializeField]
@@ -95,11 +99,42 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
 
+    public bool IsRoofed()
+    {
+        return Physics2D.OverlapCircle(topCheck.position, groundCheckRadius, listGroundLayers);
+    }
+
+    public bool IsStuckedLeft()
+    {
+        return Physics2D.OverlapCircle(leftCheck.position, groundCheckRadius, listGroundLayers);
+    }
+
+    public bool IsStuckedRight()
+    {
+        return Physics2D.OverlapCircle(rightCheck.position, groundCheckRadius, listGroundLayers);
+    }
+
+
     void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+
+        if (rightCheck != null)
+        {
+            Gizmos.DrawWireSphere(rightCheck.position, groundCheckRadius);
+        }
+
+        if (leftCheck != null)
+        {
+            Gizmos.DrawWireSphere(leftCheck.position, groundCheckRadius);
+        }
+
+        if (topCheck != null)
+        {
+            Gizmos.DrawWireSphere(topCheck.position, groundCheckRadius);
         }
     }
 

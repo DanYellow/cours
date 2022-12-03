@@ -152,6 +152,9 @@ Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Emp
 Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement. Si vous souhaitez utiliser VS Code ou Sublime Text, il faudra installer des extensions :
 - [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
 - [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
+
+Pou vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
+
 ---
 
 Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la méthode `Debug.Log()`)

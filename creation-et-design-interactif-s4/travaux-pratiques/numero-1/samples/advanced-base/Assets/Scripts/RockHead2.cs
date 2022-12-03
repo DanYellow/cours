@@ -7,6 +7,7 @@ public class RockHead2 : MonoBehaviour
     public Rigidbody2D rb;
 
     public LayerMask listTriggerLayers;
+    public LayerMask listCrashLayers;
     private Collider2D currentTrigger;
 
     private Vector3[] listDirections = new Vector3[4];
@@ -16,26 +17,28 @@ public class RockHead2 : MonoBehaviour
     private Vector3 destination;
 
     public GameObject[] listTriggers;
-    private float delayBetweenMoves = 1.2f;
+    public float delayBetweenMoves = 1.2f; //1.2f
 
     private int currentIndex = 0;
     private int directionChecked = 0;
 
     public Animator animator;
 
+
     // Start is called before the first frame update
     void Start()
     {
         EnableTriggers();
-        Debug.Log("currentIndex " + currentIndex);
         listDirections[0] = transform.right * range; // Right direction
         listDirections[1] = -transform.right * range; // Left direction
         listDirections[2] = transform.up * range; // Up direction
         listDirections[3] = -transform.up * range; // Down direction
     }
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.N)) {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
             CheckForTriggers();
             Debug.Log(rb.velocity);
         }
@@ -83,8 +86,16 @@ public class RockHead2 : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
+    }
 
-        EnableTriggers();
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (
+            other.gameObject.CompareTag("Player")
+            )
+        {
+            DetectCollision(other);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -101,7 +112,6 @@ public class RockHead2 : MonoBehaviour
                 {
                     animator.SetTrigger("HitBottom");
                 }
-
                 if (destination.x > 0)
                 {
                     animator.SetTrigger("HitRight");
@@ -111,7 +121,35 @@ public class RockHead2 : MonoBehaviour
                     animator.SetTrigger("HitLeft");
                 }
             }
+            EnableTriggers();
             CheckForTriggers();
         }
+
+        if (
+            other.gameObject.CompareTag("Player")
+            )
+        {
+            DetectCollision(other);
+        }
+    }
+
+    private void DetectCollision(Collision2D other)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[10];
+        other.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
+        {
+            if (
+                ((contact.normal.y > 0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.y < -0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)) && 
+                other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
+            )
+            {
+                health.TakeDamage(float.MaxValue);
+            }
+        };
     }
 }
