@@ -7,7 +7,6 @@ public class RockHead2 : MonoBehaviour
     public Rigidbody2D rb;
 
     public LayerMask listTriggerLayers;
-    public LayerMask listCrashLayers;
     private Collider2D currentTrigger;
 
     private Vector3[] listDirections = new Vector3[4];
@@ -17,13 +16,12 @@ public class RockHead2 : MonoBehaviour
     private Vector3 destination;
 
     public GameObject[] listTriggers;
-    public float delayBetweenMoves = 1.2f; //1.2f
+    public float delayBetweenMoves;
 
     private int currentIndex = 0;
-    private int directionChecked = 0;
 
     public Animator animator;
-
+    private string lastAnimationPlayed = "";
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +38,6 @@ public class RockHead2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             CheckForTriggers();
-            Debug.Log(rb.velocity);
         }
     }
 
@@ -53,15 +50,15 @@ public class RockHead2 : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        CheckForTriggers();
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
     private void CheckForTriggers()
     {
-        // Check in all directions if detects trigger 
+        // Check in all directions if detects any trigger 
         for (int i = 0; i < listDirections.Length; i++)
         {
-            directionChecked = (directionChecked + 1) % listTriggers.Length;
             Debug.DrawRay(transform.position, listDirections[i], Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, listTriggerLayers);
             if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
@@ -77,7 +74,6 @@ public class RockHead2 : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenMoves);
         destination = dir;
         currentIndex = (currentIndex + 1) % listTriggers.Length;
-
         if (dir.x == 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -86,6 +82,8 @@ public class RockHead2 : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
+        EnableTriggers();
+        CheckForTriggers();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -104,25 +102,27 @@ public class RockHead2 : MonoBehaviour
         {
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
             {
-                if (destination.y > 0)
+                if (destination.y > 0 && lastAnimationPlayed != "HitTop")
                 {
                     animator.SetTrigger("HitTop");
+                    lastAnimationPlayed = "HitTop";
                 }
-                else if (destination.y < 0)
+                else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
                 {
                     animator.SetTrigger("HitBottom");
+                    lastAnimationPlayed = "HitBottom";
                 }
-                if (destination.x > 0)
+                if (destination.x > 0 && lastAnimationPlayed != "HitRight")
                 {
+                    lastAnimationPlayed = "HitRight";
                     animator.SetTrigger("HitRight");
                 }
-                else if (destination.x < 0)
+                else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
                 {
+                    lastAnimationPlayed = "HitLeft";
                     animator.SetTrigger("HitLeft");
                 }
             }
-            EnableTriggers();
-            CheckForTriggers();
         }
 
         if (
@@ -144,7 +144,7 @@ public class RockHead2 : MonoBehaviour
                 ((contact.normal.y > 0.5 && contact.normalImpulse > 1000) ||
                 (contact.normal.y < -0.5 && contact.normalImpulse > 1000) ||
                 (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
-                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)) && 
+                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)) &&
                 other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
             )
             {
