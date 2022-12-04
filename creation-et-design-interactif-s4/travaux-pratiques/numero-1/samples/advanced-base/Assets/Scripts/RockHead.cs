@@ -33,14 +33,6 @@ public class RockHead : MonoBehaviour
         listDirections[3] = -transform.up * range; // Down direction
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            CheckForTriggers();
-        }
-    }
-
     void EnableTriggers()
     {
         for (int i = 0; i < listTriggers.Length; i++)
@@ -88,11 +80,14 @@ public class RockHead : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (
-            other.gameObject.CompareTag("Player")
-            )
+        if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
+        }
+
+        if (other.contacts[0].normal.y < -0.5f)
+        {
+            other.gameObject.transform.parent = transform;
         }
     }
 
@@ -125,11 +120,17 @@ public class RockHead : MonoBehaviour
             }
         }
 
-        if (
-            other.gameObject.CompareTag("Player")
-            )
+        if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.transform.parent = null;
         }
     }
 
@@ -148,8 +149,9 @@ public class RockHead : MonoBehaviour
                 other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
             )
             {
+                other.gameObject.transform.parent = null;
                 health.TakeDamage(float.MaxValue);
             }
-        };
+        }
     }
 }

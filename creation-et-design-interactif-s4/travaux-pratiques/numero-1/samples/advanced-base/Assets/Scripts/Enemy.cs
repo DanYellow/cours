@@ -41,7 +41,8 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(other.gameObject.CompareTag("Saw")) {
+        if (other.gameObject.CompareTag("Saw"))
+        {
             Die();
         }
     }
@@ -63,8 +64,13 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        Vector2 bounceForce = Vector2.up * bounce * 10000;
+        GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
-        this.gameObject.transform.Rotate(0f, 0f, 45f);
+        gameObject.transform.Rotate(0f, 0f, 45f);
+
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(false);
     }
 
     void OnBecameInvisible()

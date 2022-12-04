@@ -36,7 +36,8 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) :
 - Touche R : Relance le niveau actuel
-- Touche F9 : Tue le joueur d'un coup 
+- Touche F9 : Tue le joueur d'un coup
+
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Un écran d'accueil (écran qui permet de commencer le jeu)
@@ -52,20 +53,17 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
 - Afficher un menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
-    - La gestion du menu pause est faites grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
-    - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le jeu ou encore retourner au menu principal
-- Créer **une** props de votre choix (ennemi, panneau...) et l'intégrer dans le jeu
-    - Pas besoin que votre props colle avec la DA du jeu
-    - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
-    - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
-
+    - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
+    - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal
+    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator. Sinon vos animations ne se joueront pas 
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
-    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité
+    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
 - Système de santé du joueur
     - Possibilité (au choix) de proposer le regain de vie
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
-    - une animation de mort du personnage (testable avec la touche F9)
+    - une animation de mort du personnage (testable avec la touche F9 du clavier)
+    - "Suppression" du Rigidbody2D associé
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
@@ -84,7 +82,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons
-- Animer les checkpoints
+- Animer les checkpoints (Les carrés rouges dans les niveaux)
+- Créer **une** props de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
+    - Pas besoin que votre props colle avec la DA du jeu
+    - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
+    - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
 
 ### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.

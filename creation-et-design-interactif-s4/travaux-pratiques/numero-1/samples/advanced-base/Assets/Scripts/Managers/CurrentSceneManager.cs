@@ -24,6 +24,12 @@ public class CurrentSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void RestartLastCheckpoint() {
+        // Refill life
+        // Position to last checkpoint
+        // Reset objects
+    }
+
     public void GameOverScreen()
     {
         Debug.Log("Display Gameover");
