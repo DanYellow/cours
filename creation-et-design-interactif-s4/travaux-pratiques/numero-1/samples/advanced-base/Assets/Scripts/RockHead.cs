@@ -23,7 +23,8 @@ public class RockHead : MonoBehaviour
     public Animator animator;
     private string lastAnimationPlayed = "";
 
-    public VoidEventChannelSO OnCrushSO;
+    public CameraShakeEventChannelSO onCrushSO;
+    public ShakeTypeVariable shakeInfo;
 
     private bool isOnScreen = false;
 
@@ -103,48 +104,36 @@ public class RockHead : MonoBehaviour
             {
                 if (destination.y > 0 && lastAnimationPlayed != "HitTop")
                 {
-                    animator.SetTrigger("HitTop");
-                    lastAnimationPlayed = "HitTop";
-                    if (isOnScreen)
-                    {
-                        OnCrushSO.Raise();
-                    }
+                    OnCrush("HitTop");
                 }
                 else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
                 {
-                    animator.SetTrigger("HitBottom");
-                    lastAnimationPlayed = "HitBottom";
-                    if (isOnScreen)
-                    {
-                        OnCrushSO.Raise();
-                    }
+                    OnCrush("HitBottom");
                 }
                 if (destination.x > 0 && lastAnimationPlayed != "HitRight")
                 {
-                    lastAnimationPlayed = "HitRight";
-                    animator.SetTrigger("HitRight");
-                    if (isOnScreen)
-                    {
-                        OnCrushSO.Raise();
-                    }
+                    OnCrush("HitRight");
                 }
                 else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
                 {
-                    lastAnimationPlayed = "HitLeft";
-                    animator.SetTrigger("HitLeft");
-
-                    if (isOnScreen)
-                    {
-                        OnCrushSO.Raise();
-                    }
+                    OnCrush("HitLeft");
                 }
-
             }
         }
 
         if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
+        }
+    }
+
+    void OnCrush(string side)
+    {
+        animator.SetTrigger(side);
+        lastAnimationPlayed = side;
+        if (isOnScreen)
+        {
+            onCrushSO.Raise(shakeInfo);
         }
     }
 

@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class GameObjectEventListener : MonoBehaviour
+public class CameraShakeListener : MonoBehaviour
 {
     // Event to register
-    public GameObjectEventChannelSO Event;
+    public CameraShakeEventChannelSO Event;
 
     // Function to call when the Event is invoked
-    public UnityEvent<GameObject> Callback;
+    public UnityEvent<ShakeTypeVariable> Callback;
 
     private void OnEnable()
 	{
@@ -22,9 +22,9 @@ public class GameObjectEventListener : MonoBehaviour
 			Event.OnEventRaised -= OnEventRaised;
 	}
 
-	private void OnEventRaised(GameObject go)
+	private void OnEventRaised(ShakeTypeVariable so)
 	{
 		if (Event != null)
-			Callback.Invoke(go);
+			Callback.Invoke(so);
 	}
 }

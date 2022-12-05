@@ -27,7 +27,11 @@ public class ChargeBehavior : MonoBehaviour
     public bool checkBottom = true;
 
     private float normalImpulseThreshold = 0;
-    public VoidEventChannelSO OnCrushSO;
+
+    [Header("Shake effect")]
+    public CameraShakeEventChannelSO onCrushSO;
+    public ShakeTypeVariable shakeInfo;
+
     private bool isOnScreen = false;
 
     // Start is called before the first frame update
@@ -125,7 +129,7 @@ public class ChargeBehavior : MonoBehaviour
                 animator.SetTrigger("IsHit");
                 if (isOnScreen)
                 {
-                    OnCrushSO.Raise();
+                    onCrushSO.Raise(shakeInfo);
                 }
                 Stop();
             }
@@ -152,13 +156,7 @@ public class ChargeBehavior : MonoBehaviour
     IEnumerator HitObstacle()
     {
         yield return new WaitForSeconds(0.15f);
-        Vector2 bounceForce = Vector2.one * 5;
-        Debug.Log("Gello");
-
-        // Debug.Log("Testtt " + bounceForce);
-        // rb.velocity = bounceForce;
-        // transform.Rotate(0f, 180f, 0f);
-        // destination *= -1;
+        // rb.AddForce(bounceForce, ForceMode2D.Impulse);
     }
 
     void OnBecameInvisible()

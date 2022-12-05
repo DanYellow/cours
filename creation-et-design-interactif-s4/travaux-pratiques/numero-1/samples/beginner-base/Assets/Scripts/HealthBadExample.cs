@@ -13,7 +13,7 @@ public class HealthBadExample : MonoBehaviour
     public FillStatusBarBadExample healthBar;
     public GameObject gameOverScreen;
 
-    public UnityEvent onPlayerDeath;
+    // public UnityEvent onPlayerDeath;
     public SpriteRenderer spriteRenderer;
 
     bool isInvincible = false;
@@ -30,15 +30,14 @@ public class HealthBadExample : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.F9))
         {
             Die();
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
-            Debug.Log(Input.GetKey(KeyCode.Return));
         }
     }
 
@@ -62,7 +61,7 @@ public class HealthBadExample : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         this.gameObject.transform.Rotate(0f, 0f, 45f);
-        onPlayerDeath.Invoke();
+        // onPlayerDeath.Invoke();
     }
 
     public IEnumerator InvincibilityFlash()
