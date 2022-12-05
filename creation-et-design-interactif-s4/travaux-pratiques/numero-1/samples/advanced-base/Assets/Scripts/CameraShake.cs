@@ -10,10 +10,6 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    public void Hello() {
-
-    }
-
     public void ShakeProxy(ShakeTypeVariable shakeType) {
         StartCoroutine(Shake(shakeType.Duration, shakeType.Magnitude));
     }
