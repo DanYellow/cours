@@ -39,15 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Platforms
-    uniqueID: 3682521075
+  - name: Backgrounds
+    uniqueID: 161077665
     locked: 0
-  - name: Enemies
-    uniqueID: 4180033587
+  - name: Platforms
+    uniqueID: 1637781657
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 3395737167
+  - name: Foregrounds
+    uniqueID: 1383865653
     locked: 0
