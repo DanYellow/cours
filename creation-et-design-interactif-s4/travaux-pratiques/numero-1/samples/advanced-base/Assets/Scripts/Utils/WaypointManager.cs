@@ -11,9 +11,10 @@ public class WaypointManager : MonoBehaviour
 
     public bool modePingPong = false;
 
-    void Start()
+    void Awake()
     {
         nextPosition = listWaypoints[0].position;
+        transform.position = nextPosition;
     }
 
     void Update()

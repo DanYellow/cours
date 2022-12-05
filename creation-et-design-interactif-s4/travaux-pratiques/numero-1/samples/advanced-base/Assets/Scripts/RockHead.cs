@@ -23,6 +23,10 @@ public class RockHead : MonoBehaviour
     public Animator animator;
     private string lastAnimationPlayed = "";
 
+    public VoidEventChannelSO OnCrushSO;
+
+    private bool isOnScreen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,22 +105,40 @@ public class RockHead : MonoBehaviour
                 {
                     animator.SetTrigger("HitTop");
                     lastAnimationPlayed = "HitTop";
+                    if (isOnScreen)
+                    {
+                        OnCrushSO.Raise();
+                    }
                 }
                 else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
                 {
                     animator.SetTrigger("HitBottom");
                     lastAnimationPlayed = "HitBottom";
+                    if (isOnScreen)
+                    {
+                        OnCrushSO.Raise();
+                    }
                 }
                 if (destination.x > 0 && lastAnimationPlayed != "HitRight")
                 {
                     lastAnimationPlayed = "HitRight";
                     animator.SetTrigger("HitRight");
+                    if (isOnScreen)
+                    {
+                        OnCrushSO.Raise();
+                    }
                 }
                 else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
                 {
                     lastAnimationPlayed = "HitLeft";
                     animator.SetTrigger("HitLeft");
+
+                    if (isOnScreen)
+                    {
+                        OnCrushSO.Raise();
+                    }
                 }
+
             }
         }
 
@@ -153,5 +175,15 @@ public class RockHead : MonoBehaviour
                 health.TakeDamage(float.MaxValue);
             }
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        isOnScreen = false;
+    }
+
+    void OnBecameVisible()
+    {
+        isOnScreen = true;
     }
 }

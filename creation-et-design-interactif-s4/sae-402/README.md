@@ -56,19 +56,18 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator. Sinon vos animations ne se joueront pas 
-- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
-    > N'oubliez pas, c'est votre jeu. Faites preuve d'imagination, ce projet est être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
 - Système de santé du joueur
     - Possibilité (au choix) de proposer le regain de vie
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
-    - "Suppression" du Rigidbody2D associé
+    - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
+- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
+    > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
-- Mort du personnage + écran de game over
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
@@ -132,4 +131,9 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?
     - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la.
 - Sommes-nous obligés d'utiliser les Scriptables Objects ?
-    - Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulité à extraire un GameObject / Composant. Par ailleurs, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
+    - Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulté à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects. Néanmoins, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
+- Puis-je effectuer un projet à partir de zéro ?
+    - Il est possible de ne pas utiliser la base que nous vous proposons. Cependant, il y a deux points importants à prendre en compte :
+        - Mettre à la racine de votre projet un fichier .gitgnore pour vous permettre de mettre votre projet sur github
+            - [Télécharger le .gitignore pour unity](https://raw.githubusercontent.com/github/gitignore/main/Unity.gitignore)
+        - être ambitieux dans le projet, n'allez pas faire un jeu où c'est juste un carré / cube qui saute
