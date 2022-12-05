@@ -158,7 +158,7 @@ public class RockHead : MonoBehaviour
 
     private void DetectCollision(Collision2D other)
     {
-        ContactPoint2D[] contacts = new ContactPoint2D[10];
+        ContactPoint2D[] contacts = new ContactPoint2D[other.contactCount];
         other.GetContacts(contacts);
 
         foreach (ContactPoint2D contact in contacts)

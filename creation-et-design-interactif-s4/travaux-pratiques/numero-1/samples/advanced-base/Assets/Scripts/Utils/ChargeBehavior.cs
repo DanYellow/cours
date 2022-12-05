@@ -8,7 +8,9 @@ public class ChargeBehavior : MonoBehaviour
     public LayerMask targetLayer;
 
     private Vector3 destination;
-    private Vector3[] listDirections = new Vector3[4];
+
+    // [NamedArrayAttribute (new string[] {"Neutral", "Happy", "Sad", "test"})]
+    private List<Vector3> listDirections = new List<Vector3>();
     public bool isAttacking;
 
     private float checkTimer;
@@ -17,15 +19,44 @@ public class ChargeBehavior : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     private string lastAnimationPlayed = "";
+    public bool isFacingRight = true;
+
+    public bool checkRight = true;
+    public bool checkLeft = true;
+    public bool checkTop = true;
+    public bool checkBottom = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        listDirections[0] = transform.right; // Right direction
-        listDirections[1] = -transform.right; // Left direction
-        listDirections[2] = transform.up; // Up direction
-        listDirections[3] = -transform.up; // Down direction
+        if (checkLeft)
+        {
+            listDirections.Add(Vector3.left);
+        }
+
+        if (checkTop)
+        {
+            listDirections.Add(Vector3.up);
+        }
+
+        if (checkBottom)
+        {
+            listDirections.Add(Vector3.down);
+        }
+
+        if (checkRight)
+        {
+            listDirections.Add(Vector3.right);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            rb.AddForce(destination * speed * 0.5f, ForceMode2D.Impulse);
+        }
     }
 
 
@@ -33,8 +64,6 @@ public class ChargeBehavior : MonoBehaviour
     {
         if (isAttacking)
         {
-            // rb.velocity = new Vector2(destination.x * speed, rb.velocity.y);
-
             rb.AddForce(destination * speed, ForceMode2D.Impulse);
         }
         else
@@ -50,7 +79,7 @@ public class ChargeBehavior : MonoBehaviour
     private void CheckForTarget()
     {
         //Check if spikehead sees player in all 4 directions
-        for (int i = 0; i < listDirections.Length; i++)
+        for (int i = 0; i < listDirections.Count; i++)
         {
             Vector3 rayDirection = listDirections[i] * range;
             Debug.DrawRay(transform.position, rayDirection, Color.green);
@@ -58,45 +87,105 @@ public class ChargeBehavior : MonoBehaviour
 
             if (hit.collider != null && !isAttacking)
             {
-                isAttacking = true;
+
                 destination = listDirections[i];
+                isAttacking = true;
                 checkTimer = 0;
+                Flip();
             }
         }
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (
-            rb.velocity == Vector2.zero &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)
-        )
+        ContactPoint2D[] allPoints = new ContactPoint2D[other.contactCount];
+        other.GetContacts(allPoints);
+
+        foreach (var contact in allPoints)
+        {
+            if(contact.point.y < transform.position.y) {
+                Debug.Log(contact.point + " " + rb.velocity);
+                // Debug.Log(i.point + " " + rb.velocity.sqrMagnitude);
+            }
+
+            if(
+                (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
+                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)
+            ) {
+                Debug.Log("fff " + "test");
+            }
+        }
+
+       
+
+        // if (rb.velocity == Vector2.zero && isAttacking)
+        // {
+        //     Debug.Log("TEssst");
+        //     // animator.SetTrigger("IsHit");
+        //     Stop();
+        // }
+        // DetectCollision(other);
+        // if (
+        //     rb.velocity == Vector2.zero &&
+        //     animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)
+        // )
+        // {
+        //     if (
+        //         (destination.x > 0 || destination.x < 0) &&
+        //         lastAnimationPlayed != "RinoHitWall"
+        //     )
+        //     {
+        //         lastAnimationPlayed = "RinoHitWall";
+        //         animator.SetTrigger("IsHit");
+        //         Debug.Log("Hit");
+        //         // Stop();
+        //         Flip();
+        //     }
+        // }
+    }
+
+    private void DetectCollision(Collision2D other)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[10];
+        other.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
         {
             if (
-                (destination.x > 0 || destination.x < 0) &&
-                lastAnimationPlayed != "RinoHitWall"
+                (contact.normal.x < -0.5) ||
+                (contact.normal.x > 0.5)
             )
             {
-                lastAnimationPlayed = "RinoHitWall";
-                animator.SetTrigger("IsHit");
-                Stop();
+                Debug.Log("ttrtr");
             }
         }
     }
 
     private void Stop()
     {
-        Debug.Log("efefefe");
         // destination = transform.position; //Set destination as current position so it doesn't move
         isAttacking = false;
     }
 
-    IEnumerator HitObstacle() {
+    private void Flip()
+    {
+        if (
+                   (isFacingRight && destination == Vector3.left) ||
+                   (!isFacingRight && destination == Vector3.right)
+               )
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    IEnumerator HitObstacle()
+    {
         yield return new WaitForSeconds(0.15f);
-        Vector2 bounceForce = Vector2.right * 1;
+        Vector2 bounceForce = Vector2.one * 5;
 
         // Debug.Log("Testtt " + bounceForce);
-        // rb.velocity = new Vector2(bounceForce.x, rb.velocity.y);
+        // rb.velocity = bounceForce;
         // transform.Rotate(0f, 180f, 0f);
         // destination *= -1;
     }
