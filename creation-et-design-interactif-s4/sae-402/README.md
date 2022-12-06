@@ -4,11 +4,11 @@ _Les consignes pourront être modifiées._
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
-- AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
+- ~~AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs~~
 - AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
-Vous ne partirez pas d'une base vide mais d'un petit jeu de plate-forme possédant déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
+Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes possédant déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
     - Déplacements horizontaux
     - Multi sauts
@@ -40,6 +40,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
+- Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
 - Un écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir le logo de l'université
     - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
@@ -50,6 +51,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pensez bien à créer la condition pour aller au niveau suivant
         - Exemple : Une zone de trigger
     - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
+    - Il doit être possible de le terminer
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
 - Afficher un menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
@@ -57,7 +59,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator. Sinon vos animations ne se joueront pas 
 - Système de santé du joueur
-    - Possibilité (au choix) de proposer le regain de vie
+    - Optionnel : possibilité de proposer le regain de vie
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)

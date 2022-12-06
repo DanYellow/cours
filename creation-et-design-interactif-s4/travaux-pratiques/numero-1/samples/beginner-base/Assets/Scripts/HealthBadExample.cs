@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class HealthBadExample : MonoBehaviour
 {
@@ -13,11 +11,9 @@ public class HealthBadExample : MonoBehaviour
     public FillStatusBarBadExample healthBar;
     public GameObject gameOverScreen;
 
-    // public UnityEvent onPlayerDeath;
     public SpriteRenderer spriteRenderer;
 
     bool isInvincible = false;
-    // public bool isInvincible { get; private set; } = false;
 
     float invincibilityFlashDelay = 0.2f;
     float invincibilityTimeAfterHit = 2.5f;
@@ -61,7 +57,6 @@ public class HealthBadExample : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         this.gameObject.transform.Rotate(0f, 0f, 45f);
-        // onPlayerDeath.Invoke();
     }
 
     public IEnumerator InvincibilityFlash()

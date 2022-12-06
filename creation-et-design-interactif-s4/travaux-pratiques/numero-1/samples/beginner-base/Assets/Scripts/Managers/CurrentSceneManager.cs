@@ -1,8 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class GameManager : MonoBehaviour
+public class CurrentSceneManager : MonoBehaviour
 {
     public BoolEventChannelSO onTogglePauseEvent;
 
@@ -19,12 +18,11 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartLevel();
         }
     }
 
@@ -45,5 +43,15 @@ public class GameManager : MonoBehaviour
     public bool IsGamePaused()
     {
         return isGamePaused;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PlayerDie()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

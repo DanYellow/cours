@@ -5,8 +5,6 @@ using TMPro;
 
 public class EnemyCount : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public TextMeshProUGUI text;
     int numberOfEnemies = 0;
      
@@ -29,4 +27,9 @@ public class EnemyCount : MonoBehaviour
         numberOfEnemies -= 1;
         text.text = $"Nombre ennemis restants : <color=#FF0000>{numberOfEnemies}</color>";
     }
-}
+
+    public void NewEnemy() {
+        numberOfEnemies += 1;
+        text.text = $"Nombre ennemis restants : <color=#FF0000>{numberOfEnemies}</color>";
+    }
+ }

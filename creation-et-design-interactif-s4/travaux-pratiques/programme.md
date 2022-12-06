@@ -6,6 +6,7 @@
 - Zone de trigger / Ennemis
 - Prefab
 - Scripts : système de vie
+- Scènes 
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
     - Création de prise de données dans la mémoire
 - Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
@@ -18,6 +19,9 @@
         - exit time = 1
         - transition duration = 0
         - laisser fixed duration
-- Scènes 
 - Ecran de crédits
 - Sound design
+- Player Prefs
+
+Canvas :
+    - Canvas scaler -> Scale with screen size

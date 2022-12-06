@@ -156,6 +156,7 @@ public class ChargeBehavior : MonoBehaviour
     IEnumerator HitObstacle()
     {
         yield return new WaitForSeconds(0.15f);
+        rb.AddForce(Vector2.right, ForceMode2D.Impulse);
         // rb.AddForce(bounceForce, ForceMode2D.Impulse);
     }
 
