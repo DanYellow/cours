@@ -13,8 +13,12 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Déplacements horizontaux
     - Multi sauts
 - Suivi du joueur par la caméra
-- Ennemis
-    - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger
+- Ennemis :
+    - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
+    - Des rhinocéros qui foncent sur le joueur
+- Pièges :
+    - RockHead : Une pierre qui se fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
+    - Scie : Statique ou mobile sur une circuit défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
     - Pause / Relance du jeu
     - Nombre de points de vie des ennemis de base
@@ -22,21 +26,25 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
 - Système de pause (Appui sur le bouton Echap)
     - Il n'y a pas de menu de Pause, c'est une des tâches que vous devez effectuer
     - Il n'est pas forcément complet, il y a des choses à rajouter notamment la gestion des déplacements
-- Un Gestionnaire de Son / Musique
+- Un gestionnaire de Son / Musique
     - Les sons (par exemple, les pommmes) sont gérés via des scriptables objects
 
-et bien évidemment des assets que vous pourrez utiliser pour cette SAE.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - Plus d'explications sur la scène de bootstrap
 
-> Le projet contient quelques Assets (Assets/Imports) qui n'ont pas forcément été utilisé, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérez lors du premier TP, mais si vous avez perdu le lien, il se trouve ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) :
 - Touche R : Relance le niveau actuel
 - Touche F9 : Tue le joueur d'un coup
+
+# Commandes du jeu
+- Flèches gauche et droite : déplacement du joueur
+- Barre espace : Saut
+- Touche V (maintien) : Accélération
 
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
@@ -64,6 +72,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
+- Corriger les bugs / fonctionnalités incomplètes suivantes :
+    - L'ennemi de type "plante" tire des graines même quand le joueur n'est pas à son niveau. Faites en sorte que les graines soient tirées uniquement 
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
 
@@ -107,9 +117,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
 - Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de nommage ainsi que nommer très clairement vos variables
-    - Par exemple : évitez d'appeler une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
-- Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs
-    - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs.
+    - Par exemple : N'appelez pas une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
+- Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
+    - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
+        - Il est possible de faire des prefabs de prefabs
     - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
 Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
 > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place

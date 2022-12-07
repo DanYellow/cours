@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
 
-    [SerializeField]
-    private bool isGrounded;
+    public bool isGrounded;
+
+    public bool isDashing;
+    public float dashSpeed;
+
 
     public Animator animator;
 
@@ -53,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
             Jump(true);
         }
 
+        isDashing = Input.GetKey(KeyCode.V);
+
         Flip();
     }
 
@@ -66,6 +71,12 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        if (isDashing)
+        {
+            Vector2 v = rb.velocity;
+            v.x *= dashSpeed;
+            rb.velocity = v;
+        }
 
         animator.SetFloat("MoveDirectionX", Mathf.Abs(moveDirectionX));
         animator.SetFloat("MoveDirectionY", rb.velocity.y);
@@ -89,13 +100,17 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpCount = jumpCount + 1;
         }
+
+        if (jumpCount > 1)
+        {
+            animator.SetTrigger("DoubleJump");
+        }
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
-
 
     void OnDrawGizmosSelected()
     {

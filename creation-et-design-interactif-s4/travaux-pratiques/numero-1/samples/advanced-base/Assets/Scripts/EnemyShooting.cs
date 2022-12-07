@@ -6,22 +6,21 @@ public class EnemyShooting : MonoBehaviour
     public Animator animator;
     public GameObject projectile;
 
-    // From where the projectile will be shot
+    [Tooltip("From where the projectile will be shot")]
     public Transform firePoint;
     public SpriteRenderer spriteRenderer;
 
     [Range(0, 5)]
-    public float timeDelayBetweenShots = 0f;
+    public float timeDelayBetweenShots;
 
     [Tooltip("Warning time before first shot")]
-    public float delayBeforeFirstShot = 0.5f;
-    public int nbOfConsecutiveShots = 3;
+    public float delayBeforeFirstShot;
+    public int nbOfConsecutiveShots;
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            StopAllCoroutines();
             StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
         }
     }
@@ -39,7 +38,6 @@ public class EnemyShooting : MonoBehaviour
     {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(delayBeforeFirstShot);
-        spriteRenderer.color = new Color(1, 1, 1, 1);
 
         while (nbIterations > 0)
         {
@@ -50,6 +48,7 @@ public class EnemyShooting : MonoBehaviour
         }
     }
 
+    // Better to call it in the timeline
     public void Shoot()
     {
         Instantiate(projectile, firePoint.position, firePoint.rotation);

@@ -20,7 +20,7 @@ public class ChargeBehavior : MonoBehaviour
 
     public bool isFacingRight = true;
 
-    [Header("Manage directions where the system can looking for on specific layers")]
+    [Header("Manage directions where the GameObject can looking for specific layers")]
     public bool checkRight = true;
     public bool checkLeft = true;
     public bool checkTop = true;
@@ -95,7 +95,6 @@ public class ChargeBehavior : MonoBehaviour
 
             if (hit.collider != null && !isAttacking)
             {
-
                 destination = listDirections[i];
                 isAttacking = true;
                 checkTimer = 0;

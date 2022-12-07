@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RockHead : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class RockHead : MonoBehaviour
     public LayerMask listTriggerLayers;
     private Collider2D currentTrigger;
 
-    private Vector3[] listDirections = new Vector3[4];
+    private List<Vector3> listDirections = new List<Vector3>();
 
     public float speed;
 
@@ -28,14 +29,35 @@ public class RockHead : MonoBehaviour
 
     private bool isOnScreen = false;
 
+    [Header("Manage directions where the GameObject can looking for specific layers")]
+    public bool checkRight = true;
+    public bool checkLeft = true;
+    public bool checkTop = true;
+    public bool checkBottom = true;
+
     // Start is called before the first frame update
     void Start()
     {
         EnableTriggers();
-        listDirections[0] = transform.right * range; // Right direction
-        listDirections[1] = -transform.right * range; // Left direction
-        listDirections[2] = transform.up * range; // Up direction
-        listDirections[3] = -transform.up * range; // Down direction
+        if (checkLeft)
+        {
+            listDirections.Add(Vector3.left);
+        }
+
+        if (checkTop)
+        {
+            listDirections.Add(Vector3.up);
+        }
+
+        if (checkBottom)
+        {
+            listDirections.Add(Vector3.down);
+        }
+
+        if (checkRight)
+        {
+            listDirections.Add(Vector3.right);
+        }
     }
 
     void EnableTriggers()
@@ -53,11 +75,11 @@ public class RockHead : MonoBehaviour
 
     private void CheckForTriggers()
     {
-        // Check in all directions if detects any trigger 
-        for (int i = 0; i < listDirections.Length; i++)
+        foreach (var dir in listDirections)
         {
-            Debug.DrawRay(transform.position, listDirections[i], Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, listDirections[i], range, listTriggerLayers);
+            Vector3 rayDirection = dir * range;
+            Debug.DrawRay(transform.position, rayDirection, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, range, listTriggerLayers);
             if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
             {
                 StartCoroutine(ChangeDirection(-hit.normal));
@@ -88,11 +110,10 @@ public class RockHead : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
-        }
-
-        if (other.contacts[0].normal.y < -0.5f)
-        {
-            other.gameObject.transform.parent = transform;
+            if (other.contacts[0].normal.y < -0.5f)
+            {
+                other.gameObject.transform.parent = transform;
+            }
         }
     }
 
