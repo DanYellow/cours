@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D bc2d;
+    public Rigidbody2D rb;
     public Animator animator;
 
     private void Start()
@@ -65,12 +66,13 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Vector2 bounceForce = Vector2.up * bounce * 10000;
-        GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+        rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
         gameObject.transform.Rotate(0f, 0f, 45f);
 
-        foreach (Transform child in transform)
+        foreach (Transform child in transform) {
             child.gameObject.SetActive(false);
+        }
     }
 
     void OnBecameInvisible()

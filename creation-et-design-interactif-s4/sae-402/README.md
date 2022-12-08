@@ -45,21 +45,28 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Flèches gauche et droite : déplacement du joueur
 - Barre espace : Saut
 - Touche V (maintien) : Accélération
+- Pause / relance : Touche échap
 
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
+    - Pensez bien à créer la condition pour aller au niveau suivant
+        - Exemple : Une zone de trigger
 - Un écran d'accueil (écran qui permet de commencer le jeu)
-    - L'écran doit contenir le logo de l'université
+    - L'écran doit contenir : 
+        - Le logo de l'université
+        - Le nom du jeu
+        - De quoi commencer le jeu au premier niveau
     - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
     - Pour rappel, ici il faudra utiliser un Canvas
     - **Ceci nécessite donc de donner un nom à votre jeu également**
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou  utiliser celles déjà présentes dans le projet
-    - Pensez bien à créer la condition pour aller au niveau suivant
-        - Exemple : Une zone de trigger
     - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
-    - Il doit être possible de le terminer
+    - Il doit être possible de terminer ce nouveau niveau
+    - Vous pourrez trouver des inspirations ici :
+        - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
+        - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
 - Afficher un menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
@@ -73,8 +80,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
 - Corriger les bugs / fonctionnalités incomplètes suivantes :
-    - L'ennemi de type "plante" tire des graines même quand le joueur n'est pas à son niveau. Faites en sorte que les graines soient tirées uniquement 
-- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss...
+    - L'ennemi de type "plante" tire des graines même quand le joueur n'est pas à son niveau. Faites en sorte que les graines soient tirées uniquement quand le joueur est à sa portée
+- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
@@ -118,6 +125,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
 - Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de nommage ainsi que nommer très clairement vos variables
     - Par exemple : N'appelez pas une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
+- Si vous avez du mal à visualiser le niveau que vous devez faire, pourquoi ne pas le faire sur papier avant ?
 - Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
     - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
         - Il est possible de faire des prefabs de prefabs

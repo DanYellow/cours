@@ -29,8 +29,6 @@ public class ChargeBehavior : MonoBehaviour
 
     private float normalImpulseThreshold = 0;
 
-    public float chargePower;
-
     [Header("Shake effect")]
     public CameraShakeEventChannelSO onCrushSO;
     public ShakeTypeVariable shakeInfo;
@@ -69,7 +67,6 @@ public class ChargeBehavior : MonoBehaviour
             rb.AddForce(destination * speed * 0.5f, ForceMode2D.Impulse);
         }
     }
-
 
     private void FixedUpdate()
     {
@@ -121,21 +118,11 @@ public class ChargeBehavior : MonoBehaviour
 
         foreach (ContactPoint2D contact in allContacts)
         {
-            //  if(contact.point.y < transform.position.y) {
-            //     Debug.Log(contact.point + " " + rb.velocity);
-            //     // Debug.Log(i.point + " " + rb.velocity.sqrMagnitude);
-            // }
             if (
                 (contact.normal.x < -0.5 && contact.normalImpulse > normalImpulseThreshold) ||
                 (contact.normal.x > 0.5 && contact.normalImpulse > normalImpulseThreshold)
             )
             {
-                if (other.gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && other.gameObject.CompareTag("Player"))
-                {
-                    Debug.Log("ffffeee");
-                    otherRb.velocity = transform.right * -1f * 100000f;
-                    otherRb.velocity = transform.up * 20f;
-                }
                 animator.SetTrigger("IsHit");
                 if (isOnScreen)
                 {

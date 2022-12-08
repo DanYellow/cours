@@ -21,7 +21,7 @@ public class WaypointManager : MonoBehaviour
     {
         Vector3 dir = nextPosition - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-            
+
         if(Vector3.Distance(transform.position, nextPosition) < 0.1f)
         {
             if(modePingPong) {

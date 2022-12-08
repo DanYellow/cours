@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class RockHead : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class RockHead : MonoBehaviour
     public bool checkLeft = true;
     public bool checkTop = true;
     public bool checkBottom = true;
+
+    private bool isATrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -69,8 +72,15 @@ public class RockHead : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (destination == Vector3.zero)
+        {
+            rb.velocity = listDirections[0] * speed;
+        }
+        else
+        {
+            rb.AddForce(destination * speed, ForceMode2D.Impulse);
+        }
         CheckForTriggers();
-        rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
     private void CheckForTriggers()
@@ -80,10 +90,19 @@ public class RockHead : MonoBehaviour
             Vector3 rayDirection = dir * range;
             Debug.DrawRay(transform.position, rayDirection, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, range, listTriggerLayers);
-            if (hit.collider != null && rb.velocity == Vector2.zero && currentTrigger != hit.collider)
+
+            // If it found something...
+            if (hit.collider != null && currentTrigger != hit.collider)
             {
-                StartCoroutine(ChangeDirection(-hit.normal));
-                currentTrigger = hit.collider;
+                GameObject go = hit.collider.gameObject;
+                isATrigger = Array.Exists(listTriggers, element => element == go);
+                
+                // ...and it's a trigger of the rockhead, it moves
+                if (isATrigger)
+                {
+                    StartCoroutine(ChangeDirection(-hit.normal));
+                    currentTrigger = hit.collider;
+                }
             }
         }
     }
@@ -101,8 +120,6 @@ public class RockHead : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
-        EnableTriggers();
-        CheckForTriggers();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -156,6 +173,9 @@ public class RockHead : MonoBehaviour
         {
             onCrushSO.Raise(shakeInfo);
         }
+
+        EnableTriggers();
+        CheckForTriggers();
     }
 
     void OnCollisionExit2D(Collision2D other)

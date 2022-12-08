@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing;
     public float dashSpeed;
 
-
     public Animator animator;
 
     [Header("Jump system")]
@@ -29,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Misc")]
     public TrailRenderer trailRenderer;
+    public ParticleSystem particles;
 
     private void Awake()
     {
@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirectionX > 0 && !isFacingRight || moveDirectionX < 0 && isFacingRight)
         {
+            CreateDust();
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
@@ -114,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("DoubleJump");
         }
+        CreateDust();
     }
 
     private bool IsGrounded()
@@ -132,5 +134,9 @@ public class PlayerMovement : MonoBehaviour
     public void ToggleState(bool state)
     {
         enabled = !state;
+    }
+
+    private void CreateDust() {
+        particles.Play();
     }
 }
