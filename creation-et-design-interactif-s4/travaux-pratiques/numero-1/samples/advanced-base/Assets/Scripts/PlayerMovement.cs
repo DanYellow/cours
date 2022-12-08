@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveDirectionX;
     private bool isFacingRight = true;
     public float moveSpeed;
-    public float jumpForce;
 
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
@@ -22,13 +21,19 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    [SerializeField, ReadOnlyInspector]
-    private int jumpCount = 0;
+    [Header("Jump system")]
+    [ReadOnlyInspector]
+    public int jumpCount = 0;
     public int maxJumpCount;
+    public float jumpForce;
+
+    [Header("Misc")]
+    public TrailRenderer trailRenderer;
 
     private void Awake()
     {
         this.enabled = false;
+        trailRenderer.enabled = false;
     }
 
     public void Activate()
@@ -57,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isDashing = Input.GetKey(KeyCode.V);
+        trailRenderer.enabled = isDashing;
 
         Flip();
     }
@@ -64,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
+        Animations();
         isGrounded = IsGrounded();
     }
 
@@ -77,7 +83,10 @@ public class PlayerMovement : MonoBehaviour
             v.x *= dashSpeed;
             rb.velocity = v;
         }
+    }
 
+    private void Animations()
+    {
         animator.SetFloat("MoveDirectionX", Mathf.Abs(moveDirectionX));
         animator.SetFloat("MoveDirectionY", rb.velocity.y);
         animator.SetBool("IsGrounded", isGrounded);

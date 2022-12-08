@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChargeBehavior : MonoBehaviour
 {
+    [Header("Change it according to your need")]
     public float range = 100;
     public LayerMask targetLayer;
 
@@ -27,6 +28,8 @@ public class ChargeBehavior : MonoBehaviour
     public bool checkBottom = true;
 
     private float normalImpulseThreshold = 0;
+
+    public float chargePower;
 
     [Header("Shake effect")]
     public CameraShakeEventChannelSO onCrushSO;
@@ -81,7 +84,9 @@ public class ChargeBehavior : MonoBehaviour
                 CheckForTarget();
         }
 
-        animator.SetFloat("MoveDirectionX", Mathf.Abs(rb.velocity.x));
+        if(animator != null) {
+            animator.SetFloat("MoveDirectionX", Mathf.Abs(rb.velocity.x));
+        }
     }
 
     private void CheckForTarget()
@@ -125,6 +130,12 @@ public class ChargeBehavior : MonoBehaviour
                 (contact.normal.x > 0.5 && contact.normalImpulse > normalImpulseThreshold)
             )
             {
+                if (other.gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && other.gameObject.CompareTag("Player"))
+                {
+                    Debug.Log("ffffeee");
+                    otherRb.velocity = transform.right * -1f * 100000f;
+                    otherRb.velocity = transform.up * 20f;
+                }
                 animator.SetTrigger("IsHit");
                 if (isOnScreen)
                 {
@@ -143,8 +154,8 @@ public class ChargeBehavior : MonoBehaviour
     private void Flip()
     {
         if (
-                   (isFacingRight && destination == Vector3.left) ||
-                   (!isFacingRight && destination == Vector3.right)
+                (isFacingRight && destination == Vector3.left) ||
+                (!isFacingRight && destination == Vector3.right)
             )
         {
             isFacingRight = !isFacingRight;
@@ -152,10 +163,11 @@ public class ChargeBehavior : MonoBehaviour
         }
     }
 
+
     IEnumerator HitObstacle()
     {
         yield return new WaitForSeconds(0.15f);
-        rb.AddForce(Vector2.right, ForceMode2D.Impulse);
+        // rb.AddForce(transform.right * -1f * 100f, ForceMode2D.Impulse);
         // rb.AddForce(bounceForce, ForceMode2D.Impulse);
     }
 
