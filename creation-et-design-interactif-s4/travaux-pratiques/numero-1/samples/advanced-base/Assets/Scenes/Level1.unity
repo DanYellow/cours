@@ -619,17 +619,33 @@ PrefabInstance:
       propertyPath: listTriggers.Array.data[3]
       value: 
       objectReference: {fileID: 1089717885}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 824303091}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1129218378}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[2]
+      value: 
+      objectReference: {fileID: 913260795}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1089717885}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.96
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_LocalPosition.z
@@ -669,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486204, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
@@ -3503,6 +3519,18 @@ PrefabInstance:
       propertyPath: listTriggers.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1534052342}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1583175884}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4093,6 +4121,18 @@ PrefabInstance:
       propertyPath: listTriggers.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1306333280}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 323017168}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -20533,7 +20573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &695988786
 Transform:
   m_ObjectHideFlags: 0
@@ -20928,6 +20968,18 @@ PrefabInstance:
       propertyPath: listTriggers.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1591269670}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 389413220}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -43329,6 +43381,22 @@ PrefabInstance:
       propertyPath: listTriggers.Array.data[3]
       value: 
       objectReference: {fileID: 1232079520}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1232079520}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1778403816}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[2]
+      value: 
+      objectReference: {fileID: 65310286}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: orderedListTriggers.Array.data[3]
+      value: 
+      objectReference: {fileID: 2129273298}
     - target: {fileID: 262433198629486203, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_RootOrder
       value: 0
