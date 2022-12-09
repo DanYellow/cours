@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         Vector2 bounceForce = Vector2.up * 1000;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
-        gameObject.transform.Rotate(0f, 0f, 45f);
+        gameObject.transform.Rotate(0f, 0f, 80f);
 
         foreach (var component in listComponents)
         {

@@ -62,7 +62,6 @@ public class RockHead : MonoBehaviour
         }
         EnableTriggers();
         CheckForTriggers();
-        Debug.Log("listTriggers[i] " + listTriggers[currentIndex].transform.localPosition.normalized + " " + "");
     }
 
     void EnableTriggers()
@@ -75,7 +74,6 @@ public class RockHead : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // CheckForTriggers();
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
@@ -172,13 +170,6 @@ public class RockHead : MonoBehaviour
         {
             onCrushSO.Raise(shakeInfo);
         }
-        StartCoroutine(NextStep());
-    }
-
-    IEnumerator NextStep()
-    {
-        yield return null;
-        Debug.Log("ffffzzz");
         EnableTriggers();
         CheckForTriggers();
     }
