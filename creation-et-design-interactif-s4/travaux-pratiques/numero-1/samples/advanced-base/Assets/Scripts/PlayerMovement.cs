@@ -15,13 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGrounded;
 
-    public bool isDashing;
+    private bool isDashing;
     public float dashSpeed;
 
     public Animator animator;
 
-    [Header("Jump system")]
-    [ReadOnlyInspector]
+    [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
     public int maxJumpCount;
     public float jumpForce;

@@ -81,19 +81,27 @@ public class ChargeBehavior : MonoBehaviour
                 CheckForTarget();
         }
 
-        if(animator != null) {
+        if (animator != null)
+        {
             animator.SetFloat("MoveDirectionX", Mathf.Abs(rb.velocity.x));
         }
     }
 
     private void CheckForTarget()
     {
-        //Check if spikehead sees player in all 4 directions
+        //Check if spikehead sees player in direction selected
         for (int i = 0; i < listDirections.Count; i++)
         {
             Vector3 rayDirection = listDirections[i] * range;
-            Debug.DrawRay(transform.position, rayDirection, Color.green);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, range, targetLayer);
+            float offset = (isFacingRight == true && listDirections[i].x < 0) ? 10f : 1f;
+            Debug.Log("offset " + offset + "f" + (rayDirection.normalized * offset));
+            Debug.DrawRay(transform.position + (rayDirection.normalized * offset), rayDirection, Color.green);
+            RaycastHit2D hit = Physics2D.Raycast(
+                transform.position + (rayDirection.normalized * offset), 
+                rayDirection, 
+                range, 
+                targetLayer
+            );
 
             if (hit.collider != null && !isAttacking)
             {
@@ -110,17 +118,40 @@ public class ChargeBehavior : MonoBehaviour
         DetectCollision(other);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
+        other.GetContacts(allContacts);
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            foreach (ContactPoint2D contact in allContacts)
+            {
+                if (
+                        (contact.normal.x < -0.5 || contact.normal.x > 0.5)
+                    )
+                {
+                    Quaternion Rotation = Quaternion.Euler(0, 0, 45f);
+                    Vector2 bounceForce = Rotation * Vector2.up * 25 * -Mathf.Sign(contact.normal.x);
+                    bounceForce.y = Mathf.Abs(bounceForce.y);
+                  
+                    other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+                }
+            }
+        }
+    }
+
     private void DetectCollision(Collision2D other)
     {
         ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
         other.GetContacts(allContacts);
 
-
         foreach (ContactPoint2D contact in allContacts)
         {
             if (
-                (contact.normal.x < -0.5 && contact.normalImpulse > normalImpulseThreshold) ||
-                (contact.normal.x > 0.5 && contact.normalImpulse > normalImpulseThreshold)
+                (contact.normal.x < -0.5 || contact.normal.x > 0.5) &&
+                contact.normalImpulse > normalImpulseThreshold
             )
             {
                 animator.SetTrigger("IsHit");
@@ -154,7 +185,7 @@ public class ChargeBehavior : MonoBehaviour
     IEnumerator HitObstacle()
     {
         yield return new WaitForSeconds(0.15f);
-        rb.AddForce(transform.right.normalized * -1f * 100f, ForceMode2D.Impulse);
+        // rb.AddForce(transform.right.normalized * -1f * 100f, ForceMode2D.Impulse);
         // rb.AddForce(bounceForce, ForceMode2D.Impulse);
     }
 

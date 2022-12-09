@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3783148718577746494}
   - component: {fileID: 3783148718577746495}
   - component: {fileID: 3783148718577746480}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Saw
   m_TagString: Saw
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   listWaypoints:
   - {fileID: 0}
   - {fileID: 0}
+  modePingPong: 0
 --- !u!58 &3783148718577746480
 CircleCollider2D:
   m_ObjectHideFlags: 0

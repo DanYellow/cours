@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e793cd22629284abedc98ddfc5120b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 7
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -131,7 +131,7 @@ MonoBehaviour:
   animator: {fileID: 4000432134071860590}
   isFacingRight: 1
   checkRight: 1
-  checkLeft: 1
+  checkLeft: 0
   checkTop: 0
   checkBottom: 0
   onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
