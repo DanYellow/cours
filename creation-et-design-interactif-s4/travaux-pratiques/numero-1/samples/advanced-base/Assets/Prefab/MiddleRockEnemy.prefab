@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4317209785469998156}
   - component: {fileID: 4317209785469998163}
   - component: {fileID: 7967640488927838004}
+  - component: {fileID: 6128625112066830306}
   - component: {fileID: 3102186620743639381}
   - component: {fileID: 897694450019783401}
   - component: {fileID: 3285495357072266577}
-  - component: {fileID: 6128625112066830306}
+  - component: {fileID: 6234961309222235864}
   m_Layer: 6
-  m_Name: MiddleRock
+  m_Name: MiddleRockEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,6 +137,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8421634, y: 0.7116829}
   m_EdgeRadius: 0
+--- !u!61 &6128625112066830306
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317209785469998162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.50416565, y: -0.14452887}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.875}
+    newSize: {x: 1, y: 0.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47106934, y: 0.9145336}
+  m_EdgeRadius: 0
 --- !u!50 &3102186620743639381
 Rigidbody2D:
   serializedVersion: 4
@@ -169,11 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57d47546fcad95469bc3fd157a18fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3102186620743639381}
   animator: {fileID: 4317209785469998163}
-  split: {fileID: 0}
-  bounce: 8
-  nbOfSplit: 0
+  split: {fileID: 7851825537408949759, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
+  nbOfSplit: 2
 --- !u!114 &3285495357072266577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,29 +215,24 @@ MonoBehaviour:
   animator: {fileID: 4317209785469998163}
   speed: 2.5
   isFacingRight: 0
---- !u!61 &6128625112066830306
-BoxCollider2D:
+--- !u!114 &6234961309222235864
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4317209785469998162}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.50416565, y: -0.14452887}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.875}
-    newSize: {x: 1, y: 0.875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.47106934, y: 0.9145336}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e74ac6451659847a4db480975f8bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 7
+  maxHealth: {fileID: 0}
+  currentHealth: 0
+  spriteRenderer: {fileID: 4317209785469998156}
+  bc2d: {fileID: 7967640488927838004}
+  rb: {fileID: 3102186620743639381}
+  animator: {fileID: 4317209785469998163}
+  listComponents:
+  - {fileID: 3285495357072266577}

@@ -7,16 +7,19 @@ public class Enemy : MonoBehaviour
     public FloatVariable maxHealth;
 
     [ReadOnlyInspector]
-    public float currentHealth;
+    public float currentHealth = 0f;
 
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D bc2d;
     public Rigidbody2D rb;
     public Animator animator;
 
+    [Tooltip("Component to disable after specific event. E.g. : death")]
+    public Behaviour[] listComponents;
+
     private void Start()
     {
-        currentHealth = maxHealth.CurrentValue;
+        currentHealth = maxHealth?.CurrentValue ?? 1f;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -65,10 +68,15 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Vector2 bounceForce = Vector2.up * bounce * 10000;
+        Vector2 bounceForce = Vector2.up * 1000;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
         gameObject.transform.Rotate(0f, 0f, 45f);
+
+        foreach (var component in listComponents)
+        {
+            component.enabled = false;
+        }
 
         foreach (Transform child in transform) {
             child.gameObject.SetActive(false);

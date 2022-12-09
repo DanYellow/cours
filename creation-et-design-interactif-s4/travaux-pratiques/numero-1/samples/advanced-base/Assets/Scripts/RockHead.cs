@@ -74,6 +74,8 @@ public class RockHead : MonoBehaviour
     {
         if (destination == Vector3.zero)
         {
+            // ChangeDirection(-hit.normal)
+            // SetConstraints(listDirections[0]);
             rb.velocity = listDirections[0] * speed;
         }
         else
@@ -96,7 +98,7 @@ public class RockHead : MonoBehaviour
             {
                 GameObject go = hit.collider.gameObject;
                 isATrigger = Array.Exists(listTriggers, element => element == go);
-                
+
                 // ...and it's a trigger of the rockhead, it moves
                 if (isATrigger)
                 {
@@ -110,16 +112,10 @@ public class RockHead : MonoBehaviour
     IEnumerator ChangeDirection(Vector2 dir)
     {
         yield return new WaitForSeconds(delayBetweenMoves);
+        
         destination = dir;
         currentIndex = (currentIndex + 1) % listTriggers.Length;
-        if (dir.x == 0)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        }
+        SetConstraints(dir);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -134,10 +130,23 @@ public class RockHead : MonoBehaviour
         }
     }
 
+    private void SetConstraints(Vector2 dir)
+    {
+        if (dir.x == 0)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
         if (rb.velocity == Vector2.zero)
         {
+            // rb.velocity = Vector2.zero;
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
             {
                 if (destination.y > 0 && lastAnimationPlayed != "HitTop")

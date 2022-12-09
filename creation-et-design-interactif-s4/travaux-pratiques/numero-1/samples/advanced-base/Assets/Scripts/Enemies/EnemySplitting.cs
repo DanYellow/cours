@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class EnemySplitting : MonoBehaviour
 {
-    public Rigidbody2D rb;
     public Animator animator;
 
+    [Tooltip("Gameobject to instantiate when the enemy is hit")]
     public GameObject split;
 
-    public float bounce = 2f;
-
+    [Tooltip("Number of items created after being hit")]
     public int nbOfSplit;
 
     private bool hasSplitted = false;
@@ -18,10 +17,9 @@ public class EnemySplitting : MonoBehaviour
     {
         if (other.contacts[0].normal.y < -0.5f)
         {
-            Vector2 bounceForce = Vector2.up * bounce;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
-
             animator.SetTrigger("IsHit");
+
+            Quaternion angles = transform.rotation;
 
             if (!hasSplitted && split != null)
             {
@@ -29,40 +27,26 @@ public class EnemySplitting : MonoBehaviour
                 for (var i = 0; i < nbOfSplit; i++)
                 {
                     Vector3 position = transform.position;
-                    bool willFacingRight = i % 2 == 0;
-                    Debug.Log("willFacingRight 1" + willFacingRight);
-                    if(gameObject.TryGetComponent<EnemyPatrol>(out EnemyPatrol enemyPatrol)) {
-                        if(enemyPatrol.isFacingRight) {
-                            willFacingRight = !willFacingRight;
+                    bool willFacingRight = i % 2 != 0;
+
+                    if (TryGetComponent<EnemyPatrol>(out EnemyPatrol enemyPatrol))
+                    {
+                        if (enemyPatrol.isFacingRight)
+                        {
+                            angles = Quaternion.Euler(0f, 0f, 0f);
                         }
                     }
-                    Debug.Log("willFacingRight 2" + willFacingRight);
-                    
 
-                    if(willFacingRight) {
-                        position += Vector3.right * 2f; 
-                    } else {
-                        position -= Vector3.right * 2f; 
+                    if (willFacingRight)
+                    {
+                        angles = Quaternion.Euler(0f, -180f, 0f);
                     }
 
-                    Quaternion angles = transform.rotation;
-                    if(willFacingRight) {
-                        angles = transform.rotation * Quaternion.Euler (0f, 180f, 0f);
-                    }
+                    GameObject child = Instantiate(split, position, angles);
 
-                    GameObject child = Instantiate(
-                        split, 
-                        position, 
-                        angles
-                    );
-        
                     child.GetComponent<EnemyPatrol>().isFacingRight = willFacingRight;
                 }
             }
-
-            rb.simulated = false;
-
-            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 0.03f);
         }
     }
 }
