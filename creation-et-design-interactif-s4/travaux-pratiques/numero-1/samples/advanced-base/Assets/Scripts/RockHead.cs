@@ -41,7 +41,6 @@ public class RockHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnableTriggers();
         if (checkLeft)
         {
             listDirections.Add(Vector3.left);
@@ -61,6 +60,9 @@ public class RockHead : MonoBehaviour
         {
             listDirections.Add(Vector3.right);
         }
+        EnableTriggers();
+        CheckForTriggers();
+        Debug.Log("listTriggers[i] " + listTriggers[currentIndex].transform.localPosition.normalized + " " + "");
     }
 
     void EnableTriggers()
@@ -70,19 +72,11 @@ public class RockHead : MonoBehaviour
             listTriggers[i].SetActive(i == currentIndex);
         }
     }
+
     private void FixedUpdate()
     {
-        if (destination == Vector3.zero)
-        {
-            // ChangeDirection(-hit.normal)
-            // SetConstraints(listDirections[0]);
-            rb.velocity = listDirections[0] * speed;
-        }
-        else
-        {
-            rb.AddForce(destination * speed, ForceMode2D.Impulse);
-        }
-        CheckForTriggers();
+        // CheckForTriggers();
+        rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
     private void CheckForTriggers()
@@ -91,19 +85,22 @@ public class RockHead : MonoBehaviour
         {
             Vector3 rayDirection = dir * range;
             Debug.DrawRay(transform.position, rayDirection, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, range, listTriggerLayers);
+            RaycastHit2D[] listHits = Physics2D.RaycastAll(transform.position, rayDirection, range, listTriggerLayers);
 
-            // If it found something...
-            if (hit.collider != null && currentTrigger != hit.collider)
+            foreach (var hit in listHits)
             {
-                GameObject go = hit.collider.gameObject;
-                isATrigger = Array.Exists(listTriggers, element => element == go);
-
-                // ...and it's a trigger of the rockhead, it moves
-                if (isATrigger)
+                // If it found something...
+                if (hit.collider != null && currentTrigger != hit.collider)
                 {
-                    StartCoroutine(ChangeDirection(-hit.normal));
-                    currentTrigger = hit.collider;
+                    GameObject go = hit.collider.gameObject;
+                    isATrigger = Array.Exists(listTriggers, element => element == go);
+
+                    // ...and it's a trigger of the rockhead, it moves
+                    if (isATrigger)
+                    {
+                        StartCoroutine(ChangeDirection(-hit.normal));
+                        currentTrigger = hit.collider;
+                    }
                 }
             }
         }
@@ -112,10 +109,16 @@ public class RockHead : MonoBehaviour
     IEnumerator ChangeDirection(Vector2 dir)
     {
         yield return new WaitForSeconds(delayBetweenMoves);
-        
         destination = dir;
         currentIndex = (currentIndex + 1) % listTriggers.Length;
-        SetConstraints(dir);
+        if (dir.x == 0)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -130,23 +133,10 @@ public class RockHead : MonoBehaviour
         }
     }
 
-    private void SetConstraints(Vector2 dir)
-    {
-        if (dir.x == 0)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D other)
     {
         if (rb.velocity == Vector2.zero)
         {
-            // rb.velocity = Vector2.zero;
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
             {
                 if (destination.y > 0 && lastAnimationPlayed != "HitTop")
@@ -182,7 +172,13 @@ public class RockHead : MonoBehaviour
         {
             onCrushSO.Raise(shakeInfo);
         }
+        StartCoroutine(NextStep());
+    }
 
+    IEnumerator NextStep()
+    {
+        yield return null;
+        Debug.Log("ffffzzz");
         EnableTriggers();
         CheckForTriggers();
     }
