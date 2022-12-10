@@ -89,7 +89,7 @@ public class ChargeBehavior : MonoBehaviour
 
     private void CheckForTarget()
     {
-        //Check if spikehead sees player in direction selected
+        //Check if gameobject sees player in direction selected
         for (int i = 0; i < listDirections.Count; i++)
         {
             float offset = (isFacingRight == true && listDirections[i].x > 0) ? range : (range / 2);
@@ -97,6 +97,7 @@ public class ChargeBehavior : MonoBehaviour
             Vector3 rayDirection = listDirections[i] * range;
             Vector3 startCast = transform.position;
             Vector3 endCast = transform.position + (rayDirection.normalized * offset);
+            Debug.DrawLine(startCast, endCast, Color.green);
 
             RaycastHit2D hit = Physics2D.Linecast(
                 startCast, endCast,
