@@ -92,23 +92,27 @@ public class ChargeBehavior : MonoBehaviour
         //Check if gameobject sees player in direction selected
         for (int i = 0; i < listDirections.Count; i++)
         {
-            float offset = (isFacingRight == true && listDirections[i].x > 0) ? range : (range / 2);
+            float offset = 0;
+
+            if(isFacingRight) {
+                offset = (listDirections[i].x > 0) ? range : (range / 2);
+            } else {
+                offset = (listDirections[i].x < 0) ? range : (range / 2);
+            }
             
             Vector3 rayDirection = listDirections[i] * range;
             Vector3 startCast = transform.position;
             Vector3 endCast = transform.position + (rayDirection.normalized * offset);
             Debug.DrawLine(startCast, endCast, Color.green);
 
-            RaycastHit2D hit = Physics2D.Linecast(
-                startCast, endCast,
-                targetLayer
-            );
+            RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayer);
 
             if (hit.collider != null && !isAttacking)
             {
                 destination = listDirections[i];
                 isAttacking = true;
                 checkTimer = 0;
+
                 Flip();
             }
         }
@@ -129,15 +133,18 @@ public class ChargeBehavior : MonoBehaviour
             foreach (ContactPoint2D contact in allContacts)
             {
                 if (
-                        (contact.normal.x < -0.5 || contact.normal.x > 0.5)
+                        (contact.normal.x > 0.5 && isFacingRight) ||
+                        (contact.normal.x < -0.5 && !isFacingRight)
                     )
                 {
                     Quaternion Rotation = Quaternion.Euler(0, 0, 45f);
-                    Vector2 bounceForce = Rotation * Vector2.up * 25 * -Mathf.Sign(contact.normal.x);
+                    Vector2 bounceForce = Vector2.one * 5 * -Mathf.Sign(contact.normal.x);
                     bounceForce.y = Mathf.Abs(bounceForce.y);
-                  
-                    other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+ 
+                    Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+                    rb.velocity += bounceForce;
+                    rb.AddForce(bounceForce, ForceMode2D.Impulse);
+                    DetectCollision(other);
                 }
             }
         }
