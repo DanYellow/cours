@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     public int maxJumpCount;
     public float jumpForce;
 
-
     private void Awake()
     {
         enabled = false;

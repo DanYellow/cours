@@ -1,12 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class ChargeBehavior : MonoBehaviour
 {
-    [Header("Change it according to your need")]
+    [Header("Distance of sight")]
     public float range = 100;
     public LayerMask targetLayer;
+
+    public float knockbackStrength = 2.5f;
 
     private Vector3 destination;
 
@@ -60,14 +62,6 @@ public class ChargeBehavior : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            rb.AddForce(destination * speed * 0.5f, ForceMode2D.Impulse);
-        }
-    }
-
     private void FixedUpdate()
     {
         if (isAttacking)
@@ -94,12 +88,15 @@ public class ChargeBehavior : MonoBehaviour
         {
             float offset = 0;
 
-            if(isFacingRight) {
+            if (isFacingRight)
+            {
                 offset = (listDirections[i].x > 0) ? range : (range / 2);
-            } else {
+            }
+            else
+            {
                 offset = (listDirections[i].x < 0) ? range : (range / 2);
             }
-            
+
             Vector3 rayDirection = listDirections[i] * range;
             Vector3 startCast = transform.position;
             Vector3 endCast = transform.position + (rayDirection.normalized * offset);
@@ -133,21 +130,16 @@ public class ChargeBehavior : MonoBehaviour
             foreach (ContactPoint2D contact in allContacts)
             {
                 if (
-                        (contact.normal.x > 0.5 && isFacingRight) ||
-                        (contact.normal.x < -0.5 && !isFacingRight)
+                    (contact.normal.x > 0.5 && !isFacingRight) ||
+                        (contact.normal.x < -0.5 && isFacingRight)
                     )
                 {
-                    Quaternion Rotation = Quaternion.Euler(0, 0, 45f);
-                    Vector2 bounceForce = Vector2.one * 5 * -Mathf.Sign(contact.normal.x);
-                    bounceForce.y = Mathf.Abs(bounceForce.y);
- 
-                    Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
-                    rb.velocity += bounceForce;
-                    rb.AddForce(bounceForce, ForceMode2D.Impulse);
-                    DetectCollision(other);
+                    Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
+                    other.gameObject.GetComponent<Knockback>().Knockbacked(direction, knockbackStrength);
                 }
             }
         }
+        DetectCollision(other);
     }
 
     private void DetectCollision(Collision2D other)
@@ -175,6 +167,7 @@ public class ChargeBehavior : MonoBehaviour
     private void Stop()
     {
         isAttacking = false;
+        rb.velocity = Vector2.zero;
     }
 
     private void Flip()
@@ -187,14 +180,6 @@ public class ChargeBehavior : MonoBehaviour
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
-    }
-
-
-    IEnumerator HitObstacle()
-    {
-        yield return new WaitForSeconds(0.15f);
-        // rb.AddForce(transform.right.normalized * -1f * 100f, ForceMode2D.Impulse);
-        // rb.AddForce(bounceForce, ForceMode2D.Impulse);
     }
 
     void OnBecameInvisible()

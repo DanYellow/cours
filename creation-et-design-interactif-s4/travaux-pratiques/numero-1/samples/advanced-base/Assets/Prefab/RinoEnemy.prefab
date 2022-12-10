@@ -124,6 +124,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  knockbackStrength: 2.5
   isAttacking: 0
   checkDelay: 3
   speed: 100
