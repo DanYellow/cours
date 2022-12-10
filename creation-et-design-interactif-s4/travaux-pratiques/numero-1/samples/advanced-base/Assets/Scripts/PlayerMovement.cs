@@ -6,32 +6,32 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveDirectionX;
     private bool isFacingRight = true;
-    public float moveSpeed;
 
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
 
-    public bool isGrounded;
-
-    private bool isDashing;
-    public float dashSpeed;
-
+    private bool isGrounded;
     public Animator animator;
+
+    [Tooltip("Running system")]
+    private bool isRunningFast;
+    public float runFastSpeed;
+    public float moveSpeed;
+
+    public TrailRenderer trailRenderer;
+    public ParticleSystem particles;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
     public int maxJumpCount;
     public float jumpForce;
 
-    [Header("Misc")]
-    public TrailRenderer trailRenderer;
-    public ParticleSystem particles;
 
     private void Awake()
     {
-        this.enabled = false;
+        enabled = false;
         trailRenderer.enabled = false;
     }
 
@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
+        isRunningFast = Input.GetKey(KeyCode.V);
 
         if (isGrounded && !Input.GetButton("Jump"))
         {
@@ -60,8 +61,7 @@ public class PlayerMovement : MonoBehaviour
             Jump(true);
         }
 
-        isDashing = Input.GetKey(KeyCode.V);
-        trailRenderer.enabled = isDashing;
+        trailRenderer.enabled = isRunningFast;
 
         Flip();
     }
@@ -76,10 +76,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
-        if (isDashing)
+        if (isRunningFast)
         {
             Vector2 v = rb.velocity;
-            v.x *= dashSpeed;
+            v.x *= runFastSpeed;
             rb.velocity = v;
         }
     }
