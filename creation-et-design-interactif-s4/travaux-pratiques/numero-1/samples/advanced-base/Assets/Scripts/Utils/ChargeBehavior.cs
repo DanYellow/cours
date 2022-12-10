@@ -92,14 +92,14 @@ public class ChargeBehavior : MonoBehaviour
         //Check if spikehead sees player in direction selected
         for (int i = 0; i < listDirections.Count; i++)
         {
+            float offset = (isFacingRight == true && listDirections[i].x > 0) ? range : (range / 2);
+            
             Vector3 rayDirection = listDirections[i] * range;
-            float offset = (isFacingRight == true && listDirections[i].x < 0) ? 10f : 1f;
-            Debug.Log("offset " + offset + "f" + (rayDirection.normalized * offset));
-            Debug.DrawRay(transform.position + (rayDirection.normalized * offset), rayDirection, Color.green);
-            RaycastHit2D hit = Physics2D.Raycast(
-                transform.position + (rayDirection.normalized * offset), 
-                rayDirection, 
-                range, 
+            Vector3 startCast = transform.position;
+            Vector3 endCast = transform.position + (rayDirection.normalized * offset);
+
+            RaycastHit2D hit = Physics2D.Linecast(
+                startCast, endCast,
                 targetLayer
             );
 
