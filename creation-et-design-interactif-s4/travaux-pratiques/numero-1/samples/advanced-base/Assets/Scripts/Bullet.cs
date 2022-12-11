@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         // }
 
         animator.SetTrigger("IsCollided");
-        // rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         Destroy(gameObject, 0.5f);
     }
 }

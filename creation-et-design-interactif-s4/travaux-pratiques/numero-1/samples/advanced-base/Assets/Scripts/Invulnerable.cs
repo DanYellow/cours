@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Invulnerable : MonoBehaviour
 {
@@ -8,6 +9,30 @@ public class Invulnerable : MonoBehaviour
     public float invulnerableTimeAfterHit = 2.5f;
     public SpriteRenderer spriteRenderer;
     public LayerMask listLayerToIgnoreAfterHit;
+
+    private List<int> listLayers = new List<int>();
+
+
+    private void Start()
+    {
+        CheckMasks();
+
+        foreach (var layerIndex in listLayers)
+        {
+            Physics2D.IgnoreLayerCollision(gameObject.layer, layerIndex, false);
+        }
+    }
+
+    private void CheckMasks()
+    {
+        for (int i = 0; i < 32; i++)
+        {
+            if (listLayerToIgnoreAfterHit == (listLayerToIgnoreAfterHit | (1 << i)))
+            {
+                listLayers.Add(i);
+            }
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -20,7 +45,7 @@ public class Invulnerable : MonoBehaviour
         {
             foreach (ContactPoint2D contact in allContacts)
             {
-                bool itCollidesFromSides = Mathf.Abs(contact.normal.x) > 0.5 && Mathf.Abs(contact.relativeVelocity.x) <= 8;
+                bool itCollidesFromSides = Mathf.Abs(contact.normal.x) > 0.5 && Mathf.Abs(contact.relativeVelocity.x) <= 50;
                 bool itCollidesFromBottom = contact.normal.y < -0.5f;
                 if (
                     itCollidesFromSides || itCollidesFromBottom

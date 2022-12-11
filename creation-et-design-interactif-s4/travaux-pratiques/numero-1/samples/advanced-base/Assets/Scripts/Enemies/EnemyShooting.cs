@@ -17,7 +17,7 @@ public class EnemyShooting : MonoBehaviour
     public float delayBeforeFirstShot;
     public int nbOfConsecutiveShots;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
