@@ -38,6 +38,9 @@ public class RockHead : MonoBehaviour
 
     private bool isATrigger;
 
+    // Value for which the go will be considered as crushed if it has contact with a RockHead
+    private float maxImpulse = 1000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +114,7 @@ public class RockHead : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenMoves);
         destination = dir;
         currentIndex = (currentIndex + 1) % listTriggers.Length;
+
         if (dir.x == 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -192,10 +196,13 @@ public class RockHead : MonoBehaviour
         foreach (ContactPoint2D contact in contacts)
         {
             if (
-                ((contact.normal.y > 0.5 && contact.normalImpulse > 1000) ||
-                (contact.normal.y < -0.5 && contact.normalImpulse > 1000) ||
-                (contact.normal.x < -0.5 && contact.normalImpulse > 1000) ||
-                (contact.normal.x > 0.5 && contact.normalImpulse > 1000)) &&
+                (
+                contact.normal.y > 0.5 ||
+                contact.normal.y < -0.5 ||
+                contact.normal.x < -0.5 ||
+                contact.normal.x > 0.5
+                ) &&
+                contact.normalImpulse > maxImpulse &&
                 other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
             )
             {

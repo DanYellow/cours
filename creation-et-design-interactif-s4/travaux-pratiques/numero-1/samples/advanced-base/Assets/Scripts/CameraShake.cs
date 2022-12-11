@@ -4,10 +4,12 @@ using System.Collections;
 public class CameraShake : MonoBehaviour
 {
     private void Update() {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(Shake(0.1f, 0.4f));
         }
+        #endif
     }
 
     public void ShakeProxy(ShakeTypeVariable shakeType) {

@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
-public class CameraShakeListener : MonoBehaviour
+public class CameraShakeEventListener : MonoBehaviour
 {
     // Event to register
     public CameraShakeEventChannelSO Event;

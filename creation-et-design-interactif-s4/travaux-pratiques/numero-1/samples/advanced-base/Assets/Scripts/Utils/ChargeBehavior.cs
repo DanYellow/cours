@@ -130,12 +130,14 @@ public class ChargeBehavior : MonoBehaviour
             foreach (ContactPoint2D contact in allContacts)
             {
                 if (
-                    (contact.normal.x > 0.5 && !isFacingRight) ||
-                        (contact.normal.x < -0.5 && isFacingRight)
+                    ((contact.normal.x > 0.5 && !isFacingRight) ||
+                    (contact.normal.x < -0.5 && isFacingRight)) &&
+                    other.gameObject.TryGetComponent<Knockback>(out Knockback knockback)
+
                     )
                 {
                     Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
-                    other.gameObject.GetComponent<Knockback>().Knockbacked(direction, knockbackStrength);
+                   knockback.Knockbacked(direction, knockbackStrength);
                 }
             }
         }

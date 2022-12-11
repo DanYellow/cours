@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
         // if (
         //     collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         // }
 
         animator.SetTrigger("IsCollided");
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        // rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         Destroy(gameObject, 0.5f);
     }
 }
