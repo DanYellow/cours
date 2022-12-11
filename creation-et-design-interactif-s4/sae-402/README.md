@@ -109,7 +109,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
 
 ## Recommencer au dernier checkpoint
-Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur la fonctionnalité "recommencer au dernier checkpoint". Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne
+Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur la fonctionnalité "recommencer au dernier checkpoint". Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
 
 ### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -165,3 +165,5 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
         - être ambitieux dans le projet, n'allez pas faire un jeu où c'est juste un carré / cube qui saute
 - Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
     - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous montrer ce qui a été fait
+- Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?
+    - Non. Cette erreur est liée à la scène de préchargement (_Preload)

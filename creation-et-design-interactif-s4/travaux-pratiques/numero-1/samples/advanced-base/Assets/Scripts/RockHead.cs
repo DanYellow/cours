@@ -83,6 +83,8 @@ public class RockHead : MonoBehaviour
         {
             Vector3 rayDirection = dir * range;
             Debug.DrawRay(transform.position, rayDirection, Color.red);
+
+            //We use "RaycastAll" and not "Raycast" because some triggers might be overlapped
             RaycastHit2D[] listHits = Physics2D.RaycastAll(transform.position, rayDirection, range, listTriggerLayers);
 
             foreach (var hit in listHits)

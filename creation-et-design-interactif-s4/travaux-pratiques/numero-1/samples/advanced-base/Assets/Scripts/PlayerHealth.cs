@@ -21,10 +21,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F9))
         {
             Die();
         }
+        #endif
     }
 
     public void TakeDamage(float damage)
@@ -46,11 +48,5 @@ public class PlayerHealth : MonoBehaviour
     public void OnPlayerDeathAnimationCallback()
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-    }
-
-    public void Respawn()
-    {
-        transform.rotation = Quaternion.identity;
-        currentHealth.CurrentValue = maxHealth.CurrentValue;
     }
 }

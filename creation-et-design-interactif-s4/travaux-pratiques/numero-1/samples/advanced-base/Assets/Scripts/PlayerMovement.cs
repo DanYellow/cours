@@ -138,8 +138,4 @@ public class PlayerMovement : MonoBehaviour
     private void CreateDust() {
         particles.Play();
     }
-
-    public void SetIsFacingRight(bool _isFacingRight) {
-        isFacingRight = _isFacingRight;
-    }
 }

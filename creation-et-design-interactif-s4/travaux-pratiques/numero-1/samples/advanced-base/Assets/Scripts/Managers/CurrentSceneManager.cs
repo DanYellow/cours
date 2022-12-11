@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public VoidEventChannelSO onRespawnSO;
     void Update()
     {
         #if UNITY_EDITOR
@@ -31,7 +30,7 @@ public class CurrentSceneManager : MonoBehaviour
     }
 
     public void RestartLastCheckpoint() {
-        onRespawnSO.Raise();
+        Debug.Log("RestartLastCheckpoint");
         // Refill life to full
         // Position to last checkpoint
         // Reset objects ?
@@ -39,11 +38,12 @@ public class CurrentSceneManager : MonoBehaviour
         // Reset Rigidbody
         // Reactivate Player movements
         // Reset isFacingRight
+        // Reset Player's rotation
     }
 
     public void GameOverScreen()
     {
-        Debug.Log("Display Gameover");
+        Debug.Log("GameOverScreen");
         // SceneManager.LoadScene("GameOver");
     }
 
