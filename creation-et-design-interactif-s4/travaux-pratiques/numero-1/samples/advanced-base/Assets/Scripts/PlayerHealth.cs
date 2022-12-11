@@ -8,16 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public VoidEventChannelSO onPlayerDeath;
     public Animator animator;
 
+    [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
-
-    public enum AnimationCallback
-    {
-        Death,
-        None
-    }
-
-    Rigidbody2D rb;
-
 
     private void Awake()
     {
@@ -25,8 +17,6 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth.CurrentValue = maxHealth.CurrentValue;
         }
-
-        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -53,11 +43,8 @@ public class PlayerHealth : MonoBehaviour
         animator.SetTrigger("OnPlayerDeath");
     }
 
-    public void AlertObservers(AnimationCallback animationCallback = AnimationCallback.None)
+    public void OnPlayerDeathAnimationCallback()
     {
-        if (animationCallback == AnimationCallback.Death)
-        {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        }
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

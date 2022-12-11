@@ -21949,10 +21949,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   groundCheck: {fileID: 1911207315}
-  groundCheckRadius: 0.35
+  groundCheckRadius: 0.15
   animator: {fileID: 814072434}
-  runFastSpeed: 1.5
-  moveSpeed: 10
+  runFastSpeed: 1.75
+  moveSpeed: 8
   trailRenderer: {fileID: 814072440}
   particles: {fileID: 1488234117}
   jumpCount: 0
@@ -21988,7 +21988,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0023604631, y: -0.1113214}
+  m_Offset: {x: 0.0023604631, y: -0.13247204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21999,7 +21999,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71201396, y: 0.7497827}
+  m_Size: {x: 0.57426715, y: 0.7074814}
   m_EdgeRadius: 0
 --- !u!50 &814072433
 Rigidbody2D:
@@ -22082,7 +22082,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1776592798, guid: 5afed9c0ebf509642acfc6266e953d91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22102,7 +22102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814072429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: -0.471, z: 0}
+  m_LocalPosition: {x: 71.56, y: -2.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
