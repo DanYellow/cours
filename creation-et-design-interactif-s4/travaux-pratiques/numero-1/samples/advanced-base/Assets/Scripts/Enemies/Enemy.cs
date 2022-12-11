@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    [Tooltip("Component to disable after specific event. E.g. : death")]
+    [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
 
     private void Start()
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            spriteRenderer.color = UnityEngine.Color.black;
+            spriteRenderer.color = new UnityEngine.Color(0.8207547f, 0.8207547f, 0.8207547f);
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }
@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         bc2d.enabled = false;
         gameObject.transform.Rotate(0f, 0f, 80f);
 
-        foreach (var component in listComponents)
+        foreach (Behaviour component in listComponents)
         {
             component.enabled = false;
         }

@@ -11,6 +11,11 @@ public class CurrentSceneManager : MonoBehaviour
             Time.timeScale = 1f;
             RestartLevel();
         }
+
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            RestartLastCheckpoint();
+        }
         #endif
     }
 
@@ -27,7 +32,8 @@ public class CurrentSceneManager : MonoBehaviour
     public void RestartLastCheckpoint() {
         // Refill life
         // Position to last checkpoint
-        // Reset objects
+        // Reset objects ?
+        // Remove menu
     }
 
     public void GameOverScreen()
