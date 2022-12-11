@@ -39,7 +39,7 @@ public class HealthBadExample : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(isInvincible) return;
+        if (isInvincible) return;
 
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth / maxHealth);
@@ -47,7 +47,9 @@ public class HealthBadExample : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-        } else {
+        }
+        else
+        {
             StartCoroutine(HandleInvincibilityDelay());
             StartCoroutine(InvincibilityFlash());
         }
@@ -61,7 +63,7 @@ public class HealthBadExample : MonoBehaviour
 
     public IEnumerator InvincibilityFlash()
     {
-        
+
         while (isInvincible)
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
@@ -78,7 +80,8 @@ public class HealthBadExample : MonoBehaviour
         isInvincible = false;
     }
 
-    public bool IsInvincible() {
+    public bool IsInvincible()
+    {
         return isInvincible;
     }
 }

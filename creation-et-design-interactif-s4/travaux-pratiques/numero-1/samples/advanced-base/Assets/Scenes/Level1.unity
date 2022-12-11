@@ -22086,7 +22086,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   groundCheck: {fileID: 1911207315}
-  groundCheckRadius: 0.15
+  groundCheckRadius: 0.24
   animator: {fileID: 814072434}
   runFastSpeed: 1.75
   moveSpeed: 8
@@ -22111,6 +22111,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 57cfb8340e449824ea37d99614d90703, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   animator: {fileID: 814072434}
+  spriteRenderer: {fileID: 814072435}
   needResetHP: 1
 --- !u!61 &814072432
 BoxCollider2D:
