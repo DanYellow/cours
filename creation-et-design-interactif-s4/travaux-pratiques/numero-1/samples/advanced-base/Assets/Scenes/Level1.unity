@@ -899,6 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cf55f0254b67d4d9b5e823a21d6bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onRespawnSO: {fileID: 11400000, guid: daefa8452a37b1e44a6e8b5db4190a33, type: 2}
 --- !u!1 &96304697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1427,18 @@ PrefabInstance:
     - target: {fileID: 5600367782922950188, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600367782922950191, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600367782922950191, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600367782922950191, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5600367782922950193, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
       propertyPath: m_Name
@@ -21925,6 +21938,7 @@ GameObject:
   - component: {fileID: 814072437}
   - component: {fileID: 814072441}
   - component: {fileID: 814072440}
+  - component: {fileID: 814072442}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -21999,7 +22013,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57426715, y: 0.7074814}
+  m_Size: {x: 0.5050229, y: 0.7074814}
   m_EdgeRadius: 0
 --- !u!50 &814072433
 Rigidbody2D:
@@ -22303,6 +22317,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 814072433}
+--- !u!114 &814072442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814072429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba795ce86f7ada46834fc06fb7858cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: daefa8452a37b1e44a6e8b5db4190a33, type: 2}
+  Callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 814072439}
+        m_TargetAssemblyTypeName: PlayerSpawn, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 814072431}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 814072435}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 814072433}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &818214322
 PrefabInstance:
   m_ObjectHideFlags: 0

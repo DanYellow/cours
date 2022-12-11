@@ -47,4 +47,13 @@ public class PlayerHealth : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
+
+    public void Respawn()
+    {
+        transform.rotation = Quaternion.identity;
+        currentHealth.CurrentValue = maxHealth.CurrentValue;
+        animator.enabled = false;
+        animator.enabled = true;
+        animator.Play("Appearing");
+    }
 }

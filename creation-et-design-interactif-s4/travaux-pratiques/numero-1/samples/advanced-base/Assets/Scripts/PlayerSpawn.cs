@@ -12,4 +12,9 @@ public class PlayerSpawn : MonoBehaviour
         currentSpawnPosition = gameObject.transform.position;
         initialSpawnPosition = gameObject.transform.position;
     }
+
+    public void Respawn()
+    {
+        gameObject.transform.position = currentSpawnPosition;
+    }
 }

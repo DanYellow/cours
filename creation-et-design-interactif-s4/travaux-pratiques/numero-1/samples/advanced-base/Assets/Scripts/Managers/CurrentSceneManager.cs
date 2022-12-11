@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
+    public VoidEventChannelSO onRespawnSO;
     void Update()
     {
         #if UNITY_EDITOR
@@ -30,6 +31,7 @@ public class CurrentSceneManager : MonoBehaviour
     }
 
     public void RestartLastCheckpoint() {
+        onRespawnSO.Raise();
         // Refill life
         // Position to last checkpoint
         // Reset objects ?

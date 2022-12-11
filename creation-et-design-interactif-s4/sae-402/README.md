@@ -135,7 +135,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 
 # Votre liste à faire
 - [x] Lire les consignes
-- Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler
+- Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - Respecter les attentes
 - Générer une archive contenant :
     - Votre build du jeu
@@ -146,11 +146,11 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Est-il possible de réaliser ce travail seul(e) ?
     - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. De plus, le travail collaboratif vous incitera à utiliser github
 - Est-il possible de rendre mon jeu jouable avec une manette de jeu ?
-    - Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettestant
+    - Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes
 - J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?
     - Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
 - Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?
-    - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la.
+    - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
 - Sommes-nous obligés d'utiliser les Scriptables Objects ?
     - Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulté à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects. Néanmoins, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
 - Puis-je effectuer un projet à partir de zéro ?
@@ -158,3 +158,5 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
         - Mettre à la racine de votre projet un fichier .gitgnore pour vous permettre de mettre votre projet sur github
             - [Télécharger le .gitignore pour unity](https://raw.githubusercontent.com/github/gitignore/main/Unity.gitignore)
         - être ambitieux dans le projet, n'allez pas faire un jeu où c'est juste un carré / cube qui saute
+- Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
+    - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous montrer ce qui a été fait
