@@ -37,8 +37,9 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
-Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) :
+Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
+- Touche F8 : R
 - Touche F9 : Tue le joueur d'un coup
 
 # Commandes du jeu
@@ -100,11 +101,15 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons
-- Animer les checkpoints (Les carrés rouges dans les niveaux)
+- Animer les checkpoints (Les carrés bleus dans le niveau)
+    - Ajouter une indication de checkpoint atteint
 - Créer **une** props de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
+
+## Recommencer au dernier checkpoint
+Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur la fonctionnalité "recommencer au dernier checkpoint". Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne
 
 ### Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.

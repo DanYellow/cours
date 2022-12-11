@@ -52,8 +52,5 @@ public class PlayerHealth : MonoBehaviour
     {
         transform.rotation = Quaternion.identity;
         currentHealth.CurrentValue = maxHealth.CurrentValue;
-        animator.enabled = false;
-        animator.enabled = true;
-        animator.Play("Appearing");
     }
 }

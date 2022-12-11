@@ -32,10 +32,13 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void RestartLastCheckpoint() {
         onRespawnSO.Raise();
-        // Refill life
+        // Refill life to full
         // Position to last checkpoint
         // Reset objects ?
         // Remove menu
+        // Reset Rigidbody
+        // Reactivate Player movements
+        // Reset isFacingRight
     }
 
     public void GameOverScreen()

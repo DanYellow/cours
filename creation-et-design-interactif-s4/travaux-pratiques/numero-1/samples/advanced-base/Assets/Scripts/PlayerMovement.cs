@@ -5,7 +5,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     private float moveDirectionX;
-    private bool isFacingRight = true;
+
+    public bool isFacingRight = true;
 
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
@@ -136,5 +137,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void CreateDust() {
         particles.Play();
+    }
+
+    public void SetIsFacingRight(bool _isFacingRight) {
+        isFacingRight = _isFacingRight;
     }
 }
