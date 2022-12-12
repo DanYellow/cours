@@ -16,6 +16,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
 - Ennemis :
     - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des rhinocéros qui foncent sur le joueur
+    - Des pierres qui se divise en deux lorsqu'on leur saute dessus
 - Pièges :
     - RockHead : Une pierre qui se fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile sur une circuit défini
@@ -39,7 +40,8 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
-- Touche F8 : R
+- Touche F7 : Inflige des dégâts de 0 au joueur
+- Touche F8 : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche F9 : Tue le joueur d'un coup
 
 # Commandes du jeu

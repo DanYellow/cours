@@ -35,12 +35,17 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            TakeDamage(0);
+        }
 #endif
     }
 
     public void TakeDamage(float damage)
     {
-        if (isInvincible) return;
+        if (isInvincible && damage < float.MaxValue) return;
 
         currentHealth.CurrentValue -= damage;
         if (currentHealth.CurrentValue <= 0)
