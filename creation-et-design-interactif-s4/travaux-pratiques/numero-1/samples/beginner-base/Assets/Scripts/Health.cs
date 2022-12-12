@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    bool isInvincible = false;
+    private bool isInvincible = false;
 
     float invincibilityFlashDelay = 0.2f;
     float invincibilityTimeAfterHit = 2.5f;

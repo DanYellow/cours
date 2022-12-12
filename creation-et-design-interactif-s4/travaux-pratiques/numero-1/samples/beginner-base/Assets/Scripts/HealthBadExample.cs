@@ -15,8 +15,8 @@ public class HealthBadExample : MonoBehaviour
 
     bool isInvincible = false;
 
-    float invincibilityFlashDelay = 0.2f;
-    float invincibilityTimeAfterHit = 2.5f;
+    public float invincibilityFlashDelay = 0.2f;
+    public float invincibilityTimeAfterHit = 2.5f;
 
     private void Start()
     {
@@ -72,7 +72,7 @@ public class HealthBadExample : MonoBehaviour
             yield return new WaitForSeconds(invincibilityFlashDelay);
         }
     }
-
+    
     public IEnumerator HandleInvincibilityDelay()
     {
         isInvincible = true;

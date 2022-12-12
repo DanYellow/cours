@@ -11,6 +11,11 @@ public class PlayerHealth : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    private bool isInvincible = false;
+
+    public float invincibilityFlashDelay = 0.2f;
+    public float invincibilityTimeAfterHit = 2.5f;
+
 
     [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
@@ -25,20 +30,27 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F9))
         {
             Die();
         }
-        #endif
+#endif
     }
 
     public void TakeDamage(float damage)
-    {        
+    {
+        if (isInvincible) return;
+
         currentHealth.CurrentValue -= damage;
         if (currentHealth.CurrentValue <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartCoroutine(HandleInvincibilityDelay());
+            StartCoroutine(InvincibilityFlash());
         }
     }
 
@@ -52,5 +64,24 @@ public class PlayerHealth : MonoBehaviour
     public void OnPlayerDeathAnimationCallback()
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public IEnumerator InvincibilityFlash()
+    {
+
+        while (isInvincible)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(invincibilityFlashDelay);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(invincibilityFlashDelay);
+        }
+    }
+
+    public IEnumerator HandleInvincibilityDelay()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityTimeAfterHit);
+        isInvincible = false;
     }
 }
