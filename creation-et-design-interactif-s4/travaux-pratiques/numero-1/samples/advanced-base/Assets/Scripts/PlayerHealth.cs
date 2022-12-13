@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         }
 #endif
     }
-
+ 
     public void TakeDamage(float damage)
     {
         if (isInvincible && damage < float.MaxValue) return;
