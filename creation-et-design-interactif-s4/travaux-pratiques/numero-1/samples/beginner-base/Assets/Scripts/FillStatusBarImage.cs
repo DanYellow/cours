@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+// https://www.youtube.com/watch?v=cruE--5ML_Q
+
+
+[AddComponentMenu("My Special Component")]
 public class FillStatusBarImage : MonoBehaviour
 {
     public Image fillImage;
@@ -19,10 +23,10 @@ public class FillStatusBarImage : MonoBehaviour
     private void Start()
     {
 
-        damageImage.CrossFadeAlpha(0f, 0f, false);
-        // damageColor = damageImage.color;
-        // damageColor.a = 0f;
-        // damageImage.color = damageColor;
+        // damageImage.CrossFadeAlpha(0f, 0f, false);
+        damageColor = damageImage.color;
+        damageColor.a = 0f;
+        damageImage.color = damageColor;
         currentHealthVal = currentHealth.CurrentValue;
     }
 
@@ -39,23 +43,21 @@ public class FillStatusBarImage : MonoBehaviour
             
             damagedHealthFadeTimer -= Time.deltaTime;
             StartCoroutine(UpdateDamageBar());
-            if (damagedHealthFadeTimer < 0)
-            {
-                // float fadeAmount = 5f;
-                // damageColor.a -= (fadeAmount * Time.deltaTime);
-                // damageImage.color = damageColor;
+        }
 
-                // damageImage.fillAmount = fillImage.fillAmount;
-            }
+        if(currentHealthVal != currentHealth.CurrentValue && damageColor.a <= 0) {
+            damageColor.a = 1f;
+            //  damageImage.CrossFadeAlpha(1f, 0f, false);
+            damageImage.color = damageColor;
+            damageImage.fillAmount = fillImage.fillAmount;
         }
 
         if (currentHealthVal == currentHealth.CurrentValue)
         {
-            Debug.Log("currentHealthVal");
             damageColor.a = 1f;
-             damageImage.CrossFadeAlpha(1f, 0f, false);
+            //  damageImage.CrossFadeAlpha(1f, 0f, false);
+            damageImage.color = damageColor;
             damageImage.fillAmount = fillImage.fillAmount;
-            // damageImage.color = damageColor;
         }
     }
 
@@ -63,13 +65,13 @@ public class FillStatusBarImage : MonoBehaviour
     {
         
         yield return new WaitForSeconds(0.5f);
-        // damageColor.a = 0f;
-        // damageImage.color = damageColor;
-        damageImage.CrossFadeAlpha(0, 2.0f, false);
+        damageColor.a = 0f;
+        damageImage.color = damageColor;
+        // damageImage.CrossFadeAlpha(0, 2.0f, false);
         yield return new WaitForSeconds(2f);
         currentHealthVal = currentHealth.CurrentValue;
-        Debug.Log("currentHealthVal " + currentHealthVal);
-        Debug.Log("currentHealth " + currentHealth.CurrentValue);
+        // Debug.Log("currentHealthVal " + currentHealthVal);
+        // Debug.Log("currentHealth " + currentHealth.CurrentValue);
     }
 
 

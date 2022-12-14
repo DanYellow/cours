@@ -4,4 +4,7 @@ using UnityEngine;
 public class FloatVariable : ScriptableObject
 {
     public float CurrentValue;
+
+    [Multiline]
+    public string DeveloperDescription = "";
 }
