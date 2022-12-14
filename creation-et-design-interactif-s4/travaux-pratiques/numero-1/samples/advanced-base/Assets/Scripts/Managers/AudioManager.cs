@@ -13,6 +13,16 @@ public class AudioManager : MonoBehaviour
     private float volumeOnPlay = 1f;
     private float volumeStep = 0.005f;
 
+     public PlaySoundAtEventChannelSO onPickUp;
+
+
+    private void Awake() {
+        onPickUp.OnEventRaised += PlayClipAt;
+    }
+
+    private void Test(AudioClip sound, Vector3 position) {
+        Debug.Log("ffff");
+    }
 
     // Start is called before the first frame update
     void Start()

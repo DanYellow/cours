@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,24 +117,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4000432134071860576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e793cd22629284abedc98ddfc5120b, type: 3}
+  m_Script: {fileID: 11500000, guid: 041efdf3bc445e2498fdcc6ac6e73fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 7
+  range: 100
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
   knockbackStrength: 2.5
   isAttacking: 0
-  checkDelay: 3
-  speed: 100
+  checkDelay: 2
+  speed: 50
   rb: {fileID: 4000432134071860589}
   animator: {fileID: 4000432134071860590}
   isFacingRight: 1
   checkRight: 1
-  checkLeft: 0
-  checkTop: 0
-  checkBottom: 0
+  checkLeft: 1
+  checkTop: 1
+  checkBottom: 1
   onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   shakeInfo: {fileID: 11400000, guid: 86dc0f61e35efdc478aa042ff9b5efd8, type: 2}
 --- !u!61 &4000432134071860586

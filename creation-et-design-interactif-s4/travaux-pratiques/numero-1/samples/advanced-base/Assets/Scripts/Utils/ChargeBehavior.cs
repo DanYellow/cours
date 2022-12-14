@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 
 public class ChargeBehavior : MonoBehaviour
@@ -13,7 +12,7 @@ public class ChargeBehavior : MonoBehaviour
     private Vector3 destination;
 
     private List<Vector3> listDirections = new List<Vector3>();
-    public bool isAttacking;
+    private bool isAttacking;
 
     private float checkTimer;
     public float checkDelay;
