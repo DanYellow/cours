@@ -120,7 +120,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4317209785469998162}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 35e608246bc670349981e18e00ddc936, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   animator: {fileID: 4317209785469998163}
   speed: 2.5
   isFacingRight: 0
+  walkTime: 5
 --- !u!114 &6234961309222235864
 MonoBehaviour:
   m_ObjectHideFlags: 0
