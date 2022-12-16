@@ -29,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
     public int maxJumpCount;
     public float jumpForce;
 
+    private float fallingThreshold = -20f;
+    private bool isLandingFast = false;
+    public ParticleSystem landingParticles;
+
+    [Header("Misc")]
+    public CameraShakeEventChannelSO onLandingFastSO;
+    public ShakeTypeVariable landingFastShakeInfo;
+
     private void Awake()
     {
         enabled = false;
@@ -59,6 +67,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             Jump(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            isLandingFast = true;
+            rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+            
+        }
+
+        if (isLandingFast && isGrounded) {
+            isLandingFast = false;
+            onLandingFastSO.Raise(landingFastShakeInfo);
+            landingParticles.Play();
         }
 
         trailRenderer.enabled = isRunningFast;

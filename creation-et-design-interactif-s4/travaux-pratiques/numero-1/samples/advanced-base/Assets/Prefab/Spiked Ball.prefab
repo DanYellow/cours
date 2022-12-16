@@ -210,7 +210,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 3.43}
-  m_ConnectedAnchor: {x: 218.51, y: 11.1}
+  m_ConnectedAnchor: {x: 206.44, y: 11.12}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -229,7 +229,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -271,6 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8520597522518767276}
-  speed: 200
+  speed: 115
   leftAngleLimit: -0.5
   rightAngleLimit: 0.5

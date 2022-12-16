@@ -18,7 +18,6 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("currentHealth " + currentHealth);
         // currentHealth = maxHealth;
         currentHealth.CurrentValue = maxHealth.CurrentValue;
     }
