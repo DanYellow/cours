@@ -20,21 +20,26 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
 - Pièges :
     - RockHead : Une pierre qui se fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile sur une circuit défini
+    - Chaine : Une boule qui se déplace selon un axe défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
     - Pause / Relance du jeu
     - Nombre de points de vie des ennemis de base
+    - Tremblement de la caméra
+    - Mort du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
-    - Il n'y a pas de menu de Pause, c'est une des tâches que vous devez effectuer
-    - Il n'est pas forcément complet, il y a des choses à rajouter notamment la gestion des déplacements
+    - Il n'y a pas de menu de Pause, c'est une des tâches que vous devrez effectuer
+    - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements
 - Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes) sont gérés via des scriptables objects
+    - Les sons (par exemple, les pommmes à la collect) sont gérés via des scriptables objects
 
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - Plus d'explications sur la scène de bootstrap
+
+- [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fadvanced-base)
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
@@ -110,10 +115,15 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
 
-## Recommencer au dernier checkpoint
-Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur la fonctionnalité "recommencer au dernier checkpoint". Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
+## Fonctionnalités que nous développerons ensemble
+Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
+### Recommencer au dernier checkpoint
+Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
 
-### Contenu de l'écran des crédits 
+### Système de ventilateurs
+Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant `Area Effector 2D`.
+
+## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
 - https://pixelfrog-assets.itch.io/pixel-adventure-2
 - https://pixelfrog-assets.itch.io/pixel-adventure-1

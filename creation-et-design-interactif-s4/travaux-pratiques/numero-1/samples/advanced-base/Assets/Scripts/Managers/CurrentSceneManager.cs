@@ -37,7 +37,6 @@ public class CurrentSceneManager : MonoBehaviour
         // Remove menu
         // Reset Rigidbody
         // Reactivate Player movements
-        // Reset isFacingRight
         // Reset Player's rotation
     }
 

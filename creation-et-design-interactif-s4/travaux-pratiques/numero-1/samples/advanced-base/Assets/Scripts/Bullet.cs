@@ -25,8 +25,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (
-            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
-            other.gameObject.CompareTag("Player")
+            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
             )
         {
             playerHealth.TakeDamage(damage);
