@@ -69,16 +69,16 @@ public class PlayerMovement : MonoBehaviour
             Jump(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
+        {
             isLandingFast = true;
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
-            
+
         }
 
-        if (isLandingFast && isGrounded) {
-            isLandingFast = false;
-            onLandingFastSO.Raise(landingFastShakeInfo);
-            landingParticles.Play();
+        if (isLandingFast && isGrounded)
+        {
+            LandingImpact();
         }
 
         trailRenderer.enabled = isRunningFast;
@@ -155,7 +155,15 @@ public class PlayerMovement : MonoBehaviour
         enabled = !state;
     }
 
-    private void CreateDust() {
+    private void CreateDust()
+    {
         particles.Play();
+    }
+
+    private void LandingImpact()
+    {
+        isLandingFast = false;
+        onLandingFastSO.Raise(landingFastShakeInfo);
+        landingParticles.Play();
     }
 }

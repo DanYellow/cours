@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a784820e9e3136478d022aa91968383, type: 3}
   m_Name: PlayerLandingShakeType
   m_EditorClassIdentifier: 
-  Duration: 0.1
-  Magnitude: 0.01
+  Duration: 0.07
+  Magnitude: 0.75

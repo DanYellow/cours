@@ -43,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
             // Enemy will walk during X seconds...
             isIdle = false;
             yield return new WaitForSeconds(walkTime);
-            
+
             // ...then wait during X seconds...
             isIdle = true;
             yield return new WaitForSeconds(idleTime);
@@ -59,17 +59,17 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (isFacingRight)
         {
-            rb.velocity = new Vector2(speed, 0f);
+            rb.velocity = new Vector2(speed, rb.velocity.y);
         }
         else
         {
-            rb.velocity = new Vector2(-speed, 0f);
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(isIdle) return;
+        if (isIdle) return;
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
