@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
 
     public Animator animator;
 
+    public float damage = 1f;
+
     private void Start()
     {
         rb.velocity = transform.right * moveSpeed;
@@ -22,15 +24,13 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if (
-        //     collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
-        // )
-        // {
-        //     if (collision.gameObject.TryGetComponent<Health>(out Health health))
-        //     {
-        //         health.TakeDamage(3);
-        //     }
-        // }
+        if (
+            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
+            other.gameObject.CompareTag("Player")
+            )
+        {
+            playerHealth.TakeDamage(damage);
+        }
 
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;

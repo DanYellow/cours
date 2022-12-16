@@ -9,11 +9,11 @@ public class CollectibleVariable : ScriptableObject
 
     public Sprite sprite;
 
-    public PlaySoundAtEventChannelSO onPickUp;
+    public PlaySoundAtEventChannelSO onPickUpAudio;
     public IntEventChannelSO onPickUpValue;
 
     public void PickItem(Vector3 position) {
-        onPickUp.Raise(audioClip, position);
+        onPickUpAudio.Raise(audioClip, position);
         onPickUpValue.Raise(value);
     }
 }

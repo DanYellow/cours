@@ -162,6 +162,8 @@ MonoBehaviour:
   bc2d: {fileID: 107261412584399407}
   rb: {fileID: 107261412584399400}
   animator: {fileID: 107261412584399393}
+  listComponents:
+  - {fileID: 107261412584399405}
 --- !u!114 &107261412584399405
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ string[] tableauFormations = {"MMI", "TC", "GE2I", "MT2E"};
 > Si vous souhaitez définir une constante (variable dont la valeur ne peut pas changer au cours du temps), il suffit juste de mettre "const" devant le type de la variable. Exemple : `const string cours = "Unity"`.
 
 ### Liste ou tableau ?
-Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau. Alors qu'une liste a une dimension dynamique.
+Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau. Alors qu'une liste a une dimension dynamique. Ce qui fait qu'une liste occupe plus de places en mémoire (RAM) qu'un tableau, de ce fait, utilisez le bon type pour la bonne situation. 
 
 ```cs
 // Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove() ou même en remplacer à un index précis grâce à la méthode .Insert().
@@ -40,19 +40,16 @@ List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 ```
 - [Différence Liste et Tableau en C# - anglais](https://www.shekhali.com/c-array-vs-list)
 
-> Autre point important : Il existe une autre différence entre les listes et les tableaux en C#. Pour accéder au nombre d'éléments, on utilisera la propriété "Length", là où on utilisera la propriété "Count" pour les listes.
+> Autre point important : Il existe une autre différence entre les listes et les tableaux en C#. Pour accéder au nombre d'éléments, on utilisera la propriété "Length", là où on utilisera la propriété "Count" pour les listes. Étrange mais c'est comme ça.
 
 ## Fonctions
 ```cs
-[niveau de visibilité] [type de retour] NomDeFonction([paramètres ([type] paramètre1), ([type] paramètre2)])
+[type de retour] NomDeFonction([paramètres ([type] paramètre1), ([type] paramètre2)])
 {
     // Instructions
 }
 ``` 
-- Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
-    - public : la fonction est accessible dans l'inspecteur d'Unity. On peut la lire (et la modifier) depuis n'importe où dans notre projet
-    - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
-        - Par défaut, les fonctions sont privées en C#, mais pensez à le préciser.
+
 - Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. A noter qu'une fonctione ne peut retourner qu'un seul type à la fois et si votre fonction ne doit rien retourner, on mettra la valeur "void"
 - NomDeFonction : Comme les variables, le nom est arbitraire mais certains noms sont interdits et bien évidemment on nommera nos fonctions avec un nom explicite. A noter qu'en C# les fonctions commencent par une majuscule, par convention
 - Les paramètres : tout comme les variables, ils doivent avoir un type et sont séparés par une virgule. **Et les paramètres ne sont accessibles que dans la fonction qui les définit**
@@ -192,14 +189,18 @@ Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous av
 
 
 ## Propriétés de classes
-Il faut se rappeler que les variables ont une portée qui leur est spécifique. Ainsi, si vous définissez une variable dans une méthode, elle **n'existe que** dans la méthode, c'est là qu'entre en jeu les propriétés de classes. C'est un type de variables qui peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
+Au sein d'une classe, les variables définies en dehors d'une fonction ont une portée qui leur est spécifique. Autrement dit, elles n'existent que dans un contexte que vous aurez défini. Ces variables sont appelées **propriétés de classes**. Elle peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
 
 ```cs
-[niveau de visibilité] [type] [nom de variable];
+[niveau de visibilité] [type] [nom de variable] = valeur;
 ```
-- Niveau de visibilité : On l'a vu précemment
+- Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
+    - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Dans le cas d'une propriété, le fait qu'elle soit publique rend possible la modification depuis l'onglet inspecteur d'Unity
+    - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
+        - Par défaut, les fonctions sont privées en C#, mais pensez à le préciser.
     - Par défaut les propriétés sont "private", mais il est préférable de le préciser
 - Type et nom de variable : On l'a vu précemment
+- Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code
 
 
 Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
@@ -217,8 +218,12 @@ public class MyClass : MonoBehaviour
         Debug.Log($"nbYearsBUT {nbYearsBUT}");
     }
 
-    void MyMethod() {
+    public void MyMethod() {
         nbYearsBUT = 7;
+    }
+
+    private void MyPrivateMethod() {
+        nbYearsBUT = 5;
     }
     /* [...] */
 }

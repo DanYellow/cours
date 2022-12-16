@@ -73,7 +73,6 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator InvincibilityFlash()
     {
-
         while (isInvincible)
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0f);

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5600367782922950188}
   - component: {fileID: 5600367782922950191}
   - component: {fileID: 5600367782922950190}
-  - component: {fileID: 5600367782922950189}
   - component: {fileID: 5600367782922950186}
   - component: {fileID: 5600367782922950187}
   - component: {fileID: 1487734454}
   - component: {fileID: 1487734455}
+  - component: {fileID: 5600367782922950189}
   - component: {fileID: 1487734456}
   m_Layer: 6
   m_Name: BigRockEnemy
@@ -111,21 +111,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5600367782922950189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5600367782922950193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57d47546fcad95469bc3fd157a18fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5600367782922950190}
-  split: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
-  nbOfSplit: 2
 --- !u!50 &5600367782922950186
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +145,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014503479, y: -0.078330815}
+  m_Offset: {x: 0.014503479, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -215,6 +200,23 @@ MonoBehaviour:
   animator: {fileID: 5600367782922950190}
   speed: 1.8
   isFacingRight: 1
+  idleTime: 5
+  walkTime: 5
+--- !u!114 &5600367782922950189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600367782922950193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57d47546fcad95469bc3fd157a18fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5600367782922950190}
+  split: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
+  nbOfSplit: 2
 --- !u!114 &1487734456
 MonoBehaviour:
   m_ObjectHideFlags: 0

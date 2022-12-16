@@ -40,7 +40,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
-- Touche F7 : Inflige des dégâts de 0 au joueur
+- Touche F7 : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
 - Touche F8 : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche F9 : Tue le joueur d'un coup
 
