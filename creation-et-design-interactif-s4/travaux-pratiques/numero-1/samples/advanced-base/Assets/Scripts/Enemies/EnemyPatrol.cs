@@ -12,11 +12,14 @@ public class EnemyPatrol : MonoBehaviour
 
     private bool isIdle;
 
-    public float idleTime = 2f;
+    private float idleTime;
+
+    [Tooltip("Define how long the enemy will walk")]
     public float walkTime = 5f;
 
     private void Start()
     {
+        idleTime = Mathf.Round(Random.Range(0, 3.5f));
         StartCoroutine(ChangeState());
     }
 
@@ -37,10 +40,13 @@ public class EnemyPatrol : MonoBehaviour
     {
         while (true)
         {
+            // Enemy will walk during X seconds...
             isIdle = false;
-            yield return new WaitForSeconds(idleTime);
-            isIdle = true;
             yield return new WaitForSeconds(walkTime);
+            
+            // ...then wait during X seconds...
+            isIdle = true;
+            yield return new WaitForSeconds(idleTime);
         }
     }
 
