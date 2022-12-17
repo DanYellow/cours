@@ -37,10 +37,14 @@ public class PlayerMovement : MonoBehaviour
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
 
+    private Vector2 currentVelocity;
+    private float maxYVelocity;
+
     private void Awake()
     {
         enabled = false;
         trailRenderer.enabled = false;
+        maxYVelocity = (jumpForce * 0.25f) + jumpForce;
     }
 
     public void Activate()
@@ -73,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isLandingFast = true;
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
-
         }
 
         if (isLandingFast && isGrounded)
@@ -91,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Animations();
         isGrounded = IsGrounded();
+
+        currentVelocity = rb.velocity;
+        currentVelocity.y = Mathf.Clamp(currentVelocity.y, rb.velocity.y, maxYVelocity);
+
+        rb.velocity = currentVelocity;
     }
 
     private void Move()
