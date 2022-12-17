@@ -31,8 +31,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Il n'y a pas de menu de Pause, c'est une des tâches que vous devrez effectuer
     - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements
 - Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes à la collect) sont gérés via des scriptables objects
-
+    - Les sons (par exemple, les pommmes à la récupération) sont gérés via des scriptables objects évènement `Assets/Scripts/ScriptableObjects/Events/OnSFXAudioChannel`
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau
@@ -51,6 +50,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 # Commandes du jeu
 - Flèches gauche et droite : déplacement du joueur
+- Flèche vers le bas (en hauteur) : déplacement rapide vers le sol
 - Barre espace : Saut
 - Touche V (maintien) : Accélération
 - Pause / relance : Touche échap
