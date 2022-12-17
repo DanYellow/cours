@@ -13,12 +13,14 @@ public class WaypointManager : MonoBehaviour
 
     void Awake()
     {
-        nextPosition = listWaypoints[0].position;
+        if(listWaypoints.Length == 0) return;
+        nextPosition = listWaypoints[0]?.position ?? Vector3.zero;
         transform.position = nextPosition;
     }
 
     void Update()
     {
+        if(listWaypoints.Length == 0) return;
         Vector3 dir = nextPosition - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 

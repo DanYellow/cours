@@ -106,7 +106,7 @@ public class MyClass : MonoBehaviour
 }
 ```
 Ci-dessus vous avez une classe de base, de type MonoBehavior, à chaque fois que vous allez créer un nouveau script depuis Unity, vous aurez au minimum le code ci-dessus (sans les commentaires en français). Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins.
-> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenu dans un fichier appelé MyClass.cs. **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet.
+> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet. Notez également qu'à chaque fois que vous sauvegardez vos scripts et retournez sur Unity, il fera une vérification du code et toute erreur trouvée rendra impossible la compilation (mode `Play`).
 
 ### Déclaration de classe : `public class MyClass : MonoBehaviour`
 Cette ligne nous permet de définir notre classe. Tout ce qui est avant `:` nous est familier car la syntaxe est identique à celle des variables et méthodes, ici on utilise le type `class`. En revanche la synaxe `: MonoBehaviour` nous est nouvelle, elle désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`.  
@@ -173,7 +173,7 @@ Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le
 - Déplacement du joueur
 - Gestion du son / physique
 - Animation
-- Scriptable Objects
+- ScriptableObjects
 
 Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
@@ -195,13 +195,11 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
 [niveau de visibilité] [type] [nom de variable] = valeur;
 ```
 - Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
-    - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Dans le cas d'une propriété, le fait qu'elle soit publique rend possible la modification depuis l'onglet inspecteur d'Unity
+    - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Dans le cas d'une propriété, le fait qu'elle soit publique rend possible la modification depuis l'onglet "Inspector" d'Unity
     - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
-        - Par défaut, les fonctions sont privées en C#, mais pensez à le préciser.
-    - Par défaut les propriétés sont "private", mais il est préférable de le préciser
+        - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser.
 - Type et nom de variable : On l'a vu précemment
 - Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code
-
 
 Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
 ```cs
@@ -214,7 +212,7 @@ public class MyClass : MonoBehaviour
 
     void Start()
     {
-        // Note : Avec le site $, il est possible d'afficher une variable dans une chaîne de caractères
+        // Note : Avec le caractère $, il est possible d'afficher une variable (et plus) dans une chaîne de caractères
         Debug.Log($"nbYearsBUT {nbYearsBUT}");
     }
 
@@ -229,5 +227,7 @@ public class MyClass : MonoBehaviour
 }
 ```
 
-Pour terminer, voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
+Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
+
+> Dernier point : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement et vous pourriez perdre quelques travaux.

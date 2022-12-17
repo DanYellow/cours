@@ -121,7 +121,7 @@ Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensembl
 Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
 
 ### Système de ventilateurs
-Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant `Area Effector 2D`.
+Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant `Area Effector 2D`. Et de finir le niveau déjà fait pour vous grâce à la plate-forme sur-élevée au bout du parcours.
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
