@@ -87,10 +87,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
-- Corriger les bugs / fonctionnalités incomplètes suivantes :
-    - L'ennemi de type "plante" tire des graines même quand le joueur n'est pas à son niveau. Faites en sorte que les graines soient tirées uniquement quand le joueur est à sa portée
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
+- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
+    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
+        - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
@@ -104,10 +105,9 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - A vous de définir les règles de bonus / malus de score
 - Des bruitages lors d'actions (sauts, tir...)
     - Vous avez un exemple de fonctionnement de bruitage dans la Prefab "Apple"
-    - Pourquoi pas ne pas réaliser vous-même ces bruitages
-- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
-    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
-        - Il y a un sprite avec les différents contrôles et boutons
+    - Pourquoi pas ne pas réaliser vous-même ces bruitages ?
+- Ajouter une attaque "impact" alors qu'on appuie sur la flèche du bas en l'air
+    - Il faudra utiliser la méthode [Physics2D.OverlapAreaAll() (ou Physics2D.OverlapCircleAll())](https://docs.unity3d.com/ScriptReference/Physics2D.OverlapAreaAll.html) pour savoir qui a été touché dans une zone spécifique
 - Animer les checkpoints (Les carrés bleus dans le niveau)
     - Ajouter une indication de checkpoint atteint
 - Créer **une** props de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
@@ -116,7 +116,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
 
 ## Fonctionnalités que nous développerons ensemble
-Pour vous permettre de commencer sur de bonnes bases, nous travaillerons ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
+Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
 ### Recommencer au dernier checkpoint
 Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
 
