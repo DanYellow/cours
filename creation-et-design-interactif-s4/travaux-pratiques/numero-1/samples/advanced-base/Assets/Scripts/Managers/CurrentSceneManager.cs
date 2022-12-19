@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
+    public StringEventChannelSO OnLevelEnded;
     void Update()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1f;
@@ -16,7 +17,7 @@ public class CurrentSceneManager : MonoBehaviour
         {
             RestartLastCheckpoint();
         }
-        #endif
+#endif
     }
 
     public void LoadScene(string sceneName)
@@ -29,7 +30,8 @@ public class CurrentSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void RestartLastCheckpoint() {
+    public void RestartLastCheckpoint()
+    {
         Debug.Log("RestartLastCheckpoint");
         // Refill life to full
         // Position to last checkpoint

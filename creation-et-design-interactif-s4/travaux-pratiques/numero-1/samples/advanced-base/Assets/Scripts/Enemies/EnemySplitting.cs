@@ -18,7 +18,7 @@ public class EnemySplitting : MonoBehaviour
         ContactPoint2D[] contacts = new ContactPoint2D[1];
         other.GetContacts(contacts);
 
-        if (contacts[0].normal.y < -0.5f)
+        if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
         {
             animator.SetTrigger("IsHit");
 
