@@ -116,7 +116,17 @@ public class ChargeBehavior : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        DetectCollision(other);
+        ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
+        other.GetContacts(allContacts);
+
+        foreach (ContactPoint2D contact in allContacts)
+        {
+            if (((contact.normal.x > 0.5f && !isFacingRight) ||
+                (contact.normal.x < -0.5f && isFacingRight)) && contact.normalImpulse > normalImpulseThreshold)
+            {
+                DetectCollision(other);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -124,45 +134,31 @@ public class ChargeBehavior : MonoBehaviour
         ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
         other.GetContacts(allContacts);
 
-        if (other.gameObject.CompareTag("Player"))
+        foreach (ContactPoint2D contact in allContacts)
         {
-            foreach (ContactPoint2D contact in allContacts)
+            if (
+                (contact.normal.x > 0.5f && !isFacingRight) ||
+                (contact.normal.x < -0.5f && isFacingRight)
+                )
             {
-                if (
-                    ((contact.normal.x > 0.5 && !isFacingRight) ||
-                    (contact.normal.x < -0.5 && isFacingRight)) &&
-                    other.gameObject.TryGetComponent<Knockback>(out Knockback knockback)
-
-                    )
+                DetectCollision(other);
+                if (other.gameObject.TryGetComponent<Knockback>(out Knockback knockback))
                 {
                     Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
-                   knockback.Knockbacked(direction, knockbackStrength);
+                    knockback.Knockbacked(direction, knockbackStrength);
                 }
             }
         }
-        DetectCollision(other);
     }
 
     private void DetectCollision(Collision2D other)
     {
-        ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
-        other.GetContacts(allContacts);
-
-        foreach (ContactPoint2D contact in allContacts)
+        animator.SetTrigger("IsHit");
+        if (isOnScreen)
         {
-            if (
-                (contact.normal.x < -0.5 || contact.normal.x > 0.5) &&
-                contact.normalImpulse > normalImpulseThreshold
-            )
-            {
-                animator.SetTrigger("IsHit");
-                if (isOnScreen)
-                {
-                    onCrushSO.Raise(shakeInfo);
-                }
-                Stop();
-            }
+            onCrushSO.Raise(shakeInfo);
         }
+        Stop();
     }
 
     private void Stop()

@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour
     public BoxCollider2D bc2d;
     public Rigidbody2D rb;
     public Animator animator;
-    ContactPoint2D[] contacts = new ContactPoint2D[1];
+
+    // List of contact points when something collides with that GameObject
+    private ContactPoint2D[] contacts = new ContactPoint2D[1];
 
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
@@ -25,7 +27,6 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // ContactPoint2D[] contacts = new ContactPoint2D[1];
         other.GetContacts(contacts);
 
         if (
