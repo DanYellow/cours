@@ -121,8 +121,11 @@ public class ChargeBehavior : MonoBehaviour
 
         foreach (ContactPoint2D contact in allContacts)
         {
-            if (((contact.normal.x > 0.5f && !isFacingRight) ||
-                (contact.normal.x < -0.5f && isFacingRight)) && contact.normalImpulse > normalImpulseThreshold)
+            if
+            (
+                ((contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)) &&
+                contact.normalImpulse > normalImpulseThreshold
+            )
             {
                 DetectCollision(other);
             }
@@ -137,8 +140,7 @@ public class ChargeBehavior : MonoBehaviour
         foreach (ContactPoint2D contact in allContacts)
         {
             if (
-                (contact.normal.x > 0.5f && !isFacingRight) ||
-                (contact.normal.x < -0.5f && isFacingRight)
+                (contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)
                 )
             {
                 DetectCollision(other);
