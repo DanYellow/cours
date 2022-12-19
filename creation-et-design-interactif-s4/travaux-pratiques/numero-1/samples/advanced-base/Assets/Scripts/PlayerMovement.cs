@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Running system")]
     private bool isRunningFast;
-    public float runFastSpeed;
+    public float runFastSpeedFactor;
     public float moveSpeed;
 
     public TrailRenderer trailRenderer;
@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     public int maxJumpCount;
     public float jumpForce;
 
-    private float fallingThreshold = -20f;
     private bool isLandingFast = false;
     public ParticleSystem landingParticles;
 
@@ -107,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         if (isRunningFast)
         {
             Vector2 v = rb.velocity;
-            v.x *= runFastSpeed;
+            v.x *= runFastSpeedFactor;
             rb.velocity = v;
         }
     }

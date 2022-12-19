@@ -28495,7 +28495,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1911207315}
   groundCheckRadius: 0.24
   animator: {fileID: 814072434}
-  runFastSpeed: 1.75
+  runFastSpeedFactor: 1.35
   moveSpeed: 9
   trailRenderer: {fileID: 814072440}
   particles: {fileID: 1488234117}
