@@ -24,30 +24,34 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (
-            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
-            other.gameObject.CompareTag("Player") &&
-            other.contacts[0].normal.y > -0.5f
-            )
-        {
-            playerHealth.TakeDamage(1f);
-        }
+        // if (
+        //     other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
+        //     other.gameObject.CompareTag("Player") &&
+        //     other.contacts[0].normal.y > -0.5f
+        //     )
+        // {
+        //     playerHealth.TakeDamage(1f);
+        // }
 
-        if (other.contacts[0].normal.y < -0.5f)
+        if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(TakeDamage(1f));
-            Vector2 bounceForce = Vector2.up * bounce;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+            ContactPoint2D[] contacts = new ContactPoint2D[1];
+            other.GetContacts(contacts);
 
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
+            Debug.Log(contacts[0].normal.y);
 
-        if (other.gameObject.CompareTag("Saw"))
-        {
-            Die();
+            // Vector2 direction = other.gameObject.transform.position - transform.position;
+            // if (Vector2.Dot(direction.normalized, Vector2.up) > Mathf.Cos(Mathf.PI / 4))
+            // {
+            //     StartCoroutine(TakeDamage(1f));
+            //     Vector2 bounceForce = Vector2.up * bounce;
+            //     other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+
+            //     if (currentHealth <= 0)
+            //     {
+            //         Die();
+            //     }
+            // }
         }
     }
 
@@ -68,6 +72,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        rb.velocity = Vector2.zero;
         Vector2 bounceForce = Vector2.up * 1000;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
@@ -78,7 +83,8 @@ public class Enemy : MonoBehaviour
             component.enabled = false;
         }
 
-        foreach (Transform child in transform) {
+        foreach (Transform child in transform)
+        {
             child.gameObject.SetActive(false);
         }
     }

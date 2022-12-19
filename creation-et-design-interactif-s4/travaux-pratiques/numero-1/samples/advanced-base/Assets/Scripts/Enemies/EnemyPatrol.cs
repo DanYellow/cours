@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class EnemyPatrol : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class EnemyPatrol : MonoBehaviour
 
     [Tooltip("Define how long the enemy will walk")]
     public float walkTime = 5f;
+
+    private void Awake() {
+        // We don't want the script to be enabled by default but...
+        enabled = false;
+    }
 
     private void Start()
     {
@@ -72,5 +78,15 @@ public class EnemyPatrol : MonoBehaviour
         if (isIdle) return;
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
     }
 }
