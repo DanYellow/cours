@@ -24,34 +24,28 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // if (
-        //     other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
-        //     other.gameObject.CompareTag("Player") &&
-        //     other.contacts[0].normal.y > -0.5f
-        //     )
-        // {
-        //     playerHealth.TakeDamage(1f);
-        // }
+        ContactPoint2D[] contacts = new ContactPoint2D[1];
+        other.GetContacts(contacts);
 
-        if (other.gameObject.CompareTag("Player"))
+        if (
+            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
+            other.gameObject.CompareTag("Player") &&
+            contacts[0].normal.y > -0.5f
+            )
         {
-            ContactPoint2D[] contacts = new ContactPoint2D[1];
-            other.GetContacts(contacts);
+            playerHealth.TakeDamage(1f);
+        }
 
-            Debug.Log(contacts[0].normal.y);
+        if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
+        {
+            StartCoroutine(TakeDamage(1f));
+            Vector2 bounceForce = Vector2.up * bounce;
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
 
-            // Vector2 direction = other.gameObject.transform.position - transform.position;
-            // if (Vector2.Dot(direction.normalized, Vector2.up) > Mathf.Cos(Mathf.PI / 4))
-            // {
-            //     StartCoroutine(TakeDamage(1f));
-            //     Vector2 bounceForce = Vector2.up * bounce;
-            //     other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
-
-            //     if (currentHealth <= 0)
-            //     {
-            //         Die();
-            //     }
-            // }
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
