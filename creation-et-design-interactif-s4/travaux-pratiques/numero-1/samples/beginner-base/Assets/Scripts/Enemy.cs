@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public VoidEventChannelSO onEnemyDeath;
 
+    ContactPoint2D[] contacts = new ContactPoint2D[1];
+
     private void Start()
     {
         currentHealth = maxHealth.CurrentValue;
@@ -19,17 +21,19 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
+        other.GetContacts(contacts);
         if (
         //    other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
            other.gameObject.TryGetComponent<HealthBadExample>(out HealthBadExample playerHealth) &&
             other.gameObject.CompareTag("Player") &&
-            other.contacts[0].normal.y > -0.5f
+            contacts[0].normal.y > -0.5f
             )
         {
            playerHealth.TakeDamage(1f);
         }
 
-        if (other.contacts[0].normal.y < -0.5f)
+        if (contacts[0].normal.y < -0.5f)
         {
             currentHealth -= 1f;
             Vector2 bounceForce = Vector2.up * bounce;

@@ -15,7 +15,10 @@ public class EnemySplitting : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.contacts[0].normal.y < -0.5f)
+        ContactPoint2D[] contacts = new ContactPoint2D[1];
+        other.GetContacts(contacts);
+
+        if (contacts[0].normal.y < -0.5f)
         {
             animator.SetTrigger("IsHit");
 

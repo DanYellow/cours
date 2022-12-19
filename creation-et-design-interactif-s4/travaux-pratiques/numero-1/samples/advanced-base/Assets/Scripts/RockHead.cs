@@ -127,10 +127,13 @@ public class RockHead : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        ContactPoint2D[] contacts = new ContactPoint2D[1];
+        other.GetContacts(contacts);
+        
         if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
-            if (other.contacts[0].normal.y < -0.5f)
+            if (contacts[0].normal.y < -0.5f)
             {
                 other.gameObject.transform.parent = transform;
             }

@@ -87,6 +87,9 @@ public class EnemyPatrol : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        // We stop the enemy when is not visible or else
+        // it might continue to run but whoen be able to change direction
+        Idle();
         enabled = false;
     }
 }
