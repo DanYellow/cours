@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c09d77f6c244674cbd6bf4df39009e7, type: 3}
-  m_Name: OnSFXAudioChannel
+  m_Name: OnSFXAudioChannelSO
   m_EditorClassIdentifier: 

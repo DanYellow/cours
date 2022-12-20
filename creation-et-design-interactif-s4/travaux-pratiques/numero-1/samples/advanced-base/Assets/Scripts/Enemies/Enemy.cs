@@ -60,7 +60,8 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            spriteRenderer.color = new UnityEngine.Color(0.8207547f, 0.8207547f, 0.8207547f);
+            UnityEngine.Color hitColor = new UnityEngine.Color(0.8207547f, 0.8207547f, 0.8207547f);
+            spriteRenderer.color = hitColor;
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }
@@ -68,16 +69,16 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        foreach (Behaviour component in listComponents)
+        {
+            component.enabled = false;
+        }
+        
         rb.velocity = Vector2.zero;
         Vector2 bounceForce = Vector2.up * 1000;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
         gameObject.transform.Rotate(0f, 0f, 80f);
-
-        foreach (Behaviour component in listComponents)
-        {
-            component.enabled = false;
-        }
 
         foreach (Transform child in transform)
         {

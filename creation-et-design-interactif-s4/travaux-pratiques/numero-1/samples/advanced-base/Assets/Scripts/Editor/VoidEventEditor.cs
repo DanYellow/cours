@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(VoidEventChannelSO), editorForChildClasses: true)]
-public class EventEditor : Editor
+public class VoidEventEditor : Editor
 {
     public override void OnInspectorGUI()
     {

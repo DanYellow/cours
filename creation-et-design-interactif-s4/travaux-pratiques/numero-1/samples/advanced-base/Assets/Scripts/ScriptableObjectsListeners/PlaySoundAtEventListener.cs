@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class PlaySoundAtEventListener : MonoBehaviour
 {
     // Event to register

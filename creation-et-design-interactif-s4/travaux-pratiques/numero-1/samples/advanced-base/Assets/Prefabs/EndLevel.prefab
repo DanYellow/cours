@@ -4951,4 +4951,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 4327952917260666791}
   OnLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
+  sfxAudioChannel: {fileID: 11400000, guid: cdb31aea211f71549a57205694811885, type: 2}
   nextLevel: 
+  audioClip: {fileID: 8300000, guid: ac0b01adff324ff4588f2023fa77333e, type: 3}

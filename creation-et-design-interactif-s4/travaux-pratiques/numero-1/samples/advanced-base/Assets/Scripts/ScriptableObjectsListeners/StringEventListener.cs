@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// [System.Serializable]
-// public class IntEvent : UnityEvent<int>{}
-
 public class StringEventListener : MonoBehaviour
 {
     // Event to register

@@ -17,7 +17,6 @@ public class PlaySoundAtEventChannelSOdAtEventEditor : Editor
         PlaySoundAtEventChannelSO e = target as PlaySoundAtEventChannelSO;
 
         position = Vector3.zero;
-        // position = EditorGUILayout.Vector3Field("Position", position);
         audioClip = (AudioClip)EditorGUILayout.ObjectField("Audio", audioClip, typeof(AudioClip), true);
 
         if (GUILayout.Button("Raise"))
