@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool wasOnIce = false;
     private float lastXVelocity = 0f;
+    private float lastXVelocityOnIce = 0f;
 
     private void Awake()
     {
@@ -100,17 +101,23 @@ public class PlayerMovement : MonoBehaviour
         LimitSpeed();
         isGrounded = IsGrounded();
 
-        
         if (isOnIce)
         {
-            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed * 0.025f);
+            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed * 0.025f); //   + lastXVelocity
             rb.AddForce(direction, ForceMode2D.Impulse);
-        } else {
-            Move();
+            lastXVelocityOnIce = rb.velocity.x;
+        }
+        else
+        {
+            if (!wasOnIce)
+            {
+                Move();
+            }
         }
     }
 
-    private void LimitSpeed() {
+    private void LimitSpeed()
+    {
         currentVelocity = rb.velocity;
         currentVelocity.y = Mathf.Clamp(currentVelocity.y, rb.velocity.y, maxYVelocity);
         currentVelocity.x = Mathf.Clamp(currentVelocity.x, -moveSpeed, moveSpeed);
@@ -120,7 +127,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        // Debug.Log("lastXVelocityOnIce " + lastXVelocityOnIce);
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
+
+        // lastXVelocity = rb.velocity.x;
         if (isRunningFast)
         {
             Vector2 v = rb.velocity;
@@ -149,7 +159,9 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(bool shortJump = false)
     {
         float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower); //  + lastXVelocityOnIce
+
+        // lastXVelocityOnIce = 0f;
         if (!shortJump)
         {
             jumpCount = jumpCount + 1;
@@ -198,10 +210,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnIce = true;
             wasOnIce = true;
-        } else if (other.gameObject.layer != LayerMask.NameToLayer("Ice")) {
-            lastXVelocity = 0;
-            // rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+        else if (other.gameObject.layer != LayerMask.NameToLayer("Ice"))
+        {
             wasOnIce = false;
+            // lastXVelocity = 0;
         }
     }
 
@@ -210,9 +223,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Ice"))
         {
             isOnIce = false;
-            if(!Input.GetButton("Jump")) {
-                rb.velocity = new Vector2(rb.velocity.x + lastXVelocity, rb.velocity.y);
-            }
         }
     }
 
