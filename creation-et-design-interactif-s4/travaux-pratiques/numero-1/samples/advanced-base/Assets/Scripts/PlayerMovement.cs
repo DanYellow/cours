@@ -39,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
+    private bool isOnIce = false;
+
+    [SerializeField]
+    private bool wasOnIce = false;
+    private float lastXVelocity = 0f;
+
     private void Awake()
     {
         enabled = false;
@@ -90,19 +96,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
         Animations();
+        LimitSpeed();
         isGrounded = IsGrounded();
 
+        
+        if (isOnIce)
+        {
+            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed * 0.025f);
+            rb.AddForce(direction, ForceMode2D.Impulse);
+        } else {
+            Move();
+        }
+    }
+
+    private void LimitSpeed() {
         currentVelocity = rb.velocity;
         currentVelocity.y = Mathf.Clamp(currentVelocity.y, rb.velocity.y, maxYVelocity);
+        currentVelocity.x = Mathf.Clamp(currentVelocity.x, -moveSpeed, moveSpeed);
 
         rb.velocity = currentVelocity;
     }
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
         if (isRunningFast)
         {
             Vector2 v = rb.velocity;
@@ -174,7 +192,28 @@ public class PlayerMovement : MonoBehaviour
         landingParticles.Play();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("ttrtr");
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ice"))
+        {
+            isOnIce = true;
+            wasOnIce = true;
+        } else if (other.gameObject.layer != LayerMask.NameToLayer("Ice")) {
+            lastXVelocity = 0;
+            // rb.velocity = new Vector2(0, rb.velocity.y);
+            wasOnIce = false;
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ice"))
+        {
+            isOnIce = false;
+            if(!Input.GetButton("Jump")) {
+                rb.velocity = new Vector2(rb.velocity.x + lastXVelocity, rb.velocity.y);
+            }
+        }
+    }
+
 }
