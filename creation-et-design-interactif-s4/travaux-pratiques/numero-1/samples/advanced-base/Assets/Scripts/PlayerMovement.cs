@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ice")]
     private bool isOnIce = false;
     private bool wasOnIce = false;
-    
+
     private void Awake()
     {
         enabled = false;
@@ -98,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
         LimitSpeed();
         isGrounded = IsGrounded();
 
+        // Debug.Log("IsOnIceArea() " + IsOnIceArea());
+
         if (isOnIce)
         {
             Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * moveSpeed;
@@ -110,6 +112,14 @@ public class PlayerMovement : MonoBehaviour
                 Move();
             }
         }
+    }
+
+    private bool IsOnIceArea() {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 5, LayerMask.GetMask("Ice"));
+
+        Debug.DrawRay(transform.position, Vector3.down * 5, Color.black);
+
+        return hit.collider != null;
     }
 
     private void LimitSpeed()
@@ -195,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
         isLandingFast = false;
         onLandingFastSO.Raise(landingFastShakeInfo);
         landingParticles.Play();
+        rb.velocity = Vector2.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
