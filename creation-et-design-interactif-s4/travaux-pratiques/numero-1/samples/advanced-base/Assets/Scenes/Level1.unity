@@ -30115,7 +30115,6 @@ MonoBehaviour:
   landingParticles: {fileID: 418787795}
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
-  wasOnIce: 0
 --- !u!114 &814072431
 MonoBehaviour:
   m_ObjectHideFlags: 0

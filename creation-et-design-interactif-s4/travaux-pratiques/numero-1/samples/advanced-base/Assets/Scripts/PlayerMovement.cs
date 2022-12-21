@@ -39,13 +39,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
+    [Header("Ice")]
     private bool isOnIce = false;
-
-    [SerializeField]
     private bool wasOnIce = false;
-    private float lastXVelocity = 0f;
-    private float lastXVelocityOnIce = 0f;
-
+    
     private void Awake()
     {
         enabled = false;
@@ -103,9 +100,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (isOnIce)
         {
-            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed * 0.025f); //   + lastXVelocity
-            rb.AddForce(direction, ForceMode2D.Impulse);
-            lastXVelocityOnIce = rb.velocity.x;
+            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * moveSpeed;
+            rb.AddForce(direction, ForceMode2D.Force);
         }
         else
         {
@@ -127,10 +123,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        // Debug.Log("lastXVelocityOnIce " + lastXVelocityOnIce);
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
 
-        // lastXVelocity = rb.velocity.x;
         if (isRunningFast)
         {
             Vector2 v = rb.velocity;
@@ -159,9 +153,8 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(bool shortJump = false)
     {
         float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower); //  + lastXVelocityOnIce
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
 
-        // lastXVelocityOnIce = 0f;
         if (!shortJump)
         {
             jumpCount = jumpCount + 1;
@@ -214,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
         else if (other.gameObject.layer != LayerMask.NameToLayer("Ice"))
         {
             wasOnIce = false;
-            // lastXVelocity = 0;
         }
     }
 
@@ -225,5 +217,4 @@ public class PlayerMovement : MonoBehaviour
             isOnIce = false;
         }
     }
-
 }
