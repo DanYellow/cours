@@ -43,11 +43,19 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnIce = false;
     private bool wasOnIce = false;
 
+    private float floatingTime;
+    private float lastXVelocity = 0;
+    private float floatingTimeMax = 0.5f;
+
+    private bool wasJumping = false;
+
     private void Awake()
     {
         enabled = false;
         trailRenderer.enabled = false;
         maxYVelocity = (jumpForce * 0.25f) + jumpForce;
+
+        floatingTime = floatingTimeMax;
     }
 
     public void Activate()
@@ -98,28 +106,27 @@ public class PlayerMovement : MonoBehaviour
         LimitSpeed();
         isGrounded = IsGrounded();
 
-        // Debug.Log("IsOnIceArea() " + IsOnIceArea());
+        if(wasJumping && isGrounded) {
+            wasJumping = false;
+            lastXVelocity = 0;
+        } 
 
-        if (isOnIce)
+        if (isOnIce || wasOnIce && !isGrounded)
         {
-            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * moveSpeed;
+            float frictionIceFactor = (isOnIce) ? 3 : 6;
+            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed / frictionIceFactor);
             rb.AddForce(direction, ForceMode2D.Force);
+            lastXVelocity = rb.velocity.x;
         }
         else
         {
-            if (!wasOnIce)
-            {
-                Move();
-            }
+
+             Move();
+            // if (!wasOnIce)
+            // {
+            //     Move();
+            // }
         }
-    }
-
-    private bool IsOnIceArea() {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 5, LayerMask.GetMask("Ice"));
-
-        Debug.DrawRay(transform.position, Vector3.down * 5, Color.black);
-
-        return hit.collider != null;
     }
 
     private void LimitSpeed()
@@ -133,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        float f = lastXVelocity != 0 ? lastXVelocity : (moveDirectionX * moveSpeed);
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
 
         if (isRunningFast)
@@ -164,6 +172,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+
+        wasJumping = true;
 
         if (!shortJump)
         {
