@@ -17,6 +17,16 @@ public class CurrentSceneManager : MonoBehaviour
         {
             RestartLastCheckpoint();
         }
+
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            ToggleGameWindowSizeInEditor();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            QuitGame();
+        }
 #endif
     }
 
@@ -50,6 +60,17 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
+
+    private void ToggleGameWindowSizeInEditor()
+    {
+        UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
+        // Assume the game view is focused.
+        window.maximized = !window.maximized;
     }
 }

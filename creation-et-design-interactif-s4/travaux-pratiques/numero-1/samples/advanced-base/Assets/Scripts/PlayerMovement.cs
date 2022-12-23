@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunningFast;
     public float runFastSpeedFactor;
     public float moveSpeed;
+    [Tooltip("How fast the player will reach the max speed")]
+    public float moveDirectionXSpeedFactor = 1.15f;
 
     public TrailRenderer trailRenderer;
     public ParticleSystem particles;
@@ -48,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         enabled = false;
         trailRenderer.enabled = false;
         maxYVelocity = (jumpForce * 0.25f) + jumpForce;
-
     }
 
     public void Activate()
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirectionX = Mathf.Clamp(Input.GetAxis("Horizontal") * 1.15f, -1, 1);
+        moveDirectionX = Mathf.Clamp(Input.GetAxis("Horizontal") * moveDirectionXSpeedFactor, -1, 1);
         isRunningFast = Input.GetKey(KeyCode.V);
 
         if (isGrounded && !Input.GetButton("Jump"))
@@ -113,12 +114,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isRunningFast)
-        {
-            Vector2 v = rb.velocity;
-            v.x *= runFastSpeedFactor;
-            rb.velocity = v;
-        }
+        MoveFast();
     }
 
     private void LimitSpeed()
@@ -133,6 +129,15 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
+    }
+
+    private void MoveFast() {
+        if (isRunningFast)
+        {
+            Vector2 v = rb.velocity;
+            v.x *= runFastSpeedFactor;
+            rb.velocity = v;
+        }
     }
 
     private void Animations()

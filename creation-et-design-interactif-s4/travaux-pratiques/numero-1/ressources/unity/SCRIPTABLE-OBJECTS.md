@@ -12,7 +12,7 @@ L'un des grands avantages des ScriptableObjects est leur limitation en terme d'e
 | **damage**      | 80       | 120        |
 | **description** | ...      | ...        |
 
-Est-il besoin que ces deux bateaux stockent au sein de leur propre classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject.
+Est-il besoin que ces deux bateaux stockent au sein de leur propre classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject. Alors oui, nous aurions pu utiliser une classe `Boat` et changer la configuration pour chaque type, mais ça serait fastidieux.
 
 Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects possèdent les avantages suivants :
 - Ils existent dans les Assets. Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play"

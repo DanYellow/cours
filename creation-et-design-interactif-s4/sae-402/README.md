@@ -46,7 +46,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche R : Relance le niveau actuel
 - Touche F7 : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
 - Touche F8 : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
-- Touche F9 : Tue le joueur d'un coup
+- Touche F11 : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran
+- Touche F12 : Arrête le mode "Play"
 
 # Commandes du jeu
 - Flèches gauche et droite : déplacement du joueur
@@ -54,7 +55,6 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Barre espace : Saut
 - Touche V (maintien) : Accélération
 - Pause / relance : Touche échap
-
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
@@ -64,7 +64,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - L'écran doit contenir : 
         - Le logo de l'université
         - Le nom du jeu
-        - De quoi commencer le jeu au premier niveau
+        - De quoi commencer le jeu au premier niveau (Un menu de jeu en somme)
     - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
     - Pour rappel, ici il faudra utiliser un Canvas
     - **Ceci nécessite donc de donner un nom à votre jeu également**
@@ -80,15 +80,16 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal
-    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator. Sinon vos animations ne se joueront pas 
+    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
 - Système de santé du joueur
     - Optionnel : possibilité de proposer le regain de vie
+    - Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
-- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : chronomètre, boss, objets à récupérer...
-    > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout d'apprendre
+- Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
+    > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé
@@ -110,6 +111,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Il faudra utiliser la méthode [Physics2D.OverlapAreaAll() (ou Physics2D.OverlapCircleAll())](https://docs.unity3d.com/ScriptReference/Physics2D.OverlapAreaAll.html) pour savoir qui a été touché dans une zone spécifique
 - Animer les checkpoints (Les carrés bleus dans le niveau)
     - Ajouter une indication de checkpoint atteint
+    - Il y a un sprite également pour les checkpoints. A vous de l'implémenter
 - Créer **une** props de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
@@ -121,7 +123,7 @@ Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et ré
 Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
 
 ### Système de ventilateurs
-Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant `Area Effector 2D`. Et de finir le niveau déjà fait pour vous grâce à la plate-forme sur-élevée au bout du parcours.
+Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -155,7 +157,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - Respecter les attentes
 - Générer une archive contenant :
-    - Votre build du jeu
+    - Votre build pour Windows du jeu (pas de build web)
         - Pensez à tester votre jeu
     - Un fichier texte contenant les membres de votre groupe
 
