@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 public class EnemyJumpAttack : MonoBehaviour
 {
@@ -25,11 +25,8 @@ public class EnemyJumpAttack : MonoBehaviour
     private bool isGrounded;
     public bool canAttack = true;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-
-    }
+    private float checkTimer;
+    public float checkDelay;
 
     private void Update()
     {
@@ -45,12 +42,12 @@ public class EnemyJumpAttack : MonoBehaviour
 
         if (target && isGrounded && canAttack)
         {
-            JumpAttack(target.gameObject.transform);
+            StartCoroutine(JumpAttack(target.gameObject.transform));
         }
 
-        if(!canAttack && isGrounded) {
-            canAttack = true;
-        }
+        // if(!canAttack && isGrounded) {
+        //     canAttack = true;
+        // }
 
         enemyPatrol.enabled = (!target && isGrounded);
 
@@ -77,8 +74,11 @@ public class EnemyJumpAttack : MonoBehaviour
         target = Physics2D.OverlapBox(transform.position, lineOfSite, 0, targetLayer);
     }
 
-    void JumpAttack(Transform player)
+    IEnumerator JumpAttack(Transform player)
     {
+        canAttack = false;
+        Debug.Log("ffefefzzaa");
+        yield return new WaitForSeconds(0.5f);
         // Debug.Log("JumpAttack ");
         float distanceFromTarget = player.position.x - transform.position.x;
         // rb.velocity = new Vector2(distanceFromTarget, jumpHeight);
@@ -86,7 +86,11 @@ public class EnemyJumpAttack : MonoBehaviour
         rb.AddForce(new Vector2(distanceFromTarget, jumpHeight), ForceMode2D.Impulse);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, jumpHeight);
         // rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, 0f, jumpHeight));
-        canAttack = false;
+    }
+
+    IEnumerator Test() {
+        yield return new WaitForSeconds(0.75f);
+        canAttack = true;
     }
 
     private void OnDrawGizmosSelected()
