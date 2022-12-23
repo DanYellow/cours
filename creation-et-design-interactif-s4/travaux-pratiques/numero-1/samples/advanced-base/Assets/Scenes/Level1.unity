@@ -10312,7 +10312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533138051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.711, z: 0}
+  m_LocalPosition: {x: 0, y: -0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54310,7 +54310,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000000059604645, y: -0.20961308}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -54321,7 +54321,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0625, y: 1.375}
+  m_Size: {x: 0.67022336, y: 0.95577383}
   m_EdgeRadius: 0
 --- !u!114 &1372477319
 MonoBehaviour:
@@ -54336,6 +54336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPatrol: {fileID: 1372477320}
+  animator: {fileID: 1372477312}
   rb: {fileID: 1372477317}
   jumpHeight: 7
   targetLayer:
@@ -54344,12 +54345,13 @@ MonoBehaviour:
   targetDebug: {fileID: 814072436}
   lineOfSite: {x: 3.95, y: 1.15}
   lineOfSiteOffset: {x: 1.05, y: 0}
-  isFacingRight: 1
+  delayBeforeJump: 0.75
   listGroundLayers:
     serializedVersion: 2
     m_Bits: 264
   groundCheck: {fileID: 533138052}
-  groundCheckRadius: 0.25
+  groundCheckRadius: 0.3
+  canAttack: 1
 --- !u!114 &1372477320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54769,7 +54771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1417130646
 Transform:
   m_ObjectHideFlags: 0
@@ -55211,127 +55213,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1417130651}
-    m_ColliderPaths:
-    - - X: 2849346617
-        Y: 155623403
-      - X: 2849971100
-        Y: 156247742
-      - X: 2849971100
-        Y: 155623447
-      - X: 2849971159
-        Y: 155623388
-      - X: 2899345940
-        Y: 155623388
-      - X: 2899345977
-        Y: 155623403
-      - X: 2899971157
-        Y: 156248439
-      - X: 2899971172
-        Y: 156248476
-      - X: 2899971172
-        Y: 159998537
-      - X: 2899971113
-        Y: 159998596
-      - X: 2839971543
-        Y: 159998596
-      - X: 2839971484
-        Y: 159998537
-      - X: 2839971484
-        Y: 156248476
-      - X: 2839971499
-        Y: 156248439
-      - X: 2840596679
-        Y: 155623403
-      - X: 2840596716
-        Y: 155623388
-      - X: 2849346580
-        Y: 155623388
-    - - X: 2879346489
-        Y: 135623611
-      - X: 2879971228
-        Y: 136248462
-      - X: 2879971228
-        Y: 135623655
-      - X: 2879971287
-        Y: 135623596
-      - X: 2939345684
-        Y: 135623596
-      - X: 2939345721
-        Y: 135623611
-      - X: 2939970901
-        Y: 136248647
-      - X: 2939970916
-        Y: 136248684
-      - X: 2939970916
-        Y: 139998745
-      - X: 2939970857
-        Y: 139998804
-      - X: 2869971159
-        Y: 139998804
-      - X: 2869971100
-        Y: 139998745
-      - X: 2869971100
-        Y: 136248684
-      - X: 2869971115
-        Y: 136248647
-      - X: 2870596295
-        Y: 135623611
-      - X: 2870596332
-        Y: 135623596
-      - X: 2879346452
-        Y: 135623596
-    - - X: 2299977216
-        Y: 119998896
-      - X: 2279977216
-        Y: 119998896
-      - X: 2279977216
-        Y: 116248896
-      - X: 2280602112
-        Y: 115623896
-      - X: 2299977216
-        Y: 115623896
-    - - X: 79999296
-        Y: 10000000
-      - X: 49999500
-        Y: 10000000
-      - X: 49999500
-        Y: 6875000
-      - X: 79999296
-        Y: 6875000
-    - - X: 219997904
-        Y: 10000000
-      - X: 189998096
-        Y: 10000000
-      - X: 189998096
-        Y: 6875000
-      - X: 219997904
-        Y: 6875000
-    - - X: 359996480
-        Y: 10000000
-      - X: 329996672
-        Y: 10000000
-      - X: 329996672
-        Y: 6875000
-      - X: 359996480
-        Y: 6875000
-    - - X: 1219987840
-        Y: 10000000
-      - X: 1209987840
-        Y: 10000000
-      - X: 1209987840
-        Y: 6875000
-      - X: 1219987840
-        Y: 6875000
-    - - X: 1229987840
-        Y: -9999800
-      - X: 1209987840
-        Y: -9999800
-      - X: 1209987840
-        Y: -13124800
-      - X: 1229987840
-        Y: -13124800
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 284.93466, y: 15.56234}

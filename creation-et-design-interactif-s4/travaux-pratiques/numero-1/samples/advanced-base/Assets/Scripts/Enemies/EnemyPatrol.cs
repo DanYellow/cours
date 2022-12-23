@@ -63,14 +63,14 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Move()
     {
-        // if (isFacingRight)
-        // {
-        //     rb.velocity = new Vector2(speed, rb.velocity.y);
-        // }
-        // else
-        // {
-        //     rb.velocity = new Vector2(-speed, rb.velocity.y);
-        // }
+        if (isFacingRight)
+        {
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
