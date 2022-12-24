@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        // If no max health is defined then the enemy heath is 1
         currentHealth = maxHealth?.CurrentValue ?? 1f;
     }
 

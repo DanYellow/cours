@@ -30,9 +30,9 @@ public class EnemyJumpAttack : MonoBehaviour
 
     private void Update()
     {
-        if (enemyPatrol)
+        if (enemyPatrol != null)
         {
-            sightAreaOffsetFactor = (enemyPatrol.isFacingRight) ? 1 : -1;
+            sightAreaOffsetFactor = (enemyPatrol.isFacingRight == true) ? 1 : -1;
         }
 
         if (target && isGrounded && canAttack)
@@ -43,7 +43,7 @@ public class EnemyJumpAttack : MonoBehaviour
         enemyPatrol.enabled = (!target && isGrounded && GetComponent<Renderer>().isVisible);
 
         if (
-            target &&
+            target != null &&
             (
                 (target.gameObject.transform.position.x - transform.position.x < 0 && enemyPatrol.isFacingRight) ||
                 (target.gameObject.transform.position.x - transform.position.x > 0 && !enemyPatrol.isFacingRight)
@@ -59,7 +59,7 @@ public class EnemyJumpAttack : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
-        target = Physics2D.OverlapBox(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea, 0, targetLayer);
+        target = Physics2D.OverlapBox(transform.position + ((Vector3)sightAreaOffset * sightAreaOffsetFactor), sightArea, 0, targetLayer);
     }
 
     IEnumerator JumpAttack(Transform player)
@@ -76,7 +76,7 @@ public class EnemyJumpAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea);
+        Gizmos.DrawWireCube(transform.position + ((Vector3)sightAreaOffset * sightAreaOffsetFactor), sightArea);
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);

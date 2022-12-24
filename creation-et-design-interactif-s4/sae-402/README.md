@@ -17,6 +17,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des rhinocéros qui foncent sur le joueur
     - Des pierres qui se divise en deux lorsqu'on leur saute dessus
+    - Un lapin qui vous saute dessus quand vous êtes dans son champ de vision
 - Pièges :
     - RockHead : Une pierre qui se fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile sur une circuit défini
