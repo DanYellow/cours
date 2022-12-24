@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class ChargeBehavior : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ChargeBehavior : MonoBehaviour
 
     private List<Vector3> listDirections = new List<Vector3>();
     private bool isAttacking;
+
+    public SpriteRenderer spriteRenderer;
 
     private float checkTimer;
     public float checkDelay;
@@ -35,6 +38,8 @@ public class ChargeBehavior : MonoBehaviour
     public ShakeTypeVariable shakeInfo;
 
     private bool isOnScreen = false;
+
+    private bool attackWaiting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +68,10 @@ public class ChargeBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isAttacking)
+        if (isAttacking && !attackWaiting)
         {
-            rb.AddForce(destination * speed, ForceMode2D.Impulse);
+             
+            StartCoroutine(Attack());
         }
         else
         {
@@ -103,7 +109,7 @@ public class ChargeBehavior : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayer);
 
-            if (hit.collider != null && !isAttacking)
+            if (hit.collider != null && !isAttacking && !attackWaiting)
             {
                 destination = listDirections[i];
                 isAttacking = true;
@@ -167,6 +173,16 @@ public class ChargeBehavior : MonoBehaviour
     {
         isAttacking = false;
         rb.velocity = Vector2.zero;
+    }
+
+    IEnumerator Attack() {
+        spriteRenderer.color = Color.red;
+        attackWaiting = true;
+        yield return new WaitForSeconds(2.25f);
+        rb.AddForce(destination * speed, ForceMode2D.Impulse);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+        yield return new WaitForSeconds(1.25f);
+        attackWaiting = false;
     }
 
     private void Flip()

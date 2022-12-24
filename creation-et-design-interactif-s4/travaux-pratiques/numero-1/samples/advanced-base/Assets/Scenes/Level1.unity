@@ -30143,7 +30143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814072429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.32, y: 2.56, z: 0}
+  m_LocalPosition: {x: 122.14, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61885,6 +61885,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
   m_PrefabInstance: {fileID: 4000432134106302870}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1844585995 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4000432134071860591, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+  m_PrefabInstance: {fileID: 4000432134106302870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1846179257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64174,6 +64179,10 @@ PrefabInstance:
       value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+      propertyPath: speed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: checkTop
       value: 0
       objectReference: {fileID: 0}
@@ -64189,6 +64198,10 @@ PrefabInstance:
       propertyPath: checkBottom
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1844585995}
     - target: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -64251,10 +64264,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4327952917260666791, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1500
-      objectReference: {fileID: 0}
     - target: {fileID: 4327952917441872138, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
       propertyPath: m_RootOrder
       value: 8
