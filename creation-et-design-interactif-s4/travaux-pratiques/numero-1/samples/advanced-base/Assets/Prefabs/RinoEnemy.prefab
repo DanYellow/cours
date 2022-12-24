@@ -120,11 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041efdf3bc445e2498fdcc6ac6e73fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 100
+  range: 4.05
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
   knockbackStrength: 3.5
+  spriteRenderer: {fileID: 4000432134071860591}
   checkDelay: 2
   speed: 50
   rb: {fileID: 4000432134071860589}
@@ -132,8 +133,8 @@ MonoBehaviour:
   isFacingRight: 1
   checkRight: 1
   checkLeft: 1
-  checkTop: 1
-  checkBottom: 1
+  checkTop: 0
+  checkBottom: 0
   onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   shakeInfo: {fileID: 11400000, guid: 86dc0f61e35efdc478aa042ff9b5efd8, type: 2}
 --- !u!61 &4000432134071860586
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002922058, y: -0.081899405}
+  m_Offset: {x: -0.076286316, y: -0.12942147}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5489502, y: 0.8987012}
+  m_Size: {x: 1.2796631, y: 0.80365705}
   m_EdgeRadius: 0
 --- !u!50 &4000432134071860589
 Rigidbody2D:

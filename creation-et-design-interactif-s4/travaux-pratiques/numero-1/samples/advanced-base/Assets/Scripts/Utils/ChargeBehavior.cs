@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 
 public class ChargeBehavior : MonoBehaviour
 {
@@ -70,8 +69,8 @@ public class ChargeBehavior : MonoBehaviour
     {
         if (isAttacking && !attackWaiting)
         {
-             
-            StartCoroutine(Attack());
+            spriteRenderer.color = Color.red;
+            rb.AddForce(destination * speed, ForceMode2D.Impulse);
         }
         else
         {
@@ -173,16 +172,7 @@ public class ChargeBehavior : MonoBehaviour
     {
         isAttacking = false;
         rb.velocity = Vector2.zero;
-    }
-
-    IEnumerator Attack() {
-        spriteRenderer.color = Color.red;
-        attackWaiting = true;
-        yield return new WaitForSeconds(2.25f);
-        rb.AddForce(destination * speed, ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        yield return new WaitForSeconds(1.25f);
-        attackWaiting = false;
     }
 
     private void Flip()
