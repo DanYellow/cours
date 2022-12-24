@@ -3,14 +3,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float bounce = 2f;
+    public float bounce = 10f;
     public FloatVariable maxHealth;
 
     [ReadOnlyInspector]
     public float currentHealth = 0f;
 
     public SpriteRenderer spriteRenderer;
+
+    [Tooltip("Box collider without a trigger")]
     public BoxCollider2D bc2d;
+
     public Rigidbody2D rb;
     public Animator animator;
 
@@ -19,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
+
+    private float bounceFactorOnDeath = 0.15f;
 
     private void Start()
     {
@@ -75,7 +80,7 @@ public class Enemy : MonoBehaviour
         }
         
         rb.velocity = Vector2.zero;
-        Vector2 bounceForce = Vector2.up * 1000;
+        Vector2 bounceForce = Vector2.up * (rb.mass * bounceFactorOnDeath);
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
         bc2d.enabled = false;
         gameObject.transform.Rotate(0f, 0f, 80f);

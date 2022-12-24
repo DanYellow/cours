@@ -18,7 +18,8 @@ public class EnemyPatrol : MonoBehaviour
     [Tooltip("Define how long the enemy will walk")]
     public float walkTime = 5f;
 
-    private void Awake() {
+    private void Awake()
+    {
         // We don't want the script to be enabled by default but...
         enabled = false;
     }
@@ -76,10 +77,12 @@ public class EnemyPatrol : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (isIdle) return;
+        // We could also add a new property to handle that case with EnemyJumpAttack component
         Flip();
     }
 
-    public void Flip() {
+    public void Flip()
+    {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
     }

@@ -9,45 +9,34 @@ public class EnemyJumpAttack : MonoBehaviour
     public float jumpHeight;
     public LayerMask targetLayer;
 
-    public Transform targetDebug;
     private Collider2D target;
-    public Vector2 lineOfSite;
-    public Vector2 lineOfSiteOffset;
+    public Vector2 sightArea;
+    public Vector2 sightAreaOffset;
     public float delayBeforeJump = 0.75f;
 
-    private int lineOfSiteOffsetFactor = 1;
+    private int sightAreaOffsetFactor = 1;
 
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
 
+    private ContactPoint2D[] contacts = new ContactPoint2D[1];
+
     private bool isGrounded;
     public bool canAttack = true;
-
-    private float checkTimer;
-    public float checkDelay;
 
     private void Update()
     {
         if (enemyPatrol)
         {
-            lineOfSiteOffsetFactor = (enemyPatrol.isFacingRight) ? 1 : -1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            JumpAttack(targetDebug);
+            sightAreaOffsetFactor = (enemyPatrol.isFacingRight) ? 1 : -1;
         }
 
         if (target && isGrounded && canAttack)
         {
             StartCoroutine(JumpAttack(target.gameObject.transform));
         }
-
-        // if(!canAttack && isGrounded) {
-        //     canAttack = true;
-        // }
 
         enemyPatrol.enabled = (!target && isGrounded);
 
@@ -70,34 +59,28 @@ public class EnemyJumpAttack : MonoBehaviour
     {
         isGrounded = IsGrounded();
 
-        // + (Vector3)lineOfSiteOffset * lineOfSiteOffsetFactor
-        target = Physics2D.OverlapBox(transform.position, lineOfSite, 0, targetLayer);
+        target = Physics2D.OverlapBox(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea, 0, targetLayer);
     }
 
     IEnumerator JumpAttack(Transform player)
     {
         canAttack = false;
-        Debug.Log("ffefefzzaa");
-        yield return new WaitForSeconds(0.5f);
-        // Debug.Log("JumpAttack ");
+        yield return new WaitForSeconds(delayBeforeJump);
         float distanceFromTarget = player.position.x - transform.position.x;
-        // rb.velocity = new Vector2(distanceFromTarget, jumpHeight);
-        // Debug.Log("distanceFromTarget " + distanceFromTarget);
         rb.AddForce(new Vector2(distanceFromTarget, jumpHeight), ForceMode2D.Impulse);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, jumpHeight);
-        // rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, 0f, jumpHeight));
     }
 
-    IEnumerator Test() {
-        yield return new WaitForSeconds(0.75f);
+    IEnumerator RenableAttack() {
+        yield return new WaitForSeconds(delayBeforeJump);
         canAttack = true;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //  + (Vector3)lineOfSiteOffset * lineOfSiteOffsetFactor
-        Gizmos.DrawWireCube(transform.position, lineOfSite);
+        //  
+        Gizmos.DrawWireCube(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea);
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
@@ -106,5 +89,19 @@ public class EnemyJumpAttack : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        other.GetContacts(contacts);
+
+        if(
+            contacts[0].normal.y > 0.5f && 
+            contacts[0].normal.x == 0 && 
+            other.gameObject.CompareTag("Player")
+        ) {
+            Vector2 bounceForce = Vector2.one * 5f;
+           rb.AddForce(bounceForce, ForceMode2D.Impulse);
+        }
     }
 }
