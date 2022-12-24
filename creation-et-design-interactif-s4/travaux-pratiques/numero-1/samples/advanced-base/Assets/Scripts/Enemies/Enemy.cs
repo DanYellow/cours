@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Tooltip("How high will jump the player on the top of the enemy")]
     public float bounce = 10f;
     public FloatVariable maxHealth;
 

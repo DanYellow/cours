@@ -23,6 +23,8 @@ public class EnemyJumpAttack : MonoBehaviour
 
     private ContactPoint2D[] contacts = new ContactPoint2D[1];
 
+    private GameObject lastHit;
+
     private bool isGrounded;
     public bool canAttack = true;
 
@@ -38,7 +40,7 @@ public class EnemyJumpAttack : MonoBehaviour
             StartCoroutine(JumpAttack(target.gameObject.transform));
         }
 
-        enemyPatrol.enabled = (!target && isGrounded);
+        enemyPatrol.enabled = (!target && isGrounded && GetComponent<Renderer>().isVisible);
 
         if (
             target &&
@@ -54,11 +56,9 @@ public class EnemyJumpAttack : MonoBehaviour
         animator.SetFloat("MoveDirectionY", rb.velocity.y);
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
-
         target = Physics2D.OverlapBox(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea, 0, targetLayer);
     }
 
@@ -69,17 +69,13 @@ public class EnemyJumpAttack : MonoBehaviour
         float distanceFromTarget = player.position.x - transform.position.x;
         rb.AddForce(new Vector2(distanceFromTarget, jumpHeight), ForceMode2D.Impulse);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, jumpHeight);
+        lastHit = null;
     }
 
-    IEnumerator RenableAttack() {
-        yield return new WaitForSeconds(delayBeforeJump);
-        canAttack = true;
-    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //  
         Gizmos.DrawWireCube(transform.position + (Vector3)sightAreaOffset * sightAreaOffsetFactor, sightArea);
 
         Gizmos.color = Color.magenta;
@@ -94,14 +90,19 @@ public class EnemyJumpAttack : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         other.GetContacts(contacts);
+        if(lastHit != other.gameObject) {
+            lastHit = other.gameObject;
+            canAttack = true;
+        }
 
-        if(
-            contacts[0].normal.y > 0.5f && 
-            contacts[0].normal.x == 0 && 
+        if (
+            contacts[0].normal.y > 0.5f &&
+            contacts[0].normal.x == 0 &&
             other.gameObject.CompareTag("Player")
-        ) {
+        )
+        {
             Vector2 bounceForce = Vector2.one * 5f;
-           rb.AddForce(bounceForce, ForceMode2D.Impulse);
+            rb.AddForce(bounceForce, ForceMode2D.Impulse);
         }
     }
 }

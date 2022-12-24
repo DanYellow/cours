@@ -11,7 +11,7 @@ public class EnemyPatrol : MonoBehaviour
 
     public bool isFacingRight = false;
 
-    private bool isIdle;
+    private bool isIdle = true;
 
     private float idleTime;
 
@@ -20,7 +20,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Awake()
     {
-        // We don't want the script to be enabled by default but...
+        // We don't want the script to be enabled by default
         enabled = false;
     }
 
@@ -77,7 +77,6 @@ public class EnemyPatrol : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (isIdle) return;
-        // We could also add a new property to handle that case with EnemyJumpAttack component
         Flip();
     }
 
