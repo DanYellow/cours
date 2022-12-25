@@ -230,4 +230,20 @@ public class MyClass : MonoBehaviour
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
 
-> Dernier point : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement et vous pourriez perdre quelques travaux.
+> Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement et vous pourriez perdre quelques travaux.
+
+## Composition plûtot qu'héritage
+
+Avant de terminer, il est important de comprendre qu'Unity promeut un système de composition au lieu d'un système d'héritage. Autrement dit, au lieu d'écrire des scripts spécialisés pour chaque type d'ennemi qui ont une base commune (héritage), par exemple. Nous ferons des scripts dédiés pour chaque fonctionnalité (composition). Ainsi, pour un GameObject de type ennemi, nous aurions les scripts suivants :
+- Un script pour le déplacement
+- Un script pour la santé
+- Un script pour les attaques
+...
+
+La composition rend le code beaucoup plus flexible. Elle permet très facilement de réutiliser un bout une fontionnalité ailleurs ou tout simplement d'en ajouter ou en retirer une. Ce qui fait qu'avec la structure précédente, nous pourrions avoir :
+- Un ennemi qui attaque sans se déplacer
+- Un ennemi qui se déplace uniquement
+...
+
+Attention tout de même, l'héritage n'est pas une chose à bannir mais plutôt à utiliser avec parcimonie vu qu'Unity nous propose la composition. Car quoiqu'il arrive, nous utiliserons quand même l'héritage vu que nos scripts hériteront de `MonoBehaviour` et plus tard de `ScriptableObject`. En tous les cas, si ces notions vous semble complexes, ne vous inquétiez pas, nous pratiquerons tout ça.
+- [En savoir plus la différence entre la composition et l'héritage (en anglais)](https://gamedevbeginner.com/how-to-use-script-composition-in-unity)

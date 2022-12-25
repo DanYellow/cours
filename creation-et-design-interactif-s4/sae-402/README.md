@@ -84,7 +84,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
 - Système de santé du joueur
     - Optionnel : possibilité de proposer le regain de vie
-    - Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
+    - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
@@ -94,6 +94,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
         - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé
+- Rajouter un ennemi parmi ceux proposés
+    - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier "Enemies"
+        - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
+        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Saut (EnemyJumpAttack), Santé (Enemy)
 
 ## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
@@ -181,4 +185,4 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
     - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous montrer ce qui a été fait
 - Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?
-    - Non. Cette erreur est liée à la scène de préchargement (_Preload)
+    - Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final

@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         if (
             other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
             other.gameObject.CompareTag("Player") &&
-            contacts[0].normal.y > 0.5f
+            contacts[0].normal.y > -0.5f
             )
         {
             playerHealth.TakeDamage(1f);
