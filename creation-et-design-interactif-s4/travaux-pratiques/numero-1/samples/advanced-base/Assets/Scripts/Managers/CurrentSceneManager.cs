@@ -67,10 +67,12 @@ public class CurrentSceneManager : MonoBehaviour
         #endif
     }
 
+    #if UNITY_EDITOR
     private void ToggleGameWindowSizeInEditor()
     {
         UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
         // Assume the game view is focused.
         window.maximized = !window.maximized;
     }
+        #endif
 }
