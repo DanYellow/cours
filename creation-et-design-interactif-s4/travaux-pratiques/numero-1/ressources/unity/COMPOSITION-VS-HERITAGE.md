@@ -1,6 +1,6 @@
 # Composition plûtot qu'héritage
 
-Il est important de comprendre qu'Unity promeut un système de composition au lieu d'un système d'héritage. Autrement dit, au lieu d'écrire des scripts spécialisés pour chaque type d'ennemi qui ont une base commune (héritage), par exemple. Nous ferons des scripts dédiés pour chaque fonctionnalité (composition). Ainsi, pour un GameObject de type ennemi, nous aurions les scripts suivants :
+Il est important de comprendre qu'Unity promeut un système de composition au lieu d'un système d'héritage. Autrement dit, au lieu d'écrire des scripts spécialisés pour chaque type d'ennemi qui ont une base commune (héritage). Dans le cadre du cours, nous ferons des scripts dédiés pour chaque fonctionnalité (composition). Par exemple, pour un GameObject de type ennemi pourrait avoir les scripts suivants :
 - Un script pour le déplacement
 - Un script pour la santé
 - Un script pour les attaques
@@ -22,6 +22,7 @@ using UnityEngine;
 
 public interface IDamage
 {
+    // On ne définit que la signature de la méthode, pas son contenu
     void TakeDamage(int damage)
 }
 ```
