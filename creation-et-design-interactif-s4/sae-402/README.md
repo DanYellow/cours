@@ -32,7 +32,9 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Il n'y a pas de menu de Pause, c'est une des tâches que vous devrez effectuer
     - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements
 - Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes à la récupération) sont gérés via des scriptables objects évènement `Assets/Scripts/ScriptableObjects/Events/OnSFXAudioChannel`
+    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/Scripts/ScriptableObjects/Events/OnSFXAudioChannel`
+
+> Des Script pour inspecteur sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/Scripts/ScriptableObjects/Events`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
 - Un niveau qui devra faire office de premier niveau

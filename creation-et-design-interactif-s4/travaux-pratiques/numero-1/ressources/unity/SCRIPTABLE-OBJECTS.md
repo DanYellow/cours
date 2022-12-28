@@ -28,7 +28,7 @@ Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects poss�
 > 
 > Pour rappel (dans les grandes lignes), un Singleton est une classe qui ne peut être instanciée qu'une seule fois par projet.
 
-Voici un exemple de code
+Voici un exemple de ScriptableObject
 
 ```cs
 using UnityEngine;

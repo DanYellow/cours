@@ -32,3 +32,7 @@ https://www.pekalicious.com/blog/unity3d-reusing-animator-controllers-with-anima
 // https://github.com/UnityTechnologies/open-project-1/blob/devlogs/2-scriptable-objects/UOP1_Project/Assets/Scripts/Events/IntEventListener.cs
 // https://www.youtube.com/watch?v=WLDgtRNK2VE
 
+GUI/Text Shader -> flash
+https://github.com/BarthaSzabolcs/Tutorial-SpriteFlash/blob/main/Assets/Scripts/FlashEffects/SimpleFlash.cs
+
+
