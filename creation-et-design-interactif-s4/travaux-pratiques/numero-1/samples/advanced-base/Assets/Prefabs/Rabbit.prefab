@@ -200,18 +200,19 @@ MonoBehaviour:
   enemyPatrol: {fileID: 7650179573360218525}
   animator: {fileID: 7650179573360218517}
   rb: {fileID: 7650179573360218512}
-  jumpHeight: 7
+  jumpHeight: 15
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  sightArea: {x: 3.95, y: 1.15}
+  hitBox: {fileID: 7650179573360218515}
+  sightArea: {x: 2.75, y: 1.15}
   sightAreaOffset: {x: 0.65, y: 0}
-  delayBeforeJump: 0.75
+  delayBeforeJump: 0.8
   listGroundLayers:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 7650179574602173585}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.25
   canAttack: 1
 --- !u!114 &7650179573360218525
 MonoBehaviour:
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7650179573360218512}
   animator: {fileID: 7650179573360218517}
-  speed: 1.5
+  speed: 2
   isFacingRight: 1
   walkTime: 3
 --- !u!114 &7650179573360218524
