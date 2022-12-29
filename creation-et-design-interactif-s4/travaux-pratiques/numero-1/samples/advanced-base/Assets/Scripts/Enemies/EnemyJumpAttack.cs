@@ -6,7 +6,7 @@ public class EnemyJumpAttack : MonoBehaviour
     public EnemyPatrol enemyPatrol;
     public Animator animator;
     public Rigidbody2D rb;
-    public float jumpHeight;
+    public float bounceHeight;
     public LayerMask targetLayer;
 
     private Collider2D target;
@@ -79,7 +79,6 @@ public class EnemyJumpAttack : MonoBehaviour
     IEnumerator JumpAttack(Transform target)
     {
         yield return new WaitForSeconds(delayBeforeJump);
-        float distanceFromTarget = target.position.x - transform.position.x;
 
         Vector2 targetVel = CalculateTrajectoryVelocity(transform.position, target.position, jumpTime);
         rb.velocity = targetVel;
@@ -125,7 +124,7 @@ public class EnemyJumpAttack : MonoBehaviour
         )
         {
             Vector2 originVector = new Vector2(0.15f * moveDirection, 1);
-            Vector2 bounceForce = originVector * jumpHeight * rb.mass;
+            Vector2 bounceForce = originVector * bounceHeight * rb.mass;
             rb.AddForce(bounceForce, ForceMode2D.Impulse);
         }
     }

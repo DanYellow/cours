@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -200,12 +200,11 @@ MonoBehaviour:
   enemyPatrol: {fileID: 7650179573360218525}
   animator: {fileID: 7650179573360218517}
   rb: {fileID: 7650179573360218512}
-  jumpHeight: 15
+  bounceHeight: 9
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  hitBox: {fileID: 7650179573360218515}
-  sightArea: {x: 2.75, y: 1.15}
+  sightArea: {x: 5, y: 1.15}
   sightAreaOffset: {x: 0.65, y: 0}
   delayBeforeJump: 0.8
   listGroundLayers:
@@ -213,7 +212,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 7650179574602173585}
   groundCheckRadius: 0.25
-  canAttack: 1
+  jumpTime: 1.25
 --- !u!114 &7650179573360218525
 MonoBehaviour:
   m_ObjectHideFlags: 0
