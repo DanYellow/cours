@@ -87,6 +87,7 @@ public class EnemyJumpAttack : MonoBehaviour
         lastHit = null;
     }
 
+    // Source : https://answers.unity.com/questions/1286132/how-can-i-solve-ballistic-angle-and-velocity-to-hi.html
     private Vector2 CalculateTrajectoryVelocity(Vector3 origin, Vector3 target, float t)
     {
         float vx = (target.x - origin.x) / t;
@@ -127,5 +128,9 @@ public class EnemyJumpAttack : MonoBehaviour
             Vector2 bounceForce = originVector * bounceHeight * rb.mass;
             rb.AddForce(bounceForce, ForceMode2D.Impulse);
         }
+    }
+
+    public void OnDeath() {
+        StopAllCoroutines();
     }
 }

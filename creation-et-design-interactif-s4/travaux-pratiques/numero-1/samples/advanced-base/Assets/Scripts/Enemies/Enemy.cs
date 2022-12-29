@@ -1,5 +1,6 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,10 +11,9 @@ public class Enemy : MonoBehaviour
     [ReadOnlyInspector]
     public float currentHealth = 0f;
 
-    public SpriteRenderer spriteRenderer;
+    public UnityEvent deathEvent;
 
-    [Tooltip("Box collider without a trigger")]
-    public BoxCollider2D bc2d;
+    public SpriteRenderer spriteRenderer;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (currentHealth <= 0) return;
+
         other.GetContacts(contacts);
 
         if (
@@ -76,21 +78,26 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        deathEvent.Invoke();
         foreach (Behaviour component in listComponents)
         {
             component.enabled = false;
         }
-        
-        rb.velocity = Vector2.zero;
-        Vector2 bounceForce = Vector2.up * (rb.mass * bounceFactorOnDeath);
-        rb.AddForce(bounceForce, ForceMode2D.Impulse);
-        bc2d.enabled = false;
-        gameObject.transform.Rotate(0f, 0f, 80f);
+
+        foreach (Collider2D collider in gameObject.GetComponentsInChildren<Collider2D>()) {
+            collider.enabled = false;
+        }
 
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
         }
+
+        rb.velocity = Vector2.zero;
+        Vector2 bounceForce = Vector2.up * (rb.mass * bounceFactorOnDeath);
+        rb.AddForce(bounceForce, ForceMode2D.Impulse);
+
+        gameObject.transform.Rotate(0f, 0f, 80f);
     }
 
     void OnBecameInvisible()
