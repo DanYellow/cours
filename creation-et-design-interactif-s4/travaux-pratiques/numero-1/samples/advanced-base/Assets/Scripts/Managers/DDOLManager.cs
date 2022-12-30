@@ -20,15 +20,10 @@ public class DDOLManager : MonoBehaviour
 
     private void Start()
     {
-        if (
-            (currentSceneDevCompilation.CurrentValue == SceneManager.GetActiveScene().name) ||
-            currentSceneDevCompilation.CurrentValue == null)
-        {
-            SceneManager.LoadScene(1);
-        }
-        else
-        {
+        #if UNITY_EDITOR
             SceneManager.LoadScene(currentSceneDevCompilation.CurrentValue);
-        }
+        #else
+            SceneManager.LoadScene(1);
+        #endif
     }
 }
