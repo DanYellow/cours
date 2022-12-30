@@ -51,6 +51,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche F8 : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche F11 : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran
 - Touche F12 : Arrête le mode "Play"
+- Touche 0 (pas celle du pavé numéro) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont proprement passées entre les scènes
 
 # Commandes du jeu
 - Flèches gauche et droite : déplacement du joueur
@@ -100,10 +101,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier "Enemies"
         - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
         - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Saut (EnemyJumpAttack), Santé (Enemy)
-
-## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
+
+## Liste des choses à faire au choix. Vous devez au moins en faire une
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
@@ -165,7 +166,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Respecter les attentes
 - Générer une archive contenant :
     - Votre build pour Windows du jeu (pas de build web)
-        - Pensez à tester votre jeu
+        - Pensez à tester le build final de votre jeu
     - Un fichier texte contenant les membres de votre groupe
 
 # FAQ - Foire Aux Questions
@@ -173,6 +174,9 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. De plus, le travail collaboratif vous incitera à utiliser github
 - Est-il possible de rendre mon jeu jouable avec une manette de jeu ?
     - Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes
+    - Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier)
+        - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
+        - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
 - J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?
     - Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
 - Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?

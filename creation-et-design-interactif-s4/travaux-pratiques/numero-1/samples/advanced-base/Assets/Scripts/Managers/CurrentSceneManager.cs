@@ -49,7 +49,6 @@ public class CurrentSceneManager : MonoBehaviour
         Debug.Log("RestartLastCheckpoint");
         // Refill life to full
         // Position to last checkpoint
-        // Reset objects ?
         // Remove menu
         // Reset Rigidbody
         // Reactivate Player movements
@@ -59,7 +58,6 @@ public class CurrentSceneManager : MonoBehaviour
     public void GameOverScreen()
     {
         Debug.Log("GameOverScreen");
-        // SceneManager.LoadScene("GameOver");
     }
 
     public void QuitGame()
@@ -75,8 +73,7 @@ public class CurrentSceneManager : MonoBehaviour
     private void ToggleGameWindowSizeInEditor()
     {
         UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
-        // Assume the game view is focused.
         window.maximized = !window.maximized;
     }
-        #endif
+    #endif
 }

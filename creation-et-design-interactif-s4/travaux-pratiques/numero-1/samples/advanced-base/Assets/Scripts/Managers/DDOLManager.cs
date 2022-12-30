@@ -13,7 +13,7 @@ public class DDOLManager : MonoBehaviour
 
         foreach (var element in listObjects)
         {
-            // Permet de garder des éléments (avec le même "statut") d'une scène à une autre
+            // Allow to keep gameobjects scene to scene with the same status
             DontDestroyOnLoad(element);
         }
     }
