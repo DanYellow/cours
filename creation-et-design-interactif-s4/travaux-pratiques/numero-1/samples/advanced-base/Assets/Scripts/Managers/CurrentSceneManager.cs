@@ -27,6 +27,10 @@ public class CurrentSceneManager : MonoBehaviour
         {
             QuitGame();
         }
+
+        if(Input.GetKeyDown(KeyCode.Alpha0)) {
+            LoadScene("Debug");
+        }
 #endif
     }
 
