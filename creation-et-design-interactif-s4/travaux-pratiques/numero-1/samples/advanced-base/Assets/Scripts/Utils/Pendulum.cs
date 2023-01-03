@@ -6,7 +6,6 @@ public class Pendulum : MonoBehaviour
 
     public float speed;
 
-    [Header("Attention : Values are Quaterion not Euler Angles. You can compute it with an online calculator")]
     public float leftAngleLimit;
     public float rightAngleLimit;
 
@@ -14,7 +13,8 @@ public class Pendulum : MonoBehaviour
 
     private bool isMovingClockwise = true;
 
-    private void Update() {
+    private void Update()
+    {
         Move();
     }
 
@@ -27,11 +27,11 @@ public class Pendulum : MonoBehaviour
 
     public void ChangeDirection()
     {
-        if (transform.rotation.z > rightAngleLimit)
+        if (transform.rotation.z > Quaternion.Euler(0,0, rightAngleLimit).z)
         {
             isMovingClockwise = false;
         }
-        if (transform.rotation.z < leftAngleLimit)
+        if (transform.rotation.z < Quaternion.Euler(0,0, leftAngleLimit).z)
         {
             isMovingClockwise = true;
         }

@@ -262,5 +262,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8520597522518767276}
   speed: 115
-  leftAngleLimit: -0.5
-  rightAngleLimit: 0.5
+  leftAngleLimit: -70
+  rightAngleLimit: 70

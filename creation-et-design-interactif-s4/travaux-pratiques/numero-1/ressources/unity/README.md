@@ -130,6 +130,7 @@ void Update()
     }
 }
 ```
+Notez bien qu'il ne faut jamais mettre une boucle `while(true) {}` (boucle infinie) dans la méthode Update car vous pouvez être sûr(e) qu'Unity plantera car vous faites une imbrication de boucles infinies.
 
 Enfin, notez les choses suivantes sur les classes :
 - Les méthodes telles que `Start()` ou `Update()` sont propres à la classe `MonoBehaviour`, de ce fait, elles sont automatiquement appelées
@@ -146,7 +147,7 @@ Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Emp
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
-Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement. Si vous souhaitez utiliser VS Code ou Sublime Text, il faudra installer des extensions :
+Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement après avoir installé Unity. Si vous souhaitez utiliser VS Code ou Sublime Text, il faudra installer des extensions :
 - [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
 - [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
 
@@ -154,7 +155,7 @@ Pou vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity com
 
 ---
 
-Réalisez les choses suivantes (n'oubliez pas d'afficher le résultat avec la méthode `Debug.Log()`)
+Réalisez les choses suivantes (n'oubliez pas de retourner le résultat et l'afficher avec la méthode `Debug.Log()`)
 - Un nombre décimal
     - A définir dans la fonction `Start()`
 - Une chaîne de caractères
@@ -182,7 +183,7 @@ Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occas
 Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
 - [https://itch.io/](https://itch.io/)
 - [https://opengameart.org/](https://opengameart.org/)
-- [https://www.mixamo.com/ - Ressources 3D](https://www.mixamo.com/)
+- [https://www.mixamo.com/ - Ressources 3D - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
 
 Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
@@ -200,6 +201,8 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
         - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser.
 - Type et nom de variable : On l'a vu précemment
 - Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code
+
+> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Toutefois pour rendre les choses simples, nous utiliserons en priorité le mot-clé "public"
 
 Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
 ```cs
@@ -230,4 +233,4 @@ public class MyClass : MonoBehaviour
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
 
-> Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement et vous pourriez perdre quelques travaux.
+> Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement (pas officiellement) et vous pourriez perdre quelques travaux.
