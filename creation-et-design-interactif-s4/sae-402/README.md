@@ -141,13 +141,14 @@ Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le
 - Et vous bien évidemment 
     - Pensez également à mettre le logo de l'université + l'année + le nom de la formation
 
-### Ressources graphiques utilisables, source non exhaustives
+### Ressources graphiques / musicales gratuites utilisables, source non exhaustives
 - https://www.kenney.nl/assets
 - https://www.itch.io
 - https://opengameart.org/
+- https://www.youtube.com/@NCALIB
 
 # Astuces et conseils
-- Le code fournit essaye le plus possible d'éviter le trop fort couplage entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
+- Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
 - Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de nommage ainsi que nommer très clairement vos variables
@@ -189,6 +190,6 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
             - [Télécharger le .gitignore pour unity](https://raw.githubusercontent.com/github/gitignore/main/Unity.gitignore)
         - être ambitieux dans le projet, n'allez pas faire un jeu où c'est juste un carré / cube qui saute
 - Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
-    - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous montrer ce qui a été fait
+    - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
 - Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?
     - Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final

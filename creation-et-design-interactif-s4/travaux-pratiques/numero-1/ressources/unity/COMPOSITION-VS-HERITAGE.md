@@ -1,12 +1,12 @@
 # Composition plûtot qu'héritage
 
-Il est important de comprendre qu'Unity promeut un système de composition au lieu d'un système d'héritage. Autrement dit, au lieu d'écrire des scripts spécialisés pour chaque type d'ennemi qui ont une base commune (héritage). Dans le cadre du cours, nous ferons des scripts dédiés pour chaque fonctionnalité (composition). Par exemple, pour un GameObject de type ennemi pourrait avoir les scripts suivants :
+Il est important de comprendre qu'Unity promeut un système de composition au lieu d'un système d'héritage. Autrement dit, au lieu d'écrire des scripts spécialisés pour chaque type d'ennemi qui ont une base commune (héritage). Unity incite plutôt à décomposer les fonctionnalités en plusieurs scripts et les lier à un GameObject en fonction de ses besoins (composition). Par exemple, pour un GameObject de type ennemi pourrait avoir les scripts suivants :
 - Un script pour le déplacement
 - Un script pour la santé
 - Un script pour les attaques
 ...
 
-La composition rend le code beaucoup plus flexible. Elle permet très facilement de réutiliser un bout une fontionnalité ailleurs ou tout simplement d'en ajouter ou en retirer une à l'envie. Ce qui fait qu'avec la structure précédente, nous pourrions avoir :
+La composition rend le code beaucoup plus flexible. Elle permet très facilement de réutiliser une fontionnalité ailleurs ou tout simplement d'en ajouter ou en retirer une à l'envie. Ce qui fait qu'avec la structure précédente, nous pourrions avoir :
 - Un ennemi qui attaque sans se déplacer
 - Un ennemi qui se déplace uniquement
 ...
@@ -20,6 +20,7 @@ La composition peut également prendre forme avec les interfaces. Pour faire tr�
 ```c#
 using UnityEngine;
 
+// On commence par un i majuscule pour indiquer que c'est une interface
 public interface IDamage
 {
     // On ne définit que la signature de la méthode, pas son contenu
@@ -31,8 +32,10 @@ public interface IDamage
 using UnityEngine;
 using System.Collections;
 
+// On indique que la classe passe un contrat avec IDamage
 public class MyClass : MonoBehaviour, IDamage
 {
+    // On implémente publiquement la méthode "TakeDamage" avec la même signature
     public void TakeDamage(int damage) {
         Debug.Log($"Take {damage}");
     }
@@ -40,7 +43,7 @@ public class MyClass : MonoBehaviour, IDamage
 ```
 
 
-**A noter qu'une interface ne peut pas être instanciée.** Et que si une classe peut implémenter autant d'interfaces qu'elle le souhaite, elle ne peut pas hériter de plusieurs classes.
+**A noter qu'une interface ne peut pas être instanciée.** Et que si une classe peut implémenter autant d'interfaces qu'elle le souhaite, elle ne peut pas hériter de plusieurs classes. Une interface peut également avoir plusieurs méthodes et propriétés;
 - [En savoir plus sur les interfaces en C# avec Unity - anglais (moins de 5 minutes)](https://www.youtube.com/watch?v=50_qBoKGKxs)
 
 > La partie sur les interfaces n'est là qu'à titre indicatif, nous n'aurons pas l'occasion de les utiliser sauf si votre projet de SAE s'y prête.

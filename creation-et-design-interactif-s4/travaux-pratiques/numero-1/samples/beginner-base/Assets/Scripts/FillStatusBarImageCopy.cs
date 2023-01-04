@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+// No used
 public class FillStatusBarImageCopy : MonoBehaviour
 {
     public Image fillImage;
