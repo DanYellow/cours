@@ -223,54 +223,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63497451}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1782feb843c282147a70b5d5c54cd449, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bebe209ec2177a46b29ad30b7e503ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fillImage: {fileID: 728364130}
-  slider: {fileID: 63497453}
   gradient:
-    key0:
-      r: 1
-      g: 0
-      b: 0
-      a: 1
-    key1:
-      r: 1
-      g: 0
-      b: 0
-      a: 1
-    key2:
-      r: 0.9245283
-      g: 0.6842949
-      b: 0
-      a: 0
-    key3:
-      r: 0.9499076
-      g: 0.7904588
-      b: 0.33627558
-      a: 0
-    key4:
-      r: 0.10162476
-      g: 0.6320754
-      b: 0
-      a: 0
-    key5:
-      r: 0
-      g: 0.6415094
-      b: 0.04216418
-      a: 0
-    key6:
-      r: 1
-      g: 1
-      b: 1
-      a: 0
-    key7:
-      r: 1
-      g: 1
-      b: 1
-      a: 0
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0.9245283, g: 0.6842949, b: 0, a: 0}
+    key3: {r: 0.9499076, g: 0.7904588, b: 0.33627558, a: 0}
+    key4: {r: 0.10162476, g: 0.6320754, b: 0, a: 0}
+    key5: {r: 0, g: 0.6415094, b: 0.04216418, a: 0}
+    key6: {r: 1, g: 1, b: 1, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
     ctime0: 0
     ctime1: 21781
     ctime2: 21974

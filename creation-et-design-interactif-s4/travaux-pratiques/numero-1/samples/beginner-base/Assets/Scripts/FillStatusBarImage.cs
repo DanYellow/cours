@@ -11,6 +11,7 @@ public class FillStatusBarImage : MonoBehaviour
     public Image fillImage;
     public Gradient gradient;
 
+    [ContextMenuItem("SetHealth", "Test")]
     public FloatVariable maxHealth;
     public FloatVariable currentHealth;
 
@@ -30,6 +31,11 @@ public class FillStatusBarImage : MonoBehaviour
         fillImage.fillAmount = fillValue;
 
         fillImage.color = gradient.Evaluate(fillValue);
+    }
+
+    
+    public void Test() {
+        Debug.Log("test");
     }
 
     public void SetHealth(float healthNormalized)
