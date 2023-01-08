@@ -56,7 +56,7 @@ List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 
 Par exemple, une fonction qui affiche dans la console la somme de deux entiers. **Elle ne renvoie rien** :
 ```cs
-public void Addition(int num1, int num2)
+void Addition(int num1, int num2)
 {
     int sum = num1 + num2;
     Debug.Log("Résultat somme : " + sum);
@@ -67,7 +67,7 @@ public void Addition(int num1, int num2)
 
 Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
 ```cs
-public int Addition(int num1, int num2)
+int Addition(int num1, int num2)
 {
     // On précise qu'on retourne un entier
     return num1 + num2;
@@ -92,30 +92,32 @@ using UnityEngine;
 
 public class MyClass : MonoBehaviour
 {
-    // Appelée (la méthode) avant le premier appel de la méthode "Update"
+    // Appelée avant le premier appel de la méthode "Update"
     void Start()
     {
         // Les commentaires peuvent être précédés de deux barres obliques (//) ou entre "/*" "*/". 
         // Cette dernière façon permet de faire des commentaires sur plusieurs lignes
     }
 
-    // Appelée (la méthode) une fois par frame (ou image)
+    // Appelée une fois par frame (ou image)
     void Update()
     {
     }
 }
 ```
-Ci-dessus vous avez une classe de base, de type MonoBehavior, à chaque fois que vous allez créer un nouveau script depuis Unity, vous aurez au minimum le code ci-dessus (sans les commentaires en français). Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins.
-> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet. Notez également qu'à chaque fois que vous sauvegardez vos scripts et retournez sur Unity, il fera une vérification du code et toute erreur trouvée rendra impossible la compilation (mode `Play`).
+Ci-dessus vous avez une classe de base, de type MonoBehavior, à chaque fois que vous allez créer un nouveau script depuis Unity, vous aurez au minimum le code ci-dessus (sans les commentaires en français). Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins. 
+
+> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet. Notez également qu'à chaque fois que vous sauvegardez vos scripts et retournez sur Unity, il fera une vérification du code et toute erreur trouvée rendra impossible la compilation (mode `Play` ou `ctrl/cmd + p`).
 
 ### Déclaration de classe : `public class MyClass : MonoBehaviour`
-Cette ligne nous permet de définir notre classe. Tout ce qui est avant `:` nous est familier car la syntaxe est identique à celle des variables et méthodes, ici on utilise le type `class`. En revanche la synaxe `: MonoBehaviour` nous est nouvelle, elle désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`.  
+Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous permet d'accéder à notre classe partout dans notre projet. Nous verrons plus loin dans le document que le terme "public" peut être remplacé par d'autres mot-clés. Ensuite nous avons le type, ici `class`, nous définissons donc une classe qui a pour nom "MyClass". La synaxe `: MonoBehaviour` désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`. Car la class `MonoBehaviour` contient déjà ces méthodes avec leur comportement.
 
 ### Méthode : `Start() {}`
-La méthode Start() est appelée lorsque le script est instancié. Par exemple, dans votre jeu vous pourriez définir les points de vie par défaut de votre personnage.
+La méthode Start() est appelée lorsque le script est instancié, autrement dit quand le GameObject apparaît dans la scène. Par exemple, dans un jeu vous pourriez définir les points de vie par défaut d'un personnage.
 
 ### Méthode : `Update() {}`
-La méthode Update est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode Update() sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. C'est dans cette méthode que vous vérifierez les touches appuyées. Par exemple :
+La méthode Update est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode Update() sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. Notez tout de même que dépendamment de la puissance du terminal qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde.
+Parallement, c'est dans cette méthode que vous vérifierez les touches appuyées. Par exemple :
 
 ```cs
 /* [...] */
@@ -130,7 +132,7 @@ void Update()
     }
 }
 ```
-Notez bien qu'il ne faut jamais mettre une boucle `while(true) {}` (boucle infinie) dans la méthode Update car vous pouvez être sûr(e) qu'Unity plantera car vous faites une imbrication de boucles infinies.
+Notez bien qu'il ne faut **jamais** mettre une boucle `while(true) {}` (boucle infinie) dans la méthode Update car Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
 
 Enfin, notez les choses suivantes sur les classes :
 - Les méthodes telles que `Start()` ou `Update()` sont propres à la classe `MonoBehaviour`, de ce fait, elles sont automatiquement appelées
@@ -143,7 +145,7 @@ Enfin, notez les choses suivantes sur les classes :
 
 # Exercice
 Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
-Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier Assets/Scripts). 
+Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Empty) ou encore depuis le menu Game Object > Create Empty. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`). 
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
@@ -200,9 +202,10 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
     - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
         - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser.
 - Type et nom de variable : On l'a vu précemment
-- Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code
+- Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code. A noter que si vous définissez une valeur par défaut pour une propriété et que vous définissez une valeur pour cette même propriété dans l'`Inspector`, c'est cette dernière qui sera prise en code
 
-> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Toutefois pour rendre les choses simples, nous utiliserons en priorité le mot-clé "public"
+> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Toutefois pour rendre les choses simples, nous utiliserons en priorité le mot-clé "public" dans le cadre du cours.
+> [Pour en savoir plus (anglais)](https://www.youtube.com/watch?v=pD27YuJG3L8)
 
 Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
 ```cs
