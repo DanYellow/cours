@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP2 - CSS link - Écrivons notre fichier .css</title>
+    <title>TP3 - CSS link - Écrivons notre fichier .css</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
 
+    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
     <style>
       .lien {
         color: #0400de;
         text-decoration: underline;
       }
     </style>
+    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </head>
   <body>
     <header>
@@ -28,19 +30,19 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Créez un nouveau fichier html
+            Créez un nouveau fichier html (avec la structure de base d'un site
+            web. Rappel, vous avez le raccourci "html:5") dans le même dossier que celui-ci.
           </li>
           <li>
-            Sauvegardez le fichier (il faut impérativement qu'il ait l'extension ".html" autrement dit qu'il finisse pas ".html")
+            Copiez les balises contenues entre les commentaires "&lt;!-- Début: [...] -->" et "&lt;!-- Fin: [...] -->"
+            <section class="note-information">
+              Il peut avoir plusieurs commentaires du même genre au sein du même fichier.
+            </section>
           </li>
           <li>
-            Définissez la base d'une page html. Rappel : vous avez le raccourci "html:5"
+            Collez leur contenu dans votre même fichier aux mêmes endroits. Par exemple, si vous copiez du code dans le balise &lt;head>, il faudra le coller également dans la balise &lt;head> dans votre fichier.
           </li>
-          <li>
-            Copiez la balise &lt;main> (et son contenu de la balise) dans le fichier que vous
-            venez de créer
-          </li>
-          <li>Sauvegardez-le et commencez votre TP dedans</li>
+          <li>Sauvegardez-le et commencez votre TP dedans.</li>
         </ol>
       </details>
 
@@ -83,10 +85,8 @@
         </ol>
       </details>
     </header>
-    <!-- 
-        Balise <main> permettant de définir le contenu principal du site. 
-        Pas vraiment obligatoire, mais préférable pour l'accessibilité.
-    -->
+
+    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
     <main>
       <!-- 
         Ici on a une classe appelée "conteneur". 
@@ -95,18 +95,24 @@
       -->
       <section
         class="conteneur"
-        style="background: #ffe7e8; border: 2px solid #e66465"
+        style="background: #ffe7e8; border: 2px solid #e66465;"
       >
-        <p style="margin: 15px; line-height: 1.5; text-align: center">
+        <p style="margin: 15px; line-height: 1.5; text-align: center;">
           L'attribut universel style contient des déclarations CSS afin de
           mettre en forme l'élément. Attention, il est recommandé de définir les
           règles de mise en forme dans un ou plusieurs fichiers séparés. Cet
-          attribut, ainsi que l'élément <code>&lt;style&gt;</code> ont
-          simplement pour but de permettre une mise en forme rapide, notamment
-          pour tester.
+          attribut, ainsi que l'élément
+          <code>&lt;style&gt;</code>
+          ont simplement pour but de permettre une mise en forme rapide,
+          notamment pour tester.
         </p>
         <p
-          style="margin: 15px; line-height: 1.5; text-align: center; color: red"
+          style="
+            margin: 15px;
+            line-height: 1.5;
+            text-align: center;
+            color: red;
+          "
         >
           Cette méthode n'est pas vraiment recommandée, ainsi qu'utiliser la
           balise &lt;style&gt;. On l'a vu en cours mais on arrêtera après.
@@ -114,10 +120,12 @@
           <a
             href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link"
             class="lien"
-            >Voir documentation de la balise link</a
           >
+            Voir documentation de la balise link
+          </a>
         </p>
       </section>
     </main>
+    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </body>
 </html>
