@@ -1,26 +1,4 @@
-body, html {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-img {
-  max-width: 100%;
+.marge-haute {
   display: block;
+  margin-top: 1300px;
 }
-
-.main-conteneur {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.informations-conteneur {
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  grid-template-rows: 1fr;
-  overflow: hidden;
-}
-
-.informations {
-  color: rgb(230, 230, 230);
-  font-weight: bold;
-}
-
