@@ -1,4 +1,4 @@
-# SAE 402- Création d'un jeu vidéo
+# SAE 402 - Concevoir un dispositif interactif
 _Les consignes pourront être modifiées._
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -94,9 +94,6 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
-- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
-    - Vous pouvez faire un niveau de didacticiel ou encore menu dédié
-        - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé
 - Rajouter un ennemi parmi ceux proposés
     - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier "Enemies"
         - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
@@ -124,6 +121,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
+- Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu). Il y a ce didacticiel pour en savoir plus :
+    - [Didacticiel sur l'écran d'accueil personnalisé d'Unity - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
+- Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
+    - Vous pouvez réaliser cette tâche via un niveau de didacticiel ou encore un menu dédié
+        - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)  
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
