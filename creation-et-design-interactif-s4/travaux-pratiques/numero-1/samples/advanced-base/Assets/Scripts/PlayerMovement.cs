@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         CreateDust();
     }
 
-    public bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
