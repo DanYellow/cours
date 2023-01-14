@@ -174,9 +174,13 @@ public class PlayerMovement : MonoBehaviour
         CreateDust();
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
+    }
+
+    public bool IsGoingUp() {
+        return rb.velocity.y > 0f;
     }
 
     void OnDrawGizmosSelected()

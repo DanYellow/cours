@@ -10347,7 +10347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 5.25, y: -0.5}
-  smoothTime: 0.05
+  smoothTime: 0.15
   target: {fileID: 814072436}
 --- !u!114 &519420035
 MonoBehaviour:
