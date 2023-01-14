@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
 
+    [ReadOnlyInspector, SerializeField]
     private bool isGrounded;
     public Animator animator;
 
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
         {
+            Debug.Log("Reeee");
             isLandingFast = true;
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
         }
@@ -203,10 +205,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void LandingImpact()
     {
+        Debug.Log("LandingImpact");
         isLandingFast = false;
         onLandingFastSO.Raise(landingFastShakeInfo);
         landingParticles.Play();
-        rb.velocity = Vector2.zero;
+        // rb.velocity = Vector2.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
