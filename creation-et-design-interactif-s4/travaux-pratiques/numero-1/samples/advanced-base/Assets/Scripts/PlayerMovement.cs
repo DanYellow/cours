@@ -181,8 +181,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
 
-    public bool IsGoingUp() {
-        return rb.velocity.y > 0f;
+    public bool IsFalling() {
+        return rb.velocity.y < -1f;
     }
 
     void OnDrawGizmosSelected()
