@@ -67,6 +67,7 @@
 .jpo-banniere .textes .txt-petit {
   font-size: 2rem;
   margin-bottom: 1rem;
+  width: 60%;
 }
 
 .jpo-banniere .textes .txt-grand {
