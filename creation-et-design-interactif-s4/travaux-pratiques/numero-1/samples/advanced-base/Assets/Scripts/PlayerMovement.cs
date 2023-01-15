@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool IsFalling() {
-        return rb.velocity.y < -1.5f;
+        return rb.velocity.y < -10f;
     }
 
     void OnDrawGizmosSelected()

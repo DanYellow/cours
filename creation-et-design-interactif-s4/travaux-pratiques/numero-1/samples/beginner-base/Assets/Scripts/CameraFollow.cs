@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Vector2 offset = Vector2.zero;
+    public Vector3 offset = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
 
     public float smoothTime = 0.25f;
