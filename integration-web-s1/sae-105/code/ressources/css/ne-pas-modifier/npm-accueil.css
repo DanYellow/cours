@@ -79,3 +79,7 @@
   font-weight: 600;
 }
 
+.colonne {
+  display: flex;
+  justify-content: space-between;
+}

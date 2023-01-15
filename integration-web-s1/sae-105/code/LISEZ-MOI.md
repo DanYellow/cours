@@ -1,6 +1,6 @@
 # SAÉ 105 - Produire un site web
 
-> **IMPORTANT :** Le code fournit 
+> **IMPORTANT :** Le code fournit possède quelques modifications mineures par rapport à la maquette finale. 
 
 ## Didacticiels
 - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
@@ -20,20 +20,22 @@ d’hébergement standard
 
 L'Université, pour sa part, vous fournit le style et la forme qu'elle souhaiterait donner au site.
 
-> Ce n'est un exercice de rédaction, vous pouvez très bien récupérer du contenu en ligne.
+> Ce n'est pas un exercice de rédaction, vous pouvez très bien récupérer du contenu en ligne.
 
-À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq environ, le site en suivant la maquette interactive (Adobe XD) qui vous se trouve ici :
+À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq environ **au sein du même TD/TP**, le site en suivant la maquette interactive (Adobe XD) qui vous se trouve ici :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 
 Dans le site sont prévues cinq pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
+  - Vous devez le compléter et l'adapter pour chaque page
 - Un footer (pied-de-page) qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
-  - [Accéder au didacticiel sur l’utilisation d’Adobe XD]()
+  - [Accéder au didacticiel sur l’utilisation d’Adobe XD](https://cours.cyu.fr/course/view.php?id=81#section-3)
+  - Vous devez le compléter
 
 Les pages web du site à réaliser sont donc :
 - **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Cette page a commencé à être développée et est présente dans le squelette fourni
-- **À propos :** Page qui contient 3 sous-sections accessibles par 3 ancres placées en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
+- **À propos :** Page qui contient trois sous-sections accessibles par trois ancres placées en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
 - **Contact :** Contient un formulaire qui permet à l’utilisateur d’envoyer une requête d’information.
 La page contact possède trois états :
     <ol type="a">
@@ -48,20 +50,19 @@ La page contact possède trois états :
   - https://www.youtube.com/watch?v=t72pdxpNjyc
   - https://www.youtube.com/watch?v=xD4wshE0hEg
   
-  A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéo ne doivent en aucun cas être téléchargées**
-- **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les
-règles précédemment citées. A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web
+  A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéo ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
+- **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
 
-Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en s’assurant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
+Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
 
 # Astuces
 - La navigation principale du site se trouve dans le fichier `ressources/css/includes/header.php`
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
-- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php include
-- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal
+- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `include()`
+- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" et commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
-- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes :
+- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes depuis AdobeXD :
   - font-size
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
@@ -79,22 +80,20 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
-  - Un fichier texte contenant l'URL de votre site hébergé
-  - **Un rapport de ressenti par membre de groupe** nommé nom-prénom
-    - Ceci n'est pas noté, mais vous aidera pour le portfolio que vous devez remplir et nous pour nous améliorer
+  - Un fichier texte contenant l'URL de votre site hébergé + la composition du groupe
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail et précisée à l'endroit où vous devrez remettre votre rendu. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
+Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail. **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
 
 ## Intégration Web (HTML/CSS)
 Cette partie sera évaluée par MM. Jean-Louis et Linardi.
-- Qualité du code
+- Qualité du code :
   - Pas de classes au nom étrange
   - Limitation du nombre de classes CSS
   - Réutilisation des classes CSS
-    - N'oubliez pas qu'une balise peut avoir plusieurs divs
+    - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS
   - Organisation du code
     - Utiliser la structure déjà présente peut vous aider
   - Sémantique HTML :
@@ -105,10 +104,9 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi.
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
-      - Il faut diviser la valeur par 16 pour obtenir la font-size en rem
+      - Il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
-
 
 ## Développement Web (PHP)
 Cette partie sera évaluée par M. Roch.
@@ -122,6 +120,9 @@ Cette partie sera évaluée par M. Roch.
     - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
   - [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
-    - [ ] Mes images possèdent un attribut "alt"
+    - [ ] Mes images possèdent un attribut "alt" même s'il est vide
     - [ ] L'unité de la propriété "font-size" est rem
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+
+# Pour aller plus loin
+[Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)

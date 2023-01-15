@@ -27,6 +27,9 @@
             <h1 class="titre-page">Articles sur le BUT MMI</h1>
 
             <section class="colonne">
+                <section class="liste-articles">
+                    <p>A REMPLACER</p>
+                </section>
                 <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" href="https://www.cyu.fr/salons-journee-portes-ouvertes">
                     <img src="ressources/images/logo-cyu-blanc.png" width="200" class="logo" alt="">
 

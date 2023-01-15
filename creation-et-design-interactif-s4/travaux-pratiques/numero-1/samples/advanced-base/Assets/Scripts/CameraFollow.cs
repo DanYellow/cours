@@ -2,63 +2,34 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Vector2 offset = new Vector2(0, 0f);
+    public Vector2 offset = Vector2.zero;
     private Vector3 velocity = Vector3.zero;
 
     public float smoothTime = 0.25f;
-
 
     [SerializeField]
     private Transform target;
 
     private Vector3 nextPosition;
-    private bool isFalling = false;
-
-    private float nextX = 0;
-    private float nextY = 0;
-
-    private Vector3 threshold;
 
     void Start()
     {
-        threshold = calculateThreshold();
-        transform.position = GetNextPosition();
+        nextPosition = GetNextPosition();;
+        transform.position = nextPosition;
     }
 
     void LateUpdate()
     {
         nextPosition = GetNextPosition();
-        if(target.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement)) {
-            isFalling = playerMovement.IsFalling();
-        }
-
-        transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, smoothTime); 
-    }
-
-    private Vector3 calculateThreshold() {
-        Rect aspect = Camera.main.pixelRect;
-        Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-        // t.y *= 0.25f;
-
-        return t;
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-        Vector2 border = calculateThreshold();
-        Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));    
+        transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, smoothTime);
     }
 
     private Vector3 GetNextPosition()
     {
-        nextX = target.position.x + (offset.x * (target.localEulerAngles.y > 90 ? -1 : 1));
-        nextY = transform.position.y; 
-        float yDiff = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * target.position.y);
-
-        if((Mathf.Abs(yDiff) >= threshold.y || target.position.y != transform.position.y) && isFalling) {
-            nextY = target.position.y;
-        }
-
-        return new Vector3(nextX, nextY, transform.position.z); 
+        return target.position + new Vector3(
+            (offset.x * (target.localEulerAngles.y > 90 ? -1 : 1)),
+            offset.y,
+            transform.position.z
+        );
     }
 }
