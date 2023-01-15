@@ -17,17 +17,16 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
     private float nextX = 0;
     private float nextY = 0;
 
-    private bool isCameraInitialized = false;
-
     private PlayerMovement playerMovement = null;
-
 
     private Vector3 threshold;
 
     void Start()
     {
         threshold = calculateThreshold();
-        transform.position = GetNextPosition();
+        nextPosition = GetNextPosition();
+        nextY = target.position.y;
+        transform.position = new Vector3(nextPosition.x, target.position.y, nextPosition.z);
 
         playerMovement = target.GetComponent<PlayerMovement>();
     }
@@ -38,10 +37,11 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
         if (playerMovement != null)
         {
             isFalling = playerMovement.IsFalling();
-            isGrounded = playerMovement.IsGrounded();
+            isGrounded = playerMovement.onGround;
+            Debug.Log("isFalling " + isFalling);
         }
 
-        transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, moveSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, isFalling ? moveSpeed * 20.75f : moveSpeed );
     }
 
     private Vector3 calculateThreshold()
@@ -68,11 +68,6 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
     {
         nextX = target.position.x;
         
-        if(!isCameraInitialized) {
-            isCameraInitialized = true;
-            nextY = transform.position.y;
-        }
-
         float yDiff = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * target.position.y);
 
         if (Mathf.Abs(yDiff) >= threshold.y && (isFalling || isGrounded)) {

@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnIce = false;
     private bool wasOnIce = false;
 
+    public bool onGround = false;
+    // public bool onGround = false;
+
     private void Awake()
     {
         enabled = false;
@@ -101,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         Animations();
         LimitSpeed();
         isGrounded = IsGrounded();
+        onGround = isGrounded;
 
         if (isOnIce)
         {

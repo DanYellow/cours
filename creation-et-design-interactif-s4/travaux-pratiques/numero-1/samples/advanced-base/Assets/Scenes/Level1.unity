@@ -1963,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600367782922950193, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
@@ -2323,7 +2323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -10295,7 +10295,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.5
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10394,8 +10394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958255589e7d59f4d9be629775279a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2.5}
-  smoothTime: 0.25
+  offset: {x: 0, y: 2}
+  moveSpeed: 0.25
   target: {fileID: 814072436}
 --- !u!1 &521770008
 GameObject:
@@ -30308,6 +30308,7 @@ MonoBehaviour:
   landingParticles: {fileID: 418787795}
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
+  onGround: 0
 --- !u!114 &814072431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62115,7 +62116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -65398,7 +65399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600367782922950193, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
@@ -65415,7 +65416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7650179573360218474, guid: b0d8ca7732eeb2041a409e722ddfbba2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7650179573360218519, guid: b0d8ca7732eeb2041a409e722ddfbba2, type: 3}
       propertyPath: m_RootOrder
