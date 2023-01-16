@@ -2,27 +2,32 @@ using UnityEngine;
 
 public class CameraFollowSuperMarioStyle : MonoBehaviour
 {
-    public Vector2 offset = new Vector2(0, 0f);
-    private Vector3 velocity = Vector3.zero;
+    [Tooltip("Area where the target is considerer as inside the field of view")]
+    public Vector2 offset = Vector2.zero;
 
     public float moveSpeed = 0.25f;
+
+    [Tooltip("When the camera considers the target has moved")]
+    public float thresholdBeforeMove = 4f;
 
     [SerializeField]
     private Transform target;
 
     private Vector3 nextPosition;
+
+    float velocityRefY = 0;
     private bool isFalling = false;
     private bool isGrounded = true;
 
-    private float nextX = 0;
     private float nextY = 0;
 
-    [SerializeField]
     private float lastTargetY = 0;
 
     private PlayerMovement playerMovement = null;
 
     private Vector3 threshold;
+
+    float newY = 0;
 
     void Start()
     {
@@ -36,15 +41,6 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
         playerMovement = target.GetComponent<PlayerMovement>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("threshold.y " + (moveSpeed * 0.25f));
-            // Debug.Log("localPosition " + transform.InverseTransformDirection(target.position - transform.position));
-        }
-    }
-
     void LateUpdate()
     {
         nextPosition = GetNextPosition();
@@ -54,17 +50,15 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
             isGrounded = playerMovement.onGround;
         }
 
-        transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, isFalling ? moveSpeed : moveSpeed, Mathf.Infinity, isFalling ? Time.deltaTime * 3 : Time.deltaTime);
+        newY = Mathf.SmoothDamp(transform.position.y, nextPosition.y, ref velocityRefY, moveSpeed, Mathf.Infinity, isFalling ? Time.deltaTime * 3 : Time.deltaTime);
+        transform.position = new Vector3(nextPosition.x, newY, transform.position.z); ;
     }
 
     private Vector3 calculateThreshold()
     {
         Rect aspect = Camera.main.pixelRect;
         Vector2 t = new Vector2(Camera.main.orthographicSize * (aspect.width / aspect.height), Camera.main.orthographicSize);
-        // Debug.Log("t " + transform.InverseTransformDirection(target.position - transform.position));
-        // t.x -= offset.x;
         t.y -= offset.y;
-        // Debug.Log("aspect " + t); // 12, 4.75
 
         return t;
     }
@@ -78,20 +72,17 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
 
     private Vector3 GetNextPosition()
     {
-        nextX = target.position.x;
-
         Vector3 localPosition = transform.InverseTransformDirection(target.position - transform.position);
 
-        float delta = 3.5f;
         bool hasReachedBottomThreshold = (localPosition.y <= -threshold.y) && isFalling;
-        bool hasReachedTopThreshold = (localPosition.y >= threshold.y || localPosition.y <= -threshold.y) && isGrounded && (lastTargetY < target.position.y - delta || lastTargetY > target.position.y + delta);
+        bool hasReachedTopThreshold = (localPosition.y >= threshold.y || localPosition.y <= -threshold.y) && isGrounded && (lastTargetY < target.position.y - thresholdBeforeMove || lastTargetY > target.position.y + thresholdBeforeMove);
 
         if (hasReachedTopThreshold || hasReachedBottomThreshold)
         {
             lastTargetY = target.position.y;
-            // nextY = target.position.y;
+            nextY = target.position.y;
         }
 
-        return new Vector3(nextX, nextY, transform.position.z);
+        return new Vector3(target.position.x, nextY, transform.position.z);
     }
 }
