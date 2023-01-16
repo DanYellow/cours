@@ -193,14 +193,16 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
 [niveau de visibilité] [type] [nom de variable] = valeur;
 ```
 - Niveau de visibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
-    - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Dans le cas d'une propriété, le fait qu'elle soit publique rend possible la modification depuis l'onglet "Inspector" d'Unity
-    - private : **la fonction n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
+    - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Le fait qu'elle soit publique rend possible sa modification depuis l'onglet "Inspector" d'Unity
+    - private : **la propriété n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier
         - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser.
 - Type et nom de variable : On l'a vu précemment
 - Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code. A noter que si vous définissez une valeur par défaut pour une propriété et que vous définissez une valeur pour cette même propriété dans l'`Inspector`, c'est cette dernière qui sera prise en code
 
-> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Toutefois pour rendre les choses simples, nous utiliserons en priorité le mot-clé "public" dans le cadre du cours.
+> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Rendre tout "public" rend possible à n'importe quelle classe la possibilité d'en modifier une autre. Toutefois pour rendre les choses simples, nous utiliserons en priorité le mot-clé "public" dans le cadre du cours. Mais nous vous encourageons très fortement à utiliser "private" quand c'est possible.
 > [Pour en savoir plus (anglais)](https://www.youtube.com/watch?v=pD27YuJG3L8)
+
+> Note 2 : cette notion de visibilité est également applicable aux classes et aux fonctions au sein d'une classe (qu'on appelle "méthode")
 
 Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
 ```cs
