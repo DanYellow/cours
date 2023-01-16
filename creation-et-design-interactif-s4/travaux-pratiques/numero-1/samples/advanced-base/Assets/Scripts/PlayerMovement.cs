@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveDirectionX;
 
-    public bool isFacingRight = true;
+    private bool isFacingRight = true;
 
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
 
     [ReadOnlyInspector, SerializeField]
-    private bool isGrounded;
+    public bool isGrounded;
     public Animator animator;
 
     [Tooltip("Running system")]
@@ -45,9 +45,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ice")]
     private bool isOnIce = false;
     private bool wasOnIce = false;
-
-    public bool onGround = false;
-    // public bool onGround = false;
 
     private void Awake()
     {
@@ -84,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
         {
-            Debug.Log("Reeee");
             isLandingFast = true;
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
         }
@@ -104,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
         Animations();
         LimitSpeed();
         isGrounded = IsGrounded();
-        onGround = isGrounded;
 
         if (isOnIce)
         {

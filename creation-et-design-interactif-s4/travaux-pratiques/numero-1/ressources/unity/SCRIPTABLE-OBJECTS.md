@@ -53,8 +53,14 @@ using UnityEngine;
 public class BoatWeaponData : ScriptableObject
 {
     public int damage;
+
+    // L'attribut [Range(Min, Max)] permet d'avoir, à la place d'un champ, un slider permettant de faire varier une valeur entre les deux bornes précisées incluses. Ceci équivaut en HTML à "<input type="range" min="0" max="1500" />"
+    // A noter que cet attribut fonctionne également avec les float
+    [Range(0, 1500)]
     public int cost;
     public string name;
+
+    // L'attribut [Multiline] permet d'afficher une zone de texte multiligne dans l'inspecteur Unity, un peu comme <textarea> en HTML
     [Multiline]
     public string description;
     public Sprite sprite;
@@ -69,10 +75,9 @@ using UnityEngine;
 public class BoatWeaponData : ScriptableObject
 {
     public int damage;
+    [Range(0, 1500)]
     public int cost;
     public string name;
-
-    // L'attribut [Multiline] nous permet d'avoir une zone de texte multiligne dans l'inspecteur Unity, un peu comme <textarea> en HTML
     [Multiline] 
     public string description;
     public Sprite sprite;
@@ -93,7 +98,7 @@ using UnityEngine;
 
 public class BoatWeaponItemStore : MonoBehaviour
 { 
-    // Reference of our scriptableObject
+    // Référence à notre ScriptableObject
     public BoatWeaponData boatWeaponData;
 
     private void OnMouseDown() 
@@ -106,7 +111,7 @@ public class BoatWeaponItemStore : MonoBehaviour
     }
 }
 ```
-Voilà, avec notre code, nous pouvons afficher les données de notre arme lorsque nous cliquerons dessus.
+Voilà, avec notre code, nous pouvons afficher les données de notre arme lorsque nous cliquerons dessus. Chaque arme (GameObject) ayant son propre ScriptableObject avec ses données
 
 > La méthode `OnMouseDown()` ne fonctionne que si et seulement si le GameObject a un collider
 
@@ -117,7 +122,8 @@ Plus d'informations sur les ScriptableObjects :
 - https://learn.unity.com/tutorial/introduction-to-scriptableobjects?language=en#60661f13edbc2a001f55c22b
 
 Dans le cas de notre projet d'initiation, nous avons déjà défini des ScriptableObjects, pour gagner du temps, vous allez les récupérer ici :
-- [Télécharger les ScriptableObjects](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fbeginner-base%2FAssets%2FScripts%2FScriptableObjects)
-Désarchivez le tout puis glissez le dossier dans le dossier `Scripts` de votre projet
+- [Télécharger les ScriptableObjects du TP ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fbeginner-base%2FAssets%2FScripts%2FScriptableObjects)
 
-Jusqu'à présent, nous avons vu les ScriptableObjects pour stocker des données, il est également possible de les utiliser pour créer des évenements, et ce, pour les mêmes raisons que vues précédemment : limitation du couplage du code...
+Désarchivez le tout puis glissez le dossier dans le dossier `Assets/Scripts/` de votre projet
+
+Nous avons vu les ScriptableObjects pour stocker des données, sachez qu'il est également possible de les utiliser pour créer des évenements (il y en a dans l'archive que vous venez de récupérer), et ce, pour les mêmes raisons que vues précédemment : limitation du couplage du code...

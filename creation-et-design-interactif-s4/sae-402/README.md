@@ -29,17 +29,18 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Mort du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
-    - Il n'y a pas de menu de Pause, c'est une des tâches que vous devrez effectuer
-    - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements
+    - Il n'y a pas de menu de Pause d'affiché, c'est une des tâches que vous devrez effectuer
+    - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements durant la pause
 - Un gestionnaire de Son / Musique
     - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/Scripts/ScriptableObjects/Events/OnSFXAudioChannel`
 
-> Des Script pour inspecteur sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/Scripts/ScriptableObjects/Events`. Pratique.
+> Des Scripts pour inspecteur sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/Scripts/ScriptableObjects/Events`. Pratique.
 
-Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient deux scènes :
+Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient trois scènes :
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - Plus d'explications sur la scène de bootstrap
+- Une scène de debug pour tester des fonctionnalités rapidement
 
 - [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fadvanced-base)
 

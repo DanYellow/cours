@@ -17,7 +17,12 @@ Comme tout langage de programmation le C# permet de créer des variables, la syn
 ```cs
 [type] [nom de variable];
 ```
-- type : Définit la nature d'une variable. Autrement dit, les actions que peut effectuer la variable. Par exemple, si on définit une varible de type entier (int), il n'est pas possible d'utilisr des méthodes liées à une chaîne de caractères (string). Notez bien qu'en C#, contrairement au javascript, **le typage est obligatoire** et immuable. Un entier ne peut pas devenir une chaîne de caractères et vice-versa. Durant le cours, nous aurons l'occasion de voir plein de types et même de créer les nôtres
+- type : Définit la nature d'une variable. Autrement dit, les actions que peut effectuer la variable. Par exemple, si on définit une varible de type entier (int), il n'est pas possible d'utiliser des méthodes liées à une chaîne de caractères (string). Notez bien qu'en C#, contrairement au javascript, **le typage est obligatoire et immuable**. Un entier ne peut pas devenir une chaîne de caractères et vice-versa. Durant le cours, nous aurons l'occasion de voir plein de types et même de créer les nôtres, mais de base vous avez les types suivants (liste non exhaustive) :
+    - int : nombre relatif (-20, -1, 5, 74, 479...)
+    - string : chaîne de caractères ("Bonjour, c'est le cours d'Unity")
+    - float : nombre irrationnel (1/3, 25/8, -7/9...)
+    - bool : booleéan (`true` / `false`)
+    ...
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite, c'est pratique pour s'y retrouver
 
 Voici des exemples de variables :
@@ -35,7 +40,7 @@ string[] tableauFormations = {"MMI", "TC", "GE2I", "MT2E"};
 Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau. Alors qu'une liste a une dimension dynamique. Ce qui fait qu'une liste occupe plus de places en mémoire (RAM) qu'un tableau, de ce fait, utilisez le bon type pour la bonne situation. 
 
 ```cs
-// Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove() ou même en remplacer à un index précis grâce à la méthode .Insert().
+// Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove() ou même en remplacer à un index précis grâce à la méthode .Insert(int index, valeur).
 List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 ```
 - [Différence Liste et Tableau en C# - anglais](https://www.shekhali.com/c-array-vs-list)
@@ -43,6 +48,8 @@ List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 > Autre point important : Il existe une autre différence entre les listes et les tableaux en C#. Pour accéder au nombre d'éléments, on utilisera la propriété "Length", là où on utilisera la propriété "Count" pour les listes. Étrange mais c'est comme ça.
 
 ## Fonctions
+
+Outils idéaux pour limiter la réutilisation du code et le rendre propre, les fonctions en C# ont une syntaxe relativement proche de ce que vous avez vu jusqu'à présent.
 ```cs
 [type de retour] NomDeFonction([paramètres ([type] paramètre1), ([type] paramètre2)])
 {
@@ -81,7 +88,7 @@ On remarque qu'en plus d'avoir le mot-clé "return", "void" a été remplacé pa
 Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` ou `while` car la syntaxe est la même comparée aux autres langages que vous avez pu voir durant votre BUT. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
 - [Voir liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) 
 
-> Comme les noms de variables, les nom de fonctions doivent avoir un nom unique
+> Comme les noms de variables, les noms de fonctions doivent avoir un nom unique au sein de la même classe
 
 # Script Unity de base
 
@@ -107,7 +114,8 @@ public class MyClass : MonoBehaviour
 ```
 Ci-dessus vous avez une classe de base, de type MonoBehavior, à chaque fois que vous allez créer un nouveau script depuis Unity, vous aurez au minimum le code ci-dessus (sans les commentaires en français). Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins. 
 
-> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet. Notez également qu'à chaque fois que vous sauvegardez vos scripts et retournez sur Unity, il fera une vérification du code et toute erreur trouvée rendra impossible la compilation (mode `Play` ou `ctrl/cmd + p`).
+> **Le nom de classe (ici MyClass) et le nom du fichier doivent toujours correspondre (casse comprise) sinon Unity lèvera une erreur.** Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. 
+> **Par convention, on mettra tous nos scripts Unity dans un dossier Scripts contenu lui-même dans le dossier Assets/,** ce dernier est déjà généré par Unity lorsque vous créez un nouveau projet. Notez également qu'à chaque fois que vous sauvegardez vos scripts et retournez sur Unity, il fera une vérification du code et toute erreur trouvée rendra impossible la compilation (mode `Play` ou `ctrl/cmd + p`).
 
 ### Déclaration de classe : `public class MyClass : MonoBehaviour`
 Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous permet d'accéder à notre classe partout dans notre projet. Nous verrons plus loin dans le document que le terme "public" peut être remplacé par d'autres mot-clés. Ensuite nous avons le type, ici `class`, nous définissons donc une classe qui a pour nom "MyClass". La synaxe `: MonoBehaviour` désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`. Car la class `MonoBehaviour` contient déjà ces méthodes avec leur comportement.
@@ -178,19 +186,6 @@ Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le
 - Animation
 - ScriptableObjects
 
-Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
-- [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
-- [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
-
-Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
-- [https://itch.io/](https://itch.io/)
-- [https://opengameart.org/](https://opengameart.org/)
-- [https://www.mixamo.com/ - Ressources 3D - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
-
-Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel : 
-- [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
-
-
 ## Propriétés de classes
 Au sein d'une classe, les variables définies en dehors d'une fonction ont une portée qui leur est spécifique. Autrement dit, elles n'existent que dans un contexte que vous aurez défini. Ces variables sont appelées **propriétés de classes**. Elle peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :
 
@@ -232,6 +227,20 @@ public class MyClass : MonoBehaviour
     /* [...] */
 }
 ```
+
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
+- [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
+- [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
+- [Générateur de sprites](https://codeshack.io/images-sprite-sheet-generator/)
+- [Convertisseur image -> police d'écriture](https://yal.cc/r/20/pixelfont/)
+
+Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
+- [https://itch.io/](https://itch.io/)
+- [https://opengameart.org/](https://opengameart.org/)
+- [https://www.mixamo.com/ - Ressources 3D - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
+
+Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel : 
+- [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
 
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts](https://www.evercast.us/blog/unity-hotkeys-shortcuts)

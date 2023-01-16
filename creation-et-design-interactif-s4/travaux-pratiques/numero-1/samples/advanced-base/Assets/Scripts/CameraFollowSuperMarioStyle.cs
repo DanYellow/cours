@@ -47,7 +47,7 @@ public class CameraFollowSuperMarioStyle : MonoBehaviour
         if (playerMovement != null)
         {
             isFalling = playerMovement.IsFalling();
-            isGrounded = playerMovement.onGround;
+            isGrounded = playerMovement.isGrounded;
         }
 
         newY = Mathf.SmoothDamp(transform.position.y, nextPosition.y, ref velocityRefY, moveSpeed, Mathf.Infinity, isFalling ? Time.deltaTime * 3 : Time.deltaTime);
