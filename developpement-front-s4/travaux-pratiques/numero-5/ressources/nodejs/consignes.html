@@ -1,142 +1,246 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consignes TP5 - nodejs</title>
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
     <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1 class="h1">Consignes de la pratique</h1>
-        <details class="consignes-conteneur" open>
-            <summary>
-                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-            </summary>
-            <ol class="liste-consignes">
-                <li>
-                    Installez nodejs sur votre ordinateur
-                    <ul>
-                        <li><a href="https://nodejs.org/en/download/" target="_blank">Installez nodejs (ouverture dans
-                                un nouvel onglet)</a> - Prenez la version LTS, plus stable</li>
-                    </ul>
-                </li>
-                <li>
-                    Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal (MacOS)
-                </li>
-                <li>Entrez la commande "node" puis tapez entrée. Si l'installation de node s'est bien passée,
-                    vous devriez voir le numéro de version
-                    <ul>
-                        <li>Appuyez sur les touches (<kbd>Ctrl/command (⌘)</kbd> + <kbd>c</kbd>) deux fois pour sortir
-                            de ce mode</li>
-                    </ul>
-                </li>
+      <h1 class="h1">Consignes de la pratique</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Installez nodejs sur votre ordinateur
+            <ul>
+              <li>
+                <a href="https://nodejs.org/en/download/" target="_blank">
+                  Installez nodejs (ouverture dans un nouvel onglet)
+                </a>
+                - Prenez la version LTS, plus stable
+              </li>
+            </ul>
+          </li>
+          <li>
+            Ouvrez le logiciel cmd / invite de commandes (Windows) ou terminal
+            (MacOS)
+          </li>
+          <li>
+            Entrez la commande "node" puis tapez entrée. Si l'installation de
+            node s'est bien passée, vous devriez voir le numéro de version
+            <ul>
+              <li>
+                Appuyez sur les touches (
+                <kbd>Ctrl/command (⌘)</kbd>
+                +
+                <kbd>c</kbd>
+                ) deux fois pour sortir de l'invite de commande nodejs
+              </li>
+            </ul>
+          </li>
 
-                <li>Ouvrez votre dossier de travail, celui où vous comptez faire votre TP
-                    <section class="tab-wrapper">
-                        <ul class="list-tabs">
-                            <li><button data-tab-name="windows">Windows</button></li>
-                            <li><button data-tab-name="macos">MacOS</button></li>
-                        </ul>
+          <li>
+            Ouvrez votre dossier de travail, celui où vous comptez faire votre
+            TP
+            <section class="tab-wrapper">
+              <ul class="list-tabs">
+                <li><button data-tab-name="windows">Windows</button></li>
+                <li><button data-tab-name="macos">MacOS</button></li>
+              </ul>
 
-                        <section class="list-tab-content">
-                            <article class="tab-content" data-tab-content="windows">
-                                <ol>
-                                    <li>Ecrivez "cd" suivi d'un espace dans le logiciel invite de commandes / cmd</li>
-                                    <li>Glissez le dossier de travail</li>
-                                    <li>Appuyez sur la touche Entrée</li>
-                                </ol>
-                            </article>
-                            <article class="tab-content" data-tab-content="macos">
-                                <ol>
-                                    <li>Ecrivez "cd" suivi d'un espace dans le logiciel Terminal</li>
-                                    <li>Glissez le dossier de travail</li>
-                                    <li>Appuyez sur la touche Entrée</li>
-                                </ol>
-                            </article>
-                        </section>
-                    </section>
-                </li>
-                <li>Vous devriez voir dans le terminal (ou cmd) le chemin de votre dossier suivi d'un ">"
+              <section class="list-tab-content">
+                <article class="tab-content" data-tab-content="windows">
+                  <section class="note-information">
+                    <p>
+                      Il est très fortement conseillé d'installer le logiciel
+                      gratuit "cmder", il permet d'avoir une console sous
+                      Windows avancée et permettant d'utiliser les commandes
+                      Unix sous Windows (
+                      <kbd>cd</kbd>
+                      ,
+                      <kbd>mkdir</kbd>
+                      ,
+                      <kbd>echo</kbd>
+                      ...)
+                    </p>
                     <ul>
-                        <li>Par exemple : <code>E:\mes_projets\tps\developpement_front\nodejs></code> </li>
+                      <li>
+                        <a href="https://cmder.app/" target="_blank">
+                          Télécharger cmder (prendre la version full) (Ouverture
+                          dans un nouvel onglet)
+                        </a>
+                      </li>
                     </ul>
-                </li>
-            </ol>
-        </details>
-        <details class="consignes-conteneur">
-            <summary>
-                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
-            </summary>
-            <p class="note-information">Assurez-vous bien d'être dans votre dossier de travail dans le terminal !</p>
-            <ol class="liste-consignes">
-                <li>
-                    Entrez la commande <code>npm init -y</code>
-                </li>
-                <li>
-                    Installez le node_modules "lodash"
+                  </section>
+                  <ol>
+                    <li>
+                      Ecrivez "cd" suivi d'un espace dans le logiciel invite de
+                      commandes / cmd
+                    </li>
+                    <li>Glissez le dossier de travail</li>
+                    <li>Appuyez sur la touche Entrée</li>
+                  </ol>
+                </article>
+                <article class="tab-content" data-tab-content="macos">
+                  <section class="note-information">
+                    <p>
+                      Il est très fortement conseillé d'installer le logiciel
+                      gratuit "iterm2", il permet de remplacer la Terminal natif
+                      de MacOS qui est très limité
+                    </p>
                     <ul>
-                        <li>Rappel, l'installation se fait grâce à la ligne de commande "npm install" dans le terminal</li>
-                        <li><a href="https://www.npmjs.com/package/lodash" target="_blank">Voir la fiche npm de lodash (ouverture dans un nouvel onglet)</a></li>
-                    </ul> 
-                </li>
-                <li>Qu'observez-vous dans le fichier package.json ?</li>
-            </ol>
-        </details>
-        <details class="consignes-conteneur">
-            <summary>
-                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
-            </summary>
-            <ol class="liste-consignes">
-                <li>
-                    Créez un fichier "index.js"
-                </li>
-                <li>
-                    Importez-y lodash
-                </li>
-                <li>
-                    Appliquez une fonction dans votre fichier "index.js"
-                    <ul>
-                        <li>
-                            <a href="https://lodash.com/" target="_blank">Voir documentation de lodash</a>
-                        </li>
+                      <li>
+                        <a href="https://iterm2.com/" target="_blank">
+                          Télécharger iTerm2 (Ouverture dans un nouvel onglet)
+                        </a>
+                      </li>
                     </ul>
-                </li>
-                <li>Modifiez le fichier package.json de façon à ajouter une tâche "start" qui va exécuter votre fichier "index.js"
-                    <ul>
-                        <li>Pour rappel, les tâches doivent être mises dans la partie "scripts" du fichier package.json</li>
-                    </ul>
-                </li>
-                <li>Rajoutez '"type": "module"' à la racine du fichier package.json 
-                    <ul>
-                        <li>Ceci va nous permettre d'utiliser la syntaxe "import x from 'x'" côté serveur</li>
-                    </ul>
-                </li>
-                <li>Entrez la commande <code>npm run start</code> dans le terminal et appuyez sur la touche entrée</li>
-            </ol>
-        </details>
-        <details class="consignes-conteneur">
-            <summary>
-                <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
-            </summary>
-            <ol class="liste-consignes">
+                  </section>
+                  <ol>
+                    <li>
+                      Ecrivez "cd" suivi d'un espace dans le logiciel Terminal
+                    </li>
+                    <li>Glissez le dossier de travail</li>
+                    <li>Appuyez sur la touche Entrée</li>
+                  </ol>
+                </article>
+              </section>
+            </section>
+          </li>
+          <li>
+            Vous devriez voir dans le terminal (ou cmd) le chemin de votre
+            dossier suivi d'un ">"
+            <ul>
+              <li>
+                Par exemple :
+                <code>E:\mes_projets\tps\developpement_front\nodejs></code>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <p class="note-information">
+          Assurez-vous bien d'être dans votre dossier de travail dans le
+          terminal !
+        </p>
+        <ol class="liste-consignes">
+          <li>
+            Entrez la commande
+            <code>npm init -y</code>
+          </li>
+          <li>
+            Installez le node_modules "lodash"
+            <ul>
+              <li>
+                Rappel, l'installation se fait grâce à la ligne de commande "npm
+                install _nom_du_module_" dans le terminal
+                <ul>
+                    <li>
+                        <code>npm install lodash</code>
+                    </li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://www.npmjs.com/package/lodash" target="_blank">
+                  Voir la fiche npm de lodash (ouverture dans un nouvel onglet)
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>Qu'observez-vous dans le fichier package.json ?</li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un fichier "index.js"
+          </li>
+          <li>
+            Importez-y lodash
+            <ul>
                 <li>
-                    Créez un module et exportez-le
-                    <ul>
-                        <li>Pour rappel, vous ne pouvez avoir qu'un seul <code>export default</code> par module</li>
-                        <li>Pour rappel, vous pouvez exporter à peu près ce que vous voulez (fonction, chaîne de caractères...)</li>
-                    </ul>
+                    <code>import _ from "lodash";</code>
                 </li>
-                <li>Importez et utilisez votre module exporté dans index.js</li>
-                <li>Observez le résultat dans le terminal grâce à la commande <code>npm run start</code></li>
-            </ol>
-        </details>
+            </ul>
+          </li>
+          <li>
+            Appliquez une fonction de lodash dans votre fichier "index.js" et affichez le résultat dans un <code>console.log()</code> 
+            <ul>
+              <li>
+                <a href="https://lodash.com/" target="_blank">
+                  Voir documentation de lodash
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Modifiez le fichier package.json de façon à ajouter une tâche
+            "start" qui va exécuter votre fichier "index.js"
+            <ul>
+              <li>
+                Pour rappel, les tâches doivent être mises dans la partie
+                "scripts" du fichier package.json
+              </li>
+            </ul>
+          </li>
+          <li>
+            Rajoutez <code>"type": "module"</code> à la racine du fichier package.json
+            <ul>
+              <li>
+                Ceci va nous permettre d'utiliser la syntaxe <code>import x from 'x'</code> côté serveur
+              </li>
+            </ul>
+          </li>
+          <li>
+            Entrez la commande
+            <code>npm run start</code>
+            dans le terminal et appuyez sur la touche entrée pour afficher le contenu du <code>console.log()</code>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un module javascript et exportez-le
+            <ul>
+              <li>
+                Pour rappel, vous ne pouvez avoir qu'un seul
+                <code>export default</code>
+                par module
+              </li>
+              <li>
+                Votre module peut être à peu près ce que vous voulez
+                (fonction, chaîne de caractères...)
+              </li>
+            </ul>
+          </li>
+          <li>Importez et utilisez votre module exporté dans index.js</li>
+          <li>
+            Observez le résultat dans le terminal grâce à la commande
+            <code>npm run start</code>
+          </li>
+        </ol>
+      </details>
     </header>
-
-</body>
-
+  </body>
 </html>

@@ -21,6 +21,7 @@ Comme tout langage de programmation le C# permet de créer des variables, la syn
     - int : nombre relatif (-20, -1, 5, 74, 479...)
     - string : chaîne de caractères ("Bonjour, c'est le cours d'Unity")
     - float : nombre irrationnel (1/3, 25/8, -7/9...)
+        - En C#, les floats doivent être suffixé par un "f". Par exemple, `float myFloat = 5.6f;`
     - bool : booleéan (`true` / `false`)
     ...
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite, c'est pratique pour s'y retrouver

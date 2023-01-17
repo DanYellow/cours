@@ -10,7 +10,7 @@ app.post("/upload", upload.single("avatar"), function (req, res, next) {
 });
 
 app.get("/uploads", function (req, res, next) {
-    console.log("ffefe");
+    console.log("Display uploads");
 });
 
 const PORT = 9000;

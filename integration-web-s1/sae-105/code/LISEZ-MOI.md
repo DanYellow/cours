@@ -9,14 +9,18 @@
 ## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
 L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants : 
-- AC4101 : Exploiter de manière autonome un environnement de développement
+
+**R1.11 – Intégration**
+- AC14.01 : Exploiter de manière autonome un environnement de développement
 efficace et productif
-- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage
-sémantique efficace
-- AC4103 : Générer des pages Web ou vues à partir de données structurées incluant
-des interactions simples
-- AC4104 : Mettre en ligne une application Web en utilisant une solution
-d’hébergement standard
+- AC14.02 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace et des interactions simples
+
+**R1.12 – Développement Web**
+- AC14.03 : Générer des pages Web ou vues à partir de données structurées incluant des interactions simples
+
+**R1.13 – Hébergement**
+- AC14.04 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
+
 
 L'Université, pour sa part, vous fournit le style et la forme qu'elle souhaiterait donner au site.
 
@@ -29,6 +33,8 @@ L'Université, pour sa part, vous fournit le style et la forme qu'elle souhaiter
 Dans le site sont prévues cinq pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
   - Vous devez le compléter et l'adapter pour chaque page
+  - Indiquer la page active dans la navigation
+    - Ceci ne se fait pas avec la pseudo-classe ":active". Aidez-vous de la gestion de la couleur des bulles pour réaliser la fonctionnalité
 - Un footer (pied-de-page) qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
   - [Accéder au didacticiel sur l’utilisation d’Adobe XD](https://cours.cyu.fr/course/view.php?id=81#section-3)
   - Vous devez le compléter
@@ -50,7 +56,7 @@ La page contact possède trois états :
   - https://www.youtube.com/watch?v=t72pdxpNjyc
   - https://www.youtube.com/watch?v=xD4wshE0hEg
   
-  A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéo ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
+  A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéos ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
 - **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
@@ -71,6 +77,8 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
+Et bien évidemment la documentation
+  - [Accéder à la documentation](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
   
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
 - Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 

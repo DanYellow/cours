@@ -1,8 +1,4 @@
-Cours assurés par M. Linardi (michele.linardi@u-cergy.fr) et M. Jean-Louis (danielo.jean-louis@cyu.fr)
-Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un enseignant) :
- - 2 CM
- - 5 TD
- - 6 TP
+Cours assurés par M. Linardi (michele.linardi@u-cergy.fr) et M. Jean-Louis (danielo.jean-louis@cyu.fr). Un groupe de TD et des groupes de TP seront assignés à un enseignant.
 
 Apprentissages critiques :
 	- AC4101 : Exploiter de manière autonome un environnement de développement efficace et productif
@@ -29,7 +25,6 @@ Apprentissage du cours :
 But du cours :
 	- Être capable de réaliser un site web responsive et accessible avec uniquement du HTML et du CSS
 	- Réaliser avec succès la SAÉ 105 – Produire un site Web. (SAÉ aura lieu début janvier 2022)
-	- Réaliser l'audit d'un site sur sa partie technique, accessibilité et ergonomie
 
 Mode d'évaluation (changements possibles) :
 	- Tests sur ENT
