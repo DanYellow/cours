@@ -14,11 +14,39 @@ public class FillStatusBarImage : MonoBehaviour
     public FloatVariable maxHealth;
     public FloatVariable currentHealth;
 
+     float smoothTime = 0.5f;
+
+    float velocity = 0;
+
+    float storedValue;
+
+    private void Start() {
+        storedValue = currentHealth.CurrentValue / maxHealth.CurrentValue;
+    }
+
  
     public void SetFilling()
     {
         float healthNormalized = currentHealth.CurrentValue / maxHealth.CurrentValue;
+
+        // StopCoroutine(Animate());
+        // StartCoroutine(Animate());
+
         fillImage.fillAmount = healthNormalized;
         fillImage.color = gradient.Evaluate(healthNormalized);
+    }
+
+    IEnumerator Animate() {
+        float elapsedTime = 0f; 
+
+        while(elapsedTime < smoothTime) {
+            float lerpFactor = Mathf.SmoothStep(storedValue, currentHealth.CurrentValue / maxHealth.CurrentValue, elapsedTime / smoothTime);
+            fillImage.fillAmount = lerpFactor;
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        storedValue = currentHealth.CurrentValue / maxHealth.CurrentValue;
     }
 }
