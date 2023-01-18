@@ -64,6 +64,8 @@ public class PlayerMovementInputSystem : MonoBehaviour
             // AddForceAtAngle(15f, 45);
         }
 
+        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+
         Flip();
     }
 
@@ -93,7 +95,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveDirectionX = context.ReadValue<Vector2>().x;
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        
     }
 
     private void Flip()

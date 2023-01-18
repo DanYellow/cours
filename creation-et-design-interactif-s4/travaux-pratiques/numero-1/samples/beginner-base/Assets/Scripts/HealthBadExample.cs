@@ -15,7 +15,7 @@ public class HealthBadExample : MonoBehaviour
 
     bool isInvincible = false;
 
-    public float invincibilityFlashDelay = 0.2f;
+    public float invincibilityFlashInterval = 0.2f;
     public float invincibilityTimeAfterHit = 2.5f;
 
     private void Start()
@@ -67,9 +67,9 @@ public class HealthBadExample : MonoBehaviour
         while (isInvincible)
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return new WaitForSeconds(invincibilityFlashInterval);
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return new WaitForSeconds(invincibilityFlashInterval);
         }
     }
     

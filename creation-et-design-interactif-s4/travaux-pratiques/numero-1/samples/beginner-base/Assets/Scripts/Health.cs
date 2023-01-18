@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections;
-
+// https://www.youtube.com/watch?v=cruE--5ML_Q
 public class Health : MonoBehaviour
 {
     public FloatVariable currentHealth;
     public FloatVariable maxHealth;
 
     public VoidEventChannelSO onPlayerDeath;
+    public VoidEventChannelSO onPlayerDamage;
 
     public SpriteRenderer spriteRenderer;
 
     private bool isInvincible = false;
 
-    float invincibilityFlashDelay = 0.2f;
+    float invincibilityFlashInterval = 0.2f;
     float invincibilityTimeAfterHit = 2.5f;
 
 
@@ -29,25 +30,33 @@ public class Health : MonoBehaviour
             Die();
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(10);
+            TakeDamage(1);
         }
     }
 
     public void TakeDamage(float damage)
     {
+        if(isInvincible) {
+            return;
+        }
         //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
         currentHealth.CurrentValue -= damage;
+        onPlayerDamage.Raise();
         if (currentHealth.CurrentValue <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartCoroutine(HandleInvincibilityDelay());
+            StartCoroutine(InvincibilityFlash());
         }
     }
 
     private void Die()
     {
-        Debug.Log("Die");
         onPlayerDeath.Raise();
         this.gameObject.transform.Rotate(0f, 0f, 45f);
     }
@@ -58,9 +67,9 @@ public class Health : MonoBehaviour
         while (isInvincible)
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return new WaitForSeconds(invincibilityFlashInterval);
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return new WaitForSeconds(invincibilityFlashInterval);
         }
     }
 

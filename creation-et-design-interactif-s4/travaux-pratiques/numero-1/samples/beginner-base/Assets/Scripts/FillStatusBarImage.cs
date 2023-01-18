@@ -5,7 +5,6 @@ using System.Collections;
 // https://www.youtube.com/watch?v=cruE--5ML_Q
 
 
-[AddComponentMenu("My Special Component")]
 public class FillStatusBarImage : MonoBehaviour
 {
     public Image fillImage;
@@ -15,31 +14,10 @@ public class FillStatusBarImage : MonoBehaviour
     public FloatVariable maxHealth;
     public FloatVariable currentHealth;
 
-    private float damagedHealthFadeTimer;
-
-    private float currentHealthVal;
-
-    private void Start()
+ 
+    public void SetFilling()
     {
-        currentHealthVal = currentHealth.CurrentValue;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float fillValue = currentHealth.CurrentValue / maxHealth.CurrentValue;
-        fillImage.fillAmount = fillValue;
-
-        fillImage.color = gradient.Evaluate(fillValue);
-    }
-
-    
-    public void Test() {
-        Debug.Log("test");
-    }
-
-    public void SetHealth(float healthNormalized)
-    {
+        float healthNormalized = currentHealth.CurrentValue / maxHealth.CurrentValue;
         fillImage.fillAmount = healthNormalized;
         fillImage.color = gradient.Evaluate(healthNormalized);
     }

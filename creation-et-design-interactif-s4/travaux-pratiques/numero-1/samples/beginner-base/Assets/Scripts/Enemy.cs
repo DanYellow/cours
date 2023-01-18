@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     ContactPoint2D[] contacts = new ContactPoint2D[1];
 
+    public bool isBadExample = true;
+
     private void Start()
     {
         currentHealth = maxHealth.CurrentValue;
@@ -21,16 +23,28 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        
         other.GetContacts(contacts);
-        if (
-        //    other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
-           other.gameObject.TryGetComponent<HealthBadExample>(out HealthBadExample playerHealth) &&
+
+        if (isBadExample)
+        {
+            if (other.gameObject.TryGetComponent<HealthBadExample>(out HealthBadExample badPlayerHealth) &&
             other.gameObject.CompareTag("Player") &&
             contacts[0].normal.y > -0.5f
             )
-        {
-           playerHealth.TakeDamage(1f);
+            {
+                badPlayerHealth.TakeDamage(1f);
+            }
+        }
+        else
+        {      
+            if (
+                other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
+                other.gameObject.CompareTag("Player") &&
+                contacts[0].normal.y > -0.5f
+            )
+            {
+                playerHealth.TakeDamage(1f);
+            }
         }
 
         if (contacts[0].normal.y < -0.5f)
@@ -47,11 +61,9 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
     IEnumerator SlowTime()
     {
         Time.timeScale = 0.5f;
-        // yield return new WaitForSeconds(0.25f);
         yield return new WaitForSecondsRealtime(0.25f);
         Time.timeScale = 1f;
     }
@@ -68,7 +80,6 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("Destroyed");
             Destroy(gameObject, 0.75f);
         }
     }
