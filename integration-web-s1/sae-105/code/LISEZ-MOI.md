@@ -22,13 +22,10 @@ efficace et productif
 - AC14.04 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
 
-L'Université, pour sa part, vous fournit le style et la forme qu'elle souhaiterait donner au site.
-
-> Ce n'est pas un exercice de rédaction, vous pouvez très bien récupérer du contenu en ligne.
-
-À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de cinq environ **au sein du même TD/TP**, le site en suivant la maquette interactive (Adobe XD) qui vous se trouve ici :
+À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 4-6 environ **au sein du même TD/TP**, le site suivant à partir de la maquette interactive (Adobe XD) qui se trouve ici :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
+Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant.
 
 Dans le site sont prévues cinq pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
@@ -58,6 +55,8 @@ La page contact possède trois états :
   
   A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéos ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
 - **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
+
+> Ce n'est pas un exercice de rédaction, vous pouvez très bien récupérer du contenu (textes et images) en ligne.
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
 

@@ -22,6 +22,7 @@ public class FillStatusBarImage : MonoBehaviour
 
     private void Start() {
         storedValue = currentHealth.CurrentValue / maxHealth.CurrentValue;
+        SetFilling();
     }
 
  

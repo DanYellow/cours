@@ -41,15 +41,15 @@ public class Health : MonoBehaviour
         if(isInvincible) {
             return;
         }
-        //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
-        currentHealth.CurrentValue -= damage;
-        onPlayerDamage.Raise();
         if (currentHealth.CurrentValue <= 0)
         {
             Die();
         }
         else
         {
+        currentHealth.CurrentValue -= damage;
+        onPlayerDamage.Raise();
+        //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
             StartCoroutine(HandleInvincibilityDelay());
             StartCoroutine(InvincibilityFlash());
         }

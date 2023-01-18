@@ -132,8 +132,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez réaliser cette tâche via un niveau de didacticiel, un menu dédié ou tout simplement du texte affiché directement dans la scène
         - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)  
-- Proposer une traduction de votre jeu en anglais
-    - Il existe le package gratuit "Localization" qui vous permet de gérer ceci. Voici un tutorial (en anglais) expliquant comment intégrer le package.
+- Proposer une traduction de votre jeu en anglais (ou une autre langue)
+    - Il existe le package gratuit "Localization" qui vous permet de gérer ceci. Voici un tutorial (en anglais) expliquant comment intégrer et utiliser le package.
         - Voir le tutoriel sur le [package Localization](https://www.youtube.com/watch?v=qcXuvd7qSxg)
     - Pensez bien à sauvegarder les préférences de l'utilisateur grâce au `PlayerPrefs`
 
