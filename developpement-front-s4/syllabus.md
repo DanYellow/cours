@@ -9,10 +9,10 @@ Apprentissage du cours :
 - L'API native javascript fetch permettant de faire des requêtes asynchrones
 
 But du cours :
-	- Être capable de réaliser une application avec ReactJS et create-react-app
-	- Travailler avec nodejs
-	- Réaliser avec succès la SAÉ 401 – Développer pour le Web. (SAÉ aura lieu début janvier 2022)
+- Être capable de réaliser une application avec ReactJS et create-react-app
+- Travailler avec nodejs
+- Réaliser avec succès la SAÉ 401 – Développer pour le Web. (SAÉ aura lieu début janvier 2022)
 
 Mode d'évaluation (changements possibles) :
-	- Tests sur ENT
-	- SAÉ 401 – Développer pour le Web
+- Tests sur ENT
+- SAÉ 401 – Développer pour le Web

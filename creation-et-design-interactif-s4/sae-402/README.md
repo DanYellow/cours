@@ -16,10 +16,10 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
 - Ennemis :
     - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des rhinocéros qui foncent sur le joueur
-    - Des pierres qui se divise en deux lorsqu'on leur saute dessus
+    - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
     - Un lapin qui vous saute dessus quand vous êtes dans son champ de vision
 - Pièges :
-    - RockHead : Une pierre qui se fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
+    - RockHead : Une pierre qui fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile sur une circuit défini
     - Chaine : Une boule qui se déplace selon un axe défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
@@ -109,6 +109,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
     - https://github.com/OpenSourceMusic
     - https://opengameart.org/
+    - Rappel : la musique est gérée au niveau de la scène _Preload
 - Un système de score
     - A vous de définir les règles de bonus / malus de score
 - Des bruitages lors d'actions (sauts, tir...)
@@ -123,10 +124,13 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
-- Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu). Il y a ce didacticiel pour en savoir plus :
+- Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu dans la version de build). Il y a ce didacticiel pour en savoir plus :
     - [Didacticiel sur l'écran d'accueil personnalisé d'Unity - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
+- Ecran de chargement asynchrone de la scène
+    - [Didacticiel sur l'écran de chargement asynchrone - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
+    - Note : compte-tenu du jeu, il est fort probable que la scène de chargement ne s'affiche même pas 3 secondes
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
-    - Vous pouvez réaliser cette tâche via un niveau de didacticiel ou encore un menu dédié
+    - Vous pouvez réaliser cette tâche via un niveau de didacticiel, un menu dédié ou tout simplement du texte affiché directement dans la scène
         - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)  
 
 ## Fonctionnalités que nous développerons ensemble

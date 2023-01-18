@@ -126,10 +126,12 @@ Cette partie sera évaluée par M. Roch.
   - [x] Lire les consignes
   - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
     - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
-  - [ ] Continuer l'intégration la rendre le plus fidèle possible à la maquette
+  - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
+  - [ ] Mettre le site en ligne
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
     - [ ] Mes images possèdent un attribut "alt" même s'il est vide
     - [ ] L'unité de la propriété "font-size" est rem
+    - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 
 # Pour aller plus loin
