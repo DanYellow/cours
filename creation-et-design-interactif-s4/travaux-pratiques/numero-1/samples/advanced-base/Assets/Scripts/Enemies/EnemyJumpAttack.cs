@@ -129,7 +129,7 @@ public class EnemyJumpAttack : MonoBehaviour
             rb.AddForce(bounceForce, ForceMode2D.Impulse);
         }
     }
-
+    
     public void OnDeath() {
         StopAllCoroutines();
     }

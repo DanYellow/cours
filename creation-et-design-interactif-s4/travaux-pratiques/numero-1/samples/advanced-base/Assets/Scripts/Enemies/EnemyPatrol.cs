@@ -34,7 +34,8 @@ public class EnemyPatrol : MonoBehaviour
     {
         // We don't want the script to be enabled by default
         enabled = false;
-        offset = new Vector3(sr.bounds.size.x / 4 * (isFacingRight ? -1 : 1), sr.bounds.size.y / 2, 0);
+    
+        offset = new Vector3(sr.bounds.extents.x * (isFacingRight ? -1 : 1), sr.bounds.extents.y, 0);
     }
 
     private void Start()
@@ -71,12 +72,11 @@ public class EnemyPatrol : MonoBehaviour
     {
         isGrounded = IsGrounded();
         Vector3 startCast = transform.position - new Vector3(offset.x, 0, 0); ;
-        Vector3 endCast = transform.position + (isFacingRight ? Vector3.right : Vector3.left) * 0.95f;
+        Vector3 endCast = transform.position + (isFacingRight ? Vector3.right : Vector3.left) * 0.9f;
         Debug.DrawLine(startCast, endCast, Color.green);
 
-        RaycastHit2D hitObstacle = Physics2D.Linecast(transform.position, endCast, obstacleLayersMask);
-        // isHittingObstacle = hitObstacle.distance < 0.3f && hitObstacle.collider.gameObject.layer == LayerMask.NameToLayer("Platforms");
-        if ((hitObstacle.collider != null) || !isGrounded)
+        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
+        if (hitObstacle.collider != null || !isGrounded)
         {
             StartCoroutine(Flip());
         }
@@ -114,7 +114,7 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     public bool IsGrounded()
-    {
+    { 
         return Physics2D.OverlapCircle(transform.position - offset, groundCheckRadius, obstacleLayersMask);
     }
 

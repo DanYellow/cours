@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour
     [ReadOnlyInspector]
     public float currentHealth = 0f;
 
-    public UnityEvent deathEvent;
-
     public SpriteRenderer spriteRenderer;
 
     public Rigidbody2D rb;
@@ -78,7 +76,6 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        deathEvent.Invoke();
         foreach (Behaviour component in listComponents)
         {
             component.enabled = false;
