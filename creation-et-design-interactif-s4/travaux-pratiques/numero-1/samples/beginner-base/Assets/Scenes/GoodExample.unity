@@ -2551,6 +2551,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 57cfb8340e449824ea37d99614d90703, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   onPlayerDamage: {fileID: 11400000, guid: 5f2183fd461fe174d9916a6e2a3ab1bb, type: 2}
+  floatVariableRef: {fileID: 11400000, guid: 3a85fcdc7eeb0f64185aa0d8ce582001, type: 2}
   spriteRenderer: {fileID: 1748196184}
 --- !u!114 &1748196188
 MonoBehaviour:

@@ -43,7 +43,7 @@ public class MyClass : MonoBehaviour, IDamage
 ```
 
 
-**A noter qu'une interface ne peut pas être instanciée.** Et que si une classe peut implémenter autant d'interfaces qu'elle le souhaite, elle ne peut pas hériter de plusieurs classes. Une interface peut également avoir plusieurs méthodes et propriétés;
+**A noter qu'une interface ne peut pas être instanciée.** Et que si une classe peut implémenter autant d'interfaces qu'elle le souhaite, elle ne peut pas hériter d'une autre interface. Une interface peut également avoir plusieurs méthodes et propriétés. Enfin, un gameobject ne peut implémenter qu'une seule interface à la fois. Autrement dit, si un GameObject possède deux composants (ou plus), ces composants ne peuvent pas implémenter la même interface.
 - [En savoir plus sur les interfaces en C# avec Unity - anglais (moins de 5 minutes)](https://www.youtube.com/watch?v=50_qBoKGKxs)
 
 > La partie sur les interfaces n'est là qu'à titre indicatif, nous n'aurons pas l'occasion de les utiliser sauf si votre projet de SAE s'y prête.

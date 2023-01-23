@@ -9,6 +9,9 @@ public class Health : MonoBehaviour
     public VoidEventChannelSO onPlayerDeath;
     public VoidEventChannelSO onPlayerDamage;
 
+    // Test
+    public SOFloatVariableRef floatVariableRef;
+
     public SpriteRenderer spriteRenderer;
 
     private bool isInvincible = false;
@@ -21,6 +24,7 @@ public class Health : MonoBehaviour
     {
         // currentHealth = maxHealth;
         currentHealth.CurrentValue = maxHealth.CurrentValue;
+        
     }
 
     private void Update()
@@ -47,6 +51,7 @@ public class Health : MonoBehaviour
         }
         else
         {
+            floatVariableRef.CurrentValue  -= damage;
         currentHealth.CurrentValue -= damage;
         onPlayerDamage.Raise();
         //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);

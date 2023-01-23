@@ -1,4 +1,4 @@
-- has exit time : permet à l'animation de se jouer directement
+- has exit time : définit le pourcentage de complétion avant de passer à l'animation suivante
 - transition duration : permet de passer d'une anim à l'autre
     - Mettre à 1 lorsqu'on va d'une animation qui provient de any state vers une anim normale
 

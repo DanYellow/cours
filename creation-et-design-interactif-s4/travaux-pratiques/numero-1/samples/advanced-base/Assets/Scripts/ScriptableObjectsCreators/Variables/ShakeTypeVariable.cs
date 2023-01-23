@@ -5,4 +5,7 @@ public class ShakeTypeVariable : ScriptableObject
 {
     public float Duration;
     public float Magnitude;
+
+    [Multiline]
+    public string DeveloperDescription = "";
 }

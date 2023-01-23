@@ -4,4 +4,7 @@ using UnityEngine;
 public class StringVariable : ScriptableObject
 {
     public string CurrentValue;
+
+    [Multiline]
+    public string DeveloperDescription = "";
 }

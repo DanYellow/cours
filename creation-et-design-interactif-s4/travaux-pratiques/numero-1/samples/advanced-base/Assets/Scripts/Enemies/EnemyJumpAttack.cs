@@ -58,7 +58,7 @@ public class EnemyJumpAttack : MonoBehaviour
             )
         )
         {
-            enemyPatrol.Flip();
+            StartCoroutine(enemyPatrol.Flip());
         }
 
         animator.SetFloat("MoveDirectionX", rb.velocity.x);

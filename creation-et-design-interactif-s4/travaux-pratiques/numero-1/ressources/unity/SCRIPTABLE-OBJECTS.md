@@ -22,11 +22,11 @@ Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects poss�
 - Simples à utiliser. Dans certains studios, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code
 - Existent au-delà de la scène. Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre
 
-> # Pourquoi pas un Singleton ?
+> **Pourquoi pas un Singleton ?**
 > 
-> Petit apparté avant de continuer sur les ScriptableObjects, à la lecture de leur description, on pourrait penser qu'un ScriptableObject n'est un _fancy_ Singleton, non ? Les deux permettent de partager des données entre divers classes, oui. Les deux sont uniques au sein d'un projet, oui. Mais les comparaisons s'arrêtent ici. Avec Unity, un Singleton doit impérativement hériter de `Monobehavior` ce qui pose un problème de couplage entre nos GameObjects. Et c'est avant-tout ce problème que nous essayons de résoudre.
+> Petit apparté avant de continuer sur les ScriptableObjects, à la lecture de leur description, on pourrait penser qu'un ScriptableObject n'est qu'un Singleton stylisé, non ? Les deux permettent de partager des données entre divers classes, oui. Les deux sont uniques au sein d'un projet, oui. Mais les comparaisons s'arrêtent ici. Avec Unity, un Singleton doit impérativement hériter de `Monobehavior` ce qui pose un problème de couplage entre nos GameObjects. Et c'est avant-tout ce problème que nous essayons de résoudre.
 > 
-> Pour rappel (dans les grandes lignes), un Singleton est une classe qui ne peut être instanciée qu'une seule fois par projet.
+> Pour rappel (dans les grandes lignes), un Singleton est une classe qui ne peut être instanciée qu'une seule fois par projet et dans le cas d'Unity qu'une seule fois par Scène.
 
 Voici un exemple de ScriptableObject
 
@@ -38,9 +38,9 @@ public class BoatWeaponData : ScriptableObject
 
 }
 ```
-Dans le code ci-dessus, la grande différence avec les classes que nous avons faites jusqu'à présent c'est qu'elle hérite de `ScriptableObject`. Pour le reste, ça fonctionne plus ou moins comme avant, on définit des propriétés publiques ou privées ainsi que des méthodes elles aussi à niveau de visibilité variable (private / public). Notez tout de même que les méthodes `Update()` ou `Awake()` ne sont pas utilisables avec un ScriptableObject néanmoins vous pouvez utiliser la méthode `Awake()` ou encore référencer un ScriptableObject dans un autre ScriptableObject.
+Dans le code ci-dessus, la grande différence avec les classes que nous avons faites jusqu'à présent c'est qu'elle hérite de `ScriptableObject`. Pour le reste, ça fonctionne plus ou moins comme avant, on définit des propriétés publiques ou privées ainsi que des méthodes, elles aussi à niveau de visibilité variable (private / public). Notez tout de même que les méthodes `Update()` ou `Awake()` ne sont pas utilisables avec un ScriptableObject néanmoins vous pouvez utiliser la méthode `Awake()` ou encore référencer un ScriptableObject dans un autre ScriptableObject.
 
-Sinon, si on reprend le cas de nos armes en ScriptableObject, nous voulons avoir les informations suivantes pour chaque arme :
+Sinon, si on reprend le cas de nos bateaux en ScriptableObject, nous voulons avoir les informations suivantes pour chaque bateau :
 - damage (int) - dégâts
 - cost (int) - prix
 - name (string) - nom
@@ -122,8 +122,8 @@ Plus d'informations sur les ScriptableObjects :
 - https://learn.unity.com/tutorial/introduction-to-scriptableobjects?language=en#60661f13edbc2a001f55c22b
 
 Dans le cas de notre projet d'initiation, nous avons déjà défini des ScriptableObjects, pour gagner du temps, vous allez les récupérer ici :
-- [Télécharger les ScriptableObjects du TP ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fbeginner-base%2FAssets%2FScripts%2FScriptableObjects)
+- [Télécharger les ScriptableObjects du TP d'initiation](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fbeginner-base%2FAssets%2FScripts%2FScriptableObjects)
 
-Désarchivez le tout puis glissez le dossier dans le dossier `Assets/Scripts/` de votre projet
+Désarchivez le tout puis glissez le dossier dans le dossier `Assets/Scripts/` de votre projet.
 
 Nous avons vu les ScriptableObjects pour stocker des données, sachez qu'il est également possible de les utiliser pour créer des évenements (il y en a dans l'archive que vous venez de récupérer), et ce, pour les mêmes raisons que vues précédemment : limitation du couplage du code...

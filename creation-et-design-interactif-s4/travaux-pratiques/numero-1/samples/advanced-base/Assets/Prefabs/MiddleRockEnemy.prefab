@@ -213,9 +213,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3102186620743639381}
   animator: {fileID: 4317209785469998163}
+  sr: {fileID: 4317209785469998156}
   speed: 2.5
   isFacingRight: 0
   walkTime: 5
+  groundCheckRadius: 0.25
+  obstacleLayersMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &6234961309222235864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +236,10 @@ MonoBehaviour:
   bounce: 7
   maxHealth: {fileID: 0}
   currentHealth: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   spriteRenderer: {fileID: 4317209785469998156}
-  bc2d: {fileID: 7967640488927838004}
   rb: {fileID: 3102186620743639381}
   animator: {fileID: 4317209785469998163}
   listComponents:

@@ -9,10 +9,14 @@ public class CollectibleVariable : ScriptableObject
 
     public Sprite sprite;
 
+    [Multiline]
+    public string DeveloperDescription = "";
+
     public PlaySoundAtEventChannelSO onPickUpAudio;
     public IntEventChannelSO onPickUpValue;
 
-    public void PickItem(Vector3 position) {
+    public void PickItem(Vector3 position)
+    {
         onPickUpAudio.Raise(audioClip, position);
         onPickUpValue.Raise(value);
     }

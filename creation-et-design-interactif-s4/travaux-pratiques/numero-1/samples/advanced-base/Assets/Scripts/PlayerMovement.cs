@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunningFast;
     public float runFastSpeedFactor;
     public float moveSpeed;
-    [Tooltip("How fast the player will reach the max speed")]
-    public float moveDirectionXSpeedFactor = 1.15f;
 
     public TrailRenderer trailRenderer;
     public ParticleSystem particles;
@@ -31,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public int jumpCount = 0;
     public int maxJumpCount;
     public float jumpForce;
+
+    public float fallThreshold = -15f;
 
     private bool isLandingFast = false;
     public ParticleSystem landingParticles;
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirectionX = Mathf.Clamp(Input.GetAxis("Horizontal") * moveDirectionXSpeedFactor, -1, 1);
+        moveDirectionX = Input.GetAxis("Horizontal");
         isRunningFast = Input.GetKey(KeyCode.V);
 
         if (isGrounded && !Input.GetButton("Jump"))
@@ -181,10 +181,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool IsFalling() {
-        return rb.velocity.y < -15f;
+        return rb.velocity.y < fallThreshold;
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         if (groundCheck != null)
         {

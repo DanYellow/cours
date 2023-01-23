@@ -30234,12 +30234,12 @@ MonoBehaviour:
   animator: {fileID: 814072434}
   runFastSpeedFactor: 1.5
   moveSpeed: 9
-  moveDirectionXSpeedFactor: 1.15
   trailRenderer: {fileID: 814072440}
   particles: {fileID: 1488234117}
   jumpCount: 0
   maxJumpCount: 2
   jumpForce: 12
+  fallThreshold: -15
   landingParticles: {fileID: 418787795}
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
