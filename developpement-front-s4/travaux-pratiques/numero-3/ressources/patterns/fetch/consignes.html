@@ -18,8 +18,8 @@
             </summary>
             <ol class="liste-consignes">
                 <li>
-                    Choissiez une API qui renvoie une liste d'éléments ou un élément de votre choix. Et affichez-en le
-                    contenu.
+                    Sans ReactJS. Choississez une API qui renvoie une liste d'éléments ou un élément de votre choix. Et affichez-en le
+                    contenu. L'affichage peut être sur la page web ou encore dans la console du navigateur.
                     <ul>
                         <li>Pensez bien à regarder le fonctionnement des API avant de développer</li>
                         <li>Vous pourrez trouver des API ici (ouvertures dans un nouvel onglet) :
@@ -48,30 +48,48 @@
                                 href="https://github.com/DanYellow/cours/tree/main/sae-303/datasets"
                                 target="_blank">Voir fichiers (ouverture dans un nouvel onglet)</a>
                             <ul>
-                                <li>Ceci ne fonctionnera pas sans serveur. Utilisez wamp ou équivalent.</li>
+                                <li>Ceci ne fonctionnera pas sans serveur (si vous utilisez un fichier local). Utilisez wamp ou équivalent.</li>
                             </ul>
                         </li>
                         <li>
                             <a href="https://free-apis.github.io/#/categories" target="_blank">Ensemble d'API en tout genres</a>
                             <ul>
                                 <li>Assurez-vous que l'API ne nécessite pas de se connecter ou d'avoir un token pour l'utiliser</li>
+                                <ul>
+                                    <li>
+                                        <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/JSON" target="_blank" rel="noopener noreferrer">Voir plus d'informations sur le format JSON et la manipulation des clefs (ouverture dans un nouvel onglet)</a>
+                                    </li>
+                                </ul>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li>Attention, certaines API ne retournent pas directement les informations qui vous intéressent. Il
-                    faudra donc récupérer la clef vous intéresse. Par convention, essayez de respecter les règles
-                    suivantes :
-                    <ul>
-                        <li>Si vous attendez une liste d'éléments, vous mettez un tableau dans votre state</li>
-                        <li>Si vous attendez un seul élément, vous mettez un objet dans votre state</li>
-                    </ul>
+                    faudra donc récupérer la clef ou les clefs qui vous intéressent.
                 </li>
             </ol>
         </details>
         <details class="consignes-conteneur">
             <summary>
                 <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Utilisez l'API de la partie précédente (ou une autre) et utilisez-la pour en afficher le contenu avec ReactJS (utilisez le fichier "index.html" déjà présent dans la ressource).
+                    <ul>
+                        <li>Par convention, essayez de respecter les règles suivantes quand vous définissez vos states :
+                            <ul>
+                                <li>Si vous attendez une liste d'éléments, mettez un tableau vide en tant que valeur par défaut de votre state.<pre><code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(245, 171, 53); font-weight:400;">const</span> [listData, setListData] = React.<span style="color:rgb(245, 171, 53); font-weight:400;">useState</span>([]);</code></pre> </li>
+                                <li>Si vous attendez un seul élément, mettez un objet vide en tant que valeur par défaut de votre state. <pre><code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(245, 171, 53); font-weight:400;">const</span> [user, setUser] = React.<span style="color:rgb(245, 171, 53); font-weight:400;">useState</span>({});</code></pre></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
                 <li>

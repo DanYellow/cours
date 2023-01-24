@@ -9,7 +9,7 @@ public class Collectible : MonoBehaviour
     private void Awake() {
         spriteRenderer.sprite = data.sprite;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
