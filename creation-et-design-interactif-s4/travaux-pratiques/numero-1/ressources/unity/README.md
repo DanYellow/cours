@@ -231,6 +231,8 @@ public class MyClass : MonoBehaviour
 }
 ```
 
+> En plus du caractère "$", il est possible de formater le texte avec des balises ressemblant à du HTML. Ainsi en écraivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
+
 Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)

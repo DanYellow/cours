@@ -42,10 +42,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
-    [Header("Ice")]
-    private bool isOnIce = false;
-    private bool wasOnIce = false;
-
     private void Awake()
     {
         enabled = false;
@@ -101,19 +97,7 @@ public class PlayerMovement : MonoBehaviour
         LimitSpeed();
         isGrounded = IsGrounded();
 
-        if (isOnIce)
-        {
-            float frictionIceFactor = (isOnIce) ? 3 : 6;
-            Vector2 direction = new Vector2(moveDirectionX, rb.velocity.y) * (moveSpeed / frictionIceFactor);
-            rb.AddForce(direction, ForceMode2D.Force);
-        }
-        else
-        {
-            if (!wasOnIce)
-            {
-                Move();
-            }
-        }
+        Move();
 
         MoveFast();
     }
@@ -132,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
     }
 
-    private void MoveFast() {
+    private void MoveFast()
+    {
         if (isRunningFast)
         {
             Vector2 v = rb.velocity;
@@ -180,7 +165,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
 
-    public bool IsFalling() {
+    public bool IsFalling()
+    {
         return rb.velocity.y < fallThreshold;
     }
 
@@ -204,31 +190,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void LandingImpact()
     {
-        Debug.Log("LandingImpact");
         isLandingFast = false;
         onLandingFastSO.Raise(landingFastShakeInfo);
         landingParticles.Play();
         // rb.velocity = Vector2.zero;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ice"))
-        {
-            isOnIce = true;
-            wasOnIce = true;
-        }
-        else if (other.gameObject.layer != LayerMask.NameToLayer("Ice"))
-        {
-            wasOnIce = false;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ice"))
-        {
-            isOnIce = false;
-        }
     }
 }

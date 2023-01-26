@@ -24,4 +24,4 @@
 - Player Prefs
 
 Canvas :
-    - Canvas scaler -> Scale with screen size
+    - Canvas scaler -> Scale with screen size. Pour adapter le canvas à l'écran. Ne pas oublier de mettre une référence
