@@ -25,7 +25,8 @@ efficace et productif
 À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 4-6 environ **au sein du même TD/TP**, le site suivant à partir de la maquette interactive (Adobe XD) qui se trouve ici :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
-Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant.
+Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
+- [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
 
 Dans le site sont prévues cinq pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
@@ -60,6 +61,9 @@ La page contact possède trois états :
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
 
+> Vous ne partirez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
+> [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
+
 # Astuces
 - La navigation principale du site se trouve dans le fichier `ressources/css/includes/header.php`
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
@@ -76,7 +80,7 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
-Et bien évidemment la documentation
+    - Et bien évidemment la documentation
   - [Accéder à la documentation](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
   
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
