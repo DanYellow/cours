@@ -11,6 +11,7 @@
     - Création de prise de données dans la mémoire
 - Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
 - Sprite
+- Tilemap : Rotation avec [ et ] - https://docs.unity3d.com/Manual/Tilemap-Painting.html
 - Animations
     - has exit time : permet à l'animation de se jouer directement
     - transition duration : permet de passer d'une anim à l'autre

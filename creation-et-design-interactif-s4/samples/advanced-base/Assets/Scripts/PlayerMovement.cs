@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
 
     public TrailRenderer trailRenderer;
-    public ParticleSystem particles;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     public float fallThreshold = -15f;
 
     private bool isLandingFast = false;
-    public ParticleSystem landingParticles;
 
     [Header("Misc")]
     public CameraShakeEventChannelSO onLandingFastSO;
@@ -137,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirectionX > 0 && !isFacingRight || moveDirectionX < 0 && isFacingRight)
         {
-            CreateDust();
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
@@ -157,7 +154,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("DoubleJump");
         }
-        CreateDust();
     }
 
     public bool IsGrounded()
@@ -183,16 +179,9 @@ public class PlayerMovement : MonoBehaviour
         enabled = !state;
     }
 
-    private void CreateDust()
-    {
-        particles.Play();
-    }
-
     private void LandingImpact()
     {
         isLandingFast = false;
         onLandingFastSO.Raise(landingFastShakeInfo);
-        landingParticles.Play();
-        // rb.velocity = Vector2.zero;
     }
 }

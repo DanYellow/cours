@@ -93,7 +93,8 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
   - Un fichier texte contenant l'URL de votre site hébergé + la composition du groupe
 
-Votre rendu devra être mis sur Moodle avant la date butoir, cette date sera donnée ultérieurement par e-mail. **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
+Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
+**Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.

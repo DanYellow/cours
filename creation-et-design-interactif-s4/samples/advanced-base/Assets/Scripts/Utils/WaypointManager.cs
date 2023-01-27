@@ -7,7 +7,7 @@ public class WaypointManager : MonoBehaviour
     private int currentWaypointIndex = 0;
     private Vector3 nextPosition;
 
-    bool countUp = true;
+    private bool countUp = true;
 
     public bool modePingPong = false;
 
