@@ -18,7 +18,6 @@ public class BoolEventEditor : Editor
         value = EditorGUILayout.Toggle("Is Active", value);
     
         if (GUILayout.Button("Raise")) {
-            Debug.Log("value " + value);
             e.Raise(value);
         }
     }
