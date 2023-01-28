@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class EnemySplitting : MonoBehaviour
@@ -22,30 +21,25 @@ public class EnemySplitting : MonoBehaviour
         {
             animator.SetTrigger("IsHit");
 
-            Quaternion angles = transform.rotation;
-
+            Quaternion angles;
+            Vector3 position = transform.position;
+            float posXDelta = 1.5f;
             if (!hasSplitted && split != null)
             {
                 hasSplitted = true;
                 for (var i = 0; i < nbOfSplit; i++)
                 {
-                    Vector3 position = transform.position;
                     bool willFacingRight = i % 2 != 0;
 
-                    if (TryGetComponent<EnemyPatrol>(out EnemyPatrol enemyPatrol))
-                    {
-                        if (enemyPatrol.isFacingRight)
-                        {
-                            angles = Quaternion.Euler(0f, 0f, 0f);
-                        }
-                    }
+                    angles = willFacingRight ? Quaternion.Euler(0f, -180f, 0f) : Quaternion.Euler(0f, 0f, 0f);
 
-                    if (willFacingRight)
-                    {
-                        angles = Quaternion.Euler(0f, -180f, 0f);
-                    }
+                    Vector3 randomPosition = new Vector3(
+                        Random.Range(position.x - posXDelta, position.x + posXDelta),
+                        position.y,
+                        position.z
+                    );
 
-                    GameObject child = Instantiate(split, position, angles);
+                    GameObject child = Instantiate(split, randomPosition, angles);
 
                     child.GetComponent<EnemyPatrol>().isFacingRight = willFacingRight;
                 }

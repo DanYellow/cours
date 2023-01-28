@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 207637759}
   - component: {fileID: 207637760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,9 +216,6 @@ MonoBehaviour:
   bounce: 10
   maxHealth: {fileID: 11400000, guid: 512484eeea7ce824a8b559e487301311, type: 2}
   currentHealth: 0
-  deathEvent:
-    m_PersistentCalls:
-      m_Calls: []
   spriteRenderer: {fileID: 107261412584399394}
   rb: {fileID: 107261412584399400}
   animator: {fileID: 107261412584399393}
