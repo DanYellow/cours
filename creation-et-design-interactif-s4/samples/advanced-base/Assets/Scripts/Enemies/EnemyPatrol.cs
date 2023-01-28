@@ -22,8 +22,9 @@ public class EnemyPatrol : MonoBehaviour
 
     private Vector3 lastKnownPosition = Vector3.zero;
 
-    private bool isGrounded;
-    public float groundCheckRadius = 0.25f;
+    private bool hasCollisionWithObstacle;
+    [UnityEngine.Serialization.FormerlySerializedAs("groundCheckRadius")]
+    public float obstacleCheckRadius = 0.25f;
     private bool isFlipping = false;
 
     public LayerMask obstacleLayersMask;
@@ -68,13 +69,13 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = IsGrounded();
+        hasCollisionWithObstacle = HasCollisionWithObstacle();
         Vector3 startCast = transform.position - new Vector3(offset.x, 0, 0); ;
         Vector3 endCast = transform.position + (isFacingRight ? Vector3.right : Vector3.left) * 0.9f;
         Debug.DrawLine(startCast, endCast, Color.green);
 
         RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
-        if (hitObstacle.collider != null || !isGrounded)
+        if (hitObstacle.collider != null || !hasCollisionWithObstacle)
         {
             StartCoroutine(Flip());
         }
@@ -111,14 +112,14 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public bool HasCollisionWithObstacle()
     { 
-        return Physics2D.OverlapCircle(transform.position - offset, groundCheckRadius, obstacleLayersMask);
+        return Physics2D.OverlapCircle(transform.position - offset, obstacleCheckRadius, obstacleLayersMask);
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position - offset, groundCheckRadius);
+        Gizmos.DrawWireSphere(transform.position - offset, obstacleCheckRadius);
     }
 
     public IEnumerator Flip()
