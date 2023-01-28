@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4635978963782031068}
   - component: {fileID: 4635978963782031069}
   - component: {fileID: 4635978963782030882}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RockHeadTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
