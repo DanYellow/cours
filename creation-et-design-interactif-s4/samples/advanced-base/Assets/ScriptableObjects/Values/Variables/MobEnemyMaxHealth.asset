@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23329ed66e2759e4abdd8d0f448cf6cf, type: 3}
   m_Name: MobEnemyMaxHealth
   m_EditorClassIdentifier: 
-  CurrentValue: 2
+  CurrentValue: 1
+  DeveloperDescription: 

@@ -25,7 +25,6 @@ public class RockHead : MonoBehaviour
     // Value for which the go will be considered as crushed if it has contact with a RockHead
     private float maxImpulse = 1000;
 
-    // Start is called before the first frame update
     void Start()
     {
         EnableTriggers();
