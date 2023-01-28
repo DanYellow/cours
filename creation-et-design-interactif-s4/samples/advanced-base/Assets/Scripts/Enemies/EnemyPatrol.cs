@@ -26,8 +26,6 @@ public class EnemyPatrol : MonoBehaviour
     public float groundCheckRadius = 0.25f;
     private bool isFlipping = false;
 
-    private bool isHittingObstacle = false;
-
     public LayerMask obstacleLayersMask;
 
     private void Awake()
@@ -35,11 +33,11 @@ public class EnemyPatrol : MonoBehaviour
         // We don't want the script to be enabled by default
         enabled = false;
     
-        offset = new Vector3(sr.bounds.extents.x * (isFacingRight ? -1 : 1), sr.bounds.extents.y, 0);
     }
 
     private void Start()
     {
+        offset = new Vector3(sr.bounds.extents.x * (isFacingRight ? -1 : 1), sr.bounds.extents.y, 0);
         idleTime = Mathf.Round(Random.Range(0, 3.5f));
         StartCoroutine(ChangeState());
 
