@@ -21,7 +21,7 @@ Comme tout langage de programmation le C# permet de créer des variables, la syn
     - int : nombre relatif (-20, -1, 5, 74, 479...)
     - string : chaîne de caractères ("Bonjour, c'est le cours d'Unity")
     - float : nombre irrationnel (1/3, 25/8, -7/9...)
-        - En C#, les floats doivent être suffixé par un "f". Par exemple, `float myFloat = 5.6f;`
+        - En C#, les floats doivent être suffixés par un "f". Par exemple, `float myFloat = 5.6f;`
     - bool : booleéan (`true` / `false`)
     ...
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite, c'est pratique pour s'y retrouver
@@ -233,7 +233,7 @@ public class MyClass : MonoBehaviour
 
 > En plus du caractère "$", il est possible de formater le texte avec des balises ressemblant à du HTML. Ainsi en écraivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
 
-Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir à l'occasion des cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir durant ce cycle de cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
 - [Générateur de sprites](https://codeshack.io/images-sprite-sheet-generator/)
@@ -244,7 +244,7 @@ Il existe également des sites pour récupérer des ressources gratuites de qual
 - [https://opengameart.org/](https://opengameart.org/)
 - [https://www.mixamo.com/ - Ressources 3D - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
 
-Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel : 
+Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel ou de découvrir de nouvelles choses : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
 
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :

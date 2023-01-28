@@ -1,23 +1,15 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using System;
 
 public class RockHead : MonoBehaviour
 {
-    private float range = 100;
     public Rigidbody2D rb;
-
-    public LayerMask listTriggerLayers;
-    private Collider2D currentTrigger;
-
-    private List<Vector3> listDirections = new List<Vector3>();
 
     public float speed;
 
     private Vector3 destination;
 
-    public GameObject[] listTriggers;
+    public RockHeadTrigger[] listTriggers;
     public float delayBetweenMoves;
 
     private int currentIndex = 0;
@@ -30,48 +22,30 @@ public class RockHead : MonoBehaviour
 
     private bool isOnScreen = false;
 
-    [Header("Manage directions where the GameObject can looking for specific layers")]
-    public bool checkRight = true;
-    public bool checkLeft = true;
-    public bool checkTop = true;
-    public bool checkBottom = true;
-
-    private bool isATrigger;
-
     // Value for which the go will be considered as crushed if it has contact with a RockHead
     private float maxImpulse = 1000;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (checkLeft)
-        {
-            listDirections.Add(Vector3.left);
-        }
-
-        if (checkTop)
-        {
-            listDirections.Add(Vector3.up);
-        }
-
-        if (checkBottom)
-        {
-            listDirections.Add(Vector3.down);
-        }
-
-        if (checkRight)
-        {
-            listDirections.Add(Vector3.right);
-        }
         EnableTriggers();
-        CheckForTriggers();
+        SetTriggersSibling();
+        StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
     }
 
     void EnableTriggers()
     {
         for (int i = 0; i < listTriggers.Length; i++)
         {
-            listTriggers[i].SetActive(i == currentIndex);
+            listTriggers[i].gameObject.SetActive(i == currentIndex);
+        }
+    }
+
+    void SetTriggersSibling()
+    {
+        for (int i = 0; i < listTriggers.Length; i++)
+        {
+            listTriggers[i].sibling = gameObject;
         }
     }
 
@@ -80,42 +54,21 @@ public class RockHead : MonoBehaviour
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
     }
 
-    private void CheckForTriggers()
+    public void ChangeTrigger()
     {
-        foreach (var dir in listDirections)
-        {
-            Vector3 rayDirection = dir * range;
-            Debug.DrawRay(transform.position, rayDirection, Color.red);
-
-            //We use "RaycastAll" and not "Raycast" because some triggers might be overlapped
-            RaycastHit2D[] listHits = Physics2D.RaycastAll(transform.position, rayDirection, range, listTriggerLayers);
-
-            foreach (var hit in listHits)
-            {
-                // If it found something...
-                if (hit.collider != null && currentTrigger != hit.collider)
-                {
-                    GameObject go = hit.collider.gameObject;
-                    isATrigger = Array.Exists(listTriggers, element => element == go);
-
-                    // ...and it's a trigger of the rockhead, it moves
-                    if (isATrigger)
-                    {
-                        StartCoroutine(ChangeDirection(-hit.normal));
-                        currentTrigger = hit.collider;
-                    }
-                }
-            }
-        }
+        currentIndex = (currentIndex + 1) % listTriggers.Length;
+        EnableTriggers();
+        StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
     }
 
-    IEnumerator ChangeDirection(Vector2 dir)
+    IEnumerator GoToTrigger(Vector2 dir)
     {
         yield return new WaitForSeconds(delayBetweenMoves);
-        destination = dir;
-        currentIndex = (currentIndex + 1) % listTriggers.Length;
+        destination = -((Vector2) transform.position - dir).normalized;
+        destination.x = Mathf.Round(destination.x);
+        destination.y = Mathf.Round(destination.y);
 
-        if (dir.x == 0)
+        if (destination.x == 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
@@ -129,7 +82,7 @@ public class RockHead : MonoBehaviour
     {
         ContactPoint2D[] contacts = new ContactPoint2D[1];
         other.GetContacts(contacts);
-        
+
         if (other.gameObject.CompareTag("Player"))
         {
             DetectCollision(other);
@@ -180,7 +133,6 @@ public class RockHead : MonoBehaviour
             onCrushSO.Raise(shakeInfo);
         }
         EnableTriggers();
-        CheckForTriggers();
     }
 
     void OnCollisionExit2D(Collision2D other)
