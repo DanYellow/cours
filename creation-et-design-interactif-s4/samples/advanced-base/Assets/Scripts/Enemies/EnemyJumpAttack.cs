@@ -96,7 +96,7 @@ public class EnemyJumpAttack : MonoBehaviour
         return new Vector2(vx, vy);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position + sightOffset, sightArea);
