@@ -16,38 +16,6 @@ public class EnemySplitting : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    private float xOffset;
-
-    float timeRemaining = 0.25f;
-    private void Awake()
-    {
-        // timer = duration;
-        rb = GetComponent<Rigidbody2D>();
-        xOffset = Random.Range(-0.4f, 0.4f);
-
-    }
-
-    private void Update()
-    {
-        // https://www.youtube.com/watch?v=3jgFFu3qx7Y
-    }
-
-    private void FixedUpdate()
-    {
-        // velocityVector = Vector3.Lerp(rb.velocity, rb.velocity + new Vector2(Random.Range(-0.4f, 0.4f), 0.5f), Time.fixedDeltaTime * duration);
-        // rb.velocity = velocityVector;
-        // Debug.Log("timer " + timer);
-        // if (timeRemaining > 0)
-        // {
-        //     rb.velocity += new Vector2(xOffset, 1f);
-        //     timeRemaining -= Time.deltaTime;
-        // } else {
-        //     if(GetComponent<EnemyPatrol>().hasCollisionWithObstacle) {
-        //         GetComponent<EnemyPatrol>().enabled = true;
-        //     }
-        // }
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         ContactPoint2D[] contacts = new ContactPoint2D[1];
