@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     {
         enabled = false;
         trailRenderer.enabled = false;
-        maxYVelocity = (jumpForce * 0.25f) + jumpForce;
+        // The jump high cannot be higher that +10% of normal jumpforce
+        maxYVelocity = (jumpForce * 0.10f) + jumpForce;
     }
 
     public void Activate()

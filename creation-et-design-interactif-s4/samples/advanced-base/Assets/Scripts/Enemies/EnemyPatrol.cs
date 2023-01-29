@@ -22,7 +22,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private Vector3 lastKnownPosition = Vector3.zero;
 
-    private bool hasCollisionWithObstacle;
+    public bool hasCollisionWithObstacle;
     [UnityEngine.Serialization.FormerlySerializedAs("groundCheckRadius")]
     public float obstacleCheckRadius = 0.25f;
     private bool isFlipping = false;
@@ -75,7 +75,7 @@ public class EnemyPatrol : MonoBehaviour
         Debug.DrawLine(startCast, endCast, Color.green);
 
         RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
-        if (hitObstacle.collider != null || !hasCollisionWithObstacle)
+        if ((hitObstacle.collider != null || !hasCollisionWithObstacle))
         {
             StartCoroutine(Flip());
         }
