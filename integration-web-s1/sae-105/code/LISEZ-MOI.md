@@ -113,18 +113,19 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi.
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
-  - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
       - Il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
+  - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 ## Développement Web (PHP)
 Cette partie sera évaluée par M. Roch.
 - Qualité du code
-  - Utilisation de la fonction include()
-- Bon fonctionnement du formulaire
+  - Utilisation de la fonction `require_once()`
+- Bon fonctionnement du formulaire avec envoi d'e-mail
+  - **Nécessite d'héberger votre site**
 
 # Votre liste à faire
   - [x] Lire les consignes
@@ -133,7 +134,7 @@ Cette partie sera évaluée par M. Roch.
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
   - [ ] Mettre le site en ligne
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
-    - [ ] Mes images possèdent un attribut "alt" même s'il est vide
+    - [ ] Mes images possèdent un attribut "alt" **même s'il est vide**
     - [ ] L'unité de la propriété "font-size" est rem
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
