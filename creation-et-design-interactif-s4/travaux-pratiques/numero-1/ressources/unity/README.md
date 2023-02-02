@@ -162,7 +162,18 @@ Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré 
 - [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
 - [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
 
-Pou vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
+Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
+- MacOS : 
+  - Cliquez sur Unity en haut à gauche dans la barre de statut
+  - Sélectionnez "Settings", une fenêtre va apparaître
+  - Sélectionnez "External Tools" 
+  - Sélectionnez la liste déroulante du choix "External Script Editor" et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...) 
+- Windows :
+
+
+Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
+
+Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
 
 ---
 
