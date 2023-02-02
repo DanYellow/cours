@@ -97,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
 
         Move();
-
         MoveFast();
     }
 
