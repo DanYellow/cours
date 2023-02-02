@@ -121,11 +121,11 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi.
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 ## Développement Web (PHP)
-Cette partie sera évaluée par M. Roch.
+Cette partie (page "contact") sera évaluée par M. Roch.
 - Qualité du code
   - Utilisation de la fonction `require_once()`
 - Bon fonctionnement du formulaire avec envoi d'e-mail
-  - **Nécessite d'héberger votre site**
+  - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre
 
 # Votre liste à faire
   - [x] Lire les consignes
