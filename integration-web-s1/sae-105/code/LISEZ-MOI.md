@@ -139,5 +139,9 @@ Cette partie (page "contact") sera évaluée par M. Roch.
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 
+# FAQ - Foire Aux Questions
+- J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden". Pourquoi ?
+  - Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut impérativement un fichier `index.php` sinon, c'est comme construire une maison sans portes.
+
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
