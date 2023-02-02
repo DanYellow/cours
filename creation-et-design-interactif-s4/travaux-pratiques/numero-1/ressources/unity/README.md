@@ -164,12 +164,15 @@ Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré 
 
 Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
 - MacOS : 
-  - Cliquez sur Unity en haut à gauche dans la barre de statut
-  - Sélectionnez "Settings", une fenêtre va apparaître
-  - Sélectionnez "External Tools" 
-  - Sélectionnez la liste déroulante du choix "External Script Editor" et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...) 
+  - Cliquez sur `Unity` en haut à gauche dans la barre de statut
+  - Sélectionnez `Settings`, une fenêtre va apparaître
+  - Sélectionnez `External Tools`
+  - Sélectionnez la liste déroulante du choix `External Script Editor` et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...) 
 - Windows :
-
+  - Cliquez sur le menu `Edit > Preferences`
+  - Sélectionnez `External Tools`
+  - Sélectionnez la liste déroulante du choix `External Script Editor` et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...)
+[Plus d'informations ici](https://learn.unity.com/tutorial/set-your-default-script-editor-ide#)
 
 Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
 
@@ -189,7 +192,7 @@ Réalisez les choses suivantes (n'oubliez pas de retourner le résultat et l'aff
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui fait ce que vous souhaitez mais qui est appelée quand on appuie sur une touche
-    - L'appel de la fonction devra impérativement être fait au sein de la méthode "Update()", sinon ça ne fonctionnera pas (voir exemple plus haut)
+    - L'appel de la fonction devra impérativement être fait au sein de la méthode `Update()`, sinon ça ne fonctionnera pas (voir exemple plus haut)
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
@@ -261,4 +264,4 @@ Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous av
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
 
-> Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement (pas officiellement) et vous pourriez perdre quelques travaux.
+> Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement (pas officiellement) et vous pourriez perdre quelques heures de travail.
