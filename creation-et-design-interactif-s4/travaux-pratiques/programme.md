@@ -13,7 +13,7 @@
 - Sprite
 - Tilemap : Rotation avec [ et ] - https://docs.unity3d.com/Manual/Tilemap-Painting.html
 - Animations
-    - has exit time : permet à l'animation de se jouer directement
+    - has exit time : permet de définir le pourcentage de progression d'une animation
     - transition duration : permet de passer d'une anim à l'autre
     - From Any State -> other state :
         - laisser has exit time
