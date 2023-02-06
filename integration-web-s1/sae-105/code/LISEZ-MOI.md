@@ -47,7 +47,7 @@ La page contact possède trois états :
         <li>Message envoyé avec succès (bandeau vert)</li>
         <li>Message envoyé avec erreur (bandeau rouge)</li>
     </ol>
-    Le bandeau (succès ou erreur) n’est visible qu’après avoir soumis le formulaire. Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation de php est **indispensable** pour réussir cette tâche (récupération des valeurs des champs du formulaire). Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de le définir. Vous pouvez très bien imaginer que si l'adresse e-mail est égale à une valeur bien spécifique alors on affiche le message d'erreur
+    Le bandeau (succès ou erreur) n’est visible qu’après avoir soumis le formulaire. Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation de php est **indispensable** pour réussir cette tâche (récupération des valeurs des champs du formulaire). Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de les définir. Vous pouvez très bien imaginer que si l'adresse e-mail est égale à une valeur bien spécifique alors on affiche le message d'erreur
 - **Sur les médias :** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants : 
   - https://www.youtube.com/watch?v=oiEbQF7qfBU
   - https://www.youtube.com/watch?v=SyjF4h2Zb7Q
@@ -67,7 +67,7 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 # Astuces
 - La navigation principale du site se trouve dans le fichier `ressources/css/includes/header.php`
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
-- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `include()`
+- Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" et commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
@@ -80,8 +80,8 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
-    - Et bien évidemment la documentation
-  - [Accéder à la documentation](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
+  - Et bien évidemment la documentation
+    - [Accéder à la documentation](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
   
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
 - Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
@@ -115,7 +115,7 @@ Cette partie sera évaluée par MM. Jean-Louis et Linardi.
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
-      - Il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem
+      - Il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)

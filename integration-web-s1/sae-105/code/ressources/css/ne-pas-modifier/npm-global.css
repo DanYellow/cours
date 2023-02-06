@@ -30,3 +30,7 @@ body {
   font-weight: bold;
   margin-bottom: 1.375rem;
 }
+
+img {
+  max-width: 100%;
+}
