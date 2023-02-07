@@ -125,7 +125,7 @@ Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous perm
 La méthode Start() est appelée lorsque le script est instancié, autrement dit quand le GameObject apparaît dans la scène. Par exemple, dans un jeu vous pourriez définir les points de vie par défaut d'un personnage.
 
 ### Méthode : `Update() {}`
-La méthode Update est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode Update() sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. Notez tout de même que dépendamment de la puissance du terminal qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde.
+La méthode Update est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode Update() sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. Notez tout de même que dépendamment de la puissance de l'appareil qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde, ça peut être plus ou moins.
 Parallement, c'est dans cette méthode que vous vérifierez les touches appuyées. Par exemple :
 
 ```cs
@@ -160,7 +160,13 @@ Créez donc un GameObject depuis le panneau "Hierarchy" (Clic droit > Create Emp
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
 Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement après avoir installé Unity. Si vous souhaitez utiliser VS Code ou Sublime Text, il faudra installer des extensions :
 - [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
+- [Extension VS Code - Unity Code Snippets](https://marketplace.visualstudio.com/items?itemName=kleber-swf.unity-code-snippets)
 - [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
+
+> Si vous utilisez VS Code, voici deux vidéos qui résument ce qui est décrit en dessous :
+>  - [Configurer VSCode + Unity MacOS](https://www.youtube.com/watch?v=3GVGyooZ8jk)
+>  - [Configurer VSCode + Unity Windows](https://www.youtube.com/watch?v=ihVAKiJdd40)
+> Vous n'avez pas besoin d'installer toutes les extensions mais les deux plus haut sont indispensables.
 
 Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
 - MacOS : 
@@ -176,7 +182,15 @@ Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également 
 
 Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
 
+Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :
+- [Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)
+Attention tout de même, dans certains cas l'installation du SDK peut mal se dérouler et vous n'aurez pas l'autocomplétion des méthodes d'Unity. Il faudra vous réferrer au lien suivant pour résoudre votre problème :
+- [Aide sur les problèmes de SDK .NET - anglais](https://github.com/OmniSharp/omnisharp-vscode/wiki/Troubleshooting:-'The-.NET-Core-SDK-cannot-be-located.'-errors)
+
 Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
+
+Si ça ne fonctionne toujours pas avec tout ça, vous pouvez tenter de résoudre votre problème en installant Mono qui est lui aussi gratuit :
+- [Télécharger Mono](https://www.mono-project.com/download/stable/#download-win)
 
 ---
 
