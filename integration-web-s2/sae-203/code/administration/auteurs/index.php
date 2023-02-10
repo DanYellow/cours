@@ -1,77 +1,100 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once '../../ressources/includes/connexion-bdd.php';
 
 $listeAuteursCommande = $clientMySQL->prepare('SELECT * FROM auteur');
 $listeAuteursCommande->execute();
 $listeAuteurs = $listeAuteursCommande->fetchAll();
 
-$pageCourante = "auteurs";
+$pageCourante = 'auteurs';
 $racineURL = $_SERVER['REQUEST_URI'];
 
 $URLCreation = "{$racineURL}/creation.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full bg-gray-100">
 
 <head>
-    <?php include_once("../ressources/includes/head.php"); ?>
+    <?php include_once '../ressources/includes/head.php'; ?>
     <title>Liste auteurs - Administration</title>
 </head>
 
-<body>
-    <div class="d-flex h-100">
-        <?php include_once("../ressources/includes/menu-lateral.php"); ?>
-        <div class="b-example-divider"></div>
-        <main class="flex-fill">
-            <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Liste auteurs</p>
-                <div>
-                    <a href="<?php echo $URLCreation ?>" class="link-primary">Ajouter un auteur</a>
+<body class="h-full">
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <img class="h-8 w-8  height-1/2" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
                 </div>
-            </header>
-
-            <table class="table align-middle table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Avatar</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prénom</th>
-                        <th scope="col">Twitter</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-                        foreach ($listeAuteurs as $auteur) { 
-                        $lienEdition = "{$racineURL}/edition.php?id={$auteur["id"]}";
-                    ?>
-                        <tr>
-                            <td scope='row'><?php echo $auteur["id"]; ?></td>
-                            <td>
-                                <img 
-                                    width='60' 
-                                    height='60' 
-                                    src='<?php echo $auteur["lien_avatar"]; ?>' 
-                                    loading="lazy"
-                                    alt='<?php echo "Portrait {$auteur["prenom"]}"; ?>' 
-                                />
-                            </td>
-                            <td><?php echo $auteur["prenom"]; ?></td>
-                            <td><?php echo $auteur["nom"]; ?></td>
-                            <td><?php echo $auteur["lien_twitter"]; ?></td>
-                            <td>
-                                <a href='<?php echo $lienEdition ?>' class='link-primary'>Modifier</a>
-                            </td>
+            </div>
+            </div>
+            
+        </div>
+        </div>
+    </nav>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste auteurs</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div class="py-6">
+                <table class="w-full bg-white rounded-lg overflow-hidden shadow-xl border-collapse">
+                    <thead class="bg-gray-100">
+                        <tr class="">
+                            <th class="font-bold pl-8 py-5 text-left">Id</th>
+                            <th class="font-bold pl-8 py-5 text-left">Avatar</th>
+                            <th class="font-bold pl-8 py-5 text-left">Nom</th>
+                            <th class="font-bold pl-8 py-5 text-left">Prénom</th>
+                            <th class="font-bold pl-8 py-5 text-left">Twitter</th>
+                            <th class="font-bold pl-8 py-5 text-left"></th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </main>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($listeAuteurs as $auteur) {
+                            $lienEdition = "{$racineURL}/edition.php?id={$auteur['id']}"; ?>
+                                <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                                    <td scope='row' class="pl-8  p-4 font-bold"><?php echo $auteur[
+                                        'id'
+                                    ]; ?></td>
+                                    <td class="pl-8  p-4">
+                                        <img 
+                                            width='60' 
+                                            height='60' 
+                                            src='<?php echo $auteur[
+                                                'lien_avatar'
+                                            ]; ?>' 
+                                            loading="lazy"
+                                            alt='<?php echo "Portrait {$auteur['prenom']}"; ?>' 
+                                        />
+                                    </td>
+                                    <td class="pl-8  p-4"><?php echo $auteur['prenom']; ?></td>
+                                    <td class="pl-8  p-4"><?php echo $auteur['nom']; ?></td>
+                                    <td class="pl-8  p-4"><?php echo $auteur['lien_twitter']; ?></td>
+                                    <td class="pl-8  p-4">
+                                        <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Modifier</a>
+                                    </td>
+                                </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
