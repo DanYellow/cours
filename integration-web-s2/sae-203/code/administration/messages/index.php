@@ -17,43 +17,44 @@ $pageCourante = "messages";
 </head>
 
 <body>
-    <div class="d-flex h-100">
-        <?php include_once("../ressources/includes/menu-lateral.php"); ?>
-        <div class="b-example-divider"></div>
-        <main class="flex-fill">
-            <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Liste messages reçus</p>
-            </header>
+<?php include_once '../ressources/includes/menu-lateral.php'; ?>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 justify-between flex">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste messages reçus</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6">
+            <div class="py-6">
 
-            <table class="table align-middle table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">A CHANGER</th>
-                        <th scope="col">A CHANGER</th>
-                        <th scope="col">A CHANGER</th>
-                        <th scope="col">A CHANGER</th>
-                        <th scope="col">A CHANGER</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-                        foreach ($listeMessages as $message) { 
-                    ?>
+                <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
+                    <thead class="bg-gray-100">
                         <tr>
-                            <td scope='row'><?php echo $message["id"]; ?></td>
-                            <td><?php echo $message["nom"]; ?></td>
-                            <td><?php echo $message["prenom"]; ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </main>
-    </div>
+                            <th class="font-bold pl-8 py-5 text-left">Id</th>
+                            <th class="font-bold pl-8 py-5 text-left">Nom</th>
+                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
+                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
+                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
+                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
+                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            foreach ($listeMessages as $message) { 
+                        ?>
+                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                                <td class="pl-8 p-4 font-bold"><?php echo $message["id"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $message["nom"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $message["prenom"]; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

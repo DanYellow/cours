@@ -46,61 +46,57 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <div class="d-flex h-100">
-        <?php include_once '../ressources/includes/menu-lateral.php'; ?>
-        <div class="b-example-divider"></div>
-        <main class="flex-fill">
-            <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Editer</p>
-            </header>
-
-            <section class="p-3">
-                <?php if ($auteur) { ?>
-                    <form method="POST" action="">
-                        <section class="row flex-column">
+    <?php include_once '../ressources/includes/menu-lateral.php'; ?>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 px-4">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Editer</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6">
+            <div class="py-6">
+            <?php if ($auteur) { ?>
+                    <form method="POST" action="" class="rounded-lg bg-white p-4 shadow border-gray-300 border-1">
+                        <section class="grid gap-6">
                             <input type="hidden" value="<?php echo $auteur[
                                 'id'
                             ]; ?>" name="id">
-                            <div class="mb-3 col-md-6">
-                                <label for="prenom" class="form-label">Nom</label>
+                            <div class="col-span-12">
+                                <label for="nom" class="block text-lg font-medium text-gray-700">Nom</label>
                                 <input type="text" value="<?php echo $auteur[
                                     'nom'
-                                ]; ?>" name="nom" class="form-control" id="prenom">
+                                ]; ?>" name="nom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="prenom" class="form-label">Prénom</label>
+                            <div class="col-span-12">
+                                <label for="prenom" class="block text-lg font-medium text-gray-700">Prénom</label>
                                 <input type="text" value="<?php echo $auteur[
                                     'prenom'
-                                ]; ?>" name="prenom" class="form-control" id="prenom">
+                                ]; ?>" name="prenom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="avatar" class="form-label">Lien avatar</label>
-                                <input type="text" value="<?php echo $auteur[
-                                    'lien_avatar'
-                                ]; ?>" name="lien_avatar" class="form-control" id="avatar">
-                                <div class="form-text">
+                            <div class="col-span-12">
+                                <label for="avatar" class="block text-lg font-medium text-gray-700">Lien avatar</label>
+                                <input type="text" value="<?php echo $auteur['lien_avatar']; ?>" name="lien_avatar" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="avatar">
+                                <div class="text-sm text-gray-500">
                                     Mettre l'URL de l'avatar (chemin absolu)
                                 </div>
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="avatar" class="form-label">Lien twitter</label>
+                            <div class="col-span-12">
+                                <label for="avatar" class="block text-lg font-medium text-gray-700">Lien twitter</label>
                                 <input type="text" value="<?php echo $auteur[
                                     'lien_twitter'
-                                ]; ?>" name="lien_twitter" class="form-control" id="avatar">
+                                ]; ?>" name="lien_twitter" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="avatar">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                                <button type="submit" class="font-bold rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Éditer</button>
                             </div>
                         </section>
                     </form>
                 <?php } else { ?>
                     <!-- A compléter -->
                 <?php } ?>
-            </section>
-        </main>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

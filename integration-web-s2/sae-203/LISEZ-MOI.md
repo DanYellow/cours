@@ -25,13 +25,13 @@ CY Cergy Paris Université nous confie la réalisation d'un site web dédié au 
 **R214 – Système d’information**
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes, les membres peuvent être transverses aux TD/TP de la promotion. Toutefois, il est préférable que deux membres au minimum soient dans le même TP, ceci pour éviter qu'un membre se retrouve seul à travailler lors d'un cours. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes au sein du même TP/TD. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
-Vous partirez de la correction du projet (dossier `"code/"`). Cette correction contient près de 75% du projet final, une très grande partie du projet a été produite. Des petits changements ont été opérés par rapport à la maquette originale dans le code fourni.
+Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
 
-Notez qu'il y a un dossier `"ressources/css/ne-pas-modifier"`, **merci de ne pas y toucher,** il contient le strict nécessaire pour avoir le squelette d'une page, toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+Notez qu'il y a des dossiers `"ne-pas-modifier"`, **merci de ne pas y toucher,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
-Notez également qu'il y a deux dossiers "ressources", un à la racine du projet et un autre dans le dossier "administration". Ainsi, si vous avez à éditer le site principal éditez le dossier "ressources" à la racine du projet, si vous avez à éditer l'administration, travaillez dans le dossier administration/ressources.
+Notez également qu'il y a deux dossiers `ressources`, un à la racine du projet et un autre dans le dossier `administration`. Ainsi, si vous avez à éditer le site principal (celui de la SAE 105) éditez le dossier `ressources` à la racine du projet, si vous avez à éditer l'administration, travaillez dans le dossier `administration/ressources`.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
@@ -53,9 +53,10 @@ Le deux pages à réaliser sont :
     - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
     ```html
     <article class="youtube-video-conteneur">
-      <!-- code pour afficher la vidéo -->
+      <!-- code pour afficher la vidéo de youtube -->
     </article>
     ```
+> Cette page possède un bug, à vous de le corriger
 - La liste des auteurs du site ("équipe de rédaction")
   - L'entrée pour y accéder est déjà dans la navigation mais pas le fichier php
   - Afficher pour chaque auteur : 
@@ -85,7 +86,7 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - CSS Transform
 - CSS Transition
 - Pseudo-éléments ::before / ::after
-- Langage de programmation javascript
+- ~~Langage de programmation javascript~~
 - MySQL
 - PHP
 - ...
@@ -104,7 +105,7 @@ Toujours à propos de la table article, la colonne "date_creation" n'est mise à
 
 Enfin, la connexion à la base de données est déjà faite, elle se trouve dans le fichier `ressources/includes/connexion-bdd.php`, **il faudra toutefois modifier les paramètres pour que la connexion fonctionne.** Pour ce faire, vous devrez éditer le fichier ".env.dev" à la racine du dossier "code/". Vous devrez remplacer la valeur des variables.
 
-Par ailleurs, il faudra également utiliser le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
+Par ailleurs, il faudra également importer le contenu du fichier `base-de-donnees.sql` dans phpmyadmin pour générer la base de données de travail.
 
 [Script SQL pour créer la base de données MySQL (cliquez sur le bouton "raw" puis faites clic droit > Enregistrer sous)](base-de-donnees.sql).
 Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
@@ -132,24 +133,24 @@ MDP_BDD=
 
 # Administration (appelé également backoffice)
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur bootstrap et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous bootstrap, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
-    - Édition d'article
+  - Édition d'article
   - Liste d'articles
 - Auteur
   - Création d'auteur
   - Édition d'auteur
   - Liste d'auteurs
 - Message
-  - Liste des messages reçus
+  - Liste des messages reçus (depuis le formulaire du site)
 
 Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
 
 > N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
-La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées.
+La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées dans la base de données.
 
 > En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
 > Toutefois si vous souhaitez le faire, allez-y.
@@ -160,7 +161,7 @@ Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettr
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
-Voici le code pour les deux cas. Ce code est à mettre **après** que les données ont été enregistrées dans la base. Donc après l'appel de la méthode `execute()`.
+Voici le code pour les deux cas. Ce code est à mettre **après que** les données ont été enregistrées dans la base. Donc après l'appel de la méthode `execute()`.
 
 ```php
 // L'utilisateur reste sur la même page
@@ -177,16 +178,16 @@ $pageRedirection = $racineURL['dirname'];
 header("Location: $pageRedirection");
 ```
 
-# Javascript
-Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Il devra **impérativement** être utilisé pour :
-- Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton
-- Dans l'administration (backoffice), il faudra afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : 
-```js
+~~# Javascript~~
+~~ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Il devra **impérativement** être utilisé pour :~~
+- ~~Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton~~
+- ~~Dans l'administration (backoffice), il faudra afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : ~~
+~~```js
   // Lorsqu'on sort le focus du champ, alors on appelle la fonction "maFonction"
   // Code à adapter
   const monInput = document.querySelector('[data-mon-champ]')
   monInput.addEventListener("blur", maFonction)
-```
+```~~
 > Note : Les deux fonctionnalités seront dévelopées et expliquées durant un cours dédié. Le code associé vous sera également donné.
 
 # Mise en production
@@ -206,18 +207,17 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 - Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
 - Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
   - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
-- Regardez bien et expérimentez ce qu'on a donné avant de vous lancer dans le code, ceci évitera les erreurs
-- Pour le backoffice (administration), n'allez pas réinventer la roue, bootstrap propose suffisament de composants pour l'intégrer
+- Regardez bien et expérimentez le code que nous vous avons fourni avant de commencer à coder, ceci évitera les erreurs
+- Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de composants pour l'intégrer
 
 # Rendus attendus
 
 - Une archive nommée nom-prénom du chef de groupe contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
   - Base de données (fichier .sql)
   - HTML/PHP/CSS/javascript...
-  - Le fichier "rapport-ressenti.odt" **pour chaque membre du groupe et dûment complété**
 - URL du site en ligne
-  - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter
-  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier "code/ressources/includes/connexion-bdd.php"
+  - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
+  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
@@ -246,8 +246,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 ### Développement Web (PHP/MySQL)
 - Qualité du code
-  - Utilisation de la fonction include()
-    - Une partie du code fourni nécessite d'être optimisée avec la fonction include()
+  - Utilisation de la fonction php `require_once()`
+    - Une partie du code fourni nécessite d'être optimisée avec la fonction `require_once()`
   - Utilisation de fonctions (quand c'est nécessaire)
   - Lecture et écriture de la base de données
   - Utilisation des paramètres d'url

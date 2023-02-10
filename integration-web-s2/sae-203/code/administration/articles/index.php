@@ -10,7 +10,6 @@ $commande = $clientMySQL->prepare('
         ar.image AS image_article,
         ar.lien_yt AS lien_yt_article,
         ar.date_creation AS date_creation_article,
-        ar.date_derniere_mise_a_jour AS date_derniere_mise_a_jour_article,
         ar.auteur_id AS article_auteur_id, 
         CONCAT(auteur.nom, " ", auteur.prenom) AS auteur
     FROM article AS ar 
@@ -30,68 +29,64 @@ $URLCreation = "{$racineURL}/creation.php";
 <html lang="fr">
 
 <head>
-    <?php include_once("../ressources/includes/head.php"); ?>
+    <?php require_once("../ressources/includes/head.php"); ?>
     <title>Liste articles - Administration</title>
 </head>
 
 <body>
-    <div class="d-flex h-100">
-        <?php include_once("../ressources/includes/menu-lateral.php"); ?>
-        <div class="b-example-divider"></div>
-        <main class="flex-fill">
-            <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Liste A REMPLACER</p>
-                <div>
-                    <a href="<?php echo $URLCreation ?>" class="link-primary">Ajouter un élément</a>
-                </div>
-            </header>
-
-            <table class="table align-middle table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Chapô</th>
-                        <th scope="col">A REMPLACER</th>
-                        <th scope="col">Date dernière édition</th>
-                        <th scope="col">Auteur</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($liste as $element) {
-                        $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
-
-                        $dateCreation = new DateTime($element["date_creation_article"]);
-                        $dateMiseAJour = new DateTime($element["date_derniere_mise_a_jour_article"]);
-                        $auteurArticle = $element["auteur"];
-                        if (is_null($auteurArticle)) {
-                            $auteurArticle = "/";
-                        }
-                    ?>
+    <?php require_once('../ressources/includes/menu-lateral.php'); ?>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 justify-between flex">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste A REMPLACER</h1>
+            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel article</a>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6">
+            <div class="py-6">
+                <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
+                    <thead class="bg-gray-100">
                         <tr>
-                            <td scope='row'>
-                                <?php echo $element["id"]; ?>
-                            </td>
-                            <td><?php echo $element["titre_article"]; ?></td>
-                            <td><?php echo $element["chapo_article"]; ?></td>
-                            <td><?php echo $dateCreation->format('d/m/Y H:i:s'); ?></td>
-                            <td><?php echo $dateMiseAJour->format('d/m/Y H:i:s'); ?></td>
-                            <td>
-                                <?php echo $auteurArticle; ?>
-                            </td>
-                            <td>
-                                <a href='<?php echo $lienEdition; ?>' class='link-primary'>Modifier</a>
-                            </td>
+                            <th class="font-bold pl-8 py-5 text-left">#</th>
+                            <th class="font-bold pl-8 py-5 text-left">Titre</th>
+                            <th class="font-bold pl-8 py-5 text-left">Chapô</th>
+                            <th class="font-bold pl-8 py-5 text-left">A REMPLACER</th>
+                            <th class="font-bold pl-8 py-5 text-left">Auteur</th>
+                            <th class="pl-8 py-5"></th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </main>
-    </div>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($liste as $element) {
+                            $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                            $dateCreation = new DateTime($element["date_creation_article"]);
+                            $auteurArticle = $element["auteur"];
+                            if (is_null($auteurArticle)) {
+                                $auteurArticle = "/";
+                            }
+                        ?>
+                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                                <td class="pl-8 p-4 font-bold">
+                                    <?php echo $element["id"]; ?>
+                                </td>
+                                <td class="pl-8 p-4"><?php echo $element["titre_article"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["chapo_article"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $dateCreation->format('d/m/Y H:i:s'); ?></td>
+                                <td class="pl-8 p-4">
+                                    <?php echo $auteurArticle; ?>
+                                </td>
+                                <td class="pl-8 p-4">
+                                    <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Modifier</a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
 
 </html>

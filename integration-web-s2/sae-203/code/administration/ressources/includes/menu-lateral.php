@@ -24,34 +24,36 @@ $listeEntreesMenu = [
 ];
 ?>
 
-<div class="flex column flex-shrink-0 p-3 text-white bg-menu-gradient" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4">Administration</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <?php foreach ($listeEntreesMenu as $entreeMenu) {
-            $entreeClasse = 'nav-link';
-            $ariaCurrentAttr = "";
-            if ($pageCourante === $entreeMenu["clef"]) {
-                $ariaCurrentAttr = "aria-current='page'";
-                $entreeClasse = "$entreeClasse active";
-            }
-
-            if ($entreeMenu["clef"] === "site") {
-                $entreeClasse = "$entreeClasse mt-5";
-            }
-
-            echo "
-                <li class='nav-item'>
-                    <a href='{$entreeMenu["lien"]}' class='$entreeClasse text-white' $ariaCurrentAttr>
-                        {$entreeMenu["nom"]}
-                    </a>
-                </li>
-            ";
-        } ?>
-    </ul>
-    <hr>
-    <?php include_once("../ressources/includes/menu-lateral-footer.php"); ?>
-
-</div>
+<nav class="bg-gray-800">
+    <div class="mx-auto px-4 max-w-7xl">
+        <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <h1 class="text-white font-bold">Administration SAE 203</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <?php foreach ($listeEntreesMenu as $entreeMenu) {
+                            $lienClasses = 'text-white ';
+                            $ariaCurrentAttr = "";
+                            if ($pageCourante === $entreeMenu["clef"]) {
+                                $ariaCurrentAttr = "aria-current='page'";
+                                $lienClasses = "bg-white text-gray-900";
+                            }
+            
+                            // if ($entreeMenu["clef"] === "site") {
+                            //     $entreeClasse = "$entreeClasse mt-5";
+                            // }
+            
+                            echo "
+                                <a href='{$entreeMenu["lien"]}' class='{$lienClasses} rounded-md font-medium hover:bg-gray-700 hover:text-white px-3 py-2' $ariaCurrentAttr>
+                                    {$entreeMenu["nom"]}
+                                </a>
+                            ";
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
