@@ -20,7 +20,7 @@ $URLCreation = "{$racineURL}/creation.php";
 </head>
 
 <body>
-    <?php include_once '../ressources/includes/menu-lateral.php'; ?>
+    <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste auteurs</h1>
@@ -52,9 +52,7 @@ $URLCreation = "{$racineURL}/creation.php";
                                         <img 
                                             width='60' 
                                             height='60' 
-                                            src='<?php echo $auteur[
-                                                'lien_avatar'
-                                            ]; ?>' 
+                                            src='<?php echo $auteur['lien_avatar']; ?>' 
                                             loading="lazy"
                                             alt='<?php echo "Portrait {$auteur['prenom']}"; ?>' 
                                         />
@@ -63,7 +61,7 @@ $URLCreation = "{$racineURL}/creation.php";
                                     <td class="pl-8 p-4"><?php echo $auteur['nom']; ?></td>
                                     <td class="pl-8 p-4"><?php echo $auteur['lien_twitter']; ?></td>
                                     <td class="pl-8 p-4">
-                                        <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Éditer</a>
+                                        <a href="<?php echo $lienEdition; ?>" class='font-bold text-blue-600'>Éditer</a>
                                     </td>
                                 </tr>
                         <?php } ?>
@@ -72,6 +70,7 @@ $URLCreation = "{$racineURL}/creation.php";
             </div>
         </div>
     </main>
+    <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
 
 </html>

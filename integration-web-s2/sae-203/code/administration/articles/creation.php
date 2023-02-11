@@ -23,7 +23,7 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <?php include_once '../ressources/includes/menu-lateral.php'; ?>
+    <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">Créer</h1>
@@ -43,13 +43,14 @@ if ($formulaire_soumis) {
                             <textarea type="text" name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="chapo"></textarea>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <button type="submit" class="font-bold rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Créer</button>
+                            <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Créer</button>
                         </div>
                     </section>
                 </form>
             </div>
         </div>
     </main>
+    <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
 
 </html>

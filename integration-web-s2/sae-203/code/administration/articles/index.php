@@ -34,7 +34,7 @@ $URLCreation = "{$racineURL}/creation.php";
 </head>
 
 <body>
-    <?php require_once('../ressources/includes/menu-lateral.php'); ?>
+    <?php require_once('../ressources/includes/menu-principal.php'); ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste A REMPLACER</h1>
@@ -47,7 +47,7 @@ $URLCreation = "{$racineURL}/creation.php";
                 <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="font-bold pl-8 py-5 text-left">#</th>
+                            <th class="font-bold pl-8 py-5 text-left">Id</th>
                             <th class="font-bold pl-8 py-5 text-left">Titre</th>
                             <th class="font-bold pl-8 py-5 text-left">Chapô</th>
                             <th class="font-bold pl-8 py-5 text-left">A REMPLACER</th>
@@ -77,7 +77,7 @@ $URLCreation = "{$racineURL}/creation.php";
                                     <?php echo $auteurArticle; ?>
                                 </td>
                                 <td class="pl-8 p-4">
-                                    <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Modifier</a>
+                                    <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Éditer</a>
                                 </td>
                             </tr>
                         <?php } ?>

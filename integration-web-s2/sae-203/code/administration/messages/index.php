@@ -17,10 +17,11 @@ $pageCourante = "messages";
 </head>
 
 <body>
-<?php include_once '../ressources/includes/menu-lateral.php'; ?>
+<?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 justify-between flex">
+        <div class="mx-auto max-w-7xl py-6">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900">Liste messages reçus</h1>
+            <p class="text-gray-500">Nombre de messages : A REMPLACER</p>
         </div>
     </header>
     <main>
@@ -37,7 +38,6 @@ $pageCourante = "messages";
                             <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
                             <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
                             <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -55,6 +55,7 @@ $pageCourante = "messages";
             </div>
         </div>
     </main>
+    <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
 
 </html>

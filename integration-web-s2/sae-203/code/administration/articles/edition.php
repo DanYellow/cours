@@ -45,38 +45,36 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <div class="d-flex h-100">
-        <?php include_once("../ressources/includes/menu-lateral.php"); ?>
-        <div class="b-example-divider"></div>
-        <main class="flex-fill">
-            <header class="d-flex justify-content-between align-items-center p-3">
-                <p class="fs-1">Editer</p>
-            </header>
+<?php include_once '../ressources/includes/menu-principal.php'; ?>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Créer</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div class="py-6">
+                <form method="POST" action="" class="rounded-lg bg-white p-4 shadow border-gray-300 border-1">
+                    <section class="grid gap-6">
+                        <input type="hidden" value="" name="id">
+                        <div class="col-span-12">
+                            <label for="titre" class="block text-lg font-medium text-gray-700">Titre</label>
+                            <input type="text" name="titre"  value="<?php echo $entite['titre']; ?>"  id="titre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
+                        </div>
+                        <div class="col-span-12">
+                            <label  for="chapo" class="block text-lg font-medium text-gray-700">Chapô</label>
+                            <textarea type="text" name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="chapo"><?php echo $entite['contenu']; ?></textarea>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Créer</button>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </main>
+    <?php require_once("../ressources/includes/global-footer.php"); ?>
 
-            <section class="p-3">
-                <?php if ($entite) { ?>
-                    <form method="POST" action="">
-                        <section class="row flex-column">
-                            <input type="hidden" value="" name="id">
-
-                            <div class="mb-3 col-md-6">
-                                <label for="titre" class="form-label">Titre</label>
-                                <input type="text" value="<?php echo $entite['titre']; ?>" name="titre" class="form-control" id="titre">
-                            </div>
-                            <!-- A compléter -->
-                            <div class="mb-3 col-md-6">
-                                <button type="submit" class="btn btn-primary">Envoyer</button>
-                            </div>
-                        </section>
-                    </form>
-                <?php } else { ?>
-                    <!-- A compléter -->
-                <?php } ?>
-            </section>
-        </main>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

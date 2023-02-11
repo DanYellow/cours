@@ -22,7 +22,7 @@ $URLCreation = "{$racineURL}/creation.php";
 
 <body>
     <div class="d-flex h-100">
-        <?php include_once("../ressources/includes/menu-lateral.php"); ?>
+        <?php include_once("../ressources/includes/menu-principal.php"); ?>
         <div class="b-example-divider"></div>
         <main class="flex-fill">
             <header class="d-flex justify-content-between align-items-center p-3">
