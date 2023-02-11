@@ -178,18 +178,6 @@ $pageRedirection = $racineURL['dirname'];
 header("Location: $pageRedirection");
 ```
 
-~~# Javascript~~
-~~ Découvert durant ce semestre, cette SAÉ sera l'occasion également d'appliquer vos connaissances en javascript. Il devra **impérativement** être utilisé pour :~~
-- ~~Sur la bannière sur la page contact après envoi du message. La bannière devra être disparaître via un bouton présent dans la bannière au clic sur ce bouton~~
-- ~~Dans l'administration (backoffice), il faudra afficher **en temps réel** l'image associée à un article et à un auteur. Ainsi, si on change de lien d'image dans le champ, l'image doit changer. C'est l'évènement javascript `blur` qu'il faudra utiliser. Par exemple : ~~
-~~```js
-  // Lorsqu'on sort le focus du champ, alors on appelle la fonction "maFonction"
-  // Code à adapter
-  const monInput = document.querySelector('[data-mon-champ]')
-  monInput.addEventListener("blur", maFonction)
-```~~
-> Note : Les deux fonctionnalités seront dévelopées et expliquées durant un cours dédié. Le code associé vous sera également donné.
-
 # Mise en production
 Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
 Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.

@@ -18,6 +18,7 @@
 .liste-ancres a {
     text-decoration: none;
     color: #03886D;
+    font-weight: bold;
 }
 
 .liste-ancres a:hover {
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 3rem 20px;
+    gap: 3rem 1.25rem;
 }
 
 .projet {
@@ -53,6 +54,7 @@
     font-size: 2rem;
     width: 300px;
     margin-bottom: 1rem;
+    font-weight: bold;
 }
 .projet .description {
     color: #363636;

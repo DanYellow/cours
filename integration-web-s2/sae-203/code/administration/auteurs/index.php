@@ -12,7 +12,7 @@ $URLCreation = "{$racineURL}/creation.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="fr" class="h-full bg-gray-100">
+<html lang="fr">
 
 <head>
     <?php include_once '../ressources/includes/head.php'; ?>
