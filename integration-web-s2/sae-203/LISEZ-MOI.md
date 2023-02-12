@@ -44,8 +44,6 @@ Le deux pages à réaliser sont :
   - Son chapô + contenu (dans cet ordre)
   - Son image
   - Sa date de création
-  - La date de sa dernière mise à jour
-    - Ne pas afficher si la date est égale à celle de création
   - Son auteur
     - Mettre une valeur par défaut s'il n'y a pas d'auteur
   - Sa vidéo youtube. S'il y en a une
