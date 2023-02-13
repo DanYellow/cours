@@ -213,7 +213,7 @@ Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le
 - Déplacement du joueur
 - Gestion du son / physique
 - Animation
-- ScriptableObjects
+- ScriptableObject
 
 ## Propriétés de classes
 Au sein d'une classe, les variables définies en dehors d'une fonction ont une portée qui leur est spécifique. Autrement dit, elles n'existent que dans un contexte que vous aurez défini. Ces variables sont appelées **propriétés de classes**. Elle peuvent être globales ou non à votre projet. Leur syntaxe est semblable aux variables à la différence que vous pouvez définir leur visibilité. Exemple :

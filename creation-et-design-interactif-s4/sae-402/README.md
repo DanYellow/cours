@@ -32,9 +32,9 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Il n'y a pas de menu de Pause d'affiché, c'est une des tâches que vous devrez effectuer
     - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements durant la pause
 - Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/Scripts/ScriptableObjects/Events/OnSFXAudioChannel`
+    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/ScriptableObjects/Events/Events/OnSFXAudioChannel`
 
-> Des Scripts pour inspecteur sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/Scripts/ScriptableObjects/Events`. Pratique.
+> Des Scripts pour inspecteur sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Events/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient trois scènes :
 - Un niveau qui devra faire office de premier niveau
@@ -43,7 +43,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
     
 - Une scène de debug pour tester des fonctionnalités rapidement
 
-- [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fadvanced-base)
+- [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
@@ -75,7 +75,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pour rappel, ici il faudra utiliser un Canvas
     - **Ceci nécessite donc de donner un nom à votre jeu également**
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
-    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou  utiliser celles déjà présentes dans le projet
+    - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
     - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
     - Il doit être possible de terminer ce nouveau niveau
     - Vous pourrez trouver des inspirations ici :
@@ -84,7 +84,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
 - Afficher un menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
-    - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/Scripts/ScriptableObjects/Events/OnTogglePauseEventSO`)
+    - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
 - Système de santé du joueur
