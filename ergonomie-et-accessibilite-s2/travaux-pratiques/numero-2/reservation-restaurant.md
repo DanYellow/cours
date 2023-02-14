@@ -1,0 +1,2 @@
+Réalisez l'interface d'une application mobile permettant à un utilisateur de confirmer sa réservation pour un restaurant. 
+On partira du principe que le restaurant a déjà été reservé et qu'il faut permettre à l'utilisateur de valider son identité. 
