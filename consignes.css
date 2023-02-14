@@ -130,10 +130,11 @@
 
 .note-importante {
     font-family: Helvetica, Arial, sans-serif;
-    border-left: 5px solid red;
+    border-left: 5px solid rgb(218, 1, 1);
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #f6969638;
+    margin-bottom: 1rem;
 }
 
 .note-information {
@@ -142,6 +143,7 @@
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #96d4f638;
+    margin-bottom: 1rem;
 }
 
 .note-attention {
@@ -150,11 +152,12 @@
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #f6f09638;
+    margin-bottom: 1rem;
 }
 
 .consignes-conteneur code {
     font-family: monospace;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.2;
     background-color: black;
     padding: 0 0.35rem;
     color: white;
