@@ -128,18 +128,28 @@
     font-weight: bold;
 }
 
-.consignes-conteneur .note-importante {
+.note-importante {
+    font-family: Helvetica, Arial, sans-serif;
     border-left: 5px solid red;
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #f6969638;
 }
 
-.consignes-conteneur .note-information {
+.note-information {
+    font-family: Helvetica, Arial, sans-serif;
     border-left: 5px solid rgb(4, 0, 255);
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #96d4f638;
+}
+
+.note-attention {
+    font-family: Helvetica, Arial, sans-serif;
+    border-left: 5px solid rgb(255, 238, 0);
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #f6f09638;
 }
 
 .consignes-conteneur code {
