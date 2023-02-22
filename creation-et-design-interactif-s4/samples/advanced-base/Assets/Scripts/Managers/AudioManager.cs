@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     public PlaySoundAtEventChannelSO sfxAudioChannel;
 
-    private void Awake() {
+    private void OnEnable() {
         sfxAudioChannel.OnEventRaised += PlayClipAt;
     }
 
@@ -80,5 +80,9 @@ public class AudioManager : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(IncreaseVolume());
         }
+    }
+
+    private void OnDisable() {
+        sfxAudioChannel.OnEventRaised -= PlayClipAt;
     }
 }
