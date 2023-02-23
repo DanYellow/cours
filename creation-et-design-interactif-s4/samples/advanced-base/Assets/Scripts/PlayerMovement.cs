@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -36,21 +37,25 @@ public class PlayerMovement : MonoBehaviour
     [Header("Misc")]
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
+    public BoolEventChannelSO onTogglePauseEvent;
 
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
+    private void OnEnable() {
+        onTogglePauseEvent.OnEventRaised += OnPauseEvent;
+    }
+
+    private void OnPauseEvent(bool value)
+    {
+        enabled = !value;
+    }
+
     private void Awake()
     {
-        enabled = false;
         trailRenderer.enabled = false;
         // The jump high cannot be higher that +10% of normal jumpforce
         maxYVelocity = (jumpForce * 0.10f) + jumpForce;
-    }
-
-    public void Activate()
-    {
-        enabled = true;
     }
 
     // Update is called once per frame
@@ -183,5 +188,9 @@ public class PlayerMovement : MonoBehaviour
     {
         isLandingFast = false;
         onLandingFastSO.Raise(landingFastShakeInfo);
+    }
+
+    private void OnDisable() {
+        onTogglePauseEvent.OnEventRaised -= OnPauseEvent;
     }
 }
