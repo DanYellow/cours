@@ -1,5 +1,5 @@
 # SAE 402 - Concevoir un dispositif interactif
-_Les consignes pourront être modifiées._
+> _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps._
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
@@ -97,12 +97,13 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche F9 du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
+    - **A vous de faire le reste**
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
 - Rajouter un ennemi parmi ceux proposés
-    - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier "Enemies"
+    - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier `ressources/unity/sprites/platformer/Enemies`
         - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
-        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Saut (EnemyJumpAttack), Santé (Enemy)
+        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Saut (EnemyJumpAttack), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
 
