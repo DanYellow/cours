@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
     public BoolEventChannelSO onTogglePauseEvent;
-
+    private bool isGamePaused = false;
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnPauseEvent(bool value)
     {
-        enabled = !value;
+        isGamePaused = value;
     }
 
     private void Awake()
@@ -61,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGamePaused)
+        {
+            return;
+        }
         moveDirectionX = Input.GetAxis("Horizontal");
         isRunningFast = Input.GetKey(KeyCode.V);
 
