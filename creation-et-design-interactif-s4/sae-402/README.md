@@ -29,8 +29,6 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Mort du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
-    - Il y a un menu, il faudra l'afficher ou le cacher en fonction
-    - Il est incomplet, il y a des choses à rajouter notamment la gestion des déplacements durant la pause
 - Un gestionnaire de Son / Musique
     - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/ScriptableObjects/Events/Values/OnSFXAudioChannel`
 
@@ -45,6 +43,9 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
     - Inutile de la mettre dans le build final
 
 - [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
+
+> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` et sélectionner le dossier contenant le projet.
+> **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes.**
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
