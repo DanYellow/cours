@@ -1,6 +1,8 @@
 # SAE 402 - Concevoir un dispositif interactif
 > _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps._
 
+> **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente.**
+
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
@@ -20,7 +22,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Un lapin qui vous saute dessus quand vous êtes dans son champ de vision
 - Pièges :
     - RockHead : Une pierre qui fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
-    - Scie : Statique ou mobile sur une circuit défini
+    - Scie : Statique ou mobile se déplaçant sur un circuit défini
     - Chaine : Une boule qui se déplace selon un axe défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
     - Pause / Relance du jeu
@@ -183,7 +185,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - Respecter les attentes
 - Générer une archive contenant :
-    - Votre build pour Windows du jeu (pas de build web)
+    - Votre build pour Windows ou MacOS du jeu (pas de build WebGL)
         - Pensez à tester le build final de votre jeu
     - Un fichier texte contenant les membres de votre groupe
 
@@ -205,8 +207,8 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     - Il est possible de ne pas utiliser la base que nous vous proposons. Cependant, il y a deux points importants à prendre en compte :
         - Mettre à la racine de votre projet un fichier .gitgnore pour vous permettre de mettre votre projet sur github
             - [Télécharger le .gitignore pour unity](https://raw.githubusercontent.com/github/gitignore/main/Unity.gitignore)
-        - être ambitieux dans le projet, n'allez pas faire un jeu où c'est juste un carré / cube qui saute
+        - Proposer un projet ambitieux, n'allez pas faire un jeu où c'est juste un carré / cube qui saute. Vous êtes à l'école, l'un des rares endroits où vous pourrez expérimenter sans réelles grosses conséquences
 - Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
     - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
 - Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?
-    - Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final
+    - Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final. Toutefois, nous aurions pu (dû) la corriger
