@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     private float moveDirectionX;
+    private bool isGamePaused = false;
 
     private bool isFacingRight = true;
 
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnPauseEvent(bool value)
     {
-        enabled = !value;
+        isGamePaused = value;
     }
 
     private void Awake()
@@ -61,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isGamePaused) {
+            return;
+        }
+
         moveDirectionX = Input.GetAxis("Horizontal");
         isRunningFast = Input.GetKey(KeyCode.V);
 

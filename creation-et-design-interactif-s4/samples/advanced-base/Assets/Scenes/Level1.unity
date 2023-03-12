@@ -731,7 +731,6 @@ GameObject:
   - component: {fileID: 90947239}
   - component: {fileID: 90947242}
   - component: {fileID: 90947241}
-  - component: {fileID: 90947240}
   - component: {fileID: 90947243}
   m_Layer: 0
   m_Name: CurrentSceneManager
@@ -755,34 +754,6 @@ Transform:
   m_Father: {fileID: 1452846345}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &90947240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90947238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba795ce86f7ada46834fc06fb7858cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
-  Callback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 90947242}
-        m_TargetAssemblyTypeName: CurrentSceneManager, Assembly-CSharp
-        m_MethodName: GameOverScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &90947241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cf55f0254b67d4d9b5e823a21d6bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
+  onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
+  onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
 --- !u!114 &90947243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25966,8 +25938,6 @@ GameObject:
   - component: {fileID: 814072431}
   - component: {fileID: 814072439}
   - component: {fileID: 814072430}
-  - component: {fileID: 814072438}
-  - component: {fileID: 814072437}
   - component: {fileID: 814072441}
   - component: {fileID: 814072440}
   m_Layer: 8
@@ -26163,62 +26133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &814072437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814072429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1253aff75a40942a898631d484c272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
-  Callback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 814072430}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: ToggleState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &814072438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814072429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba795ce86f7ada46834fc06fb7858cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
-  Callback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 814072433}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: set_simulated
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &814072439
 MonoBehaviour:
   m_ObjectHideFlags: 0

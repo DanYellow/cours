@@ -114,8 +114,6 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - https://github.com/OpenSourceMusic
     - https://opengameart.org/
     - Rappel : la musique est gérée au niveau de la scène _Preload
-- Un système de score
-    - A vous de définir les règles de bonus / malus de score
 - Des bruitages lors d'actions (sauts, tir...)
     - Vous avez un exemple de fonctionnement de bruitage dans la Prefab "Apple"
     - Pourquoi pas ne pas réaliser vous-même ces bruitages ?
@@ -124,10 +122,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Animer les checkpoints (Les carrés bleus dans le niveau)
     - Ajouter une indication de checkpoint atteint
     - Il y a un sprite également pour les checkpoints. A vous de l'implémenter
-- Créer **une** props de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
+- Créer **un** prop de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la DA du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
-    - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création
+    - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création en pixelart. Sinon, il y a Photoshop
 - Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu dans la version de build). Il y a ce didacticiel pour en savoir plus :
     - [Didacticiel sur l'écran d'accueil personnalisé d'Unity - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Ecran de chargement asynchrone de la scène
@@ -140,14 +138,16 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Il existe le package gratuit "Localization" qui vous permet de gérer ceci. Voici un tutorial (en anglais) expliquant comment intégrer et utiliser le package.
         - Voir le tutoriel sur le [package Localization](https://www.youtube.com/watch?v=qcXuvd7qSxg)
     - Pensez bien à sauvegarder les préférences de l'utilisateur grâce au `PlayerPrefs`
+- Réécrire sous forme de ScriptableObject les statistiques du joueur (nombre de sauts maximum, vitesse de déplacement...). Toutes ces informations peuvent tenir dans une seule et unique classe
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
 ### Recommencer au dernier checkpoint
-Dans la classe `CurrentSceneManager`vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object pour nous aider.
+Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
 
 ### Système de ventilateurs
-Nous rajouterons une props qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
+Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
+> Le terme "prop" provient du jargon cinématographique, il désigne un objet / accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout objet est nommé "prop".
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.

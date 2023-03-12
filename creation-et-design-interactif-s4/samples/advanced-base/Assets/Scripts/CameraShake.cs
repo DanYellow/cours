@@ -3,6 +3,12 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
+    public CameraShakeEventChannelSO onCameraShake;
+
+    private void OnEnable() {
+        onCameraShake.OnEventRaised += ShakeProxy;
+    }
+
     private void Update() {
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.E))
@@ -12,7 +18,7 @@ public class CameraShake : MonoBehaviour
         #endif
     }
 
-    public void ShakeProxy(ShakeTypeVariable shakeType) {
+    private void ShakeProxy(ShakeTypeVariable shakeType) {
         StartCoroutine(Shake(shakeType.Duration, shakeType.Magnitude));
     }
 
@@ -31,5 +37,9 @@ public class CameraShake : MonoBehaviour
             yield return 0;
         }
         transform.position = orignalPosition;
+    }
+
+    private void OnDisable() {
+        onCameraShake.OnEventRaised -= ShakeProxy;
     }
 }

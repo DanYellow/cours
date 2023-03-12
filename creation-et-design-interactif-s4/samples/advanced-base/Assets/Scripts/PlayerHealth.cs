@@ -62,13 +62,14 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         onPlayerDeath.Raise();
+        GetComponent<Rigidbody2D>().simulated = false;
         transform.Rotate(0f, 0f, 45f);
         animator.SetTrigger("OnPlayerDeath");
     }
 
     public void OnPlayerDeathAnimationCallback()
     {
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public IEnumerator InvincibilityFlash()

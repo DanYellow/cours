@@ -3,7 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public StringEventChannelSO OnLevelEnded;
+    public StringEventChannelSO onLevelEnded;
+    public VoidEventChannelSO onPlayerDeath;
+
+    private void OnEnable() {
+        onLevelEnded.OnEventRaised += LoadScene;
+        onPlayerDeath.OnEventRaised += GameOverScreen;
+    }
+
     void Update()
     {
 #if UNITY_EDITOR
@@ -67,6 +74,11 @@ public class CurrentSceneManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    private void OnDisable() {
+        onLevelEnded.OnEventRaised -= LoadScene;
+        onPlayerDeath.OnEventRaised -= GameOverScreen;
     }
 
     #if UNITY_EDITOR
