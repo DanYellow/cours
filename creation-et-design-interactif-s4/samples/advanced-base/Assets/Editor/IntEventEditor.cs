@@ -16,7 +16,7 @@ public class IntEventEditor : Editor
         IntEventChannelSO e = target as IntEventChannelSO;
 
         value = EditorGUILayout.IntField("Value:", value);
-    
+        
         if (GUILayout.Button("Raise"))
             e.Raise(value);
     }

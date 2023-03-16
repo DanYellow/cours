@@ -117,7 +117,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Des bruitages lors d'actions (sauts, tir...)
     - Vous avez un exemple de fonctionnement de bruitage dans la Prefab "Apple"
     - Pourquoi pas ne pas réaliser vous-même ces bruitages ?
-- Ajouter une attaque "impact" alors qu'on appuie sur la flèche du bas en l'air
+- Ajouter une attaque "impact" alors qu'on appuie sur la flèche du bas durant un saut
     - Il faudra utiliser la méthode [Physics2D.OverlapAreaAll() (ou Physics2D.OverlapCircleAll())](https://docs.unity3d.com/ScriptReference/Physics2D.OverlapAreaAll.html) pour savoir qui a été touché dans une zone spécifique
 - Animer les checkpoints (Les carrés bleus dans le niveau)
     - Ajouter une indication de checkpoint atteint
