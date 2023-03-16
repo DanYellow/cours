@@ -4,11 +4,9 @@ using UnityEngine.SceneManagement;
 public class CurrentSceneManager : MonoBehaviour
 {
     public StringEventChannelSO onLevelEnded;
-    public VoidEventChannelSO onPlayerDeath;
 
     private void OnEnable() {
         onLevelEnded.OnEventRaised += LoadScene;
-        onPlayerDeath.OnEventRaised += GameOverScreen;
     }
 
     void Update()
@@ -62,11 +60,6 @@ public class CurrentSceneManager : MonoBehaviour
         // Reset Player's rotation
     }
 
-    public void GameOverScreen()
-    {
-        Debug.Log("GameOverScreen");
-    }
-
     public void QuitGame()
     {
         #if UNITY_EDITOR
@@ -78,7 +71,6 @@ public class CurrentSceneManager : MonoBehaviour
 
     private void OnDisable() {
         onLevelEnded.OnEventRaised -= LoadScene;
-        onPlayerDeath.OnEventRaised -= GameOverScreen;
     }
 
     #if UNITY_EDITOR

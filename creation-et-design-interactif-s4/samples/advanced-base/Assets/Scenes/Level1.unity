@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 90947242}
   - component: {fileID: 90947241}
   - component: {fileID: 90947243}
+  - component: {fileID: 90947244}
   m_Layer: 0
   m_Name: CurrentSceneManager
   m_TagString: Untagged
@@ -780,7 +781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
 --- !u!114 &90947243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +795,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
   pauseMenuUI: {fileID: 608262935}
+--- !u!114 &90947244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90947238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb863f666f9347458097882f5b984a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
 --- !u!1 &96304697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,7 +5361,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420035}
-  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5450,34 +5462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b7d6eeffa8c17478fb974875b77400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &519420036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6667e4dbac0dc664ea06a7136388c51e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
-  Callback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 519420035}
-        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
-        m_MethodName: ShakeProxy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  onCameraShake: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
 --- !u!1 &521770008
 GameObject:
   m_ObjectHideFlags: 0
