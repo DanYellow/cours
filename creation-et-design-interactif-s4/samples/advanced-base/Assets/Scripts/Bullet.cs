@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
 
+    public float delayBeforeAutodestruction = 2.5f;
+
     public Animator animator;
 
     public float damage = 1f;
@@ -18,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator AutoDestroy()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(delayBeforeAutodestruction);
         Destroy(gameObject);
     }
 
@@ -33,6 +35,6 @@ public class Bullet : MonoBehaviour
 
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.35f);
     }
 }

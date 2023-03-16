@@ -13,8 +13,7 @@ public class EnemyShooting : MonoBehaviour
     [Range(0, 5)]
     public float timeDelayBetweenShots;
 
-    [Tooltip("Warning time before first shot")]
-    public float delayBeforeFirstShot;
+    public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,15 +36,18 @@ public class EnemyShooting : MonoBehaviour
     private IEnumerator PlayAnimInterval(int nbIterations)
     {
         spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(delayBeforeFirstShot);
 
         while (nbIterations > 0)
         {
-            animator.Play("PlantAttack");
+            animator.SetTrigger("IsAttacking");
             nbIterations = nbIterations - 1;
 
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
         }
+        
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(delayBetweenShotsCycles);
+        StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
     }
 
     // Better to call it in the timeline
