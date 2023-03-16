@@ -2,9 +2,9 @@
 
 Un ScriptableObject est un conteneur de données, les données conservées peuvent être de multiples types :
 - Primitives : entier (int), chaînes de caractères (string), tableau (array)...
-- Complexe : GameObject, Transform, Vector2, Sprite...
+- Complexes : GameObject, Transform, Vector2, Sprite...
 
-L'un des grands avantages des ScriptableObjects est leur limitation en terme d'empreinte dans la mémoire. En effet, ils limitent la copie d'objets là où un objet MonoBehaviour aurait copié toutes les données dont il aurait besoin. Par exemple, admettons que nous souhaitons faire un jeu vidéo avec un marchand proposant des bateaux de combat et donc la structure suivante :
+L'un des grands avantages des ScriptableObjects est leur limitation en terme d'empreinte dans la mémoire. En effet, ils limitent la copie d'objets là où un objet MonoBehaviour aurait copié toutes les données dont il aurait besoin. Par exemple, admettons que nous souhaitons faire un jeu vidéo avec un marchand proposant des bateaux de combat et dont la structure suivante :
 ![Alt text](bateaux-SO.jpg)
 | **name**        | Trois-mâts | Sous-marin |
 |-----------------|---------:|------------|
