@@ -50,6 +50,7 @@ Parmi les plateformes, nous trouvons (liste non exhaustive) :
 ## Build
 Dernière partie : le build. Il y a trois options dans cette zone :
 - Player Settings : Ouvre une nouvelle fenêtre où vous pourrez affiner certains détails comme les différents logos ou la couleur d'arrière-plan lors du lancement du jeu
+    - [En savoir plus sur Player Settings](PLAYER-SETTINGS.md)
 - Build / Clean build : Nous allons le détailler plus bas
 - Build and run : Fait un build du jeu puis le lance directement
 

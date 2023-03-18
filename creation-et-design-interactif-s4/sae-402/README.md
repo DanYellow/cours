@@ -186,7 +186,8 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Respecter les attentes
 - Générer une archive contenant :
     - Votre build pour Windows ou MacOS du jeu (pas de build WebGL)
-        - Pensez à tester le build final de votre jeu
+        - Pensez à tester le build final de votre jeu. Il faut faire un build de production, l'option "Développement Build" ne doit pas être cochée
+        - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
     - Un fichier texte contenant les membres de votre groupe
 
 # FAQ - Foire Aux Questions
