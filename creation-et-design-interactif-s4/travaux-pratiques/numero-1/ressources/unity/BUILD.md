@@ -1,11 +1,12 @@
 Pour permettre à des tiers de jouer à votre jeu, il va falloir créer un build. Autrement dit une version de votre jeu qui peut être lancée sans avoir besoin d'Unity. La méthode montrée ici est valable quelque soit le type de jeu qui vous développerez. Notez également qu'un build (ou compilation) durera plus ou moins longtemps dépendamment le jeu que vous ferez.
 
-> Note : Sauf indication contraire, les étapes montrées seront les mêmes sur Windows, MacOS et Linux.
+> Note : Sauf indication contraire, les étapes montrées sont les mêmes sur Windows, MacOS et Linux.
 
 # Créer un build
 
 Pour ce faire, il faut aller dans le menu `File > Build Settings`, ceci va ouvrir une fenêtre au premier plan. 
 ![Alt text](build-1-framed.jpg)
+
 On peut décomposer cette fenêtre en quatre grandes parties que nous allons détailler :
 - Scenes In Build - en rouge
 - Platform - en jaune
@@ -39,14 +40,16 @@ Par ailleurs, dépendamment de la plateforme choisie, il se peut que nous n'ayez
 | *En absence du module "Android", nous devons l'installer grâce à l'Unity Hub.* |
 
 Parmi les plateformes, nous trouvons (liste non exhaustive) :
-- Windows, Mac, Linux : Pour jouer sur votre ordinateur
-- WebGL : Pour réaliser une version compatible navigateur de votre jeu. Attention tout de même concernant cette plateforme, vous pouvez rencontrer des problèmes si votre jeu use de trop d'effets complexes. **De plus, votre jeu ne peut pas se lancer sans serveur**, il faudra impérativement le mettre en ligne ou utiliser NodeJS / WAMP (ou autre) pour le lancer.
+- Windows, Mac, Linux : Pour jouer sur votre ordinateur. Unity s'adaptera en fonction de votre ordinateur. Vous ne pouvez pas faire un build Windows sur MacOS et inversement
+- WebGL : Pour réaliser une version compatible navigateur de votre jeu. Attention tout de même concernant cette plateforme, vous pouvez rencontrer des problèmes si votre jeu use de trop d'effets complexes. **De plus, votre jeu ne peut pas se lancer sans serveur**, il faudra impérativement le mettre en ligne ou utiliser NodeJS / WAMP (ou autre) pour le lancer
 - Android : A destination des plateformes Android (télés, smartphones, tablette...)
 - PS4 / PS5 : Pour les consoles PS4 et PS5. A noter qu'il vous faudra une licence payante obtenue auprès de Sony ainsi qu'une console dite de "debug". Si les deux conditions ne sont pas remplies, vous ne pourrez pas tester votre jeu sur PS4 ou PS5
 
+> Quelque soit la plateforme, il y a l'option "Developpement Build", décochée par défaut, elle vous permet d'accéder aux outils de Profilage, outils qui vous permettent d'analyser l'exécution du code. Il ne faut pas activer l'option dans un build qui vise à être publié.
+
 ## Build
-Dernière partie : le build. Il y a trois options :
-- Player Settings : Ouvre une nouvelle fenêtre où vous pourrez affinez certains détails comme les différents logos ou la couleur d'arrière-plan lors du lancement du jeu
+Dernière partie : le build. Il y a trois options dans cette zone :
+- Player Settings : Ouvre une nouvelle fenêtre où vous pourrez affiner certains détails comme les différents logos ou la couleur d'arrière-plan lors du lancement du jeu
 - Build / Clean build : Nous allons le détailler plus bas
 - Build and run : Fait un build du jeu puis le lance directement
 
@@ -57,7 +60,7 @@ Nous vous conseillons très fortement de mettre vos builds dans un dossier nomm�
 
 A partir de là, c'est à vous de scruturer le contenu du dossier "Builds".
 
-Concernant l'option "Clean Build", c'est une propositon de build plus longue que l'option "Build". En effet pour permettre aux développeurs / développeuses d'obtenir plus rapidement une nouvelle itération de leur jeu, Unity fait un nouveau build uniquement avec les parties qui ont été modifiées. Si jamais dans le nouveau build il y a des bugs, l'option "Clean Build" peut être la solution.
+Concernant l'option "Clean Build", c'est une propositon de build plus longue que l'option "Build". En effet pour permettre aux développeurs / développeuses d'obtenir plus rapidement une nouvelle itération de leur jeu, Unity fait un nouveau build uniquement avec les parties qui ont été modifiées entre chaque build. Si jamais dans le nouveau build il y a des bugs, l'option "Clean Build" peut être la solution.
 
 [En savoir plus sur le "Clean Build" dans la documentation d'Unity](https://docs.unity3d.com/Manual/incremental-build-pipeline.html#creating-non-incremental-builds)
 
@@ -75,6 +78,6 @@ Pour pallier à ce problème, il nous est donné la possibilité de créer gratu
 - [Télécharger Inno Setup](https://jrsoftware.org/isdl.php)
 - [Voir didactiel (en français) sur Inno Setup](https://www.youtube.com/watch?v=lH9h4POpq0A)
 
-> Dans le cadre de la SAE, il n'est pas utile de créer un exécutable. Assurez-vous juste de créer votre build (qui aura été testé) et en faire une archive.
+> Dans le cadre de la SAE, il n'est pas utile de créer un exécutable. Assurez-vous juste de créer votre build Windows ou MacOS (qui aura été testé) et en faire une archive.
 
 [En savoir plus sur la fenêtre "Build Settings" en général dans la documentation d'Unity](https://docs.unity3d.com/Manual/BuildSettings.html)
