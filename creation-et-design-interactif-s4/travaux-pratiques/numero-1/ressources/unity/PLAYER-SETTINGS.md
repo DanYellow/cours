@@ -20,7 +20,8 @@ Nous n'allons pas décrire toutes les options car la documentation le fait très
 L'option Splash image représente la séquence affichée durant le chargement du jeu. Lorsque vous n'avez pas une licence professionnelle d'Unity, le Splash Image contient toujours la mention "Made with Unity", d'où le fait que l'option "Show Splash Screen" est cochée et désactivée.
 
 Néanmoins, il vous est donné la possibilité de personnaliser cette séquence. Par exemple, vous pouvez rajouter de nouveaux logos dans la zone "Logos" ou encore changer la couleur du fond (option Background Color). L'option "Background Color" est très utile pour faire une transition propre entre le Splash Image et la premère scène de votre jeu. Par exemple, si votre écran d'accueil est bleu, il est préférable d'utiliser le même bleu pour l'option "Background Color".
-> Les logos de la séquence Splash Image doivent **être des sprites.** Autrement dit, ils doivent être **définis comme étant "Sprite (2D and UI)"** dans l'inspecteur. Unity refusera le cas échéant. Ne l'oubliez pas.
+> Les logos et le background image de la séquence Splash Image doivent **être des sprites.** Autrement dit, ils doivent être **définis comme étant "Sprite (2D and UI)"** dans l'inspecteur. Unity refusera le cas échéant. Ne l'oubliez pas.
+> Si jamais Unity refuse de transformer une image en "Sprite (2D and UI)", c'est qu'il vous manque le package gratuit "2D Package", il vous faudra le télécharger via le Package Manager (Window > Package Manager).
 
 Pour voir vos modifications, il n'est pas utile de compiler le jeu. Il vous suffit de cliquer sur le bouton "Preview" et vous verrez le Splash Image dans l'onglet Game.
 ![](printscreens/player-3.jpg)
