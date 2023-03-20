@@ -194,7 +194,7 @@ Si ça ne fonctionne toujours pas avec tout ça, vous pouvez tenter de résoudre
 
 ---
 
-**Réalisez les choses suivantes (n'oubliez pas de retourner le résultat et l'afficher avec la méthode `Debug.Log()`)**
+**Réalisez les choses suivantes (n'oubliez pas de retourner le résultat et l'afficher avec la méthode `Debug.Log()`) :** 
 - Un nombre décimal
     - A définir dans la fonction `Start()`
 - Une chaîne de caractères

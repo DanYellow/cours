@@ -1,6 +1,6 @@
-# Introduction à Smarty
+# Découverte du moteur de template Smarty
 
-Le but de ce TP est de découvrir le moteur de template Smarty. S'il est utilisé par Prestashop, il est tout à fait possible de l'utiliser seul. Nous allons l'utiliser seul pour le moment et ensuite nous ajouterons de la complexité quand nous installerons Prestashop.
+Le but de ce TP est de découvrir le moteur de template Smarty. S'il est utilisé par Prestashop, il est tout à fait possible de l'utiliser seul. Nous allons l'utiliser seul pour le moment et ensuite nous ajouterons de la complexité quand nous l'utiliserons avec Prestashop.
 
 Pour ce faire, vous allez avoir besoin d'installer avant Smarty, le moteur n'étant pas natif à PHP.
 
@@ -26,25 +26,25 @@ L'un des gros avantages des moteurs de templates, au-delà de nous retrouver ave
 
 ## Variables
 
-Comme tout langage de programmation Smarty propose des variables. Avec Smarty les variables peuvent avoir deux origines :
+Comme tout langage de programmation Smarty permet de définir des variables. Avec Smarty les variables peuvent avoir deux origines :
 
-- Le fichier .tpl lui-même, vous définissez votre variable au sein même du fichier de la façon suivante : `{assign var=formation value='mmi'}`. Ici on définit une variable nommée "formation" avec la valeur "mmi".
+- Le fichier .tpl lui-même, vous définissez votre variable au sein même du fichier de la façon suivante : `{assign var=age value=42}`. Ici on définit une variable nommée "age" avec la valeur "42".
 - Le fichier .php, dans le fichier php qui se charge d'afficher votre fichier .tpl, vous définissez des variables (et leur valeur) qui seront ensuite récupérées et affichées par Smarty. Il y a un exemple dans le fichier "index.php" à la ligne 22.
 
 ```php
 $smarty->assign('ma_variable', 'Bonjour');
 ```
 
-Ici nous définissons en PHP une variable nommée "ma_variable" avec la valeur "Bonjour".
+Ici nous définissons en PHP une variable nommée "ma_variable" avec la valeur "Bonjour". On retrouve les types habituels de variables : chaînes de caractères, nombre, tableaux... 
 
-En tous les cas peu importe d'où provient la variable provient du fichier .tpl ou du php, elle s'affiche en Smarty avec la syntaxe suivante : `{$ma_variable}` ("Bonjour" s'affichera dans le navigateur).
+En tous les cas, peu importe d'où provient la variable provient du fichier .tpl ou du php, elle s'affiche en Smarty avec la syntaxe suivante : `{$ma_variable}` ("Bonjour" s'affichera dans le navigateur).
 > N'oubliez pas le dollar ($) devant le nom d'une variable, sinon ça ne fonctionnera pas.
 
 Dans le cadre de l'utilisation sur Prestashop, nous ne devrions pas avoir besoin de créer des variables (ou des fonctions) Smarty toutefois il reste très important de ne pas oublier comment afficher une variable car ça nous en aurons besoin.
 
 > Comme tout langage de programmation, il n'est pas possible de mettre des espaces dans le nom d'une variable.
 
-Enfin, sachez qu'il est possible d'appliquer une fonction directement sur une variables ou une chaîne de caractères, on appelle ceci un "modifier". Ils peuvent être utiles, par exemple, pour mettre une chaîne de caractères en majuscules ou formatter une date.
+Enfin, sachez qu'il est possible d'appliquer une fonction directement sur une variable ou une chaîne de caractères, on appelle ceci un "modifier". Ils peuvent être utiles, par exemple, pour mettre une chaîne de caractères en majuscules ou formatter une date.
  - [Voir la liste des modifiers de Smarty v4.x - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-modifiers/)
 
 ## Conditions (if, elseif, else)
@@ -104,6 +104,16 @@ Une des grandes forces des moteurs de template est leur système de gabarit. Il 
 
 ### Fonction {extends}
 
+La fonction {extends} permet à n'importe quel fichier Smarty d'hériter d'un autre fichier Smarty. Autrement dit, de définir un comportement unique pour un fichier en se basant sur un autre.
+
+Cette fonction est très utile quand on a un gabarit de base et qu'en fonction des pages nous souhaitons en modifier certaines parties. 
+
+> Nous allons beaucoup utiliser cette fonctionnalité avec Prestashop
+
+Cette fonction doit toujours être au début de voter fichier. De plus, vous devez définir le lien entre le parent et l'enfant. Assurez-vous donc bien de structurer vos dossiers. 
+
+Souvent, nous utilisons ce système d'héritage pour définir un gabarit de base et ses parties communes avec des trous que nous allons remplir grâce à la fonction {block} (voir partie suivante). 
+
 - [Accéder à la documentation de la fonction {extends} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-extends/)
 
 ### Fonction {block}
@@ -137,29 +147,41 @@ Notre template "child.tpl" peut hériter de parent.tpl grâce à la fonction Sma
 </head>
 <!-- [...] -->
 ```
-Remarquez bien qu'en héritant du template "parent.tpl", le template "child.tpl" récupére tout le contenu par la même occasion.
+Remarquez bien qu'en héritant du template "parent.tpl", le template "child.tpl" récupére tout le contenu par la même occasion pour former un seul et unique fichier.
 
-A noter également qu'il est possible d'hériter de plusieurs templates à la fois, cette méthode reste à éviter car elle reste de rendre complexe l'organisation de vos pages à la place, il est plus intéressante de faire des héritages en cascade (un template hérite d'un autre et ainsi de suite). Parallèlement, il est possible d'inclure un bloc dans un autre bloc.
+A noter également qu'il est possible d'hériter de plusieurs templates à la fois, **cette méthode reste à éviter car elle reste de rendre complexe l'organisation de vos pages à la place,** il est plus intéressant de faire des héritages en cascade (un template hérite d'un autre et ainsi de suite). Parallèlement, il est possible d'inclure un bloc dans un autre bloc.
 
+Enfin, lorsqu'un template hérite d'un autre, vu que le tout est fusionné. Tout élément à l'extérieur d'un bloc sera écrasé.
 
 - [Accéder à la documentation de la fonction {block} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-block/)
 
 ### Fonction {include}
-Lorsqu'un fragment de code peut être réutilisé ou que notre template devient trop complexe, il peut être intéressant d'utiliser la fonction `{include}`. La syntaxe est très simple, il vous suffit de mettre son contenu dans un fichier .tpl et ensuite d'en affichier le contenu dans n'importe quel fichier .tpl. Vous en avez un exemple dans le code que vous avez récupéré, il y a fichier "contact.tpl" qui inclut le contenu du fichier "includes/formulaire.tpl". Voici quand même un exemple dans ce fichier d'introduction à Smarty.
-```twig
+Lorsqu'un fragment de code peut être réutilisé ou que notre template devient trop complexe, il peut être intéressant d'utiliser la fonction `{include}`. La syntaxe est très simple, il vous suffit de mettre son contenu dans un fichier .tpl et ensuite d'en afficher le contenu dans n'importe quel fichier .tpl, le contenu d'un `{include}` est donc réutilisable.
+
+Vous en avez un exemple dans le code que vous avez récupéré, il y a fichier "contact.tpl" qui inclut le contenu du fichier "includes/formulaire.tpl". Voici quand même un exemple ci-dessous.
+
+```php
 {# index.tpl #}
 <!-- [...] -->
 <p>Bonjour tout le monde, voici le contenu de mon dernier article</p>
 {include file="article.tpl"}
 <!-- [...] -->
 ```
-```twig
+```php
 {# article.tpl #}
 <!-- [...] -->
 <p>La formation MMI est une formation en trois ans visant à former de futurs experts du multimédia...</p>
 <!-- [...] -->
 ```
-Dans le code ci-dessus, le template "index.tpl" affiche le contenu du template "article.tpl". Enfin, Smarty donne la possibilité de passer des paramètres à la fonction `{include}`, ce qui les templates encore plus réutilisables (voir exemples dans la documentation).
+Dans le code ci-dessus, le template "index.tpl" affiche le contenu du template "article.tpl". Le tout sera compilé de la façon suivante :
+```html
+<!-- [...] -->
+<p>Bonjour tout le monde, voici le contenu de mon dernier article</p>
+<p>La formation MMI est une formation en trois ans visant à former de futurs experts du multimédia...</p>
+<!-- [...] -->
+```
+
+Enfin, Smarty donne la possibilité de passer des paramètres à la fonction `{include}`, ce qui les templates encore plus réutilisables (voir exemples dans la documentation).
 
 - [Accéder à la documentation de la fonction {include} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-include/)
 
