@@ -135,4 +135,7 @@ __MACOSX/
 *.temp.*
 *.tmp.*
 
+**/libs/**
+**/templates_c/**
+
 creation-et-design-interactif-s4/travaux-pratiques/Scripts/*

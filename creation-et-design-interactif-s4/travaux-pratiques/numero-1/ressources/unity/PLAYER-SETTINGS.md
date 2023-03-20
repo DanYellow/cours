@@ -26,5 +26,5 @@ Néanmoins, il vous est donné la possibilité de personnaliser cette séquence.
 Pour voir vos modifications, il n'est pas utile de compiler le jeu. Il vous suffit de cliquer sur le bouton "Preview" et vous verrez le Splash Image dans l'onglet Game.
 ![](printscreens/player-3.jpg)
 
-Il y a d'autres options pour la partie "Splash Image", à vous d'expérimenter pour voir ce qu'elles permettent.
+Il y a d'autres options pour la partie "Splash Image", à vous d'expérimenter pour voir ce qu'elles permettent. Ne vous inquiétez pas, modifier cette partie n'aura aucune incidence sur votre jeu.
 - [En savoir plus sur Splash Image Player settings](https://docs.unity3d.com/Manual/class-PlayerSettingsSplashScreen.html)
