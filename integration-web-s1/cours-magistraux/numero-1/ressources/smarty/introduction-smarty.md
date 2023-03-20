@@ -6,13 +6,13 @@ Pour ce faire, vous allez avoir besoin d'installer avant Smarty, le moteur n'ét
 
 - [Télécharger Smarty v4.x](https://github.com/smarty-php/smarty/archive/refs/tags/v4.3.0.zip)
 
-Une fois l'archive récupérée, vous allez en récupérer le dossier `libs/` et le mettre à la racine du dossier code. Ainsi, vous devriez avoir la structure suivante :
+Une fois l'archive récupérée, vous allez en récupérer le dossier `libs/` et le mettre à la racine du dossier code. Ainsi, vous devriez avoir la structure suivante (capture d'écran non représentative) :
 
 .<br>
 └── code/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── **libs/** <-- Le dossier que vous devez rajouter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── templates/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;├── templates_c/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── ~~templates_c/~~<br>
 &nbsp;&nbsp;&nbsp;&nbsp;└── index.php
 
 Ensuite, vous metterez le dossier code/ (que vous pouvez renommer) dans le dossier www/ de WAMP. Accédez à l'index.php depuis le navigateur et vous devriez voir la chose suivante dans votre navigateur.
@@ -37,15 +37,21 @@ $smarty->assign('ma_variable', 'Bonjour');
 
 Ici nous définissons en PHP une variable nommée "ma_variable" avec la valeur "Bonjour".
 
-En tous les cas que la variable provient du fichier .tpl ou du php, elle s'affiche en Smarty avec la syntaxe suivante : `{$ma_variable}` ("Bonjour" s'affichera dans le navigateur).
+En tous les cas peu importe d'où provient la variable provient du fichier .tpl ou du php, elle s'affiche en Smarty avec la syntaxe suivante : `{$ma_variable}` ("Bonjour" s'affichera dans le navigateur).
+> N'oubliez pas le dollar ($) devant le nom d'une variable, sinon ça ne fonctionnera pas.
 
-Dans le cadre du cours sur Prestashop, nous ne devrions pas avoir besoin de créer des variables (ou des fonctions) Smarty toutefois il reste très important de ne pas oublier comment afficher une variable.
+Dans le cadre de l'utilisation sur Prestashop, nous ne devrions pas avoir besoin de créer des variables (ou des fonctions) Smarty toutefois il reste très important de ne pas oublier comment afficher une variable car ça nous en aurons besoin.
+
+> Comme tout langage de programmation, il n'est pas possible de mettre des espaces dans le nom d'une variable.
+
+Enfin, sachez qu'il est possible d'appliquer une fonction directement sur une variables ou une chaîne de caractères, on appelle ceci un "modifier". Ils peuvent être utiles, par exemple, pour mettre une chaîne de caractères en majuscules ou formatter une date.
+ - [Voir la liste des modifiers de Smarty v4.x - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-modifiers/)
 
 ## Conditions (if, elseif, else)
 
 Smarty nous donne également la possibilité de créer des conditions (chose impossible en HTML) pour afficher des éléments en fonctions de paramètre que vous aurez défini. Par exemple :
 
-```twig
+```php
 {if $formation === 'MMI'}
     <p>Vous devez aimer le multimédia<p>
 {elseif $formation === 'TC'}
@@ -60,19 +66,50 @@ Dans le code ci-dessus, nous évaluons la variable "$formation" et en fonction d
 
 
 ## Boucles
+Structures également disponibles dans d'autres langages de programmation. Smarty permet d'itérer sur des structures comme des tableaux, il existe plusieurs fonctions pour le faire :
+- {foreach}
+- {for}
+- {section}
+
+Nous nous intéresserons qu'à la boucle {foreach} dont la syntaxe est la suivante :
+```php 
+    {foreach $MON_TABLEAU as $ENTREE_TABLEAU}
+        {$ENTREE_TABLEAU}
+    {/foreach}
+```
+Avec un cas plus concret, ceci donnerait la chose suivante :
+```php 
+    {# Fichier php #}
+    <?php
+        $liste_formations = array('mmi', 'mt2e', 'tc', 'ge2i');
+        $smarty->assign('liste_formations', $liste_formations);
+```
+
+```php
+    {# Fichier Smarty #}
+    <ul>
+        {foreach $liste_formations as $formation}
+            <li>{$formation}</li>
+        {/foreach}
+    </ul>
+```
+
+> Il est possible d'effectuer une boucle dans une autre boucle.
+
+- [Accéder à la documentation de la fonction {foreach} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-foreach/)
+
 
 ## Gabarit
 Une des grandes forces des moteurs de template est leur système de gabarit. Il donne la possibilité de réutiliser un élément ou encore de partager une page en plusieurs briques. Smarty ne déroge pas à la règle et nous propose plusieurs fonctions.
 
 ### Fonction {extends}
 
-- [Accéder à la documentation de la fonction {extends}](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-extends/)
+- [Accéder à la documentation de la fonction {extends} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-extends/)
 
 ### Fonction {block}
 Grâce au système d'héritage (une page dans une autre page), il nous est donné la possibilité de définir des trous dans nos templates pour ensuite les remplir avec le contenu de notre choix. Dans le code qui vous a été fourni, il y a deux pages. Ces deux pages héritent d'un même template (_partials/page.tpl) et contiennent le contenu de notre choix. Par exemple :
 
-
-```twig
+```html
 {# parent.tpl #}
 <!-- [...] -->
 <head>
@@ -82,7 +119,9 @@ Grâce au système d'héritage (une page dans une autre page), il nous est donn�
 ```
 Nous définissons un bloc (ou trou) nommé "nom_page" qui pourra être rempli par n'importe quel template qui en héritera.
 
-```twig
+> Avec Smarty les commentaires s'écrivent entre "{# mon commentaire #}". Et contrairement à HTML, les commentaires ne sont pas accessibles à l'extérieur du fichier.
+
+```php
 {# enfant.tpl #}
 {extends file='parent.tpl'}
 <!-- [...] -->
@@ -103,7 +142,7 @@ Remarquez bien qu'en héritant du template "parent.tpl", le template "child.tpl"
 A noter également qu'il est possible d'hériter de plusieurs templates à la fois, cette méthode reste à éviter car elle reste de rendre complexe l'organisation de vos pages à la place, il est plus intéressante de faire des héritages en cascade (un template hérite d'un autre et ainsi de suite). Parallèlement, il est possible d'inclure un bloc dans un autre bloc.
 
 
-- [Accéder à la documentation de la fonction {block}](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-block/)
+- [Accéder à la documentation de la fonction {block} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-block/)
 
 ### Fonction {include}
 Lorsqu'un fragment de code peut être réutilisé ou que notre template devient trop complexe, il peut être intéressant d'utiliser la fonction `{include}`. La syntaxe est très simple, il vous suffit de mettre son contenu dans un fichier .tpl et ensuite d'en affichier le contenu dans n'importe quel fichier .tpl. Vous en avez un exemple dans le code que vous avez récupéré, il y a fichier "contact.tpl" qui inclut le contenu du fichier "includes/formulaire.tpl". Voici quand même un exemple dans ce fichier d'introduction à Smarty.
@@ -120,8 +159,12 @@ Lorsqu'un fragment de code peut être réutilisé ou que notre template devient 
 <p>La formation MMI est une formation en trois ans visant à former de futurs experts du multimédia...</p>
 <!-- [...] -->
 ```
-Dans le code ci-dessus, le template "index.tpl" affiche le contenu du template "article.tpl". Enfin, Smarty donne la possibilité de passer des variables dans un "{include}" ce qui le rend la fonction encore plus réutilisable (voir exemples dans la documentation).
+Dans le code ci-dessus, le template "index.tpl" affiche le contenu du template "article.tpl". Enfin, Smarty donne la possibilité de passer des paramètres à la fonction `{include}`, ce qui les templates encore plus réutilisables (voir exemples dans la documentation).
 
-- [Accéder à la documentation de la fonction {include}](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-include/)
+- [Accéder à la documentation de la fonction {include} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-include/)
 
 > **Les fonctions "include", "extends" ou encore "bloc" vont être beaucoup utilisées dans Prestashop pour la gestion des thèmes enfant, nous vous conseillons d'être très à l'aise avec elles.**
+
+Voilà qui termine, notre très courte introduction à Smarty. Elle couvre le nécessaire pour ensuite l'utiliser avec Prestashop. Smarty ou non, il faudra penser à appliquer les bonnes pratiques vues précemment concernant le HTML ou le CSS.
+
+Avant de commencer avec Prestashop, vous allez devoir prendre la main avec Smarty, vous trouverez dans la ressource un [exercice](exercice.md) que vous allez devoir réaliser grâce au code que vous avez récupéré et normalement mis dans le dossier "www/" de WAMP / MAMP.

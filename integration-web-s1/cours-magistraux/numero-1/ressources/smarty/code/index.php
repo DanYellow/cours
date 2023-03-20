@@ -21,7 +21,7 @@ $tplIndex = array_search($_GET["page"], $listTplNames);
 if($tplIndex !== false) {
     $smarty->assign('ma_variable', "Bonjour");
     $smarty->assign('liste_affaires', ["stylo noir", "crayon de papier", "classeur", "feuilles doubles"]);
-    $smarty->assign('pagename', basename($listTpl[$tplIndex], '.tpl'));
+    $smarty->assign('nom_page', basename($listTpl[$tplIndex], '.tpl'));
     $templateFile = basename($listTpl[$tplIndex]);
 } else {
     $templateFile = 'index.tpl';
