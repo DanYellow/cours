@@ -17,7 +17,11 @@ Vous allez récupérer une archive avec le nom du thème parent préfixé de "cl
 
 > Passer par cette fonctionnalité limitera les erreurs car Prestashop est très pointilleux sur la structure de dossier d'un thème enfant. 
 
-L'importation va créer un dossier dans le dossier themes/ avec le nom du thème parent préfixé de "classic_", dans notre cas, ça sera `child_classic`. Retournez dans l'onglet "Thème et Logo" (menu en haut à gauche) et sélectionnez votre thème. Allez sur le front-office (Voir ma boutique en haut à droite), si tout s'est bien passé la fond du menu d'en-tête devrait passer en rouge.
+L'importation va créer un dossier dans le dossier themes/ avec le nom du thème parent préfixé de "classic_", dans notre cas, ça sera `child_classic`. Retournez dans l'onglet "Thème et Logo" (menu en haut à gauche) et sélectionnez votre thème. 
+
+> Le changement de thème peut prendre plus ou moins de temps.
+
+Allez sur le front-office (Voir ma boutique en haut à droite), si tout s'est bien passé la fond du menu d'en-tête devrait passer en rouge.
 
 Analysons la structure de notre premier thème enfant.
 
@@ -46,7 +50,7 @@ Voici les **clés essentielles** à la création d'un thème enfant ainsi que le
 ```yaml
 parent: Nom du thème parent.
 name: Nom du dossier contenant le thème. Les deux valeurs doivent être identiques.
-display_name: Nom du thème qui sera affichée dans l'interface dans le menu "Thèmes"
+display_name: Nom du thème qui sera affichée dans l'interface dans le menu "Apparence > Thème et logo"
 version: Version de votre thème
 assets:
   use_parent_assets: Indique à Prestashop que le thème enfant chargera les assets (css, img et js) du parent au lieu des siens.

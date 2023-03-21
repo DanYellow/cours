@@ -5,7 +5,7 @@
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
-- AC21.01 | Analyser la stratégie de communication ou marketing d’un acteur, d’une organisation au regard d’un secteur ou d’un marché (stratégie, mission, valeurs...)
+- ~~AC21.01 | Analyser la stratégie de communication ou marketing d’un acteur, d’une organisation au regard d’un secteur ou d’un marché (stratégie, mission, valeurs...)~~
 - ~~AC21.02 | Auditer un site web, une marque ou un service, en termes de trafic et de référencement~~
 - ~~AC21.04 | Identifier et décrire les parcours client à partir d’enquêtes de terrain~~
 - ~~AC21.05 | Cartographier les expériences utilisateur : points de contact, points de friction et de satisfaction, carte d’empathie~~
@@ -18,7 +18,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - ~~AC25.02 | Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)~~
 - ~~AC25.06 | Prendre en compte les contraintes juridiques~~
 
-
+Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce pour le client avec qui vous êtes présentement en collaboration.
 
 # Votre liste à faire
 - [x] Lire les consignes

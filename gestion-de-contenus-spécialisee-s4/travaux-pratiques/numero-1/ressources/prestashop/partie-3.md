@@ -1,4 +1,4 @@
-# Thème enfant - Partie 2
+# Thème enfant - Partie 3
 
 En plus du CSS, il est possible également de changer la structure HTML des pages.
 

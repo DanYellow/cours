@@ -185,7 +185,7 @@ Enfin, Smarty donne la possibilité de passer des paramètres à la fonction `{i
 
 - [Accéder à la documentation de la fonction {include} de Smarty - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-include/)
 
-> **Les fonctions "include", "extends" ou encore "bloc" vont être beaucoup utilisées dans Prestashop pour la gestion des thèmes enfant, nous vous conseillons d'être très à l'aise avec elles.**
+> **Les fonctions "include", "extends" ou encore "block" vont être beaucoup utilisées dans Prestashop pour la gestion des thèmes enfant, nous vous conseillons d'être très à l'aise avec elles.**
 
 Voilà qui termine, notre très courte introduction à Smarty. Elle couvre le nécessaire pour ensuite l'utiliser avec Prestashop. Smarty ou non, il faudra penser à appliquer les bonnes pratiques vues précemment concernant le HTML ou le CSS.
 
