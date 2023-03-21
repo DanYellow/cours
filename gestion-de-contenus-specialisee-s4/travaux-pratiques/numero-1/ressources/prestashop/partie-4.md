@@ -1,4 +1,4 @@
-# Thème enfant - Partie 4
+# Modules
 
 Jusqu'à présent, nous avons vu qu'il était possible de modifier le HTML et le CSS d'une thème grâce au thème enfant ou en modifiant directement le thème (mauvaise idée si ce thème n'a pas été crée par votre personne). Il existe un troisième moyen de personnaliser votre thème, et ce, sans écrire une ligne de code : les modules.
 
