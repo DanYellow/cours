@@ -15,8 +15,9 @@ Le CMS est très didacticiel durant son installation. Il n'est pas forcément ut
 > Une fois l'installation terminée, gardez de côté le lien vers le back-office
 
 Une fois Prestashop installé, parcourez un peu le front-office et le back-office. Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
+> Pour gagner du temps, vous allez utiliser les vrais produits du client, ça sera plus adapté pour la soutenance 
 - Ajouter **des** produits
-    - Prenez en compte les recommendations de tailles concernant les images
+    - Prenez en compte les recommendations de tailles concernant les images. Ajustez avec Photoshop
 - Ajouter une marque
 - Ajouter une catégorie et associez des produits à cette nouvelle catégorie
 - Changez le logo et le favicon de votre site

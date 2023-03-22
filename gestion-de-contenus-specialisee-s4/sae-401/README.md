@@ -22,8 +22,10 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 - Présenter votre site lors d'une soutenance
 - **Fournir le code source du thème**
 - Mettre en ligne votre site
-    - Il ne devra pas être public. Il devra être accessible via un mot de passe
-- Réaliser un guide de déploiement imagé expliquant commenter installer le thème / site et le mettre en ligne
+    - Il ne devra pas être public. Il devra être accessible via un mot de passe. Vous pouvez le protéger avec un fichier .htaccess
+- Réaliser un guide de contenant :
+    - La démarche déploiement imagé expliquant commenter installer le thème / site et le mettre en ligne
+    - L'explication des fonctionnalités
 
 # Votre liste à faire
 - [x] Lire les consignes
