@@ -18,17 +18,17 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - ~~AC25.02 | Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)~~
 - ~~AC25.06 | Prendre en compte les contraintes juridiques~~
 
-Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce avec Prestashop pour le client avec qui vous êtes présentement en collaboration. Le but est d'utiliser la maquette graphique que vous avez réalisé pour lui donner vie grâce à Prestashop. En plus de l'intégration de votre thème, il vous faudra également : 
+Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce avec Prestashop pour le client avec qui vous travaillez présentement. Le but est d'utiliser la maquette graphique que vous avez réalisé pour lui donner vie grâce à Prestashop. En plus de l'intégration de votre thème, il vous faudra également : 
 - Présenter votre site lors d'une soutenance
 - **Fournir le code source du thème**
 - Mettre en ligne votre site
-    - Il ne devra pas être public
+    - Il ne devra pas être public. Il devra être accessible via un mot de passe
 - Réaliser un guide de déploiement imagé expliquant commenter installer le thème / site et le mettre en ligne
 
 # Votre liste à faire
 - [x] Lire les consignes
-- Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
-- Respecter les attentes
-- 
+- [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
+- [ ] Respecter les attentes
+
 
 # FAQ - Foire Aux Questions
