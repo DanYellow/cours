@@ -6,16 +6,15 @@ Pour ce faire, vous allez avoir besoin d'installer avant Smarty, le moteur n'ét
 
 - [Télécharger Smarty v4.x](https://github.com/smarty-php/smarty/archive/refs/tags/v4.3.0.zip)
 
-Une fois l'archive récupérée, vous allez en récupérer le dossier `libs/` et le mettre à la racine du dossier code. Ainsi, vous devriez avoir la structure suivante (capture d'écran non représentative) :
+Une fois l'archive récupérée, vous allez en récupérer le dossier `libs/` et le mettre à la racine du dossier code. Ainsi, vous devriez avoir la structure suivante :
 
 .<br>
 └── code/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── **libs/** <-- Le dossier que vous devez rajouter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── templates/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;├── ~~templates_c/~~<br>
 &nbsp;&nbsp;&nbsp;&nbsp;└── index.php
 
-Ensuite, vous metterez le dossier code/ (que vous pouvez renommer) dans le dossier www/ de WAMP. Accédez à l'index.php depuis le navigateur et vous devriez voir la chose suivante dans votre navigateur.
+Ensuite, vous metterez le dossier code/ (que vous pouvez renommer) dans le dossier www/ de WAMP. Accédez à l'index.php depuis le navigateur et vous devriez voir la chose suivante dans votre navigateur (capture d'écran non représentative).
 ![](capture-1.jpg)
 
 Le projet que vous avez récupéré est déjà prêt à être utilisé avec Smarty, il y a déjà des templates qui utilisent quelques fonctionnalités de Smarty.

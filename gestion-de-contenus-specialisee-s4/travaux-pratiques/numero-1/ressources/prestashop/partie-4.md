@@ -48,6 +48,7 @@ Il existe deux types de hooks :
 > Quand vous créez vos propres modules, il faudra bien également définir leurs hooks
 
 ___
+## Exercice :
 Essayez de changer l'ordre d'affichage des modules de la page d'accueil (hook "displayHome"). Puis essayer de retirer des hooks.
 ___
 

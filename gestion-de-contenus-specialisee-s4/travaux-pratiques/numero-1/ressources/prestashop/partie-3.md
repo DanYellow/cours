@@ -19,6 +19,7 @@ Ce fichier devra commencer par la ligne suivante : `{extends file='parent:catalo
 La suite est semblable à ce que nous avons vu précédemment lors de notre découverte de Smarty, il faudra repérer les blocs qui vous intéressent et les remplir dans votre thème enfant. Une fois la modification effectuée, sauvegardez et actualisez.
 
 ___
+## Exercice :
 Essayez de modifier une page dans votre thème enfant. Pour retrouver le fichier du template original, il vous faudra utiliser l'inspecteur du navigateur, trouver le bon sélecteur CSS (prévilégiez un id) et cherchez-le dans le dossier du thème.
 
 **Pensez bien à respecter la même structure de fichiers dans votre thème enfant sinon vous ne verrez jamais vos modifications.**
