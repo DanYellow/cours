@@ -34,10 +34,12 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
 
 # FAQ - Foire Aux Questions
-- Je n'ai pas de serveur pour mettre mon site en ligne. Existe-t-il un hébergeur gratuit ?
-Il existe l'hébergeur ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
-- J'ai commencé mon site en local et je souhaiterais le mettre en ligne. Que dois-je faire ?
-Il faudra tout d'abord changer la configuration de la base de données. Car il est très fort probable que votre couple utilisateur/mot de passe ne soit pas le même une fois en ligne. Il faudra modifier les clés suivantes (à adapter en fonction de votre hébergeur) dans le fichier `app/config/parameters.php` :
+- **Je n'ai pas de serveur pour mettre mon site en ligne. Existe-t-il un hébergeur gratuit ?**
+    
+    Il existe l'hébergeur ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
+- **J'ai commencé mon site en local et je souhaiterais le mettre en ligne. Que dois-je faire ?**
+
+    Commencez par changer la configuration de la base de données. Il est très fort probable que votre couple utilisateur/mot de passe ne soit pas le même une fois en ligne. Il faudra modifier les clés suivantes (à adapter en fonction de votre hébergeur) dans le fichier `app/config/parameters.php` :
     - database_host
     - database_port
     - database_name
@@ -48,4 +50,22 @@ Il faudra tout d'abord changer la configuration de la base de données. Car il e
     - use_debug_toolbar: true => false
     - ps_cache_enable: false => true
 
+    Appliquez les bonnes valeurs pour la configuration du serveur e-mails (clés "mailer_host", "mailer_user" et "mailer_password").
+
+    Et pour terminer uploadez vos fichiers sur votre serveur, à l'exception du contenu du dossier `var/` (Il faut quand même le dossier mais pas son contenu).
+- **Mon site est en ligne, il y a des paramètres / options à configurer ?**
+
+    Oui. Il faudra activer les caches de Prestashop. Dans le back-office, allez dans le menu `Paramètres avancés > Performances`, activez le cache de Smarty (haut de page) et celui général (bas de page). 
+
+    Vous devrez changer les URL du site. Toujours dans le back-office, `Paramètres de la boutique > Trafic et SEO`. Activez l'option "URL simplifiée". Restez dans le même menu, un peu plus bas, il y a la section "URL de la boutique", remplissez les bonnes valeurs pour les trois champs proposés.
+
+- **Je ne vois pas ma boutique**
+
+    Avez-vous désactivé le mode maintenance ? (`back-office > Mode maintenance (en haut à droite) > Activer boutique`)
+
+- **Existe-il un moyen plus rapide d'uploader mon site ?**
+
+    Si vous trouvez que ça prend trop de temps d'uploader votre site, il est possible d'installer directement Prestashop sur votre serveur (comme nous avons fait en cours). Il faudra penser à exporter votre catalogue pour le réimporter sur votre back-office sur votre site. 
+    
+    Attention : Pensez à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas les images. Les images se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
 
