@@ -34,3 +34,18 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
 
 # FAQ - Foire Aux Questions
+- Je n'ai pas de serveur pour mettre mon site en ligne. Existe-t-il un hébergeur gratuit ?
+Il existe l'hébergeur ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
+- J'ai commencé mon site en local et je souhaiterais le mettre en ligne. Que dois-je faire ?
+Il faudra tout d'abord changer la configuration de la base de données. Car il est très fort probable que votre couple utilisateur/mot de passe ne soit pas le même une fois en ligne. Il faudra modifier les clés suivantes (à adapter en fonction de votre hébergeur) dans le fichier `app/config/parameters.php` :
+    - database_host
+    - database_port
+    - database_name
+    - database_user
+    - database_password
+
+    Il vous faudra également exporter votre base de données depuis phpmyadmin pour l'importer sur votre hébergeur ([voir comment exporter une base de données dans phpmyadmin](https://help.nindohost.com/fr/article/comment-importerexporter-une-base-de-donnees-mysql-via-phpmyadmin-17vf0vm/)). Ensuite, toujours dans le fichier `app/config/parameters.php`, opérez les changements suivants :
+    - use_debug_toolbar: true => false
+    - ps_cache_enable: false => true
+
+

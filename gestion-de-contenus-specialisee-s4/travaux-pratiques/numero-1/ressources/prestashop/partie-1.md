@@ -10,12 +10,12 @@ Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu d
 
 > En attendant l'installation / téléchargement, vous pouvez tester la version de démo sur le site de Prestashop. [Accéder à la démo.](https://demo.prestashop.com/#/en/front)
 
-Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes. Ayez sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin.
+Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes dans ce document. Ayez juste sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin (par défaut utilisateur: root et pas de mot de passe sur WAMP/MAMP).
 
-> Une fois l'installation terminée, gardez de côté le lien vers le back-office
+> Gardez de côté le lien vers le back-office, une fois l'installation terminée
 
 Une fois Prestashop installé, parcourez un peu le front-office et le back-office. Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
-> Pour gagner du temps, vous allez utiliser les vrais produits du client, ça sera plus adapté pour la soutenance 
+> Pour gagner du temps, vous allez utiliser les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont contenues dans le dossier catalogue/ de ce dossier.
 - Ajouter **des** produits
 - Ajouter une marque
 - Ajouter une catégorie et associez des produits à cette nouvelle catégorie
