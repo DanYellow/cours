@@ -49,13 +49,14 @@ Tous les thèmes Prestashop possèdent un fichier theme.yml, il permet de décri
 
 Voici les **clés essentielles** à la création d'un thème enfant ainsi que leur rôle
 ```yaml
-parent: Nom du thème parent.
+parent: Nom du thème parent. Le nom du dossier du thème parent.
 name: Nom du dossier contenant le thème. Les deux valeurs doivent être identiques.
 display_name: Nom du thème qui sera affichée dans l'interface dans le menu "Apparence > Thème et logo"
 version: Version de votre thème
 assets:
   use_parent_assets: Indique à Prestashop que le thème enfant chargera les assets (css, img et js) du parent au lieu des siens.
 ```
+> Si vous avez utilisé le back-office pour générer votre thème, il est pas utile de changer les valeurs du fichier `config/theme.yml`.
 
 Il est possible de rajouter d'autres clés comme "author" pour indiquer l'auteur de ce thème enfant. Ou encore "css" et "js" pour ajouter d'autres fichiers de ce format. Par exemple :
 ```yaml

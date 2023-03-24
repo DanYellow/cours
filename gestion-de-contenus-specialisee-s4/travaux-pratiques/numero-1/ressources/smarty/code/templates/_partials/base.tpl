@@ -12,14 +12,14 @@
 </head>
 
 <body>
-        <header>
-            <nav>
-                <ul class="menu">
-                    <li class="crumb"><a class="lien" href="?page=index">Accueil</a></li>
-                    <li class="crumb"><a class="lien" href="?page=contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="crumb"><a class="lien" href="?page=index">Accueil</a></li>
+                <li class="crumb"><a class="lien" href="?page=contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <p>Ceci s'affiche sur toutes les pages</p>
         <hr>

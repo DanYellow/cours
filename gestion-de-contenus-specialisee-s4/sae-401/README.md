@@ -21,7 +21,8 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce avec Prestashop pour le client avec qui vous travaillez présentement. Le but est d'utiliser la maquette graphique que vous avez réalisé pour lui donner vie grâce à Prestashop. En plus de l'intégration de votre thème, il vous faudra également : 
 - Présenter votre site lors d'une soutenance
 - **Fournir le code source du thème**
-- Mettre en ligne votre site
+    - Uniquement le dossier de votre thème enfant
+- Mettre en ligne votre site et fournir l'URL de votre site
     - Il ne devra pas être public. Il devra être accessible via un mot de passe. Vous pouvez le protéger avec un fichier .htaccess
 - Réaliser un guide de contenant :
     - La démarche déploiement imagé expliquant commenter installer le thème / site et le mettre en ligne
@@ -57,7 +58,11 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
     Oui. Il faudra activer les caches de Prestashop. Dans le back-office, allez dans le menu `Paramètres avancés > Performances`, activez le cache de Smarty (haut de page) et celui général (bas de page). 
 
-    Vous devrez changer les URL du site. Toujours dans le back-office, `Paramètres de la boutique > Trafic et SEO`. Activez l'option "URL simplifiée". Restez dans le même menu, un peu plus bas, il y a la section "URL de la boutique", remplissez les bonnes valeurs pour les trois champs proposés.
+    Vous devrez changer les URL du site. Toujours dans le back-office, `Paramètres de la boutique > Trafic et SEO`. Activez l'option "URL simplifiée". Restez dans le même menu, un peu plus bas, il y a la section "URL de la boutique", remplissez les bonnes valeurs pour les trois champs proposés. Si vous ne pouvez pas changer les urls dans la section "URL de la boutique", il est possible d'effectuer ces modifications directement dans la base de données, c'est dans la table `VOTRE_PREFIX_shop_url`.
+
+    **Enfin, il faudra ajouter la gestion du SSL, ceci est indispensable si votre site permet l'achat en ligne. Sinon, vous exposez à une faille de sécurité grave et à une violation de la loi.** Allez dans `Paramètres de la boutique > Paramètres généraux > Activer le SSL`.
+
+    > Dépendamment de votre hébergeur, il est possible que le SSL ne soit pas forcément disponible. Nous n'allons pas forcément tenir compte de ce point, mais si vous devez mettre un site marchand en ligne pour utilisation commerciale, il faut absolument avoir le SSL d'activé.
 
 - **Je ne vois pas ma boutique**
 
@@ -65,7 +70,7 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
 - **Existe-il un moyen plus rapide d'uploader mon site ?**
 
-    Si vous trouvez que ça prend trop de temps d'uploader votre site, il est possible d'installer directement Prestashop sur votre serveur (comme nous avons fait en cours). Il faudra penser à exporter votre catalogue pour le réimporter sur votre back-office sur votre site. 
+    Si vous trouvez que ça prend trop de temps d'uploader votre site local, il est possible d'installer directement Prestashop sur votre serveur (comme nous avons fait en cours). Il faudra penser à exporter votre catalogue pour le réimporter sur votre back-office sur votre site. 
     
-    Attention : Pensez à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas les images. Les images se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
+    Attention : Pensez aussi à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas les images associées. Elles se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
 

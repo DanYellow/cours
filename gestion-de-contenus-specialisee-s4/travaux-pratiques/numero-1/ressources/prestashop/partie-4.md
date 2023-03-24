@@ -32,10 +32,10 @@ En plus d'ajouter ou retirer des modules, il est également possible d'en change
 
 Prestashop orchestre ses modules autour de hooks ("crochet" en anglais), autrement dit des emplacements où peuvent se greffer ou non vos modules. Et au sein de ces hooks vous pouvez changer l'ordre d'un module. Exemple : 
 | ![](capture-2.jpg) |
-|---|
-| Le hook "displayHome" représente le contenu principal de la page d'accueil |
+|:---:|
+| _Le hook "displayHome" représente le contenu principal de la page d'accueil_ |
 
-Ainsi en réordonnant les éléments de ce hook (glisser-déposer), vous changerez l'apparence de la page d'accueil.
+Ainsi en réordonnant les éléments de ce hook (glisser-déposer), vous changerez l'apparence de la page d'accueil. Et ce, sans avoir écrit une seule ligne de code.
 
 > En cliquant sur les trois-points à droite d'un module, vous pouvez "dégreffer" un module. Cette option permet de retirer un module pour un hook précis. Contrairement à "désactiver" et "désinstaller" qui se propagent sur tout le site.
 
@@ -45,7 +45,9 @@ Il existe deux types de hooks :
 
 > [En savoir plus sur les hooks - anglais](https://devdocs.prestashop-project.org/8/modules/concepts/hooks/)
 
-> Quand vous créez vos propres modules, il faudra bien également définir leurs hooks
+Quand vous créez vos propres modules, il faudra bien également définir leurs hooks. Sinon vous ne pourrez jamais les afficher.
+
+> Vous ne pouvez pas afficher plusieurs fois le même module dans le même hook.
 
 ___
 ## Exercice :

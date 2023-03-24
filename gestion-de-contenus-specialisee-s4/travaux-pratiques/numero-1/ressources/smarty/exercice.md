@@ -28,3 +28,5 @@ Réalisez les tâches suivantes grâce à Smarty.
 - Créez une nouvelle variable et affichez-la sur une des pages
     - Vous pouvez créer votre variable directement dans un de vos fichiers template ou le fichier `index.php`
     - [Accéder à la documentation des variables - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-variables/)
+- Indiquez la page sur laquelle l'utilisateur est présent dans la navigation
+    - Il faudra utiliser des variables et des conditions

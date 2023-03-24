@@ -3,7 +3,7 @@
 // Importation de la bibliothèque
 require_once './libs/Smarty.class.php';
 
-// Instanciation d'un l'objet Smarty
+// Instanciation del'objet Smarty
 $smarty = new Smarty();
 $smarty->setTemplateDir('./templates');
 // $smarty->testInstall();
@@ -16,12 +16,13 @@ function getTplName($path)
 }
 
 $listTplNames = array_map('getTplName', $listTpl);
-$tplIndex = array_search($_GET["page"], $listTplNames);
+$tplIndex = array_search(isset($_GET["page"]) ? $_GET["page"] : "" , $listTplNames);
 
 if($tplIndex !== false) {
     $smarty->assign('ma_variable', "Bonjour");
     $smarty->assign('liste_affaires', ["stylo noir", "crayon de papier", "classeur", "feuilles doubles"]);
     $smarty->assign('nom_page', basename($listTpl[$tplIndex], '.tpl'));
+
     $templateFile = basename($listTpl[$tplIndex]);
 } else {
     $templateFile = 'index.tpl';

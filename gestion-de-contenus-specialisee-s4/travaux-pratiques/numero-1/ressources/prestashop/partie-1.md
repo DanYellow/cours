@@ -6,9 +6,11 @@ Créez votre compte sur le site, téléchargez et installez Prestashop. Vous pou
 - [Télécharger Prestashop](https://www.prestashop.com/fr/telecharger)
     - Choississez freelance
 
-Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu dans votre dossier de travail dans le dossier www/ de WAMP/MAMP ou votre serveur distant. 
+Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu dans votre dossier de travail dans le dossier www/ de WAMP/MAMP ou votre serveur distant. Et accéder au chemin depuis votre navigateur. Par exemple, si vous avez mis le contenu de l'archive dans le dossier `www/mon-prestashop`, dans votre navigateur vous mettrez "localhost/mon-prestashop" (ou assimilé).
 
 > En attendant l'installation / téléchargement, vous pouvez tester la version de démo sur le site de Prestashop. [Accéder à la démo.](https://demo.prestashop.com/#/en/front)
+
+> Il se peut que durant l'instation Prestashop lève des erreurs concernant l'absence de certaines extensions. Il faudra les activer depuis le menu de WAMP/MAMP.
 
 Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes dans ce document. Ayez juste sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin (par défaut utilisateur: root et pas de mot de passe sur WAMP/MAMP).
 
