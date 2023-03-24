@@ -4,7 +4,7 @@ Jusqu'à présent, nous avons vu qu'il était possible de modifier le HTML et le
 
 Équivalents des plugins sous Wordpress, les modules permettent d'étendre les fonctionnalités de votre site Prestashop pour qu'il puisse être le plus proche de vos besoins et ceux de votre client.
 
-Les modules sont disponibles sur le marketplace de Prestashop (back-office > Modules > Marketplace). Ils sont partagés en deux catégories :
+Les modules sont disponibles sur le marketplace de Prestashop (back-office > Modules > Marketplace) ou sur un site dédié ([accéder au Marketplace](https://addons.prestashop.com/fr/)). Ils sont partagés en deux catégories :
 - front-office : Modifient la partie front-office de votre site, ce que le cleint final voit
 - back-office : Modifient uniquement l'administration du site
 
@@ -12,19 +12,21 @@ Les modules sont disponibles sur le marketplace de Prestashop (back-office > Mod
 
 > Tout comme les thèmes un module peut être payant. Certains sont mêmes avec abonnement.
 
+Pour installer un module, il vous suffit de cliquer sur le bouton "Installer un module" et glisser-déposer l'archive de votre module. Dépendemment de la configuration de votre serveur, il est possible qu'un message d'erreur s'affiche expliquant que l'archive est trop lourde. Il vous faudra changer la valeur de "upload_max_filesize" dans le fichier "php.ini" de votre version de php.
+
 Pour voir les modules qui sont présents sur votre site, il vous suffit d'aller dans le menu dédié (back-office > Modules > Gestionnaire de modules). Vous les trouverez classés par catégorie. Les modules propres à votre thème sont dans la catégorie "Theme modules", vous pouvez également les chercher grâce à la barre de recherche.
 
 > Comme les thèmes, vous pouvez bien créer vos propres modules, ceci nécessite de développer en PHP
 
 Essayons de retirer le carrousel du thème. 
-- Recherchez "carrousel" dans la barre de recherche
-- Cliquez sur la flèche associée pour faire apparaître un sous-menu
-- Sélectionnez "Désactiver"
-- Validez votre choix
-- Patientez
-- Retournez sur votre site, le "carrousel" devrait ne plus être présent
+1. Recherchez "carrousel" dans la barre de recherche
+1. Cliquez sur la flèche associée pour faire apparaître un sous-menu
+1. Sélectionnez "Désactiver"
+1. Validez votre choix
+1. Patientez
+1. Retournez sur votre site, le "carrousel" devrait ne plus être présent
 
-Chaque module peut être configuré (en fonction), désactivé ou encore désinstallé. La différence entre "désactiver" et "désinstaller" est qu'en cas de changement de thème un module "désactivé" risque de revenir. Désinstallez un module si et seulement si vous être sûr(e) que nous n'en aurez plus besoin.
+Chaque module peut être configuré (en fonction), désactivé ou encore désinstallé. La différence entre "désactiver" et "désinstaller" est qu'en cas de changement de thème un module "désactivé" risque de revenir. Désinstallez un module si et seulement si vous êtes sûr(e) que nous n'en aurez plus besoin.
 
 ## Positionnement
 
@@ -51,7 +53,10 @@ Quand vous créez vos propres modules, il faudra bien également définir leurs 
 
 ___
 ## Exercice :
-Essayez de changer l'ordre d'affichage des modules de la page d'accueil (hook "displayHome"). Puis essayer de retirer des hooks.
+- Essayez de changer l'ordre d'affichage des modules de la page d'accueil (hook "displayHome"). Puis essayer de retirer des hooks.
+
+- Ajoutez le module Stripe. Stripe est une solution de paiement. Vous n'aurez pas besoin d'utiliser une vraie carte de paiement. Stripe nous permet d'utiliser de fausses cartes, vous pourrez trouver les informations ici : [https://stripe.com/docs/testing#cards](https://stripe.com/docs/testing#cards)
+    - [Télécharger le module Stripe - Assurez-vous de prendre la version pour Prestashop 8](https://addons.prestashop.com/fr/paiement-carte-wallet/24922-stripe-official-pret-pour-la-sca.html)
 ___
 
 Si vous souhaitez rajouter un hook, il y a le bouton "greffer un module" en haut à droite. Dans le formulaire, il vous faudra indiquer le module, le hook où il devra se greffer et ensuite sauvegarder.

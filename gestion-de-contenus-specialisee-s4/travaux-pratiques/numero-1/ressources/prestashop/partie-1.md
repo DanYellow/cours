@@ -2,7 +2,7 @@
 
 Dans cette première partie, vous allez installer Prestashop et vous familiariser avec ce CMS très complet.
 
-Créez votre compte sur le site, téléchargez et installez Prestashop. Vous pouvez le faire sur un serveur local (WAMP / MAMP) ou sur un serveur, c'est à votre convenance. Toutefois, si vous n'êtes pas sûr(e) de pouvoir créer de nouvelles tables sur votre serveur distance ou n'avez pas de place, utilisez le serveur local.
+Créez votre compte sur le site, téléchargez et installez Prestashop. Vous pouvez mettre en place l'outil sur un serveur local (WAMP / MAMP) ou sur un serveur distan,t, c'est à votre convenance. Toutefois, si vous n'êtes pas sûr(e) de pouvoir créer de nouvelles tables sur votre serveur distance ou n'avez pas de place (Prestashop est lourd), utilisez le serveur local.
 - [Télécharger Prestashop](https://www.prestashop.com/fr/telecharger)
     - Choississez freelance
 
@@ -17,7 +17,7 @@ Le CMS est très didacticiel durant son installation. Il n'est pas forcément ut
 > Gardez de côté le lien vers le back-office, une fois l'installation terminée
 
 Une fois Prestashop installé, parcourez un peu le front-office et le back-office. Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
-> Pour gagner du temps, vous allez utiliser les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont contenues dans le dossier catalogue/ de ce dossier.
+> Pour gagner du temps, utilisez les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont téléchargeables sur l'ENT.
 - Ajouter **des** produits
 - Ajouter une marque
 - Ajouter une catégorie et associez des produits à cette nouvelle catégorie

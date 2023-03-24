@@ -73,4 +73,3 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
     Si vous trouvez que ça prend trop de temps d'uploader votre site local, il est possible d'installer directement Prestashop sur votre serveur (comme nous avons fait en cours). Il faudra penser à exporter votre catalogue pour le réimporter sur votre back-office sur votre site. 
     
     Attention : Pensez aussi à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas les images associées. Elles se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
-
