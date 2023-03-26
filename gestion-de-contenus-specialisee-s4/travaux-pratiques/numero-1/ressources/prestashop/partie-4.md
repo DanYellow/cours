@@ -53,10 +53,14 @@ Quand vous créez vos propres modules, il faudra bien également définir leurs 
 
 ___
 ## Exercice :
-- Essayez de changer l'ordre d'affichage des modules de la page d'accueil (hook "displayHome"). Puis essayer de retirer des hooks.
-
+- Essayez de changer l'ordre d'affichage des modules de la page d'accueil (hook "displayHome"). Consultez les modifications dans le front-office
+- Essayez de retirer des hooks. Consultez les modifications dans le front-office
 - Ajoutez le module Stripe. Stripe est une solution de paiement. Vous n'aurez pas besoin d'utiliser une vraie carte de paiement. Stripe nous permet d'utiliser de fausses cartes, vous pourrez trouver les informations ici : [https://stripe.com/docs/testing#cards](https://stripe.com/docs/testing#cards)
     - [Télécharger le module Stripe - Assurez-vous de prendre la version pour Prestashop 8](https://addons.prestashop.com/fr/paiement-carte-wallet/24922-stripe-official-pret-pour-la-sca.html)
+    
+    Pour que vous puissiez simuler le paiement, vous aurez besoin d'utiliser des clés d'authentification. Elles sont dans un fichier sur l'ENT.
+
+> Nous avons fait le choix d'effectuer le paiement avec Stripe. Toutefois, il existe d'autres alternatives comme [Mollie](https://www.mollie.com/fr) ou encore [Stancer](https://www.stancer.com/fr/). D'ailleurs Stancer propose, sous réserve d'avoir un nom de domaine, un hébergement de site Prestashop.
 ___
 
 Si vous souhaitez rajouter un hook, il y a le bouton "greffer un module" en haut à droite. Dans le formulaire, il vous faudra indiquer le module, le hook où il devra se greffer et ensuite sauvegarder.
