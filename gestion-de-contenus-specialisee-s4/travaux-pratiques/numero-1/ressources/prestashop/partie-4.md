@@ -12,19 +12,19 @@ Les modules sont disponibles sur le marketplace de Prestashop (back-office > Mod
 
 > Tout comme les thèmes un module peut être payant. Certains sont mêmes avec abonnement.
 
-Pour installer un module, il vous suffit de cliquer sur le bouton "Installer un module" et glisser-déposer l'archive de votre module. Dépendemment de la configuration de votre serveur, il est possible qu'un message d'erreur s'affiche expliquant que l'archive est trop lourde. Il vous faudra changer la valeur de "upload_max_filesize" dans le fichier "php.ini" de votre version de php.
+Pour installer un module, cliquez sur le bouton "Installer un module" et glisser-déposer l'archive de votre module. Dépendemment de la configuration de votre serveur, il est possible qu'un message d'erreur s'affiche expliquant que l'archive est trop lourde. Il vous faudra changer la valeur de "upload_max_filesize" dans le fichier "php.ini" de votre version de php et mettre une valeur plus grande.
 
-Pour voir les modules qui sont présents sur votre site, il vous suffit d'aller dans le menu dédié (back-office > Modules > Gestionnaire de modules). Vous les trouverez classés par catégorie. Les modules propres à votre thème sont dans la catégorie "Theme modules", vous pouvez également les chercher grâce à la barre de recherche.
+Pour voir les modules qui sont présents sur votre site, allez dans le menu dédié (back-office > Modules > Gestionnaire de modules). Vous les trouverez classés par catégorie. Les modules propres à votre thème sont dans la catégorie "Theme modules", vous pouvez également les chercher grâce à la barre de recherche.
 
 > Comme les thèmes, vous pouvez bien créer vos propres modules, ceci nécessite de développer en PHP
 
 Essayons de retirer le carrousel du thème. 
 1. Recherchez "carrousel" dans la barre de recherche
-1. Cliquez sur la flèche associée pour faire apparaître un sous-menu
-1. Sélectionnez "Désactiver"
-1. Validez votre choix
-1. Patientez
-1. Retournez sur votre site, le "carrousel" devrait ne plus être présent
+2. Cliquez sur la flèche associée pour faire apparaître un sous-menu
+3. Sélectionnez "Désactiver"
+4. Validez votre choix
+5. Patientez
+6. Retournez sur votre site, le "carrousel" devrait ne plus être présent
 
 Chaque module peut être configuré (en fonction), désactivé ou encore désinstallé. La différence entre "désactiver" et "désinstaller" est qu'en cas de changement de thème un module "désactivé" risque de revenir. Désinstallez un module si et seulement si vous êtes sûr(e) que nous n'en aurez plus besoin.
 

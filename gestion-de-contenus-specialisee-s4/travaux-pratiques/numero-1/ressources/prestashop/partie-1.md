@@ -12,8 +12,17 @@ Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu d
 
 > Il se peut que durant l'instation Prestashop lève des erreurs concernant l'absence de certaines extensions. Il faudra les activer depuis le menu de WAMP/MAMP.
 
-Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes dans ce document. Ayez juste sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin (par défaut utilisateur: root et pas de mot de passe sur WAMP/MAMP).
+Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes dans ce document. Ayez juste sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin.
 
+___
+### Précautions lors de l'installation :
+Pour vous éviter des problèmes lors de l'installation. Prenez en compte les points suivants :
+- Evitez de lancer l'installation depuis un sous-dossier. Créez votre dossier de travail dans le dossier `www/` ou `htdocs/` et mettez dans ce dossier le contenu de l'archive que vous avez dézippée 
+- Evitez les noms de dossier exotiques : présence d'accents ou de caractères spéciaux
+
+___
+
+> **Note :**
 > Si jamais vous avez l'erreur "SQL error on query Index column size too large. The maximum column size is 767 bytes." durant l'installation. Il vous faudra faire une petite modification dans la configuration du serveur MySQL via le menu de WAMP (MySQL > Configuration MySQL > innodb-default-row-format > dynamic)
 > ![](capture-3.jpg)
 
