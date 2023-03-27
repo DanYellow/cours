@@ -14,10 +14,14 @@ Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu d
 
 Le CMS est très didacticiel durant son installation. Il n'est pas forcément utile d'expliquer toutes les étapes dans ce document. Ayez juste sous la main le nom et le mot de passe de votre base de données, vous en aurez besoin (par défaut utilisateur: root et pas de mot de passe sur WAMP/MAMP).
 
-> Gardez de côté le lien vers le back-office, une fois l'installation terminée
+> Si jamais vous avez l'erreur "SQL error on query Index column size too large. The maximum column size is 767 bytes." durant l'installation. Il vous faudra faire une petite modification dans la configuration du serveur MySQL via le menu de WAMP (MySQL > Configuration MySQL > innodb-default-row-format > dynamic)
+> ![](capture-3.jpg)
 
-Une fois Prestashop installé, parcourez un peu le front-office et le back-office. Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
-> Pour gagner du temps, utilisez les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont téléchargeables sur l'ENT.
+Une fois Prestashop installé, parcourez un peu le front-office et le back-office. 
+> Par défaut, Prestashop met le front-office en mode maintenance, pour retirer ce mode, il faudra aller dans le menu "mode maintenance" (en haut à droite). Cliquez sur le bouton "Ajouter mon IP" et "Enregistrez". Le front-office ("Voir ma boutique") sera accessible.
+
+Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
+> Pour gagner du temps, utilisez les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont téléchargeables sur l'ENT (textes et images).
 - Ajouter **des** produits
 - Ajouter une marque
 - Ajouter une catégorie et associez des produits à cette nouvelle catégorie
