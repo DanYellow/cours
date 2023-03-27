@@ -38,7 +38,7 @@ $smarty->assign('ma_variable', 'Bonjour');
 Ici nous définissons en PHP une variable nommée "ma_variable" avec la valeur "Bonjour". On retrouve les types habituels de variables : chaînes de caractères, nombre, tableaux... 
 
 En tous les cas, peu importe d'où provient la variable (fichier .tpl ou du .php), elle s'affiche en Smarty avec la syntaxe suivante : `{$ma_variable}` ("Bonjour" s'affichera dans le navigateur).
-> N'oubliez pas le dollar ($) devant le nom d'une variable, sinon ça ne fonctionnera pas.
+> **N'oubliez pas le dollar ($) devant le nom d'une variable, sinon ça ne fonctionnera pas.**
 
 Dans le cadre de l'utilisation sur Prestashop, nous ne devrions pas avoir besoin de créer des variables (ou des fonctions) Smarty toutefois il reste très important de ne pas oublier comment afficher une variable car ça nous en aurons besoin.
 

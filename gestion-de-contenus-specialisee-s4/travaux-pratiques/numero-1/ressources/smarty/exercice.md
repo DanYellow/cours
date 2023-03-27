@@ -11,12 +11,12 @@ Réalisez les tâches suivantes grâce à Smarty.
 > Sauf indication contraire, la référence à une page fait référence aux pages à la racine du dossier templates/ (contact.tpl et index.tpl)
 
 - Ajoutez un nouveau bloc dans le fichier `_partials/base.tpl` et utilisez-le sur une des pages
-- Affichez le contenu de la variable `nom_page` (déjà injectée dans le template) sur une page au choix
-- Dans le fichier `_partials/base.tpl` affichez un message en fonction de la valeur de la variable `nom_page`
+- Affichez le contenu de la variable `titre_page` (déjà injectée dans le template) sur une page au choix
+- Dans le fichier `_partials/base.tpl` affichez un message en fonction de la valeur de la variable `titre_page`
 - Sur une des pages au choix et à l'aide d'une boucle affichez le contenu de la variable `liste_affaires` (déjà injectée dans le template)
     - [Accéder à la documentation de la boucle foreach - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-builtin-functions/language-function-foreach/)
 - Créez un nouveau bloc dans le fichier `_partials/base.tpl` et chargez un fichier CSS différent en fonction de la page
-    - Le CSS est chargé depuis le fichier php qui le charge. Il ne faut pas prendre en compte la nomenclature de fichiers du dossier template (voir `_partials/base.tpl` pour exemple)
+    - Même si votre fichier smarty est dans un sous-dossier, le chemin doit être fait entre le fichier PHP et le fichier CSS. Il ne faut pas prendre en compte la nomenclature de fichiers du dossier template (voir `_partials/base.tpl` pour exemple)
 - Créez une nouvelle page (racine du dossier `templates/`) et faites-la hériter du template de base (`_partials/base.tpl`)
 - Ajoutez un lien vers votre nouvelle page dans le menu principal
     - Le menu se trouve dans le fichier `_partials/base.tpl`
