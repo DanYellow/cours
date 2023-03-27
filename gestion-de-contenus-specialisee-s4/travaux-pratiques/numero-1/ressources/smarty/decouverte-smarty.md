@@ -19,7 +19,7 @@ Ensuite, vous metterez le dossier code/ (que vous pouvez renommer) dans le dossi
 
 Le projet que vous avez récupéré est déjà prêt à être utilisé avec Smarty, il y a déjà des templates qui utilisent quelques fonctionnalités de Smarty.
 
-L'un des gros avantages des moteurs de templates, au-delà de nous retrouver avec du code PHP dans du HTML, c'est qu'ils permettent la réutilisation de bout de code, très facilement. Et de séparer nos pages en petits morceaux, ce qui rend le travail à plusieurs encore plus simple. Nous allons en détailler plus bas certaines fonctionnalités que vous allez appliquer dans le TP et plus tard avec Prestashop. Si vous souhaitez en savoir plus, il y a la documentation :
+L'un des gros avantages des moteurs de templates, au-delà de ne plus nous retrouver avec du code PHP dans du HTML, c'est qu'ils permettent la réutilisation de bouts de code, très facilement. Et de séparer nos pages en petits morceaux, ce qui rend le travail à plusieurs encore plus simple. Nous allons en détailler plus bas certaines fonctionnalités que vous allez appliquer dans le TP et plus tard avec Prestashop. Si vous souhaitez en savoir plus, il y a la documentation :
 
 - [Accéder à la documentation de Smarty v4.x - anglais](https://smarty-php.github.io/smarty/4.x/designers/language-basic-syntax/)
 
