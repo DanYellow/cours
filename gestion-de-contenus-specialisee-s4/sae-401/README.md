@@ -24,45 +24,19 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
     - Uniquement le dossier de votre thème enfant
 - Mettre en ligne votre site et fournir l'URL de votre site
     - Il ne devra pas être public. Il devra être accessible via un mot de passe. Vous pouvez le protéger avec un fichier .htaccess
-- Réaliser un guide de contenant :
+- Réaliser un guide au format pdf de contenant :
     - La démarche déploiement imagé expliquant commenter installer le thème / site et le mettre en ligne
     - L'explication des fonctionnalités
 
 # Votre liste à faire
 - [x] Lire les consignes
-- [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - [ ] Respecter les attentes
 
 
 # FAQ - Foire Aux Questions
 - **Je n'ai pas de serveur pour mettre mon site en ligne. Existe-t-il un hébergeur gratuit ?**
-    
+
     Il existe l'hébergeur ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
-- **J'ai commencé mon site en local et je souhaiterais le mettre en ligne. Que dois-je faire ?**
-
-    Commencez par changer la configuration de la base de données. Il est très fort probable que votre couple utilisateur/mot de passe ne soit pas le même une fois en ligne. Il faudra modifier les clés suivantes (à adapter en fonction de votre hébergeur) dans le fichier `app/config/parameters.php` :
-    - database_host
-    - database_port
-    - database_name
-    - database_user
-    - database_password
-
-    Il vous faudra également exporter votre base de données depuis phpmyadmin pour l'importer sur votre hébergeur ([voir comment exporter une base de données dans phpmyadmin](https://help.nindohost.com/fr/article/comment-importerexporter-une-base-de-donnees-mysql-via-phpmyadmin-17vf0vm/)). Ensuite, toujours dans le fichier `app/config/parameters.php`, opérez les changements suivants :
-    - use_debug_toolbar: true => false
-    - ps_cache_enable: false => true
-
-    Appliquez les bonnes valeurs pour la configuration du serveur e-mails (clés "mailer_host", "mailer_user" et "mailer_password").
-
-    Et pour terminer uploadez vos fichiers sur votre serveur, à l'exception du contenu du dossier `var/` (Il faut quand même le dossier mais pas son contenu).
-- **Mon site est en ligne, il y a des paramètres / options à configurer ?**
-
-    Oui. Il faudra activer les caches de Prestashop. Dans le back-office, allez dans le menu `Paramètres avancés > Performances`, activez le cache de Smarty (haut de page) et celui général (bas de page). 
-
-    Vous devrez changer les URL du site. Toujours dans le back-office, `Paramètres de la boutique > Trafic et SEO`. Activez l'option "URL simplifiée". Restez dans le même menu, un peu plus bas, il y a la section "URL de la boutique", remplissez les bonnes valeurs pour les trois champs proposés. Si vous ne pouvez pas changer les urls dans la section "URL de la boutique", il est possible d'effectuer ces modifications directement dans la base de données, c'est dans la table `VOTRE_PREFIX_shop_url`.
-
-    **Enfin, il faudra ajouter la gestion du SSL, ceci est indispensable si votre site permet l'achat en ligne. Sinon, vous exposez à une faille de sécurité grave et à une violation de la loi.** Allez dans `Paramètres de la boutique > Paramètres généraux > Activer le SSL`.
-
-    > Dépendamment de votre hébergeur, il est possible que le SSL ne soit pas forcément disponible. Nous n'allons pas forcément tenir compte de ce point, mais si vous devez mettre un site marchand en ligne pour utilisation commerciale, il faut absolument avoir le SSL d'activé.
 
 - **Je ne vois pas ma boutique**
 
