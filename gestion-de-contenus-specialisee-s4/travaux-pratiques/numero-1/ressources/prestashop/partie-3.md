@@ -4,7 +4,7 @@ En plus du CSS, il est possible également de changer la structure HTML des page
 
 > Note : Avant de changer la structure des pages assurez-vous bien de faire des modifications qui ne s'éloignent pas trop du thème original. Le cas échéant, il est peut-être préférable de faire son propre thème.
 
-Cette surcharge de thèmes est possible grâce à Smarty. Le but est d'hériter (fonction {extends}) des templates du thème parent et d'en remplir les blocs (fonction {block}) avec le contenu de votre choix. Attention tout de même pour que ça fonctionne, il faut créer la même structure de dossier dans le thème enfant. Par exemple :
+Cette surcharge de thèmes est possible grâce à Smarty. Le but est d'hériter (fonction {extends}) des templates du thème parent et d'en remplir les blocs (fonction {block}) avec le contenu de votre choix. Attention tout de même pour que ça fonctionne, il faut créer **la même structure de dossier dans le thème enfant**. Par exemple :
 
 | ![](capture-1.jpg)|
 |:--:|
@@ -24,4 +24,4 @@ ___
 Essayez de modifier une page dans votre thème enfant. Pour retrouver le fichier du template original, utilisez l'inspecteur du navigateur, trouvez le bon sélecteur CSS (prévilégiez un sélecteur précis) et cherchez-le dans le dossier du thème grâce à votre éditeur de code.
 - [En savoir plus sur la recherche dans VS Code - à partir de 1:42](https://www.youtube.com/watch?v=kWSjEs3kED8)
 
-**Pensez bien à respecter la même structure de fichiers dans votre thème enfant sinon vous ne verrez jamais vos modifications dans le front-office.**
+**Pensez bien à respecter la même structure de fichiers dans votre thème enfant, sinon vous ne verrez jamais vos modifications dans le front-office.**
