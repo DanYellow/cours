@@ -17,9 +17,8 @@ Le CMS est très didacticiel durant son installation. Il n'est pas forcément ut
 ___
 ### Précautions lors de l'installation :
 Pour vous éviter des problèmes lors de l'installation. Prenez en compte les points suivants :
-- Evitez de lancer l'installation depuis un sous-dossier. Créez votre dossier de travail dans le dossier `www/` ou `htdocs/` et mettez dans ce dossier le contenu de l'archive que vous avez dézippée 
-- Evitez les noms de dossier exotiques : présence d'accents ou de caractères spéciaux
-
+- Évitez de lancer l'installation depuis un sous-dossier. **Créez votre dossier de travail à la racine du dossier** `www/` ou `htdocs/` et mettez dans ce dossier le contenu de l'archive que vous avez dézippée 
+- Évitez les noms de dossier exotiques : présence d'accents, d'espaces ou de caractères spéciaux (/, ?...)
 ___
 
 > **Note :**
@@ -27,7 +26,7 @@ ___
 > ![](capture-3.jpg)
 
 Une fois Prestashop installé, parcourez un peu le front-office et le back-office. 
-> Par défaut, Prestashop met le front-office en mode maintenance, pour retirer ce mode, il faudra aller dans le menu "mode maintenance" (en haut à droite). Cliquez sur le bouton "Ajouter mon IP" et "Enregistrez". Le front-office ("Voir ma boutique") sera accessible.
+> Par défaut, Prestashop met le front-office en mode maintenance, pour désactiver ce mode pur vous, allez dans le menu "mode maintenance" (en haut à droite). Cliquez sur le bouton "Ajouter mon IP" et "Enregistrez". Le front-office ("Voir ma boutique") vous sera maintenant accessible.
 
 Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
 > Pour gagner du temps, utilisez les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont téléchargeables sur l'ENT (textes et images).
@@ -38,4 +37,4 @@ Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
 
 > Prenez en compte les recommendations de tailles concernant les images. Ajustez avec Photoshop ou autre
 
-> [Accéder au guide d'utilisateur de Prestashop](https://docs.prestashop-project.org/v.8-documentation/guide-utilisateur/premiers-pas)
+- [Accéder au guide d'utilisateur de Prestashop](https://docs.prestashop-project.org/v.8-documentation/guide-utilisateur/premiers-pas)
