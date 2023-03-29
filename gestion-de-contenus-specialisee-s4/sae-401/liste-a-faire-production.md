@@ -1,5 +1,7 @@
 # Liste à faire avant la publication du site
 
+> **Ce document ne s'adresse qu'aux personnes souhaitant mettre en ligne un site Prestashop que vous avez développé en local.**
+
 Pour vous permettre de mettre en ligne votre site Prestashop dans les meilleures conditions, il y a une liste de choses à faire, la liste n'est pas forcément ordonnée et exhaustive :
 
 - Récupérer ses identifiants FTP et de base de données

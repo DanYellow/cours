@@ -30,7 +30,9 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
 # Votre liste à faire
 - [x] Lire les consignes
-- [ ] Respecter les attentes
+- [ ] Intégrer le contenu du catalogue du client 
+- [ ] Développer son thème enfant basé sur le design réalisé en cours
+- [ ] Déployer son site en ligne
 
 
 # FAQ - Foire Aux Questions
@@ -40,10 +42,10 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 
 - **Je ne vois pas ma boutique**
 
-    Avez-vous désactivé le mode maintenance ? (`back-office > Mode maintenance (en haut à droite) > Activer boutique`)
+    Avez-vous désactivé le mode maintenance ou ajouté votre adresse IP (`back-office > Mode maintenance (en haut à droite) > Activer boutique`) ? **Préférez la seconde option pour la SAE.**
 
 - **Existe-il un moyen plus rapide d'uploader mon site ?**
 
     Si vous trouvez que ça prend trop de temps d'uploader votre site local, il est possible d'installer directement Prestashop sur votre serveur (comme nous avons fait en cours). Il faudra penser à exporter votre catalogue pour le réimporter sur votre back-office sur votre site. 
     
-    Attention : Pensez aussi à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas les images associées. Elles se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
+    Attention : Pensez aussi à mettre vos images sur votre serveur. Sinon, vous aurez les produits (et autres), mais pas leurs images associées. Elles se trouvent dans le dossier `img/`. [En savoir plus sur l'importation / exportation de catalogue Prestashop](https://www.codeur.com/tuto/prestashop/importer-exporter-catalogue-produit-prestashop/).
