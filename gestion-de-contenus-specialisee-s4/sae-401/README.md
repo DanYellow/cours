@@ -38,7 +38,7 @@ Dans le cadre de votre SAE 401, vous allez devoir réaliser un site d'e-commerce
 # FAQ - Foire Aux Questions
 - **Je n'ai pas de serveur pour mettre mon site en ligne. Existe-t-il un hébergeur gratuit ?**
 
-    Il existe l'hébergeur ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
+    Il existe l'hébergeur gratuit ([accéder au site](https://www.infinityfree.net/)), il propose un espace disque conséquent (5 GB - Prestashop prend près de 500 MB) et plusieurs bases de données. 
 
 - **Je ne vois pas ma boutique**
 

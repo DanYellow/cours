@@ -6,7 +6,11 @@ Créez votre compte sur le site, téléchargez et installez Prestashop. Vous pou
 - [Télécharger Prestashop](https://www.prestashop.com/fr/telecharger)
     - Choississez freelance
 
-Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu dans votre dossier de travail dans le dossier www/ de WAMP/MAMP ou votre serveur distant. Et accéder au chemin depuis votre navigateur. Par exemple, si vous avez mis le contenu de l'archive dans le dossier `www/mon-prestashop`, dans votre navigateur vous mettrez "localhost/mon-prestashop" (ou assimilé).
+Une fois l'archive récupérée, vous allez la dézipper et mettre son contenu dans votre dossier de travail dans le dossier www/ de WAMP/MAMP ou votre serveur distant. 
+
+> **L'archive récupérée contient une autre archive, vous ne devez pas la dézipper, sinon Prestashop ne pourra pas s'installer.**
+
+Et accéder au chemin depuis votre navigateur. Par exemple, si vous avez mis le contenu de l'archive dans le dossier `www/mon-prestashop`, dans votre navigateur vous mettrez "localhost/mon-prestashop" (ou assimilé).
 
 > En attendant l'installation / téléchargement, vous pouvez tester la version de démo sur le site de Prestashop. [Accéder à la démo.](https://demo.prestashop.com/#/en/front)
 
@@ -26,7 +30,7 @@ ___
 > ![](capture-3.jpg)
 
 Une fois Prestashop installé, parcourez un peu le front-office et le back-office. 
-> Par défaut, Prestashop met le front-office en mode maintenance, pour désactiver ce mode pur vous, allez dans le menu "mode maintenance" (en haut à droite). Cliquez sur le bouton "Ajouter mon IP" et "Enregistrez". Le front-office ("Voir ma boutique") vous sera maintenant accessible.
+> Par défaut, Prestashop met le front-office en mode maintenance, pour désactiver ce mode pur vous, allez dans le back-office puis le menu "mode maintenance" (en haut à droite). Cliquez sur le bouton "Ajouter mon IP" et "Enregistrer". Le front-office ("Voir ma boutique") vous sera maintenant accessible.
 
 Ensuite essayez de réaliser les tâches suivantes pour prendre la main :
 > Pour gagner du temps, utilisez les vrais produits du client, ça sera plus adapté pour la soutenance. Les données sont téléchargeables sur l'ENT (textes et images).
