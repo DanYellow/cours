@@ -100,9 +100,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
-    - une animation de mort du personnage (testable avec la touche F9 du clavier)
-    - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
-    - **A vous de faire le reste**
+    - une animation de mort du personnage (testable avec la touche N du clavier)
+    - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated"). Le personnage traverse les murs à la mort
+    - **A vous de faire le reste** (liste non exhaustive)
+      - Bloquer les mouvements du joueur
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
 - Rajouter un ennemi parmi ceux proposés
