@@ -31,12 +31,12 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             Die();
         }
 
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             TakeDamage(0);
         }

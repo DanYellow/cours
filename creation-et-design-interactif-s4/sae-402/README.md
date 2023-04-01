@@ -53,11 +53,12 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
-- Touche F7 : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
-- Touche F8 : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
-- Touche F11 : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran
-- Touche F12 : Arrête le mode "Play"
-- Touche 0 (pas celle du pavé numéro) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont proprement passées entre les scènes
+- Touche N : Tue le joueur
+- Touche O : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
+- Touche M : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
+- Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran
+- Touche L : Arrête le mode "Play"
+- Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont proprement passées entre les scènes
 
 # Commandes du jeu
 - Flèches gauche et droite : déplacement du joueur
@@ -91,6 +92,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
+    > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquant. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
 - Système de santé du joueur
     - Optionnel : possibilité de proposer le regain de vie
     - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
@@ -98,9 +100,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
-    - une animation de mort du personnage (testable avec la touche F9 du clavier)
-    - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated")
-    - **A vous de faire le reste**
+    - une animation de mort du personnage (testable avec la touche N du clavier)
+    - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated"). Le personnage traverse les murs à la mort
+    - **A vous de faire le reste** (liste non exhaustive)
+      - Bloquer les mouvements du joueur
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
 - Rajouter un ennemi parmi ceux proposés

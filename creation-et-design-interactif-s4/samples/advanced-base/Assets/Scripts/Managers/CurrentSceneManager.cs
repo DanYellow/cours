@@ -18,22 +18,22 @@ public class CurrentSceneManager : MonoBehaviour
             RestartLevel();
         }
 
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             RestartLastCheckpoint();
         }
 
-        if (Input.GetKeyDown(KeyCode.F11))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             ToggleGameWindowSizeInEditor();
         }
 
-        if (Input.GetKeyDown(KeyCode.F12))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             QuitGame();
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha0)) {
+        if(Input.GetKeyDown(KeyCode.P)) {
             LoadScene("Debug");
         }
 #endif

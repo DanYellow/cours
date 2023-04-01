@@ -25,7 +25,7 @@ CY Cergy Paris Université nous confie la réalisation d'un site web dédié au 
 **R214 – Système d’information**
 - AC4105 : Modéliser les données et les traitements d’une application Web 
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes au sein du même TP/TD. Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes **au sein du même TP/TD.** Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
 

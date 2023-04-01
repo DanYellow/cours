@@ -1,0 +1,11 @@
+tmp_*
+_tmp*
+
+__MACOSX/
+
+.~lock.*
+
+*.dist.*
+*.local.*
+*.temp.*
+*.tmp.*
