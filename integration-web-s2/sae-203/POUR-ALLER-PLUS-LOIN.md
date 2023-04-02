@@ -17,13 +17,14 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
     - [En ligne (déconseillé)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
-- Ajouter des plugins **pertinents** en javascript
-- Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur 
+- Utiliser le langage de programmation javascript. Son utilisation peut être faite via des plugins
+  - [Voir cours sur le javascript](https://raw.githubusercontent.com/DanYellow/cours/main/integration-web-s2/travaux-pratiques/numero-5/presentation.pdf)
+- Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur :
+  - Ceci peut être géré via une combinaison de PHP et d'ancres de lien
 - Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
 - Permettre, à partir d'un article, d'accéder à la page de l'auteur de l'article
   - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur et il vous faudra faire le design
-- Ajouter un "flash message" après création ou édition d'un élément dans le backoffice
-  - Il faudra utiliser les sessions en php pour ce faire
+- Notifier l'utilisateur après création ou édition d'un élément dans le backoffice
 - Donner la possibilité de supprimer un message ou article
   - Il faudra utiliser la requête `DELETE FROM ... WHERE`
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
@@ -31,7 +32,6 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
     - Note : Les attributs "required" doivent être supprimés
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
-  - Développement de la cinquième page principale
-- Améliorer le code de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
+- Améliorer le code de l'administration de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
