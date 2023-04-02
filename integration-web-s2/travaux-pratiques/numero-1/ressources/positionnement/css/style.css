@@ -5,7 +5,7 @@
 }
 
 html {
-  min-height: 175vh;
+  min-height: 195vh;
   background: #c9d6ff; /* fallback for old browsers */
   /* Un dégradé mais cette fois-ci il est radial et non plus linéaire */
   background: radial-gradient(#efdffcd8, #e2e2e2);
