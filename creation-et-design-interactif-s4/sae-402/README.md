@@ -1,9 +1,9 @@
 # SAE 402 - Concevoir un dispositif interactif
 > _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps. La cas échéant ne prenez pas en compte ces consignes là. Toutefois rien ne nous empêche d'essayer._
 
-> **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente.**
+> **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
-Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de faire des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
 - ~~AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs~~
@@ -21,7 +21,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
     - Un lapin qui vous saute dessus quand vous êtes dans son champ de vision
 - Pièges :
-    - RockHead : Une pierre qui fonce à interval régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
+    - RockHead : Une pierre qui fonce à intervalle régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile se déplaçant sur un circuit défini
     - Chaine : Une boule qui se déplace selon un axe défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
@@ -42,7 +42,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
     
 - Une scène de debug pour tester des fonctionnalités rapidement
-    - Inutile de la mettre dans le build final
+    - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
 - [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 
