@@ -135,6 +135,9 @@ __MACOSX/
 *.temp.*
 *.tmp.*
 
+temp/
+tmp/
+
 **/libs/**
 **/templates_c/**
 
