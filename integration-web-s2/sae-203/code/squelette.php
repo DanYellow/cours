@@ -34,7 +34,7 @@ require_once('./ressources/includes/connexion-bdd.php');
         ?>
 
         <main class="conteneur-principal conteneur-1280">
-            <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
+            <!-- Vous allez principalement écrire votre code HTML dans cette balise -->
         </main>
         <?php require_once('./ressources/includes/footer.php'); ?>
     </section>

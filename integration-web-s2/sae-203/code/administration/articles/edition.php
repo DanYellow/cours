@@ -41,14 +41,14 @@ if ($formulaire_soumis) {
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
 
-    <title>Editer REMPLACER - Administration</title>
+    <title>Editer A REMPLACER - Administration</title>
 </head>
 
 <body>
 <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-gray-900">Créer</h1>
+        <h1 class="text-3xl font-bold text-gray-900">Editer</h1>
         </div>
     </header>
     <main>

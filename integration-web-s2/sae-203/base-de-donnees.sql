@@ -72,7 +72,7 @@ CREATE TABLE `auteur` (
 
 LOCK TABLES `auteur` WRITE;
 /*!40000 ALTER TABLE `auteur` DISABLE KEYS */;
-INSERT INTO `auteur` VALUES (1,'Petit345','A REMPLACER','A REMPLACER','A REMPLACER'),(2,'Test man','G&eacute;raldine','',''),(3,'Thomas','Martin','https://twitter.com/MeilleurduChef_','https://files.meilleurduchef.com/mdc/photo/recette/flan-parisien/flan-parisien-etape-2-480.jpg'),(4,'ergerg','vevevev','veve','https://files.meilleurduchef.com/mdc/photo/recette/flan-parisien/flan-parisien-1200.jpg');
+INSERT INTO `auteur` VALUES (1,'Petit345','A REMPLACER','A REMPLACER',''),(2,'Test man','G&eacute;raldine','',''),(3,'Thomas','Martin','https://twitter.com/MeilleurduChef_','https://files.meilleurduchef.com/mdc/photo/recette/flan-parisien/flan-parisien-etape-2-480.jpg'),(4,'Nathalie','Dupond','https://tailwindcss.com/','https://files.meilleurduchef.com/mdc/photo/recette/flan-parisien/flan-parisien-1200.jpg');
 /*!40000 ALTER TABLE `auteur` ENABLE KEYS */;
 UNLOCK TABLES;
 

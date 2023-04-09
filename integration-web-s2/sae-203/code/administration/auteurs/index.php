@@ -24,7 +24,7 @@ $URLCreation = "{$racineURL}/creation.php";
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
             <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
-            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
+            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>
@@ -49,13 +49,16 @@ $URLCreation = "{$racineURL}/creation.php";
                                         'id'
                                     ]; ?></td>
                                     <td class="pl-8 p-4">
-                                        <img 
-                                            width='60' 
-                                            height='60' 
-                                            src='<?php echo $auteur['lien_avatar']; ?>' 
-                                            loading="lazy"
-                                            alt='<?php echo "Portrait {$auteur['prenom']}"; ?>' 
-                                        />
+                                        <div class="w-16 h-16">
+                                            <img 
+                                                class="rounded-full w-full h-full"
+                                                src='<?php echo $auteur['lien_avatar']; ?>' 
+                                                loading="lazy"
+                                                width='80' 
+                                                height='80' 
+                                                alt='<?php echo "Portrait {$auteur['prenom']}"; ?>' 
+                                            />
+                                        </div>
                                     </td>
                                     <td class="pl-8 p-4"><?php echo $auteur['prenom']; ?></td>
                                     <td class="pl-8 p-4"><?php echo $auteur['nom']; ?></td>

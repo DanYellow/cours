@@ -280,6 +280,10 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   
   Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
 
+- **Devons-nous changer le contenu des balises &lt;title> ?**
+  
+  Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
+
 
 
 # Pour aller plus loin
