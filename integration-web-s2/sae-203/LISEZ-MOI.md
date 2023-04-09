@@ -198,13 +198,19 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 - Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de classes pour vous éviter d'en créer de nouvelles.
 
 # Rendus attendus
+Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons deux façons de rendre votre projet sur l'ENT : 
+  - Une archive avec le nom-prénom du chef de projet
+  - Un fichier texte contenant le lien vers le dépôt git **public**
 
-- Une archive nommée nom-prénom du chef de groupe contenant l'ensemble des fichiers permettant le bon fonctionnement de votre site :
-  - Base de données (fichier .sql)
-  - HTML/PHP/CSS/javascript...
-- URL du site en ligne
-  - Attention, la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
-  - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
+Dans les deux cas, archive ou dépôt git, ceci devra contenir :
+  - Le code source du projet
+  - La base de données
+    - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
+  - URL vers le site
+    - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
+    - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
+  
+> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec un simple test.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
@@ -244,18 +250,17 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests pour mieux comprendre le code
 - [ ] Mettre des CSS transitions
-- [ ] Réaliser toutes fonctionnalités :
-  - [ ] Gestion de l'administration 
+- [ ] Compléter l'administration 
     - [ ] Je peux ajouter / éditer :
       - [ ] Un article / auteur
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs
-  - [ ] Design des pages "article" et "équipe de rédaction"
-  - [ ] Complétion de la page "équipe de rédaction"
-  - [ ] Complétion de la page "article"
-    - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
-  - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
+    - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
     - Edition à réaliser dans le fichier `administration/ressources/includes/menu-lateral-footer.php`
+- [ ] Design des pages "article" et "équipe de rédaction"
+- [ ] Complétion de la page "équipe de rédaction"
+- [ ] Complétion de la page "article"
+  - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
@@ -263,17 +268,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Rendre le projet 
-  - [ ] **Exporter la base de données**
-    - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
-  - [ ] **Le projet n'est pas hébergé sur github :** Créer une archive avec le nom-prénom du chef de projet qui contient :
-    - [ ] Le code source du projet
-    - ~~[ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**~~
-    - [ ] La base de données
-    - [ ] URL vers le site
-  - [ ] **Le projet est hébergé sur github :** Fichier texte contenant le lien vers le dépôt git. Le dépôt doit contenir :
-    - [ ] Le code source du projet
-    - [ ] La base de données
-    - [ ] URL vers le site
+  - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
+  
 
 
 # FAQ - Foire Aux Questions
