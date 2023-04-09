@@ -1,6 +1,6 @@
 <?php
 $couleur_bulle_classe = "rose";
-$page_active = "index";
+$page_active = "";
 
 require_once('./ressources/includes/connexion-bdd.php');
 

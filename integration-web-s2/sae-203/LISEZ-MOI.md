@@ -29,15 +29,15 @@ Comme la SAÉ 105, ceci est un projet de groupe, groupe de 4 à 5 personnes **au
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
 
-Notez qu'il y a des dossiers `"ne-pas-modifier"`, **merci de ne pas y toucher,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur contenu,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
-Notez également qu'il y a deux dossiers `ressources`, un à la racine du projet et un autre dans le dossier `administration`. Ainsi, si vous avez à éditer le site principal (celui de la SAE 105) éditez le dossier `ressources` à la racine du projet, si vous avez à éditer l'administration, travaillez dans le dossier `administration/ressources`.
+Notez également qu'il y a deux dossiers `ressources/`, un à la racine du projet et un autre dans le dossier `administration/`. Ainsi, si vous avez à éditer le site principal (celui de la SAE 105) éditez le dossier `ressources/` à la racine du projet, si vous avez à éditer l'administration, travaillez dans le dossier `administration/ressources/`.
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
 
 
-Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas trop besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés dans une base de données.
-Le deux pages à réaliser sont : 
+Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas trop besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
+Les deux pages à réaliser sont : 
 
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
   - Son titre
@@ -46,27 +46,28 @@ Le deux pages à réaliser sont :
   - Sa date de création
   - Son auteur
     - Mettre une valeur par défaut s'il n'y a pas d'auteur
-  - Sa vidéo youtube. S'il y en a une
+  - Sa vidéo youtube (optionnelle)
     - **Le lecteur Youtube doit s'afficher sur la page de votre site**
     - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
     ```html
+    <!-- Cette classe permet de garder le ratio 16/9 des vidéos -->
     <article class="youtube-video-conteneur">
       <!-- code pour afficher la vidéo de youtube -->
     </article>
     ```
-> Cette page possède un bug, à vous de le corriger
+  > Note : Cette page possède un bug concernant le chargement du bon article, à vous de le corriger
 - La liste des auteurs du site ("équipe de rédaction")
-  - L'entrée pour y accéder est déjà dans la navigation mais pas le fichier php
+  - Le lien pour y accéder est déjà dans la navigation mais le fichier php n'existe pas
   - Afficher pour chaque auteur : 
     - Image
     - Prénom
     - Nom
-    - Lien vers le compte twitter
+    - Lien vers le compte Twitter
       - Facultatif
-      - Mettez le lien vers le compte twitter de l'université :
+      - Mettez le lien vers le compte Twitter de l'université :
         - https://twitter.com/UniversiteCergy
 
-> **Sur ces deux pages, le contenu doit provenir de la base de données.** Vous ne devez pas lister manuellement la liste des auteurs (page équipe de rédaction).
+> **Sur ces deux pages, le contenu doit provenir de la base de données.** Vous ne devez pas lister manuellement la liste des auteurs (page équipe de rédaction) ou faire autant de pages qu'il y a d'articles.
 
 Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
@@ -74,10 +75,11 @@ Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soi
 
 La présence des bulles (`<?php require_once('./ressources/includes/bulle.php'); ?>`) est **facultative dans ces deux nouvelles pages.**
 
+Pour vous aider à créer de nouvelles pages pour le front-office, il y a un fichier `squelette.php`. Dupliquez puis renommez-le pour travailler dedans.
+
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
 
-Nous vous demandons aussi d'apporter des améliorations aux éléments du site qui sont déjà existants.
-À cet effet, dans la "home page" (accueil) nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
+Nous vous demandons aussi d'apporter des améliorations aux pages existantes. Dans l'accueil, nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
@@ -115,12 +117,12 @@ Dans les tables "article" et "auteur" sont gérés des images, ces dernières de
 
 # Fichiers .env
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changera en fonction de l'environnement. Voici une petite description des différentes variables de ces fichiers .env.
-```
+```bash
 # Contient le dossier qui contient votre projet. Par exemple si votre projet (le contenu du dossier code) est dans un dossier nommé "toto", il faudra mettre comme valeur "toto/".
-Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du projet. Mais si c'est dans un autre dossier, il faudra mettre une valeur. Pensez bien à mettre la barre oblique à la fin (/) ceci est très important. 
+# Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du serveur. Mais si c'est dans un autre dossier, il faudra mettre une valeur. Pensez bien à mettre la barre oblique à la fin (/) ceci est très important. 
 CHEMIN_BASE= 
 
-# Nom de la base de données. Normalement, cette valeur n'a pas à changer
+# Nom de la base de données. Normalement, cette valeur ne change pas
 NOM_BDD=sae_203_db
 # Nom du serveur de base de données. En local, ça doit être quelque chose comme localhost:NOM-DU-PORT
 SERVEUR_BDD=
@@ -131,7 +133,7 @@ MDP_BDD=
 
 # Administration (appelé également backoffice)
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `/administration`, vous trouverez un gabarit de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `administration/`, vous trouverez un gabarit de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -152,6 +154,8 @@ La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra r
 
 > En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
 > Toutefois si vous souhaitez le faire, allez-y.
+
+Comme pour le front-office, nous avons mis à disposition un squelette de fichiers pour vous aider. Il vous suffira de dupliquer et le renommer en fonction de vos besoins.
 
 ### Redirection après soumission (Administration)
 
@@ -190,11 +194,8 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
   - Il existe l'extension liveshare pour travailler à plusieurs et vous pouvez partager votre serveur WAMP, XAMP... :
     - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
     - [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
-- Lorsque vous devez ajouter une nouvelle page sur la partie visible. Dupliquez le fichier `squelette.php` à la racine du dossier puis renommez-le
-- Lorsque vous devez ajouter une nouvelle partie à l'admnistration. Dupliquez le **dossier** "squelette" contenu dans le dossier `administration/` et renommez-le avec le nom approprié
-  - Par exemple, si vous travaillez sur les articles, renommez le dossier "articles"
-- Regardez bien et expérimentez le code que nous vous avons fourni avant de commencer à coder, ceci évitera les erreurs
-- Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de composants pour l'intégrer
+- Vous avez appris à utiliser git, n'hésitez pas à l'utiliser pour travailler en équipe et garder un historique de votre travail
+- Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de classes pour vous éviter d'en créer de nouvelles.
 
 # Rendus attendus
 
@@ -264,8 +265,26 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - [ ] Rendre le projet 
   - [ ] **Exporter la base de données**
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
-  - [ ] Créer une archive avec le nom-prénom du chef de projet qui contient :
+  - [ ] **Le projet n'est pas hébergé sur github :** Créer une archive avec le nom-prénom du chef de projet qui contient :
     - [ ] Le code source du projet
-    - [ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**
-    - [ ] La base de données - **Facultatif**
-    - [ ] URL vers le site - **Facultatif**
+    - ~~[ ] Le fichier "rapport-ressenti.odt" **rempli par chaque membre du groupe**~~
+    - [ ] La base de données
+    - [ ] URL vers le site
+  - [ ] **Le projet est hébergé sur github :** Fichier texte contenant le lien vers le dépôt git. Le dépôt doit contenir :
+    - [ ] Le code source du projet
+    - [ ] La base de données
+    - [ ] URL vers le site
+
+
+# FAQ - Foire Aux Questions
+- **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
+
+  Oui, vous avez tout à fait le droit.
+- **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
+  
+  Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
+
+
+
+# Pour aller plus loin
+[Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
