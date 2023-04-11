@@ -1,7 +1,7 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées._
 
-> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. 
+> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir la dernière vers
 
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
@@ -288,6 +288,9 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   
   Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
 
+- **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
+
+  Vous pouvez, mais nous nous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
 
 
 # Pour aller plus loin
