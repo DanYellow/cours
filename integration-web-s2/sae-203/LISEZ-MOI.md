@@ -290,7 +290,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
 
-  Vous pouvez, mais nous nous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
+  Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
 
 
 # Pour aller plus loin
