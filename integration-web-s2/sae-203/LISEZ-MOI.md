@@ -205,6 +205,7 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons deux façons de rendre votre projet sur l'ENT : 
   - Une archive avec le nom-prénom du chef de projet
   - Un fichier texte contenant le lien vers le dépôt git **public**
+    - **Note : Il faut faire un seul et unique dépôt git par groupe. Il ne faut pas en faire plusieurs par membre du groupe.**
 
 Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - Le code source du projet
