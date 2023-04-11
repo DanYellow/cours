@@ -29,6 +29,8 @@ Comme la SAÉ 105, ceci est un projet de groupe, groupe de 3 à 6 personnes **au
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
 
+- [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s2%2Fsae-203)
+
 Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur contenu,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
 
 Notez également qu'il y a deux dossiers `ressources/`, un à la racine du projet et un autre dans le dossier `administration/`. Ainsi, si vous devez éditer le site principal (celui de la SAE 105), éditez le dossier `ressources/` à la racine du projet, si vous devez éditer l'administration, travaillez dans le dossier `administration/ressources/`.
