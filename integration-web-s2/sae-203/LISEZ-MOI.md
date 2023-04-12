@@ -157,7 +157,7 @@ Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présent
 La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées dans la base de données.
 
 > En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
-> Toutefois si vous souhaitez le faire, allez-y.
+> Toutefois si vous souhaitez la réaliser, allez-y.
 
 Comme pour le front-office, nous avons mis à disposition un squelette de fichiers pour vous aider. Il vous suffira de dupliquer et le renommer en fonction de vos besoins.
 
@@ -276,23 +276,25 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
   
 
-
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
-
   Oui, vous avez tout à fait le droit.
+
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
-  
   Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
-  
   Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
-
   Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
 
+- **Mon site ne charge pas le CSS. Pourquoi ?**
+  Vous n'avez pas modifié la clé `CHEMIN_BASE` du fichier `.env.dev` (ou `.env.prod`). Pour rappel, sa valeur doit être égale au chemin dans lequel est contenu votre projet. Par exemple, si pour accéder à votre projet (sur localhost ou en ligne), il faut aller sur `localhost/monprojet/sae203`, il faudra écrire dans le fichier `.env.dev` la chose suivante.
+  ```bash
+  CHEMIN_BASE=monprojet/sae203/
+  # [...] Reste du fichier
+  ```
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
