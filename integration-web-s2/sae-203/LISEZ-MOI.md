@@ -185,7 +185,7 @@ header("Location: $pageRedirection");
 ```
 
 # Mise en production
-Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
+Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus, pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
 Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.
 
 # Astuces
@@ -278,18 +278,23 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
+
   Oui, vous avez tout à fait le droit.
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
+
   Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
+
   Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
+
   Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
 
 - **Mon site ne charge pas le CSS. Pourquoi ?**
+
   Vous n'avez pas modifié la clé `CHEMIN_BASE` du fichier `.env.dev` (ou `.env.prod`). Pour rappel, sa valeur doit être égale au chemin dans lequel est contenu votre projet. Par exemple, si pour accéder à votre projet (sur localhost ou en ligne), il faut aller sur `localhost/monprojet/sae203`, il faudra écrire dans le fichier `.env.dev` la chose suivante.
   ```bash
   CHEMIN_BASE=monprojet/sae203/
