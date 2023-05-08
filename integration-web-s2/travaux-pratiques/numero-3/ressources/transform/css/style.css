@@ -62,6 +62,7 @@ body {
   position: absolute;
   padding-left: 1rem;
   top: 0;
+  z-index: 2;
 }
 
 .conteneur .titre {
@@ -75,4 +76,6 @@ body {
 .conteneur::after {
   content: "";
   display: block;
+  /* Ceci va nous assurer que l'arrière-plan sera derrière le texte */
+  z-index: 0;
 }
