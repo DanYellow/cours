@@ -1,7 +1,9 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées._
 
-> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir la dernière vers
+> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
+
+> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celles où il vous est demandé de réaliser un site WordPress.
 
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
@@ -300,6 +302,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   CHEMIN_BASE=monprojet/sae203/
   # [...] Reste du fichier
   ```
+- **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
+Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
