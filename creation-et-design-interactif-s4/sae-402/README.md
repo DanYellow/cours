@@ -10,7 +10,12 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
-Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes possédant déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
+Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes existant.
+> [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
+>
+> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet.
+
+Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
     - Déplacements horizontaux
     - Multi sauts
@@ -19,7 +24,6 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des rhinocéros qui foncent sur le joueur
     - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
-    - Un lapin qui vous saute dessus quand vous êtes dans son champ de vision
 - Pièges :
     - RockHead : Une pierre qui fonce à intervalle régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile se déplaçant sur un circuit défini
@@ -29,6 +33,7 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
     - Nombre de points de vie des ennemis de base
     - Tremblement de la caméra
     - Mort du joueur
+    - Perte de points de vies du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
 - Un gestionnaire de Son / Musique
@@ -40,13 +45,9 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
-    
 - Une scène de debug pour tester des fonctionnalités rapidement
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
-- [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
-
-> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` et sélectionner le dossier contenant le projet.
 > **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes.**
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
@@ -183,36 +184,46 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
 > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
 
+# Travail en groupe
+Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq, maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
+- Ajouter deux niveaux supplémentaires (portant le total de niveaux à quatre)
+- Ajouter un nouvel ennemi au choix
+
+Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Pensez à utiliser git, ça vous permettra d'avancer à votre allure. 
+
 # Votre liste à faire
 - [x] Lire les consignes
 - Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - Respecter les attentes
 - Générer une archive contenant :
-    - Votre build pour Windows ou MacOS du jeu (pas de build WebGL)
+    - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, l'option "Développement Build" ne doit pas être cochée
         - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
-    - Un fichier texte contenant les membres de votre groupe
 
 # FAQ - Foire Aux Questions
-- Est-il possible de réaliser ce travail seul(e) ?
-    - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. De plus, le travail collaboratif vous incitera à utiliser github
-- Est-il possible de rendre mon jeu jouable avec une manette de jeu ?
-    - Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes
-    - Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier)
+- **Est-il possible de réaliser ce travail seul(e) ?**
+
+    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. De plus, le travail collaboratif vous incitera à utiliser github
+- **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
+    
+    Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier)
         - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
         - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
-- J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?
-    - Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
-- Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?
-    - Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
-- Sommes-nous obligés d'utiliser les Scriptables Objects ?
-    - Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulté à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects. Néanmoins, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
-- Puis-je effectuer un projet à partir de zéro ?
-    - Il est possible de ne pas utiliser la base que nous vous proposons. Cependant, il y a deux points importants à prendre en compte :
-        - Mettre à la racine de votre projet un fichier .gitgnore pour vous permettre de mettre votre projet sur github
-            - [Télécharger le .gitignore pour unity](https://raw.githubusercontent.com/github/gitignore/main/Unity.gitignore)
-        - Proposer un projet ambitieux, n'allez pas faire un jeu où c'est juste un carré / cube qui saute. Vous êtes à l'école, l'un des rares endroits où vous pourrez expérimenter sans réelles grosses conséquences
-- Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?
-    - Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
-- Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?
-    - Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final. Toutefois, nous aurions pu (dû) la corriger
+- **J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?**
+    
+    Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
+- **Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?**
+
+    Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
+- **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
+
+    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulté à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects. Néanmoins, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
+- **Puis-je effectuer un projet à partir de zéro ?**
+
+    Non, utilisez le projet qu'on vous fourni. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel. Il n'y a pas que ce projet durant ce semestre.
+- **Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?**
+
+    Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
+- **Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?**
+
+    Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final. Toutefois, nous aurions pu (dû) la corriger.
