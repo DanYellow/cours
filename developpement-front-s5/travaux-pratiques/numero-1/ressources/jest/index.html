@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP1 - Tests unitaires</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="h1">Consignes de la pratique</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur
+            Windows) le dossier ressources/jest et installez les dépendances
+          </li>
+          <li>
+            Assurez-vous du bon fonctionnement de l'installation en exécutant la
+            commande <code>npm run test</code> dans la console
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Testez la fonction "reverseString" déjà présente dans le fichier
+            "initiation/script.js" et importée dans le fichier de test associé
+          </li>
+          <li>
+            Ecrivez et testez les fonctions suivantes :
+            <ul>
+              <li>Calcule la TVA à 5.5% d'un produit. La fonction ne doit prendre qu'un seul paramètre en entrée et retourner en sortie le prix entré avec la TVA appliquée avec deux chiffres après la virgule et arrondi à l'entier supérieur. Exemple, si le prix est de 65 euros, la fonction doit retourner 68.58.
+                <ul>
+                  <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed" target="_blank">Documentation de la méthode .toFixed() pour arrondir la valeur</a></li>
+                </ul>
+              </li>
+              <li>Souhaite la salutation à l'utilisateur en fonction de sa langue définie. Le paramètre en entrée doit respecter la norme ISO 639-1
+                <ul>
+                  <li><a href="Accéder à la documentation de la norme ISO 639-1" target="_blank">Accéder à la documentation de la norme ISO 639-1 (ouverture dans un nouvel onglet)</a></li>
+                  <li>
+                    <a href="https://jestjs.io/docs/expect#expectstringcontainingstring" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la méthode expect.stringContaining() (ouverture dans un nouvel onglet)</a>
+                  </li>
+                </ul>
+              </li>
+              <li>Accepte un tableau de chaîne de charactères et retourne les mêmes chaînes mais écrites en majuscules
+                <ul>
+                  <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target="_blank">Documentation de la méthode .toUpperCase()</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p class="note-information">
+          N'oubliez pas qu'une même fonction peut être testée sur plusieurs critères. Essayez de penser aux différents problèmes qu'il peut arriver : qu'est-ce qui se passe si la valeur peut être absente, est-il possible que la valeur soit incorrecte...
+        </p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Regardez le code source (pas la console du navigateur)
+            qu'observez-vous ?
+          </li>
+        </ol>
+      </details>
+    </header>
+  </body>
+</html>
