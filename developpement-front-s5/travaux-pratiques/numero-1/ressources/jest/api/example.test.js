@@ -1,4 +1,5 @@
-import { getNationalHolidays } from "./example";
+// import { getNationalHolidays } from "./example";
+import * as moduleApi from "./example";
 
 jest.mock("axios");
 const mockApi = require("axios");
@@ -19,18 +20,25 @@ mockApi.get.mockImplementation(() => {
 
 describe("List national holidays metropole", () => {
   it("returns an array", async () => {
-    const res = await getNationalHolidays();
+    const res = await moduleApi.getNationalHolidays();
 
     // toBeTruthy() is same as toBe(true)
-    expect(Array.isArray(res)).toBeTruthy()
+    expect(Array.isArray(res)).toBeTruthy();
   });
 
   it("returns an array of objects", async () => {
-    const res = await getNationalHolidays();
-    const listKeys = ["name", "date"]
+    const spy = jest.spyOn(moduleApi, 'getNationalHolidays');
+    const res = await moduleApi.getNationalHolidays("metropole");
+    const listKeys = ["name", "date"];
+
+    expect(mockApi.get).toBeCalled();
+
+    expect(spy).toHaveBeenCalledWith("metropole");
+
+
 
     listKeys.forEach((keyExpected) => {
-        expect(res[0]).toHaveProperty(keyExpected);
-    })
+      expect(res[0]).toHaveProperty(keyExpected);
+    });
   });
 });
