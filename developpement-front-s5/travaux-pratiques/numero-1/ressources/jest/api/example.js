@@ -2,7 +2,6 @@ import { fetchNationalHolidays } from "./api";
 
 const getNationalHolidays = async (region = "metropole") => {
   // Doc : https://api.gouv.fr/documentation/jours-feries
-
   const listNationalHolidays = await fetchNationalHolidays(region);
 
   const res = [];

@@ -15,6 +15,7 @@ mockApi.fetchNationalHolidays.mockImplementation((param) => {
     "2028-07-14": "14 juillet",
   };
 
+  // We can force promise rejection if the param of the function is "fail"
   if (param === "fail") {
     return Promise.reject([]);
   }
@@ -22,33 +23,19 @@ mockApi.fetchNationalHolidays.mockImplementation((param) => {
   return Promise.resolve(mockedData);
 });
 
-// xdescribe("List national holidays metropole", () => {
-//   it("returns an array", async () => {
-//     const res = await getNationalHolidays();
-
-//     // toBeTruthy() is same as toBe(true)
-//     expect(Array.isArray(res)).toBeTruthy();
-//   });
-
-//   it("returns an array of objects", async () => {
-//     const res = await getNationalHolidays();
-//     const listKeys = ["name", "date"];
-
-//     listKeys.forEach((keyExpected) => {
-//       expect(res[0]).toHaveProperty(keyExpected);
-//     });
-//   });
-// });
-
 describe("List national holidays metropole", () => {
   it("returns an array", async () => {
-    return getNationalHolidays("fail").catch((res) => {
-      expect(Array.isArray(res)).toBeTruthy();
-    })
-    // await expect(getNationalHolidays("fail")).rejects.toBeTruthy();
-    // const res = await getNationalHolidays("fail");
-    // console.log("ff", res)
-    // // toBeTruthy() is same as toBe(true)
-    // expect(mockApi.fetchNationalHolidays).toBeCalled()
+    const res = await getNationalHolidays();
+
+    expect(Array.isArray(res)).toBeTruthy();
+  });
+
+  it("returns an array of objects", async () => {
+    const res = await getNationalHolidays();
+    const listKeys = ["name", "date"];
+
+    listKeys.forEach((keyExpected) => {
+      expect(res[0]).toHaveProperty(keyExpected);
+    });
   });
 });
