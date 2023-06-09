@@ -6,44 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice Cypress formulaire</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script src="script.js" defer></script>
 </head>
 <body class="p-4">
+    <section class="p-4 bg-green-100 hidden banner mb-4">
+        <p class="text-center text-xl">Choix du parcours <span class="font-bold">__parcours_placeholder__</span> validé</p>
+    </section>
     <h1 class="text-3xl font-bold">
         Formulaire sélection parcours deuxième année BUT MMI
     </h1>
-    <form action="" method="get">
+    
+    <form action="" method="get" class="max-w-screen-lg" data-form>
         <section class="mb-3">
-            <label for="lastname" class="block">Nom :</label>
-            <input type="text" id="lastname" name="lastname" required>
+            <label for="lastname" class="block">Nom <span class="text-red-500">*</span> :</label>
+            <input type="text" id="lastname" name="lastname" required class="w-1/2">
         </section>
         <section class="mb-3">
-            <label for="firstname" class="block">Prénom :</label>
-            <input type="text" id="firstname" name="firstname" required>
+            <label for="firstname" class="block">Prénom <span class="text-red-500">*</span> :</label>
+            <input type="text" id="firstname" name="firstname" required class="w-1/2">
         </section>
-        <section class="mb-3 flex gap-x-4">
-            <section>
-                <label for="ue1" class="block">Moyenne UE1 :</label>
+        <section class="flex gap-x-4 flex-wrap">
+            <section class="mb-3">
+                <label for="ue1" class="block">Moyenne UE1 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue1" name="ue1" required>
             </section>
-            <section>
-                <label for="ue2" class="block">Moyenne UE2 :</label>
+            <section class="mb-3">
+                <label for="ue2" class="block">Moyenne UE2 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue2" name="ue2" required>
             </section>
-            <section>
-                <label for="ue3" class="block">Moyenne UE3 :</label>
+            <section class="mb-3">
+                <label for="ue3" class="block">Moyenne UE3 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue3" name="ue3" required>
-            </section>
+            </section class="mb-3">
             <section>
-                <label for="ue4" class="block">Moyenne UE4 :</label>
+                <label for="ue4" class="block">Moyenne UE4 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue4" name="ue4" required>
             </section>
-            <section>
-                <label for="ue5" class="block">Moyenne UE5 :</label>
+            <section class="mb-3">
+                <label for="ue5" class="block">Moyenne UE5 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue5" name="ue5" required>
             </section>
         </section>
         <section class="mb-3">
-            <label for="parcours" class="block">Choix parcours :</label>
+            <label for="parcours" class="block">Choix parcours <span class="text-red-500">*</span> :</label>
             <select required name="parcours" id="parcours">
                 <option value="">Veuillez sélectionner un parcours</option>
                 <option value="dev">Parcours développement web et dispositifs interactifs</option>
@@ -51,11 +56,16 @@
                 <option value="strat">Parcours stratégie de communication numérique et design d’expérience</option>
             </select>
         </section>
+        <section class="mb-3">
+            <label for="portfolio" class="block">Lien portfolio :</label>
+            <input type="url" id="portfolio" name="portfolio" class="w-1/2">
+        </section>
 
-        <button type="submit" class="px-4 py-2 font-semibold text-l bg-cyan-500 text-white rounded-full shadow-sm">Envoyer</button>
-        <button type="reset" class="px-4 py-2 font-semibold text-l bg-red-500 text-white rounded-full shadow-sm">Annuler</button>
-        
-
+        <section class="flex justify-start gap-x-3">
+            <button type="submit" class="px-4 py-2 font-semibold text-l bg-cyan-500 text-white rounded-full shadow-sm">Envoyer</button>
+            <button type="reset" class="px-4 py-2 font-semibold text-l bg-red-500 text-white rounded-full shadow-sm">Annuler</button>
+            <a href="" class="px-4 py-2 font-semibold text-l bg-green-500 text-white rounded-full shadow-sm ml-auto pointer-events-none opacity-50">Rechoisir</a>
+        </section>
     </form>
 </body>
 </html>
