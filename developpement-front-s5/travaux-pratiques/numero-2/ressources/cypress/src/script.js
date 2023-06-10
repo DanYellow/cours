@@ -8,7 +8,7 @@ const parcoursFullName = {
 
 document
     .querySelector("[data-form]")
-    .addEventListener("submit", (e) => {
+    .addEventListener("submit", async (e) => {
         e.preventDefault()
         
         const formData = new FormData(e.target);
@@ -17,7 +17,6 @@ document
         
         banner.querySelector('p').innerHTML = bannerTextTpl.replace("__parcours_placeholder__", parcoursFullName[formValues.parcours])
         banner.classList.remove("hidden")
-        
         document.querySelector('a').classList.remove("pointer-events-none", "opacity-50")
                 
         Array.from(e.target.elements)

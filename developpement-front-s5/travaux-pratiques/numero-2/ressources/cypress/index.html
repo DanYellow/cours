@@ -145,19 +145,25 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Importez la fonction asynchrone "getListNationalHolidays" dans le script "src/api.js" dans le fichier "src/api.js"
+            Importez la fonction asynchrone "getListNationalHolidays" du fichier "src/api.js" dans le fichier "src/api.js"
           </li>
-          <li>Appelez la fonction "getListNationalHolidays" dans la fonction de soumission du formulaire
+          <li>Appelez la fonction "getListNationalHolidays" lors de la soumission du formulaire
             <p class="note-information">
               La fonction est asynchrone. Utilisez les mot-clés (async/await)
             </p>
           </li>
           <li>
-            Mettez à jour votre test pour prendre en compte la requête serveur
+            Mettez à jour votre test e2e pour prendre en compte la requête serveur en utilisant les méthodes "intercept()" et "wait()"
           </li>
         </ol>
         <section class="note-information">
-          <p>Comme dit en cours, Cypress n'intercepte pas les requêtes en cache. Ainsi, vous devez forcer la désactivation du cache, pour des raisons de simplicité, nous le ferons directement dans le test grâce au code suivant :</p>
+          <p>
+            Le script chargé est de type module, ceci signifie que vous pouvez utiliser le mot-clé <code>import</code> pour charger le fichier "src/api.js" dans le fichier "src/script.js".
+          </p>
+        </section>
+        
+        <section class="note-information">
+          <p>Comme dit précédemment, Cypress n'intercepte pas les requêtes en cache. Ainsi, vous devez forcer la désactivation du cache, pour des raisons de simplicité, nous le ferons directement dans le test grâce au code suivant :</p>
           <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span class="hljs-title function_">beforeEach</span>(<span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
   <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> <span class="hljs-title function_">disableCache</span> = (<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt; {
     <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> original = win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span>;

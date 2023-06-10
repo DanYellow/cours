@@ -23,9 +23,12 @@
     </section>
 
     
-    <h1 class="text-3xl font-bold">
-        Formulaire sélection parcours deuxième année BUT MMI
-    </h1>
+    <section class="mb-3">
+        <h1 class="text-3xl font-bold">
+            Formulaire de sélection de parcours de deuxième année BUT MMI
+        </h1>
+        <p><span class="text-red-500">*</span> Champ requis</p>
+    </section>
     
     <form action="" method="get" class="max-w-screen-lg" data-form>
         <section class="mb-3">
@@ -39,23 +42,23 @@
         <section class="flex gap-x-4 flex-wrap">
             <section class="mb-3">
                 <label for="ue1" class="block">Moyenne UE1 <span class="text-red-500">*</span> :</label>
-                <input type="text" id="ue1" name="ue1" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue1" name="ue1" required>
             </section>
             <section class="mb-3">
                 <label for="ue2" class="block">Moyenne UE2 <span class="text-red-500">*</span> :</label>
-                <input type="text" id="ue2" name="ue2" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue2" name="ue2" required>
             </section>
             <section class="mb-3">
                 <label for="ue3" class="block">Moyenne UE3 <span class="text-red-500">*</span> :</label>
-                <input type="text" id="ue3" name="ue3" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue3" name="ue3" required>
             </section class="mb-3">
             <section>
                 <label for="ue4" class="block">Moyenne UE4 <span class="text-red-500">*</span> :</label>
-                <input type="text" id="ue4" name="ue4" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue4" name="ue4" required>
             </section>
             <section class="mb-3">
                 <label for="ue5" class="block">Moyenne UE5 <span class="text-red-500">*</span> :</label>
-                <input type="text" id="ue5" name="ue5" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue5" name="ue5" required>
             </section>
         </section>
         <section class="mb-3">
