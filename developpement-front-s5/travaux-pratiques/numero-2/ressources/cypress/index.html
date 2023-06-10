@@ -138,7 +138,44 @@
           <p>N'oubliez pas de mettre dans le dossier "cypress/fixtures" les potentiels media que vous essayerez d'uploader</p>
         </section>
       </details>
-
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 7 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Importez la fonction asynchrone "getListNationalHolidays" dans le script "src/api.js" dans le fichier "src/api.js"
+          </li>
+          <li>Appelez la fonction "getListNationalHolidays" dans la fonction de soumission du formulaire
+            <p class="note-information">
+              La fonction est asynchrone. Utilisez les mot-clés (async/await)
+            </p>
+          </li>
+          <li>
+            Mettez à jour votre test pour prendre en compte la requête serveur
+          </li>
+        </ol>
+        <section class="note-information">
+          <p>Comme dit en cours, Cypress n'intercepte pas les requêtes en cache. Ainsi, vous devez forcer la désactivation du cache, pour des raisons de simplicité, nous le ferons directement dans le test grâce au code suivant :</p>
+          <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span class="hljs-title function_">beforeEach</span>(<span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
+  <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> <span class="hljs-title function_">disableCache</span> = (<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt; {
+    <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> original = win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span>;
+    win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span> = <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">...args</span>) =&gt;</span> <span class="hljs-title function_">original</span>(...args, { <span style="color:rgb(136, 174, 206); font-weight:400;">cache</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;no-store&quot;</span> });
+  };
+  cy.<span class="hljs-title function_">on</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;window:before:load&quot;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt;</span> <span class="hljs-title function_">disableCache</span>(win));
+});</code></pre>
+<p>Dans les grandes lignes, il désactive le cache de toutes les requêtes passant par la méthode window.fetch(), et ce, avant chaque test (beforeEach())</p>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Affichez le contenu de la requête listant les jours fériés grâce à la balise &lt;template></li>
+          <li>Gérez sa présence grâce à un test e2e ou améliorez celui que vous avez écrit</li>
+        </ol>
+      </details>
     </header>
   </body>
 </html>

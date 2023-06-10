@@ -1,5 +1,3 @@
-import { getListNationalHolidays } from "./api.js";
-
 const banner = document.querySelector(".banner")
 
 const parcoursFullName = {
@@ -10,7 +8,7 @@ const parcoursFullName = {
 
 document
     .querySelector("[data-form]")
-    .addEventListener("submit", async (e) => {
+    .addEventListener("submit", (e) => {
         e.preventDefault()
         
         const formData = new FormData(e.target);
@@ -21,9 +19,7 @@ document
         banner.classList.remove("hidden")
         
         document.querySelector('a').classList.remove("pointer-events-none", "opacity-50")
-        
-        await getListNationalHolidays()
-        
+                
         Array.from(e.target.elements)
             .forEach((item) => {
                 item.disabled = true
