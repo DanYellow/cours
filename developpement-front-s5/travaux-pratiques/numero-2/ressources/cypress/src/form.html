@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice Cypress formulaire</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
 <body class="p-4">
     <section class="p-4 bg-green-100 hidden banner mb-4">
@@ -29,6 +29,7 @@
             <section class="mb-3">
                 <label for="ue1" class="block">Moyenne UE1 <span class="text-red-500">*</span> :</label>
                 <input type="text" id="ue1" name="ue1" required>
+                <input type="text" class="hello" name="ue1" required>
             </section>
             <section class="mb-3">
                 <label for="ue2" class="block">Moyenne UE2 <span class="text-red-500">*</span> :</label>

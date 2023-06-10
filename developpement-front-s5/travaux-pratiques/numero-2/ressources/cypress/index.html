@@ -50,7 +50,7 @@
         <summary>
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
-        <ul class="liste-consignes">
+        <ol class="liste-consignes">
           <li>
             Ajoutez un nouveau test (fichier de test ou block de test) qui respecte le plan suivant :
             <ol>
@@ -59,14 +59,14 @@
               <li>S'assure que vous êtes sur la bonne page</li>
             </ol>
           </li>
-        </ul>
+        </ol>
         <p class="note-information">Si vous ajoutez un nouveau test,  n'oubliez</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
-        <ul class="liste-consignes">
+        <ol class="liste-consignes">
           <li>Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur Windows) le dossier ressources/cypress (nouvelle fenêtre ou onglet)
           </li>
           <li>
@@ -85,7 +85,7 @@
               </li>
             </ol>
           </li>
-        </ul>
+        </ol>
         <section class="note-information">
           <p>Pour manipuler un &lt;select>, il faudra utiliser la méthode ".select()"</p>
           <ul>
@@ -95,6 +95,50 @@
           </ul>
         </section>
       </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Réécrivez le test de la partie 4 en utilisant des sélecteurs relatifs au data-attribute "data-testid" 
+          </li>
+          <li>Dans le fichier src/script.js remplacez les sélecteurs de balise par des data-attributes personnalisés 
+            <ul>
+              <li>Ces data-attributes ne doivent pas avoir de rapport avec </li>
+            </ul>
+          </li>
+        </ol>
+        <section class="note-information">
+          <p>Pour manipuler un &lt;select>, il faudra utiliser la méthode ".select()".</p>
+          <ul>
+            <li>
+              <a href="https://docs.cypress.io/api/commands/select" target="_blank">Accéder à la documentation de cy.select() (ouverture dans un nouvel onglet)</a>
+            </li>
+          </ul>
+          <p>Pour soumettre un formulaire, vous pouvez cliquer sur le bouton dédié ou utiliser la méthode ".submit()" sur le formulaire directement.</p>
+          <ul>
+            <li>
+              <a href="https://docs.cypress.io/api/commands/submit" target="_blank">Accéder à la documentation de cy.submit() (ouverture dans un nouvel onglet)</a>
+            </li>
+          </ul>
+        </section>
+      </details>
+
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Ajoutez un nouveau champ de type "file" dans le formulaire contenu dans le fichier src/form.html avec le libellé de votre choix tout comme son emplacement. Ce champ est facultatif et doit permettre d'uploader des images uniquement.
+          </li>
+          <li>Mettez à jour vos tests (des parties 4 et 5) pour prendre en compte ces modifications
+          </li>
+        </ol>
+        <section class="note-information">
+          <p>N'oubliez pas de mettre dans le dossier "cypress/fixtures" les potentiels media que vous essayerez d'uploader</p>
+        </section>
+      </details>
+
     </header>
   </body>
 </html>
