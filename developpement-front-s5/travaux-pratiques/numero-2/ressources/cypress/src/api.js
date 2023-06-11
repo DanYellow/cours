@@ -24,6 +24,7 @@ const getListNationalHolidays = async (region = "metropole") => {
     }
   }
 
+  // Pause randomly the code
   await new Promise(r => setTimeout(r, randomIntFromInterval(0, 5) * 1000));
 
   const resOrdered = res.sort((a, b) => {
