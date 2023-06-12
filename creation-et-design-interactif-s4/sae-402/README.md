@@ -6,8 +6,8 @@
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
-- ~~AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs~~
-- AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia
+- AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
+- ~~AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia~~
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
 Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes existant.
