@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP - Initiation javascript</title>
+
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">
+                    Pré-consignes de la pratique - facultatives (cliquer pour afficher /
+                    cacher)
+                </h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>
+                    Créez un nouveau fichier html (avec la structure de base d'un site
+                    web. Rappel, vous avez le raccourci "html:5")
+                </li>
+                <li>
+                    Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que vous
+                    venez de créer (si elle existe)
+                </li>
+                <li>
+                    Copiez les balises &lt;link> présentes dans le &lt;head> dans le fichier html que vous
+                    venez de créer
+                </li>
+                <li>Sauvegardez-le et commencez votre TP dedans</li>
+            </ol>
+        </details>
+
+        <h1 class="titre-consignes">Consignes de la pratique</h1>
+        <p>Le but de ce TP est de découvrir ensemble les bases du javascript.
+            L'idée étant d'être opérationnel pour réussir les tâches qui vous seront demandées pour la SAE 203 - Site
+            web et base de données (bdd)
+        </p>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML dans la balise
+                    &lt;head>. Exemple de code pour importer un fichier
+                    javascript (adapter le chemin et le nom de fichier en fonction).
+                    <pre>
+                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
+                    <p class="note-information">L'attribut 'defer' permet de charger notre fichier javascript après que
+                        la partie HTML a été chargée.</p>
+
+                </li>
+                <li>Créez deux variables, une contenant un entier et l'autre une chaîne de caractères
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/Variables"
+                                rel="noopener noreferrer" target="_blank">Voir documentation des variables javascript
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Affichez leur contenu dans la méthode <code>console.log()</code>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
+                                console.log()
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <p>
+                Comme tout langage de programmation, il est également possible en javascript d'écrire des fonctions, le
+                mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
+                Exemple :
+            </p>
+            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maPremiereFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;">param1, param2</span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> param1 + param2;
+}
+maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</span>, <span style="color:rgb(184, 215, 163); font-weight:400;">20</span>);
+               </code></pre>
+            <p>Dans le code ci-dessus, on définit une variable nommée "maPremiereFonction" prenant deux paramètres et
+                retourne leur addition. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
+                donc dire que, dans la fonction "maPremiereFonction", les variables "param1" et "param2" ont pour valeur
+                45 et 20 respectivement.
+                C'est très simple mais c'est très bien pour commencer. A noter que les opérateurs mathématiques de base
+                sont les mêmes qu'en PHP :</p>
+                <ul>
+                    <li>+ : addition</li>
+                    <li>- : soustraction</li>
+                    <li>* : multiplication</li>
+                    <li>/ : division</li>
+                </ul>
+            <p>
+                Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code>.
+                Cette ligne ne sera pas interprétée. Attention : Comme le HTML et le CSS, les commentaires en javascript
+                sont accessibles à l'utilisateur final. Par conséquent : ne mettez pas de données sensibles dedans.
+            </p>
+            <ol class="liste-consignes">
+                <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
+                    <code>console.log()</code>
+                    <ul>
+                        <li>Vous devez mettre l'appel de la fonction dans la méthode console.log(). <br> Exemple :
+                            <code>console.log(maFonction(41, "hello"))</code>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
+                                console.log()
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions"
+                                rel="noopener noreferrer" target="_blank">Voir documentation des fonctions
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Créez les fonctions suivantes :
+                    <ul>
+                        <li>Une fonction qui prend en paramètre un entier et le multiplie par lui-même</li>
+                        <li>Une fonction qui prend en paramètres deux chaînes de caractères et souhaite bonjour à cette
+                            personne
+                            <ul>
+                                <li>Pour ce faire, il faudra concaténer une chaîne de caractères. <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals"
+                                        rel="noopener noreferrer" target="_blank">Voilà la documentation sur la
+                                        contacténation de chaînes de caractères (ouverture dans un
+                                        nouvel onglet)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Une fonction qui prend en paramètres deux entiers, les multiplie et retourne <span
+                                class="texte-gras">toujours</span> un <span class="texte-gras">produit strictement
+                                positif</span> </li>
+                        <li>Une fonction qui prend en paramètres deux entiers qui les multiplie <span
+                                class="texte-gras">sans utiliser</span> l'opérateur de multiplication</span></li>
+                    </ul>
+                    <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
+                        "return")</span> et doivent voir leur résultat être affiché dans un <code>console.log()</code>.
+                    Exemple :
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
+}
+<span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Créez les fonctions suivantes :
+                    <ul>
+                        <li>Une fonction qui prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
+                            du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
+                            Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
+                            de Sarcelles"</li>
+                        <li>Une fonction qui prend en paramètre un nombre entier et qui retourne une chaîne de
+                            caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
+                            besoins) :
+                            <ul>
+                                <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
+                                <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
+                                <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
+                                <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
+                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou
+                                    n'est pas une valeur correcte
+                                </li>
+                            </ul>
+                            <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
+                                "return")</span> et doivent voir leur résultat être affiché dans un
+                            <code>console.log()</code>. Exemple :
+                            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;"></span>) </span>{
+    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hello&quot;</span>;
+}
+<span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Ajoutez un bouton (balise &lt;button type="button">) et appelez une des fonctions que vous avez crée
+                    précédemment
+                    <ul>
+                        <li>Voir le cours pour savoir comment lier un évènement à une balise</li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button>
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte"
+                    en cliquant sur le bouton précédemment crée
+                    <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra
+                        impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur
+                        chaque élément. Par exemple : </p>
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
+<span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
+    listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
+}</code></pre>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Toujours au clic sur le même bouton, ajoutez une classe CSS <span class="texte-gras">sur un seul
+                        élément</span>. Il faudra
+                    utiliser un data-attribute sur l'élément que l'on souhaite cibler.
+                    <article class="note-information">
+                        <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
+                            Exemple :</p>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
+                        <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
+                            le data-attribute "mon-data-attribute". A noter que cette syntaxe est aussi valable dans le
+                            CSS.</p>
+                    </article>
+                    <ul>
+                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
+                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications.</li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
+                                (ouverture dans un
+                                nouvel onglet)</a></li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Ajoutez un champ de texte de type "text" (pas besoin de le mettre dans un formulaire)</li>
+                <li>Ciblez le champ et ajoutez l'évènement "change"</li>
+                <li>Affichez un message sur une balise &lt;p> en fonction du texte entré par l'utilisateur
+                    <article class="note-information">
+                        <p>Pour récupérer le texte écrit, il faudra récupérer l'argument de notre notion d'évènement. Par exemple :</p>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;change&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> (<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) </span>{
+    <span style="color:rgb(87, 166, 74); font-weight:400;">// textChamp contient le texte actuellement dans le champ de texte</span>
+    <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> textChamp = evt.target.value;
+})</code></pre>
+                    </article>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+            </summary>
+            <ul>
+                <li>Ajoutez une balise &lt;select> (pas besoin de la mettre dans un formulaire) avec une liste de choix
+                    que vous aurez choisi (n'oubliez pas la
+                    valeur de l'attribut "value" pour chaque "option"). Et une balise &lt;img>. Lors de la sélection
+                    d'un élément dans le &lt;select> l'image doit changer.
+                    <p class="note-information">N'oubliez pas de rajouter un data-attribute sur les balises &lt;select>
+                        &lt;img> pour pouvoir y accéder dans le javascript</p>
+                    <p class="note-information">Il faudra télécharger des images (celles que vous voulez) et mettre le
+                        nom des images comme valeur de l'attribut "value". Quant à l'accès à l'attribut "src" de la
+                        balise &lt;img> dans le javascript, il faut tout simplement accéder à la propriété "src" de la
+                        balise &lt;img> dans le javascript (donc grâce à document.querySelector()).</p>
+                    <ul>
+                        <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>. <a
+                                href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais
+                        des valeurs différentes.</span>
+                    Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton
+                    (propriété "textContent") change pour la valeur du data-attribute.
+                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e
+                        est un paramètre de la fonction de la méthode
+                        <code>addEventListener("nom-evenement", fonction)</code>
+                    </p>
+
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Event/target"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (evt.)target
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
+                                target="_blank" rel="noopener noreferrer">
+                                Voir documentation des data-attributes, elle montre comment récupérer la valeur d'un
+                                data-attribute (ouverture dans un
+                                nouvel onglet)
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://htmldom.dev/" target="_blank" rel="noopener noreferrer">Explorez et testez une
+                        large gamme de possibilités en javascript (en anglais - ouverture dans un nouvel onglet)</a>.
+                    N'hésitez pas à modifier le code fourni, ceci vous permettra de renforcer vos connaissances.
+                </li>
+            </ul>
+        </details>
+    </header>
+    <main>
+        <section class="conteneur-principal">
+            <p class="mon-texte">Mon texte</p>
+            <p class="mon-texte">Mon autre texte</p>
+            <p class="mon-texte">Un troisième texte</p>
+        </section>
+    </main>
+</body>
