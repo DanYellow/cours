@@ -47,10 +47,10 @@ Les deux pages à réaliser sont :
   - Son titre
   - Son chapô + contenu (dans cet ordre)
   - Son image
-  - Sa date de création
+  - Sa date de création (heure optionnelle)
   - Son auteur
     - Mettre une valeur par défaut s'il n'y a pas d'auteur
-  - Sa vidéo youtube (optionnelle)
+  - Sa vidéo youtube **(optionnelle à l'affichage, pas dans le backoffice)**
     - **Le lecteur Youtube doit s'afficher sur la page de votre site**
     - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
     ```html
@@ -67,7 +67,7 @@ Les deux pages à réaliser sont :
     - Prénom
     - Nom
     - Lien vers le compte Twitter
-      - Facultatif
+      - **Facultatif à l'affichage, pas dans le backoffice**
       - Mettez le lien vers le compte Twitter de l'université :
         - https://twitter.com/UniversiteCergy
 
