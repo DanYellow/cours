@@ -3,7 +3,7 @@ _Les consignes pourront être modifiées._
 
 > **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
 
-> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celles où il vous est demandé de réaliser un site WordPress.
+> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celle où il vous est demandé de réaliser un site WordPress.
 
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
