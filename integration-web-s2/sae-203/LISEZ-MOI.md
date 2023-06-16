@@ -116,6 +116,9 @@ Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
 
 > Si l'utilisation du script dans l'onglet ne fonctionne pas sous phpmyadmin. Pensez à décocher "Activer la vérification des clés étrangères".
 
+Si vous utilisez alawaysdata, il y a un didacticiel expliquant comme créer une base de données et exploiter les donées. Ce didacticiel est polyvalent, il peut être utilisé avec un aute projet.
+- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
+
 ## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront **être gérées par des liens, vous n'avez pas à gérer un système d'upload.** Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
 

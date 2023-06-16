@@ -1,8 +1,8 @@
-# Didacticiel - Comment importer une base de données SQL dans phpmyadmin
+# Didacticiel - Comment créer une base de données SQL dans alwaysdata
 
-Voici un didacticiel sur comment créer une base de données avec l'hébergeur alwaysdata. Pour rappel, alwaysdata propose une offre gratuite, certes limitée, mais amplement suffisante pour héberger vos petits projets dont cette SAE.
+Voici un didacticiel traitant de la création d'une base de données sur l'hébergeur alwaysdata. Pour rappel, alwaysdata propose une offre gratuite, certes limitée, mais amplement suffisante pour héberger vos petits projets dont cette SAE.
 
-Dans cette dernière, nous aurons besoin d'héberger votre site, voici les étapes à suivre pour créer une base de données distante et donc rendre votre projet accessible à tous.
+Dans cette dernière, nous aurons besoin d'héberger votre SAE, voici les étapes à suivre pour créer une base de données distante et donc rendre votre projet accessible à tous.
 
 > On partira bien évidemment que vous avez crée un compte sur le site alwaysdata. Si ce n'est pas déjà fait, faites-le ça prend moins de 5 minutes. [Accéder au site d'alwaysdata](https://www.alwaysdata.com/fr/)
 
