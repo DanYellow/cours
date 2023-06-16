@@ -4,12 +4,27 @@ $page_active = "index";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
+
+$id = 1;
+$sql = "SELECT * FROM article WHERE id=?"; // SQL with parameters
+$stmt = $mysqli->prepare($sql); 
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result(); // get the mysqli result
+$user = $result->fetch_assoc(); 
+print_r($user);
 // à adapter
-$articleCommand = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
-$articleCommand->execute([
-    'id' => 2,
-]);
-$article = $articleCommand->fetch();
+// $requete = 'SELECT * FROM article WHERE id = 1';
+
+// $result = mysqli_query($mysqli, $requete);
+// // $articleCommand = $mysqli->query('SELECT * FROM article WHERE id = ?');
+
+// // $articleId = 1;
+// // $articleCommand->bind_param('i', $articleId);
+// // $articleCommand->execute();
+// print_r(
+//     mysqli_fetch_assoc($result)
+// );
 
 ?>
 <!DOCTYPE html>

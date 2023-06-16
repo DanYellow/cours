@@ -1,7 +1,9 @@
 # SAÉ 203 - Site web et Base de données (BDD)
 _Les consignes pourront être modifiées._
 
-> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir la dernière vers
+> **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
+
+> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celles où il vous est demandé de réaliser un site WordPress.
 
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
@@ -45,10 +47,10 @@ Les deux pages à réaliser sont :
   - Son titre
   - Son chapô + contenu (dans cet ordre)
   - Son image
-  - Sa date de création
+  - Sa date de création (heure optionnelle)
   - Son auteur
     - Mettre une valeur par défaut s'il n'y a pas d'auteur
-  - Sa vidéo youtube (optionnelle)
+  - Sa vidéo youtube **(optionnelle à l'affichage, pas dans le backoffice)**
     - **Le lecteur Youtube doit s'afficher sur la page de votre site**
     - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
     ```html
@@ -65,7 +67,7 @@ Les deux pages à réaliser sont :
     - Prénom
     - Nom
     - Lien vers le compte Twitter
-      - Facultatif
+      - **Facultatif à l'affichage, pas dans le backoffice**
       - Mettez le lien vers le compte Twitter de l'université :
         - https://twitter.com/UniversiteCergy
 
@@ -185,7 +187,7 @@ header("Location: $pageRedirection");
 ```
 
 # Mise en production
-Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
+Lorsque vous mettrez votre site en ligne. Assurez-vous bien d'exporter la base de données (avec création de table). De plus, pensez à éditer le fichier `.env.prod` avec les valeurs permettant de vous connecter au serveur MySQL de production.
 Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous avez fait une erreur à coup sûr.
 
 # Astuces
@@ -278,23 +280,30 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
+
   Oui, vous avez tout à fait le droit.
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
+
   Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
+
   Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
+
   Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
 
 - **Mon site ne charge pas le CSS. Pourquoi ?**
+
   Vous n'avez pas modifié la clé `CHEMIN_BASE` du fichier `.env.dev` (ou `.env.prod`). Pour rappel, sa valeur doit être égale au chemin dans lequel est contenu votre projet. Par exemple, si pour accéder à votre projet (sur localhost ou en ligne), il faut aller sur `localhost/monprojet/sae203`, il faudra écrire dans le fichier `.env.dev` la chose suivante.
   ```bash
   CHEMIN_BASE=monprojet/sae203/
   # [...] Reste du fichier
   ```
+- **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
+Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)

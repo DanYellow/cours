@@ -21,12 +21,10 @@ Et de mettre en application les connaissances vues dans les ressources suivantes
 - R3.12 | Développement Front et intégration
 - R3.15 | Représentation et traitement de l’information
 
-Par groupe au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
+Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
 - Un élément graphique (infographie - plusieurs formats attendus ou vidéo en motion design)
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence
-
-**Dans tous les cas**, le résultat final devra être accessible sur un **site web développé** (bootstrap, wordpress ou autre).
 
 > **La date butoir vous sera remise ultérieurement.**
 
@@ -52,7 +50,7 @@ Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que 
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
 
-> Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée.
+> Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée. Tout comme assurez-vous de respecter les contrastes et autres mise en page.
 
 Pensez également à aggrémenter votre travail de quelques textes servant de présentation et/ou de commentaires, ils serviront à mieux amener votre histoire et mieux contextualiser vos données. L'émission le dessous des cartes ou encore DataGueule le font très bien.
 - [Voir émission _Le Dessous des cartes_ sur Youtube](https://www.youtube.com/c/LeDessousdesCartesARTE)
@@ -61,7 +59,7 @@ Pensez également à aggrémenter votre travail de quelques textes servant de pr
 
 **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
 
-Il n'y a pas réellement de format attendu pour cette infographie, elle devra quand même respecter les règles suivantes :
+L'infographie devra respecter les règles suivantes :
 - Indiquer vos sources 
   - Carton final si en vidéo motion design
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
@@ -113,19 +111,24 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
 
 # FAQ - Foire Aux Questions
-- Est-ce que je peux utiliser des jeux de données additionnels ?
-  - Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
-- J'ai choisi le sujet "infographie" devrais-je également faire du développement ?
-  - Oui, mais dans une moindre mesure. Votre travail d'infographie (ou de vidéo) devra être être présenté sur un site
-- J'ai choisi de faire une vidéo, comment l'afficher sur mon site ?
-  - Hébergez-la, si possible, sur une plateforme comme Youtube (en privé) et affichez-la sur votre site. Youtube génére pour vous le code HTML à mettre sur votre site
-- Est-ce que je peux limiter le jeu de données ?
-  - Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
-- Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?
-  - Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser ces cours.**
-- Est-il possible de réaliser ce travail seul(e) ?
-  - Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
-- Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?
-  - Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
-- Puis effectuer plusieurs images pour Instagram
-  - Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.
+- **Est-ce que je peux utiliser des jeux de données additionnels ?**
+  
+  Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
+- **J'ai choisi le sujet "infographie" devrais-je également faire du développement ?**
+  
+  Oui, mais dans une moindre mesure. Votre travail d'infographie (ou de vidéo) devra être être présenté sur un site
+- **Est-ce que je peux limiter le jeu de données ?**
+  
+  Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
+- **Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?**
+  
+  Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser ces cours.**
+- **Est-il possible de réaliser ce travail seul(e) ?**
+  
+  Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
+- **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?**
+  
+  Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
+- **Puis-je effectuer plusieurs images pour Instagram ?**
+  
+  Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.

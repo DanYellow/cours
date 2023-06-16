@@ -14,7 +14,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC24.01 | Produire des pages et applications Web responsives
 - AC24.02 | Mettre en place ou développer un back office
 - AC24.05 | Optimiser une application web en termes de référencement et de temps de chargement
-- AC24.06 | Configurer une solution d’hébergement adaptée aux besoins
+- ~~AC24.06 | Configurer une solution d’hébergement adaptée aux besoins~~
 - ~~AC25.02 | Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)~~
 - ~~AC25.06 | Prendre en compte les contraintes juridiques~~
 

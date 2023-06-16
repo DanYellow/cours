@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP3 - Balise &lt;template></title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="h1">Consignes de la pratique - TP3 - Balise &lt;template></h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            En vous inspirant de l'exemple dans les slides du cours, créez et affichez votre propre template à un fichier HTML que vous aurez créer.
+            <ul>
+              <li>Si vous avez oublié "html:5" puis touche entrée, vous crée un squelette de page html</li>
+            </ul>
+          </li>
+        </ol>
+        <p class="note-information">N'oubliez pas de créer un fichier javascript pour charger puis afficher votre template. Et bien évidemment de cloner votre template avant de l'utiliser.</p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Arrangez-vous pour modifier le contenu d'une ou plusieurs balises de votre template depuis le javascript.
+            <ul>
+              <li>Cette modification peut être de différent ordre : texte, lien d'image...</li>
+            </ul> 
+          </li>
+        </ol>
+        <p class="note-information">Si il est préférable d'utiliser un data-attribute pour cibler un élément. Si votre template est relativement simple (des balises uniques), vous pouvez cibler directement la balise, mais attention si choix de balise n'est pas sûr.</p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Utilisez la fonction "getListNationalHolidays" contenue dans le fichier index.js
+          </li>
+          <li>Affichez son contenu grâce à un template. Ceci peut être une liste ou un tableau</li>
+        </ol>
+        <p class="note-information">L'API retourne une liste.</p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Groupez les jours fériés par année
+          </li>
+          <li>Affichez le contenu de chaque année avec les balises &lt;details> et &lt;summary></li>
+        </ol>
+        <p class="note-information">Vous pouvez utiliser une bibliothèque comme lodash.js (et sa fonction "groupBy") pour grouper les données.</p>
+      </details>
+    </header>
+  </body>
+</html>

@@ -4,9 +4,8 @@ $page_active = "index";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
-$listeArticlesCommande = $clientMySQL->prepare('SELECT * FROM article');
-$listeArticlesCommande->execute();
-$listeArticles = $listeArticlesCommande->fetchAll();
+$listeArticlesRequete = "SELECT * FROM article";
+$listeArticles = $mysqli->query($listeArticlesRequete);
 
 ?>
 <!DOCTYPE html>

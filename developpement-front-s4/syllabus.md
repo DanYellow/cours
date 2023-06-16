@@ -11,7 +11,7 @@ Apprentissage du cours :
 But du cours :
 - Être capable de réaliser une application avec ReactJS et create-react-app
 - Travailler avec nodejs
-- Réaliser avec succès la SAÉ 401 – Développer pour le Web. (SAÉ aura lieu début janvier 2022)
+- Réaliser avec succès la SAÉ 401 – Développer pour le Web.
 
 Mode d'évaluation (changements possibles) :
 - Tests sur ENT
