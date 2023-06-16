@@ -220,7 +220,7 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
   
-> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec un simple test.
+> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 

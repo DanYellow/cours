@@ -22,5 +22,5 @@ Parfois, comme dans le cadre de cette SAÉ, il vous arrivera de travailler avec 
 
 Normalement, vous devriez avoir importé votre base de données. Les tables et la bdd nouvellement ajoutées seront visibles à gauche de l'interface.
 
-> Note : Si phpmyadmin vous indique qu'il n'a pas le droit de créer une base de données. Vous devrez retirer les deux premières lignes du fichier `base-de-donnees.sql`.
+> Note : Si phpmyadmin vous indique qu'il n'a pas le droit de créer une base de données. Vous devrez retirer les deux premières lignes du fichier `base-de-donnees.sql`. Celles commençant par "CREATE DATABASE" et "USE".
 Ce problème risque plus d'arriver sur un hébergeur distant, très rarement sur votre ordinateur.
