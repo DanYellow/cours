@@ -246,8 +246,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 ### Développement Web (PHP/MySQL)
 - Qualité du code
-  - Utilisation de la fonction php `require_once()`
-    - Une partie du code fourni nécessite d'être optimisée avec la fonction `require_once()`
+  - Utilisation de la fonction PHP `require_once()`
   - Utilisation de fonctions (quand c'est nécessaire)
   - Lecture et écriture de la base de données
   - Utilisation des paramètres d'url
@@ -281,11 +280,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
 
-  Oui, vous avez tout à fait le droit.
+  Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
 
-  Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
+  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
 
