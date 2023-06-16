@@ -25,11 +25,11 @@ Dans cette dernière, nous aurons besoin d'héberger votre site, voici les étap
 Et pour importer une base de données, [regardez le didacticiel sur l'import de bases](LISEZ-MOI-IMPORT-SQL.md)
 
 Si vous avez réalisé ces deux étapes, tout est prêt. Vous avez les informations suivantes :
-- url de serveur : Il se trouve dans l'encart de la capture d'écran ci-dessus. Il faudra l'adapter à votre projet.
-- nom de base de données : C'est le nom que vous avez défini précédemment, celui qui respecte la nomenclature suivante : "votre_compte_" + nom arbitraire
-- nom d'utilisateur : par défaut, c'est le nom de votre compte, si vous ne le connaissez pas. Allez dans l'onglet "Utilisateurs" 
+- url de serveur (hostname) : Il se trouve dans l'encart de la capture d'écran ci-dessus. Il faudra l'adapter à votre projet.
+- nom de base de données (database) : C'est le nom que vous avez défini précédemment, celui qui respecte la nomenclature suivante : "votre_compte_" + nom arbitraire
+- nom d'utilisateur (username) : par défaut, c'est le nom de votre compte, si vous ne le connaissez pas. Allez dans l'onglet "Utilisateurs" 
 ![](captures-ecran/always-data-4.jpg)
-- mot de passe : Par défaut, le mot de passe est identique à celui de votre compte. Toutefois, il est possible d'avoir un mot de passe décorréler entre votre compte et vos différentes bases de données. Suivez la partie plus bas pour en savoir plus.
+- mot de passe (password) : Par défaut, le mot de passe est identique à celui de votre compte. Toutefois, il est possible d'avoir un mot de passe décorréler entre votre compte et vos différentes bases de données. Suivez la partie plus bas pour en savoir plus.
 
 Si, on prend du code php, ceci nous donnerait quelque chose comme :
 ```php
