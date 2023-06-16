@@ -24,7 +24,7 @@ Et de mettre en application les connaissances vues dans les ressources suivantes
 Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
 - Un élément graphique (infographie - plusieurs formats attendus ou vidéo en motion design)
 - Une application interactive en javascript
-  - Nécessite du design pour l'apparence
+  - Nécessite du design pour l'apparence. Vous pouvez bien évidemment utiliser tailwindcss
 
 > **La date butoir vous sera remise ultérieurement.**
 
@@ -33,9 +33,9 @@ Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffic
 
 - [Accéder aux jeux de données proposés](datasets/)
 
-Les jeux de données sont été partagés en deux groupes : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement.
+Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement.
 
-> Note : Vous pouvez tout à fait ajouter des jeux de données externes (et sourcés) pour appuyer votre création. N'hésitez pas !
+> Note : Vous pouvez tout à fait ajouter des jeux de données externes (et **sourcés**) pour appuyer votre création. N'hésitez pas !
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
@@ -44,30 +44,30 @@ Les jeux de données sont été partagés en deux groupes : "infographie" et "d�
 > Les jeux de données ont des titres relativement explicites, mais si vous avez un doute n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
-Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
-> Vous pouvez, si vous le souhaitez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
+> Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
 
-> Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée. Tout comme assurez-vous de respecter les contrastes et autres mise en page.
+> Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée. Tout comme assurez-vous de respecter les contrastes et autres règles de mise en page.
 
-Pensez également à aggrémenter votre travail de quelques textes servant de présentation et/ou de commentaires, ils serviront à mieux amener votre histoire et mieux contextualiser vos données. L'émission le dessous des cartes ou encore DataGueule le font très bien.
+Ne négligez pas la présence de textes servant de présentation et/ou de commentaires, ils peuvent servir à mieux amener votre histoire et mieux contextualiser vos données. Les émissions le dessous des cartes ou encore DataGueule le font très bien.
 - [Voir émission _Le Dessous des cartes_ sur Youtube](https://www.youtube.com/c/LeDessousdesCartesARTE)
 - [Voir émission _Le chiffroscope_ sur Youtube](https://www.youtube.com/playlist?list=PLTWD_IG2XnYtps4vw7RmOAttFlMm2qlcv)
 - [Voir émission _DataGueule_ sur Youtube](https://www.youtube.com/user/datagueule)
 
-**Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
+> **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
 
 L'infographie devra respecter les règles suivantes :
-- Indiquer vos sources 
-  - Carton final si en vidéo motion design
+- La présence des sources 
+  - Carton final si en vidéo motion design (possible à chaque "scène")
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
 - Formats print et instagram :
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
   - Instagram : Format carré (possibilité d'avoir plusieurs images)
 - Taille de texte minimum : 12px
-  - ça peut être plus petit pour vos sources et les auteurs
+  - Peut être plus petit pour vos sources et les auteurs
 - Et bien évidemment le contenu
   - Vous vous adressez à des francophones, si votre jeu de données est dans une langue étrangère, il faudra le traduire
 ### Conseils - Infographie
@@ -89,11 +89,11 @@ Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google M
 
 **Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à indiquer à l'utilisateur que les données chargent.
 
-> Javascript ne sait pas changer naturellement un fichier .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
+> Javascript ne sait pas changer naturellement un fichier .xlsx, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 
 Pour manipuler les données ou les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
-> Vous avez appris à utiliser git. Pensez-y pour garder une trace de votre travail et travailler à plusieurs.
+> Vous avez appris à utiliser git. Pensez-y pour garder une trace de votre travail et travailler à plusieurs sereinement.
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
@@ -116,13 +116,13 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
 - **J'ai choisi le sujet "infographie" devrais-je également faire du développement ?**
   
-  Oui, mais dans une moindre mesure. Votre travail d'infographie (ou de vidéo) devra être être présenté sur un site
+  Non. Nous souhaitons juste une production visuelle et rien d'autre.
 - **Est-ce que je peux limiter le jeu de données ?**
   
   Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
 - **Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?**
   
-  Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser ces cours.**
+  Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser cette SAE.**
 - **Est-il possible de réaliser ce travail seul(e) ?**
   
   Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
