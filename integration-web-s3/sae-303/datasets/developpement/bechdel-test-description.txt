@@ -1,0 +1,10 @@
+- bt_score: The actual score. Number from 0 to 3 (0 means no two women, 1 means no talking, 2 means talking about a man, 3 means it passes the test).
+- imdbid: The IMDb id.
+- title: The title of the movie. Any weird characters are HTML encoded (so Brüno is returned as "Br&uuml;no").
+- year:	The year this movie was released (according to IMDb)
+- title_fr: titre en français du film
+- imdbid_full : ID imdb du film complet
+- poster_path : affiche française du film
+- lang : langue d'origine du film - Vous pourrez ainsi filtrer pour garder des films de certains pays
+
+Plus d'infos : https://bechdeltest.com/api/v1/doc
