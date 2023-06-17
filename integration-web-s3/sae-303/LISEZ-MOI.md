@@ -109,6 +109,10 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
 
 # FAQ - Foire Aux Questions
+- **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
+  
+  A la racine du dossier des jeux de données, il y a un fichier _liste-sources.ods qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
+  **Attention : Il y a deux onglets (crea et dev)**.
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
