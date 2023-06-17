@@ -81,7 +81,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 ## Application interactive en javascript 
 
-Autre proposition de rendu, l'application interactive en javascript sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver.
+Autre proposition de rendu : l'application interactive en javascript, elle sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver géographiquement.
 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
@@ -106,8 +106,6 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
   - [ ] Respecter les attentes
   - [ ] Générer une archive contenant :
-    - [ ] Votre site web (bootstrap, wordpress ou autre)
-    - [ ] Un fichier texte contenant les membres du groupe
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
 
 # FAQ - Foire Aux Questions
