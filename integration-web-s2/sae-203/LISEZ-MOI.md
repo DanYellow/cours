@@ -3,7 +3,7 @@ _Les consignes pourront être modifiées._
 
 > **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
 
-> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celles où il vous est demandé de réaliser un site WordPress.
+> **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celle où il vous est demandé de réaliser un site WordPress.
 
 ## Didacticiels
 - [Importer une base de données dans phpmyadmin](LISEZ-MOI-IMPORT-SQL.md)
@@ -116,6 +116,9 @@ Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
 
 > Si l'utilisation du script dans l'onglet ne fonctionne pas sous phpmyadmin. Pensez à décocher "Activer la vérification des clés étrangères".
 
+Si vous utilisez alawaysdata, il y a un didacticiel expliquant comme créer une base de données et exploiter les donées. Ce didacticiel est polyvalent, il peut être utilisé avec un aute projet.
+- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
+
 ## Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront **être gérées par des liens, vous n'avez pas à gérer un système d'upload.** Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
 
@@ -217,7 +220,7 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
   
-> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec un simple test.
+> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
@@ -246,8 +249,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 ### Développement Web (PHP/MySQL)
 - Qualité du code
-  - Utilisation de la fonction php `require_once()`
-    - Une partie du code fourni nécessite d'être optimisée avec la fonction `require_once()`
+  - Utilisation de la fonction PHP `require_once()`
   - Utilisation de fonctions (quand c'est nécessaire)
   - Lecture et écriture de la base de données
   - Utilisation des paramètres d'url
@@ -281,11 +283,11 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
 
-  Oui, vous avez tout à fait le droit.
+  Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
 
-  Si vous estimez que de nouvelles tables sont nécéssaires, n'hésitez pas.
+  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
 

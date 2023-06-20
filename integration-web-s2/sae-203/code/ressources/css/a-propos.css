@@ -47,12 +47,11 @@
 }
 
 .projet .textes {
-    padding: 1rem 4.5rem 4.25rem 1rem;
+    padding: 1rem 3.5rem 4.25rem 1rem;
 }
 
 .projet .titre {
     font-size: 2rem;
-    width: 300px;
     margin-bottom: 1rem;
     font-weight: bold;
 }

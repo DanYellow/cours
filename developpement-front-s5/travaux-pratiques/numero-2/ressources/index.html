@@ -27,7 +27,7 @@
             Ouvrez cypress en exécutant la
             commande <code>npm run cypress</code> dans la console
           </li>
-          <li>Cliquez sur le fichier "example.cy.js" pour exécuter votre premier test e2e</li>
+          <li>Cliquez sur le fichier "example.cy.js" dans le logiciel cypress pour exécuter votre premier test e2e</li>
         </ol>
       </details>
       <details class="consignes-conteneur">
@@ -50,24 +50,23 @@
         <summary>
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
-        <ol class="liste-consignes">
+        <ul class="liste-consignes">
           <li>
             Ajoutez un nouveau test (fichier de test ou block de test) qui respecte le plan suivant :
             <ol>
-              <li>Accède au site wikipédia (https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal)</li>
+              <li>Accède au site wikipédia (<a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" target="_blank">https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal</a>)</li>
               <li>Effectue une recherche (de votre choix)</li>
-              <li>S'assure que vous êtes sur la bonne page</li>
+              <li>S'assure que vous êtes sur la page de votre recherche</li>
             </ol>
           </li>
-        </ol>
-        <p class="note-information">Si vous ajoutez un nouveau test,  n'oubliez</p>
+        </ul>
       </details>
       <details class="consignes-conteneur">
         <summary>
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur Windows) le dossier ressources/cypress (nouvelle fenêtre ou onglet)
+          <li>Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur Windows) le dossier ressources/cypress (nouvelle fenêtre ou onglet de votre terminal)
           </li>
           <li>
             Exécutez la commande <code>npm run server</code>
@@ -109,12 +108,6 @@
           </li>
         </ol>
         <section class="note-information">
-          <p>Pour manipuler un &lt;select>, il faudra utiliser la méthode ".select()".</p>
-          <ul>
-            <li>
-              <a href="https://docs.cypress.io/api/commands/select" target="_blank">Accéder à la documentation de cy.select() (ouverture dans un nouvel onglet)</a>
-            </li>
-          </ul>
           <p>Pour soumettre un formulaire, vous pouvez cliquer sur le bouton dédié ou utiliser la méthode ".submit()" sur le formulaire directement.</p>
           <ul>
             <li>
@@ -171,7 +164,7 @@
   };
   cy.<span class="hljs-title function_">on</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;window:before:load&quot;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt;</span> <span class="hljs-title function_">disableCache</span>(win));
 });</code></pre>
-<p>Dans les grandes lignes, il désactive le cache de toutes les requêtes passant par la méthode window.fetch(), et ce, avant chaque test (beforeEach())</p>
+<p>Dans les grandes lignes, il désactive le cache de toutes les requêtes passant par la méthode window.fetch(), et ce, avant chaque test grâce à la fonction beforeEach()</p>
         </section>
       </details>
       <details class="consignes-conteneur">
@@ -180,7 +173,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>Affichez le contenu de la requête listant les jours fériés grâce à la balise &lt;template></li>
-          <li>Gérez sa présence grâce à un test e2e ou améliorez celui que vous avez écrit</li>
+          <!-- <li>Gérez sa présence grâce à un test e2e ou améliorez celui que vous avez écrit</li> -->
         </ol>
       </details>
     </header>
