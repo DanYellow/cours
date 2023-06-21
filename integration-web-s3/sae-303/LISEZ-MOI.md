@@ -111,8 +111,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
-  A la racine du dossier des jeux de données, il y a un fichier _liste-sources.ods qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
-  **Attention : Il y a deux onglets (crea et dev) dans le fichier**.
+  A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
+  **Attention : Il y a deux onglets (crea et dev) dans le fichier.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
@@ -127,10 +127,14 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser cette SAE.**
 - **Est-il possible de réaliser ce travail seul(e) ?**
   
-  Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
+  Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche, et à la fin, il n'y aura pas grand-chose.
 - **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?**
   
   Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
 - **Puis-je effectuer plusieurs images pour Instagram ?**
   
   Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.
+
+- **Est-ce que le choix de l'axe (crea ou dev) est conditionné par le parcours choisi pour le S3 ?**
+  
+  Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
