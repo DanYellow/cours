@@ -22,7 +22,7 @@ Et de mettre en application les connaissances vues dans les ressources suivantes
 - R3.15 | Représentation et traitement de l’information
 
 Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous devrez, à partir d'un jeu de données que vous aurez choisi, produire **au choix :**
-- Un élément graphique (infographie - plusieurs formats attendus ou vidéo en motion design)
+- Une production graphique (infographie - plusieurs formats attendus ou vidéo en motion design)
 - Une application interactive en javascript
   - Nécessite du design pour l'apparence. Vous pouvez bien évidemment utiliser tailwindcss
 
@@ -57,11 +57,11 @@ Ne négligez pas la présence de textes servant de présentation et/ou de commen
 - [Voir émission _Le chiffroscope_ sur Youtube](https://www.youtube.com/playlist?list=PLTWD_IG2XnYtps4vw7RmOAttFlMm2qlcv)
 - [Voir émission _DataGueule_ sur Youtube](https://www.youtube.com/user/datagueule)
 
-> **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose et faites également attention au choix des graphiques.**
+> **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose, faites également attention au choix des graphiques.**
 
 L'infographie devra respecter les règles suivantes :
 - La présence des sources 
-  - Carton final si en vidéo motion design (possible à chaque "scène")
+  - Carton final si en vidéo motion design (possible à chaque "plan" de la vidéo)
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
 - Formats print et instagram :
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage
@@ -111,14 +111,14 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
-  A la racine du dossier des jeux de données, il y a un fichier _liste-sources.ods qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
-  **Attention : Il y a deux onglets (crea et dev)**.
+  A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
+  **Attention : Il y a deux onglets (crea et dev) dans le fichier.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
 - **J'ai choisi le sujet "infographie" devrais-je également faire du développement ?**
   
-  Non. Nous souhaitons juste une production visuelle et rien d'autre.
+  Non. Vous devrez faire juste une production visuelle et rien d'autre.
 - **Est-ce que je peux limiter le jeu de données ?**
   
   Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
@@ -127,10 +127,14 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser cette SAE.**
 - **Est-il possible de réaliser ce travail seul(e) ?**
   
-  Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche.
+  Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche, et à la fin, il n'y aura pas grand-chose.
 - **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?**
   
   Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
 - **Puis-je effectuer plusieurs images pour Instagram ?**
   
   Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.
+
+- **Est-ce que le choix de l'axe (crea ou dev) est conditionné par le parcours choisi pour le S3 ?**
+  
+  Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
