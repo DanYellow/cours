@@ -87,13 +87,13 @@ Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google M
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
   - Pensez bien à sélectionner l'onglet "Javascript" pour le code
 
-**Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Pensez bien donc à indiquer à l'utilisateur que les données chargent.
+**Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent.
 
-> Javascript ne sait pas changer naturellement un fichier .xlsx, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
+> Javascript ne sait pas changer naturellement un fichier .xlsx ou .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
 
 Pour manipuler les données ou les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
-> Vous avez appris à utiliser git. Pensez-y pour garder une trace de votre travail et travailler à plusieurs sereinement.
+> Vous avez appris à utiliser git. C'est un standard dans le monde du travail, **vous devrez impérativement l'utiliser.**
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
@@ -107,6 +107,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [ ] Respecter les attentes
   - [ ] Générer une archive contenant :
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
+    - [ ] Lien vers le dépôt sur github (projet développement uniquement)
 
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
@@ -138,3 +139,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - **Est-ce que le choix de l'axe (crea ou dev) est conditionné par le parcours choisi pour le S3 ?**
   
   Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
+
+- **Dois-je impérativement utiliser git pour le projet ?**
+
+  Si vous avez choisi le projet développement, vous êtes obligés, ceci fait partie de la notation final. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
