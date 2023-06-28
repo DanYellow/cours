@@ -28,7 +28,7 @@ efficace et productif
 Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
 - [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
 
-Dans le site sont prévues cinq pages qui partagent une structure commune composée par :
+Dans le site sont prévues six pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
   - Vous devez le compléter et l'adapter pour chaque page
   - Indiquer la page active dans la navigation
@@ -55,14 +55,30 @@ La page contact possède trois états :
   - https://www.youtube.com/watch?v=xD4wshE0hEg
   
   A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéos ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
-- **Nouvelle page à votre discretion.** Une cinquième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
+- **Nouvelle page à votre discretion.** Une sixième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design et la mise en page du site. Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page. Vous pourrez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
 
 > Ce n'est pas un exercice de rédaction, vous pouvez très bien récupérer du contenu (textes et images) en ligne.
 
-Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la cinquième page.
+Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la sixième page.
 
 > Vous ne partirez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
 > [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
+
+# Police d'écriture
+La maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
+
+Quoiqu'il en soit sachez que la police "Open Sans" est nommée "Open Sans" dans le projet, ainsi si vous souhaitez appliquer la police sur un élément, il faudra écrire la chose suivante :
+```css
+  mon-selecteur {
+    font-family: "Open Sans", sans-serif;
+  }
+```
+Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoir besoin d'écrire le code ci-dessus. En revanche, pour gérer les différentes graisses, il faudra jouer sur la propriété CSS "font-weight" et les valeurs suivantes :
+- pas de gras : normal
+- semi-gras : 600
+- gras : bold
+
+Leur utilisation est indiqué dans la maquette Adobe XD.
 
 # Astuces
 - La navigation principale du site se trouve dans le fichier `ressources/css/includes/header.php`

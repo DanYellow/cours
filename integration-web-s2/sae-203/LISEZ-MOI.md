@@ -119,8 +119,24 @@ Le contenu du fichier devra être exécuté dans PhpMyAdmin, onglet "SQL".
 Si vous utilisez alawaysdata, il y a un didacticiel expliquant comme créer une base de données et exploiter les donées. Ce didacticiel est polyvalent, il peut être utilisé avec un aute projet.
 - [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
 
-## Images et base de données
+# Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront **être gérées par des liens, vous n'avez pas à gérer un système d'upload.** Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
+
+# Police d'écriture
+Pour rappel, la maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
+
+Quoiqu'il en soit sachez que la police "Open Sans" est nommée "Open Sans" dans le projet, ainsi si vous souhaitez appliquer la police sur un élément, il faudra écrire la chose suivante :
+```css
+  mon-selecteur {
+    font-family: "Open Sans", sans-serif;
+  }
+```
+Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoir besoin d'écrire le code ci-dessus. En revanche, pour gérer les différentes graisses, il faudra jouer sur la propriété CSS "font-weight" et les valeurs suivantes :
+- pas de gras : normal
+- semi-gras : 600
+- gras : bold
+
+Leur utilisation est indiqué dans la maquette Adobe XD.
 
 # Fichiers .env
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changeront en fonction de l'environnement. Voici une description des différentes variables de ces fichiers .env.
