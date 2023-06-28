@@ -37,10 +37,10 @@ Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur cont
 
 Notez également qu'il y a deux dossiers `ressources/`, un à la racine du projet et un autre dans le dossier `administration/`. Ainsi, si vous devez éditer le site principal (celui de la SAE 105), éditez le dossier `ressources/` à la racine du projet, si vous devez éditer l'administration, travaillez dans le dossier `administration/ressources/`.
 
-- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/9db2b308-f3b3-40d2-9372-2b43c83a277f-c8e1/screen/b2376c6c-7c7d-4071-a7f0-e32f20ac85aa/)
+- [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
-
-Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas trop besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
+  
+Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas vraiment besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
 Les deux pages à réaliser sont : 
 
 - article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
@@ -67,7 +67,7 @@ Les deux pages à réaliser sont :
     - Prénom
     - Nom
     - Lien vers le compte Twitter
-      - **Facultatif à l'affichage, pas dans le backoffice**
+      - **Facultatif à l'affichage**
       - Mettez le lien vers le compte Twitter de l'université :
         - https://twitter.com/UniversiteCergy
 
