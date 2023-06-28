@@ -37,7 +37,7 @@
                     <section class="textes">
                         <p class="txt-petit">Journée portes ouvertes</p>
                         <p class="txt-grand">
-                            11/02/2023, <br />
+                            27/01/2024, <br />
                             de 10h à 17h
                         </p>
                         <p class="en-savoir-plus">EN SAVOIR PLUS</p>

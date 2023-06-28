@@ -18,6 +18,7 @@ require_once('./ressources/includes/connexion-bdd.php');
     <title>REMPLACER - SAÉ 203</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
@@ -27,7 +28,7 @@ require_once('./ressources/includes/connexion-bdd.php');
 
 <body>
     <section>
-        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php
         // facultatif
         // require_once('./ressources/includes/bulle.php'); 

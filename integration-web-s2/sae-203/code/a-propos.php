@@ -15,6 +15,7 @@ require_once('./ressources/includes/connexion-bdd.php');
     <title>A propos - SAÉ 203</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
 
@@ -24,7 +25,7 @@ require_once('./ressources/includes/connexion-bdd.php');
 
 <body>
     <section>
-        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
@@ -60,7 +61,7 @@ require_once('./ressources/includes/connexion-bdd.php');
                 </p>
             </section>
 
-            <h1 class="titre-page" id="sae">Situation d'Apprentissage et d'Évaluation</h1>
+            <h1 class="titre" id="sae">Situation d'Apprentissage et d'Évaluation</h1>
 
             <section>
                 <p class="paragraphe">
@@ -74,7 +75,7 @@ require_once('./ressources/includes/connexion-bdd.php');
                 </p>
             </section>
 
-            <h1 class="titre-page" id="exemple-sae">Exemples de projets réalisés en SAÉ</h1>
+            <h1 class="titre" id="exemple-sae">Exemples de projets réalisés en SAÉ</h1>
 
             <section class="liste-projets">
                 <?php for ($i = 0; $i < 6; $i++) {

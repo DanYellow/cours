@@ -38,6 +38,7 @@ print_r($user);
     <title>Article - SAÉ 203</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
@@ -48,7 +49,7 @@ print_r($user);
 
 <body>
     <section>
-        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php
         // A supprimer si vous n'en avez pas besoin.
         // Mettre une couleur dédiée pour cette bulle si vous gardez la bulle
@@ -57,7 +58,7 @@ print_r($user);
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
-            <h1 class="titre-page"><?php echo $article["titre"]; ?></h1>
+            <h1 class="titre"><?php echo $article["titre"]; ?></h1>
             <p>A vous de faire le design de l'article</p>
 
         </main>

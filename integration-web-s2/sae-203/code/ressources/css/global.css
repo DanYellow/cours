@@ -71,7 +71,12 @@ html {
 }
 
 .pied-de-page-principal .logo {
-  margin-top: 46px;
+  padding-right: 1rem;
+  border-right: 1px solid #707070;
+}
+
+.pied-de-page-principal .textes {
+  padding-left: 1rem;
 }
 
 .pied-de-page-principal .txt-credits {
@@ -80,7 +85,8 @@ html {
 
 .paragraphe {
   margin-bottom: 1.25rem;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
+  line-height: 1.45;
 }
 
 .paragraphe:last-of-type {

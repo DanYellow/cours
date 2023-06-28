@@ -59,6 +59,7 @@ if ($formulaire_soumis) {
     <title>Contact - SAÉ 203</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
 
@@ -68,7 +69,7 @@ if ($formulaire_soumis) {
 
 <body>
     <section>
-        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php
         if ($formulaire_soumis && !$formulaire_a_erreurs) {
             echo "
@@ -89,7 +90,7 @@ if ($formulaire_soumis) {
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
-            <h1 class="titre-page">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
+            <h1 class="titre">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
 
             <section>
                 <p class="paragraphe">
@@ -97,7 +98,7 @@ if ($formulaire_soumis) {
                 </p>
             </section>
 
-            <h1 class="titre-page">Nous contacter en ligne</h1>
+            <h1 class="titre">Nous contacter en ligne</h1>
 
             <form action="" method="POST" class="formulaire-contact">
                 <article class="champ-conteneur">
@@ -146,7 +147,7 @@ if ($formulaire_soumis) {
                 </article>
             </form>
 
-            <h1 class="titre-page">Nous contacter par courrier</h1>
+            <h1 class="titre">Nous contacter par courrier</h1>
             <p class="paragraphe">
                 IUT de Cergy-Pontoise,<br>
                 Département Métiers du Multimédia et de l’Internet (MMI) <br>

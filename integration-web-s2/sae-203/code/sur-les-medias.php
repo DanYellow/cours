@@ -16,6 +16,7 @@ $page_active = "medias";
     <title>Sur les médias - SAÉ 105</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
 
@@ -25,12 +26,12 @@ $page_active = "medias";
 
 <body>
     <section>
-        <?php require_once('./ressources/includes/header.php'); ?>
+        <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php require_once('./ressources/includes/bulle.php'); ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
-            <h1 class="titre-page">Les actualités et les évènements important du BUT et de l'IUT CY Paris Université dans les médias.</h1>
+            <h1 class="titre">Les actualités et les évènements important du BUT et de l'IUT CY Paris Université dans les médias</h1>
 
             <ul class="liste-videos">
                 <li class="video-conteneur">

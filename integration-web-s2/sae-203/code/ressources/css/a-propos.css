@@ -3,7 +3,7 @@
     padding: 1rem 3rem 1rem 1rem;
     background-color: #F9F9F9;
     width: fit-content;
-    font-size: 1.05rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
@@ -18,7 +18,6 @@
 .liste-ancres a {
     text-decoration: none;
     color: #03886D;
-    font-weight: bold;
 }
 
 .liste-ancres a:hover {
@@ -62,6 +61,6 @@
 .liste-axes {
     list-style: inherit;
     list-style-position: inside;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     margin-top: -1.25rem;
 }

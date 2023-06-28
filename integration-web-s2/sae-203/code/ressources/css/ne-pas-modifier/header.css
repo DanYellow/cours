@@ -1,6 +1,6 @@
 .bulle {
   position: relative;
-  margin-bottom: 4.25rem;
+  margin-bottom: 6rem;
   margin-top: 4.75rem;
 }
 
@@ -12,22 +12,21 @@
 }
 
 .bulle .txt-grand {
-  font-size: 4rem;
+  font-size: 4.375rem;
   color: black;
 }
 
 .bulle .txt-grand span,
 .bulle .txt-petit span {
-  display: block;
-  background-color: #fafafa;
+  display: inline-block;
+  background-color: white;
   padding: 0.25rem;
   margin-bottom: 0.25rem;
-  /* width: fit-content; */
 }
 
 .bulle .txt-petit {
   color: black;
-  font-size: 2.25rem;
+  font-size: 3.125rem;
 }
 
 .bulle-icone.rose {
@@ -46,13 +45,17 @@
   background-color: #ffe700;
 }
 
+.bulle-icone.gris {
+  background-color: #012a37;
+}
+
 .bulle-icone {
   position: absolute;
   top: -46px;
-  right: 200px;
+  right: 100px;
   z-index: -1;
-  width: 484px;
-  height: 400px;
+  width: 634px;
+  height: 500px;
   transition: transform 0.3s;
   mask: url("../../images/bulle.svg") no-repeat center / contain;
   -webkit-mask: url("../../images/bulle.svg") no-repeat center / contain;
@@ -61,13 +64,14 @@
 .bulle-icone-bordure {
   position: absolute;
   top: -60px;
-  right: 200px;
+  right: 62px;
   z-index: -1;
-  width: 450px;
-  height: 410px;
+  width: 634px;
+  height: 510px;
   transition: transform 0.3s;
   mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
   -webkit-mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
+  mix-blend-mode: exclusion;
 }
 
 .bulle-icone-bordure.rose {
@@ -84,6 +88,10 @@
 
 .bulle-icone-bordure.jaune {
   background-color: #ee8f00;
+}
+
+.bulle-icone-bordure.gris {
+  background-color: #C9C9C9;
 }
 
 .bulle:hover .bulle-icone-bordure {

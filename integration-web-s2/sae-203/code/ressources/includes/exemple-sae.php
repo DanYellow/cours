@@ -16,6 +16,6 @@
     </figure>
     <section class='textes'>
         <h2 class="titre"><?php echo $listSAES[$i]; ?> • SAÉ <?php echo $numSAE; ?></h2>
-        <p class='description'>Apprendre les bases du reportage vidéo sur un sujet libre</p>
+        <p class='paragraphe'>Apprendre les bases du reportage vidéo sur un sujet libre</p>
     </section>
 </article>
