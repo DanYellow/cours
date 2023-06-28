@@ -134,7 +134,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
 - **Puis-je effectuer plusieurs images pour Instagram ?**
   
-  Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple.
+  Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple : image_1, image_2...
 
 - **Est-ce que le choix de l'axe (crea ou dev) est conditionné par le parcours choisi pour le S3 ?**
   
@@ -142,4 +142,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 - **Dois-je impérativement utiliser git pour le projet ?**
 
-  Si vous avez choisi le projet développement, vous êtes obligés, ceci fait partie de la notation final. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
+  Si vous avez choisi le projet développement, vous êtes obligés, ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
+
+- **Mon application doit-elle être responsive ?**
+
+Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre application javascript responsive.

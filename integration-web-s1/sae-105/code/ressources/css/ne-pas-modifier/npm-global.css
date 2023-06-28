@@ -1,3 +1,4 @@
+/* NE PAS MODIFIER */
 *,
 *::after,
 *::before {
@@ -6,7 +7,7 @@
 
 body {
   background-color: #fefefe;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .conteneur-1280 {
@@ -18,7 +19,7 @@ body {
 .navigation-principale ul {
   display: flex;
   justify-content: flex-end;
-  column-gap: 5.625rem;
+  column-gap: 2.8125rem;
   padding-top: 2.5rem;
   font-size: 1.25rem;
   margin-bottom: 5.375rem;
@@ -28,7 +29,7 @@ body {
 .titre-page {
   font-size: 2.25rem;
   font-weight: bold;
-  margin-bottom: 1.375rem;
+  margin-bottom: 1.066666666666667rem;
 }
 
 img {

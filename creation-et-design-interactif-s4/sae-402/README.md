@@ -48,7 +48,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Une scène de debug pour tester des fonctionnalités rapidement
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
-> **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes.**
+> **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes. Il n'est pas utile de télécharger cette ancienne version.**
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
@@ -57,7 +57,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche N : Tue le joueur
 - Touche O : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
 - Touche M : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
-- Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran
+- Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran d'ans l'éditeur
 - Touche L : Arrête le mode "Play"
 - Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont proprement passées entre les scènes
 

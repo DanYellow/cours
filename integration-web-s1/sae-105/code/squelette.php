@@ -11,6 +11,7 @@
     <title>A REMPLACER !!!</title>
 
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-reset.css">
+    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-fonts.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-header.css">
 </head>

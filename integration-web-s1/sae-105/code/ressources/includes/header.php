@@ -4,6 +4,7 @@
             <a href="index.php">ACCUEIL</a>
         </li>
         <li>A PROPOS</li>
+        <li>LIEUX DE VIE</li>
         <li>CONTACT</li>
     </ul>
 </nav>

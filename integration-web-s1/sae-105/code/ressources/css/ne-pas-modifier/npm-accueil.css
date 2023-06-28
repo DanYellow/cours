@@ -1,3 +1,4 @@
+/* NE PAS MODIFIER */
 .jpo-banniere {
   width: 34.375%;
   height: 45.625rem;
@@ -65,14 +66,13 @@
 }
 
 .jpo-banniere .textes .txt-petit {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  width: 60%;
+  font-size: 1.5rem;
+  width: 90%;
 }
 
 .jpo-banniere .textes .txt-grand {
-  font-size: 3rem;
-  margin-bottom: 0.875rem;
+  font-size: 2.25rem;
+  margin-bottom: 2.25rem;
 }
 
 .jpo-banniere .textes .en-savoir-plus {
