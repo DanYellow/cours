@@ -50,12 +50,14 @@
 }
 
 .projet .titre {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    font-weight: bold;
+    font-weight: 600;
+    line-height: 1.25;
 }
 .projet .description {
     color: #363636;
+    margin-bottom: 0!important;
 }
 
 .liste-axes {
