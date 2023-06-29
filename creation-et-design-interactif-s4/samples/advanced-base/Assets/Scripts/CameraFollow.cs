@@ -27,9 +27,25 @@ public class CameraFollow : MonoBehaviour
     private Vector3 GetNextPosition()
     {
         return target.position + new Vector3(
-            (offset.x * (target.localEulerAngles.y > 90 ? -1 : 1)),
+            offset.x,
             offset.y,
             transform.position.z
         );
+    }
+
+    private Vector3 calculateThreshold()
+    {
+        Rect aspect = Camera.main.pixelRect;
+        Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
+        t.x -= offset.x;
+        t.y -= offset.y;
+        return t;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Vector2 border = calculateThreshold();
+        Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
     }
 }
