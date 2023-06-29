@@ -5276,7 +5276,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
   m_Layer: 0
@@ -5345,7 +5344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.35, y: 1.74, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5353,21 +5352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0cab6b631ab594a85dd0abf82a679b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 5.25, y: -0.5, z: 0}
-  smoothTime: 0.15
-  target: {fileID: 814072436}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5390,13 +5374,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b4b05412c231e438990fbf8f152cee, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e0cab6b631ab594a85dd0abf82a679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followObject: {fileID: 814072429}
-  followOffset: {x: 0, y: 0}
-  speed: 3
+  offset: {x: 0, y: 2.09, z: 0}
   smoothTime: 0.25
+  target: {fileID: 814072436}
 --- !u!1 &521770008
 GameObject:
   m_ObjectHideFlags: 0

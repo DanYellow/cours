@@ -32,20 +32,4 @@ public class CameraFollow : MonoBehaviour
             transform.position.z
         );
     }
-
-    private Vector3 calculateThreshold()
-    {
-        Rect aspect = Camera.main.pixelRect;
-        Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-        t.x -= offset.x;
-        t.y -= offset.y;
-        return t;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Vector2 border = calculateThreshold();
-        Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
-    }
 }
