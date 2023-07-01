@@ -66,7 +66,6 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Flèches gauche et droite : déplacement du joueur
 - Flèche vers le bas (en hauteur) : déplacement rapide vers le sol
 - Barre espace : Saut
-- Touche V (maintien) : Accélération
 - Pause / relance : Touche échap
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**

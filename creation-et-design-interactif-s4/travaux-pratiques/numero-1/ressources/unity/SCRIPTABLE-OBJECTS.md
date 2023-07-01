@@ -10,17 +10,20 @@ L'un des grands avantages des ScriptableObjects est leur limitation en terme d'e
 |-----------------|---------:|------------|
 | **cost**        | 6500     | 7800       |
 | **damage**      | 80       | 120        |
-| **description** | ...      | ...        |
+| **description** | [...]      | [...]        |
+| **levelRequired** | 21      | 42        |
+| **...** | ...      | ...        |
 
-Est-il besoin que ces deux bateaux stockent au sein de leur propre classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject. Alors oui, nous aurions pu utiliser une classe `Boat` et changer la configuration pour chaque type, mais ça serait fastidieux.
+Même si ces deux bateaux sont des instances d'une classe `Boat`, est-il besoin que ces deux bateaux stockent au sein de leur propre instance de classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject. 
 
 Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects possèdent les avantages suivants :
-- Ils existent dans les Assets. Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play"
+- **Ils existent dans les Assets.** Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play"
     - **Néanmoins les ScriptableObjects ne sont pas un moyen de sauvegarder les données du joueur dans un vrai build**
-- Limitent le couplage entre les GameObjects. On veut le plus possible limiter le couplage dans le code, ça nous permet d'utiliser un GameObject seul sans en importer d'autres dont on n'en aurait pas besoin 
-    - Un exemple souvent utilisé est celui des points de vie du joueur. En utilisant un ScriptableObject pour gérer les points de vie du joueur, des GameObjects peuvent lire la valeur pour s'adapter en fonction : ennemis plus aggressifs, mouvement du joueur plus lents, sont plus rapides... sans pour autant interconnecter tous ces GameObjects
-- Simples à utiliser. Dans certains studios, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code
-- Existent au-delà de la scène. Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre
+- **Limitent le couplage entre les GameObjects.** On veut le plus possible limiter le couplage dans le code, ça nous permet d'utiliser un GameObject seul sans en importer d'autres dont on n'en aurait pas besoin dans une autre scène
+    - Un exemple souvent utilisé est celui des points de vie du joueur. En utilisant un ScriptableObject pour gérer les points de vie du joueur, des GameObjects peuvent lire la valeur pour s'adapter en fonction : ennemis plus aggressifs, mouvement du joueur plus lents, plus rapides... sans pour autant interconnecter tous ces GameObjects
+- **Utilisables par des non-développeurs.** Dans certains studios de jeu, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code et bien évidemment développement la structure des données
+- **Existent au-delà de la scène.** Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre
+- **Centralisent les données.** Vu que plusieurs GameObjet lisent le même ScriptableObject, il suffit de l'éditer pour voir les modifications partout dans votre projet
 
 > **Pourquoi pas un Singleton ?**
 > 
@@ -117,6 +120,7 @@ Voilà, avec notre code, nous pouvons afficher les données de notre arme lorsqu
 
 Plus d'informations sur les ScriptableObjects :
 - https://www.youtube.com/watch?v=PVOVIxNxxeQ
+- https://www.youtube.com/watch?v=q81A6cjdGcY - français
 - https://docs.unity3d.com/Manual/class-ScriptableObject.html
 - https://www.youtube.com/watch?v=WLDgtRNK2VE
 - https://learn.unity.com/tutorial/introduction-to-scriptableobjects?language=en#60661f13edbc2a001f55c22b
