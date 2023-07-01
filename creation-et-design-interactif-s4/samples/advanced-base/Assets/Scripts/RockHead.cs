@@ -25,6 +25,9 @@ public class RockHead : MonoBehaviour
     // Value for which the go will be considered as crushed if it has contact with a RockHead
     private float maxImpulse = 1000;
 
+    public float cooldown = 7f; // seconds
+    private float lastAttackedAt = -9999f;
+
     void Start()
     {
         EnableTriggers();
@@ -51,6 +54,18 @@ public class RockHead : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
+
+        if (
+            Random.value <= 0.25f && 
+            (!Mathf.Approximately(rb.velocity.x, 0) || !Mathf.Approximately(rb.velocity.y, 0)) &&
+            Time.time > lastAttackedAt + cooldown &&
+            animator.GetCurrentAnimatorStateInfo(0).IsName("RockHeadIdle")
+        )
+        {
+            Debug.Log("Blibk");
+            lastAttackedAt = Time.time;
+            animator.SetBool("Blinking", true);
+        }
     }
 
     public void ChangeTrigger()
@@ -63,7 +78,7 @@ public class RockHead : MonoBehaviour
     IEnumerator GoToTrigger(Vector2 dir)
     {
         yield return new WaitForSeconds(delayBetweenMoves);
-        destination = -((Vector2) transform.position - dir).normalized;
+        destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
 
@@ -96,7 +111,7 @@ public class RockHead : MonoBehaviour
     {
         if (rb.velocity == Vector2.zero)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            if (true) // animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)
             {
                 if (destination.y > 0 && lastAnimationPlayed != "HitTop")
                 {
@@ -112,6 +127,7 @@ public class RockHead : MonoBehaviour
                 }
                 else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
                 {
+
                     OnCrush("HitLeft");
                 }
             }
@@ -125,6 +141,7 @@ public class RockHead : MonoBehaviour
 
     void OnCrush(string side)
     {
+        animator.SetBool("Blinking", false);
         animator.SetTrigger(side);
         lastAnimationPlayed = side;
         if (isOnScreen)

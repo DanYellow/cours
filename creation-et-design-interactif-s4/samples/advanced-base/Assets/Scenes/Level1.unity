@@ -5586,7 +5586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486200, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
@@ -6041,7 +6041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.400024, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608262937
@@ -25149,7 +25149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &695988786
 Transform:
   m_ObjectHideFlags: 0
@@ -25562,7 +25562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486200, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
@@ -55450,6 +55450,10 @@ PrefabInstance:
     - target: {fileID: 262433198629486200, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Name
       value: RockHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: speed
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: checkLeft

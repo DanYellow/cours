@@ -13,7 +13,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 >
-> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet.
+> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
 Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
@@ -41,7 +41,8 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
-Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient trois scènes :
+Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes :
+- Un menu d'accueil **que vous devrez compléter**
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
