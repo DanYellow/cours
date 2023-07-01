@@ -19,11 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     [Tooltip("Running system")]
-    private bool isRunningFast;
-    public float runFastSpeedFactor;
     public float moveSpeed;
-
-    public TrailRenderer trailRenderer;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -52,9 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        trailRenderer.enabled = false;
         // The jump high cannot be higher that +10% of normal jumpforce
-        maxYVelocity = (jumpForce * 0.10f) + jumpForce;
+        maxYVelocity = (jumpForce * 0.1f) + jumpForce;
     }
 
     // Update is called once per frame
@@ -65,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         moveDirectionX = Input.GetAxis("Horizontal");
-        isRunningFast = Input.GetKey(KeyCode.V);
 
         if (isGrounded && !Input.GetButton("Jump"))
         {
@@ -93,8 +87,6 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
-        trailRenderer.enabled = isRunningFast;
-
         Flip();
     }
 
@@ -105,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
 
         Move();
-        MoveFast();
     }
 
     private void LimitSpeed()
@@ -120,16 +111,6 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
-    }
-
-    private void MoveFast()
-    {
-        if (isRunningFast)
-        {
-            Vector2 v = rb.velocity;
-            v.x *= runFastSpeedFactor;
-            rb.velocity = v;
-        }
     }
 
     private void Animations()

@@ -96,25 +96,21 @@ public class RockHead : MonoBehaviour
     {
         if (rb.velocity == Vector2.zero)
         {
-            if (true) // animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)
+            if (destination.y > 0 && lastAnimationPlayed != "HitTop")
             {
-                if (destination.y > 0 && lastAnimationPlayed != "HitTop")
-                {
-                    OnCrush("HitTop");
-                }
-                else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
-                {
-                    OnCrush("HitBottom");
-                }
-                if (destination.x > 0 && lastAnimationPlayed != "HitRight")
-                {
-                    OnCrush("HitRight");
-                }
-                else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
-                {
-
-                    OnCrush("HitLeft");
-                }
+                OnCrush("HitTop");
+            }
+            else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
+            {
+                OnCrush("HitBottom");
+            }
+            if (destination.x > 0 && lastAnimationPlayed != "HitRight")
+            {
+                OnCrush("HitRight");
+            }
+            else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
+            {
+                OnCrush("HitLeft");
             }
         }
 
