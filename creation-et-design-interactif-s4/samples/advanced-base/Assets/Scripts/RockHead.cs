@@ -25,13 +25,8 @@ public class RockHead : MonoBehaviour
     // Value for which the go will be considered as crushed if it has contact with a RockHead
     private float maxImpulse = 1000;
 
-    private float cooldownBetweenBlink; // seconds
-
-    float timePassed = 0f;
-
     void Start()
     {
-        cooldownBetweenBlink = Random.Range(2, 6);
         EnableTriggers();
         SetTriggersSibling();
         StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
@@ -51,21 +46,6 @@ public class RockHead : MonoBehaviour
         {
             listTriggers[i].sibling = gameObject;
         }
-    }
-
-    private void Update() {
-        // timePassed += Time.deltaTime;
-        // if (
-        //     Random.value <= 0.25f && 
-        //     !Mathf.Approximately(rb.velocity.magnitude, 0) &&
-        //     timePassed > cooldownBetweenBlink && 
-        //     animator.GetCurrentAnimatorStateInfo(0).IsName("RockHeadIdle")
-        // )
-        // {
-        //     cooldownBetweenBlink = Random.Range(3, 7);
-        //     timePassed = 0;
-        //     animator.SetBool("Blinking", true);
-        // }
     }
 
     private void FixedUpdate()
