@@ -54,18 +54,18 @@ public class RockHead : MonoBehaviour
     }
 
     private void Update() {
-        timePassed += Time.deltaTime;
-        if (
-            Random.value <= 0.25f && 
-            !Mathf.Approximately(rb.velocity.magnitude, 0) &&
-            timePassed > cooldownBetweenBlink && 
-            animator.GetCurrentAnimatorStateInfo(0).IsName("RockHeadIdle")
-        )
-        {
-            cooldownBetweenBlink = Random.Range(3, 7);
-            timePassed = 0;
-            animator.SetBool("Blinking", true);
-        }
+        // timePassed += Time.deltaTime;
+        // if (
+        //     Random.value <= 0.25f && 
+        //     !Mathf.Approximately(rb.velocity.magnitude, 0) &&
+        //     timePassed > cooldownBetweenBlink && 
+        //     animator.GetCurrentAnimatorStateInfo(0).IsName("RockHeadIdle")
+        // )
+        // {
+        //     cooldownBetweenBlink = Random.Range(3, 7);
+        //     timePassed = 0;
+        //     animator.SetBool("Blinking", true);
+        // }
     }
 
     private void FixedUpdate()
