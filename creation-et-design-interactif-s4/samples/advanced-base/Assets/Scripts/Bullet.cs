@@ -12,16 +12,18 @@ public class Bullet : MonoBehaviour
 
     public float damage = 1f;
 
-    private void Start()
+    private Coroutine autoDestroyCoroutine;
+
+    private void OnEnable()
     {
         rb.velocity = transform.right * moveSpeed;
-        StartCoroutine(AutoDestroy());
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy());
     }
 
     IEnumerator AutoDestroy()
     {
         yield return new WaitForSeconds(delayBeforeAutodestruction);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +37,13 @@ public class Bullet : MonoBehaviour
 
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        Destroy(gameObject, 0.35f);
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy());
+    }
+
+    public void OnDisable()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        StopCoroutine(autoDestroyCoroutine);
+        animator.ResetTrigger("IsCollided");
     }
 }

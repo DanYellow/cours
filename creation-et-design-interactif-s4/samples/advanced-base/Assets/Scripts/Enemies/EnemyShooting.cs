@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public Animator animator;
-    public GameObject projectile;
 
     [Tooltip("From where the projectile will be shot")]
     public Transform firePoint;
@@ -44,15 +43,23 @@ public class EnemyShooting : MonoBehaviour
 
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
         }
-        
+
         spriteRenderer.color = Color.white;
         yield return new WaitForSeconds(delayBetweenShotsCycles);
         StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
     }
 
-    // Better to call it in the timeline
+    // Called from the animation's timeline
     public void Shoot()
     {
-        Instantiate(projectile, firePoint.position, firePoint.rotation);
+        GameObject bullet = ObjectPooling.instance.GetPooledObject();
+
+        if (bullet != null)
+        {
+            bullet.transform.rotation = firePoint.rotation;
+            bullet.transform.position = firePoint.position;
+
+            bullet.SetActive(true);
+        }
     }
 }
