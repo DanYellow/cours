@@ -14,10 +14,13 @@ public class Bullet : MonoBehaviour
 
     private Coroutine autoDestroyCoroutine;
 
-    private void OnEnable()
+    private void OnEnable() {
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
+    }
+    
+    public void Initialize()
     {
         rb.velocity = transform.right * moveSpeed;
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
     IEnumerator AutoDestroy(float duration = 0)
@@ -43,6 +46,7 @@ public class Bullet : MonoBehaviour
     public void OnDisable()
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        rb.velocity = Vector2.zero;
         StopCoroutine(autoDestroyCoroutine);
         animator.ResetTrigger("IsCollided");
     }
