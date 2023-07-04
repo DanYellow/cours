@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
+// More info : https://www.youtube.com/watch?v=YCHJwnmUGDk
+// https://gameprogrammingpatterns.com/object-pool.html
 public class ObjectPooling : MonoBehaviour {
     
     public static ObjectPooling instance;

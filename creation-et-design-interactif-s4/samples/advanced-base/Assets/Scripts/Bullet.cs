@@ -17,12 +17,12 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         rb.velocity = transform.right * moveSpeed;
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy());
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
-    IEnumerator AutoDestroy()
+    IEnumerator AutoDestroy(float duration = 0)
     {
-        yield return new WaitForSeconds(delayBeforeAutodestruction);
+        yield return new WaitForSeconds(duration);
         gameObject.SetActive(false);
     }
 
@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
 
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy());
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
     }
 
     public void OnDisable()
