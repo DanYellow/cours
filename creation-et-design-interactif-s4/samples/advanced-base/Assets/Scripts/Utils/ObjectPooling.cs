@@ -3,41 +3,29 @@ using System.Collections.Generic;
 
 // More info : https://www.youtube.com/watch?v=YCHJwnmUGDk
 // https://gameprogrammingpatterns.com/object-pool.html
-public class ObjectPooling : MonoBehaviour {
-    
-    public static ObjectPooling instance;
-
-    private List<GameObject> listPooledObjects = new List<GameObject>();
-    
-    [SerializeField]
-    private int amountToPool = 5;
+public class ObjectPooling : MonoBehaviour
+{
 
     [SerializeField]
-    private GameObject prefab;
+    private GameObject objectToPool;
 
-    private void Awake() {
-        if(instance == null) {
-            instance = this;
-        }
+    [SerializeField]
+    private int poolSize = 5;
+    private Queue<GameObject> listObjectPooled = new Queue<GameObject>();
+
+    public Transform container;
+
+    public void Initialize(GameObject _objectToPool, int _poolSize)
+    {
+        objectToPool = _objectToPool;
+        poolSize = _poolSize;
     }
 
-    void Start() {
-        for (int i = 0; i < amountToPool; i++)
+    private void CreateContainerIfNeeded()
+    {
+        if (container != null)
         {
-            GameObject obj = Instantiate(prefab);
-            obj.SetActive(false);
-            listPooledObjects.Add(obj);
+            string containerName = $"ContainerPool_{objectToP}"
         }
-    }
-
-    public GameObject GetPooledObject(){
-        for (int i = 0; i < listPooledObjects.Count; i++)
-        {
-            if(!listPooledObjects[i].activeInHierarchy) {
-                return listPooledObjects[i];
-            }
-        }
-
-        return null;
     }
 }
