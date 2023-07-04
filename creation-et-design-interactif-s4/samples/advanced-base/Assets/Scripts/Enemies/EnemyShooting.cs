@@ -60,10 +60,13 @@ public class EnemyShooting : MonoBehaviour
     // Called from the animation's timeline
     public void Shoot()
     {
-        GameObject bullet = bulletPooling.CreateObject();
+        GameObject bulletProjectile = bulletPooling.CreateObject();
 
-        bullet.transform.rotation = firePoint.rotation;
-        bullet.transform.position = firePoint.position;
-        bullet.GetComponent<Bullet>().Initialize();
+        bulletProjectile.transform.rotation = firePoint.rotation;
+        bulletProjectile.transform.position = firePoint.position;
+
+        Bullet bullet = bulletProjectile.GetComponent<Bullet>();
+        bullet.invoker = transform;
+        bullet.Initialize();
     }
 }

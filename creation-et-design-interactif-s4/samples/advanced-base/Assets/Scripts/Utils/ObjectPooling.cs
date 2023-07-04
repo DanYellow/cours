@@ -8,7 +8,7 @@ public class ObjectPooling : MonoBehaviour
 {
     private GameObject prefab;
 
-    [SerializeField]
+    [SerializeField, Tooltip("Sets the limit of objects created in memory (expandable dynamically)")]
     private int poolSize = 5;
     private Queue<GameObject> queueObjectsPooled = new Queue<GameObject>();
 
@@ -39,15 +39,11 @@ public class ObjectPooling : MonoBehaviour
         return poolObject;
     }
 
-    bool AreAllBallsInactive()
+    private void OnDestroy()
     {
-        foreach (GameObject obj in queueObjectsPooled)
+        foreach (GameObject obj in queueObjectsPooled.ToList().Where(obj => !obj.activeSelf))
         {
-            if (obj.activeSelf)
-            {
-                return false;
-            }
+            Destroy(obj);
         }
-        return true;
     }
 }

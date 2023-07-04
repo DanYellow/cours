@@ -14,10 +14,13 @@ public class Bullet : MonoBehaviour
 
     private Coroutine autoDestroyCoroutine;
 
+    [HideInInspector]
+    public Transform invoker;
+
     private void OnEnable() {
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
-    
+
     public void Initialize()
     {
         rb.velocity = transform.right * moveSpeed;
@@ -49,5 +52,9 @@ public class Bullet : MonoBehaviour
         rb.velocity = Vector2.zero;
         StopCoroutine(autoDestroyCoroutine);
         animator.ResetTrigger("IsCollided");
+
+        if(invoker == null) {
+            Destroy(gameObject);
+        }
     }
 }
