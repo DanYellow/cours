@@ -18,11 +18,6 @@ public class EnemyShooting : MonoBehaviour
     public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
 
-    private void Start()
-    {
-        bulletPooling.Initialize(bulletPrefab);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -60,13 +55,16 @@ public class EnemyShooting : MonoBehaviour
     // Called from the animation's timeline
     public void Shoot()
     {
-        GameObject bulletProjectile = bulletPooling.CreateObject();
+        GameObject bulletProjectile = bulletPooling.CreateObject("Bullet");
 
-        bulletProjectile.transform.rotation = firePoint.rotation;
-        bulletProjectile.transform.position = firePoint.position;
+        if (bulletProjectile != null)
+        {
+            bulletProjectile.transform.rotation = firePoint.rotation;
+            bulletProjectile.transform.position = firePoint.position;
 
-        Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-        bullet.invoker = transform;
-        bullet.Initialize();
+            Bullet bullet = bulletProjectile.GetComponent<Bullet>();
+            bullet.invoker = transform;
+            bullet.Initialize();
+        }
     }
 }
