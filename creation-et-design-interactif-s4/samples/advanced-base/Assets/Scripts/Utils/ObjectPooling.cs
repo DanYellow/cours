@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 // More info : https://www.youtube.com/watch?v=YCHJwnmUGDk
@@ -11,16 +12,15 @@ public class ObjectPooling : MonoBehaviour
     private int poolSize = 5;
     private Queue<GameObject> queueObjectsPooled = new Queue<GameObject>();
 
-    public void Initialize(GameObject _objectToPool)
-    {
-        prefab = _objectToPool;
-    }
+    public void Initialize(GameObject _objectToPool) => prefab = _objectToPool;
 
     public GameObject CreateObject()
     {
         GameObject poolObject = null;
 
-        if (queueObjectsPooled.Count < poolSize)
+        bool allObjectsActive = queueObjectsPooled.ToList().All(obj => obj.activeSelf);
+
+        if (queueObjectsPooled.Count < poolSize || allObjectsActive)
         {
             poolObject = Instantiate(prefab, transform.position, Quaternion.identity);
             poolObject.name = $"{transform.name}_{prefab.name}_{queueObjectsPooled.Count}";
@@ -37,5 +37,17 @@ public class ObjectPooling : MonoBehaviour
         queueObjectsPooled.Enqueue(poolObject);
 
         return poolObject;
+    }
+
+    bool AreAllBallsInactive()
+    {
+        foreach (GameObject obj in queueObjectsPooled)
+        {
+            if (obj.activeSelf)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
