@@ -10,10 +10,12 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - ~~AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia~~
 - AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
-Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-formes existant.
+Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 >
-> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
+> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. 
+>
+> **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
 ![](unity-hub.jpg)
 <p style="text-align: center">L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity.</p>
@@ -40,9 +42,9 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
     - ...
 - Système de pause (Appui sur le bouton Echap)
 - Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènement `Assets/ScriptableObjects/Events/Values/OnSFXAudioChannel`
+    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènementiel `Assets/ScriptableObjects/Events/Values/OnSFXAudioChannel`
 
-> Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
+> Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes :
 - Un menu d'accueil **que vous devrez compléter voir plus bas**
@@ -79,7 +81,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - L'écran doit contenir : 
         - Le logo de l'université
         - Le nom du jeu
-        - De quoi commencer le jeu au premier niveau (Un menu de jeu en somme)
+        - De quoi commencer le jeu au premier niveau
+            - Il y a déjà un bouton, il faut ajouter une fonction pour charger le premier niveau
     - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
     - Pour rappel, ici il faudra utiliser un Canvas
     - **Ceci nécessite donc de donner un nom à votre jeu également**
@@ -106,6 +109,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
     - une animation de mort du personnage (testable avec la touche N du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated"). Le personnage traverse les murs à la mort
+    - La mort instanée si le joueur est écrasé par un rockhead
     - **A vous de faire le reste** (liste non exhaustive)
       - Bloquer les mouvements du joueur
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
@@ -113,7 +117,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Rajouter un ennemi parmi ceux proposés
     - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier `ressources/unity/sprites/platformer/Enemies`
         - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
-        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Saut (EnemyJumpAttack), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
+        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
 

@@ -5,7 +5,7 @@ public class EndLevel : MonoBehaviour
     public ParticleSystem particles;
     public StringEventChannelSO onLevelEnded;
     public PlaySoundAtEventChannelSO sfxAudioChannel;
-    public string nextLevel;
+    public string nextLevelName;
     public AudioClip audioClip;
 
     private bool hasBeenTriggered = false;
@@ -14,12 +14,14 @@ public class EndLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !hasBeenTriggered)
         {
-            particles.Play();
             hasBeenTriggered = true;
-            sfxAudioChannel.Raise(audioClip, transform.position);
-            if (nextLevel != null)
+            if (nextLevelName != null)
             {
-                onLevelEnded.Raise(nextLevel);
+                particles.Play();
+                sfxAudioChannel.Raise(audioClip, transform.position);
+                onLevelEnded.Raise(nextLevelName);
+            } else {
+                Debug.LogError("Level missing");
             }
         }
     }
