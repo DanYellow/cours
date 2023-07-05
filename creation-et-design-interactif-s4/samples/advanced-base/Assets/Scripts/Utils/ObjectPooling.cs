@@ -7,7 +7,9 @@ public class ObjectPoolItem
 {
     [SerializeField, Tooltip("Sets the limit of objects created in memory (expandable dynamically)")]
     public int poolSize = 5;
-    public string name = "";
+    public string key = "";
+
+    [Tooltip("Defines the prefab to instanciate / pool")]
     public GameObject prefab;
     public Queue<GameObject> queueObjectsPooled = new Queue<GameObject>();
 }
@@ -25,7 +27,7 @@ public class ObjectPooling : MonoBehaviour
     {
         foreach (ObjectPoolItem obj in listItemsToPool)
         {
-            string key = (obj.name != "") ? obj.name : obj.prefab.name;
+            string key = (obj.key != "") ? obj.key : obj.prefab.name;
             listDictItemsToPool.Add(key, obj);
         }
     }

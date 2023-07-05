@@ -100,7 +100,7 @@ Vous allez devoir également réaliser le back-office du site, vous trouverez pl
 
 Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Celle du projet ressemble à ceci :
 
-![](schema-bdd.png "Schéma de la base de données")
+![](captures-ecran/schema-bdd.png "Schéma de la base de données")
 <p style="text-align: center">Schéma de la base de données</p>
 
 Cette base de données est composée de trois tables dont une relation One-to-Many. Ainsi un auteur peut avoir rédigé plusieurs articles, mais un article ne peut avoir qu'un **seul et unique auteur.** De ce fait, on retrouve dans la table "article", la clé étrangère "auteur_id", cette clef peut être nulle, un article peut donc avoir aucun auteur.

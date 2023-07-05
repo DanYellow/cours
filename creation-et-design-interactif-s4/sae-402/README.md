@@ -3,7 +3,7 @@
 
 > **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
-Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
 - AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
@@ -15,13 +15,16 @@ Vous ne partirez pas d'un nouveau projet mais de la base d'un jeu de plate-forme
 >
 > Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
+![](unity-hub.jpg)
+<p style="text-align: center">L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity.</p>
+
 Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
     - Déplacements horizontaux
     - Multi sauts
 - Suivi du joueur par la caméra
 - Ennemis :
-    - Un ennemi peut tirer des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
+    - Des fleurs qui tirent des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des rhinocéros qui foncent sur le joueur
     - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
 - Pièges :
@@ -42,7 +45,7 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en _Play mode_, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes :
-- Un menu d'accueil **que vous devrez compléter**
+- Un menu d'accueil **que vous devrez compléter voir plus bas**
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
@@ -51,7 +54,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 > **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes. Il n'est pas utile de télécharger cette ancienne version.**
 
-> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous avez perdu le lien, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel

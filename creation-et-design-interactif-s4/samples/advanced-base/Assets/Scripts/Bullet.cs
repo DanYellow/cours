@@ -17,13 +17,10 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public Transform invoker;
 
-    private void OnEnable() {
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
-    }
-
     public void Initialize()
     {
         rb.velocity = transform.right * moveSpeed;
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
     IEnumerator AutoDestroy(float duration = 0)
@@ -36,7 +33,7 @@ public class Bullet : MonoBehaviour
     {
         if (
             other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
-            )
+        )
         {
             playerHealth.TakeDamage(damage);
         }
@@ -53,7 +50,8 @@ public class Bullet : MonoBehaviour
         StopCoroutine(autoDestroyCoroutine);
         animator.ResetTrigger("IsCollided");
 
-        if(invoker == null) {
+        if (invoker == null)
+        {
             Destroy(gameObject);
         }
     }

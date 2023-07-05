@@ -61,7 +61,7 @@ public class EnemyShooting : MonoBehaviour
         {
             bulletProjectile.transform.rotation = firePoint.rotation;
             bulletProjectile.transform.position = firePoint.position;
-
+       
             Bullet bullet = bulletProjectile.GetComponent<Bullet>();
             bullet.invoker = transform;
             bullet.Initialize();
