@@ -68,9 +68,12 @@ public class ObjectPooling : MonoBehaviour
         {
             Queue<GameObject> queueObjectsPooled = itemToPool.queueObjectsPooled;
 
-            foreach (GameObject obj in queueObjectsPooled.ToList().Where(poolObj => !poolObj.activeSelf && poolObj != null))
+            foreach (GameObject obj in queueObjectsPooled.ToList().Where(poolObj => !poolObj.activeSelf))
             {
-                Destroy(obj);
+                if (obj != null)
+                {
+                    Destroy(obj);
+                }
             }
         }
     }
