@@ -26,6 +26,13 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 GetNextPosition()
     {
+        Vector3 nextPos = new Vector3(
+            target.position.x + offset.x,
+            target.position.y + offset.y,
+            transform.position.z
+        );
+        
+        return nextPos;
         return target.position + new Vector3(
             offset.x,
             offset.y,
