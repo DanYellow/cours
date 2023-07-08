@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "e2e": "cypress open",
+    "cypress": "cypress open",
     "server": "node server.js"
   },
   "keywords": [],
