@@ -23,7 +23,7 @@ public class RockHead : MonoBehaviour
     private bool isOnScreen = false;
 
     // Value for which the go will be considered as crushed if it has contact with a RockHead
-    private float maxImpulse = 1000;
+    public float maxImpulse = 100;
 
     void Start()
     {
@@ -116,6 +116,7 @@ public class RockHead : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
+        
             DetectCollision(other);
         }
     }
