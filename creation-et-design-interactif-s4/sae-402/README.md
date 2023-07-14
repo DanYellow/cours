@@ -209,7 +209,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 # FAQ - Foire Aux Questions
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
-    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. De plus, le travail collaboratif vous incitera à utiliser github
+    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser github
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
     
     Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier)
@@ -223,13 +223,10 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficulté à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects. Néanmoins, il existe des cas où l'utilisation de Scriptables Objects n'est pas forcément nécessaire. Ex : le suivi du joueur par la caméra
+    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects pas nécessaires ailleurs.Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
 - **Puis-je effectuer un projet à partir de zéro ?**
 
-    Non, utilisez le projet qu'on vous fourni. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel. Il n'y a pas que ce projet durant ce semestre.
+    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
 - **Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?**
 
     Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
-- **Il y a l'erreur "There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene" affichée dans la console. Est-ce grave ?**
-
-    Non. Cette erreur est liée à la scène de préchargement (_Preload), elle n'a aucune incidence sur le build final. Toutefois, nous aurions pu (dû) la corriger.
