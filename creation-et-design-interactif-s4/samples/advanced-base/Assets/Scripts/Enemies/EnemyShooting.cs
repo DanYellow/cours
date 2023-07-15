@@ -13,7 +13,6 @@ public class EnemyShooting : MonoBehaviour
     public float timeDelayBetweenShots;
 
     public ObjectPooling bulletPooling;
-    public GameObject bulletPrefab;
 
     public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
