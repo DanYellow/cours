@@ -17,11 +17,11 @@ L'un des grands avantages des ScriptableObjects est leur limitation en terme d'e
 Même si ces deux bateaux sont des instances d'une classe `Boat`, est-il besoin que ces deux bateaux stockent au sein de leur propre instance de classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject. 
 
 Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects possèdent les avantages suivants :
-- **Ils existent dans les Assets.** Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play"
+- **Ils existent dans les Assets.** Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play". Ainsi, il est possible de passer des informations d'une scène à l'autre
     - **Néanmoins les ScriptableObjects ne sont pas un moyen de sauvegarder les données du joueur dans un vrai build**
 - **Limitent le couplage entre les GameObjects.** On veut le plus possible limiter le couplage dans le code, ça nous permet d'utiliser un GameObject seul sans en importer d'autres dont on n'en aurait pas besoin dans une autre scène
     - Un exemple souvent utilisé est celui des points de vie du joueur. En utilisant un ScriptableObject pour gérer les points de vie du joueur, des GameObjects peuvent lire la valeur pour s'adapter en fonction : ennemis plus aggressifs, mouvement du joueur plus lents, plus rapides... sans pour autant interconnecter tous ces GameObjects
-- **Utilisables par des non-développeurs.** Dans certains studios de jeu, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code et bien évidemment développement la structure des données
+- **Utilisables par des non-développeurs.** Dans certains studios de jeu, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code et bien évidemment développent la structure des données
 - **Existent au-delà de la scène.** Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre
 - **Centralisent les données.** Vu que plusieurs GameObjet lisent le même ScriptableObject, il suffit de l'éditer pour voir les modifications partout dans votre projet
 

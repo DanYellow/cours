@@ -1,5 +1,8 @@
 - GameObject
+    - SpriteRenderer :
+        - Pixel Per Unit : combien de pixels dans l'image valent une unité dans la scène
 - Collision / Rigidbody
+    - Rigidbody and a Collider
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
 - Camera
@@ -9,20 +12,22 @@
 - Scènes 
 - Events / ScriptableObjects (Montrer la mauvaise façon avec les singletons)
     - Création de prise de données dans la mémoire
-- Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
+- Canvas / Menu Pause (Montrer les animations qui ne sont pas soumises à l'échelle du temps)
 - Sprite
 - Tilemap : Rotation avec [ et ] - https://docs.unity3d.com/Manual/Tilemap-Painting.html
 - Animations
     - has exit time : permet de définir le pourcentage de progression d'une animation
-    - transition duration : permet de passer d'une anim à l'autre
+    - transition duration : permet de passer d'une anim à l'autre à partir de quel pourcentage
     - From Any State -> other state :
         - laisser has exit time
         - exit time = 1
         - transition duration = 0
         - laisser fixed duration
+    - Ne pas animer dans le canvas
 - Ecran de crédits
-- Sound design
 - Player Prefs
+- Sound design
 
 Canvas :
     - Canvas scaler -> Scale with screen size. Pour adapter le canvas à l'écran. Ne pas oublier de mettre une référence
+    https://unity.com/how-to/unity-ui-optimization-tips

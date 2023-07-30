@@ -93,16 +93,18 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
+- Afficher dans le menu de chargement du jeu les auteurs du jeu (voir menu `Project Settings > Player > Logo`)
+    - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Compléter le menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
-    > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquant. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
+    > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
 - Système de santé du joueur
     - Optionnel : possibilité de proposer le regain de vie
     - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
-> Contrairement à ce qui a été vu en cours, la gestion de points de vie a été séparée en deux ScriptableObject qui ne gèrent que des valeurs décimales. Si vous le souhaitez, vous pouvez créer un nouveau ScriptableObject réunissant toutes les caractéristiques du joueur.
+> Contrairement à ce qui a été vu en cours, la gestion de points de vie a été séparée en deux ScriptableObject qui ne gèrent que des valeurs décimales (Points de vie courants, points de vie max). Si vous le souhaitez, vous pouvez créer un nouveau ScriptableObject réunissant toutes les caractéristiques du joueur.
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
@@ -185,10 +187,14 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - Si vous avez du mal à visualiser le niveau que vous devez faire, pourquoi ne pas le faire sur papier avant ?
 - Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
     - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
-        - Il est possible de faire des prefabs de prefabs
+        - **Il est possible de faire des prefabs de prefabs**
     - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
 Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
 > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
+- Si vous avez besoin d'inspirations pour votre UI, vous avez le site [gameuidatabase](https://www.gameuidatabase.com/). Il rencense les UI des nombreux jeux vidéo.
+- Le projet utilise TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML avec.
+    - [Voir liste non exhaustive des balises TextMeshPro](http://digitalnativestudios.com/textmeshpro/docs/rich-text/)
+    - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq, maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
