@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    public float speed;
+    private float speed;
     public SpriteRenderer sr;
 
     public Sprite[] listSprites;
 
     private float width;
+    private bool isResettingPos = false;
+
+    private float minSpeed = 0.95f;
+    private float maxSpeed = 1.95f;
 
     private void Awake()
     {
+        speed = Random.Range(minSpeed, maxSpeed);
         sr.sprite = listSprites[Random.Range(0, listSprites.Length)];
     }
 
@@ -25,7 +30,10 @@ public class Cloud : MonoBehaviour
                 ScreenUtility.Instance.Left + (sr.bounds.size.x / 2),
                 ScreenUtility.Instance.Right - (sr.bounds.size.x / 2)
             ),
-            transform.position.y
+            Random.Range(
+                ScreenUtility.Instance.Top,
+                ScreenUtility.Instance.Top * 0.3f
+            )
         );
     }
 
@@ -35,7 +43,7 @@ public class Cloud : MonoBehaviour
         Vector2 direction = Vector2.left * speed * Time.deltaTime;
         transform.Translate(direction, Space.World);
 
-        if (transform.position.x < ScreenUtility.Instance.Left - width)
+        if (transform.position.x < ScreenUtility.Instance.Left - width && !isResettingPos)
         {
             StartCoroutine(ResetPosition());
         }
@@ -43,10 +51,19 @@ public class Cloud : MonoBehaviour
 
     IEnumerator ResetPosition()
     {
+        isResettingPos = true;
+        sr.enabled = false;
+        speed = Random.Range(minSpeed, maxSpeed);
         yield return new WaitForSeconds(1f);
+        sr.sprite = listSprites[Random.Range(0, listSprites.Length)];
+        sr.enabled = true;
         transform.position = new Vector2(
             ScreenUtility.Instance.Right + width,
-            transform.position.y
+            Random.Range(
+                ScreenUtility.Instance.Top,
+                ScreenUtility.Instance.Top * 0.3f
+            )
         );
+        isResettingPos = false;
     }
 }
