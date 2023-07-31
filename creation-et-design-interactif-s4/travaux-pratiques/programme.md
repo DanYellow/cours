@@ -4,7 +4,8 @@
 - Collision / Rigidbody
     - Rigidbody and a Collider
         - static : mur, élément qui ne bouge pas
-        - kinématic : peut bouger tout seul mais ne pas être déplacé par un tiers. Plateformes. N'est pas soumis à la gravité
+        - kinématic : peut bouger tout seul mais ne pas être déplacé par un tiers. Plateformes. N'est pas soumis à la gravité, ignore les forces appliquées
+        - dynamic : soumis à la gravité, affecté par le mouvement des autres
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
 - Camera
@@ -31,5 +32,8 @@
 - Sound design
 
 Canvas :
+    - Render mode :
+        - Overlay : Affiche en haut de l'écran
+        - Camera : affecté par la caméra
     - Canvas scaler -> Scale with screen size. Pour adapter le canvas à l'écran. Ne pas oublier de mettre une référence
     https://unity.com/how-to/unity-ui-optimization-tips

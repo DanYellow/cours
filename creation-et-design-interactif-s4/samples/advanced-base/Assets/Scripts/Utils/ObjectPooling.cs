@@ -50,9 +50,6 @@ public class ObjectPooling : MonoBehaviour
             else
             {
                 poolObject = queueObjectsPooled.Dequeue();
-                poolObject.transform.position = transform.position;
-                poolObject.transform.rotation = Quaternion.identity;
-
                 poolObject.SetActive(true);
             }
 
