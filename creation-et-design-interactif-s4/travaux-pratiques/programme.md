@@ -3,6 +3,8 @@
         - Pixel Per Unit : combien de pixels dans l'image valent une unité dans la scène
 - Collision / Rigidbody
     - Rigidbody and a Collider
+        - static : mur, élément qui ne bouge pas
+        - kinématic : peut bouger tout seul mais ne pas être déplacé par un tiers. Plateformes. N'est pas soumis à la gravité
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)
 - Camera

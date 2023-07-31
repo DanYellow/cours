@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -94,6 +96,18 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -17260,7 +17274,7 @@ TextureImporter:
       inputs (16x16)_596: -1850950378
       inputs (16x16)_148: -500303717
       inputs (16x16)_748: -834950078
-      inputs (16x16)_782: 185212141
+      inputs (16x16)_251: -894717951
       inputs (16x16)_597: -750109341
       inputs (16x16)_632: -885491315
       inputs (16x16)_624: -1886935611
@@ -17286,8 +17300,8 @@ TextureImporter:
       inputs (16x16)_658: -1482335624
       inputs (16x16)_660: 226439473
       inputs (16x16)_286: 1969915114
-      inputs (16x16)_333: 824599139
       inputs (16x16)_425: 1192327538
+      inputs (16x16)_333: 824599139
       inputs (16x16)_791: -1205724124
       inputs (16x16)_781: -456129936
       inputs (16x16)_259: 627517719
@@ -17305,8 +17319,8 @@ TextureImporter:
       inputs (16x16)_277: -1859784474
       inputs (16x16)_736: -1711540104
       inputs (16x16)_117: 1862384898
-      inputs (16x16)_303: 2106357418
       inputs (16x16)_489: 921528683
+      inputs (16x16)_303: 2106357418
       inputs (16x16)_676: 1821523643
       inputs (16x16)_594: 1954176399
       inputs (16x16)_238: 1781953036
@@ -17359,11 +17373,11 @@ TextureImporter:
       inputs (16x16)_158: 1406950927
       inputs (16x16)_1: 1095509474
       inputs (16x16)_93: 1117093214
-      inputs (16x16)_320: 1033900489
       inputs (16x16)_547: -1539623444
-      inputs (16x16)_398: 1306537228
+      inputs (16x16)_320: 1033900489
       inputs (16x16)_103: -362267195
       inputs (16x16)_650: -935837399
+      inputs (16x16)_398: 1306537228
       inputs (16x16)_813: -1644287009
       inputs (16x16)_477: -2146392207
       inputs (16x16)_800: 1329185471
@@ -17552,9 +17566,9 @@ TextureImporter:
       inputs (16x16)_614: 1317917670
       inputs (16x16)_245: -1733164087
       inputs (16x16)_375: -1235984081
-      inputs (16x16)_687: 388310371
-      inputs (16x16)_48: 1498401677
       inputs (16x16)_768: 1345763317
+      inputs (16x16)_48: 1498401677
+      inputs (16x16)_687: 388310371
       inputs (16x16)_290: -214535212
       inputs (16x16)_347: -246018720
       inputs (16x16)_247: -1788482820
@@ -18066,10 +18080,9 @@ TextureImporter:
       inputs (16x16)_577: -1056061699
       inputs (16x16)_730: -1594686954
       inputs (16x16)_405: -1678399802
-      inputs (16x16)_251: -894717951
-  spritePackingTag: 
+      inputs (16x16)_782: 185212141
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
