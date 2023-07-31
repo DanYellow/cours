@@ -3175,6 +3175,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4643453736419293647, guid: 6ed3c40bf413e2943a8a235f3572180b, type: 3}
   m_PrefabInstance: {fileID: 1258579947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &401922458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_Name
+      value: FaillingPlatforms (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
 --- !u!4 &403508652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4643453736419293647, guid: 6ed3c40bf413e2943a8a235f3572180b, type: 3}
@@ -29091,7 +29152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ae4f3bfd1f0224ebc67b9161b6e594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   sr: {fileID: 814256514}
   listSprites:
   - {fileID: -1888514564, guid: 21882062289a6f04abc4d2d2937f0e0a, type: 3}
@@ -53974,7 +54034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ae4f3bfd1f0224ebc67b9161b6e594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   sr: {fileID: 1279030640}
   listSprites:
   - {fileID: -1888514564, guid: 21882062289a6f04abc4d2d2937f0e0a, type: 3}
@@ -55380,7 +55439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ae4f3bfd1f0224ebc67b9161b6e594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   sr: {fileID: 1414243513}
   listSprites:
   - {fileID: -1888514564, guid: 21882062289a6f04abc4d2d2937f0e0a, type: 3}
@@ -57529,7 +57587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ae4f3bfd1f0224ebc67b9161b6e594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   sr: {fileID: 1703096103}
   listSprites:
   - {fileID: -1888514564, guid: 21882062289a6f04abc4d2d2937f0e0a, type: 3}
