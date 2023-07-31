@@ -76,6 +76,10 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if(rb.bodyType != RigidbodyType2D.Dynamic) {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+        
         foreach (Behaviour component in listComponents)
         {
             component.enabled = false;
