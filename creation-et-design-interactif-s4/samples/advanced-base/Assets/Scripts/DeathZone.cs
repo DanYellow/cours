@@ -12,7 +12,7 @@ public class DeathZone : MonoBehaviour
             other.transform.position = other.GetComponent<PlayerSpawn>().currentSpawnPosition;
             // We "stop" the player on respawn
             other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        } else {
+        } else if(other.gameObject.GetComponent<FallingPlatform>() == null) {
             Destroy(other.gameObject);
         }
     }

@@ -1,17 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
     private float speed;
     public SpriteRenderer sr;
-
     public Sprite[] listSprites;
-
     private float width;
     private bool isResettingPos = false;
-
     private float minSpeed = 0.95f;
     private float maxSpeed = 1.95f;
 
@@ -43,8 +39,18 @@ public class Cloud : MonoBehaviour
         Vector2 direction = Vector2.left * speed * Time.deltaTime;
         transform.Translate(direction, Space.World);
 
-        if (transform.position.x < ScreenUtility.Instance.Left - width && !isResettingPos)
+        if(Input.GetKeyDown(KeyCode.U)) {
+            Debug.Log(" ScreenUtility.Instance.Left " + ScreenUtility.Instance.Left);
+            Debug.Log(" (ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2) " + (ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2));
+            Debug.Log("ScreenUtility.Instance.Left * 1.5f " + (ScreenUtility.Instance.Left * 1.5f));
+            Debug.Log("sr.bounds. " + (sr.bounds.max.x));
+            Debug.Log("transform.position.x " + transform.position.x);
+        }
+
+        if (sr.bounds.max.x < (ScreenUtility.Instance.Left - width) && !isResettingPos)
         {
+                    // Debug.Log("(ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2)" + (ScreenUtility.Instance.Left - ScreenUtility.Instance.Left / 2));
+
             StartCoroutine(ResetPosition());
         }
     }
