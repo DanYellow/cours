@@ -39,18 +39,9 @@ public class Cloud : MonoBehaviour
         Vector2 direction = Vector2.left * speed * Time.deltaTime;
         transform.Translate(direction, Space.World);
 
-        if(Input.GetKeyDown(KeyCode.U)) {
-            Debug.Log(" ScreenUtility.Instance.Left " + ScreenUtility.Instance.Left);
-            Debug.Log(" (ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2) " + (ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2));
-            Debug.Log("ScreenUtility.Instance.Left * 1.5f " + (ScreenUtility.Instance.Left * 1.5f));
-            Debug.Log("sr.bounds. " + (sr.bounds.max.x));
-            Debug.Log("transform.position.x " + transform.position.x);
-        }
 
         if (sr.bounds.max.x < (ScreenUtility.Instance.Left - width) && !isResettingPos)
         {
-                    // Debug.Log("(ScreenUtility.Instance.Left + ScreenUtility.Instance.Left / 2)" + (ScreenUtility.Instance.Left - ScreenUtility.Instance.Left / 2));
-
             StartCoroutine(ResetPosition());
         }
     }
