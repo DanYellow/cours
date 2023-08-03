@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5600367782922950191
 SpriteRenderer:
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &5600367782922950190
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,7 +101,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1fc722203959c6548b4508e425d963d4, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -109,7 +109,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!50 &5600367782922950186
 Rigidbody2D:
   serializedVersion: 4
@@ -127,6 +127,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -141,6 +147,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 35e608246bc670349981e18e00ddc936, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -175,7 +200,8 @@ MonoBehaviour:
   speed: 1.8
   isFacingRight: 1
   walkTime: 5
-  groundCheckRadius: 0.25
+  hasCollisionWithObstacle: 0
+  obstacleCheckRadius: 0.25
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 8
@@ -194,6 +220,8 @@ MonoBehaviour:
   animator: {fileID: 5600367782922950190}
   split: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
   nbOfSplit: 2
+  targetVector: {x: 0, y: 0}
+  rb: {fileID: 0}
 --- !u!114 &1487734456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,9 +237,6 @@ MonoBehaviour:
   bounce: 5
   maxHealth: {fileID: 0}
   currentHealth: 0
-  deathEvent:
-    m_PersistentCalls:
-      m_Calls: []
   spriteRenderer: {fileID: 5600367782922950191}
   rb: {fileID: 5600367782922950186}
   animator: {fileID: 5600367782922950190}
