@@ -9,7 +9,7 @@ public class DebugController : MonoBehaviour
     private bool showConsole;
     private bool showHelp;
 
-    private string input;
+    private string input = "help";
 
     public static DebugCommand HELP;
     public static DebugCommand<string> TELEPORT;
@@ -18,6 +18,9 @@ public class DebugController : MonoBehaviour
     public List<object> commandList;
 
     private Vector2 scroll;
+
+    [SerializeField]
+    private GUIStyle btnStyle;
 
     private void Awake()
     {
@@ -76,6 +79,7 @@ public class DebugController : MonoBehaviour
             Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
             scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
 
+            // btnStyle.backgroundColor = Color.clear;
             for (int i = 0; i < commandList.Count; i++)
             {
                 DebugCommandBase command = commandList[i] as DebugCommandBase;
@@ -83,7 +87,12 @@ public class DebugController : MonoBehaviour
 
                 Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
 
-                GUI.Label(commandLabelRect, commandLabel);
+                if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+                {
+                    input = command.commandFormat;
+                    HandleInput();
+                }
+                // GUI.Label(commandLabelRect, commandLabel);
             }
 
             GUI.EndScrollView();
@@ -93,14 +102,15 @@ public class DebugController : MonoBehaviour
         if (Event.current.Equals(Event.KeyboardEvent("[enter]")))
         {
             HandleInput();
-            input = "";
+            input = "help";
         }
 
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0.25f);
-        GUI.TextField.textEdition.placeholder =" tete";
 
+        GUI.SetNextControlName("MyTextField");
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20f), input);
+        GUI.FocusControl("MyTextField");
     }
 
     private void HandleInput()
