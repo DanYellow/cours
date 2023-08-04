@@ -16,7 +16,7 @@ public class DebugCommandBase
     public DebugCommandBase(string id, string description, string format)
     {
         commandId = id;
-        description = commandDescription;
+        commandDescription = description;
         commandFormat = format;
     }
 }

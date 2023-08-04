@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// https://www.youtube.com/watch?v=VzOEM-4A2OM
 public class DebugController : MonoBehaviour
 {
     private bool showConsole;
@@ -12,23 +13,34 @@ public class DebugController : MonoBehaviour
 
     public static DebugCommand HELP;
     public static DebugCommand<string> TELEPORT;
+    public static DebugCommand QUIT;
+
     public List<object> commandList;
+
+    private Vector2 scroll;
 
     private void Awake()
     {
-        HELP = new DebugCommand("test", "removes", "test", () =>
+        HELP = new DebugCommand("help", "Show all commands", "help", () =>
         {
             showHelp = true;
         });
 
-        TELEPORT = new DebugCommand<string>("teleport", "removes", "teleport", (vector) =>
+        QUIT = new DebugCommand("quit", "Close the help command", "quit", () =>
+        {
+            showConsole = false;
+            showHelp = false;
+        });
+
+        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string Vector2>", (vector) =>
         {
             Debug.Log(GetVector2("2, 3"));
         });
 
         commandList = new List<object> {
             HELP,
-            TELEPORT
+            TELEPORT,
+            QUIT
         };
     }
 
@@ -45,18 +57,38 @@ public class DebugController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.I))
         {
             showConsole = !showConsole;
         }
-        #endif
+#endif
     }
 
     private void OnGUI()
     {
-        
         if (!showConsole) { return; }
+        float y = 0f;
+
+        if (showHelp)
+        {
+            GUI.Box(new Rect(0, y, Screen.width, 100), "");
+            Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
+            scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
+
+            for (int i = 0; i < commandList.Count; i++)
+            {
+                DebugCommandBase command = commandList[i] as DebugCommandBase;
+                string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
+
+                Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
+
+                GUI.Label(commandLabelRect, commandLabel);
+            }
+
+            GUI.EndScrollView();
+            y += 100f;
+        }
 
         if (Event.current.Equals(Event.KeyboardEvent("[enter]")))
         {
@@ -64,10 +96,10 @@ public class DebugController : MonoBehaviour
             input = "";
         }
 
-        float y = 0f;
-
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
-        GUI.backgroundColor = new Color(0, 0, 0, 0);
+        GUI.backgroundColor = new Color(0, 0, 0, 0.25f);
+        GUI.TextField.textEdition.placeholder =" tete";
+
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20f), input);
     }
 
@@ -83,7 +115,9 @@ public class DebugController : MonoBehaviour
                 if (commandList[i] as DebugCommand != null)
                 {
                     (commandList[i] as DebugCommand).Invoke();
-                } else if (commandList[i] as DebugCommand<string> != null) {
+                }
+                else if (commandList[i] as DebugCommand<string> != null)
+                {
                     (commandList[i] as DebugCommand<string>).Invoke(listCommandProperties[0]);
                 }
             }
