@@ -215,6 +215,7 @@ Si ça ne fonctionne toujours pas avec tout ça, vous pouvez tenter de résoudre
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui fait ce que vous souhaitez mais qui est appelée quand on appuie sur une touche
     - L'appel de la fonction devra impérativement être fait au sein de la méthode `Update()`, sinon ça ne fonctionnera pas (voir exemple plus haut)
+    - [Documentation Unity de la liste des touches accessibles - anglais](https://docs.unity3d.com/ScriptReference/KeyCode.html)
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D

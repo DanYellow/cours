@@ -8,8 +8,8 @@ public class Cloud : MonoBehaviour
     public Sprite[] listSprites;
     private float width;
     private bool isResettingPos = false;
-    private float minSpeed = 0.95f;
-    private float maxSpeed = 1.95f;
+    private float minSpeed = 0.05f;
+    private float maxSpeed = 0.95f;
 
     private void Awake()
     {
