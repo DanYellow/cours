@@ -37,3 +37,4 @@ Canvas :
         - Camera : affecté par la caméra
     - Canvas scaler -> Scale with screen size. Pour adapter le canvas à l'écran. Ne pas oublier de mettre une référence
     https://unity.com/how-to/unity-ui-optimization-tips
+    - Remove Graphic Raycasters from non-interactive UI Canvases and turn off the Raycast Target for static or non-interactive elements.

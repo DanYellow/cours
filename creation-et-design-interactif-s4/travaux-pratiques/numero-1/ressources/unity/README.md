@@ -170,9 +170,10 @@ Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré 
 - [Extension VS Code - Unity Code Snippets](https://marketplace.visualstudio.com/items?itemName=kleber-swf.unity-code-snippets)
 - [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
 
-> Si vous utilisez VS Code, voici deux vidéos qui résument ce qui est décrit en dessous :
->  - [Configurer VSCode + Unity MacOS](https://www.youtube.com/watch?v=3GVGyooZ8jk)
->  - [Configurer VSCode + Unity Windows](https://www.youtube.com/watch?v=ihVAKiJdd40)
+> Si vous utilisez VS Code, voici des liens qui expliquent comment faire :
+> - [Configurer VSCode + Unity MacOS](https://www.youtube.com/watch?v=3GVGyooZ8jk) 
+> - [Configurer VSCode + Unity Windows](https://www.youtube.com/watch?v=ihVAKiJdd40)
+> - [Configurer VSCode + Unity MacOS ou Windows](https://unity.com/how-to/debugging-with-microsoft-visual-studio-code)
 > Vous n'avez pas besoin d'installer toutes les extensions mais les deux plus haut sont indispensables.
 
 Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
@@ -240,7 +241,7 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
 
 > Note 2 : cette notion de visibilité est également applicable aux classes et aux fonctions au sein d'une classe (qu'on appelle "méthode")
 
-Par convention, ces propriétés de classes dont définies au début d'une classe. Exemple :
+Par convention, ces propriétés de classes sont définies au début d'une classe. Exemple :
 ```cs
 /* [...] */
 public class MyClass : MonoBehaviour
@@ -277,13 +278,15 @@ Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occas
 Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
 - [https://itch.io/](https://itch.io/)
 - [https://opengameart.org/](https://opengameart.org/)
-- [https://www.mixamo.com/ - Ressources 3D - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
+- [https://www.mixamo.com/ - Ressources 3D gratuites - Nécessite d'avoir un compte Adobe](https://www.mixamo.com/)
 
 Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel ou de découvrir de nouvelles choses : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR (français)](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
 
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts (anglais)](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
+
+- [Ensemble de conventions de programmation en C# / Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity). Pour rappel, les conventions de programmation sont là pour vous aider à comprendre votre code et celui des autres. Vous ne devez pas appliquer à la lettre les conventions du lien, toutefois nous vous conseillons d'en définir.
 
 > Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement votre projet (pas officiellement) et vous pourriez perdre quelques heures de travail précieuses.
 
