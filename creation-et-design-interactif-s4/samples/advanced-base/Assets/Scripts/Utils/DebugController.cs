@@ -79,7 +79,6 @@ public class DebugController : MonoBehaviour
             Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
             scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
 
-            // btnStyle.backgroundColor = Color.clear;
             for (int i = 0; i < commandList.Count; i++)
             {
                 DebugCommandBase command = commandList[i] as DebugCommandBase;
@@ -90,9 +89,7 @@ public class DebugController : MonoBehaviour
                 if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
                 {
                     input = command.commandFormat;
-                    HandleInput();
                 }
-                // GUI.Label(commandLabelRect, commandLabel);
             }
 
             GUI.EndScrollView();
