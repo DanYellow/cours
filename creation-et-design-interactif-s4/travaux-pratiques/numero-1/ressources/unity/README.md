@@ -300,8 +300,8 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 - Packages/
 - ProjectSettings/
 - UserSettings/
-- Assembly-CSharp.csproj
 - xxx.sln
+- xxx.csproj
 
 **N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent des chemins de fichiers très complexes. Vous périphériques risque de lever une erreur concernant ces chemins de fichiers** Il y a bien évidemment un fichier .gitignore pour vous aider.
 - [Récupérer le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
