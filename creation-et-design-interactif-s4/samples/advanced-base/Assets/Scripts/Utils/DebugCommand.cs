@@ -5,10 +5,6 @@ using System;
 
 public class DebugCommandBase
 {
-    private string _commandId;
-    private string _commandDescription;
-    private string _commandFormat;
-
     public string commandId { get; private set; }
     public string commandDescription { get; private set; }
     public string commandFormat { get; private set; }

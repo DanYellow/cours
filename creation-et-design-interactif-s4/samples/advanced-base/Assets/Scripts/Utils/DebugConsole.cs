@@ -1,10 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Linq;
+
+using UnityEngine;
 
 // https://www.youtube.com/watch?v=VzOEM-4A2OM
-public class DebugController : MonoBehaviour
+public class DebugConsole : MonoBehaviour
 {
     private bool showConsole;
     private bool showHelp;
@@ -70,6 +71,8 @@ public class DebugController : MonoBehaviour
 
     private void OnGUI()
     {
+        btnStyle = new GUIStyle(GUI.skin.button);
+
         if (!showConsole) { return; }
         float y = 0f;
 
@@ -107,6 +110,7 @@ public class DebugController : MonoBehaviour
 
         GUI.SetNextControlName("MyTextField");
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20f), input);
+        Autocomplete(y, input);
         GUI.FocusControl("MyTextField");
     }
 
@@ -128,6 +132,26 @@ public class DebugController : MonoBehaviour
                     (commandList[i] as DebugCommand<string>).Invoke(listCommandProperties[0]);
                 }
             }
+        }
+    }
+
+    private void Autocomplete(float y, string newInput)
+    {
+        IEnumerable<string> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
+            .Where(k => k.commandId.StartsWith(newInput.ToLower())).Select(x => x.commandId);
+
+        // IEnumerable<string> autocompleteCommands = commandList.Cast<DebugCommandBase>()
+        // .Where(k => k.commandId.StartsWith(newInput.ToLower())).Select(x => x.commandId);
+
+        foreach (string command in autocompleteCommands)
+        {
+            print(command);
+            // DebugCommandBase c = DebugCommandBase.DebugCommands[k];
+            // GUI.Label(
+            //     new Rect(2, y, Screen.width, 20),
+            //     $"{c.Format} - {c.Description}",
+            // );
+            y += 16;
         }
     }
 }
