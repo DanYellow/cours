@@ -217,6 +217,8 @@ Si ça ne fonctionne toujours pas avec tout ça, vous pouvez tenter de résoudre
     - L'appel de la fonction devra impérativement être fait au sein de la méthode `Update()`, sinon ça ne fonctionnera pas (voir exemple plus haut)
     - [Documentation Unity de la liste des touches accessibles - anglais](https://docs.unity3d.com/ScriptReference/KeyCode.html)
 
+> N'oubliez pas de lier votre script à un GameObject. **Sinon, votre code ne sera jamais exécuté.**
+
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
 - Déplacement du joueur
@@ -300,8 +302,6 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 - Packages/
 - ProjectSettings/
 - UserSettings/
-- xxx.sln
-- xxx.csproj
 
 **N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent des chemins de fichiers très complexes. Vous périphériques risque de lever une erreur concernant ces chemins de fichiers** Il y a bien évidemment un fichier .gitignore pour vous aider.
 - [Récupérer le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)

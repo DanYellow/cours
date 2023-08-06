@@ -5,7 +5,7 @@ public class DeathZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (
             other.CompareTag("Player") &&
-            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
+            other.gameObject.TryGetComponent(out PlayerHealth playerHealth)
         )
         {
             playerHealth.TakeDamage(0.5f);

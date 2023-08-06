@@ -29,10 +29,11 @@ public class CameraShake : MonoBehaviour
         
         while (elapsed < duration)
         {
-            Vector3 shakeVector = (Random.insideUnitSphere / 2)  * magnitude;
+            Vector3 shakeVector = (Random.insideUnitSphere / 2) * magnitude;
 
             transform.position = new Vector3(
-                shakeVector.x + orignalPosition.x, shakeVector.y + orignalPosition.y, orignalPosition.z);
+                shakeVector.x + orignalPosition.x, shakeVector.y + orignalPosition.y, orignalPosition.z
+            );
             elapsed += Time.deltaTime;
             yield return 0;
         }
