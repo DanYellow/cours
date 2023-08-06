@@ -174,4 +174,13 @@ public class RockHead : MonoBehaviour
     {
         isOnScreen = true;
     }
+
+    private void OnDrawGizmos() {
+        Vector3 nextTriggerPosition = new Vector3(
+            listTriggers[currentIndex].transform.position.x,
+            listTriggers[currentIndex].transform.position.y,
+            transform.position.z
+        );
+        Debug.DrawLine(transform.position, nextTriggerPosition, Color.green);
+    }
 }
