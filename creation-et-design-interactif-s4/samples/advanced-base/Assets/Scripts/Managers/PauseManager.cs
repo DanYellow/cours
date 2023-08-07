@@ -42,9 +42,4 @@ public class PauseManager : MonoBehaviour
         onTogglePauseEvent.Raise(isGamePaused);
         pauseMenuUI.SetActive(isGamePaused);
     }
-
-    // public bool IsGamePaused()
-    // {
-    //     return isGamePaused;
-    // }
 }
