@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,8 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
 
-    [ReadOnlyInspector, SerializeField]
-    public bool isGrounded;
+    private bool isGrounded;
     public Animator animator;
 
     [Tooltip("Running system")]
@@ -37,8 +37,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVelocity;
     private float maxYVelocity;
 
+    [Header("Debug")]
+    public VectorEventChannel onDebugTeleportEvent;
+
     private void OnEnable() {
         onTogglePauseEvent.OnEventRaised += OnPauseEvent;
+        onDebugTeleportEvent.OnEventRaised += OnDebugTeleport;
     }
 
     private void OnPauseEvent(bool value)
@@ -174,7 +178,13 @@ public class PlayerMovement : MonoBehaviour
         onLandingFastSO.Raise(landingFastShakeInfo);
     }
 
+    private void OnDebugTeleport(Vector3 newPos)
+    {
+        transform.position = newPos;
+    }
+
     private void OnDisable() {
         onTogglePauseEvent.OnEventRaised -= OnPauseEvent;
+        onDebugTeleportEvent.OnEventRaised -= OnDebugTeleport;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Globalization;
 
 using UnityEngine;
 
@@ -33,6 +34,11 @@ public class DebugConsole : MonoBehaviour
 
     private Vector2 scroll;
 
+    public VectorEventChannel onDebugTeleportEvent;
+
+    private CultureInfo cultureInfo = new CultureInfo("en-US");
+
+
     [SerializeField]
     private GUIStyle btnStyle;
 
@@ -59,9 +65,9 @@ public class DebugConsole : MonoBehaviour
             showHelp = false;
         });
 
-        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (vector) =>
+        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (val) =>
         {
-            Debug.Log(GetVector2("2, 3"));
+            onDebugTeleportEvent.Raise(StringToVector3(val));
         });
 
         HEAL = new DebugCommand<float?>("heal", "Heal the player with an amount of points (0 by default)", "heal <int>", (val) =>
@@ -89,12 +95,12 @@ public class DebugConsole : MonoBehaviour
             .ToList();
     }
 
-    public Vector2 GetVector2(string rString)
+    public Vector3 StringToVector3(string rString)
     {
         string[] listParams = rString.Split(',');
-        float x = Convert.ToSingle(listParams[0]);
-        float y = Convert.ToSingle(listParams[1]);
-        Vector2 rValue = new(x, y);
+        float x = Convert.ToSingle(listParams[0], cultureInfo);
+        float y = Convert.ToSingle(listParams[1], cultureInfo);
+        Vector3 rValue = new(x, y, 0);
 
         return rValue;
     }
@@ -195,7 +201,9 @@ public class DebugConsole : MonoBehaviour
                 }
                 else if (commandList[i] as DebugCommand<string> != null)
                 {
-                    (commandList[i] as DebugCommand<string>).Invoke(listCommandProperties[1]);
+                    
+                    // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/ranges#systemrange
+                    (commandList[i] as DebugCommand<string>).Invoke(string.Join("", listCommandProperties[1..]));
                 }
                 else if (commandList[i] as DebugCommand<float?> != null)
                 {
@@ -216,7 +224,7 @@ public class DebugConsole : MonoBehaviour
     private void ShowHelp(float y)
     {
         displayType = DisplayType.Show;
-        Rect helpContainerViewport = new Rect(0, 0, Screen.width, 20 * commandList.Count);
+        Rect helpContainerViewport = new(0, 0, Screen.width, 20 * commandList.Count);
         scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
 
         ShowResults(0, commandList.Select(x => x as DebugCommandBase).ToList());
