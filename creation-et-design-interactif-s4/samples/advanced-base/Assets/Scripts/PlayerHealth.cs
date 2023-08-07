@@ -3,13 +3,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public FloatVariable currentHealth
-    {
-        get { return _myNumber; }
-        set { _myNumber.CurrentValue = Mathf.Clamp(value.CurrentValue, 0, maxHealth.CurrentValue); }
-    }
-
-    private FloatVariable _myNumber;
+    public FloatVariable currentHealth;
     public FloatVariable maxHealth;
 
     public VoidEventChannelSO onPlayerDeath;
@@ -48,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         }
 #endif
     }
-
+ 
     public void TakeDamage(float damage)
     {
         if (isInvincible && damage < float.MaxValue) return;
