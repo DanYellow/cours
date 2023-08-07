@@ -174,16 +174,20 @@ public class DebugConsole : MonoBehaviour
             {
                 Hide();
             }
-            else if (e.keyCode == KeyCode.Tab)
+            else
             {
-                if (displayType == DisplayType.Autocomplete)
-                {
-                    finishAutoCompletion = true;
-                }
-                displayType = DisplayType.Autocomplete;
-            } else {
                 finishAutoCompletion = false;
             }
+        }
+
+        // https://docs.unity3d.com/560/Documentation/Manual/ConventionalGameInput.html
+        if (Event.current.Equals(Event.KeyboardEvent("tab")))
+        {
+            if (displayType == DisplayType.Autocomplete)
+            {
+                finishAutoCompletion = true;
+            }
+            displayType = DisplayType.Autocomplete;
         }
     }
 
@@ -254,7 +258,6 @@ public class DebugConsole : MonoBehaviour
             displayType = DisplayType.Hide;
         }
 
-        print(autocompleteCommands.Count);
         if (fillField && autocompleteCommands.Count == 1)
         {
             DebugCommandBase command = autocompleteCommands[0];
@@ -273,18 +276,13 @@ public class DebugConsole : MonoBehaviour
             DebugCommandBase command = item.value;
             int index = item.idx;
 
-            CreateResult(y + (20 * index), command);
-        }
-    }
+            string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
+            Rect commandLabelRect = new(5, y, Screen.width - 20f, 20);
 
-    private void CreateResult(float y, DebugCommandBase command)
-    {
-        string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-        Rect commandLabelRect = new(5, y, Screen.width - 20f, 20);
-
-        if (GUI.Button(commandLabelRect, commandLabel))
-        {
-            input = command.commandFormat;
+            if (GUI.Button(commandLabelRect, commandLabel))
+            {
+                input = command.commandFormat;
+            }
         }
     }
 }
