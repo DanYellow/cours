@@ -8,6 +8,7 @@ using UnityEngine;
 // https://github.com/MinaPecheux/UnityTutorials-RTS/blob/master/Assets/Scripts/DebugConsole/DebugConsole.cs
 public class DebugConsole : MonoBehaviour
 {
+    [SerializeField]
     private bool showConsole;
     private bool showHelp;
 
@@ -35,7 +36,7 @@ public class DebugConsole : MonoBehaviour
             showHelp = true;
         });
 
-        HELP_2 = new DebugCommand("help 2", "Show all commands", "help", () =>
+        HELP_2 = new DebugCommand("?", "Show all commands", "?", () =>
         {
             showHelp = true;
         });
@@ -75,6 +76,7 @@ public class DebugConsole : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.I))
         {
+            // showConsole = !showConsole;
             showConsole = true;
         }
 #endif
@@ -82,42 +84,55 @@ public class DebugConsole : MonoBehaviour
 
     private void OnGUI()
     {
-        btnStyle = new GUIStyle(GUI.skin.button);
+        if (!showConsole)
+        {
+            return;
+        }
+        // btnStyle = new GUIStyle(GUI.skin.button);
         autocompleteResultStyle = new GUIStyle(GUI.skin.label);
 
-        if (!showConsole) { return; }
         float y = 0f;
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
 
-        GUI.SetNextControlName("MyTextField");
+        // GUI.SetNextControlName("MyTextField");
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20f), input);
-        GUI.FocusControl("MyTextField");
+        // GUI.FocusControl("MyTextField");
 
         // Log area
         y = 30f;
-        GUI.Box(new Rect(0, y, Screen.width, Screen.height - y), "");
-
-        if (input.Length > 0)
-        {
-            Autocomplete(y, input);
-        }
+        GUI.Box(new Rect(0, y, Screen.width, 100), "");
+        // GUI.Box(new Rect(0, y, Screen.width, Screen.height - y), "");
 
         Event e = Event.current;
         if (e.isKey)
         {
-            if (e.keyCode == KeyCode.Return && input.Length > 0)
+            if (
+                (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter) &&
+                input.Length > 0
+            )
             {
                 HandleInput();
                 input = "";
             }
             else if (e.keyCode == KeyCode.Escape)
             {
+                GUI.FocusControl(null);
                 showConsole = false;
             }
             else if (input.Length > 0)
             {
+                // print("ggeeee");
                 // Autocomplete(y, input);
             }
+        }
+
+        if (input.Length > 0)
+        {
+            Autocomplete(y, input);
+        }
+        else if (showHelp)
+        {
+            ShowHelp(y);
         }
 
         // if (Event.current.Equals(Event.KeyboardEvent("[enter]")))
@@ -146,10 +161,10 @@ public class DebugConsole : MonoBehaviour
 
         //         Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
 
-        //         if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
-        //         {
-        //             input = command.commandFormat;
-        //         }
+        // if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+        // {
+        //     input = command.commandFormat;
+        // }
         //     }
 
         //     GUI.EndScrollView();
@@ -179,21 +194,55 @@ public class DebugConsole : MonoBehaviour
         }
     }
 
+    private void ShowHelp(float y)
+    {
+        GUI.Box(new Rect(0, y, Screen.width, 100), "");
+        Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
+
+        for (int i = 0; i < commandList.Count; i++)
+        {
+            DebugCommandBase command = commandList[i] as DebugCommandBase;
+            string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
+
+            Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
+
+            if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+            {
+                input = command.commandFormat;
+            }
+        }
+
+        GUI.EndScrollView();
+        y += 100f;
+    }
+
+
     private void Autocomplete(float y, string newInput)
     {
         IEnumerable<object> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
             .Where(k => k.commandId.StartsWith(newInput.ToLower()));
-        // IEnumerable<string> autocompleteCommands = commandList.Cast<DebugCommandBase>()
-        // .Where(k => k.commandId.StartsWith(newInput.ToLower())).Select(x => x.commandId);
+
+        Rect helpContainerViewport = new Rect(0, y, Screen.width, 20 * autocompleteCommands.ToArray().Length);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
 
         foreach (DebugCommandBase command in autocompleteCommands.Cast<DebugCommandBase>())
         {
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            GUI.Label(
-                new Rect(10f, y, Screen.width, 20),
-                commandLabel
-            );
-            y += 16;
+            Rect commandLabelRect = new Rect(10f, y, Screen.width, 20);
+
+            if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+            {
+                input = command.commandFormat;
+            }
+            // GUI.Label(
+            //     new Rect(10f, y, Screen.width, 20),
+            //     commandLabel,
+            //     autocompleteResultStyle
+            // );
+            y += 20;
         }
+
+        GUI.EndScrollView();
     }
 }

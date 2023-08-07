@@ -19,7 +19,7 @@ public class DebugCommandBase
 
 public class DebugCommand : DebugCommandBase
 {
-    private Action command;
+    private readonly Action command;
 
     public DebugCommand(string id, string description, string format, Action _command) : base(id, description, format)
     {
@@ -33,7 +33,7 @@ public class DebugCommand : DebugCommandBase
 
 public class DebugCommand<T1> : DebugCommandBase
 {
-    private Action<T1> command;
+    private readonly Action<T1> command;
 
     public DebugCommand(string id, string description, string format, Action<T1> _command) : base(id, description, format)
     {
