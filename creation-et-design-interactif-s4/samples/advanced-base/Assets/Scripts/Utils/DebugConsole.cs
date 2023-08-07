@@ -112,11 +112,8 @@ public class DebugConsole : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                // showConsole = !showConsole;
-                showConsole = true;
+                showConsole = !showConsole;
             }
-
-
         }
 #endif
     }
@@ -127,15 +124,12 @@ public class DebugConsole : MonoBehaviour
         {
             return;
         }
-        // btnStyle = new GUIStyle(GUI.skin.button);
-        // mainContainerStyle = new GUIStyle(GUI.skin.label);
 
         float y = 0f;
         float inputContainerHeight = 50;
-        // GUI.Label(new Rect(10, 10, 100, 20), "Hello World!");
-        GUI.Box(new Rect(0, y, Screen.width, inputContainerHeight), "Hello World!", mainContainerStyle);
 
-        GUI.SetNextControlName("debug");
+        GUI.Box(new Rect(0, y, Screen.width, inputContainerHeight), "DEBUG CONSOLE", mainContainerStyle);
+
         input = GUI.TextField(new Rect(10f, y + 20f, Screen.width - 20f, 20f), input);
 
         // Log area
@@ -143,11 +137,6 @@ public class DebugConsole : MonoBehaviour
         if (displayType != DisplayType.Hide)
         {
             GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 150), "");
-        }
-
-        if (GUI.GetNameOfFocusedControl() == null && displayType != DisplayType.Hide)
-        {
-            // GUI.FocusControl("debug");
         }
 
         if (input.Length > 0 && displayType == DisplayType.Autocomplete)
@@ -251,35 +240,48 @@ public class DebugConsole : MonoBehaviour
 
     private void Autocomplete(float y, string newInput)
     {
-        IEnumerable<object> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
-            .Where(k => k.commandId.StartsWith(newInput.ToLower()));
+        List<DebugCommandBase> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
+            .Where(k => k.commandId.StartsWith(newInput.ToLower())).ToList();
 
-        Rect helpContainerViewport = new(0, y, Screen.width, 20 * autocompleteCommands.ToArray().Length);
-        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
+        Rect helpContainerViewport = new(0, y, Screen.width, 20 * autocompleteCommands.Count);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
 
-        if (autocompleteCommands.Count() == 0)
+        if (autocompleteCommands.Count == 0)
         {
             displayType = DisplayType.Hide;
         }
 
+        ShowResults(y, autocompleteCommands);
 
-        foreach (DebugCommandBase command in autocompleteCommands.Cast<DebugCommandBase>())
+        // foreach (DebugCommandBase command in autocompleteCommands.Cast<DebugCommandBase>())
+        // {
+        //     string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
+        //     Rect commandLabelRect = new(10f, y, Screen.width - 20f, 20);
+
+        //     if (GUI.Button(commandLabelRect, commandLabel))
+        //     {
+        //         input = command.commandFormat;
+        //     }
+        //     y += 20;
+        // }
+
+        GUI.EndScrollView();
+    }
+
+    private void ShowResults(float y, List<DebugCommandBase> list)
+    {
+        foreach (var item in list.Select((value, idx) => new { idx, value }))
         {
+            DebugCommandBase command = item.value;
+            int index = item.idx;
+  
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            Rect commandLabelRect = new(10f, y, Screen.width - 20f, 20);
+            Rect commandLabelRect = new(5, y + (20 * index), Screen.width - 20f, 20);
 
             if (GUI.Button(commandLabelRect, commandLabel))
             {
                 input = command.commandFormat;
             }
-            // GUI.Label(
-            //     new Rect(10f, y, Screen.width, 20),
-            //     commandLabel,
-            //     mainContainerStyle
-            // );
-            y += 20;
         }
-
-        GUI.EndScrollView();
     }
 }
