@@ -36,7 +36,9 @@ public class DebugConsole : MonoBehaviour
 
     public VectorEventChannel onDebugTeleportEvent;
 
-    private CultureInfo cultureInfo = new CultureInfo("en-US");
+    private readonly CultureInfo cultureInfo = new CultureInfo("en-US");
+
+    private bool finishAutoCompletion = false;
 
 
     [SerializeField]
@@ -146,7 +148,7 @@ public class DebugConsole : MonoBehaviour
 
         if (input.Length > 0 && displayType == DisplayType.Autocomplete)
         {
-            Autocomplete(inputContainerHeight, input);
+            Autocomplete(inputContainerHeight, input, finishAutoCompletion);
         }
         else if (showHelp)
         {
@@ -174,7 +176,13 @@ public class DebugConsole : MonoBehaviour
             }
             else if (e.keyCode == KeyCode.Tab)
             {
+                if (displayType == DisplayType.Autocomplete)
+                {
+                    finishAutoCompletion = true;
+                }
                 displayType = DisplayType.Autocomplete;
+            } else {
+                finishAutoCompletion = false;
             }
         }
     }
@@ -201,7 +209,7 @@ public class DebugConsole : MonoBehaviour
                 }
                 else if (commandList[i] as DebugCommand<string> != null)
                 {
-                    
+
                     // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/ranges#systemrange
                     (commandList[i] as DebugCommand<string>).Invoke(string.Join("", listCommandProperties[1..]));
                 }
@@ -233,7 +241,7 @@ public class DebugConsole : MonoBehaviour
     }
 
 
-    private void Autocomplete(float y, string newInput)
+    private void Autocomplete(float y, string newInput, bool fillField)
     {
         List<DebugCommandBase> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
             .Where(k => k.commandId.StartsWith(newInput.ToLower())).ToList();
@@ -244,6 +252,13 @@ public class DebugConsole : MonoBehaviour
         if (autocompleteCommands.Count == 0)
         {
             displayType = DisplayType.Hide;
+        }
+
+        print(autocompleteCommands.Count);
+        if (fillField && autocompleteCommands.Count == 1)
+        {
+            DebugCommandBase command = autocompleteCommands[0];
+            input = command.commandFormat;
         }
 
         ShowResults(y, autocompleteCommands);
@@ -257,14 +272,19 @@ public class DebugConsole : MonoBehaviour
         {
             DebugCommandBase command = item.value;
             int index = item.idx;
-  
-            string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            Rect commandLabelRect = new(5, y + (20 * index), Screen.width - 20f, 20);
 
-            if (GUI.Button(commandLabelRect, commandLabel))
-            {
-                input = command.commandFormat;
-            }
+            CreateResult(y + (20 * index), command);
+        }
+    }
+
+    private void CreateResult(float y, DebugCommandBase command)
+    {
+        string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
+        Rect commandLabelRect = new(5, y, Screen.width - 20f, 20);
+
+        if (GUI.Button(commandLabelRect, commandLabel))
+        {
+            input = command.commandFormat;
         }
     }
 }
