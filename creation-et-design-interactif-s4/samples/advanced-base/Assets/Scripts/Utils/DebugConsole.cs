@@ -72,7 +72,6 @@ public class DebugConsole : MonoBehaviour
 
         HURT = new DebugCommand<float?>("hurt", "Hurt the player with an amount of points (0 by default)", "hurt <int>", (val) =>
         {
-            print(val);
             currentHealth.CurrentValue -= val ?? 0;
         });
 
