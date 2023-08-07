@@ -3,8 +3,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public FloatVariable currentHealth;
-    public FloatVariable maxHealth;
+    public HealthVariable playerHealth;
 
     public VoidEventChannelSO onPlayerDeath;
     public Animator animator;
@@ -22,9 +21,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        if (needResetHP || currentHealth.CurrentValue <= 0)
+        if (needResetHP || playerHealth.currentValue <= 0)
         {
-            currentHealth.CurrentValue = maxHealth.CurrentValue;
+            playerHealth.currentValue = playerHealth.maxValue;
         }
     }
 
@@ -47,8 +46,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isInvincible && damage < float.MaxValue) return;
 
-        currentHealth.CurrentValue -= damage;
-        if (currentHealth.CurrentValue <= 0)
+        playerHealth.currentValue -= damage;
+        if (playerHealth.currentValue <= 0)
         {
             Die();
         }

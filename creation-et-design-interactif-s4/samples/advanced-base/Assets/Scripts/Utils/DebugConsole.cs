@@ -15,7 +15,6 @@ enum DisplayType
 // https://github.com/MinaPecheux/UnityTutorials-RTS/blob/master/Assets/Scripts/DebugConsole/DebugConsole.cs
 public class DebugConsole : MonoBehaviour
 {
-    [SerializeField]
     private bool showConsole;
     private bool showHelp;
 
@@ -28,7 +27,7 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand<float?> HURT;
     public static DebugCommand QUIT;
 
-    public FloatVariable currentHealth;
+    public HealthVariable playerHealth;
 
     public List<object> commandList;
 
@@ -67,12 +66,12 @@ public class DebugConsole : MonoBehaviour
 
         HEAL = new DebugCommand<float?>("heal", "Heal the player with an amount of points (0 by default)", "heal <int>", (val) =>
         {
-            currentHealth.CurrentValue += val ?? 0;
+            playerHealth.currentValue += val ?? 0;
         });
 
         HURT = new DebugCommand<float?>("hurt", "Hurt the player with an amount of points (0 by default)", "hurt <int>", (val) =>
         {
-            currentHealth.CurrentValue -= val ?? 0;
+            playerHealth.currentValue -= val ?? 0;
         });
 
         commandList = new List<object> {
@@ -128,7 +127,7 @@ public class DebugConsole : MonoBehaviour
         float y = 0f;
         float inputContainerHeight = 50;
 
-        GUI.Box(new Rect(0, y, Screen.width, inputContainerHeight), "DEBUG CONSOLE", mainContainerStyle);
+        GUI.Box(new Rect(0, y, Screen.width, inputContainerHeight), "DEBUG CONSOLE - Use help or ? command to list all available commands", mainContainerStyle);
 
         input = GUI.TextField(new Rect(10f, y + 20f, Screen.width - 20f, 20f), input);
 

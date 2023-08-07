@@ -3,15 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Health Var", menuName = "ScriptableObjects/Variable/HealthVariable")]
 public class HealthVariable : ScriptableObject
 {
-    public int maxValue;
+    public float maxValue;
 
-    public int currentValue
+    public float currentValue
     {
         get { return _currentValue; }
         set { _currentValue = Mathf.Clamp(value, 0, maxValue); }
     }
 
-    private int _currentValue;
+    [SerializeField]
+    private float _currentValue;
 
     [Multiline]
     public string DeveloperDescription = "";

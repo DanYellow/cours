@@ -28890,8 +28890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5162fd71fcfc2374f96fae097d8cf5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: {fileID: 11400000, guid: 3f80a400f7ba81c4988bfef205296ad6, type: 2}
-  maxHealth: {fileID: 11400000, guid: 57cfb8340e449824ea37d99614d90703, type: 2}
+  playerHealth: {fileID: 11400000, guid: 60a09431080251441a0b37f15fac0d90, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   animator: {fileID: 814072434}
   spriteRenderer: {fileID: 814072435}
@@ -60969,6 +60968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showConsole: 0
   currentHealth: {fileID: 11400000, guid: 3f80a400f7ba81c4988bfef205296ad6, type: 2}
+  playerHealth: {fileID: 11400000, guid: 60a09431080251441a0b37f15fac0d90, type: 2}
   btnStyle:
     m_Name: 
     m_Normal:
