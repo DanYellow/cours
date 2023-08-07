@@ -7299,8 +7299,6 @@ MonoBehaviour:
   offset: {x: 0, y: 2.09, z: 0}
   smoothTime: 0.25
   target: {fileID: 814072436}
-  deadZone: {x: 0, y: 0}
-  yThreshold: 3
 --- !u!114 &519420037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60970,6 +60968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showConsole: 0
+  currentHealth: {fileID: 11400000, guid: 3f80a400f7ba81c4988bfef205296ad6, type: 2}
   btnStyle:
     m_Name: 
     m_Normal:
@@ -61029,7 +61028,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 0
-    m_RichText: 0
+    m_RichText: 1
     m_TextClipping: 0
     m_ImagePosition: 0
     m_ContentOffset: {x: 0, y: 0}

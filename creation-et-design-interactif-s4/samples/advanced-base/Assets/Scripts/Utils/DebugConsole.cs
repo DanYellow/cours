@@ -4,6 +4,12 @@ using System.Linq;
 
 using UnityEngine;
 
+enum DisplayType
+{
+    Hide,
+    Show
+}
+
 // https://www.youtube.com/watch?v=VzOEM-4A2OM
 // https://github.com/MinaPecheux/UnityTutorials-RTS/blob/master/Assets/Scripts/DebugConsole/DebugConsole.cs
 public class DebugConsole : MonoBehaviour
@@ -17,7 +23,11 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand HELP;
     public static DebugCommand HELP_2;
     public static DebugCommand<string> TELEPORT;
+    public static DebugCommand<string> HEAL;
+    public static DebugCommand<string> HURT;
     public static DebugCommand QUIT;
+
+    public FloatVariable currentHealth;
 
     public List<object> commandList;
 
@@ -28,6 +38,8 @@ public class DebugConsole : MonoBehaviour
 
     [SerializeField]
     private GUIStyle autocompleteResultStyle;
+
+    private DisplayType displayType = DisplayType.Hide;
 
     private void Awake()
     {
@@ -47,17 +59,33 @@ public class DebugConsole : MonoBehaviour
             showHelp = false;
         });
 
-        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string Vector2>", (vector) =>
+        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (vector) =>
         {
             Debug.Log(GetVector2("2, 3"));
+        });
+
+        HEAL = new DebugCommand<string>("heal", "Heal the player with an amount of points", "heal <string as int>", (val) =>
+        {
+            currentHealth.CurrentValue += int.Parse(val ?? "0");
+        });
+
+        HURT = new DebugCommand<string>("hurt", "Hurt the player with an amount of points", "hurt <string as int>", (val) =>
+        {
+            currentHealth.CurrentValue -= int.Parse(val ?? "0");
         });
 
         commandList = new List<object> {
             HELP,
             HELP_2,
             TELEPORT,
+            HEAL,
             QUIT
         };
+        commandList = commandList
+            .Select(x => x as DebugCommandBase)
+            .OrderBy(x => x.commandId)
+            .Select(x => x as object)
+            .ToList();
     }
 
     public Vector2 GetVector2(string rString)
@@ -74,10 +102,18 @@ public class DebugConsole : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.I))
+        if (
+            Input.GetKey(KeyCode.LeftControl) ||
+            Input.GetKey(KeyCode.LeftApple)
+        )
         {
-            // showConsole = !showConsole;
-            showConsole = true;
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                // showConsole = !showConsole;
+                showConsole = true;
+            }
+
+
         }
 #endif
     }
@@ -94,14 +130,33 @@ public class DebugConsole : MonoBehaviour
         float y = 0f;
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
 
-        // GUI.SetNextControlName("MyTextField");
+        GUI.SetNextControlName("debug");
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20f), input);
-        // GUI.FocusControl("MyTextField");
 
         // Log area
         y = 30f;
-        GUI.Box(new Rect(0, y, Screen.width, 100), "");
-        // GUI.Box(new Rect(0, y, Screen.width, Screen.height - y), "");
+        if (displayType == DisplayType.Show)
+        {
+            GUI.Box(new Rect(0, y, Screen.width, 150), "");
+        }
+
+        if (GUI.GetNameOfFocusedControl() == null && displayType != DisplayType.Hide)
+        {
+            // GUI.FocusControl("debug");
+        }
+
+        if (input.Length > 0)
+        {
+            Autocomplete(y, input);
+        }
+        else if (showHelp)
+        {
+            ShowHelp(y);
+        }
+        else if (input.Length == 0)
+        {
+            displayType = DisplayType.Hide;
+        }
 
         Event e = Event.current;
         if (e.isKey)
@@ -116,61 +171,16 @@ public class DebugConsole : MonoBehaviour
             }
             else if (e.keyCode == KeyCode.Escape)
             {
-                GUI.FocusControl(null);
-                showConsole = false;
-            }
-            else if (input.Length > 0)
-            {
-                // print("ggeeee");
-                // Autocomplete(y, input);
+                Hide();
             }
         }
+    }
 
-        if (input.Length > 0)
-        {
-            Autocomplete(y, input);
-        }
-        else if (showHelp)
-        {
-            ShowHelp(y);
-        }
-
-        // if (Event.current.Equals(Event.KeyboardEvent("[enter]")))
-        // {
-        //     HandleInput();
-        //     input = "";
-        // }
-
-
-        // GUI.backgroundColor = new Color(0, 0, 0, 0.25f);
-
-
-
-
-
-        // if (showHelp)
-        // {
-        //     GUI.Box(new Rect(0, y, Screen.width, 100), "");
-        //     Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
-        //     scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
-
-        //     for (int i = 0; i < commandList.Count; i++)
-        //     {
-        //         DebugCommandBase command = commandList[i] as DebugCommandBase;
-        //         string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-
-        //         Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
-
-        // if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
-        // {
-        //     input = command.commandFormat;
-        // }
-        //     }
-
-        //     GUI.EndScrollView();
-        //     y += 100f;
-        // }
-
+    private void Hide()
+    {
+        GUI.FocusControl(null);
+        showConsole = false;
+        displayType = DisplayType.Hide;
     }
 
     private void HandleInput()
@@ -196,25 +206,25 @@ public class DebugConsole : MonoBehaviour
 
     private void ShowHelp(float y)
     {
-        GUI.Box(new Rect(0, y, Screen.width, 100), "");
+        displayType = DisplayType.Show;
         Rect helpContainerViewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
-        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
 
         for (int i = 0; i < commandList.Count; i++)
         {
             DebugCommandBase command = commandList[i] as DebugCommandBase;
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
 
-            Rect commandLabelRect = new Rect(5, 20 * i, helpContainerViewport.width - 100, 20);
+            Rect commandLabelRect = new(5, 20 * i, helpContainerViewport.width, 20);
 
-            if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+            if (GUI.Button(commandLabelRect, commandLabel))
             {
                 input = command.commandFormat;
             }
         }
 
         GUI.EndScrollView();
-        y += 100f;
+        // y += 100f;
     }
 
 
@@ -223,15 +233,24 @@ public class DebugConsole : MonoBehaviour
         IEnumerable<object> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
             .Where(k => k.commandId.StartsWith(newInput.ToLower()));
 
-        Rect helpContainerViewport = new Rect(0, y, Screen.width, 20 * autocompleteCommands.ToArray().Length);
+        Rect helpContainerViewport = new(0, y, Screen.width, 20 * autocompleteCommands.ToArray().Length);
         scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 90), scroll, helpContainerViewport);
+
+        if (autocompleteCommands.Count() > 0)
+        {
+            displayType = DisplayType.Show;
+        }
+        else
+        {
+            displayType = DisplayType.Hide;
+        }
 
         foreach (DebugCommandBase command in autocompleteCommands.Cast<DebugCommandBase>())
         {
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            Rect commandLabelRect = new Rect(10f, y, Screen.width, 20);
+            Rect commandLabelRect = new(10f, y, Screen.width, 20);
 
-            if (GUI.Button(commandLabelRect, commandLabel, btnStyle))
+            if (GUI.Button(commandLabelRect, commandLabel))
             {
                 input = command.commandFormat;
             }
