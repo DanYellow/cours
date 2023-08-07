@@ -125,6 +125,7 @@ public class DebugConsole : MonoBehaviour
             return;
         }
 
+        mainContainerStyle = new GUIStyle(GUI.skin.box);
         float y = 0f;
         float inputContainerHeight = 50;
 
@@ -206,7 +207,7 @@ public class DebugConsole : MonoBehaviour
                     }
                     else
                     {
-                        // Debug.LogError($"'{command.Id}' requires a float parameter!");
+                        Debug.LogError($"requires a float parameter!");
                         return;
                     }
                 }
@@ -220,21 +221,9 @@ public class DebugConsole : MonoBehaviour
         Rect helpContainerViewport = new Rect(0, 0, Screen.width, 20 * commandList.Count);
         scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
 
-        for (int i = 0; i < commandList.Count; i++)
-        {
-            DebugCommandBase command = commandList[i] as DebugCommandBase;
-            string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-
-            Rect commandLabelRect = new(5, 20 * i, helpContainerViewport.width - 20f, 20);
-
-            if (GUI.Button(commandLabelRect, commandLabel))
-            {
-                input = command.commandFormat;
-            }
-        }
+        ShowResults(0, commandList.Select(x => x as DebugCommandBase).ToList());
 
         GUI.EndScrollView();
-        // y += 100f;
     }
 
 
@@ -252,18 +241,6 @@ public class DebugConsole : MonoBehaviour
         }
 
         ShowResults(y, autocompleteCommands);
-
-        // foreach (DebugCommandBase command in autocompleteCommands.Cast<DebugCommandBase>())
-        // {
-        //     string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-        //     Rect commandLabelRect = new(10f, y, Screen.width - 20f, 20);
-
-        //     if (GUI.Button(commandLabelRect, commandLabel))
-        //     {
-        //         input = command.commandFormat;
-        //     }
-        //     y += 20;
-        // }
 
         GUI.EndScrollView();
     }
