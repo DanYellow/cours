@@ -12,11 +12,6 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 nextPosition;
 
-    [SerializeField]
-    private Vector2 deadZone;
-
-    private float yDifference;
-    public float yThreshold = 1;
  // https://www.youtube.com/watch?v=Jn0lYl9j3Hc
 
     void Start()
@@ -33,24 +28,10 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, smoothTime);
     }
 
-    private Vector3 GetNextPosition()
+     private Vector3 GetNextPosition()
     {
-        float yPos = transform.position.y;
-        yDifference = Mathf.Abs(target.position.y - transform.position.y);
-
-        if (yDifference >= yThreshold) {
-            yPos = target.position.y + offset.y;
-        }
-        
-        Vector3 nextPos = new Vector3(
-            target.position.x + offset.x,
-            yPos,
-            transform.position.z
-        );
-
-        return nextPos;
         return target.position + new Vector3(
-            offset.x,
+            offset.x * (target.localEulerAngles.y > 90 ? -1 : 1),
             offset.y,
             transform.position.z
         );
