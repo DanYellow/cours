@@ -104,7 +104,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
     - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
-> La gestion des points de vie du joueur est gérée via un ScriptableObject. Qui gère à la fois le nombre de points de vie actuels et maximum. A noter que la valeur des points de vie actuels est "clampée", autrement dit, elle ne peut pas être inférieure à 0 ni supérieure au nombre de points de vie max. Si vous le souhaitez, vous pouvez supprimer ce comportement.
+> La gestion des points de vie du joueur est gérée via un ScriptableObject. Qui gère à la fois le nombre de points de vie actuels et maximum. A noter que la valeur des points de vie actuels est "clampée", autrement dit, elle ne peut pas être inférieure à 0 ni supérieure au nombre de points de vie maximum définis. Si vous le souhaitez, vous pouvez supprimer ce comportement.
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
