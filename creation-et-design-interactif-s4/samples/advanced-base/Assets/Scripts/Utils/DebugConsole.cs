@@ -11,7 +11,8 @@ enum DisplayType
 {
     Hide,
     Show,
-    Autocomplete
+    Autocomplete,
+    Error,
 }
 
 // https://www.youtube.com/watch?v=VzOEM-4A2OM
@@ -20,6 +21,7 @@ public class DebugConsole : MonoBehaviour
 {
     private bool showConsole;
     private bool showHelp;
+    private bool isUnknownCommand;
 
     private string input = "";
 
@@ -50,6 +52,10 @@ public class DebugConsole : MonoBehaviour
     [SerializeField]
     private GUIStyle mainContainerStyle;
 
+    [SerializeField]
+    private GUIStyle unknownCmdLabelStyle;
+
+    [SerializeField]
     private DisplayType displayType = DisplayType.Hide;
 
     private void Awake()
@@ -163,7 +169,15 @@ public class DebugConsole : MonoBehaviour
         y = 30f;
         if (displayType != DisplayType.Hide)
         {
-            GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 165), "");
+            if (displayType == DisplayType.Error)
+            {
+                GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 60), "");
+                GUI.Label(new Rect(10, inputContainerHeight + 20, Screen.width, 35), $"Unknown command. Use help or ? command to list all available commands", unknownCmdLabelStyle);
+            }
+            else
+            {
+                GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 165), "");
+            }
         }
 
         if (input.Length > 0 && displayType == DisplayType.Autocomplete)
@@ -174,7 +188,7 @@ public class DebugConsole : MonoBehaviour
         {
             ShowHelp(inputContainerHeight);
         }
-        else if (input.Length == 0)
+        else if (input.Length == 0 && displayType != DisplayType.Error)
         {
             displayType = DisplayType.Hide;
         }
@@ -188,7 +202,6 @@ public class DebugConsole : MonoBehaviour
             )
             {
                 HandleInput();
-                input = "";
             }
             else if (e.keyCode == KeyCode.Escape)
             {
@@ -228,6 +241,8 @@ public class DebugConsole : MonoBehaviour
             string pattern = @"" + Regex.Escape(commandBase.commandId) + @"";
             if (Regex.IsMatch(input, pattern))
             {
+                input = "";
+                isUnknownCommand = false;
                 if (commandList[i] as DebugCommand != null)
                 {
                     (commandList[i] as DebugCommand).Invoke();
@@ -252,7 +267,8 @@ public class DebugConsole : MonoBehaviour
             }
             else
             {
-                Debug.Log("Unknown command");
+                displayType = DisplayType.Error;
+                isUnknownCommand = true;
             }
         }
     }
