@@ -28858,7 +28858,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1911207315}
   groundCheckRadius: 0.24
   animator: {fileID: 814072434}
-  moveSpeed: 9
+  moveSpeed: 500
   jumpCount: 0
   maxJumpCount: 2
   jumpForce: 11

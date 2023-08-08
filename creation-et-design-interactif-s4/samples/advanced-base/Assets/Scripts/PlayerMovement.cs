@@ -97,24 +97,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Animations();
-        LimitSpeed();
         isGrounded = IsGrounded();
 
         Move();
     }
 
-    private void LimitSpeed()
-    {
-        currentVelocity = rb.velocity;
-        currentVelocity.y = Mathf.Clamp(currentVelocity.y, rb.velocity.y, maxYVelocity);
-        currentVelocity.x = Mathf.Clamp(currentVelocity.x, -moveSpeed, moveSpeed);
-
-        rb.velocity = currentVelocity;
-    }
-
     private void Move()
     {
-        rb.velocity = new Vector2((moveDirectionX * moveSpeed), rb.velocity.y);
+        rb.velocity = new Vector2(moveDirectionX * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     private void Animations()

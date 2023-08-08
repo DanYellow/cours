@@ -36,9 +36,8 @@ public class Cloud : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = Vector2.left * speed * Time.deltaTime;
+        Vector2 direction = speed * Time.deltaTime * Vector2.left;
         transform.Translate(direction, Space.World);
-
 
         if (sr.bounds.max.x < (ScreenUtility.Instance.Left - width) && !isResettingPos)
         {
