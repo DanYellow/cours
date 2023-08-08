@@ -101,10 +101,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
     - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
     > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
-- Système de santé du joueur
+- Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
     - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
-> Contrairement à ce qui a été vu en cours, la gestion de points de vie a été séparée en deux ScriptableObject qui ne gèrent que des valeurs décimales (Points de vie courants, points de vie max). Si vous le souhaitez, vous pouvez créer un nouveau ScriptableObject réunissant toutes les caractéristiques du joueur.
+> La gestion des points de vie du joueur est gérée via un ScriptableObject. Qui gère à la fois le nombre de points de vie actuels et maximum. A noter que la valeur des points de vie actuels est "clampée", autrement dit, elle ne peut pas être inférieure à 0 ni supérieure au nombre de points de vie max. Si vous le souhaitez, vous pouvez supprimer ce comportement.
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
     - un évènement (OnPlayerDeathSO) sur le GameObject "Player"
@@ -158,7 +158,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
 ### Recommencer au dernier checkpoint
-Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un scriptable object de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
+Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un ScriptableObject de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
 
 ### Système de ventilateurs
 Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
@@ -177,6 +177,9 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - https://www.itch.io
 - https://opengameart.org/
 - https://www.youtube.com/@NCALIB
+
+# Console de debug
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab "DebugConsole", elle s'affiche via le raccourci `ctrl/command + b`. Elle permet notamment de charger un niveau spécifique via son index ou encore de soigner le joueur.
 
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
