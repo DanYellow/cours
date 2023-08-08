@@ -10,9 +10,10 @@ using System.Text.RegularExpressions;
 enum DisplayType
 {
     Hide,
+    HidePanel,
     Show,
     Autocomplete,
-    Error,
+    UnknownCommand,
 }
 
 // https://www.youtube.com/watch?v=VzOEM-4A2OM
@@ -167,9 +168,9 @@ public class DebugConsole : MonoBehaviour
 
         // Log area
         y = 30f;
-        if (displayType != DisplayType.Hide)
+        if (displayType != DisplayType.Hide && displayType != DisplayType.HidePanel)
         {
-            if (displayType == DisplayType.Error)
+            if (displayType == DisplayType.UnknownCommand)
             {
                 GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 60), "");
                 GUI.Label(new Rect(10, inputContainerHeight + 20, Screen.width, 35), $"Unknown command. Use help or ? command to list all available commands", unknownCmdLabelStyle);
@@ -182,13 +183,13 @@ public class DebugConsole : MonoBehaviour
 
         if (input.Length > 0 && displayType == DisplayType.Autocomplete)
         {
-            Autocomplete(inputContainerHeight, input, finishAutoCompletion);
+            Autocomplete(inputContainerHeight, input.Split(" ")[0], finishAutoCompletion);
         }
         else if (showHelp)
         {
             ShowHelp(inputContainerHeight);
         }
-        else if (input.Length == 0 && displayType != DisplayType.Error)
+        else if (input.Length == 0 && displayType != DisplayType.UnknownCommand)
         {
             displayType = DisplayType.Hide;
         }
@@ -221,7 +222,13 @@ public class DebugConsole : MonoBehaviour
                 finishAutoCompletion = true;
             }
             displayType = DisplayType.Autocomplete;
-        }
+        } 
+        // else if (
+        //     Event.current.Equals(Event.KeyboardEvent("enter")) && 
+        //     input.Length > 0
+        // )  {
+        //     HandleInput();
+        // }
     }
 
     private void Hide()
@@ -238,19 +245,22 @@ public class DebugConsole : MonoBehaviour
         for (int i = 0; i < commandList.Count; i++)
         {
             DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
-            string pattern = @"" + Regex.Escape(commandBase.commandId) + @"";
-            if (Regex.IsMatch(input, pattern))
+            string pattern = @"\b" + Regex.Escape(commandBase.commandId) + @"\b";
+            if (Regex.IsMatch(input.Trim(), pattern) || input.Trim() == "?")
             {
                 input = "";
+                displayType = DisplayType.HidePanel;
                 isUnknownCommand = false;
                 if (commandList[i] as DebugCommand != null)
                 {
                     (commandList[i] as DebugCommand).Invoke();
+                    break;
                 }
                 else if (commandList[i] as DebugCommand<string> != null)
                 {
                     // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/ranges#systemrange
                     (commandList[i] as DebugCommand<string>).Invoke(string.Join("", listCommandProperties[1..]));
+                    break;
                 }
                 else if (commandList[i] as DebugCommand<float?> != null)
                 {
@@ -261,13 +271,13 @@ public class DebugConsole : MonoBehaviour
                     else
                     {
                         Debug.LogError($"requires a float parameter!");
-                        return;
                     }
+                    break;
                 }
             }
             else
             {
-                displayType = DisplayType.Error;
+                displayType = DisplayType.UnknownCommand;
                 isUnknownCommand = true;
             }
         }
