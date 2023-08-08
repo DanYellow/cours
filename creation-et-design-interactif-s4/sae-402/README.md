@@ -138,7 +138,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Ajouter une indication de checkpoint atteint
     - Il y a un sprite également pour les checkpoints. A vous de l'implémenter
 - Créer **un** prop de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
-    - Pas besoin que votre props colle avec la DA du jeu
+    - Pas besoin que votre props colle avec la direction artistique (DA) du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création en pixelart. Sinon, il y a Photoshop
 - Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu dans la version de build). Il y a ce didacticiel pour en savoir plus :
@@ -179,7 +179,7 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - https://www.youtube.com/@NCALIB
 
 # Console de debug
-Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab "DebugConsole", elle s'affiche via le raccourci `ctrl/command + b`. Elle permet notamment de charger un niveau spécifique via son index ou encore de soigner le joueur.
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab "DebugConsole", elle s'affiche via le raccourci `ctrl/command + b`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
 
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
@@ -236,10 +236,10 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects pas nécessaires ailleurs.Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
+    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects pas nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
 - **Puis-je effectuer un projet à partir de zéro ?**
 
-    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
+    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel
 - **Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?**
 
-    Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base
+    Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples

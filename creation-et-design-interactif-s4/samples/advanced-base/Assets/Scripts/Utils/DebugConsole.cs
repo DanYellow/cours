@@ -19,11 +19,12 @@ public class DebugConsole : MonoBehaviour
     private bool showConsole;
     private bool showHelp;
 
-    private string input = "";
+    private string input = "ccc";
 
     public static DebugCommand HELP;
     public static DebugCommand HELP_2;
     public static DebugCommand<string> TELEPORT;
+    public static DebugCommand<string> LOAD;
     public static DebugCommand<float?> HEAL;
     public static DebugCommand<float?> HURT;
     public static DebugCommand QUIT;
@@ -35,6 +36,7 @@ public class DebugConsole : MonoBehaviour
     private Vector2 scroll;
 
     public VectorEventChannel onDebugTeleportEvent;
+    public StringEventChannelSO onLevelEnded;
 
     private readonly CultureInfo cultureInfo = new CultureInfo("en-US");
 
@@ -78,13 +80,19 @@ public class DebugConsole : MonoBehaviour
             playerHealth.currentValue -= val ?? 0;
         });
 
+        LOAD = new DebugCommand<string>("load_scene", "Load specific scene by name", "load_scene <string>", (val) =>
+        {
+            onLevelEnded.Raise(val);
+        }); 
+
         commandList = new List<object> {
             HELP,
             HELP_2,
             TELEPORT,
             HEAL,
             HURT,
-            QUIT
+            QUIT,
+            LOAD
         };
         commandList = commandList
             .Select(x => x as DebugCommandBase)
@@ -266,13 +274,14 @@ public class DebugConsole : MonoBehaviour
 
     private void ShowResults(float y, List<DebugCommandBase> list)
     {
+        const float itemHeight = 20;
         foreach (var item in list.Select((value, idx) => new { idx, value }))
         {
             DebugCommandBase command = item.value;
             int index = item.idx;
 
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            Rect commandLabelRect = new(5, y, Screen.width - 20f, 20);
+            Rect commandLabelRect = new(5, y + (itemHeight * index), Screen.width - 20f, itemHeight);
 
             if (GUI.Button(commandLabelRect, commandLabel))
             {
