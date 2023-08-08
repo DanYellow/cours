@@ -40,10 +40,6 @@ public class DebugConsole : MonoBehaviour
 
     private bool finishAutoCompletion = false;
 
-
-    [SerializeField]
-    private GUIStyle btnStyle;
-
     [SerializeField]
     private GUIStyle mainContainerStyle;
 
@@ -213,7 +209,6 @@ public class DebugConsole : MonoBehaviour
                 }
                 else if (commandList[i] as DebugCommand<string> != null)
                 {
-
                     // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/ranges#systemrange
                     (commandList[i] as DebugCommand<string>).Invoke(string.Join("", listCommandProperties[1..]));
                 }
