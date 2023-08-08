@@ -28,6 +28,7 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand<float?> HEAL;
     public static DebugCommand<float?> HURT;
     public static DebugCommand QUIT;
+    public static DebugCommand DIE;
 
     public HealthVariable playerHealth;
 
@@ -37,6 +38,7 @@ public class DebugConsole : MonoBehaviour
 
     public VectorEventChannel onDebugTeleportEvent;
     public StringEventChannelSO onLevelEnded;
+    public VoidEventChannelSO onDebugPlayerDeathEvent;
 
     private readonly CultureInfo cultureInfo = new CultureInfo("en-US");
 
@@ -61,8 +63,12 @@ public class DebugConsole : MonoBehaviour
 
         QUIT = new DebugCommand("quit", "Close the help command", "quit", () =>
         {
-            showConsole = false;
-            showHelp = false;
+            Hide();
+        });
+
+        DIE = new DebugCommand("die", "kill player", "die", () =>
+        {
+            onDebugPlayerDeathEvent.Raise();
         });
 
         TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (val) =>
@@ -92,7 +98,8 @@ public class DebugConsole : MonoBehaviour
             HEAL,
             HURT,
             QUIT,
-            LOAD
+            LOAD,
+            DIE,
         };
         commandList = commandList
             .Select(x => x as DebugCommandBase)

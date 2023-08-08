@@ -28866,6 +28866,7 @@ MonoBehaviour:
   invincibilityFlashDelay: 0.2
   invincibilityTimeAfterHit: 2.5
   needResetHP: 1
+  onDebugDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
 --- !u!61 &814072432
 BoxCollider2D:
   m_ObjectHideFlags: 0

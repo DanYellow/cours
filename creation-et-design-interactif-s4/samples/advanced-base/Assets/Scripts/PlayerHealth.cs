@@ -19,12 +19,19 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
 
+    [Header("Debug")]
+    public VoidEventChannelSO onDebugDeathEvent;
+
     private void Awake()
     {
         if (needResetHP || playerHealth.currentValue <= 0)
         {
             playerHealth.currentValue = playerHealth.maxValue;
         }
+    }
+
+    private void OnEnable() {
+        onDebugDeathEvent.OnEventRaised += Die;
     }
 
     private void Update()
@@ -87,5 +94,9 @@ public class PlayerHealth : MonoBehaviour
         isInvincible = true;
         yield return new WaitForSeconds(invincibilityTimeAfterHit);
         isInvincible = false;
+    }
+
+    private void OnDisable() {
+        onDebugDeathEvent.OnEventRaised -= Die;
     }
 }

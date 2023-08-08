@@ -47,6 +47,7 @@ MonoBehaviour:
   playerHealth: {fileID: 11400000, guid: 60a09431080251441a0b37f15fac0d90, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
   onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
+  onDebugPlayerDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
   mainContainerStyle:
     m_Name: 
     m_Normal:
