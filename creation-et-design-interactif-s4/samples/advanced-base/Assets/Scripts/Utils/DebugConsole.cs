@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 enum DisplayType
 {
@@ -19,7 +21,7 @@ public class DebugConsole : MonoBehaviour
     private bool showConsole;
     private bool showHelp;
 
-    private string input = "ccc";
+    private string input = "";
 
     public static DebugCommand HELP;
     public static DebugCommand HELP_2;
@@ -29,6 +31,7 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand<float?> HURT;
     public static DebugCommand QUIT;
     public static DebugCommand DIE;
+    public static DebugCommand RELOAD;
 
     public HealthVariable playerHealth;
 
@@ -89,7 +92,12 @@ public class DebugConsole : MonoBehaviour
         LOAD = new DebugCommand<string>("load_scene", "Load specific scene by name", "load_scene <string>", (val) =>
         {
             onLevelEnded.Raise(val);
-        }); 
+        });
+
+        RELOAD = new DebugCommand("reload_scene", "Reload current scene", "reload_scene", () =>
+        {
+            onLevelEnded.Raise(SceneManager.GetActiveScene().name);
+        });
 
         commandList = new List<object> {
             HELP,
@@ -100,6 +108,7 @@ public class DebugConsole : MonoBehaviour
             QUIT,
             LOAD,
             DIE,
+            RELOAD,
         };
         commandList = commandList
             .Select(x => x as DebugCommandBase)
@@ -154,7 +163,7 @@ public class DebugConsole : MonoBehaviour
         y = 30f;
         if (displayType != DisplayType.Hide)
         {
-            GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 150), "");
+            GUI.Box(new Rect(0, inputContainerHeight, Screen.width, 165), "");
         }
 
         if (input.Length > 0 && displayType == DisplayType.Autocomplete)
@@ -216,7 +225,8 @@ public class DebugConsole : MonoBehaviour
         for (int i = 0; i < commandList.Count; i++)
         {
             DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
-            if (input.Contains(commandBase.commandId))
+            string pattern = @"\b" + Regex.Escape(commandBase.commandId) + @"\b";
+            if (Regex.IsMatch(input, pattern))
             {
                 if (commandList[i] as DebugCommand != null)
                 {
@@ -247,7 +257,7 @@ public class DebugConsole : MonoBehaviour
     {
         displayType = DisplayType.Show;
         Rect helpContainerViewport = new(0, 0, Screen.width, 20 * commandList.Count);
-        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport, GUIStyle.none, GUI.skin.verticalScrollbar);
 
         ShowResults(0, commandList.Select(x => x as DebugCommandBase).ToList());
 
@@ -261,8 +271,9 @@ public class DebugConsole : MonoBehaviour
             .Where(k => k.commandId.StartsWith(newInput.ToLower())).ToList();
 
         Rect helpContainerViewport = new(0, y, Screen.width, 20 * autocompleteCommands.Count);
-        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport);
+        scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport, GUIStyle.none, GUI.skin.verticalScrollbar);
 
+        // scroll = GUILayout.BeginScrollView(scrollPos, false, false, GUIStyle.none, GUI.skin.verticalScrollbar);
         if (autocompleteCommands.Count == 0)
         {
             displayType = DisplayType.Hide;
@@ -288,7 +299,7 @@ public class DebugConsole : MonoBehaviour
             int index = item.idx;
 
             string commandLabel = $"{command.commandFormat} - {command.commandDescription}";
-            Rect commandLabelRect = new(5, y + (itemHeight * index), Screen.width - 20f, itemHeight);
+            Rect commandLabelRect = new(5, y + (itemHeight * index), Screen.width - 25f, itemHeight);
 
             if (GUI.Button(commandLabelRect, commandLabel))
             {

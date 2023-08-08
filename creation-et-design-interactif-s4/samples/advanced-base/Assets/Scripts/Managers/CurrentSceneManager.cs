@@ -5,7 +5,8 @@ public class CurrentSceneManager : MonoBehaviour
 {
     public StringEventChannelSO onLevelEnded;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         onLevelEnded.OnEventRaised += LoadScene;
     }
 
@@ -33,7 +34,8 @@ public class CurrentSceneManager : MonoBehaviour
             QuitGame();
         }
 
-        if(Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             LoadScene("Debug");
         }
 #endif
@@ -41,7 +43,14 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (SceneManager.GetSceneByName(sceneName).IsValid())
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.Log("Unknown scene");
+        }
     }
 
     public void RestartLevel()
@@ -62,22 +71,23 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         onLevelEnded.OnEventRaised -= LoadScene;
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     private void ToggleGameWindowSizeInEditor()
     {
         UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
         window.maximized = !window.maximized;
     }
-    #endif
+#endif
 }

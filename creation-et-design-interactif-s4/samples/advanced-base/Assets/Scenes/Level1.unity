@@ -28841,7 +28841,7 @@ MonoBehaviour:
   moveSpeed: 9
   jumpCount: 0
   maxJumpCount: 2
-  jumpForce: 12
+  jumpForce: 11
   fallThreshold: -15
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
