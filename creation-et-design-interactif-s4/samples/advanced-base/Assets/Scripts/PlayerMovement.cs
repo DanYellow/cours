@@ -34,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
     public BoolEventChannelSO onTogglePauseEvent;
-    private Vector2 currentVelocity;
-    private float maxYVelocity;
 
     [Header("Debug")]
     public VectorEventChannel onDebugTeleportEvent;
@@ -48,12 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnPauseEvent(bool value)
     {
         isGamePaused = value;
-    }
-
-    private void Awake()
-    {
-        // The jump high cannot be higher that +10% of normal jumpforce
-        maxYVelocity = (jumpForce * 0.1f) + jumpForce;
     }
 
     // Update is called once per frame

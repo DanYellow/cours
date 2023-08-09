@@ -5,9 +5,9 @@ Nous l'avons vu précédemment, Unity est un logiciel qui a été pensé pour re
 > L'asset store propose des outils en tout genre qui peuvent se greffer à Unity tels que des outils pour le logiciel ou encore des personnages clés en main pour vos jeux. Notez bien que tout n'est pas gratuit sur l'asset store.
 
 Pour permettre le développement de jeux vidéo, Unity se repose sur le langage C# (à prononcer see-sharp), c'est un langage orienté objet fortement typé. Autrement dit, le langage se base sur des classes et chaque élément doit avoir un type et n'a pas le droit d'en changer contrairement à javascript. Si le typage peut être contraignant il permet d'être plus discipliné dans sa façon de coder. Il est donc important de connaître les bases du langage. A noter que le but du cours n'est pas de vous apprendre le C# mais Unity. Toutefois nous verrons des notions au fur et à mesure des cours. Néanmoins, si vous souhaitez creuser le sujet, voici une série de vidéos en français :
-- [Liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Je vous conseille de regarder au moins les trois premières vidéos. Ceci devrait vous prendre un peu moins de 40 minutes.
+- [Liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Je vous conseille de regarder au moins les trois premières vidéos. Ceci devrait vous prendre un peu moins de 35 minutes.
 
-> **Petit point sur les didacticiels en ligne concernant Unity :** S'il y en a beaucoup et permettent d'accomplir des choses impressionantes, le code montré n'est pas forcément le mieux optimisé, **faites attention.** La programmation de jeux vidéo, en plus d'être complexe, est un domaine où on va chercher la meilleure optimisation. Un jeu qui a des soucis de performances, ce n'est pas cool. La vidéo suivante illustre très bien le problème de certains didactiels (en anglais).
+> **Petit point sur les didacticiels en ligne concernant Unity :** S'il y en a beaucoup et permettent d'accomplir des choses impressionantes, le code montré n'est pas forcément le mieux optimisé, **faites attention.** La programmation de jeux vidéo, en plus d'être complexe, est un domaine où l'optimisation est importante. Un jeu qui a des soucis de performances, ce n'est pas cool. La vidéo suivante illustre très bien le problème de certains didactiels (en anglais).
 
 [![clickbaited](https://i3.ytimg.com/vi/BJvoaBeqVm0/hqdefault.jpg)](https://www.youtube.com/watch?v=BJvoaBeqVm0 "clickbaited")
 
@@ -59,7 +59,8 @@ Outils idéaux pour limiter la réutilisation du code et le rendre plus lisible,
 }
 ``` 
 
-- Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. A noter qu'une fonctione ne peut retourner qu'un seul type à la fois et si votre fonction ne doit rien retourner, on mettra la valeur "void"
+- Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. Si votre fonction ne doit rien retourner, on mettra la valeur "void"
+    - > Une fonction peut retourner plusieurs type à la fois, mais il est préférable de limiter vos retours de fonctions (ou méthodes) à un type à la fois
 - NomDeFonction : Comme les variables, le nom est arbitraire mais certains noms sont interdits et bien évidemment on nommera nos fonctions avec un nom explicite. A noter qu'en C# les fonctions sont écrites en PascalCase [(plus d'informations sur PascalCase)](https://tech-lib.fr/pascalcase/), par convention
 - Les paramètres : tout comme les variables, ils doivent avoir un type et sont séparés par une virgule. **Pour rappel, les paramètres d'une fonction ne sont accessibles que dans la fonction qui les définit**
 
@@ -109,7 +110,7 @@ public class MyClass : MonoBehaviour
         // Cette dernière façon permet de faire des commentaires sur plusieurs lignes
     }
 
-    // Appelée une fois par frame (ou image)
+    // Appelée une fois par frame (ou image affichée)
     void Update()
     {
     }

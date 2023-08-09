@@ -13,7 +13,7 @@ public class Pendulum : MonoBehaviour
 
     private bool isMovingClockwise = true;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }
@@ -22,16 +22,16 @@ public class Pendulum : MonoBehaviour
     {
         ChangeDirection();
         speedFactor = isMovingClockwise ? 1 : -1;
-        rb.angularVelocity = speed * speedFactor;
+        rb.angularVelocity = speed * speedFactor * Time.fixedDeltaTime;
     }
 
     public void ChangeDirection()
     {
-        if (transform.rotation.z > Quaternion.Euler(0,0, rightAngleLimit).z)
+        if (transform.rotation.z > Quaternion.Euler(0, 0, rightAngleLimit).z)
         {
             isMovingClockwise = false;
         }
-        if (transform.rotation.z < Quaternion.Euler(0,0, leftAngleLimit).z)
+        if (transform.rotation.z < Quaternion.Euler(0, 0, leftAngleLimit).z)
         {
             isMovingClockwise = true;
         }

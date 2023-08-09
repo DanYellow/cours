@@ -7,7 +7,6 @@ public class PauseManager : MonoBehaviour
 
     bool isGamePaused = false;
 
-
     private void Awake() {
         pauseMenuUI.SetActive(false);
     }
@@ -33,6 +32,7 @@ public class PauseManager : MonoBehaviour
         isGamePaused = false;
         onTogglePauseEvent.Raise(isGamePaused);
         pauseMenuUI.SetActive(isGamePaused);
+        Application.targetFrameRate = 60;
     }
 
     void Pause()
@@ -41,5 +41,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0;
         onTogglePauseEvent.Raise(isGamePaused);
         pauseMenuUI.SetActive(isGamePaused);
+        Application.targetFrameRate = 30;
     }
 }

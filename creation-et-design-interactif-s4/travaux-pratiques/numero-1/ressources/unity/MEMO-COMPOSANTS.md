@@ -120,6 +120,8 @@ Unity propose trois types de comportements pour la physique d'un élément sous 
 
 Dans certains cas, il se peut que votre `Rigidbody2D` Dynamic (avec un Collider2D) traverse des éléments alors que ce n'est pas prévu. Ceci est lié à la valeur de la propriété "collisionDetectionMode" ("Collison Detection" dans l'inspecteur), par défaut, la valeur est "Discrete" pour des questions de performances. Mais il est préférable de changer la valeur en "Continuous" pour votre joueur.
 
+> Rappel : toute opération concernant la physique doit être placée dans la méthode `FixedUpdate()` et seulement elle. `FixedUpdate()` est synchonisée avec la fréquence du moteur physique qui est fixe et toujours appelée au même moment (environ 50 fois par seconde). Faire ceci vous assure de ne pas avoir des comportements étranges concernant la collision. Notez tout de même que si la force appliquée n'est pas continue (par exemple un saut), il est possible d'utiliser la méthode `Update()`.
+
 En bref, on appliquera un `Rigidbody2D` à un GameObject lorsqu'on souhaite qu'un objet soit soumis à la physique.
 
 Pour terminer, abordons les propriétés `gravityScale` et `mass` de la classe `Rigidbody2D`. D'abord, la propriété `mass`, représentant la masse d'un GameObject, n'a aucune incidence sur son attraction par la gravité. La seule incidence qu'il porte est sur sa capacité à être déplacé par une force.

@@ -185,9 +185,12 @@ Pour vous aider dans votre productivité, une console de débuggage a été rajo
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
-- Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de nommage ainsi que nommer très clairement vos variables
+- Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de code ainsi que nommer très clairement vos variables
     - Par exemple : N'appelez pas une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
-    - [Ensemble de conventions de programmation en C# / Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity)
+    - Il existe des conventions de code déjà établies, l'idée n'est pas de les suivre à la lettre, vous pouvez prendre certains points, mais restez cohérent.
+        - [Conventions de code C# par Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity)
+        - [Conventions de code C# par Microsoft](https://learn.microsoft.com/fr-fr/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+        - [Conventions de code C# par Google](https://google.github.io/styleguide/csharp-style.html)
 - Si vous avez du mal à visualiser le niveau que vous devez faire, pourquoi ne pas le faire sur papier avant ?
 - Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
     - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab

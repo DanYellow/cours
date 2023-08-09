@@ -5,6 +5,11 @@ public class CurrentSceneManager : MonoBehaviour
 {
     public StringEventChannelSO onLevelEnded;
 
+    private void Start() {
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+    }
+
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;
