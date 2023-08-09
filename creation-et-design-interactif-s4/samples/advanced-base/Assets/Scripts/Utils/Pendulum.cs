@@ -9,9 +9,9 @@ public class Pendulum : MonoBehaviour
     public float leftAngleLimit;
     public float rightAngleLimit;
 
-    private int speedFactor;
+    private float speedFactor;
 
-    private bool isMovingClockwise = true;
+    public bool isMovingClockwise = true;
 
     private void FixedUpdate()
     {

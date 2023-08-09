@@ -1558,6 +1558,10 @@ PrefabInstance:
       propertyPath: rightAngleLimit
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 8520597522518767275, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
+      propertyPath: isMovingClockwise
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 206.44
@@ -3182,6 +3186,7 @@ Transform:
   - {fileID: 80206958}
   - {fileID: 1271045607}
   - {fileID: 572183945}
+  - {fileID: 1305715835}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28854,7 +28859,7 @@ MonoBehaviour:
   rb: {fileID: 814072433}
   listGroundLayers:
     serializedVersion: 2
-    m_Bits: 1096
+    m_Bits: 1224
   groundCheck: {fileID: 1911207315}
   groundCheckRadius: 0.24
   animator: {fileID: 814072434}
@@ -54680,6 +54685,72 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6722714434073853348, guid: 3a535e80d5f7cab42aa945a6a87c152f, type: 3}
   m_PrefabInstance: {fileID: 1301201270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1305715834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 374716383}
+    m_Modifications:
+    - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_Name
+      value: FaillingPlatforms (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 172.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+--- !u!4 &1305715835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+  m_PrefabInstance: {fileID: 1305715834}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1305950271
 PrefabInstance:
