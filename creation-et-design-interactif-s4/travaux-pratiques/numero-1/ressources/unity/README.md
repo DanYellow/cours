@@ -297,7 +297,7 @@ Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous ê
 
 ## Si vous n'avez pas d'ordinateur portable
 
-Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer à la maison. Vous n'avez pas besoin de copier tout votre projet sur une clé USB ou de tout pousser sur votre compte github. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils c'est manquant.
+Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants.
 
 ### Listes de dossiers/fichiers à copier sur clé ou pousser sur git
 - Assets/
@@ -305,5 +305,5 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 - ProjectSettings/
 - UserSettings/
 
-**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent des chemins de fichiers très complexes. Vous périphériques risque de lever une erreur concernant ces chemins de fichiers** Il y a bien évidemment un fichier .gitignore pour vous aider.
-- [Récupérer le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
+**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à chaque ouverture de projet.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
+- [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)

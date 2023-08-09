@@ -54698,6 +54698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaillingPlatforms (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
       value: -1
