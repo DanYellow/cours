@@ -19,6 +19,16 @@ public class EnemyShooting : MonoBehaviour
     public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
 
+    IEnumerator Start()
+    {
+        WaitForSeconds waiter = new WaitForSeconds(0.55f);
+        while (true)
+        {
+            Shoot();
+            yield return waiter;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -53,33 +63,34 @@ public class EnemyShooting : MonoBehaviour
         StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
     }
 
-    // public void Shoot()
-    // {
-    //     GameObject bulletProjectile = objectSpawner.pool.Get();
-
-    //     if (bulletProjectile != null)
-    //     {
-    //         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
-       
-    //         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-    //         bullet.invoker = transform;
-    //         bullet.Initialize();
-    //     }
-    // }
-
-    // Called from the animation's timeline
     public void Shoot()
     {
-        GameObject bulletProjectile = bulletPooling.Get("bullet");
-
-        if (bulletProjectile != null)
+        // objectSpawner.pool.Get();
+        Bullet bulletProjectile = objectSpawner.pool.Get();
+        print(bulletProjectile);
+        if (bulletProjectile.gameObject != null)
         {
-            bulletProjectile.transform.rotation = firePoint.rotation;
-            bulletProjectile.transform.position = firePoint.position;
-       
+            bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
+            // bulletProjectile.transform.right = transform.right.normalized;
+
             Bullet bullet = bulletProjectile.GetComponent<Bullet>();
             bullet.invoker = transform;
             bullet.Initialize();
         }
     }
+
+    // Called from the animation's timeline
+    // public void Shoot()
+    // {
+    //     GameObject bulletProjectile = bulletPooling.Get("bullet");
+
+    //     if (bulletProjectile != null)
+    //     {
+    //         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
+
+    //         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
+    //         bullet.invoker = transform;
+    //         bullet.Initialize();
+    //     }
+    // }
 }

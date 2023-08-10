@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.Pool;
 
@@ -18,6 +17,8 @@ public class ObjectPoolItem
 
 // More info : 
 // https://www.youtube.com/watch?v=7EZ2F-TzHYw
+// https://docs.unity3d.com/ScriptReference/Pool.ObjectPool_1-ctor.html
+// https://thegamedev.guru/unity-cpu-performance/object-pooling/#1-constructing-your-pool
 public class ObjectPooling : MonoBehaviour
 {
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
@@ -29,6 +30,7 @@ public class ObjectPooling : MonoBehaviour
         foreach (ObjectPoolItem obj in listItemsToPool)
         {
             string key = (obj.key != "") ? obj.key : obj.prefab.name;
+
             obj.pool = new ObjectPool<GameObject>(() =>
             {
                 return Instantiate(obj.prefab);
@@ -41,7 +43,8 @@ public class ObjectPooling : MonoBehaviour
             }, item =>
             {
                 Destroy(item);
-            }, false, obj.minItems <= 0 ? 1 : obj.minItems, obj.maxItems);
+            }, true, obj.minItems <= 0 ? 1 : obj.minItems, obj.maxItems);
+
             listDictItemsToPool.Add(key, obj);
         }
     }
@@ -58,46 +61,22 @@ public class ObjectPooling : MonoBehaviour
         return poolObject;
     }
 
-    // public GameObject CreateObject(string key = "")
-    // {
-    //     GameObject poolObject = null;
+    public void Release(string key = "", GameObject go = null)
+    {
+        if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
+        {
+            itemToPool.pool.Release(go);
+        }
+    }
 
-    //     if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
-    //     {
-    //         Queue<GameObject> queueObjectsPooled = itemToPool.queueObjectsPooled;
-
-    //         bool allObjectsActive = queueObjectsPooled.ToList().All(obj => obj.activeSelf);
-
-    //         if (queueObjectsPooled.Count < itemToPool.poolSize || allObjectsActive)
-    //         {
-    //             poolObject = Instantiate(itemToPool.prefab, transform.position, Quaternion.identity);
-    //             poolObject.name = $"{transform.name}_{itemToPool.prefab.name}_{queueObjectsPooled.Count}";
-    //         }
-    //         else
-    //         {
-    //             poolObject = queueObjectsPooled.Dequeue();
-    //             poolObject.SetActive(true);
-    //         }
-
-    //         queueObjectsPooled.Enqueue(poolObject);
-    //     }
-
-    //     return poolObject;
-    // }
-
-    // private void OnDestroy()
-    // {
-    //     foreach (ObjectPoolItem itemToPool in listItemsToPool)
-    //     {
-    //         Queue<GameObject> queueObjectsPooled = itemToPool.queueObjectsPooled;
-
-    //         foreach (GameObject obj in queueObjectsPooled.ToList().Where(poolObj => poolObj != null || !poolObj.activeSelf))
-    //         {
-    //             if (obj != null)
-    //             {
-    //                 Destroy(obj);
-    //             }
-    //         }
-    //     }
-    // }
+    private void OnDestroy()
+    {
+        if (gameObject.scene.isLoaded)
+        {
+            foreach (ObjectPoolItem itemToPool in listItemsToPool)
+            {
+                itemToPool.pool.Clear();
+            }
+        }
+    }
 }

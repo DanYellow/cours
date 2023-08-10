@@ -1443,7 +1443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -1493,6 +1493,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 814072436}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7137,7 +7141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -7194,6 +7198,10 @@ PrefabInstance:
     - target: {fileID: 107261412584399404, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_Offset.x
       value: -1.3120527
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28864,7 +28872,7 @@ MonoBehaviour:
   rb: {fileID: 814072433}
   listGroundLayers:
     serializedVersion: 2
-    m_Bits: 1224
+    m_Bits: 1096
   groundCheck: {fileID: 1911207315}
   groundCheckRadius: 0.24
   animator: {fileID: 814072434}
@@ -29049,7 +29057,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814072429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: -0.46, z: 0}
+  m_LocalPosition: {x: -0.26, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29819,7 +29827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -29876,6 +29884,10 @@ PrefabInstance:
     - target: {fileID: 107261412584399405, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: timeDelayBetweenShots
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54931,6 +54943,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1381528304}
     m_Modifications:
+    - target: {fileID: 207637760, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: m_Size.x
+      value: 9.923033
+      objectReference: {fileID: 0}
+    - target: {fileID: 207637760, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: m_Size.y
+      value: 3.6916914
+      objectReference: {fileID: 0}
+    - target: {fileID: 207637760, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: m_Offset.x
+      value: -4.364003
+      objectReference: {fileID: 0}
+    - target: {fileID: 207637760, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.2051191
+      objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_Name
       value: PlantEnemyTestPurpose
@@ -54945,11 +54973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.84
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.07
+      value: -2.57
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54997,7 +55025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: listItemsToPool.Array.data[0].key
@@ -55011,6 +55039,14 @@ PrefabInstance:
       propertyPath: listItemsToPool.Array.data[1].prefab
       value: 
       objectReference: {fileID: 3878160803587506563, guid: 35fd3b307b856b64890b515062212017, type: 3}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].maxItems
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].minItems
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: listItemsToPool.Array.data[0].amountToPool
       value: 2
@@ -55283,7 +55319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -55356,6 +55392,10 @@ PrefabInstance:
     - target: {fileID: 107261412584399404, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_Offset.y
       value: 0.119820714
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57462,14 +57502,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468637663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e7b49ecff7e6f4aae41e857e0202a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
-  minItems: 3
-  maxItems: 7
+  prefab: {fileID: 7396631997644350835, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
+  minItems: 5
+  maxItems: 15
 --- !u!1 &1648163593
 GameObject:
   m_ObjectHideFlags: 0
@@ -60679,7 +60719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -60729,6 +60769,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 814072436}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61387,7 +61431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -61444,6 +61488,10 @@ PrefabInstance:
     - target: {fileID: 107261412584399405, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: timeDelayBetweenShots
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: listItemsToPool.Array.data[0].key
+      value: bullet
       objectReference: {fileID: 0}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: listItemsToPool.Array.data[0].poolSize

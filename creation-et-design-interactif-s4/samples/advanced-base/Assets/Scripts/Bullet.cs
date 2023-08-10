@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     public float damage = 1f;
 
+    public System.Action<Bullet> callback;
+
     private Coroutine autoDestroyCoroutine;
 
     [HideInInspector]
@@ -19,14 +21,23 @@ public class Bullet : MonoBehaviour
 
     public void Initialize()
     {
+        // rb.velocity = transform.right * moveSpeed;
         rb.velocity = transform.right * moveSpeed;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
+
+    }
+
+    private void OnEnable() {
     }
 
     IEnumerator AutoDestroy(float duration = 0)
     {
         yield return new WaitForSeconds(duration);
-        gameObject.SetActive(false);
+        if(invoker == null) {
+            Destroy(gameObject);
+        } else {
+            // invoker.GetComponent<ObjectPooling>().Release("bullet", gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -40,19 +51,25 @@ public class Bullet : MonoBehaviour
 
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
+        callback(this);
+        // autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
     }
 
     public void OnDisable()
     {
+        print("ddaaaa");
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = Vector2.zero;
-        StopCoroutine(autoDestroyCoroutine);
+        // StopCoroutine(autoDestroyCoroutine);
         animator.ResetTrigger("IsCollided");
 
-        if (invoker == null)
-        {
-            Destroy(gameObject);
-        }
+        // if (invoker == null)
+        // {
+        //     Destroy(gameObject);
+        // }
+    }
+
+    public void OnContact(System.Action<Bullet> callback) {
+        callback(this);
     }
 }

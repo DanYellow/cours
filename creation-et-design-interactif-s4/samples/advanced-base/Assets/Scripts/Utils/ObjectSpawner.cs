@@ -5,23 +5,30 @@ using UnityEngine.Pool;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public ObjectPool<GameObject> pool;
-    public GameObject prefab;
+    public ObjectPool<Bullet> pool;
+    public Bullet prefab;
 
     public int minItems = 3;
     public int maxItems = 7;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        pool = new ObjectPool<GameObject>(() => {
+        pool = new ObjectPool<Bullet>(() => {
             return Instantiate(prefab);
+        }, (Bullet item) => {
+            item.gameObject.SetActive(true);
+            item.callback = Release;
+            // item.OnContact(Release);
         }, item => {
-            item.SetActive(true);
+            item.gameObject.SetActive(false);
         }, item => {
-            item.SetActive(false);
-        }, item => {
-            Destroy(item);
+            Destroy(item.gameObject);
         }, false, minItems <= 0 ? 1 : minItems, maxItems);
+    }
+
+    private void Release(Bullet bullet) {
+        print("release");
+        pool.Release(bullet);
     }
 }

@@ -174,9 +174,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rb: {fileID: 1471261051215732314}
-  delayBeforeAutodestruction: 2.5
+  delayBeforeAutodestruction: 15
   animator: {fileID: 3278862260279375241}
   damage: 1
+  invoker: {fileID: 0}
 --- !u!95 &3278862260279375241
 Animator:
   serializedVersion: 5
