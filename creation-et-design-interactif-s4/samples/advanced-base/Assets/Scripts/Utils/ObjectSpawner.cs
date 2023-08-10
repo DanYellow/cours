@@ -5,9 +5,12 @@ using UnityEngine.Pool;
 
 public class ObjectSpawner : MonoBehaviour
 {
-
     public ObjectPool<GameObject> pool;
     public GameObject prefab;
+
+    public int minItems = 3;
+    public int maxItems = 7;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,6 @@ public class ObjectSpawner : MonoBehaviour
             item.SetActive(false);
         }, item => {
             Destroy(item);
-        }, false, 3, 7);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }, false, minItems <= 0 ? 1 : minItems, maxItems);
     }
 }
