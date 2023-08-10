@@ -53,33 +53,33 @@ public class EnemyShooting : MonoBehaviour
         StartCoroutine(PlayAnimInterval(nbOfConsecutiveShots));
     }
 
-    public void Shoot()
-    {
-        GameObject bulletProjectile = objectSpawner.pool.Get();
-
-        if (bulletProjectile != null)
-        {
-            bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
-       
-            Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-            bullet.invoker = transform;
-            bullet.Initialize();
-        }
-    }
-
-    // Called from the animation's timeline
     // public void Shoot()
     // {
-    //     GameObject bulletProjectile = bulletPooling.CreateObject("Bullet");
+    //     GameObject bulletProjectile = objectSpawner.pool.Get();
 
     //     if (bulletProjectile != null)
     //     {
-    //         bulletProjectile.transform.rotation = firePoint.rotation;
-    //         bulletProjectile.transform.position = firePoint.position;
+    //         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
        
     //         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
     //         bullet.invoker = transform;
     //         bullet.Initialize();
     //     }
     // }
+
+    // Called from the animation's timeline
+    public void Shoot()
+    {
+        GameObject bulletProjectile = bulletPooling.Get("bullet");
+
+        if (bulletProjectile != null)
+        {
+            bulletProjectile.transform.rotation = firePoint.rotation;
+            bulletProjectile.transform.position = firePoint.position;
+       
+            Bullet bullet = bulletProjectile.GetComponent<Bullet>();
+            bullet.invoker = transform;
+            bullet.Initialize();
+        }
+    }
 }
