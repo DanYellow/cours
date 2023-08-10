@@ -9,15 +9,6 @@ public class CameraShake : MonoBehaviour
         onCameraShake.OnEventRaised += ShakeProxy;
     }
 
-    private void Update() {
-        #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(Shake(0.1f, 0.4f));
-        }
-        #endif
-    }
-
     private void ShakeProxy(ShakeTypeVariable shakeType) {
         StartCoroutine(Shake(shakeType.Duration, shakeType.Magnitude));
     }

@@ -8,6 +8,7 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenuUI;
 
     bool isGamePaused = false;
+    bool isDebugConsoleEnabled = false;
 
     private void Awake()
     {
@@ -22,9 +23,8 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
         {
-
             isGamePaused = !isGamePaused;
             onKeyPauseEvent.Raise(isGamePaused);
         }
@@ -64,6 +64,7 @@ public class PauseManager : MonoBehaviour
 
     void TogglePauseDebug(bool pauseGame)
     {
+        isDebugConsoleEnabled = !isDebugConsoleEnabled;
         if (!pauseGame)
         {
             Resume();

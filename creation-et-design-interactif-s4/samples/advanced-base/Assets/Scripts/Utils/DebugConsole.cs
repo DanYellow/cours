@@ -85,6 +85,7 @@ public class DebugConsole : MonoBehaviour
         TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (val) =>
         {
             onDebugTeleportEvent.Raise(StringToVector3(val));
+            Camera.main.transform.position = Camera.main.GetComponent<CameraFollow>().GetNextPosition();
         });
 
         HEAL = new DebugCommand<float?>("heal", "Heal the player with an amount of points (0 by default)", "heal <int>", (val) =>
@@ -163,6 +164,8 @@ public class DebugConsole : MonoBehaviour
 #endif
     }
 
+    // IEnumerator 
+
     private void OnGUI()
     {
         if (!showConsole)
@@ -220,11 +223,11 @@ public class DebugConsole : MonoBehaviour
                 true &&
                 (
                     e.keyCode == KeyCode.Escape ||
-                    (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
+                    (e.keyCode == KeyCode.B && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
                 )
             )
             {
-                Hide();
+                // Hide();
             }
             else
             {

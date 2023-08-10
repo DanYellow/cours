@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, smoothTime);
     }
 
-     private Vector3 GetNextPosition()
+    public Vector3 GetNextPosition()
     {
         return target.position + new Vector3(
             offset.x * (target.localEulerAngles.y > 90 ? -1 : 1),
