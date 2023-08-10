@@ -170,8 +170,6 @@ public class DebugConsole : MonoBehaviour
             return;
         }
 
-        Time.timeScale = 0;
-
         mainContainerStyle = new GUIStyle(GUI.skin.box);
         float y = 0f;
         float inputContainerHeight = 50;
@@ -249,7 +247,6 @@ public class DebugConsole : MonoBehaviour
     {
         GUI.FocusControl(null);
         showConsole = false;
-        Time.timeScale = 1;
         onDebugConsoleOpenEvent.Raise(showConsole);
         displayType = DisplayType.Hide;
     }
