@@ -163,6 +163,12 @@ public class DebugConsole : MonoBehaviour
                 Hide();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            showConsole = false;
+            Hide();
+        }
 #endif
     }
 
