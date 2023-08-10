@@ -153,8 +153,11 @@ public class DebugConsole : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 showConsole = !showConsole;
-                onDebugConsoleOpenEvent.Raise(showConsole);
-                Time.timeScale = showConsole ? 0 : 1f;
+                if(showConsole) {
+                    onDebugConsoleOpenEvent.Raise(showConsole);
+                } else {
+                    Hide();
+                }
             }
         }
 #endif
@@ -166,6 +169,8 @@ public class DebugConsole : MonoBehaviour
         {
             return;
         }
+
+        Time.timeScale = 0;
 
         mainContainerStyle = new GUIStyle(GUI.skin.box);
         float y = 0f;
@@ -221,7 +226,6 @@ public class DebugConsole : MonoBehaviour
                 )
             )
             {
-                print("espace");
                 Hide();
             }
             else
@@ -239,12 +243,6 @@ public class DebugConsole : MonoBehaviour
             }
             displayType = DisplayType.Autocomplete;
         }
-        // else if (
-        //     Event.current.Equals(Event.KeyboardEvent("enter")) && 
-        //     input.Length > 0
-        // )  {
-        //     HandleInput();
-        // }
     }
 
     private void Hide()
