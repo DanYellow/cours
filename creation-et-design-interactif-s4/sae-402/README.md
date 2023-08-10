@@ -59,8 +59,6 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
-- Touche N : Tue le joueur
-- Touche O : Inflige des dégâts de 0 au joueur - C'est juste pour déclencher la fonction TakeDamage de la classe `PlayerHealth`
 - Touche M : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran d'ans l'éditeur
 - Touche L : Arrête le mode "Play"

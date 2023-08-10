@@ -33,21 +33,6 @@ public class PlayerHealth : MonoBehaviour
     private void OnEnable() {
         onDebugDeathEvent.OnEventRaised += Die;
     }
-
-    private void Update()
-    {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Die();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            TakeDamage(0);
-        }
-#endif
-    }
  
     public void TakeDamage(float damage)
     {

@@ -153,18 +153,18 @@ public class DebugConsole : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                showConsole = !showConsole;
-                if(showConsole) {
-                    onDebugConsoleOpenEvent.Raise(showConsole);
-                } else {
-                    Hide();
-                }
+                showConsole = true;
+                onDebugConsoleOpenEvent.Raise(showConsole);
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                showConsole = false;
+                Hide();
             }
         }
 #endif
     }
-
-    // IEnumerator 
 
     private void OnGUI()
     {
@@ -223,11 +223,11 @@ public class DebugConsole : MonoBehaviour
                 true &&
                 (
                     e.keyCode == KeyCode.Escape ||
-                    (e.keyCode == KeyCode.B && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
+                    (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
                 )
             )
             {
-                // Hide();
+                Hide();
             }
             else
             {
