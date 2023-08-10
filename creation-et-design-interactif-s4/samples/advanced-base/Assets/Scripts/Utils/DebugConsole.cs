@@ -204,8 +204,8 @@ public class DebugConsole : MonoBehaviour
         }
 
         Event e = Event.current;
-        // if (e.isKey)
-        // {
+        if (e.isKey)
+        {
             if (
                 (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter) &&
                 input.Length > 0
@@ -214,17 +214,21 @@ public class DebugConsole : MonoBehaviour
                 HandleInput();
             }
             else if (
-                e.keyCode == KeyCode.Escape || 
-                (e.keyCode == KeyCode.B && Event.current.modifiers == EventModifiers.Control)
+                true &&
+                (
+                    e.keyCode == KeyCode.Escape ||
+                    (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
+                )
             )
             {
+                print("espace");
                 Hide();
             }
             else
             {
                 finishAutoCompletion = false;
             }
-        // }
+        }
 
         // https://docs.unity3d.com/ScriptReference/Event.KeyboardEvent.html
         if (Event.current.Equals(Event.KeyboardEvent("tab")))

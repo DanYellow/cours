@@ -69,11 +69,14 @@ Par exemple, une fonction qui affiche dans la console la somme de deux entiers. 
 void Addition(int num1, int num2)
 {
     int sum = num1 + num2;
-    Debug.Log("Résultat somme : " + sum);
+    print("Résultat somme : " + sum);
 }
 ```
 
-> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
+> La méthode `print()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
+> - [Voir documentation de la méthode print()](https://docs.unity3d.com/ScriptReference/MonoBehaviour-print.html)
+>
+> A noter qu'il existe également la méthode `Debug.Log()` qui est un alias de `debug()`
 > - [Voir documentation de la méthode Debug.Log()](https://docs.unity3d.com/ScriptReference/Debug.Log.html) 
 
 Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
@@ -85,7 +88,7 @@ int Addition(int num1, int num2)
 }
 
 int sum = Addition(5, 6);
-Debug.Log("Résultat somme : " + sum);
+print("Résultat somme : " + sum);
 ```
 On remarque qu'en plus d'avoir le mot-clé "return", "void" a été remplacé par "int" car notre fonction retourne une variable de type entier (int).
 
@@ -141,7 +144,7 @@ void Update()
     if (Input.GetKeyDown(KeyCode.V))
     {
         // Mes instructions
-        Debug.Log("J'ai appuyé sur la touche V");
+        print("J'ai appuyé sur la touche V");
     }
 }
 ```
