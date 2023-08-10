@@ -22,7 +22,6 @@ public class DebugConsole : MonoBehaviour
 {
     private bool showConsole;
     private bool showHelp;
-    private bool isUnknownCommand;
 
     private string input = "";
 
@@ -35,6 +34,7 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand QUIT;
     public static DebugCommand DIE;
     public static DebugCommand RELOAD;
+    public static DebugCommand PRINT_SCREEN;
 
     public HealthVariable playerHealth;
 
@@ -45,6 +45,7 @@ public class DebugConsole : MonoBehaviour
     public VectorEventChannel onDebugTeleportEvent;
     public StringEventChannelSO onLevelEnded;
     public VoidEventChannelSO onDebugPlayerDeathEvent;
+    public BoolEventChannelSO onDebugConsoleOpenEvent;
 
     private readonly CultureInfo cultureInfo = new CultureInfo("en-US");
 
@@ -106,6 +107,11 @@ public class DebugConsole : MonoBehaviour
             onLevelEnded.Raise(SceneManager.GetActiveScene().name);
         });
 
+        PRINT_SCREEN = new DebugCommand("printscreen", "Take a screenshot of the camera", "printscreen", () =>
+        {
+            ScreenCapture.CaptureScreenshot("SomeLevel.png");
+        });
+
         commandList = new List<object> {
             HELP,
             HELP_2,
@@ -116,6 +122,7 @@ public class DebugConsole : MonoBehaviour
             LOAD,
             DIE,
             RELOAD,
+            PRINT_SCREEN,
         };
         commandList = commandList
             .Select(x => x as DebugCommandBase)
@@ -146,6 +153,8 @@ public class DebugConsole : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 showConsole = !showConsole;
+                onDebugConsoleOpenEvent.Raise(showConsole);
+                Time.timeScale = showConsole ? 0 : 1f;
             }
         }
 #endif
@@ -195,8 +204,8 @@ public class DebugConsole : MonoBehaviour
         }
 
         Event e = Event.current;
-        if (e.isKey)
-        {
+        // if (e.isKey)
+        // {
             if (
                 (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter) &&
                 input.Length > 0
@@ -204,7 +213,10 @@ public class DebugConsole : MonoBehaviour
             {
                 HandleInput();
             }
-            else if (e.keyCode == KeyCode.Escape)
+            else if (
+                e.keyCode == KeyCode.Escape || 
+                (e.keyCode == KeyCode.B && Event.current.modifiers == EventModifiers.Control)
+            )
             {
                 Hide();
             }
@@ -212,9 +224,9 @@ public class DebugConsole : MonoBehaviour
             {
                 finishAutoCompletion = false;
             }
-        }
+        // }
 
-        // https://docs.unity3d.com/560/Documentation/Manual/ConventionalGameInput.html
+        // https://docs.unity3d.com/ScriptReference/Event.KeyboardEvent.html
         if (Event.current.Equals(Event.KeyboardEvent("tab")))
         {
             if (displayType == DisplayType.Autocomplete)
@@ -222,7 +234,7 @@ public class DebugConsole : MonoBehaviour
                 finishAutoCompletion = true;
             }
             displayType = DisplayType.Autocomplete;
-        } 
+        }
         // else if (
         //     Event.current.Equals(Event.KeyboardEvent("enter")) && 
         //     input.Length > 0
@@ -235,6 +247,8 @@ public class DebugConsole : MonoBehaviour
     {
         GUI.FocusControl(null);
         showConsole = false;
+        Time.timeScale = 1;
+        onDebugConsoleOpenEvent.Raise(showConsole);
         displayType = DisplayType.Hide;
     }
 
@@ -250,7 +264,6 @@ public class DebugConsole : MonoBehaviour
             {
                 input = "";
                 displayType = DisplayType.HidePanel;
-                isUnknownCommand = false;
                 if (commandList[i] as DebugCommand != null)
                 {
                     (commandList[i] as DebugCommand).Invoke();
@@ -278,7 +291,6 @@ public class DebugConsole : MonoBehaviour
             else
             {
                 displayType = DisplayType.UnknownCommand;
-                isUnknownCommand = true;
             }
         }
     }

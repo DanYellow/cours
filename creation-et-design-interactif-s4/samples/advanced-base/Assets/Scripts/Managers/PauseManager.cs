@@ -13,17 +13,17 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isGamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     if (isGamePaused)
+        //     {
+        //         Resume();
+        //     }
+        //     else
+        //     {
+        //         Pause();
+        //     }
+        // }
     }
 
     public void Resume()

@@ -1,47 +1,57 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
     public StringEventChannelSO onLevelEnded;
+    public BoolEventChannelSO onDebugConsoleOpenEvent;
 
-    private void Start() {
+    public bool isDebugConsoleOpened = false;
+
+    private void Start()
+    {
         Application.targetFrameRate = 60;
     }
 
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;
+        onDebugConsoleOpenEvent.OnEventRaised += OnDebugConsoleOpen;
     }
 
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.R))
+        if (!isDebugConsoleOpened)
         {
-            Time.timeScale = 1f;
-            RestartLevel();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Time.timeScale = 1f;
+                RestartLevel();
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                RestartLastCheckpoint();
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                ToggleGameWindowSizeInEditor();
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                QuitGame();
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                LoadScene("Debug");
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            RestartLastCheckpoint();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ToggleGameWindowSizeInEditor();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            QuitGame();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            LoadScene("Debug");
-        }
 #endif
     }
 
@@ -85,6 +95,12 @@ public class CurrentSceneManager : MonoBehaviour
     private void OnDisable()
     {
         onLevelEnded.OnEventRaised -= LoadScene;
+        onDebugConsoleOpenEvent.OnEventRaised -= OnDebugConsoleOpen;
+    }
+
+    private void OnDebugConsoleOpen(bool debugConsoleOpened)
+    {
+       isDebugConsoleOpened = debugConsoleOpened;
     }
 
 #if UNITY_EDITOR
