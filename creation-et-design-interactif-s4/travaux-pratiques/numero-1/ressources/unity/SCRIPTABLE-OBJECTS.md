@@ -104,19 +104,20 @@ public class BoatWeaponItemStore : MonoBehaviour
     // Référence à notre ScriptableObject
     public BoatWeaponData boatWeaponData;
 
-    private void OnMouseDown() 
+    void Update()
     {
-        Debug.Log(boatWeaponData.name); 
-        Debug.Log(boatWeaponData.description); 
-        Debug.Log(boatWeaponData.cost);
-        Debug.Log(boatWeaponData.description);
-        Debug.Log(boatWeaponData.sprite);
+        // Clic gauche
+        if(Input.GetMouseButtonDown(0)) {
+            Debug.Log(boatWeaponData.name); 
+            Debug.Log(boatWeaponData.description); 
+            Debug.Log(boatWeaponData.cost);
+            Debug.Log(boatWeaponData.description);
+            Debug.Log(boatWeaponData.sprite);
+        }
     }
 }
 ```
-Voilà, avec notre code, nous pouvons afficher les données de notre arme lorsque nous cliquerons dessus. Chaque arme (GameObject) ayant son propre ScriptableObject avec ses données
-
-> La méthode `OnMouseDown()` ne fonctionne que si et seulement si le GameObject a un collider
+Voilà, avec notre code, nous pouvons afficher les données de notre arme lorsque nous cliquerons dessus. Chaque arme (GameObject) ayant son propre ScriptableObject avec ses données.
 
 Plus d'informations sur les ScriptableObjects :
 - https://www.youtube.com/watch?v=PVOVIxNxxeQ
