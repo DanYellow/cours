@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug")]
     public VectorEventChannel onDebugTeleportEvent;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         onTogglePauseEvent.OnEventRaised += OnPauseEvent;
         onDebugTeleportEvent.OnEventRaised += OnDebugTeleport;
     }
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         isGamePaused = value;
     }
 
+    private bool doubleJump;
     // Update is called once per frame
     void Update()
     {
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }
         moveDirectionX = Input.GetAxis("Horizontal");
 
-        if (isGrounded && !Input.GetButton("Jump"))
+        if (IsGrounded() && !Input.GetButton("Jump"))
         {
             jumpCount = 0;
         }
@@ -70,7 +72,23 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             Jump(true);
+            // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+
+        // if (isGrounded && !Input.GetButton("Jump"))
+        // {
+        //     jumpCount = 0;
+        // }
+
+        // if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
+        // {
+        //     Jump(false);
+        // }
+
+        // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        // {
+        //     Jump(true);
+        // }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
         {
@@ -117,17 +135,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(bool shortJump = false)
     {
-        float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
+        float jumpPower = shortJump ? rb.velocity.y * 0.5f : jumpForce;
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
 
         if (!shortJump)
         {
-            jumpCount = jumpCount + 1;
-        }
+            jumpCount++;
 
-        if (jumpCount > 1)
-        {
-            animator.SetTrigger("DoubleJump");
+            if (jumpCount > 1)
+            {
+                animator.SetTrigger("DoubleJump");
+            }
         }
     }
 
@@ -165,7 +183,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = newPos;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         onTogglePauseEvent.OnEventRaised -= OnPauseEvent;
         onDebugTeleportEvent.OnEventRaised -= OnDebugTeleport;
     }

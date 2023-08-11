@@ -258,7 +258,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 107261412584399394}
   timeDelayBetweenShots: 1.25
   bulletPooling: {fileID: 7278734117026508341}
-  objectSpawner: {fileID: 0}
   delayBetweenShotsCycles: 0
   nbOfConsecutiveShots: 5
 --- !u!114 &107261412584399401
@@ -361,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listItemsToPool:
-  - key: 
+  - key: bullet
     minItems: 3
     maxItems: 7
     prefab: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
