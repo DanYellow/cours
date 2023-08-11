@@ -29136,7 +29136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814072429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.73, y: -0.46, z: 0}
+  m_LocalPosition: {x: 85.02, y: -3.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54967,7 +54967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_ColliderMask.m_Bits
-      value: 1
+      value: 257
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
@@ -55811,7 +55811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1417130646
 Transform:
   m_ObjectHideFlags: 0
@@ -56292,7 +56292,135 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1417130651}
+    m_ColliderPaths:
+    - - X: 2849346560
+        Y: 155623408
+      - X: 2849971200
+        Y: 156247920
+      - X: 2849971200
+        Y: 155623392
+      - X: 2899345920
+        Y: 155623392
+      - X: 2899345920
+        Y: 155623408
+      - X: 2899971072
+        Y: 156248432
+      - X: 2899971072
+        Y: 159998592
+      - X: 2839971584
+        Y: 159998592
+      - X: 2839971584
+        Y: 156248432
+      - X: 2840596736
+        Y: 155623408
+      - X: 2840596736
+        Y: 155623392
+      - X: 2849346560
+        Y: 155623392
+    - - X: 2879346432
+        Y: 135623616
+      - X: 2879971328
+        Y: 136248640
+      - X: 2879971328
+        Y: 135623600
+      - X: 2959345408
+        Y: 135623600
+      - X: 2959345408
+        Y: 135623616
+      - X: 2959970304
+        Y: 136248640
+      - X: 2959970304
+        Y: 139998800
+      - X: 2869971200
+        Y: 139998800
+      - X: 2869971200
+        Y: 136248640
+      - X: 2870596352
+        Y: 135623616
+      - X: 2870596352
+        Y: 135623600
+      - X: 2879346432
+        Y: 135623600
+    - - X: 2299977216
+        Y: 119998992
+      - X: 2279977216
+        Y: 119998992
+      - X: 2279976960
+        Y: 119998928
+      - X: 2279976960
+        Y: 116248840
+      - X: 2280602112
+        Y: 115623808
+      - X: 2280602112
+        Y: 115623800
+      - X: 2299977216
+        Y: 115623800
+    - - X: 1219987968
+        Y: 10000100
+      - X: 1209987840
+        Y: 10000100
+      - X: 1209987840
+        Y: 6874900
+      - X: 1219987968
+        Y: 6874900
+    - - X: 79999400
+        Y: 6874959
+      - X: 79999400
+        Y: 10000041
+      - X: 79999344
+        Y: 10000100
+      - X: 49999456
+        Y: 10000100
+      - X: 49999400
+        Y: 10000041
+      - X: 49999400
+        Y: 6874959
+      - X: 49999456
+        Y: 6874900
+      - X: 79999344
+        Y: 6874900
+    - - X: 359996608
+        Y: 6874959
+      - X: 359996608
+        Y: 10000041
+      - X: 359996544
+        Y: 10000100
+      - X: 329996640
+        Y: 10000100
+      - X: 329996576
+        Y: 10000041
+      - X: 329996576
+        Y: 6874959
+      - X: 329996640
+        Y: 6874900
+      - X: 359996544
+        Y: 6874900
+    - - X: 219998000
+        Y: 6874959
+      - X: 219998000
+        Y: 10000041
+      - X: 219997936
+        Y: 10000100
+      - X: 189998048
+        Y: 10000100
+      - X: 189998000
+        Y: 10000041
+      - X: 189998000
+        Y: 6874959
+      - X: 189998048
+        Y: 6874900
+      - X: 219997936
+        Y: 6874900
+    - - X: 1229987840
+        Y: -9999700
+      - X: 1209987840
+        Y: -9999700
+      - X: 1209987840
+        Y: -13124900
+      - X: 1229987840
+        Y: -13124900
   m_CompositePaths:
     m_Paths:
     - - {x: 284.93466, y: 15.56234}
@@ -56439,7 +56567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1426696416
 Transform:
   m_ObjectHideFlags: 0
@@ -58246,7 +58374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1793315070
 Transform:
   m_ObjectHideFlags: 0
@@ -61732,10 +61860,6 @@ PrefabInstance:
     - target: {fileID: 107261412584399405, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: timeDelayBetweenShots
       value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
-      propertyPath: listItemsToPool.Array.data[0].key
-      value: bullet
       objectReference: {fileID: 0}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: listItemsToPool.Array.data[0].poolSize
