@@ -16,17 +16,19 @@ public class Bullet : MonoBehaviour, IPoolable
 
     public ObjectPooled objectPooled;
 
+    public VoidEventChannelSO onGet;
+
 
     private void OnEnable()
     {
-        ObjectPooling.OnGet += Get;
+        onGet.OnEventRaised += Get;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
     IEnumerator AutoDestroy(float duration = 0)
     {
         yield return new WaitForSeconds(duration);
-        
+
         if (objectPooled.Pool == null)
         {
             Destroy(gameObject);
@@ -49,6 +51,7 @@ public class Bullet : MonoBehaviour, IPoolable
         animator.SetTrigger("IsCollided");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
+        StopCoroutine(autoDestroyCoroutine);
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
     }
 
@@ -64,12 +67,12 @@ public class Bullet : MonoBehaviour, IPoolable
         {
             Destroy(gameObject);
         }
-        ObjectPooling.OnGet -= Get;
+        onGet.OnEventRaised -= Get;
     }
 
     public void Get()
     {
         print("event");
-        rb.velocity = moveSpeed * -transform.right;
+        // rb.velocity = moveSpeed * -transform.right;
     }
 }

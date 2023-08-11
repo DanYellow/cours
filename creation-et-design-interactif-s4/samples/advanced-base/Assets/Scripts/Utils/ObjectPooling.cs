@@ -25,11 +25,11 @@ public class ObjectPoolItem
 // https://thegamedev.guru/unity-cpu-performance/object-pooling/#1-constructing-your-pool
 public class ObjectPooling : MonoBehaviour
 {
-    public delegate void OnGetDelegate();
-    public static event OnGetDelegate OnGet;
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
 
     public Dictionary<string, ObjectPoolItem> listDictItemsToPool = new Dictionary<string, ObjectPoolItem>();
+    public VoidEventChannelSO onGet;
+    
     private void Awake()
     {
         foreach (ObjectPoolItem obj in listItemsToPool)
@@ -66,8 +66,7 @@ public class ObjectPooling : MonoBehaviour
 
     void ActionOnGet(ObjectPooled item)
     {
-        // print(OnGet);
-        OnGet();
+        onGet.Raise();
         item.gameObject.SetActive(true);
     }
 
@@ -102,4 +101,18 @@ public class ObjectPooling : MonoBehaviour
             }
         }
     }
+}
+
+// It's worth noting - if your components have state, 
+// you need to handle re-initializing that state in the pool's ActionOnGet.
+
+// In my own Object Pool implementation I handled this by having something 
+// like an "IPoolable" interface that components can implement to handle 
+// the Get/Release lifecycle events from pooling, 
+// and iterating over those components.
+
+interface IPoolable
+{
+    void Get();
+    // void Release();
 }

@@ -60,9 +60,9 @@ public class EnemyShooting : MonoBehaviour
         {
             return;
         }
-        print("Hello");
+
         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
-        // Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-        // bullet.rb.velocity = bullet.moveSpeed * -transform.right;
+        Bullet bullet = bulletProjectile.GetComponent<Bullet>();
+        bullet.rb.velocity = bullet.moveSpeed * -transform.right;
     }
 }

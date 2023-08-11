@@ -179,6 +179,7 @@ MonoBehaviour:
   animator: {fileID: 3278862260279375241}
   damage: 1
   objectPooled: {fileID: 1427142744864728628}
+  onGet: {fileID: 11400000, guid: a097e335ede5ee64caa05b135ee18464, type: 2}
 --- !u!95 &3278862260279375241
 Animator:
   serializedVersion: 5
