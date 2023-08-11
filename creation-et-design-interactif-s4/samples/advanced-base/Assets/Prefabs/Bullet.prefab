@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7396631997644350835}
   - component: {fileID: 3278862260279375241}
   - component: {fileID: 1427142744864728628}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &7396631997644350835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   delayBeforeAutodestruction: 2.25
   animator: {fileID: 3278862260279375241}
   damage: 1
-  invoker: {fileID: 0}
+  objectPooled: {fileID: 1427142744864728628}
 --- !u!95 &3278862260279375241
 Animator:
   serializedVersion: 5

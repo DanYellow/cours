@@ -36,7 +36,8 @@ public class ObjectPooling : MonoBehaviour
             {
                 GameObject item = Instantiate(obj.prefab);
                 ObjectPooled pooled = item.GetComponent<ObjectPooled>();
-                return Instantiate(pooled);
+                pooled.ObjectPool = obj.pool;
+                return pooled;
             }, item =>
             {
                 item.gameObject.SetActive(true);

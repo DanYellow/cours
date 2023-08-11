@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         // If no max health is defined then the enemy heath is 1
-        currentHealth = maxHealth?.CurrentValue ?? 1f;
+        currentHealth = maxHealth != null ? maxHealth.CurrentValue : 1f;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -67,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            UnityEngine.Color hitColor = new UnityEngine.Color(0.8207547f, 0.8207547f, 0.8207547f);
+            UnityEngine.Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
             spriteRenderer.color = hitColor;
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = new Color(1, 1, 1, 1);

@@ -14,63 +14,53 @@ public class Bullet : MonoBehaviour
 
     private Coroutine autoDestroyCoroutine;
 
-    [HideInInspector]
-    public Transform invoker;
-
-    public void Start()
-    {
-        // rb.velocity = transform.right * moveSpeed;
-
-    }
+    public ObjectPooled objectPooled;
 
     private void OnEnable()
     {
-        // rb.velocity = moveSpeed * transform.right;
-        
-        // autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
     IEnumerator AutoDestroy(float duration = 0)
     {
         yield return new WaitForSeconds(duration);
-        if (invoker == null)
+        
+        if (objectPooled == null)
         {
             Destroy(gameObject);
         }
         else
         {
-            invoker.GetComponent<ObjectPooling>().Release("bullet", gameObject);
-            // invoker = null; 
+            objectPooled.Release();
         }
     }
 
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (
-    //         other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
-    //     )
-    //     {
-    //         playerHealth.TakeDamage(damage);
-    //     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (
+            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
+        )
+        {
+            playerHealth.TakeDamage(damage);
+        }
 
-    //     animator.SetTrigger("IsCollided");
-    //     // rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        animator.SetTrigger("IsCollided");
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-    //     autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
-    // }
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
+    }
 
     public void OnDisable()
     {
-        // rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0;
-        transform.rotation = Quaternion.identity;
-        // StopCoroutine(autoDestroyCoroutine);
-        // animator.ResetTrigger("IsCollided");
 
-        // if (invoker == null)
-        // {
-        //     Destroy(gameObject);
-        // }
+        StopCoroutine(autoDestroyCoroutine);
+        animator.ResetTrigger("IsCollided");
+
+        if (objectPooled == null)
+        {
+            Destroy(gameObject);
+        }
     }
 }
