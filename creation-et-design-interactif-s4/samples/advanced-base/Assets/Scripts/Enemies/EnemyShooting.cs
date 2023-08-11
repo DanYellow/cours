@@ -63,6 +63,6 @@ public class EnemyShooting : MonoBehaviour
 
         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-        bulletProjectile.GetComponent<Rigidbody2D>().velocity = bullet.moveSpeed * -transform.right;
+        bullet.rb.velocity = bullet.moveSpeed * -transform.right;
     }
 }

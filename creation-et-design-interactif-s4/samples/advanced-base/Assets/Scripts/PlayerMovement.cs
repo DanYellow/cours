@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -49,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
         isGamePaused = value;
     }
 
-    private bool doubleJump;
-    // Update is called once per frame
     void Update()
     {
         if (isGamePaused)
@@ -72,23 +69,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             Jump(true);
-            // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
-        // if (isGrounded && !Input.GetButton("Jump"))
-        // {
-        //     jumpCount = 0;
-        // }
-
-        // if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
-        // {
-        //     Jump(false);
-        // }
-
-        // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        // {
-        //     Jump(true);
-        // }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
         {

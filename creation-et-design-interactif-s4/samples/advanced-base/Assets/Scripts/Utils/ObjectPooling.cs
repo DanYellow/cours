@@ -32,25 +32,46 @@ public class ObjectPooling : MonoBehaviour
         {
             string key = (obj.key != "") ? obj.key : obj.prefab.name;
 
-            obj.pool = new ObjectPool<ObjectPooled>(() =>
-            {
-                GameObject item = Instantiate(obj.prefab);
-                ObjectPooled pooled = item.GetComponent<ObjectPooled>();
-                pooled.ObjectPool = obj.pool;
-                return pooled;
-            }, item =>
-            {
-                item.gameObject.SetActive(true);
-            }, item =>
-            {
-                item.gameObject.SetActive(false);
-            }, item =>
-            {
-                Destroy(item.gameObject);
-            }, true, obj.minItems <= 0 ? 1 : obj.minItems, obj.maxItems);
+            obj.pool = new ObjectPool<ObjectPooled>(
+                () => {
+                    return CreateFunc(obj);
+                },
+                ActionOnGet,
+                ActionOnRelease,
+                ActionOnDestroy,
+                true, 
+                obj.minItems <= 0 ? 1 : obj.minItems, 
+                obj.maxItems
+            );
 
             listDictItemsToPool.Add(key, obj);
         }
+    }
+
+    ObjectPooled CreateFunc(ObjectPoolItem obj)
+    {
+        GameObject item = Instantiate(obj.prefab);
+        item.name = $"{transform.name}_{obj.prefab.name}";
+
+        ObjectPooled pooled = item.GetComponent<ObjectPooled>();
+        pooled.Pool = obj.pool;
+
+        return pooled;
+    }
+
+    void ActionOnGet(ObjectPooled item)
+    {
+        item.gameObject.SetActive(true);
+    }
+
+    void ActionOnRelease(ObjectPooled item)
+    {
+        item.gameObject.SetActive(false);
+    }
+
+    void ActionOnDestroy(ObjectPooled item)
+    {
+        Destroy(item.gameObject);
     }
 
     public ObjectPooled Get(string key = "")
@@ -59,7 +80,6 @@ public class ObjectPooling : MonoBehaviour
         if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
         {
             poolObject = itemToPool.pool.Get();
-            // poolObject.name = $"{transform.name}_{itemToPool.prefab.name}";
         }
 
         return poolObject;

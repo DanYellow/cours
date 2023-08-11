@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     private Coroutine autoDestroyCoroutine;
 
     public ObjectPooled objectPooled;
+    
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         
-        if (objectPooled == null)
+        if (objectPooled.Pool == null)
         {
             Destroy(gameObject);
         }
@@ -58,7 +59,7 @@ public class Bullet : MonoBehaviour
         StopCoroutine(autoDestroyCoroutine);
         animator.ResetTrigger("IsCollided");
 
-        if (objectPooled == null)
+        if (objectPooled.Pool == null)
         {
             Destroy(gameObject);
         }
