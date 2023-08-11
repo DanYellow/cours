@@ -6,14 +6,14 @@ using UnityEngine;
 **/
 public class FallingPlatform : MonoBehaviour
 {
-    [SerializeField, Tooltip("Delay before the platform starts to fall")] 
+    [SerializeField, Tooltip("Delay before the platform starts to fall")]
     private float fallDelay = 1.5f;
     private float destroyDelay = 3f;
     private Vector2 startPosition = Vector2.zero;
 
-    [SerializeField] 
+    [SerializeField]
     private Rigidbody2D rb;
-    [SerializeField] 
+    [SerializeField]
     private Animator animator;
 
     private void Start()
@@ -23,10 +23,20 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        collision.transform.SetParent(transform);
         if (collision.gameObject.CompareTag("Player"))
         {
-            animator.speed = 0.45f;
+            collision.gameObject.GetComponent<PlayerMovement>().isOnFallingPlatform = true;
+            animator.speed = 0.5f;
             StartCoroutine(Fall());
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().isOnFallingPlatform = false;
         }
     }
 

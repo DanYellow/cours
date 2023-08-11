@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isFacingRight = true;
 
+    public bool isOnFallingPlatform = false;
+
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
     public Transform groundCheck;
@@ -83,11 +85,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Flip();
+        Animations();
     }
 
     private void FixedUpdate()
     {
-        Animations();
         isGrounded = IsGrounded();
 
         Move();
@@ -102,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("MoveDirectionX", Mathf.Abs(moveDirectionX));
         animator.SetFloat("MoveDirectionY", rb.velocity.y);
+        animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
         animator.SetBool("IsGrounded", isGrounded);
     }
 
