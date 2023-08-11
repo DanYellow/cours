@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPoolable
 {
     public float moveSpeed;
     public Rigidbody2D rb;
@@ -15,10 +15,11 @@ public class Bullet : MonoBehaviour
     private Coroutine autoDestroyCoroutine;
 
     public ObjectPooled objectPooled;
-    
+
 
     private void OnEnable()
     {
+        ObjectPooling.OnGet += Get;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
@@ -63,5 +64,12 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        ObjectPooling.OnGet -= Get;
+    }
+
+    public void Get()
+    {
+        print("event");
+        rb.velocity = moveSpeed * -transform.right;
     }
 }

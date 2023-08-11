@@ -25,6 +25,8 @@ public class ObjectPoolItem
 // https://thegamedev.guru/unity-cpu-performance/object-pooling/#1-constructing-your-pool
 public class ObjectPooling : MonoBehaviour
 {
+    public delegate void OnGetDelegate();
+    public static event OnGetDelegate OnGet;
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
 
     public Dictionary<string, ObjectPoolItem> listDictItemsToPool = new Dictionary<string, ObjectPoolItem>();
@@ -64,6 +66,8 @@ public class ObjectPooling : MonoBehaviour
 
     void ActionOnGet(ObjectPooled item)
     {
+        // print(OnGet);
+        OnGet();
         item.gameObject.SetActive(true);
     }
 
@@ -86,14 +90,6 @@ public class ObjectPooling : MonoBehaviour
         }
 
         return poolObject;
-    }
-
-    public void Release(string key = "", GameObject go = null)
-    {
-        if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
-        {
-            // itemToPool.pool.Release(go);
-        }
     }
 
     private void OnDestroy()
