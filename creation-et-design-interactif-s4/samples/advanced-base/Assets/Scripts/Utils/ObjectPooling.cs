@@ -11,51 +11,54 @@ public class ObjectPoolItem
     public int maxItems = 7;
 
     [Tooltip("Defines the prefab to instanciate / pool")]
-    public ObjectPool<GameObject> pool;
+    public IObjectPool<ObjectPooled> pool;
     public GameObject prefab;
 }
 
 // More info : 
 // https://www.youtube.com/watch?v=7EZ2F-TzHYw
 // https://docs.unity3d.com/ScriptReference/Pool.ObjectPool_1-ctor.html
+// https://unity.com/how-to/use-object-pooling-boost-performance-c-scripts-unity
 // https://thegamedev.guru/unity-cpu-performance/object-pooling/#1-constructing-your-pool
 public class ObjectPooling : MonoBehaviour
 {
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
 
     public Dictionary<string, ObjectPoolItem> listDictItemsToPool = new Dictionary<string, ObjectPoolItem>();
-
-    private void Start()
+    // @todo make a counter for idx gameobject
+    private void Awake()
     {
         foreach (ObjectPoolItem obj in listItemsToPool)
         {
             string key = (obj.key != "") ? obj.key : obj.prefab.name;
 
-            obj.pool = new ObjectPool<GameObject>(() =>
+            obj.pool = new ObjectPool<ObjectPooled>(() =>
             {
-                return Instantiate(obj.prefab);
+                GameObject item = Instantiate(obj.prefab);
+                ObjectPooled pooled = item.GetComponent<ObjectPooled>();
+                return Instantiate(pooled);
             }, item =>
             {
-                item.SetActive(true);
+                item.gameObject.SetActive(true);
             }, item =>
             {
-                item.SetActive(false);
+                item.gameObject.SetActive(false);
             }, item =>
             {
-                Destroy(item);
+                Destroy(item.gameObject);
             }, true, obj.minItems <= 0 ? 1 : obj.minItems, obj.maxItems);
 
             listDictItemsToPool.Add(key, obj);
         }
     }
 
-    public GameObject Get(string key = "")
+    public ObjectPooled Get(string key = "")
     {
-        GameObject poolObject = null;
+        ObjectPooled poolObject = null;
         if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
         {
             poolObject = itemToPool.pool.Get();
-            poolObject.name = $"{transform.name}_{itemToPool.prefab.name}";
+            // poolObject.name = $"{transform.name}_{itemToPool.prefab.name}";
         }
 
         return poolObject;
@@ -65,7 +68,7 @@ public class ObjectPooling : MonoBehaviour
     {
         if (listDictItemsToPool.TryGetValue(key, out ObjectPoolItem itemToPool))
         {
-            itemToPool.pool.Release(go);
+            // itemToPool.pool.Release(go);
         }
     }
 

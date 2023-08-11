@@ -18,8 +18,6 @@ public class ObjectSpawner : MonoBehaviour
             return Instantiate(prefab);
         }, (Bullet item) => {
             item.gameObject.SetActive(true);
-            item.callback = Release;
-            // item.OnContact(Release);
         }, item => {
             item.gameObject.SetActive(false);
         }, item => {
@@ -28,7 +26,6 @@ public class ObjectSpawner : MonoBehaviour
     }
 
     private void Release(Bullet bullet) {
-        print("release");
         pool.Release(bullet);
     }
 }

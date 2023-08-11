@@ -12,64 +12,65 @@ public class Bullet : MonoBehaviour
 
     public float damage = 1f;
 
-    public System.Action<Bullet> callback;
-
     private Coroutine autoDestroyCoroutine;
 
     [HideInInspector]
     public Transform invoker;
 
-    public void Initialize()
+    public void Start()
     {
         // rb.velocity = transform.right * moveSpeed;
-        rb.velocity = transform.right * moveSpeed;
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
 
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
+        // rb.velocity = moveSpeed * transform.right;
+        
+        // autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
     IEnumerator AutoDestroy(float duration = 0)
     {
         yield return new WaitForSeconds(duration);
-        if(invoker == null) {
-            Destroy(gameObject);
-        } else {
-            // invoker.GetComponent<ObjectPooling>().Release("bullet", gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (
-            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
-        )
+        if (invoker == null)
         {
-            playerHealth.TakeDamage(damage);
+            Destroy(gameObject);
         }
-
-        animator.SetTrigger("IsCollided");
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        callback(this);
-        // autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
+        else
+        {
+            invoker.GetComponent<ObjectPooling>().Release("bullet", gameObject);
+            // invoker = null; 
+        }
     }
+
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (
+    //         other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth)
+    //     )
+    //     {
+    //         playerHealth.TakeDamage(damage);
+    //     }
+
+    //     animator.SetTrigger("IsCollided");
+    //     // rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+    //     autoDestroyCoroutine = StartCoroutine(AutoDestroy(0.35f));
+    // }
 
     public void OnDisable()
     {
-        print("ddaaaa");
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        // rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        transform.rotation = Quaternion.identity;
         // StopCoroutine(autoDestroyCoroutine);
-        animator.ResetTrigger("IsCollided");
+        // animator.ResetTrigger("IsCollided");
 
         // if (invoker == null)
         // {
         //     Destroy(gameObject);
         // }
-    }
-
-    public void OnContact(System.Action<Bullet> callback) {
-        callback(this);
     }
 }
