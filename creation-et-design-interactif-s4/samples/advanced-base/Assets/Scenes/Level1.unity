@@ -28949,6 +28949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 814072433}
+  isOnFallingPlatform: 0
   listGroundLayers:
     serializedVersion: 2
     m_Bits: 1096
@@ -29136,7 +29137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814072429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85.02, y: -3.97, z: 0}
+  m_LocalPosition: {x: 0.7, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54466,6 +54467,10 @@ PrefabInstance:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
       value: FaillingPlatforms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder

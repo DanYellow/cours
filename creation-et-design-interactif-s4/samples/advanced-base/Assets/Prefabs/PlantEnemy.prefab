@@ -362,5 +362,6 @@ MonoBehaviour:
   listItemsToPool:
   - key: bullet
     minItems: 3
-    maxItems: 7
+    maxItems: 10
     prefab: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
+    count: 0

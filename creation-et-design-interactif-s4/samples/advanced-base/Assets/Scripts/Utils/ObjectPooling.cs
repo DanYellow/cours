@@ -13,6 +13,9 @@ public class ObjectPoolItem
     [Tooltip("Defines the prefab to instanciate / pool")]
     public IObjectPool<ObjectPooled> pool;
     public GameObject prefab;
+
+    [HideInInspector]
+    public int count = 0;
 }
 
 // More info : 
@@ -25,7 +28,6 @@ public class ObjectPooling : MonoBehaviour
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
 
     public Dictionary<string, ObjectPoolItem> listDictItemsToPool = new Dictionary<string, ObjectPoolItem>();
-    // @todo make a counter for idx gameobject
     private void Awake()
     {
         foreach (ObjectPoolItem obj in listItemsToPool)
@@ -51,7 +53,8 @@ public class ObjectPooling : MonoBehaviour
     ObjectPooled CreateFunc(ObjectPoolItem obj)
     {
         GameObject item = Instantiate(obj.prefab);
-        item.name = $"{transform.name}_{obj.prefab.name}";
+        obj.count++;
+        item.name = $"{transform.name}_{obj.prefab.name}_{obj.count}";
 
         ObjectPooled pooled = item.GetComponent<ObjectPooled>();
         pooled.Pool = obj.pool;
