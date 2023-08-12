@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour, IPoolable
     private Coroutine autoDestroyCoroutine;
 
     public ObjectPooled objectPooled;
-    public ObjectPooling objectPooling;
 
     private void OnEnable()
     {

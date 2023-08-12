@@ -63,12 +63,14 @@ public class ObjectPooling : MonoBehaviour
 
         ObjectPooled pooled = item.GetComponent<ObjectPooled>();
         pooled.Pool = obj.pool;
+        item.SetActive(false);
 
         return pooled;
     }
 
     void ActionOnGet(ObjectPooled item)
     {
+        // item.Get();
         item.gameObject.SetActive(true);
     }
 
