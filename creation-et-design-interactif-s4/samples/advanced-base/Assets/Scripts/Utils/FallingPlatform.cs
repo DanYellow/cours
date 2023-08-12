@@ -34,6 +34,7 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        collision.transform.SetParent(null);
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerMovement>().isOnFallingPlatform = false;
