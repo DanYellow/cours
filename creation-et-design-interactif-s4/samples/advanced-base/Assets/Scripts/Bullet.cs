@@ -15,13 +15,10 @@ public class Bullet : MonoBehaviour, IPoolable
     private Coroutine autoDestroyCoroutine;
 
     public ObjectPooled objectPooled;
-
-    public VoidEventChannelSO onGet;
-
+    public ObjectPooling objectPooling;
 
     private void OnEnable()
     {
-        onGet.OnEventRaised += Get;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 
@@ -67,12 +64,11 @@ public class Bullet : MonoBehaviour, IPoolable
         {
             Destroy(gameObject);
         }
-        onGet.OnEventRaised -= Get;
     }
 
     public void Get()
     {
-        print("event");
+        // print("feeee");
         // rb.velocity = moveSpeed * -transform.right;
     }
 }

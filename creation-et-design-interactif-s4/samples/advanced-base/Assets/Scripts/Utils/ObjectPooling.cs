@@ -28,8 +28,9 @@ public class ObjectPooling : MonoBehaviour
     public List<ObjectPoolItem> listItemsToPool = new List<ObjectPoolItem>();
 
     public Dictionary<string, ObjectPoolItem> listDictItemsToPool = new Dictionary<string, ObjectPoolItem>();
-    public VoidEventChannelSO onGet;
-    
+
+    // public IPoolable listener;
+
     private void Awake()
     {
         foreach (ObjectPoolItem obj in listItemsToPool)
@@ -37,14 +38,15 @@ public class ObjectPooling : MonoBehaviour
             string key = (obj.key != "") ? obj.key : obj.prefab.name;
 
             obj.pool = new ObjectPool<ObjectPooled>(
-                () => {
+                () =>
+                {
                     return CreateFunc(obj);
                 },
                 ActionOnGet,
                 ActionOnRelease,
                 ActionOnDestroy,
-                true, 
-                obj.minItems <= 0 ? 1 : obj.minItems, 
+                true,
+                obj.minItems <= 0 ? 1 : obj.minItems,
                 obj.maxItems
             );
 
@@ -54,8 +56,9 @@ public class ObjectPooling : MonoBehaviour
 
     ObjectPooled CreateFunc(ObjectPoolItem obj)
     {
-        GameObject item = Instantiate(obj.prefab);
         obj.count++;
+    
+        GameObject item = Instantiate(obj.prefab);
         item.name = $"{transform.name}_{obj.prefab.name}_{obj.count}";
 
         ObjectPooled pooled = item.GetComponent<ObjectPooled>();
@@ -66,7 +69,6 @@ public class ObjectPooling : MonoBehaviour
 
     void ActionOnGet(ObjectPooled item)
     {
-        onGet.Raise();
         item.gameObject.SetActive(true);
     }
 
@@ -111,7 +113,7 @@ public class ObjectPooling : MonoBehaviour
 // the Get/Release lifecycle events from pooling, 
 // and iterating over those components.
 
-interface IPoolable
+public interface IPoolable
 {
     void Get();
     // void Release();

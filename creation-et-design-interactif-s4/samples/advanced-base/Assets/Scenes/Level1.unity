@@ -56320,7 +56320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426696416
 Transform:
   m_ObjectHideFlags: 0
@@ -57193,7 +57193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: m_RootOrder
@@ -57254,7 +57254,7 @@ PrefabInstance:
     - target: {fileID: 107261412584399405, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: objectSpawner
       value: 
-      objectReference: {fileID: 1853269601}
+      objectReference: {fileID: 0}
     - target: {fileID: 107261412584399405, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: timeDelayBetweenShots
       value: 0.9
@@ -57306,10 +57306,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1853269601}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
 --- !u!1 &1552502909
 GameObject:
@@ -58481,31 +58478,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6722714434073853348, guid: 3a535e80d5f7cab42aa945a6a87c152f, type: 3}
   m_PrefabInstance: {fileID: 1846179257}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1853269599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 107261412584399392, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
-  m_PrefabInstance: {fileID: 1538594658}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1853269600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 107261412584399395, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
   m_PrefabInstance: {fileID: 1538594658}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1853269601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853269599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e7b49ecff7e6f4aae41e857e0202a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 7396631997644350835, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
-  minItems: 5
-  maxItems: 5
 --- !u!4 &1856069932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6722714434073853348, guid: 3a535e80d5f7cab42aa945a6a87c152f, type: 3}
@@ -61530,6 +61507,10 @@ PrefabInstance:
       propertyPath: timeDelayBetweenShots
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
+      propertyPath: onGet
+      value: 
+      objectReference: {fileID: 11400000, guid: a097e335ede5ee64caa05b135ee18464, type: 2}
     - target: {fileID: 7278734117026508341, guid: bcf64c06dcf0141469bc2821ed17a97d, type: 3}
       propertyPath: listItemsToPool.Array.data[0].poolSize
       value: 1
