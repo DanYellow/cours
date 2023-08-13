@@ -179,8 +179,8 @@ Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de dé
 
 La gestion des animations peut être définies en quatre grandes parties :
 
-- Animator : Asset qui contient `(Animator)Controller`, `AnimationStates` et `AnimatorStateTransition` (notamment)
-- AnimationState : Contient un état, c'est là qu'on définira le clip d'animation à jouer ou encore sa vitesse.
+- Animator : Asset qui contient `(Animator)Controller`, `AnimatorState` et `AnimatorStateTransition` (notamment)
+- AnimatorState : Contient un état, c'est là qu'on définira le clip d'animation à jouer ou encore sa vitesse.
   - Note : Par défaut, un animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionner l'`AnimationClip` depuis l'onglet "Project"
 - AnimatorStateTransition : Définit les conditions de passage d'une transition à une autre
 
@@ -220,13 +220,38 @@ Le composant `Animator` est contrôlable depuis un script C#. Par exemple, grâc
 IEnumerator MyCoroutine()
 {
     // [...]
-    yield return null; // Important : S'assure qu'on va récupérer l'animation actuelle
+    yield return null; // Important : S'assure qu'on va récupérer l'animation actuelle et non la précédente
     yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
     // [...]
 }
 ```
 
-## AnimationStates
+
+## Animator Controller
+L'`Animator Controller` contrôle l'enchaînement des animations. Par défaut, il possède quatre blocs :
+- Entry : Point d'entrée de votre `Animator Controller`, elle va lancer la première animation
+- Default AnimatorState (en orange) : C'est l'animation qui va être jouée juste après que votre GameObject est instancié
+    - Il est obligatoire
+- Any State : AnimatorState permettant de transitionner à tout moment vers un autre `AnimatorState`
+    - Par exemple, si vous souhaitez à tout moment que votre joueur puisse sauter, effectuez un lien depuis "Any State" vers le ou les `AnimatorStates` voulu(s)
+- Exit : AnimatorState réinitialisant votre `Animator Controller` permet de revenir au point d'entrée
+
+## Points à retenir 
+- Vous pouvez pas créer d'`AnimatorStateTransition` vers "Entry" et "Any State"
+- Si vous souhaitez changer d'`AnimatorState` par défaut, faites un `clic droit (sur le AnimatorState voulu) > Set As Layer Default State`
+
+## AnimatorState
+Bloc représentant un état de l'`Animator Controller`, une animation à jouer lorsque les conditions sont remplies. Quand vous sélectionnez un `AnimatorState`, vous pouvez définir l'`AnimationClip` ou `BlendTree` qui va être joué. En plus de ça, il vous pouvez en définir la vitesse. La propriété `speed` est notamment utile pour jouer une animation à l'envers, la propriété est une valeur normalisée, autrement dit, la valeur 1.0 est la valeur de base. Et plus elle s'approche de 0, plus l'animation sera jouée lentement. Si la valeur est négative l'animation sera jouée à l'envers.
+
+Pour créer une animation, il faut sélectionner un GameObject et dans l'onglet `Animation`, cliquer sur l'animation puis "Create New Clip..."
+![](./printscreens/memo-create-animationclip.jpg)
+
+> Conseil : pensez toujours à préfixer le nom d'une animation par le nom du GameObject, par exemple, "WarriorIdle". Ceci vous permettra de retrouver plus facilement une animation.
+
+Par défaut, les `AnimationClips` se jouent en boucle, pour ne plus avoir ce comportement, il faut la sélectionner depuis l'onglet "Project" et décocher la case "Loop Time".
+
+
+
 
 ## AnimatorStateTransition
 
