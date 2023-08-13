@@ -127,11 +127,11 @@ Dans certains cas, il se peut que votre `Rigidbody2D` Dynamic (avec un Collider2
 
 En bref, on appliquera un `Rigidbody2D` à un GameObject lorsqu'on souhaite qu'un objet soit soumis à la physique.
 
-Pour terminer, abordons les propriétés `gravityScale` et `mass` de la classe `Rigidbody2D`. D'abord, la propriété `mass`, représentant la masse d'un GameObject, n'a aucune incidence sur son attraction par la gravité. La seule incidence qu'il porte est sur sa capacité à être déplacé par une force.
+Pour terminer, abordons les propriétés `gravityScale` et `mass` de la classe `Rigidbody2D`. La propriété `mass` représente la masse d'un GameObject, n'a aucune incidence sur son attraction par la gravité. La seule incidence qu'il porte est sur sa capacité à être déplacé par une force.
 
 La propriété `gravityScale` définit à quel point un objet sera attiré par la gravité. **Plus cette valeur est élevée, plus le GameObject atterrira rapidement.** Par exemple, si vous souhaitez faire un jeu de tir avec la caméra au-dessus, il faudra mettre la valeur 0 pour la propriété `gravityScale`, ainsi votre GameObject ne tombera jamais.
 
-> N'utilisez pas la méthode `.Transform()` pour déplacer vos GamObjects, si cela peut être tentant, ceci vous expose à la mauvaise détection des collisions entre éléments. Et par conséquent, entraîner des comportements étranges. Par exemple, traverser les murs.
+> N'utilisez pas la méthode `.Transform()` pour déplacer vos GameObjects, si cela peut être tentant, ceci vous expose à la mauvaise détection des collisions entre éléments. Et par conséquent, entraîner des comportements étranges. Par exemple, traverser les murs.
 
 # Collider2D
 
@@ -150,7 +150,7 @@ Dépendamment de votre choix (Trigger ou non), ce ne sont pas les mêmes évène
 
 # C# Script
 
-Composant écrit par vos soins, un `C# Script` est un composant vierge, par défaut. Son comportement sera défini par vos soins. Pour des questions d'organisation, il est préférable de mettre vos scripts dans un dossier "Scripts/" lui-même dans le dossier "Assets/".
+Composant écrit par vos soins, un `C# Script` est un composant vierge, par défaut. Pour des questions d'organisation, il est préférable de mettre vos scripts dans un dossier "Scripts/" lui-même dans le dossier "Assets/".
 
 Le même `C# Script` peut être appliqué sur n'importe quel GameObject. En interne, Unity crée une instance de ce `C# Script` comme nous le ferions avec un autre langage de programmation.
 
@@ -162,3 +162,38 @@ Pour plus d'informations sur `C# Script`, veuillez vous référer au document d'
 - [Accéder au document](./README.md)
 
 # Animator
+
+Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de définir les relations entre les différentes `AnimationStates` grâce à des transitiions appelées `AnimatorStateTransition`.
+
+![](./printscreens/memo-animator.jpg)
+
+> La fenêtre `Animator` s'ouvre via le menu `Window > Animation > Animator`
+
+
+La gestion des animations peut être définies en quatre grandes parties :
+- Animator : Asset qui contient `AnimationStates` et `AnimatorStateTransition` (notamment)
+- AnimationState : Contient un état, c'est là qu'on définira le clip d'animation à jouer ou encore sa vitesse.
+    - Note : Par défaut, un animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionner l'`AnimationClip` depuis l'onglet "Project"
+- AnimatorStateTransition : Définit les conditions de passage d'une transition à une autre
+
+## AnimatorStateTransition
+
+Une transition définit les conditions pour lesquelles l'Animator va jouer une animation ou une autre. Ces conditions peuvent être de plusieurs types :
+- Entier
+- Float
+- Booléen
+- Trigger
+
+### Trigger ou booléen ?
+>Pour savoir si votre transition doit être de type "trigger" ou "booléenne", il faut vous poser la question suivante : Est-ce que mon action peut être arrêtée par la volonté du joueur ? Si la réponse est oui alors utilisez un booléen.
+
+Après avoir crée votre transition : clic droit depuis un `AnimationState` vers un autre. Cliquez sur `AnimationStateTransition` (représenté par une flèche) pour la voir en détails.
+
+> N'oubliez pas qu'une transition n'est pas bi-directionnelle pas défaut, il faut l'établir dans le sens inverse pour qu'elle le soit.
+
+Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement de votre transition :
+- Has Exit Time : Indique si oui ou non, une animation doit atteindre un certain niveau de complétion avant de passer à la transition suivante
+    - Ne pas cocher la case permet de passer d'un `AnimationState` à l'autre à tout moment
+- Exit Time (**utilisable que si et seulement si "Has Exit Time" est coché**) : Valeur normalisée représentant l'instant à partir duquel la transition peut avoir lieu. Si vous mettez la valeur 0.25, par exemple, à partir de la première image située à 25% de l'animation, l'animator peut effectuer la transition si la condition est réunie
+- Fixed Duration : Si cochée, la valeur de "Transition Duration" sera mesurée en secondes et non une valeur normalisée
+- Conditions : Endroit où vous allez définir les conditions pour passer d'un `AnimationState` à l'autre. Les conditions sont cumulatives, ceci équivaut à un "&&" en programmation. Dépendamment du type de paramètre pour votre condition, Unity n'affichera pas les mêmes champs. Si la transition entre deux `AnimationStates` peut être multiple, il faut créer un autre `AnimationStateTransition`
