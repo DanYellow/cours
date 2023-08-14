@@ -4,7 +4,7 @@
 - Collision / Rigidbody
     - Rigidbody and a Collider
         - static : mur, élément qui ne bouge pas
-        - kinématic : peut bouger tout seul mais ne pas être déplacé par un tiers. Plateformes. N'est pas soumis à la gravité, ignore les forces appliquées
+        - kinematic : peut bouger tout seul mais ne pas être déplacé par un tiers. Plateformes. N'est pas soumis à la gravité, ignore les forces appliquées
         - dynamic : soumis à la gravité, affecté par le mouvement des autres
 - Script : Système de mouvement (déplacements)
 - Inputs (Saut et autres actions)

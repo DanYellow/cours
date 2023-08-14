@@ -171,7 +171,7 @@ Pour plus d'informations sur le `C#`, veuillez vous référer au document d'intr
 
 # Animator
 
-Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de définir les relations entre les différentes `AnimationStates` grâce à des transitiions appelées `AnimatorStateTransition`.
+Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de définir les relations entre les différentes `AnimationStates` grâce à des transitions appelées `AnimatorStateTransition`.
 
 ![](./printscreens/memo-animator.jpg)
 
@@ -179,16 +179,16 @@ Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de dé
 
 La gestion des animations peut être définies en quatre grandes parties :
 
-- Animator : Asset qui contient `(Animator)Controller`, `AnimatorState` et `AnimatorStateTransition` (notamment)
+- Animator : Asset qui contient `(Animator)Controller`, `AnimatorState` et `AnimatorStateTransition`
 - AnimatorState : Contient un état, c'est là qu'on définira le clip d'animation à jouer ou encore sa vitesse.
-  - Note : Par défaut, un animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionner l'`AnimationClip` depuis l'onglet "Project"
+  - Note : Par défaut, un animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionné l'`AnimationClip` depuis l'onglet "Project"
 - AnimatorStateTransition : Définit les conditions de passage d'une transition à une autre
 
 > Si possible, évitez de mettre des animations gérée par l'`Animator` dans un Canvas, ceci est très mauvais au niveau des performances. Les alternatives sont les suivantes :
 >
 > - Ne pas en mettre
 > - Faire des animations en C# ou utiliser un package comme [LeanTween (gratuit)](https://assetstore.unity.com/packages/tools/animation/leantween-3595) qui permet de faire des animations en C# via des méthodes clé en main
-> - Mettre des animations dans des Canvas distincts
+> - Mettre des animations dans des Canvas distincts. Si dans votre UI, vous avez un texte qui ne change pas et une image qui bouge, faites un Canvas avec le texte et un autre avec l'image le tout contenu dans un autre Canvas
 
 ## Animator
 
@@ -239,6 +239,7 @@ L'`Animator Controller` contrôle l'enchaînement des animations. Par défaut, i
 ## Points à retenir 
 - Vous pouvez pas créer d'`AnimatorStateTransition` vers "Entry" et "Any State"
 - Si vous souhaitez changer d'`AnimatorState` par défaut, faites un `clic droit (sur le AnimatorState voulu) > Set As Layer Default State`
+- Lorsque vous faites un `AnimatorStateTransition` depuis "Any State" assurez-vous que "Has exit time" est coché, sinon vous aurez un comportement étrange 
 
 ## AnimatorState
 Bloc représentant un état de l'`Animator Controller`, une animation à jouer lorsque les conditions sont remplies. Quand vous sélectionnez un `AnimatorState`, vous pouvez définir l'`AnimationClip` ou `BlendTree` qui va être joué. En plus de ça, il vous pouvez en définir la vitesse. La propriété `speed` est notamment utile pour jouer une animation à l'envers, la propriété est une valeur normalisée, autrement dit, la valeur 1.0 est la valeur de base. Et plus elle s'approche de 0, plus l'animation sera jouée lentement. Si la valeur est négative l'animation sera jouée à l'envers.
@@ -250,8 +251,7 @@ Pour créer une animation, il faut sélectionner un GameObject et dans l'onglet 
 
 Par défaut, les `AnimationClips` se jouent en boucle, pour ne plus avoir ce comportement, il faut la sélectionner depuis l'onglet "Project" et décocher la case "Loop Time".
 
-
-
+Une animation peut affecter quasiment toutes les propriétés des composants d'un GameObject ainsi que celles de ses GameObjects imbriqués. Cependant toutes les propriétés ne peuvent pas être interpolées.
 
 ## AnimatorStateTransition
 
@@ -279,7 +279,7 @@ Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement
 - Transition duration : Représente la durée de transition entre l'`AnimationState` actuel et le suivant. Si votre animation est composée de sprites, on mettra cette valeur à 0 pour éviter des étrangetés à l'affichage. Une valeur de 0 fera donc passer d'un `AnimationState` à l'autre immédiatement
 - Conditions : Endroit où vous allez définir les conditions pour passer d'un `AnimationState` à l'autre. Les conditions sont cumulatives, ceci équivaut à un "&&" en programmation. Dépendamment du type de paramètre pour votre condition, Unity n'affichera pas les mêmes champs. Si la transition entre deux `AnimationStates` peut être multiple, il faut créer un autre `AnimationStateTransition`. Notez les points suivants :
   - En absence conditions, Unity se basera sur le paramètre "Exit Time" pour passer à la condition suivante. Exit Time devant être activé, sinon Unity lèvera une alerte
-  - Les conditions doivent être remplies **avant** que la transition ait lieu
+  - Les conditions doivent être remplies **avant** que la transition soit possible
   - Les paramètres de conditions sont sensibles à la casse, ainsi écrire "jump" n'a pas la même signification que "Jump"
 
 > [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
