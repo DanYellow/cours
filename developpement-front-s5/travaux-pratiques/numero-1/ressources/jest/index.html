@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP1 - Tests unitaires - Async</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="h1">Consignes de la pratique</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Lancez les tests relatifs au fichier "api/example.test.js". Vous pouvez exécuter vos tests avec plus de précisions avec les commandes suivantes
+            <ul>
+              <li><code>npm run test -- api/example.test.js</code> : Exécuter les tests d'un fichier en particulier</li>
+              <li><code>npm run test -- api/example.test.js --watch</code> : Exécuter et surveiller les tests d'un fichier en particulier</li>
+              <li>
+                Jest possède bien évidemment plein d'autres commandes : <a href="https://jestjs.io/docs/cli">Voir liste des commandes (ouverture dans un nouvel onglet)</a> 
+              </li>
+            </ul>
+          </li>
+          <li>Ajoutez un nouveau test au choix à la fonction existante dans le fichier "api/example.test.js" (en rapport avec la fonction "getNationalHolidays") :
+            <ul>
+              <li>Vérifier que les clés retournées sont de type String
+                <ul>
+                  <li>Ceci revient à utiliser l'opérateur typeof et vérifier si c'est du type string</li>
+                </ul>
+              </li>
+              <li>Vérifier que notre méthode mockée est bel et bien appelée
+                <ul>
+                  <li>Il faudra utiliser la méthode toBeCalled(). <a href="https://jestjs.io/docs/expect#tohavebeencalled" target="_blank">Voir documentation de toBeCalled() (ouverture dans un nouvel onglet)</a></li>
+                </ul>
+              </li>
+              <li>S'assurer de la bonne réponse d'API en cas de rejet de la promesse (voir détail du mock pour forcer le reject)
+                <ul>
+                  <li>Inspirez-vous des exemples de jest concernant les promesses. <a href="https://github.com/jestjs/jest/blob/main/examples/async/__tests__/user.test.js" target="_blank">Voir exemples (ouverture dans un nouvel onglet)</a></li>
+                </ul>
+              </li>
+              <li>S'assurer que la fonctionne retourne bien le bon nombre d'éléments. Exemple, s'il y a cinq dates en entrée, il doit avoir cinq entrées en retour
+                <ul>
+                  <li>Utilisez la méthode "Object.keys()" pour compter le nombre d'élements dans un objet. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank">Voir documentation d'Object.keys() (ouverture dans un nouvel onglet)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            A partir d'une api que vous aurez choisi (voir liste plus bas), appelez-la avec axios et appliquez une transformation sur la réponse de l'API
+          </li>
+          <li>
+            Testez cette nouvelle fonction grâce aux tests unitaires (voir fichier "api/example.test.js" pour vous aider)
+            <p class="note-information">Pensez bien à tester plusieurs cas. Réussite / Echec de l'api... Et bien évidemment mocker l'api</p>
+          </li>
+          <li>
+            Exportez la réponse mock d'api dans un fichier dédié puis utilisez-le dans votre fichier de tests
+          </li>
+        </ol>
+        <section class="note-information">
+          <p>Voici une liste d'API que vous pouvez utiliser pour réaliser ces tâches</p>
+          <ul>
+            <li><a href="http://universities.hipolabs.com/search?country=France" target="_blank">Listes des universités</a>. <a href="https://github.com/Hipo/university-domains-list" target="_blank">Voir documentation (ouverture dans un nouvel onglet)</a>.</li>
+            <li><a href="https://pokeapi.co/api/v2/pokemon/pikachu" target="_blank">API Pokémon</a>. <a href="https://pokeapi.co/" target="_blank">Voir documentation (ouverture dans un nouvel onglet)</a>.</li>
+            <li><a href="https://www.boredapi.com/activity?participants=1" target="_blank">The Bored API</a>. <a href="https://www.boredapi.com/" target="_blank">Voir documentation (ouverture dans un nouvel onglet)</a>.</li>
+          </ul>
+          <p>S'il y en a une non-listée qui vous plaît n'hésitez pas.</p>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Obtenez le code coverage du projet grâce à commande node <code>npm run test:coverage</code>
+          </li>
+          <li>Essayez d'augmenter la couveture de code</li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            A la racine du dossier "jest/" créez un fichier "jest.config.js"
+          </li>
+          <li>A l'aide de la documentation, ajoutez la clé "collectCoverageFrom" dans le fichier "jest.config.js" pour vous permettre d'exclure de la couverture de code le fichier "api/api.js". 
+            <ul>
+              <li><a href="https://jestjs.io/docs/configuration#collectcoveragefrom-array" target="_blank">Voir documentation de la clé "collectCoverageFrom" (ouverture dans un nouvel onglet)</a></li>
+            </ul>
+          </li>
+          <li>Assurez-vous que le fichier "api/api.js" n'est plus pris en compte par istanbul en relançant la commande <code>npm run test:coverage</code> dans votre terminal</li>
+        </ol>
+      </details>
+    </header>
+  </body>
+</html>
