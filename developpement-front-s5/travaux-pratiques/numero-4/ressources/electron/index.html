@@ -120,33 +120,60 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Utilisez la fonction "getListNationalHolidays" contenue dans le
-            fichier index.js
+            Créez un fichier texte (.txt) dans votre dossier de travail
           </li>
           <li>
-            Affichez son contenu grâce à un template. Ceci peut être une liste
-            ou un tableau
+            Lisez le contenu de ce fichier grâce à nodejs depuis votre main process et affichez-en le contenu dans votre renderer process
+          </li>
+          <li>
+            Modifiez le contenu du fichier et renvoyez la réponse vers le main process puis sauvegardez le fichier texte sous un autre nom
           </li>
         </ol>
-        <p class="note-information">L'API retourne une liste.</p>
+        <section class="note-attention">
+          <p>Note : Si vous appelez votre évènement dès la création de votre application, il ne sera jamais intercepté par le renderer process. Deux solutions :</p>
+          <ul>
+            <li>Mettre l'appel d'évènement dans un setTimeout(() => {})</li>
+            <li>
+              Appeler votre évènement depuis une API native du système d'exploitation. Par exemple, ajouter une nouvelle entrée dans le menu principal de votre application avec le code suivant dans la promesse de "app.whenReady":
+<pre>
+  <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
+      <span style="color:rgb(153, 153, 153); font-weight:400;">// Contient les données actuelle du menu principal</span>
+      ...<span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">getApplicationMenu</span>().<span style="color:rgb(255, 255, 255); font-weight:400;">items</span>,
+      {
+        <span style="color:rgb(136, 174, 206); font-weight:400;">label</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;Main Process&quot;</span>,
+        <span style="color:rgb(136, 174, 206); font-weight:400;">submenu</span>: [
+          {
+            <span style="color:rgb(153, 153, 153); font-weight:400;">// Nouvelle entrée de menu</span>
+            <span style="color:rgb(136, 174, 206); font-weight:400;">label</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;Évènement&quot;</span>,
+            <span style="color:rgb(136, 174, 206); font-weight:400;">click</span>: <span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
+              win.<span style="color:rgb(255, 255, 255); font-weight:400;">webContents</span>.<span class="hljs-title function_">send</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;my_event&quot;</span>, <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;hello world&quot;</span>);
+            },
+          },
+        ],
+      },
+  ];
+  
+  <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> menu = <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">buildFromTemplate</span>(mainMenu);
+  <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">setApplicationMenu</span>(menu);</code></pre>
+            </li>
+          </ul>
+        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">
-            Pour aller plus loin (cliquer pour afficher / cacher)
-          </h1>
+          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Groupez les jours fériés par année</li>
           <li>
-            Affichez le contenu de chaque année avec les balises &lt;details> et
-            &lt;summary>
+            Etablissez une communication permettant d'effectuer un appel d'API
           </li>
+          <li>Affichez le résultat dans le main renderer</li>
         </ol>
-        <p class="note-information">
-          Vous pouvez utiliser une bibliothèque comme lodash.js (et sa fonction
-          "groupBy") pour grouper les données.
-        </p>
+        <ul>
+          <li>Si vous n'avez pas d'API à exploiter sous la main, vous pouvez reprendre un de celles proposées dans le TP1.
+            <a href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s5/travaux-pratiques/numero-1/ressources" target="_blank" rel="noopener noreferrer">Télécharger le TP1</a>
+          </li>
+        </ul>
       </details>
     </header>
   </body>
