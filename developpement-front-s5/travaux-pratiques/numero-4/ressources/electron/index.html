@@ -113,6 +113,10 @@
         <section class="note-information">
           <p>Astuce : Pour éviter d'ouvrir la console du navigateur via le menu <code>View > Toggle Developper Tools</code> ou <code>Ctrl / Cmd + maj + i</code>, vous pouvez rajouter la ligne suivante <code>win.webContents.openDevTools()</code> dans la fonction CreateWindow (celle qui contient la fonction "loadFile()") </p>
         </section>
+        <section class="note-information">
+          <p>Astuce 2 : Vous avez dû le remarquer, vous devez arrêter node puis le relancer à chaque mise à jour de code, c'est fastidieux. Pour vous éviter ceci, il existe le node module "electron-reload" qui recharge votre application à chaque modification. <a href="https://www.npmjs.com/package/electron-reload" target="_blank">Télécharger electron-reload (ouverture dans un nouvel
+            onglet)</a></p>
+        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -170,9 +174,22 @@
           <li>Affichez le résultat dans le main renderer</li>
         </ol>
         <ul>
-          <li>Si vous n'avez pas d'API à exploiter sous la main, vous pouvez reprendre un de celles proposées dans le TP1.
-            <a href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s5/travaux-pratiques/numero-1/ressources" target="_blank" rel="noopener noreferrer">Télécharger le TP1</a>
+          <li>Si vous n'avez pas d'API à exploiter sous la main, vous pouvez reprendre un de celles proposées dans le TP3 en S4.
+            <a href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s4/travaux-pratiques/numero-3/ressources/patterns/fetch" target="_blank" rel="noopener noreferrer">Télécharger le TP1</a>
           </li>
+        </ul>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un fichier CSS et ajoutez un peu de couleurs à votre application electron
+          </li>
+        </ol>
+        <ul>
+          <li>L'utilisation de bibliothèques CSS externes comme tailwindcss est possible</li>
         </ul>
       </details>
     </header>
