@@ -115,6 +115,10 @@
     max-width: 100%;
 }
 
+.consignes-conteneur pre {
+    margin: 0;
+}
+
 .liste-consignes ul,
 .consignes-conteneur ul,
 .consignes-conteneur ol,
@@ -217,3 +221,7 @@
     }
 }
 
+.entete-consignes {
+    max-width: 1400px;
+    margin: 0 auto;
+}

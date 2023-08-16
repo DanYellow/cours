@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="entete-consignes">
       <h1 class="h1">Consignes de la pratique - TP4 - Electron</h1>
       <details class="consignes-conteneur" open>
         <summary>
@@ -31,9 +31,10 @@
             </ul>
             <section class="note-information">
               <p>
-                Essayez d'avoir la dernière version LTS de Node d'installée. Si
-                vous avez besoin de gérer plusieurs versions de Nodejs sur votre
-                ordinateur, vous pouvez utiliser un outil comme nvm.
+                Il est préférable d'avoir la dernière version LTS de Node
+                d'installée sur votre ordinateur. Si vous avez besoin de gérer
+                plusieurs versions de Nodejs sur votre ordinateur, vous pouvez
+                utiliser un outil comme nvm.
               </p>
               <p>
                 <a
@@ -111,11 +112,28 @@
           </li>
         </ul>
         <section class="note-information">
-          <p>Astuce : Pour éviter d'ouvrir la console du navigateur via le menu <code>View > Toggle Developper Tools</code> ou <code>Ctrl / Cmd + maj + i</code>, vous pouvez rajouter la ligne suivante <code>win.webContents.openDevTools()</code> dans la fonction CreateWindow (celle qui contient la fonction "loadFile()") </p>
+          <p>
+            Astuce : Pour éviter d'ouvrir la console du navigateur via le menu
+            <code>View > Toggle Developper Tools</code> ou
+            <code>Ctrl / Cmd + maj + i</code>, vous pouvez rajouter la ligne
+            suivante <code>win.webContents.openDevTools()</code> dans la
+            fonction CreateWindow (celle qui contient la fonction "loadFile()")
+          </p>
         </section>
         <section class="note-information">
-          <p>Astuce 2 : Vous avez dû le remarquer, vous devez arrêter node puis le relancer à chaque mise à jour de code, c'est fastidieux. Pour vous éviter ceci, il existe le node module "electron-reload" qui recharge votre application à chaque modification. <a href="https://www.npmjs.com/package/electron-reload" target="_blank">Télécharger electron-reload (ouverture dans un nouvel
-            onglet)</a></p>
+          <p>
+            Astuce 2 : Vous avez dû le remarquer, vous devez arrêter votre
+            application puis la relancer à chaque mise à jour de code, c'est
+            fastidieux. Pour vous éviter ceci, il existe le node module
+            "electron-reloader" qui recharge votre application à chaque
+            modification.
+            <a
+              href="https://www.npmjs.com/package/electron-reloader"
+              target="_blank"
+              >Télécharger electron-reloader (ouverture dans un nouvel
+              onglet)</a
+            >
+          </p>
         </section>
       </details>
       <details class="consignes-conteneur">
@@ -123,23 +141,30 @@
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
+          <li>Créez un fichier texte (.txt) dans votre dossier de travail</li>
           <li>
-            Créez un fichier texte (.txt) dans votre dossier de travail
+            Lisez le contenu de ce fichier grâce à nodejs depuis votre main
+            process et affichez-en le contenu dans votre renderer process
           </li>
           <li>
-            Lisez le contenu de ce fichier grâce à nodejs depuis votre main process et affichez-en le contenu dans votre renderer process
-          </li>
-          <li>
-            Modifiez le contenu du fichier et renvoyez la réponse vers le main process puis sauvegardez le fichier texte sous un autre nom
+            Modifiez le contenu du fichier et renvoyez la réponse vers le main
+            process puis sauvegardez le fichier texte sous un autre nom
           </li>
         </ol>
         <section class="note-attention">
-          <p>Note : Si vous appelez votre évènement dès la création de votre application, il ne sera jamais intercepté par le renderer process. Deux solutions :</p>
+          <p>
+            Note : Si vous appelez votre évènement dès la création de votre
+            application, il ne sera jamais intercepté par le renderer process.
+            Deux solutions :
+          </p>
           <ul>
             <li>Mettre l'appel d'évènement dans un setTimeout(() => {})</li>
             <li>
-              Appeler votre évènement depuis une API native du système d'exploitation. Par exemple, ajouter une nouvelle entrée dans le menu principal de votre application avec le code suivant dans la promesse de "app.whenReady":
-<pre>
+              Appeler votre évènement depuis une API native du système
+              d'exploitation. Par exemple, ajouter une nouvelle entrée dans le
+              menu principal de votre application avec le code suivant dans la
+              promesse de "app.whenReady":
+              <pre>
   <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
       <span style="color:rgb(153, 153, 153); font-weight:400;">// Contient les données actuelle du menu principal</span>
       ...<span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">getApplicationMenu</span>().<span style="color:rgb(255, 255, 255); font-weight:400;">items</span>,
@@ -174,10 +199,27 @@
           <li>Affichez le résultat dans le main renderer</li>
         </ol>
         <ul>
-          <li>Si vous n'avez pas d'API à exploiter sous la main, vous pouvez reprendre un de celles proposées dans le TP3 en S4.
-            <a href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s4/travaux-pratiques/numero-3/ressources/patterns/fetch" target="_blank" rel="noopener noreferrer">Télécharger le TP1</a>
+          <li>
+            Si vous n'avez pas d'API à exploiter sous la main, vous pouvez
+            reprendre un de celles proposées dans le TP3 en S4.
+            <a
+              href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s4/travaux-pratiques/numero-3/ressources/patterns/fetch"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Télécharger le TP3 (ouverture dans un nouvel
+              onglet)</a
+            >
           </li>
         </ul>
+        <section class="note-information">
+          <p>
+            N'oubliez pas que vous êtes dans un environnement Nodejs, vous pouvez tout à fait séparer vos fichiers puis les importer via des modules. Cependant pour des questions de sécurité, ceci ne fonctionenra pas dans votre preload process dans le renderer process, il faudra utiliser des outils comme Parcel, vite ou webpack pour séparer votre preload process.
+          </p>
+          <p>Dans la ressource, il y a une config vite, pour l'utiliser, il faut installer vite via npm et la commande <code>npm install -D vite</code> et rajoutez la commande <code>vite build</code> dans l'objet "scripts" de votre fichier package.json. Et le fichier vite.config.js au même niveau que votre fichier package.json.</p>
+          <p>Dans les grandes lignes, la config vite surveille les modifications sur les fichers javascript et compile le tout dans un dossier dist/. Assurez-vous que les noms de vos scripts collent bien avec ceux de la configuration. Tout comme pensez bien à changer les chemins de fichiers pour qu'ils chargent les fichiers dans le dossier dist/.</p>
+          <p>Note : <a href="https://github.com/vitejs/awesome-vite#get-started" target="_blank"
+            rel="noopener noreferrer">Il existe des configurations clé en main avec vite et electron.</a></p>
+        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -185,12 +227,63 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Créez un fichier CSS et ajoutez un peu de couleurs à votre application electron
+            Créez un fichier CSS et ajoutez un peu de couleurs à votre
+            application electron
           </li>
         </ol>
         <ul>
-          <li>L'utilisation de bibliothèques CSS externes comme tailwindcss est possible</li>
+          <li>
+            L'utilisation de bibliothèques CSS externes comme tailwindcss est
+            possible. Leur utilisation est identique à ce que vous avez appris
+            jusqu'à présent.
+          </li>
         </ul>
+        <section class="note-information">
+          <p>Si vous souhaitez utiliser tailwindcss, l'outil vite s'y prête bien. Il vous suffit juste de suivre le didacticiel proposé par tailwindcss pour le configurer avec vite. Et ensuite de charger votre css dans le javascript. Ce fichier sera compilé à chaque sauvegarde.</p>
+          <ul>
+            <li><a href="https://tailwindcss.com/docs/guides/vite" target="_blank"
+              rel="noopener noreferrer">Accéeder au didacticiel tailwindcss + vite (ouverture dans un nouvel
+              onglet)</a></li>
+          </ul>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Affichez une notification native lorsque votre chargement d'API est
+            terminé avec le contenu que vous souhaitez.
+            <ul>
+              <li><a href="https://www.electronjs.org/docs/latest/api/notification" target="_blank" rel="noopener noreferrer">Accéder à la documentation de Notification (ouverture dans un nouvel
+                onglet)</a></li>
+              <li>
+                Pour éviter que la notification s'affiche dès que vous faites
+                l'appel d'API, vous pouvez ralentir l'exécution avec une promesse.
+                Vous pouvez utiliser le code suivant :
+                <p>
+                  <code
+                    >const delay = ms => new Promise(resolve => setTimeout(resolve,
+                    ms));
+                  </code>
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <section class="note-information">Note : Si vous êtes sous Windows, votre notification aura pour en-tête "electron.app.Electron", c'est le nom par défaut de l'application. Normalement, lorsque vous faites un build, c'est le nom de l'application qui apparaît. Vu que nous sommes toujours en dev, nous allons devoir forcer le nom via un peu de code. 
+          <ol>
+            <li>Dans le fichier package.json, rajoutez à la racine de l'objet, la clé "productName" avec la valeur souhaitée.</li>
+            <li>Dans le fichier de départ, rajoutez le bloc suivant :<pre>
+  <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">if (process.platform === &#x27;win32&#x27;)
+{
+      app<span style="color:rgb(136, 174, 206); font-weight:400;">.setAppUserModelId</span>(app.name);
+}</code></pre>
+            </li>
+          </ol>
+        </section>
+        
       </details>
     </header>
   </body>
