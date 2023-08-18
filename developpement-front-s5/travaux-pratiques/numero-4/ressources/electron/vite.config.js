@@ -1,17 +1,27 @@
 import path from "path";
+import { spawn } from "child_process";
 
+import electron from "electron";
 import { defineConfig } from "vite";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+
+spawn(electron, ["."]);
 
 export default defineConfig(() => {
   return {
     plugins: [
       nodeResolve({
-        moduleDirectories: [path.resolve(__dirname, "src"), "node_modules"],
-        browser: true,
+        moduleDirectories: [
+          path.resolve(__dirname),
+          path.resolve(__dirname, "src"),
+          "node_modules",
+        ],
+        browser: false,
         preferBuiltins: false,
       }),
     ],
+    root: path.resolve(__dirname, 'src'),
+    publicDir: false,
     build: {
       emptyOutDir: true,
       target: "esnext",
@@ -22,7 +32,6 @@ export default defineConfig(() => {
       },
       rollupOptions: {
         input: {
-          // foo: "index.html",
           // nom du fichier compilé: nom du fichier original
           preload: "preload.js",
           renderer: "script.js",
@@ -35,6 +44,7 @@ export default defineConfig(() => {
     },
     server: {
       port: 9117,
+      open: false, 
     },
   };
 });

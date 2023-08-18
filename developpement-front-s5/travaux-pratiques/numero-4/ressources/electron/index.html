@@ -125,12 +125,12 @@
             Astuce 2 : Vous avez dû le remarquer, vous devez arrêter votre
             application puis la relancer à chaque mise à jour de code, c'est
             fastidieux. Pour vous éviter ceci, il existe le node module
-            "electron-reloader" qui recharge votre application à chaque
+            "electron-reload" qui recharge votre application à chaque
             modification.
             <a
-              href="https://www.npmjs.com/package/electron-reloader"
+              href="https://www.npmjs.com/package/electron-reload"
               target="_blank"
-              >Télécharger electron-reloader (ouverture dans un nouvel
+              >Télécharger electron-reload (ouverture dans un nouvel
               onglet)</a
             >
           </p>
@@ -217,8 +217,17 @@
           </p>
           <p>Dans la ressource, il y a une config vite, pour l'utiliser, il faut installer vite via npm et la commande <code>npm install -D vite</code> et rajoutez la commande <code>vite build</code> dans l'objet "scripts" de votre fichier package.json. Et le fichier vite.config.js au même niveau que votre fichier package.json.</p>
           <p>Dans les grandes lignes, la config vite surveille les modifications sur les fichers javascript et compile le tout dans un dossier dist/. Assurez-vous que les noms de vos scripts collent bien avec ceux de la configuration. Tout comme pensez bien à changer les chemins de fichiers pour qu'ils chargent les fichiers dans le dossier dist/.</p>
-          <p>Note : <a href="https://github.com/vitejs/awesome-vite#get-started" target="_blank"
-            rel="noopener noreferrer">Il existe des configurations clé en main avec vite et electron.</a></p>
+          <ol>
+              <li>Vous aurez besoin d'installer les dépendances suivantes via npm :
+                <ul>
+                  <li>npm install vite --save-dev</li>
+                  <li>npm install @rollup/plugin-node-resolve --save-dev</li>
+                </ul>
+              </li>
+              <li>Ajouter une tâche npm executant la commande "vite". Ceci va lancer un serveur</li>
+            </ol>
+          <p>Note : Il existe des configurations clé en main avec vite et electron. Comme <a href="https://electron-vite.org/" target="_blank">electron-vite</a> et <a href="https://github.com/vitejs/awesome-vite#get-started" target="_blank"
+            rel="noopener noreferrer">plein d'autres</a>. Rien ne vous empêche d'utiliser un de ses outils, toutefois, ils ont leur propre architecture de fichiers ce qui vous obligera à déplacer les vôtres pour la respecter.</p>
         </section>
       </details>
       <details class="consignes-conteneur">
