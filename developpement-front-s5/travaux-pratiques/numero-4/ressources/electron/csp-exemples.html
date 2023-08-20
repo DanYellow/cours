@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemples Content Security Policy - TP4 Electron</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0 auto;
+        max-width: 1280px;
+      }
+
+      section {
+        margin-bottom: 2.15rem;
+      }
+
+      pre {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Exemples Content Security Policy - TP4 Electron</h1>
+      <p>
+        Le CSP ou Content Security Policy est une règle visant à améliorer la
+        sécurité d'un site web pour en limiter les attaques malicieuses dont les
+        attaques XSS (Cross-site scripting). L'idée est de finir quels types de
+        ressources (images, iframe, CSS...) et de quels sites, votre site web
+        peut charger. <b>Une CSP est composé d'une directive, qui indique le type de ressource, et d'un comportement.</b>
+      </p>
+      <ul>
+        <li><a href="https://content-security-policy.com/#directive" target="_blank" rel="noopener noreferrer">Accéder à la liste des directives</a></li>
+      </ul>
+      <p>
+        Dans le cas d'electron, nous avons vu que tout chargement de ressource
+        externe était bloqué pour éviter d'exécuter du code nuisible à votre
+        application. Dans le cas d'electron, cette sécurité très restrictive a
+        été mise en place notamment parce que l'outil à accès à Node et donc,
+        par extension, aux API du système d'exploitation de l'utilisateur.
+      </p>
+    </header>
+    <main>
+      <p>
+        Nous allons illustrer un ensemble d'exemples non-exhautifs vous permettant de modifier
+        vos règles CSP dans le but d'avoir plus de souplesse dans le chargement
+        des ressources de vos sites et applications electron
+      </p>
+      <p>
+        Pour éviter de présenter du code trop lourd dans les exemples, nous
+        allons partir de la structure de code suivante illustrant la balise
+        &lt;meta> avec les attributs http-equiv="Content-Security-Policy" et
+        "content".
+      </p>
+      <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy: REGLE-CSP&quot;</span>/&gt;</span></code></pre>      
+      <p>Ainsi pour chaque règle dans les exemples, vous n'aurez qu'à remplacer "REGLE-CSP" par la règle de l'exemple.</p>
+      <p>Note : Il est possible d'appliquer plusieurs règles en même temps en affichant plusieurs fois le code ci-dessus.</p>
+
+      <section>
+        <h1>Domaine courant autorisé</h1>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"> <span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span>;</code></pre>
+        <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Ainsi, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS.</p>
+      </section>
+
+      <section>
+        <h1>Tout interdit</h1>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;none&#x27;</span>;</code></pre>
+        <p>Règle CSP interdit le chargement de toute ressource externe venant de votre propre domaine / application. Ceci peut être utile (?)</p>
+      </section>
+
+      <section>
+        <h1>Domaine, sous-domaines autorisés et multi-domaines</h1>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span> *.example.com;</code></pre>
+        <p>Cette règle CSP est stricte sauf pour le domaine identifié ici (exemple.com). En précédant le domaine de "*.", on précise également qu'on cible les sous-domaines de exemple.com. Ainsi images.exemple.com ou admin.exemple.com seront autorisés à afficher du contenu sur votre site/application mais pas les autres domaines.</p>
+        <p>Si vous souhaitez lever une exception sur plusieurs domaines, vous devez ajouter les domaines via un espace comme l'exemple ci-dessous.</p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;">default-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span> https://cdn.tailwindcss.com https://www.youtube.com/;</code></pre>
+        <p>Ici on autorise les ressources de youtube.com, cdn.tailwindcss.com et bien évidemment son propre domaine. A noter qu'il n'existe pas de limite de domaines autorisés.</p>
+        <p>Par ailleurs, il est possible de cibler tous les domaines avec le caractère *. Appliquer ce caractère à la directive "default-src", ceci équivaut à supprimer le CSP.</p>
+        <p>Enfin le type de protocole compte, si vous appliquez la règle suivante :</p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span> https:<span style="color:rgb(174, 174, 174); font-weight:400;">//www.example.com</span></code></pre>
+        <p>Si vous chargez une ressource en provenance de exemple.com sans utiliser le protocole https://, le chargement sera refusé.</p>
+      </section>
+
+      <section>
+        <h1>Type de ressource autorisée</h1>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span> *.example.com; img-src www.exemple.com;</code></pre>
+        <p>Dans certains cas, vous pouvez trouver intéressant de charger des ressources que d'un seul type pour un domaine. Dans l'exemple ci-dessus le domaine exemple.com n'est autorisés qu'aux images, ainsi toute autre ressource sera refusée. Il existe d'autres types de ressources/directives : <a href="https://content-security-policy.com/#directive" target="_blank">Accéder à la liste des directives</a></p>
+        <p>Avec cet exemple, on apprend que chaque règle doit espacée par un point-virgule (;) et que la directive "default-src" désigne toutes les directives. Enfin, si vous avez plusieurs balises avec l'attribut "http-equiv="Content-Security-Policy"" le navigateur appliquera la règle la plus restrictive. Ainsi dans l'exemple suivant : </p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;img-src *;&quot;</span> /&gt;</span>
+<span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;default-src &#x27;self&#x27; https://www.youtube.com/;&quot;</span>/&gt;</span></code></pre>
+          <p>La première règle ne sera pas appliquée car la seconde vise toutes les directives (l'ordre de balise n'a pas d'importance). En revanche, si vous appliquez les deux règles dans la même balise &lt;meta>, elles s'appliqueront.</p>
+          <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;default-src &#x27;self&#x27; https://www.youtube.com/; img-src *;&quot;</span>/&gt;</span></code></pre>
+      </section>
+      <hr>
+      <p>Il existe d'autres règles et cas, mais nous avons couvert dans les grandes lignes le fonctionnement de CSP. Si vous avez besoin de plus d'informations vous avez les sites suivants :</p>
+      <ul>
+        <li><a href="https://content-security-policy.com/" target="_blank" rel="noopener noreferrer">Documentation officielle de CSP (en anglais)</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/CSP#exemples_pour_les_cas_courants" target="_blank" rel="noopener noreferrer">Documentation de CSP sur MDN</a></li>
+      </ul>
+    </main>
+  </body>
+</html>
