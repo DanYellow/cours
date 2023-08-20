@@ -62,9 +62,11 @@
             <ul>
               <li>
                 Pour cette étape, ceci peut être un console.log() comme dans
-                l'exemple. A noter que le console.log() dans le main process
-                s'affiche dans la console de node et non celle de votre
-                application
+                l'exemple.
+                <p class="note-information">
+                  Le résultat de la fonction console.log(), dans le main process, s'affiche
+                  dans la console de node et non celle de votre application
+                </p>
               </li>
             </ul>
           </li>
@@ -130,8 +132,7 @@
             <a
               href="https://www.npmjs.com/package/electron-reload"
               target="_blank"
-              >Télécharger electron-reload (ouverture dans un nouvel
-              onglet)</a
+              >Télécharger electron-reload (ouverture dans un nouvel onglet)</a
             >
           </p>
         </section>
@@ -158,14 +159,13 @@
             Deux solutions :
           </p>
           <ul>
-            <li>Mettre l'appel d'évènement dans un setTimeout(() => {})</li>
+            <li>Mettre l'appel d'évènement dans un setTimeout()</li>
             <li>
               Appeler votre évènement depuis une API native du système
               d'exploitation. Par exemple, ajouter une nouvelle entrée dans le
               menu principal de votre application avec le code suivant dans la
               promesse de "app.whenReady":
-              <pre>
-  <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
+              <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
       <span style="color:rgb(153, 153, 153); font-weight:400;">// Contient les données actuelle du menu principal</span>
       ...<span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">getApplicationMenu</span>().<span style="color:rgb(255, 255, 255); font-weight:400;">items</span>,
       {
@@ -181,7 +181,6 @@
         ],
       },
   ];
-  
   <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> menu = <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">buildFromTemplate</span>(mainMenu);
   <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">setApplicationMenu</span>(menu);</code></pre>
             </li>
@@ -193,10 +192,8 @@
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>
-            Etablissez une communication permettant d'effectuer un appel d'API
-          </li>
-          <li>Affichez le résultat dans le main renderer</li>
+          <li>Effectuez un appel d'API pour récupérer des données externes</li>
+          <li>Affichez le résultat dans le process renderer</li>
         </ol>
         <ul>
           <li>
@@ -206,28 +203,60 @@
               href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s4/travaux-pratiques/numero-3/ressources/patterns/fetch"
               target="_blank"
               rel="noopener noreferrer"
-              >Télécharger le TP3 (ouverture dans un nouvel
-              onglet)</a
+              >Télécharger le TP3 - S4 (ouverture dans un nouvel onglet)</a
             >
           </li>
         </ul>
         <section class="note-information">
           <p>
-            N'oubliez pas que vous êtes dans un environnement Nodejs, vous pouvez tout à fait séparer vos fichiers puis les importer via des modules. Cependant pour des questions de sécurité, ceci ne fonctionenra pas dans votre preload process dans le renderer process, il faudra utiliser des outils comme Parcel, vite ou webpack pour séparer votre preload process.
+            N'oubliez pas que vous êtes dans un environnement Nodejs, vous
+            pouvez tout à fait séparer vos fichiers puis les importer via des
+            modules. Cependant pour des questions de sécurité, ceci ne
+            fonctionenra pas dans votre preload process dans le renderer
+            process, il faudra utiliser des outils comme Parcel, vite ou webpack
+            pour séparer votre preload process.
           </p>
-          <p>Dans la ressource, il y a une config vite, pour l'utiliser, il faut installer vite via npm et la commande <code>npm install -D vite</code> et rajoutez la commande <code>vite build</code> dans l'objet "scripts" de votre fichier package.json. Et le fichier vite.config.js au même niveau que votre fichier package.json.</p>
-          <p>Dans les grandes lignes, la config vite surveille les modifications sur les fichers javascript et compile le tout dans un dossier dist/. Assurez-vous que les noms de vos scripts collent bien avec ceux de la configuration. Tout comme pensez bien à changer les chemins de fichiers pour qu'ils chargent les fichiers dans le dossier dist/.</p>
+          <p>
+            Dans la ressource, il y a un fichier de configuration pour vitejs,
+            pour l'utiliser, il faut installer vitejs via npm.
+          </p>
           <ol>
-              <li>Vous aurez besoin d'installer les dépendances suivantes via npm :
-                <ul>
-                  <li>npm install vite --save-dev</li>
-                  <li>npm install @rollup/plugin-node-resolve --save-dev</li>
-                </ul>
-              </li>
-              <li>Ajouter une tâche npm executant la commande "vite". Ceci va lancer un serveur</li>
-            </ol>
-          <p>Note : Il existe des configurations clé en main avec vite et electron. Comme <a href="https://electron-vite.org/" target="_blank">electron-vite</a> et <a href="https://github.com/vitejs/awesome-vite#get-started" target="_blank"
-            rel="noopener noreferrer">plein d'autres</a>. Rien ne vous empêche d'utiliser un de ses outils, toutefois, ils ont leur propre architecture de fichiers ce qui vous obligera à déplacer les vôtres pour la respecter.</p>
+            <li>
+              Vous aurez besoin d'installer les dépendances suivantes via npm :
+              <ul>
+                <li>npm install vite --save-dev</li>
+                <li>npm install @rollup/plugin-node-resolve --save-dev</li>
+              </ul>
+            </li>
+            <li>
+              Placez le fichier de configuration "vite.config.js" au même niveau
+              que votre fichier package.json
+            </li>
+            <li>
+              Ajoutez une tâche npm executant la commande "vite". Ceci va lancer
+              un serveur
+            </li>
+            <li>
+              Changez la fonction "loadFile()" en "loadURL()" dans votre main
+              process
+            </li>
+          </ol>
+          <p>
+            Note : Il existe des configurations clé en main avec vite et
+            electron. Comme
+            <a href="https://electron-vite.org/" target="_blank"
+              >electron-vite</a
+            >
+            et
+            <a
+              href="https://github.com/vitejs/awesome-vite#get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              >plein d'autres</a
+            >. Rien ne vous empêche d'utiliser un de ses outils, toutefois, ils
+            ont leur propre architecture de fichiers ce qui vous obligera à
+            déplacer les vôtres pour la respecter.
+          </p>
         </section>
       </details>
       <details class="consignes-conteneur">
@@ -241,6 +270,7 @@
           </li>
         </ol>
         <ul>
+          <li>Le CSS se lie à votre page HTML</li>
           <li>
             L'utilisation de bibliothèques CSS externes comme tailwindcss est
             possible. Leur utilisation est identique à ce que vous avez appris
@@ -248,11 +278,22 @@
           </li>
         </ul>
         <section class="note-information">
-          <p>Si vous souhaitez utiliser tailwindcss, l'outil vite s'y prête bien. Il vous suffit juste de suivre le didacticiel proposé par tailwindcss pour le configurer avec vite. Et ensuite de charger votre css dans le javascript. Ce fichier sera compilé à chaque sauvegarde.</p>
+          <p>
+            Si vous souhaitez utiliser tailwindcss, l'outil vite s'y prête bien.
+            Il vous suffit juste de suivre le didacticiel proposé par
+            tailwindcss pour le configurer avec vite. Et ensuite de charger
+            votre CSS dans le HTML.
+          </p>
           <ul>
-            <li><a href="https://tailwindcss.com/docs/guides/vite" target="_blank"
-              rel="noopener noreferrer">Accéeder au didacticiel tailwindcss + vite (ouverture dans un nouvel
-              onglet)</a></li>
+            <li>
+              <a
+                href="https://tailwindcss.com/docs/guides/vite"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Accéeder au didacticiel tailwindcss + vite (ouverture dans un
+                nouvel onglet)</a
+              >
+            </li>
           </ul>
         </section>
       </details>
@@ -265,34 +306,49 @@
             Affichez une notification native lorsque votre chargement d'API est
             terminé avec le contenu que vous souhaitez.
             <ul>
-              <li><a href="https://www.electronjs.org/docs/latest/api/notification" target="_blank" rel="noopener noreferrer">Accéder à la documentation de Notification (ouverture dans un nouvel
-                onglet)</a></li>
+              <li>
+                <a
+                  href="https://www.electronjs.org/docs/latest/api/notification"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Accéder à la documentation de Notification (ouverture dans un
+                  nouvel onglet)</a
+                >
+              </li>
               <li>
                 Pour éviter que la notification s'affiche dès que vous faites
-                l'appel d'API, vous pouvez ralentir l'exécution avec une promesse.
-                Vous pouvez utiliser le code suivant :
+                l'appel d'API, vous pouvez ralentir l'exécution avec une
+                promesse. Vous pouvez utiliser le code suivant :
                 <p>
                   <code
-                    >const delay = ms => new Promise(resolve => setTimeout(resolve,
-                    ms));
+                    >const delay = ms => new Promise(resolve =>
+                    setTimeout(resolve, ms));
                   </code>
                 </p>
               </li>
             </ul>
           </li>
         </ol>
-        <section class="note-information">Note : Si vous êtes sous Windows, votre notification aura pour en-tête "electron.app.Electron", c'est le nom par défaut de l'application. Normalement, lorsque vous faites un build, c'est le nom de l'application qui apparaît. Vu que nous sommes toujours en dev, nous allons devoir forcer le nom via un peu de code. 
+        <section class="note-information">
+          Note : Si vous êtes sous Windows, votre notification aura pour en-tête
+          "electron.app.Electron", c'est le nom par défaut de l'application.
+          Normalement, lorsque vous faites un build, c'est le nom de
+          l'application qui apparaît. Vu que nous sommes toujours en mode
+          développement, nous allons devoir forcer le nom via un peu de code.
           <ol>
-            <li>Dans le fichier package.json, rajoutez à la racine de l'objet, la clé "productName" avec la valeur souhaitée.</li>
-            <li>Dans le fichier de départ, rajoutez le bloc suivant :<pre>
-  <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">if (process.platform === &#x27;win32&#x27;)
+            <li>
+              Dans le fichier package.json, rajoutez à la racine de l'objet, la
+              clé "productName" avec la valeur souhaitée.
+            </li>
+            <li>
+              Dans le main process, rajoutez le bloc suivant :
+              <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">if (process.platform === &#x27;win32&#x27;)
 {
       app<span style="color:rgb(136, 174, 206); font-weight:400;">.setAppUserModelId</span>(app.name);
 }</code></pre>
             </li>
           </ol>
         </section>
-        
       </details>
     </header>
   </body>
