@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exemples Content Security Policy - TP4 Electron</title>
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' 'unsafe-inline'; img-src *; "
+    />
     <style>
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -19,6 +24,18 @@
       pre {
         font-size: 1rem;
       }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+
+      .note-information {
+        font-family: Helvetica, Arial, sans-serif;
+        border-left: 5px solid rgb(4, 0, 255);
+        padding: 1rem;
+        font-size: 1.25rem;
+        background-color: #96d4f638;
+      }
     </style>
   </head>
 
@@ -30,16 +47,18 @@
         sécurité d'un site web pour en limiter les attaques malicieuses dont les
         attaques XSS (Cross-site scripting). L'idée est de finir quels types de
         ressources (images, iframe, CSS...) et de quels sites, votre site web
-        peut charger. <b>Une CSP est composé d'une directive, qui indique le type de ressource, et d'un comportement.</b>
+        peut charger. <b>Une CSP est composé d'une directive, qui indique le type de ressource, et d'une source, précisant les domaines d'application.</b>
       </p>
       <ul>
         <li><a href="https://content-security-policy.com/#directive" target="_blank" rel="noopener noreferrer">Accéder à la liste des directives</a></li>
       </ul>
+
+      <p class="note-information">Au cours de votre formation, vous avez dû voir la fonction php "htmlentities()" qui vous permet d'échapper les caractères dans les formulaires. Si son utilisation est toujours conseillée, le CSP est un excellent complément de sécurité qu'il ne faut pas oublier.</p>
       <p>
         Dans le cas d'electron, nous avons vu que tout chargement de ressource
-        externe était bloqué pour éviter d'exécuter du code nuisible à votre
-        application. Dans le cas d'electron, cette sécurité très restrictive a
-        été mise en place notamment parce que l'outil à accès à Node et donc,
+        externe était bloqué pour éviter d'exécuter du code potentiellement nuisible à votre
+        application. Cette sécurité très restrictive a
+        été mise en place notamment parce que l'outil a accès à Node et donc,
         par extension, aux API du système d'exploitation de l'utilisateur.
       </p>
     </header>
@@ -47,7 +66,7 @@
       <p>
         Nous allons illustrer un ensemble d'exemples non-exhautifs vous permettant de modifier
         vos règles CSP dans le but d'avoir plus de souplesse dans le chargement
-        des ressources de vos sites et applications electron
+        des ressources de vos sites et applications electron.
       </p>
       <p>
         Pour éviter de présenter du code trop lourd dans les exemples, nous
@@ -55,20 +74,22 @@
         &lt;meta> avec les attributs http-equiv="Content-Security-Policy" et
         "content".
       </p>
-      <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy: REGLE-CSP&quot;</span>/&gt;</span></code></pre>      
+      <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;REGLE-CSP&quot;</span>/&gt;</span></code></pre>      
       <p>Ainsi pour chaque règle dans les exemples, vous n'aurez qu'à remplacer "REGLE-CSP" par la règle de l'exemple.</p>
-      <p>Note : Il est possible d'appliquer plusieurs règles en même temps en affichant plusieurs fois le code ci-dessus.</p>
+      <p>Note : Dans l'ancienne version de CSP, on utilisait la valeur "X-Content-Security-Policy", préférez l'utilisation de "Content-Security-Policy".</p>
+      <p>Note 2 : Pensez bien à vérifier sur MDN si la directive utilisée est gérée par les navigateurs que vous ciblez.</p>
 
       <section>
         <h1>Domaine courant autorisé</h1>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"> <span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span>;</code></pre>
-        <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Ainsi, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS.</p>
+        <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Ainsi, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS en provenance d'un CDN.</p>
+        <p>La directive "default-src" représente toutes les directives et sert de fallback lorsque des directives sont manquantes.</p>
       </section>
 
       <section>
         <h1>Tout interdit</h1>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;none&#x27;</span>;</code></pre>
-        <p>Règle CSP interdit le chargement de toute ressource externe venant de votre propre domaine / application. Ceci peut être utile (?)</p>
+        <p>Règle CSP interdit le chargement de toute ressource externe venant de votre propre domaine / application. Cette règle est souvent utilisé avec d'autres directives pour plus facilement exclure le reste. Mais seule, elle ne sert pas à grand-chose.</p>
       </section>
 
       <section>
@@ -87,7 +108,7 @@
       <section>
         <h1>Type de ressource autorisée</h1>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span> *.example.com; img-src www.exemple.com;</code></pre>
-        <p>Dans certains cas, vous pouvez trouver intéressant de charger des ressources que d'un seul type pour un domaine. Dans l'exemple ci-dessus le domaine exemple.com n'est autorisés qu'aux images, ainsi toute autre ressource sera refusée. Il existe d'autres types de ressources/directives : <a href="https://content-security-policy.com/#directive" target="_blank">Accéder à la liste des directives</a></p>
+        <p>Dans certains cas, vous pouvez trouver intéressant d'autoriser un seul type de ressources <a href="https://content-security-policy.com/#directive" target="_blank">parmi celles gérées par CSP.</a> Dans l'exemple ci-dessus le domaine exemple.com n'est limité qu'aux images, ainsi toute autre ressource sera refusée en provenance de ce domaine.</p>
         <p>Avec cet exemple, on apprend que chaque règle doit espacée par un point-virgule (;) et que la directive "default-src" désigne toutes les directives. Enfin, si vous avez plusieurs balises avec l'attribut "http-equiv="Content-Security-Policy"" le navigateur appliquera la règle la plus restrictive. Ainsi dans l'exemple suivant : </p>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;img-src *;&quot;</span> /&gt;</span>
 <span style="color:rgb(137, 189, 255); font-weight:400;">&lt;<span style="color:rgb(137, 189, 255); font-weight:400;">meta</span> <span style="color:rgb(137, 189, 255); font-weight:400;">http-equiv</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy&quot;</span> <span style="color:rgb(137, 189, 255); font-weight:400;">content</span>=<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;default-src &#x27;self&#x27; https://www.youtube.com/;&quot;</span>/&gt;</span></code></pre>
@@ -96,16 +117,48 @@
       </section>
       <section>
         <h1>Javascript et CSS "inline"</h1>
-        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;">style-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;unsafe-inline&#x27;</span></code></pre>
-        <p>Le CSP bloque également le javascript et le CSS utilisés en attribut. Pour l'activer, il faudra utiliser la directive "unsafe-inline". Il est possible de préciser des domaines pour cette directive.</p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;">style-src <span style="color:rgb(51, 135, 204); font-weight:400;">&#x27;self</span><span style="color:rgb(101, 176, 66); font-weight:400;">&#x27; &#x27;</span><span style="color:rgb(226, 137, 100); font-weight:400;">unsafe</span>-inline&#x27;</code></pre>
+        <p>Le CSP bloque également le javascript et le CSS "inline", autrement dit les attributs "style", "onclick"... ou contenant directement du code dans les balises &lt;style> ou &lt;script> dans la page sont bloqués. Pour les activer, il faudra utiliser le mot-clé "unsafe-inline". Il est possible de préciser si on cible la balise ou l'attribut via les directives "script-src-elem" et "script-src-attr" respectivement. Dans cet exemple, la directive "style-src" cible à la fois l'attribut class et les balises &lt;style> et &lt;link>.</p>
+        <p>Par la présence du terme "unsafe", il est recommandé d'utiliser un <a href="https://content-security-policy.com/nonce/" target="_blank">nonce (number used once)</a> ou un <a href="https://content-security-policy.com/hash/" target="_blank">hash</a> plutôt que "unsafe-inline" pour avoir une meilleur sécurité.</p>
+        <p>Note : "unsafe-inline" peut s'appliquer sur la directive "default-src".</p>
       </section>
+      <section>
+        <h1>Reporting CSP / Tester ses règles CSP</h1>
+        <p>Dans l'éventualité où vous auriez envie d'implémenter CSP sans tout casser sur votre site, CSP propose la valeur "Content-Security-Policy-Report-Only". L'idée est de lever une alerte à chaque fois qu'une règle CSP n'est pas respectée.</p>
+        <p>Cette erreur peut prendre la forme d'un console.error() ou d'une requête POST qui envoie un JSON à une URL spécifiée. Cette deuxième méthode a connu des évolutions, de ce fait, certains navigateurs n'implémentent pas encore la dernière version. Nous allons donc vous montrer les deux méthodes envoi de requête. Dans les deux cas, il faut impérativement un serveur.</p>
+
+        <h2>Ancienne version - report-uri</h2>
+        <p>Ancienne méthode de reporting, la directive CSP report-uri prend en source une url qui va recevoir un JSON contenant divers valeurs comme la règle CSP non respectée ou l'élément chargé fautif.</p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 150, 168); font-weight:400;">&lt;?php</span>
+  <span class="hljs-title function_ invoke__">header</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy-Report-Only: default-src &#x27;self&#x27; https://www.youtube.com/; report-uri mon.url...;&quot;</span>);</code></pre>
+        <p>Dans l'exemple ci-dessus en PHP, à chaque problème CSP, nous envoyons vers l'URL "mon.url" l'erreur levée. Ce JSON peut être consommé pour remplir une base de données ou envoyer des e-mails, à vous de voir.</p>
+
+        <h2>Version moderne - report-to</h2>
+        <p>Méthode moderne mais en cours de modifications, la directive CSP report-to fonctionne avec un autre header HTTP appelé "Report-To", cet header liste tous les liens vers lesquels vous souhaitez récupérer les erreurs.</p>
+        <p class="note-information">La directive "report-to" ne fonctionne pas avec tous les navigateurs. Elle échouera silencieusement si l'URL qui a le header HTTP "Report-To" n'est pas https://.</p>
+        <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(248, 248, 248); font-weight:400;">&lt;?</span>php
+  header(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy-Report-Only: default-src &#x27;self&#x27; https://www.youtube.com/; report-to csp-report;&quot;</span>);
+  header(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Report-To: { <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>group<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>: <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>csp-report<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>, <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>max_age<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>: 10886400, <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>endpoints<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>: [ { <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>url<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>: <span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span>http://mon.url<span style="color:rgb(218, 239, 163); font-weight:400;">\&quot;</span> } ] }&quot;</span>);</code></pre>
+        <p>Comparé à l'ancienne méthode où on définissait directement l'URL qui allait recevoir nos requêtes. Ici on écrit le nom d'un groupe qui se trouve dans le header "Report-To". Ce qui fait qu'il est possible de définir plusieurs URL pour recevoir les erreurs CSP. Dans l'exemple, <a href="https://csplite.com/csp181/#group" target="_blank">nous avons un objet contenant quatre clés dont une sous-clé.</a></p>
+        <ul>
+          <li>group - optionnel : Chaîne de caractères permettant d'associer un groupe d'URL. En cas d'absence, ce groupe est considéré comme étant à utiliser par défaut</li>
+          <li>max_age - requis : Représente la durée de vie d'un groupe. La valeur doit être positive. Elle est exprimée en secondes et le décompte commence dès sa première utilisation. Une fois le décompte terminé le groupe ne sera plus utilisé</li>
+          <li>endpoints - requis : Représente l'ensemble des URL d'un groupe</li>
+          <li>endpoints.url - requis : URL vers laquelle nos erreurs vont être envoyées</li>
+        </ul>
+      </section>
+      <p>Il est possible de définir plusieurs groupes en les séparant par des virgules (,). Egalement, la directive "report-to" est également utilisable avec "Content-Security-Policy" tout comme "report-uri.</p>
+      <p>L'exemple donné ici fonctionne avec n'importe quel langage côté serveur. Les headers HTTP "Content-Security-Policy-Report-Only" et "Report-To" ont été implémentés dans la config vite.</p>
       <hr>
-      <p>Il existe d'autres règles et cas, mais nous avons couvert dans les grandes lignes le fonctionnement de CSP. Si vous avez besoin de plus d'informations vous avez les sites suivants :</p>
+      <p>Il existe d'autres règles et cas, mais nous avons couvert dans les grandes lignes le fonctionnement de CSP. Si vous avez besoin de plus d'informations vous avez les ressources suivantes :</p>
       <ul>
         <li><a href="https://content-security-policy.com/" target="_blank" rel="noopener noreferrer">Documentation officielle de CSP (en anglais)</a></li>
         <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/CSP#exemples_pour_les_cas_courants" target="_blank" rel="noopener noreferrer">Documentation de CSP sur MDN</a></li>
+        <li><a href="https://content-security-policy.com/#directive" target="_blank" rel="noopener noreferrer">Liste des directives CSP (en anglais)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=mr230uotw-Y" target="_blank" rel="noopener noreferrer">Content Security Policies: Let's Break Stuff • Matt Brunt • GOTO 2018 (en anglais)</a></li>
+        <li><a href="https://developer.chrome.com/articles/reporting-api/" target="_blank" rel="noopener noreferrer">Exemples API Reporting moderne (en anglais)</a></li>
         <li>
-          <a href="https://stackoverflow.com/questions/30280370/how-does-content-security-policy-csp-work" target="_blank" rel="noopener noreferrer">Exemple sur Stackoverflow (en anglais)</a>
+          <a href="https://stackoverflow.com/questions/30280370/how-does-content-security-policy-csp-work#tab-top" target="_blank" rel="noopener noreferrer">Explications sur Stackoverflow (en anglais)</a>
         </li>
       </ul>
     </main>

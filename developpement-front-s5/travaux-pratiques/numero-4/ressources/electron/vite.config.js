@@ -18,8 +18,14 @@ export default defineConfig(() => {
     ],
     root: path.resolve(__dirname, 'src'),
     server: {
-      port: 9117,
-      open: false, 
+      port: 7777,
+      open: false,
+      headers: {
+        "Content-Security-Policy-Report-Only": "default-src 'self' https://www.youtube.com/; report-uri http://localhost:8000/csp-report.php;",
+        // OU (plus moderne) - Ne fonctionne qu'en HTTPS !
+        // "Content-Security-Policy-Report-Only": "default-src 'self' https://www.youtube.com/; report-to endpoint"
+        // "Reporting-Endpoints": "endpoint="https://localhost:8000/csp-report.php",
+      }
     },
   };
 });
