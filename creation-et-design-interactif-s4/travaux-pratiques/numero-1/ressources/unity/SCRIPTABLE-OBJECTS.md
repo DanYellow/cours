@@ -1,10 +1,14 @@
 # ScriptableObjects (abréviation SO)
 
-Un ScriptableObject est un conteneur de données, les données conservées peuvent être de multiples types :
-- Primitives : entier (int), chaînes de caractères (string), tableau (array)...
-- Complexes : GameObject, Transform, Vector2, Sprite...
+Un ScriptableObject est un conteneur de données suivant un template que vous aurez défini. Ces templates peuvent contenir un ou plusieurs propriétés de plusieurs types :
+- Primitives : entier (int), chaînes de caractères (string)...
+- Complexes : GameObject, Transform, Vector2, tableau (array), Sprite...
 
-L'un des grands avantages des ScriptableObjects est leur limitation en terme d'empreinte dans la mémoire. En effet, ils limitent la copie d'objets là où un objet MonoBehaviour aurait copié toutes les données dont il aurait besoin. Par exemple, admettons que nous souhaitons faire un jeu vidéo avec un marchand proposant des bateaux de combat et dont la structure suivante :
+Ils sont souvent utilisés lorsque vous avez plusieurs objets qui ont la même structure de données. Par exemple, les éléments d'un inventaire dans un jeu vidéo se prêtent bien pour être des ScriptableObjects.
+
+L'un des grands avantages des ScriptableObjects est leur limitation en terme d'empreinte dans la mémoire. En effet, ils limitent la copie d'objets là où un objet MonoBehaviour aurait copié toutes les données autant de fois qu'il aurait été utilisé. 
+
+Par exemple, admettons que nous souhaitons faire un jeu vidéo avec des marchands proposant des bateaux et dont la structure suivante :
 ![Alt text](bateaux-SO.jpg)
 | **name**        | Trois-mâts | Sous-marin |
 |-----------------|---------:|------------|
@@ -14,16 +18,19 @@ L'un des grands avantages des ScriptableObjects est leur limitation en terme d'e
 | **levelRequired** | 21      | 42        |
 | **...** | ...      | ...        |
 
-Même si ces deux bateaux sont des instances d'une classe `Boat`, est-il besoin que ces deux bateaux stockent au sein de leur propre instance de classe `MonoBehaviour` les dégâts ou leur prix ? Non. Il est plus intéressant de stocker dans un endroit les données et utiliser, en fonction, ces données dans la même classe. Et pour les données, nous allons utiliser un ScriptableObject. 
+Si dans votre jeu possède 10 marchands sur la même scène, chacun d'eux aura ses propres instances des mêmes bateaux pour les vendre. Causant ainsi une occupation de mémoire inutile. 
 
+En utilisant les ScriptableObjects chaque bateau instancié ira chercher ses données au même endroit, et ce, quelque soit le nombre de vendeurs sur votre scène. Ainsi que vous ayez 10 ou 1 000 vendeurs, les bateaux proposés occuperont le même espace mémoire (sensiblement).
+ 
 Au-delà de la diminution de l'usage de la mémoire, les ScriptableObjects possèdent les avantages suivants :
 - **Ils existent dans les Assets.** Pas de réinitialisation de valeur si on les modifie (dans le jeu ou l'éditeur) et qu'on arrête le mode "Play". Ainsi, il est possible de passer des informations d'une scène à l'autre
     - **Néanmoins les ScriptableObjects ne sont pas un moyen de sauvegarder les données du joueur dans un vrai build**
 - **Limitent le couplage entre les GameObjects.** On veut le plus possible limiter le couplage dans le code, ça nous permet d'utiliser un GameObject seul sans en importer d'autres dont on n'en aurait pas besoin dans une autre scène
     - Un exemple souvent utilisé est celui des points de vie du joueur. En utilisant un ScriptableObject pour gérer les points de vie du joueur, des GameObjects peuvent lire la valeur pour s'adapter en fonction : ennemis plus aggressifs, mouvement du joueur plus lents, plus rapides... sans pour autant interconnecter tous ces GameObjects
+    > En somme, les ScriptableObjects permettent d'appliquer le MVC dans Unity. Le Modèle étant le ScriptableObject, la Vue vos scènes et le Contrôleur le script C# MonoBehaviour
 - **Utilisables par des non-développeurs.** Dans certains studios de jeu, ce sont les game designers qui s'occupent de les créer. Les développeurs les utilisant ensuite dans leur code et bien évidemment développent la structure des données
-- **Existent au-delà de la scène.** Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre
-- **Centralisent les données.** Vu que plusieurs GameObjet lisent le même ScriptableObject, il suffit de l'éditer pour voir les modifications partout dans votre projet
+- **Existent au-delà de la scène.** Un ScriptableObject est très utile pour faire passer les informations d'une scène à l'autre de façon propre. Par exemple, les points de vie du joueur
+- **Centralisent les données.** Vu que plusieurs GameObject lisent le même ScriptableObject, il suffit de l'éditer pour appliquer les modifications partout dans votre projet
 
 > **Pourquoi pas un Singleton ?**
 > 
@@ -41,7 +48,7 @@ public class BoatWeaponData : ScriptableObject
 
 }
 ```
-Dans le code ci-dessus, la grande différence avec les classes que nous avons faites jusqu'à présent c'est qu'elle hérite de `ScriptableObject`. Pour le reste, ça fonctionne plus ou moins comme avant, on définit des propriétés publiques ou privées ainsi que des méthodes, elles aussi à niveau de visibilité variable (private / public). Notez tout de même que les méthodes `Update()` ou `Awake()` ne sont pas utilisables avec un ScriptableObject néanmoins vous pouvez utiliser la méthode `Awake()` ou encore référencer un ScriptableObject dans un autre ScriptableObject.
+Dans le code ci-dessus, la grande différence avec les classes que nous avons faites jusqu'à présent c'est qu'elle hérite de `ScriptableObject`. Pour le reste, ça fonctionne plus ou moins comme avant, on définit des propriétés publiques ou privées ainsi que des méthodes, elles aussi à niveau de visibilité variable (private / public). Notez tout de même que les méthodes `Update()` ou `Awake()` ne sont pas utilisables avec un ScriptableObject néanmoins vous pouvez utiliser la méthode `Start()` ou encore référencer un ScriptableObject dans un autre ScriptableObject.
 
 Sinon, si on reprend le cas de nos bateaux en ScriptableObject, nous voulons avoir les informations suivantes pour chaque bateau :
 - damage (int) - dégâts
