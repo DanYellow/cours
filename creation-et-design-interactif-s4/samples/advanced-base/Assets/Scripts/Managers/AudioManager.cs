@@ -73,6 +73,7 @@ public class AudioManager : MonoBehaviour
 
     public void OnTogglePause(bool isGamePaused)
     {
+        // AudioListener.pause = isGamePaused;
         if(isGamePaused) {
             StopAllCoroutines();
             StartCoroutine(DecreaseVolume());

@@ -69,15 +69,13 @@ Par exemple, une fonction qui affiche dans la console la somme de deux entiers. 
 void Addition(int num1, int num2)
 {
     int sum = num1 + num2;
-    print("Résultat somme : " + sum);
+    Debug.Log("Résultat somme : " + sum);
 }
 ```
 
-> La méthode `print()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
-> - [Voir documentation de la méthode print()](https://docs.unity3d.com/ScriptReference/MonoBehaviour-print.html)
->
-> A noter qu'il existe également la méthode `Debug.Log()` qui est un alias de `debug()`
+> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
 > - [Voir documentation de la méthode Debug.Log()](https://docs.unity3d.com/ScriptReference/Debug.Log.html) 
+
 
 Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
 ```cs
@@ -88,11 +86,11 @@ int Addition(int num1, int num2)
 }
 
 int sum = Addition(5, 6);
-print("Résultat somme : " + sum);
+Debug.Log("Résultat somme : " + sum);
 ```
-On remarque qu'en plus d'avoir le mot-clé "return", "void" a été remplacé par "int" car notre fonction retourne une variable de type entier (int).
+On remarque qu'en plus d'avoir le mot-clé "return" dans la fonction, "void" a été remplacé par "int" car notre fonction retourne une variable de type entier (int).
 
-Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` ou `while` car la syntaxe est la même comparée aux autres langages que vous avez pu voir durant votre BUT. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
+Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` ou `while` car la syntaxe est la même comparée aux autres langages que vous avez pu voir jusqu'à présent. Toutefois si vous avez un trou de mémoire, sachez que la chaîne Youtube Tuto Unity FR aborde ces sujets dans sa liste de lecture "Apprendre le C#".
 - [Voir liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) 
 
 > Comme les noms de variables, les noms de fonctions doivent avoir un nom unique au sein de la même classe
@@ -144,7 +142,7 @@ void Update()
     if (Input.GetKeyDown(KeyCode.V))
     {
         // Mes instructions
-        print("J'ai appuyé sur la touche V");
+        Debug.Log("J'ai appuyé sur la touche V");
     }
 }
 ```
@@ -169,16 +167,12 @@ Créez un GameObject depuis le panneau "Hierarchy" `Clic droit > Create Empty` o
 
 ---
 > Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
-Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement après avoir installé Unity, il faut quand même sélectionner le SDK Visual Studio lors de l'installation. Si vous souhaitez utiliser VS Code ou Sublime Text, vous devrez installer des extensions :
-- [Extension VS Code - Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
-- [Extension VS Code - Unity Code Snippets](https://marketplace.visualstudio.com/items?itemName=kleber-swf.unity-code-snippets)
-- [Didacticiel Unity et Sublime Text - anglais](https://www.youtube.com/watch?v=a-kE-CmjftE)
+Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement après avoir installé Unity, il faut quand même sélectionner les extensions liées à Unity lors de l'installation. 
 
-> Si vous utilisez VS Code, voici des liens qui expliquent comment faire :
-> - [Configurer VSCode + Unity MacOS](https://www.youtube.com/watch?v=3GVGyooZ8jk) 
-> - [Configurer VSCode + Unity Windows](https://www.youtube.com/watch?v=ihVAKiJdd40)
-> - [Configurer VSCode + Unity MacOS ou Windows](https://unity.com/how-to/debugging-with-microsoft-visual-studio-code)
-> Vous n'avez pas besoin d'installer toutes les extensions mais les deux plus haut sont indispensables.
+Si vous souhaitez utiliser VS Code, vous devrez suivre la démarche suivante :
+- [Extension VS Code - Unity](https://devblogs.microsoft.com/visualstudio/announcing-the-unity-extension-for-visual-studio-code/)
+
+> Il ne faut en aucun cas installer le package "Visual Studio **Code** Editor", il est désuet et provoquera des conflits avec Visual Studio Code et à coup sûr, vous n'aurez pas l'auto-complétion de code. 
 
 Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
 - MacOS : 
@@ -194,10 +188,10 @@ Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également 
 
 Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
 
-Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :
-- [Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)
-Attention tout de même, dans certains cas l'installation du SDK peut mal se dérouler et vous n'aurez pas l'autocomplétion des méthodes d'Unity. Il faudra vous réferrer au lien suivant pour résoudre votre problème :
-- [Aide sur les problèmes de SDK .NET - anglais](https://github.com/OmniSharp/omnisharp-vscode/wiki/Troubleshooting:-'The-.NET-Core-SDK-cannot-be-located.'-errors)
+~~Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :~~
+- ~~[Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)~~
+~~Attention tout de même, dans certains cas l'installation du SDK peut mal se dérouler et vous n'aurez pas l'autocomplétion des méthodes d'Unity. Il faudra vous réferrer au lien suivant pour résoudre votre problème :~~
+- ~~[Aide sur les problèmes de SDK .NET - anglais](https://github.com/OmniSharp/omnisharp-vscode/wiki/Troubleshooting:-'The-.NET-Core-SDK-cannot-be-located.'-errors)~~
 
 Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
 
@@ -260,7 +254,7 @@ public class MyClass : MonoBehaviour
 
     void Start()
     {
-        // Note : Avec le caractère $, il est possible d'afficher une variable (et plus) dans une chaîne de caractères
+        // Note : Avec le caractère $, il est possible d'afficher une variable dans une chaîne de caractères
         Debug.Log($"nbYearsBUT {nbYearsBUT}");
     }
 
@@ -274,8 +268,10 @@ public class MyClass : MonoBehaviour
     /* [...] */
 }
 ```
+Il existe d'autres conventions de programmation liée à Unity / C#, vous n'avez pas forcément besoin de les suivre à la lettre mais de rester cohérent dans votre projet.
+- [Ensemble de conventions de programmation en C# / Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity)
 
-> En plus du caractère "$", il est possible de formater le texte avec des balises ressemblant à du HTML. Ainsi en écraivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
+> Le formattage de texte est possible avec des balises ressemblant à du HTML. Ainsi en écrivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
 
 Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir durant ce cycle de cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
@@ -293,8 +289,7 @@ Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous av
 
 Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts (anglais)](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
-
-- [Ensemble de conventions de programmation en C# / Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity). Pour rappel, les conventions de programmation sont là pour vous aider à comprendre votre code et celui des autres. Vous ne devez pas appliquer à la lettre les conventions du lien, toutefois nous vous conseillons d'en définir.
+- Il y a également le menu dédié accessible via `Edit > Shortcuts` (Windows) ou `Unity > Shortcuts` (MacOS)
 
 > Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement votre projet (pas officiellement) et vous pourriez perdre quelques heures de travail précieuses.
 
@@ -302,11 +297,11 @@ Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous ê
 
 Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants.
 
-### Listes de dossiers/fichiers à copier sur clé ou pousser sur git
+### Liste de dossiers/fichiers à copier sur une clef usb / disque dur ou pousser sur git
 - Assets/
 - Packages/
 - ProjectSettings/
 - UserSettings/
 
-**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à chaque ouverture de projet.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
+**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués et inutiles au bon fonctionnement du projet. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)

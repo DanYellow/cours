@@ -30,7 +30,7 @@ public class ExampleClass : MonoBehaviour
     public GameObject target;
     public Vector3 destination;
 
-    void Start()
+    void Awake()
     {
         target = GameObject.FindWithTag("MyTag");
         // [...]
@@ -57,7 +57,9 @@ public class ExampleClass : MonoBehaviour
 }
 ```
 
-Par ailleurs, vous comparerez souvent le tag d'un GameObject avec un tag attendu, là encore, pour des question de performances, il faudra penser à utiliser la méthode `CompareTag()` plutôt qu'une égalité stricte `==`.
+> Quelque soit la méthode utilisée pour récupérer un élément, si vous en avez besoin dès le lancement d'une scène, il faut utiliser la méthode `Awake` et non `Start`. Car cette dernière n'est pas appelée si votre GameObject est désactivé. [Pour en savoir plus](https://www.youtube.com/watch?v=4QdjoV63wjM).
+
+Par ailleurs, vous comparerez souvent le tag d'un GameObject avec un tag attendu, là encore, pour des questions de performances, il faudra penser à utiliser la méthode `CompareTag()` plutôt qu'une égalité stricte `==`.
 
 Exemple :
 
@@ -81,7 +83,12 @@ private void OnCollisionEnter2D(Collision2D other)
 }
 ```
 
-> Notez bien que la méthode `CompareTag()` est sensible à la case, conséquemment "Player" et "player" sont deux termes différents pour la méthodes. Faites attention.
+> Notez bien que la méthode `CompareTag()` est sensible à la case, conséquemment "Player" et "player" sont deux termes différents pour la méthode. Faites attention.
+
+Il existe également la méthode `Find()`, elle prend en paramètre une chaîne de caractères représentant le nom d'un GameObject dans la hierachie à partir de la racine. Si vous souhaitez récupérer un sous-élément, il faudra mettre le chemin complet, comme nous le ferions en HTML avec le chargement de ressources.
+
+Comme la méthode `FindWithTag()`, `Find()` est très coûteuse en ressource, pensez à cacher les résultats pour les réutiliser plus tard.
+
 
 ## Layer (ou calque en français)
 

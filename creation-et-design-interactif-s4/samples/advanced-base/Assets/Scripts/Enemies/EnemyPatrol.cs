@@ -75,7 +75,7 @@ public class EnemyPatrol : MonoBehaviour
         Debug.DrawLine(startCast, endCast, Color.green);
 
         RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
-        if ((hitObstacle.collider != null || !hasCollisionWithObstacle))
+        if (hitObstacle.collider != null || !hasCollisionWithObstacle)
         {
             StartCoroutine(Flip());
         }

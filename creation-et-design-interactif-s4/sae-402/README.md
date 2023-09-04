@@ -74,13 +74,12 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
     - Pensez bien à créer la condition pour aller au niveau suivant
         - Exemple : Une zone de trigger
-- Un écran d'accueil (écran qui permet de commencer le jeu)
+- Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
         - Le nom du jeu
         - De quoi commencer le jeu au premier niveau
             - Il y a déjà un bouton, il faut ajouter une fonction pour charger le premier niveau
-    - Essayez de rendre l'écran attrayant. Pourquoi pas des animations ?
     - Pour rappel, ici il faudra utiliser un Canvas
     - **Ceci nécessite donc de donner un nom à votre jeu également**
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
@@ -120,7 +119,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
 
-## Liste des choses à faire au choix. Vous devez au moins en faire une
+<span id="list-extras"></span>
+## Liste des choses à faire au choix. Vous devez au moins en faire une (deux si vous êtes plus de trois dans votre groupe)
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
@@ -141,9 +141,6 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création en pixelart. Sinon, il y a Photoshop
 - Un écran d'accueil personnalisé (celui où est affiché le logo Unity au lancement du jeu dans la version de build). Il y a ce didacticiel pour en savoir plus :
     - [Didacticiel sur l'écran d'accueil personnalisé d'Unity - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
-- Ecran de chargement asynchrone de la scène
-    - [Didacticiel sur l'écran de chargement asynchrone - anglais](https://www.youtube.com/watch?v=BY40xbA5qYQ)
-    - Note : compte-tenu du jeu, il est fort probable que la scène de chargement ne s'affiche même pas 3 secondes
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez réaliser cette tâche via un niveau de didacticiel, un menu dédié ou tout simplement du texte affiché directement dans la scène
         - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)  
@@ -152,6 +149,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - Voir le tutoriel sur le [package Localization](https://www.youtube.com/watch?v=qcXuvd7qSxg)
     - Pensez bien à sauvegarder les préférences de l'utilisateur grâce au `PlayerPrefs`
 - Réécrire sous forme de ScriptableObject les statistiques du joueur (nombre de sauts maximum, vitesse de déplacement...). Toutes ces informations peuvent tenir dans une seule et unique classe
+- Système de parallax
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
@@ -179,6 +177,7 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 # Console de debug
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab "DebugConsole", elle s'affiche via le raccourci `ctrl/command + b`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
 
+
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
@@ -205,9 +204,10 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
 
 # Travail en groupe
-Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq, maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
+Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
 - Ajouter deux niveaux supplémentaires (portant le total de niveaux à quatre)
 - Ajouter un nouvel ennemi au choix
+- Réaliser deux fonctionnalités (au lieu d'une) dans la partie [Liste des choses à faire au choix...](#list-extras)
 
 Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Pensez à utiliser git, ça vous permettra d'avancer à votre allure. 
 

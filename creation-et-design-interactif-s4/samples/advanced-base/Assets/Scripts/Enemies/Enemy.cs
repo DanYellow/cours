@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            UnityEngine.Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
+            Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
             spriteRenderer.color = hitColor;
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = new Color(1, 1, 1, 1);
