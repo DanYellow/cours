@@ -29,11 +29,15 @@ public class EnemyPatrol : MonoBehaviour
 
     public LayerMask obstacleLayersMask;
 
+    public WaitForSeconds waitWalkTime;
+    public WaitForSeconds waitIdleTime;
+
     private void Awake()
     {
         // We don't want the script to be enabled by default
         enabled = false;
-    
+        waitWalkTime = new WaitForSeconds(walkTime);
+        waitIdleTime = new WaitForSeconds(idleTime);
     }
 
     private void Start()
@@ -87,11 +91,11 @@ public class EnemyPatrol : MonoBehaviour
         {
             // Enemy will walk during X seconds...
             isIdle = false;
-            yield return new WaitForSeconds(walkTime);
+            yield return waitWalkTime;
 
             // ...then wait during X seconds...
             isIdle = true;
-            yield return new WaitForSeconds(idleTime);
+            yield return waitIdleTime;
         }
     }
 

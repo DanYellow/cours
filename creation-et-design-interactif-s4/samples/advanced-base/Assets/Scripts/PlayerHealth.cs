@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
     public float invincibilityFlashDelay = 0.2f;
     public float invincibilityTimeAfterHit = 2.5f;
 
+    private WaitForSeconds waitInvincibilityFlashDelay;
+    private WaitForSeconds waitInvincibilityTimeAfterHit;
+
 
     [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
@@ -28,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
         {
             playerHealth.currentValue = playerHealth.maxValue;
         }
+        waitInvincibilityFlashDelay = new WaitForSeconds(invincibilityFlashDelay);
+        waitInvincibilityTimeAfterHit = new WaitForSeconds(invincibilityTimeAfterHit);
     }
 
     private void OnEnable() {
@@ -68,16 +73,16 @@ public class PlayerHealth : MonoBehaviour
         while (isInvincible)
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return waitInvincibilityFlashDelay;
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(invincibilityFlashDelay);
+            yield return waitInvincibilityFlashDelay;
         }
     }
 
     public IEnumerator HandleInvincibilityDelay()
     {
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityTimeAfterHit);
+        yield return waitInvincibilityTimeAfterHit;
         isInvincible = false;
     }
 
