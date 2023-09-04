@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
-
+                onPassThroughPlatforms.Raise();
             }
             else
             {
