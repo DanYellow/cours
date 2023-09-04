@@ -63,14 +63,16 @@ public class ObjectPooling : MonoBehaviour
 
         ObjectPooled pooled = item.GetComponent<ObjectPooled>();
         pooled.Pool = obj.pool;
-        item.SetActive(false);
+        // item.SetActive(false);
 
         return pooled;
     }
 
     void ActionOnGet(ObjectPooled item)
     {
-        // item.Get();
+        item.transform.position = transform.position;
+        item.transform.rotation = transform.rotation;
+
         item.gameObject.SetActive(true);
     }
 
@@ -105,18 +107,4 @@ public class ObjectPooling : MonoBehaviour
             }
         }
     }
-}
-
-// It's worth noting - if your components have state, 
-// you need to handle re-initializing that state in the pool's ActionOnGet.
-
-// In my own Object Pool implementation I handled this by having something 
-// like an "IPoolable" interface that components can implement to handle 
-// the Get/Release lifecycle events from pooling, 
-// and iterating over those components.
-
-public interface IPoolable
-{
-    void Get();
-    // void Release();
 }

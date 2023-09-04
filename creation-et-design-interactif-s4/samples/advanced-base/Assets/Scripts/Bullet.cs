@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IPoolable
+public class Bullet : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
@@ -15,11 +15,6 @@ public class Bullet : MonoBehaviour, IPoolable
     private Coroutine autoDestroyCoroutine;
 
     public ObjectPooled objectPooled;
-
-    private void OnEnable()
-    {
-        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
-    }
 
     IEnumerator AutoDestroy(float duration = 0)
     {
@@ -65,9 +60,10 @@ public class Bullet : MonoBehaviour, IPoolable
         }
     }
 
-    public void Get()
+    public void ResetThyself()
     {
-        // print("feeee");
-        // rb.velocity = moveSpeed * -transform.right;
+        rb.velocity = -transform.right.normalized * moveSpeed;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }
 }
