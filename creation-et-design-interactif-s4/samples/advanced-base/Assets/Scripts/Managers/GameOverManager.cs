@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
-    public VoidEventChannelSO onPlayerDeath;
+    public VoidEventChannel onPlayerDeath;
 
     private void OnEnable()
     {

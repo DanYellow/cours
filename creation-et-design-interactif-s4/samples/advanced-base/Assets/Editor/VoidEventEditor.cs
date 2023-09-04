@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(VoidEventChannelSO), editorForChildClasses: true)]
+[CustomEditor(typeof(VoidEventChannel), editorForChildClasses: true)]
 public class VoidEventEditor : Editor
 {
     public override void OnInspectorGUI()
@@ -10,7 +10,7 @@ public class VoidEventEditor : Editor
 
         GUI.enabled = Application.isPlaying;
 
-        VoidEventChannelSO e = target as VoidEventChannelSO;
+        VoidEventChannel e = target as VoidEventChannel;
         if (GUILayout.Button("Raise"))
             e.Raise();
     }

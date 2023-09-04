@@ -31,10 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLandingFast = false;
 
-    [Header("Misc")]
+    [Header("Event")]
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
     public BoolEventChannelSO onTogglePauseEvent;
+    public VoidEventChannel onPassThroughPlatforms;
 
     [Header("Debug")]
     public VectorEventChannel onDebugTeleportEvent;
@@ -73,10 +74,17 @@ public class PlayerMovement : MonoBehaviour
             Jump(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            isLandingFast = true;
-            rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+            if (isGrounded)
+            {
+
+            }
+            else
+            {
+                isLandingFast = true;
+                rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+            }
         }
 
         if (isLandingFast && isGrounded)

@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public HealthVariable playerHealth;
 
-    public VoidEventChannelSO onPlayerDeath;
+    public VoidEventChannel onPlayerDeath;
     public Animator animator;
 
     public SpriteRenderer spriteRenderer;
@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public bool needResetHP = true;
 
     [Header("Debug")]
-    public VoidEventChannelSO onDebugDeathEvent;
+    public VoidEventChannel onDebugDeathEvent;
 
     private void Awake()
     {

@@ -44,7 +44,7 @@ public class DebugConsole : MonoBehaviour
 
     public VectorEventChannel onDebugTeleportEvent;
     public StringEventChannelSO onLevelEnded;
-    public VoidEventChannelSO onDebugPlayerDeathEvent;
+    public VoidEventChannel onDebugPlayerDeathEvent;
     public BoolEventChannelSO onDebugConsoleOpenEvent;
 
     private readonly CultureInfo cultureInfo = new CultureInfo("en-US");

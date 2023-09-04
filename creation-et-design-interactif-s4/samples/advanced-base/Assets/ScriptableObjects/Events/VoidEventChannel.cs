@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName ="New Void Event", menuName = "ScriptableObjects/Events/VoidEventChannelSO")]
-public class VoidEventChannelSO : ScriptableObject
+public class VoidEventChannel : ScriptableObject
 {
     public UnityAction OnEventRaised;
 
