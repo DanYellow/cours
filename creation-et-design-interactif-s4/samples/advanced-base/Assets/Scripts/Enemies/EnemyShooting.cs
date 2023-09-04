@@ -1,6 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+
+public enum ShootDirection
+{
+    Left,
+    Right,
+}
+
 public class EnemyShooting : MonoBehaviour
 {
     public Animator animator;
@@ -16,6 +23,9 @@ public class EnemyShooting : MonoBehaviour
 
     public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
+
+    [Tooltip("Based on right axis and sprite design")]
+    public ShootDirection shootDirection;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,6 +72,6 @@ public class EnemyShooting : MonoBehaviour
         }
         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
         bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
-        bullet.ResetThyself();
+        bullet.ResetThyself(shootDirection);
     }
 }

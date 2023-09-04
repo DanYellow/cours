@@ -7325,7 +7325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 2.09, z: 0}
-  smoothTime: 0.25
+  smoothTime: 0.15
   target: {fileID: 814072436}
 --- !u!114 &519420037
 MonoBehaviour:
@@ -28861,7 +28861,7 @@ MonoBehaviour:
   moveSpeed: 500
   jumpCount: 0
   maxJumpCount: 2
-  jumpForce: 11
+  jumpForce: 13
   fallThreshold: -15
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}

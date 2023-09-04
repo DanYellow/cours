@@ -16,6 +16,9 @@ public class Bullet : MonoBehaviour
 
     public ObjectPooled objectPooled;
 
+    [Tooltip("Based on right axis and sprite design")]
+    public ShootDirection shootDirection;
+
     IEnumerator AutoDestroy(float duration = 0)
     {
         yield return new WaitForSeconds(duration);
@@ -60,9 +63,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void ResetThyself()
+    public void ResetThyself(ShootDirection shooterDirection = ShootDirection.Left)
     {
-        rb.velocity = -transform.right.normalized * moveSpeed;
+        int factor = 1;
+        if(shootDirection != shooterDirection) {
+            factor = -1;
+        }
+        rb.velocity = factor * moveSpeed * transform.right.normalized;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }

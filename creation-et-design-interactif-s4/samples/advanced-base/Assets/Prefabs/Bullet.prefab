@@ -199,6 +199,7 @@ MonoBehaviour:
   animator: {fileID: 3278862260279375241}
   damage: 1
   objectPooled: {fileID: 1427142744864728628}
+  shootDirection: 1
 --- !u!114 &1427142744864728628
 MonoBehaviour:
   m_ObjectHideFlags: 0
