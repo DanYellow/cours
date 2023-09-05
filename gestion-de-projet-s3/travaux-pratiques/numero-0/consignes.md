@@ -2,14 +2,14 @@
 Vous êtes survivants d'un crash avion et vous avez atterri dans **le désert.** Par chance personne n'a été blessé mais l'avion a grandement dévié de son couloir aérien d'environ 80km et vous êtes à 110 km de la ville la plus proche. Vous avez avec vous les 15 objets suivants. 
 Durant les 10 prochaines minutes (environ), vous allez personnellement prioriser ces objets du plus important au moins important ensuite faire la même chose mais avec votre groupe (15 minutes).
 
+- 10 minutes pour le rangement en solo - sans communication
+    - Montrer la matrice moscow après 5 minutes
+- 20 minutes pour le rangement en groupe
+
 Débrief :
 - Montrer les résultats
 - Demander à chaque membre de faire la différence absolue entre leur choix et les résultats. Faire la somme
-- Demander à chaque groupe de faire la différence absolue entre leur choix et les résultats. Faire la somme
-
-
-
-
+- Demander à chaque groupe de faire la différence absolue entre leur choix et les résultats. Faire la somme de chaque colonne
 
 | 1  | Miroir         |
 |----|----------------|
