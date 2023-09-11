@@ -1,102 +1,167 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rédaction User Stories</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rédaction User Stories</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
-  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <body>
+    <header style="max-width: 1280px; margin: 0 auto">
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Contexte de l'exercice (cliquer pour afficher / cacher)
+          </h1>
+        </summary>
+        <p>
+          Parfois, il arrivera qu'une (User) Story soit trop grosse pour être
+          gérée durant un sprint, elle ne respecte donc pas le "S" d'INVEST
+          (Independant, Negociable, Valuable, Estimable,
+          <span class="texte-gras">Small</span> et Testable pour rappel), dans
+          ce cas, on parlera d'epic (ou épopée), et vous devrez découper cet
+          epic en plusieurs (User) Stories. Le but de cet exerice, (seul ou à
+          plusieurs) est de partir d'un epic jusqu'à un backlog priorisé. On va
+          travailler par étape. Si vous travaillez à plusieurs, n'hésitez pas à
+          discuter des vos Stories pour vous assurer qu'elles sont utiles, comme
+          le ferait une équipe Agile.
+        </p>
+        <p>
+          Pour rappel, une (User) Story, il est préférable qu'elle ait le format
+          suivant :
+        </p>
+        <h2 style="font-size: 2rem; font-style: italic; text-align: center">
+          « En tant que [persona], je veux [quoi] afin de [pourquoi] »
+        </h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.humanizingwork.com/wp-content/uploads/2020/10/HW-Story-Splitting-Flowchart-FR.pdf"
+              target="_blank"
+            >
+              Guide - Comment découper une Story (ouverture dans un nouvel
+              onglet)
+            </a> (Vous avez également le document en local si jamais le lien ne fonctionne pas)
+          </li>
+        </ul>
+        <p class="texte-gras">
+          Gardez vos user stories, elles vous serviront pour d'autres TP.
+        </p>
+        <p>
+          Pour réaliser vos Stories, vous pouvez utiliser un outil gratuit et
+          collaboratif comme Trello (<a
+            href="https://trello.com/"
+            target="_blank"
+            >accéder au site de Trello</a
+          >)
+        </p>
+      </details>
 
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+      <h1 class="titre-consignes">Consignes de la pratique</h1>
 
-<body>
-  <header style="max-width: 1280px; margin: 0 auto;">
-    <details class="consignes-conteneur" open>
-      <summary>
-        <h1 class="h1">
-          Contexte de l'exercice (cliquer pour afficher /
-          cacher)
-        </h1>
-      </summary>
-      <p>Parfois, il arrivera qu'une (User) Story soit trop grosse pour être gérée durant un sprint, elle ne respecte
-        donc pas le "S" d'INVEST (Independant, Negociable, Valuable, Estimable, <span class="texte-gras">Small</span> et Testable pour rappel), dans ce
-        cas, on parlera d'epic (ou épopée), et vous devrez découper cet epic en plusieurs (User) Stories. Le but de cet exerice, (seul ou à plusieurs) est de partir d'un epic jusqu'à un backlog priorisé. On va travailler par étape. Si vous travaillez à plusieurs, n'hésitez pas à discuter des vos Stories pour vous
-        assurer qu'elles sont utiles, comme le ferait une équipe Agile.</p>
-      <p>Pour rappel, une (User) Story, il est préférable qu'elle ait le format suivant :</p>
-      <h2 style="font-size: 2rem; font-style: italic; text-align: center;">« En tant que [persona], je veux [quoi] afin
-        de [pourquoi] »</h2>
-      <ul>
-        <li>
-          <a href="https://1qtspv2a8qad3nf2xr3pzat3-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/HW-Story-Splitting-Flowchart-FR.pdf"
-            target="_blank">
-            Guide - Comment découper une Story (ouverture dans un nouvel onglet)
-          </a>
-        </li>
-      </ul>
-      <p class="texte-gras">Gardez votre progression, ça vous servira pour d'autres TP.</p>
-      <p>Pour réaliser vos Stories, vous pouvez utiliser un outil gratuit et collaboratif comme Trello (<a href="https://trello.com/" target="_blank">accéder au site de Trello</a>)</p>
-    </details>
-
-    <h1 class="titre-consignes">Consignes de la pratique</h1>
-
-    <details class="consignes-conteneur" open>
-      <summary>
-        <h1 class="h1">
-          Partie 1 (cliquer pour afficher / cacher) - Liste des epics
-        </h1>
-      </summary>
-      <p><span class="texte-gras">Exercice : </span>Créez les Stories (environ 3-5) associées à un des epics suivant. <span class="texte-gras">Vous pouvez sélectionner plusieurs epics si vous le souhaitez.</span></p>
-        <p>Note : Vous n'avez pas à développer ces fonctionnalités. Essayez d'être ambitieux.</p>
-        <p>Note 2 : La définition de la vision de votre produit peut vous aider à rédiger plus facilement vos User Stories car elles orienteront vos décisions.</p>
-      <ul class="liste-consignes">
-        <li>Gérer les cours à l'IUT (pour les étudiants)</li>
-        <li>Authentification sur un forum</li>
-        <li>Système d'achat de contenus additionnels pour un jeu vidéo (type de jeu au choix)</li>
-        <li>Rechercher une offre d'emploi</li>
-        <li>Messagerie instantanée</li>
-        <li>Gestion du panier (sur un site d'e-commerce)</li>
-        <li>Application mobile de livraison de repas</li>
-        <li>Compte en banque</li>
-      </ul>
-    </details>
-    <details class="consignes-conteneur">
-      <summary>
-        <h1 class="h1">
-          Partie 2 (cliquer pour afficher / cacher) - Critères d'acceptation
-        </h1>
-      </summary>
-      <p>On a vu précédemment que si la rédaction de Stories permettait de mieux définir une tâche pour l'équipe de
-        développement. Elles ne sont pas suffisantes la plupart du temps, c'est pourquoi on y adjoint des tests d'acceptation qui sont là
-        pour s'assurer, lors du développement, que la tâche réalisée sera conforme aux attentes de l'équipe (et du
-        client). Et donc rajouter des détails notamment gérer les différents cas possible. Par exemple, une situation peut se retrouver en échec, il faut la gérer et ceci est fait grâce aux Critières d'Acceptation.</p>
-      <p><span class="texte-gras">Exercice : </span>Rédigez les critères d'acceptation relatifs aux (user) stories que vous avez rédigés précédemment.</p>
-      <p>Pour rappel, un critière d'acceptation peut s'exprimer sous forme d'une phrase simple ou respecter le format suivant :</p>
-      <h2 style="font-size: 2rem; font-style: italic; text-align: center;">
-        <span>« Étant donné que [état précédent/contexte], quand [action] alors [résultat] »</span><br> ou 
-        « En tant que [persona], quand [action] alors [résultat] »
-      </h2>
-    </details>
-    <details class="consignes-conteneur">
-      <summary>
-        <h1 class="h1">
-          Partie 3 (cliquer pour afficher / cacher) - Prioriser les Stories
-        </h1>
-      </summary>
-      <p>La priorisation des Stories permet d'optimiser la valeur du produit, et donc apporter de l'argent (au plus tôt vu qu'on déploie régulièrement avec SCRUM). Cette étape est donc à ne pas négliger. Il existe deux façons de faire pour prioriser : </p>
-      <ul>
-        <li>Matrice de KANO</li>
-        <li>Méthode MoSCoW</li>
-      </ul>
-      <p>Ces méthodes ne sont là qu'à titre indicatif, vous n'êtes pas obligé de les suivre.</p>
-      <p><span class="texte-gras">Exercice : </span>Pour cette dernière partie, vous allez devoir prioriser vos Stories.</p>
-     
-    </details>
-
-  </header>
-</body>
-
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Partie 1 (cliquer pour afficher / cacher) - Liste des epics
+          </h1>
+        </summary>
+        <p>
+          <span class="texte-gras">Exercice : </span>Créez les Stories (environ
+          3-5) associées à un des epics suivant.
+          <span class="texte-gras"
+            >Vous pouvez sélectionner plusieurs epics si vous le
+            souhaitez.</span
+          >
+        </p>
+        <p>
+          Note : Vous n'avez pas à développer ces fonctionnalités. Essayez
+          d'être ambitieux.
+        </p>
+        <p>
+          Note 2 : La définition de la vision de votre produit peut vous aider à
+          rédiger plus facilement vos User Stories car elles orienteront vos
+          décisions.
+        </p>
+        <ul class="liste-consignes">
+          <li>Gérer les cours à l'IUT (pour les étudiants)</li>
+          <li>Authentification sur un forum</li>
+          <li>
+            Système d'achat de contenus additionnels pour un jeu vidéo (type de
+            jeu au choix)
+          </li>
+          <li>Rechercher une offre d'emploi</li>
+          <li>Messagerie instantanée</li>
+          <li>Gestion du panier (sur un site d'e-commerce)</li>
+          <li>Application mobile de livraison de repas</li>
+          <li>Compte en banque</li>
+        </ul>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Partie 2 (cliquer pour afficher / cacher) - Critères d'acceptation
+          </h1>
+        </summary>
+        <p>
+          On a vu précédemment que si la rédaction de Stories permettait de
+          mieux définir une tâche pour l'équipe de développement. Elles ne sont
+          pas suffisantes la plupart du temps, c'est pourquoi on y adjoint des
+          tests d'acceptation qui sont là pour s'assurer, lors du développement,
+          que la tâche réalisée sera conforme aux attentes de l'équipe (et du
+          client). Et donc rajouter des détails notamment gérer les différents
+          cas possible. Par exemple, une situation peut se retrouver en échec,
+          il faut la gérer et ceci est fait grâce aux Critières d'Acceptation.
+        </p>
+        <p>
+          <span class="texte-gras">Exercice : </span>Rédigez les critères
+          d'acceptation relatifs aux (user) stories que vous avez rédigés
+          précédemment.
+        </p>
+        <p>
+          Pour rappel, un critière d'acceptation peut s'exprimer sous forme
+          d'une phrase simple ou respecter le format suivant :
+        </p>
+        <h2 style="font-size: 2rem; font-style: italic; text-align: center">
+          <span
+            >« Étant donné que [état précédent/contexte], quand [action] alors
+            [résultat] »</span
+          ><br />
+          ou « En tant que [persona], quand [action] alors [résultat] »
+        </h2>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Partie 3 (cliquer pour afficher / cacher) - Prioriser les Stories
+          </h1>
+        </summary>
+        <p>
+          La priorisation des Stories permet d'optimiser la valeur du produit,
+          et donc apporter de l'argent (au plus tôt vu qu'on déploie
+          régulièrement avec SCRUM). Cette étape est donc à ne pas négliger. Il
+          existe deux façons de faire pour prioriser :
+        </p>
+        <ul>
+          <li>Matrice de KANO</li>
+          <li>Méthode MoSCoW</li>
+        </ul>
+        <p>
+          Ces méthodes ne sont là qu'à titre indicatif, vous n'êtes pas obligé
+          de les suivre.
+        </p>
+        <p>
+          <span class="texte-gras">Exercice : </span>Pour cette dernière partie,
+          vous allez devoir prioriser vos Stories.
+        </p>
+      </details>
+    </header>
+  </body>
 </html>
