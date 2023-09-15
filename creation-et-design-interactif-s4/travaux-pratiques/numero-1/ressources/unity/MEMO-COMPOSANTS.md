@@ -188,14 +188,14 @@ La gestion des animations peut être définies en quatre grandes parties :
 
 - Animator : Asset qui contient `(Animator)Controller`, `AnimatorState` et `AnimatorStateTransition`
 - AnimatorState : Contient un état, c'est là qu'on définira le clip d'animation à jouer ou encore sa vitesse.
-  - Note : Par défaut, un animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionné l'`AnimationClip` depuis l'onglet "Project"
+  - Note : Par défaut, une animation se joue en boucle. Pour supprimer ce comportement, il faut désactiver l'option "Loop Time" après avoir sélectionné l'`AnimationClip` **depuis l'onglet "Project"**
 - AnimatorStateTransition : Définit les conditions de passage d'une transition à une autre
 
 > Évitez de mettre des animations gérées par le composant `Animator` dans un Canvas, ceci est très mauvais au niveau des performances. Les alternatives sont les suivantes :
 >
 > - Ne pas en mettre
 > - Faire des animations en C# ou utiliser un package comme [LeanTween (gratuit)](https://assetstore.unity.com/packages/tools/animation/leantween-3595) qui permet de faire des animations en C# via des méthodes clé en main
-> - Mettre des animations dans des Canvas distincts. Si dans votre UI, vous avez un texte qui ne change pas et une image qui bouge, faites un Canvas avec le texte et un autre avec l'image le tout contenu dans un autre Canvas
+> - **Mettre des animations dans des Canvas distincts.** Si dans votre UI, vous avez un texte qui ne change pas et une image qui bouge, faites un Canvas avec le texte et un autre avec l'image le tout contenu dans un autre Canvas
 
 **Si l'élément est animé en permanence, vous pouvez utiliser le composant `Animator` dans un Canvas, c'est le seul cas.**
 
@@ -279,15 +279,18 @@ Après avoir crée votre transition : clic droit depuis un `AnimationState` vers
 > N'oubliez pas qu'une transition n'est pas bi-directionnelle pas défaut, il faut l'établir dans le sens inverse pour qu'elle le soit.
 
 Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement de votre transition (liste non-exhautive) :
-
+![](./printscreens/memo-animation-transition.jpg)
 - Has Exit Time : Indique si oui ou non, une animation doit atteindre un certain niveau de complétion avant de passer à la transition suivante
   - Ne pas cocher la case permet de passer d'un `AnimationState` à l'autre à tout moment
 - Exit Time (**utilisable que si et seulement si "Has Exit Time" est coché**) : Valeur normalisée représentant l'instant à partir duquel la transition peut avoir lieu. Si vous mettez la valeur 0.25, par exemple, à partir de la première image située à 25% de l'animation, l'animator peut effectuer la transition si la condition est réunie
 - Fixed Duration : Si cochée, la valeur de "Transition Duration" sera mesurée en secondes et non une valeur normalisée
-- Transition duration : Représente la durée de transition entre l'`AnimationState` actuel et le suivant. Si votre animation est composée de sprites, on mettra cette valeur à 0 pour éviter des étrangetés à l'affichage. Une valeur de 0 fera donc passer d'un `AnimationState` à l'autre immédiatement
+- Transition duration : Représente la durée de transition entre l'`AnimationState` actuel et le suivant
+    - Par exemple, si vous mettez la valeur 0.2. Ceci signifie que l'`Animator` va jouer 80% de l'animation courante et les 20% restants vont jouer les deux animations permettant ainsi une transition fluide.
+    > Attention : Dans le cas de sprites, la transition duration ne donne pas forcément les meilleurs résultats. C'est à vous de tester.
 - Conditions : Endroit où vous allez définir les conditions pour passer d'un `AnimationState` à l'autre. Les conditions sont cumulatives, ceci équivaut à un "&&" en programmation. Dépendamment du type de paramètre pour votre condition, Unity n'affichera pas les mêmes champs. Si la transition entre deux `AnimationStates` peut être multiple, il faut créer un autre `AnimationStateTransition`. Notez les points suivants :
   - En absence conditions, Unity se basera sur le paramètre "Exit Time" pour passer à la condition suivante. Exit Time devant être activé, sinon Unity lèvera une alerte
   - Les conditions doivent être remplies **avant** que la transition soit possible
   - Les paramètres de conditions sont sensibles à la casse, ainsi écrire "jump" n'a pas la même signification que "Jump"
+- Can Transition To Self (uniquement avec Any State) : Indique à Unity si l'animation ne doit être jouée qu'une seule fois. Si la case n'est pas décochée, il est possible que votre animation se bloque lorsque les conditions sont remplies
 
 > [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
