@@ -146,4 +146,4 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 - **Mon application doit-elle être responsive ?**
 
-Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre application javascript responsive.
+  Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre application javascript responsive.
