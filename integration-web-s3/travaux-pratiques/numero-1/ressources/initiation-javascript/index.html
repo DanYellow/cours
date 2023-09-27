@@ -214,6 +214,11 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 nouvel onglet)</a>
                         </li>
                     </ul>
+                    <p class="note-information">Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
+                    <pre>
+<code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">cible.<span class="hljs-title function_">addEventListener</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&#x27;click&#x27;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">maFonction</span>())
+}) </code></pre>
                 </li>
                 <li>
                     En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte"
