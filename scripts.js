@@ -29,13 +29,12 @@ const initTabSystem = () => {
 initTabSystem();
 
 const initAccordionSystem = () => {
-  var url = new URL(window.location.href);
-  var params = new URLSearchParams(url.search);
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
 
   const accordionIndex = Number(params.get("a"))
   if(accordionIndex) {
-    document.querySelectorAll("[data-instructions-container]")[accordionIndex].open = true
-    
+    document.querySelectorAll("[data-instructions-container]")[accordionIndex].open = true;
   }
 };
 
