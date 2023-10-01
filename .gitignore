@@ -120,6 +120,7 @@ ipython_config.py
 
 tmp_*
 _tmp*
+*.tmp
 # correction_*
 # correction*
 
@@ -147,6 +148,7 @@ creation-et-design-interactif-s4/travaux-pratiques/Scripts/*
 
 # Godot 4+ specific ignores
 .godot/
+**/exports/**
 
 # Godot-specific ignores
 .import/
