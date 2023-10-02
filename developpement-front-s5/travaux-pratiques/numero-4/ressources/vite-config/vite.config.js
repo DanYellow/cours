@@ -1,7 +1,10 @@
+import { loadEnv } from "vite";
 import twig from "@vituum/vite-plugin-twig";
 import vituum from "vituum";
 
-export default () => {
+export default ({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+
   return {
     plugins: [
       vituum(),
@@ -10,18 +13,8 @@ export default () => {
         root: "./src",
       }),
     ],
-    build: {
-      manifest: true,
-      rollupOptions: {
-        input: ["./src/pages/*.twig"],
-        output: {
-          emptyOutDir: true,
-          sourcemap: true,
-        },
-      },
-    },
     server: {
-      // Change port of the server
+      // Port of the server
       port: 9117,
     },
   };

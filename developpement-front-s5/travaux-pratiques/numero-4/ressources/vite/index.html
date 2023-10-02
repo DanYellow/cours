@@ -96,11 +96,23 @@
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/menu</li>
-          <li>Réécrivez le CSS du projet en SCSS et rendez le site compatible au mobile grâce aux media queries</li>
+          <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/menu
+            <ul>
+                <li>Si ce n'est pas déjà fait, mettez dans un fichier dédié (dossier src/components) le menu</li>
+            </ul>
+          </li>
+          <li>Réécrivez le CSS (une partie) du projet en SCSS et rendez le site compatible au mobile grâce aux media queries</li>
+          <li>Créez une nouvelle page twig reprenant une partie de la structure actuelle comme le menu et les bulles</li>
+          <li>Faites un lien entre les pages dans le menu
+            <ul>
+                <li>Note : Le lien doit être fait vers un fichier .html, pas .twig</li>
+                <li>Note 2 : Les modifications de lien doivent être faites dans le fichier src/data/menu.json</li>
+            </ul>
+          </li>
+          <li>Gérez la couleur de la bulle + la page active dans le menu grâce à une variable twig</li>
         </ol>
         <section class="note-information">
-            <p>Note</p>
+            <p>Notes</p>
             <ol>
                 <li>Sass/Scss n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
                 <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Voir example à la fin du fichier.</li>
@@ -119,7 +131,7 @@
           <li>Rendez le site compatible au mobile grâce aux media queries</li>
         </ol>
         <section class="note-information">
-            <p>Note</p>
+            <p>Notes</p>
             <ol>
                 <li>Sass/Scss n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
                 <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Voir example à la fin du fichier.</li>

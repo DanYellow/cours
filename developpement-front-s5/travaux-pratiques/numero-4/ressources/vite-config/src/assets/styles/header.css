@@ -71,7 +71,6 @@
   transition: transform 0.3s;
   mask: url("/assets/images/bulle-bordure.svg") no-repeat center / contain;
   -webkit-mask: url("/assets/images/bulle-bordure.svg") no-repeat center / contain;
-  mix-blend-mode: exclusion;
 }
 
 .bulle-icone-bordure.rose {
