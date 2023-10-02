@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "start": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite build && vite preview"
   },
   "devDependencies": {
     "@vituum/vite-plugin-twig": "^1.0.0",

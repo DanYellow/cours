@@ -4,18 +4,55 @@
 		<meta charset="UTF-8"/>
 		<link rel="icon" type="image/svg+xml" href="/vite.svg"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Vite App</title>
+		<title>SAE 203 - Twig edition</title>
+		<link rel="stylesheet" href="/assets/css/reset.css">
+		<link rel="stylesheet" href="/assets/css/fonts.css">
+		<script type="module" src="/src/assets/js/main.js" defer></script>
 	</head>
 	<body>
-        <nav class="navigation-principale conteneur-1280">
-        {% for menu_item in menu %} 
-		<p>{{ menu_item.name }} </p>
-        {% endfor %}
-        <a href="about.html">Hlello</a>
-		<figure>
-			<img src="/vite.svg" alt="" srcset="">
-		</figure>
-		<div id="app"></div>
-		<script type="module" src="/src/assets/js/main.js"></script>
+    {{ hello }}
+    {{ menu.named }}
+		<nav class="navigation-principale conteneur-1280">
+			<ul>
+				<li><a href="./">ACCUEIL</a></li>
+				<li><a href="./">ÉQUIPE DE RÉDACTION</a></li>
+			</ul>
+		</nav>
+
+		<header class="bulle conteneur-1280">
+			<article class="titre">
+				<h1 class="txt-grand">
+					<span>Bachelor</span>
+					<span>Universitaire de</span>
+					<span>Technologie</span>
+				</h1>
+				<h2 class="txt-petit">
+					<span>Métiers du Multimédia et de</span>
+					<span>l'Internet</span>
+				</h2>
+			</article>
+			<article class="bulle-icone rouge"></article>
+			<article class="bulle-icone-bordure rouge"></article>
+		</header>
+
+		<main class="conteneur-principal conteneur-1280">
+			<h1 class="titre">Articles sur le BUT MMI</h1>
+
+			<section class="colonne">
+				<section class="liste-articles">
+					<article class="article">
+						<figure>
+							<img src='https://placehold.co/600x400' alt=''>
+						</figure>
+						<section class='textes'>
+							<h1 class='titre'>Test</h1>
+							<p class='description'>
+								Lorem ipsum
+							</p>
+						</section>
+					</article>
+				</section>
+			</section>
+		</main>
 	</body>
 </html>

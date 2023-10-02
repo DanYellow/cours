@@ -1,33 +1,19 @@
-import { resolve } from "path";
-
 import twig from "@vituum/vite-plugin-twig";
 import vituum from "vituum";
 
 export default () => {
   return {
-    base: "./",
-    // root: "src/",
-    // publicDir: "../public/",
     plugins: [
       vituum(),
       twig({
+        // Where the twig files are located
         root: "./src",
       }),
-      //   vituum({
-      //     pages: {
-      //       dir: "./pages",
-      //     },
-      //   }),
-      //   twig({
-      //     // root: "./pages",
-      //     // data: "../data/**/*.json",
-      //   }),
     ],
     build: {
       manifest: true,
-      emptyOutDir: true,
       rollupOptions: {
-        input: ["./*.twig"],
+        input: ["./src/pages/*.twig"],
         output: {
           emptyOutDir: true,
           sourcemap: true,

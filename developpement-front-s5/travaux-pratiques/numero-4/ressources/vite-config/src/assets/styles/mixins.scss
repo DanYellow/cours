@@ -1,0 +1,13 @@
+@mixin hocus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// example
+// selector-css {
+//     @include hocus {
+//         declarations
+//         }
+//     }
