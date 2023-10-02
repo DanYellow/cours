@@ -20,18 +20,26 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Créez votre premier projet vitejs grâce à la commande <code>npm create vite@latest _nom_de_dossier_</code>
-            <p class="note-information">Durant la mise en place du projet vite, pensez à sélectionner un projet "Vanilla" et utiliser le langage "Javascript".</p>
+            Créez votre premier projet vitejs grâce à la commande <code>npm create vite@latest __nom_de_dossier__</code>
+            <p class="note-information">Durant la mise en place du projet vite, pensez à sélectionner un projet "Vanilla" et utiliser le langage "Javascript". La sélection se fait avec les flèches et la validation avec la touche entrée.</p>
           </li>
           <li>Installez les dépendances avec <code>npm install</code> (dans le dossier crée par vite)</li>
           <li>Lancez le projet via la commande <code>npm run dev</code></li>
           <li>Observez un peu le code
             <ul>
-                <li>Mettez à jour le code HTML</li>
-                <li>Ajoutez un nouveau fichier CSS (et du contenu dans le fichier) puis importez-le dans le fichier main.js</li>
+                <li>Ajoutez et/ou supprimez du code HTML</li>
+                <li>Ajoutez un nouveau fichier CSS (et des sélecteurs dans le fichier) puis importez-le dans le fichier main.js</li>
             </ul>
           </li>
         </ol>
+        <section class="note-information">
+            <p>Il y a trois commandes dans le fichier package.json</p>
+            <ol>
+                <li>dev : lance un serveur qui permet d'accéder au projet + recompile tous les fichiers (sauf ceux dans le dossier public/) à chaque modification </li>
+                <li>build : compile le projet pour la production</li>
+                <li>preview : lance un serveur de production à partir d'un build (nécessite d'avoir lancé la commande <code>npm run build</code> avant)</li>
+            </ol>
+        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -58,7 +66,7 @@
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
         <section class="note-information">
-            <p>Par défaut, VSCode ne gère pas les fichiers .twig, il faudra installer un plugin gratuit twig via le système d'extensions. Et pour avoir l'auto-complétion HTML dans les fichiers .twig, il faudra modifier les réglages.</p>
+            <p>Par défaut, VSCode ne gère pas les fichiers .twig, il faudra installer un plugin gratuit twig via le système d'extensions pour avoir la coloration syntaxique. Et pour avoir l'auto-complétion HTML dans les fichiers .twig, il faudra modifier les réglages.</p>
             <ol>
                 <li>Allez dans le menu File > Preferences > Settings</li>
                 <li>Recherchez "emmet" dans la barre de recherche</li>
@@ -71,28 +79,13 @@
             Ouvrez la console dans le dossier "vite-twig" et installez les dépendances avec la commande <code>npm install</code>
             <p class="note-information">Pour ouvrir directement votre dossier dans la console. Vous pouvez le glisser dans VSCode puis aller dans le menu Terminal > New Terminal</p>
           </li>
-          <li>Essayez une des fonctionnalités</li>
-        </ol>
-        <p class="note-information">L'API retourne une liste.</p>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            <ul>
-              <li>Groupez les jours fériés par année</li>
-              <li>Affichez le contenu de chaque année avec les balises &lt;details> et &lt;summary></li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li>Proposez à l'utilisateur de sélectionner les différentes régions et mettez à jour les informations en fonction</li>
-            </ul>
+          <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
+          <li>Prenez en main twig en effectuant les tâches suivantes :
+            <ol>
+                <li></li>
+            </ol>
           </li>
         </ol>
-        <p class="note-information">Pensez à mettre les données en cache pour éviter un appel d'api à chaque changement de région. La liste des régions est trouvable dans la documentation. <a href="https://calendrier.api.gouv.fr/jours-feries/" target="_blank">Accéder à la documentation (ouverture dans un nouvel onglet)</a></p>
       </details>
     </header>
   </body>
