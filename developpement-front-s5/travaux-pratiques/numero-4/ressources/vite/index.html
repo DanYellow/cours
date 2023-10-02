@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP4 - Vitejs</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="h1">Consignes de la pratique - TP4 - Vitejs</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez votre premier projet vitejs grâce à la commande <code>npm create vite@latest _nom_de_dossier_</code>
+            <p class="note-information">Durant la mise en place du projet vite, pensez à sélectionner un projet "Vanilla" et utiliser le langage "Javascript".</p>
+          </li>
+          <li>Installez les dépendances avec <code>npm install</code> (dans le dossier crée par vite)</li>
+          <li>Lancez le projet via la commande <code>npm run dev</code></li>
+          <li>Observez un peu le code
+            <ul>
+                <li>Mettez à jour le code HTML</li>
+                <li>Ajoutez un nouveau fichier CSS (et du contenu dans le fichier) puis importez-le dans le fichier main.js</li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Installez sass dans le projet avec la commande <code>npm install -D sass</code> à la racine de votre projet
+            <p class="note-information">Le paramètre "-D" (ou --save-dev) indique que votre dépendance node n'est utile que dans l'environnement de développement. Et donc n'a pas à être dans le build final de notre application.</p>
+          </li>
+          <li>
+            Changez l'extension d'un de vos fichiers .scss en .css
+          </li>
+          <li>Utilisez les fonctionnalités de SCSS comme l'imbrication de style (nesting) 
+            <ul>
+                <li><a href="https://sass-lang.com/documentation/style-rules/#nesting" target="_blank">Voir documentation de SCSS sur l'imbrication de style (ouverture dans un nouvel onglet)</a></li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Ouvrez la console dans le dossier "vite-twig" et installez les dépendances avec la commande <code>npm install</code>
+            <p class="note-information">Pour ouvrir directement votre dossier dans la console. Vous pouvez le glisser dans VSCode puis aller dans le menu Terminal > New Terminal</p>
+
+          </li>
+          <li>Affichez son contenu grâce à un template. Ceci peut être une liste ou un tableau</li>
+        </ol>
+        <p class="note-information">L'API retourne une liste.</p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <ul>
+              <li>Groupez les jours fériés par année</li>
+              <li>Affichez le contenu de chaque année avec les balises &lt;details> et &lt;summary></li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>Proposez à l'utilisateur de sélectionner les différentes régions et mettez à jour les informations en fonction</li>
+            </ul>
+          </li>
+        </ol>
+        <p class="note-information">Pensez à mettre les données en cache pour éviter un appel d'api à chaque changement de région. La liste des régions est trouvable dans la documentation. <a href="https://calendrier.api.gouv.fr/jours-feries/" target="_blank">Accéder à la documentation (ouverture dans un nouvel onglet)</a></p>
+      </details>
+    </header>
+  </body>
+</html>
