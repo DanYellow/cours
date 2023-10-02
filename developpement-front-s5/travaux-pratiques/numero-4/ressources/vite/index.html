@@ -134,11 +134,12 @@
             <p class="note-information">Pour rappel, si votre variable d'environnement ne commence pas par "VITE_", elle ne sera pas prise en compte par vite</p>
           </li>
           <li>Avec une variable d'environnement, gérez le port du serveur de développement (clé "server.port" dans le fichier vite.config.js)
-            <section class="note-information">
-                <p>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu. Regardez la documentation de vite pour en savoir plus. <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation (ouverture dans un nouvel onglet)</a>.
-                </p>
-                <p>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif.</p>                
-            </section>
+            <ul class="note-information">
+                <li>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu. <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation pour en savoir plus (ouverture dans un nouvel onglet)</a>.
+                </li>
+                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif.</li>
+                <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
+            </ul>
         </li>
         </ol>
       </details>
