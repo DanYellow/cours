@@ -27,4 +27,12 @@ $burger-disable:  '#{$media-query} (min-width: #{$breakpoint-burger})';
 @mixin desktop        { @media #{$desktop}        { @content; } }
 @mixin desktop-xl     { @media #{$desktop-xl}     { @content; } }
 @mixin burger-enable  { @media #{$burger-enable}  { @content; } }
-@mixin burger-disable { @media #{$burger-disable} { @content; } } 
+@mixin burger-disable { @media #{$burger-disable} { @content; } }
+
+// Example - Applique le CSS pour la mixin "mobile" soit la media query "@media (max-width: 767px) {}" :
+// selecteur-css {
+    // @include mobile {
+    //     grid-template-columns: repeat(3, 1fr);
+    //     gap: 1rem;
+    // }
+// }
