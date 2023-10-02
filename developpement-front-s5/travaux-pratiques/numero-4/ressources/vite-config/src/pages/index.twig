@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Vite App</title>
+	</head>
+	<body>
+        <nav class="navigation-principale conteneur-1280">
+        {% for menu_item in menu %} 
+		<p>{{ menu_item.name }} </p>
+        {% endfor %}
+        <a href="about.html">Hlello</a>
+		<figure>
+			<img src="/vite.svg" alt="" srcset="">
+		</figure>
+		<div id="app"></div>
+		<script type="module" src="/src/assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "name": "ACCUEIL",
+      "link": ""
+    },
+    {
+      "name": "A PROPOS",
+      "link": "/a-propos.html"
+    },
+    {
+      "name": "CONTACT",
+      "link": "/contact.html"
+    }
+  ]
+}
