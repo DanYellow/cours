@@ -1,4 +1,4 @@
-[
+const data = [
   {
     preusuel: "JADE",
     sexe: 2,
