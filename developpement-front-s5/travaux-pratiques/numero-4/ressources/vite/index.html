@@ -50,7 +50,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Installez sass dans le projet avec la commande <code>npm install -D sass</code> à la racine de votre projet
+            Installez sass, dans le projet précédemment crée, avec la commande <code>npm install -D sass</code> à la racine
             <p class="note-information">Le paramètre "-D" (ou --save-dev) indique que votre dépendance node n'est utile que dans l'environnement de développement. Et donc n'a pas à être dans le build final de notre application.</p>
           </li>
           <li>
@@ -79,7 +79,7 @@
 
         <ol class="liste-consignes">
           <li>
-            Ouvrez la console dans le dossier "vite-twig" et installez les dépendances avec la commande <code>npm install</code>
+            Ouvrez la console dans le dossier "ressources/vite-twig/" et installez les dépendances avec la commande <code>npm install</code>
             <p class="note-information">Pour ouvrir directement votre dossier dans la console. Vous pouvez le glisser dans VSCode puis aller dans le menu Terminal > New Terminal</p>
           </li>
           <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
@@ -91,6 +91,9 @@
                     Exportez une partie du code du fichier "index.twig" dans d'autres fichiers "twig" et importez-les grâce à la fonction "include".
                     <a href="https://twig.symfony.com/doc/3.x/functions/include.html" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction "include".</a>
                     <p class="note-information">Les fichiers qui vont être chargés dans d'autres fichiers doivent être dans le dossier src/components (il peut contenir des sous-dossiers)</p>
+                </li>
+                <li>
+                    Créez un template de base avec des blocks puis faites-en hériter une page "enfant". <a href="https://twig.symfony.com/doc/3.x/tags/extends.html" target="_blank" rel="noopener noreferrer">Voir documentation de extends.</a>
                 </li>
             </ul>
           </li>

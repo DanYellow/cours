@@ -2,6 +2,10 @@ import twig from "@vituum/vite-plugin-twig";
 import vituum from "vituum";
 
 export default {
+  css: {
+    // Displays the source of sass files in dev
+    devSourcemap: true,
+  },
   plugins: [
     vituum(),
     twig({
