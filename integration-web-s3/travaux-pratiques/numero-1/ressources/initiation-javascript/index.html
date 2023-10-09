@@ -205,7 +205,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
             </summary>
             <ol class="liste-consignes">
                 <li>Ajoutez un bouton (balise &lt;button type="button">) et appelez une des fonctions que vous avez crée
-                    précédemment
+                    précédemment (ou une nouvelle)
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Récupérer un élément dans la page HTML (document.querySelector)</a></li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">Ajouter un évènement sur un élément</a></li>
@@ -252,9 +252,9 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[mon-data-attribute]&quot;</span>)</code></pre>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[data-attribute-personnalise]&quot;</span>)</code></pre>
                         <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
-                            le data-attribute "mon-data-attribute". A noter que cette syntaxe est aussi valable dans le
+                            le data-attribute "data-attribute-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
                     </article>
                     <ul>
@@ -274,11 +274,11 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
             </summary>
             <ol class="liste-consignes">
                 <li>Ajoutez un champ de texte de type "text" (pas besoin de le mettre dans un formulaire)</li>
-                <li>Ciblez le champ et ajoutez l'évènement "change"</li>
+                <li>Ciblez le champ et ajoutez l'évènement "input". Cet évènement permet d'écouter tout changement sur un champ "en temps réel"</li>
                 <li>Affichez un message sur une balise &lt;p> en fonction du texte entré par l'utilisateur
                     <article class="note-information">
                         <p>Pour récupérer le texte écrit, il faudra récupérer l'argument de notre notion d'évènement. Par exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;change&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> (<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) </span>{
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;input&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> (<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) </span>{
     <span style="color:rgb(87, 166, 74); font-weight:400;">// textChamp contient le texte actuellement dans le champ de texte</span>
     <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> textChamp = evt.target.value;
 })</code></pre>
