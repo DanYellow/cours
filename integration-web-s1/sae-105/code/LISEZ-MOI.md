@@ -28,7 +28,7 @@ Dans le site sont prévues six pages qui partagent une structure commune compos�
   - Vous devez le compléter et l'adapter pour chaque page
   - Indiquer la page active dans la navigation
     - Ceci ne se fait pas avec la pseudo-classe ":active". Aidez-vous de la gestion de la couleur des bulles pour réaliser la fonctionnalité
-- Un footer (pied-de-page) qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
+- Un footer (pied-de-page) qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
   - [Accéder au didacticiel sur l’utilisation d’Adobe XD](https://cours.cyu.fr/course/view.php?id=81#section-3)
   - Vous devez le compléter
 
@@ -99,6 +99,11 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
 - Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
 - Votre projet doit impérativement avoir un fichier "index.php"
+- Par défaut, VS Code ne permet pas l'auto-complétion de balises dans un fichier PHP. Il faut l'activer, pour ce faire :
+    1. Allez dans le menu File > Preferences > Settings
+    1. Recherchez "emmet" dans la barre de recherche
+    1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
+
 
 # Rendus attendus
 - **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :
