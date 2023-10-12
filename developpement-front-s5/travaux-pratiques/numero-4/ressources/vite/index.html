@@ -78,7 +78,7 @@
             <ol>
                 <li>Allez dans le menu File > Preferences > Settings</li>
                 <li>Recherchez "emmet" dans la barre de recherche</li>
-                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "twig" dans la zone "key" et "html" dans la zone "value"</li>
+                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "twig" dans la zone "key" et "html" dans la zone "value" (il faut respecter la casse et mettre le tout en minuscules)</li>
             </ol>
         </section>
 
@@ -90,8 +90,8 @@
           <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
           <li>Prenez en main le moteur de template Twig en effectuant les tâches suivantes :
             <ul>
-                <li>Créez et affichez une variable. <a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set.</a></li>
-                <li>Utilisez une condition if/else. <a href="https://twig.symfony.com/doc/3.x/tags/if.html" target="_blank" rel="noopener noreferrer">Voir documentation de if/else.</a></li>
+                <li>Créez et affichez une variable. <a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
+                <li>Utilisez une condition if/else. <a href="https://twig.symfony.com/doc/3.x/tags/if.html" target="_blank" rel="noopener noreferrer">Voir documentation de if/else</a></li>
                 <li>
                     Exportez une partie du code du fichier "index.twig" dans d'autres fichiers "twig" et importez-les grâce à la fonction "include".
                     <a href="https://twig.symfony.com/doc/3.x/functions/include.html" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction "include".</a>
@@ -109,7 +109,7 @@
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/menu
+          <li>Grâce au contenu du fichier menu.json (contenu dans le dossier src/menu), affichez le 
             <ul>
                 <li>Si ce n'est pas déjà fait, mettez dans un fichier dédié (dossier src/components) le menu</li>
             </ul>
@@ -145,7 +145,7 @@
             <ul class="note-information">
                 <li>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu. <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation pour en savoir plus (ouverture dans un nouvel onglet)</a>.
                 </li>
-                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif.</li>
+                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif</li>
                 <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
             </ul>
         </li>
