@@ -78,7 +78,7 @@
             <ol>
                 <li>Allez dans le menu File > Preferences > Settings</li>
                 <li>Recherchez "emmet" dans la barre de recherche</li>
-                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "twig" dans la zone "key" et "html" dans la zone "value"</li>
+                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "twig" dans la zone "key" et "html" dans la zone "value" (il faut respecter la casse et mettre le tout en minuscules)</li>
             </ol>
         </section>
 
@@ -132,6 +132,11 @@
                 <li><a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
             </ul>
           </li>
+          <li>Avec l'aide un autre fichier json, gérez la liste d'article sur la page d'accueil
+            <ul>
+                <li>Pour rappel, l'extension twig de vite charge tout fichier json à côté d'un fichier twig. S'ils ont le même nom de template. Ex : index.twig → index.twig.json</li>
+            </ul>
+          </li>
         </ol>
         <section class="note-information">
             <p>Notes</p>
@@ -154,7 +159,7 @@
             <ul class="note-information">
                 <li>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu. <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation pour en savoir plus (ouverture dans un nouvel onglet)</a>.
                 </li>
-                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif.</li>
+                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif</li>
                 <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
             </ul>
         </li>

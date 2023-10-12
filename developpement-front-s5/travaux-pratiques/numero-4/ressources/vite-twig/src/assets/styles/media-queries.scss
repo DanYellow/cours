@@ -30,7 +30,7 @@ $burger-disable:  '#{$media-query} (min-width: #{$breakpoint-burger})';
 @mixin burger-disable { @media #{$burger-disable} { @content; } }
 
 // Example - Applique le CSS pour la mixin "mobile" soit la media query "@media (max-width: 767px) {}" :
-// selecteur-css {
+// .example {
     // @include mobile {
     //     grid-template-columns: repeat(3, 1fr);
     //     gap: 1rem;
