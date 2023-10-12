@@ -2,12 +2,18 @@ import twig from "@vituum/vite-plugin-twig";
 import vituum from "vituum";
 
 export default {
+  base: "./",
   css: {
     // Displays the source of sass files in dev
     devSourcemap: true,
   },
   plugins: [
-    vituum(),
+    vituum({
+      pages: {
+        // Won't work on Windows, need to override base key instead
+        normalizeBasePath: true
+      }
+    }),
     twig({
       // Where the twig files are located
       root: "./src",
