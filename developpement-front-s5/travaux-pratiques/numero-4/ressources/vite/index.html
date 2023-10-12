@@ -90,8 +90,8 @@
           <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
           <li>Prenez en main le moteur de template Twig en effectuant les tâches suivantes :
             <ul>
-                <li>Créez et affichez une variable. <a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set.</a></li>
-                <li>Utilisez une condition if/else. <a href="https://twig.symfony.com/doc/3.x/tags/if.html" target="_blank" rel="noopener noreferrer">Voir documentation de if/else.</a></li>
+                <li>Créez et affichez une variable. <a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
+                <li>Utilisez une condition if/else. <a href="https://twig.symfony.com/doc/3.x/tags/if.html" target="_blank" rel="noopener noreferrer">Voir documentation de if/else</a></li>
                 <li>
                     Exportez une partie du code du fichier "index.twig" dans d'autres fichiers "twig" et importez-les grâce à la fonction "include".
                     <a href="https://twig.symfony.com/doc/3.x/functions/include.html" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction "include".</a>
@@ -109,9 +109,14 @@
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/menu
+          <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/data
             <ul>
-                <li>Si ce n'est pas déjà fait, mettez dans un fichier dédié (dossier src/components) le menu</li>
+                <li>Vous utilisez Twig, il est possible de séparer le menu dans un fichier dédié pour ensuite l'importer dans d'autres fichiers</li>
+            </ul>
+          </li>
+          <li>Complétez le fichier menu.json de façon à ce que vous puissiez gérer les liens pour chaque entrée du menu 
+            <ul>
+                <li>Il faudra ajouter une nouvelle clé pour chaque élémént du tableau pour ce faire</li>
             </ul>
           </li>
           <li>Réécrivez le CSS (une partie) du projet en SCSS et rendez le site compatible au mobile grâce aux media queries</li>
@@ -119,10 +124,14 @@
           <li>Faites un lien entre les pages dans le menu
             <ul>
                 <li>Note : L'attribut "href" doit contenir un lien vers un fichier .html, pas .twig</li>
-                <li>Note 2 : Les modifications de lien doivent être faites dans le fichier src/data/menu.json</li>
+                <!-- <li>Note 2 : Les modifications de lien doivent être faites dans le fichier src/data/menu.json</li> -->
             </ul>
           </li>
-          <li>Gérez la couleur de la bulle + la page active dans le menu grâce à une variable twig</li>
+          <li>Gérez la couleur de la bulle + la page active dans le menu grâce à une variable Twig
+            <ul>
+                <li><a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
+            </ul>
+          </li>
         </ol>
         <section class="note-information">
             <p>Notes</p>

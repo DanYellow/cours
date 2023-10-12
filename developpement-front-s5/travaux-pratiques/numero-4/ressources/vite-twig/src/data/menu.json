@@ -1,17 +1,13 @@
 {
   "menu": [
     {
-      "name": "ACCUEIL",
-      "link": ""
+      "name": "ACCUEIL"
     },
     {
-      "name": "A PROPOS",
-      "link": "/a-propos.html"
+      "name": "A PROPOS"
     },
     {
-      "name": "CONTACT",
-      "link": "/contact.html"
+      "name": "CONTACT"
     }
-  ],
-  "named": "CONTACT2"
+  ]
 }
