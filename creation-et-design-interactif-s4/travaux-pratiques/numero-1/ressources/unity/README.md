@@ -150,13 +150,33 @@ void Update()
 >
 > Ne mettez **jamais** une boucle `while(true) {}` (boucle infinie) dans la méthode Update car Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
 
+<details>
+  <summary style="font-size: 1.2rem">Animations et méthodes Update() - Cliquez pour ouvrir</summary>
+Plus haut, il est indiqué que la fréquence d'appel de la fonction `Update()` dépendra de la puissance de l'appareil qui fait tourner le jeu, ça dépendra aussi des aléas du jeu ou du système. Ainsi si votre jeu demande beaucoup de ressources ou votre ordinateur fait tourner un autre logiciel gourmand, votre jeu peut ralentir, chose qu'on appelle le lag. Ceci aura une incidence sur vos animations.
+
+Exemple, vous souhaitez déplacer un élément de gauche à droite dans une fenêtre qui a une largeur de 600px en 5 secondes. Trouver la vitesse est relativement simple : $v = {d \over t}$. Dans votre cas, ceci donnera $v = {600px \over 5sec} = 120 pixels/seconde$. 
+Maintenant que nous avons la vitesse pour l'ensemble du trajet, il vous faut la vitesse pour chaque image (frame), on partira du principe que notre appareil fait tourner notre scène à 60 images par seconde. Si on souhaite connaitre la distance, nous effectuons le calcul suivant : $$120 pixels/seconde * {1 \over 60} seconde/image = 2 pixels/image$$
+
+Donc maintenant on sait que notre élément va se déplacer à 2pixels/image. Super. Toutefois que se passe-t-il si notre jeu tourne à 30fps ou encore plus bas ? Eh bien, notre animation va ralentir. Si on passe à 30 images / seconde, la vitesse de notre animation va être deux fois plus lente.
+
+Pour pallier à ce problème, il est toujours conseillé d'effectuer ses animations en appliquant la variable `Time.deltaTime`, elle représente le temps écoulé entre deux images. En l'utilisant, Unity s'assure que toutes les animations se feront à la même vitesse, et ce, quelque soit l'appareil utilisé.
+
+![](./printscreens/memo-delta-2.jpg)
+<p style="text-align: center">Ici on voit que dans la colonne "Delta movement" les mouvements ont la même vitesse</p>
+
+[Voici un article qui explique ce concept avec des animations (en anglais), ça traite du moteur Godot, mais le principe reste le même](https://kidscancode.org/godot_recipes/4.x/basics/understanding_delta/index.html)
+
+> Ce concept reste le même pour la méthode `FixedUpdate()`.
+<hr>
+</details>
+
 Enfin, notez les choses suivantes sur les classes :
 - Les méthodes telles que `Start()` ou `Update()` sont propres à la classe `MonoBehaviour`, de ce fait, elles sont automatiquement appelées
 - Toutes les classes n'ont pas à hériter de `MonoBehaviour`
     - Nous aurons l'occasion de réaliser des classes n'héritant pas de MonoBehaviour dans ce cours
 - Il est possible de définir plusieurs classes dans le même fichier
 - Vous pouvez définir des propriétés propres à une classe. On les met au début de la classe pour les retrouver plus facilement. Nous aurons l'occasion de voir ceci durant le cours
-- `MonoBehaviour` possède d'autres méthodes (nous en utiliseront d'autres), prenez bien en compte que ces méthodes ont un ordre d'appel
+- `MonoBehaviour` possède d'autres méthodes (nous en utiliserons d'autres), prenez bien en compte que ces méthodes ont un ordre d'appel
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 # Exercice
@@ -256,6 +276,9 @@ public class MyClass : MonoBehaviour
     {
         // Note : Avec le caractère $, il est possible d'afficher une variable dans une chaîne de caractères
         Debug.Log($"nbYearsBUT {nbYearsBUT}");
+
+        // On appelle la méthode MyPrivateMethod
+        MyPrivateMethod();
     }
 
     public void MyMethod() {
