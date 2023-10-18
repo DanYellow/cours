@@ -166,7 +166,6 @@ Pour pallier à ce problème, il est toujours conseillé d'effectuer ses animati
 
 [Voici un article qui explique ce concept avec des animations (en anglais), ça traite du moteur Godot, mais le principe reste le même](https://kidscancode.org/godot_recipes/4.x/basics/understanding_delta/index.html)
 
-> Ce concept reste le même pour la méthode `FixedUpdate()`.
 <hr>
 </details>
 

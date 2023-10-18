@@ -26,7 +26,7 @@
           <li>Installez les dépendances avec <code>npm install</code> (dans le dossier crée par vite)
             <ul>
                 <li>Vous pouvez accéder à votre dossier en ligne de commande avec <code>cd chemin-vers-dossier/</code></li>
-                <li>Vous pouvez accéder à votre dossier en le glissant dans VS Code puis en ouvrant le terminal via le menu Terminal > New Terminal</li>
+                <li>Ou vous pouvez accéder à votre dossier en le glissant dans VS Code puis en ouvrant le terminal via le menu Terminal > New Terminal</li>
             </ul>
         </li>
           <li>Lancez le projet via la commande <code>npm run dev</code></li>
@@ -119,7 +119,13 @@
                 <li>Il faudra ajouter une nouvelle clé pour chaque élémént du tableau pour ce faire</li>
             </ul>
           </li>
-          <li>Réécrivez le CSS (une partie) du projet en SCSS et rendez le site compatible au mobile grâce aux media queries</li>
+          <li>Réécrivez le CSS (une partie) du projet en SCSS et rendez le site compatible au mobile grâce aux media queries
+            <ol class="note-information">
+                <li>Sass/Scss n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
+                <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
+                <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour le rendre plus digeste</li>
+            </ol>
+          </li>
           <li>Créez une nouvelle page twig reprenant une partie de la structure actuelle comme le menu et les bulles</li>
           <li>Faites un lien entre les pages dans le menu
             <ul>
@@ -132,20 +138,18 @@
                 <li><a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
             </ul>
           </li>
-          <li>Avec l'aide un autre fichier json, gérez la liste d'article sur la page d'accueil
+          <li>Avec l'aide un autre fichier json, gérez la liste d'articles sur la page d'accueil. A vous de définir la structure en fonction de l'existant.
             <ul>
-                <li>Pour rappel, l'extension twig de vite charge tout fichier json à côté d'un fichier twig. S'ils ont le même nom de template. Ex : index.twig → index.twig.json</li>
+                <li>Vous pouvez rajouter une clé pour accéder au contenu complet d'un article, si vous le souhaitez</li>
+                <li>Pour rappel, l'extension twig de vite charge un fichier json de deux façons :
+                    <ul>
+                        <li>Un fichier json qui partage son nom avec un template et situés au même niveau. Ex : ./index.twig → ./index.twig.json</li>
+                        <li>Un fichier json placé dans le dossier src/data</li>
+                    </ul>
+                </li>
             </ul>
           </li>
         </ol>
-        <section class="note-information">
-            <p>Notes</p>
-            <ol>
-                <li>Sass/Scss n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
-                <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
-                <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour les rendre plus digestes</li>
-            </ol>
-        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -177,7 +181,7 @@
           </li>
           <li>Ajoutez des meta opengraph grâce à un fichier JSON
             <ul>
-              <li>Il existe de multiple générateurs de balise meta pour opengraph. <a href="https://opengraphtools.com/generator.php" target="_blank" rel="noopener noreferrer">Voici un exemple (ouverture dans un nouvel onglet)</a></li>
+              <li>Il existe de multiple générateurs de balises meta pour opengraph. <a href="https://opengraphtools.com/generator.php" target="_blank" rel="noopener noreferrer">Voici un exemple (ouverture dans un nouvel onglet)</a></li>
             </ul>
           </li>
         </ul>
