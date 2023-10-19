@@ -41,11 +41,11 @@
 
   <body>
     <header>
-      <h1>Exemples Content Security Policy - TP4 Electron</h1>
+      <h1>Exemples Content Security Policy - TP Electron</h1>
       <p>
         Le CSP ou Content Security Policy est un gestionnaire de règles visant à améliorer la
         sécurité d'un site web pour en limiter les attaques malicieuses dont les
-        attaques XSS (Cross-site scripting). Il peut être implémenté côté serveur et/ou côté client. 
+        attaques XSS (Cross-site scripting). Il peut être implémenté côté serveur et/ou côté client. Le CSP n'est pas propre à Electron, vous pouvez l'utiliser sur n'importe quel site web.
       </p>
       
       <p>
@@ -57,7 +57,7 @@
         <li><a href="https://content-security-policy.com/#directive" target="_blank" rel="noopener noreferrer">Accéder à la liste des directives</a></li>
       </ul>
 
-      <p class="note-information">Au cours de votre formation, vous avez dû voir la fonction php "htmlentities()" qui vous permet d'échapper les caractères dans les formulaires. Si son utilisation est toujours conseillée, le CSP est un excellent complément de sécurité qu'il ne faut pas oublier. Car "htmlentities()" ne couvre pas tous les cas.</p>
+      <p class="note-information">Au cours de votre formation, vous avez dû voir la fonction php "htmlentities()" qui vous permet d'échapper les caractères dans les formulaires pour éviter, notamment, les injections XSS. Si son utilisation est toujours conseillée, le CSP est un excellent complément de sécurité qu'il ne faut pas oublier. Car "htmlentities()" ne couvre pas tous les cas.</p>
       <p>
         Dans le cas d'electron, nous avons vu que tout chargement de ressource
         externe était bloqué pour éviter d'exécuter du code potentiellement nuisible à votre
@@ -87,7 +87,7 @@
         <h1>Domaine courant autorisé</h1>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"> <span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span>;</code></pre>
         <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Conséquemment, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS en provenance d'un CDN.</p>
-        <p>La directive "default-src" représente toutes les directives et sert de fallback lorsque des directives sont manquantes.</p>
+        <p>La directive "default-src" représente toutes les directives (images, scripts...) et sert de fallback lorsque des directives sont manquantes.</p>
       </section>
 
       <section>
@@ -135,7 +135,7 @@
         <p>Ancienne méthode de reporting, la directive CSP report-uri prend en source une url qui va recevoir un JSON contenant divers valeurs comme la règle CSP non respectée ou l'élément chargé fautif.</p>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(137, 150, 168); font-weight:400;">&lt;?php</span>
   <span class="hljs-title function_ invoke__">header</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;Content-Security-Policy-Report-Only: default-src &#x27;self&#x27; https://www.youtube.com/; report-uri mon.url...;&quot;</span>);</code></pre>
-        <p>Dans l'exemple ci-dessus en PHP, à chaque problème CSP, nous envoyons vers l'URL "mon.url" l'erreur levée. Ce JSON peut être consommé pour remplir une base de données ou envoyer des e-mails, à vous de voir.</p>
+        <p>Dans l'exemple ci-dessus en PHP, à chaque problème CSP, nous envoyons vers l'URL "mon.url" l'erreur levée. Ce JSON peut être consommé pour remplir une base de données, créer des fichiers ou encore envoyer des e-mails, à vous de voir.</p>
 
         <h2>Version moderne - report-to</h2>
         <p>Méthode moderne mais en cours de modifications, la directive CSP report-to fonctionne avec un autre header HTTP appelé "Report-To", cet header liste tous les liens vers lesquels vous souhaitez récupérer les erreurs.</p>
