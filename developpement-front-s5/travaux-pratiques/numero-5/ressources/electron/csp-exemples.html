@@ -86,7 +86,7 @@
       <section>
         <h1>Domaine courant autorisé</h1>
         <pre><code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"> <span style="color:rgb(248, 248, 248); font-weight:400;">default</span>-src <span style="color:rgb(101, 176, 66); font-weight:400;">&#x27;self&#x27;</span>;</code></pre>
-        <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Conséquemment, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS en provenance d'un CDN.</p>
+        <p>Règle CSP présentée dans les exemples de la <a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app#loading-a-web-page-into-a-browserwindow" target="_blank">documentation d'electron</a>, cette régle interdit le chargement de toute ressource externe à l'application / domaine. Conséquemment, vous ne pouvez pas afficher une vidéo youtube embarquée ou encore charger le CSS d'une bibliothèque CSS en provenance d'un serveur externe. Sachez aussi que les sous-domaines de votre domaine sont également exclus.</p>
         <p>La directive "default-src" représente toutes les directives (images, scripts...) et sert de fallback lorsque des directives sont manquantes.</p>
       </section>
 
@@ -128,8 +128,8 @@
       </section>
       <section>
         <h1>Reporting CSP / Tester ses règles CSP</h1>
-        <p>Dans l'éventualité où vous auriez envie d'implémenter CSP sans tout casser sur votre site, CSP propose la valeur "Content-Security-Policy-Report-Only". L'idée est de lever une alerte à chaque fois qu'une règle CSP n'est pas respectée sans pour autant bloquer le chargement de la ressource. Vu que ceci a pour but de tester, les valeurs pour "Content-Security-Policy-Report-Only" et "Content-Security-Policy" n'ont pas à être identiques.</p>
-        <p><b>Cette valeur n'est gérée que côté serveur</b>, elle permet de générer une requête POST qui envoie un JSON à une URL spécifiée. Il existe plusieurs façon de faire, certains navigateurs n'implémentent pas encore la dernière version. Nous allons donc vous montrer les deux méthodes.</p>
+        <p>Dans l'éventualité où vous auriez envie d'implémenter CSP sans tout casser sur votre site, CSP propose la valeur "Content-Security-Policy-Report-Only" <b>qui ne fonctionne que côté serveur.</b> L'idée est de lever une alerte à chaque fois qu'une règle CSP n'est pas respectée sans pour autant bloquer le chargement de la ressource. Il faut fournir une url qui doit recevoir le rapport d'erreur en JSON sous forme de requête POST. Les valeurs pour "Content-Security-Policy-Report-Only" et "Content-Security-Policy" n'ont pas à être identiques.</p>
+        <p>Il existe plusieurs façon d'envoyer un rapport CSP, certains navigateurs n'implémentent pas encore la dernière version. Nous allons donc vous montrer les deux méthodes.</p>
 
         <h2>Ancienne version - report-uri</h2>
         <p>Ancienne méthode de reporting, la directive CSP report-uri prend en source une url qui va recevoir un JSON contenant divers valeurs comme la règle CSP non respectée ou l'élément chargé fautif.</p>
@@ -152,15 +152,18 @@
         </ul>
         <p>Il est possible de définir plusieurs groupes en les séparant par des virgules (,). Egalement, la directive "report-to" est également utilisable avec "Content-Security-Policy" tout comme "report-uri.</p>
         <p>N'importe quel langage côté serveur peut envoyer ces headers HTTP pour faire un reporting d'erreurs. Les headers HTTP "Content-Security-Policy-Report-Only" et "Report-To" ont été implémentés dans la config vite.</p>
-        <p>A l'avenir le header HTTP "Report-To" sera remplacé par "Reporting-Endpoints" beaucoup moins verbeux (voir exemples plus bas).</p>
+        <p>A l'avenir le header HTTP "report-to" sera utilisable avec "Reporting-Endpoints" permettant plus de souplesse (voir exemples plus bas).</p>
+
+        <p class="note-information">"report-to" et "report-uri" peuvent être utilisés également avec "Content-Security-Policy", le fonctionnement reste le même, à la différence qu'en plus du rapport, les ressources interdites seront bloquées.</p>
       </section>
+
       <section>
         <h1>Headers HTTP ou balises HTML ?</h1>
-        <p>Tout va dépendre de votre objectif et de vos compétences. Si vous avez besoin d'un reporting, vous devez utiliser impérativement les headers HTTP. Si vous êtes plus à l'aise avec le HTML, utilisez les balises.
+        <p>Tout va dépendre de votre objectif et de vos compétences. Si vous avez besoin d'un reporting, vous devez utiliser impérativement les headers HTTP, donc faire appel au back-end. Si vous êtes plus à l'aise avec le HTML ou n'avez pas besoin de reporting, utilisez les balises &lt;meta>.
            En cas d'application des headers et balises, pour la gestion du CSP, le navigateur appliquera toujours la règle la plus restrictive.</p>
       </section>
       <hr>
-      <p>Il existe d'autres règles et cas, mais nous avons couvert dans les grandes lignes le fonctionnement de CSP. Si vous avez besoin de plus d'informations vous avez les ressources suivantes :</p>
+      <p>Il existe d'autres règles et cas, mais nous avons couvert dans les grandes lignes le fonctionnement de CSP. Si vous avez besoin de plus d'informations vous avez les ressources suivantes (ouverture dans un nouvel onglet) :</p>
       <ul>
         <li><a href="https://content-security-policy.com/" target="_blank" rel="noopener noreferrer">Documentation officielle de CSP (en anglais)</a></li>
         <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/CSP#exemples_pour_les_cas_courants" target="_blank" rel="noopener noreferrer">Documentation de CSP sur MDN</a></li>
