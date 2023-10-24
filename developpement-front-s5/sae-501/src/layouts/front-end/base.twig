@@ -13,8 +13,12 @@
 
     <script src="/src/scripts/styles.js" type="module" ></script>
     {% block javascript %}{% endblock %}
+
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/src/scripts/styles.js"></script>
 </head>
 <body>
-    {% include "../../components/front-end/navigation.twig" %}
+<p>3000</p>
+    {% include "components/front-end/navigation.twig" %} 
 </body>
 </html>
