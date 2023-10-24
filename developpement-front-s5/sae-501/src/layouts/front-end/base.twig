@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TITRE MANQUANT !{% endblock %} - SAE 501</title>
+
+    <link rel="stylesheet" href="/styles/reset.css">
+
+    {% block styles %}{% endblock %}
+
+    <script src="/src/scripts/tailwindcss.js" type="module" ></script>
+    {% block javascript %}{% endblock %}
+</head>
+<body>
+    {% include "../../components/front-end/navigation.twig" %}
+</body>
+</html>
