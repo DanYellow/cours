@@ -1,5 +1,7 @@
+{% set bubble_color = "rouge" %}
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="bg-neutral-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +11,7 @@
 
     {% block styles %}{% endblock %}
 
-    <script src="/src/scripts/tailwindcss.js" type="module" ></script>
+    <script src="/src/scripts/styles.js" type="module" ></script>
     {% block javascript %}{% endblock %}
 </head>
 <body>

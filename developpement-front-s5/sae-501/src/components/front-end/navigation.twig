@@ -1,8 +1,9 @@
-<nav class="max-w-[1280px] top-[117px] text-slate-200">
-	<ul>
-    ff
-        {% for menu_item in menu %}
-		    <li><a href="./">ACCUEIL</a></li>
-        {% endfor %}
+<nav class="max-w-[1280px] mx-auto">
+	<ul class="flex justify-end gap-x-10">
+		{% for menu_item in menu %}
+			<li>
+				<a class="pt-10 block text-lg hover:text-pink-500" href="{{ menu_item.link }}">{{ menu_item.name }}</a>
+			</li>
+		{% endfor %}
 	</ul>
 </nav>

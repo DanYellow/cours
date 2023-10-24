@@ -1,0 +1,24 @@
+{
+    "menu": [
+        {
+            "name": "ACCUEIL",
+            "link": "index.html"
+        },
+        {
+            "name": "A PROPOS",
+            "link": "a-propos.html"
+        },
+        {
+            "name": "EQUIPE DE REDACTION",
+            "link": "equipe.html"
+        },
+        {
+            "name": "SUR LES MÉDIAS",
+            "link": "sur-les-medias.html"
+        },
+        {
+            "name": "CONTACT",
+            "link": "contact.html"
+        }
+    ]
+}

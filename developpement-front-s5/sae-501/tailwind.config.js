@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,twig}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,twig}"],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        11: "2.75rem",
+      },
+    },
   },
   plugins: [],
-}
-
+};
