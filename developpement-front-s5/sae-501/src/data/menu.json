@@ -2,7 +2,7 @@
     "menu": [
         {
             "name": "ACCUEIL",
-            "link": "index.html"
+            "link": "/"
         },
         {
             "name": "A PROPOS",
