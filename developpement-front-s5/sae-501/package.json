@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "start": "nodemon server/index.js -e js,twig,json,css,scss",
-    "start2": "nodemon server/index2.js -e js,twig,json,css,scss",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -19,6 +18,7 @@
     "livereload": "^0.9.3",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.31",
+    "sass": "^1.69.4",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
   },

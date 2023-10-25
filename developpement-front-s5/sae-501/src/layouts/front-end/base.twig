@@ -17,8 +17,12 @@
     <script type="module" src="http://localhost:5173/@vite/client"></script>
     <script type="module" src="http://localhost:5173/src/scripts/styles.js"></script>
 </head>
-<body>
-<p>Sur ?</p>
+<body class="px-4">
     {% include "components/front-end/navigation.twig" %} 
+    {% include "components/front-end/hero.twig" %}
+    {{ foo }}
+    <main class="max-w-[1280px] mx-auto">
+
+    </main>
 </body>
 </html>
