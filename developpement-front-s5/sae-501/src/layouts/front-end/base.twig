@@ -10,19 +10,18 @@
     <link rel="stylesheet" href="/styles/reset.css">
 
     {% block styles %}{% endblock %}
-
-    <script src="/src/scripts/styles.js" type="module" ></script>
     {% block javascript %}{% endblock %}
 
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-    <script type="module" src="http://localhost:5173/src/scripts/styles.js"></script>
+    {% if NODE_ENV == "development" %}
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/src/scripts/styles.js"></script>
+    {% endif %}
 </head>
 <body class="px-4">
     {% include "components/front-end/navigation.twig" %} 
     {% include "components/front-end/hero.twig" %}
-    {{ foo }}
-    <main class="max-w-[1280px] mx-auto">
 
+    <main class="max-w-[1280px] mx-auto">
     </main>
 </body>
 </html>

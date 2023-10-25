@@ -18,7 +18,7 @@
 }
 
 .bulle .txt-grand {
-  font-size: 4.375rem;
+  font-size: 3.375rem;
   color: black;
 
   @include mobile {
@@ -36,7 +36,7 @@
 
 .bulle .txt-petit {
   color: black;
-  font-size: 3.125rem;
+  font-size: 2.125rem;
 }
 
 .bulle-icone.rose {
@@ -64,8 +64,8 @@
   top: -46px;
   right: 100px;
   z-index: -1;
-  width: 634px;
-  height: 500px;
+  width: 434px;
+  height: 400px;
   transition: transform 0.3s;
   mask: url("/images/bulle.svg") no-repeat center / contain;
   -webkit-mask: url("/images/bulle.svg") no-repeat center / contain;
@@ -76,8 +76,8 @@
   top: -60px;
   right: 62px;
   z-index: -1;
-  width: 634px;
-  height: 510px;
+  width: 534px;
+  height: 410px;
   transition: transform 0.3s;
   mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
   -webkit-mask: url("/images/bulle-bordure.svg") no-repeat center /

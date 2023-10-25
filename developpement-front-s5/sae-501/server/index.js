@@ -6,8 +6,15 @@ import FastGlob from "fast-glob";
 import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
 
 import frontendRouter from "./front-end-router.js";
+
+let envFilePath = '.env.prod.local';
+if(process.env.NODE_ENV === "development") {
+  envFilePath = '.env.dev.local';
+}
+const envVars = dotenv.config({ path: envFilePath })
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,7 +26,7 @@ liveReloadServer.server.once("connection", () => {
   }, 100);
 });
 
-const port = 3000;
+const port = envVars?.parsed?.PORT || 3000;
 const hostname = "127.0.0.1";
 const app = express();
 
@@ -38,17 +45,11 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
   );
 });
 
-app.use(function (req, res, next) {
-  res.locals = jsonFilesContent;
-  res.injectRender = (tplPath, data) => {
-    let tplContent = {};
-    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`);
-    if (fs.existsSync(tplContentPath)) {
-      tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
-    }
-
-    res.render(tplPath, { ...data, ...tplContent });
-  };
+app.use(function (_req, res, next) {
+  res.locals = {...jsonFilesContent, ...{
+    NODE_ENV: process.env.NODE_ENV,
+    ...envVars.parsed
+  }};
 
   const originalRender = res.render;
   res.render = function (view, local, callback) {
@@ -61,7 +62,7 @@ app.use(function (req, res, next) {
 
     const args = [view, { ...local, ...tplContent }, callback];
 
-    return originalRender.apply(this, args);
+    originalRender.apply(this, args);
   };
 
   next();

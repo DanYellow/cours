@@ -1,11 +1,11 @@
 {
     "menu": [
         {
-            "name": "ed ACCUEIL",
+            "name": "ACCUEIL",
             "link": "/"
         },
         {
-            "name": "A PROPOS e",
+            "name": "A PROPOS",
             "link": "a-propos.html"
         },
         {
