@@ -5,7 +5,7 @@ import lodash from "lodash";
 import FastGlob from "fast-glob";
 import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 import frontendRouter from "./front-end-router.js";
 
@@ -41,40 +41,28 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
 app.use(function (req, res, next) {
   res.locals = jsonFilesContent;
   res.injectRender = (tplPath, data) => {
-    let tplContent = {}
-    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`)
-    if(fs.existsSync(tplContentPath)) {
-      tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString())
+    let tplContent = {};
+    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`);
+    if (fs.existsSync(tplContentPath)) {
+      tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
     }
 
-    res.render(tplPath, {...data, ...tplContent});
-  }
+    res.render(tplPath, { ...data, ...tplContent });
+  };
 
   const originalRender = res.render;
-  
-  // res.render = (function(_super) {
-  //   return () {
-  //       // Extend it to log the value for example that is passed
-  //       console.log(arguments[0]);
-  //       console.log(arguments[1]);
-  //       return _super.apply(this, arguments);
-  //   };         
-  // })(res.render);
-  // console.log(
-  //   originalRender.toString()
-  // )
   res.render = function (view, local, callback) {
-    let tplContent = {}
-    
-    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`)
-    if(fs.existsSync(tplContentPath)) {
-      tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString())
+    let tplContent = {};
+
+    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`);
+    if (fs.existsSync(tplContentPath)) {
+      tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
     }
 
-    const args = [view, {...local, ...tplContent}, callback]
-    
-    return originalRender.apply(this, args)
-  }
+    const args = [view, { ...local, ...tplContent }, callback];
+
+    return originalRender.apply(this, args);
+  };
 
   next();
 });
@@ -82,7 +70,7 @@ app.use(function (req, res, next) {
 const publicPath = path.join(path.resolve(), "public");
 app.use("/", express.static(publicPath));
 app.set("view engine", "twig");
-app.set('views', path.join(__dirname, "..", '/src'));
+app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(frontendRouter);
 

@@ -1,4 +1,4 @@
-import tailwindcss from '@vituum/vite-plugin-tailwindcss'
+import tailwindcss from "@vituum/vite-plugin-tailwindcss";
 
 export default {
   base: "./",
