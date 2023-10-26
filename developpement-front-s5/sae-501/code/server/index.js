@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 import ip from "ip";
 
 import frontendRouter from "./front-end-router.js";
+import backendRouter from "./back-end-router.js";
 
 let envFilePath = '.env.prod.local';
 if(process.env.NODE_ENV === "development") {
@@ -81,6 +82,7 @@ app.set("view engine", "twig");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(frontendRouter);
+app.use('/admin', backendRouter);
 
 const listDomains = [hostip]
 
