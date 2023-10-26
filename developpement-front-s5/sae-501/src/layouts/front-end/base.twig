@@ -8,13 +8,19 @@
     <title>{% block title %}TITRE MANQUANT !{% endblock %} - SAE 501</title>
 
     <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    {% if NODE_ENV != "development" %}
+        <link rel="stylesheet" href="{{ manifest['style.css'].file }}" />
+    {% endif %}
 
     {% block styles %}{% endblock %}
     {% block javascript %}{% endblock %}
 
     {% if NODE_ENV == "development" %}
-        <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <script type="module" src="http://localhost:5173/src/scripts/styles.js"></script>
+        <script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
+        <script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.frontend.js"></script>
+    {% else %}
+        <script type="module" src="{{ manifest['src/scripts/main.frontend.js'].file }}"></script>
     {% endif %}
 </head>
 <body class="px-4">
@@ -22,6 +28,7 @@
     {% include "components/front-end/hero.twig" %}
 
     <main class="max-w-[1280px] mx-auto">
+    {% block main %}{% endblock %}
     </main>
 </body>
 </html>

@@ -7,6 +7,7 @@ import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import ip from "ip"
 
 import frontendRouter from "./front-end-router.js";
 
@@ -27,7 +28,7 @@ liveReloadServer.server.once("connection", () => {
 });
 
 const port = envVars?.parsed?.PORT || 3000;
-const hostname = "127.0.0.1";
+const hostip = (process.env.NODE_ENV === "development") ? ip.address() : undefined;
 const app = express();
 
 app.use(
@@ -48,6 +49,7 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
 app.use(function (_req, res, next) {
   res.locals = {...jsonFilesContent, ...{
     NODE_ENV: process.env.NODE_ENV,
+    HOST_IP: hostip,
     ...envVars.parsed
   }};
 
@@ -68,13 +70,25 @@ app.use(function (_req, res, next) {
   next();
 });
 
-const publicPath = path.join(path.resolve(), "public");
+let publicPath = path.join(path.resolve(), "public");
+if (process.env.NODE_ENV === "production") {
+    publicPath = path.join(path.resolve(), "dist");
+}
+
 app.use("/", express.static(publicPath));
+
+
 app.set("view engine", "twig");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(frontendRouter);
 
-app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+const listDomains = [hostip]
+
+app.listen(port, listDomains, () => {
+    console.log("Express server running at :");
+    ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
+        console.log(`- \x1b[33mhttp://${item}:${port}/\x1b[0m`);
+    })
 });
+  
