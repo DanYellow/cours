@@ -19,11 +19,11 @@ router.use(async (_req, res, next) => {
 });
 
 const parseManifest = async () => {
-//   if (process.env.NODE_ENV !== "production") {
-//     return {};
-//   }
+  if (process.env.NODE_ENV !== "production") {
+    return {};
+  }
 
-  const manifestPath = path.join(path.resolve(), "dist", "manifest.json");
+  const manifestPath = path.join(path.resolve(), "dist", "frontend.manifest.json");
   const manifestFile = await fs.readFile(manifestPath);
 
   return JSON.parse(manifestFile);
