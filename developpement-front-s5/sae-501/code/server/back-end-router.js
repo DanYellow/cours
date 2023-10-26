@@ -23,7 +23,7 @@ const parseManifest = async () => {
     return {};
   }
 
-  const manifestPath = path.join(path.resolve(), "dist", "frontend.manifest.json");
+  const manifestPath = path.join(path.resolve(), "dist", "backend.manifest.json");
   const manifestFile = await fs.readFile(manifestPath);
 
   return JSON.parse(manifestFile);
