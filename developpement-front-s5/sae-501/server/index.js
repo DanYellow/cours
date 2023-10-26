@@ -7,7 +7,7 @@ import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import ip from "ip"
+import ip from "ip";
 
 import frontendRouter from "./front-end-router.js";
 
@@ -77,7 +77,6 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/", express.static(publicPath));
 
-
 app.set("view engine", "twig");
 app.set("views", path.join(__dirname, "..", "/src"));
 
@@ -86,6 +85,14 @@ app.use(frontendRouter);
 const listDomains = [hostip]
 
 app.listen(port, listDomains, () => {
+    console.log(`
+        ███████╗ █████╗ ███████╗    ███████╗ ██████╗  ██╗
+        ██╔════╝██╔══██╗██╔════╝    ██╔════╝██╔═████╗███║
+        ███████╗███████║█████╗      ███████╗██║██╔██║╚██║
+        ╚════██║██╔══██║██╔══╝      ╚════██║████╔╝██║ ██║
+        ███████║██║  ██║███████╗    ███████║╚██████╔╝ ██║
+        ╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═╝
+    `)
     console.log("Express server running at :");
     ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
         console.log(`- \x1b[33mhttp://${item}:${port}/\x1b[0m`);
