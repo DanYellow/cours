@@ -176,3 +176,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
 
   Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
+
+- **Puis-je mettre sur github ce projet ?**
+
+Oui, bien sûr, on vous encourage à le faire. Le projet est prêt pour grâce à au fichier .gitignore. Il vous suffit juste créer un nouveau projet sur votre compte github puis le cloner et mettre le contenu du dossier code/ dans votre projet fraîchement cloné.
