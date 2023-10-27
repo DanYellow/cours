@@ -11,6 +11,12 @@ import ip from "ip";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router.js";
+import apiRouter from "./api-router/index.js";
+
+import mongoServer from "#database/index.js";
+
+
+
 
 let envFilePath = '.env.prod.local';
 if(process.env.NODE_ENV === "development") {
@@ -32,6 +38,11 @@ const port = envVars?.parsed?.PORT || 3000;
 const hostip = (process.env.NODE_ENV === "development") ? ip.address() : undefined;
 const app = express();
 
+mongoServer().then((res) => {
+    console.log("---------------------------")
+    console.log(`- \x1b[36m${res}\x1b[0m`);
+    console.log("---------------------------")
+}).catch(console.error);
 app.use(
   connectLiveReload({
     port: 35729,
@@ -83,21 +94,25 @@ app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
+app.use('/api', apiRouter);
 
 const listDomains = [hostip]
 
-app.listen(port, listDomains, () => {
-    console.log(`
+console.log(`
         ███████╗ █████╗ ███████╗    ███████╗ ██████╗  ██╗
         ██╔════╝██╔══██╗██╔════╝    ██╔════╝██╔═████╗███║
         ███████╗███████║█████╗      ███████╗██║██╔██║╚██║
         ╚════██║██╔══██║██╔══╝      ╚════██║████╔╝██║ ██║
         ███████║██║  ██║███████╗    ███████║╚██████╔╝ ██║
         ╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═╝
-    `)
+`)
+
+app.listen(port, listDomains, () => {
+    console.log("---------------------------")
     console.log("Express server running at :");
     ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
         console.log(`- \x1b[33mhttp://${item}:${port}/\x1b[0m`);
     })
+    console.log("---------------------------")
 });
   
