@@ -1,1 +1,38 @@
 {% extends "layouts/front-end/base.twig" %}
+
+
+{% block main %}
+	<h1 class="text-3xl font-bold mb-8">Articles sur le BUT MMI</h1>
+
+	<section class="flex justify-between">
+		<ul>
+			<li class="max-w-[750px] mb-4 shadow hover:shadow-xl">
+				<a class="block" href="">
+					<figure>
+						<img class="h-full" src="https://danyellow.net/saes/203/ressources/images/image-article.png" alt="">
+					</figure>
+					<section class="p-8 pb-12">
+						<p class="text-2xl font-bold">Hello</p>
+						<p>fefefefe</p>
+					</section>
+				</a>
+			</li>
+		</ul>
+		<a class="jpo-banniere" href="https://www.cyu.fr/formation/construire-son-projet/salons-journee-portes-ouvertes" title="Ouverture dans un nouvel onglet">
+			<figure class="logo">
+				<img src="/images/logo-cyu-blanc.png" width="200" alt="">
+			</figure>
+
+			<section class="textes">
+				<p class="text-2xl">Journée portes ouvertes</p>
+				<p class="text-4xl mb-3">
+					12/02/2023,
+					<br>
+					de 10h à 17h
+				</p>
+				<p class="en-savoir-plus">EN SAVOIR PLUS</p>
+			</section>
+		</a>
+	</section>
+
+{% endblock %}

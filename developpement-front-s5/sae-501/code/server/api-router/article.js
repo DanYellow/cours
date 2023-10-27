@@ -6,9 +6,24 @@ const router = express.Router();
 
 const base = "articles";
 
-router.get(`/${base}`, async (_req, res) => {
-    const listArticles = await Article.find();
-    res.status(200).json(listArticles)
+router.get(`/${base}`, async (req, res) => {
+    const page = req.query.page || 0
+
+    let perPage = req.query.per_page || 5
+    perPage = Math.min(perPage, 20)
+
+    const count = await Article.count();
+    
+    const listArticles = await Article
+        .find()
+        .skip(page * perPage)
+        .limit(perPage);
+
+    res.status(200).json({
+        data: listArticles,
+        total_pages: Math.ceil(count / perPage),
+        page
+    })
 });
 
 // router.get("/saes/:id", async (req, res) => {
@@ -19,7 +34,7 @@ router.get(`/${base}`, async (_req, res) => {
 //     res.status(200).json(sae)
 // });
 
-router.post("/saes", async (req, res) => {
+router.post(`/${base}`, async (req, res) => {
     let sae = new SAE({ ...req.body });
     await sae.save();
 

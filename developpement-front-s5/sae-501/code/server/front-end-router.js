@@ -37,21 +37,37 @@ const parseManifest = async () => {
   return JSON.parse(manifestFile);
 };
 
-router.get("/", async (_req, res) => {
-  const listArticles = await Article.find();
+router.get("/", async (req, res) => {
+  const page = req.query.page || 0;
+
+  let perPage = req.query.per_page || 5;
+  perPage = Math.min(perPage, 20);
+
+  const listArticles = await Article.find()
+    .skip(page * perPage)
+    .limit(perPage);
+
+  const count = await Article.count();
+
   res.render("pages/front-end/index.twig", {
     page_name: "index",
-    list_articles: listArticles,
+    list_articles: {
+      data: listArticles,
+      total_pages: Math.ceil(count / perPage),
+      count,
+      page,
+    },
   });
 });
 
+// "(.html)?" makes ".html" optional
 router.get("/a-propos(.html)?", async (_req, res) => {
   // Get all sae items in the db
   const listSAEs = await SAE.find();
   res.render("pages/front-end/a-propos.twig", {
     list_saes: {
-        data: listSAEs,
-        count: listSAEs.length
+      data: listSAEs,
+      count: listSAEs.length,
     },
     page_name: "a-propos",
   });
