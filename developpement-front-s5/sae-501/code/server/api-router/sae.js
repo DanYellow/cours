@@ -34,6 +34,12 @@ router.put(`/${base}/:id`, async (req, res) => {
     res.status(201).json(sae)
 });
 
+// app.delete(`/${base}/:id, async (req, res) => {
+//     const { id } = req.params;
+//     const deletedDog = await Dog.findByIdAndDelete(req.params.id);
+//     return res.status(200).json(deletedDog);
+//   });
+
 
 
 export default router;

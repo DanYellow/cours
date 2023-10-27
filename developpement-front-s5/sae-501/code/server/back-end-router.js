@@ -2,14 +2,18 @@ import express from "express";
 import path from "path";
 import fs from "fs/promises";
 
+// Models
+import SAE from "#models/sae.js";
+import Article from "#models/article.js";
+
 const router = express.Router();
 
 router.use(async (_req, res, next) => {
   const originalRender = res.render;
   res.render = async function (view, local, callback) {
-      const manifest = {
-          manifest: await parseManifest(),
-        };
+    const manifest = {
+      manifest: await parseManifest(),
+    };
 
     const args = [view, { ...local, ...manifest }, callback];
     originalRender.apply(this, args);
@@ -23,18 +27,47 @@ const parseManifest = async () => {
     return {};
   }
 
-  const manifestPath = path.join(path.resolve(), "dist", "backend.manifest.json");
+  const manifestPath = path.join(
+    path.resolve(),
+    "dist",
+    "backend.manifest.json"
+  );
   const manifestFile = await fs.readFile(manifestPath);
 
   return JSON.parse(manifestFile);
 };
 
-router.get("/", async (_req, res) => {
-  res.render("pages/index.twig", { hello: 56 });
+router.get("/", async (req, res) => {
+  const listSAEs = await SAE.find();
+
+  const listArticles = await Article.find().limit(5);
+  const countArticles = await Article.count();
+  //   router.locals.routename = "My Route Name";
+
+  console.log(router.stack);
+
+  res.render("pages/back-end/index.twig", {
+    list_saes: {
+      data: listSAEs,
+      count: listSAEs.length,
+    },
+    list_articles: {
+      data: listArticles,
+      count: countArticles
+    },
+    page_name: "index",
+  });
 });
 
-router.get("/hello", (_req, res) => {
-  res.render("pages/index.twig");
-});
+// router.get("/2/:id", async (_req, res) => {
+//     const listSAEs = await SAE.find();
+//     res.render("pages/back-end/index.twig", {
+//       list_saes: {
+//         data: listSAEs,
+//         count: listSAEs.length,
+//       },
+//       page_name: "index",
+//     });
+//   });
 
 export default router;

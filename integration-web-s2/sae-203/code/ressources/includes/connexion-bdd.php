@@ -73,7 +73,7 @@ try {
     $nomBDD = getenv('NOM_BDD');
     $serveurBDD = getenv('SERVEUR_BDD');
     
-    // On se connecte à notre base de donnée
+    // On se connecte à notre base de données
     $mysqli = mysqli_connect($serveurBDD, getenv('UTILISATEUR_BDD'), getenv('MDP_BDD'), $nomBDD);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());

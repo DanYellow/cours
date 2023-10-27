@@ -1,9 +1,9 @@
 <?php
 require_once '../../ressources/includes/connexion-bdd.php';
 
-$listeAuteursCommande = $clientMySQL->prepare('SELECT * FROM auteur');
+$listeAuteursCommande = $mysqli->prepare('SELECT * FROM auteur');
 $listeAuteursCommande->execute();
-$listeAuteurs = $listeAuteursCommande->fetchAll();
+$listeAuteurs = $listeAuteursCommande->fetch();
 
 $pageCourante = 'auteurs';
 $racineURL = $_SERVER['REQUEST_URI'];
@@ -24,7 +24,7 @@ $URLCreation = "{$racineURL}/creation.php";
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
             <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
-            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
+            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>

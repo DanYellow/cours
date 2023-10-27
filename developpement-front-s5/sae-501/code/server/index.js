@@ -59,10 +59,11 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
   );
 });
 
-app.use(function (_req, res, next) {
+app.use(function (req, res, next) {
   res.locals = {...jsonFilesContent, ...{
     NODE_ENV: process.env.NODE_ENV,
     HOST_IP: hostip,
+    current_url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
     ...envVars.parsed
   }};
 
@@ -96,6 +97,13 @@ app.set("views", path.join(__dirname, "..", "/src"));
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
+
+const foo = (r) => {
+    console.log(r)
+    return "no ways"
+}
+
+app.locals.foo = foo;
 
 const listDomains = [hostip]
 
