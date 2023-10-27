@@ -12,7 +12,6 @@
   background-size: cover;
 
   &:hover {
-
     &:before {
       opacity: 1;
       transform: translate(-50%, -50%) scale(0.96, 0.98);
@@ -66,3 +65,5 @@
     font-weight: 600;
   }
 }
+
+// color: theme("colors.neutral.50");
