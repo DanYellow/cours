@@ -1,5 +1,5 @@
-<nav class="max-w-[1280px] mx-auto">
-	<ul class="flex justify-end gap-x-10">
+<nav class="max-w-[1280px] mx-auto navigation">
+	<ul class="flex lg:justify-end gap-x-10 whitespace-nowrap overflow-x-auto px-3">
 		{% for menu_item in menu %}
 			<li>
 				<a class="pt-10 block text-lg hover:text-pink-500" href="{{ menu_item.link }}">{{ menu_item.name }}</a>

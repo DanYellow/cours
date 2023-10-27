@@ -1,5 +1,4 @@
 .jpo-banniere {
-  width: 37.375%;
   height: 45.625rem;
   position: relative;
   display: flex;
@@ -10,10 +9,9 @@
   text-decoration: none;
   overflow: hidden;
   transition: background-size 0.5s;
-  background-size: 100% 100%;
+  background-size: cover;
 
   &:hover {
-    background-size: 105% 105%;
 
     &:before {
       opacity: 1;

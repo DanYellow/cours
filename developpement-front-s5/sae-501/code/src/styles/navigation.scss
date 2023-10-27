@@ -1,0 +1,27 @@
+.navigation {
+    position: relative;
+
+    // color: theme("colors.neutral.50");
+
+    &::before {
+        content: "";
+        background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.3148109585631127) 100%);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 9;
+        position: absolute;
+        width: 30px;
+    }
+
+    &::after {
+        content: "";
+        background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.3148109585631127) 100%);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9;
+        position: absolute;
+        width: 30px;
+    }
+}
