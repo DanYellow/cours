@@ -2,7 +2,9 @@ import express from "express";
 import path from "path";
 import fs from "fs/promises";
 
+// Models
 import SAE from "#models/sae.js";
+import Article from "#models/article.js";
 
 const router = express.Router();
 
@@ -36,17 +38,23 @@ const parseManifest = async () => {
 };
 
 router.get("/", async (_req, res) => {
-  res.render("pages/front-end/index.twig");
+  const listArticles = await Article.find();
+  res.render("pages/front-end/index.twig", {
+    page_name: "index",
+    list_articles: listArticles,
+  });
 });
 
 router.get("/a-propos(.html)?", async (_req, res) => {
   // Get all sae items in the db
   const listSAEs = await SAE.find();
-  res.render("pages/front-end/a-propos.twig", { listSAEs });
-});
-
-router.get("/hello", (_req, res) => {
-  res.render("pages/index.twig");
+  res.render("pages/front-end/a-propos.twig", {
+    list_saes: {
+        data: listSAEs,
+        count: listSAEs.length
+    },
+    page_name: "a-propos",
+  });
 });
 
 export default router;

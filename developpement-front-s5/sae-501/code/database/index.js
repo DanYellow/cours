@@ -25,10 +25,4 @@ const main = async () => {
 
 export default main;
 
-
-
-
 // node database/index.js --input-type=module
-
-// let article = new Article({ title: Math.random() });
-//     await article.save();

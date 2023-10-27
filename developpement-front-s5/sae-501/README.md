@@ -165,8 +165,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Il existe moult didacticiels en ligne qui montrent comment faire sur 
 - [ ] Afficher les détails d'un article et permettre, toujours de façon asynchrone, d'envoyer un message lié à un article et l'afficher
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json contenant la date
-- [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
-    - Il faudra utiliser une variable twig
+- [ ] Indiquer dans la navigation la page courante (frontend et backend) et changer la couleur de la bulle en fonction de la page
+    - Il faudra utiliser une variable twig et le router
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Appliquer des meta og sur les pages du frontoffice

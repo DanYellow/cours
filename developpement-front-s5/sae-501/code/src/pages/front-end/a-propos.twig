@@ -1,7 +1,6 @@
 {% extends "layouts/front-end/base.twig" %}
 
-{% block title %}A propos
-{% endblock %}
+{% block title %}A propos{% endblock %}
 
 {% set list_anchors = [
     {
@@ -19,7 +18,7 @@
 ] %}
 
 {% block main %}
-	<ul class="flex justify-center gap-x-4 bg-neutral-50 my-9">
+	<ul class="flex justify-center gap-x-4 bg-neutral-50 my-9 sm:flex-row flex-col gap-y-3">
 		{% for item in list_anchors %}
 			<li>
 				<a href="#{{ item.hash }}" class="text-xl text-[#005A47] hover:text-black">{{ item.name }}</a>
@@ -35,12 +34,11 @@
 		Lorsque cette formation était proposée sous la forme d'un Diplôme Universitaire Technologique (DUT), elle se déroulait sur deux années (1 800 heures). En théorie, elle est accessible à tous les bacheliers, quelle que soit leur série. En moyenne, il y a de 30 à 35 heures de cours par semaine. Cette formation se divise en trois grands pôles, auxquels il faut ajouter le projet tutoré (300 heures) et les stages (420 heures). Les trois grands axes sont les suivants :
 	</p>
 
-	<ul class="list-disc">
+	<ul class="list-disc list-inside">
 		<li>La culture contemporaine et langues étrangères (500 heures)</li>
 		<li>La culture scientifique et technique (700 heures)</li>
 		<li>La culture communicationnelle (600 heures)</li>
 	</ul>
-
 
 	<figure class="my-4">
 		<img src="images/img-quebec.jpg" alt="">
@@ -71,8 +69,8 @@
 		Exemples de projets réalisés en SAÉ
 	</h1>
 
-	<ul class="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-7 my-9">
-		{% for item in listSAEs %}
+	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-7 my-9">
+		{% for item in list_saes.data %}
 			<li class="h-full">
 				<article class="shadow h-full">
                     <figure class="h-[325px]">
@@ -86,5 +84,4 @@
 			</li>
 		{% endfor %}
 	</ul>
-
 {% endblock %}
