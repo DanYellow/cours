@@ -1,30 +1,5 @@
-{% set menu_entries = [
-    {
-        "link": "articles",
-        "name": "Articles",
-    },
-    {
-        "link": "admin/saes",
-        "name": "SAÉS",
-    },
-    {
-        "link": "./messages",
-        "name": "Messages",
-        "clef": "messages"
-    },
-    {
-        "link": "./divers",
-        "name": "Divers"
-    },
-    {
-        "link": "./",
-        "name": "Accéder au site",
-        "clef": "site"
-    }
-] %}
-
 <!DOCTYPE html>
-<html lang="fr" class="bg-neutral-200">
+<html lang="fr" class="bg-neutral-100">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,106 +25,8 @@
 		{% endif %}
 	</head>
 	<body class="flex px-4 py-3 gap-x-6">
-    <div>
-		<aside class="inset-y-0 flex-wrap w-fit bg-white rounded-2xl flex-initial">
-			<header>
-				<a href="" class="block px-14 py-6 text-base text-slate-800 font-bold">Administration</a>
-			</header>
-			<hr class="h-px my-2">
-
-			<ul class="flex flex-col pl-0 mb-0">
-				{% for item in menu_entries %}
-					<li class="mt-0.5 w-full">
-						<a href="{{ item.link }}" class="bg-indigo-50 px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base">
-							{{ item.name }}
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</aside>
-    </div>
-
+		{% include "components/back-end/navigation.twig" %}
 		<main class="w-full">
-			<div class="bg-white rounded-2xl">
-				<header class="mb-6 p-6 pl-8 text-xl font-bold">
-					<p>Liste SAE</p>
-				</header>
-
-				<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
-					<thead class="">
-						<tr class="text-slate-800">
-							<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
-							<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-							<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-							<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for item in [] %}
-							<tr class="hover:bg-neutral-50">
-								<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
-									<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
-								</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Editer</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Supprimer</td>
-							</tr>
-						{% else %}
-							<tr>
-								<td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
-							</tr>
-							<tr>
-							{% endfor %}
-						</tbody>
-					</tbody>
-				</table>
-
-                <footer class="mb-6 p-6 pl-8">
-                    <p class="text-center"><a href="{{ foo('test') }}" class="text-blue-500 hover:text-blue-700">Voir plus</a></p>
-                </footer>
-			</div>
-
-            <div class="bg-white rounded-2xl">
-				<header class="mb-6 p-6 pl-8 text-xl font-bold">
-					<p>Liste articles</p>
-				</header>
-
-				<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
-					<thead class="">
-						<tr class="text-slate-800">
-							<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
-							<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-							<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-							<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for item in list_articles.data %}
-							<tr class="hover:bg-neutral-50">
-								<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
-									<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
-								</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Editer</td>
-								<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Supprimer</td>
-							</tr>
-						{% else %}
-							<tr>
-								<td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
-							</tr>
-							<tr>
-							{% endfor %}
-						</tbody>
-					</tbody>
-				</table>
-
-                <footer class="mb-6 p-6 pl-8">
-                    <p class="text-center"><a href="{{ foo('test') }}" class="text-blue-500 hover:text-blue-700">Voir plus</a></p>
-                </footer>
-			</div>
-
-
-            
 			{% block main %}{% endblock %}
 		</main>
 	</body>

@@ -1,6 +1,7 @@
 {% extends "layouts/front-end/base.twig" %}
 
-{% block title %}A propos{% endblock %}
+{% block title %}A propos
+{% endblock %}
 
 {% set list_anchors = [
     {
@@ -73,9 +74,9 @@
 		{% for item in list_saes.data %}
 			<li class="h-full">
 				<article class="shadow h-full">
-                    <figure class="h-[325px]">
-                        <img class="h-full" src="https://danyellow.net/saes/203/ressources/images/image-article.png" alt="">
-                    </figure>
+					<figure class="h-[325px]">
+						<img class="h-full" src="https://danyellow.net/saes/203/ressources/images/image-article.png" alt="">
+					</figure>
 					<section class="p-8 pb-14">
 						<p class="text-2xl font-bold">{{ item.title }}</p>
 						<p>{{ item.content }}</p>

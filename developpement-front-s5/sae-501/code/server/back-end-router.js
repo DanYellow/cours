@@ -37,37 +37,48 @@ const parseManifest = async () => {
   return JSON.parse(manifestFile);
 };
 
-router.get("/", async (req, res) => {
-  const listSAEs = await SAE.find();
+// router.get("/", async (req, res) => {
+//   const listSAEs = await SAE.find();
 
-  const listArticles = await Article.find().limit(5);
-  const countArticles = await Article.count();
-  //   router.locals.routename = "My Route Name";
+//   const listArticles = await Article.find().limit(5);
+//   const countArticles = await Article.count();
 
-  console.log(router.stack);
+//   res.render("pages/back-end/index.twig", {
+//     list_saes: {
+//       data: listSAEs,
+//       count: listSAEs.length,
+//     },
+//     list_articles: {
+//       data: listArticles,
+//       count: countArticles,
+//     },
+//     page_name: "index",
+//   });
+// });
 
-  res.render("pages/back-end/index.twig", {
+// router.get("/articles", async (req, res) => {
+//   const listArticles = await Article.find().limit(5);
+//   const countArticles = await Article.count();
+
+//   res.render("pages/back-end/list-articles.twig", {
+//     list_articles: {
+//       data: listArticles,
+//       count: countArticles,
+//     },
+//     page_name: "articles",
+//   });
+// });
+
+router.get("/saes", async (req, res) => {
+    const listSAEs = await SAE.find();
+
+  res.render("pages/back-end/list-saes.twig", {
     list_saes: {
       data: listSAEs,
       count: listSAEs.length,
     },
-    list_articles: {
-      data: listArticles,
-      count: countArticles
-    },
-    page_name: "index",
+    page_name: "saes",
   });
 });
-
-// router.get("/2/:id", async (_req, res) => {
-//     const listSAEs = await SAE.find();
-//     res.render("pages/back-end/index.twig", {
-//       list_saes: {
-//         data: listSAEs,
-//         count: listSAEs.length,
-//       },
-//       page_name: "index",
-//     });
-//   });
 
 export default router;

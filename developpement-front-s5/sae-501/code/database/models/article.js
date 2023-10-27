@@ -5,8 +5,6 @@ const articleSchema = new Schema({
   content: String,
   image: String,
   yt_link: String,
-  creation_date: { type: Date, default: Date.now() },
-  last_update_date: Date,
-});
+}, { timestamps: true });
 
 export default mongoose.model("Article", articleSchema);

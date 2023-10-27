@@ -26,12 +26,12 @@ const envVars = dotenv.config({ path: envFilePath })
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 600);
+// });
 
 const port = envVars?.parsed?.PORT || 3000;
 const hostip = (process.env.NODE_ENV === "development") ? ip.address() : undefined;
@@ -97,13 +97,6 @@ app.set("views", path.join(__dirname, "..", "/src"));
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
-
-const foo = (r) => {
-    console.log(r)
-    return "no ways"
-}
-
-app.locals.foo = foo;
 
 const listDomains = [hostip]
 
