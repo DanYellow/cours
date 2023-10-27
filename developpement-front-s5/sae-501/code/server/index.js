@@ -8,14 +8,13 @@ import connectLiveReload from "connect-livereload";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import ip from "ip";
+import bodyParser from "body-parser";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router.js";
 import apiRouter from "./api-router/index.js";
 
 import mongoServer from "#database/index.js";
-
-
 
 
 let envFilePath = '.env.prod.local';
@@ -43,11 +42,13 @@ mongoServer().then((res) => {
     console.log(`- \x1b[36m${res}\x1b[0m`);
     console.log("---------------------------")
 }).catch(console.error);
+
 app.use(
   connectLiveReload({
     port: 35729,
   })
 );
+app.use(bodyParser.json())
 
 let jsonFilesContent = {};
 FastGlob.sync("./src/data/**/*.json").forEach((entry) => {

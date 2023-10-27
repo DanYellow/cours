@@ -9,4 +9,13 @@ const saeSchema = new Schema({
   image: String,
 });
 
-export default mongoose.model("SAE", saeSchema);
+const SAE = mongoose.model("SAE", saeSchema)
+
+export default SAE;
+
+// export const create = async () => {
+//     let sae = new SAE({ ...req.body });
+//     await sae.save();
+
+//     return sae;
+// }

@@ -9,12 +9,19 @@ router.get("/saes", async (_req, res) => {
     res.status(200).json(listSAEs)
 });
 
-router.post("/saes", async (_req, res) => {
+router.post("/saes", async (req, res) => {
     let sae = new SAE({ ...req.body });
     await sae.save();
 
     res.status(201).json(sae)
 });
+
+router.put("/saes/:id", async (req, res) => {
+    let sae = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+
+    res.status(201).json(sae)
+});
+
 
 
 export default router;

@@ -2,14 +2,16 @@ import express from "express";
 import path from "path";
 import fs from "fs/promises";
 
+import SAE from "#models/sae.js";
+
 const router = express.Router();
 
 router.use(async (_req, res, next) => {
   const originalRender = res.render;
   res.render = async function (view, local, callback) {
-      const manifest = {
-          manifest: await parseManifest(),
-        };
+    const manifest = {
+      manifest: await parseManifest(),
+    };
 
     const args = [view, { ...local, ...manifest }, callback];
     originalRender.apply(this, args);
@@ -23,7 +25,11 @@ const parseManifest = async () => {
     return {};
   }
 
-  const manifestPath = path.join(path.resolve(), "dist", "frontend.manifest.json");
+  const manifestPath = path.join(
+    path.resolve(),
+    "dist",
+    "frontend.manifest.json"
+  );
   const manifestFile = await fs.readFile(manifestPath);
 
   return JSON.parse(manifestFile);
@@ -33,9 +39,11 @@ router.get("/", async (_req, res) => {
   res.render("pages/front-end/index.twig");
 });
 
-router.get("/a-propos", async (_req, res) => {
-    res.render("pages/front-end/a-propos.twig");
-  });
+router.get("/a-propos(.html)?", async (_req, res) => {
+  // Get all sae items in the db
+  const listSAEs = await SAE.find();
+  res.render("pages/front-end/a-propos.twig", { listSAEs });
+});
 
 router.get("/hello", (_req, res) => {
   res.render("pages/index.twig");
