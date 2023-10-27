@@ -56,7 +56,6 @@ $listeArticles = $mysqli->query($listeArticlesRequete);
                                 <?php echo $article["chapo"]; ?>
                             </p>
                         </section>
-
                     </a>
                 <?php } ?>
             </section>

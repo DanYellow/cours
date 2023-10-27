@@ -30,8 +30,12 @@ const parseManifest = async () => {
 };
 
 router.get("/", async (_req, res) => {
-  res.render("pages/index.twig");
+  res.render("pages/front-end/index.twig");
 });
+
+router.get("/a-propos", async (_req, res) => {
+    res.render("pages/front-end/a-propos.twig");
+  });
 
 router.get("/hello", (_req, res) => {
   res.render("pages/index.twig");

@@ -62,10 +62,10 @@
 .bulle-icone {
   position: absolute;
   top: -46px;
-  right: 100px;
+  right: 283px;
   z-index: -1;
-  width: 434px;
-  height: 400px;
+  width: 384px;
+  height: 350px;
   transition: transform 0.3s;
   mask: url("/images/bulle.svg") no-repeat center / contain;
   -webkit-mask: url("/images/bulle.svg") no-repeat center / contain;
@@ -74,10 +74,10 @@
 .bulle-icone-bordure {
   position: absolute;
   top: -60px;
-  right: 62px;
+  right: 241px;
   z-index: -1;
-  width: 534px;
-  height: 410px;
+  width: 484px;
+  height: 360px;
   transition: transform 0.3s;
   mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
   -webkit-mask: url("/images/bulle-bordure.svg") no-repeat center /
