@@ -74,10 +74,11 @@ const getCurrentURL = (url) => {
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}`)
 
-  res.locals = {...jsonFilesContent, ...{
+    res.locals = {...jsonFilesContent, ...{
     NODE_ENV: process.env.NODE_ENV,
     HOST_IP: hostip,
     current_url,
+    base_url: `${req.protocol}://${req.get('host')}`,
     admin_url: `${current_url.substring(0, current_url.indexOf("/admin"))}/admin`,
     ...envVars.parsed
   }};

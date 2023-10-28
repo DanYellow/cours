@@ -17,6 +17,7 @@ router.get(`/${base}`, async (req, res) => {
         .skip(Math.max(page - 1, 0) * perPage)
         .limit(perPage)
         .sort({'_id': -1})
+        .lean()
         .orFail()
         .catch(() => {
             return {};

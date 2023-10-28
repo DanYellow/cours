@@ -8,7 +8,7 @@ const base = "saes";
 
 router.get(`/${base}`, async (_req, res) => {
     const listSAEs = await SAE.find();
-    res.status(200).json(listSAEs)
+    return res.status(200).json(listSAEs)
 });
 
 router.get(`/${base}/:id`, async (req, res) => {
@@ -16,14 +16,14 @@ router.get(`/${base}/:id`, async (req, res) => {
         res.status(200).json({})
     });
 
-    res.status(200).json(sae)
+    return res.status(200).json(sae)
 });
 
 router.post(`/${base}`, async (req, res) => {
     let sae = new SAE({ ...req.body });
     await sae.save();
 
-    res.status(201).json(sae)
+    return res.status(201).json(sae)
 });
 
 router.put(`/${base}/:id`, async (req, res) => {
@@ -31,14 +31,18 @@ router.put(`/${base}/:id`, async (req, res) => {
         res.status(200).json({})
     });
 
-    res.status(201).json(sae)
+    return res.status(201).json(sae)
 });
 
-// app.delete(`/${base}/:id, async (req, res) => {
-//     const { id } = req.params;
-//     const deletedDog = await Dog.findByIdAndDelete(req.params.id);
-//     return res.status(200).json(deletedDog);
-//   });
+router.delete(`/${base}/:id`, async (req, res) => {
+    const deletedDog = await SAE.findByIdAndDelete(req.params.id).orFail()
+    .then(() => {
+        return res.status(200).json(deletedDog);
+    })
+    .catch((err) => {
+        return res.status(404).json({error: "Quelque chose s'est mal passé, veuillez recommencer"});
+    });
+});
 
 
 
