@@ -25,7 +25,7 @@ const envVars = dotenv.config({ path: envFilePath })
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+// console.log("fefzze", path.resolve(__dirname))
 // const liveReloadServer = livereload.createServer();
 // liveReloadServer.server.once("connection", () => {
 //   setTimeout(() => {
@@ -52,6 +52,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+    
+  })
 
 let jsonFilesContent = {};
 FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
