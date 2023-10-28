@@ -172,6 +172,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Appliquer des meta og sur les pages du frontoffice
 - [ ] Afficher en "temps réel" le titre d'un élément édité
     - Par exemple quand on édite dans la partie admin, le titre d'une SAE, le titre affiché doit être édité en même temps qu'on écrit dans le champ de texte associé
+- [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
+    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 
 
 # FAQ - Foire Aux Questions

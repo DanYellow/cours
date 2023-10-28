@@ -22,6 +22,9 @@ closeModalBtn.addEventListener("click", () => {
 })
 
 deleteItemModalBtn.addEventListener("click", async (e) => {
+    deleteItemModalBtn.disabled = true;
+    closeModalBtn.disabled = true;
+
     await axios
         .delete(e.currentTarget.dataset.deleteItem)
         .then(() => {
@@ -30,6 +33,9 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
         .catch((error) => {
             errorMessageModal.classList.remove("hidden")
             errorMessageModal.textContent = error.response.data.error || "Erreur"
+        }).finally(() => {
+            deleteItemModalBtn.disabled = false;
+            closeModalBtn.disabled = false;
         })
 })
 

@@ -35,13 +35,11 @@ router.put(`/${base}/:id`, async (req, res) => {
 });
 
 router.delete(`/${base}/:id`, async (req, res) => {
-    const deletedDog = await SAE.findByIdAndDelete(req.params.id).orFail()
-    .then(() => {
-        return res.status(200).json(deletedDog);
-    })
-    .catch((err) => {
-        return res.status(404).json({error: "Quelque chose s'est mal passé, veuillez recommencer"});
+    const deletedItem = await SAE.findByIdAndDelete(req.params.id).orFail().catch((err) => {
+        res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
     });
+
+    res.status(200).json(deletedItem);
 });
 
 
