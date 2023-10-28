@@ -11,7 +11,7 @@ import ip from "ip";
 import bodyParser from "body-parser";
 
 import frontendRouter from "./front-end-router.js";
-import backendRouter from "./back-end-router.js";
+import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 
 import mongoServer from "#database/index.js";
@@ -49,6 +49,9 @@ app.use(
   })
 );
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 let jsonFilesContent = {};
 FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
@@ -59,11 +62,23 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
   );
 });
 
+const getCurrentURL = (url) => {
+    let computedURL = url
+    if(url.at(-1) === "/") {
+        computedURL = computedURL.substring(0, computedURL.length - 1);
+    }
+
+    return computedURL;
+}
+
 app.use(function (req, res, next) {
+    const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.originalUrl}`)
+
   res.locals = {...jsonFilesContent, ...{
     NODE_ENV: process.env.NODE_ENV,
     HOST_IP: hostip,
-    current_url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+    current_url,
+    admin_url: `${current_url.substring(0, current_url.indexOf("/admin"))}/admin`,
     ...envVars.parsed
   }};
 

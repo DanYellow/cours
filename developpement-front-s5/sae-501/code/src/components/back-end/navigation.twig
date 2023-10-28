@@ -5,17 +5,17 @@
         "key": "articles",
     },
     {
-        "link": "admin/saes",
+        "link": "saes",
         "name": "SAÉS",
         "key": "saes",
     },
     {
-        "link": "./messages",
+        "link": "messages",
         "name": "Messages",
         "key": "messages",
     },
     {
-        "link": "./divers",
+        "link": "divers",
         "name": "Divers",
         "key": "divers",
     },
@@ -35,7 +35,7 @@
 	<ul class="flex flex-col pl-0 mb-0">
 		{% for item in menu_entries %}
 			<li class="mt-0.5 w-full">
-				<a href="{{ item.link }}" class="{{ (page_name == item.key) ? 'bg-indigo-50' : '' }} px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base">
+				<a href="{{ admin_url ~ "/" ~ item.link }}" class="{{ (page_name == item.key) ? 'bg-indigo-50' : '' }} px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base">
 					{{ item.name }}
 				</a>
 			</li>

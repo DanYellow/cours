@@ -164,7 +164,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Gérer l'erreur 404
     - Il existe moult didacticiels en ligne qui montrent comment faire sur 
 - [ ] Afficher les détails d'un article et permettre, toujours de façon asynchrone, d'envoyer un message lié à un article et l'afficher
-- [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json contenant la date
+- [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
 - [ ] Indiquer dans la navigation la page courante (frontend et backend) et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable twig et le router
 - [ ] Mettre un favicon
