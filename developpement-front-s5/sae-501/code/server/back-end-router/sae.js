@@ -35,11 +35,11 @@ router.get(`/${base}`, async (req, res) => {
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     const sae = await SAE.findOne({ _id: req.params.id })
         .orFail()
-        .catch((err) => {
+        .catch(() => {
             return {};
         });
 
-    res.render("pages/back-end/saes/edit.twig", {
+    res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
     });
@@ -62,7 +62,7 @@ router.post(`/${base}/:id`, async (req, res) => {
         await sae.save();
     }
     
-    res.render("pages/back-end/saes/edit.twig", {
+    res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
     });

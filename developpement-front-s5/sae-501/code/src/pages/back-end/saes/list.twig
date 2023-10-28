@@ -5,14 +5,10 @@
 
 {% block main %}
 {% use "components/back-end/widget-container.twig" %}
-
-    {% block widget_content %}2{% endblock %}
-    {% block widget_title %}Liste SAEs{% endblock %}
-
 	<div class="bg-white rounded-2xl shadow-md pb-6">
-		<header class="mb-6 p-6 pl-8 flex justify-between">
-			<p class="text-xl font-bold">Liste SAEs</p>
-            <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter nouvelle SAE</a>
+		<header class="mb-1 p-6 pl-8 flex justify-between">
+			<p class="text-4xl">Liste SAEs</p>
+            <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter une nouvelle SAE</a>
 		</header>
 
 		<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
@@ -44,7 +40,8 @@
 			</tbody>
 		</table>
         <footer class="flex justify-between px-6">
-            {{ pagination.previous("?page=" ~ (list_saes.page - 1), list_saes.page == 1) }}
+            {{ pagination.item(list_saes) }}
+            {# {{ pagination.previous("?page=" ~ (list_saes.page - 1), list_saes.page == 1) }}
             <ul class="flex">
                 {% for i in 1..list_saes.total_pages %}
                     <li>
@@ -52,7 +49,7 @@
                     </li>
                 {% endfor %}
             </ul>
-            {{ pagination.next("?page=" ~ (list_saes.page + 1), list_saes.page == list_saes.total_pages) }}
+            {{ pagination.next("?page=" ~ (list_saes.page + 1), list_saes.page == list_saes.total_pages) }} #}
         </footer>
 	</div>
 {% endblock %}

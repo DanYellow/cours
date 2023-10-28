@@ -158,7 +158,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
     - Vous devez utiliser la puissance des
-- [ ] Rendre le site responsive (des mixins sont présentes pour vous aider)
+- [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit, lors de l'envoi, la page ne doit pas se recharger
 - [ ] Gérer l'erreur 404
@@ -170,6 +170,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Appliquer des meta og sur les pages du frontoffice
+- [ ] Afficher en "temps réel" le titre d'un élément édité
+    - Par exemple quand on édite dans la partie admin, le titre d'une SAE, le titre affiché doit être édité en même temps qu'on écrit dans le champ de texte associé
 
 
 # FAQ - Foire Aux Questions
