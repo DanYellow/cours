@@ -57,13 +57,15 @@ router.post(`/${base}/:id`, async (req, res) => {
         )
             .orFail()
             .catch((err) => {
-                console.log("err", err)
+                listErrors = Object.values(err.errors).map(val => val.message)
                 return {};
             });
     } else {
         sae = new SAE({ ...req.body });
 
-        await sae.save().then().catch((err) => {
+        await sae.save().then(() => {
+            res.redirect(`${res.locals.admin_url}/saes/${sae._id.toString()}`)
+        }).catch((err) => {
             listErrors = Object.values(err.errors).map(val => val.message)
             return {};
         });
