@@ -2,12 +2,13 @@
 
 {% import "components/back-end/pagination.twig" as pagination %}
 
-
 {% block main %}
-{% use "components/back-end/widget-container.twig" %}
 	<div class="bg-white rounded-2xl shadow-md pb-6">
-		<header class="mb-1 p-6 pl-8 flex justify-between">
-			<p class="text-4xl">Liste SAEs</p>
+		<header class="mb-1 p-6 pl-8 flex justify-between lg:flex-row flex-col">
+			<p class="text-4xl">
+            Liste SAEs
+                <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
+            </p>
             <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter une nouvelle SAE</a>
 		</header>
 
@@ -23,8 +24,8 @@
 			<tbody>
 				{% for item in list_saes.data %}
 					<tr class="odd:bg-neutral-50">
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
+						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ current_url ~ '/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>

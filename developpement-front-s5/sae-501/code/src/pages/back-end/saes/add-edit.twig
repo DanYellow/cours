@@ -8,8 +8,9 @@
 			<p class="text-xl font-bold">
                 {% if is_edit %}
                     Editer {{ sae.title }}
-                {% endif %}
+                {% else %}
                     Créer
+                {% endif %}
             </p>
             <p class="text-sm">Les champs avec <span class="font-bold text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500"></span> sont requis </p>
 		</header>

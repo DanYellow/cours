@@ -6,7 +6,7 @@ import SAE from "#models/sae.js";
 const base = "saes";
 const router = express.Router();
 
-const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i
+const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
 
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -14,10 +14,13 @@ router.get(`/${base}`, async (req, res) => {
     perPage = Math.min(perPage, 20);
 
     const listSAEs = await SAE.find()
-        .skip(Math.max((page - 1), 0) * perPage)
-        .limit(perPage).orFail().catch(() => {
-            return {}
-        })
+        .skip(Math.max(page - 1, 0) * perPage)
+        .limit(perPage)
+        .sort({'_id': -1})
+        .orFail()
+        .catch(() => {
+            return {};
+        });
 
     const count = await SAE.count();
 
@@ -42,14 +45,18 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
-        is_edit: objectIDRegex.test(req.params.id) 
+        is_edit: objectIDRegex.test(req.params.id),
     });
 });
 
-router.post(`/${base}/:id`, async (req, res) => {
-    let sae = null
-    let listErrors = []
-    if(objectIDRegex.test(req.params.id)) {
+router.post(`/${base}/:id`, async (req, res, next) => {
+    let sae = null;
+    let listErrors = [];
+
+    // We check if there's an id in the url
+    const isEdit = objectIDRegex.test(req.params.id)
+
+    if (isEdit) {
         sae = await SAE.findOneAndUpdate(
             { _id: req.params.id },
             { ...req.body, _id: req.params.id },
@@ -57,25 +64,34 @@ router.post(`/${base}/:id`, async (req, res) => {
         )
             .orFail()
             .catch((err) => {
-                listErrors = Object.values(err.errors).map(val => val.message)
+                listErrors = Object.values(err?.errors).map(
+                    (val) => val.message
+                );
                 return {};
             });
     } else {
         sae = new SAE({ ...req.body });
 
-        await sae.save().then(() => {
-            res.redirect(`${res.locals.admin_url}/saes/${sae._id.toString()}`)
-        }).catch((err) => {
-            listErrors = Object.values(err.errors).map(val => val.message)
-            return {};
-        });
+        await sae
+            .save()
+            .then()
+            .catch((err) => {
+                listErrors = Object.values(err?.errors).map(
+                    (val) => val.message
+                );
+                return {};
+            });
     }
-    
-    res.render("pages/back-end/saes/add-edit.twig", {
-        sae,
-        page_name: "saes",
-        list_errors: listErrors
-    });
+
+    if (listErrors.length || isEdit) {
+        res.render("pages/back-end/saes/add-edit.twig", {
+            sae,
+            page_name: "saes",
+            list_errors: listErrors,
+        });
+    } else {
+        res.redirect(`${res.locals.admin_url}/saes`);
+    }
 });
 
 export default router;
