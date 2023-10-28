@@ -26,7 +26,7 @@
 			</thead>
 			<tbody>
 				{% for item in list_saes.data %}
-					<tr class="hover:bg-neutral-50">
+					<tr class="odd:bg-neutral-50">
 						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
@@ -44,7 +44,7 @@
 			</tbody>
 		</table>
         <footer class="flex justify-between px-6">
-            {{ pagination.previous("") }}
+            {{ pagination.previous("?page=" ~ (list_saes.page - 1), list_saes.page == 1) }}
             <ul class="flex">
                 {% for i in 1..list_saes.total_pages %}
                     <li>
@@ -52,7 +52,7 @@
                     </li>
                 {% endfor %}
             </ul>
-            {{ pagination.next("") }}
+            {{ pagination.next("?page=" ~ (list_saes.page + 1), list_saes.page == list_saes.total_pages) }}
         </footer>
 	</div>
 {% endblock %}

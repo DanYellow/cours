@@ -6,9 +6,11 @@ import SAE from "#models/sae.js";
 const base = "saes";
 const router = express.Router();
 
+const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i
+
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 1; // 5
+    let perPage = req.query.per_page || 2; // 5
     perPage = Math.min(perPage, 20);
 
     const listSAEs = await SAE.find()
@@ -43,11 +45,9 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     });
 });
 
-router.post(`/${base}/(:id)?`, async (req, res) => {
-    
+router.post(`/${base}/:id`, async (req, res) => {
     let sae = null
-    console.log("req.params.id", req.params.id)
-    if(req.params.id) {
+    if(objectIDRegex.test(req.params.id)) {
         sae = await SAE.findOneAndUpdate(
             { _id: req.params.id },
             { ...req.body, _id: req.params.id },
@@ -58,7 +58,6 @@ router.post(`/${base}/(:id)?`, async (req, res) => {
                 return {};
             });
     } else {
-        console.log('"efefefef test')
         sae = new SAE({ ...req.body });
         await sae.save();
     }
