@@ -72,7 +72,7 @@ const getCurrentURL = (url) => {
 }
 
 app.use(function (req, res, next) {
-    const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.originalUrl}`)
+    const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}`)
 
   res.locals = {...jsonFilesContent, ...{
     NODE_ENV: process.env.NODE_ENV,

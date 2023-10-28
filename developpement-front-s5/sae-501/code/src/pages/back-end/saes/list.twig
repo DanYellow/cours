@@ -1,16 +1,18 @@
 {% extends "layouts/back-end/base.twig" %}
 
+{% import "components/back-end/pagination.twig" as pagination %}
+
+
+{% block main %}
 {% use "components/back-end/widget-container.twig" %}
 
-
     {% block widget_content %}2{% endblock %}
-{% block main %}
-
-    {# {% block widget_title %}Liste SAEs{% endblock %} #}
+    {% block widget_title %}Liste SAEs{% endblock %}
 
 	<div class="bg-white rounded-2xl shadow-md pb-6">
-		<header class="mb-6 p-6 pl-8 text-xl font-bold">
-			<p>Liste SAEs</p>
+		<header class="mb-6 p-6 pl-8 flex justify-between">
+			<p class="text-xl font-bold">Liste SAEs</p>
+            <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter nouvelle SAE</a>
 		</header>
 
 		<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
@@ -41,5 +43,16 @@
 				</tbody>
 			</tbody>
 		</table>
+        <footer class="flex justify-between px-6">
+            {{ pagination.previous("") }}
+            <ul class="flex">
+                {% for i in 1..list_saes.total_pages %}
+                    <li>
+                        <a class="{{ (list_saes.page == i) ? 'border-t-indigo-200' : '' }} hover:border-t-indigo-500 block p-4 border-t-2 border-t-transparent border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {{ pagination.next("") }}
+        </footer>
 	</div>
 {% endblock %}
