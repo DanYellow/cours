@@ -4,16 +4,24 @@
 
 {% block main %}
 	<div class="bg-white rounded-2xl shadow-md pb-6">
-		<header class="mb-6 p-6 pl-8 text-xl font-bold">
-			<p>Editer
-				{{ sae.title }}</p>
+		<header class="p-6 pl-8 ">
+			<p class="text-xl font-bold">
+                {% if is_edit %}
+                    Editer {{ sae.title }}
+                {% endif %}
+                    Créer
+            </p>
+            <p class="text-sm">Les champs avec <span class="font-bold text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500"></span> sont requis </p>
 		</header>
 
         <div class="px-8">
             <form action="" method="post">
+                {% for item in list_errors %}
+                    <p class="rounded-lg p-3 bg-red-100 text-red-800 border-solid border-x border-y border-red-700 mb-3">{{ item }}</p>
+                {% endfor %}
                 <label class="block mb-4">
-                    <span class="font-bold text-slate-700">Titre</span>
-                    <input class="block bg-white w-full border border-slate-300 rounded-md py-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" type="text" name="title" value="{{ sae.title }}"/>
+                    <span class="font-bold text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">Titre</span>
+                    <input class="peer block bg-white w-full border border-slate-300 rounded-md py-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" type="text" name="title" value="{{ sae.title }}" />
                 </label>
                 <label class="block mb-4">
                     <span class="font-bold text-slate-700">Contenu</span>

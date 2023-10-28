@@ -1,13 +1,14 @@
 import mongoose, { Schema } from "mongoose";
 
+const isEmpty = (val) => val?.length > 0
+
 const saeSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
+  title: String,
   content: String,
   image: String,
 });
+
+saeSchema.path("title").validate(isEmpty, "Veuillez mettre un titre, le champ ne peux pas être nul")
 
 const SAE = mongoose.model("SAE", saeSchema)
 

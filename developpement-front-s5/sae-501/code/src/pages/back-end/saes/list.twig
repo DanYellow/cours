@@ -41,15 +41,6 @@
 		</table>
         <footer class="flex justify-between px-6">
             {{ pagination.item(list_saes) }}
-            {# {{ pagination.previous("?page=" ~ (list_saes.page - 1), list_saes.page == 1) }}
-            <ul class="flex">
-                {% for i in 1..list_saes.total_pages %}
-                    <li>
-                        <a class="{{ (list_saes.page == i) ? 'border-t-indigo-200' : '' }} hover:border-t-indigo-500 block p-4 border-t-2 border-t-transparent border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-            {{ pagination.next("?page=" ~ (list_saes.page + 1), list_saes.page == list_saes.total_pages) }} #}
         </footer>
 	</div>
 {% endblock %}

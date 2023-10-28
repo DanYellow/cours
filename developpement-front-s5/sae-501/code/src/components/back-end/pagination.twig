@@ -40,7 +40,7 @@
 		<ul class="flex">
 			{% for i in 1..paginator.total_pages %}
 				<li>
-					<a class="{{ (paginator.page == i) ? 'border-t-indigo-200' : '' }} hover:border-t-indigo-500 block p-4 border-t-2 border-t-transparent border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
+					<a class="{{ (paginator.page == i) ? 'border-t-indigo-200' : 'border-t-transparent' }} hover:border-t-indigo-500 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
 				</li>
 			{% endfor %}
 		</ul>

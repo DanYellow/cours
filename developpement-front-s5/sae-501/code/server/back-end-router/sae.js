@@ -10,7 +10,7 @@ const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i
 
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 2; // 5
+    let perPage = req.query.per_page || 5; // 5
     perPage = Math.min(perPage, 20);
 
     const listSAEs = await SAE.find()
@@ -42,11 +42,13 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
+        is_edit: objectIDRegex.test(req.params.id) 
     });
 });
 
 router.post(`/${base}/:id`, async (req, res) => {
     let sae = null
+    let listErrors = []
     if(objectIDRegex.test(req.params.id)) {
         sae = await SAE.findOneAndUpdate(
             { _id: req.params.id },
@@ -55,16 +57,22 @@ router.post(`/${base}/:id`, async (req, res) => {
         )
             .orFail()
             .catch((err) => {
+                console.log("err", err)
                 return {};
             });
     } else {
         sae = new SAE({ ...req.body });
-        await sae.save();
+
+        await sae.save().then().catch((err) => {
+            listErrors = Object.values(err.errors).map(val => val.message)
+            return {};
+        });
     }
     
     res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
+        list_errors: listErrors
     });
 });
 
