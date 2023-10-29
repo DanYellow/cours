@@ -8,19 +8,13 @@ const saeSchema = new Schema({
 });
 
 saeSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide")
+saeSchema.path("content").validate((val) => {
+    return val && val.length <= 200;
+}, `Le champ "contenu" ne peut pas dépasser 200 caractères`)
 
 saeSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;
     next();
 });
 
-const SAE = mongoose.model("SAE", saeSchema)
-
-export default SAE;
-
-// export const create = async () => {
-//     let sae = new SAE({ ...req.body });
-//     await sae.save();
-
-//     return sae;
-// }
+export default mongoose.model("SAE", saeSchema);
