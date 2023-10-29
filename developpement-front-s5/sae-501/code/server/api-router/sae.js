@@ -4,41 +4,12 @@ import fs from "fs/promises";
 
 import SAE from '#models/sae.js';
 
-import upload from "../uploader.js"
-import { imageValidator } from "#database/validator.js";
+import upload, { uploadImage, deleteUpload } from "../uploader.js"
 
 const router = express.Router();
-
 const base = "saes";
 
-const uploadImage = (image, dist_dir) => {
-    let targetPath = undefined;
-    const listErrors = []
-    const error = imageValidator(image);
-       
-    if(error !== null) {
-        listErrors.push(error)
-    } else {
-        targetPath = `${dist_dir}${image.filename}`;
-        const tempPath = image.path;
-
-        fs.copyFile(tempPath, targetPath).then().catch((err) => {
-            listErrors.push(err)
-        })
-    }
-
-    return { image_path: targetPath, errors: listErrors, image_name: image.filename }
-}
-
-const deleteUpload = (path) => {
-    if(!path) return []
-    const listErrors = []
-    fs.unlink(path).then().catch((err) => {
-        listErrors.push(err)
-    })
-
-    return listErrors
-}
+// https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
 
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -66,8 +37,10 @@ router.get(`/${base}`, async (req, res) => {
 });
 
 router.get(`/${base}/:id`, async (req, res) => {
+    let listErrors =  []
+
     const ressource = await SAE.findOne({ _id: req.params.id }).orFail().catch((err) => {
-        res.status(200).json({})
+        res.status(404).json({errors: [...listErrors, "Élément non trouvé"]})
     });
 
     return res.status(200).json(ressource)
@@ -122,22 +95,28 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         imagePayload = { image: imageName }
     }
 
+    let oldRessource = await SAE.findById(req.params.id).lean();
+    if (!oldRessource) {
+        oldRessource = {}
+    }
+
     if(listErrors.length) {
         return res.status(400).json({ 
             errors: listErrors, 
-            ressource: req.body 
+            ressource: { ...oldRessource, ...req.body }
         })
     }
 
     const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
     .orFail()
     .catch((err) => {
+        // err instanceof mongoose.DocumentNotFoundError
         if(err instanceof mongoose.CastError) {
             res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
         } else {
             res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors).map((val) => val.message), ...deleteUpload(targetPath)], 
-                ressource: req.body 
+                errors: [...listErrors, ...Object.values(err?.errors || []).map((val) => val.message), ...deleteUpload(targetPath), "Erreur"], 
+                ressource: { ...oldRessource, ...req.body }
             })
         }
     });
@@ -157,7 +136,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`
             await fs.unlink(targetPath)
         } catch (e) {
-            return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
+            // return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
         }
     }
 
