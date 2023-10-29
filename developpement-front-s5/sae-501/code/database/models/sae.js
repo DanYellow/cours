@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-const isEmpty = (val) => val?.length > 0
+import { isEmptyValidator } from '../validator.js'
 
 const saeSchema = new Schema({
   title: String,
@@ -8,7 +7,7 @@ const saeSchema = new Schema({
   image: String,
 });
 
-saeSchema.path("title").validate(isEmpty, "Veuillez mettre un titre, le champ ne peut pas être nul")
+saeSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul")
 
 saeSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;

@@ -13,6 +13,9 @@ const imageValidator = (image) => {
     return null
 }
 
+const isEmptyValidator = (val) => val?.length > 0
+
 export {
-    imageValidator
+    imageValidator,
+    isEmptyValidator
 }

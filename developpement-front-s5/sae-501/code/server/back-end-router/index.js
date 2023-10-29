@@ -42,7 +42,8 @@ const parseManifest = async () => {
 };
 
 router.get("/", async (req, res) => {
-    const listSAEs = await SAE.find();
+    const listSAEs = await SAE.find().limit(5);
+    const countSAEs = await SAE.count();
 
     const listArticles = await Article.find().limit(5);
     const countArticles = await Article.count();
@@ -50,7 +51,7 @@ router.get("/", async (req, res) => {
     res.render("pages/back-end/index.twig", {
         list_saes: {
             data: listSAEs,
-            count: listSAEs.length,
+            count: countSAEs,
         },
         list_articles: {
             data: listArticles,
