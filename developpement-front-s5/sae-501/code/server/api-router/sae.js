@@ -30,9 +30,39 @@ const uploadImage = (image, dist_dir) => {
     return { image_path: targetPath, errors: listErrors, image_name: image.filename }
 }
 
-router.get(`/${base}`, async (_req, res) => {
-    const listRessources = await SAE.find();
-    return res.status(200).json(listRessources)
+const deleteUpload = (path) => {
+    if(!path) return []
+    const listErrors = []
+    fs.unlink(path).then().catch((err) => {
+        listErrors.push(err)
+    })
+
+    return listErrors
+}
+
+router.get(`/${base}`, async (req, res) => {
+    const page = req.query.page || 1;
+    let perPage = req.query.per_page || 7;
+    perPage = Math.min(perPage, 20);
+
+    const listRessources = await SAE.find()
+        .skip(Math.max(page - 1, 0) * perPage)
+        .limit(perPage)
+        .sort({ _id: -1 })
+        .lean()
+        .orFail()
+        .catch(() => {
+            return {};
+        });
+
+    const count = await SAE.count();
+
+    return res.status(200).json({
+        data: listRessources,
+        total_pages: Math.ceil(count / perPage),
+        count,
+        page,
+    })
 });
 
 router.get(`/${base}/:id`, async (req, res) => {
@@ -56,13 +86,26 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         imagePayload = { image: imageName }
     }
 
+    if(listErrors.length) {
+        return res.status(400).json({ 
+            errors: listErrors, 
+            ressource: req.body 
+        })
+    }
+
     let ressource = new SAE({ ...req.body, ...imagePayload });
 
     await ressource.save({ validateBeforeSave: true }).then(() => {
         res.status(201).json(ressource)
     })
     .catch((err) => {
-        res.status(400).json({errors: Object.values(err?.errors).map((val) => val.message)})
+        res.status(400).json({
+            errors: [
+                ...listErrors, 
+                ...deleteUpload(targetPath), 
+                ...Object.values(err?.errors).map((val) => val.message)
+            ]
+        })
     })
 });
 
@@ -79,14 +122,21 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         imagePayload = { image: imageName }
     }
 
+    if(listErrors.length) {
+        return res.status(400).json({ 
+            errors: listErrors, 
+            ressource: req.body 
+        })
+    }
+
     const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
     .orFail()
     .catch((err) => {
         if(err instanceof mongoose.CastError) {
-            res.status(400).json({errors: [...listErrors, "Élément non trouvé"]})
+            res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
         } else {
             res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors).map((val) => val.message)], 
+                errors: [...listErrors, ...Object.values(err?.errors).map((val) => val.message), ...deleteUpload(targetPath)], 
                 ressource: req.body 
             })
         }
