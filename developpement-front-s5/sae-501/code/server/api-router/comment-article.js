@@ -27,9 +27,42 @@ router.post(`/${base}/comment`, async (req, res) => {
 
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
-        const ressource = await Article.findById(req.params.id).select('_id').populate('list_comments')
-        res.status(201).json(ressource)
+        const page = req.query.page || 1;
+        const perPage = 1
+        const ressource = await Article.findById(req.params.id)
+            .select('_id')
+            .populate({
+                path: "list_comments",
+                model: 'CommentArticle',
+                options: {
+                    sort: "-created_at",
+                    skip: Math.max(page - 1, 0) * perPage,
+                    limit: perPage
+                }
+            })
+        const nb_comments = await Article.aggregate([
+            {
+                $match: {
+                  _id: ressource._id
+                },
+            },
+            {
+                $project: {
+                   item: 1,
+                   count: { $size: "$list_comments" }
+                }
+            }
+        ])
+        const count = nb_comments[0].count;
+
+        res.status(201).json({
+            data: ressource,
+            count,
+            page,
+            total_pages: Math.ceil(count / perPage),
+        })
     } catch (e) {
+        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)

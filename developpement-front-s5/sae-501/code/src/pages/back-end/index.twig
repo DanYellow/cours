@@ -1,7 +1,7 @@
 {% extends "layouts/back-end/base.twig" %}
 
 {% block main %}
-	<div class="bg-white rounded-2xl">
+	<div class="bg-white rounded-2xl mb-10">
 		<header class="mb-6 p-6 pl-8 text-4xl">
 			<p>Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
@@ -20,8 +20,8 @@
 			<tbody>
 				{% for item in list_saes.data %}
 					<tr class="hover:bg-neutral-50">
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
+						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/saes/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
@@ -46,7 +46,7 @@
 		</footer>
 	</div>
 
-	<div class="bg-white rounded-2xl">
+	<div class="bg-white rounded-2xl mb-10">
 		<header class="mb-6 p-6 pl-8 text-4xl">
 			<p>Liste articles
                 <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
@@ -56,7 +56,7 @@
 		<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
 			<thead class="">
 				<tr class="text-slate-800">
-					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
+					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5" >Titre</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
 					<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
 					<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
@@ -65,8 +65,8 @@
 			<tbody>
 				{% for item in list_articles.data %}
 					<tr class="hover:bg-neutral-50">
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8">{{ item.title }}</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
+						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
