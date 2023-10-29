@@ -1,5 +1,4 @@
 import express from "express";
-import multer from "multer";
 import fs from "fs";
 import path from "path";
 // Models
@@ -7,8 +6,6 @@ import SAE from "#models/sae.js";
 
 import { imageValidator } from  "#database/validator.js";
 import upload from "../uploader.js"
-
-console.log(upload)
 
 const base = "saes";
 const router = express.Router();
@@ -86,7 +83,6 @@ router.post(
  
     // We check if there's an id in the url
     const isEdit = objectIDRegex.test(req.params.id);
-
 
     if (isEdit) {
         sae = await SAE.findByIdAndUpdate(

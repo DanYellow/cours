@@ -1,10 +1,14 @@
 import express from "express";
+import fs from "fs/promises";
+import path from "path";
 
-import SAE from '#models/sae.js'
+import SAE from '#models/sae.js';
 
 const router = express.Router();
 
 const base = "saes";
+
+const uploadDir = path.join(path.resolve(), "public/uploads/")
 
 router.get(`/${base}`, async (_req, res) => {
     const listSAEs = await SAE.find();
@@ -27,21 +31,28 @@ router.post(`/${base}`, async (req, res) => {
 });
 
 router.put(`/${base}/:id`, async (req, res) => {
-    let sae = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id }).orFail().catch((err) => {
+    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id }).orFail().catch((err) => {
         res.status(200).json({})
     });
 
-    return res.status(201).json(sae)
+    return res.status(201).json(ressource)
 });
 
 router.delete(`/${base}/:id`, async (req, res) => {
-    const deletedItem = await SAE.findByIdAndDelete(req.params.id).orFail().catch((err) => {
-        res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
-    });
+    const ressource = await SAE.findByIdAndDelete(req.params.id).orFail().catch(() => {});
 
-    res.status(200).json(deletedItem);
+    if(!ressource) {
+        return res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
+    }
+    
+    try {
+        const targetPath = `${uploadDir}${ressource?.image}`
+        await fs.unlink(targetPath)
+    } catch (e) {
+        return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
+    }
+
+    return res.status(200).json(ressource);
 });
-
-
 
 export default router;
