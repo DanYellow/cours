@@ -4,13 +4,14 @@ import { isEmptyValidator } from '../validator.js'
 
 const articleSchema = new Schema({
   title: String,
-  chapo: String,
+  abstract: String,
   content: String,
   image: String,
   yt_link: String,
   is_active: {
     type: Boolean,
-    default: false
+    default: false,
+    cast: (v) => Boolean(v)
   },
 },  
 { 

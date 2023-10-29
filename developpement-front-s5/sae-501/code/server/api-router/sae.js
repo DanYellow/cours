@@ -68,7 +68,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     let ressource = new SAE({ ...req.body, ...imagePayload });
 
-    await ressource.save({ validateBeforeSave: true }).then(() => {
+    await ressource.save().then(() => {
         res.status(201).json(ressource)
     })
     .catch((err) => {

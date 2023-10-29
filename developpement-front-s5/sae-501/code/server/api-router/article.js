@@ -2,9 +2,8 @@ import express from "express";
 import fs from "fs";
 
 import Article from '#models/article.js'
-import { imageValidator } from  "#database/validator.js";
 
-import upload from "../uploader.js"
+import upload, { uploadImage, deleteUpload } from "../uploader.js"
 
 const router = express.Router();
 
@@ -67,7 +66,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     let ressource = new Article({ ...req.body, ...imagePayload });
 
-    await ressource.save({ validateBeforeSave: true }).then(() => {
+    await ressource.save().then(() => {
         res.status(201).json(ressource)
     })
     .catch((err) => {

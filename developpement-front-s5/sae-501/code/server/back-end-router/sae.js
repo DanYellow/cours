@@ -49,7 +49,6 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     });
 });
 
-
 router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let ressource = null;
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
@@ -68,13 +67,13 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
         options = {
             ...options,
             method: "PUT",
-            url: `${res.locals.base_url}/api/saes/${req.params.id}`,
+            url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
         }
     } else {
         options = {
             ...options,
             method: "POST",
-            url: `${res.locals.base_url}/api/saes`,
+            url: `${res.locals.base_url}/api/${base}`,
         }
     }
     
@@ -93,7 +92,7 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 is_success: listErrors.length === 0
             });
         } else {
-            res.redirect(`${res.locals.admin_url}/saes`);
+            res.redirect(`${res.locals.admin_url}/${base}`);
         }
     }
 });
