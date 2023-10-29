@@ -28,7 +28,7 @@ router.post(`/${base}/comment`, async (req, res) => {
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
         const page = req.query.page || 1;
-        const perPage = 1
+        const perPage = 10
         const ressource = await Article.findById(req.params.id)
             .select('_id')
             .populate({

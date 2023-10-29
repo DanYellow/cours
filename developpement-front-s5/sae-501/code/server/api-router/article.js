@@ -37,7 +37,7 @@ router.get(`/${base}`, async (req, res) => {
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
 
-    const ressource = await Article.findOne({ _id: req.params.id }).orFail().catch((err) => {
+    const ressource = await Article.findOne({ _id: req.params.id }).select(["-list_comments"]).orFail().catch((err) => {
         res.status(404).json({errors: [...listErrors, "Élément non trouvé"]})
     });
 
