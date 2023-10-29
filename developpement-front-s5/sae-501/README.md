@@ -155,32 +155,50 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Installer des dépendances
     - [Télécharger le code de départ la SAE]()
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes
-- [ ] Compléter l'intégration à partir de la maquette Adobe XD
-    - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance des
+
+### Front-end et back-end
+- [ ] Gérer l'erreur 404
+    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express
 - [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter
-- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit, lors de l'envoi, la page ne doit pas se recharger
-- [ ] Gérer l'erreur 404
-    - Il existe moult didacticiels en ligne qui montrent comment faire sur 
-- [ ] Afficher les détails d'un article et permettre, toujours de façon asynchrone, d'envoyer un message lié à un article et l'afficher
-- [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
-- [ ] Indiquer dans la navigation la page courante (frontend et backend) et changer la couleur de la bulle en fonction de la page
-    - Il faudra utiliser une variable twig
-    - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, étudiez-la
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
-- [ ] Appliquer des meta og sur toutes les pages du frontoffice
+- [ ] Respecter les normes d'accessibilité web
+
+### Front-end
+- [ ] Compléter l'intégration à partir de la maquette Adobe XD
+    - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
+    - Vous devez utiliser la puissance de twig, des pages sont déjà présentes
+- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
+- [ ] Afficher les détails d'un article et permettre, de façon asynchrone, d'envoyer un message lié à un article et l'afficher
+    - Quand on clique sur un article de la page d'accueil, on le voit en détails
+- [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
+    - Il faudra utiliser une variable twig
+    - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
+- [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
+
+### Back-end
+- [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
+    - Il n'y a pas de maquette responsive, à vous de vous adapter
+- [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
+    - Le fichier sera lu côté front-end
+    - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
-- [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente
+- [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - La limite déroulante est déjà présente, il ne manque plus que la fonctionnalité
-
+- [ ] Affichez les messages envoyés depuis le formulaire de contact
+    - Il n'y a pas de schéma pour les messages, vous devez le réaliser
+- [ ] Permettre d'ajouter, éditer un article
+    - Toutes les routes sont déjà prêtes pour manipuler la base de données
+    - Le champ permettant l'upload d'image doit impérativement d'appeller "image", sinon ça ne fonctionnera pas
+    - La suppression est déjà gérée
+    - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
