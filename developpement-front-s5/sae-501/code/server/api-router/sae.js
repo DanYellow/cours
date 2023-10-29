@@ -51,8 +51,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let listErrors =  []
     let targetPath = undefined;
 
-    const uploadedImage = req.body.file;
-    
+    const uploadedImage = req.body.file || req.file;
+
     if (uploadedImage) {
         let imageName;
         ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
@@ -87,7 +87,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let listErrors =  []
     let targetPath = undefined;
 
-    const uploadedImage = req.body.file;
+    const uploadedImage = req.body.file || req.file;
     
     if (uploadedImage) {
         let imageName;
