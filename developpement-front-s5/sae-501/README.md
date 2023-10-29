@@ -189,3 +189,4 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 Oui, bien sûr, on vous encourage même à le faire. Le projet est prêt pour grâce à au fichier .gitignore. Il vous suffit juste créer un nouveau projet sur votre compte github puis le cloner et mettre le contenu du dossier code/ dans votre projet fraîchement cloné.
 
 https://www.tailwindtoolbox.com/icons
+https://chanwingkeihaha.medium.com/validation-in-mongoose-where-how-and-handle-errors-b44f68cccae3

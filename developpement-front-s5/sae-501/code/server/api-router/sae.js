@@ -1,7 +1,10 @@
 import express from "express";
+import mongoose from "mongoose";
 import fs from "fs/promises";
 
 import SAE from '#models/sae.js';
+
+import upload from "../uploader.js"
 
 const router = express.Router();
 
@@ -20,26 +23,26 @@ router.get(`/${base}/:id`, async (req, res) => {
     return res.status(200).json(ressource)
 });
 
-router.post(`/${base}`, async (req, res) => {
+router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let ressource = new SAE({ ...req.body });
-    await ressource.save().then()
-        .catch((err) => {
-            console.log("fefef")
-            // fs.unlink(targetPath, (err) => {
-            //     listErrors.push(err)
-            // })
-            // listErrors = [
-            //     ...listErrors,
-            //     ...Object.values(err?.errors).map((val) => val.message),
-            // ];
-        });
 
-    return res.status(201).json(ressource)
+    await ressource.save({ validateBeforeSave: true }).then(() => {
+        res.status(201).json(ressource)
+    })
+    .catch((err) => {
+        res.status(400).json({errors: Object.values(err?.errors).map((val) => val.message)})
+    })
 });
 
-router.put(`/${base}/:id`, async (req, res) => {
-    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id }).orFail().catch((err) => {
-        res.status(200).json({})
+router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
+    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id }, { new: true })
+    .orFail()
+    .catch((err) => {
+        if(err instanceof mongoose.CastError) {
+            res.status(400).json({errors: ["Élément non trouvé"]})
+        } else {
+            res.status(400).json({ errors: Object.values(err?.errors).map((val) => val.message), ressource: req.body })
+        }
     });
 
     return res.status(201).json(ressource)
