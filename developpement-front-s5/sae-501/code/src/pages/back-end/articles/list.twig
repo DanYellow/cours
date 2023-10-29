@@ -20,7 +20,6 @@
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Chapô</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Activé ?</th>
-					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Date création</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
 					<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
 					<th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
@@ -37,7 +36,6 @@
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
 						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ item.is_active ? "Oui" : "Non" }}</td>
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Date création">{{ item.created_at|date("d/m/Y à G:i") }}</td>
 						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("d/m/Y à G:i")  }}</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">

@@ -1,41 +1,100 @@
 import express from "express";
+import axios from "axios";
+import mongoose from "mongoose";
 
-import fs from "fs/promises";
-
-// Models
-
-import Article from "#models/article.js";
-
-import SAERouter from './sae.js'
+import upload from "../uploader.js";
 
 const base = "articles";
 const router = express.Router();
 
-
 router.get(`/${base}`, async (req, res) => {
-    const page = req.query.page || 1;
-    let perPage = req.query.per_page || 7;
-    perPage = Math.min(perPage, 20);
-
-    const listArticles = await Article.find()
-        .skip(Math.max(page - 1, 0) * perPage)
-        .limit(perPage)
-        .sort({ _id: -1 })
-        .lean()
-        .orFail()
-        .catch(() => {
-            return {};
-        });
-    const countArticles = await Article.count();
-
+    const queryParams = new URLSearchParams(req.query).toString();
+    let options = {
+        method: "GET",
+        url: `${res.locals.base_url}/api/${base}?${queryParams}`,
+    }
+    let result = null
+    try {
+        result = await axios(options);
+    } catch (e) {}
+    
     res.render("pages/back-end/articles/list.twig", {
-        list_articles: {
-            data: listArticles,
-            count: countArticles,
-            total_pages: Math.ceil(countArticles / perPage),
-            page
-        },
+        list_articles: result.data,
     });
+});
+
+router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
+    let options = {
+        method: "GET",
+        url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+    }
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
+
+    let result = null
+    let listErrors = []
+    
+    if(isEdit) {
+        try {
+            result = await axios(options);
+        } catch (e) {
+            listErrors = e.response.data.errors
+            result = {}
+        }
+    }
+
+    res.render("/", {
+        article: result?.data || {},
+        list_errors: listErrors,
+        is_edit: isEdit,
+    });
+});
+
+router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
+    let ressource = null;
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
+    let listErrors = [];
+    let options = {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        data: {
+            ...req.body,
+            file: req.file,
+        },
+    }
+
+    if(isEdit) {
+        options = {
+            ...options,
+            method: "PUT",
+            url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+        }
+    } else {
+        options = {
+            ...options,
+            method: "POST",
+            url: `${res.locals.base_url}/api/${base}`,
+        }
+    }
+    
+    try {
+        const result = await axios(options);
+        ressource = result.data
+    } catch (e) {
+        listErrors = e.response.data.errors
+        ressource = e.response.data.ressource || {}
+    } finally {
+        if (listErrors.length || isEdit) {
+            res.render("", {
+                sae: ressource,
+                list_errors: listErrors,
+                is_edit: isEdit,
+                is_success: listErrors.length === 0
+            });
+        } else {
+            res.redirect(`${res.locals.admin_url}/${base}`);
+        }
+    }
 });
 
 export default router;
