@@ -50,7 +50,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
     let targetPath = undefined;
-
+    console.log("req.file", req.body)
     const uploadedImage = req.body.file || req.file;
 
     if (uploadedImage) {

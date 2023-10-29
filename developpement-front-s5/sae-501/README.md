@@ -156,7 +156,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - [Télécharger le code de départ la SAE]()
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes
 
-### Front-end et back-end
+### Site BUT et administration
 - [ ] Gérer l'erreur 404
     - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express
 - [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
@@ -165,7 +165,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Respecter les normes d'accessibilité web
 
-### Front-end
+### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
     - Vous devez utiliser la puissance de twig, des pages sont déjà présentes
@@ -179,7 +179,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
 
-### Back-end
+### Administration
 - [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
@@ -199,6 +199,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Le champ permettant l'upload d'image doit impérativement d'appeller "image", sinon ça ne fonctionnera pas
     - La suppression est déjà gérée
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
+- [ ] Ajouter une validation côté client des formulaires
+    - Vous pouvez utiliser un outil comme validator.js. [Voir exemples](https://github.com/jaywcjlove/validator.js)
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**

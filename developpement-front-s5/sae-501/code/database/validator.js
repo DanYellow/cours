@@ -14,8 +14,10 @@ const imageValidator = (image) => {
 }
 
 const isEmptyValidator = (val) => val && val?.trim().length > 0
+const isBelowLengthValidator = (val, limit) => val.length <= limit
 
 export {
     imageValidator,
-    isEmptyValidator
+    isEmptyValidator,
+    isBelowLengthValidator
 }
