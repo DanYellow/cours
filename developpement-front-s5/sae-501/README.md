@@ -169,9 +169,9 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Il faudra utiliser une variable twig et le router
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
-- [ ] Appliquer des meta og sur les pages du frontoffice
-- [ ] Afficher en "temps réel" le titre d'un élément édité
-    - Par exemple quand on édite dans la partie admin, le titre d'une SAE, le titre affiché doit être édité en même temps qu'on écrit dans le champ de texte associé
+- [ ] Appliquer des meta og sur toutes les pages du frontoffice
+    - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
+    - Note : **le lien des images doit être absolu**
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 
@@ -183,6 +183,6 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 
 - **Puis-je mettre sur github ce projet ?**
 
-Oui, bien sûr, on vous encourage à le faire. Le projet est prêt pour grâce à au fichier .gitignore. Il vous suffit juste créer un nouveau projet sur votre compte github puis le cloner et mettre le contenu du dossier code/ dans votre projet fraîchement cloné.
+Oui, bien sûr, on vous encourage même à le faire. Le projet est prêt pour grâce à au fichier .gitignore. Il vous suffit juste créer un nouveau projet sur votre compte github puis le cloner et mettre le contenu du dossier code/ dans votre projet fraîchement cloné.
 
 https://www.tailwindtoolbox.com/icons

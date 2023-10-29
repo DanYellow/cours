@@ -8,7 +8,12 @@ const saeSchema = new Schema({
   image: String,
 });
 
-saeSchema.path("title").validate(isEmpty, "Veuillez mettre un titre, le champ ne peux pas être nul")
+saeSchema.path("title").validate(isEmpty, "Veuillez mettre un titre, le champ ne peut pas être nul")
+
+saeSchema.pre('findOneAndUpdate', function(next) {
+    this.options.runValidators = true;
+    next();
+});
 
 const SAE = mongoose.model("SAE", saeSchema)
 

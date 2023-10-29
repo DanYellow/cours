@@ -22,8 +22,10 @@
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Editer</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Supprimer</td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/saes/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
+                            <button type="button" class="text-red-600" data-item-data='{{ item|json_encode|e }}' data-delete-url="{{ base_url ~ "/api/saes/" ~ item._id  }}">Supprimer</button>
+                        </td>
 					</tr>
 				{% else %}
 					<tr>
@@ -37,7 +39,7 @@
 
 		<footer class="mb-6 p-6 pl-8">
 			<p class="text-center">
-				<a href="" class="text-blue-500 hover:text-blue-700">Voir tout</a>
+				<a href="{{ admin_url ~ '/saes' }}" class="text-blue-500 hover:text-blue-700">Voir tout</a>
 			</p>
 		</footer>
 	</div>
@@ -63,8 +65,10 @@
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Editer</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">Supprimer</td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
+                            <button type="button" class="text-red-600" data-item-data='{{ item|json_encode|e }}' data-delete-url="{{ base_url ~ "/api/articles/" ~ item._id  }}">Supprimer</button>
+                        </td>
 					</tr>
 				{% else %}
 					<tr>
@@ -78,7 +82,7 @@
 
 		<footer class="mb-6 p-6 pl-8">
 			<p class="text-center">
-				<a href="" class="text-blue-500 hover:text-blue-700">Voir tout</a>
+				<a href="{{ admin_url ~ '/articles' }}" class="text-blue-500 hover:text-blue-700">Voir tout</a>
 			</p>
 		</footer>
 	</div>

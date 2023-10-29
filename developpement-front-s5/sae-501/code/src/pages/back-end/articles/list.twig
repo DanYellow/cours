@@ -3,14 +3,17 @@
 {% block main %}
 	<div class="bg-white rounded-2xl">
 		<header class="mb-1 p-6 pl-8 flex justify-between">
-			<p class="text-4xl">Liste articles</p>
+			<p class="text-4xl">
+            Liste articles
+                <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
+            </p>
             <a href="{{ admin_url ~ "/articles/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter un nouvel article</a>
 		</header>
 
 		<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
 			<thead class="">
 				<tr class="text-slate-800">
-					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
+					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Titre</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Chapô</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Date création</th>
@@ -33,7 +36,7 @@
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="6" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
+						<td colspan="7" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
 					</tr>
 					<tr>
 					{% endfor %}

@@ -50,8 +50,6 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
             return {};
         });
 
-    console.log(objectIDRegex.test(req.params.id))
-
     res.render("pages/back-end/saes/add-edit.twig", {
         sae,
         page_name: "saes",
@@ -62,7 +60,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 const storage = multer.diskStorage({
     // dest: path.join(path.resolve(), "public/uploads/"),
     destination: function (req, file, cb) {
-        cb(null, path.join(path.resolve(), "public/uploads/"))
+        cb(null, path.join(path.resolve(), "public/uploads"))
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -73,47 +71,48 @@ const storage = multer.diskStorage({
 const upload = multer({ 
     storage: storage, 
     limits: {
-        fileSize: 120, // 500kB 524288 1024 * 1024 * 0.5
+        // fileSize: 150, // 500kB 524288 1024 * 1024 * 0.5
     },
-    fileFilter: (req, file, cb) => {
+    fileFilter: (req, file, callback) => {
         const listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"]
 
-        if (listAllowedMimeType.includes(file.mimetype)) {
-            cb(null, true);
-        } else {
-            return cb(new Error('Only images are allowed'))
+        if (!listAllowedMimeType.includes(file.mimetype)) {
+            return callback(new Error('Format incorrect uploadé'))
         }
+        callback(null, true);
     }
 }).single("image")
 
 
-router.post(`/${base}/:id`, (req, res, next) => {
-    upload(req, res, (err) => {
-        next(err)
-    })
-}, async (req, res) => {
+// https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
+
+router.post(
+    `/${base}/:id`, upload, 
+    async (req, res, next) => {
+        const uploadedImage = req.file;
+
+        if (uploadedImage) {
+            throw new Error('some custom error message')
+        }
+
+        // console.log(uploadedImage);
+        // console.log(req.get("test"))
     let sae = null;
     let listErrors = [];
 
-    console.log("d", req)
-    const tempPath = req.file?.path;
-    // if(tempPath) {   
-    //     console.log("err", tempPath)
-
-    //     const targetPath = path.join(path.resolve(), "public/uploads/");
-    //     fs.rename(tempPath, targetPath, (err) => {
-    //         console.log(err)
-    //         listErrors.push("Erreur image");
-    //     });
-    // }
+    // upload(req, res, (err) => {
+    //     if(err) {
+    //         listErrors.push(err.message)
+    //     }
+    // })
 
     // We check if there's an id in the url
     const isEdit = objectIDRegex.test(req.params.id);
 
     if (isEdit) {
-        sae = await SAE.findOneAndUpdate(
-            { _id: req.params.id },
-            { ...req.body, _id: req.params.id }, // image: req.file?.f
+        sae = await SAE.findByIdAndUpdate(
+            req.params.id,
+            { ...req.body, _id: req.params.id, image: req.file?.filename },
             { new: true }
         )
             .orFail()
@@ -123,7 +122,7 @@ router.post(`/${base}/:id`, (req, res, next) => {
                 ];
             });
     } else {
-        sae = new SAE({ ...req.body });
+        sae = new SAE({ ...req.body, image: req.file?.filename });
 
         await sae
             .save()
@@ -135,9 +134,11 @@ router.post(`/${base}/:id`, (req, res, next) => {
             });
     }
 
+    console.log(req.body)
+
     if (listErrors.length || isEdit) {
         res.render("pages/back-end/saes/add-edit.twig", {
-            sae,
+            sae: (listErrors.length ? req.body : sae),
             page_name: "saes",
             list_errors: listErrors,
         });

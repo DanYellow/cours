@@ -43,21 +43,15 @@ mongoServer().then((res) => {
     console.log("---------------------------")
 }).catch(console.error);
 
-app.use(
-  connectLiveReload({
-    port: 35729,
-  })
-);
+// app.use(
+//   connectLiveReload({
+//     port: 35729,
+//   })
+// );
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-
-app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
-    
-  })
 
 let jsonFilesContent = {};
 FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
