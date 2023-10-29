@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs";
-import path from "path";
+
 // Models
 import SAE from "#models/sae.js";
 
@@ -14,7 +14,7 @@ const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
 
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 5; // 5
+    let perPage = req.query.per_page || 7;
     perPage = Math.min(perPage, 20);
 
     const listSAEs = await SAE.find()
@@ -59,7 +59,7 @@ router.post(
     async (req, res) => {
         let sae = null;
         let listErrors = [];
-        let targetPath;
+        let targetPath = undefined;
         let imagePayload = {}
 
         const uploadedImage = req.file;
@@ -70,7 +70,7 @@ router.post(
                 listErrors.push(error)
             } else {
                 imagePayload = { image: req.file?.filename }
-                targetPath = path.join(path.resolve(), "public/uploads/", uploadedImage.filename);
+                targetPath = `${res.locals.upload_dir}${uploadedImage.filename}`;
                 const tempPath = uploadedImage.path;
 
                 fs.copyFile(tempPath, targetPath, err => {
@@ -90,9 +90,11 @@ router.post(
         )
             .orFail()
             .catch((err) => {
-                fs.unlink(targetPath, (err) => {
-                    listErrors.push(err)
-                })
+                if(targetPath) {
+                    fs.unlink(targetPath, (err) => {
+                        listErrors.push(err)
+                    })
+                }
                 listErrors = [
                     ...listErrors,
                     ...Object.values(err?.errors).map((val) => val.message),
@@ -105,9 +107,11 @@ router.post(
             .save()
             .then()
             .catch((err) => {
-                fs.unlink(targetPath, (err) => {
-                    listErrors.push(err)
-                })
+                if(targetPath) {
+                    fs.unlink(targetPath, (err) => {
+                        listErrors.push(err)
+                    })
+                }
                 listErrors = [
                     ...listErrors,
                     ...Object.values(err?.errors).map((val) => val.message),

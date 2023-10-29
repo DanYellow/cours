@@ -14,7 +14,7 @@ const articleSchema = new Schema({
   },
 }, { timestamps: true });
 
-articleSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul")
+articleSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide")
 
 articleSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;

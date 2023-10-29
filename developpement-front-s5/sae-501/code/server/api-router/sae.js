@@ -1,14 +1,11 @@
 import express from "express";
 import fs from "fs/promises";
-import path from "path";
 
 import SAE from '#models/sae.js';
 
 const router = express.Router();
 
 const base = "saes";
-
-const uploadDir = path.join(path.resolve(), "public/uploads/")
 
 router.get(`/${base}`, async (_req, res) => {
     const listRessources = await SAE.find();
@@ -25,7 +22,17 @@ router.get(`/${base}/:id`, async (req, res) => {
 
 router.post(`/${base}`, async (req, res) => {
     let ressource = new SAE({ ...req.body });
-    await ressource.save();
+    await ressource.save().then()
+        .catch((err) => {
+            console.log("fefef")
+            // fs.unlink(targetPath, (err) => {
+            //     listErrors.push(err)
+            // })
+            // listErrors = [
+            //     ...listErrors,
+            //     ...Object.values(err?.errors).map((val) => val.message),
+            // ];
+        });
 
     return res.status(201).json(ressource)
 });
@@ -47,7 +54,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
     
     if(ressource.image) {
         try {
-            const targetPath = `${uploadDir}${ressource.image}`
+            const targetPath = `${res.locals.upload_dir}${ressource.image}`
             await fs.unlink(targetPath)
         } catch (e) {
             return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })

@@ -7,10 +7,12 @@ import SAE from "#models/sae.js";
 import Article from "#models/article.js";
 
 import SAERouter from './sae.js'
+import ArticleRouter from './article.js'
 
 const router = express.Router();
 
 router.use(SAERouter)
+router.use(ArticleRouter)
 
 router.use(async (_req, res, next) => {
     const originalRender = res.render;
@@ -57,20 +59,6 @@ router.get("/", async (req, res) => {
             data: listArticles,
             count: countArticles,
         },
-        page_name: "index",
-    });
-});
-
-router.get("/articles", async (req, res) => {
-    const listArticles = await Article.find().limit(5);
-    const countArticles = await Article.count();
-
-    res.render("pages/back-end/articles/list.twig", {
-        list_articles: {
-            data: listArticles,
-            count: countArticles,
-        },
-        page_name: "articles",
     });
 });
 

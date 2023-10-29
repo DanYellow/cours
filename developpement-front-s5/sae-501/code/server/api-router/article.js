@@ -1,6 +1,10 @@
 import express from "express";
+import fs from "fs";
 
 import Article from '#models/article.js'
+import { imageValidator } from  "#database/validator.js";
+
+import upload from "../uploader.js"
 
 const router = express.Router();
 
@@ -34,11 +38,33 @@ router.get(`/${base}`, async (req, res) => {
 //     res.status(200).json(sae)
 // });
 
-router.post(`/${base}`, async (req, res) => {
-    let sae = new SAE({ ...req.body });
-    await sae.save();
+router.post(`/${base}`, upload.single("image"), async (req, res) => {
+    let listErrors = [];
+    let ressource = new Article({ ...req.body });
+    console.log(req.file)
+    // const uploadedImage = req.file;
 
-    res.status(201).json(sae)
+    // if (uploadedImage) {
+    //     const error = imageValidator(uploadedImage);
+    //     if(error !== null) {
+    //         listErrors.push(error)
+    //     } else {
+    //         imagePayload = { image: req.file?.filename }
+    //         targetPath = `${res.locals.upload_dir}${uploadedImage.filename}`;
+    //         const tempPath = uploadedImage.path;
+
+    //         fs.copyFile(tempPath, targetPath, err => {
+    //             listErrors.push(err)
+    //         })
+    //     }
+    // }
+    
+    await ressource.save({ validateBeforeSave: true }).then(() => {
+        res.status(201).json(ressource)
+    })
+    .catch((err) => {
+        res.status(400).json({errors: Object.values(err?.errors).map((val) => val.message)})
+    })
 });
 
 // router.put("/saes/:id", async (req, res) => {

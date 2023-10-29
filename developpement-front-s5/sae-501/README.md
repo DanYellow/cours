@@ -175,6 +175,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Note : **le lien des images doit être absolu**
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
+- [ ] Gérer "proprement" les messages d'erreur
+    - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
 
 
 # FAQ - Foire Aux Questions

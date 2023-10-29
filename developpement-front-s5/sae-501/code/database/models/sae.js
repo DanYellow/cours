@@ -7,7 +7,7 @@ const saeSchema = new Schema({
   image: String,
 });
 
-saeSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul")
+saeSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide")
 
 saeSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;

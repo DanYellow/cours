@@ -75,14 +75,18 @@ const getCurrentURL = (url) => {
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}`)
 
-    res.locals = {...jsonFilesContent, ...{
-    NODE_ENV: process.env.NODE_ENV,
-    HOST_IP: hostip,
-    current_url,
-    base_url: `${req.protocol}://${req.get('host')}`,
-    admin_url: `${current_url.substring(0, current_url.indexOf("/admin"))}/admin`,
-    ...envVars.parsed
-  }};
+    res.locals = {
+        ...jsonFilesContent, 
+        ...{
+            NODE_ENV: process.env.NODE_ENV,
+            HOST_IP: hostip,
+            current_url,
+            base_url: `${req.protocol}://${req.get('host')}`,
+            admin_url: `${current_url.substring(0, current_url.indexOf("/admin"))}/admin`,
+            upload_dir: path.join(path.resolve(), "public/uploads/"),
+            ...envVars.parsed
+        }
+    };
 
   const originalRender = res.render;
   res.render = function (view, local, callback) {
