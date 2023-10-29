@@ -26,18 +26,6 @@ router.use(async (_req, res, next) => {
     next();
 });
 
-// router.use((err, req, res, next) => {
-//     console.log("rrd", err.message)
-
-//     if (err) {
-//         res.set('test', 'text/plain');
-
-//     }
-//     next()
-//     // return res.status(500).send('Something broke!')
-//   })
-
-
 const parseManifest = async () => {
     if (process.env.NODE_ENV !== "production") {
         return {};
@@ -84,5 +72,6 @@ router.get("/articles", async (req, res) => {
         page_name: "articles",
     });
 });
+
 
 export default router;

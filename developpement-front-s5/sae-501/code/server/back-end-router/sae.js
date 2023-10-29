@@ -6,6 +6,9 @@ import path from "path";
 import SAE from "#models/sae.js";
 
 import { imageValidator } from  "#database/validator.js";
+import upload from "../uploader.js"
+
+console.log(upload)
 
 const base = "saes";
 const router = express.Router();
@@ -54,24 +57,15 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     });
 });
 
-const storage = multer.diskStorage({
-    // dest: path.join(path.resolve(), "public/uploads/"),
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-        cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
-    },
-});
-
-const upload = multer({ storage }).single("image")
-
 // https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
 
 router.post(
-    `/${base}/:id`, upload, 
+    `/${base}/:id`, upload.single("image"), 
     async (req, res) => {
         let sae = null;
         let listErrors = [];
         let targetPath;
+        let imagePayload = {}
 
         const uploadedImage = req.file;
 
@@ -80,6 +74,7 @@ router.post(
             if(error !== null) {
                 listErrors.push(error)
             } else {
+                imagePayload = { image: req.file?.filename }
                 targetPath = path.join(path.resolve(), "public/uploads/", uploadedImage.filename);
                 const tempPath = uploadedImage.path;
 
@@ -92,10 +87,11 @@ router.post(
     // We check if there's an id in the url
     const isEdit = objectIDRegex.test(req.params.id);
 
+
     if (isEdit) {
         sae = await SAE.findByIdAndUpdate(
             req.params.id,
-            { ...req.body, _id: req.params.id, image: req.file?.filename },
+            { ...req.body, _id: req.params.id, ...imagePayload },
             { new: true }
         )
             .orFail()
@@ -109,7 +105,7 @@ router.post(
                 ];
             });
     } else {
-        sae = new SAE({ ...req.body, image: req.file?.filename });
+        sae = new SAE({ ...req.body, ...imagePayload });
 
         await sae
             .save()
