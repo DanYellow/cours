@@ -64,6 +64,7 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
         },
         data: {
             ...req.body,
+            file: req.file,
         },
     }
 

@@ -5,10 +5,30 @@ import fs from "fs/promises";
 import SAE from '#models/sae.js';
 
 import upload from "../uploader.js"
+import { imageValidator } from "#database/validator.js";
 
 const router = express.Router();
 
 const base = "saes";
+
+const uploadImage = (image, dist_dir) => {
+    let targetPath = undefined;
+    const listErrors = []
+    const error = imageValidator(image);
+       
+    if(error !== null) {
+        listErrors.push(error)
+    } else {
+        targetPath = `${dist_dir}${image.filename}`;
+        const tempPath = image.path;
+
+        fs.copyFile(tempPath, targetPath).then().catch((err) => {
+            listErrors.push(err)
+        })
+    }
+
+    return { image_path: targetPath, errors: listErrors, image_name: image.filename }
+}
 
 router.get(`/${base}`, async (_req, res) => {
     const listRessources = await SAE.find();
@@ -24,7 +44,19 @@ router.get(`/${base}/:id`, async (req, res) => {
 });
 
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
-    let ressource = new SAE({ ...req.body });
+    let imagePayload = {}
+    let listErrors =  []
+    let targetPath = undefined;
+
+    const uploadedImage = req.body.file;
+    
+    if (uploadedImage) {
+        let imageName;
+        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
+        imagePayload = { image: imageName }
+    }
+
+    let ressource = new SAE({ ...req.body, ...imagePayload });
 
     await ressource.save({ validateBeforeSave: true }).then(() => {
         res.status(201).json(ressource)
@@ -35,13 +67,28 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 });
 
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
-    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id }, { new: true })
+    let imagePayload = {}
+    let listErrors =  []
+    let targetPath = undefined;
+
+    const uploadedImage = req.body.file;
+    
+    if (uploadedImage) {
+        let imageName;
+        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
+        imagePayload = { image: imageName }
+    }
+
+    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
     .orFail()
     .catch((err) => {
         if(err instanceof mongoose.CastError) {
-            res.status(400).json({errors: ["Élément non trouvé"]})
+            res.status(400).json({errors: [...listErrors, "Élément non trouvé"]})
         } else {
-            res.status(400).json({ errors: Object.values(err?.errors).map((val) => val.message), ressource: req.body })
+            res.status(400).json({ 
+                errors: [...listErrors, ...Object.values(err?.errors).map((val) => val.message)], 
+                ressource: req.body 
+            })
         }
     });
 
