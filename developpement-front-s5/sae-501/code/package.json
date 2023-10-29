@@ -38,6 +38,7 @@
   },
   "imports": {
     "#models/*": "./database/models/*",
-    "#database/index.js": "./database/index.js"
+    "#database/index.js": "./database/index.js",
+    "#database/validator.js": "./database/validator.js"
   }
 }

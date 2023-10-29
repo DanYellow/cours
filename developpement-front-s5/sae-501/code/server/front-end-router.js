@@ -40,7 +40,7 @@ const parseManifest = async () => {
 router.get("/", async (req, res) => {
   const page = req.query.page || 0;
 
-  let perPage = req.query.per_page || 5;
+  let perPage = req.query.per_page || 7;
   perPage = Math.min(perPage, 20);
 
   const listArticles = await Article.find()

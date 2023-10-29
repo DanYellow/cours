@@ -2,18 +2,15 @@ import express from "express";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
 // Models
 import SAE from "#models/sae.js";
+
+import { imageValidator } from  "#database/validator.js";
 
 const base = "saes";
 const router = express.Router();
 
 const objectIDRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -59,53 +56,39 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
 const storage = multer.diskStorage({
     // dest: path.join(path.resolve(), "public/uploads/"),
-    destination: function (req, file, cb) {
-        cb(null, path.join(path.resolve(), "public/uploads"))
-    },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
         cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
     },
 });
 
-const upload = multer({ 
-    storage: storage, 
-    limits: {
-        // fileSize: 150, // 500kB 524288 1024 * 1024 * 0.5
-    },
-    fileFilter: (req, file, callback) => {
-        const listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"]
-
-        if (!listAllowedMimeType.includes(file.mimetype)) {
-            return callback(new Error('Format incorrect uploadé'))
-        }
-        callback(null, true);
-    }
-}).single("image")
-
+const upload = multer({ storage }).single("image")
 
 // https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
 
 router.post(
     `/${base}/:id`, upload, 
-    async (req, res, next) => {
+    async (req, res) => {
+        let sae = null;
+        let listErrors = [];
+        let targetPath;
+
         const uploadedImage = req.file;
 
         if (uploadedImage) {
-            throw new Error('some custom error message')
+            const error = imageValidator(uploadedImage);
+            if(error !== null) {
+                listErrors.push(error)
+            } else {
+                targetPath = path.join(path.resolve(), "public/uploads/", uploadedImage.filename);
+                const tempPath = uploadedImage.path;
+
+                fs.copyFile(tempPath, targetPath, err => {
+                    listErrors.push(err)
+                })
+            }
         }
-
-        // console.log(uploadedImage);
-        // console.log(req.get("test"))
-    let sae = null;
-    let listErrors = [];
-
-    // upload(req, res, (err) => {
-    //     if(err) {
-    //         listErrors.push(err.message)
-    //     }
-    // })
-
+ 
     // We check if there's an id in the url
     const isEdit = objectIDRegex.test(req.params.id);
 
@@ -117,7 +100,11 @@ router.post(
         )
             .orFail()
             .catch((err) => {
+                fs.unlink(targetPath, (err) => {
+                    listErrors.push(err)
+                })
                 listErrors = [
+                    ...listErrors,
                     ...Object.values(err?.errors).map((val) => val.message),
                 ];
             });
@@ -128,19 +115,22 @@ router.post(
             .save()
             .then()
             .catch((err) => {
+                fs.unlink(targetPath, (err) => {
+                    listErrors.push(err)
+                })
                 listErrors = [
+                    ...listErrors,
                     ...Object.values(err?.errors).map((val) => val.message),
                 ];
             });
     }
 
-    console.log(req.body)
-
     if (listErrors.length || isEdit) {
         res.render("pages/back-end/saes/add-edit.twig", {
             sae: (listErrors.length ? req.body : sae),
             page_name: "saes",
-            list_errors: listErrors,
+            list_errors: listErrors.filter(Boolean),
+            is_edit: objectIDRegex.test(req.params.id),
         });
     } else {
         res.redirect(`${res.locals.admin_url}/saes`);
