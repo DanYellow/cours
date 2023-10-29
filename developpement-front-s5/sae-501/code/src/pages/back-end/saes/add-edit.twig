@@ -1,6 +1,7 @@
 {% extends "layouts/back-end/base.twig" %}
 
 {% set chars_limit = 200 %}
+{% set page_name = "saes" %}
 
 {% block main %}
 	<div class="bg-white rounded-2xl shadow-md pb-6">
@@ -37,7 +38,7 @@
 					<span class="font-bold text-slate-700 after:ml-0.5 after:text-red-500">Image</span>
                     
                     <figure class="w-fit mb-2">
-                        <img class="" src="" data-preview-upload="image" width="150" alt="">
+                        <img class="" src="{{ '/uploads/' ~ sae.image }}" data-preview-upload="image" width="250" alt="">
                     </figure>
 					<input 
                         data-upload-file="image"

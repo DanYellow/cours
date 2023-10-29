@@ -11,23 +11,23 @@ const base = "saes";
 const uploadDir = path.join(path.resolve(), "public/uploads/")
 
 router.get(`/${base}`, async (_req, res) => {
-    const listSAEs = await SAE.find();
-    return res.status(200).json(listSAEs)
+    const listRessources = await SAE.find();
+    return res.status(200).json(listRessources)
 });
 
 router.get(`/${base}/:id`, async (req, res) => {
-    const sae = await SAE.findOne({ _id: req.params.id }).orFail().catch((err) => {
+    const ressource = await SAE.findOne({ _id: req.params.id }).orFail().catch((err) => {
         res.status(200).json({})
     });
 
-    return res.status(200).json(sae)
+    return res.status(200).json(ressource)
 });
 
 router.post(`/${base}`, async (req, res) => {
-    let sae = new SAE({ ...req.body });
-    await sae.save();
+    let ressource = new SAE({ ...req.body });
+    await ressource.save();
 
-    return res.status(201).json(sae)
+    return res.status(201).json(ressource)
 });
 
 router.put(`/${base}/:id`, async (req, res) => {
@@ -45,11 +45,13 @@ router.delete(`/${base}/:id`, async (req, res) => {
         return res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
     }
     
-    try {
-        const targetPath = `${uploadDir}${ressource?.image}`
-        await fs.unlink(targetPath)
-    } catch (e) {
-        return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
+    if(ressource.image) {
+        try {
+            const targetPath = `${uploadDir}${ressource.image}`
+            await fs.unlink(targetPath)
+        } catch (e) {
+            return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
+        }
     }
 
     return res.status(200).json(ressource);

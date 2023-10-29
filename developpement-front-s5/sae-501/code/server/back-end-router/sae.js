@@ -36,7 +36,6 @@ router.get(`/${base}`, async (req, res) => {
             count,
             page,
         },
-        page_name: "saes",
     });
 });
 
@@ -49,7 +48,6 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
     res.render("pages/back-end/saes/add-edit.twig", {
         sae,
-        page_name: "saes",
         is_edit: objectIDRegex.test(req.params.id),
     });
 });
@@ -117,11 +115,12 @@ router.post(
             });
     }
 
+    listErrors = listErrors.filter(Boolean)
+
     if (listErrors.length || isEdit) {
         res.render("pages/back-end/saes/add-edit.twig", {
             sae: (listErrors.length ? req.body : sae),
-            page_name: "saes",
-            list_errors: listErrors.filter(Boolean),
+            list_errors: listErrors,
             is_edit: objectIDRegex.test(req.params.id),
         });
     } else {

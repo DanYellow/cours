@@ -8,6 +8,10 @@ const articleSchema = new Schema({
   content: String,
   image: String,
   yt_link: String,
+  is_active: {
+    type: Boolean,
+    default: false
+  },
 }, { timestamps: true });
 
 articleSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul")
@@ -16,6 +20,5 @@ articleSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;
     next();
 });
-
 
 export default mongoose.model("Article", articleSchema);
