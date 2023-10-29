@@ -1,32 +1,32 @@
 {% macro previous(url, is_disabled = false) %}
 	{% if is_disabled %}
-		<span class="gap-x-2 items-center p-4 flex opacity-30">
+		<span class="gap-x-2 items-center px-2 py-4 opacity-30 flex">
 			<svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
 			</svg>
-			Précédent
+			<span class="hidden lg:inline">Précédent</span>
 		</span>
 	{% else %}
-		<a href="{{ url }}" class="gap-x-2 items-center p-4 flex border-t-2 border-t-transparent hover:border-t-slate-400 border-solid">
+		<a href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
 			<svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
 			</svg>
-			Précédent
+            <span class="hidden lg:inline">Précédent</span>
 		</a>
 	{% endif %}
 {% endmacro %}
 
 {% macro next(url, is_disabled = false) %}
 	{% if is_disabled %}
-		<span class="gap-x-2 items-center p-4 flex opacity-30">
-			Suivant
+		<span class="gap-x-2 items-center px-2 py-4 opacity-30 lg:flex">
+			<span class="hidden lg:inline">Suivant</span>
 			<svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
 			</svg>
 		</span>
 	{% else %}
-		<a href="{{ url }}" class="gap-x-2 items-center p-4 flex border-t-2 border-t-transparent hover:border-t-slate-400 border-solid">
-			Suivant
+		<a href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
+			<span class="hidden lg:inline">Suivant</span>
 			<svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
 			</svg>
@@ -34,10 +34,15 @@
 	{% endif %}
 {% endmacro %}
 
-{% macro item(paginator) %}
+{% macro item(paginator, name="") %}
 	{% if paginator.total_pages > 1 %}
 		{{ _self.previous("?page=" ~ (paginator.page - 1), paginator.page == 1) }}
-		<ul class="flex">
+        <select class="lg:hidden flex" data-paginator="{{ name }}">
+            {% for i in 1..paginator.total_pages %}
+                <option {{ i == paginator.page ? "selected" : "" }} value="{{ i }}">{{ 'Page ' ~ i }}</option>
+            {% endfor %}
+        </select>
+		<ul class="hidden lg:flex">
 			{% for i in 1..paginator.total_pages %}
 				<li>
 					<a class="{{ (paginator.page == i) ? 'border-t-indigo-200' : 'border-t-transparent' }} hover:border-t-indigo-500 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>

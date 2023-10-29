@@ -12,9 +12,11 @@ const articleSchema = new Schema({
     type: Boolean,
     default: false
   },
-}, { 
+},  
+{ 
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
-});
+}
+);
 
 articleSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide")
 

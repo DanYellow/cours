@@ -177,6 +177,9 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
+    - Les messages d'erreurs sont dans les dossiers "server" et "database"
+- [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente
+    - La limite déroulante est déjà présente, il ne manque plus que la fonctionnalité
 
 
 # FAQ - Foire Aux Questions

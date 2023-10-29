@@ -36,7 +36,7 @@
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Contenu">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ item.is_active }}</td>
+						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ item.is_active ? "Oui" : "Non" }}</td>
 						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Date création">{{ item.created_at|date("d/m/Y à G:i") }}</td>
 						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("d/m/Y à G:i")  }}</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
@@ -53,7 +53,7 @@
 				</tbody>
 			</tbody>
 		</table>
-        <footer class="flex justify-between px-6">
+        <footer class="flex justify-between px-4">
             {{ pagination.item(list_articles) }}
         </footer>
 	</div>
