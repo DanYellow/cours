@@ -20,11 +20,9 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 **R5.DWeb-DI.05 | Développement front avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté client
 
-> Note : nunjucks, nous avons fait le choix de remplacer twig par nunjucks pour des questions de performances, nunjucks est plus approprié dans un environnement front-end. Les deux utilisent la même syntaxe à quelques petites différences près. [Accéder à la documentation de nunjucks.](https://mozilla.github.io/nunjucks/fr/templating.html)
+> Note : nous avons fait le choix de remplacer twig par nunjucks pour des questions de performances, nunjucks est plus approprié dans un environnement nodejs. Les deux utilisent la même syntaxe à quelques petites différences près. [Accéder à la documentation de nunjucks.](https://mozilla.github.io/nunjucks/fr/templating.html). Ce que vous avez appris avec twig, vous pourrez donc le réutiliser avec nunjucks.
 
 Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
-
-> Vous trouverez plus bas, l'ensemble des commandes présentent sur le projet et leur rôle.
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
 
@@ -64,13 +62,13 @@ code/
     └── styles/
 ```
 
-La structure est un peu plus complexe que celle avec laquel vous avez travaillé en S2. Le projet se base principalement sur les outils vitejs et express. Néanmoins regardons en détails tout ça.
+La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S2. Le projet se base principalement sur les outils vitejs et express. Néanmoins regardons en détails tout ça.
 
 ### database/
-Le dossier `database/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
+Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](https://www.mongodb.com/try/download/community), et pour des questions de conforts [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
 
 ### public/
-Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre. Dans le dossier, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**.
+Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre. Le chemin entre vos templates (dossier src/) et le fichier public ne doit pas contenir `public/`, pour rappel. Dans le dossier, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**.
 
 ### server/
 Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et la technologie express. express est un framework nodejs permettant de développer en javascript côté serveur.
@@ -81,15 +79,15 @@ Autrement dit, ces fichiers définissent ce qu'il doit se passer quand on accèd
 ```js
 // front-end-router.js
 router.get("/hello", async (_req, res) => {
-  res.render("pages/index.njk");
+  res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Le code ci-dessus indique que lorsqu'on accède à la page `localhost:9500/hello` avec la méthode GET, on charge la page "pages/index.njk". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
+Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` avec la méthode GET, on charge le template "pages/index.njk" en injectant la variable "title". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
 > [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez deux choses :
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier html, sinon, vous aurez une erreur 404
-- Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter ue nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
+- Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
     - frontend : partie accessible à tous
     - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**
     - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même**
@@ -98,24 +96,24 @@ Retenez deux choses :
 C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
 
 ### src/components/
-C'est dans ce fichier que vous mettre vos blocs njk réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier.
+Il contient vos blocs nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier (font ou back-end).
 
 ### src/data/
 Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu. 
 
-Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.nunjucks -> contact.nunjucks.json.
+Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.nunjucks -> contact.njk.json.
 
 ### src/layouts/
-Le dossier `layouts/` est destinés pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend du site. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
+Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend et backend du site respective. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
 
 ### src/pages/
-Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous ferez votre routing.
+Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous les appelerez dans vos routes.
 
 ### scripts/
-Ce dossier contient les points d'entrées de vos bundles, ils seront compilés par vite lors de l'exécution de la commande `npm run build`. Le backend possède l'entrée `main.backend.js` et le frontend l'entrée `main.frontend.js`. Si vous pouvez créer des dossiers et des fichiers dedans, vous ne devez pas modifier le nom des fichiers déjà présents. De plus, vos fichiers javascript crées devront à la fin être importés dans l'un de ces deux fichiers, sinon, ils ne seront pas exécutés.
+Ce dossier contient les points d'entrées de vos bundles, ils seront compilés par vite lors de l'exécution de la commande `npm run build`. Le backend possède l'entrée `main.backend.js` et le frontend l'entrée `main.frontend.js`. Si vous pouvez créer des dossiers et des fichiers dedans, vous ne devez pas modifier le nom des fichiers **à la racine** déjà présents. Les fichiers "main.backend.js" et "main.frontend.js" servant de point d'entrée
 
 ### styles/
-Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss. Vous pouvez bien évidemment utiliser tailwind pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie.
+Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss et VSCode fera des propositions. Vous pouvez bien utiliser tailwind pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie.
 
 
 ## Mise en place
@@ -124,8 +122,8 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
 - node >= 18 
 
 ### Installation
-1. [Récupérez le projet]()
-2. Installez les dépendances
+1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
+2. Installer les dépendances
    ```sh
    # Dans le dossier code/
    npm install
@@ -137,15 +135,15 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
    # La commande va lancer les serveurs express et vite
    npm start
    ```
-Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive. 
+Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers ~~et rafraîchit également le navigateur~~. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive. 
 
 ### Utilisation - Mode production
-1. Compilez les assets gérés par vite
+1. Compiler les assets gérés par vite
    ```sh
    # La commande va compiler les assets vite dans le dossier dist/
    npm build
    ```
-2. Lancez le serveur de production
+2. Lancer le serveur de production
    ```sh
    npm prod
    ```
