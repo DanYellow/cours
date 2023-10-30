@@ -26,6 +26,23 @@ router.post(`/${base}/comment`, async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /articles/{id}/comments:
+ *   get:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Get comments for an article.
+ */
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
         const page = req.query.page || 1;

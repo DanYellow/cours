@@ -10,8 +10,8 @@ import dotenv from "dotenv";
 import ip from "ip";
 import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
+import swaggerSpec from "./swagger.js"
 import swaggerUi from "swagger-ui-express";
-// import swaggerDocument  from "swagger-ui-express";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -119,7 +119,7 @@ app.set("views", path.join(__dirname, "..", "/src"));
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
-// app.use('/api-docs', swaggerUi.serve);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 nunjucks.configure(path.join(__dirname, "..", "/src"), {

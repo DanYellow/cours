@@ -9,8 +9,30 @@ import upload, { uploadImage, deleteUpload } from "../uploader.js"
 const router = express.Router();
 const base = "saes";
 
-// https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
-
+/**
+ * @openapi
+ * /saes:
+ *   get:
+ *     tags:
+ *      - SAEs
+ *     responses:
+ *       200:
+ *         description: Returns all SAEs.
+ *     parameters:
+ *      - in: query
+ *        name: page
+ *        schema:
+ *          type: integer
+ *          example: 1
+ *        description: Page's number
+ *      - in: query
+ *        name: per_page
+ *        required: false
+ *        schema:
+ *          type: integer
+ *          example: 7
+ *        description: Number of items per page. Max 20
+ */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
     let perPage = req.query.per_page || 7;
@@ -36,6 +58,23 @@ router.get(`/${base}`, async (req, res) => {
     })
 });
 
+/**
+ * @openapi
+ * /saes/{id}:
+ *   get:
+ *     tags:
+ *      - SAEs
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: sae's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Returns a specific SAE
+ */
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
 
@@ -46,6 +85,32 @@ router.get(`/${base}/:id`, async (req, res) => {
     return res.status(200).json(ressource)
 });
 
+/**
+ * @openapi
+ * /saes:
+ *   post:
+ *     tags:
+ *      - SAEs
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              bundles:
+ *                type: array
+ *                items:
+ *                  type: object
+ *                  properties:
+ *                    bundleId:
+ *                      type: integer
+ *                      example: 12
+ *                    thumb:
+ *                      type: string
+ *     responses:
+ *       201:
+ *         description: Creates a SAE
+ */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
@@ -81,6 +146,23 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     })
 });
 
+/**
+ * @openapi
+ * /saes/{id}:
+ *   put:
+ *     tags:
+ *      - SAEs
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: sae's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Updates a specific SAE
+ */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
@@ -123,6 +205,23 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     return res.status(201).json(ressource)
 });
 
+/**
+ * @openapi
+ * /saes/{id}:
+ *   delete:
+ *     tags:
+ *      - SAEs
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: sae's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Deletes a specific SAE
+ */
 router.delete(`/${base}/:id`, async (req, res) => {
     const ressource = await SAE.findByIdAndDelete(req.params.id).orFail().catch(() => {});
 

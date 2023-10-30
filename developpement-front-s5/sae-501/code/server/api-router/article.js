@@ -9,6 +9,30 @@ const router = express.Router();
 
 const base = "articles";
 
+/**
+ * @openapi
+ * /articles:
+ *   get:
+ *     tags:
+ *      - Articles
+ *     responses:
+ *       200:
+ *         description: Returns all articles.
+ *     parameters:
+ *      - in: query
+ *        name: page
+ *        schema:
+ *          type: integer
+ *          example: 1
+ *        description: Page's number
+ *      - in: query
+ *        name: per_page
+ *        required: false
+ *        schema:
+ *          type: integer
+ *          example: 7
+ *        description: Number of items per page. Max 20
+ */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
     let perPage = req.query.per_page || 7;
@@ -34,6 +58,23 @@ router.get(`/${base}`, async (req, res) => {
     })
 });
 
+/**
+ * @openapi
+ * /articles/{id}:
+ *   get:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Returns a specific article
+ */
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
 
@@ -44,6 +85,16 @@ router.get(`/${base}/:id`, async (req, res) => {
     return res.status(200).json(ressource)
 });
 
+/**
+ * @openapi
+ * /articles:
+ *   post:
+ *     tags:
+ *      - Articles
+ *     responses:
+ *       200:
+ *         description: Creates an article
+ */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
@@ -80,6 +131,23 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     })
 });
 
+/**
+ * @openapi
+ * /articles/{id}:
+ *   put:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Updates a specific article
+ */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
@@ -122,6 +190,23 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     return res.status(201).json(ressource)
 });
 
+/**
+ * @openapi
+ * /articles/{id}:
+ *   delete:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's id
+ *        required: true
+ *        schema:
+ *          type: integer
+ *     responses:
+ *       200:
+ *         description: Deletes a specific article
+ */
 router.delete(`/${base}/:id`, async (req, res) => {
     const ressource = await Article.findByIdAndDelete(req.params.id).orFail().catch(() => {});
 
