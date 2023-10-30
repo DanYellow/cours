@@ -28,7 +28,7 @@
 								},
 								{
 									"key": "content",
-									"value": "Test",
+									"value": "{{$randomLoremSentence}}",
 									"description": "SAE's content",
 									"type": "text"
 								},
@@ -187,7 +187,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "Test Postman SAE",
+									"value": "Test Postman SAE 2",
 									"description": "SAE's title - mandatory",
 									"type": "text"
 								},
@@ -205,7 +205,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
 								},
 								{
 									"key": "is_active",
@@ -369,7 +369,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "65400f993c91293a6ecc61ca"
 								}
 							]
 						}
@@ -413,7 +413,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "653eb29dd20e5c0cb66e0cf0"
+									"value": "65400a1837db2f15c27b273c"
 								}
 							]
 						}
@@ -427,7 +427,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"Test hello\",\r\n    \"article_id\":\"653eb29dd20e5c0cb66e0cf0\"\r\n}",
+							"raw": "{\r\n    \"content\": \"{{$randomLoremSentences}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -435,14 +435,21 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/articles/comment",
+							"raw": "{{base_url}}/api/articles/:id/comments",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
 								"articles",
-								"comment"
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "654010c0d1108d1153acc8ee"
+								}
 							]
 						}
 					},

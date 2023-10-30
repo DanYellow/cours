@@ -67,7 +67,7 @@ router.get(`/${base}`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: sae's id
+ *        description: sae's _id
  *        required: true
  *        schema:
  *          type: integer
@@ -86,27 +86,23 @@ router.get(`/${base}/:id`, async (req, res) => {
 });
 
 /**
- * @openapi
+ * @swagger
  * /saes:
  *   post:
  *     tags:
  *      - SAEs
- *     requestBody:
- *      content:
- *        multipart/form-data:
- *          schema:
- *            type: object
- *            properties:
- *              bundles:
- *                type: array
- *                items:
- *                  type: object
- *                  properties:
- *                    bundleId:
- *                      type: integer
- *                      example: 12
- *                    thumb:
- *                      type: string
+ *     parameters:
+ *      - in: formData
+ *        name: title
+ *        type: string
+ *        required: true
+ *        description: SAE's title
+ *      - in: formData
+ *        name: content
+ *        type: string
+ *      - in: formData
+ *        name: image
+ *        type: string
  *     responses:
  *       201:
  *         description: Creates a SAE
@@ -155,10 +151,21 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: sae's id
+ *        description: sae's _id
  *        required: true
  *        schema:
  *          type: integer
+ *      - in: formData
+ *        name: title
+ *        type: string
+ *        required: true
+ *        description: SAE's title
+ *      - in: formData
+ *        name: content
+ *        type: string
+ *      - in: formData
+ *        name: image
+ *        type: string
  *     responses:
  *       200:
  *         description: Updates a specific SAE
@@ -214,7 +221,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: sae's id
+ *        description: sae's _id
  *        required: true
  *        schema:
  *          type: integer

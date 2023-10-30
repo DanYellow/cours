@@ -67,7 +67,7 @@ router.get(`/${base}`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's id
+ *        description: article's _id
  *        required: true
  *        schema:
  *          type: integer
@@ -199,7 +199,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's id
+ *        description: article's _id
  *        required: true
  *        schema:
  *          type: integer

@@ -12,6 +12,7 @@ import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
 import swaggerSpec from "./swagger.js"
 import swaggerUi from "swagger-ui-express";
+import nunjucksDateFilter from "nunjucks-date-filter"
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -119,16 +120,19 @@ app.set("views", path.join(__dirname, "..", "/src"));
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-// app.get('/api-docs', swaggerUi.setup(swaggerDocument));
+if(process.env.NODE_ENV === "development") {
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+}
 
-nunjucks.configure(path.join(__dirname, "..", "/src"), {
+const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
     web: {
-        useCache: process.env.NODE_ENV !== "development"
+        useCache: process.env.NODE_ENV === "development"
     }
 });
+
+nunjucksEnv.addFilter('date', nunjucksDateFilter)
 
 const listDomains = [hostip]
 

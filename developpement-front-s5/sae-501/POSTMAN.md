@@ -42,4 +42,8 @@ Enfin, il est possible de changer le type d'un champ en survolant une cellule de
 
 #### raw
 ![](./captures/postman-5.jpg)
-Le format raw permet d'envoyer du contenu simplement textuel, par exemple, ajouter un commentaire à un article ou pour vous créer un message. Avec Postman, il est possible d'envoyer plusieurs types de format raw, dans le cadre de la SAE, on utilisera le format "JSON". 
+Le format raw permet d'envoyer du contenu "brut", par exemple, ajouter un commentaire à un article ou pour vous créer un message dans le cadre du projet. Postman gère plusieurs types de formats raw, dans le cadre de la SAE, on utilisera uniquement le format "JSON".
+
+Pour finir, il est possible d'utiliser la bibliothèque faker avec Postman, faker permet de générer des valeurs aléatoires pour un type spécifique de données textuelle ou numéraire (couleur, prénom, adresse, heure...). Pour un utiliser une variable de faker, il faut juste la mettre entre deux paires d'accolades ({{}}). [La liste des variables se trouve ici.](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/)
+> ![](./captures/postman-6.jpg)
+> Ici nous générons un court texte pour la clé "content" 

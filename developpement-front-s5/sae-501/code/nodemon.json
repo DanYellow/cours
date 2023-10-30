@@ -1,4 +1,4 @@
 {
   "delay": 750,
-  "ext": "js,twig,json,css,scss"
+  "ext": "js,njk,json,css,scss"
 }

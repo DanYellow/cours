@@ -9,6 +9,7 @@ const options = {
             title: "SAE 501",
             version: "1.0.0",
         },
+        servers: ["http://localhost:3000"],
     },
     apis: [path.join(path.resolve(), "server/api-router/*.js")],
     swaggerDefinition: {
@@ -17,12 +18,13 @@ const options = {
     },
     servers: [
         {
-            url: "http://localhost:3000",
-            description: "Development server",
+          url: 'http://localhost:3000',
+          description: 'Development server',
         },
-    ],
+      ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 export default swaggerSpec;
+ 

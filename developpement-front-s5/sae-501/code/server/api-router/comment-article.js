@@ -6,9 +6,30 @@ import Article from '#models/article.js'
 const router = express.Router();
 const base = "articles";
 
-router.post(`/${base}/comment`, async (req, res) => {
+/**
+ * @swagger
+ * /articles/:id/comments:
+ *   post:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: Article's _id
+ *        required: true
+ *        type: integer
+ *      - in: body
+ *        name: content
+ *        type: string
+ *        required: true
+ *        description: Comment
+ *     responses:
+ *       201:
+ *         description: Creates a comment for an article
+ */
+router.post(`/${base}/:id/comments`, async (req, res) => {
     try {
-        const article = await Article.findById(req.body.article_id)
+        const article = await Article.findById(req.params.id)
         const ressource = new CommentArticle({ ...req.body, article });
         await ressource.save()
         
@@ -17,7 +38,6 @@ router.post(`/${base}/comment`, async (req, res) => {
 
         res.status(201).json(ressource.getClean())
     } catch (e) {
-        console.log("e", e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
@@ -35,13 +55,19 @@ router.post(`/${base}/comment`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's id
+ *        description: article's _id
  *        required: true
  *        schema:
  *          type: integer
+ *      - in: query
+ *        name: page
+ *        schema:
+ *          type: integer
+ *          example: 1
+ *        description: Page's number
  *     responses:
  *       200:
- *         description: Get comments for an article.
+ *         description: Get all comments for an article.
  */
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
