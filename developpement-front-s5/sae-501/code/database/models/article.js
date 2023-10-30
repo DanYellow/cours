@@ -2,6 +2,8 @@ import mongoose, { Schema } from "mongoose";
 
 import { isEmptyValidator } from "../validator.js";
 
+import CommentArticle from "./comment-article.js"
+
 const articleSchema = new Schema(
     {
         title: String,
@@ -38,6 +40,13 @@ articleSchema
 
 articleSchema.pre("findOneAndUpdate", function (next) {
     this.options.runValidators = true;
+    next();
+});
+
+articleSchema.pre('findOneAndDelete', { document: true, query: true }, function(next) {
+    // Deletes all related comments when an Article is deleted
+    CommentArticle.deleteMany({ article: this.getQuery()._id }).exec();
+
     next();
 });
 
