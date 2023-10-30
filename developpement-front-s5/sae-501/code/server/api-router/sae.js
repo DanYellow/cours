@@ -102,7 +102,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *        type: string
  *      - in: formData
  *        name: image
- *        type: string
+ *        type: file
  *     responses:
  *       201:
  *         description: Creates a SAE
@@ -165,7 +165,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        type: string
  *      - in: formData
  *        name: image
- *        type: string
+ *        type: file
  *     responses:
  *       200:
  *         description: Updates a specific SAE

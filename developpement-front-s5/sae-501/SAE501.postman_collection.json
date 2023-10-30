@@ -93,6 +93,16 @@
 									"key": "title",
 									"value": "20",
 									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "{{$randomLoremSentence}}",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
 								}
 							]
 						},
@@ -187,18 +197,18 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "Test Postman SAE 2",
+									"value": "{{$randomLoremWords}}",
 									"description": "SAE's title - mandatory",
 									"type": "text"
 								},
 								{
 									"key": "abstract",
-									"value": "Droit, économie et gestion, langues et études internationales, lettres, histoire, géographie, sciences et techniques, management du sport, métiers de l'éducation et du social.\n",
+									"value": "{{$randomLoremSentence}}",
 									"type": "text"
 								},
 								{
 									"key": "content",
-									"value": "Test",
+									"value": "{{$randomLoremParagraphs}}",
 									"description": "SAE's content",
 									"type": "text"
 								},
@@ -215,7 +225,7 @@
 									"disabled": true
 								},
 								{
-									"key": "yt_link",
+									"key": "yt_link_id",
 									"value": "",
 									"type": "text"
 								}
@@ -297,17 +307,17 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "20",
+									"value": "{{$randomLoremWords}}",
 									"type": "text"
 								},
 								{
 									"key": "abstract\n",
-									"value": "",
+									"value": "{{$randomLoremSentence}}",
 									"type": "text"
 								},
 								{
 									"key": "content\n",
-									"value": "",
+									"value": "{{$randomLoremParagraphs}}",
 									"type": "text"
 								},
 								{
@@ -316,7 +326,7 @@
 									"type": "text"
 								},
 								{
-									"key": "yt_link\n",
+									"key": "yt_link_id\n",
 									"value": "",
 									"type": "text"
 								},

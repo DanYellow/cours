@@ -38,6 +38,13 @@ articleSchema
         "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"
     );
 
+articleSchema
+    .path("content")
+    .validate(
+        isEmptyValidator,
+        "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"
+    );
+
 articleSchema.pre("findOneAndUpdate", function (next) {
     this.options.runValidators = true;
     next();

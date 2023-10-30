@@ -91,8 +91,36 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - Articles
+ *     parameters:
+ *      - name: title
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      - name: abstract
+ *        in: formData
+ *        description: article's summary
+ *        type: string
+ *        format: textarea
+ *      - name: content
+ *        in: formData
+ *        description: article's content
+ *        type: string
+ *        format: textarea
+ *        required: true
+ *      - name: image
+ *        in: formData
+ *        required: true
+ *        type: file
+ *      - name: is_active
+ *        in: formData
+ *        type: boolean
+ *        default: false
+ *      - name: yt_link_id
+ *        in: formData
+ *        type: string
+ *        description: article's Youtube link id
  *     responses:
- *       200:
+ *       201:
  *         description: Creates an article
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
@@ -138,12 +166,33 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     tags:
  *      - Articles
  *     parameters:
- *      - name: id
- *        in: path
- *        description: article's id
+ *      - name: title
+ *        in: formData
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *      - name: abstract
+ *        in: formData
+ *        description: article's summary
+ *        type: string
+ *        format: textarea
+ *      - name: content
+ *        in: formData
+ *        description: article's content
+ *        type: string
+ *        format: textarea
+ *        required: true
+ *      - name: image
+ *        in: formData
+ *        required: true
+ *        type: file
+ *      - name: is_active
+ *        in: formData
+ *        type: boolean
+ *        default: false
+ *      - name: yt_link_id
+ *        in: formData
+ *        type: string
+ *        description: article's Youtube link id
  *     responses:
  *       200:
  *         description: Updates a specific article
