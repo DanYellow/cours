@@ -9,7 +9,9 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import ip from "ip";
 import bodyParser from "body-parser";
-import nunjucks from "nunjucks"
+import nunjucks from "nunjucks";
+import swaggerUi from "swagger-ui-express";
+// import swaggerDocument  from "swagger-ui-express";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -90,7 +92,8 @@ app.use(function (req, res, next) {
   res.render = function (view, local, callback) {
     let tplContent = {};
 
-    const tplContentPath = path.join(__dirname, "..", `/src/${path}.json`);
+    const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
+
     if (fs.existsSync(tplContentPath)) {
       tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
     }
@@ -116,6 +119,8 @@ app.set("views", path.join(__dirname, "..", "/src"));
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
+// app.use('/api-docs', swaggerUi.serve);
+// app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
