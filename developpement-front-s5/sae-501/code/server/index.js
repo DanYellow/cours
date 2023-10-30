@@ -10,13 +10,11 @@ import dotenv from "dotenv";
 import ip from "ip";
 import bodyParser from "body-parser";
 
-
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 
 import mongoServer from "#database/index.js";
-
 
 let envFilePath = '.env.prod.local';
 if(process.env.NODE_ENV === "development") {

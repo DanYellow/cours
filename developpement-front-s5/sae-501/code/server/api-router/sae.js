@@ -39,8 +39,8 @@ router.get(`/${base}`, async (req, res) => {
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
 
-    const ressource = await SAE.findOne({ _id: req.params.id }).orFail().catch((err) => {
-        res.status(404).json({errors: [...listErrors, "Élément non trouvé"]})
+    const ressource = await SAE.findOne({ _id: req.params.id }).orFail().catch(() => {
+        res.status(404).json({ errors: [...listErrors, "Élément non trouvé"] })
     });
 
     return res.status(200).json(ressource)
@@ -50,7 +50,6 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
     let listErrors =  []
     let targetPath = undefined;
-    console.log("req.file", req.body)
     const uploadedImage = req.body.file || req.file;
 
     if (uploadedImage) {
@@ -115,7 +114,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
             res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
         } else {
             res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors || []).map((val) => val.message), ...deleteUpload(targetPath), "Erreur"], 
+                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath), "Erreur"], 
                 ressource: { ...oldRessource, ...req.body }
             })
         }

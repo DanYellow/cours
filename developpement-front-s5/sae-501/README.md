@@ -164,17 +164,25 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Respecter les normes d'accessibilité web
+- [ ] Ajouter une validation côté client des formulaires
+    - Vous pouvez utiliser un outil comme validator.js. [Voir exemples](https://github.com/jaywcjlove/validator.js)
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance de twig, des pages sont déjà présentes
+    - Vous devez utiliser la puissance de twig, un gabarit (src/layouts/back-end/base.twig) est là pour vous aider
+    - La page "a-propos" est déjà faite
+    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier server/`front-end-router.js` 
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
+    - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article et permettre, de façon asynchrone, d'envoyer un message lié à un article et l'afficher
     - Quand on clique sur un article de la page d'accueil, on le voit en détails
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable twig
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
+- [ ] Afficher la liste des articles sur la page d'accueil
+    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (src/pages/front-end/index.twig), il faut juste les afficher
+- [ ] Mettre en place un système de pagination pour les articles
 - [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
@@ -193,7 +201,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - La limite déroulante est déjà présente, il ne manque plus que la fonctionnalité
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
-    - Il n'y a pas de schéma pour les messages, vous devez le réaliser
+    - Il n'y a pas de schéma pour les messages, vous devez le réaliser et créer les api pour (POST et GET)
+    - N'oubliez pas d'ajouter les routes pour accéder aux messages dans le fichier server/`back-end-router.js` 
 - [ ] Permettre d'ajouter, éditer un article
     - Toutes les routes sont déjà prêtes pour manipuler la base de données
     - Le champ permettant l'upload d'image doit impérativement d'appeller "image", sinon ça ne fonctionnera pas
