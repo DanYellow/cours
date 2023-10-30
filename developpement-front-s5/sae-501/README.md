@@ -199,7 +199,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
-    - La limite déroulante est déjà présente, il ne manque plus que la fonctionnalité
+    - **Les** listes déroulantes sont déjà présentes, il ne manque plus que la fonctionnalité
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
     - Il n'y a pas de schéma pour les messages, vous devez le réaliser et créer les api pour (POST et GET)
     - N'oubliez pas d'ajouter les routes pour accéder aux messages dans le fichier server/`back-end-router.js` 

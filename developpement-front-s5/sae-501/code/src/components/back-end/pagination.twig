@@ -34,6 +34,8 @@
 	{% endif %}
 {% endmacro %}
 
+{% set out_of_range = false %}
+
 {% macro item(paginator, name="") %}
 	{% if paginator.total_pages > 1 %}
 		{{ _self.previous("?page=" ~ (paginator.page - 1), paginator.page == 1) }}
@@ -44,9 +46,18 @@
         </select>
 		<ul class="hidden lg:flex">
 			{% for i in 1..paginator.total_pages %}
-				<li>
-					<a class="{{ (paginator.page == i) ? 'border-t-indigo-200' : 'border-t-transparent' }} hover:border-t-indigo-500 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
-				</li>
+                {% if (i <= 2 or i >= paginator.total_pages - 2 or (i - paginator.page)|abs <= 2) %}
+                    <li>
+                        <a class="{{ (paginator.page == i) ? 'border-t-indigo-200' : 'border-t-transparent' }} hover:border-t-indigo-500 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i }}">{{ i }}</a>
+                    </li>
+                {% elseif out_of_range == false %}
+                    <select class="flex" data-paginator="{{ name }}">
+                        {% for i in 1..paginator.total_pages %}
+                            <option {{ i == paginator.page ? "selected" : "" }} value="{{ i }}">{{ 'Page ' ~ i }}</option>
+                        {% endfor %}
+                    </select>
+                    {% set out_of_range = true %}
+                {% endif %}
 			{% endfor %}
 		</ul>
 		{{ _self.next("?page=" ~ (paginator.page + 1), paginator.page == paginator.total_pages) }}
