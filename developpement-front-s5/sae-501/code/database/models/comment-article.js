@@ -22,4 +22,17 @@ commentArticleSchema
         "Veuillez mettre un commentaire, le champ ne peut pas être nul ou vide"
     );
 
+commentArticleSchema.methods.getClean = function () {
+    const res = {
+        "_id": this._id,
+        "content": this.content,
+        "article": this.article._id,
+        "created_at": this.created_at,
+        "updatedAt": this.updatedAt,
+        "__v": this.__v,
+    }
+
+    return res
+}
+
 export default mongoose.model("CommentArticle", commentArticleSchema)

@@ -35,7 +35,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
+									"src": "/C:/Users/PC/Pictures/lightroom.jpg"
 								}
 							]
 						},
@@ -205,7 +205,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
+									"src": []
 								},
 								{
 									"key": "is_active",
@@ -427,7 +427,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"\",\r\n    \"article_id\":\"653eb29dd20e5c0cb66e0cf0\"\r\n}",
+							"raw": "{\r\n    \"content\": \"Test hello\",\r\n    \"article_id\":\"653eb29dd20e5c0cb66e0cf0\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

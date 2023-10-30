@@ -15,8 +15,9 @@ router.post(`/${base}/comment`, async (req, res) => {
         article.list_comments.push(ressource);
         await article.save();
 
-        res.status(201).json(ressource)
+        res.status(201).json(ressource.getClean())
     } catch (e) {
+        console.log("e", e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)

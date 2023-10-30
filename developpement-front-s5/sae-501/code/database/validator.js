@@ -1,3 +1,5 @@
+// Validation rules
+
 const imageValidator = (image) => {
     const listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"]
 
