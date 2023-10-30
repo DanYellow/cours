@@ -119,4 +119,4 @@ router.get(`/saes`, async (req, res) => {
 Les requêtes d'API du projet sont testables grâce au logiciel gratuit Postman, une collection de requêtes sont présentes dans le fichier "SAE501.postman_collection.json". Vous en saurez plus sur l'utilisation de Postman avec les explications associées.
 - [Voir explications sur l'utilisation de Postman](./POSTMAN.md)
 
-De plus, le projet intégre un Swagger qui liste toutes les api du projet, il est accessible uniquement avec le serveur de développement via /api-docs
+De plus, le projet intégre un Swagger qui liste toutes les api du projet, il est accessible uniquement avec le serveur de développement via la route /api-docs. Nous vous proposons de manipuler l'API avec Swagger ou Postman, c'est à vous de voir, mais nous vous conseillons très fortement d'évaluer les deux solutions pour, ne serait-ce, découvrir de nouveaux outils.
