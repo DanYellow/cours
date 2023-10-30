@@ -152,7 +152,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 ## Tâches à effectuer
 
 - [x] Lire les consignes
-- [ ] Installer des dépendances
+- [ ] Installer des dépendances avec la commande `npm install`
+    - **Note : il faut le faire depuis le dossier contenant le fichier "package.json"**
     - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes
 

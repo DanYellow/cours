@@ -9,6 +9,7 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import ip from "ip";
 import bodyParser from "body-parser";
+import nunjucks from "nunjucks"
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -72,7 +73,6 @@ const getCurrentURL = (url) => {
 
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(`${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}`)
-
     res.locals = {
         ...jsonFilesContent, 
         ...{
@@ -110,12 +110,22 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/", express.static(publicPath));
 
-app.set("view engine", "twig");
+app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
+
+
+nunjucks.configure(path.join(__dirname, "..", "/src"), {
+    autoescape: true,
+    express: app,
+    web: {
+        useCache: process.env.NODE_ENV !== "development"
+    }
+});
+
 
 const listDomains = [hostip]
 

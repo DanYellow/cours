@@ -1,28 +1,28 @@
 {% set menu_entries = [
     {
-        "link": admin_url ~ "/articles",
-        "name": "Articles",
-        "key": "articles",
+        link: admin_url ~ "/articles",
+        name: "Articles",
+        key: "articles"
     },
     {
-        "link": admin_url ~ "/saes",
-        "name": "SAÉS",
-        "key": "saes",
+        link: admin_url ~ "/saes",
+        name: "SAÉS",
+        key: "saes"
     },
     {
-        "link": admin_url ~ "/messages",
-        "name": "Messages",
-        "key": "messages",
+        link: admin_url ~ "/messages",
+        name: "Messages",
+        key: "messages"
     },
     {
-        "link": admin_url ~ "/divers",
-        "name": "Divers",
-        "key": "divers",
+        link: admin_url ~ "/divers",
+        name: "Divers",
+        key: "divers"
     },
     {
-        "link": base_url,
-        "name": "Accéder au site",
-        "key": "site"
+        link: base_url,
+        name: "Accéder au site",
+        key: "site"
     }
 ] %}
 
@@ -35,7 +35,8 @@
 	<ul class="flex flex-col pl-0 mb-0">
 		{% for item in menu_entries %}
 			<li class="mt-0.5 w-full">
-				<a href="{{ item.link }}" class="{{ (page_name == item.key) ? 'bg-indigo-50' : '' }} px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base hover:bg-indigo-100">
+            
+				<a href="{{ item.link }}" class="{{ 'bg-indigo-50' if (page_name == item.key) else "" }} px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base hover:bg-indigo-100">
 					{{ item.name }}
 				</a>
 			</li>

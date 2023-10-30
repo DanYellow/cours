@@ -1,7 +1,7 @@
 {% extends "layouts/back-end/base.twig" %}
 {% set page_name = "articles" %}
 
-{% import "components/back-end/pagination.twig" as pagination %}
+{% import "components/back-end/pagination.twig" as pagination with context %}
 
 {% block main %}
 	<div class="bg-white rounded-2xl">
@@ -35,11 +35,11 @@
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Contenu">
 							<p class="line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ item.is_active ? "Oui" : "Non" }}</td>
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("d/m/Y à G:i")  }}</td>
+						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ "Oui" if item.is_active else "Non" }}</td>
+						{# <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("d/m/Y à G:i") }}</td> #}
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900">Editer</a></td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
-                            <button type="button" class="text-red-600" data-item-data='{{ item|json_encode|e }}' data-delete-url="{{ base_url ~ "/api/articles/" ~ item._id  }}">Supprimer</button>
+                            <button type="button" class="text-red-600" data-item-data='{{ item|dump|e }}' data-delete-url="{{ base_url ~ "/api/articles/" ~ item._id  }}">Supprimer</button>
                         </td>
 					</tr>
 				{% else %}
