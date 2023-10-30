@@ -205,13 +205,13 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - **Les** listes déroulantes sont déjà présentes, il ne manque plus que la fonctionnalité
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
     - Il n'y a pas de schéma pour les messages, vous devez le réaliser et créer les api pour (POST et GET)
-    - N'oubliez pas d'ajouter les routes pour accéder aux messages dans le fichier server/`back-end-router.js` 
+    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
 - [ ] Permettre d'ajouter, éditer un article
-    - Toutes les routes sont déjà prêtes pour manipuler la base de données
-    - Le champ permettant l'upload d'image doit impérativement d'appeller "image", sinon ça ne fonctionnera pas
-    - La suppression est déjà gérée
+    - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
+    - Le champ permettant l'upload d'image doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - La suppression et le listage sont déjà gérés
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
-- [ ] Ajouter une validation côté client des formulaires
+- [ ] Ajouter une validation côté client des formulaires (SAE et Articles)
     - Vous pouvez utiliser un outil comme validator.js. [Voir exemples](https://github.com/jaywcjlove/validator.js)
 
 # FAQ - Foire Aux Questions
