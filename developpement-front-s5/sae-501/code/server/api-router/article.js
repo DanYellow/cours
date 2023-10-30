@@ -38,24 +38,41 @@ router.get(`/${base}`, async (req, res) => {
     let perPage = req.query.per_page || 7;
     perPage = Math.min(perPage, 20);
 
-    const listRessources = await Article.find()
-        .skip(Math.max(page - 1, 0) * perPage)
-        .limit(perPage)
-        .sort({ _id: -1 })
-        .lean()
-        .orFail()
-        .catch(() => {
-            return {};
-        });
-
-    const count = await Article.count();
-
-    return res.status(200).json({
-        data: listRessources,
-        total_pages: Math.ceil(count / perPage),
-        count,
-        page,
-    })
+    try {
+        const listRessources = await Article.aggregate([
+            { "$skip": Math.max(page - 1, 0) * perPage },
+            { "$limit": perPage },
+            {
+                $project: {
+                    _id:1,
+                    title: 1,
+                    abstract: 1,
+                    content: 1,
+                    image: 1,
+                    yt_link_id: 1,
+                    is_active: 1,
+                    nb_comments: { $size: "$list_comments" }
+                }
+            },
+            { $sort : { _id : -1 } }
+        ])
+    
+        const count = await Article.count();
+    
+        res.status(200).json({
+            data: listRessources,
+            total_pages: Math.ceil(count / perPage),
+            count,
+            page,
+        })
+    } catch (e) {
+        res.status(400).json({
+            errors: [
+                ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
+            ]
+        })
+    }
+    
 });
 
 /**

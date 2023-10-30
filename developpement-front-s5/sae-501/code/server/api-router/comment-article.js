@@ -93,7 +93,7 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
             {
                 $project: {
                    item: 1,
-                   count: { $size: "$list_comments" }
+                   nb_comments: { $size: "$list_comments" }
                 }
             }
         ])
@@ -106,7 +106,6 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
             total_pages: Math.ceil(count / perPage),
         })
     } catch (e) {
-        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)

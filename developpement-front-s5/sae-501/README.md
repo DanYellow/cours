@@ -194,6 +194,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
     - Le fichier sera lu côté front-end
     - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
+- Ajouter une section "Commentaires" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages de la collection
+    - Cette route est gérée dans le fichier `server/back-end-router/index.js`
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 - [ ] Gérer "proprement" les messages d'erreur
