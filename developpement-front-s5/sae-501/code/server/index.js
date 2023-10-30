@@ -117,7 +117,6 @@ app.use(frontendRouter);
 app.use('/admin', backendRouter);
 app.use('/api', apiRouter);
 
-
 nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
@@ -125,7 +124,6 @@ nunjucks.configure(path.join(__dirname, "..", "/src"), {
         useCache: process.env.NODE_ENV !== "development"
     }
 });
-
 
 const listDomains = [hostip]
 
@@ -146,4 +144,3 @@ app.listen(port, listDomains, () => {
     })
     console.log("---------------------------")
 });
-  

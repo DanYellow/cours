@@ -12,7 +12,7 @@ _Les consignes pourront être modifiées._
 > - [Accéder à la documentation de nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ## Contexte de la SAÉ
-Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : twig, scss, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, scss, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 **R5.DWeb-DI.06 | Développement back avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté serveur
@@ -20,7 +20,9 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 **R5.DWeb-DI.05 | Développement front avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté client
 
-Vu que votre TP est très peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
+> Note : nunjucks, nous avons fait le choix de remplacer twig par nunjucks pour des questions de performances, nunjucks est plus approprié dans un environnement front-end. Les deux utilisent la même syntaxe à quelques petites différences près. [Accéder à la documentation de nunjucks.](https://mozilla.github.io/nunjucks/fr/templating.html)
+
+Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
 > Vous trouverez plus bas, l'ensemble des commandes présentent sur le projet et leur rôle.
 
@@ -79,10 +81,10 @@ Autrement dit, ces fichiers définissent ce qu'il doit se passer quand on accèd
 ```js
 // front-end-router.js
 router.get("/hello", async (_req, res) => {
-  res.render("pages/index.twig");
+  res.render("pages/index.njk");
 });
 ```
-Le code ci-dessus indique que lorsqu'on accède à la page `localhost:9500/hello` avec la méthode GET, on charge la page "pages/index.twig". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
+Le code ci-dessus indique que lorsqu'on accède à la page `localhost:9500/hello` avec la méthode GET, on charge la page "pages/index.njk". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
 > [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez deux choses :
@@ -96,15 +98,15 @@ Retenez deux choses :
 C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
 
 ### src/components/
-C'est dans ce fichier que vous mettre vos blocs twig réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier.
+C'est dans ce fichier que vous mettre vos blocs njk réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier.
 
 ### src/data/
-Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers twig du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu. 
+Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu. 
 
-Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.twig -> contact.twig.json.
+Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.nunjucks -> contact.nunjucks.json.
 
 ### src/layouts/
-Le dossier `layouts/` est destinés pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend du site. Le moteur de template utilisé est twig, les fichiers sont compilés à la volée par le serveur node.
+Le dossier `layouts/` est destinés pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend du site. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
 
 ### src/pages/
 Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous ferez votre routing.
@@ -171,7 +173,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance de twig, un gabarit (src/layouts/back-end/base.twig) est là pour vous aider
+    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/back-end/base.nunjucks) est là pour vous aider
     - La page "a-propos" est déjà faite
     - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier server/`front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
@@ -179,10 +181,10 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Afficher les détails d'un article et permettre, de façon asynchrone, d'envoyer un message lié à un article et l'afficher
     - Quand on clique sur un article de la page d'accueil, on le voit en détails
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
-    - Il faudra utiliser une variable twig
+    - Il faudra utiliser une variable nunjucks
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
 - [ ] Afficher la liste des articles sur la page d'accueil
-    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (src/pages/front-end/index.twig), il faut juste les afficher
+    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (src/pages/front-end/index.nunjucks), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles
 - [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
