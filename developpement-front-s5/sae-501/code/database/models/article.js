@@ -7,7 +7,10 @@ const articleSchema = new Schema(
         title: String,
         abstract: String,
         content: String,
-        image: String,
+        image: {
+            type: String,
+            required: [true, "Image obligatoire"]
+        },
         yt_link: String,
         is_active: {
             type: Boolean,
