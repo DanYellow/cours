@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
     const listArticles = await Article.find().limit(5).sort({ _id: -1 }).lean();
     const countArticles = await Article.count();
 
-    res.render("pages/back-end/index.twig", {
+    res.render("pages/back-end/index.njk", {
         list_saes: {
             data: listSAEs,
             count: countSAEs,

@@ -49,7 +49,7 @@ router.get("/", async (req, res) => {
         result = await axios(options);
     } catch (e) {}
 
-    res.render("pages/front-end/index.twig", {
+    res.render("pages/front-end/index.njk", {
         list_articles: result.data,
     });
 });
@@ -66,7 +66,7 @@ router.get("/a-propos(.html)?", async (_req, res) => {
         result = await axios(options);
     } catch (e) {}
 
-    res.render("pages/front-end/a-propos.twig", {
+    res.render("pages/front-end/a-propos.njk", {
         list_saes: result.data,
     });
 });

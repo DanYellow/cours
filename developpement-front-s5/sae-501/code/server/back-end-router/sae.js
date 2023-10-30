@@ -18,7 +18,7 @@ router.get(`/${base}`, async (req, res) => {
         result = await axios(options);
     } catch (e) {}
     
-    res.render("pages/back-end/saes/list.twig", {
+    res.render("pages/back-end/saes/list.njk", {
         list_saes: result.data,
     });
 });
@@ -42,7 +42,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         }
     }
 
-    res.render("pages/back-end/saes/add-edit.twig", {
+    res.render("pages/back-end/saes/add-edit.njk", {
         sae: result?.data || {},
         list_errors: listErrors,
         is_edit: isEdit,
@@ -85,7 +85,7 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
         ressource = e.response.data.ressource || {}
     } finally {
         if (listErrors.length || isEdit) {
-            res.render("pages/back-end/saes/add-edit.twig", {
+            res.render("pages/back-end/saes/add-edit.njk", {
                 sae: ressource,
                 list_errors: listErrors,
                 is_edit: isEdit,

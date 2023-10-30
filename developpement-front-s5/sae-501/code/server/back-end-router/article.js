@@ -18,7 +18,7 @@ router.get(`/${base}`, async (req, res) => {
         result = await axios(options);
     } catch (e) {}
     
-    res.render("pages/back-end/articles/list.twig", {
+    res.render("pages/back-end/articles/list.njk", {
         list_articles: result.data,
     });
 });
