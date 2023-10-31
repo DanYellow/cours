@@ -268,6 +268,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
     });
 
+    if(req.body.author) {
+        await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
+    }
+
     return res.status(201).json(ressource)
 });
 

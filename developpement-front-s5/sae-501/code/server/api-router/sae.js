@@ -183,8 +183,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         imagePayload = { image: imageName }
     }
 
-    let oldRessource = await SAE.findById(req.params.id).lean();
-    if (!oldRessource) {
+    let oldRessource = {}
+    try {
+        oldRessource = await SAE.findById(req.params.id).lean();
+    } catch (error) {
         oldRessource = {}
     }
 
