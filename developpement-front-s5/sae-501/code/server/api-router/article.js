@@ -242,8 +242,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         imagePayload = { image: imageName }
     }
 
-    let oldRessource = await Article.findById(req.params.id).lean();
-    if (!oldRessource) {
+    let oldRessource = {}
+    try {
+        oldRessource = await Article.findById(req.params.id).lean();
+    } catch (error) {
         oldRessource = {}
     }
 
@@ -254,9 +256,17 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         })
     }
 
-    const ressource = await Article.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
-    .orFail()
-    .catch((err) => {
+    try {
+        const ressource = await Article.findById(req.params.id)
+        if(req.body.author !== ressource.author) {
+            ressource.author = req.body.author;
+            await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });
+            await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
+        }
+        await ressource.save();
+        
+        res.status(200).json(ressource)
+    } catch (err) {
         // err instanceof mongoose.DocumentNotFoundError
         if(err instanceof mongoose.CastError) {
             res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
@@ -266,13 +276,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 ressource: { ...oldRessource, ...req.body }
             })
         }
-    });
-
-    if(req.body.author) {
-        await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
     }
-
-    return res.status(201).json(ressource)
 });
 
 /**
