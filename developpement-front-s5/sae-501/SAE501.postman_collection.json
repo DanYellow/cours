@@ -91,7 +91,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "20",
+									"value": "{{$randomLoremWords}}",
 									"type": "text"
 								},
 								{
@@ -102,7 +102,8 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/PC/Pictures/lightroom.jpg",
+									"disabled": true
 								}
 							]
 						},
@@ -119,7 +120,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "653ef0325f89ac0537dda2a6"
 								}
 							]
 						}
@@ -215,7 +216,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
+									"src": "/C:/Users/PC/Pictures/gestion-projet-s3.jpg"
 								},
 								{
 									"key": "is_active",
@@ -227,6 +228,11 @@
 								{
 									"key": "yt_link_id",
 									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "654109ae40b7edd6d270eb15",
 									"type": "text"
 								}
 							]
@@ -290,7 +296,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "653eb29dd20e5c0cb66e0cf0"
+									"value": "65410a1837f5549d2f337fb6"
 								}
 							]
 						}
@@ -311,12 +317,12 @@
 									"type": "text"
 								},
 								{
-									"key": "abstract\n",
+									"key": "abstract",
 									"value": "{{$randomLoremSentence}}",
 									"type": "text"
 								},
 								{
-									"key": "content\n",
+									"key": "content",
 									"value": "{{$randomLoremParagraphs}}",
 									"type": "text"
 								},
@@ -326,14 +332,20 @@
 									"type": "text"
 								},
 								{
-									"key": "yt_link_id\n",
+									"key": "yt_link_id",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
-									"key": "image\n",
+									"key": "image",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/PC/Pictures/lightroom.jpg"
+								},
+								{
+									"key": "author",
+									"value": "654109ae40b7edd6d270eb15",
+									"type": "text"
 								}
 							]
 						},
@@ -350,7 +362,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "65410a1837f5549d2f337fb6"
 								}
 							]
 						}
@@ -458,7 +470,231 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "654010c0d1108d1153acc8ee"
+									"value": "65410a1837f5549d2f337fb6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "List authors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/authors?per_page&page",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": null
+								},
+								{
+									"key": "page",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/authors/:id?per_page&page",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								":id"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": null
+								},
+								{
+									"key": "page",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6540adcb87f591bae07ade14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete author",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/api/authors/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65400f993c91293a6ecc61ca"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "{{$randomFirstName}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "{{$randomLastName}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "{{$randomLoremParagraphs}}",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "mandatory",
+									"type": "file",
+									"src": "/C:/Users/PC/Pictures/memo-animation-transition.jpg"
+								},
+								{
+									"key": "email",
+									"value": "{{$randomEmail}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/authors",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "{{$randomFirstName}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "{{$randomLastName}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "{{$randomLoremParagraphs}}",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "mandatory",
+									"type": "file",
+									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
+								},
+								{
+									"key": "email",
+									"value": "{{$randomEmail}}",
+									"description": "mandatory",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/authors/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6540adcb87f591bae07ade14"
 								}
 							]
 						}
