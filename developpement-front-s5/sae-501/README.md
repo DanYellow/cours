@@ -237,3 +237,11 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - **Puis-je mettre sur github ce projet ?**
 
 Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.
+
+- **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
+
+Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components)
+
+- **Comment je peux tester la version mobile ?**
+
+Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 

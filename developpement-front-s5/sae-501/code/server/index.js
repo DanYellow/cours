@@ -3,8 +3,6 @@ import path from "path";
 import fs from "fs";
 import lodash from "lodash";
 import FastGlob from "fast-glob";
-import livereload from "livereload";
-import connectLiveReload from "connect-livereload";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import ip from "ip";
@@ -28,13 +26,6 @@ const envVars = dotenv.config({ path: envFilePath })
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// console.log("fefzze", path.resolve(__dirname))
-// const liveReloadServer = livereload.createServer();
-// liveReloadServer.server.once("connection", () => {
-//   setTimeout(() => {
-//     liveReloadServer.refresh("/");
-//   }, 600);
-// });
 
 const port = envVars?.parsed?.PORT || 3000;
 const hostip = (process.env.NODE_ENV === "development") ? ip.address() : undefined;
@@ -46,11 +37,7 @@ mongoServer().then((res) => {
     console.log("---------------------------")
 }).catch(console.error);
 
-// app.use(
-//   connectLiveReload({
-//     port: 35729,
-//   })
-// );
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
