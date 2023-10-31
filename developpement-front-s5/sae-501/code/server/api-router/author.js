@@ -363,7 +363,6 @@ router.delete(`/${base}/:id`, async (req, res) => {
 
         return res.status(200).json(ressource || {});
     } catch (error) {
-        console.log("error")
         return res
             .status(404)
             .json({

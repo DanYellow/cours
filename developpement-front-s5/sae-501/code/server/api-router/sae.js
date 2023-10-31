@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import fs from "fs/promises";
+import fs from "fs";
 
 import SAE from '#models/sae.js';
 
@@ -232,22 +232,23 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *         description: Deletes a specific SAE
  */
 router.delete(`/${base}/:id`, async (req, res) => {
-    const ressource = await SAE.findByIdAndDelete(req.params.id).orFail().catch(() => {});
+    try {
+        const ressource = await SAE.findByIdAndDelete(req.params.id)
 
-    if(!ressource) {
-        return res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
-    }
-    
-    if(ressource.image) {
-        try {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`
-            await fs.unlink(targetPath)
-        } catch (e) {
-            // return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
+        if (ressource?.image) {
+            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            fs.unlink(targetPath, (err) => {});
         }
-    }
 
-    return res.status(200).json(ressource);
+        return res.status(200).json(ressource || {});
+    } catch (error) {
+        return res
+            .status(404)
+            .json({
+                error: "Quelque chose s'est mal passé, veuillez recommencer",
+            });
+    }
 });
+
 
 export default router;
