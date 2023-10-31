@@ -203,13 +203,13 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
             res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
         } else {
             res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath), "Erreur"], 
+                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 
                 ressource: { ...oldRessource, ...req.body }
             })
         }
     });
 
-    return res.status(201).json(ressource)
+    return res.status(200).json(ressource)
 });
 
 /**

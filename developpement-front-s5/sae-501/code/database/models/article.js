@@ -13,7 +13,7 @@ const articleSchema = new Schema(
             type: String,
             required: [true, "Image obligatoire"]
         },
-        yt_link: String,
+        yt_link_id: String,
         is_active: {
             type: Boolean,
             default: false,
@@ -25,6 +25,10 @@ const articleSchema = new Schema(
                 ref: "CommentArticle",
             },
         ],
+        author: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Author",
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

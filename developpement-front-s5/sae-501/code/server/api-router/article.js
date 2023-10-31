@@ -4,6 +4,7 @@ import fs from "fs";
 import Article from '#models/article.js'
 
 import upload, { uploadImage, deleteUpload } from "../uploader.js"
+import mongoose from "mongoose";
 
 const router = express.Router();
 
@@ -160,7 +161,12 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         })
     }
 
-    let ressource = new Article({ ...req.body, ...imagePayload });
+    const computedBody = structuredClone(req.body)
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        delete computedBody.author
+    }
+
+    let ressource = new Article({ ...computedBody, ...imagePayload });
 
     await ressource.save().then(() => {
         res.status(201).json(ressource)
@@ -210,6 +216,10 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        in: formData
  *        type: string
  *        description: article's Youtube link id
+ *      - name: author
+ *        in: formData
+ *        type: string
+ *        description: author's _id
  *     responses:
  *       200:
  *         description: Updates a specific article
@@ -247,7 +257,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
             res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
         } else {
             res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors || []).map((val) => val.message), ...deleteUpload(targetPath), "Erreur"], 
+                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 
                 ressource: { ...oldRessource, ...req.body }
             })
         }
