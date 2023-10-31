@@ -36,7 +36,9 @@ Dans le cas où vous faites une requête de type POST (création d'élément) ou
 
 #### form-data
 ![](./captures/postman-4.jpg)
-On utilisera form-data quand la requête peut attendre un fichier, par exemple la création d'une SAE, là. Pour construire notre requête, il faudra tout simplement remplir le tableau avec nos clés (colonne "Key") et valeurs (colonne "Value"). La valeur de "Key" est l'équivalent de l'attribut "name" pour un élément de formulaire en HTML. La colonne "Description" est là à titre indicatif, ce n'est pas envoyé au serveur.
+On utilisera form-data quand la requête peut attendre un fichier (formulaire enctype="multipart/form-data"), par exemple la création d'une SAE, là. Pour construire notre requête, il faudra tout simplement remplir le tableau avec nos clés (colonne "Key") et valeurs (colonne "Value"). La valeur de "Key" est l'équivalent de l'attribut "name" pour un élément de formulaire en HTML. La colonne "Description" est là à titre indicatif, ce n'est pas envoyé au serveur.
+
+> **Attention à ne pas insérer par erreur un retour à la ligne dans le nom du clé, surtout à la fin. Ceci engendra à coup sûr une erreur, très difficile à trouver.**
 
 Enfin, il est possible de changer le type d'un champ en survolant une cellule de la colonne "Key", par défaut, les champs sont de types "Text", mais il est possible de changer en type "File" pour uploader un vrai fichier.
 

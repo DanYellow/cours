@@ -32,17 +32,16 @@ const base = "authors";
  *        schema:
  *          type: integer
  *          example: 7
- *        description: Number of items per page. Max 20
+ *        description: Number of items per page.
  */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 7;
-    perPage = Math.min(perPage, 20);
+    const perPage = req.query.per_page;
 
     try {
         const listRessources = await Author.aggregate([
-            { $skip: Math.max(page - 1, 0) * perPage },
-            { $limit: perPage },
+            ...(perPage ? [{ $skip: Math.max(page - 1, 0) * perPage }] : []),
+            ...(perPage ? [{ $limit: perPage }] : []),
             {
                 $project: {
                     _id: 1,
@@ -57,14 +56,16 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await Author.count();
+        const total_pages = Math.ceil(count / perPage)
 
         res.status(200).json({
             data: listRessources,
-            total_pages: Math.ceil(count / perPage),
+            total_pages: isFinite(total_pages) ? total_pages : 1,
             count,
             page,
         });
     } catch (e) {
+        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(
@@ -315,7 +316,6 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                     ],
                 });
             } else {
-                console.log(err)
                 res.status(400).json({
                     errors: [
                         ...listErrors,
