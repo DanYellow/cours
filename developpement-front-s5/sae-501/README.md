@@ -219,7 +219,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - La suppression et le listage sont déjà gérés
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
-- [ ] Permettre de créer, éditer, supprimer un article et lister les articles
+- [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
     - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
