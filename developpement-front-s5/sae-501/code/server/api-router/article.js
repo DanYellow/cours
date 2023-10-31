@@ -1,7 +1,8 @@
 import express from "express";
 import fs from "fs";
 
-import Article from '#models/article.js'
+import Article from '#models/article.js';
+import Author from '#models/author.js';
 
 import upload, { uploadImage, deleteUpload } from "../uploader.js"
 import mongoose from "mongoose";
@@ -169,10 +170,13 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     let ressource = new Article({ ...computedBody, ...imagePayload });
 
-    await ressource.save().then(() => {
+    try {
+        await ressource.save()
+        if(req.body.author) {
+            await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
+        }
         res.status(201).json(ressource)
-    })
-    .catch((err) => {
+    } catch (err) {
         res.status(400).json({
             errors: [
                 ...listErrors, 
@@ -180,7 +184,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
                 ...Object.values(err?.errors).map((val) => val.message)
             ]
         })
-    })
+    }
 });
 
 /**
