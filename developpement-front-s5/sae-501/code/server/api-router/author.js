@@ -113,29 +113,46 @@ router.get(`/${base}/:id`, async (req, res) => {
 
     try {
         const ressource = await Author.aggregate([
-            { "$match": { "_id": new mongoose.Types.ObjectId(req.params.id) } },
-            { "$limit": perPage },
+            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+            { $limit: perPage },
             {
                 $addFields: {
                     nb_articles: { $size: "$list_articles" },
                     page: page,
-                    total_pages: {$ceil: {$divide: [{ $size: "$list_articles" }, perPage]}}
-                }
+                    total_pages: {
+                        $ceil: {
+                            $divide: [{ $size: "$list_articles" }, perPage],
+                        },
+                    },
+                },
             },
-        ])
-    
+        ]);
+
         const ressourceWithArticles = await Author.populate(ressource, {
             path: "list_articles",
-            options: { perDocumentLimit: perPage, skip: Math.max(page - 1, 0) * perPage },
-        })
-    
-        return res.status(200).json(ressourceWithArticles[0]);
-    } catch (err) {
-        res.status(400).json({
-            errors: [
-                ...Object.values(err?.errors || [{"message": "Quelque chose s'est mal passé"}]).map((val) => val.message),
-            ],
+            options: {
+                perDocumentLimit: perPage,
+                skip: Math.max(page - 1, 0) * perPage,
+            },
         });
+
+        return res.status(200).json(ressourceWithArticles?.[0] || {});
+    } catch (err) {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                errors: [`"${req.params.id}" n'est pas un id valide`],
+            });
+        } else {
+            return res.status(400).json({
+                errors: [
+                    ...Object.values(
+                        err?.errors || [
+                            { message: "Quelque chose s'est mal passé" },
+                        ]
+                    ).map((val) => val.message),
+                ],
+            });
+        }
     }
 });
 
@@ -242,48 +259,69 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *         description: Updates a specific SAE
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
-    let imagePayload = {}
-    let listErrors =  []
+    let imagePayload = {};
+    let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
-    
+
     if (uploadedImage) {
         let imageName;
-        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
-        imagePayload = { image: imageName }
+        ({
+            image_path: targetPath,
+            errors: listErrors,
+            image_name: imageName,
+        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        imagePayload = { image: imageName };
     }
 
-    let oldRessource = {}
+    let oldRessource = {};
     try {
         oldRessource = await Author.findById(req.params.id).lean();
     } catch (error) {
-        oldRessource = {}
+        oldRessource = {};
     }
 
-    if(listErrors.length) {
-        return res.status(400).json({ 
-            errors: listErrors, 
-            ressource: { ...oldRessource, ...req.body }
-        })
+    if (listErrors.length) {
+        return res.status(400).json({
+            errors: listErrors,
+            ressource: { ...oldRessource, ...req.body },
+        });
     }
 
-    const ressource = await Author.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
-    .orFail()
-    .catch((err) => {
-        // err instanceof mongoose.DocumentNotFoundError
-        if(err instanceof mongoose.CastError) {
-            res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
-        } else {
-            res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 
-                ressource: { ...oldRessource, ...req.body }
-            })
-        }
-    });
-    
+    const ressource = await Author.findOneAndUpdate(
+        { _id: req.params.id },
+        { ...req.body, _id: req.params.id, ...imagePayload },
+        { new: true }
+    )
+        .orFail()
+        .catch((err) => {
+            // err instanceof mongoose.DocumentNotFoundError
+            if (err instanceof mongoose.CastError) {
+                res.status(400).json({
+                    errors: [
+                        ...listErrors,
+                        "Élément non trouvé",
+                        ...deleteUpload(targetPath),
+                    ],
+                });
+            } else {
+                res.status(400).json({
+                    errors: [
+                        ...listErrors,
+                        ...Object.values(
+                            err?.errors || [
+                                { message: "Il y a eu un problème" },
+                            ]
+                        ).map((val) => val.message),
+                        ...deleteUpload(targetPath),
+                    ],
+                    ressource: { ...oldRessource, ...req.body },
+                });
+            }
+        });
 
-    return res.status(200).json(ressource)
+    return res.status(200).json(ressource);
 });
 
 /**
@@ -304,16 +342,22 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *         description: Deletes a specific author
  */
 router.delete(`/${base}/:id`, async (req, res) => {
-    const ressource = await Author.findByIdAndDelete(req.params.id).orFail().catch(() => {});
+    const ressource = await Author.findByIdAndDelete(req.params.id)
+        .orFail()
+        .catch(() => {});
 
-    if(!ressource) {
-        return res.status(404).json({ error: "Quelque chose s'est mal passé, veuillez recommencer" })
+    if (!ressource) {
+        return res
+            .status(404)
+            .json({
+                error: "Quelque chose s'est mal passé, veuillez recommencer",
+            });
     }
-    
-    if(ressource.image) {
+
+    if (ressource.image) {
         try {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`
-            await fs.unlink(targetPath)
+            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            await fs.unlink(targetPath);
         } catch (e) {
             // return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
         }
