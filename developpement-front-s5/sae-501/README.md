@@ -178,8 +178,10 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier server/`front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
-- [ ] Afficher les détails d'un article et permettre, de façon asynchrone, d'envoyer un message lié à un article et l'afficher
-    - Quand on clique sur un article de la page d'accueil, on le voit en détails
+- [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
+    - titre, chapo, contenu, image, video youtube
+    - Afficher le nom de l'auteur (mettre une valeur par défaut au cas où) avec un lien vers le détail de l'auteur listant tous ses articles
+- Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable nunjucks
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
