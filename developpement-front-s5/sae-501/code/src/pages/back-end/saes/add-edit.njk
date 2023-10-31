@@ -3,6 +3,8 @@
 {% set chars_limit = 200 %}
 {% set page_name = "saes" %}
 
+{% import "components/back-end/input-file.njk" as input_file %}
+
 {% block main %}
 	<div class="bg-white rounded-2xl shadow-md pb-6">
 		<header class="p-6 pl-8 ">
@@ -36,23 +38,7 @@
 
 				<label class="block mb-4">
 					<span class="font-bold text-slate-700 after:ml-0.5 after:text-red-500">Image</span>
-                    
-                    <figure class="w-fit mb-2">
-                        <img class="" src="{{ '/uploads/' ~ sae.image }}" data-preview-upload="image" width="250" alt="">
-                    </figure>
-					<input 
-                        data-upload-file="image"
-                        type="file" 
-                        accept=".jpg, .jpeg, .png"
-                        class="block w-full text-sm text-slate-500
-					      file:mr-4 file:py-2 file:px-4
-					      file:rounded-full file:border-0
-					      file:text-sm
-					      file:bg-sky-50 file:border-sky-500
-					      hover:file:bg-sky-100
-					    "
-                        name="image"
-                        />
+                    {{ input_file.field('/uploads/' ~ sae.image, ".jpg, .jpeg, .png") }}
                     <span class="mt-1 text-sm text-slate-500" id="file_input_help">.jpg, .jpeg, .png (taille max. 800kB).</span>
 				</label>
 

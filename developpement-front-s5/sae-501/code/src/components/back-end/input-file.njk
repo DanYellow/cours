@@ -1,0 +1,18 @@
+{% macro field(path, accepts=".jpg, .jpeg, .png", name = "image") %}
+    <figure class="w-fit mb-2">
+        <img class="" src="{{ path }}" data-preview-upload="{{ name }}" width="250" alt="">
+    </figure>
+    <input 
+        data-upload-file="{{ name }}"
+        type="file" 
+        accept="{{ accepts }}"
+        class="block w-full text-sm text-slate-500
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm
+            file:bg-sky-50 file:border-sky-500
+            hover:file:bg-sky-100
+        "
+        name="{{ name }}"
+    />
+{% endmacro %}
