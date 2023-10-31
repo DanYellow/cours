@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import validator from 'validator';
 
 import { isEmptyValidator } from "../validator.js";
-import validator from 'validator';
+import Article from "./article.js"
 
 const defaultColor = "#ff0000";
 
@@ -68,5 +69,16 @@ authorSchema.pre("findOneAndUpdate", function(next) {
 
     next()
 })
+
+authorSchema.pre('findOneAndDelete', { document: true, query: true }, async function(next) {
+    await Article.updateMany(
+        { author: this.getQuery()._id },
+        { author: null }
+    ) 
+
+    next();
+});
+
+
 
 export default mongoose.model("Author", authorSchema);

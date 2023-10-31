@@ -3,6 +3,7 @@ import fs from "fs";
 import mongoose from "mongoose";
 
 import Author from "#models/author.js";
+// import Article from "#models/article.js";
 
 import upload, { uploadImage, deleteUpload } from "../uploader.js";
 
@@ -142,7 +143,7 @@ router.get(`/${base}/:id`, async (req, res) => {
                 errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
-        
+
         return res.status(400).json({
             errors: [
                 ...Object.values(
@@ -352,28 +353,23 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *         description: Deletes a specific author
  */
 router.delete(`/${base}/:id`, async (req, res) => {
-    const ressource = await Author.findByIdAndDelete(req.params.id)
-        .orFail()
-        .catch(() => {});
+    try {
+        const ressource = await Author.findByIdAndDelete(req.params.id)
 
-    if (!ressource) {
+        if (ressource?.image) {
+            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            fs.unlink(targetPath, (err) => {});
+        }
+
+        return res.status(200).json(ressource || {});
+    } catch (error) {
+        console.log("error")
         return res
             .status(404)
             .json({
                 error: "Quelque chose s'est mal passé, veuillez recommencer",
             });
     }
-
-    if (ressource.image) {
-        try {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
-            await fs.unlink(targetPath);
-        } catch (e) {
-            // return res.status(404).json({ error: "L'image n'a pas pu être supprimée" })
-        }
-    }
-
-    return res.status(200).json(ressource);
 });
 
 export default router;
