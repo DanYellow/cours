@@ -73,6 +73,8 @@ Ce code simplifié issu du fichier "code/server/api-router/sae.js" nous permet d
 
 Ainsi à partir des exemples déjà présents, vous devrez créer la collection "messages" permettant de sauvegarder les messages crées depuis le formulaire de contact.
 
+> Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mangoose crée les collections s'il ne les trouve pas. La première création de chaque collection créera la collection en même temps.
+
 # Requêtes
 Pour créer ces messages, il faudra créer des routes. Le projet respecte la philosophie du CRUD (Create, Read, Update, Delete), conséquemment, dépendamment des besoins, il y a une route permettant de créer, récupérer, mettre à jour et supprimer un document. La gestion de requêtes des composées de deux parties :
 - API : Réalisée avec axios. Appelée par les pages et pour supprimer un document

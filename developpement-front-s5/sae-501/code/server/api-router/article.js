@@ -272,8 +272,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     }
 
     try {
-        const ressource = await Article.findById(req.params.id)
-        ressource.image = imagePayload
+        let ressource = await Article.findById(req.params.id)
+        
+        if(Object.keys(imagePayload).length) {
+            ressource.image = imagePayload.image
+        }
         if(req.body.author !== ressource.author && mongoose.Types.ObjectId.isValid(req.body.author)) {
             ressource.author = req.body.author;
             await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });

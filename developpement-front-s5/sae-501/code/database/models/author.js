@@ -24,10 +24,7 @@ const authorSchema = new Schema({
             ref: "Article",
         },
     ],
-}, {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true }
-  });
+});
 
 authorSchema
     .path("firstname")
