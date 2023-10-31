@@ -110,25 +110,49 @@ router.get(`/${base}/:id`, async (req, res) => {
     let listErrors = [];
 
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 7;
+    let perPage = req.query.per_page || 2;
     perPage = Math.min(perPage, 20);
 
-    const ressource = await Author.findById(req.params.id)
-        .populate({
-            path: "list_articles", 
-            options: { perDocumentLimit: perPage, skip: Math.max(page - 1, 0) * perPage },
-            sort: { updated_at: 1 },
-        })
-        .orFail()
-        .catch((err) => {
-            res.status(404).json({
-                errors: [...listErrors, "Élément non trouvé"],
-            });
-        });
 
-    // const count = await Article.count({ author: req.params.id });
+    const ressource = await Author.aggregate([
+        { "$match": { "_id": new mongoose.Types.ObjectId(req.params.id) } },
+        // { "$skip": Math.max(page - 1, 0) * perPage },
+        { "$limit": perPage },
+        {
+            $addFields: {
+                nb_articles: { $size: "$list_articles" }
+            }
+        },
+    ])
 
-    return res.status(200).json(ressource);
+    const ressourceWithArticles = await Author.populate(ressource, {
+        path: "list_articles",
+        options: { perDocumentLimit: perPage, skip: Math.max(page - 1, 0) * perPage },
+    })
+
+    console.log(foo)
+    
+
+    // const hello = await Author.findById(req.params.id)
+    //     // .populate('usersCount')
+    //     .populate([{
+    //         path: "list_articles", 
+    //         options: { perDocumentLimit: perPage, skip: Math.max(page - 1, 0) * perPage },
+    //         sort: { updated_at: 1 },
+    //     }, 
+    //     // { path: 'nb_articles' }
+    //     ])
+    //     .orFail()
+    //     .catch((err) => {
+    //         console.log(err)
+    //         res.status(404).json({
+    //             errors: [...listErrors, "Élément non trouvé"],
+    //         });
+    //     });
+
+    // console.log(hello)
+
+    return res.status(200).json(ressourceWithArticles[0]);
 });
 
 /**

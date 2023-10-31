@@ -17,7 +17,10 @@ const authorSchema = new Schema({
             ref: "Article",
         },
     ],
-});
+}, {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+  });
 
 authorSchema
     .path("firstname")
@@ -39,6 +42,13 @@ authorSchema
         isEmptyValidator,
         "Veuillez mettre un email, le champ ne peut pas être nul ou vide"
     );
+
+// authorSchema.virtual('nb_articles', {
+//         ref: 'Article',
+//         localField: 'list_articles',
+//         foreignField: '_id',
+//         // count: true
+//       });
 
 
 export default mongoose.model("Author", authorSchema);
