@@ -184,6 +184,10 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Afficher la liste des articles sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (src/pages/front-end/index.nunjucks), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles
+- [ ] Ajouter une page affichant en détails un auteur
+    - Cette page n'existe pas, à vous de faire le design
+    - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
+    - La couleur de la bulle change en fonction de l'auteur (optionnel)
 - [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
@@ -206,13 +210,18 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
     - Il n'y a pas de schéma pour les messages, vous devez le réaliser et créer les api pour (POST et GET)
     - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
-- [ ] Permettre d'ajouter, éditer un article
+- [ ] Permettre de créer, éditer un article
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
     - Le champ permettant l'upload d'image doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - La suppression et le listage sont déjà gérés
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
-- [ ] Ajouter une validation côté client des formulaires (SAE et Articles)
-    - Vous pouvez utiliser un outil comme validator.js. [Voir exemples](https://github.com/jaywcjlove/validator.js)
+- [ ] Permettre de créer, éditer, supprimer un article et lister les articles
+    - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
+    - Le champ permettant l'upload d'image doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
+- [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
+    - Vous pouvez utiliser un outil comme [validator.js(https://github.com/validatorjs/validator.js)] (déjà installé, voir `code/database/models/author.js`)
+    - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -221,4 +230,4 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 
 - **Puis-je mettre sur github ce projet ?**
 
-Oui, bien sûr, on vous encourage même à le faire. Le projet est prêt à être géré par git grâce à au fichier .gitignore. Il vous suffit juste créer un nouveau projet sur votre compte github puis le cloner et mettre le contenu du dossier code/ dans votre projet fraîchement cloné.
+Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.

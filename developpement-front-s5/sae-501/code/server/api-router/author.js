@@ -3,7 +3,6 @@ import fs from "fs";
 import mongoose from "mongoose";
 
 import Author from "#models/author.js";
-import Article from "#models/article.js";
 
 import upload, { uploadImage, deleteUpload } from "../uploader.js";
 
@@ -182,6 +181,11 @@ router.get(`/${base}/:id`, async (req, res) => {
  *      - name: bio
  *        in: formData
  *        type: string
+ *      - name: color
+ *        in: formData
+ *        type: string
+ *        description: Author's **hexadecimal** used on his page for the bubble in the front
+ *        default: "#ff0000"
  *     responses:
  *       201:
  *         description: Creates an author
@@ -222,7 +226,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
                 errors: [
                     ...listErrors,
                     ...deleteUpload(targetPath),
-                    ...Object.values(err?.errors).map((val) => val.message),
+                    ...Object.values(err?.errors || [{"message": "Quelque chose s'est mal passé"}]).map((val) => val.message),
                 ],
             });
         });
@@ -254,6 +258,11 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *      - name: bio
  *        in: formData
  *        type: string
+ *      - name: color
+ *        in: formData
+ *        type: string
+ *        description: Author's **hexadecimal** color used on his page for the bubble in the front
+ *        default: "#ff0000"
  *     responses:
  *       200:
  *         description: Updates a specific SAE
@@ -306,6 +315,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                     ],
                 });
             } else {
+                console.log(err)
                 res.status(400).json({
                     errors: [
                         ...listErrors,
