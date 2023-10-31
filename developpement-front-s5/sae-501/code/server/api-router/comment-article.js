@@ -8,7 +8,7 @@ const base = "articles";
 
 /**
  * @swagger
- * /articles/:id/comments:
+ * /articles/{id}/comments:
  *   post:
  *     tags:
  *      - Articles
