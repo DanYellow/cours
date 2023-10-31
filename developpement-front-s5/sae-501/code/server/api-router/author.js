@@ -65,7 +65,6 @@ router.get(`/${base}`, async (req, res) => {
             page,
         });
     } catch (e) {
-        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(
@@ -142,17 +141,18 @@ router.get(`/${base}/:id`, async (req, res) => {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
             });
-        } else {
-            return res.status(400).json({
-                errors: [
-                    ...Object.values(
-                        err?.errors || [
-                            { message: "Quelque chose s'est mal passé" },
-                        ]
-                    ).map((val) => val.message),
-                ],
-            });
         }
+        
+        return res.status(400).json({
+            errors: [
+                ...Object.values(
+                    err?.errors || [
+                        { message: "Quelque chose s'est mal passé" },
+                    ]
+                ).map((val) => val.message),
+            ],
+        });
+
     }
 });
 

@@ -63,10 +63,11 @@ authorSchema.pre("save", function(next) {
 })
 
 authorSchema.pre("findOneAndUpdate", function(next) {
-    this._update.color = this._update.color.trim()
-    if(!validator.isHexColor(this._update.color)) {
-        this._update.color = defaultColor
-    }
+    // console.log(this._update)
+    // this._update.color = this._update.color.trim()
+    // if(!validator.isHexColor(this._update.color)) {
+    //     this._update.color = defaultColor
+    // }
 
     next()
 })

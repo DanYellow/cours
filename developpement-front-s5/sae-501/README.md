@@ -21,8 +21,10 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 - AC34.02 | Développer à l’aide d’un framework de développement côté client
 
 > Note : nous avons fait le choix de remplacer twig par nunjucks pour des questions de performances, nunjucks est plus approprié dans un environnement nodejs. Les deux utilisent la même syntaxe à quelques petites différences près. [Accéder à la documentation de nunjucks.](https://mozilla.github.io/nunjucks/fr/templating.html). Ce que vous avez appris avec twig, vous pourrez donc le réutiliser avec nunjucks.
+>
+> N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode. Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 
-Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.
+Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
 

@@ -45,18 +45,11 @@ router.get(`/${base}`, async (req, res) => {
             { "$skip": Math.max(page - 1, 0) * perPage },
             { "$limit": perPage },
             {
-                $project: {
-                    _id:1,
-                    title: 1,
-                    abstract: 1,
-                    content: 1,
-                    image: 1,
-                    yt_link_id: 1,
-                    is_active: 1,
-                    author: 1,
+                $addFields: {
                     nb_comments: { $size: "$list_comments" }
                 }
             },
+            { $unset: "list_comments" },
             { $sort : { _id : -1 } }
         ])
     
@@ -96,13 +89,31 @@ router.get(`/${base}`, async (req, res) => {
  *         description: Returns a specific article
  */
 router.get(`/${base}/:id`, async (req, res) => {
-    let listErrors =  []
+    try {
+        const ressource = await Article.aggregate([
+            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+            {
+                $addFields: {
+                   nb_comments: { $size: "$list_comments" }
+                }
+            },
+            { $unset: "list_comments" },
+        ])
+    
+        const ressourceWithAuthor = await Author.populate(ressource, {
+            path: "author",
+            model: 'Author',
+        })
 
-    const ressource = await Article.findOne({ _id: req.params.id }).select(["-list_comments"]).orFail().catch((err) => {
-        res.status(404).json({errors: [...listErrors, "Élément non trouvé"]})
-    });
-
-    return res.status(200).json(ressource)
+        return res.status(200).json(ressourceWithAuthor?.[0] || {})
+    } catch(e) {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                errors: [`"${req.params.id}" n'est pas un id valide`],
+            });
+        }
+        return res.status(404).json({errors: ["Quelque chose s'est mal passé"]})
+    }
 });
 
 /**
@@ -139,6 +150,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *        in: formData
  *        type: string
  *        description: article's Youtube link id
+ *      - name: author
+ *        in: formData
+ *        type: string
+ *        description: author's _id
  *     responses:
  *       201:
  *         description: Creates an article
@@ -162,9 +177,9 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             ressource: req.body 
         })
     }
-
+    
     const computedBody = structuredClone(req.body)
-    if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    if(!mongoose.Types.ObjectId.isValid(req.body.author)) {
         delete computedBody.author
     }
 
@@ -258,7 +273,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
     try {
         const ressource = await Article.findById(req.params.id)
-        if(req.body.author !== ressource.author) {
+        ressource.image = imagePayload
+        if(req.body.author !== ressource.author && mongoose.Types.ObjectId.isValid(req.body.author)) {
             ressource.author = req.body.author;
             await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });

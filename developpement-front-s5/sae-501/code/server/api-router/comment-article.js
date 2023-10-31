@@ -87,7 +87,7 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
         const nb_comments = await Article.aggregate([
             {
                 $match: {
-                  _id: ressource._id
+                  _id: new mongoose.Types.ObjectId(ressource._id)
                 },
             },
             {

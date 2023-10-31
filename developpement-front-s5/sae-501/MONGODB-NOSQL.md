@@ -18,11 +18,11 @@ Et pour voir votre base NoSQL, un peu comme PhpMyAdmin, nous vous conseillons le
     - Il faut télécharger "MongoDB Compass Download (GUI)", il faut défiler un peu
 
 
-MongoDB est un standard dans le monde professionnel. Le projet contient quatre collections que voici :
+MongoDB est un standard dans le monde professionnel. Le projet contient cinq collections que voici :
 
 ![](./CollectionsDiagram.svg)
 
-Dans ce schéma, il n'y a que trois collections, la quatrième concerne les messages envoyés depuis la page "contact", c'est à vous de la faire, les champs dépendront des besoins du projet.
+Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les messages envoyés depuis la page "contact", c'est à vous de la faire, les champs dépendront des besoins du projet.
 
 Une collection contient des schémas, ces schémas ont une sytaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers type. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de caractères aléatoires qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" quant à lui sert à garder une trace de la version de votre document. Un document étant un "enfant" d'un schéma.
 
