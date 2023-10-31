@@ -38,7 +38,7 @@ Dans le cas où vous faites une requête de type POST (création d'élément) ou
 ![](./captures/postman-4.jpg)
 On utilisera form-data quand la requête peut attendre un fichier (formulaire enctype="multipart/form-data"), par exemple la création d'une SAE, là. Pour construire notre requête, il faudra tout simplement remplir le tableau avec nos clés (colonne "Key") et valeurs (colonne "Value"). La valeur de "Key" est l'équivalent de l'attribut "name" pour un élément de formulaire en HTML. La colonne "Description" est là à titre indicatif, ce n'est pas envoyé au serveur.
 
-> **Attention à ne pas insérer par erreur un retour à la ligne dans le nom du clé, surtout à la fin. Ceci engendra à coup sûr une erreur, très difficile à trouver.**
+> **Attention à ne pas insérer par erreur un retour à la ligne dans le nom du clé, surtout à la fin. Ceci engendra à coup sûr une erreur, Postman vous aide en affichant une icône assez discrète à côté du champ dans la cellule en question.**
 
 Enfin, il est possible de changer le type d'un champ en survolant une cellule de la colonne "Key", par défaut, les champs sont de types "Text", mais il est possible de changer en type "File" pour uploader un vrai fichier.
 
@@ -46,6 +46,7 @@ Enfin, il est possible de changer le type d'un champ en survolant une cellule de
 ![](./captures/postman-5.jpg)
 Le format raw permet d'envoyer du contenu "brut", par exemple, ajouter un commentaire à un article ou pour vous créer un message dans le cadre du projet. Postman gère plusieurs types de formats raw, dans le cadre de la SAE, on utilisera uniquement le format "JSON".
 
-Pour finir, il est possible d'utiliser la bibliothèque faker avec Postman, faker permet de générer des valeurs aléatoires pour un type spécifique de données textuelle ou numéraire (couleur, prénom, adresse, heure...). Pour un utiliser une variable de faker, il faut juste la mettre entre deux paires d'accolades ({{}}). [La liste des variables se trouve ici.](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/)
+Pour finir, il est possible d'utiliser la bibliothèque faker avec Postman, faker permet de générer des valeurs aléatoires pour un type spécifique de données textuelle ou numéraire (couleur, prénom, adresse, heure...). Pour utiliser une variable de faker, il faut juste la mettre entre deux paires d'accolades ({{}}). [La liste des variables se trouve ici.](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/)
 > ![](./captures/postman-6.jpg)
-> Ici nous générons un court texte pour la clé "content" 
+> Ici nous générons un court texte pour la clé "content"
+Faker est déjà utilisé dans le projet, dans le but de créer à coup sûr une nouvelle entité unique.

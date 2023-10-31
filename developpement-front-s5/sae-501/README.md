@@ -200,8 +200,8 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
     - Le fichier sera lu côté front-end
     - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
-- Ajouter une section "Commentaires" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages de la collection
-    - Cette route est gérée dans le fichier `server/back-end-router/index.js`
+- Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages envoyé depuis le formulaire de contact
+    - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il fadura la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 - [ ] Gérer "proprement" les messages d'erreur
@@ -210,16 +210,18 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - **Les** listes déroulantes sont déjà présentes, il ne manque plus que la fonctionnalité
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
-    - Il n'y a pas de schéma pour les messages, vous devez le réaliser et créer les api pour (POST et GET)
+    - Il n'y a pas de schéma pour les messages, vous devez le réaliser
+        - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
+    - Vous devez créer les api pour (POST et GET)
     - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
 - [ ] Permettre de créer, éditer un article
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
-    - Le champ permettant l'upload d'image doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - La suppression et le listage sont déjà gérés
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un article et lister les articles
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
-    - Le champ permettant l'upload d'image doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js(https://github.com/validatorjs/validator.js)] (déjà installé, voir `code/database/models/author.js`)

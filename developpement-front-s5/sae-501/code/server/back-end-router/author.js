@@ -7,6 +7,7 @@ import upload from "../uploader.js";
 const base = "authors";
 const router = express.Router();
 
+// Get multiple articles
 router.get(`/${base}`, async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     let options = {
@@ -23,6 +24,7 @@ router.get(`/${base}`, async (req, res) => {
     });
 });
 
+// Get or create author
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     let options = {
         method: "GET",
@@ -49,6 +51,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     });
 });
 
+// Create or update author 
 router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let ressource = null;
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
