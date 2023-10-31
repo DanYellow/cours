@@ -52,6 +52,7 @@ router.get(`/${base}`, async (req, res) => {
                     image: 1,
                     yt_link_id: 1,
                     is_active: 1,
+                    author: 1,
                     nb_comments: { $size: "$list_comments" }
                 }
             },
