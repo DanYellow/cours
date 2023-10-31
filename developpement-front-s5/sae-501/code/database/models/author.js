@@ -71,10 +71,14 @@ authorSchema.pre("findOneAndUpdate", function(next) {
 })
 
 authorSchema.pre('findOneAndDelete', { document: true, query: true }, async function(next) {
-    await Article.updateMany(
-        { author: this.getQuery()._id },
-        { author: null }
-    ) 
+    try {
+        // Unset all articles' author
+        await Article.updateMany(
+            { author: this.getQuery()._id },
+            { author: null }
+        )
+    } catch (e) {}
+   
 
     next();
 });

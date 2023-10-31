@@ -94,17 +94,21 @@ router.get(`/${base}`, async (req, res) => {
  *        schema:
  *          type: integer
  *          example: 1
- *        description: Page's number
+ *        description: Page's number for article
  *      - in: query
  *        name: per_page
  *        required: false
  *        schema:
  *          type: integer
  *          example: 7
- *        description: Number of items per page. Max 20
+ *        description: Number of items per page for article. Max 20
  *     responses:
  *       200:
  *         description: Returns a specific author
+ *       400:
+ *         description: Something went wrong
+ *       404:
+ *         description: Ressource not found
  */
 router.get(`/${base}/:id`, async (req, res) => {
     const page = req.query.page || 1;
@@ -136,7 +140,12 @@ router.get(`/${base}/:id`, async (req, res) => {
             },
         });
 
-        return res.status(200).json(ressourceWithArticles?.[0] || {});
+        if(ressourceWithArticles?.[0]) {
+            return res.status(200).json(ressourceWithArticles?.[0])
+        }
+        return res.status(404).json({
+            errors: [`L'auteur "${req.params.id}" n'existe pas`],
+        });
     } catch (err) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
@@ -339,6 +348,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  * @openapi
  * /authors/{id}:
  *   delete:
+ *     description: |
+ *      On deletion all articles written lose there author, **they are not deleted**
  *     tags:
  *      - Authors
  *     parameters:
@@ -351,6 +362,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific author
+ *       400:
+ *         description: Something went wrong
+ *       404:
+ *         description: Ressource not found
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
@@ -361,10 +376,15 @@ router.delete(`/${base}/:id`, async (req, res) => {
             fs.unlink(targetPath, (err) => {});
         }
 
-        return res.status(200).json(ressource || {});
+        if(ressource) {
+            return res.status(200).json(ressource)
+        }
+        return res.status(404).json({
+            errors: [`L'auteur "${req.params.id}" n'existe pas`],
+        });
     } catch (error) {
         return res
-            .status(404)
+            .status(400)
             .json({
                 error: "Quelque chose s'est mal passé, veuillez recommencer",
             });

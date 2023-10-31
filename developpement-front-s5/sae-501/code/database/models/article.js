@@ -49,9 +49,11 @@ articleSchema
         "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"
     );
 
-articleSchema.pre('findOneAndDelete', { document: true, query: true }, function(next) {
-    // Deletes all related comments when an Article is deleted
-    CommentArticle.deleteMany({ article: this.getQuery()._id }).exec();
+articleSchema.pre('findOneAndDelete', { document: true, query: true }, async function(next) {
+    try {
+        // Deletes all related comments when an Article is deleted
+        await CommentArticle.deleteMany({ article: this.getQuery()._id });
+    } catch (e) {}
 
     next();
 });

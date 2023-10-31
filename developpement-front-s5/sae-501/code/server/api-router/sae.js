@@ -74,6 +74,10 @@ router.get(`/${base}`, async (req, res) => {
  *     responses:
  *       200:
  *         description: Returns a specific SAE
+ *       400:
+ *         description: Something went wrong
+ *       404:
+ *         description: Ressource not found
  */
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
@@ -230,6 +234,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific SAE
+ *       400:
+ *         description: Something went wrong
+ *       404:
+ *         description: Ressource not found
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
@@ -240,10 +248,15 @@ router.delete(`/${base}/:id`, async (req, res) => {
             fs.unlink(targetPath, (err) => {});
         }
 
-        return res.status(200).json(ressource || {});
+        if(ressource) {
+            return res.status(200).json(ressource);
+        }
+        return res.status(404).json({
+            errors: [`La SAE "${req.params.id}" n'existe pas`],
+        });
     } catch (error) {
         return res
-            .status(404)
+            .status(400)
             .json({
                 error: "Quelque chose s'est mal passé, veuillez recommencer",
             });

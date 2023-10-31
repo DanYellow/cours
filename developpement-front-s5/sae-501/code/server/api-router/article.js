@@ -17,9 +17,6 @@ const base = "articles";
  *   get:
  *     tags:
  *      - Articles
- *     responses:
- *       200:
- *         description: Returns all articles.
  *     parameters:
  *      - in: query
  *        name: page
@@ -34,6 +31,11 @@ const base = "articles";
  *          type: integer
  *          example: 7
  *        description: Number of items per page. Max 20
+ *     responses:
+ *       200:
+ *         description: Returns all articles
+ *       400:
+ *         description: Something went wrong
  */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -87,6 +89,8 @@ router.get(`/${base}`, async (req, res) => {
  *     responses:
  *       200:
  *         description: Returns a specific article
+ *       400:
+ *         description: Something went wrong
  */
 router.get(`/${base}/:id`, async (req, res) => {
     try {
@@ -105,14 +109,19 @@ router.get(`/${base}/:id`, async (req, res) => {
             model: 'Author',
         })
 
-        return res.status(200).json(ressourceWithAuthor?.[0] || {})
+        if(ressourceWithAuthor?.[0]) {
+            return res.status(200).json(ressourceWithAuthor?.[0])
+        }
+        return res.status(404).json({
+            errors: [`L'article "${req.params.id}" n'existe pas`],
+        });
     } catch(e) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
-        return res.status(404).json({errors: ["Quelque chose s'est mal passé"]})
+        return res.status(400).json({errors: ["Quelque chose s'est mal passé"]})
     }
 });
 
@@ -157,6 +166,8 @@ router.get(`/${base}/:id`, async (req, res) => {
  *     responses:
  *       201:
  *         description: Creates an article
+ *       400:
+ *         description: Something went wrong
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -208,6 +219,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *   put:
  *     tags:
  *      - Articles
+ *     description: |
+ *      If the author change, the previous author lose the article
  *     parameters:
  *      - name: title
  *        in: formData
@@ -243,6 +256,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific article
+ *       400:
+ *         description: Something went wrong
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -283,7 +298,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
         }
         await ressource.save();
-        
+
         res.status(200).json(ressource)
     } catch (err) {
         // err instanceof mongoose.DocumentNotFoundError
@@ -304,6 +319,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *   delete:
  *     tags:
  *      - Articles
+ *     description: |
+ *      On deletion all comments related are deleted
  *     parameters:
  *      - name: id
  *        in: path
@@ -314,6 +331,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific article
+ *       400:
+ *         description: Something went wrong
+ *       404:
+ *         description: Ressource not found
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
@@ -324,13 +345,19 @@ router.delete(`/${base}/:id`, async (req, res) => {
             fs.unlink(targetPath, (err) => {});
         }
 
-        return res.status(200).json(ressource || {});
+        if(ressource) {
+            return res.status(200).json(ressource)
+        }
+        return res.status(404).json({
+            errors: [`L'article "${req.params.id}" n'existe pas`],
+        });
     } catch (error) {
-        return res
-            .status(404)
-            .json({
-                error: "Quelque chose s'est mal passé, veuillez recommencer",
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                errors: [`"${req.params.id}" n'est pas un id valide`],
             });
+        } 
+        return res.status(400).json({errors: ["Quelque chose s'est mal passé"]})
     }
 });
 
