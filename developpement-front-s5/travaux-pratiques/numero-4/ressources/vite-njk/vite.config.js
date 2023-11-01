@@ -1,4 +1,4 @@
-import twig from "@vituum/vite-plugin-twig";
+import nunjucks from "@vituum/vite-plugin-twig";
 import vituum from "vituum";
 
 export default {
@@ -14,7 +14,7 @@ export default {
         normalizeBasePath: true
       }
     }),
-    twig({
+    nunjucks({
       // Where the twig files are located
       root: "./src",
     }),
