@@ -84,6 +84,4 @@ authorSchema.pre('findOneAndDelete', { document: true, query: true }, async func
     next();
 });
 
-
-
 export default mongoose.model("Author", authorSchema);

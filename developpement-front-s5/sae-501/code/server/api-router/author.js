@@ -58,7 +58,7 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await Author.count();
-        const total_pages = Math.ceil(count / perPage)
+        const total_pages = Math.ceil(count / perPage);
 
         res.status(200).json({
             data: listRessources,
@@ -114,44 +114,62 @@ router.get(`/${base}`, async (req, res) => {
 router.get(`/${base}/:id`, async (req, res) => {
     const page = req.query.page || 1;
     let perPage = req.query.per_page || 7;
-    perPage = Math.min(perPage, 20);
+    perPage = Math.min(Math.max(perPage, 1), 20);
 
     try {
         const ressource = await Author.aggregate([
             { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
-            { $limit: perPage },
             {
                 $addFields: {
                     nb_articles: { $size: "$list_articles" },
-                    page: page,
+                    page: Number(page),
                     total_pages: {
                         $ceil: {
                             $divide: [{ $size: "$list_articles" }, perPage],
                         },
                     },
-                },
+                }
             },
+            { 
+                $lookup: { 
+                    from: 'articles', 
+                    localField: 'list_articles', 
+                    foreignField: '_id', 
+                    as: 'list_articles',
+                    pipeline: [
+                        { $skip: Math.max(page - 1, 0) * perPage},
+                        { $limit: perPage }
+                    ]
+                } 
+            },
+            { $addFields: { 
+                list_articles: {
+                    "$map": {
+                        input: "$list_articles", 
+                        as: "article", 
+                        in: {
+                            "$mergeObjects": [
+                                "$$article",
+                                {
+                                    nb_comments: { "$size": "$$article.list_comments" },
+                                }
+                            ]
+                        } 
+                    } 
+                } 
+            }},
+            { $unset: [ "list_articles.list_comments" ] }
         ]);
-
-        console.log(ressource)
 
         if(!ressource.length) {
             return res.status(404).json({
                 errors: [`L'auteur "${req.params.id}" n'existe pas`],
             });
         }
-
-        await Author.populate(ressource, [{
-            path: "list_articles",
-            options: {
-                perDocumentLimit: perPage,
-                skip: Math.max(page - 1, 0) * perPage,
-            },
-        }]);
-
-        return res.status(200).json(ressource)
         
+        return res.status(200).json(ressource[0]);
     } catch (err) {
+        console.log(err)
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -167,7 +185,6 @@ router.get(`/${base}/:id`, async (req, res) => {
                 ).map((val) => val.message),
             ],
         });
-
     }
 });
 
@@ -242,7 +259,11 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
                 errors: [
                     ...listErrors,
                     ...deleteUpload(targetPath),
-                    ...Object.values(err?.errors || [{"message": "Quelque chose s'est mal passé"}]).map((val) => val.message),
+                    ...Object.values(
+                        err?.errors || [
+                            { message: "Quelque chose s'est mal passé" },
+                        ]
+                    ).map((val) => val.message),
                 ],
             });
         });
@@ -380,25 +401,23 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
-        const ressource = await Author.findByIdAndDelete(req.params.id)
+        const ressource = await Author.findByIdAndDelete(req.params.id);
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`;
             fs.unlink(targetPath, (err) => {});
         }
 
-        if(ressource) {
-            return res.status(200).json(ressource)
+        if (ressource) {
+            return res.status(200).json(ressource);
         }
         return res.status(404).json({
             errors: [`L'auteur "${req.params.id}" n'existe pas`],
         });
     } catch (error) {
-        return res
-            .status(400)
-            .json({
-                error: "Quelque chose s'est mal passé, veuillez recommencer",
-            });
+        return res.status(400).json({
+            error: "Quelque chose s'est mal passé, veuillez recommencer",
+        });
     }
 });
 
