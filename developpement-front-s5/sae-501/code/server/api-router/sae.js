@@ -34,9 +34,10 @@ const base = "saes";
  *        description: Number of items per page. Max 20
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = req.query.page || 1;
+    const page = Math.max(1, req.query.page || 1);
     let perPage = req.query.per_page || 7;
-    perPage = Math.min(perPage, 20);
+    // Clamps the value between 1 and 20
+    perPage = Math.min(Math.max(perPage, 1), 20);
 
     const listRessources = await SAE.find()
         .skip(Math.max(page - 1, 0) * perPage)

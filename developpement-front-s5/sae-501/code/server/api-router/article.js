@@ -38,9 +38,9 @@ const base = "articles";
  *         description: Something went wrong
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = req.query.page || 1;
+    const page = Math.max(1, req.query.page || 1);
     let perPage = req.query.per_page || 7;
-    perPage = Math.min(perPage, 20);
+    perPage = Math.min(Math.max(perPage, 1), 20);
 
     try {
         const listRessources = await Article.aggregate([

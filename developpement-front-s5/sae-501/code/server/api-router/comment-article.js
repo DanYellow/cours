@@ -84,7 +84,7 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  */
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
-        const page = req.query.page || 1;
+        const page = Math.max(1, req.query.page || 1);
         const perPage = 10
 
         const ressource = await Article.aggregate([
