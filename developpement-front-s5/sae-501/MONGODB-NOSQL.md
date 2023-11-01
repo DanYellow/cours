@@ -6,25 +6,25 @@ NoSQL pour "Not only SQL" (« pas seulement SQL » en anglais) désigne un syst�
 
 Les systèmes NoSQL, comparés aux SGBDR, possèdent l'avantage de pouvoir gérer des millions d'entités sans problèmes là un système de gestion de bases de données relationnelle (SGBDR) montrerait des faiblesses. De plus, en NoSQL, il est possible, à la volée de changer le schéma de données, ce qui vous permet de définir le modèle de données au fur et à mesure. Enfin, le NoSQL s'avère bien plus performant que les SGBDR pour la montée en charge. Avec MySQL, par exemple, si vous avez un gros traffic, il vous faudra un plus gros serveur, donc vous coûtera plus cher. Alors qu'en NoSQL la montée en charge se gère en ajoutant de nouveaux serveurs, bien moins chers.
 
-Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a pas de notion d'id, ce qui rend certaines requêtes complexes impossible, faire des imbrications de clauses `WHERE` peut provoquer de gros problèmes de performances. 
+Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a pas de notion d'id, ce qui rend certaines requêtes complexes impossibles, faire des imbrications de clauses `WHERE` peut provoquer de gros problèmes de performances. Toutefois, le NoSQL **peut** compenser ceci en restant performant sur de l'embedding (voir lien "MongoDB Schema Design Best Practices").
 
 - [En savoir plus sur le NoSQL](https://www.oracle.com/fr/database/nosql/what-is-nosql)
+- [MongoDB Schema Design Best Practices](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/)
 
-Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB, il faudra l'installer.
+Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (standard dans le monde professionnel), l'outil n'est pas natif, il faudra l'installer.
 - [Télécharger MongoDB](https://www.mongodb.com/try/download/community)
 
-Et pour voir votre base NoSQL, un peu comme PhpMyAdmin, nous vous conseillons le logicie aussi gratuit MongoDB Compass
+Et pour voir votre base NoSQL, un peu comme PhpMyAdmin, nous vous conseillons le logiciel MongoDB Compass,  il est gratuit
 - [Télécharger MongoDB Compass](https://www.mongodb.com/try/download/compass)
-    - Il faut télécharger "MongoDB Compass Download (GUI)", il faut défiler un peu
+    - Il faut télécharger "MongoDB Compass Download (GUI)", il faut défiler un peu sur la page pour trouver le lien
 
-
-MongoDB est un standard dans le monde professionnel. Le projet contient cinq collections que voici :
+Une base NoSQL s'articule autour de collections ("équivalent" de tables en SGBDR). Le projet de la SAE en contient cinq que voici :
 
 ![](./CollectionsDiagram.svg)
 
 Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les messages envoyés depuis la page "contact", c'est à vous de la faire, les champs dépendront des besoins du projet.
 
-Une collection contient des schémas, ces schémas ont une sytaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers type. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de caractères aléatoires qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" quant à lui sert à garder une trace de la version de votre document. Un document étant un "enfant" d'un schéma.
+Une collection contient des schémas, ces schémas ont une sytaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers type. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de 24 caractères aléatoires (nombres et lettres) qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" quant à lui sert à garder une trace de la version de votre document. Un document étant un "enfant" d'un schéma, un peu comme une ligne dans une table.
 
 Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ORM (Object Relation Mapper), autrement dit un outil qui nous permet de manipuler notre base de données NoSQL à travers des objets, donc plus facilement compréhensible. Le concept des ORM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR.
 
