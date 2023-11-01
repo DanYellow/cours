@@ -112,7 +112,7 @@ router.get(`/${base}`, async (req, res) => {
  *         description: Ressource not found
  */
 router.get(`/${base}/:id`, async (req, res) => {
-    let page = Math.max(1, req.query.page || 1);
+    const page = Math.max(1, req.query.page || 1);
     let perPage = req.query.per_page || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
 
@@ -309,6 +309,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific SAE
+ *       400:
+ *         description: Something went wrong
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {};

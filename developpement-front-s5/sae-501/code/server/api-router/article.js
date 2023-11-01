@@ -84,8 +84,8 @@ router.get(`/${base}`, async (req, res) => {
  *        in: path
  *        description: article's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Returns a specific article

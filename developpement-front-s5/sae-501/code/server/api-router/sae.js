@@ -17,7 +17,9 @@ const base = "saes";
  *      - SAEs
  *     responses:
  *       200:
- *         description: Returns all SAEs.
+ *         description: Returns all SAEs
+ *       400:
+ *         description: Something went wrong
  *     parameters:
  *      - in: query
  *        name: page
@@ -70,8 +72,8 @@ router.get(`/${base}`, async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Returns a specific SAE
@@ -111,6 +113,8 @@ router.get(`/${base}/:id`, async (req, res) => {
  *     responses:
  *       201:
  *         description: Creates a SAE
+ *       400:
+ *         description: Something went wrong
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -158,8 +162,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *      - in: formData
  *        name: title
  *        type: string
@@ -174,6 +178,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific SAE
+ *       400:
+ *         description: Something went wrong
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -230,8 +236,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific SAE

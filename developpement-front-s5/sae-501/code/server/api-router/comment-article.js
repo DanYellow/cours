@@ -89,7 +89,6 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
 
         const ressource = await Article.aggregate([
             { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
-            { $limit: perPage },
             {
                 $project: {
                     list_comments: 1,
@@ -113,13 +112,12 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
 
         await Article.populate(ressource, [{
             path: "list_comments",
-            // select: ["-article"],
+            select: ["-article"],
             options: {
                 perDocumentLimit: perPage,
                 skip: Math.max(page - 1, 0) * perPage,
             },
         }]);
-
 
         res.status(200).json(ressource)
     } catch (e) {
