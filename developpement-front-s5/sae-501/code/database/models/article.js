@@ -28,6 +28,7 @@ const articleSchema = new Schema(
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Author",
+            default: null,
         },
     },
     {

@@ -252,7 +252,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *      - name: author
  *        in: formData
  *        type: string
- *        description: author's _id
+ *        description: author's _id. If the _id is not valid or null, the article won't have a author anymore
  *     responses:
  *       200:
  *         description: Updates a specific article
@@ -292,10 +292,17 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         if(Object.keys(imagePayload).length) {
             ressource.image = imagePayload.image
         }
-        if(req.body.author !== ressource.author && mongoose.Types.ObjectId.isValid(req.body.author)) {
-            ressource.author = req.body.author;
+        if(req.body.author !== ressource.author) {
+            // Unlink article with author
             await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });
-            await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
+            
+            if(req.body.author && mongoose.Types.ObjectId.isValid(req.body.author)) {
+                ressource.author = req.body.author;
+                await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
+            } else {
+                // Unlink with any author
+                ressource.author = null;
+            }
         }
         await ressource.save();
 
