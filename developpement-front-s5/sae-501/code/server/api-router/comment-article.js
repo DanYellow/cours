@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 
 import CommentArticle from '#models/comment-article.js'
 import Article from '#models/article.js'
@@ -17,12 +18,18 @@ const base = "articles";
  *        in: path
  *        description: Article's _id
  *        required: true
- *        type: integer
- *      - in: body
- *        name: content
  *        type: string
- *        required: true
+ *        pattern: '([0-9a-f]{24})'
+ *      - in: body
+ *        name: body
  *        description: Comment
+ *        schema:
+ *          type: object
+ *          required: 
+ *              - content
+ *          properties:
+ *              content:
+ *                  type: string
  *     responses:
  *       201:
  *         description: Creates a comment for an article
@@ -52,13 +59,15 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *   get:
  *     tags:
  *      - Articles
+ *     description: |
+ *        Returns 10 by 10 comments related to one article
  *     parameters:
  *      - name: id
  *        in: path
  *        description: article's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *      - in: query
  *        name: page
  *        schema:
@@ -66,45 +75,53 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *          example: 1
  *        description: Page's number
  *     responses:
- *       200:
- *         description: Get all comments for an article.
+ *      200:
+ *         description: Get all comments for an article
+ *      400:
+ *         description: Something went wrong
+ *      404:
+ *         description: Ressource not found
  */
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
         const page = req.query.page || 1;
         const perPage = 10
-        const ressource = await Article.findById(req.params.id)
-            .select('_id')
-            .populate({
-                path: "list_comments",
-                model: 'CommentArticle',
-                options: {
-                    sort: "-created_at",
-                    skip: Math.max(page - 1, 0) * perPage,
-                    limit: perPage
-                }
-            })
-        const nb_comments = await Article.aggregate([
-            {
-                $match: {
-                  _id: new mongoose.Types.ObjectId(ressource._id)
-                },
-            },
+
+        const ressource = await Article.aggregate([
+            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+            { $limit: perPage },
             {
                 $project: {
-                   item: 1,
-                   nb_comments: { $size: "$list_comments" }
-                }
-            }
-        ])
-        const count = nb_comments[0].count;
+                    list_comments: 1,
+                    nb_comments: { $size: "$list_comments" },
+                    page: page,
+                    total_pages: {
+                        $ceil: {
+                            $divide: [{ $size: "$list_comments" }, perPage],
+                        },
+                    },
+                },
+            },
+            { $sort: { _id: 1 } },
+        ]);
 
-        res.status(201).json({
-            data: ressource,
-            count,
-            page,
-            total_pages: Math.ceil(count / perPage),
-        })
+        if(!ressource.length) {
+            return res.status(404).json({
+                errors: [`L'article "${req.params.id}" n'existe pas`],
+            });
+        }
+
+        await Article.populate(ressource, [{
+            path: "list_comments",
+            // select: ["-article"],
+            options: {
+                perDocumentLimit: perPage,
+                skip: Math.max(page - 1, 0) * perPage,
+            },
+        }]);
+
+
+        res.status(200).json(ressource)
     } catch (e) {
         res.status(400).json({
             errors: [

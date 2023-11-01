@@ -3,7 +3,6 @@ import fs from "fs";
 import mongoose from "mongoose";
 
 import Author from "#models/author.js";
-// import Article from "#models/article.js";
 
 import upload, { uploadImage, deleteUpload } from "../uploader.js";
 
@@ -17,9 +16,6 @@ const base = "authors";
  *   get:
  *     tags:
  *      - Authors
- *     responses:
- *       200:
- *         description: Returns all authors.
  *     parameters:
  *      - in: query
  *        name: page
@@ -34,6 +30,11 @@ const base = "authors";
  *          type: integer
  *          example: 7
  *        description: Number of items per page.
+ *     responses:
+ *      200:
+ *         description: Get all authors
+ *      400:
+ *         description: Something went wrong
  */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -85,10 +86,10 @@ router.get(`/${base}`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's _id
+ *        description: author's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *      - in: query
  *        name: page
  *        schema:
@@ -112,7 +113,7 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get(`/${base}/:id`, async (req, res) => {
     const page = req.query.page || 1;
-    let perPage = req.query.per_page || 2;
+    let perPage = req.query.per_page || 7;
     perPage = Math.min(perPage, 20);
 
     try {
@@ -132,20 +133,24 @@ router.get(`/${base}/:id`, async (req, res) => {
             },
         ]);
 
-        const ressourceWithArticles = await Author.populate(ressource, {
+        console.log(ressource)
+
+        if(!ressource.length) {
+            return res.status(404).json({
+                errors: [`L'auteur "${req.params.id}" n'existe pas`],
+            });
+        }
+
+        await Author.populate(ressource, [{
             path: "list_articles",
             options: {
                 perDocumentLimit: perPage,
                 skip: Math.max(page - 1, 0) * perPage,
             },
-        });
+        }]);
 
-        if(ressourceWithArticles?.[0]) {
-            return res.status(200).json(ressourceWithArticles?.[0])
-        }
-        return res.status(404).json({
-            errors: [`L'auteur "${req.params.id}" n'existe pas`],
-        });
+        return res.status(200).json(ressource)
+        
     } catch (err) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
@@ -250,6 +255,12 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     tags:
  *      - Authors
  *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: author's _id
+ *        required: true
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *      - name: lastname
  *        in: formData
  *        required: true
@@ -357,8 +368,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: author's _id
  *        required: true
- *        schema:
- *          type: integer
+ *        type: string
+ *        pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific author
