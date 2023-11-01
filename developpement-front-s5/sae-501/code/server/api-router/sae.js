@@ -211,9 +211,14 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
     .orFail()
     .catch((err) => {
-        // err instanceof mongoose.DocumentNotFoundError
-        if(err instanceof mongoose.CastError) {
-            res.status(400).json({errors: [...listErrors, "Élément non trouvé", ...deleteUpload(targetPath)]})
+        if (err instanceof mongoose.Error.DocumentNotFoundError) {
+            res.status(404).json({
+                errors: [`La SAÉ "${req.params.id}" n'existe pas`],
+            });
+        } else if(err instanceof mongoose.Error.CastError) {
+            res.status(400).json({
+                errors: [`"${req.params.id}" n'est pas un _id valide`],
+            });
         } else {
             res.status(400).json({ 
                 errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 

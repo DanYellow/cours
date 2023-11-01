@@ -350,8 +350,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     )
         .orFail()
         .catch((err) => {
-            // err instanceof mongoose.DocumentNotFoundError
-            if (err instanceof mongoose.CastError) {
+            if (err instanceof mongoose.Error.DocumentNotFoundError) {
+                res.status(404).json({
+                    errors: [`L'auteur "${req.params.id}" n'existe pas`],
+                });
+            } else if (err instanceof mongoose.Error.CastError) {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
