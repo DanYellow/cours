@@ -182,7 +182,6 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
             // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
             // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href"
         ```
-        
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
@@ -254,4 +253,5 @@ Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le 
 Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
+
 Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement.
