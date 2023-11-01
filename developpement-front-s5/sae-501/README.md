@@ -173,9 +173,16 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/back-end/base.nunjucks) est là pour vous aider
+    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/front-end/base.nunjucks) est là pour vous aider
     - La page "a-propos" est déjà faite
-    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier server/`front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
+    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
+        - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
+        ```js
+            router.get("/formation", async (req, res) => {/* [...] */})
+            // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
+            // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href"
+        ```
+        
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
@@ -202,7 +209,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
     - Le fichier sera lu côté front-end
     - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
-- Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages envoyé depuis le formulaire de contact
+- [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages envoyé depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il fadura la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
