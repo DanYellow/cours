@@ -239,7 +239,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        required: true
  *      - name: image
  *        in: formData
- *        required: true
+ *        required: false
  *        type: file
  *      - name: is_active
  *        in: formData
@@ -287,7 +287,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     }
 
     try {
-        let ressource = await Article.findById(req.params.id)
+        let ressource = await Article.findById(req.params.id, ["-list_comments"])
         
         if(Object.keys(imagePayload).length) {
             ressource.image = imagePayload.image

@@ -59,4 +59,9 @@ articleSchema.pre('findOneAndDelete', { document: true, query: true }, async fun
     next();
 });
 
+articleSchema.pre('findOneAndUpdate', function(next) {
+    this.options.runValidators = true;
+    next();
+});
+
 export default mongoose.model("Article", articleSchema);

@@ -167,7 +167,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *      - in: formData
  *        name: title
  *        type: string
- *        required: true
+ *        required: false
  *        description: SAE's title
  *      - in: formData
  *        name: content

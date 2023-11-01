@@ -79,8 +79,12 @@ authorSchema.pre('findOneAndDelete', { document: true, query: true }, async func
             { author: null }
         )
     } catch (e) {}
-   
 
+    next();
+});
+
+authorSchema.pre('findOneAndUpdate', function(next) {
+    this.options.runValidators = true;
     next();
 });
 

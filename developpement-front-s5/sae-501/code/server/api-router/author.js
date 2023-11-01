@@ -284,19 +284,19 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        pattern: '([0-9a-f]{24})'
  *      - name: lastname
  *        in: formData
- *        required: true
+ *        required: false
  *        type: string
  *      - name: firstname
  *        in: formData
- *        required: true
+ *        required: false
  *        type: string
  *      - name: email
  *        in: formData
  *        type: string
- *        required: true
+ *        required: false
  *      - name: image
  *        in: formData
- *        required: true
+ *        required: false
  *        type: file
  *      - name: bio
  *        in: formData
