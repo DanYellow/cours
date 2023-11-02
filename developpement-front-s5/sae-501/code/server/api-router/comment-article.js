@@ -38,6 +38,18 @@ const base = "articles";
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/CommentArticle'
+ *       400:
+ *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       404:
+ *         description: Ressource not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.post(`/${base}/:id/comments`, async (req, res) => {
     try {
@@ -99,8 +111,16 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *               $ref: '#/components/schemas/ListCommentsArticle'
  *      400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *      404:
- *         description: Ressource not found
+ *        description: Ressource not found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {

@@ -33,8 +33,16 @@ const base = "authors";
  *     responses:
  *      200:
  *         description: Get all authors
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/ListAuthors'
  *      400:
  *         description: Something went wrong
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}`, async (req, res) => {
     const page = req.query.page || 1;
@@ -107,10 +115,22 @@ router.get(`/${base}`, async (req, res) => {
  *     responses:
  *       200:
  *         description: Returns a specific author
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Author'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  *       404:
  *         description: Ressource not found
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}/:id`, async (req, res) => {
     const page = Math.max(1, req.query.page || 1);
@@ -222,6 +242,16 @@ router.get(`/${base}/:id`, async (req, res) => {
  *     responses:
  *       201:
  *         description: Creates an author
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Author'
+ *       400:
+ *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
@@ -310,8 +340,16 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific SAE
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Author'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
@@ -401,10 +439,22 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific author
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Author'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  *       404:
  *         description: Ressource not found
+ *         content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Error'
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {

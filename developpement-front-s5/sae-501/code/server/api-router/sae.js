@@ -24,6 +24,10 @@ const base = "saes";
  *               $ref: '#/components/schemas/ListSAEs'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *     parameters:
  *      - in: query
  *        name: page
@@ -51,8 +55,14 @@ router.get(`/${base}`, async (req, res) => {
         .sort({ _id: -1 })
         .lean()
         .orFail()
-        .catch(() => {
-            return {};
+        .catch((e) => {
+            res.status(400).json({
+                errors: [
+                    ...Object.values(
+                        e?.errors || [{ message: "Il y a eu un problème" }]
+                    ).map((val) => val.message),
+                ],
+            });
         });
 
     const count = await SAE.count();
@@ -88,8 +98,16 @@ router.get(`/${base}`, async (req, res) => {
  *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Ressource not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}/:id`, async (req, res) => {
     let listErrors =  []
@@ -132,6 +150,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -206,6 +228,10 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -279,8 +305,16 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Ressource not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
@@ -305,6 +339,5 @@ router.delete(`/${base}/:id`, async (req, res) => {
             });
     }
 });
-
 
 export default router;

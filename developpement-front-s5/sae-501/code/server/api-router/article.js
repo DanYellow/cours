@@ -40,6 +40,10 @@ const base = "articles";
  *               $ref: '#/components/schemas/ListArticles'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}`, async (req, res) => {
     const page = Math.max(1, req.query.page || 1);
@@ -100,6 +104,10 @@ router.get(`/${base}`, async (req, res) => {
  *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}/:id`, async (req, res) => {
     try {
@@ -175,6 +183,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -271,6 +283,10 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {}
@@ -363,8 +379,16 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Ressource not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
