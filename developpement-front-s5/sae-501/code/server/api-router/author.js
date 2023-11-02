@@ -190,7 +190,6 @@ router.get(`/${base}/:id`, async (req, res) => {
         
         return res.status(200).json(ressource[0]);
     } catch (err) {
-        console.log(err)
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
