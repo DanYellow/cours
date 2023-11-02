@@ -34,6 +34,10 @@ const base = "articles";
  *     responses:
  *       201:
  *         description: Creates a comment for an article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/CommentArticle'
  */
 router.post(`/${base}/:id/comments`, async (req, res) => {
     try {
@@ -89,6 +93,10 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *     responses:
  *      200:
  *         description: Get all comments for an article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ListCommentsArticle'
  *      400:
  *         description: Something went wrong
  *      404:
@@ -105,7 +113,6 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                 $project: {
                     list_comments: 1,
                     nb_comments: { $size: "$list_comments" },
-                    page: page,
                     total_pages: {
                         $ceil: {
                             $divide: [{ $size: "$list_comments" }, perPage],
@@ -114,6 +121,11 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                 },
             },
             { $sort: { _id: 1 } },
+            {
+                $addFields: {
+                    page: page,
+                }
+            },
         ]);
 
         if(!ressource.length) {
@@ -131,7 +143,7 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
             },
         }]);
 
-        res.status(200).json(ressource)
+        res.status(200).json(ressource[0])
     } catch (err) {
         res.status(400).json({
             errors: [

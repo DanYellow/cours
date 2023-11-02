@@ -18,6 +18,10 @@ const base = "saes";
  *     responses:
  *       200:
  *         description: Returns all SAEs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ListSAEs'
  *       400:
  *         description: Something went wrong
  *     parameters:
@@ -78,6 +82,10 @@ router.get(`/${base}`, async (req, res) => {
  *     responses:
  *       200:
  *         description: Returns a specific SAE
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
  *       404:
@@ -118,6 +126,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *     responses:
  *       201:
  *         description: Creates a SAE
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
  */
@@ -188,6 +200,10 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific SAE
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
  */
@@ -257,6 +273,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific SAE
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SAE'
  *       400:
  *         description: Something went wrong
  *       404:

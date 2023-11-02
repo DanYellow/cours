@@ -34,6 +34,10 @@ const base = "articles";
  *     responses:
  *       200:
  *         description: Returns all articles
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ListArticles'
  *       400:
  *         description: Something went wrong
  */
@@ -90,6 +94,10 @@ router.get(`/${base}`, async (req, res) => {
  *     responses:
  *       200:
  *         description: Returns a specific article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
  */
@@ -161,6 +169,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *     responses:
  *       201:
  *         description: Creates an article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
  */
@@ -253,6 +265,10 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Updates a specific article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
  */
@@ -341,6 +357,10 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     responses:
  *       200:
  *         description: Deletes a specific article
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Article'
  *       400:
  *         description: Something went wrong
  *       404:
