@@ -133,13 +133,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/articles?page&per_page=2",
+							"raw": "{{base_url}}/api/saes?page&per_page=",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"articles"
+								"saes"
 							],
 							"query": [
 								{
@@ -148,7 +148,7 @@
 								},
 								{
 									"key": "per_page",
-									"value": "2"
+									"value": ""
 								}
 							]
 						}
@@ -334,8 +334,7 @@
 								{
 									"key": "yt_link_id",
 									"value": "",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "image",
@@ -344,7 +343,7 @@
 								},
 								{
 									"key": "author",
-									"value": "654109ae40b7edd6d270eb15",
+									"value": "",
 									"type": "text"
 								}
 							]
@@ -362,7 +361,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "65410a1837f5549d2f337fb6"
+									"value": "65420ebcbd64c0969538b146"
 								}
 							]
 						}
@@ -435,7 +434,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "65400a1837db2f15c27b273c"
+									"value": "65410a1837f5549d2f337fb6"
 								}
 							]
 						}
@@ -512,11 +511,31 @@
 				},
 				{
 					"name": "Get an author",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
-							"raw": "{{base_url}}/api/authors/:id?per_page&page",
+							"raw": "{{base_url}}/api/authors/:id?per_page=&page=",
 							"host": [
 								"{{base_url}}"
 							],
@@ -528,17 +547,17 @@
 							"query": [
 								{
 									"key": "per_page",
-									"value": null
+									"value": ""
 								},
 								{
 									"key": "page",
-									"value": null
+									"value": ""
 								}
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "6540adcb87f591bae07ade14"
+									"value": "65418130b3237fa122a664a7"
 								}
 							]
 						}
@@ -694,7 +713,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6540adcb87f591bae07ade14"
+									"value": "65418130b3237fa122a664a7"
 								}
 							]
 						}
