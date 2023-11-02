@@ -85,6 +85,18 @@ router.get("/hello", async (_req, res) => {
 });
 ```
 Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` avec la méthode GET, on charge le template "pages/index.njk" en injectant la variable "title". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
+
+Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
+```js
+// front-end-router.js
+router.get("/user/:id", async (_req, res) => {
+    // On récupère le paramètre id dans l'url.
+    const paramId = req.params.id;
+    res.render("pages/index.njk", { title: "hello" });
+});
+```
+Une route peut accepter plusieurs paramètres. Il faudra juste penser à la préfixer par deux-points (:).
+
 > [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez deux choses :
