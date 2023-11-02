@@ -72,8 +72,9 @@ router.get(`/${base}`, async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Returns a specific SAE
@@ -98,18 +99,22 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - SAEs
- *     parameters:
- *      - in: formData
- *        name: title
- *        type: string
- *        required: true
- *        description: SAE's title
- *      - in: formData
- *        name: content
- *        type: string
- *      - in: formData
- *        name: image
- *        type: file
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ['title']
+ *            properties:
+ *              title:
+ *                type: string
+ *                description: SAE's title
+ *                required: true
+ *              content:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
  *     responses:
  *       201:
  *         description: Creates a SAE
@@ -162,19 +167,24 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
- *      - in: formData
- *        name: title
- *        type: string
- *        required: false
- *        description: SAE's title
- *      - in: formData
- *        name: content
- *        type: string
- *      - in: formData
- *        name: image
- *        type: file
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ['title']
+ *            properties:
+ *              title:
+ *                type: string
+ *                description: SAE's title
+ *              content:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
  *     responses:
  *       200:
  *         description: Updates a specific SAE
@@ -241,8 +251,9 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: sae's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific SAE

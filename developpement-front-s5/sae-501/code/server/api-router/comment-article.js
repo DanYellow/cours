@@ -18,8 +18,9 @@ const base = "articles";
  *        in: path
  *        description: Article's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *      - in: body
  *        name: body
  *        description: Comment
@@ -76,8 +77,9 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *        in: path
  *        description: article's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *      - in: query
  *        name: page
  *        schema:

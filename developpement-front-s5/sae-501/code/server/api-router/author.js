@@ -88,21 +88,22 @@ router.get(`/${base}`, async (req, res) => {
  *        in: path
  *        description: author's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *      - in: query
  *        name: page
  *        schema:
  *          type: integer
  *          example: 1
- *        description: Page's number for article
+ *        description: Page's number for author's articles
  *      - in: query
  *        name: per_page
  *        required: false
  *        schema:
  *          type: integer
  *          example: 7
- *        description: Number of items per page for article. Max 20
+ *        description: Number of items per page for author's articles. Max 20
  *     responses:
  *       200:
  *         description: Returns a specific author
@@ -194,31 +195,30 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - Authors
- *     parameters:
- *      - name: lastname
- *        in: formData
- *        required: true
- *        type: string
- *      - name: firstname
- *        in: formData
- *        required: true
- *        type: string
- *      - name: email
- *        in: formData
- *        type: string
- *        required: true
- *      - name: image
- *        in: formData
- *        required: true
- *        type: file
- *      - name: bio
- *        in: formData
- *        type: string
- *      - name: color
- *        in: formData
- *        type: string
- *        description: Author's **hexadecimal** used on his page for the bubble in the front
- *        default: "#ff0000"
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ["lastname", "firstname", "email", "image"]
+ *            properties:
+ *              lastname:
+ *                type: string
+ *                description: SAE's title
+ *                required: true
+ *              firstname:
+ *                type: string
+ *              email:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
+ *              bio:
+ *                type: string
+ *              color:
+ *                type: string
+ *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
+ *                default: "#ff0000"
  *     responses:
  *       201:
  *         description: Creates an author
@@ -280,32 +280,33 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: author's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
- *      - name: lastname
- *        in: formData
- *        required: false
- *        type: string
- *      - name: firstname
- *        in: formData
- *        required: false
- *        type: string
- *      - name: email
- *        in: formData
- *        type: string
- *        required: false
- *      - name: image
- *        in: formData
- *        required: false
- *        type: file
- *      - name: bio
- *        in: formData
- *        type: string
- *      - name: color
- *        in: formData
- *        type: string
- *        description: Author's **hexadecimal** color used on his page for the bubble in the front
- *        default: "#ff0000"
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ["lastname", "firstname", "email", "image"]
+ *            properties:
+ *              lastname:
+ *                type: string
+ *                description: SAE's title
+ *                required: true
+ *              firstname:
+ *                type: string
+ *              email:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
+ *              bio:
+ *                type: string
+ *              color:
+ *                type: string
+ *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
+ *                default: "#ff0000"
  *     responses:
  *       200:
  *         description: Updates a specific SAE
@@ -394,8 +395,9 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *        in: path
  *        description: author's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific author

@@ -84,8 +84,9 @@ router.get(`/${base}`, async (req, res) => {
  *        in: path
  *        description: article's _id
  *        required: true
- *        type: string
- *        pattern: '([0-9a-f]{24})'
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Returns a specific article
@@ -131,38 +132,32 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - Articles
- *     parameters:
- *      - name: title
- *        in: formData
- *        required: true
- *        type: string
- *      - name: abstract
- *        in: formData
- *        description: article's summary
- *        type: string
- *        format: textarea
- *      - name: content
- *        in: formData
- *        description: article's content
- *        type: string
- *        format: textarea
- *        required: true
- *      - name: image
- *        in: formData
- *        required: true
- *        type: file
- *      - name: is_active
- *        in: formData
- *        type: boolean
- *        default: false
- *      - name: yt_link_id
- *        in: formData
- *        type: string
- *        description: article's Youtube link id
- *      - name: author
- *        in: formData
- *        type: string
- *        description: author's _id
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ['title', 'content']
+ *            properties:
+ *              title:
+ *                type: string
+ *                description: article's title
+ *              abstract:
+ *                type: string
+ *              content:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
+ *              is_active:
+ *                type: boolean
+ *                default: false
+ *              yt_link_id:
+ *                type: string
+ *                description: article's Youtube link id
+ *              author:
+ *                type: string
+ *                description: author's _id. If the value is not valid or null, the article won't have a author anymore
  *     responses:
  *       201:
  *         description: Creates an article
@@ -222,37 +217,39 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     description: |
  *      If the author change, the previous author lose the article
  *     parameters:
- *      - name: title
- *        in: formData
+ *      - name: id
+ *        in: path
+ *        description: article's _id
  *        required: true
- *        type: string
- *      - name: abstract
- *        in: formData
- *        description: article's summary
- *        type: string
- *        format: textarea
- *      - name: content
- *        in: formData
- *        description: article's content
- *        type: string
- *        format: textarea
- *        required: true
- *      - name: image
- *        in: formData
- *        required: false
- *        type: file
- *      - name: is_active
- *        in: formData
- *        type: boolean
- *        default: false
- *      - name: yt_link_id
- *        in: formData
- *        type: string
- *        description: article's Youtube link id
- *      - name: author
- *        in: formData
- *        type: string
- *        description: author's _id. If the _id is not valid or null, the article won't have a author anymore
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
+ *     requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            required: ['title', 'content']
+ *            properties:
+ *              title:
+ *                type: string
+ *                description: article's title
+ *              abstract:
+ *                type: string
+ *              content:
+ *                type: string
+ *              image:
+ *                type: string
+ *                format: binary
+ *              is_active:
+ *                type: boolean
+ *                default: false
+ *              yt_link_id:
+ *                type: string
+ *                description: article's Youtube link id
+ *              author:
+ *                type: string
+ *                description: author's _id. If the value is not valid or null, the article won't have a author anymore
  *     responses:
  *       200:
  *         description: Updates a specific article
@@ -339,7 +336,8 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *        description: article's _id
  *        required: true
  *        schema:
- *          type: integer
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific article
