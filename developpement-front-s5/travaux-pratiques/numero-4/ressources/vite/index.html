@@ -74,31 +74,31 @@
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
         <section class="note-information">
-            <p>Par défaut, VSCode ne gère pas les fichiers .twig, il faudra installer un plugin gratuit twig via le système d'extensions pour avoir la coloration syntaxique ainsi que l'auto-complétion liée au langage. Et pour avoir l'auto-complétion HTML dans les fichiers .twig, il faudra modifier les réglages de VS Code.</p>
+            <p>Par défaut, VSCode ne gère pas les fichiers .njk, il faudra installer un plugin gratuit <a href="https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks" target="_blank">nunjucks</a> via le système d'extensions pour avoir la coloration syntaxique ainsi que l'auto-complétion liée au langage. Et pour avoir l'auto-complétion HTML dans les fichiers .njk, il faudra modifier les réglages de VS Code.</p>
             <ol>
                 <li>Allez dans le menu File > Preferences > Settings</li>
                 <li>Recherchez "emmet" dans la barre de recherche</li>
-                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "twig" dans la zone "key" et "html" dans la zone "value" (il faut respecter la casse et mettre le tout en minuscules)</li>
+                <li>Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "nunjucks" dans la zone "key" et "html" dans la zone "value" (il faut respecter la casse et mettre le tout en minuscules)</li>
             </ol>
         </section>
 
         <ol class="liste-consignes">
           <li>
-            Ouvrez la console dans le dossier "ressources/vite-twig/" et installez les dépendances avec la commande <code>npm install</code>
+            Ouvrez la console dans le dossier "ressources/vite-njk/" et installez les dépendances avec la commande <code>npm install</code>
             <p class="note-information">Pour ouvrir directement votre dossier dans la console. Vous pouvez le glisser dans VSCode puis aller dans le menu Terminal > New Terminal</p>
           </li>
           <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
           <li>Prenez en main le moteur de template Twig en effectuant les tâches suivantes :
             <ul>
-                <li>Créez et affichez une variable. <a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
-                <li>Utilisez une condition if/else. <a href="https://twig.symfony.com/doc/3.x/tags/if.html" target="_blank" rel="noopener noreferrer">Voir documentation de if/else</a></li>
+                <li>Créez et affichez une variable. <a href="https://mozilla.github.io/nunjucks/templating.html#set" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
+                <li>Utilisez une condition if/else. <a href="https://mozilla.github.io/nunjucks/templating.html#if" target="_blank" rel="noopener noreferrer">Voir documentation de if/else</a></li>
                 <li>
-                    Exportez une partie du code du fichier "index.twig" dans d'autres fichiers "twig" et importez-les grâce à la fonction "include".
-                    <a href="https://twig.symfony.com/doc/3.x/functions/include.html" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction "include".</a>
+                    Exportez une partie du code du fichier "index.njk" dans d'autres fichiers "nunjucks" et importez-les grâce à la fonction "include".
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#include" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction "include".</a>
                     <p class="note-information">Les fichiers qui vont être chargés dans d'autres fichiers doivent être dans le dossier src/components (il peut contenir des sous-dossiers)</p>
                 </li>
                 <li>
-                    Créez un template de base avec des blocks puis faites-en hériter une page "enfant". <a href="https://twig.symfony.com/doc/3.x/tags/extends.html" target="_blank" rel="noopener noreferrer">Voir documentation de extends.</a>
+                    Créez un template de base avec des blocks puis faites-en hériter une page "enfant". <a href="https://mozilla.github.io/nunjucks/templating.html#extends" target="_blank" rel="noopener noreferrer">Voir documentation de extends.</a>
                 </li>
             </ul>
           </li>
@@ -135,7 +135,7 @@
           </li>
           <li>Gérez la couleur de la bulle + la page active dans le menu grâce à une variable Twig
             <ul>
-                <li><a href="https://twig.symfony.com/doc/3.x/tags/set.html" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
+                <li><a href="https://mozilla.github.io/nunjucks/templating.html#set" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
             </ul>
           </li>
           <li>Avec l'aide un autre fichier json, gérez la liste d'articles sur la page d'accueil. A vous de définir la structure en fonction de l'existant.

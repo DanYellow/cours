@@ -1,4 +1,4 @@
-import nunjucks from "@vituum/vite-plugin-twig";
+import nunjucks from "@vituum/vite-plugin-nunjucks";
 import vituum from "vituum";
 
 export default {
