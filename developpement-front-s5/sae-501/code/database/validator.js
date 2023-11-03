@@ -7,9 +7,10 @@ const imageValidator = (image) => {
         return 'Format incorrect uploadé'
     }
 
-    const fileLimit = 1024 * 1024 * 0.8; // 800kB
+    const oneMo = 1024 * 1024
+    const fileLimit = oneMo * 0.8; // 800kB
     if (image.size > fileLimit) {
-        return "Image trop lourde. 800kb maximum"
+        return `Image trop lourde (${(image.size / oneMo).toFixed(2)}MB). 800kb maximum`
     }
 
     return null
