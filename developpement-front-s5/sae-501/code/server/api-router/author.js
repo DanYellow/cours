@@ -62,7 +62,7 @@ router.get(`/${base}`, async (req, res) => {
                     nb_articles: { $size: "$list_articles" },
                 },
             },
-            { $sort: { _id: -1 } },
+            { $sort: { created_at: -1 } },
         ]);
 
         const count = await Author.count();

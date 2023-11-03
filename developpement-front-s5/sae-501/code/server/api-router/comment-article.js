@@ -149,7 +149,7 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                     pipeline: [
                         { $skip: Math.max(page - 1, 0) * perPage},
                         { $limit: perPage },
-                        { $sort: { _id: 1 } },
+                        { $sort: { created_at: 1 } },
                     ]
                 } 
             },
