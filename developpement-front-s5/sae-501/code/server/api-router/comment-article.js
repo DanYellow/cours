@@ -140,7 +140,19 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                     },
                 },
             },
-            { $sort: { _id: 1 } },
+            { 
+                $lookup: { 
+                    from: 'commentarticles', 
+                    localField: 'list_comments', 
+                    foreignField: '_id', 
+                    as: 'list_comments',
+                    pipeline: [
+                        { $skip: Math.max(page - 1, 0) * perPage},
+                        { $limit: perPage },
+                        { $sort: { _id: 1 } },
+                    ]
+                } 
+            },
             {
                 $addFields: {
                     page: page,
@@ -153,15 +165,6 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                 errors: [`L'article "${req.params.id}" n'existe pas`],
             });
         }
-
-        await Article.populate(ressource, [{
-            path: "list_comments",
-            select: ["-article"],
-            options: {
-                perDocumentLimit: perPage,
-                skip: Math.max(page - 1, 0) * perPage,
-            },
-        }]);
 
         res.status(200).json(ressource[0])
     } catch (err) {
