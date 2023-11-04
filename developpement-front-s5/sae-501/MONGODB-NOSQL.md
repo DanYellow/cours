@@ -47,7 +47,7 @@ const saeSchema = new Schema({
 export default mongoose.model("SAE", saeSchema);
 ```
 
-Voici la version simplifiée du schéma d'une SAE dans le projet, dans le fichier original (code/database/models/sae.js) il y a également des règles de validation, très simples à comprendre.
+Voici la version simplifiée du schéma d'une SAE dans le projet, dans le fichier original (`code/database/models/sae.js`). Un schéma peut avoir un type différent de "String" ([voir liste de tous les types](https://mongoosejs.com/docs/schematypes.html)). Il est également possible de valider votre champ grâce à des règles personnalisées.
 
 Une fois notre modèle défini, nous pouvons l'instancier pour créer des documents de type SAE dans notre projet. Exemple : 
 
@@ -108,15 +108,41 @@ router.get(`/saes`, async (req, res) => {
 
     let result = null
     try {
-        // Fait une requête vers l'API pour ensuite injecter le résultat dans un template twig
+        // Fait une requête vers l'API...
         result = await axios(options);
     } catch (e) {}
     
-    res.render("pages/back-end/saes/list.twig", {
+    // ...pour ensuite injecter le résultat dans un template nunkucks
+    res.render("pages/back-end/saes/list.njk", {
         list_saes: result.data,
     });
 });
 ```
+
+Mongoose propose plusieurs manières de requêter la base de données, dépendamment ce que vous souhaitez faire.
+
+### Tout rechercher - Model.find()
+Permet de récupérer tous les éléments correspondants à un critère. La méthode `find()` peut prendre en premier paramètre un objet correspondant aux conditions. Exemple :
+```js
+// Ici on récupère dans notre modèle tous les documents avant la valeur 18 pour la propriété "age"
+await Model.find({ age: 18 });
+```
+
+### Chercher un élément par _id - Model.findById()
+Récupère un élément ayant comme valeur d'_id, l'_id passé en argument. Exemple :
+```js
+// Ici on récupère dans notre modèle ayant pour _id "507f1f77bcf86cd799439011"
+await Model.findById("507f1f77bcf86cd799439011");
+```
+
+### Chercher un élément par critères - Model.findOne()
+Récupère un élément correspondant aux critères passés sous forme d'objet (comme pour `find()`). Exemple :
+```js
+// Ici on récupère le première modèle ayant comme valeur "Croatia" pour le champ "country" et "mmi" pour le champ "formation"
+await MyModel.findOne({ country: 'Croatia', formation: "mmi" });
+```
+
+- [Accéder à la liste des requêtes](https://mongoosejs.com/docs/queries.html)
 
 Les requêtes d'API du projet sont testables grâce au logiciel gratuit Postman, une collection de requêtes sont présentes dans le fichier "SAE501.postman_collection.json". Vous en saurez plus sur l'utilisation de Postman avec les explications associées.
 - [Voir explications sur l'utilisation de Postman](./POSTMAN.md)
