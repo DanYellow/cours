@@ -110,7 +110,7 @@ Retenez deux choses :
 C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
 
 ### src/components/
-Il contient vos blocs nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier (font ou back-end).
+Il contient vos blocs nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier (front ou back-end).
 
 ### src/data/
 Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu. 
@@ -118,7 +118,7 @@ Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier 
 Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.nunjucks -> contact.njk.json.
 
 ### src/layouts/
-Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend et backend du site respective. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
+Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend et backend du site respectivement. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
 
 ### src/pages/
 Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous les appelerez dans vos routes.
