@@ -72,6 +72,7 @@ router.get(`/${base}`, async (req, res) => {
         total_pages: Math.ceil(count / perPage),
         count,
         page,
+        query_params: req.query,
     })
 });
 

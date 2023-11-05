@@ -73,6 +73,7 @@ router.get(`/${base}`, async (req, res) => {
             total_pages: isFinite(total_pages) ? total_pages : 1,
             count,
             page,
+            query_params: req.query,
         });
     } catch (e) {
         res.status(400).json({
