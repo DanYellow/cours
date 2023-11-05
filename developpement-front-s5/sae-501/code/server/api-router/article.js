@@ -119,15 +119,46 @@ router.get(`/${base}/:id`, async (req, res) => {
                 }
             },
             { $unset: "list_comments" },
+            { 
+                $lookup: { 
+                    from: 'authors', 
+                    localField: 'author', 
+                    foreignField: '_id', 
+                    as: 'author',
+                } 
+            },
+            { $unwind: {
+                path: "$author",
+                preserveNullAndEmptyArrays: true
+              }
+            },
+            {
+                $addFields: {
+                    "author.nb_articles": {
+                        $cond: [
+                            { $not: ["$author.list_articles"] },
+                            "$$REMOVE",
+                            { $size: "$author.list_articles" }
+                        ]
+                    }
+                }
+            },
+            {
+                $set: {
+                    author: {
+                        $cond: [
+                            { $not: ["$author.list_articles"] },
+                            null,
+                            "$author",
+                        ]
+                    }
+                }
+            },
+            { $unset: "author.list_articles" },
         ])
-    
-        const ressourceWithAuthor = await Author.populate(ressource, {
-            path: "author",
-            model: 'Author',
-        })
 
-        if(ressourceWithAuthor?.[0]) {
-            return res.status(200).json(ressourceWithAuthor?.[0])
+        if(ressource?.[0]) {
+            return res.status(200).json(ressource[0])
         }
         return res.status(404).json({
             errors: [`L'article "${req.params.id}" n'existe pas`],

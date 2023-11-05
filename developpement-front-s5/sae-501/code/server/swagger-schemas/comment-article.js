@@ -13,11 +13,11 @@ const commentArticle = {
         },
         created_at: {
             type: "string",
-            format: "date",
+            format: "date-time",
         },
         updatedAt: {
             type: "string",
-            format: "date",
+            format: "date-time",
         },
     },
 };

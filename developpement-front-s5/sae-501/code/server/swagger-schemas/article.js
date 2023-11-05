@@ -25,15 +25,15 @@ const article = {
         },
         author: {
             type: "string",
-            pattern: "([0-9a-f]{24})",
+            $ref: '#/components/schemas/Author'
         },
         created_at: {
             type: "string",
-            format: "date",
+            format: "date-time",
         },
         updated_at: {
             type: "string",
-            format: "date",
+            format: "date-time",
         },
         nb_comments: {
             type: "integer",
