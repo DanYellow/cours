@@ -10,6 +10,7 @@ const commentArticle = {
         },
         article: {
             type: "string",
+            pattern: "([0-9a-f]{24})",
         },
         created_at: {
             type: "string",
@@ -31,7 +32,7 @@ export default {
             type: "string",
             pattern: "([0-9a-f]{24})",
         },
-        nb_comments: {
+        count: {
             type: "integer",
         },
         total_pages: {

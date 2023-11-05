@@ -111,51 +111,7 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get(`/${base}/:id`, async (req, res) => {
     try {
-        const ressource = await Article.aggregate([
-            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
-            {
-                $addFields: {
-                   nb_comments: { $size: "$list_comments" }
-                }
-            },
-            { $unset: "list_comments" },
-            { 
-                $lookup: { 
-                    from: 'authors', 
-                    localField: 'author', 
-                    foreignField: '_id', 
-                    as: 'author',
-                } 
-            },
-            { $unwind: {
-                path: "$author",
-                preserveNullAndEmptyArrays: true
-              }
-            },
-            {
-                $addFields: {
-                    "author.nb_articles": {
-                        $cond: [
-                            { $not: ["$author.list_articles"] },
-                            "$$REMOVE",
-                            { $size: "$author.list_articles" }
-                        ]
-                    }
-                }
-            },
-            {
-                $set: {
-                    author: {
-                        $cond: [
-                            { $not: ["$author.list_articles"] },
-                            null,
-                            "$author",
-                        ]
-                    }
-                }
-            },
-            { $unset: "author.list_articles" },
-        ])
+        const ressource = await getDetailsArticle(new mongoose.Types.ObjectId(req.params.id))
 
         if(ressource?.[0]) {
             return res.status(200).json(ressource[0])
@@ -244,14 +200,16 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         delete computedBody.author
     }
 
-    let ressource = new Article({ ...computedBody, ...imagePayload });
+    const ressource = new Article({ ...computedBody, ...imagePayload });
 
     try {
         await ressource.save()
+        const ressourceComputed = await getDetailsArticle(ressource._id)
+
         if(req.body.author) {
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
         }
-        res.status(201).json(ressource)
+        res.status(201).json(ressourceComputed[0])
     } catch (err) {
         res.status(400).json({
             errors: [
@@ -347,7 +305,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     }
 
     try {
-        let ressource = await Article.findById(req.params.id, ["-list_comments"])
+        let ressource = await Article.findById(req.params.id)
         
         if(Object.keys(imagePayload).length) {
             ressource.image = imagePayload.image
@@ -366,7 +324,9 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
         await ressource.save();
 
-        res.status(200).json(ressource)
+        const ressourceComputed = await getDetailsArticle(ressource._id)
+
+        res.status(200).json(ressourceComputed[0])
     } catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
@@ -445,5 +405,57 @@ router.delete(`/${base}/:id`, async (req, res) => {
         return res.status(400).json({errors: ["Quelque chose s'est mal passé"]})
     }
 });
+
+const getDetailsArticle = async (id) => {
+    const ressource = await Article.aggregate([
+        { $match: { _id: id } },
+        {
+            $addFields: {
+               nb_comments: { $size: "$list_comments" }
+            }
+        },
+        { $unset: "list_comments" },
+        { 
+            $lookup: { 
+                from: 'authors', 
+                localField: 'author', 
+                foreignField: '_id', 
+                as: 'author',
+            } 
+        },
+        { 
+            $unwind: {
+                path: "$author",
+                preserveNullAndEmptyArrays: true
+            }
+        },
+        {
+            $addFields: {
+                "author.nb_articles": {
+                    // https://stackoverflow.com/questions/14213636/conditional-grouping-with-exists-inside-cond
+                    $cond: [
+                        { $not: ["$author.list_articles"] },
+                        "$$REMOVE",
+                        { $size: "$author.list_articles" }
+                    ]
+                }
+            }
+        },
+        {
+            $set: {
+                author: {
+                    $cond: [
+                        { $not: ["$author.list_articles"] },
+                        null,
+                        "$author",
+                    ]
+                }
+            }
+        },
+        { $unset: "author.list_articles" },
+    ])
+
+    return ressource;
+}
 
 export default router;

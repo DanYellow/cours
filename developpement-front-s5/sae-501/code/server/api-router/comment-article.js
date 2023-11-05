@@ -132,7 +132,7 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
             {
                 $project: {
                     list_comments: 1,
-                    nb_comments: { $size: "$list_comments" },
+                    count: { $size: "$list_comments" },
                     total_pages: {
                         $ceil: {
                             $divide: [{ $size: "$list_comments" }, perPage],
@@ -147,9 +147,9 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                     foreignField: '_id', 
                     as: 'list_comments',
                     pipeline: [
+                        { $sort: { created_at: 1 } },
                         { $skip: Math.max(page - 1, 0) * perPage},
                         { $limit: perPage },
-                        { $sort: { created_at: 1 } },
                     ]
                 } 
             },
