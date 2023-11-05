@@ -139,9 +139,9 @@ await Model.findById("507f1f77bcf86cd799439011");
 Récupère un élément correspondant aux critères passés sous forme d'objet (comme pour `find()`). Exemple :
 ```js
 // Ici on récupère le première modèle ayant comme valeur "Croatia" pour le champ "country" et "mmi" pour le champ "formation"
-await MyModel.findOne({ country: 'Croatia', formation: "mmi" });
+await Model.findOne({ country: 'Croatia', formation: "mmi" });
 ```
-
+> Si jamais vous souhaitez appliquer un "OU" dans vos conditions, il faudra appliquer la méthode [`or()`](https://mongoosejs.com/docs/api/query.html#Query.prototype.or()) ou le mot-clé [$or](https://www.mongodb.com/docs/manual/reference/operator/query/or/) dans une des méthodes `find`.
 - [Accéder à la liste des requêtes](https://mongoosejs.com/docs/queries.html)
 
 Les requêtes d'API du projet sont testables grâce au logiciel gratuit Postman, une collection de requêtes sont présentes dans le fichier "SAE501.postman_collection.json". Vous en saurez plus sur l'utilisation de Postman avec les explications associées.
