@@ -79,7 +79,6 @@ router.get(`/${base}`, async (req, res) => {
             ]
         })
     }
-    
 });
 
 /**

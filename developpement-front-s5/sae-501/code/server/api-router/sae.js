@@ -49,31 +49,29 @@ router.get(`/${base}`, async (req, res) => {
     // Clamps the value between 1 and 20
     perPage = Math.min(Math.max(perPage, 1), 20);
 
-    const listRessources = await SAE.find()
-        .skip(Math.max(page - 1, 0) * perPage)
-        .limit(perPage)
-        .sort({ _id: -1 })
-        .lean()
-        .orFail()
-        .catch((e) => {
-            res.status(400).json({
-                errors: [
-                    ...Object.values(
-                        e?.errors || [{ message: "Il y a eu un problème" }]
-                    ).map((val) => val.message),
-                ],
-            });
-        });
+    try {
+        const listRessources = await SAE.aggregate([
+            { "$skip": Math.max(page - 1, 0) * perPage },
+            { "$limit": perPage },
+            { $sort : { _id : -1 } }
+        ])
 
-    const count = await SAE.count();
-
-    return res.status(200).json({
-        data: listRessources,
-        total_pages: Math.ceil(count / perPage),
-        count,
-        page,
-        query_params: req.query,
-    })
+        const count = await SAE.count();
+    
+        res.status(200).json({
+            data: listRessources,
+            total_pages: Math.ceil(count / perPage),
+            count,
+            page,
+            query_params: req.query,
+        })
+    } catch (e) {
+        res.status(400).json({
+            errors: [
+                ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
+            ]
+        })
+    }
 });
 
 /**
