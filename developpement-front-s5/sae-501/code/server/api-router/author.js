@@ -45,18 +45,18 @@ const base = "authors";
  *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = req.query.page || 1;
+    const page = Math.max(1, req.query.page || 1);
     const perPage = req.query.per_page;
 
     try {
         const listRessources = await Author.aggregate([
-            ...(perPage ? [{ $skip: Math.max(page - 1, 0) * perPage }] : []),
-            ...(perPage ? [{ $limit: perPage }] : []),
+            ...(perPage ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }] : []),
+            ...(perPage ? [{ $limit: Number(perPage) }] : []),
             {
                 $project: {
                     _id: 1,
                     lastname: 1,
-                    firstname: 1,
+                    firstname: 1, 
                     image: 1,
                     bio: 1,
                     nb_articles: { $size: "$list_articles" },
