@@ -28,7 +28,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const port = envVars?.parsed?.PORT || 3000;
-const hostip = (process.env.NODE_ENV === "development") ? ip.address() : undefined;
+const hostip = ip.address();
 const app = express();
 
 mongoServer().then((res) => {

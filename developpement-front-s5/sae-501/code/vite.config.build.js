@@ -1,5 +1,6 @@
 import tailwindcss from "@vituum/vite-plugin-tailwindcss";
 import path from "path";
+import fs from "fs";
 import { build } from "vite";
 import { fileURLToPath } from "url";
 
@@ -9,6 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const createBuilds = () => {
+    fs.rmSync(path.resolve(__dirname, "dist"), { recursive: true, force: true });
+
   const imports = [
     {
       name: "frontend",
@@ -20,13 +23,13 @@ const createBuilds = () => {
     },
   ];
 
-  imports.forEach(async ({ name, path }, idx) => {
-    const manifestName = `manifest.${name}.json`;
+  imports.forEach(async ({ name, path }) => {
+    const manifestName = `${name}.manifest.json`;
 
     await build({
       configFile: false,
       build: {
-        emptyOutDir: true,
+        emptyOutDir: false,
         manifest: manifestName,
         lib: {
           entry: path,

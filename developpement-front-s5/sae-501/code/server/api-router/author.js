@@ -159,6 +159,7 @@ router.get(`/${base}/:id`, async (req, res) => {
                     foreignField: '_id', 
                     as: 'list_articles',
                     pipeline: [
+                        { $sort: { created_at: -1 } },
                         { $skip: Math.max(page - 1, 0) * perPage},
                         { $limit: perPage }
                     ]
