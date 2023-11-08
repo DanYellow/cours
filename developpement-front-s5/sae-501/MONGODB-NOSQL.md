@@ -11,6 +11,8 @@ Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a 
 - [En savoir plus sur le NoSQL](https://www.oracle.com/fr/database/nosql/what-is-nosql)
 - [MongoDB Schema Design Best Practices](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/)
 
+# Installation
+
 Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très utilisé dans le monde professionnel et open source), l'outil n'étant pas natif, il faudra l'installer.
 - [Télécharger MongoDB](https://www.mongodb.com/try/download/community)
 > Notes pour les utilisateurs de MacOS :
@@ -20,6 +22,8 @@ Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très
 Et pour visualiser votre base NoSQL, un peu comme PhpMyAdmin, nous vous conseillons le logiciel MongoDB Compass, il est gratuit
 - [Télécharger MongoDB Compass](https://www.mongodb.com/try/download/compass)
     - Il faut télécharger "MongoDB Compass Download (GUI)", il faut défiler un peu sur la page pour trouver le lien
+
+# Base de données et requêtes - suite
 
 Une base MongoDB s'articule autour de collections ("équivalent" de tables en SGBDR). Le projet de la SAE en contient cinq que voici :
 
@@ -127,7 +131,7 @@ Mongoose propose plusieurs manières de requêter la base de données, dépendam
 ### Tout rechercher - Model.find()
 Permet de récupérer tous les éléments correspondants à un critère. La méthode `find()` peut prendre en premier paramètre un objet correspondant aux conditions. Exemple :
 ```js
-// Ici on récupère dans notre modèle tous les documents avant la valeur 18 pour la propriété "age"
+// Ici on récupère dans notre modèle tous les documents ayant la valeur 18 pour la propriété "age"
 await Model.find({ age: 18 });
 ```
 
@@ -136,6 +140,10 @@ Récupère un élément ayant comme valeur d'_id, l'_id passé en argument. Exem
 ```js
 // Ici on récupère dans notre modèle ayant pour _id "507f1f77bcf86cd799439011"
 await Model.findById("507f1f77bcf86cd799439011");
+```
+A noter que dans certains cas, passer un _id sous forme de chaîne de caractères ne fonctionne pas. Il faudra caster cette chaîne en ObjectId grâce au constructeur `new mongoose.Types.ObjectId()`.
+```js
+await Model.findById(new mongoose.Types.ObjectId("507f1f77bcf86cd799439011"));
 ```
 
 ### Chercher un élément par critères - Model.findOne()

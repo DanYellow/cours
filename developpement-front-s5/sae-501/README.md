@@ -133,7 +133,8 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
 ## Mise en place
 
 ### Pré-requis
-- node >= 18 
+- node >= 18
+- mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md) pour l'installation)
 
 ### Installation
 1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)

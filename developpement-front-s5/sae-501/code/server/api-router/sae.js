@@ -271,6 +271,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
         } else {
+            // Object.fromEntries(Object.entries({ title: '', content: 'Hello' }).filter(([_, v]) => v != null && v.length));
             res.status(400).json({ 
                 errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 
                 ressource: { ...oldRessource, ...req.body }
