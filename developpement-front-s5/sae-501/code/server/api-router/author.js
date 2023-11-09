@@ -1,6 +1,7 @@
 import express from "express";
 import fs from "fs";
 import mongoose from "mongoose";
+import querystring from "querystring";
 
 import Author from "#models/author.js";
 
@@ -87,12 +88,15 @@ router.get(`/${base}`, async (req, res) => {
         );
         const total_pages = Math.ceil(count / perPage);
 
+        const queryParam = {...req.query}
+        delete queryParam.page
+
         res.status(200).json({
             data: listRessources,
             total_pages: isFinite(total_pages) ? total_pages : 1,
             count,
             page,
-            query_params: req.query,
+            query_params: querystring.stringify(queryParam),
         });
     } catch (e) {
         res.status(400).json({

@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import fs from "fs";
+import querystring from "querystring";
 
 import SAE from '#models/sae.js';
 
@@ -77,13 +78,16 @@ router.get(`/${base}`, async (req, res) => {
         const count = await SAE.count(
             (listIds.length ? {_id: {$in: listIds}} : null)
         );
+
+        const queryParam = {...req.query}
+        delete queryParam.page
     
         res.status(200).json({
             data: listRessources,
             total_pages: Math.ceil(count / perPage),
             count,
             page,
-            query_params: req.query,
+            query_params: querystring.stringify(queryParam),
         })
     } catch (e) {
         res.status(400).json({

@@ -1,5 +1,6 @@
 import express from "express";
 import fs from "fs";
+import querystring from "querystring";
 
 import Article from '#models/article.js';
 import Author from '#models/author.js';
@@ -73,13 +74,16 @@ router.get(`/${base}`, async (req, res) => {
         const count = await Article.count(
             (listIds.length ? { _id: { $in: listIds } } : null)
         );
+
+        const queryParam = {...req.query}
+        delete queryParam.page
     
         res.status(200).json({
             data: listRessources,
             total_pages: Math.ceil(count / perPage),
             count,
             page,
-            query_params: req.query,
+            query_params: querystring.stringify(queryParam),
         })
     } catch (e) {
         res.status(400).json({
