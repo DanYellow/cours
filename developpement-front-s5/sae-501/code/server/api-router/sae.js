@@ -65,7 +65,7 @@ router.get(`/${base}`, async (req, res) => {
     }    
 
     listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
-
+    
     try {
         const listRessources = await SAE.aggregate([
             ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),

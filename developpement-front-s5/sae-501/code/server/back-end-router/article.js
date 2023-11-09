@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import mongoose from "mongoose";
+import querystring from "querystring";
 
 import upload from "../uploader.js";
 
@@ -9,7 +10,7 @@ const router = express.Router();
 
 // Get multiple articles
 router.get(`/${base}`, async (req, res) => {
-    const queryParams = new URLSearchParams(req.query).toString();
+    const queryParams = querystring.stringify(req.query);
     let options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
