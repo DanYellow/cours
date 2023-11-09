@@ -64,7 +64,7 @@ router.get(`/${base}`, async (req, res) => {
         listIds = [listIds]
     }    
 
-    listIds = (listIds || []).map((item) => new mongoose.Types.ObjectId(item))
+    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
 
     try {
         const listRessources = await Article.aggregate([
@@ -81,7 +81,7 @@ router.get(`/${base}`, async (req, res) => {
         ])
     
         const count = await Article.count(
-            (listIds.length ? {_id: {$in: listIds}} : null)
+            (listIds.length ? { _id: { $in: listIds } } : null)
         );
     
         res.status(200).json({
