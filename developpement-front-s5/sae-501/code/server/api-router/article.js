@@ -418,10 +418,14 @@ router.delete(`/${base}/:id`, async (req, res) => {
 
 const getArticles = async (id, queryParams = {}, isArray = false) => {
     const ressource = await Article.aggregate([
-        // { $match: { _id: id } },
-        ...(isArray ? [{ $match: { _id: { $in: id } }}] : [{ $match: { _id: id } }]),
-        ...(isArray ? [{ "$skip": Math.max(queryParams.page - 1, 0) * queryParams.perPage }] : []),
-        ...(isArray ? [{ "$limit": queryParams.perPage }] : []),
+        ...(isArray ? [
+            ...(id.length ? { $match: { _id: { $in: id } }} : [])
+        ] : 
+            [{ $match: { _id: id } }]
+        ),
+        ...(isArray ? [{ $sort : { _id : -1 } }] : []),
+        ...(isArray ? [{ $skip: Math.max(queryParams.page - 1, 0) * queryParams.perPage }] : []),
+        ...(isArray ? [{ $limit: queryParams.perPage }] : []),
         {
             $addFields: {
                nb_comments: { $size: "$list_comments" }
