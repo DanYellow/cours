@@ -67,56 +67,10 @@ router.get(`/${base}`, async (req, res) => {
     listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
 
     try {
-        const listRessources = await Article.aggregate([
-            ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
-            { $sort : { _id : -1 } },
-            { "$skip": Math.max(page - 1, 0) * perPage },
-            { "$limit": perPage },
-            {
-                $addFields: {
-                    nb_comments: { $size: "$list_comments" }
-                }
-            },
-            { $unset: "list_comments" },
-            { 
-                $lookup: { 
-                    from: 'authors', 
-                    localField: 'author', 
-                    foreignField: '_id', 
-                    as: 'author',
-                } 
-            },
-            { 
-                $unwind: {
-                    path: "$author",
-                    preserveNullAndEmptyArrays: true
-                }
-            },
-            {
-                $addFields: {
-                    "author.nb_articles": {
-                        $cond: [
-                            { $not: ["$author.list_articles"] },
-                            "$$REMOVE",
-                            { $size: "$author.list_articles" }
-                        ]
-                    }
-                }
-            },
-            {
-                $set: {
-                    author: {
-                        $cond: [
-                            { $not: ["$author.list_articles"] },
-                            null,
-                            "$author",
-                        ]
-                    }
-                }
-            },
-            { $unset: "author.list_articles" },
-        ])
-    
+        const listRessources = await getArticles(
+            listIds.length ? listIds : [], {page, perPage}, true
+        )
+
         const count = await Article.count(
             (listIds.length ? { _id: { $in: listIds } } : null)
         );
@@ -129,7 +83,6 @@ router.get(`/${base}`, async (req, res) => {
             query_params: req.query,
         })
     } catch (e) {
-        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
@@ -168,7 +121,7 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get(`/${base}/:id`, async (req, res) => {
     try {
-        const ressource = await getDetailsArticle(new mongoose.Types.ObjectId(req.params.id))
+        const ressource = await getArticles(new mongoose.Types.ObjectId(req.params.id))
 
         if(ressource?.[0]) {
             return res.status(200).json(ressource[0])
@@ -261,7 +214,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     try {
         await ressource.save()
-        const ressourceComputed = await getDetailsArticle(ressource._id)
+        const ressourceComputed = await getArticles(ressource._id)
 
         if(req.body.author) {
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
@@ -381,7 +334,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
         await ressource.save();
 
-        const ressourceComputed = await getDetailsArticle(ressource._id)
+        const ressourceComputed = await getArticles(ressource._id)
 
         res.status(200).json(ressourceComputed[0])
     } catch (err) {
@@ -463,9 +416,12 @@ router.delete(`/${base}/:id`, async (req, res) => {
     }
 });
 
-const getDetailsArticle = async (id) => {
+const getArticles = async (id, queryParams = {}, isArray = false) => {
     const ressource = await Article.aggregate([
-        { $match: { _id: id } },
+        // { $match: { _id: id } },
+        ...(isArray ? [{ $match: { _id: { $in: id } }}] : [{ $match: { _id: id } }]),
+        ...(isArray ? [{ "$skip": Math.max(queryParams.page - 1, 0) * queryParams.perPage }] : []),
+        ...(isArray ? [{ "$limit": queryParams.perPage }] : []),
         {
             $addFields: {
                nb_comments: { $size: "$list_comments" }
