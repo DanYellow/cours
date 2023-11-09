@@ -55,6 +55,9 @@ export default {
         page: {
             type: "integer",
         },
+        query_params: {
+            type: "string",
+        },
         data: {
             type: "array",
             items: article,
