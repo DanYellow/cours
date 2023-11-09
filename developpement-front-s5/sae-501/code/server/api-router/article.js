@@ -63,9 +63,8 @@ router.get(`/${base}`, async (req, res) => {
     if(req.query.id && !Array.isArray(req.query.id)) {
         listIds = [listIds]
     }    
-
     listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
-
+    
     try {
         const listRessources = await getArticles(
             listIds.length ? listIds : [], {page, perPage}, true
@@ -419,7 +418,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
 const getArticles = async (id, queryParams = {}, isArray = false) => {
     const ressource = await Article.aggregate([
         ...(isArray ? [
-            ...(id.length ? { $match: { _id: { $in: id } }} : [])
+            ...(id.length ? [{ $match: { _id: { $in: id } }}] : [])
         ] : 
             [{ $match: { _id: id } }]
         ),
