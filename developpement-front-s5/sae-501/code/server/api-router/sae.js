@@ -51,7 +51,7 @@ const base = "saes";
  *            type: string
  *            pattern: '([0-9a-f]{24})'
  *          example: 7
- *        description: List of SAEs' _id
+ *        description: List of SAEs' _id. **Invalid ids will be skipped.**
  */
 router.get(`/${base}`, async (req, res) => {
     const page = Math.max(1, req.query.page || 1);

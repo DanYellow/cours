@@ -38,7 +38,7 @@ const base = "authors";
  *          items:
  *            type: string
  *            pattern: '([0-9a-f]{24})'
- *        description: List of authors' _id
+ *        description: List of authors' _id. **Invalid ids will be skipped.**
  *     responses:
  *      200:
  *         description: Get all authors

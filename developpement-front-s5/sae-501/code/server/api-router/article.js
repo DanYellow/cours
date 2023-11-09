@@ -39,7 +39,7 @@ const base = "articles";
  *          items:
  *            type: string
  *            pattern: '([0-9a-f]{24})'
- *        description: List of articles' _id
+ *        description: List of articles' _id. **Invalid ids will be skipped.**
  *     responses:
  *       200:
  *         description: Returns all articles
@@ -78,6 +78,43 @@ router.get(`/${base}`, async (req, res) => {
                 }
             },
             { $unset: "list_comments" },
+            { 
+                $lookup: { 
+                    from: 'authors', 
+                    localField: 'author', 
+                    foreignField: '_id', 
+                    as: 'author',
+                } 
+            },
+            { 
+                $unwind: {
+                    path: "$author",
+                    preserveNullAndEmptyArrays: true
+                }
+            },
+            {
+                $addFields: {
+                    "author.nb_articles": {
+                        $cond: [
+                            { $not: ["$author.list_articles"] },
+                            "$$REMOVE",
+                            { $size: "$author.list_articles" }
+                        ]
+                    }
+                }
+            },
+            {
+                $set: {
+                    author: {
+                        $cond: [
+                            { $not: ["$author.list_articles"] },
+                            null,
+                            "$author",
+                        ]
+                    }
+                }
+            },
+            { $unset: "author.list_articles" },
         ])
     
         const count = await Article.count(
@@ -92,6 +129,7 @@ router.get(`/${base}`, async (req, res) => {
             query_params: req.query,
         })
     } catch (e) {
+        console.log(e)
         res.status(400).json({
             errors: [
                 ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
