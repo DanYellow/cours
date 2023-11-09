@@ -55,33 +55,26 @@ router.get(`/${base}`, async (req, res) => {
     }    
 
     listIds = (listIds || []).map((item) => new mongoose.Types.ObjectId(item))
+
     try {
         const listRessources = await SAE.aggregate([
             ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
             { $sort : { _id : -1 } },
-            { $group: { _id: null, count: { $sum: 1 }, data: { $push: "$$ROOT"} } },
-            { $addFields: { 
-                page,
-                query_params: req.query,
-                total_pages: {
-                    $ceil: {
-                        $divide: [{ $size: "$data" }, perPage],
-                    },
-                }
-            }},
-            { 
-                $project: { 
-                    count: 1,
-                    query_params: 1,
-                    page: 1,
-                    total_pages: 1,
-                    data: { $slice: [ "$data", Math.max(page - 1, 0) * perPage, perPage ] },
-                } 
-            },
-            { $unset: [ "_id" ] },
+            { "$skip": Math.max(page - 1, 0) * perPage },
+            { "$limit": perPage },
         ])
 
-        res.status(200).json(listRessources[0])
+        const count = await SAE.count(
+            (listIds.length ? {_id: {$in: listIds}} : null)
+        );
+    
+        res.status(200).json({
+            data: listRessources,
+            total_pages: Math.ceil(count / perPage),
+            count,
+            page,
+            query_params: req.query,
+        })
     } catch (e) {
         res.status(400).json({
             errors: [
