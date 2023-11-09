@@ -42,6 +42,16 @@ const base = "saes";
  *          type: integer
  *          example: 7
  *        description: Number of items per page. Max 20
+ *      - in: query
+ *        name: id
+ *        required: false
+ *        schema:
+ *          type: array
+ *          items:
+ *            type: string
+ *            pattern: '([0-9a-f]{24})'
+ *          example: 7
+ *        description: List of SAEs' _id
  */
 router.get(`/${base}`, async (req, res) => {
     const page = Math.max(1, req.query.page || 1);

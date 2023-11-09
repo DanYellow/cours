@@ -30,6 +30,15 @@ const base = "authors";
  *          type: integer
  *          example: 7
  *        description: Number of items per page.
+ *      - in: query
+ *        name: id
+ *        required: false
+ *        schema:
+ *          type: array
+ *          items:
+ *            type: string
+ *            pattern: '([0-9a-f]{24})'
+ *        description: List of authors' _id
  *     responses:
  *      200:
  *         description: Get all authors
@@ -48,8 +57,17 @@ router.get(`/${base}`, async (req, res) => {
     const page = Math.max(1, req.query.page || 1);
     const perPage = req.query.per_page;
 
+    let listIds = req.query?.id 
+    if(req.query.id && !Array.isArray(req.query.id)) {
+        listIds = [listIds]
+    }    
+
+    listIds = (listIds || []).map((item) => new mongoose.Types.ObjectId(item))
+
     try {
         const listRessources = await Author.aggregate([
+            ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
+            { $sort: { created_at: -1 } },
             ...(perPage ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }] : []),
             ...(perPage ? [{ $limit: Number(perPage) }] : []),
             {
@@ -62,10 +80,11 @@ router.get(`/${base}`, async (req, res) => {
                     nb_articles: { $size: "$list_articles" },
                 },
             },
-            { $sort: { created_at: -1 } },
         ]);
 
-        const count = await Author.count();
+        const count = await Author.count(
+            (listIds.length ? { _id: { $in: listIds } } : null)
+        );
         const total_pages = Math.ceil(count / perPage);
 
         res.status(200).json({

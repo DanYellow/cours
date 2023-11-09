@@ -31,6 +31,15 @@ const base = "articles";
  *          type: integer
  *          example: 7
  *        description: Number of items per page. Max 20
+ *      - in: query
+ *        name: id
+ *        required: false
+ *        schema:
+ *          type: array
+ *          items:
+ *            type: string
+ *            pattern: '([0-9a-f]{24})'
+ *        description: List of articles' _id
  *     responses:
  *       200:
  *         description: Returns all articles
@@ -50,8 +59,17 @@ router.get(`/${base}`, async (req, res) => {
     let perPage = req.query.per_page || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
 
+    let listIds = req.query?.id 
+    if(req.query.id && !Array.isArray(req.query.id)) {
+        listIds = [listIds]
+    }    
+
+    listIds = (listIds || []).map((item) => new mongoose.Types.ObjectId(item))
+
     try {
         const listRessources = await Article.aggregate([
+            ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
+            { $sort : { _id : -1 } },
             { "$skip": Math.max(page - 1, 0) * perPage },
             { "$limit": perPage },
             {
@@ -60,10 +78,11 @@ router.get(`/${base}`, async (req, res) => {
                 }
             },
             { $unset: "list_comments" },
-            { $sort : { _id : -1 } }
         ])
     
-        const count = await Article.count();
+        const count = await Article.count(
+            (listIds.length ? {_id: {$in: listIds}} : null)
+        );
     
         res.status(200).json({
             data: listRessources,
