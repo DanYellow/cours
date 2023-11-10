@@ -15,4 +15,6 @@
         "
         name="{{ name }}"
     />
+    <button type="button" class="text-sm rounded-full block py-2 px-4 border-sky-500 text-slate-500 bg-blue-50" data-clipboard-upload="{{ name }}">Coller depuis le presse-papier</button>
+    <span class="mt-1 text-sm text-slate-500" id="file_input_help">{{ accepts }} (taille max. 800kB).</span>
 {% endmacro %}
