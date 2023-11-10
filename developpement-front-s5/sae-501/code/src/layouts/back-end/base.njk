@@ -31,9 +31,9 @@
 			<main class="w-full"> {% block main %}{% endblock %}</main>
 		</div>
 
-        <div data-deletion-modal class="hidden relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div data-deletion-modal class="hidden relative z-10">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
-                <div class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0"  aria-labelledby="modal-title" role="dialog" aria-modal="true">
                     <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
                         <div class="p-4 text-center sm:mt-0 sm:text-left">
                             <p data-error-modal class="hidden rounded-lg p-4 bg-red-100 text-red-800 border-solid border-x border-y border-red-700 mb-3"></p>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="bg-gray-50 p-4 sm:flex sm:flex-row-reverse sm:px-6">
                             <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" data-delete-item>Supprimer</button>
-                            <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" data-close-modal>Cancel</button>
+                            <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" data-close-modal>Annuler</button>
                         </div>
                     </div>
                 </div>
