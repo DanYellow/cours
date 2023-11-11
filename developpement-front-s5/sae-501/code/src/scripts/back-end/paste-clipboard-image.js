@@ -18,6 +18,8 @@ const pasteClipboard = async (e) => {
 
         inputFile.files = container.files
         inputFile.dispatchEvent(new Event('change'))
+    } else {
+        alert("Image non trouvée dans le presse-papier")
     }
 }
 
