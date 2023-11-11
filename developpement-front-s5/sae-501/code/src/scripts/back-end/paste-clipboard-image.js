@@ -1,6 +1,8 @@
 const listClipboardUploadButton = document.querySelectorAll("[data-clipboard-upload]")
 
-const pasteClipboard = async (e) => {   
+const pasteClipboard = async (e) => {
+    console.log(e.target)
+    console.log(e.currentTarget)  
     const element = e.target;
     const name = element.dataset.clipboardUpload;
 
@@ -40,7 +42,6 @@ const getClipboardPermission = async (e) => {
         alert(error.message);
     }
 }
-
 
 listClipboardUploadButton.forEach((item) => {
     if(!navigator.clipboard?.read) {

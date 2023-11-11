@@ -181,7 +181,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Respecter les normes d'accessibilité web
 - [ ] Ajouter une validation côté client des formulaires
-    - Vous pouvez utiliser un outil comme validator.js. [Voir exemples](https://github.com/jaywcjlove/validator.js)
+    - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
@@ -245,7 +245,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
-    - Vous pouvez utiliser un outil comme [validator.js(https://github.com/validatorjs/validator.js)] (déjà installé, voir `code/database/models/author.js`)
+    - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 
 # FAQ - Foire Aux Questions
