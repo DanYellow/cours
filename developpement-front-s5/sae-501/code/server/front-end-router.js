@@ -3,10 +3,6 @@ import path from "path";
 import axios from "axios";
 import fs from "fs/promises";
 
-// Models
-import SAE from "#models/sae.js";
-import Article from "#models/article.js";
-
 const router = express.Router();
 
 router.use(async (_req, res, next) => {

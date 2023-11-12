@@ -12,23 +12,6 @@ import ArticleRouter from './article.js'
 
 const router = express.Router();
 
-router.use(SAERouter)
-router.use(ArticleRouter)
-
-router.use(async (_req, res, next) => {
-    const originalRender = res.render;
-    res.render = async function (view, local, callback) {
-        const manifest = {
-            manifest: await parseManifest(),
-        };
-
-        const args = [view, { ...local, ...manifest }, callback];
-        originalRender.apply(this, args);
-    };
-
-    next();
-});
-
 const parseManifest = async () => {
     if (process.env.NODE_ENV !== "production") {
         return {};
@@ -44,7 +27,26 @@ const parseManifest = async () => {
     return JSON.parse(manifestFile);
 };
 
-router.get("/", async (req, res) => {
+
+router.use(async (_req, res, next) => {
+    const originalRender = res.render;
+    res.render = async function (view, local, callback) {
+        const manifest = {
+            manifest: await parseManifest(),
+        };
+
+        const args = [view, { ...local, ...manifest }, callback];
+        originalRender.apply(this, args);
+    };
+
+    next();
+});
+
+router.use(SAERouter)
+router.use(ArticleRouter)
+
+
+router.get("/", async (_req, res) => {
     const listSAEs = await SAE.find().limit(5).sort({ _id: -1 }).lean();
     const countSAEs = await SAE.count();
 
