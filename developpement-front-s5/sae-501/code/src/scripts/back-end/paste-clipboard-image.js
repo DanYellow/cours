@@ -1,8 +1,6 @@
 const listClipboardUploadButton = document.querySelectorAll("[data-clipboard-upload]")
 
 const pasteClipboard = async (e) => {
-    console.log(e.target)
-    console.log(e.currentTarget)  
     const element = e.target;
     const name = element.dataset.clipboardUpload;
 
@@ -12,7 +10,7 @@ const pasteClipboard = async (e) => {
         if(img) {
             const blob = await img.getType("image/png");
     
-            const file = new File([blob], "img.jpg", { type: blob.type, lastModified:new Date().getTime() });
+            const file = new File([blob], "img.jpg", { type: blob.type, lastModified: new Date().getTime() });
             const container = new DataTransfer();
             container.items.add(file);
     
