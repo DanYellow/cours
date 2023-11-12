@@ -24,11 +24,11 @@
 			<script type="module" src="{{ manifest['src/scripts/main.backend.js'].file }}" defer></script>
 		{% endif %}
 	</head>
-	<body class="">
+	<body>
 		<div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-indigo-200 to-neutral-100"></div>
 		<div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
 			{% include "components/back-end/navigation.njk" %}
-			<main class="w-full"> {% block main %}{% endblock %}</main>
+			<main class="w-full">{% block main %}{% endblock %}</main>
 		</div>
 
         <div data-deletion-modal class="hidden relative z-10">
