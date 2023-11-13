@@ -31,6 +31,11 @@ const port = envVars?.parsed?.PORT || 3000;
 const hostip = ip.address();
 const app = express();
 
+let publicPath = path.join(path.resolve(), "public");
+if (process.env.NODE_ENV === "production") {
+    publicPath = path.join(path.resolve(), "dist");
+}
+
 mongoServer().then((res) => {
     console.log("---------------------------")
     console.log(`- \x1b[36m${res}\x1b[0m`);
@@ -71,7 +76,7 @@ app.use(function (req, res, next) {
             current_url,
             base_url: `${req.protocol}://${req.get('host')}`,
             admin_url: `${current_url.substring(0, current_url.indexOf("/admin"))}/admin`,
-            upload_dir: path.join(path.resolve(), "public/uploads/"),
+            upload_dir: `${publicPath}/uploads/`,
             ...envVars.parsed
         }
     };
@@ -94,10 +99,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-let publicPath = path.join(path.resolve(), "public");
-if (process.env.NODE_ENV === "production") {
-    publicPath = path.join(path.resolve(), "dist");
-}
+
 
 app.use("/", express.static(publicPath));
 
