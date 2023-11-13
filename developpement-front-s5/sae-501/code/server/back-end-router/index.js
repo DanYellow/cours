@@ -1,10 +1,11 @@
 import express from "express";
 import path from "path";
 import fs from "fs/promises";
+import axios from "axios";
+import querystring from "querystring";
 
 // Models
 import SAE from "#models/sae.js";
-import Article from "#models/article.js";
 
 // Routers
 import SAERouter from './sae.js'
@@ -45,13 +46,18 @@ router.use(async (_req, res, next) => {
 router.use(SAERouter)
 router.use(ArticleRouter)
 
-
 router.get("/", async (_req, res) => {
-    const listSAEs = await SAE.find().limit(5).sort({ _id: -1 }).lean();
+    const queryParams = querystring.stringify({ per_page: 5 });
+
+    const listSAEs = await SAE.find().limit(5).sort({ _id: -1 });
     const countSAEs = await SAE.count();
 
-    const listArticles = await Article.find().limit(5).sort({ _id: -1 }).lean();
-    const countArticles = await Article.count();
+    let optionsArticles = {
+        method: "GET",
+        url: `${res.locals.base_url}/api/articles?${queryParams}`,
+    }
+
+    const listArticles = await axios(optionsArticles);
 
     res.render("pages/back-end/index.njk", {
         list_saes: {
@@ -59,11 +65,10 @@ router.get("/", async (_req, res) => {
             count: countSAEs,
         },
         list_articles: {
-            data: listArticles,
-            count: countArticles,
+            data: listArticles.data.data,
+            count: listArticles.data.count,
         },
     });
 });
-
 
 export default router;

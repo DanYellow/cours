@@ -99,8 +99,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
 app.use("/", express.static(publicPath));
 
 app.set("view engine", "nunjucks");
@@ -145,7 +143,6 @@ if(process.env.NODE_ENV === "production") {
     ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 `)
 }
-
 
 app.listen(port, listDomains, () => {
     console.log("---------------------------")
