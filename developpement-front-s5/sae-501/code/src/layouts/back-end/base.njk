@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr" class="bg-neutral-100">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-			{% block title %}TITRE MANQUANT !
-			{% endblock %}
-			- Administration</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}TITRE MANQUANT !
+            {% endblock %}
+            - Administration</title>
 
-		<link rel="stylesheet" href="/styles/reset.css">
-		<link rel="stylesheet" href="/styles/fonts.css">
-		{% if NODE_ENV != "development" %}
-			<link rel="stylesheet" href="/{{ manifest['style.css'].file }}"/>
-		{% endif %}
+        <link rel="stylesheet" href="/styles/reset.css">
+        <link rel="stylesheet" href="/styles/fonts.css">
+        {% if NODE_ENV != "development" %}
+            <link rel="stylesheet" href="/{{ manifest['style.css'].file }}"/>
+        {% endif %}
 
-		{% block styles %}{% endblock %}
-		{% block javascript %}{% endblock %}
+        {% block styles %}{% endblock %}
+        {% block javascript %}{% endblock %}
 
-		{% if NODE_ENV == "development" %}
-			<script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
-			<script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.backend.js" defer></script>
-		{% else %}
-			<script type="module" src="/{{ manifest['src/scripts/main.backend.js'].file }}" defer></script>
-		{% endif %}
-	</head>
-	<body>
-		<div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-indigo-200 to-neutral-100"></div>
-		<div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
-			{% include "components/back-end/navigation.njk" %}
-			<main class="w-full">{% block main %}{% endblock %}</main>
-		</div>
+        {% if NODE_ENV == "development" %}
+            <script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
+            <script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.backend.js" defer></script>
+        {% else %}
+            <script type="module" src="/{{ manifest['src/scripts/main.backend.js'].file }}" defer></script>
+        {% endif %}
+    </head>
+    <body>
+        <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-indigo-200 to-neutral-100"></div>
+        <div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
+            {% include "components/back-end/navigation.njk" %}
+            <main class="w-full">{% block main %}{% endblock %}</main>
+        </div>
 
         <div data-deletion-modal class="hidden relative z-10">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
@@ -47,6 +47,6 @@
                     </div>
                 </div>
             </div>
-		</div>
+        </div>
     </body>
 </html>
