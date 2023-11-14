@@ -54,7 +54,7 @@ router.get("/", async (req, res) => {
 router.get("/a-propos(.html)?", async (_req, res) => {
     let options = {
         method: "GET",
-        url: `${res.locals.base_url}/api/saes?per_page=10`,
+        url: `${res.locals.base_url}/api/saes?per_page=9`,
     };
 
     let result = null;

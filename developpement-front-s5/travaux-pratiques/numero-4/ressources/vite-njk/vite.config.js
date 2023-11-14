@@ -10,7 +10,6 @@ export default {
   plugins: [
     vituum({
       pages: {
-        // Won't work on Windows, need to override base key instead
         normalizeBasePath: true
       }
     }),
