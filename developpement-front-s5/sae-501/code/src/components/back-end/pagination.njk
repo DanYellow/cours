@@ -7,7 +7,7 @@
             <span class="hidden lg:inline">Précédent</span>
         </span>
     {% else %}
-        <a href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
+        <a aria-label="Précédent" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
             <svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
             </svg>
@@ -25,7 +25,7 @@
             </svg>
         </span>
     {% else %}
-        <a href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
+        <a aria-label="Suivant" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent hover:border-t-slate-400 border-solid flex">
             <span class="hidden lg:inline">Suivant</span>
             <svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
