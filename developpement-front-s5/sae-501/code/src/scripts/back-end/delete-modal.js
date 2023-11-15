@@ -14,7 +14,6 @@ const displayDeleteItemModal = async (e) => {
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
     deletionModal.querySelector("[data-modal-item-name]").textContent = ressourceData.title
 
-    console.log(focusTrap)
     focusTrap = createFocusTrap(deletionModal)
     focusTrap.activate()
 }
