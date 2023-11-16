@@ -10,7 +10,8 @@ import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
 import swaggerSpec from "./swagger.js"
 import swaggerUi from "swagger-ui-express";
-import nunjucksDateFilter from "nunjucks-date-filter"
+import nunjucksDateFilter from "nunjucks-date-filter";
+import helmet from "helmet";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -31,6 +32,14 @@ const port = envVars?.parsed?.PORT || 3000;
 const hostip = ip.address();
 const app = express();
 
+// To improve security
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+        crossOriginResourcePolicy: false,
+    })
+);
+
 let publicPath = path.join(path.resolve(), "public");
 if (process.env.NODE_ENV === "production") {
     publicPath = path.join(path.resolve(), "dist");
@@ -43,7 +52,7 @@ mongoServer().then((res) => {
 }).catch(console.error);
 
 
-app.use(bodyParser.json())
+app.use(bodyParser.json({ type: ['application/json', 'application/csp-report', 'application/reports+json'] }))
 app.use(bodyParser.urlencoded({
     extended: true
 }))
