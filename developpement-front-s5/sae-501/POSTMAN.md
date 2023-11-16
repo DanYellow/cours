@@ -2,7 +2,7 @@
 
 Postman est un logiciel freemium permettant de tester des API. L'avantage premier de Postman, c'est qu'on n'a pas besoin de front-end pour tester, inutile d'effectuer un parcours utilisateur en entier pour vérifier si un élément en particulier fonctionne. De plus, il est possible de rejouer ses requêtes à l'envie avec différents paramètres 
 - [Télécharger Postman](https://www.postman.com/)
-> A tester, mais il semble qu'il est impossible d'importer une collection sans créer un compte Postman. Et vous aurez besoin d'importer une collection
+> A tester, mais il semble qu'il est impossible d'importer une collection sans créer un compte Postman. Et vous aurez besoin d'importer une collection.
 
 ## Importer une collection
 > Une collection est un ensemble de requêtes d'API, elle est stockée au format JSON. Vous pouvez créer la vôtre, mais dans cette SAE, vous en avez déjà une que vous pourrez éditer en ajoutant vos requêtes relatives aux messages.
@@ -18,7 +18,7 @@ Cliquez sur le bouton import et selectionnez votre fichier de collection, `SAE50
 ## Accéder / créer une requête
 
 ![](./captures/postman-2.jpg)
-Sur la gauche, vous avez vos collections, elles peuvet être divisées en sous-dossiers. Pour créer un dossier, il suffit de survoler un dossier ou collection et cliquer sur les trois points qui sont apparus, il y a une option "Add folder". Dans ce même menu sous le nom "Add request", vous pouvez créer une nouvelle requête, une nouvelle façon d'accéder à votre API.
+Sur la gauche, vous avez vos collections, elles peuvent être divisées en sous-dossiers. Pour créer un dossier, il suffit de survoler un dossier ou collection et cliquer sur les trois points qui sont apparus, il y a une option "Add folder". Dans ce même menu sous le nom "Add request", vous pouvez créer une nouvelle requête, une nouvelle façon d'accéder à votre API.
 
 ![](./captures/postman-3.jpg)
 - Bleu : Nom de la requête. Éditable en cliquant dessus ou en faisant `ctrl/cmd + e`
@@ -32,11 +32,11 @@ Sur la gauche, vous avez vos collections, elles peuvet être divisées en sous-d
 
 ### Corps de requête
 
-Dans le cas où vous faites une requête de type POST (création d'élément) ou PUT (mise à jour d'élément), le contenu de la requête sera dans le corps (body), il y a plusieurs façons de l'envoyer. Nous n'aborderons que deux méthodes : "form-data" et "raw"
+Dans le cas où vous faites une requête de type POST (création d'élément), PUT (mise à jour totale d'élément) ou PATCH (mise à jour partielle d'élément), le contenu de la requête sera dans le corps (body), il y a plusieurs façons de l'envoyer. Nous n'aborderons que deux méthodes : "form-data" et "raw".
 
 #### form-data
 ![](./captures/postman-4.jpg)
-On utilisera form-data quand la requête peut attendre un fichier (formulaire enctype="multipart/form-data"), par exemple la création d'une SAE, là. Pour construire notre requête, il faudra tout simplement remplir le tableau avec nos clés (colonne "Key") et valeurs (colonne "Value"). La valeur de "Key" est l'équivalent de l'attribut "name" pour un élément de formulaire en HTML. La colonne "Description" est là à titre indicatif, ce n'est pas envoyé au serveur.
+On utilisera form-data quand la requête peut attendre un fichier (formulaire enctype="multipart/form-data"), par exemple la création d'une SAE. Pour construire notre requête, il faudra tout simplement remplir le tableau avec nos clés (colonne "Key") et valeurs (colonne "Value"). La valeur de "Key" est l'équivalent de l'attribut "name" pour un élément de formulaire en HTML. La colonne "Description" est là à titre indicatif, ce n'est pas envoyé au serveur.
 
 > **Attention à ne pas insérer par erreur un retour à la ligne dans le nom du clé, surtout à la fin. Ceci engendra à coup sûr une erreur, Postman vous aide en affichant une icône assez discrète à côté du champ dans la cellule en question.**
 
