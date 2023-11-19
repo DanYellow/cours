@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === "production") {
 
 mongoServer().then((res) => {
     console.log("---------------------------")
-    console.log(`- \x1b[36m${res}\x1b[0m`);
+    console.log(`• \x1b[36m${res}\x1b[0m`);
     console.log("---------------------------")
 }).catch(console.error);
 
@@ -157,7 +157,7 @@ app.listen(port, listDomains, () => {
     console.log("---------------------------")
     console.log("Express server running at :");
     ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
-        console.log(`- \x1b[33mhttp://${item}:${port}/\x1b[0m`);
+        console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
     })
     console.log("---------------------------")
 });
