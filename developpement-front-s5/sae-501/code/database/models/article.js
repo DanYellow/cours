@@ -1,17 +1,22 @@
 import mongoose, { Schema } from "mongoose";
-
-import { isEmptyValidator } from "../validator.js";
+import validator from "validator";
 
 import CommentArticle from "./comment-article.js"
 
 const articleSchema = new Schema(
     {
-        title: String,
+        title: {
+            type: String,
+            required: [true, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"]
+        },
         abstract: String,
-        content: String,
+        content: {
+            type: String,
+            required: [true, "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"]
+        },
         image: {
             type: String,
-            required: [true, "Image obligatoire"]
+            required: [true, "Veuillez mettre une image, le champ ne peut pas être nul ou vide"]
         },
         yt_link_id: String,
         is_active: {
@@ -39,14 +44,14 @@ const articleSchema = new Schema(
 articleSchema
     .path("title")
     .validate(
-        isEmptyValidator,
+        (value) => !validator.isEmpty(value.trim()),
         "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"
     );
 
 articleSchema
     .path("content")
     .validate(
-        isEmptyValidator,
+        (value) => !validator.isEmpty(value.trim()),
         "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"
     );
 

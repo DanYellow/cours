@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-import { isEmptyValidator } from "../validator.js";
+import validator from "validator";
 
 const commentArticleSchema = new Schema({
     content: String,
@@ -18,7 +17,7 @@ const commentArticleSchema = new Schema({
 commentArticleSchema
     .path("content")
     .validate(
-        isEmptyValidator,
+        (value) => !validator.isEmpty(value.trim()),
         "Veuillez mettre un commentaire, le champ ne peut pas être nul ou vide"
     );
 

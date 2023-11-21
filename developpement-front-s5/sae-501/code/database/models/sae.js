@@ -1,16 +1,27 @@
 import mongoose, { Schema } from "mongoose";
-import { isEmptyValidator, isBelowLengthValidator } from '../validator.js'
+import validator from "validator";
 
 const saeSchema = new Schema({
-  title: String,
-  content: String,
-  image: String,
+    title: {
+        type: String,
+        required: [
+            true,
+            "Veuillez mettre un titre, le champ ne peut pas être nul ou vide",
+        ],
+        trim: true,
+    },
+    content: String,
+    image: String,
 });
 
-saeSchema.path("title").validate(isEmptyValidator, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide")
-saeSchema.path("content").validate((val) => isBelowLengthValidator(val, 200), `Le champ "contenu" ne peut pas dépasser 200 caractères`)
+saeSchema
+    .path("content")
+    .validate(
+        (value) => validator.isLength(value.trim(), { max: 200 }),
+        `Le champ "contenu" ne peut pas dépasser 200 caractères`
+    );
 
-saeSchema.pre('findOneAndUpdate', function(next) {
+saeSchema.pre("findOneAndUpdate", function (next) {
     this.options.runValidators = true;
     next();
 });

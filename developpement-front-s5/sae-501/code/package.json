@@ -41,7 +41,7 @@
     "validator": "^13.11.0"
   },
   "imports": {
-    "#models/*": "./database/models/*",
+    "#models/*.js": "./database/models/*.js",
     "#database/index.js": "./database/index.js",
     "#database/validator.js": "./database/validator.js"
   }
