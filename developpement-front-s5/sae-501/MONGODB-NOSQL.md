@@ -13,8 +13,13 @@ Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a 
 
 # Installation
 
-Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très utilisé dans le monde professionnel et open source), l'outil n'étant pas natif, il faudra l'installer.
+Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très utilisé dans le monde professionnel et open source), l'outil n'étant pas natif, il faudra l'installer **(regardez bien les notes plus bas avant de télécharger).**
 - [Télécharger MongoDB](https://www.mongodb.com/try/download/community)
+
+> Notes pour les utilisateurs de Windows :
+> - Téléchargez le fichier .msi **pas l'archive .zip**
+> - Lors de l'installation de MongoDB, il vous est proposé de télécharger MongoDBCompass, faites-le, ça vous épargnera de la faire plus tard
+
 > Notes pour les utilisateurs de MacOS :
 > - Certaines commandes listées dans le fichier README ne sont plus pertinentes depuis macOS Catalina (10.15). De ce fait, nous vous conseillons de créer un dossier `data/db/` dans le même dossier que vous avez dezippé MongoDB. Et d'ajouter le paramètre `--dbpath=data/db` à la commande qui permet de lancer le serveur MongoDB. Ce qui donne de la commande `mongod --dbpath=data/db` **Le serveur NoSQL ne se lance pas automatiquement.**
 > - Vous pouvez installer MongoDB en passant par brew au lieu de télécharger l'archive avec les fichiers binaires. [Vous trouverez les instructions sur le site officiel](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Ceci va rendre les commandes de mongodb globales au système et vous pourrer lancer votre serveur depuis n'importe où avec la commande `mongod --dbpath=chemin/vers/bdd`. Faites juste attention à ne pas commiter votre base de données.
@@ -22,6 +27,7 @@ Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très
 Et pour visualiser votre base NoSQL, un peu comme PhpMyAdmin, nous vous conseillons le logiciel MongoDB Compass, il est gratuit
 - [Télécharger MongoDB Compass](https://www.mongodb.com/try/download/compass)
     - Il faut télécharger "MongoDB Compass Download (GUI)", il faut défiler un peu sur la page pour trouver le lien
+    - Son installation est proposée durant son installation sous Windows
 
 # Base de données et requêtes - suite
 
