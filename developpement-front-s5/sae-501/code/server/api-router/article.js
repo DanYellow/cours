@@ -218,8 +218,9 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     try {
         await ressource.save()
         const ressourceComputed = await getArticles(ressource._id)
-
+        
         if(req.body.author) {
+            ressourceComputed[0].author.nb_articles++
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
         }
         res.status(201).json(ressourceComputed[0])
