@@ -1,37 +1,37 @@
 import mongoose, { Schema } from "mongoose";
-import validator from "validator";
 
-const commentArticleSchema = new Schema({
-    content: String,
-    article: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Article",
-        required: true,
+const commentArticleSchema = new Schema(
+    {
+        content: {
+            type: String,
+            required: [
+                true,
+                "Veuillez mettre un commentaire, le champ ne peut pas être nul ou vide",
+            ],
+            trim: true,
+        },
+        article: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Article",
+            required: true,
+        },
+    },
+    {
+        timestamps: { createdAt: "created_at" },
     }
-},
-{ 
-    timestamps: { createdAt: 'created_at' }
-}
-)
-
-commentArticleSchema
-    .path("content")
-    .validate(
-        (value) => !validator.isEmpty(value.trim()),
-        "Veuillez mettre un commentaire, le champ ne peut pas être nul ou vide"
-    );
+);
 
 commentArticleSchema.methods.getClean = function () {
     const res = {
-        "_id": this._id,
-        "content": this.content,
-        "article": this.article._id,
-        "created_at": this.created_at,
-        "updatedAt": this.updatedAt,
-        "__v": this.__v,
-    }
+        _id: this._id,
+        content: this.content,
+        article: this.article._id,
+        created_at: this.created_at,
+        updatedAt: this.updatedAt,
+        __v: this.__v,
+    };
 
-    return res
-}
+    return res;
+};
 
-export default mongoose.model("CommentArticle", commentArticleSchema)
+export default mongoose.model("CommentArticle", commentArticleSchema);

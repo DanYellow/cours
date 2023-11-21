@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import validator from "validator";
 
 import CommentArticle from "./comment-article.js"
 
@@ -7,12 +6,14 @@ const articleSchema = new Schema(
     {
         title: {
             type: String,
-            required: [true, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"]
+            required: [true, "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"],
+            trim: true,
         },
         abstract: String,
         content: {
             type: String,
-            required: [true, "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"]
+            required: [true, "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"],
+            trim: true,
         },
         image: {
             type: String,
@@ -40,20 +41,6 @@ const articleSchema = new Schema(
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
     }
 );
-
-articleSchema
-    .path("title")
-    .validate(
-        (value) => !validator.isEmpty(value.trim()),
-        "Veuillez mettre un titre, le champ ne peut pas être nul ou vide"
-    );
-
-articleSchema
-    .path("content")
-    .validate(
-        (value) => !validator.isEmpty(value.trim()),
-        "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide"
-    );
 
 articleSchema.pre('findOneAndDelete', { document: true, query: true }, async function(next) {
     try {

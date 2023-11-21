@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import validator from "validator";
 
 const saeSchema = new Schema({
     title: {
@@ -10,16 +9,16 @@ const saeSchema = new Schema({
         ],
         trim: true,
     },
-    content: String,
+    content: {
+        type: String,
+        maxlength: [
+            200,
+            'Le champ "contenu" ne peut pas dépasser 200 caractères'
+        ],
+        trim: true,
+    },
     image: String,
 });
-
-saeSchema
-    .path("content")
-    .validate(
-        (value) => validator.isLength(value.trim(), { max: 200 }),
-        `Le champ "contenu" ne peut pas dépasser 200 caractères`
-    );
 
 saeSchema.pre("findOneAndUpdate", function (next) {
     this.options.runValidators = true;
