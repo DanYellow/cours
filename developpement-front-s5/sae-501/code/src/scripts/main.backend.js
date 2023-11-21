@@ -5,3 +5,4 @@ import "/src/styles/back-end/index.scss";
 import "./back-end/delete-modal.js"
 import "./back-end/preview-upload.js"
 import "./back-end/paste-clipboard-image.js"
+import "./back-end/reset-form.js"
