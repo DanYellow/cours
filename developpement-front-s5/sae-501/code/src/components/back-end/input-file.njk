@@ -1,6 +1,6 @@
 {% macro field(path, accepts=".jpg, .jpeg, .png", name = "image") %}
-<figure class="w-fit mb-2">
-    <img src="{{ path }}" data-original-image="{{ path }}" data-preview-upload="{{ name }}" width="250" alt="">
+<figure class="w-fit mb-2 max-h-[300px] max-w-full">
+    <img src="{{ path }}" data-original-image="{{ path }}" data-preview-upload="{{ name }}" alt="" class="max-w-[inherit] max-h-[inherit]">
 </figure>
 <div class="flex flex-col sm:flex-row gap-y-4">
     <div>
