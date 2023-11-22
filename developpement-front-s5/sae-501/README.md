@@ -247,6 +247,9 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
+- [ ] Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité n'étant pas native, vous devrez utiliser un plugin (pas installé) comme TomSelect
+    - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
+    - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
