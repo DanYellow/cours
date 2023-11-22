@@ -320,10 +320,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
     try {
         let ressource = await Article.findById(req.params.id)
-        
-        if(Object.keys(imagePayload).length) {
-            ressource.image = imagePayload.image
-        }
+        const newPayload = { ...req.body, ...imagePayload }
+        Object.entries(newPayload).forEach(([key, value]) => {
+            ressource[key] = value;
+        })
+
         if(req.body.author !== ressource.author) {
             // Unlink article with author
             await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });
@@ -342,6 +343,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
         res.status(200).json(ressourceComputed[0])
     } catch (err) {
+        console.log(err)
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],
