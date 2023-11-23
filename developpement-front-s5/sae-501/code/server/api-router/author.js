@@ -55,8 +55,8 @@ const base = "authors";
  *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = Math.max(1, req.query.page || 1);
-    const perPage = req.query.per_page;
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const perPage = Number(req.query.per_page);
 
     let listIds = req.query?.id 
     if(req.query.id && !Array.isArray(req.query.id)) {
@@ -157,8 +157,8 @@ router.get(`/${base}`, async (req, res) => {
  *              $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}/:id`, async (req, res) => {
-    const page = Math.max(1, req.query.page || 1);
-    let perPage = req.query.per_page || 7;
+    const page = Math.max(1, Number(req.query.page) || 1);
+    let perPage = Number(req.query.per_page) || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
 
     try {

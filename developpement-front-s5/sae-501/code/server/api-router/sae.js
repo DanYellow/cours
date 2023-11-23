@@ -55,8 +55,8 @@ const base = "saes";
  *        description: List of SAEs' _id. **Invalid ids will be skipped.**
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = Math.max(1, req.query.page || 1);
-    let perPage = req.query.per_page || 7;
+    const page = Math.max(1, Number(req.query.page) || 1);
+    let perPage = Number(req.query.per_page) || 7;
     // Clamps the value between 1 and 20
     perPage = Math.min(Math.max(perPage, 1), 20);
     

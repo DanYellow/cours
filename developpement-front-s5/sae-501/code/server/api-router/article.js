@@ -56,8 +56,8 @@ const base = "articles";
  *               $ref: '#/components/schemas/Error'
  */
 router.get(`/${base}`, async (req, res) => {
-    const page = Math.max(1, req.query.page || 1);
-    let perPage = req.query.per_page || 7;
+    const page = Math.max(1, Number(req.query.page) || 1);
+    let perPage = Number(req.query.per_page) || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
 
     let listIds = req.query?.id 
@@ -75,7 +75,7 @@ router.get(`/${base}`, async (req, res) => {
             (listIds.length ? { _id: { $in: listIds } } : null)
         );
 
-        const queryParam = {...req.query}
+        const queryParam = Object.fromEntries(Object.entries({ ...req.query }).filter(([_, value]) => Boolean(value)))
         delete queryParam.page
     
         res.status(200).json({
@@ -333,7 +333,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 ressource.author = req.body.author;
                 await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
             } else {
-                // Unlink with any author
+                // Unlink with no author
                 ressource.author = null;
             }
         }
