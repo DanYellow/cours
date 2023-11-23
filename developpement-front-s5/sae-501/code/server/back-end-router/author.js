@@ -8,9 +8,9 @@ import upload from "../uploader.js";
 const base = "authors";
 const router = express.Router();
 
-// Get multiple articles
+// Get multiple authors
 router.get(`/${base}`, async (req, res) => {
-    const queryParams = querystring.stringify(req.query);
+    const queryParams = querystring.stringify({ per_page: 7, ...req.query });
     let options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
