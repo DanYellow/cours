@@ -14,8 +14,8 @@ router.get(`/${base}`, async (req, res) => {
     let options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
-    }
-    let result = null
+    };
+    let result = null;
     try {
         result = await axios(options);
     } catch (e) {}
@@ -30,19 +30,19 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     let options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
-    }
-    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
+    };
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 
-    let result = null
-    let listErrors = []
-    
-    if(isEdit) {
-        try {
+    let result = null;
+    let listErrors = [];
+
+    try {
+        if (isEdit) {
             result = await axios(options);
-        } catch (e) {
-            listErrors = e.response.data.errors
-            result = {}
         }
+    } catch (e) {
+        listErrors = e.response.data.errors;
+        result = {};
     }
 
     res.render("/", {
@@ -52,10 +52,10 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     });
 });
 
-// Create or update article 
+// Create or update article
 router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let ressource = null;
-    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
     let listErrors = [];
     let options = {
         headers: {
@@ -65,35 +65,35 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
             ...req.body,
             file: req.file,
         },
-    }
+    };
 
-    if(isEdit) {
+    if (isEdit) {
         options = {
             ...options,
             method: "PUT",
             url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
-        }
+        };
     } else {
         options = {
             ...options,
             method: "POST",
             url: `${res.locals.base_url}/api/${base}`,
-        }
+        };
     }
-    
+
     try {
         const result = await axios(options);
-        ressource = result.data
+        ressource = result.data;
     } catch (e) {
-        listErrors = e.response.data.errors
-        ressource = e.response.data.ressource || {}
+        listErrors = e.response.data.errors;
+        ressource = e.response.data.ressource || {};
     } finally {
         if (listErrors.length || isEdit) {
             res.render("", {
                 sae: ressource,
                 list_errors: listErrors,
                 is_edit: isEdit,
-                is_success: listErrors.length === 0
+                is_success: listErrors.length === 0,
             });
         } else {
             res.redirect(`${res.locals.admin_url}/${base}`);

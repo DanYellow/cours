@@ -434,7 +434,7 @@ const getArticles = async (id, queryParams = {}, isArray = false) => {
         ...(isArray ? [{ $limit: queryParams.perPage }] : []),
         {
             $addFields: {
-               nb_comments: { $size: "$list_comments" }
+                nb_comments: { $size: "$list_comments" }
             }
         },
         { $unset: "list_comments" },
