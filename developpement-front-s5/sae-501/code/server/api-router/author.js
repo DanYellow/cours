@@ -68,7 +68,7 @@ router.get(`/${base}`, async (req, res) => {
     try {
         const listRessources = await Author.aggregate([
             ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
-            { $sort: { created_at: -1 } },
+            { $sort: { lastname: 1 } },
             ...(perPage ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }] : []),
             ...(perPage ? [{ $limit: Number(perPage) }] : []),
             {
@@ -248,17 +248,18 @@ router.get(`/${base}/:id`, async (req, res) => {
  *            properties:
  *              lastname:
  *                type: string
- *                description: SAE's title
  *                required: true
  *              firstname:
  *                type: string
  *              email:
  *                type: string
+ *                format: email
  *              image:
  *                type: string
  *                format: binary
  *              bio:
  *                type: string
+ *                maxLength: 300
  *              color:
  *                type: string
  *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 

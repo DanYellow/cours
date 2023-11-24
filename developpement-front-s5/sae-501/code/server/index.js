@@ -159,5 +159,11 @@ app.listen(port, listDomains, () => {
     ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
         console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
     })
+    if(process.env.NODE_ENV === "development") {
+        console.log("\nSwagger running at :");
+        ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
+            console.log(`• \x1b[35mhttp://${item}:${port}/api-docs\x1b[0m`);
+        })
+    }
     console.log("---------------------------")
 });

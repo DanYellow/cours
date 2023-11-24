@@ -145,9 +145,9 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                     from: 'commentarticles', 
                     localField: 'list_comments', 
                     foreignField: '_id', 
-                    as: 'list_comments',
+                    as: 'data',
                     pipeline: [
-                        { $sort: { created_at: 1 } },
+                        { $sort: { created_at: -1 } },
                         { $skip: Math.max(page - 1, 0) * perPage},
                         { $limit: perPage },
                     ]
@@ -157,6 +157,9 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                 $addFields: {
                     page: page,
                 }
+            },
+            {
+                $unset: "list_comments"
             },
         ]);
 
@@ -173,6 +176,64 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
                 ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
             ]
         })
+    }
+});
+
+/**
+ * @openapi
+ * /saes/{id}:
+ *   delete:
+ *     tags:
+ *      - Articles
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's comment's _id
+ *        required: true
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
+ *     responses:
+ *       200:
+ *         description: Deletes an article's comment's
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/CommentArticle'
+ *       400:
+ *         description: Something went wrong
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       404:
+ *         description: Ressource not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.delete(`/${base}/:id/comments`, async (req, res) => {
+    try {
+        const ressource = await CommentArticle.findByIdAndDelete(req.params.id)
+
+        if (ressource?.image) {
+            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            fs.unlink(targetPath, (err) => {});
+        }
+
+        if(ressource) {
+            return res.status(200).json(ressource);
+        }
+        return res.status(404).json({
+            errors: [`Le commentaire "${req.params.id}" n'existe pas`],
+        });
+    } catch (error) {
+        return res
+            .status(400)
+            .json({
+                error: "Quelque chose s'est mal passé, veuillez recommencer",
+            });
     }
 });
 

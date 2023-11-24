@@ -90,7 +90,7 @@ router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
     } finally {
         if (listErrors.length || isEdit) {
             res.render("", {
-                sae: ressource,
+                author: ressource,
                 list_errors: listErrors,
                 is_edit: isEdit,
                 is_success: listErrors.length === 0

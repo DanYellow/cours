@@ -1,5 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
+import Article from "./article.js"
+
 const commentArticleSchema = new Schema(
     {
         content: {
@@ -33,5 +35,17 @@ commentArticleSchema.methods.getClean = function () {
 
     return res;
 };
+
+commentArticleSchema.pre(
+    "findOneAndDelete",
+    { document: true, query: true },
+    async function (next) {
+        try {
+            await Article.findOneAndUpdate({ list_comments: this.getQuery()._id }, { "$pull": { list_comments: this.getQuery()._id } });
+        } catch (e) {}
+
+        next();
+    }
+);
 
 export default mongoose.model("CommentArticle", commentArticleSchema);

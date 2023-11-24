@@ -219,7 +219,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         await ressource.save()
         const ressourceComputed = await getArticles(ressource._id)
         
-        if(req.body.author) {
+        if(ressourceComputed[0]?.author) {
             ressourceComputed[0].author.nb_articles++
             await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
         }
@@ -229,7 +229,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             errors: [
                 ...listErrors, 
                 ...deleteUpload(targetPath), 
-                ...Object.values(err?.errors).map((val) => val.message)
+                ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
             ]
         })
     }

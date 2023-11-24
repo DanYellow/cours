@@ -41,7 +41,7 @@ export default {
         page: {
             type: "integer",
         },
-        list_comments: {
+        data: {
             type: "array",
             items: commentArticle,
         },

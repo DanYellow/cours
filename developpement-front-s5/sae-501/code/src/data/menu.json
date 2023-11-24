@@ -6,19 +6,19 @@
         },
         {
             "name": "A PROPOS",
-            "link": "a-propos.html"
+            "link": "/a-propos.html"
         },
         {
             "name": "LIEUX DE VIE",
-            "link": "lieux.html"
+            "link": "/lieux.html"
         },
         {
             "name": "SUR LES MÉDIAS",
-            "link": "sur-les-medias.html"
+            "link": "/sur-les-medias.html"
         },
         {
             "name": "CONTACT",
-            "link": "contact.html"
+            "link": "/contact.html"
         }
     ]
 }
