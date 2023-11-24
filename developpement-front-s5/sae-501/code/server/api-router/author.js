@@ -17,6 +17,7 @@ const base = "authors";
  *   get:
  *     tags:
  *      - Authors
+ *     summary: Get all authors
  *     parameters:
  *      - in: query
  *        name: page
@@ -115,6 +116,7 @@ router.get(`/${base}`, async (req, res) => {
  *   get:
  *     tags:
  *      - Authors
+ *     summary: Get an author
  *     parameters:
  *      - name: id
  *        in: path
@@ -239,6 +241,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - Authors
+ *     summary: Create an author
  *     requestBody:
  *      content:
  *        multipart/form-data:
@@ -255,11 +258,10 @@ router.get(`/${base}/:id`, async (req, res) => {
  *                type: string
  *                format: email
  *              image:
- *                type: string
- *                format: binary
+ *                type: file
  *              bio:
  *                type: string
- *                maxLength: 300
+ *                maxLength: 3
  *              color:
  *                type: string
  *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
@@ -294,6 +296,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         } = uploadImage(uploadedImage, res.locals.upload_dir));
         imagePayload = { image: imageName };
     }
+
+    console.log("imagePayload", uploadedImage)
 
     if (listErrors.length) {
         return res.status(400).json({
@@ -330,6 +334,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *   put:
  *     tags:
  *      - Authors
+ *     summary: Update an author
  *     parameters:
  *      - name: id
  *        in: path
@@ -354,8 +359,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *              email:
  *                type: string
  *              image:
- *                type: string
- *                format: binary
+ *                type: file
  *              bio:
  *                type: string
  *              color:
@@ -449,8 +453,9 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  * @openapi
  * /authors/{id}:
  *   delete:
+ *     summary: Delete an author
  *     description: |
- *      On deletion all articles written lose there author, **they are not deleted**
+ *      On deletion all articles related to the author deleted lose their author, **they are not deleted**
  *     tags:
  *      - Authors
  *     parameters:
@@ -487,7 +492,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`;
-            fs.unlink(targetPath, (err) => {});
+            fs.unlink(targetPath, () => {});
         }
 
         if (ressource) {

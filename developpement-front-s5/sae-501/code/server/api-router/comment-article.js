@@ -13,6 +13,7 @@ const base = "articles";
  *   post:
  *     tags:
  *      - Articles
+ *     summary: Add one comment for one article
  *     parameters:
  *      - name: id
  *        in: path
@@ -86,6 +87,7 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *   get:
  *     tags:
  *      - Articles
+ *     summary: Get comments for one article
  *     description: |
  *        Returns 10 by 10 comments related to one article
  *     parameters:
@@ -189,10 +191,11 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
 
 /**
  * @openapi
- * /saes/{id}:
+ * /articles/{id}/comments:
  *   delete:
  *     tags:
  *      - Articles
+ *     summary: Delete a comment
  *     parameters:
  *      - name: id
  *        in: path

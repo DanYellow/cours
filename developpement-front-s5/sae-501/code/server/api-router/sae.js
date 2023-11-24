@@ -16,6 +16,7 @@ const base = "saes";
  *   get:
  *     tags:
  *      - SAEs
+ *     summary: Get all SAEs
  *     responses:
  *       200:
  *         description: Returns all SAEs
@@ -104,6 +105,7 @@ router.get(`/${base}`, async (req, res) => {
  *   get:
  *     tags:
  *      - SAEs
+ *     summary: Get a SAE
  *     parameters:
  *      - name: id
  *        in: path
@@ -148,6 +150,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - SAEs
+ *     summary: Create a SAE
  *     requestBody:
  *      content:
  *        multipart/form-data:
@@ -219,6 +222,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *   put:
  *     tags:
  *      - SAEs
+ *     summary: Update a SAE
  *     parameters:
  *      - name: id
  *        in: path
@@ -312,6 +316,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *   delete:
  *     tags:
  *      - SAEs
+ *     summary: Delete a SAE
  *     parameters:
  *      - name: id
  *        in: path

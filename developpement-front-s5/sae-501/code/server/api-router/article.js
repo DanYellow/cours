@@ -18,6 +18,7 @@ const base = "articles";
  *   get:
  *     tags:
  *      - Articles
+ *     summary: Get all articles
  *     parameters:
  *      - in: query
  *        name: page
@@ -110,6 +111,7 @@ router.get(`/${base}`, async (req, res) => {
  *   get:
  *     tags:
  *      - Articles
+ *     summary: Get an article
  *     parameters:
  *      - name: id
  *        in: path
@@ -162,6 +164,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *   post:
  *     tags:
  *      - Articles
+ *     summary: Create an article
  *     requestBody:
  *      content:
  *        multipart/form-data:
@@ -264,6 +267,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *   put:
  *     tags:
  *      - Articles
+ *     summary: Update an article
  *     description: |
  *      If the author change, the previous author lose the article
  *     parameters:
@@ -409,6 +413,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *   delete:
  *     tags:
  *      - Articles
+ *     summary: Delete an article
  *     description: |
  *      On deletion all comments related are deleted
  *     parameters:

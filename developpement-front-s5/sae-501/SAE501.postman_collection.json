@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3881148a-1dc9-45f0-8b7a-4b656905a38f",
+		"_postman_id": "8bb6d6fa-2400-4a62-959a-10106b8e9b0a",
 		"name": "SAE501",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30809162"
@@ -199,7 +199,7 @@
 								{
 									"key": "title",
 									"value": "{{$randomLoremWords}}",
-									"description": "SAE's title - mandatory",
+									"description": "mandatory",
 									"type": "text"
 								},
 								{
@@ -210,13 +210,14 @@
 								{
 									"key": "content",
 									"value": "{{$randomLoremParagraphs}}",
-									"description": "SAE's content",
-									"type": "text"
+									"description": "mandatory",
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/PC/Pictures/gestion-projet-s3.jpg"
+									"src": "/C:/Users/PC/Pictures/1666106952549319.jpg"
 								},
 								{
 									"key": "is_active",
@@ -361,7 +362,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "65420ebcbd64c0969538b146"
+									"value": "655d38963a9c4b457ace13c0"
 								}
 							]
 						}
@@ -390,7 +391,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "65400f993c91293a6ecc61ca"
+									"value": "655d3782df3ca75236e29e6e"
 								}
 							]
 						}
@@ -435,6 +436,41 @@
 								{
 									"key": "id",
 									"value": "65410a1837f5549d2f337fb6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/articles/:id/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"articles",
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "656071565411bda3030a90b3"
 								}
 							]
 						}
