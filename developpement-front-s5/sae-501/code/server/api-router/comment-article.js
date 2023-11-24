@@ -125,57 +125,65 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
 router.get(`/${base}/:id/comments`, async (req, res) => {
     try {
         const page = Math.max(1, req.query.page || 1);
-        const perPage = 10
+        const perPage = 10;
 
         const ressource = await Article.aggregate([
             { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
             {
                 $project: {
                     list_comments: 1,
+                },
+            },
+            {
+                $lookup: {
+                    from: "commentarticles",
+                    localField: "list_comments",
+                    foreignField: "_id",
+                    as: "list_comments",
+                },
+            },
+            {
+                $addFields: {
+                    page: page,
                     count: { $size: "$list_comments" },
                     total_pages: {
                         $ceil: {
                             $divide: [{ $size: "$list_comments" }, perPage],
                         },
                     },
+                    list_comments: {
+                        $slice: [
+                            {
+                                $sortArray: {
+                                    input: "$list_comments",
+                                    sortBy: {
+                                        created_at: -1,
+                                    },
+                                },
+                            },
+                            Math.max(page - 1, 0) * perPage,
+                            perPage
+                        ],
+                    },
                 },
-            },
-            { 
-                $lookup: { 
-                    from: 'commentarticles', 
-                    localField: 'list_comments', 
-                    foreignField: '_id', 
-                    as: 'data',
-                    pipeline: [
-                        { $sort: { created_at: -1 } },
-                        { $skip: Math.max(page - 1, 0) * perPage},
-                        { $limit: perPage },
-                    ]
-                } 
-            },
-            {
-                $addFields: {
-                    page: page,
-                }
-            },
-            {
-                $unset: "list_comments"
             },
         ]);
 
-        if(!ressource.length) {
+        if (!ressource.length) {
             return res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],
             });
         }
 
-        res.status(200).json(ressource[0])
+        res.status(200).json(ressource[0]);
     } catch (err) {
         res.status(400).json({
             errors: [
-                ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
-            ]
-        })
+                ...Object.values(
+                    err?.errors || [{ message: "Il y a eu un problème" }]
+                ).map((val) => val.message),
+            ],
+        });
     }
 });
 

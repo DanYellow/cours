@@ -2,10 +2,10 @@ import express from "express";
 import fs from "fs";
 import querystring from "querystring";
 
-import Article from '#models/article.js';
-import Author from '#models/author.js';
+import Article from "#models/article.js";
+import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js"
+import upload, { uploadImage, deleteUpload } from "../uploader.js";
 import mongoose from "mongoose";
 
 const router = express.Router();
@@ -60,37 +60,47 @@ router.get(`/${base}`, async (req, res) => {
     let perPage = Number(req.query.per_page) || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
 
-    let listIds = req.query?.id 
-    if(req.query.id && !Array.isArray(req.query.id)) {
-        listIds = [listIds]
-    }    
-    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
-    
+    let listIds = req.query?.id;
+    if (req.query.id && !Array.isArray(req.query.id)) {
+        listIds = [listIds];
+    }
+    listIds = (listIds || [])
+        .filter(mongoose.Types.ObjectId.isValid)
+        .map((item) => new mongoose.Types.ObjectId(item));
+
     try {
         const listRessources = await getArticles(
-            listIds.length ? listIds : [], {page, perPage}, true
-        )
-
-        const count = await Article.count(
-            (listIds.length ? { _id: { $in: listIds } } : null)
+            listIds.length ? listIds : [],
+            { page, perPage },
+            true
         );
 
-        const queryParam = Object.fromEntries(Object.entries({ ...req.query }).filter(([_, value]) => Boolean(value)))
-        delete queryParam.page
-    
+        const count = await Article.count(
+            listIds.length ? { _id: { $in: listIds } } : null
+        );
+
+        const queryParam = Object.fromEntries(
+            Object.entries({ ...req.query }).filter(([_, value]) =>
+                Boolean(value)
+            )
+        );
+        delete queryParam.page;
+
         res.status(200).json({
             data: listRessources,
             total_pages: Math.ceil(count / perPage),
             count,
             page,
             query_params: querystring.stringify(queryParam),
-        })
+        });
     } catch (e) {
         res.status(400).json({
             errors: [
-                ...Object.values(e?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
-            ]
-        })
+                ...Object.values(
+                    e?.errors || [{ message: "Il y a eu un problème" }]
+                ).map((val) => val.message),
+            ],
+        });
     }
 });
 
@@ -124,21 +134,25 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get(`/${base}/:id`, async (req, res) => {
     try {
-        const ressource = await getArticles(new mongoose.Types.ObjectId(req.params.id))
+        const ressource = await getArticles(
+            new mongoose.Types.ObjectId(req.params.id)
+        );
 
-        if(ressource?.[0]) {
-            return res.status(200).json(ressource[0])
+        if (ressource?.[0]) {
+            return res.status(200).json(ressource[0]);
         }
         return res.status(404).json({
             errors: [`L'article "${req.params.id}" n'existe pas`],
         });
-    } catch(e) {
+    } catch (e) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
-        return res.status(400).json({errors: ["Quelque chose s'est mal passé"]})
+        return res
+            .status(400)
+            .json({ errors: ["Quelque chose s'est mal passé"] });
     }
 });
 
@@ -189,49 +203,58 @@ router.get(`/${base}/:id`, async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  */
 router.post(`/${base}`, upload.single("image"), async (req, res) => {
-    let imagePayload = {}
-    let listErrors =  []
+    let imagePayload = {};
+    let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
 
     if (uploadedImage) {
         let imageName;
-        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
-        imagePayload = { image: imageName }
+        ({
+            image_path: targetPath,
+            errors: listErrors,
+            image_name: imageName,
+        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        imagePayload = { image: imageName };
     }
 
-    if(listErrors.length) {
-        return res.status(400).json({ 
-            errors: listErrors, 
-            ressource: req.body 
-        })
+    if (listErrors.length) {
+        return res.status(400).json({
+            errors: listErrors,
+            ressource: req.body,
+        });
     }
-    
-    const computedBody = structuredClone(req.body)
-    if(!mongoose.Types.ObjectId.isValid(req.body.author)) {
-        delete computedBody.author
+
+    const computedBody = structuredClone(req.body);
+    if (!mongoose.Types.ObjectId.isValid(req.body.author)) {
+        delete computedBody.author;
     }
 
     const ressource = new Article({ ...computedBody, ...imagePayload });
 
     try {
-        await ressource.save()
-        const ressourceComputed = await getArticles(ressource._id)
-        
-        if(ressourceComputed[0]?.author) {
-            ressourceComputed[0].author.nb_articles++
-            await Author.findOneAndUpdate({ _id: req.body.author }, {"$push": { list_articles: ressource._id } });
+        await ressource.save();
+        const ressourceComputed = await getArticles(ressource._id);
+
+        if (ressourceComputed[0]?.author) {
+            ressourceComputed[0].author.nb_articles++;
+            await Author.findOneAndUpdate(
+                { _id: req.body.author },
+                { $push: { list_articles: ressource._id } }
+            );
         }
-        res.status(201).json(ressourceComputed[0])
+        res.status(201).json(ressourceComputed[0]);
     } catch (err) {
         res.status(400).json({
             errors: [
-                ...listErrors, 
-                ...deleteUpload(targetPath), 
-                ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
-            ]
-        })
+                ...listErrors,
+                ...deleteUpload(targetPath),
+                ...Object.values(
+                    err?.errors || [{ message: "Il y a eu un problème" }]
+                ).map((val) => val.message),
+            ],
+        });
     }
 });
 
@@ -292,46 +315,59 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  */
 router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
-    let imagePayload = {}
-    let listErrors =  []
+    let imagePayload = {};
+    let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
-    
+
     if (uploadedImage) {
         let imageName;
-        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
-        imagePayload = { image: imageName }
+        ({
+            image_path: targetPath,
+            errors: listErrors,
+            image_name: imageName,
+        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        imagePayload = { image: imageName };
     }
 
-    let oldRessource = {}
+    let oldRessource = {};
     try {
         oldRessource = await Article.findById(req.params.id).lean();
     } catch (error) {
-        oldRessource = {}
+        oldRessource = {};
     }
 
-    if(listErrors.length) {
-        return res.status(400).json({ 
-            errors: listErrors, 
-            ressource: { ...oldRessource, ...req.body }
-        })
+    if (listErrors.length) {
+        return res.status(400).json({
+            errors: listErrors,
+            ressource: { ...oldRessource, ...req.body },
+        });
     }
 
     try {
-        let ressource = await Article.findById(req.params.id)
-        const newPayload = { ...req.body, ...imagePayload }
+        let ressource = await Article.findById(req.params.id);
+        const newPayload = { ...req.body, ...imagePayload };
         Object.entries(newPayload).forEach(([key, value]) => {
             ressource[key] = value;
-        })
+        });
 
-        if(req.body.author !== ressource.author) {
+        if (req.body.author !== ressource.author) {
             // Unlink article with author
-            await Author.findOneAndUpdate({ _id: ressource.author }, {"$pull": { list_articles: ressource._id } });
-            
-            if(req.body.author && mongoose.Types.ObjectId.isValid(req.body.author)) {
+            await Author.findOneAndUpdate(
+                { _id: ressource.author },
+                { $pull: { list_articles: ressource._id } }
+            );
+
+            if (
+                req.body.author &&
+                mongoose.Types.ObjectId.isValid(req.body.author)
+            ) {
                 ressource.author = req.body.author;
-                await Author.findOneAndUpdate({ _id: req.body.author }, {"$addToSet": { list_articles: ressource._id } });
+                await Author.findOneAndUpdate(
+                    { _id: req.body.author },
+                    { $addToSet: { list_articles: ressource._id } }
+                );
             } else {
                 // Unlink with no author
                 ressource.author = null;
@@ -339,11 +375,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
         await ressource.save();
 
-        const ressourceComputed = await getArticles(ressource._id)
+        const ressourceComputed = await getArticles(ressource._id);
 
-        res.status(200).json(ressourceComputed[0])
+        res.status(200).json(ressourceComputed[0]);
     } catch (err) {
-        console.log(err)
+        console.log(err);
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],
@@ -353,10 +389,16 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
         } else {
-            res.status(400).json({ 
-                errors: [...listErrors, ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message), ...deleteUpload(targetPath)], 
-                ressource: { ...oldRessource, ...req.body }
-            })
+            res.status(400).json({
+                errors: [
+                    ...listErrors,
+                    ...Object.values(
+                        err?.errors || [{ message: "Il y a eu un problème" }]
+                    ).map((val) => val.message),
+                    ...deleteUpload(targetPath),
+                ],
+                ressource: { ...oldRessource, ...req.body },
+            });
         }
     }
 });
@@ -399,15 +441,15 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  */
 router.delete(`/${base}/:id`, async (req, res) => {
     try {
-        const ressource = await Article.findByIdAndDelete(req.params.id)
+        const ressource = await Article.findByIdAndDelete(req.params.id);
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`;
             fs.unlink(targetPath, (err) => {});
         }
 
-        if(ressource) {
-            return res.status(200).json(ressource)
+        if (ressource) {
+            return res.status(200).json(ressource);
         }
         return res.status(404).json({
             errors: [`L'article "${req.params.id}" n'existe pas`],
@@ -417,40 +459,56 @@ router.delete(`/${base}/:id`, async (req, res) => {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
             });
-        } 
-        return res.status(400).json({errors: ["Quelque chose s'est mal passé"]})
+        }
+        return res
+            .status(400)
+            .json({ errors: ["Quelque chose s'est mal passé"] });
     }
 });
 
 const getArticles = async (id, queryParams = {}, isArray = false) => {
     const ressource = await Article.aggregate([
-        ...(isArray ? [
-            ...(id.length ? [{ $match: { _id: { $in: id } }}] : [])
-        ] : 
-            [{ $match: { _id: id } }]
-        ),
-        ...(isArray ? [{ $sort : { _id : -1 } }] : []),
-        ...(isArray ? [{ $skip: Math.max(queryParams.page - 1, 0) * queryParams.perPage }] : []),
+        ...(isArray
+            ? [...(id.length ? [{ $match: { _id: { $in: id } } }] : [])]
+            : [{ $match: { _id: id } }]),
+        ...(isArray ? [{ $sort: { _id: -1 } }] : []),
+        ...(isArray
+            ? [
+                  {
+                      $skip:
+                          Math.max(queryParams.page - 1, 0) *
+                          queryParams.perPage,
+                  },
+              ]
+            : []),
         ...(isArray ? [{ $limit: queryParams.perPage }] : []),
         {
+            $lookup: {
+                from: "commentarticles",
+                localField: "list_comments",
+                foreignField: "_id",
+                as: "list_comments",
+            },
+        },
+        {
             $addFields: {
-                nb_comments: { $size: "$list_comments" }
-            }
+                nb_comments: { $size: "$list_comments" },
+            },
         },
         { $unset: "list_comments" },
-        { 
-            $lookup: { 
-                from: 'authors', 
-                localField: 'author', 
-                foreignField: '_id', 
-                as: 'author',
-            } 
+        {
+            $lookup: {
+                from: "authors",
+                localField: "author",
+                foreignField: "_id",
+                as: "author",
+            },
         },
-        { 
+        {
             $unwind: {
                 path: "$author",
-                preserveNullAndEmptyArrays: true
-            }
+                preserveNullAndEmptyArrays: true,
+            },
         },
         {
             $addFields: {
@@ -459,10 +517,10 @@ const getArticles = async (id, queryParams = {}, isArray = false) => {
                     $cond: [
                         { $not: ["$author.list_articles"] },
                         "$$REMOVE",
-                        { $size: "$author.list_articles" }
-                    ]
-                }
-            }
+                        { $size: "$author.list_articles" },
+                    ],
+                },
+            },
         },
         {
             $set: {
@@ -471,14 +529,14 @@ const getArticles = async (id, queryParams = {}, isArray = false) => {
                         { $not: ["$author.list_articles"] },
                         null,
                         "$author",
-                    ]
-                }
-            }
+                    ],
+                },
+            },
         },
         { $unset: "author.list_articles" },
-    ])
+    ]);
 
     return ressource;
-}
+};
 
 export default router;
