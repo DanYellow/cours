@@ -654,14 +654,14 @@
 								},
 								{
 									"key": "bio",
-									"value": "{{$randomLoremParagraphs}}",
+									"value": "{{$randomLoremLines}}",
 									"type": "text"
 								},
 								{
 									"key": "image",
 									"description": "mandatory",
 									"type": "file",
-									"src": "/C:/Users/PC/Pictures/memo-animation-transition.jpg"
+									"src": []
 								},
 								{
 									"key": "email",

@@ -261,7 +261,6 @@ router.get(`/${base}/:id`, async (req, res) => {
  *                type: file
  *              bio:
  *                type: string
- *                maxLength: 3
  *              color:
  *                type: string
  *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
@@ -296,8 +295,6 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         } = uploadImage(uploadedImage, res.locals.upload_dir));
         imagePayload = { image: imageName };
     }
-
-    console.log("imagePayload", uploadedImage)
 
     if (listErrors.length) {
         return res.status(400).json({

@@ -383,7 +383,6 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
         res.status(200).json(ressourceComputed[0]);
     } catch (err) {
-        console.log(err);
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],

@@ -17,6 +17,7 @@ const author = {
         },
         bio: {
             type: "string",
+            maxLength: 300
         },
         nb_articles: {
             type: "integer",

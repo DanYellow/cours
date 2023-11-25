@@ -67,7 +67,7 @@ code/
 La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S2. Le projet se base principalement sur les outils vitejs et express. Néanmoins regardons en détails tout ça.
 
 ### database/
-Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](https://www.mongodb.com/try/download/community), et pour des questions de conforts [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
+Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL et comment installer l'environnement de travail dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md).
 
 ### public/
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre. Le chemin entre vos templates (dossier src/) et le fichier public ne doit pas contenir `public/`, pour rappel. Dans le dossier, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
@@ -247,7 +247,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
-- [ ] Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité n'étant pas native, vous devrez utiliser un plugin (pas installé) comme TomSelect
+- [ ] Optionnel : Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité n'étant pas native, vous devrez utiliser un plugin (pas installé) comme TomSelect
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
     - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 
