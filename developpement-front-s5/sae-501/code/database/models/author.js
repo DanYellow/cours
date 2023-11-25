@@ -25,6 +25,7 @@ const authorSchema = new Schema({
     email: { 
         type: String,
         required: [true, "Veuillez mettre un email, le champ ne peut pas être nul ou vide"],
+        validate: [validator.isEmail, "Veuillez mettre un email valide"]
     },
     image: {
         type: String,

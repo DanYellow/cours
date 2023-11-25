@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import Article from './models/article.js'
-import SAE from './models/sae.js'
-
-
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
   envFilePath = ".env.dev.local";
