@@ -349,7 +349,6 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *            properties:
  *              lastname:
  *                type: string
- *                description: SAE's title
  *                required: true
  *              firstname:
  *                type: string
@@ -365,7 +364,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *                default: "#ff0000"
  *     responses:
  *       200:
- *         description: Updates a specific SAE
+ *         description: Updates a specific author
  *         content:
  *          application/json:
  *            schema:

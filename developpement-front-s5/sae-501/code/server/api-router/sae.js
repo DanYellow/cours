@@ -52,7 +52,6 @@ const base = "saes";
  *          items:
  *            type: string
  *            pattern: '([0-9a-f]{24})'
- *          example: 7
  *        description: List of SAEs' _id. **Invalid ids will be skipped.**
  */
 router.get(`/${base}`, async (req, res) => {
@@ -145,7 +144,7 @@ router.get(`/${base}/:id`, async (req, res) => {
 });
 
 /**
- * @swagger
+ * @openapi
  * /saes:
  *   post:
  *     tags:

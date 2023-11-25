@@ -8,12 +8,11 @@ const router = express.Router();
 const base = "articles";
 
 /**
- * @swagger
+ * @openapi
  * /articles/{id}/comments:
  *   post:
  *     tags:
  *      - Articles
- *     summary: Add one comment for one article
  *     parameters:
  *      - name: id
  *        in: path
@@ -22,16 +21,15 @@ const base = "articles";
  *        schema:
  *          type: string
  *          pattern: '([0-9a-f]{24})'
- *      - in: body
- *        name: body
- *        description: Comment
- *        schema:
- *          type: object
- *          required: 
- *              - content
- *          properties:
- *              content:
- *                  type: string
+ *     requestBody:
+ *        content:
+ *          application/json:
+ *              schema:
+ *                  type: object
+ *                  required: ["content"]
+ *                  properties:
+ *                    content:
+ *                      type: string
  *     responses:
  *       201:
  *         description: Creates a comment for an article
