@@ -24,7 +24,7 @@ const author = {
         },
         color: {
             type: "string",
-            pattern: "^#[a-f0-9]{3,6}$"
+            pattern: "^#([(a-f|A-F)0-9]{3}|[(a-f|A-F)0-9]{6})$"
         },
         image: {
             type: "string",
