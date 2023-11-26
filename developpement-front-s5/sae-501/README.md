@@ -171,6 +171,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     - **Note : il faut le faire depuis le dossier contenant le fichier "package.json"**
     - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes
+- [ ] Afficher, où vous le souhaitez, le nom des membres de l'équipe
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
@@ -247,7 +248,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
-- [ ] Optionnel : Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité n'étant pas native, vous devrez utiliser un plugin (pas installé) comme TomSelect
+- [ ] Optionnel : Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
     - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 
