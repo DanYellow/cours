@@ -268,9 +268,9 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
-Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser une node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
+Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Le projet intègre un filtre (une fonction) nunjucks dédié nommée "date". Voici un exemple d'utilisation.
+  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**. Voici un exemple d'utilisation.
   ```
     {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
   ```
