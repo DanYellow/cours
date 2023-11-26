@@ -14,8 +14,8 @@
                     <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +25,7 @@
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
                             <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                         </td>
-                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("DD/M/YYYY à HH:mm") }}</td>
+                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/saes/' ~ item._id }}" class="text-blue-500 hover:text-blue-900 block sm:inline-block w-full text-left sm:w-fit">Editer</a></td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
                             <button type="button" class="text-red-600 block sm:inline-block w-full text-left sm:w-fit" data-delete-name='{{ item.title }}' data-delete-url="{{ base_url ~ "/api/saes/" ~ item._id }}">Supprimer</button>
@@ -59,8 +59,8 @@
                 <tr class="text-slate-800">
                     <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5" >Titre</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
                 </tr>
             </thead>
             <tbody>

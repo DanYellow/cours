@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
 import swaggerSpec from "./swagger.js"
 import swaggerUi from "swagger-ui-express";
-import nunjucksDateFilter from "nunjucks-date-filter";
+import { DateTime } from "luxon";
 import helmet from "helmet";
 
 import frontendRouter from "./front-end-router.js";
@@ -129,7 +129,9 @@ const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     }
 });
 
-nunjucksEnv.addFilter('date', nunjucksDateFilter)
+nunjucksEnv.addFilter("date", (value, format) => {
+    return DateTime.fromISO(value).toFormat(format);
+})
 
 const listDomains = [hostip]
 

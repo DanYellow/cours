@@ -253,21 +253,26 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
-
   Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
 
 - **Puis-je mettre sur github ce projet ?**
-
-Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.
+    Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.
 
 - **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
-
-Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components)
+    Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components). Si vous avez besoin d'icônes, tailwind propose également [heroicons](https://heroicons.com/).
 
 - **Comment je peux tester la version mobile ?**
-
-Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
+    Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
+    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement.
 
-Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement.
+- **Comment gérer l'affichage des dates côté navigateur ?**
+Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser une node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
+
+  Le projet intègre un filtre (une fonction) nunjucks dédié nommée "date". Voici un exemple d'utilisation.
+  ```
+    {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
+  ```
+  Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon.
+    - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
