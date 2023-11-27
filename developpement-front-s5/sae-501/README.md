@@ -277,3 +277,10 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
   ```
   Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon.
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
+
+- **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
+Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation).
+
+- **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
+Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "AirPlay Receiver" et désactiver "AirPlay Receiver".
+    - [En savoir plus](https://developer.apple.com/forums/thread/682332)
