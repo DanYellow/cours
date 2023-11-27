@@ -283,4 +283,5 @@ Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "AirPlay Receiver" et désactiver "AirPlay Receiver".
+    ![](captures/airreceiver.png)
     - [En savoir plus](https://developer.apple.com/forums/thread/682332)
