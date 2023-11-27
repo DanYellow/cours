@@ -105,6 +105,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [x] Lire les consignes
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
   - [ ] Respecter les attentes
+  - [ ] **Mettre vos sources dans le résultat final**
+        - Mettez le lien. Tous les liens sont dans le fichier _liste-source.ods
   - [ ] Générer une archive contenant :
     - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
     - [ ] Lien vers le dépôt sur github (projet développement uniquement)
