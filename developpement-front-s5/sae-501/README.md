@@ -140,7 +140,7 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
 1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 2. Installer les dépendances
    ```sh
-   # Dans le dossier code/
+   cd code/
    npm install
    ```
 
@@ -162,16 +162,14 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
    ```sh
    npm prod
    ```
-> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas Node, et le déploiement de projets node nécessitent quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/)
+> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas Node, et le déploiement de projets node nécessitent quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
 ## Tâches à effectuer
 
 - [x] Lire les consignes
-- [ ] Installer des dépendances avec la commande `npm install`
-    - **Note : il faut le faire depuis le dossier contenant le fichier "package.json"**
-    - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
-- [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes
-- [ ] Afficher, où vous le souhaitez, le nom des membres de l'équipe
+- [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
+- [ ] Installer les dépendances [(voir chapitre "mise en place")](#mise-en-place)
+- [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
@@ -183,6 +181,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Respecter les normes d'accessibilité web
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
+- [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
@@ -248,9 +247,15 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
-- [ ] Optionnel : Permettre la recherche d'auteurs via une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
+
+### Pour aller plus loin - tâches optionnelles
+- [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
     - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
+- [ ] Modifier le modèle "Article" de façon à en permettre le "like"/"dislike"
+  - Ne pas oublier de créer des requêtes permettant ceci
+- [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
+  - Il faudra également faire les requêtes ainsi que les formulaires dans l'administration
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -266,12 +271,12 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
     Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
-    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement.
+    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
 Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**. Voici un exemple d'utilisation.
+  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/index.js`. Voici un exemple d'utilisation.
   ```
     {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
   ```
@@ -279,7 +284,7 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
-Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation).
+Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation).
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactivez "Récepteur AirPlay".
