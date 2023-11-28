@@ -17,7 +17,7 @@
 
   <body>
     <header>
-      <p>
+      <p style="margin-bottom: 1rem">
       Le but de cette pratique est de construire notre premier formulaire en
       y ajoutant au fur et à mesure des éléments de formulaire tels que la
       balise &lt;input /> ou encore &lt;select>. Les formulaires sont des
@@ -28,8 +28,8 @@
       vos internautes. Sur un bon site, un internaute prend toujours du
       plaisir à y revenir.
     </p>
-      <p>A noter que la gestion des formulaires va de pair avec le cours "développement web" où vous apprendrez à gérer les données en provenance d'un formulaire.</p>
-
+      <p  style="margin-bottom: 1rem">A noter que la gestion des formulaires va de pair avec le cours "développement web" où vous apprendrez à gérer les données en provenance d'un formulaire.</p>
+      <p class="note-importante">Tous vos éléments de formulaire doivent contenir dans un seul et unique formulaire. Nous ne devez avoir qu'une seule et unique balise &lt;form> sur votre page</p>
       <h1 class="h1">Consignes de la pratique</h1>
       <details class="consignes-conteneur" open>
         <summary>
@@ -41,30 +41,29 @@
           Ajoutez l'attribut "action" avec la valeur "" pour la balise &lt;form>
         </li>
           <li>
-          Ajoutez du formulaire un nouveau champ &lt;input>
+          Ajoutez une balise &lt;input>
           <ul>
               <li>Ne pas oublier de rendre le champ accessible. N'oubliez pas :
               <ul>
                   <li>La balise &lt;label> </li>
-                  <li>Les attributs associés aux balises et leurs valeurs</li>
+                  <li>Les attributs associés aux balises et leurs valeurs ("name", "id", "type")</li>
                 </ul>
               </li>
             </ul>
           </li>
           <li>
-          Ajoutez dans le même formulaire un autre champ input avec un
-          type "intelligent" (exemple &lt;input type="email">).
+          Ajoutez dans le même formulaire une autre balise &lt;input> d'un type different de "text", vous pourrez trouver la liste des types dans la documentation (voir lien dans la liste plus bas).
           <ul>
               <li>Ne pas oublier de rendre le champ accessible. N'oubliez pas :
               <ul>
                   <li>La balise &lt;label> </li>
-                  <li>Les attributs associés aux balises et leurs valeurs</li>
+                  <li>Les attributs associés aux balises et leurs valeurs ("name", "id", "type")</li>
                 </ul>
               </li>
             </ul>
           </li>
         </ol>
-        <p class="note-information">Le tout doit être dans le même formulaire, pas besoin de créer un formulaire pour chaque champ. Il en est de même pour le reste de la consigne.</p>
+        <p class="note-information">Le tout doit être dans le même formulaire, pas besoin de créer un formulaire pour chaque champ. Il en est de même pour le reste du TP.</p>
         <ul class="liste-consignes">
           <li>
             <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" target="_blank"
@@ -75,7 +74,13 @@
           <li>
             <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text" target="_blank"
             rel="noopener noreferrer">Voir
-            documentation de la balise &lt;input>
+            documentation de la balise &lt;input type="text">
+            (ouverture dans un nouvel onglet)</a>
+          </li>
+          <li>
+            <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input" target="_blank"
+            rel="noopener noreferrer">Voir
+            documentation des types possibles pour la balise &lt;input>
             (ouverture dans un nouvel onglet)</a>
           </li>
           <li>
@@ -101,6 +106,13 @@
                 rel="noopener noreferrer">Voir documentation
                 de la balise &lt;button> (ouverture dans un
                 nouvel onglet)</a>
+                <ul>
+                  <li>
+                    <p class="note-information">
+                      Pensez bien à changer la valeur de l'attribut "type" du bouton en "submit". Sinon, vous ne pourrez pas soumettre votre formulaire.
+                    </p>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button" target="_blank"
@@ -163,7 +175,7 @@
           <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Rajouter une liste déroulante simple
+          <li>Rajouter une liste déroulante (balise &lt;select>)
           <ul>
               <li>
                 <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select" rel="noopener noreferrer"
