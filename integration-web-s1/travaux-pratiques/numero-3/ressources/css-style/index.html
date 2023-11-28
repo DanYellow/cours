@@ -13,36 +13,6 @@
   </head>
   <body>
     <header>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">
-            Pré-consignes de la pratique - facultatives (cliquer pour afficher /
-            cacher)
-          </h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Créez un nouveau fichier html (avec la structure de base d'un site
-            web. Rappel, vous avez le raccourci "html:5") dans le même dossier
-            que celui-ci.
-          </li>
-          <li>
-            Copiez les balises contenues entre les commentaires "&lt;!-- Début:
-            [...] -->" et "&lt;!-- Fin: [...] -->"
-            <section class="note-information">
-              Il peut avoir plusieurs commentaires du même genre au sein du même
-              fichier.
-            </section>
-          </li>
-          <li>
-            Collez leur contenu dans votre fichier aux mêmes endroits. Par
-            exemple, si vous copiez du code dans le balise &lt;head>, il faudra
-            le coller également dans la balise &lt;head> dans votre fichier.
-          </li>
-          <li>Sauvegardez-le et commencez votre TP dedans.</li>
-        </ol>
-      </details>
-
       <details class="consignes-conteneur" open>
         <summary>
           <h1 class="h1">
@@ -51,45 +21,112 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Déplacez le contenu des attributs "style" des balises présentes dans
-            la balise &lt;main> dans une balise &lt;style>
+            Créez un nouveau fichier HTML (ou réutilisez celui de l'exercice
+            "css-balises")
+          </li>
+          <li>
+            Ajoutez trois balises différentes. Utilisez des balises classiques
+            comme les balises
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"
+              target="_blank"
+              >&lt;ul></a
+            >,
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"
+              target="_blank"
+              >&lt;li></a
+            >,
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"
+              target="_blank"
+              >&lt;p></a
+            >
+            ou encore
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+              target="_blank"
+              >&lt;a></a
+            >
             <ul>
               <li>
-                Note 1 : Pensez bien à mettre la balise &lt;style> dans la
-                balise &lt;head>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
+                  target="_blank"
+                  >Liste des balises html (ouverture dans un nouvel onglet)</a
+                >
               </li>
-              <li>Note 2 : N'oubliez pas d'écrire les sélecteurs</li>
             </ul>
+            Et utilisez-les plusieurs fois, par exemple, 2-3 balises &lt;p> sur
+            la page
           </li>
-          <li>Supprimez ensuite les attributs "style" et leur valeurs</li>
+          <li>
+            A l'aide d'une balise &lt;style>, que vous aurez rajouté dans la
+            balise &lt;head>, appliquez des déclarations CSS sur les balises ajoutez précédemment. Voici un exemple
+            de propriétés CSS que vous pouvez utiliser sur ces balises :
+            <ul>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/color"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Couleur du texte (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/border"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Bordure (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/font-size"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Taille du texte (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Décoration du texte (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/background-color"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Couleur d'arrière-plan (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/style" target="_blank" rel="noopener noreferrer">Documentation de la balise &lt;style></a>
+                </li>
+            </ul>
+            <p class="note-information">
+                Inspirez-vous de la <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/style" target="_blank" rel="noopener noreferrer">documentation de la balise &lt;style></a> pour créer vos sélecteurs CSS à mettre dans la balise &lt;style>
+            </p>
+          </li>
           <li>
             Sauvegardez le fichier (
-            <kbd>Ctrl/command (⌘)</kbd>
+            <kbd>Ctrl/command (⌘)</kbd> + 
             <kbd>s</kbd>
-            ) puis consultez votre page sur votre navigateur.
-            <ul>
-              <li>
-                Et vous devriez avoir la même chose que que vous aviez au début
-              </li>
-            </ul>
+            ) puis consultez votre page sur votre navigateur
           </li>
         </ol>
+        <p class="note-information">
+            N'oubliez pas qu'on ne peut pas mettre des balises HTML dans une balise &lt;style>.
+        </p>
       </details>
     </header>
-
-    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-    <main>
-      <p style="color: red; font-size: 1.3rem; border: 2px solid black;">
-        Je suis le texte exemple du TP
-      </p>
-      <ol style="margin-top: 2rem;">
-        <li style="font-weight: bold; font-size: 0.95rem;">Aller à l'école</li>
-        <li style="font-weight: bold; font-size: 0.95rem;">Suivre les cours</li>
-        <li style="font-weight: bold; font-size: 0.95rem;">
-          Obtenir son diplôme
-        </li>
-      </ol>
-    </main>
-    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </body>
 </html>
