@@ -9,43 +9,9 @@
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
-
-    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-    <style>
-      .lien {
-        color: #0400de;
-        text-decoration: underline;
-      }
-    </style>
-    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </head>
   <body>
     <header>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">
-            Pré-consignes de la pratique - facultatives (cliquer pour afficher /
-            cacher)
-          </h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Créez un nouveau fichier html (avec la structure de base d'un site
-            web. Rappel, vous avez le raccourci "html:5") dans le même dossier que celui-ci.
-          </li>
-          <li>
-            Copiez les balises contenues entre les commentaires "&lt;!-- Début: [...] -->" et "&lt;!-- Fin: [...] -->"
-            <section class="note-information">
-              Il peut avoir plusieurs commentaires du même genre au sein du même fichier.
-            </section>
-          </li>
-          <li>
-            Collez leur contenu dans votre fichier aux mêmes endroits. Par exemple, si vous copiez du code dans le balise &lt;head>, il faudra le coller également dans la balise &lt;head> dans votre fichier.
-          </li>
-          <li>Sauvegardez-le et commencez votre TP dedans.</li>
-        </ol>
-      </details>
-
       <details class="consignes-conteneur" open>
         <summary>
           <h1 class="h1">
@@ -55,77 +21,41 @@
 
         <ol class="liste-consignes">
           <li>
-            Créez un fichier .css au même niveau que le fichier index.html
-            appelé style.css (ou un autre nom)
+            Créez un fichier .css, appelé style.css (ou un autre nom), ainsi
+            qu'un fichier .html
           </li>
           <li>
-            Liez le fichier .css à ce fichier index.html, grâce à la balise
-            &lt;link> (voir dans le &lt;head> pour avoir un exemple)
-          </li>
-          <li>
-            Coupez-collez le contenu de la balise &lt;style> dans le fichier
-            style.css (que vous venez de créer) puis supprimez la balise vidée
-            de son contenu
-          </li>
-          <li>
-            Ecrivez le contenu des attributs "style" dans le fichier style.css
-            (que vous venez de créer) avec les sélecteurs de classe associés
-            (vous devez impérativement créer des classes CSS si la balise n'en
-            possède pas et lui associer la classe)
-          </li>
-          <li>Supprimez ensuite les attributs "style" et leurs valeurs</li>
-          <li>
-            Ajoutez une nouvelle balise, associez-lui une des classes que vous
-            avez crée précédemment
-          </li>
-          <li>
-            Confirmez la bonne réalisation de l'opération en consultant la page
-            sur votre navigateur
+            Créez des classes CSS et appliquez-les sur des balises que vous
+            aurez créer.
+            <p class="note-information">
+              Vous pouvez aussi utilisez le code que vous avez fait à l'exercice
+              précédent (css-style) et le transformer avec des classes CSS.
+            </p>
           </li>
         </ol>
+        <ul>
+          <li>
+            <a
+              href="https://developer.mozilla.org/fr/docs/Web/CSS/Class_selectors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            Documentation des sélecteurs de classes CSS (ouverture dans un nouvel onglet)
+        </a>
+          </li>
+        </ul>
+      </details>
+
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">
+            Pour aller plus loin (cliquer pour afficher / cacher)
+          </h1>
+          <ol class="liste-consignes">
+            <li>Faites l'exercice du fichier "sample.html"</li>
+          </ol>
+        </summary>
       </details>
     </header>
-
-    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-    <main>
-      <!-- 
-        Ici on a une classe appelée "conteneur". 
-        Vu qu'il n'a pas encore de fichier .css contenant le sélecteur ".conteneur"
-        celui-ci ne fait rien
-      -->
-      <section
-        class="conteneur"
-        style="background: #ffe7e8; border: 2px solid #e66465;"
-      >
-        <p style="margin: 15px; line-height: 1.5; text-align: center;">
-          L'attribut universel style contient des déclarations CSS afin de
-          mettre en forme l'élément. Attention, il est recommandé de définir les
-          règles de mise en forme dans un ou plusieurs fichiers séparés. Cet
-          attribut, ainsi que l'élément
-          <code>&lt;style&gt;</code>
-          ont simplement pour but de permettre une mise en forme rapide,
-          notamment pour tester.
-        </p>
-        <p
-          style="
-            margin: 15px;
-            line-height: 1.5;
-            text-align: center;
-            color: red;
-          "
-        >
-          Cette méthode n'est pas vraiment recommandée, ainsi qu'utiliser la
-          balise &lt;style&gt;. On l'a vu en cours mais on arrêtera après.
-          <br />
-          <a
-            href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link"
-            class="lien"
-          >
-            Voir documentation de la balise link
-          </a>
-        </p>
-      </section>
-    </main>
-    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </body>
 </html>
