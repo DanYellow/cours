@@ -61,8 +61,15 @@ body {
   column-gap: 1.5rem;
 }
 
+.conteneur-patisserie figure {
+    overflow: hidden;
+    min-width: fit-content;
+}
+
 .conteneur-patisserie img {
   border-radius: 0.8rem;
+  transition: 250ms;
+  transform-origin: center;
 }
 
 .conteneur-patisserie .titre {
@@ -74,6 +81,7 @@ body {
 
 .conteneur-patisserie .description {
   font-size: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .conteneur-patisserie .description::after {
@@ -93,7 +101,7 @@ body {
   flex: 0 0 24.0384654%;
 }
 
-.liste-patisseries .patisserie:hover img {
+.patisserie:hover img, .conteneur-patisserie:hover img {
   transform: rotateZ(15deg) scale(1.5);
 }
 
@@ -115,3 +123,4 @@ body {
   transition: 250ms;
   transform-origin: center;
 }
+  

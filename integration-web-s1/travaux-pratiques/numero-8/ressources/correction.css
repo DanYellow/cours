@@ -4,10 +4,11 @@
 }
 
 .liste-patisseries-principales {
-    flex-flow: wrap column;
+  flex-direction: column;
 }
 
 /* Peut également être fait avec une classe spécifique */
-.liste-patisseries-principales .patisserie:nth-child(odd) .conteneur-patisserie {
-    flex-direction: row-reverse;
+/* Le selecteur "nth-child(even)" cible un élément sur deux */
+.liste-patisseries-principales .conteneur-patisserie:nth-child(even) {
+  flex-direction: row-reverse;
 }
