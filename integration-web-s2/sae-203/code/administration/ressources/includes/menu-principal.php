@@ -24,7 +24,7 @@ $listeEntreesMenu = [
 ];
 ?>
 
-<nav class="bg-menu-gradient">
+<nav class="bg-gradient-to-r from-gray-800 to-slate-900">
     <div class="mx-auto px-4 max-w-7xl">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">

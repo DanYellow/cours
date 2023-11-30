@@ -27,7 +27,6 @@ $pageCourante = "messages";
     <main>
         <div class="mx-auto max-w-7xl py-6">
             <div class="py-6">
-
                 <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
                     <thead class="bg-gray-100">
                         <tr>

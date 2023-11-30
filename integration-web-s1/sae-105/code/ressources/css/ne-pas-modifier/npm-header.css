@@ -6,7 +6,7 @@
 
 .bulle .titre {
   font-family: "Times New Roman", Times, serif;
-  text-align: right;
+  text-align: end;
   width: 50.78125%;
   font-weight: bold;
 }
