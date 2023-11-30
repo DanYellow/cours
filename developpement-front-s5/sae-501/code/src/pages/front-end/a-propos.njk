@@ -79,7 +79,7 @@
             <li class="h-full snap-start px-1">
                 <article class="shadow h-full">
                     <figure class="h-[280px] sm:h-[325px]">
-                        <img class="h-full w-full object-cover" src="{{ 'images/default-sae-image.png' if item.image|length == 0 else 'uploads/' ~ item.image }}" alt="">
+                        <img class="h-full w-full object-cover" src="{{ 'images/default-sae-image.png' if item.image|length == 0 else '/uploads/' ~ item.image }}" alt="">
                     </figure>
                     <section class="p-8 pb-10 sm:pb-14">
                         <p class="text-2xl font-bold pb-2">{{ item.title }}</p>

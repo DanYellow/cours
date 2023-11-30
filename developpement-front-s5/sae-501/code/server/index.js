@@ -113,13 +113,13 @@ app.use("/", express.static(publicPath));
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
-app.use('/admin', backendRouter);
-app.use('/api', apiRouter);
-app.use(frontendRouter);
-
 if(process.env.NODE_ENV === "development") {
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
+
+app.use('/admin', backendRouter);
+app.use('/api', apiRouter);
+app.use(frontendRouter);
 
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
