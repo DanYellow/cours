@@ -79,6 +79,7 @@ router.get(`/${base}`, async (req, res) => {
                     firstname: 1, 
                     image: 1,
                     bio: 1,
+                    email: 1,
                     nb_articles: { $size: "$list_articles" },
                 },
             },

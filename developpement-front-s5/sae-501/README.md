@@ -102,9 +102,9 @@ Une route peut accepter plusieurs paramètres. Il faudra juste penser à la pré
 Retenez deux choses :
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier html, sinon, vous aurez une erreur 404
 - Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
-    - frontend : partie accessible à tous
-    - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**
-    - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même**
+    - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
+    - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
+    - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
 
 ## src/
 C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
@@ -256,6 +256,7 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
   - Ne pas oublier de créer des requêtes permettant ceci
 - [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
   - Il faudra également faire les requêtes ainsi que les formulaires dans l'administration
+- [ ] Mettre un lien à l'édition d'un article pour accéder à la version front-end
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -290,3 +291,7 @@ Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas
 Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactivez "Récepteur AirPlay".
     ![](captures/airreceiver.png)
     - [En savoir plus](https://developer.apple.com/forums/thread/682332)
+
+- **Le navigateur affiche l'erreur 'Error: Failed to lookup view "" in views directory "undefined"'**
+C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
+A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant. 
