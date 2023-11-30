@@ -16,12 +16,11 @@
         </summary>
         <p class="description">
           Le reverse tabnabbing est une faille de sécurité (corrigée sauf dans
-          Internet Explorer et Edge) qui consiste à réécrire la page web ayant
+          Internet Explorer) qui consiste à réécrire la page web ayant
           ouvert un nouvel onglet. Cette faille s'explique par la possibilité (en javascript) d'accéder à
           l'onglet (ou fenêtre) ayant ouvert le lien pointant vers une page
           malicieuse et la faire exécuter du javascript sans sa volonté. Ce code
-          est souvent une redirection de page dans le but de faire du phishing. Si les navigateurs modernes (sauf dans
-          Internet Explorer et Edge), il est préférable de rajouter l'attribut "rel" avec la valeur "noopener" pour empêcher ce comportement.
+          est souvent une redirection de page dans le but de faire du <a href="https://www.service-public.fr/particuliers/vosdroits/F34800" target="_blank">phishing (appelé aussi hameçonnage)</a>. Si les navigateurs modernes (sauf Internet Explorer, pour rappel) sont protégés par défaut, il est préférable de rajouter l'attribut "rel" avec la valeur "noopener" pour empêcher ce comportement.
         </p>
       </details>
     </header>
@@ -29,7 +28,7 @@
       <!-- 
         Ajout de l'attribut rel="opener" qui ouvre la faille. 
         Ce comportement par défaut ne l'était pas avant, il fallait mettre explicitement rel="noopener".
-        Tous les navigateurs SAUF Internet Explorer et Edge ont la valeur "noopener" pour l'attribut "rel" implicitement
+        Tous les navigateurs SAUF Internet Explorer ont la valeur "noopener" pour l'attribut "rel" implicitement
        -->
       <ul>
         <li>

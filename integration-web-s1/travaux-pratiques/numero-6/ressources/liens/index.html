@@ -8,50 +8,17 @@
   <title>TP6 — Liens</title>
 
   <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-  
-  <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
 </head>
 
 <body>
   <header>
-    <details class="consignes-conteneur">
-      <summary>
-        <h1 class="h1">
-          Pré-consignes de la pratique - facultatives (cliquer pour afficher /
-          cacher)
-        </h1>
-      </summary>
-      <ol class="liste-consignes">
-        <li>
-          Créez un nouveau fichier html (avec la structure de base d'un site
-          web. Rappel, vous avez le raccourci "html:5") dans le même dossier
-          que celui-ci.
-        </li>
-        <li>
-          Copiez les balises contenues entre les commentaires "&lt;!-- Début:
-          [...] -->" et "&lt;!-- Fin: [...] -->"
-          <section class="note-information">
-            Il peut avoir plusieurs commentaires du même genre au sein du même
-            fichier.
-          </section>
-        </li>
-        <li>
-          Collez leur contenu dans votre fichier aux mêmes endroits. Par
-          exemple, si vous copiez du code dans le balise &lt;head>, il faudra
-          le coller également dans la balise &lt;head> dans votre fichier.
-        </li>
-        <li>Sauvegardez-le et commencez votre TP dedans.</li>
-      </ol>
-    </details>
-
     <h1 class="h1">Consignes de la pratique</h1>
     <details class="consignes-conteneur" open>
       <summary>
         <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
       </summary>
       <ol class="liste-consignes">
+        <li>Créez une nouvelle page html ainsi qu'un fichier css. Liez les deux fichiers</li>
         <li>
           Rajoutez une balise &lt;a> permettant de faire une ancre au sein de
           cette page. N'oubliez pas l'attribut "href" dont la valeur sera
@@ -74,11 +41,12 @@
         <li>
           Rajoutez une balise (de votre choix) et mettez-lui l'attribut id
           dont la valeur sera égale à la valeur de l'attribut "href" de la
-          balise &lt;a> que vous avez précédemment définie. <br />
-          Note : le défilement ne peut se voir que si votre page est assez
-          haute. Rajoutez la classe "marge-haute" à votre balise cible (celle qu'on doit atteindre au clic) de votre
-          ancre pour créer de la hauteur sur le site et donc voir le
+          balise &lt;a> que vous avez précédemment définie.
+          <p class="note-information">
+            Note : le défilement ne peut se voir que si votre page est assez
+          haute. Augmentez la hauteur de votre page grâce à la propriété CSS height sur la balise body et donc voir le
           déplacement.
+          </p>
         </li>
         <li>
           Cliquez sur votre lien. Vous devriez atteindre la cible de votre
@@ -87,28 +55,56 @@
       </ol>
     </details>
     <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Ajoutez sur un de vos liens une ou plusieurs pseudo-classes
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:visited" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":visited"</a></li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:hover" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":hover"</a></li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:active" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":active"</a></li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:focus" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":focus"</a></li>
+            </ul>
+            <section class="note-information">
+                <p>Si vous utilisez plusieurs pseudo-classes, attention à leur ordre dans votre CSS pour la balise &lt;a>. Citation de la documentation mdn.</p>
+                <blockquote>
+                    Afin que la mise en forme s'applique au mieux, la règle :link doit être placée avant les autres : :link — :visited — :hover — :active. La pseudo-classe :focus est habituellement placée juste avant ou juste après :hover, en fonction de l'effet désiré.
+                </blockquote>
+            </section>
+          </li>
+          <li>
+            Appliquez une pseudo-classe :hover sur un autre type de balise.
+          </li>
+        </ol>
+      </details>
+    <details class="consignes-conteneur">
       <summary>
-        <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
       </summary>
-      <ol class="liste-consignes">
-        <li>Créez un nouveau fichier .html (avec le squelette d'une page) </li>
-        <li>Rajoutez un lien (balise &lt;a>) dans ce fichier html</li>
-        <li>
-          Faites pointer (attribut href) ce lien vers le fichier que vous avez crée dans la
-          première étape. La valeur de l'attribut "href" doit donc être égale au nom
+      <ul class="liste-consignes">
+        <li>Partie A
+            <ol>
+                <li>Créez un nouveau fichier .html (avec le squelette d'une page) </li>
+                <li>Rajoutez un lien (balise &lt;a>) dans ce nouveau fichier html avec comme valeur pour l'attribut "href" le nom de votre premier fichier html</li>
+                <li>
+                  Cliquez sur votre lien. Vous devriez atteindre le fichier html crée au début du TP
+                </li>
+            </ol>
         </li>
-        <li>
-          Cliquez sur votre lien. Vous devriez atteindre la page que vous venez de créer.
+        <li>Partie B
+            <ol>
+                <li>Créez une nouvelle balise &lt;a> (peu importe le fichier html utilisé) au sein d'un paragraphe</li>
+                <li>Faites pointer cette nouvelle balise vers une url externe de votre choix, une url absolue. Exemple, le site de l'université</li>
+                <li>
+                  Cliquez sur votre lien. Vous devriez atteindre le site que vous avez mis dans l'attribut "href"
+                </li>
+            </ol>
         </li>
-      </ol>
+      </ul>
+      <p class="note-information">N'oubliez pas qu'un lien doit être facilement repérable surtout dans un bloc de texte. Pensez aux propriétés CSS "color", "text-decoration" ou encore "background-color" pour rendre les liens distincts.</p>
     </details>
   </header>
-
-  <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-  <main>
-    <!-- Commencer le TP ici -->
-  </main>
-  <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
 </body>
 
 </html>
