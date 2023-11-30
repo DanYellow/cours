@@ -32,6 +32,7 @@
           <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
+            <li>Déplacez le contenu de la balise &lt;style> dans un fichier CSS que vous aurez crée puis lié au fichier html tp.html</li>
           <li>
             Contrastez le texte du fichier tp.html grâce la propriété CSS "color"
             ou "background-color"
@@ -155,7 +156,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Rajouter une bordure sur une des classes que vous avez crée précédemment
+            Rajoutez une bordure sur une des classes que vous avez crée précédemment
             <ul class="liste-consignes">
               <li>
                 <a
@@ -168,6 +169,69 @@
               </li>
             </ul>
           </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 7 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Appliquez la propriété outline sur une des classes que vous avez crée précédemment
+            <ul class="liste-consignes">
+              <li>
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS/outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Accéder à la documentation de la propriété "outline"
+                  (ouverture dans un nouvel onglet)</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 8 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez une nouvelle balise (de type bloc) avec une nouvelle classe. Cette classe doit répondre aux conditions suivantes :
+            <ul class="liste-consignes">
+              <li>
+                Avoir une largeur fixe. Exemple : <code>width: 420px</code>.
+              </li>
+              <li>
+                Avoir une bordure avec une épaisseur assez importante identique (au moins à gauche et à droite). Exemple : <code>border: 6px solid #45BAFE</code>.
+              </li>
+              <li>
+                Avoir une marge intérieure (padding) fixe et identique (au moins à gauche et à droite). Exemple : <code>padding: 20px</code>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Récupérez la largeur de cette nouvelle balise grâce à la console du navigateur. Quelle valeur pour la largeur de la balise obtenez-vous ?
+            <p class="note-importante">La largeur doit être récupérée en survolant la balise dans l'onglet "Elements/Inspector" ou en utilisant l'outil "flèche" (premier outil à gauche dans la console) </p>
+            <p class="note-information">
+                Pour rappel, on affiche la console du navigateur grâce à la touche <kbd>F12</kbd> ou <code>clic droit > Inspecter / Examiner l'élément</code>.
+            </p>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 9 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Ajoutez le sélecteur suivant dans votre fichier CSS (de préférence au début du fichier)
+            <pre><code id="htmlViewer" style="color:rgb(170, 170, 170); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;">*, *<span style="color:rgb(255, 85, 255); font-weight:400;">::before</span>, *<span style="color:rgb(255, 85, 255); font-weight:400;">::after</span> {
+    <span style="color:rgb(255, 85, 85); font-weight:400;">box-sizing</span>: border-box;
+}</code></pre>
+          </li>
+          <li>Consultez une nouvelle fois la largeur de votre balise. Elle a maintenant la largeur que vous avez définie dans la propriété "width"</li>
         </ol>
       </details>
     </header>
