@@ -133,7 +133,7 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
-      - Il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
+      - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
@@ -143,7 +143,10 @@ Cette partie (page "contact") sera évaluée par vos enseignants en Développeme
 - Qualité du code
   - Utilisation de la fonction `require_once()`
 - Bon fonctionnement du formulaire avec envoi d'e-mail
-  - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vue en TP)
+  - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
+
+## Gestion d'équipe
+Vous devrez rédiger un document expliquant les tâches que chacun des membres de l'équipe a effectué dans cette SAE. Ces explications devront contenir, pour chaque membre, une capture d'écran avec une explication de ce que vous avez développé.
 
 # Votre liste à faire
   - [x] Lire les consignes
