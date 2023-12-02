@@ -475,17 +475,17 @@ const getArticles = async (id, queryParams = {}, isArray = false) => {
         ...(isArray
             ? [...(id.length ? [{ $match: { _id: { $in: id } } }] : [])]
             : [{ $match: { _id: id } }]),
-        ...(isArray ? [{ $sort: { _id: -1 } }] : []),
         ...(isArray
             ? [
-                  {
-                      $skip:
-                          Math.max(queryParams.page - 1, 0) *
-                          queryParams.perPage,
-                  },
+                { $sort: { updated_at: -1 } },
+                {
+                    $skip:
+                        Math.max(queryParams.page - 1, 0) *
+                        queryParams.perPage,
+                },
+                { $limit: queryParams.perPage },
               ]
             : []),
-        ...(isArray ? [{ $limit: queryParams.perPage }] : []),
         {
             $lookup: {
                 from: "commentarticles",
