@@ -260,18 +260,23 @@ Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
-  Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
+    
+    Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
 
 - **Puis-je mettre sur github ce projet ?**
+    
     Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.
 
 - **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
+    
     Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components). Si vous avez besoin d'icônes, tailwind propose également [heroicons](https://heroicons.com/).
 
 - **Comment je peux tester la version mobile ?**
+    
     Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
+    
     Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
@@ -285,13 +290,16 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
-Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation).
+    Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation).
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
-Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactivez "Récepteur AirPlay".
+
+    Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactivez "Récepteur AirPlay".
     ![](captures/airreceiver.png)
     - [En savoir plus](https://developer.apple.com/forums/thread/682332)
 
-- **Le navigateur affiche l'erreur 'Error: Failed to lookup view "" in views directory "undefined"'**
-C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
-A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant. 
+- **Le navigateur affiche l'erreur `Error: Failed to lookup view "" in views directory "undefined"`**
+    
+    C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
+    
+    A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant. 

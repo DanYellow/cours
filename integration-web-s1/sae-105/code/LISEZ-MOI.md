@@ -1,6 +1,6 @@
 # SAÉ 105 - Produire un site web
 
-> **IMPORTANT :** Le code fournit possède quelques modifications mineures par rapport à la maquette finale. Vous n'avez pas à les corriger.
+> **IMPORTANT :** Le code fourni possède quelques modifications mineures par rapport à la maquette finale. Vous n'avez pas à les corriger.
 
 ## Contexte de la SAÉ
 CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
@@ -17,7 +17,7 @@ L'objectif primaire du site sera de présenter de façon détaillée les aspects
 - AC14.04 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
 
-À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 4-6 environ **au sein du même TD/TP**, le site suivant à partir de la maquette interactive (Adobe XD) qui se trouve ici :
+À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 3-5 environ **au sein du même TD/TP**, le site suivant à partir de la maquette interactive suivante :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
 Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
@@ -28,12 +28,11 @@ Dans le site sont prévues six pages qui partagent une structure commune compos�
   - Vous devez le compléter et l'adapter pour chaque page
   - Indiquer la page active dans la navigation
     - Ceci ne se fait pas avec la pseudo-classe ":active". Aidez-vous de la gestion de la couleur des bulles pour réaliser la fonctionnalité
-- Un footer (pied-de-page) qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
-  - [Accéder au didacticiel sur l’utilisation d’Adobe XD](https://cours.cyu.fr/course/view.php?id=81#section-3)
-  - Vous devez le compléter
+- Un footer (pied-de-page), **que vous devrez compléter**, qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
+> Sur l'ENT, vous avez une section qui explique comment Adobe XD fonctionne
 
 Les pages web du site à réaliser sont donc :
-- **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Cette page a commencé à être développée et est présente dans le squelette fourni
+- **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Dans le code que vous avez récupérez, vous trouverez une version inachevée de la page, à vous de la compléter
 - **À propos :** Page qui contient trois sous-sections accessibles par trois ancres placées en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
 - **Contact :** Contient un formulaire qui permet à l’utilisateur d’envoyer une requête d’information.
 La page contact possède trois états :
@@ -50,14 +49,14 @@ La page contact possède trois états :
   - https://www.youtube.com/watch?v=xD4wshE0hEg
   
   A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéos ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
-- **Lieux de vie :** Une page qui liste différents lieux de l'IUT. La maquette ne contient pas de réelles photos, vous pouvez utiliser des placeholders pour images comme le site [https://placehold.co/](https://placehold.co/). Libre à vous de mettre de vraies photos des lieux.
+- **Lieux de vie :** Une page qui liste différents lieux de l'IUT. La maquette ne contient pas de réelles photos, vous pouvez utiliser des placeholders pour images comme le site [https://placehold.co/](https://placehold.co/). Libre à vous de mettre de vraies photos des lieux
 - **Nouvelle page à votre discretion.** Une sixième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design, la mise en page des autres pages du site (navigation et pied de page) et contenir au minimum une image et un paragraphe. **Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page.** Vous pouvez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
 
 > Ce n'est pas un exercice de rédaction, vous pouvez très bien récupérer du contenu (textes et images) en ligne. Si vous ne souhaitez pas vous casser la tête pour les images, vous pouvez utiliser un site comme [https://placehold.co/](https://placehold.co/).
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la sixième page.
 
-> Vous ne partirez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
+> Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
 > [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
 
 # Police d'écriture
@@ -78,14 +77,14 @@ Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoi
 Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
 # Astuces
-- La navigation principale et la bulle du site se trouvent dans le fichier `ressources/css/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, essayez de faire la même avec le pied de page
+- La navigation principale et la bulle du site se trouvent dans le fichier `ressources/css/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
 - A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes depuis AdobeXD :
-  - font-size
+  - font-size. **N'oubliez pas de faire la conversion px -> rem**
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
   - les couleurs
@@ -93,12 +92,11 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
-  - Et bien évidemment la documentation
-    - [Accéder à la documentation de flexbox](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
+  - Et bien évidemment la documentation : [Accéder à la documentation de flexbox](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
   
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
 - Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
-- Votre projet doit impérativement avoir un fichier "index.php"
+- **Votre projet doit impérativement avoir un fichier "index.php".** Il y en a déjà un, n'allez pas le renommer
 - Par défaut, VS Code ne permet pas l'auto-complétion de balises dans un fichier PHP. Il faut l'activer, pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
     1. Recherchez "emmet" dans la barre de recherche
@@ -110,18 +108,19 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
   - Un fichier texte contenant l'URL de votre site hébergé + la composition du groupe
+    - Vous pouvez aussi lister les membres du groupe dans le fichier "bareme-notation.ods"
+  - Un document expliquant qui a fait quoi dans le groupe. Plus d'explications dans la partie [gestion d'équipe](#gestion-déquipe)
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
 **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenée à être évaluée via un oral.
+Les critères suivants seront évalués. Une ou les deux parties **peuvent** être amenées à être évaluée via un oral.
 
 ## Intégration Web (HTML/CSS)
 Cette partie sera évaluée par vos enseignants en Intégration Web.
 - Qualité du code :
   - Pas de classes au nom étrange
-  - Limitation du nombre de classes CSS
   - Réutilisation des classes CSS
     - N'oubliez pas qu'une balise peut avoir plusieurs classes CSS
   - Organisation du code
@@ -129,13 +128,13 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
   - Sémantique HTML :
     - Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée
 - Accessibilité
-  - &lt;img> avec attribut "alt" même vide
+  - Présence de l'attribut "alt" sur la balise &lt;img> même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Unité des police d'écriture en rem
-    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem.
+    - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
       - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
-  - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
+  - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/) (vous n'avez pas à toutes les respecter)
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 ## Développement Web (PHP)
@@ -160,6 +159,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
     - [ ] **L'unité de la propriété "font-size" est rem**
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+    - [...]
 
 # FAQ - Foire Aux Questions
 - **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden". Pourquoi ?**
@@ -174,6 +174,9 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
 
   Ce ne sont pas des animations mais des transitions. Ceci se fait en CSS, nous verront ceci à l'occasion du deuxième semestre, mais si le sujet vous intéresse déjà, il y a la documentaion des CSS transitions sur mdn
     - [Accéder à la documentation de CSS Transition](https://developer.mozilla.org/fr/docs/Web/CSS/transition)
+- **C'est compliqué de travailler en groupe, il y a parfois des fichiers dupliqués, est-ce grave ?**
+    
+    Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie Astuces, pour limiter les problèmes lors de la fusion, pour chaque page faite un CSS dédié quitte à avoir des doublons
 
 
 # Pour aller plus loin

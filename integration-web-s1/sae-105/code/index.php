@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-header.css">
 
-    <!-- Vous n'avez pas besoin de fichiers sur les autres pages. Ca allège le temps de chargement et diminue la consommation d'électricité -->
+    <!-- Vous n'avez pas besoin de ce fichier sur les autres pages. Ca allège le temps de chargement et diminue la consommation d'électricité -->
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/npm-accueil.css">
 </head>
 
