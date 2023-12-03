@@ -18,7 +18,7 @@ Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très
 
 > Notes pour les utilisateurs de Windows :
 > - Téléchargez le fichier .msi **pas l'archive .zip**
-> - Lors de l'installation de MongoDB, il vous est proposé de télécharger MongoDBCompass, faites-le, ça vous épargnera de la faire plus tard
+> - Lors de l'installation de MongoDB, il vous est proposé de télécharger MongoDBCompass, faites-le, ça vous épargnera de le faire plus tard
 
 > Notes pour les utilisateurs de MacOS :
 > - Certaines commandes listées dans le fichier README ne sont plus pertinentes depuis macOS Catalina (10.15). De ce fait, nous vous conseillons de créer un dossier `data/db/` dans le même dossier que vous avez dezippé MongoDB. Et d'ajouter le paramètre `--dbpath=data/db` à la commande qui permet de lancer le serveur MongoDB. Ce qui donne de la commande `mongod --dbpath=data/db`. **Le serveur NoSQL ne se lance pas automatiquement.**
