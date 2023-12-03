@@ -1,5 +1,5 @@
 {% macro field(path, accepts=".jpg, .jpeg, .png", name = "image") %}
-<figure class="w-fit mb-2 max-h-[300px] max-w-full hover:bg-slate-100">
+<figure class="w-fit mb-2 max-h-[300px] max-w-full hover:bg-slate-100 rounded-lg overflow-hidden">
     <img src="{{ path }}" data-original-image="{{ path }}" data-preview-upload="{{ name }}" alt="" class="max-w-[inherit] max-h-[inherit]">
     <input type="text" value="{{ path }}" name="current_file_{{ name }}" class="hidden">
 </figure>
