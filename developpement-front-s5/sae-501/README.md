@@ -64,18 +64,18 @@ code/
     └── styles/
 ```
 
-La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S2. Le projet se base principalement sur les outils vitejs et express. Néanmoins regardons en détails tout ça.
+La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S1/S2. Le projet se base principalement sur les outils vitejs et express. Regardons en détails tout ça.
 
 ### database/
-Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL et comment installer l'environnement de travail dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md).
+Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
 
 ### public/
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre. Le chemin entre vos templates (dossier src/) et le fichier public ne doit pas contenir `public/`, pour rappel. Dans le dossier, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
 ### server/
-Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et la technologie express. express est un framework nodejs permettant de développer en javascript côté serveur.
+Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework nodejs permettant de développer en javascript côté serveur et propose pleins de fonctionnalités utiles.
 
-Dans le dossier `server/`, le fichier `index.js` permet de lancer le serveur et d'injecter des données, vous n'aurez pas besoin d'y toucher. En revanche, les fichiers `backend-router.js` et `frontend-router.js`, vous y toucherez, ils contiennent le routing du projet.
+Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur, vous n'aurez pas besoin d'y toucher. En revanche, les fichiers/dossiers `server/backend-router` et `server/frontend-router.js`, vous y toucherez, ils contiennent le routing du projet.
 
 Autrement dit, ces fichiers définissent ce qu'il doit se passer quand on accède à une url spécifique, c'est souvent le chargement d'une page web. Par exemple :
 ```js
@@ -84,20 +84,20 @@ router.get("/hello", async (_req, res) => {
   res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` avec la méthode GET, on charge le template "pages/index.njk" en injectant la variable "title". Le système de routing d'express est très puissant, vous trouverez d'autres exemples dans les fichiers déjà fournis.
+Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais l'action peut être un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. 
 
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
 ```js
 // front-end-router.js
-router.get("/user/:id", async (_req, res) => {
-    // On récupère le paramètre id dans l'url.
+router.get("/user/:id/:gallery", async (_req, res) => {
+    // On récupère le paramètre id et gallery dans l'url.
     const paramId = req.params.id;
+    const paramGallery = req.params.gallery;
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Une route peut accepter plusieurs paramètres. Il faudra juste penser à la préfixer par deux-points (:).
-
-> [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
+La gestion des paramètres possède d'autres fonctionnalités, vous en saurez plus dans la documentation ou les fichiers fournis.
+- [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez deux choses :
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier html, sinon, vous aurez une erreur 404
@@ -162,7 +162,7 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
    ```sh
    npm prod
    ```
-> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas Node, et le déploiement de projets node nécessitent quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
+> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
 ## Tâches à effectuer
 
@@ -186,8 +186,8 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/front-end/base.nunjucks) est là pour vous aider
-    - La page "a-propos" est déjà faite
+    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/front-end/base.njk) est là pour vous aider
+    - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
     - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
         - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
         ```js
@@ -200,12 +200,13 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut au cas où) avec un lien vers le détail de l'auteur listant tous ses articles
-- Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
+- [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
+  - Pour gérer les messages plus facilement, utilisez la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable nunjucks
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
 - [ ] Afficher la liste des articles sur la page d'accueil
-    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (src/pages/front-end/index.nunjucks), il faut juste les afficher
+    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles
 - [ ] Ajouter une page affichant en détails un auteur
     - Cette page n'existe pas, à vous de faire le design
@@ -221,15 +222,15 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 - [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
     - Le fichier sera lu côté front-end
     - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
-- [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les 5 derniers messages envoyé depuis le formulaire de contact
-    - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il fadura la compléter
+- [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
+    - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
-    - **Les** listes déroulantes sont déjà présentes, il ne manque plus que la fonctionnalité
+    - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
 - [ ] Affichez les messages envoyés depuis le formulaire de contact
     - Il n'y a pas de schéma pour les messages, vous devez le réaliser
         - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
@@ -241,12 +242,13 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
     - La suppression et le listage sont déjà gérés
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
-    - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
+    - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
     - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
+- [ ] Afficher le détail d'un message via une url dédiée. Par exemple : admin/messages/65687d7a0c092bb7d3f0c07c
 
 ### Pour aller plus loin - tâches optionnelles
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
