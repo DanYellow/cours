@@ -172,7 +172,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
 
 - **Il y a des animations quand on survole certains éléments, comment on fait ceci ?**
 
-  Ce ne sont pas des animations mais des transitions. Ceci se fait en CSS, nous verront ceci à l'occasion du deuxième semestre, mais si le sujet vous intéresse déjà, il y a la documentaion des CSS transitions sur mdn
+  Ce ne sont pas des animations mais des transitions. Ceci se fait en CSS, nous verrons ceci à l'occasion du deuxième semestre, mais si le sujet vous intéresse déjà, il y a la documentaion des CSS transitions sur mdn
     - [Accéder à la documentation de CSS Transition](https://developer.mozilla.org/fr/docs/Web/CSS/transition)
 - **C'est compliqué de travailler en groupe, il y a parfois des fichiers dupliqués, est-ce grave ?**
     
