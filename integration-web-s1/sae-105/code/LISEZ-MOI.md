@@ -154,6 +154,8 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
     - Je ne peux pas être iso maquette, c'est impossible
   - [ ] Mettre le site en ligne
+  - [ ] Afficher un favicon
+    - [Accèder au générateur de favicon](https://www.favicon-generator.org/). Vous pouvez sélectionner l'option "Generate only 16x16 favicon.ico" pour générer moins de fichiers
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
     - [ ] Mes images possèdent un attribut "alt" **même s'il est vide**
     - [ ] **L'unité de la propriété "font-size" est rem**
