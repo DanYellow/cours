@@ -39,7 +39,7 @@ $URLCreation = "{$racineURL}/creation.php";
             <div>
                 <h1 class="text-3xl font-bold text-gray-900">Liste A-REMPLACER</h1>
             </div>
-            <a href="<?php echo $URLCreation ?>" class="self-start block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel article</a>
+            <a href="<?php echo $URLCreation ?>" class="self-start block rounded-md py-2 px-4 text-base font-medium text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel article</a>
         </div>
     </header>
     <main>
@@ -67,7 +67,7 @@ $URLCreation = "{$racineURL}/creation.php";
                                 $auteurArticle = "/";
                             }
                         ?>
-                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                            <tr class="odd:bg-neutral-50  border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold">
                                     <?php echo $element["id"]; ?>
                                 </td>

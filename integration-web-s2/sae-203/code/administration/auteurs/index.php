@@ -26,7 +26,7 @@ $URLCreation = "{$racineURL}/creation.php";
                 <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
                 <p class="text-gray-500">Nombre d'auteurs : <?php echo mysqli_num_rows($resultat_brut); ?></p>
             </div>
-            <a href="<?php echo $URLCreation ?>" class="self-start block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
+            <a href="<?php echo $URLCreation ?>" class="self-start block rounded-md py-2 px-4 text-base text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>
@@ -46,7 +46,7 @@ $URLCreation = "{$racineURL}/creation.php";
                     <tbody>
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
                             $lienEdition = "{$racineURL}/edition.php?id={$element['id']}"; ?>
-                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                            <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold"><?php echo $element[
                                     'id'
                                 ]; ?></td>

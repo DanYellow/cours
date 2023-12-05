@@ -40,7 +40,7 @@ $pageCourante = "messages";
                     </thead>
                     <tbody>
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) { ?>
-                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                            <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold"><?php echo $element["id"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["nom"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["prenom"]; ?></td>
