@@ -73,9 +73,8 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
     </main>
     <?php 
         require_once('./ressources/includes/footer.php');
-
-        mysqli_free_result($resultat_brut);
-        mysqli_close($mysqli_link);
+        // mysqli_free_result($resultat_brut);
+        // mysqli_close($mysqli_link);
     ?>
 </body>
 

@@ -17,8 +17,6 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
   - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
     - [En ligne (déconseillé)](https://jsonformatter.org/scss-to-css)
     - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
-- Utiliser le langage de programmation javascript. Son utilisation peut être faite via des plugins
-  - [Voir cours sur le javascript](https://raw.githubusercontent.com/DanYellow/cours/main/integration-web-s2/travaux-pratiques/numero-5/presentation.pdf)
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur :
   - Ceci peut être géré via une combinaison de PHP et d'ancres de lien
 - Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
