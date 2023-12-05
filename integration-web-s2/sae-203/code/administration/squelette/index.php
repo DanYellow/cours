@@ -2,9 +2,8 @@
 require_once('../../ressources/includes/connexion-bdd.php');
 
 // A adapter
-$commande = $clientMySQL->prepare('SELECT * FROM TABLE');
-$commande->execute();
-$liste = $commande->fetchAll();
+$requete_brute = "SELECT * FROM TABLE";
+$resultat_brute = mysqli_query($mysqli_link, $requete_brute);
 
 $pageCourante = "REMPLACER";
 $racineURL = $_SERVER['REQUEST_URI'];
@@ -41,14 +40,14 @@ $URLCreation = "{$racineURL}/creation.php";
                     </thead>
                     <tbody>
                         <?php
-                            foreach ($liste as $element) {
-                                $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
+                            while ($article = mysqli_fetch_array($element, MYSQLI_ASSOC)) {
+                                $lien_edition = "{$racineURL}/edition.php?id={$element["id"]}";
                         ?>
                             <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold"><?php echo $element["id"]; ?></td>
                                 <td class="pl-8 p-4"></td>
                                 <td class="pl-8 p-4">
-                                    <a href='<?php echo $lienEdition; ?>' class='link-primary'>Modifier</a>
+                                    <a href='<?php echo $lien_edition; ?>' class='link-primary'>Modifier</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -57,7 +56,11 @@ $URLCreation = "{$racineURL}/creation.php";
             </div>
         </div>
     </main>
-    <?php require_once("../ressources/includes/global-footer.php"); ?>
+    <?php 
+        require_once("../ressources/includes/global-footer.php");
+        mysqli_free_result($resultat_brute);
+        mysqli_close($mysqli_link);
+    ?>
 </body>
 
 </html>

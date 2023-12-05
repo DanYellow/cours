@@ -6,10 +6,17 @@ $pageCourante = "articles";
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
+    // On prépare notre requête pour créer une nouvelle entité
+    $requete_brute = 'INSERT INTO A-REMPLACER(...) VALUES (...)';
+    
     // On crée une nouvelle entrée
-    $commande = $clientMySQL->prepare('INSERT INTO A-REMPLACER(...) VALUES (...)');
-    $commande->execute([
-    ]);
+    $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+
+    if ($resultat_brut) {
+        // Tout s'est bien passé
+    } else {
+        // Il y a eu un problème
+    }
 }
 ?>
 

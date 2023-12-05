@@ -1,7 +1,7 @@
 <?php
 require_once('../../ressources/includes/connexion-bdd.php');
 
-$commande = $clientMySQL->prepare('
+$requete_brute = '
     SELECT
         ar.id,
         ar.titre AS titre_article, 
@@ -15,9 +15,8 @@ $commande = $clientMySQL->prepare('
     FROM article AS ar 
     LEFT JOIN auteur 
     ON ar.auteur_id = auteur.id;
-');
-$commande->execute();
-$liste = $commande->fetchAll();
+';
+$resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
 $pageCourante = "articles";
 $racineURL = $_SERVER['REQUEST_URI'];
@@ -37,8 +36,10 @@ $URLCreation = "{$racineURL}/creation.php";
     <?php require_once('../ressources/includes/menu-principal.php'); ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
-            <h1 class="text-3xl font-bold text-gray-900">Liste A REMPLACER</h1>
-            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel article</a>
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Liste A-REMPLACER</h1>
+            </div>
+            <a href="<?php echo $URLCreation ?>" class="self-start block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel article</a>
         </div>
     </header>
     <main>
@@ -57,7 +58,7 @@ $URLCreation = "{$racineURL}/creation.php";
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($liste as $element) {
+                        while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
                             $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
 
                             $dateCreation = new DateTime($element["date_creation_article"]);
@@ -86,7 +87,9 @@ $URLCreation = "{$racineURL}/creation.php";
             </div>
         </div>
     </main>
-    <?php require_once("../ressources/includes/global-footer.php"); ?>
+    <?php 
+        require_once("../ressources/includes/global-footer.php");
+    ?>
 </body>
 
 </html>

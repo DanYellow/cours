@@ -14,22 +14,22 @@ if ($formulaire_soumis) {
             $_POST['lien_twitter']
         )
     ) {
-        // On crée une nouvelle entrée
-        $creerAuteurCommande = $clientMySQL->prepare(
-            'INSERT INTO auteur(prenom, nom, lien_avatar) VALUES (:prenom, :nom, :lien_avatar)'
-        );
-
         $nom = htmlentities($_POST['nom']);
         $prenom = htmlentities($_POST['prenom']);
-        $lienAvatar = htmlentities($_POST['lien_avatar']);
-        $lienTwitter = htmlentities($_POST['lien_twitter']);
+        $lien_avatar = htmlentities($_POST['lien_avatar']);
+        $lien_twitter = htmlentities($_POST['lien_twitter']);
 
-        $creerAuteurCommande->execute([
-            'nom' => $nom,
-            'prenom' => $prenom,
-            'lien_avatar' => $lienAvatar,
-            'lien_twitter' => $lienTwitter,
-        ]);
+        $requete_brute = "
+            INSERT INTO auteur(prenom, nom, lien_avatar, lien_twitter) 
+            VALUES ('$nom', '$prenom', '$lien_avatar', '$lien_twitter')
+        ";
+        $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+
+        if ($resultat_brut == true) {
+            // Tout s'est bien passé
+        } else {
+            // Il y a eu un problème
+        }
     }
 }
 ?>

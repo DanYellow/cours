@@ -1,9 +1,8 @@
 <?php
 require_once '../../ressources/includes/connexion-bdd.php';
 
-$listeAuteursCommande = $mysqli->prepare('SELECT * FROM auteur');
-$listeAuteursCommande->execute();
-$listeAuteurs = $listeAuteursCommande->fetch();
+$requete_brute = 'SELECT * FROM auteur';
+$resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
 $pageCourante = 'auteurs';
 $racineURL = $_SERVER['REQUEST_URI'];
@@ -23,8 +22,11 @@ $URLCreation = "{$racineURL}/creation.php";
     <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
-            <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
-            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
+                <p class="text-gray-500">Nombre d'auteurs : <?php echo mysqli_num_rows($resultat_brut); ?></p>
+            </div>
+            <a href="<?php echo $URLCreation ?>" class="self-start block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>
@@ -42,31 +44,31 @@ $URLCreation = "{$racineURL}/creation.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($listeAuteurs as $auteur) {
-                            $lienEdition = "{$racineURL}/edition.php?id={$auteur['id']}"; ?>
-                                <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                    <td class="pl-8 p-4 font-bold"><?php echo $auteur[
-                                        'id'
-                                    ]; ?></td>
-                                    <td class="pl-8 p-4">
-                                        <div class="w-16 h-16">
-                                            <img 
-                                                class="rounded-full w-full h-full"
-                                                src='<?php echo $auteur['lien_avatar']; ?>' 
-                                                loading="lazy"
-                                                width='80' 
-                                                height='80' 
-                                                alt='<?php echo "Portrait {$auteur['prenom']}"; ?>' 
-                                            />
-                                        </div>
-                                    </td>
-                                    <td class="pl-8 p-4"><?php echo $auteur['prenom']; ?></td>
-                                    <td class="pl-8 p-4"><?php echo $auteur['nom']; ?></td>
-                                    <td class="pl-8 p-4"><?php echo $auteur['lien_twitter']; ?></td>
-                                    <td class="pl-8 p-4">
-                                        <a href="<?php echo $lienEdition; ?>" class='font-bold text-blue-600'>Éditer</a>
-                                    </td>
-                                </tr>
+                        <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
+                            $lienEdition = "{$racineURL}/edition.php?id={$element['id']}"; ?>
+                            <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                                <td class="pl-8 p-4 font-bold"><?php echo $element[
+                                    'id'
+                                ]; ?></td>
+                                <td class="pl-8 p-4">
+                                    <div class="w-16 h-16">
+                                        <img 
+                                            class="rounded-full w-full h-full"
+                                            src='<?php echo $element['lien_avatar']; ?>' 
+                                            loading="lazy"
+                                            width='80' 
+                                            height='80' 
+                                            alt='<?php echo "Portrait {$element['prenom']}"; ?>' 
+                                        />
+                                    </div>
+                                </td>
+                                <td class="pl-8 p-4"><?php echo $element['prenom']; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element['nom']; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element['lien_twitter']; ?></td>
+                                <td class="pl-8 p-4">
+                                    <a href="<?php echo $lienEdition; ?>" class='font-bold text-blue-600'>Éditer</a>
+                                </td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>

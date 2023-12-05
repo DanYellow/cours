@@ -7,31 +7,26 @@ $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
+$id = $_GET["id"];
 if ($entree_mise_a_jour) {
     // On cherche l'article à éditer
-    $commande = $clientMySQL->prepare('SELECT * FROM article WHERE id = :id');
-    $commande->execute([
-        "id" => $_GET["id"]
-    ]);
-
-    $entite = $commande->fetch();
+    $requete_brute = "SELECT * FROM article WHERE id = $id";
+    $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+    $entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
 }
 
 if ($formulaire_soumis) {
-    // On crée une nouvelle entrée
-    $commande = $clientMySQL->prepare("
-        UPDATE REMPLACER
-        SET titre = :titre, chapo = :chapo, contenu = :contenu, COMPLETER
-        WHERE id = :id
-    ");
-
-    $commande->execute([
-        "titre" => $_POST["titre"],
-        "chapo" => "A REMPLACER",
-        "contenu" => "A REMPLACER",
-        // ...COMPLETER
-        "id" => $_POST["id"]
-    ]);
+    // On crée notre requête pour éditer une entité
+    $requete_brute = '
+        UPDATE REMPLACER 
+        SET 
+            titre = $_POST["titre"],
+            chapo = "A REMPLACER",
+            contenu = "A REMPLACER"
+        WHERE id = $id
+    ';
+    // On met à jour l'élément
+    $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 }
 ?>
 
@@ -62,7 +57,7 @@ if ($formulaire_soumis) {
                             <input type="text" name="titre"  value="<?php echo $entite['titre']; ?>"  id="titre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
                         </div>
                         <div class="col-span-12">
-                            <label  for="chapo" class="block text-lg font-medium text-gray-700">Chapô</label>
+                            <label for="chapo" class="block text-lg font-medium text-gray-700">Chapô</label>
                             <textarea type="text" name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="chapo"><?php echo $entite['contenu']; ?></textarea>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -74,7 +69,6 @@ if ($formulaire_soumis) {
         </div>
     </main>
     <?php require_once("../ressources/includes/global-footer.php"); ?>
-
 </body>
 
 </html>

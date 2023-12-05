@@ -1,9 +1,8 @@
 <?php
 require_once('../../ressources/includes/connexion-bdd.php');
 
-$listeMessagesCommande = $clientMySQL->prepare('SELECT * FROM message');
-$listeMessagesCommande->execute();
-$listeMessages = $listeMessagesCommande->fetchAll();
+$requete_brute = 'SELECT * FROM message';
+$resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
 $pageCourante = "messages";
 ?>
@@ -40,13 +39,15 @@ $pageCourante = "messages";
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            foreach ($listeMessages as $message) { 
-                        ?>
+                        <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) { ?>
                             <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                <td class="pl-8 p-4 font-bold"><?php echo $message["id"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $message["nom"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $message["prenom"]; ?></td>
+                                <td class="pl-8 p-4 font-bold"><?php echo $element["id"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["nom"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["prenom"]; ?></td>
+                                <td class="pl-8 p-4"></td>
+                                <td class="pl-8 p-4"></td>
+                                <td class="pl-8 p-4"></td>
+                                <td class="pl-8 p-4"></td>
                             </tr>
                         <?php } ?>
                     </tbody>
