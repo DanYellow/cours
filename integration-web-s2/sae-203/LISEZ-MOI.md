@@ -33,7 +33,7 @@ Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert 
 
 - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s2%2Fsae-203)
 
-Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur contenu,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de base pour le surcharger dans vos fichiers si besoin est.
+Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur contenu,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de ces dossiers pour le surcharger dans vos fichiers si besoin est.
 
 Notez également qu'il y a deux dossiers `ressources/`, un à la racine du projet et un autre dans le dossier `administration/`. Ainsi, si vous devez éditer le site principal (celui de la SAE 105), éditez le dossier `ressources/` à la racine du projet, si vous devez éditer l'administration, travaillez dans le dossier `administration/ressources/`.
 
@@ -98,7 +98,7 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 Vous allez devoir également réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
 # Base de données
 
-Comme le nom de la SAE l'indique, elle sera l'occasion de voir les bases de données. Celle du projet ressemble à ceci :
+Comme le nom de la SAE l'indique, elle sera l'occasion d'utiliser les bases de données. Celle du projet ressemble à ceci :
 
 ![](captures-ecran/schema-bdd.png "Schéma de la base de données")
 <p style="text-align: center">Schéma de la base de données</p>
@@ -292,6 +292,9 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
+- [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
+    - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
+    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head> 
 - [ ] Rendre le projet 
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
   

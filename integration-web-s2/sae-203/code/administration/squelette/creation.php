@@ -14,7 +14,7 @@ if ($formulaire_soumis) {
 
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-    if ($resultat_brut == true) {
+    if ($resultat_brut === true) {
         // Tout s'est bien passé
     } else {
         // Il y a eu un problème

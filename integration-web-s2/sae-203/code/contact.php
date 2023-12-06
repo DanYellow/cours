@@ -9,15 +9,6 @@ require_once('./ressources/includes/connexion-bdd.php');
 
 if ($formulaire_soumis) {
     if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["message"]) && !empty($_POST["email"]) && !empty($_POST["je_suis"])) {
-        // Requête pour écrire le message dans la base :
-        $insertionMessageRequete = "
-                INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
-                VALUES (:nom, :prenom, :contenu, :email, :type, :date)
-            ";
-
-        // On prépare la requête
-        $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
-
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
         $message = htmlentities($_POST["message"]);
@@ -27,21 +18,24 @@ if ($formulaire_soumis) {
         // On récupère la date du jour
         $date = new DateTimeImmutable();
 
-        // On l'exécute 
-        // et on remplace les placeholders de la requête par nos valeurs
-        $messageCommande->execute([
-            'nom' => $nom,
-            'prenom' => $prenom,
-            'contenu' => $message,
-            'email' => $email,
-            'type' => $type,
-            // La date est formattée en chaîne de caractères
-            // au format Année-mois-jour Heure:minutes:secondes
-            // Sinon, elle ne pourra pas être 
-            // insérée dans la base de données
-            'date' => $date->format('Y-m-d H:i:s')
-        ]);
-        $formulaire_a_erreurs = false;
+        // La date est formattée en chaîne de caractères
+        // au format Année-mois-jour Heure:minutes:secondes
+        // Sinon, elle ne pourra pas être 
+        // insérée dans la base de données
+        $date_formatte = $date->format('Y-m-d H:i:s');
+
+        
+        // Requête pour écrire le message dans la base :
+        $requete_brute = "
+            INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+            VALUES ('$nom', '$prenom', '$message', '$email', '$type', '$date_formatte')
+        ";
+
+        $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+
+        if ($resultat_brut === false) {
+            $formulaire_a_erreurs = true;
+        }
     } else {
         $formulaire_a_erreurs = true;
     }
