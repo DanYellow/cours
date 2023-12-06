@@ -32,7 +32,7 @@ Dans le site sont prévues six pages qui partagent une structure commune compos�
 > Sur l'ENT, vous avez une section qui explique comment Adobe XD fonctionne
 
 Les pages web du site à réaliser sont donc :
-- **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Dans le code que vous avez récupérez, vous trouverez une version inachevée de la page, à vous de la compléter
+- **Accueil :** Page qui contient des articles concernant le BUT MMI. Chaque article doit s’afficher dans une section composée par 2 éléments (image et texte). Tous les articles sont disposés sur une seule colonne centrale. A côté de cette colonne sera présente une bannière qui redirige vers la page web de la journée portes ouvertes. Dans le code que vous avez récupéré, vous trouverez une version inachevée de la page, à vous de la compléter
 - **À propos :** Page qui contient trois sous-sections accessibles par trois ancres placées en haut de page. Dans la 3ᵉ section, une liste de projets réalisés en SAÉ par les étudiants sera affichée dans une grille de boîtes
 - **Contact :** Contient un formulaire qui permet à l’utilisateur d’envoyer une requête d’information.
 La page contact possède trois états :
@@ -41,7 +41,8 @@ La page contact possède trois états :
         <li>Message envoyé avec succès (bandeau vert)</li>
         <li>Message envoyé avec erreur (bandeau rouge)</li>
     </ol>
-    Le bandeau (succès ou erreur) n’est visible qu’après avoir soumis le formulaire. Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation de php est **indispensable** pour réussir cette tâche (récupération des valeurs des champs du formulaire). Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de les définir. Vous pouvez très bien imaginer que si l'adresse e-mail est égale à une valeur bien spécifique alors on affiche le message d'erreur
+
+    Le bandeau (succès ou erreur) ne doit être visible **qu’après avoir soumis le formulaire.** Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation du PHP est **indispensable** pour récupérer les valeurs des champs du formulaire. Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de les définir (quels champs sont obligatoires, etc.). Pour "forcer" l'affichage du bandeau rouge, vous pouvez vous baser sur l'adresse e-mail envoyée si elle est égale à une valeur bien spécifique alors on l'affiche
 - **Sur les médias :** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants : 
   - https://www.youtube.com/watch?v=oiEbQF7qfBU
   - https://www.youtube.com/watch?v=SyjF4h2Zb7Q
@@ -70,7 +71,7 @@ Quoiqu'il en soit sachez que la police "Open Sans" est nommée "Open Sans" dans 
   }
 ```
 Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoir besoin d'écrire le code ci-dessus. En revanche, pour gérer les différentes graisses, il faudra jouer sur la propriété CSS "font-weight" et les valeurs suivantes :
-- pas de gras : normal
+- pas de gras : normal/400
 - semi-gras : 600
 - gras : bold
 
@@ -78,10 +79,10 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
 # Astuces
 - La navigation principale et la bulle du site se trouvent dans le fichier `ressources/css/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
-- A la racine du projet, il y a un fichier nommé "squelette.php". A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
+- A la racine du projet, il y a un fichier nommé `squelette.php`. A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
-- **Vous ne devez en aucun cas modifier les fichier CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
+- **Vous ne devez en aucun cas modifier les fichiers CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
 - Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes depuis AdobeXD :
   - font-size. **N'oubliez pas de faire la conversion px -> rem**
@@ -97,7 +98,7 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
 - Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
 - **Votre projet doit impérativement avoir un fichier "index.php".** Il y en a déjà un, n'allez pas le renommer
-- Par défaut, VS Code ne permet pas l'auto-complétion de balises dans un fichier PHP. Il faut l'activer, pour ce faire :
+- Par défaut, VS Code ne permet pas l'auto-complétion de balises HTML dans un fichier PHP. Il faut l'activer, pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
     1. Recherchez "emmet" dans la barre de recherche
     1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
@@ -129,6 +130,7 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
     - Toute utilisation inappropriée de la balise &lt;br> sera sanctionnée
 - Accessibilité
   - Présence de l'attribut "alt" sur la balise &lt;img> même vide
+  - Le contenu est contrasté dans la sixième page que vous devez réaliser
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
@@ -145,7 +147,7 @@ Cette partie (page "contact") sera évaluée par vos enseignants en Développeme
   - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
 ## Gestion d'équipe
-Vous devrez rédiger un document expliquant les tâches que chacun des membres de l'équipe a effectué dans cette SAE. Ces explications devront contenir, pour chaque membre, une capture d'écran avec une explication de ce que vous avez développé.
+Vous devrez rédiger un document expliquant les tâches que chacun des membres de l'équipe a effectué dans cette SAE. Ces explications devront contenir, pour chaque membre, une capture d'écran ou une copie d'une partie de code avec une explication de ce que vous avez développé.
 
 # Votre liste à faire
   - [x] Lire les consignes
@@ -154,6 +156,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
     - Je ne peux pas être iso maquette, c'est impossible
   - [ ] Mettre le site en ligne
+  - [ ] Réaliser la sixième page
   - [ ] Afficher un favicon
     - [Accèder au générateur de favicon](https://www.favicon-generator.org/). Vous pouvez sélectionner l'option "Generate only 16x16 favicon.ico" pour générer moins de fichiers
   - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
@@ -162,6 +165,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
     - [...]
+  - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
 # FAQ - Foire Aux Questions
 - **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden". Pourquoi ?**
