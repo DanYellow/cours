@@ -7,8 +7,8 @@ $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists('id', $_GET);
 
 $entite = null;
-$id = $_GET["id"];
 if ($entree_mise_a_jour) {
+    $id = $_GET["id"];
     $requete_brute = "SELECT * FROM auteur WHERE id = $id";
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
     $entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
@@ -23,10 +23,10 @@ if ($formulaire_soumis) {
     $requete_brute = "
         UPDATE auteur 
         SET 
-            nom = {$nom},
-            prenom = {$prenom},
+            nom = $nom,
+            prenom = $prenom,
             lien_avatar = ?
-        WHERE id = {$id}
+        WHERE id = $id
     ";
 
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);

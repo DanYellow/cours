@@ -1,7 +1,7 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once("../../ressources/includes/connexion-bdd.php");
 
-$requete_brute = 'SELECT * FROM message';
+$requete_brute = "SELECT * FROM message";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
 $pageCourante = "messages";
@@ -16,7 +16,7 @@ $pageCourante = "messages";
 </head>
 
 <body>
-<?php include_once '../ressources/includes/menu-principal.php'; ?>
+<?php include_once "../ressources/includes/menu-principal.php"; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6">
             <h1 class="text-3xl font-bold text-gray-900">Liste messages reçus</h1>

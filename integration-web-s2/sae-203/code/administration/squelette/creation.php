@@ -1,5 +1,5 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once("../../ressources/includes/connexion-bdd.php");
 
 $pageCourante = "auteurs";
 
@@ -7,9 +7,18 @@ $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
     // On crée une nouvelle entrée
-    $commande = $clientMySQL->prepare('INSERT INTO A-REMPLACER(...) VALUES (...)');
-    $commande->execute([
-    ]);
+    $requete_brute = "
+        INSERT INTO A-REMPLACER(...) 
+        VALUES (...)
+    ";
+
+    $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+
+    if ($resultat_brut == true) {
+        // Tout s'est bien passé
+    } else {
+        // Il y a eu un problème
+    }
 }
 ?>
 

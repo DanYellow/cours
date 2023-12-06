@@ -1,5 +1,5 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once("../../ressources/includes/connexion-bdd.php");
 
 $pageCourante = "REMPLACER";
 
@@ -8,28 +8,28 @@ $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
 if ($entree_mise_a_jour) {
-    $commande = $clientMySQL->prepare('SELECT * FROM TABLE WHERE id = :id');
-    $commande->execute([
-        "id" => $_GET["id"]
-    ]);
-
-    $entite = $commande->fetch();
+    $id = $_GET["id"];
+    $requete_brute = "SELECT * FROM TABLE WHERE id = $id";
+    $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
+    $entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
 }
 
 if ($formulaire_soumis) {
-    // On met à jour l'entrée
-    $commande = $clientMySQL->prepare("
-        UPDATE REMPLACER
-        SET nom = :nom, prenom = :prenom, avatar = :avatar
-        WHERE id = :id
-    ");
+    // On récupère les valeurs du champ
+    $id = $_POST['id'];
+    $champ_1 = htmlentities($_POST['champ_1']);
+    $champ_2 = htmlentities($_POST['champ_2']);
 
-    $commande->execute([
-        "nom" => $_POST["nom"],
-        "prenom" => "A REMPLACER",
-        "avatar" => "A REMPLACER",
-        "id" => $_POST["id"]
-    ]);
+    // On met à jour l'entrée
+    $requete_brute = "
+        UPDATE A-REMPLACER 
+        SET 
+            champ_1 = $champ_1,
+            champ_2 = $champ_2,
+        WHERE id = $id
+    ";
+
+    // A continuer, inspirez-vous des autres fichiers
 }
 
 ?>
@@ -40,11 +40,11 @@ if ($formulaire_soumis) {
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
 
-    <title>Editeur REMPLACER - Administration</title>
+    <title>Éditer REMPLACER - Administration</title>
 </head>
 
 <body>
-    <?php include_once '../ressources/includes/menu-principal.php'; ?>
+    <?php include_once "../ressources/includes/menu-principal.php"; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 px-4">
         <h1 class="text-3xl font-bold text-gray-900">Editer</h1>

@@ -1,23 +1,23 @@
 <?php
-require_once '../../ressources/includes/connexion-bdd.php';
+require_once "../../ressources/includes/connexion-bdd.php";
 
-$pageCourante = 'auteurs';
+$pageCourante = "auteurs";
 
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
     if (
         isset(
-            $_POST['prenom'],
-            $_POST['nom'],
-            $_POST['lien_avatar'],
-            $_POST['lien_twitter']
+            $_POST["prenom"],
+            $_POST["nom"],
+            $_POST["lien_avatar"],
+            $_POST["lien_twitter"]
         )
     ) {
-        $nom = htmlentities($_POST['nom']);
-        $prenom = htmlentities($_POST['prenom']);
-        $lien_avatar = htmlentities($_POST['lien_avatar']);
-        $lien_twitter = htmlentities($_POST['lien_twitter']);
+        $nom = htmlentities($_POST["nom"]);
+        $prenom = htmlentities($_POST["prenom"]);
+        $lien_avatar = htmlentities($_POST["lien_avatar"]);
+        $lien_twitter = htmlentities($_POST["lien_twitter"]);
 
         $requete_brute = "
             INSERT INTO auteur(prenom, nom, lien_avatar, lien_twitter) 

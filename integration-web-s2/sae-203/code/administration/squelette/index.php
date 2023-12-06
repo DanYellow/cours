@@ -1,5 +1,5 @@
 <?php
-require_once('../../ressources/includes/connexion-bdd.php');
+require_once("../../ressources/includes/connexion-bdd.php");
 
 // A adapter
 $requete_brute = "SELECT * FROM TABLE";
@@ -58,8 +58,6 @@ $URLCreation = "{$racineURL}/creation.php";
     </main>
     <?php 
         require_once("../ressources/includes/global-footer.php");
-        mysqli_free_result($resultat_brute);
-        mysqli_close($mysqli_link);
     ?>
 </body>
 

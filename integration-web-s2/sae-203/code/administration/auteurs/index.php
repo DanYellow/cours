@@ -1,10 +1,10 @@
 <?php
 require_once '../../ressources/includes/connexion-bdd.php';
 
-$requete_brute = 'SELECT * FROM auteur';
+$requete_brute = "SELECT * FROM auteur";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-$pageCourante = 'auteurs';
+$pageCourante = "auteurs";
 $racineURL = $_SERVER['REQUEST_URI'];
 
 $URLCreation = "{$racineURL}/creation.php";
