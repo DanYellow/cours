@@ -4,7 +4,7 @@ require_once("../../ressources/includes/connexion-bdd.php");
 $requete_brute = "SELECT * FROM message";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-$pageCourante = "messages";
+$page_courante = "messages";
 ?>
 
 <!DOCTYPE html>

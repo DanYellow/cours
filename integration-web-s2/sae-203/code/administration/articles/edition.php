@@ -1,14 +1,14 @@
 <?php
 require_once('../../ressources/includes/connexion-bdd.php');
 
-$pageCourante = "articles";
+$page_courante = "articles";
 
 $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists("id", $_GET);
 
 $entite = null;
-$id = $_GET["id"];
 if ($entree_mise_a_jour) {
+    $id = $_GET["id"];
     // On cherche l'article à éditer
     $requete_brute = "SELECT * FROM article WHERE id = $id";
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
@@ -16,15 +16,17 @@ if ($entree_mise_a_jour) {
 }
 
 if ($formulaire_soumis) {
+    $id = $_POST["id"];
+    $titre = htmlentities($_POST["titre"]);
     // On crée notre requête pour éditer une entité
-    $requete_brute = '
-        UPDATE REMPLACER 
+    $requete_brute = "
+        UPDATE A-REMPLACER
         SET 
-            titre = $_POST["titre"],
-            chapo = "A REMPLACER",
-            contenu = "A REMPLACER"
-        WHERE id = $id
-    ';
+            titre = '$titre',
+            chapo = 'A-REMPLACER',
+            contenu = 'A-REMPLACER'
+        WHERE id = '$id'
+    ";
     // On met à jour l'élément
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 }

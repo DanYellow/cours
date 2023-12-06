@@ -1,7 +1,7 @@
 <?php
 require_once("../../ressources/includes/connexion-bdd.php");
 
-$pageCourante = "auteurs";
+$page_courante = "auteurs";
 
 $formulaire_soumis = !empty($_POST);
 

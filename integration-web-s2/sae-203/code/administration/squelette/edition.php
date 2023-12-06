@@ -1,7 +1,7 @@
 <?php
 require_once("../../ressources/includes/connexion-bdd.php");
 
-$pageCourante = "REMPLACER";
+$page_courante = "REMPLACER";
 
 $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists("id", $_GET);
@@ -24,9 +24,9 @@ if ($formulaire_soumis) {
     $requete_brute = "
         UPDATE A-REMPLACER 
         SET 
-            champ_1 = $champ_1,
-            champ_2 = $champ_2,
-        WHERE id = $id
+            champ_1 = '$champ_1',
+            champ_2 = '$champ_2',
+        WHERE id = '$id'
     ";
 
     // A continuer, inspirez-vous des autres fichiers
@@ -78,6 +78,4 @@ if ($formulaire_soumis) {
     </main>
     <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
-
-
 </html>

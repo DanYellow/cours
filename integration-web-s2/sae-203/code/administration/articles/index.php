@@ -18,10 +18,10 @@ $requete_brute = '
 ';
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-$pageCourante = "articles";
-$racineURL = $_SERVER['REQUEST_URI'];
+$page_courante = "articles";
+$racine_URL = $_SERVER['REQUEST_URI'];
 
-$URLCreation = "{$racineURL}/creation.php";
+$URL_creation = "{$racine_URL}/creation.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $URLCreation = "{$racineURL}/creation.php";
             <div>
                 <h1 class="text-3xl font-bold text-gray-900">Liste A-REMPLACER</h1>
             </div>
-            <a href="<?php echo $URLCreation ?>" class="self-start block rounded-md py-2 px-4 text-base font-medium text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel article</a>
+            <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base font-medium text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel article</a>
         </div>
     </header>
     <main>
@@ -59,12 +59,12 @@ $URLCreation = "{$racineURL}/creation.php";
                     <tbody>
                         <?php
                         while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
-                            $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
+                            $lien_edition = "{$racine_URL}/edition.php?id={$element["id"]}";
 
-                            $dateCreation = new DateTime($element["date_creation_article"]);
-                            $auteurArticle = $element["auteur"];
-                            if (is_null($auteurArticle)) {
-                                $auteurArticle = "/";
+                            $date_creation = new DateTime($element["date_creation_article"]);
+                            $auteur_article = $element["auteur"];
+                            if (is_null($auteur_article)) {
+                                $auteur_article = "/";
                             }
                         ?>
                             <tr class="odd:bg-neutral-50  border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
@@ -73,12 +73,12 @@ $URLCreation = "{$racineURL}/creation.php";
                                 </td>
                                 <td class="pl-8 p-4"><?php echo $element["titre_article"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["chapo_article"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $dateCreation->format('d/m/Y H:i:s'); ?></td>
+                                <td class="pl-8 p-4"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
                                 <td class="pl-8 p-4">
-                                    <?php echo $auteurArticle; ?>
+                                    <?php echo $auteur_article; ?>
                                 </td>
                                 <td class="pl-8 p-4">
-                                    <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Éditer</a>
+                                    <a href='<?php echo $lien_edition; ?>' class='font-bold text-blue-600'>Éditer</a>
                                 </td>
                             </tr>
                         <?php } ?>

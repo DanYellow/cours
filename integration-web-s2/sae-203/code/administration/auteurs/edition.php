@@ -1,7 +1,7 @@
 <?php
 require_once '../../ressources/includes/connexion-bdd.php';
 
-$pageCourante = 'auteurs';
+$page_courante = 'auteurs';
 
 $formulaire_soumis = !empty($_POST);
 $entree_mise_a_jour = array_key_exists('id', $_GET);
@@ -15,18 +15,17 @@ if ($entree_mise_a_jour) {
 }
 
 if ($formulaire_soumis) {
-    // On crée un nouvel auteur
-    $id = $_POST['id'];
-    $nom = htmlentities($_POST['nom']);
-    $prenom = htmlentities($_POST['prenom']);
+    $id = $_POST["id"];
+    $nom = htmlentities($_POST["nom"]);
+    $prenom = htmlentities($_POST["prenom"]);
 
     $requete_brute = "
-        UPDATE auteur 
+        UPDATE A-REMPLACER 
         SET 
-            nom = $nom,
-            prenom = $prenom,
-            lien_avatar = ?
-        WHERE id = $id
+            nom = '$nom',
+            prenom = '$prenom',
+            A-COMPLETER
+        WHERE id = '$id'
     ";
 
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
@@ -102,5 +101,4 @@ if ($formulaire_soumis) {
     </main>
     <?php require_once("../ressources/includes/global-footer.php"); ?>
 </body>
-
 </html>

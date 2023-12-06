@@ -5,7 +5,7 @@ require_once("../../ressources/includes/connexion-bdd.php");
 $requete_brute = "SELECT * FROM TABLE";
 $resultat_brute = mysqli_query($mysqli_link, $requete_brute);
 
-$pageCourante = "REMPLACER";
+$page_courante = "REMPLACER";
 $racineURL = $_SERVER['REQUEST_URI'];
 
 $URLCreation = "{$racineURL}/creation.php";

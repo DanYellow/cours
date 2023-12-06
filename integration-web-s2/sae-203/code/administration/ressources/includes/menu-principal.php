@@ -1,6 +1,6 @@
 <?php
 // Editez le tableau de dictionnaires ci-dessous
-$listeEntreesMenu = [
+$liste_entrees_menu = [
     [
         "lien" => "./administration/articles",
         "nom" => "Articles",
@@ -31,28 +31,22 @@ $listeEntreesMenu = [
                 <div class="flex-shrink-0">
                     <h1 class="text-white font-bold">Administration SAE 203</h1>
                 </div>
-                <div>
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <?php foreach ($listeEntreesMenu as $entreeMenu) {
-                            $lienClasses = 'text-white ';
-                            $ariaCurrentAttr = "";
-                            if ($pageCourante === $entreeMenu["clef"]) {
-                                $ariaCurrentAttr = "aria-current='page'";
-                                $lienClasses = "bg-white text-gray-900";
+                        <?php foreach ($liste_entrees_menu as $entree_menu) {
+                            $liste_classes = 'text-white ';
+                            $aria_current_attr = "";
+                            if ($page_courante === $entree_menu["clef"]) {
+                                $aria_current_attr = "aria-current='page'";
+                                $liste_classes = "bg-white text-gray-900";
                             }
             
-                            // if ($entreeMenu["clef"] === "site") {
-                            //     $entreeClasse = "$entreeClasse mt-5";
-                            // }
-            
                             echo "
-                                <a href='{$entreeMenu["lien"]}' class='{$lienClasses} rounded-md font-medium hover:bg-gray-700 hover:text-white px-3 py-2' $ariaCurrentAttr>
-                                    {$entreeMenu["nom"]}
+                                <a href='{$entree_menu["lien"]}' class='{$liste_classes} rounded-md font-medium hover:bg-gray-700 hover:text-white px-3 py-2' $aria_current_attr>
+                                    {$entree_menu["nom"]}
                                 </a>
                             ";
                         } ?>
                     </div>
-                </div>
             </div>
         </div>
     </div>
