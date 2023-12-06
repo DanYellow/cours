@@ -184,6 +184,12 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
     
     Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie Astuces, pour limiter les problèmes lors de la fusion, pour chaque page faite un CSS dédié quitte à avoir des doublons
 
+- **Le raccourci `html:5` ne fonctionne pas dans mes fichiers PHP, pourquoi ?**
+    
+    Il faut activer l'outil d'emmet sur les fichiers PHP, c'est lui qui permet notamment d'utiliser le raccourci `html:5`. Pour ce faire :
+    1. Allez dans le menu File > Preferences > Settings
+    1. Recherchez "emmet" dans la barre de recherche
+    1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
