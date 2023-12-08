@@ -4,12 +4,13 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
 
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
-  - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter ces SAÉ
+  - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter/éditer ces SAÉ
 - Gérer une page 404, autrement dit afficher une page spécifique si l'utilisateur essaye d'accéder à une page qui n'existe pas
   - Il vous faudra un fichier .htaccess, vous trouverez comment faire sur le web
 - Mettre un système de pagination pour les articles de la page d'accueil. Il vous faudra :
   - Limiter le nombre d'entrées par requêtes SQL avec le mot-clé `LIMIT`
   - Définir le décalage dans la requêtes avec le mot-clé `OFFSET`
+  - Bien évidemment, il y a des didactiels en ligne concernant cette fonctionnalité
 - (Ré)Écrire **votre CSS** en SCSS ou SASS
   - Cette partie de ce tutoriel sera amplement suffisant 
     - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
@@ -31,5 +32,7 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
 - Améliorer le code de l'administration de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
+- Afficher des pictogrammes dans l'administration. Par exemple dans le bouton de soumission du formulaire
+    - tailwindcss propose un liste d'icônes sur le [site heroicons](https://heroicons.com/). Nous vous conseillons, pour éviter de polluer le code, de mettre le code de chaque icône dans un fichiers PH pour ensuite les inclure avec la fonction PHP `include()`
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
