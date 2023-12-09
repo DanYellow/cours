@@ -10,7 +10,7 @@
             Liste articles
                 <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
             </p>
-            <a href="{{ admin_url ~ "/articles/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900">Ajouter un nouvel article</a>
+            <a href="{{ admin_url ~ "/articles/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900 h-fit">Ajouter un nouvel article</a>
         </header>
 
         <table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
@@ -42,7 +42,7 @@
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Auteur">{{ author if item.author.firstname else 'La rédaction' }}</td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/articles/' ~ item._id }}" class="text-blue-500 hover:text-blue-900 block sm:inline-block w-full text-left sm:w-fit">Editer</a></td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
-                            <button type="button" class="text-red-600 block sm:inline-block w-full text-left sm:w-fit" data-delete-name='{{ item.title }}' data-delete-url="{{ base_url ~ "/api/articles/" ~ item._id }}">Supprimer</button>
+                            <button type="button" class="text-red-600 block sm:inline-block w-full text-left sm:w-fit" popovertargetaction="open" popovertarget="delete-popup" data-delete-name='{{ item.title }}' data-delete-url="{{ base_url ~ "/api/articles/" ~ item._id }}">Supprimer</button>
                         </td>
                     </tr>
                 {% else %}

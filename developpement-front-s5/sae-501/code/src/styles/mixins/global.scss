@@ -1,6 +1,6 @@
 @mixin hocus {
   &:hover,
-  &:focus {
+  &:focus-visible {
     @content;
   }
 }
