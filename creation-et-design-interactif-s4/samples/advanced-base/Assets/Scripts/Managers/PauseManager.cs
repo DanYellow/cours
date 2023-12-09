@@ -35,7 +35,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         onTogglePauseEvent.Raise(false);
         pauseMenuUI.SetActive(false);
-        Application.targetFrameRate = 60;
     }
 
     void Pause(bool displayPauseMenuUI = true)
