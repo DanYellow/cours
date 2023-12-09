@@ -43,22 +43,24 @@ Notez également qu'il y a deux dossiers `ressources/`, un à la racine du proje
 Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas vraiment besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
 Les deux pages à réaliser sont : 
 
-- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** Un article doit contenir : 
-  - Son titre
-  - Son chapô + contenu (dans cet ordre)
-  - Son image
-  - Sa date de création (heure optionnelle)
-  - Son auteur
-    - Mettre une valeur par défaut s'il n'y a pas d'auteur
-  - Sa vidéo youtube **(optionnelle à l'affichage, pas dans le backoffice)**
-    - **Le lecteur Youtube doit s'afficher sur la page de votre site**
-    - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
-    ```html
-    <!-- Cette classe permet de garder le ratio 16/9 des vidéos -->
-    <article class="youtube-video-conteneur">
-      <!-- code pour afficher la vidéo de youtube -->
-    </article>
-    ```
+- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** 
+
+    Un article doit contenir : 
+    - Son titre
+    - Son chapô + contenu (dans cet ordre)
+    - Son image
+    - Sa date de création. L'affichage de l'heure est optionnelle
+    - Son auteur
+        - Mettre une valeur par défaut s'il n'y a pas d'auteur
+    - Sa vidéo youtube (si l'article en a une)
+        - **Le lecteur Youtube doit s'afficher sur la page de votre site**
+        - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
+        ```html
+        <!-- Cette classe permet de garder le ratio 16/9 des vidéos -->
+        <article class="youtube-video-conteneur">
+        <!-- code pour afficher la vidéo de youtube -->
+        </article>
+        ```
   > Note : Cette page possède un bug concernant le chargement du bon article, à vous de le corriger
 - La liste des auteurs du site ("équipe de rédaction")
   - Le lien pour y accéder est déjà dans la navigation mais le fichier php n'existe pas
@@ -175,7 +177,7 @@ Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présent
 
 > N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
-La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soit enregistrées dans la base de données.
+La partie "Auteur" est presque complète, et vous servira d'exemple, il faudra remplacer quelques valeurs dans les requêtes pour que les bonnes données soient enregistrées dans la base de données. **Commencez par cette partie.**
 
 > En temps normal, une interface d'administration nécessite un formulaire de connexion pour éviter que n'importe qui intègre des données. Dans le cadre de cette SAÉ, nous allons omettre cette fonctionnalité.
 > Toutefois si vous souhaitez la réaliser, allez-y.
@@ -314,7 +316,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
 
-  Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres.
+  Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres de l'utiliser pour les nouvelles pages que vous devez rajouter.
 
 - **Mon site ne charge pas le CSS. Pourquoi ?**
 

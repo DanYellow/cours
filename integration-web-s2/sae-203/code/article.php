@@ -4,28 +4,17 @@ $page_active = "index";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
-
+// Code à améliorer
 $id = 1;
-$sql = "SELECT * FROM article WHERE id=?"; // SQL with parameters
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result(); // get the mysqli result
-$user = $result->fetch_assoc(); 
-print_r($user);
-// à adapter
-// $requete = 'SELECT * FROM article WHERE id = 1';
+$requete_brute = "
+    SELECT * FROM article 
+    LEFT JOIN auteur ON article.auteur_id = auteur.id
+    WHERE article.id = $id
+";
+$resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-// $result = mysqli_query($mysqli, $requete);
-// // $articleCommand = $mysqli->query('SELECT * FROM article WHERE id = ?');
-
-// // $articleId = 1;
-// // $articleCommand->bind_param('i', $articleId);
-// // $articleCommand->execute();
-// print_r(
-//     mysqli_fetch_assoc($result)
-// );
-
+$entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
+var_dump(json_encode($entite));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -51,14 +40,14 @@ print_r($user);
     <section>
         <?php require_once('./ressources/includes/top-navigation.php'); ?>
         <?php
-        // A supprimer si vous n'en avez pas besoin.
-        // Mettre une couleur dédiée pour cette bulle si vous gardez la bulle
-        require_once('./ressources/includes/bulle.php');
+            // A supprimer si vous n'en avez pas besoin.
+            // Mettre une couleur dédiée pour cette bulle si vous gardez la bulle
+            require_once('./ressources/includes/bulle.php');
         ?>
 
         <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
         <main class="conteneur-principal conteneur-1280">
-            <h1 class="titre"><?php echo $article["titre"]; ?></h1>
+            <h1 class="titre"><?php echo $entite["titre"]; ?></h1>
             <p>A vous de faire le design de l'article</p>
 
         </main>
