@@ -97,7 +97,7 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - PHP
 - ...
 
-Vous allez devoir également réaliser le back-office du site, vous trouverez plus d'informations concernant cette partie dans la partie dédiée dans ce document.
+Vous allez devoir également réaliser le back-office du site, vous trouverez plus d'informations dans la partie [administration](#Administration-appelé-également-backoffice).
 # Base de données
 
 Comme le nom de la SAE l'indique, elle sera l'occasion d'utiliser les bases de données. Celle du projet ressemble à ceci :
@@ -158,7 +158,7 @@ MDP_BDD=
 
 # Administration (appelé également backoffice)
 
-Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `administration/`, vous trouverez un gabarit de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
+Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `administration/`, vous trouverez une base de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
 - Articles
   - Création d'article
     - On doit pouvoir associer un auteur à un article
@@ -284,19 +284,20 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
       - [ ] Tous les articles / auteurs
     - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
     - Edition à réaliser dans le fichier `administration/ressources/includes/menu-lateral-footer.php`
-- [ ] Design des pages "article" et "équipe de rédaction"
-- [ ] Complétion de la page "équipe de rédaction"
+- [ ] Intégration de la page "équipe de rédaction"
 - [ ] Complétion de la page "article"
   - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
   - [ ] Mes images possèdent un attribut "alt"
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
+  - [ ] Les éléments de formulaire ont bien un libellé qui leur est rattaché avec les bons attributs ("for" et "id")
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
     - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
-    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head> 
+    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
+    - Note 3 : Ceci ne fonctionnera pas sur votre ordinateur, il faudra impérativement mettre le site en ligne pour pouvoir tester 
 - [ ] Rendre le projet 
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
   
@@ -326,7 +327,8 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
   # [...] Reste du fichier
   ```
 - **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
-Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
+
+    Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
