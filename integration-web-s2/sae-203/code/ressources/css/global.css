@@ -35,7 +35,7 @@ html {
 }
 
 .navigation-principale a:hover,
-.navigation-principale a:focus {
+.navigation-principale a:focus-visible {
   color: #ef509f;
 }
 
@@ -57,7 +57,7 @@ html {
 }
 
 .pied-de-page-principal .remonter-lien:hover,
-.pied-de-page-principal .remonter-lien:focus {
+.pied-de-page-principal .remonter-lien:focus-visible {
   color: #0066ff;
 }
 
@@ -66,7 +66,7 @@ html {
 }
 
 .pied-de-page-principal a:hover,
-.pied-de-page-principal a:focus {
+.pied-de-page-principal a:focus-visible {
   text-decoration: none;
 }
 

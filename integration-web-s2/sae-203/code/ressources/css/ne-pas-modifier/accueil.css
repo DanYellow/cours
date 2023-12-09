@@ -85,7 +85,7 @@
   justify-content: space-between;
 }
 
-.article:focus {
+.article:focus-visible {
   outline: dotted 1px black;
 }
 
@@ -99,6 +99,10 @@
   font-size: 2.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+
+.article figure {
+    overflow: hidden;
 }
 
 .article .textes {
