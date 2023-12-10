@@ -12,6 +12,7 @@ Partie 2 :
 
 Partie 3 :
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
+- https://www.6tematik.fr/blog/web-design-menu-hamburger
 
 Partie 4 (accéder en navigation privée) :
 - https://web.archive.org/web/20180825013901/http://www.coachcyborg.com/
@@ -30,3 +31,4 @@ Partie 7 :
 - https://cestmeilleurquandcestbon.com/c/a-la-maison/
 - https://www.vovardimmobilier.fr/recherche/
 - https://espot.fr/
+- https://codingfactory.fr/nos-formations/master-lead-development/
