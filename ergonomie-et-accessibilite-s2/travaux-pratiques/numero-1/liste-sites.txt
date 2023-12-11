@@ -1,6 +1,8 @@
-Partie 0 :
+Partie 0 (choississez l'un ou l'autre) :
 - https://userinyerface.com/game.html
 - https://how-i-experience-web-today.com/
+
+Consignes : Pour chaque partie, vous allez devoir trouver la mauvaise pratique ergonomique commune aux sites. Il n'y a qu'une mauvaise pratique à trouver par partie.
 
 Partie 1 :
 - https://www.decathlon.fr/
