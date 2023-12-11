@@ -20,7 +20,7 @@
   &:hover {
     &::before {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(0.96, 0.96);
+      transform: translate(-50%, -50%) scale(0.96, 0.97);
     }
   }
 
@@ -37,6 +37,7 @@
     top: 50%;
     opacity: 0;
     transition: transform 0.2s, opacity 0.1s;
+    border-radius: theme("borderRadius.lg");
   }
 
   &::after {
@@ -71,5 +72,3 @@
     font-weight: 600;
   }
 }
-
-// color: theme("colors.neutral.50");
