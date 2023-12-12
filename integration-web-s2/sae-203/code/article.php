@@ -8,13 +8,11 @@ require_once('./ressources/includes/connexion-bdd.php');
 $id = 1;
 $requete_brute = "
     SELECT * FROM article 
-    LEFT JOIN auteur ON article.auteur_id = auteur.id
     WHERE article.id = $id
 ";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
 $entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
-var_dump(json_encode($entite));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,7 +47,6 @@ var_dump(json_encode($entite));
         <main class="conteneur-principal conteneur-1280">
             <h1 class="titre"><?php echo $entite["titre"]; ?></h1>
             <p>A vous de faire le design de l'article</p>
-
         </main>
         <?php require_once('./ressources/includes/footer.php'); ?>
     </section>
