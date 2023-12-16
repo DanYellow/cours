@@ -39,7 +39,7 @@ Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les mes
 
 Une collection contient des schémas, ces schémas ont une sytaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers type. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de 24 caractères aléatoires (nombres et lettres) qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" quant à lui sert à garder une trace de la version de votre document. Un document étant un "enfant" d'un schéma, un peu comme une ligne dans une table.
 
-Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ORM (Object Relation Mapper), autrement dit un outil qui nous permet de manipuler notre base de données NoSQL à travers des objets, donc plus facilement compréhensible. Le concept des ORM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR.
+Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ORM (Object Relation Mapper), un outil qui nous permet de manipuler notre base de données NoSQL à travers des objets et classes, ce qui plus simple à manipuler. Le concept des ORM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR.
 
 Voilà à quoi ressemble un Schéma avec Mongoose :
 
@@ -60,7 +60,7 @@ const saeSchema = new Schema({
 export default mongoose.model("SAE", saeSchema);
 ```
 
-Voici la version simplifiée du schéma d'une SAE dans le projet, dans le fichier original (`code/database/models/sae.js`). Un schéma peut avoir un type différent de "String" ([voir liste de tous les types](https://mongoosejs.com/docs/schematypes.html)). Il est également possible de valider votre champ grâce à des règles personnalisées.
+Voici la version simplifiée du schéma d'une SAE dans le projet, dans le fichier original (`code/database/models/sae.js`). Il est également possible de valider votre champ grâce à des règles personnalisées (longueur, valeur minimale, requis, etc.).
 
 Une fois notre modèle défini, nous pouvons l'instancier pour créer des documents de type SAE dans notre projet. Exemple : 
 
@@ -68,12 +68,12 @@ Une fois notre modèle défini, nous pouvons l'instancier pour créer des docume
 import SAE from './models/sae.js';
 
 const createSAE = async () => {
-    // Contient les données sous forme d'un objet
+    // Contient les données à envoyer sous forme d'objet
     const payload = {}
     // On prépare un document de type SAE
     const ressource = new SAE(payload);
 
-    // On crée notre document, l'action est asychrone d'où la présence obligatoire du mot-clé "await"
+    // On crée notre document, l'action est asynchrone d'où la présence obligatoire du mot-clé "await"
     await ressource.save().then(() => {
         // Ça s'est bien passé
     })
@@ -82,7 +82,7 @@ const createSAE = async () => {
     })
 }
 ```
-Ce code simplifié issu du fichier "code/server/api-router/sae.js" nous permet de créer une SAE dans la collection associée (saes).
+Ce code simplifié issu du fichier `code/server/api-router/sae.js` nous permet de créer une SAE dans la collection associée (saes).
 
 Ainsi à partir des exemples déjà présents, vous devrez créer la collection "messages" permettant de sauvegarder les messages crées depuis le formulaire de contact.
 
