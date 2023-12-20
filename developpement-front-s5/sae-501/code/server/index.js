@@ -12,6 +12,7 @@ import swaggerSpec from "./swagger.js"
 import swaggerUi from "swagger-ui-express";
 import { DateTime } from "luxon";
 import helmet from "helmet";
+import cors from "cors";
 
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
@@ -114,6 +115,7 @@ app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 if(process.env.NODE_ENV === "development") {
+    app.use(cors())
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 
