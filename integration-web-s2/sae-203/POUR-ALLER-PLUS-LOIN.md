@@ -26,8 +26,9 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
 - Notifier l'utilisateur après création ou édition d'un élément dans le backoffice
 - Donner la possibilité de supprimer un message ou article
   - Il faudra utiliser la requête `DELETE FROM ... WHERE`
+  - Note : En terme d'ergonomie, il est très mauvais de valider automatiquement une action dite "destructive", il faudra demander à l'utilisateur de valider son action
 - Gérer avec une base de données la liste des SAE présentes sur la page "a propos"
-- Les champs en erreur sont **clairement** indiqués après soumission du formulaire
+- Les champs en erreur sont **clairement** indiqués avant que le formulaire envoie les données vers le serveur
     - Note : Les attributs "required" doivent être supprimés
     - A vous de gérer le design, n'hésitez pas à prendre de l'inspiration sur le web
     - La bannière originale doit rester
