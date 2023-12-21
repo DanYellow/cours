@@ -23,5 +23,6 @@ export default {
     port: 9117,
     // Expose the server to the network allowing access from ip address
     host: true,
+    open: true,
   },
 };
