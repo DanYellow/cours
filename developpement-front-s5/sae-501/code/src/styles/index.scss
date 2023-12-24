@@ -15,9 +15,10 @@
     text-decoration: none;
     overflow: hidden;
     transition: background-size 0.5s;
-    background-size: cover;
+    background-size: 110%;
 
     &:hover {
+        background-size: 140%;
         &::before {
             opacity: 1;
             inset: 8px;
