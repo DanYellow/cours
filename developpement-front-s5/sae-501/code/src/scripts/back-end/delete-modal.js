@@ -9,13 +9,11 @@ const errorMessageModal = document.querySelector("[data-deletion-modal] [data-er
 let focusTrap = null;
 
 const displayDeleteItemModal = async (e) => {
-    deletionModal.classList.remove("hidden")
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
     deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName
 }
 
 closeModalBtn.addEventListener("click", () => {
-    deletionModal.classList.add("hidden")
     errorMessageModal.classList.add("hidden")
     focusTrap.deactivate()
 })
