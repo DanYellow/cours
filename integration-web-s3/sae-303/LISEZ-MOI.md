@@ -79,6 +79,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - [Voir exemples d'infographies réalisées avec tableau.com](https://public.tableau.com/app/discover/viz-of-the-day)
 - [Voir curation d'infographies](http://visdata.mit.edu/explore.html)
 
+
 ## Application interactive en javascript 
 
 Autre proposition de rendu : l'application interactive en javascript, elle sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver géographiquement.
@@ -100,6 +101,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - [Voir carte sur les notes d'hygiène des restaurants de New-York (anglais)](http://archive.nytimes.com/www.nytimes.com/interactive/dining/new-york-health-department-restaurant-ratings-map.html)
 - [Popularité des prénoms](https://dataaddict.fr/prenoms/)
 - [Assiduité des députés Français à l'Assemblée Nationale](https://www.nosdeputes.fr/)
+- [Statistiques des formations sur Parcoursup](https://beta.suptracker.org/)
 
 # Votre liste à faire
   - [x] Lire les consignes

@@ -4,34 +4,46 @@ Nous l'avons vu précédemment, Unity est un logiciel qui a été pensé pour re
 - [Accéder à l'asset store](https://assetstore.unity.com/)
 > L'asset store propose des outils en tout genre qui peuvent se greffer à Unity tels que des outils pour le logiciel ou encore des personnages clés en main pour vos jeux. Notez bien que tout n'est pas gratuit sur l'asset store.
 
-Pour permettre le développement de jeux vidéo, Unity se repose sur le langage C# (à prononcer see-sharp), c'est un langage orienté objet fortement typé. Autrement dit, le langage se base sur des classes et chaque élément doit avoir un type et n'a pas le droit d'en changer contrairement à javascript. Si le typage peut être contraignant il permet d'être plus discipliné dans sa façon de coder. Il est donc important de connaître les bases du langage. A noter que le but du cours n'est pas de vous apprendre le C# mais Unity. Toutefois nous verrons des notions au fur et à mesure des cours. Néanmoins, si vous souhaitez creuser le sujet, voici une série de vidéos en français :
-- [Liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Je vous conseille de regarder au moins les trois premières vidéos. Ceci devrait vous prendre un peu moins de 35 minutes.
+Pour permettre le développement de jeux vidéo, Unity se repose sur le langage C# (à prononcer see-sharp), c'est un langage orienté objet fortement typé. Autrement dit, le langage se base sur des classes et chaque élément doit avoir un type et n'a pas le droit d'en changer contrairement à javascript. Si le typage peut être contraignant il permet d'être plus discipliné dans sa façon de coder. Il est donc important de connaître les bases du langage. A noter que le but du cours n'est pas de vous apprendre le C# mais Unity. Ce dernier implémente ses propres fonctions qui ne sont pas disponibles si vous faites du C# seul. Toutefois nous verrons certains concepts du langage au fur et à mesure des cours. Néanmoins, si vous souhaitez creuser le sujet, voici une série de vidéos en français :
+- [Liste de lecture sur les bases de C# par Tuto Unity FR](https://www.youtube.com/playlist?list=PLUWxWDlz8PYLKlr6F_fwCs02DH1g2hrgS) - Nous vous conseillons de regarder au moins les trois premières vidéos. Ceci devrait vous prendre un peu moins de 35 minutes.
 
-> **Petit point sur les didacticiels en ligne concernant Unity :** S'il y en a beaucoup et permettent d'accomplir des choses impressionantes, le code montré n'est pas forcément le mieux optimisé, **faites attention.** La programmation de jeux vidéo, en plus d'être complexe, est un domaine où l'optimisation est importante. Un jeu qui a des soucis de performances, ce n'est pas cool. La vidéo suivante illustre très bien le problème de certains didactiels (en anglais).
-
-[![clickbaited](https://i3.ytimg.com/vi/BJvoaBeqVm0/hqdefault.jpg)](https://www.youtube.com/watch?v=BJvoaBeqVm0 "clickbaited")
-
+> **Petit point sur les didacticiels en ligne concernant Unity :** S'il y en a beaucoup et permettent d'accomplir des choses impressionantes, le code montré n'est pas forcément le mieux optimisé, **faites attention.** La programmation de jeux vidéo, en plus d'être complexe, est un domaine où l'optimisation est importante. Un jeu qui a des soucis de performances, ce n'est pas une bonne chose pour l'utilisateur final. La vidéo suivante (en anglais) illustre très bien le problème de certains didactiels.
+> [![clickbaited](https://i3.ytimg.com/vi/BJvoaBeqVm0/hqdefault.jpg)](https://www.youtube.com/watch?v=BJvoaBeqVm0 "clickbaited") <br>
 > Après si vous avez suffisamment d'expérience, vous pouvez corriger le code proposé dans un didactiel.
+> <hr>
+>
+> Évitez également de suivre un tuto du type "faire le jeu XXX de à A-Z en moins de 4 heures", si vous obtiendrez bien le résultat escompté, vous n'aurez rien appris autre que copier-coller du code, une fois la vidéo terminée, il est peu probable que vous soyez apte à refaire la même chose sans exemples.
+> Nous vous conseillons plutôt de regarder didacticiels (vidéos ou textes) montrant comment réaliser une tâche en particulier pour ensuite l'implémenter, l'adapter à vos besoins. Voici une liste non exhaustive de chaînes Youtube du genre :
+> - [Christina Creates Games - anglais](https://www.youtube.com/@ChristinaCreatesGames/videos)
+> - [PitiIT - anglais](https://www.youtube.com/@PitiITNet/videos)
+> - [Mina Pêcheux - anglais/français](https://www.youtube.com/@minapecheux/videos)
+> - [Tarodev - anglais](https://www.youtube.com/@Tarodev/videos)
+> - [bendux - anglais](https://www.youtube.com/c/bendux/videos)
+> - [Jason Weimann - anglais](https://www.youtube.com/@Unity3dCollege/videos)
+> - [BMo - anglais](https://www.youtube.com/@BMoDev/videos)
+
 
 ## Variables 
 Comme tout langage de programmation le C# permet de créer des variables, la syntaxe est la suivante (sans les crochets):
 ```cs
-[type] [nom de variable];
+[type] [nom de variable] = [valeur];
 ```
 - type : Définit la nature d'une variable. Autrement dit, les actions que peut effectuer la variable. Par exemple, si on crée une varible de type entier (int), il n'est pas possible d'utiliser des méthodes liées à une chaîne de caractères (string). Notez bien qu'en C#, contrairement au javascript, **le typage est obligatoire et immuable**. Un entier ne peut pas devenir une chaîne de caractères et vice-versa. Durant le cours, nous aurons l'occasion de voir plein de types et même de créer les nôtres, mais de base vous avez les types suivants (liste non exhaustive) :
     - int : nombre relatif (-20, -1, 5, 74, 479...)
     - string : chaîne de caractères ("Bonjour, c'est le cours d'Unity")
     - float : nombre irrationnel (1/3, 25/8, -7/9...)
-        - En C#, les floats doivent être suffixés par un "f". Par exemple, `float myFloat = 5.6f;`
+        - **En C#, les floats doivent être suffixés par un "f".** Par exemple, `float myFloat = 5.6f;`
     - bool : booleéan (`true` / `false`)
     ...
 - nom de variable : si le nom est arbitraire, certains sont interdits et bien évidemment on nommera nos variables avec un nom explicite, c'est pratique pour s'y retrouver
+- valeur : valeur que la variable va stocker. Elle peut être nulle grâce au mot-clé `null`
 
 Voici des exemples de variables :
 ```cs
+// Un entier
 int anneesBUT = 3;
+// Une chaîne de caractères
 string playerName = "player1";
-
 // Un tableau de chaînes de caractères
 string[] tableauFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
@@ -73,8 +85,10 @@ void Addition(int num1, int num2)
 }
 ```
 
-> La méthode `Debug.Log()` permet d'afficher des choses dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
+> La méthode `Debug.Log()` permet d'afficher textes et valeurs dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
 > - [Voir documentation de la méthode Debug.Log()](https://docs.unity3d.com/ScriptReference/Debug.Log.html) 
+> 
+> Si jamais vous souhaitez afficher le contenu d'un tableau (ou une liste) sur une ligne dans la console, vous pouvez utiliser l'instruction suivante : `string.Join(",", __tableau__);`. A noter que la virgule passée en premier paramètre peut être remplacée par un autre caractère.
 
 
 Voici le même exemple, mais cette fois-ci, **notre fonction retourne le résultat** :
@@ -325,5 +339,5 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 - ProjectSettings/
 - UserSettings/
 
-**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués et inutiles au bon fonctionnement du projet. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
+**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)

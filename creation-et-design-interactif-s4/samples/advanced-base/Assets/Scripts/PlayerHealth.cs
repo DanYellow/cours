@@ -15,8 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public float invincibilityFlashDelay = 0.2f;
     public float invincibilityTimeAfterHit = 2.5f;
 
-    private WaitForSeconds waitInvincibilityFlashDelay;
-    private WaitForSeconds waitInvincibilityTimeAfterHit;
+    private WaitForSeconds waitInvincibilityDeltaTime;
 
 
     [Tooltip("Please uncheck it on production")]
@@ -31,8 +30,8 @@ public class PlayerHealth : MonoBehaviour
         {
             playerHealth.currentValue = playerHealth.maxValue;
         }
-        waitInvincibilityFlashDelay = new WaitForSeconds(invincibilityFlashDelay);
-        waitInvincibilityTimeAfterHit = new WaitForSeconds(invincibilityTimeAfterHit);
+        // Time between loop
+        waitInvincibilityDeltaTime = new WaitForSeconds(0.15f);
     }
 
     private void OnEnable() {
@@ -50,8 +49,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            StartCoroutine(HandleInvincibilityDelay());
-            StartCoroutine(InvincibilityFlash());
+            StartCoroutine(Invincibility());
         }
     }
 
@@ -68,24 +66,20 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    public IEnumerator InvincibilityFlash()
+    public IEnumerator Invincibility()
     {
-        while (isInvincible)
-        {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return waitInvincibilityFlashDelay;
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return waitInvincibilityFlashDelay;
-        }
-    }
 
-    public IEnumerator HandleInvincibilityDelay()
-    {
         isInvincible = true;
-        yield return waitInvincibilityTimeAfterHit;
+        for (float i = 0; i < invulnerableDataValue.duration; i += invincibilityDeltaTime)
+        {
+            if(spriteRenderer.color.a == 1) {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            } else {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
         isInvincible = false;
     }
-
     private void OnDisable() {
         onDebugDeathEvent.OnEventRaised -= Die;
     }

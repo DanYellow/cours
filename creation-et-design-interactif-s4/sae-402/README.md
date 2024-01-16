@@ -77,15 +77,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
-        - Le nom du jeu
+        - Le nom du jeu. Vous devez en trouver un
         - De quoi commencer le jeu au premier niveau
             - Il y a déjà un bouton, il faut ajouter une fonction pour charger le premier niveau
     - Pour rappel, ici il faudra utiliser un Canvas
-    - **Ceci nécessite donc de donner un nom à votre jeu également**
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
     - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
-    - Il doit être possible de terminer ce nouveau niveau
+    - **Il doit être possible de terminer ce nouveau niveau**
     - Vous pourrez trouver des inspirations ici :
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
@@ -100,7 +99,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
-    - Note : Vous pouvez également décider qu'au moindre dégâts le joueur meurt immédiatement
+    - Note : Vous pouvez également décider qu'au moindre dégât le joueur meurt immédiatement
 > La gestion des points de vie du joueur est gérée via un ScriptableObject. Qui gère à la fois le nombre de points de vie actuels et maximum. A noter que la valeur des points de vie actuels est "clampée", autrement dit, elle ne peut pas être inférieure à 0 ni supérieure au nombre de points de vie maximum définis. Si vous le souhaitez, vous pouvez supprimer ce comportement.
 
 - Terminer la gestion de la mort du personnage. A l'heure actuelle, il y a :
@@ -200,14 +199,14 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 
 - Si vous avez besoin d'inspirations pour votre UI, vous avez le site [gameuidatabase](https://www.gameuidatabase.com/). Il rencense les UI des nombreux jeux vidéo.
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
-    - [Voir liste non exhaustive des balises TextMeshPro](http://digitalnativestudios.com/textmeshpro/docs/rich-text/)
+    - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
-- Ajouter deux niveaux supplémentaires (portant le total de niveaux à quatre)
+- Ajouter deux niveaux supplémentaires (portant le total de niveaux à quatre dans le jeu final)
 - Ajouter un nouvel ennemi au choix
-- Réaliser deux fonctionnalités (au lieu d'une) dans la partie [Liste des choses à faire au choix...](#list-extras)
+- Réaliser deux fonctionnalités (au lieu d'une) dans la partie ["Liste des choses à faire au choix"](#list-extras)
 
 Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Pensez à utiliser git, ça vous permettra d'avancer à votre allure. 
 
@@ -217,16 +216,16 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - Respecter les attentes
 - Générer une archive contenant :
     - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
-        - Pensez à tester le build final de votre jeu. Il faut faire un build de production, l'option "Développement Build" ne doit pas être cochée
+        - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**
         - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 
 # FAQ - Foire Aux Questions
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
-    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêche de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser github
+    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
     
-    Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier)
+    Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).
         - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
         - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
 - **J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?**
@@ -234,13 +233,10 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
 - **Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?**
 
-    Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la
+    Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples, bien qu'il doive faire office de premier niveau dans votre jeu.
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects pas nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
+    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
 - **Puis-je effectuer un projet à partir de zéro ?**
 
-    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel
-- **Est-ce que j'ai le droit de supprimer des mécanismes de jeu ?**
-
-    Vous pouvez. Si certains ennemis ou pièges ne vous conviennent pas, vous avez tout à fait le droit de faire des modifications. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples
+    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.

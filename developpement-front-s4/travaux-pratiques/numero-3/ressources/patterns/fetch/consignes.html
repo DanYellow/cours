@@ -18,8 +18,7 @@
             </summary>
             <ol class="liste-consignes">
                 <li>
-                    Sans ReactJS. Choississez une API qui renvoie une liste d'éléments ou un élément de votre choix. Et affichez-en le
-                    contenu. L'affichage peut être sur la page web ou encore dans la console du navigateur.
+                    Sans ReactJS. Choississez une API qui renvoie une liste d'éléments, vous avez les propositions suivantes si vous ne savez pas où trouver une API. 
                     <ul>
                         <li>Pensez bien à regarder le fonctionnement des API avant de développer</li>
                         <li>Vous pourrez trouver des API ici (ouvertures dans un nouvel onglet) :
@@ -67,10 +66,18 @@
                         </li>
                     </ul>
                 </li>
-                <li>Attention, certaines API ne retournent pas directement les informations qui vous intéressent. Il
-                    faudra donc récupérer la clef ou les clefs qui vous intéressent.
+                <li>
+                    Affichez contenu des données en provenance de l'API choisie grâce à la fonction javascript fetch. L'affichage peut être sur la page web ou encore dans la console du navigateur.
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">Accéder à la documentation de fetch (ouverture dans un nouvel onglet)</a></li>
+                        <li>Note : Vous ne pouvez pas utiliser fetch pour charger un fichier local, il faudra donc utiliser un serveur php avec un outil comme WAMP</li>
+                    </ul>
                 </li>
             </ol>
+            <p class="note-information">
+                Attention, certaines API ne retournent pas directement les informations qui vous intéressent. Il
+                    faudra donc récupérer la clef ou les clefs qui vous intéressent.
+            </p>
         </details>
         <details class="consignes-conteneur">
             <summary>
@@ -89,6 +96,10 @@
                     </ul>
                 </li>
             </ol>
+            <p class="note-information">
+                Bien que déjà présent dans le fichier "index.html" fourni. Pour faire appel à une API et en récupérer les données avec React, il faut utiliser le hook <a href="https://fr.react.dev/reference/react/useEffect" target="_blank">useEffect (accéder à la documentation, ouverture dans un nouvel onglet)</a>.
+            </p>
+
         </details>
         <details class="consignes-conteneur">
             <summary>
@@ -98,9 +109,9 @@
                 <li>
                     Indiquez que votre application est en train de charger des données
                     <ul>
-                        <li>N'oubliez pas de gérer ceci avec un state dédiée. Par exemple, "isLoading" ou "loadingData".
+                        <li>N'oubliez pas de gérer ceci avec un state dédiée. Par exemple, "isLoading" ou "loadingData"
                         </li>
-                        <li>Vous pouvez afficher du texte ou une image pour indiquer le chargement</li>
+                        <li>Vous pouvez afficher du texte ou une image pour indiquer le chargement et cacher le tout quand c'est terminé</li>
                     </ul>
                 </li>
             </ol>
