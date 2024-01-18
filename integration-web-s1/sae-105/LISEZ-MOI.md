@@ -168,7 +168,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
   - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
 # FAQ - Foire Aux Questions
-- **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden". Pourquoi ?**
+- **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden" ou un explorateur de fichier qui s'affiche. Pourquoi ?**
 
   Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut impérativement un fichier `index.php` sinon, c'est comme construire une maison sans porte d'entrée.
 
@@ -182,7 +182,7 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
     - [Accéder à la documentation de CSS Transition](https://developer.mozilla.org/fr/docs/Web/CSS/transition)
 - **C'est compliqué de travailler en groupe, il y a parfois des fichiers dupliqués, est-ce grave ?**
     
-    Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie Astuces, pour limiter les problèmes lors de la fusion, pour chaque page faite un CSS dédié quitte à avoir des doublons
+    Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie Astuces, pour limiter les problèmes lors de la fusion, pour chaque page faites un CSS dédié quitte à avoir des doublons dans les sélecteurs.
 
 - **Le raccourci `html:5` ne fonctionne pas dans mes fichiers PHP, pourquoi ?**
     
@@ -190,6 +190,22 @@ Vous devrez rédiger un document expliquant les tâches que chacun des membres d
     1. Allez dans le menu File > Preferences > Settings
     1. Recherchez "emmet" dans la barre de recherche
     1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
+
+- **Je n'arrive plus à formatter mon code HTML dans les fichiers PHP, pourquoi ?**
+
+    Par défaut, VS code ne permet pas ceci. Toutefois, vous pouvez contrevenir à ce problème, grâce à l'extension gratuite[Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php). Vous pouvez l'installer via le lien précédent. Ou en passant par le gestionnaire d'extensions de VS Code qui es représenté par les quatre carrés à gauche de la fenêtre du logiciel. Cliquez dessus et cherchez "Format HTML in PHP", la bonne extension devrait être le premier résultat. Puis cliquez sur le bouton "Install".
+
+    Une fois installé, vous pourrez utiliser le raccourci `Maj + Alt + F` ou clic droit "Format Document".
+
+- **Quand je modifie mes fichiers dans VS Code, il ne se passe rien dans le navigateur**
+
+    Deux possibilités :
+
+    - Vous ne modifiez pas les bons fichiers. Vous avez, par exemple, le projet copié ailleurs sur votre ordinateur ou une clé usb et vous modifiez cette version, version qui n'est pas affichée dans le navigateur
+    -  Votre serveur affiche la version en cache de votre site. Pour vider le cache plusieurs solutions :
+        - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
+        - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
+        - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
