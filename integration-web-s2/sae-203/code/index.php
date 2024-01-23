@@ -39,6 +39,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
             <section class="liste-articles">
                 <?php while ($article = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) { ?>
                     <!-- 
+                        @hint
                         Nous avons passé un paramètre d'URL GET nommé "id".
                         Ainsi quand l'utilisateur va arriver sur la page "article.php",
                         elle va recevoir la valeur envoyée dans l'URL. 

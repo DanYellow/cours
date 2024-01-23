@@ -27,18 +27,16 @@ require_once('./ressources/includes/connexion-bdd.php');
 </head>
 
 <body>
-    <section>
-        <?php require_once('./ressources/includes/top-navigation.php'); ?>
-        <?php
-        // facultatif
-        // require_once('./ressources/includes/bulle.php'); 
-        ?>
+    <?php require_once('./ressources/includes/top-navigation.php'); ?>
+    <?php
+    // facultatif
+    // require_once('./ressources/includes/bulle.php'); 
+    ?>
 
-        <main class="conteneur-principal conteneur-1280">
-            <!-- Vous allez principalement écrire votre code HTML dans cette balise -->
-        </main>
-        <?php require_once('./ressources/includes/footer.php'); ?>
-    </section>
+    <main class="conteneur-principal conteneur-1280">
+        <!-- Vous allez principalement écrire votre code HTML dans cette balise -->
+    </main>
+    <?php require_once('./ressources/includes/footer.php'); ?>
 </body>
 
 </html>
