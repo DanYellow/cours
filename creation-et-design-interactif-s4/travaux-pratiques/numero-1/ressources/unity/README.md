@@ -141,7 +141,11 @@ Ci-dessus vous avez une classe de base, de type MonoBehavior, à chaque fois que
 Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous permet d'accéder à notre classe partout dans notre projet. Nous verrons plus loin dans le document que le terme "public" peut être remplacé par d'autres mot-clés. Ensuite nous avons le type, ici `class`, nous définissons donc une classe qui a pour nom "MyClass". La synaxe `: MonoBehaviour` désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`. Car la class `MonoBehaviour` contient déjà ces méthodes avec leur comportement.
 
 ### Méthode : `Start() {}`
-La méthode Start() est appelée lorsque le script est instancié, autrement dit quand le GameObject apparaît dans la scène (visible ou non). Par exemple, dans un jeu vous pourriez y définir les points de vie de départ d'un personnage
+La méthode Start() est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non). Par exemple, dans un jeu vous pourriez y définir les points de vie de départ d'un personnage.
+
+> `GameObject`, quézako ?
+>
+> Un `GameObject` est un élément présent sur la scène, donc qui peut être visible à l'écran : personnages, décors, boutons, barre de vie... Il sert de conteneur pour vos scripts et composants. **A noter qu'un script doit impérativement être attaché à un `GameObject`, sinon il ne sera jamais exécuté.**
 
 ### Méthode : `Update() {}`
 La méthode Update est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode Update() sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. Notez tout de même que dépendamment de la puissance de l'appareil qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde, ça peut être plus ou moins.
@@ -162,7 +166,7 @@ void Update()
 ```
 > ** **Attention** **
 >
-> Ne mettez **jamais** une boucle `while(true) {}` (boucle infinie) dans la méthode Update car Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
+> Ne mettez **jamais** une boucle infinie comme `while(true) {}` dans la méthode Update car Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
 
 <details>
   <summary style="font-size: 1.2rem">Animations et méthodes Update() - Cliquez pour ouvrir</summary>
@@ -178,7 +182,7 @@ Pour pallier à ce problème, il est toujours conseillé d'effectuer ses animati
 ![](./printscreens/memo-delta-2.jpg)
 <p style="text-align: center">Ici on voit que dans la colonne "Delta movement" les mouvements ont la même vitesse</p>
 
-[Voici un article qui explique ce concept avec des animations (en anglais), ça traite du moteur Godot, mais le principe reste le même](https://kidscancode.org/godot_recipes/4.x/basics/understanding_delta/index.html)
+[Voici un article qui explique ce concept avec des animations (en anglais), ça traite du moteur de jeu Godot, mais le principe reste le même](https://kidscancode.org/godot_recipes/4.x/basics/understanding_delta/index.html)
 
 <hr>
 </details>
@@ -193,8 +197,8 @@ Enfin, notez les choses suivantes sur les classes :
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 # Exercice
-Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
-Créez un GameObject depuis le panneau "Hierarchy" `Clic droit > Create Empty` ou encore depuis le menu `Game Object > Create Empty`. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`).
+Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject ou un script lui-même lié à un GameObject.**
+Créez un `GameObject` depuis le panneau "Hierarchy" `Clic droit > Create Empty` ou encore depuis le menu `Game Object > Create Empty`. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`).
 
 ![](./printscreens/add-component.jpg) 
 
