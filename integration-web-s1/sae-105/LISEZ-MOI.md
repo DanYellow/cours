@@ -147,7 +147,11 @@ Cette partie (page "contact") sera évaluée par vos enseignants en Développeme
   - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
 ## Gestion d'équipe
-Vous devrez rédiger un document expliquant les tâches que chacun des membres de l'équipe a effectué dans cette SAE. Ces explications devront contenir, pour chaque membre, une capture d'écran ou une copie d'une partie de code avec une explication de ce que vous avez développé.
+Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à trouver, quelque chose qui vous a apporté de la fierté quand vous l'avez développé.
+
+Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de texte.
+
+> Cette partie pourra être notée individuellement.
 
 # Votre liste à faire
   - [x] Lire les consignes
