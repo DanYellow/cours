@@ -82,7 +82,7 @@ public class DebugConsole : MonoBehaviour
             onDebugPlayerDeathEvent.Raise();
         });
 
-        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place", "teleport <string as Vector2>", (val) =>
+        TELEPORT = new DebugCommand<string>("teleport", "Teleports player into a specific place. Example : teleport 10,0.6", "teleport <string as Vector2>", (val) =>
         {
             onDebugTeleportEvent.Raise(StringToVector3(val));
             Camera.main.transform.position = Camera.main.GetComponent<CameraFollow>().GetNextPosition();
@@ -135,22 +135,32 @@ public class DebugConsole : MonoBehaviour
     public Vector3 StringToVector3(string rString)
     {
         string[] listParams = rString.Split(',');
-        float x = Convert.ToSingle(listParams[0], cultureInfo);
-        float y = Convert.ToSingle(listParams[1], cultureInfo);
-        Vector3 rValue = new(x, y, 0);
-
-        return rValue;
+        try
+        {
+            float x = Convert.ToSingle(listParams[0], cultureInfo);
+            float y = Convert.ToSingle(listParams[1], cultureInfo);
+            Vector3 rValue = new(x, y, 0);
+            
+            return rValue;
+        } catch
+        {
+            return Vector3.zero;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.F12)) {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
             showConsole = !showConsole;
-            if(showConsole) {
+            if (showConsole)
+            {
                 onDebugConsoleOpenEvent.Raise(showConsole);
-            } else {
+            }
+            else
+            {
                 Hide();
             }
         }
@@ -211,11 +221,8 @@ public class DebugConsole : MonoBehaviour
                 HandleInput();
             }
             else if (
-                true &&
-                (
-                    // e.keyCode == KeyCode.Escape ||
-                    (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
-                )
+                e.keyCode == KeyCode.Escape ||
+                (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
             )
             {
                 Hide();
@@ -302,13 +309,16 @@ public class DebugConsole : MonoBehaviour
 
     private void Autocomplete(float y, string newInput, bool fillField)
     {
+        if (commandList.Select(x => x as DebugCommandBase).Where(k => k.commandId.StartsWith(newInput.ToLower())).ToList() == null)
+        {
+            return;
+        }
         List<DebugCommandBase> autocompleteCommands = commandList.Select(x => x as DebugCommandBase)
             .Where(k => k.commandId.StartsWith(newInput.ToLower())).ToList();
 
         Rect helpContainerViewport = new(0, y, Screen.width, 20 * autocompleteCommands.Count);
         scroll = GUI.BeginScrollView(new Rect(0, y + 5, Screen.width, 150), scroll, helpContainerViewport, GUIStyle.none, GUI.skin.verticalScrollbar);
 
-        // scroll = GUILayout.BeginScrollView(scrollPos, false, false, GUIStyle.none, GUI.skin.verticalScrollbar);
         if (autocompleteCommands.Count == 0)
         {
             displayType = DisplayType.Hide;
