@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    private bool isInvincible = false;
+    public bool isInvincible = false;
 
     float invincibilityDeltaTime = 0.15f;
     public WaitForSeconds waitInvincibilityDeltaTime;

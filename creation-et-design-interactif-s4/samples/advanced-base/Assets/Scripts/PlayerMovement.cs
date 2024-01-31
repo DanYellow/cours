@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
     }
 
     private void Animations()

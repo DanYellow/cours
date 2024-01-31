@@ -22,7 +22,7 @@ public class Pendulum : MonoBehaviour
     {
         ChangeDirection();
         speedFactor = isMovingClockwise ? 1 : -1;
-        rb.angularVelocity = speed * speedFactor * Time.fixedDeltaTime;
+        rb.angularVelocity = speed * speedFactor;
     }
 
     public void ChangeDirection()

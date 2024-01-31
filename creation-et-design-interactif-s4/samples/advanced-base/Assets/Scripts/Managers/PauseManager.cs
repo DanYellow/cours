@@ -25,6 +25,7 @@ public class PauseManager : MonoBehaviour
     {
         if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Pause");
             isGamePaused = !isGamePaused;
             onKeyPauseEvent.Raise(isGamePaused);
         }
