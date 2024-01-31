@@ -146,28 +146,13 @@ public class DebugConsole : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (
-            Input.GetKey(KeyCode.LeftControl) ||
-            Input.GetKey(KeyCode.LeftApple)
-        )
-        {
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                showConsole = true;
+        if(Input.GetKeyDown(KeyCode.F12)) {
+            showConsole = !showConsole;
+            if(showConsole) {
                 onDebugConsoleOpenEvent.Raise(showConsole);
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                showConsole = false;
+            } else {
                 Hide();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            showConsole = false;
-            Hide();
         }
 #endif
     }
@@ -228,7 +213,7 @@ public class DebugConsole : MonoBehaviour
             else if (
                 true &&
                 (
-                    e.keyCode == KeyCode.Escape ||
+                    // e.keyCode == KeyCode.Escape ||
                     (e.keyCode == KeyCode.D && (Event.current.modifiers == EventModifiers.Control || Event.current.modifiers == EventModifiers.Command))
                 )
             )

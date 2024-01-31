@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7904473a03f8faf48aa59b31913ccd94, type: 3}
   m_Name: 
@@ -252,13 +252,13 @@ AnimatorStateMachine:
     m_Position: {x: 80, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3576876731575652661}
-    m_Position: {x: 260, y: -320, z: 0}
+    m_Position: {x: 300, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6313368845565939004}
-    m_Position: {x: -310, y: -10, z: 0}
+    m_Position: {x: -290, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 781390418844994947}
-    m_Position: {x: -160, y: 170, z: 0}
+    m_Position: {x: -80, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3881514946593449083}
     m_Position: {x: 470, y: -10, z: 0}

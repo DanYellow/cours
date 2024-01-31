@@ -40,8 +40,8 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
     - Perte de points de vies du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
-- Un gestionnaire de Son / Musique
-    - Les sons (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènementiel `Assets/ScriptableObjects/Events/Values/OnSFXAudioChannel`
+- Un gestionnaire de bruitages / Musique
+    - Les bruitages (par exemple, les pommmes à leur récupération) sont gérés via des ScriptableObject de type évènementiel `Assets/ScriptableObjects/Events/Values/OnSFXAudioChannel`
 
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 

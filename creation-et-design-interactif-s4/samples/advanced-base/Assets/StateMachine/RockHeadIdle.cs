@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class RockHeadIdle : StateMachineBehaviour
 {
-    private bool hasBlinked = false;
-    private Rigidbody2D rb;
     private float cooldownBetweenBlink;
 
     private float timePassed = 0f;
@@ -12,7 +10,6 @@ public class RockHeadIdle : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         cooldownBetweenBlink = Random.Range(blinkRange[0], blinkRange[1]); // seconds
-        rb = animator.GetComponent<Rigidbody2D>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

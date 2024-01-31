@@ -25,7 +25,6 @@ public class PauseManager : MonoBehaviour
     {
         if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Pause");
             isGamePaused = !isGamePaused;
             onKeyPauseEvent.Raise(isGamePaused);
         }
@@ -44,7 +43,6 @@ public class PauseManager : MonoBehaviour
         onTogglePauseEvent.Raise(true);
         if (displayPauseMenuUI)
         {
-
             pauseMenuUI.SetActive(true);
         }
         Application.targetFrameRate = 30;
@@ -64,7 +62,8 @@ public class PauseManager : MonoBehaviour
 
     void TogglePauseDebug(bool pauseGame)
     {
-        isDebugConsoleEnabled = !isDebugConsoleEnabled;
+        print("ffeeaa");
+        // isDebugConsoleEnabled = !isDebugConsoleEnabled;
         if (!pauseGame)
         {
             Resume();
