@@ -12,10 +12,8 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isInvincible = false;
 
-    public float invincibilityFlashDelay = 0.2f;
-    public float invincibilityTimeAfterHit = 2.5f;
-
-    private WaitForSeconds waitInvincibilityDeltaTime;
+    float invincibilityDeltaTime = 0.15f;
+    public WaitForSeconds waitInvincibilityDeltaTime;
 
 
     [Tooltip("Please uncheck it on production")]
@@ -31,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
             playerHealth.currentValue = playerHealth.maxValue;
         }
         // Time between loop
-        waitInvincibilityDeltaTime = new WaitForSeconds(0.15f);
+        waitInvincibilityDeltaTime = new WaitForSeconds(invincibilityDeltaTime);
     }
 
     private void OnEnable() {
@@ -68,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator Invincibility()
     {
-        float invincibilityDeltaTime = 0.15f;
+        
         float invincibilityDuration = 2.5f;
         isInvincible = true;
         for (float i = 0; i < invincibilityDuration; i += invincibilityDeltaTime)
@@ -79,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
 
-            yield return new WaitForSeconds(invincibilityDeltaTime);
+            yield return waitInvincibilityDeltaTime;
         }
 
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
