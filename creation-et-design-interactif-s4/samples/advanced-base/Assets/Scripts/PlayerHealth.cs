@@ -68,16 +68,21 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator Invincibility()
     {
-
+        float invincibilityDeltaTime = 0.15f;
+        float invincibilityDuration = 2.5f;
         isInvincible = true;
-        for (float i = 0; i < invulnerableDataValue.duration; i += invincibilityDeltaTime)
+        for (float i = 0; i < invincibilityDuration; i += invincibilityDeltaTime)
         {
             if(spriteRenderer.color.a == 1) {
                 spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             } else {
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
+
+            yield return new WaitForSeconds(invincibilityDeltaTime);
         }
+
+        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isInvincible = false;
     }
     private void OnDisable() {

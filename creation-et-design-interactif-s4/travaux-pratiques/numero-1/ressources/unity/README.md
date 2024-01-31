@@ -166,7 +166,7 @@ void Update()
 ```
 > ** **Attention** **
 >
-> Ne mettez **jamais** une boucle infinie comme `while(true) {}` dans la méthode Update car Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
+> Ne mettez **jamais, jamais** une boucle infinie comme `while(true) {}` dans la méthode `Update()`, Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
 
 <details>
   <summary style="font-size: 1.2rem">Animations et méthodes Update() - Cliquez pour ouvrir</summary>
@@ -225,8 +225,8 @@ Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également 
 
 Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
 
-~~Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :~~
-- ~~[Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)~~
+Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :
+- [Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)
 ~~Attention tout de même, dans certains cas l'installation du SDK peut mal se dérouler et vous n'aurez pas l'autocomplétion des méthodes d'Unity. Il faudra vous réferrer au lien suivant pour résoudre votre problème :~~
 - ~~[Aide sur les problèmes de SDK .NET - anglais](https://github.com/OmniSharp/omnisharp-vscode/wiki/Troubleshooting:-'The-.NET-Core-SDK-cannot-be-located.'-errors)~~
 
