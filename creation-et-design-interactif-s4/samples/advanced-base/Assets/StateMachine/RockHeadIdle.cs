@@ -5,10 +5,11 @@ public class RockHeadIdle : StateMachineBehaviour
     private float cooldownBetweenBlink;
 
     private float timePassed = 0f;
-    private int[] blinkRange = { 1, 5 };
+    private float[] blinkRange = { 0.75f, 2.35f };
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("Blinking");
         cooldownBetweenBlink = Random.Range(blinkRange[0], blinkRange[1]); // seconds
     }
 
@@ -18,13 +19,12 @@ public class RockHeadIdle : StateMachineBehaviour
         timePassed += Time.deltaTime;
         if (
             Random.value <= 0.25f &&
-            timePassed > cooldownBetweenBlink &&
-            animator.GetCurrentAnimatorStateInfo(0).IsName("RockHeadIdle")
+            timePassed > cooldownBetweenBlink
         )
         {
             cooldownBetweenBlink = Random.Range(blinkRange[0], blinkRange[1]);
             timePassed = 0;
-            animator.SetBool("Blinking", true);
+            animator.SetTrigger("Blinking");
         }
     }
 }
