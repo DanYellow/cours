@@ -62,8 +62,7 @@ public class PauseManager : MonoBehaviour
 
     void TogglePauseDebug(bool pauseGame)
     {
-        print("ffeeaa");
-        // isDebugConsoleEnabled = !isDebugConsoleEnabled;
+        isDebugConsoleEnabled = !isDebugConsoleEnabled;
         if (!pauseGame)
         {
             Resume();
