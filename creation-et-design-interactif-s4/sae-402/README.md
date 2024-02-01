@@ -117,6 +117,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
 - Afficher un écran de fin de partie (Game Over)
     - A vous de décider les conditions qui conduisent à la fin de la partie
+- Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
+    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
 
 <span id="list-extras"></span>
 ## Liste des choses à faire au choix. Vous devez au moins en faire une (deux si vous êtes plus de trois dans votre groupe)
@@ -132,8 +134,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter une attaque "impact" alors qu'on appuie sur la flèche du bas durant un saut
     - Il faudra utiliser la méthode [Physics2D.OverlapAreaAll() (ou Physics2D.OverlapCircleAll())](https://docs.unity3d.com/ScriptReference/Physics2D.OverlapAreaAll.html) pour savoir qui a été touché dans une zone spécifique
 - Animer les checkpoints (Les carrés bleus dans le niveau)
-    - Ajouter une indication de checkpoint atteint
-    - Il y a un sprite également pour les checkpoints. A vous de l'implémenter
+    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
 - Créer **un** prop de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la direction artistique (DA) du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
@@ -153,6 +154,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Blessure du joueur
     
     Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannelSO`.
+- Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint
+
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 

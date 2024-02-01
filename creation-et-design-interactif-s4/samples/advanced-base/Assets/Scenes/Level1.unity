@@ -7601,7 +7601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: delayBetweenMoves
-      value: 2.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.size
@@ -28585,7 +28585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: delayBetweenMoves
-      value: 2.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.size
@@ -28889,8 +28889,7 @@ MonoBehaviour:
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   animator: {fileID: 814072434}
   spriteRenderer: {fileID: 814072435}
-  isInvincible: 0
-  playerInvulnerable: {fileID: 0}
+  playerInvulnerable: {fileID: 814072442}
   needResetHP: 1
   onDebugDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
 --- !u!61 &814072432
@@ -29094,12 +29093,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ca537d8386c5f4fa715880271b53ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 814072435}
   isInvincible: 0
   layersToIgnoreAfterHit:
     serializedVersion: 2
-    m_Bits: 0
-  invulnerableDuration: 2.5
+    m_Bits: 192
+  invulnerableDuration: 10
   listLayersIndexes: 
 --- !u!1 &814256511
 GameObject:
