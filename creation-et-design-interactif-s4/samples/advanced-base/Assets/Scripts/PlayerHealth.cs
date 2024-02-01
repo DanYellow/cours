@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,10 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    public bool isInvincible = false;
-
-    float invincibilityDeltaTime = 0.15f;
-    public WaitForSeconds waitInvincibilityDeltaTime;
+    public PlayerInvulnerable playerInvulnerable;
 
 
     [Tooltip("Please uncheck it on production")]
@@ -28,8 +24,6 @@ public class PlayerHealth : MonoBehaviour
         {
             playerHealth.currentValue = playerHealth.maxValue;
         }
-        // Time between loop
-        waitInvincibilityDeltaTime = new WaitForSeconds(invincibilityDeltaTime);
     }
 
     private void OnEnable() {
@@ -38,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
  
     public void TakeDamage(float damage)
     {
-        if (isInvincible && damage < float.MaxValue) return;
+        if (playerInvulnerable.isInvincible && damage < float.MaxValue) return;
 
         playerHealth.currentValue -= damage;
         if (playerHealth.currentValue <= 0)
@@ -47,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Invincibility());
+            StartCoroutine(playerInvulnerable.Invulnerable());
         }
     }
 
@@ -64,25 +58,6 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    public IEnumerator Invincibility()
-    {
-        
-        float invincibilityDuration = 2.5f;
-        isInvincible = true;
-        for (float i = 0; i < invincibilityDuration; i += invincibilityDeltaTime)
-        {
-            if(spriteRenderer.color.a == 1) {
-                spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            } else {
-                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            }
-
-            yield return waitInvincibilityDeltaTime;
-        }
-
-        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-        isInvincible = false;
-    }
     private void OnDisable() {
         onDebugDeathEvent.OnEventRaised -= Die;
     }
