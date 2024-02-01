@@ -156,7 +156,7 @@ public class RockHead : MonoBehaviour
                 contact.normal.x > 0.5
                 ) &&
                 contact.normalImpulse > maxImpulse &&
-                other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth health)
+                other.gameObject.TryGetComponent(out PlayerHealth health)
             )
             {
                 other.gameObject.transform.parent = null;

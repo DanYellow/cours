@@ -22,7 +22,7 @@ public class PlayerInvulnerable : MonoBehaviour
         // Delay between player flashes
         waitInvulnerableDeltaTime = new WaitForSeconds(invulnerableDeltaTime);
         CreateListLayers();
-        ToggleCollisions(LayerMask.LayerToName(gameObject.layer), false);
+        ToggleCollisions(gameObject.layer, false);
     }
 
     private void CreateListLayers()
@@ -39,7 +39,7 @@ public class PlayerInvulnerable : MonoBehaviour
     public IEnumerator Invulnerable()
     {
         isInvincible = true;
-        ToggleCollisions(LayerMask.LayerToName(gameObject.layer), isInvincible);
+        ToggleCollisions(gameObject.layer, isInvincible);
 
         for (float i = 0; i < invulnerableDuration; i += invulnerableDeltaTime)
         {
@@ -54,15 +54,15 @@ public class PlayerInvulnerable : MonoBehaviour
 
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isInvincible = false;
-        ToggleCollisions(LayerMask.LayerToName(gameObject.layer), isInvincible);
+        ToggleCollisions(gameObject.layer, isInvincible);
     }
 
-    public void ToggleCollisions(string layerName, bool enabled)
+    public void ToggleCollisions(int gameObjectLayer, bool enabled)
     {
         foreach (var layerIndex in listLayersIndexes)
         {
             Physics2D.IgnoreLayerCollision(
-                LayerMask.NameToLayer(layerName),
+                gameObjectLayer,
                 layerIndex,
                 enabled
             );
