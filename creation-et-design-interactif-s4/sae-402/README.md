@@ -148,7 +148,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - Voir le tutoriel sur le [package Localization](https://www.youtube.com/watch?v=qcXuvd7qSxg)
     - Pensez bien à sauvegarder les préférences de l'utilisateur grâce au `PlayerPrefs`
 - Réécrire sous forme de ScriptableObject les statistiques du joueur (nombre de sauts maximum, vitesse de déplacement...). Toutes ces informations peuvent tenir dans une seule et unique classe
-- Système de parallax
+- Ajouter une secousse de la caméra pour les actions suivantes :
+    - Mort du joueur
+    - Blessure du joueur
+    
+    Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannelSO`.
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
@@ -174,16 +178,16 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - https://www.youtube.com/@NCALIB
 
 # Console de debug
-Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab "DebugConsole", elle s'affiche via le raccourci `ctrl/command + b`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
 
 
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
-- Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous êtes
+- Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous développerez
 - Pour vous éviter des quiproquos, nous vous suggèrons chaleureusement à définir une convention de code ainsi que nommer très clairement vos variables
     - Par exemple : N'appelez pas une variable "a". Vous connaîtrez son sens lors de sa création, mais rien ne dit que ça sera le cas une semaine plus tard ou pour un autre membre de votre groupe
-    - Il existe des conventions de code déjà établies, l'idée n'est pas de les suivre à la lettre, vous pouvez prendre certains points, mais restez cohérent.
+    - Il existe des conventions de code déjà établies, l'idée n'est pas de les suivre à la lettre, vous pouvez prendre certains points, mais restez cohérent
         - [Conventions de code C# par Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity)
         - [Conventions de code C# par Microsoft](https://learn.microsoft.com/fr-fr/dotnet/csharp/fundamentals/coding-style/coding-conventions)
         - [Conventions de code C# par Google](https://google.github.io/styleguide/csharp-style.html)
@@ -204,11 +208,11 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
-- Ajouter deux niveaux supplémentaires (portant le total de niveaux à quatre dans le jeu final)
+- Ajouter un niveau supplémentaire (portant le total de niveaux à trois dans le jeu final)
 - Ajouter un nouvel ennemi au choix
 - Réaliser deux fonctionnalités (au lieu d'une) dans la partie ["Liste des choses à faire au choix"](#list-extras)
 
-Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Pensez à utiliser git, ça vous permettra d'avancer à votre allure. 
+Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Utilisez git, ça vous permettra d'avancer à votre allure. 
 
 # Votre liste à faire
 - [x] Lire les consignes

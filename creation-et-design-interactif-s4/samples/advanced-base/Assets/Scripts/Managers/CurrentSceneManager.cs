@@ -27,7 +27,6 @@ public class CurrentSceneManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Time.timeScale = 1f;
                 RestartLevel();
             }
 
@@ -69,6 +68,7 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

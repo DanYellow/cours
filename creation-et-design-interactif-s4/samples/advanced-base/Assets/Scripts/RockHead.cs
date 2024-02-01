@@ -17,7 +17,7 @@ public class RockHead : MonoBehaviour
     public Animator animator;
     private string lastAnimationPlayed = "";
 
-    public CameraShakeEventChannelSO onCrushSO;
+    public CameraShakeEventChannelSO cameraShake;
     public ShakeTypeVariable shakeInfo;
 
     private bool isOnScreen = false;
@@ -128,7 +128,7 @@ public class RockHead : MonoBehaviour
         lastAnimationPlayed = side;
         if (isOnScreen)
         {
-            onCrushSO.Raise(shakeInfo);
+            cameraShake?.Raise(shakeInfo);
         }
         EnableTriggers();
     }
