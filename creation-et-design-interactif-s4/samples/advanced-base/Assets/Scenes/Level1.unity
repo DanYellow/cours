@@ -28836,6 +28836,7 @@ GameObject:
   - component: {fileID: 814072430}
   - component: {fileID: 814072441}
   - component: {fileID: 814072442}
+  - component: {fileID: 814072443}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -28868,11 +28869,17 @@ MonoBehaviour:
   maxJumpCount: 2
   jumpForce: 13
   fallThreshold: -15
+  bc: {fileID: 814072432}
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
   onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
+  listContacts:
+    serializedVersion: 2
+    m_Bits: 1032
+  hasTopBottomCrushContact: 0
+  hasLeftRightCrushContact: 0
 --- !u!114 &814072431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29100,6 +29107,18 @@ MonoBehaviour:
     m_Bits: 192
   invulnerableDuration: 10
   listLayersIndexes: 
+--- !u!114 &814072443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814072429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ca17ebcb5740945bf5fe88338d2752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814256511
 GameObject:
   m_ObjectHideFlags: 0

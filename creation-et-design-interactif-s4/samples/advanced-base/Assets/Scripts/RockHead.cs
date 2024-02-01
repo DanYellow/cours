@@ -116,7 +116,7 @@ public class RockHead : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-        
+
             DetectCollision(other);
         }
     }
@@ -146,6 +146,7 @@ public class RockHead : MonoBehaviour
         ContactPoint2D[] contacts = new ContactPoint2D[other.contactCount];
         other.GetContacts(contacts);
 
+
         foreach (ContactPoint2D contact in contacts)
         {
             if (
@@ -155,7 +156,7 @@ public class RockHead : MonoBehaviour
                 contact.normal.x < -0.5 ||
                 contact.normal.x > 0.5
                 ) &&
-                contact.normalImpulse > maxImpulse &&
+                contact.normalImpulse >= maxImpulse &&
                 other.gameObject.TryGetComponent(out PlayerHealth health)
             )
             {
@@ -175,12 +176,16 @@ public class RockHead : MonoBehaviour
         isOnScreen = true;
     }
 
-    private void OnDrawGizmos() {
-        Vector3 nextTriggerPosition = new Vector3(
-            listTriggers[currentIndex].transform.position.x,
-            listTriggers[currentIndex].transform.position.y,
-            transform.position.z
-        );
-        Debug.DrawLine(transform.position, nextTriggerPosition, Color.green);
+    private void OnDrawGizmos()
+    {
+        if (listTriggers[currentIndex])
+        {
+            Vector3 nextTriggerPosition = new Vector3(
+                listTriggers[currentIndex].transform.position.x,
+                listTriggers[currentIndex].transform.position.y,
+                transform.position.z
+            );
+            Debug.DrawLine(transform.position, nextTriggerPosition, Color.green);
+        }
     }
 }
