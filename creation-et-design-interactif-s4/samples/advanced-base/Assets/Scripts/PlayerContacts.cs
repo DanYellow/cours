@@ -12,23 +12,18 @@ public class PlayerContacts : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hasTopOrBottomCrushContact = HasTopAndBottomContact().Length == 1;
-        hasLeftOrRightCrushContact = HasLeftAndRightContact().Length == 1;
-        if (HasLeftAndRightContact().Length > 0)
-        {
-            foreach (var item in HasLeftAndRightContact())
-            {
-                print("ff " + item.transform.name);
-
-            }
-        }
+        hasTopOrBottomCrushContact = HasTopAndBottomContact().Length >= 1;
+        hasLeftOrRightCrushContact = HasLeftAndRightContact().Length >= 1;
     }
 
     public RaycastHit2D[] HasTopAndBottomContact()
     {
-        return Physics2D.LinecastAll(
-            new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushLengthDetection),
-            new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushLengthDetection),
+        return Physics2D.BoxCastAll(
+            new Vector2(bc.bounds.center.x, bc.bounds.center.y),
+            new Vector2(bc.size.x * 0.9f, bc.size.y * (1 + crushLengthDetection)),
+            0,
+            Vector2.zero,
+            Mathf.Infinity,
             listContacts
         );
     }
@@ -43,11 +38,6 @@ public class PlayerContacts : MonoBehaviour
             Mathf.Infinity,
             listContacts
         );
-        // return Physics2D.LinecastAll(
-        //     new Vector2(bc.bounds.min.x - crushLengthDetection, bc.bounds.center.y),
-        //     new Vector2(bc.bounds.max.x + crushLengthDetection, bc.bounds.center.y),
-        //     listContacts
-        // );
     }
 
     void OnDrawGizmos()
@@ -55,14 +45,9 @@ public class PlayerContacts : MonoBehaviour
         if (bc != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(
-                new Vector2(bc.bounds.min.x - crushLengthDetection, bc.bounds.center.y),
-                new Vector2(bc.bounds.max.x + crushLengthDetection, bc.bounds.center.y)
-            );
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawLine(
-                new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushLengthDetection),
-                new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushLengthDetection)
+            Gizmos.DrawWireCube(
+                new Vector2(bc.bounds.center.x, bc.bounds.center.y),
+                new Vector2(bc.size.x * 0.9f, bc.size.y * (1 + crushLengthDetection))
             );
 
             Gizmos.color = Color.yellow;

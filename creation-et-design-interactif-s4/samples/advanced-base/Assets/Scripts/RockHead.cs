@@ -89,7 +89,7 @@ public class RockHead : MonoBehaviour
         {
             PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
-            print("feeaa");
+  
             if (
                 ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.hasLeftOrRightCrushContact) ||
                 ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.hasTopOrBottomCrushContact)
@@ -156,7 +156,6 @@ public class RockHead : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            // DetectCollision(other);
             if (contacts[0].normal.y < -0.5f)
             {
                 other.gameObject.transform.parent = transform;
