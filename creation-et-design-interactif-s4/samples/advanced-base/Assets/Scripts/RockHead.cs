@@ -29,6 +29,16 @@ public class RockHead : MonoBehaviour
 
     public float crushDistance = 0.55f;
 
+    enum Movement
+    {
+        VerticalPositive,
+        VerticalNegative,
+        HorizontalNegative,
+        HorizontalPostive,
+    }
+
+    Movement currentMovement;
+
     void Start()
     {
         EnableTriggers();
@@ -56,14 +66,32 @@ public class RockHead : MonoBehaviour
     {
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
 
-        listContacts = HasLeftContact();
+        switch (currentMovement)
+        {
+            case Movement.HorizontalNegative:
+                listContacts = HasLeftContact();
+                break;
+            case Movement.HorizontalPostive:
+                listContacts = HasLeftContact();
+                break;
+            case Movement.VerticalNegative:
+                listContacts = HasBottomContact();
+                break;
+            case Movement.VerticalPositive:
+                listContacts = HasTopContact();
+                break;
+        }
+
         Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
 
         if (listContacts.Length == 2 && player.Length > 0)
         {
             PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
-            if (playerContacts.hasLeftRightCrushContact)
+            if (
+                ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPostive) && playerContacts.hasLeftOrRightCrushContact) ||
+                ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.hasTopOrBottomCrushContact)
+            )
             {
                 playerHealth.TakeDamage(float.MaxValue);
             }
@@ -83,6 +111,7 @@ public class RockHead : MonoBehaviour
         destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
+        currentMovement = GetNextDirection(dir);
 
         if (destination.x == 0)
         {
@@ -92,6 +121,28 @@ public class RockHead : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    Movement GetNextDirection(Vector2 dir)
+    {
+        if (destination.x > 0)
+        {
+            return Movement.HorizontalPostive;
+        }
+        else if (destination.x < 0)
+        {
+            return Movement.HorizontalNegative;
+        }
+        else if (destination.y > 0)
+        {
+            return Movement.VerticalPositive;
+        }
+        else if (destination.y < 0)
+        {
+            return Movement.VerticalNegative;
+        }
+
+        return Movement.VerticalNegative;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -152,7 +203,6 @@ public class RockHead : MonoBehaviour
         }
     }
 
-
     void OnBecameInvisible()
     {
         isOnScreen = false;
@@ -162,17 +212,6 @@ public class RockHead : MonoBehaviour
     {
         isOnScreen = true;
     }
-
-
-
-    // public RaycastHit2D[] HasLeftContact()
-    // {
-    //     return Physics2D.LinecastAll(
-    //         new Vector2(bc.bounds.center.x, bc.bounds.min.y + (bc.size.y * 0.10f)),
-    //         new Vector2(bc.bounds.min.x - 0.5f, bc.bounds.min.y + (bc.size.y * 0.10f)),
-    //         listContactsLayers
-    //     );
-    // }
 
     public Collider2D[] HasLeftContact()
     {
@@ -194,6 +233,26 @@ public class RockHead : MonoBehaviour
         );
     }
 
+    public Collider2D[] HasTopContact()
+    {
+        return Physics2D.OverlapBoxAll(
+            new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
+            new Vector2(bc.size.x * 0.9f, crushDistance),
+            0,
+            listContactsLayers
+        );
+    }
+
+    public Collider2D[] HasBottomContact()
+    {
+        return Physics2D.OverlapBoxAll(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
+            new Vector2(bc.size.x * 0.9f, crushDistance),
+            0,
+            listContactsLayers
+        );
+    }
+
     private void OnDrawGizmos()
     {
         if (listTriggers[currentIndex])
@@ -209,15 +268,66 @@ public class RockHead : MonoBehaviour
         if (bc != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(
-                new Vector2(bc.bounds.center.x, bc.bounds.min.y + (bc.size.y * 0.10f)),
-                new Vector2(bc.bounds.min.x - 0.5f, bc.bounds.min.y + (bc.size.y * 0.10f))
-            );
 
-            Gizmos.DrawWireCube(
-                new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
-                new Vector2(crushDistance, bc.size.y * 0.9f)
-            );
+            switch (currentMovement)
+            {
+                case Movement.HorizontalNegative:
+                    Gizmos.DrawWireCube(
+                        new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
+                        new Vector2(crushDistance, bc.size.y * 0.9f)
+                    );
+                    break;
+                case Movement.HorizontalPostive:
+                     Gizmos.DrawWireCube(
+                        new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
+                        new Vector2(crushDistance, bc.size.y * 0.9f)
+                    );
+                    break;
+                case Movement.VerticalNegative:
+                    Gizmos.DrawWireCube(
+                        new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
+                        new Vector2(bc.size.x * 0.9f, crushDistance)
+                    );
+                    break;
+                case Movement.VerticalPositive:
+                    Gizmos.DrawWireCube(
+                        new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
+                        new Vector2(bc.size.x * 0.9f, crushDistance)
+                    );
+                    break;
+            }
+
+            // if (destination.x > 0)
+            // {
+            //     // left
+            //     Gizmos.DrawWireCube(
+            //         new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
+            //         new Vector2(crushDistance, bc.size.y * 0.9f)
+            //     );
+            // }
+            // else if (destination.x < 0)
+            // {
+            //     // right
+            //     Gizmos.DrawWireCube(
+            //         new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
+            //         new Vector2(crushDistance, bc.size.y * 0.9f)
+            //     );
+            // }
+            // else if (destination.y > 0)
+            // {
+            //     // Top
+            //     Gizmos.DrawWireCube(
+            //         new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
+            //         new Vector2(bc.size.x * 0.9f, crushDistance)
+            //     );
+            // }
+            // else if (destination.y < 0)
+            // {
+            //     Gizmos.DrawWireCube(
+            //         new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
+            //         new Vector2(bc.size.x * 0.9f, crushDistance)
+            //     );
+            // }
             // Gizmos.color = Color.magenta;
             // Gizmos.DrawLine(
             //     new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushLengthDetection),

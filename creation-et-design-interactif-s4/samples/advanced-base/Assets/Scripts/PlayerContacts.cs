@@ -6,13 +6,13 @@ public class PlayerContacts : MonoBehaviour
 
     [Header("Crush detection")]
     public LayerMask listContacts;
-    public bool hasTopBottomCrushContact = false;
-    public bool hasLeftRightCrushContact = false;
+    public bool hasTopOrBottomCrushContact = false;
+    public bool hasLeftOrRightCrushContact = false;
     public float crushLengthDetection = 0.25f;
 
     private void FixedUpdate() {
-        hasTopBottomCrushContact = HasTopAndBottomContact().Length == 1;
-        hasLeftRightCrushContact = HasLeftAndRightContact().Length == 1;
+        hasTopOrBottomCrushContact = HasTopAndBottomContact().Length == 1;
+        hasLeftOrRightCrushContact = HasLeftAndRightContact().Length == 1;
     }
 
     public RaycastHit2D[] HasTopAndBottomContact()
