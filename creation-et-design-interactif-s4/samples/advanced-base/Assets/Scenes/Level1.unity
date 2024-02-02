@@ -943,8 +943,12 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: crushDistance
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: delayBetweenMoves
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.size
@@ -1441,8 +1445,8 @@ GameObject:
   - component: {fileID: 108511198}
   - component: {fileID: 108511200}
   - component: {fileID: 108511199}
-  m_Layer: 0
-  m_Name: LeftRight
+  m_Layer: 3
+  m_Name: RightTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8104,7 +8108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &556595169
 Transform:
   m_ObjectHideFlags: 0
@@ -8701,7 +8705,6 @@ GameObject:
   - component: {fileID: 638021417}
   - component: {fileID: 638021416}
   - component: {fileID: 638021415}
-  - component: {fileID: 638021418}
   m_Layer: 3
   m_Name: Platforms
   m_TagString: Untagged
@@ -27925,19 +27928,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
   m_UseDelaunayMesh: 0
---- !u!114 &638021418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638021411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45aeb4d70b77c224492071af3c199fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minPressure: 3
 --- !u!1001 &641703249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29532,9 +29522,9 @@ MonoBehaviour:
   bc: {fileID: 814072432}
   listContacts:
     serializedVersion: 2
-    m_Bits: 1032
-  hasTopBottomCrushContact: 0
-  hasLeftRightCrushContact: 0
+    m_Bits: 8
+  hasTopOrBottomCrushContact: 0
+  hasLeftOrRightCrushContact: 0
   crushLengthDetection: 0.35
 --- !u!1 &814256511
 GameObject:
@@ -53721,7 +53711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1211845209
 Transform:
   m_ObjectHideFlags: 0
@@ -55694,7 +55684,7 @@ GameObject:
   - component: {fileID: 1310460036}
   - component: {fileID: 1310460038}
   - component: {fileID: 1310460037}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58738,7 +58728,7 @@ GameObject:
   - component: {fileID: 1646074655}
   - component: {fileID: 1646074657}
   - component: {fileID: 1646074656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59329,7 +59319,7 @@ GameObject:
   - component: {fileID: 1756002397}
   - component: {fileID: 1756002399}
   - component: {fileID: 1756002398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

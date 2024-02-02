@@ -12,6 +12,7 @@ public class RockHead : MonoBehaviour
     private Vector3 destination;
 
     public RockHeadTrigger[] listTriggers;
+    [Tooltip("Delay between moves in seconds")]
     public float delayBetweenMoves;
 
     private int currentIndex = 0;
@@ -34,7 +35,7 @@ public class RockHead : MonoBehaviour
         VerticalPositive,
         VerticalNegative,
         HorizontalNegative,
-        HorizontalPostive,
+        HorizontalPositive,
     }
 
     Movement currentMovement;
@@ -71,8 +72,8 @@ public class RockHead : MonoBehaviour
             case Movement.HorizontalNegative:
                 listContacts = HasLeftContact();
                 break;
-            case Movement.HorizontalPostive:
-                listContacts = HasLeftContact();
+            case Movement.HorizontalPositive:
+                listContacts = HasRightContact();
                 break;
             case Movement.VerticalNegative:
                 listContacts = HasBottomContact();
@@ -84,12 +85,13 @@ public class RockHead : MonoBehaviour
 
         Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
 
-        if (listContacts.Length == 2 && player.Length > 0)
+        if (listContacts.Length > 1 && player.Length > 0)
         {
             PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
+            print("feeaa");
             if (
-                ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPostive) && playerContacts.hasLeftOrRightCrushContact) ||
+                ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.hasLeftOrRightCrushContact) ||
                 ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.hasTopOrBottomCrushContact)
             )
             {
@@ -111,7 +113,7 @@ public class RockHead : MonoBehaviour
         destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
-        currentMovement = GetNextDirection(dir);
+        currentMovement = GetNextDirection(destination);
 
         if (destination.x == 0)
         {
@@ -123,26 +125,28 @@ public class RockHead : MonoBehaviour
         }
     }
 
-    Movement GetNextDirection(Vector2 dir)
+    Movement GetNextDirection(Vector3 dir)
     {
-        if (destination.x > 0)
+        Movement tmpMovement = Movement.HorizontalPositive;
+
+        if (dir.x > 0)
         {
-            return Movement.HorizontalPostive;
+            tmpMovement = Movement.HorizontalPositive;
         }
-        else if (destination.x < 0)
+        else if (dir.x < 0)
         {
-            return Movement.HorizontalNegative;
+            tmpMovement = Movement.HorizontalNegative;
         }
-        else if (destination.y > 0)
+        else if (dir.y > 0)
         {
-            return Movement.VerticalPositive;
+            tmpMovement = Movement.VerticalPositive;
         }
-        else if (destination.y < 0)
+        else if (dir.y < 0)
         {
-            return Movement.VerticalNegative;
+            tmpMovement = Movement.VerticalNegative;
         }
 
-        return Movement.VerticalNegative;
+        return tmpMovement;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -164,19 +168,19 @@ public class RockHead : MonoBehaviour
     {
         if (rb.velocity == Vector2.zero)
         {
-            if (destination.y > 0 && lastAnimationPlayed != "HitTop")
+            if (currentMovement == Movement.VerticalPositive && lastAnimationPlayed != "HitTop")
             {
                 OnCrush("HitTop");
             }
-            else if (destination.y < 0 && lastAnimationPlayed != "HitBottom")
+            else if (currentMovement == Movement.VerticalNegative && lastAnimationPlayed != "HitBottom")
             {
                 OnCrush("HitBottom");
             }
-            if (destination.x > 0 && lastAnimationPlayed != "HitRight")
+            if (currentMovement == Movement.HorizontalPositive && lastAnimationPlayed != "HitRight")
             {
                 OnCrush("HitRight");
             }
-            else if (destination.x < 0 && lastAnimationPlayed != "HitLeft")
+            else if (currentMovement == Movement.HorizontalNegative && lastAnimationPlayed != "HitLeft")
             {
                 OnCrush("HitLeft");
             }
@@ -273,15 +277,15 @@ public class RockHead : MonoBehaviour
             {
                 case Movement.HorizontalNegative:
                     Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
-                        new Vector2(crushDistance, bc.size.y * 0.9f)
-                    );
-                    break;
-                case Movement.HorizontalPostive:
-                     Gizmos.DrawWireCube(
                         new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
                         new Vector2(crushDistance, bc.size.y * 0.9f)
                     );
+                    break;
+                case Movement.HorizontalPositive:
+                    Gizmos.DrawWireCube(
+                            new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
+                            new Vector2(crushDistance, bc.size.y * 0.9f)
+                        );
                     break;
                 case Movement.VerticalNegative:
                     Gizmos.DrawWireCube(
@@ -296,43 +300,6 @@ public class RockHead : MonoBehaviour
                     );
                     break;
             }
-
-            // if (destination.x > 0)
-            // {
-            //     // left
-            //     Gizmos.DrawWireCube(
-            //         new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
-            //         new Vector2(crushDistance, bc.size.y * 0.9f)
-            //     );
-            // }
-            // else if (destination.x < 0)
-            // {
-            //     // right
-            //     Gizmos.DrawWireCube(
-            //         new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
-            //         new Vector2(crushDistance, bc.size.y * 0.9f)
-            //     );
-            // }
-            // else if (destination.y > 0)
-            // {
-            //     // Top
-            //     Gizmos.DrawWireCube(
-            //         new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
-            //         new Vector2(bc.size.x * 0.9f, crushDistance)
-            //     );
-            // }
-            // else if (destination.y < 0)
-            // {
-            //     Gizmos.DrawWireCube(
-            //         new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
-            //         new Vector2(bc.size.x * 0.9f, crushDistance)
-            //     );
-            // }
-            // Gizmos.color = Color.magenta;
-            // Gizmos.DrawLine(
-            //     new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushLengthDetection),
-            //     new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushLengthDetection)
-            // );
         }
     }
 }
