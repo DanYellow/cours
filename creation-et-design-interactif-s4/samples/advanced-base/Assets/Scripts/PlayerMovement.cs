@@ -31,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLandingFast = false;
 
-    public BoxCollider2D bc;
-
     [Header("Event")]
     public CameraShakeEventChannelSO onLandingFastSO;
     public ShakeTypeVariable landingFastShakeInfo;
@@ -41,11 +39,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug")]
     public VectorEventChannel onDebugTeleportEvent;
-
-    [Header("Crush detection")]
-    public LayerMask listContacts;
-    public bool hasTopBottomCrushContact;
-    public bool hasLeftRightCrushContact;
 
     private void OnEnable()
     {
@@ -108,28 +101,8 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
 
         Move();
-
-        hasTopBottomCrushContact = HasTopAndBottomContact().Length == 2;
-        hasLeftRightCrushContact = HasLeftAndRightContact().Length == 2;
     }
 
-    public RaycastHit2D[] HasTopAndBottomContact()
-    {
-        return Physics2D.LinecastAll(
-            new Vector2(bc.bounds.center.x, bc.bounds.min.y - 0.15f),
-            new Vector2(bc.bounds.center.x, bc.bounds.max.y + 0.15f),
-            listContacts
-        );
-    }
-
-    public RaycastHit2D[] HasLeftAndRightContact()
-    {
-        return Physics2D.LinecastAll(
-            new Vector2(bc.bounds.min.x - 0.15f, bc.bounds.center.y),
-            new Vector2(bc.bounds.max.x + 0.15f, bc.bounds.center.y),
-            listContacts
-        );
-    }
 
     private void Move()
     {
@@ -184,24 +157,6 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-
-        if(bc != null) {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(
-                new Vector2(bc.bounds.min.x - 0.15f, bc.bounds.center.y),
-                new Vector2(bc.bounds.max.x + 0.15f, bc.bounds.center.y)
-            );
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawLine(
-                new Vector2(bc.bounds.center.x, bc.bounds.min.y - 0.15f),
-                new Vector2(bc.bounds.center.x, bc.bounds.max.y + 0.15f)
-            );
-
-            //  Gizmos.DrawLine(
-            //     new Vector2(xOffset, bc.bounds.center.y),
-            //     new Vector2(xOffset + (transform.right.x * 0.2f), bc.bounds.center.y)
-            // );
         }
     }
 

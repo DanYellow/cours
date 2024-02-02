@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class RockHead : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public BoxCollider2D bc;
 
     public float speed;
 
@@ -22,8 +24,10 @@ public class RockHead : MonoBehaviour
 
     private bool isOnScreen = false;
 
-    // Value for which the go will be considered as crushed if it has contact with a RockHead
-    public float maxImpulse = 100;
+    public Collider2D[] listContacts;
+    public LayerMask listContactsLayers;
+
+    public float crushDistance = 0.55f;
 
     void Start()
     {
@@ -51,6 +55,19 @@ public class RockHead : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
+
+        listContacts = HasLeftContact();
+        Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
+
+        if (listContacts.Length == 2 && player.Length > 0)
+        {
+            PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
+            PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
+            if (playerContacts.hasLeftRightCrushContact)
+            {
+                playerHealth.TakeDamage(float.MaxValue);
+            }
+        }
     }
 
     public void ChangeTrigger()
@@ -84,7 +101,7 @@ public class RockHead : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            DetectCollision(other);
+            // DetectCollision(other);
             if (contacts[0].normal.y < -0.5f)
             {
                 other.gameObject.transform.parent = transform;
@@ -113,12 +130,6 @@ public class RockHead : MonoBehaviour
                 OnCrush("HitLeft");
             }
         }
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-
-            DetectCollision(other);
-        }
     }
 
     void OnCrush(string side)
@@ -141,30 +152,6 @@ public class RockHead : MonoBehaviour
         }
     }
 
-    private void DetectCollision(Collision2D other)
-    {
-        ContactPoint2D[] contacts = new ContactPoint2D[other.contactCount];
-        other.GetContacts(contacts);
-
-
-        foreach (ContactPoint2D contact in contacts)
-        {
-            if (
-                (
-                contact.normal.y > 0.5 ||
-                contact.normal.y < -0.5 ||
-                contact.normal.x < -0.5 ||
-                contact.normal.x > 0.5
-                ) &&
-                contact.normalImpulse >= maxImpulse &&
-                other.gameObject.TryGetComponent(out PlayerHealth health)
-            )
-            {
-                other.gameObject.transform.parent = null;
-                health.TakeDamage(float.MaxValue);
-            }
-        }
-    }
 
     void OnBecameInvisible()
     {
@@ -174,6 +161,37 @@ public class RockHead : MonoBehaviour
     void OnBecameVisible()
     {
         isOnScreen = true;
+    }
+
+
+
+    // public RaycastHit2D[] HasLeftContact()
+    // {
+    //     return Physics2D.LinecastAll(
+    //         new Vector2(bc.bounds.center.x, bc.bounds.min.y + (bc.size.y * 0.10f)),
+    //         new Vector2(bc.bounds.min.x - 0.5f, bc.bounds.min.y + (bc.size.y * 0.10f)),
+    //         listContactsLayers
+    //     );
+    // }
+
+    public Collider2D[] HasLeftContact()
+    {
+        return Physics2D.OverlapBoxAll(
+            new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
+            new Vector2(crushDistance, bc.size.y * 0.9f),
+            0,
+            listContactsLayers
+        );
+    }
+
+    public Collider2D[] HasRightContact()
+    {
+        return Physics2D.OverlapBoxAll(
+            new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
+            new Vector2(crushDistance, bc.size.y * 0.9f),
+            0,
+            listContactsLayers
+        );
     }
 
     private void OnDrawGizmos()
@@ -186,6 +204,25 @@ public class RockHead : MonoBehaviour
                 transform.position.z
             );
             Debug.DrawLine(transform.position, nextTriggerPosition, Color.green);
+        }
+
+        if (bc != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(
+                new Vector2(bc.bounds.center.x, bc.bounds.min.y + (bc.size.y * 0.10f)),
+                new Vector2(bc.bounds.min.x - 0.5f, bc.bounds.min.y + (bc.size.y * 0.10f))
+            );
+
+            Gizmos.DrawWireCube(
+                new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
+                new Vector2(crushDistance, bc.size.y * 0.9f)
+            );
+            // Gizmos.color = Color.magenta;
+            // Gizmos.DrawLine(
+            //     new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushLengthDetection),
+            //     new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushLengthDetection)
+            // );
         }
     }
 }

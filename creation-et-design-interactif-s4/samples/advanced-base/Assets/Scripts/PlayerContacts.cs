@@ -11,12 +11,8 @@ public class PlayerContacts : MonoBehaviour
     public float crushLengthDetection = 0.25f;
 
     private void FixedUpdate() {
-        hasTopBottomCrushContact = HasTopAndBottomContact().Length == 2;
-        hasLeftRightCrushContact = HasLeftAndRightContact().Length == 2;
-        if(HasLeftAndRightContact().Length > 0) {
-
-        // print("hasTopBottomCrushContacthasTopBottomCrushContact " + HasLeftAndRightContact().Length);
-        }
+        hasTopBottomCrushContact = HasTopAndBottomContact().Length == 1;
+        hasLeftRightCrushContact = HasLeftAndRightContact().Length == 1;
     }
 
     public RaycastHit2D[] HasTopAndBottomContact()
