@@ -118,15 +118,15 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit;
         hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, listEnemiesLayers);
 
-        if (hit.collider != null)
-        {
-            bool needsToJump = hit.collider.transform.position.y < transform.position.y;
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
-            if(needsToJump && enemy != null) {
-                enemy.TakeDamage();
-                Jump();
-            }
-        }
+        // if (hit.collider != null)
+        // {
+        //     bool needsToJump = hit.collider.transform.position.y < transform.position.y;
+        //     Enemy enemy = hit.collider.GetComponent<Enemy>();
+        //     if(needsToJump && enemy != null) {
+        //         enemy.TakeDamage();
+        //         Jump();
+        //     }
+        // }
     }
 
 
@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump(bool shortJump = false)
+    public void Jump(bool shortJump = false)
     {
         float jumpPower = shortJump ? rb.velocity.y * 0.5f : jumpForce;
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -186,7 +186,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
             Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * 0.15f));
+            // Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * 0.15f));
+            // Gizmos.DrawWireCube( 
+            //     new Vector2(),
+            //     new Vector2(),
+            // );
         }
     }
 

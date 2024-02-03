@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    public BoxCollider2D bc;
+    public Rigidbody2D rb;
+    public LayerMask listEnemiesLayers;
+    public float checkDistance = 0.2f;
+    public PlayerMovement playerMovement;
+
+    private void FixedUpdate() {
+        RaycastHit2D hit;
+        hit = Physics2D.BoxCast(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y - (checkDistance / 2)),
+            new Vector2(bc.bounds.size.x, checkDistance),
+            0,
+            Vector2.down, 
+            0.2f, 
+            listEnemiesLayers
+        );
+
+        if (hit.collider != null)
+        {
+            bool needsToJump = hit.collider.transform.position.y < bc.bounds.min.y;
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if(needsToJump && enemy != null && rb.velocity.y <= -2.5f) {
+                enemy.TakeDamage();
+                playerMovement.Jump();
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (bc != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube( 
+                new Vector2(bc.bounds.center.x, bc.bounds.min.y - (checkDistance / 2)),
+                new Vector2(bc.bounds.size.x, checkDistance)
+            );
+        }
+    }
+}
