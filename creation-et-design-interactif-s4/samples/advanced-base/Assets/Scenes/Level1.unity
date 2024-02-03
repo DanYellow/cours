@@ -29185,7 +29185,7 @@ MonoBehaviour:
   layersToIgnoreAfterHit:
     serializedVersion: 2
     m_Bits: 2240
-  invulnerableDuration: 10
+  invulnerableDuration: 2.5
   listLayersIndexes: 
 --- !u!114 &814072443
 MonoBehaviour:
@@ -62403,7 +62403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: delayBetweenMoves
-      value: 3.25
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.size

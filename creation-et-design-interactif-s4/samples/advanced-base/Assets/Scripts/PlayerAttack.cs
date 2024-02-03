@@ -7,9 +7,9 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask listEnemiesLayers;
     public float checkDistance = 0.2f;
     public PlayerMovement playerMovement;
+    RaycastHit2D hit;
 
     private void FixedUpdate() {
-        RaycastHit2D hit;
         hit = Physics2D.BoxCast(
             new Vector2(bc.bounds.center.x, bc.bounds.min.y - (checkDistance / 2)),
             new Vector2(bc.bounds.size.x, checkDistance),

@@ -99,10 +99,6 @@ public class PlayerMovement : MonoBehaviour
             hadJump = false;
         }
 
-        // if(rb.velocity.y != 0) {
-        //     Debug.Log(rb.velocity.y);
-        // }
-
         Flip();
         Animations();
     }
@@ -114,19 +110,6 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
 
         Move();
-
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, listEnemiesLayers);
-
-        // if (hit.collider != null)
-        // {
-        //     bool needsToJump = hit.collider.transform.position.y < transform.position.y;
-        //     Enemy enemy = hit.collider.GetComponent<Enemy>();
-        //     if(needsToJump && enemy != null) {
-        //         enemy.TakeDamage();
-        //         Jump();
-        //     }
-        // }
     }
 
 
@@ -184,13 +167,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (groundCheck != null)
         {
+            Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-            Gizmos.color = Color.cyan;
-            // Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * 0.15f));
-            // Gizmos.DrawWireCube( 
-            //     new Vector2(),
-            //     new Vector2(),
-            // );
         }
     }
 
