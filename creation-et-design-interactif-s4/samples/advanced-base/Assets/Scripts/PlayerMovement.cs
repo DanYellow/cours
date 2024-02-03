@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public Animator animator;
 
+    public LayerMask listEnemiesLayers;
+
     [Tooltip("Running system")]
     public float moveSpeed;
 
@@ -113,34 +115,18 @@ public class PlayerMovement : MonoBehaviour
 
         Move();
 
-        // Collider2D collider2D = IsTouchedEnemy();
-
         RaycastHit2D hit;
         hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, listEnemiesLayers);
 
         if (hit.collider != null)
         {
-            if(hit.collider.transform.position.y < transform.position.y) {
+            bool needsToJump = hit.collider.transform.position.y < transform.position.y;
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if(needsToJump && enemy != null) {
+                enemy.TakeDamage();
                 Jump();
             }
-            // Debug.Log("hit " + hit.collider.transform.position.y);
-            // Debug.Log("bound " + hit.collider.bounds.max.y);
-            // Debug.Log("transform " + transform.position.y);
-            
-            // if (rb.velocity.y < -2)
-            // {
-
-            //     // if(collider2D != null && rb.velocity.y < -2) {
-            //     Debug.Log(rb.velocity.y);
-            //     Jump();
-            // }
-            // float maxSpeed = 20;
-            // Vector2 bounceForce = Vector2.up * maxSpeed;
-            // rb.AddForce(bounceForce, ForceMode2D.Impulse);
-            // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
-
-
     }
 
 
@@ -188,12 +174,6 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
 
-
-    public LayerMask listEnemiesLayers;
-    public Collider2D IsTouchedEnemy()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listEnemiesLayers);
-    }
 
     public bool IsFalling()
     {

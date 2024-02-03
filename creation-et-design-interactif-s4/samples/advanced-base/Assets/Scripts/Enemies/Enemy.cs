@@ -75,7 +75,17 @@ public class Enemy : MonoBehaviour
     //     }
     // }
 
-    IEnumerator TakeDamage(float damage)
+    public void TakeDamage()
+    {
+        StartCoroutine(Hurt(1f));
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    IEnumerator Hurt(float damage)
     {
         currentHealth -= damage;
         if (animator)
@@ -93,16 +103,18 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if(rb.bodyType != RigidbodyType2D.Dynamic) {
+        if (rb.bodyType != RigidbodyType2D.Dynamic)
+        {
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
-        
+
         foreach (Behaviour component in listComponents)
         {
             component.enabled = false;
         }
 
-        foreach (Collider2D collider in gameObject.GetComponentsInChildren<Collider2D>()) {
+        foreach (Collider2D collider in gameObject.GetComponentsInChildren<Collider2D>())
+        {
             collider.enabled = false;
         }
 

@@ -28584,7 +28584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &726052364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28656,6 +28656,9 @@ MonoBehaviour:
   groundCheck: {fileID: 875701673}
   groundCheckRadius: 0.24
   animator: {fileID: 726052372}
+  listEnemiesLayers:
+    serializedVersion: 2
+    m_Bits: 64
   moveSpeed: 12
   jumpCount: 0
   maxJumpCount: 2
@@ -28666,9 +28669,7 @@ MonoBehaviour:
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
   onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
-  listEnemiesLayers:
-    serializedVersion: 2
-    m_Bits: 64
+  hadJump: 0
 --- !u!114 &726052368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29473,7 +29474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &814072430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29494,6 +29495,9 @@ MonoBehaviour:
   groundCheck: {fileID: 1911207315}
   groundCheckRadius: 0.24
   animator: {fileID: 814072434}
+  listEnemiesLayers:
+    serializedVersion: 2
+    m_Bits: 64
   moveSpeed: 12
   jumpCount: 0
   maxJumpCount: 2
@@ -29504,9 +29508,7 @@ MonoBehaviour:
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
   onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
-  listEnemiesLayers:
-    serializedVersion: 2
-    m_Bits: 0
+  hadJump: 0
 --- !u!114 &814072431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55125,6 +55127,9 @@ MonoBehaviour:
   groundCheck: {fileID: 1621641632}
   groundCheckRadius: 0.24
   animator: {fileID: 1287570870}
+  listEnemiesLayers:
+    serializedVersion: 2
+    m_Bits: 0
   moveSpeed: 12
   jumpCount: 0
   maxJumpCount: 2
@@ -55135,9 +55140,7 @@ MonoBehaviour:
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
   onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
-  listEnemiesLayers:
-    serializedVersion: 2
-    m_Bits: 0
+  hadJump: 0
 --- !u!114 &1287570867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57802,6 +57805,10 @@ PrefabInstance:
     - target: {fileID: 3783148718577746493, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_Name
       value: Saw
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783148718577746493, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: modePingPong
