@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySplitting : MonoBehaviour, IHurtable
+public class EnemySplitting : MonoBehaviour
 {
     public Animator animator;
 
@@ -12,24 +12,8 @@ public class EnemySplitting : MonoBehaviour, IHurtable
 
     private bool hasSplitted = false;
 
-    public Vector2 targetVector = Vector2.zero;
-
-    public Rigidbody2D rb;
-
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     ContactPoint2D[] contacts = new ContactPoint2D[1];
-    //     other.GetContacts(contacts);
-
-    //     if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
-    //     {
-
-    //     }
-    // }
-
     public void Hurt()
     {
-        print("fgffeaaa");
         animator.SetTrigger("IsHit");
         Split();
     }

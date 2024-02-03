@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1487734455}
   - component: {fileID: 5600367782922950189}
   - component: {fileID: 1487734456}
+  - component: {fileID: 7629500146275898872}
   m_Layer: 6
   m_Name: BigRockEnemy
   m_TagString: Untagged
@@ -30,13 +31,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5600367782922950193}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 148.47, y: 1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5600367782922950191
 SpriteRenderer:
@@ -110,6 +111,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &5600367782922950186
 Rigidbody2D:
   serializedVersion: 4
@@ -220,8 +222,6 @@ MonoBehaviour:
   animator: {fileID: 5600367782922950190}
   split: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
   nbOfSplit: 2
-  targetVector: {x: 0, y: 0}
-  rb: {fileID: 0}
 --- !u!114 &1487734456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e74ac6451659847a4db480975f8bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 5
   maxHealth: {fileID: 0}
   currentHealth: 0
   spriteRenderer: {fileID: 5600367782922950191}
@@ -242,3 +241,17 @@ MonoBehaviour:
   animator: {fileID: 5600367782922950190}
   listComponents:
   - {fileID: 1487734455}
+--- !u!114 &7629500146275898872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600367782922950193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cc69e856bfd8341ad7816d3b5d95c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1487734456}
+  enemySplitting: {fileID: 5600367782922950189}

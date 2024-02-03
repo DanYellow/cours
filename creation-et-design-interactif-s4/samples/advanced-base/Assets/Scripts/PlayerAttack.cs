@@ -10,22 +10,8 @@ public class PlayerAttack : MonoBehaviour
     public PlayerMovement playerMovement;
     RaycastHit2D hit;
 
-    Vector3 lastPosition;
     public Vector3 lastVel;
 
-    private void Start()
-    {
-
-
-    }
-
-    private void Update()
-    {
-        if (playerMovement.isGrounded)
-        {
-            lastPosition = transform.position;
-        }
-    }
 
     private void FixedUpdate()
     {
@@ -41,35 +27,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (hit.collider != null)
         {
-            bool isAboveEnemy = (
-                hit.collider.transform.position.y < bc.bounds.min.y ||
-                hit.collider.transform.position.y < lastPosition.y
-            );
+            bool isAboveEnemy = hit.collider.transform.position.y < bc.bounds.min.y;
 
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
-            if (enemy != null && isAboveEnemy && (rb.velocity.y <= 2.5f))
+            EnemyDamageManager enemyDamageManager = hit.collider.GetComponent<EnemyDamageManager>();
+            if (enemyDamageManager != null && isAboveEnemy && (rb.velocity.y <= 2.5f))
             {
-                // enemy.GetComponent<IHurtable>().Hurt();
-
-                // IHurtable[] saveables = FindObjectsOfType<MonoBehaviour>(true).OfType<IHurtable>().ToArray();
-
-                IHurtable[] components = hit.collider.GetComponents(typeof(MonoBehaviour)).OfType<IHurtable>().ToArray();
-                foreach (var component in components)
-                {
-                    component.Hurt();
-                //     var method = component.GetType().GetMethod(
-                //         "Hurt", 
-                //         System.Reflection.BindingFlags.NonPublic  | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance
-                //     );
-                //     print("method " + method);
-                //     if (method != null)
-                //     {
-                //     print("method 330" + method);
-                //         method.Invoke(hit.collider.gameObject, null);
-                //     }
-                }
-
-                // enemy.TakeDamage();
+                enemyDamageManager.Hurt();
                 playerMovement.Jump();
             }
         }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour, IHurtable
+public class Enemy : MonoBehaviour
 {
     public FloatVariable maxHealth;
 
@@ -45,7 +45,6 @@ public class Enemy : MonoBehaviour, IHurtable
 
     public void Hurt()
     {
-        print("fezfz");
         StartCoroutine(TakeDamage(1f));
 
         if (currentHealth <= 0)

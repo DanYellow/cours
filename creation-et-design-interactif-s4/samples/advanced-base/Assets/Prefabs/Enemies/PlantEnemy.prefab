@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 107261412584399407}
   - component: {fileID: 107261412584399400}
   - component: {fileID: 7278734117026508341}
+  - component: {fileID: 8782243638138392001}
   m_Layer: 6
   m_Name: PlantEnemy
   m_TagString: Untagged
@@ -234,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e74ac6451659847a4db480975f8bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 10
   maxHealth: {fileID: 11400000, guid: 512484eeea7ce824a8b559e487301311, type: 2}
   currentHealth: 0
   spriteRenderer: {fileID: 107261412584399394}
@@ -367,3 +367,17 @@ MonoBehaviour:
     maxItems: 10
     prefab: {fileID: 3878160803587506563, guid: 2ca26890a51ce3048a51726f6aef975f, type: 3}
     count: 0
+--- !u!114 &8782243638138392001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107261412584399392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cc69e856bfd8341ad7816d3b5d95c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 107261412584399406}
+  enemySplitting: {fileID: 0}
