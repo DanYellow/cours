@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySplitting : MonoBehaviour
+public class EnemySplitting : MonoBehaviour, IHurtable
 {
     public Animator animator;
 
@@ -16,19 +16,24 @@ public class EnemySplitting : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        ContactPoint2D[] contacts = new ContactPoint2D[1];
-        other.GetContacts(contacts);
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     ContactPoint2D[] contacts = new ContactPoint2D[1];
+    //     other.GetContacts(contacts);
 
-        if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
-        {
-            animator.SetTrigger("IsHit");
-            Split();
-        }
+    //     if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
+    //     {
+
+    //     }
+    // }
+
+    public void Hurt()
+    {
+        print("fgffeaaa");
+        animator.SetTrigger("IsHit");
+        Split();
     }
 
-    [ContextMenu("Split")]
     private void Split()
     {
         Quaternion angles;

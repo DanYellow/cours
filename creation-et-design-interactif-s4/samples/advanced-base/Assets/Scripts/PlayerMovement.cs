@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
 
-    private bool isGrounded;
+    public bool isGrounded;
     public Animator animator;
 
     public LayerMask listEnemiesLayers;
