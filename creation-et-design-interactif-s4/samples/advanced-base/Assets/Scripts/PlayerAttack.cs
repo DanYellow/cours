@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -10,9 +9,6 @@ public class PlayerAttack : MonoBehaviour
     public PlayerMovement playerMovement;
     RaycastHit2D hit;
 
-    public Vector3 lastVel;
-
-
     private void FixedUpdate()
     {
         hit = Physics2D.BoxCast(
@@ -23,14 +19,13 @@ public class PlayerAttack : MonoBehaviour
             0.2f,
             listEnemiesLayers
         );
-        lastVel = rb.velocity;
 
         if (hit.collider != null)
         {
             bool isAboveEnemy = hit.collider.transform.position.y < bc.bounds.min.y;
 
             EnemyDamageManager enemyDamageManager = hit.collider.GetComponent<EnemyDamageManager>();
-            if (enemyDamageManager != null && isAboveEnemy && (rb.velocity.y <= 2.5f))
+            if (enemyDamageManager != null && isAboveEnemy && rb.velocity.y <= 2.5f)
             {
                 enemyDamageManager.Hurt();
                 playerMovement.Jump();

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public BoxCollider2D bc;
 
     private float moveDirectionX;
     private bool isGamePaused = false;
@@ -14,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Position checks")]
     public LayerMask listGroundLayers;
     public Transform groundCheck;
-    public float groundCheckRadius;
 
     public bool isGrounded;
     public Animator animator;
@@ -94,16 +94,9 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
-        if (isGrounded)
-        {
-            hadJump = false;
-        }
-
         Flip();
         Animations();
     }
-
-    public bool hadJump = false;
 
     private void FixedUpdate()
     {
@@ -139,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float jumpPower = shortJump ? rb.velocity.y * 0.5f : jumpForce;
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        hadJump = true;
 
         if (!shortJump)
         {
@@ -154,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
+        return Physics2D.OverlapCircle(groundCheck.position, bc.bounds.size.x / 2 * 0.8f, listGroundLayers);
     }
 
 
@@ -168,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+            Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * 0.8f);
         }
     }
 

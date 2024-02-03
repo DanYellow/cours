@@ -300,4 +300,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6234961309222235864}
-  enemySplitting: {fileID: 0}
+  enemySplitting: {fileID: 897694450019783401}
