@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3555892737187151253}
   - component: {fileID: 8520597522518767272}
   - component: {fileID: 8520597522518767275}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Spiked Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,8 +7,12 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerSpawn>().currentSpawnPosition = transform.position;
-            bc2d.enabled = false;
+            PlayerSpawn playerSpawn = collision.GetComponent<PlayerSpawn>();
+            if (playerSpawn != null)
+            {
+                playerSpawn.currentSpawnPosition = transform.position;
+                bc2d.enabled = false;
+            }
         }
     }
 }

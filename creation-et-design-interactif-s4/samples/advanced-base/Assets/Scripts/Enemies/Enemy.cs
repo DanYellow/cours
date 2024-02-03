@@ -44,18 +44,36 @@ public class Enemy : MonoBehaviour
             playerHealth.TakeDamage(1f);
         }
 
-        if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
-        {
-            StartCoroutine(TakeDamage(1f));
-            Vector2 bounceForce = Vector2.up * bounce;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+        // if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
+        // {
+        //     StartCoroutine(TakeDamage(1f));
+        //     Vector2 bounceForce = Vector2.up * bounce;
+        //     other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
 
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
+        //     if (currentHealth <= 0)
+        //     {
+        //         Die();
+        //     }
+        // }
     }
+
+    // https://forum.unity.com/threads/how-do-i-make-my-player-temporarily-able-to-pass-through-enemies.754133/#post-5027843
+
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     other.GetContacts(contacts);
+
+    //     if (other.gameObject.CompareTag("Player") && contacts[0].normal.y < -0.5f)
+    //     {
+    //         StartCoroutine(TakeDamage(1f));
+    //         // Vector2 bounceForce = Vector2.up * bounce;
+    //         // other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+
+    //         if (currentHealth <= 0)
+    //         {
+    //             Die();
+    //         }
+    //     }
+    // }
 
     IEnumerator TakeDamage(float damage)
     {

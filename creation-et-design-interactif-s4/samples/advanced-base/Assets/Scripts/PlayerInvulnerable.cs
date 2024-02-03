@@ -9,7 +9,7 @@ public class PlayerInvulnerable : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    public bool isInvincible = false;
+    public bool isInvulnerable = false;
 
     public LayerMask layersToIgnoreAfterHit;
     public float invulnerableDuration = 2.5f;
@@ -38,8 +38,8 @@ public class PlayerInvulnerable : MonoBehaviour
 
     public IEnumerator Invulnerable()
     {
-        isInvincible = true;
-        ToggleCollisions(gameObject.layer, isInvincible);
+        isInvulnerable = true;
+        ToggleCollisions(gameObject.layer, isInvulnerable);
 
         for (float i = 0; i < invulnerableDuration; i += invulnerableDeltaTime)
         {
@@ -53,8 +53,8 @@ public class PlayerInvulnerable : MonoBehaviour
         }
 
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-        isInvincible = false;
-        ToggleCollisions(gameObject.layer, isInvincible);
+        isInvulnerable = false;
+        ToggleCollisions(gameObject.layer, isInvulnerable);
     }
 
     public void ToggleCollisions(int gameObjectLayer, bool enabled)

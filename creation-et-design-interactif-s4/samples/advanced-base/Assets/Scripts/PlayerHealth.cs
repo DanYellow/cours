@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
  
     public void TakeDamage(float damage)
     {
-        if (playerInvulnerable.isInvincible && damage < float.MaxValue) return;
+        if (playerInvulnerable.isInvulnerable && damage < float.MaxValue) return;
 
         playerHealth.currentValue -= damage;
         if (playerHealth.currentValue <= 0)

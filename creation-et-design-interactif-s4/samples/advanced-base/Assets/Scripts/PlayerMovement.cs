@@ -92,15 +92,55 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
+        if (isGrounded)
+        {
+            hadJump = false;
+        }
+
+        // if(rb.velocity.y != 0) {
+        //     Debug.Log(rb.velocity.y);
+        // }
+
         Flip();
         Animations();
     }
+
+    public bool hadJump = false;
 
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
 
         Move();
+
+        // Collider2D collider2D = IsTouchedEnemy();
+
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, listEnemiesLayers);
+
+        if (hit.collider != null)
+        {
+            if(hit.collider.transform.position.y < transform.position.y) {
+                Jump();
+            }
+            // Debug.Log("hit " + hit.collider.transform.position.y);
+            // Debug.Log("bound " + hit.collider.bounds.max.y);
+            // Debug.Log("transform " + transform.position.y);
+            
+            // if (rb.velocity.y < -2)
+            // {
+
+            //     // if(collider2D != null && rb.velocity.y < -2) {
+            //     Debug.Log(rb.velocity.y);
+            //     Jump();
+            // }
+            // float maxSpeed = 20;
+            // Vector2 bounceForce = Vector2.up * maxSpeed;
+            // rb.AddForce(bounceForce, ForceMode2D.Impulse);
+            // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        }
+
+
     }
 
 
@@ -130,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float jumpPower = shortJump ? rb.velocity.y * 0.5f : jumpForce;
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        hadJump = true;
 
         if (!shortJump)
         {
@@ -147,6 +188,13 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listGroundLayers);
     }
 
+
+    public LayerMask listEnemiesLayers;
+    public Collider2D IsTouchedEnemy()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, listEnemiesLayers);
+    }
+
     public bool IsFalling()
     {
         return rb.velocity.y < fallThreshold;
@@ -157,6 +205,8 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * 0.15f));
         }
     }
 

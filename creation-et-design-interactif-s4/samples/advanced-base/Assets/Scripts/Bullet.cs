@@ -54,7 +54,11 @@ public class Bullet : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = Vector2.zero;
 
-        StopCoroutine(autoDestroyCoroutine);
+        if (autoDestroyCoroutine != null)
+        {
+            StopCoroutine(autoDestroyCoroutine);
+        }
+
         animator.ResetTrigger("IsCollided");
 
         if (objectPooled.Pool == null)
@@ -66,7 +70,8 @@ public class Bullet : MonoBehaviour
     public void ResetThyself(ShootDirection shooterDirection = ShootDirection.Left)
     {
         int factor = 1;
-        if(shootDirection != shooterDirection) {
+        if (shootDirection != shooterDirection)
+        {
             factor = -1;
         }
         rb.velocity = factor * moveSpeed * transform.right.normalized;
