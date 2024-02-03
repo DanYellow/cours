@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         }
         moveDirectionX = Input.GetAxis("Horizontal");
 
-        if (IsGrounded() && !Input.GetButton("Jump"))
+        if (isGrounded && !Input.GetButton("Jump"))
         {
             jumpCount = 0;
         }
@@ -146,7 +146,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, bc.bounds.size.x / 2 * 0.8f, listGroundLayers);
+        return Physics2D.OverlapCircle(
+            groundCheck.position, 
+            bc.bounds.size.x / 2 * 0.8f, 
+            listGroundLayers
+        );
     }
 
 

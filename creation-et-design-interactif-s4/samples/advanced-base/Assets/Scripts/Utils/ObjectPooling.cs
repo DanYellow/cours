@@ -57,7 +57,7 @@ public class ObjectPooling : MonoBehaviour
     ObjectPooled CreateFunc(ObjectPoolItem obj)
     {
         obj.count++;
-    
+
         GameObject item = Instantiate(obj.prefab);
         item.name = $"{transform.name}_{obj.prefab.name}_{obj.count}";
 
@@ -103,7 +103,10 @@ public class ObjectPooling : MonoBehaviour
         {
             foreach (ObjectPoolItem itemToPool in listItemsToPool)
             {
-                itemToPool.pool.Clear();
+                if (itemToPool.pool != null)
+                {
+                    itemToPool.pool.Clear();
+                }
             }
         }
     }
