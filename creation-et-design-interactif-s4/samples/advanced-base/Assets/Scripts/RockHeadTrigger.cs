@@ -4,13 +4,13 @@ using UnityEngine;
 public class RockHeadTrigger : MonoBehaviour
 {
     [HideInInspector]
-    public GameObject sibling = null;
+    public GameObject rockHead = null;
 
     // Allow to call external methods when an action occurs within this script
     public UnityEvent onTrigger;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject == sibling) {
+        if(other.gameObject == rockHead) {
             onTrigger?.Invoke();
             gameObject.SetActive(false);
         }

@@ -30,7 +30,7 @@ public class RockHead : MonoBehaviour
 
     public float crushDistance = 0.55f;
 
-    enum Movement
+    private enum Movement
     {
         VerticalPositive,
         VerticalNegative,
@@ -38,13 +38,21 @@ public class RockHead : MonoBehaviour
         HorizontalPositive,
     }
 
-    Movement currentMovement;
+    private Movement currentMovement;
 
     void Start()
     {
+        Vector2 firstTriggerPosition = listTriggers[0].transform.position;
+
+        Vector2 currentDestination = -((Vector2)transform.position - firstTriggerPosition).normalized;
+        currentDestination.x = Mathf.Round(currentDestination.x);
+        currentDestination.y = Mathf.Round(currentDestination.y);
+
+        currentMovement = GetNextDirection(currentDestination);
+
         EnableTriggers();
         SetTriggersSibling();
-        StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
+        StartCoroutine(GoToTrigger(firstTriggerPosition));
     }
 
     void EnableTriggers()
@@ -59,7 +67,7 @@ public class RockHead : MonoBehaviour
     {
         for (int i = 0; i < listTriggers.Length; i++)
         {
-            listTriggers[i].sibling = gameObject;
+            listTriggers[i].rockHead = gameObject;
         }
     }
 
@@ -87,9 +95,15 @@ public class RockHead : MonoBehaviour
 
         if (listContacts.Length > 1 && player.Length > 0)
         {
+            
+
+            Rigidbody2D playerRb = player[0].GetComponent<Rigidbody2D>();
+
+            ContactPoint2D[] contacts = new ContactPoint2D[1];
+            playerRb.GetContacts(contacts);
+
             PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
-  
             if (
                 ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.hasLeftOrRightCrushContact) ||
                 ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.hasTopOrBottomCrushContact)
@@ -149,16 +163,16 @@ public class RockHead : MonoBehaviour
         return tmpMovement;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         ContactPoint2D[] contacts = new ContactPoint2D[1];
-        other.GetContacts(contacts);
+        collision.GetContacts(contacts);
 
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (contacts[0].normal.y < -0.5f)
             {
-                other.gameObject.transform.parent = transform;
+                collision.transform.SetParent(transform);
             }
         }
     }
@@ -198,11 +212,11 @@ public class RockHead : MonoBehaviour
         EnableTriggers();
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            other.gameObject.transform.parent = null;
+            collision.transform.SetParent(null);
         }
     }
 

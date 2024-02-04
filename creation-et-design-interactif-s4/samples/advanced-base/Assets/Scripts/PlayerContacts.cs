@@ -12,8 +12,8 @@ public class PlayerContacts : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hasTopOrBottomCrushContact = HasTopAndBottomContact().Length >= 1;
-        hasLeftOrRightCrushContact = HasLeftAndRightContact().Length >= 1;
+        hasTopOrBottomCrushContact = HasTopAndBottomContact().Length >= 2;
+        hasLeftOrRightCrushContact = HasLeftAndRightContact().Length >= 2;
     }
 
     public RaycastHit2D[] HasTopAndBottomContact()
