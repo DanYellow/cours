@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4000432134071860577}
   - component: {fileID: 4000432134071860586}
   - component: {fileID: 4000432134071860589}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: RinoEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

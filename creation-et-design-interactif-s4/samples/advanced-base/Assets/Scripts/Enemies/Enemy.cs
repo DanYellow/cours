@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator;
+    [ReadOnlyInspector]
+    public Color originalColor;
+
+    public Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
 
     // List of contact points when something collides with that GameObject
     private ContactPoint2D[] contacts = new ContactPoint2D[1];
@@ -25,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
         // If no max health is defined then the enemy heath is 1
         currentHealth = maxHealth != null ? maxHealth.CurrentValue : 1f;
+        originalColor = spriteRenderer.color;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -62,10 +67,10 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
+            
             spriteRenderer.color = hitColor;
             yield return new WaitForSeconds(0.25f);
-            spriteRenderer.color = new Color(1, 1, 1, 1);
+            spriteRenderer.color = originalColor;
         }
     }
 
