@@ -61178,14 +61178,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374716383}
     m_Modifications:
-    - target: {fileID: 7992860950111955520, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7992860950111955520, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
       value: FaillingPlatforms (2)

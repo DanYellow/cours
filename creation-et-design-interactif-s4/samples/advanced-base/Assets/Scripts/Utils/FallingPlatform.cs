@@ -5,7 +5,7 @@ public class FallingPlatform : MonoBehaviour
 {
     [Tooltip("Delay before the platform starts to fall")]
     public float fallDelay = 1.5f;
-    private float destroyDelay = 3f;
+    private float destroyDelay = 2.45f;
     private Vector2 startPosition = Vector2.zero;
 
     public Rigidbody2D rb;
@@ -55,7 +55,7 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator Fall()
     {
         float current = 0;
-        float duration = 3.12f;
+        float duration = 0.15f;
         isFalling = true;
 
         while (current <= 1)
@@ -63,12 +63,12 @@ public class FallingPlatform : MonoBehaviour
             current += Time.fixedDeltaTime / duration;
             rb.MovePosition(
                 Vector2.Lerp(
-                        startPosition, 
-                        (Vector2)rb.transform.position + Vector2.down * 0.1f, 
-                        Mathf.PingPong(current, 1)
-                    )
-                );
-            // rb.MovePosition(Vector2.Lerp(startPosition, (Vector2)rb.transform.position + Vector2.down * 0.1f, current));
+                    startPosition, 
+                    startPosition + Vector2.down * 0.25f, 
+                    Mathf.PingPong(current, 0.5f)
+                )
+            );
+            // rb.MovePosition(Vector2.Lerp(startPosition, startPosition + Vector2.down * 0.15f, current));
 
             yield return null;
         }
