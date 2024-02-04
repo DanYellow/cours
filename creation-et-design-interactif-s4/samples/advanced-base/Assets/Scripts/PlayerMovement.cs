@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             Jump(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (isGrounded)
             {

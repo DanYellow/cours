@@ -2904,7 +2904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (5)
+      value: FallingPlatforms (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
@@ -53183,7 +53183,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (1)
+      value: FallingPlatforms (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_IsActive
@@ -53333,7 +53333,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (6)
+      value: FallingPlatforms (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_ColliderMask.m_Bits
@@ -53789,7 +53789,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (9)
+      value: FallingPlatforms (9)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_ColliderMask.m_Bits
@@ -57555,7 +57555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (7)
+      value: FallingPlatforms (7)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_ColliderMask.m_Bits
@@ -59789,7 +59789,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (4)
+      value: FallingPlatforms (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
@@ -59850,7 +59850,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (3)
+      value: FallingPlatforms (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
@@ -61175,7 +61175,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms (8)
+      value: FallingPlatforms (8)
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955523, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_ColliderMask.m_Bits
@@ -62427,7 +62427,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7992860950111955522, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_Name
-      value: FaillingPlatforms
+      value: FallingPlatforms
       objectReference: {fileID: 0}
     - target: {fileID: 7992860950111955524, guid: 8ef261d070d92794e92780010bfd0bbb, type: 3}
       propertyPath: m_RootOrder
