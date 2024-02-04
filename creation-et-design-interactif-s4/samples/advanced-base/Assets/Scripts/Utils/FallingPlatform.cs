@@ -64,7 +64,7 @@ public class FallingPlatform : MonoBehaviour
             rb.MovePosition(
                 Vector2.Lerp(
                     startPosition, 
-                    startPosition + Vector2.down * 0.25f, 
+                    startPosition + Vector2.down * 0.3f, 
                     Mathf.PingPong(current, 0.5f)
                 )
             );
