@@ -95,13 +95,7 @@ public class RockHead : MonoBehaviour
 
         if (listContacts.Length > 1 && player.Length > 0)
         {
-            
-
             Rigidbody2D playerRb = player[0].GetComponent<Rigidbody2D>();
-
-            ContactPoint2D[] contacts = new ContactPoint2D[1];
-            playerRb.GetContacts(contacts);
-
             PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
             if (
