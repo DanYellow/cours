@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1.05
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4932,9 +4932,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9aff2d39678a5949afe01e5b685d46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 1.5
+  fallDelay: 0.95
   rb: {fileID: 7992860950111955520}
   animator: {fileID: 7992860950111955525}
+  isFalling: 0
   particleEmitter: {fileID: 3987860193968283235}
 --- !u!61 &7992860950111955521
 BoxCollider2D:
@@ -4996,7 +4997,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

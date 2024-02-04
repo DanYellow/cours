@@ -250,3 +250,5 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - **Puis-je effectuer un projet à partir de zéro ?**
 
     Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
+
+0.36 -0.1

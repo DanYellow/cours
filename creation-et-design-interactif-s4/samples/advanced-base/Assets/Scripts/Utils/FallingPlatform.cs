@@ -1,9 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-/**
-* @description Allow any Gameobject to look towards another one according to a distance threshold
-**/
 public class FallingPlatform : MonoBehaviour
 {
     [Tooltip("Delay before the platform starts to fall")]
@@ -11,10 +8,10 @@ public class FallingPlatform : MonoBehaviour
     private float destroyDelay = 3f;
     private Vector2 startPosition = Vector2.zero;
 
-
     public Rigidbody2D rb;
 
     public Animator animator;
+    public bool isFalling = false;
 
     public ParticleSystem particleEmitter;
 
@@ -23,14 +20,26 @@ public class FallingPlatform : MonoBehaviour
         startPosition = transform.position;
     }
 
+    private void OnBecameVisible()
+    {
+        particleEmitter.Play();
+    }
+
+    private void OnBecameInvisible()
+    {
+        particleEmitter.Stop();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.SetParent(transform);
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision.relativeVelocity.y < 0)
         {
             collision.gameObject.GetComponent<PlayerMovement>().isOnFallingPlatform = true;
-            animator.speed = 0.5f;
-            StartCoroutine(Fall());
+            if (!isFalling)
+            {
+                StartCoroutine(Fall());
+            }
         }
     }
 
@@ -45,7 +54,28 @@ public class FallingPlatform : MonoBehaviour
 
     private IEnumerator Fall()
     {
+        float current = 0;
+        float duration = 3.12f;
+        isFalling = true;
+
+        while (current <= 1)
+        {
+            current += Time.fixedDeltaTime / duration;
+            rb.MovePosition(
+                Vector2.Lerp(
+                        startPosition, 
+                        (Vector2)rb.transform.position + Vector2.down * 0.1f, 
+                        Mathf.PingPong(current, 1)
+                    )
+                );
+            // rb.MovePosition(Vector2.Lerp(startPosition, (Vector2)rb.transform.position + Vector2.down * 0.1f, current));
+
+            yield return null;
+        }
+
+        animator.speed = 0.5f;
         yield return new WaitForSeconds(fallDelay);
+        particleEmitter.Stop();
         animator.SetTrigger("Fall");
         rb.bodyType = RigidbodyType2D.Dynamic;
         StartCoroutine(Reset());
@@ -54,10 +84,11 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(destroyDelay);
-        Invoke(nameof(Activate), destroyDelay * 1.5f);
+        animator.speed = 1;
+        isFalling = false;
+        Invoke(nameof(Activate), destroyDelay);
         gameObject.SetActive(false);
         animator.ResetTrigger("Fall");
-        animator.speed = 1;
         transform.position = startPosition;
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
