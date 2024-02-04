@@ -113,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animations()
     {
-        animator.SetFloat("MoveDirectionX", Mathf.Abs(moveDirectionX));
-        animator.SetFloat("MoveDirectionY", rb.velocity.y);
+        animator.SetFloat("VelocityX", Mathf.Abs(moveDirectionX));
+        animator.SetFloat("VelocityY", rb.velocity.y);
         animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
         animator.SetBool("IsGrounded", isGrounded);
     }

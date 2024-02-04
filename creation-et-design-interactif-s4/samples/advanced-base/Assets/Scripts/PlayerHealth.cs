@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
         onPlayerDeath.Raise();
         GetComponent<Rigidbody2D>().simulated = false;
         transform.Rotate(0f, 0f, 45f);
-        animator.SetTrigger("OnPlayerDeath");
+        animator.SetTrigger("Death");
     }
 
     public void OnPlayerDeathAnimationCallback()

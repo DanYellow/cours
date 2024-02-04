@@ -6,15 +6,17 @@ using UnityEngine;
 **/
 public class FallingPlatform : MonoBehaviour
 {
-    [SerializeField, Tooltip("Delay before the platform starts to fall")]
-    private float fallDelay = 1.5f;
+    [Tooltip("Delay before the platform starts to fall")]
+    public float fallDelay = 1.5f;
     private float destroyDelay = 3f;
     private Vector2 startPosition = Vector2.zero;
 
-    [SerializeField]
-    private Rigidbody2D rb;
-    [SerializeField]
-    private Animator animator;
+
+    public Rigidbody2D rb;
+
+    public Animator animator;
+
+    public ParticleSystem particleEmitter;
 
     private void Start()
     {
