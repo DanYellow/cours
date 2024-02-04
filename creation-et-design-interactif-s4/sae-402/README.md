@@ -1,5 +1,5 @@
 # SAE 402 - Concevoir un dispositif interactif
-> _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps. La cas échéant ne prenez pas en compte ces consignes là. Toutefois rien ne nous empêche d'essayer._
+> _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps. La cas échéant ne prenez pas en compte ces consignes. Toutefois rien ne nous empêche d'essayer._
 
 > **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
@@ -12,7 +12,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 
 Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
->
+
 > Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. 
 ![](unity-hub.jpg)
 <p style="text-align: center">L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity.</p>
@@ -26,9 +26,9 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 - Suivi du joueur par la caméra
 - Ennemis :
     - Des fleurs qui tirent des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
-    - Des rhinocéros qui foncent sur le joueur
     - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
 - Pièges :
+    - Des rhinocéros qui foncent sur le joueur
     - RockHead : Une pierre qui fonce à intervalle régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile se déplaçant sur un circuit défini
     - Chaine : Une boule qui se déplace selon un axe défini
@@ -45,15 +45,14 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
-Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes :
+Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes (dossier `Assets/Scenes`) :
 - Un menu d'accueil **que vous devrez compléter voir plus bas**
 - Un niveau qui devra faire office de premier niveau
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
+    - Note : Vous n'avez pas besoin de la modifier
 - Une scène de debug pour tester des fonctionnalités rapidement
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
-
-> **Si Unity Hub indique que le projet a été ouvert avec une ancienne version d'Unity, vous pouvez quand même l'ouvrir avec une version plus récente, vous ne devriez pas avoir de problèmes. Il n'est pas utile de télécharger cette ancienne version.**
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
@@ -62,7 +61,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche M : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran d'ans l'éditeur
 - Touche L : Arrête le mode "Play"
-- Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont proprement passées entre les scènes
+- Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont correctement passées entre les scènes
 
 # Commandes du jeu
 - Flèches gauche et droite : déplacement du joueur
@@ -72,14 +71,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
-    - Pensez bien à créer la condition pour aller au niveau suivant
-        - Exemple : Une zone de trigger
+    - Il y a déjà un trophée qui sert de fin de niveau, il faudra juste le compléter
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
         - Le nom du jeu. Vous devez en trouver un
         - De quoi commencer le jeu au premier niveau
             - Il y a déjà un bouton, il faut ajouter une fonction pour charger le premier niveau
+        - Un bouton pour permettre de quitter le jeu
     - Pour rappel, ici il faudra utiliser un Canvas
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
@@ -89,13 +88,13 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
 - Ajouter un écran des crédits (voir plus bas pour son contenu)
-- Afficher dans le menu de chargement du jeu les auteurs du jeu (voir menu `Project Settings > Player > Logo`)
+- Afficher dans la splash page de jeu les auteurs du jeu (voir menu `Project Settings > Player > Logo`)
     - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Compléter le menu de pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEventSO`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
-    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas 
+    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas. Toutefois, il est reste préférable ne pas utiliser d'Animator dans un canvas
     > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
@@ -109,14 +108,13 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - La mort instanée si le joueur est écrasé par un rockhead
     - **A vous de faire le reste** (liste non exhaustive)
       - Bloquer les mouvements du joueur
+      - Afficher un écran de "Fin de partie"
 - Ajouter une fonctionnalité de votre choix - Les possibilités sont infinies : score, chronomètre, boss, objets à récupérer...
     > N'oubliez pas : **c'est votre jeu**. Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses
 - Rajouter un ennemi parmi ceux proposés
     - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier `ressources/unity/sprites/platformer/Enemies`
-        - L'ennemi "Mushroom" ou "Chicken" semblent être les plus simples à l'implémenter
         - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
-- Afficher un écran de fin de partie (Game Over)
-    - A vous de décider les conditions qui conduisent à la fin de la partie
+        - Voir [gestion des ennemis](#gestion-des-ennemis) pour en savoir plus
 - Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
     - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
 
@@ -164,7 +162,7 @@ Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les foncti
 
 ### Système de ventilateurs
 Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
-> Le terme "prop" provient du jargon cinématographique, il désigne un objet / accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout objet est nommé "prop".
+> Le terme "prop" provient du jargon cinématographique, il désigne un accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout accessoire est nommé "prop". [En savoir plus](https://fr.wikipedia.org/wiki/Accessoire#Cin%C3%A9ma).
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -179,6 +177,9 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - https://www.itch.io
 - https://opengameart.org/
 - https://www.youtube.com/@NCALIB
+
+## Gestion des ennemis
+La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand ont leur sautera dessus.
 
 # Console de debug
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
@@ -200,9 +201,11 @@ Pour vous aider dans votre productivité, une console de débuggage a été rajo
         - **Il est possible de faire des prefabs de prefabs**
     - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
 Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
-> Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
+    > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
 
-> [Conseils et recommendations concernant Unity et git](https://unity.com/how-to/version-control-systems)
+    > [Conseils et recommendations concernant Unity et git](https://unity.com/how-to/version-control-systems)
+
+    > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
 
 - Si vous avez besoin d'inspirations pour votre UI, vous avez le site [gameuidatabase](https://www.gameuidatabase.com/). Il rencense les UI des nombreux jeux vidéo.
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
