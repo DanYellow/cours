@@ -16,7 +16,7 @@ public class PassThroughPlatform : MonoBehaviour
 
     IEnumerator ToggleStateProxy() {
         platformEffector2D.rotationalOffset = 180;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         platformEffector2D.rotationalOffset = 0;
     }
 

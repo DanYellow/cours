@@ -125,6 +125,7 @@ public class EnemyCharge : MonoBehaviour
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
+            // Minus 1 because the enemy moveback first
             var dir = (transform.position * (dirX * -1)).normalized;
             rb.velocity = new Vector2(dir.x, rb.velocity.y);
 
