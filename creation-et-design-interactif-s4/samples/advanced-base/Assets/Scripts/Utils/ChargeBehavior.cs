@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ChargeBehavior : MonoBehaviour
@@ -13,6 +14,7 @@ public class ChargeBehavior : MonoBehaviour
 
     private List<Vector3> listDirections = new List<Vector3>();
     private bool isAttacking;
+    private bool isCharging = false;
 
     public SpriteRenderer spriteRenderer;
 
@@ -21,6 +23,9 @@ public class ChargeBehavior : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Animator animator;
+
+    public BoxCollider2D bc;
+    public LayerMask obstacleLayers;
 
     public bool isFacingRight = true;
 
@@ -40,10 +45,12 @@ public class ChargeBehavior : MonoBehaviour
 
     private bool attackWaiting = false;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        normalImpulseThreshold = (rb.mass * 1000) / 3000;
+        normalImpulseThreshold = rb.mass * 1000 / 3000;
         if (checkLeft)
         {
             listDirections.Add(Vector3.left);
@@ -69,8 +76,13 @@ public class ChargeBehavior : MonoBehaviour
     {
         if (isAttacking && !attackWaiting)
         {
-            spriteRenderer.color = Color.red;
-            rb.AddForce(destination * speed, ForceMode2D.Impulse);
+
+            var dir = ((transform.position + Vector3.right * 5) - transform.position).normalized * speed;
+            // rb.MovePosition(rb.position + Vector2.right * 0.005f);
+            // print("rb.velocity.x " + rb.velocity.x);
+            // rb.AddForce(destination * speed, ForceMode2D.Impulse);
+            // rb.velocity = dir;
+            // StartCoroutine(Charge());
         }
         else
         {
@@ -81,8 +93,48 @@ public class ChargeBehavior : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetFloat("MoveDirectionX", Mathf.Abs(rb.velocity.x));
+            animator.SetFloat("VelocityX", rb.velocity.x);
         }
+
+        Vector3 startCast = new Vector2(bc.bounds.min.x, bc.bounds.center.y);
+        Vector3 endCast = new Vector2(bc.bounds.min.x - 0.15f, bc.bounds.center.y);
+        Debug.DrawLine(startCast, endCast, Color.red);
+
+        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayers);
+
+        if (hitObstacle.collider != null && isAttacking)
+        {
+            Stop(hitObstacle.collider);
+        }
+    }
+
+    private IEnumerator Charge(Vector3 target)
+    {
+        isCharging = true;
+        spriteRenderer.color = Color.red;
+        Vector2 startPosition = transform.position;
+
+        float dirX = (target - transform.position).normalized.x;
+
+        float current = 0;
+        float duration = 1.15f;
+
+        while (current <= 1)
+        {
+            current += Time.deltaTime / duration;
+
+            var dir = (transform.position * (dirX * -1)).normalized;
+
+            rb.velocity = dir;
+
+            yield return null;
+        }
+
+        rb.velocity = Vector2.zero;
+
+        yield return null;
+
+        rb.velocity = new Vector2(speed * dirX, rb.velocity.y);
     }
 
     private void CheckForTarget()
@@ -90,8 +142,7 @@ public class ChargeBehavior : MonoBehaviour
         //Check if gameobject sees player in direction selected
         for (int i = 0; i < listDirections.Count; i++)
         {
-            float offset = 0;
-
+            float offset;
             if (isFacingRight)
             {
                 offset = (listDirections[i].x > 0) ? range : (range / 2);
@@ -113,64 +164,78 @@ public class ChargeBehavior : MonoBehaviour
                 destination = listDirections[i];
                 isAttacking = true;
                 checkTimer = 0;
+                StartCoroutine(Charge(hit.collider.transform.position));
 
                 Flip();
             }
         }
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    // private void OnCollisionStay2D(Collision2D other)
+    // {
+    //     ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
+    //     other.GetContacts(allContacts);
+
+    //     foreach (ContactPoint2D contact in allContacts)
+    //     {
+    //         if
+    //         (
+    //             ((contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)) &&
+    //             contact.normalImpulse > normalImpulseThreshold
+    //         )
+    //         {
+    //             DetectCollision(other);
+    //         }
+    //     }
+    // }
+
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (!isAttacking)
+    //     {
+    //         return;
+    //     }
+    //     ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
+    //     other.GetContacts(allContacts);
+
+    //     foreach (ContactPoint2D contact in allContacts)
+    //     {
+    //         if (
+    //             (contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)
+    //             )
+    //         {
+
+    // if (other.gameObject.TryGetComponent<Knockback>(out Knockback knockback))
+    // {
+    //     Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
+    //     knockback.Knockbacked(direction, knockbackStrength);
+    // }
+    //         }
+    //     }
+
+    //     Stop();
+    // }
+
+    private void Stop(Collider2D collider)
     {
-        ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
-        other.GetContacts(allContacts);
-
-        foreach (ContactPoint2D contact in allContacts)
-        {
-            if
-            (
-                ((contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)) &&
-                contact.normalImpulse > normalImpulseThreshold
-            )
-            {
-                DetectCollision(other);
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
-        other.GetContacts(allContacts);
-
-        foreach (ContactPoint2D contact in allContacts)
-        {
-            if (
-                (contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)
-                )
-            {
-                DetectCollision(other);
-                if (other.gameObject.TryGetComponent<Knockback>(out Knockback knockback))
-                {
-                    Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
-                    knockback.Knockbacked(direction, knockbackStrength);
-                }
-            }
-        }
-    }
-
-    private void DetectCollision(Collision2D other)
-    {
+        isAttacking = false;
         animator.SetTrigger("IsHit");
+        if (rb.velocity.magnitude == 0)
+        {
+            return;
+        }
+
+        if (collider.TryGetComponent<Knockback>(out Knockback knockback))
+        {
+            Vector2 direction = (transform.position - collider.transform.position).normalized * -1f;
+            knockback.Knockbacked(direction, knockbackStrength);
+        }
+        
         if (isOnScreen)
         {
             onCrushSO.Raise(shakeInfo);
         }
-        Stop();
-    }
 
-    private void Stop()
-    {
-        isAttacking = false;
         rb.velocity = Vector2.zero;
         spriteRenderer.color = new Color(1, 1, 1, 1);
     }

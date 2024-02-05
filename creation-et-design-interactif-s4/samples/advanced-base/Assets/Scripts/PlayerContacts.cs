@@ -1,5 +1,5 @@
 using UnityEngine;
-// 0.36 -0.1
+
 public class PlayerContacts : MonoBehaviour
 {
     public BoxCollider2D bc;

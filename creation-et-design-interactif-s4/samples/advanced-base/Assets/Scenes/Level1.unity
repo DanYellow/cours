@@ -7612,8 +7612,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+      propertyPath: bc
+      value: 
+      objectReference: {fileID: 1680226452}
+    - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: isFacingRight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+      propertyPath: obstacleLayers.m_Bits
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_RootOrder
@@ -7661,7 +7673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860589, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_Mass
-      value: 50
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 6478497530835802527, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: target
@@ -53815,7 +53827,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_RootOrder
@@ -58449,6 +58461,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1680226452 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4000432134071860586, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
+  m_PrefabInstance: {fileID: 538464386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1681036164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60407,7 +60424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: range
@@ -62234,7 +62251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: isFacingRight
