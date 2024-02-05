@@ -16,10 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask listGroundLayers;
     public Transform groundCheck;
 
-    public bool isGrounded;
+    public bool isWallSliding = false;
+    public bool isGrounded = false;
     public Animator animator;
-
-    public LayerMask listEnemiesLayers;
 
     [Tooltip("Running system")]
     public float moveSpeed;
@@ -101,10 +100,21 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
+        WallSlide();
 
         Move();
     }
 
+    private void WallSlide()
+    {
+        if (IsWalled() && !isGrounded)
+        {
+            isWallSliding = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -1.5f, float.MaxValue));
+        } else {
+            isWallSliding = false;
+        }
+    }
 
     private void Move()
     {
@@ -117,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("VelocityY", rb.velocity.y);
         animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
         animator.SetBool("IsGrounded", isGrounded);
+        animator.SetBool("IsWallSliding", isWallSliding);
     }
 
     private void Flip()
@@ -147,8 +158,21 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(
-            groundCheck.position, 
-            bc.bounds.size.x / 2 * 0.8f, 
+            groundCheck.position,
+            bc.bounds.size.x / 2 * 0.8f,
+            listGroundLayers
+        );
+    }
+
+    private bool IsWalled()
+    {
+        float offset = 0.15f + (bc.bounds.size.x / 2);
+        Vector2 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
+        Vector2 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y);
+
+        return Physics2D.Linecast(
+            startCast,
+            endCast,
             listGroundLayers
         );
     }
@@ -165,6 +189,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * 0.8f);
+        }
+
+        if (bc != null)
+        {
+            Gizmos.color = Color.magenta;
+            float offset = 0.15f + (bc.bounds.size.x / 2);
+
+            Gizmos.DrawLine(
+                new Vector2(bc.bounds.center.x, bc.bounds.center.y),
+                new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y)
+            );
         }
     }
 
