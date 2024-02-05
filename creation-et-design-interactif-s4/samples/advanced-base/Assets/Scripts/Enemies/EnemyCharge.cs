@@ -28,7 +28,6 @@ public class EnemyCharge : MonoBehaviour
     public LayerMask obstacleLayers;
     public LayerMask targetLayers;
 
-
     [Header("Shake effect")]
     public CameraShakeEventChannelSO onCrushSO;
     public ShakeTypeVariable shakeInfo;
@@ -120,7 +119,7 @@ public class EnemyCharge : MonoBehaviour
 
         float dirX = (target - transform.position).normalized.x;
         float current = 0;
-        float moveBackDuration = 1.05f;
+        float moveBackDuration = 0.85f;
 
         while (current <= 1)
         {
@@ -134,7 +133,7 @@ public class EnemyCharge : MonoBehaviour
 
         rb.velocity = Vector2.zero;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.09f);
 
         spriteRenderer.color = new Color(1, 1, 1, 1);
         rb.velocity = new Vector2(speed * dirX, rb.velocity.y);
