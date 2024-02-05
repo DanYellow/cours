@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Collectible : MonoBehaviour
 {
     public CollectibleVariable data;
     public GameObject collectedEffect;
     public SpriteRenderer spriteRenderer;
+
+    public UnityEvent onPickUp;
 
     private void Awake() {
         spriteRenderer.sprite = data.sprite;
@@ -19,6 +22,7 @@ public class Collectible : MonoBehaviour
             Destroy(effect, effect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); 
 
             data.PickItem(transform.position);
+            onPickUp?.Invoke();
 
             Destroy(gameObject);
         }
