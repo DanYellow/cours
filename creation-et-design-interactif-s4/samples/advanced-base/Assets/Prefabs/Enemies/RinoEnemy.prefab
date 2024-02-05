@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4000432134071860588}
   - component: {fileID: 4000432134071860591}
   - component: {fileID: 4000432134071860590}
-  - component: {fileID: 4000432134071860577}
   - component: {fileID: 4000432134071860586}
   - component: {fileID: 4000432134071860589}
+  - component: {fileID: 2380668662454079122}
   m_Layer: 10
   m_Name: RinoEnemy
   m_TagString: Untagged
@@ -109,39 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4000432134071860577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4000432134071860576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041efdf3bc445e2498fdcc6ac6e73fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 4
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  knockbackStrength: 3.5
-  spriteRenderer: {fileID: 4000432134071860591}
-  checkDelay: 2
-  speed: 40
-  rb: {fileID: 4000432134071860589}
-  animator: {fileID: 4000432134071860590}
-  bc: {fileID: 0}
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  isFacingRight: 0
-  checkRight: 1
-  checkLeft: 1
-  checkTop: 0
-  checkBottom: 0
-  onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
-  shakeInfo: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}
 --- !u!61 &4000432134071860586
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,3 +181,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2380668662454079122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000432134071860576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ab2893fcabfc14b82f0a76f75ad9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightLength: 4
+  knockbackStrength: 2.5
+  isCharging: 0
+  isFacingRight: 1
+  spriteRenderer: {fileID: 4000432134071860591}
+  delayBetweenCharges: 2
+  speed: 20
+  rb: {fileID: 4000432134071860589}
+  animator: {fileID: 4000432134071860590}
+  bc: {fileID: 4000432134071860586}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 264
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
+  shakeInfo: {fileID: 11400000, guid: 86dc0f61e35efdc478aa042ff9b5efd8, type: 2}

@@ -10,14 +10,13 @@ public class EnemyCharge : MonoBehaviour
 
     public bool isCharging = false;
     private bool isOnScreen = false;
-    public bool isFacingRight = true;
 
     private float obstacleDetectionLength = 0.15f;
 
     public SpriteRenderer spriteRenderer;
 
     private float checkTimer;
-    public float checkDelay;
+    public float delayBetweenCharges;
     public float speed;
 
     public Rigidbody2D rb;
@@ -96,7 +95,7 @@ public class EnemyCharge : MonoBehaviour
 
     private void CheckForTarget()
     {
-        if (isCharging || checkTimer < checkDelay)
+        if (isCharging || checkTimer < delayBetweenCharges)
         {
             return;
         }
@@ -145,6 +144,7 @@ public class EnemyCharge : MonoBehaviour
         {
             yield break;
         }
+        // print("rb.velocity.magnitude " + rb.velocity.magnitude);
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockback))
         {

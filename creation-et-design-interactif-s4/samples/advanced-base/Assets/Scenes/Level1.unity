@@ -58514,7 +58514,7 @@ MonoBehaviour:
   isCharging: 0
   isFacingRight: 1
   spriteRenderer: {fileID: 1680226455}
-  checkDelay: 2.25
+  delayBetweenCharges: 2
   speed: 20
   rb: {fileID: 1680226451}
   animator: {fileID: 1680226454}
