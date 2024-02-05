@@ -82,8 +82,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Pour rappel, ici il faudra utiliser un Canvas
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
-    - Vous pouvez récupérer des mécanismes déjà présents dans le premier niveau
-    - **Il doit être possible de terminer ce nouveau niveau**
+    - Vous pouvez récupérer des mécanismes/ennemis déjà présents dans le premier niveau
+    - **Il doit être possible de terminer ce nouveau niveau**. Quand le niveau termine (au choix) :
+        - Afficher les crédits
+        - Retourner au menu principal
     - Vous pourrez trouver des inspirations ici :
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
@@ -151,6 +153,8 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannelSO`.
 - Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint
 - Afficher, lors qu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau
+- Mettre en place un piège parmi ceux présents dans le dossier `sprites/platformer/Traps`
+    - A vous de gérer le comportement : Est-ce que ça bouge ? Quels dégâts sont infligés ?
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 

@@ -2192,7 +2192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746492, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.439
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746492, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4307,16 +4307,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 21
       m_TileSpriteIndex: 30
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 222, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6654,7 +6644,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: bbbc24af2bd709d468436f4fcd9e145c, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 43b20a1936b6cf84b940ca0c5a9dff3d, type: 2}
@@ -6719,7 +6709,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 19d06979201d82745a284d8c0095ecb5, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {fileID: 705534240, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 81687056, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
@@ -6784,7 +6774,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 708926063, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 366
+  - m_RefCount: 365
     m_Data:
       e00: 1
       e01: 0
@@ -6803,7 +6793,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 366
+  - m_RefCount: 365
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -7526,7 +7516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0cab6b631ab594a85dd0abf82a679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2.09, z: 0}
+  offset: {x: 0, y: 1.5, z: 0}
   smoothTime: 0.15
   target: {fileID: 814072436}
 --- !u!114 &519420037
@@ -29016,9 +29006,6 @@ MonoBehaviour:
   groundCheck: {fileID: 1911207315}
   isGrounded: 0
   animator: {fileID: 814072434}
-  listEnemiesLayers:
-    serializedVersion: 2
-    m_Bits: 64
   moveSpeed: 12
   jumpCount: 0
   maxJumpCount: 2
