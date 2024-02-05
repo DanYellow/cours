@@ -193,10 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ab2893fcabfc14b82f0a76f75ad9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightLength: 4
+  sightLength: 5
   knockbackStrength: 2.5
   isCharging: 0
-  isFacingRight: 1
   spriteRenderer: {fileID: 4000432134071860591}
   delayBetweenCharges: 2
   speed: 20

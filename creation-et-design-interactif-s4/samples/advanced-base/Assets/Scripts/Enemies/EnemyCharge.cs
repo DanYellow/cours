@@ -63,7 +63,7 @@ public class EnemyCharge : MonoBehaviour
         }
 
         Vector3 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
-        float offset = (sightLength / 6) + (bc.bounds.size.x / 2);
+        float offset = (sightLength / 5) + (bc.bounds.size.x / 2);
         Vector3 endCast = new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
@@ -100,8 +100,10 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
-        Vector3 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
-        Vector3 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * sightLength) + bc.bounds.size.x / 2, bc.bounds.center.y);
+        float offset = sightLength + (bc.bounds.size.x / 2);
+
+        Vector3 startCast = new Vector2(bc.bounds.center.x + (1.45f * transform.right.normalized.x), bc.bounds.center.y);
+        Vector3 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
 
@@ -118,7 +120,7 @@ public class EnemyCharge : MonoBehaviour
 
         float dirX = (target - transform.position).normalized.x;
         float current = 0;
-        float moveBackDuration = 1.15f;
+        float moveBackDuration = 1.05f;
 
         while (current <= 1)
         {
@@ -144,7 +146,6 @@ public class EnemyCharge : MonoBehaviour
         {
             yield break;
         }
-        // print("rb.velocity.magnitude " + rb.velocity.magnitude);
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockback))
         {
@@ -184,19 +185,19 @@ public class EnemyCharge : MonoBehaviour
             else
             {
                 Gizmos.color = Color.blue;
+                float targetSightOffset = sightLength + (bc.bounds.size.x / 2);
                 Gizmos.DrawLine(
-                    new Vector2(bc.bounds.center.x, bc.bounds.center.y),
-                    new Vector2(bc.bounds.center.x + (transform.right.normalized.x * sightLength) + (bc.bounds.size.x / 2), bc.bounds.center.y)
+                    new Vector2(bc.bounds.center.x + (1.45f * transform.right.normalized.x), bc.bounds.center.y),
+                    new Vector2(bc.bounds.center.x + (transform.right.normalized.x * targetSightOffset), bc.bounds.center.y)
                 );
 
                 Gizmos.color = Color.magenta;
-                float offset = (sightLength / 6) + (bc.bounds.size.x / 2);
+                float offset = (sightLength / 5) + (bc.bounds.size.x / 2);
                 Gizmos.DrawLine(
                     new Vector2(bc.bounds.center.x, bc.bounds.center.y),
                     new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y)
                 );
             }
-            // new Vector2(bc.bounds.min.x + (sightLength / 6), bc.bounds.center.y)
         }
     }
 
