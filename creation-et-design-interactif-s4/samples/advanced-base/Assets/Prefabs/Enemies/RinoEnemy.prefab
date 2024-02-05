@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: -1517880199, guid: 639ffad1feaccac4382e1e6ef47a025e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.625, y: 1.0625}
@@ -131,6 +131,10 @@ MonoBehaviour:
   speed: 40
   rb: {fileID: 4000432134071860589}
   animator: {fileID: 4000432134071860590}
+  bc: {fileID: 0}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
   isFacingRight: 0
   checkRight: 1
   checkLeft: 1

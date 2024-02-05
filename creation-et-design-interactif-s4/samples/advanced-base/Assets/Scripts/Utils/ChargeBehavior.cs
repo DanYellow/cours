@@ -171,51 +171,6 @@ public class ChargeBehavior : MonoBehaviour
         }
     }
 
-    // private void OnCollisionStay2D(Collision2D other)
-    // {
-    //     ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
-    //     other.GetContacts(allContacts);
-
-    //     foreach (ContactPoint2D contact in allContacts)
-    //     {
-    //         if
-    //         (
-    //             ((contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)) &&
-    //             contact.normalImpulse > normalImpulseThreshold
-    //         )
-    //         {
-    //             DetectCollision(other);
-    //         }
-    //     }
-    // }
-
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (!isAttacking)
-    //     {
-    //         return;
-    //     }
-    //     ContactPoint2D[] allContacts = new ContactPoint2D[other.contactCount];
-    //     other.GetContacts(allContacts);
-
-    //     foreach (ContactPoint2D contact in allContacts)
-    //     {
-    //         if (
-    //             (contact.normal.x > 0.5f && !isFacingRight) || (contact.normal.x < -0.5f && isFacingRight)
-    //             )
-    //         {
-
-    // if (other.gameObject.TryGetComponent<Knockback>(out Knockback knockback))
-    // {
-    //     Vector2 direction = (transform.position - other.gameObject.transform.position).normalized * -1f;
-    //     knockback.Knockbacked(direction, knockbackStrength);
-    // }
-    //         }
-    //     }
-
-    //     Stop();
-    // }
-
     private void Stop(Collider2D collider)
     {
         isAttacking = false;
@@ -250,6 +205,18 @@ public class ChargeBehavior : MonoBehaviour
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        // if (bc != null)
+        // {
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawLine(
+        //         new Vector2(bc.bounds.min.x - range, bc.bounds.center.y),
+        //         new Vector2(bc.bounds.max.x + (range / 6), bc.bounds.center.y)
+        //     );
+        // }
     }
 
     void OnBecameInvisible()
