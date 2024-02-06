@@ -153,13 +153,22 @@ public class EnemyCharge : MonoBehaviour
             knockback.Knockbacked(direction, knockbackStrength);
         }
 
+        if (collider.CompareTag("Player"))
+        {
+            PlayerContacts playerContacts = collider.transform.GetComponent<PlayerContacts>();
+            if (playerContacts.hasLeftOrRightCrushContact)
+            {
+                PlayerHealth playerHealth = collider.transform.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(float.MaxValue);
+            }
+        }
         if (isOnScreen)
         {
             onCrushSO.Raise(shakeInfo);
         }
 
         rb.velocity = Vector2.zero;
-        
+
         isCharging = false;
         checkTimer = 0;
     }
@@ -181,6 +190,13 @@ public class EnemyCharge : MonoBehaviour
                     new Vector2(bc.bounds.center.x, bc.bounds.center.y),
                     new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y)
                 );
+
+                // Gizmos.color = Color.black;
+                // float crushOffset = (0.15f / 2) + (bc.bounds.size.x / 2);
+                // Gizmos.DrawWireCube(
+                //     new Vector2(bc.bounds.center.x + (transform.right.normalized.x * crushOffset), bc.bounds.center.y),
+                //     new Vector2(0.15f, bc.size.y * 0.9f)
+                // );
             }
             else
             {

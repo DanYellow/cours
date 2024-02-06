@@ -29008,7 +29008,7 @@ MonoBehaviour:
   animator: {fileID: 814072434}
   moveSpeed: 12
   jumpCount: 0
-  maxJumpCount: 2
+  nbMaxJumpsAllowed: 2
   jumpForce: 13
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
