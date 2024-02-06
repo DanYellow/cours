@@ -38,7 +38,7 @@ public class StunEffect : MonoBehaviour
         // transform.RotateAround(pivot.position, transform.up, Time.deltaTime * 90f);
         // 1.5 * cos(L(0, 2 * pi))
         // 1.5 * sin(L(0, 2 * pi))
-        float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + startPosition.y;
+        float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + pivot.position.y;
 
         float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);
         var positionCenterObject = pivot.position;
