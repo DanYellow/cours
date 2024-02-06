@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// https://forum.unity.com/threads/how-to-make-a-gameobject-rotate-and-move-around-another-gameobject-in-2d.1397125/
 public class StunEffect : MonoBehaviour
 {
     [SerializeField]
@@ -19,11 +20,15 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float yAmplitude = -0.02f;
 
+    int i = 0;
+
     private void Start()
     {
         startPosition = transform.position;
         xOffset = (transform.position - pivot.position).x;
         zOffset = (transform.position - pivot.position).z;
+
+        print("fff " + xOffset);
     }
 
     void Update()
@@ -36,19 +41,19 @@ public class StunEffect : MonoBehaviour
         var rotation = Time.time * 2;
 
         // transform.Rotate(new Vector3(0, 0, rotation));
-        // transform.RotateAround(pivot.position, new Vector3(0, 1, 0), Time.deltaTime *  rotationSpeed);
+        // transform.RotateAround(pivot.localPosition, new Vector3(0, 1, 0), Time.deltaTime *  rotationSpeed);
         // transform.RotateAround(
         //     pivot.position,
         //     transform.up,
         //     Time.deltaTime * rotationSpeed
         // );
 
-        float angle = Time.time * rotationSpeed;
-        var positionCenterObject = pivot.position;
+        float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);
+        var positionCenterObject = pivot.localPosition;
 
-        var x = positionCenterObject.x + Mathf.Cos(angle) * xOffset;
-        var z = positionCenterObject.z + Mathf.Sin(angle) * zOffset;
-        transform.position = new Vector3(x, transform.position.y, z);
+        var x = positionCenterObject.x + (Mathf.Cos(angle) * xOffset);
+        var z = positionCenterObject.z + (Mathf.Sin(angle) * zOffset);
+        transform.position = new Vector3(x, pivot.position.y, z);
 
     }
 

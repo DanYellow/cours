@@ -1070,7 +1070,6 @@ Transform:
   m_Children:
   - {fileID: 209758303}
   - {fileID: 946132298}
-  - {fileID: 279445056}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &125663661 stripped
@@ -2457,7 +2456,7 @@ GameObject:
   - component: {fileID: 279445058}
   - component: {fileID: 279445057}
   m_Layer: 0
-  m_Name: Duck-StunIdle (36x36)_0 (2)
+  m_Name: Duck-StunIdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,11 +2471,11 @@ Transform:
   m_GameObject: {fileID: 279445055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.071, y: -0.134, z: 0}
+  m_LocalPosition: {x: -0.16700003, y: -0.11399996, z: 1}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 124105394}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &279445057
 MonoBehaviour:
@@ -64057,6 +64056,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 814072436}
+  - {fileID: 279445056}
   - {fileID: 124105394}
   - {fileID: 1381528304}
   - {fileID: 950755733}
