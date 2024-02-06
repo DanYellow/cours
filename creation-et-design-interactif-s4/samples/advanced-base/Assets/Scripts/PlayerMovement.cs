@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
-                onPassThroughPlatforms.Raise();
+                StartCoroutine(PassThroughPlatforms());
             }
             else
             {
@@ -94,6 +96,13 @@ public class PlayerMovement : MonoBehaviour
 
         Flip();
         Animations();
+    }
+
+    private IEnumerator PassThroughPlatforms()
+    {
+        bc.enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        bc.enabled = true;
     }
 
     private void FixedUpdate()

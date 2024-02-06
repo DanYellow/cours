@@ -11,7 +11,7 @@ public class PassThroughPlatform : MonoBehaviour
     }
     
     void ToggleState() {
-        StartCoroutine(ToggleStateProxy());
+        // StartCoroutine(ToggleStateProxy());
     }
 
     IEnumerator ToggleStateProxy() {
