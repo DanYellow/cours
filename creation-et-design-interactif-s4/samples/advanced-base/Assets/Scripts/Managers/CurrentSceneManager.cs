@@ -50,7 +50,6 @@ public class CurrentSceneManager : MonoBehaviour
                 LoadScene("Debug");
             }
         }
-
 #endif
     }
 

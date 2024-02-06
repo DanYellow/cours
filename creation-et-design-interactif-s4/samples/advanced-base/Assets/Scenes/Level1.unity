@@ -29010,11 +29010,9 @@ MonoBehaviour:
   jumpCount: 0
   maxJumpCount: 2
   jumpForce: 13
-  fallThreshold: -15
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
-  onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
   onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
 --- !u!114 &814072431
 MonoBehaviour:
@@ -55486,7 +55484,6 @@ GameObject:
   - component: {fileID: 1417130651}
   - component: {fileID: 1417130650}
   - component: {fileID: 1417130649}
-  - component: {fileID: 1417130653}
   m_Layer: 3
   m_Name: FloatingPlatforms
   m_TagString: Untagged
@@ -57410,20 +57407,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &1417130653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417130645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21cbca669c3cdd642817842e5d548958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPassThroughPlatforms: {fileID: 11400000, guid: 4801b18e8c8adf346b128f2412107424, type: 2}
-  platformEffector2D: {fileID: 1417130652}
 --- !u!4 &1419437974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}

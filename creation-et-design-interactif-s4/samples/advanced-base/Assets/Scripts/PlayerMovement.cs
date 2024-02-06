@@ -4,8 +4,10 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public BoxCollider2D bc;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private BoxCollider2D bc;
 
     private float moveDirectionX;
     private bool isGamePaused = false;
@@ -14,33 +16,34 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isOnFallingPlatform = false;
 
-    [Tooltip("Position checks")]
-    public LayerMask listGroundLayers;
-    public Transform groundCheck;
+    [Tooltip("Position checks"), SerializeField]
+    private LayerMask listGroundLayers;
+    [SerializeField]
+    private Transform groundCheck;
 
     public bool isGrounded = false;
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
-    [Tooltip("Running system")]
-    public float moveSpeed;
+    [Tooltip("Running system"), SerializeField]
+    private float moveSpeed;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
     public int maxJumpCount;
     public float jumpForce;
 
-    public float fallThreshold = -15f;
-
     private bool isLandingFast = false;
 
-    [Header("Event")]
-    public CameraShakeEventChannelSO onLandingFastSO;
-    public ShakeTypeVariable landingFastShakeInfo;
-    public BoolEventChannelSO onTogglePauseEvent;
-    public VoidEventChannel onPassThroughPlatforms;
+    [Header("Events"), SerializeField]
+    private CameraShakeEventChannelSO onLandingFastSO;
+    [SerializeField]
+    private ShakeTypeVariable landingFastShakeInfo;
+    [SerializeField]
+    private BoolEventChannelSO onTogglePauseEvent;
 
-    [Header("Debug")]
-    public VectorEventChannel onDebugTeleportEvent;
+    [Header("Debug"), SerializeField]
+    private VectorEventChannel onDebugTeleportEvent;
 
     private void OnEnable()
     {
@@ -161,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsFalling()
     {
-        return rb.velocity.y < fallThreshold;
+        return rb.velocity.y <= -jumpForce;
     }
 
     void OnDrawGizmos()
@@ -186,7 +189,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDebugTeleport(Vector3 newPos)
     {
+        #if UNITY_EDITOR
         transform.position = newPos;
+        #endif
     }
 
     private void OnDisable()
