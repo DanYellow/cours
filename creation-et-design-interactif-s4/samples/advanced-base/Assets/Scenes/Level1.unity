@@ -1064,7 +1064,7 @@ Transform:
   m_GameObject: {fileID: 124105393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.369, y: -0.163, z: 0.06650463}
+  m_LocalPosition: {x: 0.369, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1823,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &209758303
 Transform:
   m_ObjectHideFlags: 0
@@ -1854,6 +1854,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   rotationSpeed: 5
   pivot: {fileID: 814072436}
+  yAmplitude: -0.02
 --- !u!212 &209758305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2471,7 +2472,7 @@ Transform:
   m_GameObject: {fileID: 279445055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.572, y: 0.056, z: -0.06650463}
+  m_LocalPosition: {x: -0.071, y: -0.134, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2492,6 +2493,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   rotationSpeed: 5
   pivot: {fileID: 814072436}
+  yAmplitude: -0.02
 --- !u!212 &279445058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2532,7 +2534,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 10
   m_Sprite: {fileID: 199740626, guid: 5cd456dbb50afcc47a3827e82492ace7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -29479,7 +29481,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   invulnerableDuration: 2.5
-  listLayersIndexes: 
 --- !u!114 &814072443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30483,7 +30484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &946132297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30566,6 +30567,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   rotationSpeed: 5
   pivot: {fileID: 814072436}
+  yAmplitude: -0.02
 --- !u!1001 &948396529
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerInvulnerable : MonoBehaviour
 {
-    float invulnerableDeltaTime = 0.15f;
-    public WaitForSeconds waitInvulnerableDeltaTime;
+    private float invulnerableDeltaTime = 0.15f;
+    private WaitForSeconds waitInvulnerableDeltaTime;
 
     public SpriteRenderer spriteRenderer;
 
     public bool isInvulnerable = false;
 
     public LayerMask layersToIgnoreAfterHit;
-    public float invulnerableDuration = 2.5f;
 
-    public List<int> listLayersIndexes = new List<int>();
+    [SerializeField]
+    private float invulnerableDuration = 2.5f;
+
+    private List<int> listLayersIndexes = new List<int>();
 
     // Start is called before the first frame update
     void Start()
