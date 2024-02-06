@@ -21,7 +21,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
 
+    [SerializeField]
+    private LayerMask listFloatingPlatformsLayers;
+
     public bool isGrounded = false;
+    public bool isFloatingGrounded = false;
     [SerializeField]
     private Animator animator;
 
@@ -83,11 +87,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            if (isGrounded)
+            if (isFloatingGrounded)
             {
                 StartCoroutine(PassThroughPlatforms());
             }
-            else
+
+            if (!isFloatingGrounded && !isGrounded)
             {
                 isLandingFast = true;
                 rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
@@ -113,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
+        isFloatingGrounded = IsFloatingGrounded();
 
         Move();
     }
@@ -164,6 +170,15 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
+    private bool IsFloatingGrounded()
+    {
+        return Physics2D.OverlapCircle(
+            groundCheck.position,
+            bc.bounds.size.x / 2 * 0.8f,
+            listFloatingPlatformsLayers
+        );
+    }
+
     public bool IsFalling()
     {
         return rb.velocity.y <= -jumpForce;
@@ -191,9 +206,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDebugTeleport(Vector3 newPos)
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         transform.position = newPos;
-        #endif
+#endif
     }
 
     private void OnDisable()
