@@ -30,8 +30,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
-    public int maxJumpCount;
-    public float jumpForce;
+    [SerializeField]
+    private int nbMaxJumpsAllowed = 2;
+    [SerializeField, Tooltip("How high the player will jump")]
+    private float jumpForce;
 
     private bool isLandingFast = false;
 
@@ -69,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = 0;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
+        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < nbMaxJumpsAllowed))
         {
             Jump(false);
         }
