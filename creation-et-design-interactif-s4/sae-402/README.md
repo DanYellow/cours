@@ -64,21 +64,24 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont correctement passées entre les scènes
 
 # Commandes du jeu
-- Flèches gauche et droite : déplacement du joueur
-- Flèche vers le bas (en hauteur) : déplacement rapide vers le sol
+- Flèches gauche et droite (touches q et d) : déplacement du joueur
+- Flèche vers le bas (touche "s") : déplacement rapide vers le sol (en hauteur). Passer à travers certaines plate-formes
 - Barre espace : Saut
 - Pause / relance : Touche échap
 
 ## Liste des choses impératives à faire. **Vous devez toutes les faire**
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
-    - Il y a déjà un trophée qui sert de fin de niveau, il faudra juste le compléter
+    - Il y a déjà des trophées (prefab) qui servent de fin de niveau, il faudra juste les compléter
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
-        - Le nom du jeu. Vous devez en trouver un
+        - Le nom du jeu
+          - Vous devez en trouver un
+          - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image
         - De quoi commencer le jeu au premier niveau
-            - Il y a déjà un bouton, il faut ajouter une fonction pour charger le premier niveau
+            - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau
         - Un bouton pour permettre de quitter le jeu
+        - Les développeurs / développeuses du jeu
     - Pour rappel, ici il faudra utiliser un Canvas
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
@@ -89,7 +92,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Vous pourrez trouver des inspirations ici :
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
-- Ajouter un écran des crédits (voir plus bas pour son contenu)
+- Ajouter un écran des crédits [(voir contenu attendu)](#contenu-de-lécran-des-crédits)
 - Afficher dans la splash page de jeu le logo de l'université (voir menu `Project Settings > Player > Logo`)
     - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Compléter le menu de pause
@@ -225,12 +228,13 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
 # Votre liste à faire
 - [x] Lire les consignes
-- Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
-- Respecter les attentes
-- Générer une archive contenant :
+- [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
+- [ ] Respecter les attentes
+- [ ] Générer une archive contenant :
     - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**
         - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
+        - Un fichier texte avec le lien du projet git
 
 # FAQ - Foire Aux Questions
 - **Est-il possible de réaliser ce travail seul(e) ?**
@@ -257,5 +261,10 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - **En cours, nous avons affiché la vie du joueur sous forme de barre. Est-il possible de faire autrement ?**
 
     Oui. A partir du moment où l'information reste claire, il n'y a pas de problème.
+
+- **Est-il possible de mettre des propriétés/méthodes de classe en privé ?**
+
+    Oui. Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
+    - [En savoir plus sur `[SerializeField]`](https://docs.unity3d.com/ScriptReference/SerializeField.html)
 
 0.36 -0.1
