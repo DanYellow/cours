@@ -4,9 +4,6 @@ using UnityEngine;
 public class StunEffect : MonoBehaviour
 {
     [SerializeField]
-    private Camera cam;
-
-    [SerializeField]
     private float rotationSpeed = 150;
 
     [SerializeField]
@@ -20,46 +17,48 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float yAmplitude = -0.02f;
 
-    int i = 0;
+    public float offset = -0.5f;
+
+    [SerializeField]
+    private bool isOnZAxis = false;
 
     private void Start()
     {
         startPosition = transform.position;
+        // xOffset = -0.5f;
+        // zOffset = -0.5f;
         xOffset = (transform.position - pivot.position).x;
         zOffset = (transform.position - pivot.position).z;
-
-        print("fff " + xOffset);
     }
+
+
 
     void Update()
     {
+        // transform.RotateAround(pivot.position, transform.up, Time.deltaTime * 90f);
+        // 1.5 * cos(L(0, 2 * pi))
+        // 1.5 * sin(L(0, 2 * pi))
         float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + startPosition.y;
-        // Vector3 position = new Vector3(transform.position.x, newY, transform.position.z);
-
-        // transform.position = position;
-
-        var rotation = Time.time * 2;
-
-        // transform.Rotate(new Vector3(0, 0, rotation));
-        // transform.RotateAround(pivot.localPosition, new Vector3(0, 1, 0), Time.deltaTime *  rotationSpeed);
-        // transform.RotateAround(
-        //     pivot.position,
-        //     transform.up,
-        //     Time.deltaTime * rotationSpeed
-        // );
 
         float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);
-        var positionCenterObject = pivot.localPosition;
+        var positionCenterObject = pivot.position;
 
-        var x = positionCenterObject.x + (Mathf.Cos(angle) * xOffset);
-        var z = positionCenterObject.z + (Mathf.Sin(angle) * zOffset);
-        transform.position = new Vector3(x, pivot.position.y, z);
+        if (isOnZAxis)
+        {
+            var x = positionCenterObject.x + (Mathf.Cos(angle) * offset);
+            var z = positionCenterObject.z + (Mathf.Sin(angle) * offset) + 1.75f;
 
+            transform.position = new Vector3(x, pivot.position.y, z);
+        }
+        else
+        {
+            var x = positionCenterObject.x + (Mathf.Cos(angle) * xOffset);
+            var z = positionCenterObject.z + (Mathf.Sin(angle) * zOffset);
+            transform.position = new Vector3(x, newY, z);
+        }
     }
 
-    private void LateUpdate()
-    {
-        // transform.LookAt(cam.transform.position, Vector2.up);
-    }
-
+    // private void LateUpdate() {
+    //     transform.LookAt(Camera.main.transform.position, Vector3.up);
+    // }
 }
