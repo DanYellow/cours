@@ -9,10 +9,7 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float oscillationSpeed = 15;
 
-    [SerializeField]
-    private Transform pivot;
-
-    private Vector3 startPosition;
+    public Transform pivot;
 
     private float xOffset = 0;
     private float zOffset = 0;
@@ -35,7 +32,6 @@ public class StunEffect : MonoBehaviour
 
     private void Start()
     {
-        startPosition = transform.position;
         startAngle = transform.eulerAngles;
 
         xOffset = (transform.position - pivot.position).x;
@@ -50,6 +46,9 @@ public class StunEffect : MonoBehaviour
         }
         animationCurve.preWrapMode = WrapMode.PingPong;
         animationCurve.postWrapMode = WrapMode.PingPong;
+
+        // print("loca " + transform.localPosition);
+        // print(transform.position);
     }
 
     void Update()
