@@ -872,10 +872,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &101755585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,10 +1951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 1
 --- !u!212 &209758305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2592,11 +2590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd19ca9e71f9242871700bb9628964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 4
+  oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &279445058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28626,11 +28623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd19ca9e71f9242871700bb9628964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 4
+  oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &713195342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30828,10 +30824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!1001 &948396529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55490,11 +55485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd19ca9e71f9242871700bb9628964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2.5
+  rotationSpeed: 2
+  oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &1349041953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58651,11 +58645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd19ca9e71f9242871700bb9628964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2.5
+  rotationSpeed: 2
+  oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &1480708812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60863,10 +60856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &1734878869
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63275,10 +63267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
-  offset: -0.5
-  isOnZAxis: 0
 --- !u!212 &2096368111
 SpriteRenderer:
   m_ObjectHideFlags: 0
