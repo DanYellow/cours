@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StunEffectManager : MonoBehaviour
@@ -37,7 +35,7 @@ public class StunEffectManager : MonoBehaviour
             }
             else
             {
-                animationCurve.AddKey(0.5f, 1.5f);
+                animationCurve.AddKey(0.5f, 2f);
             }
 
             Vector3 pos = new Vector3(
