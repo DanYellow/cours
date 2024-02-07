@@ -4,6 +4,11 @@ using System.Collections;
 public class Knockback : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public GameObject effect;
+
+    private void Start() {
+        ToggleEffect(false);
+    }
 
     public void Knockbacked(Vector3 direction, float strength)
     {
@@ -16,8 +21,16 @@ public class Knockback : MonoBehaviour
         if (TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
         {
             playerMovement.enabled = false;
-            yield return new WaitForSeconds(0.20f);
+            ToggleEffect(true);
+            yield return new WaitForSeconds(0.5f);
+            ToggleEffect(false);
             playerMovement.enabled = true;
+        }
+    }
+
+    private void ToggleEffect(bool isActive) {
+        if(effect != null) {
+            effect.SetActive(isActive);
         }
     }
 }
