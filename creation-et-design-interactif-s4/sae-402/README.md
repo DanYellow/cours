@@ -158,6 +158,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Afficher, lors qu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau
 - Mettre en place un piège parmi ceux présents dans le dossier `sprites/platformer/Traps`
     - A vous de gérer le comportement : Est-ce que ça bouge ? Quels dégâts sont infligés ?
+- Proposer au joueur de choisir un personnage. Ce choix peut être fait :
+    - Au début du jeu, juste avant de commencer un niveau
+    - Après chaque mort du joueur
+
+    > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 
@@ -234,7 +239,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**
         - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
-        - Un fichier texte avec le lien du projet git
+        - Un fichier texte avec le lien du projet git + les fonctionnalités supplémentaires que vous avez ajouté ([partie "Liste des choses à faire au choix"](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe))
 
 # FAQ - Foire Aux Questions
 - **Est-il possible de réaliser ce travail seul(e) ?**

@@ -37,18 +37,13 @@ public class StunEffect : MonoBehaviour
 
         xOffset = (transform.position - pivot.position).x;
         zOffset = (transform.position - pivot.position).z;
-
-        // animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
-
-        // animationCurve.preWrapMode = WrapMode.PingPong;
-        // animationCurve.postWrapMode = WrapMode.PingPong;
     }
 
     void Update()
     {
         speedFactor = animationCurve.Evaluate(timeElapsed);
 
-
+        // Factor to decrease z axis rotation's speed
         timeElapsed += 0.000000025f;
         // 1.5 * cos(L(0, 2 * pi))
         // 1.5 * sin(L(0, 2 * pi))
