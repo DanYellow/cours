@@ -2557,6 +2557,7 @@ GameObject:
   - component: {fileID: 279445056}
   - component: {fileID: 279445058}
   - component: {fileID: 279445057}
+  - component: {fileID: 279445059}
   m_Layer: 0
   m_Name: Duck-StunIdle
   m_TagString: Untagged
@@ -2648,6 +2649,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &279445059
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279445055}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e70914d5a3b740c6b3418d2af0e3503, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &291758904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5600367782922950188, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
@@ -2760,7 +2782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 319644883}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: StunEffectContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58601,7 +58623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1480708810
 Transform:
   m_ObjectHideFlags: 0
