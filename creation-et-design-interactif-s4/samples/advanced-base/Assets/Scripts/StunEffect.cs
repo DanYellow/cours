@@ -21,15 +21,13 @@ public class StunEffect : MonoBehaviour
 
     public AnimationCurve animationCurve;
 
-    Vector3 startAngle;   //Reference to the object's original angle values
-    float rotationOffset = 50f; //Rotate by 50 units
+    private Vector3 startAngle;   //Reference to the object's original angle values
+    private float rotationOffset = 50f; //Rotate by 50 units
 
-    float finalAngle;  //Keeping track of final angle to keep code cleaner
+    private float finalAngle;  //Keeping track of final angle to keep code cleaner
 
-    float timeElapsed;
-
-    float speedFactor;
-
+    private float timeElapsed;
+    private float speedFactor;
 
     private void Start()
     {
