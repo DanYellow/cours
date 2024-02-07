@@ -7,7 +7,6 @@ public class StunEffectManager : MonoBehaviour
     [SerializeField]
     private int nbIconToDisplay = 4;
 
-
     [SerializeField]
     private GameObject stunIconPrefab;
 
@@ -20,15 +19,26 @@ public class StunEffectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // transform.position = new Vector3(
-        //     pivot.position.x,
-        //     transform.position.y,
-        //     transform.position.z
-        // );
-
         for (var i = 0; i < nbIconToDisplay; i++)
         {
+            AnimationCurve animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1))
+            {
+                preWrapMode = WrapMode.PingPong,
+                postWrapMode = WrapMode.PingPong
+            };
+
             int offset = i % 2 == 0 ? 1 : -1;
+
+            float rotationSpeed = i < Mathf.Round(nbIconToDisplay / 2) ? 4 : 2;
+
+            if (i < Mathf.Round(nbIconToDisplay / 2))
+            {
+                animationCurve.AddKey(0.5f, 0.5f);
+            }
+            else
+            {
+                animationCurve.AddKey(0.5f, 1.5f);
+            }
 
             Vector3 pos = new Vector3(
                 distanceWithPivot * offset,
@@ -37,20 +47,11 @@ public class StunEffectManager : MonoBehaviour
             );
             GameObject go = Instantiate(stunIconPrefab, transform, true);
             go.transform.localPosition = pos;
-            // go.transform.parent = transform;
             StunEffect stunEffect = go.GetComponent<StunEffect>();
             // stunEffect.enabled = false;
             stunEffect.pivot = pivot;
-            // go.transform.localPosition = pos;
-            // go.transform.SetParent(transform, false);
+            stunEffect.rotationSpeed = rotationSpeed;
+            stunEffect.animationCurve = animationCurve;
         }
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

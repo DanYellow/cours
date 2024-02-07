@@ -3,11 +3,10 @@ using UnityEngine;
 // https://forum.unity.com/threads/how-to-make-a-gameobject-rotate-and-move-around-another-gameobject-in-2d.1397125/
 public class StunEffect : MonoBehaviour
 {
-    [SerializeField]
-    private float rotationSpeed = 150;
+    public float rotationSpeed = 5;
 
     [SerializeField]
-    private float oscillationSpeed = 15;
+    private float oscillationSpeed = 3;
 
     public Transform pivot;
 
@@ -17,7 +16,7 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float yAmplitude = -0.02f;
 
-    private AnimationCurve animationCurve;
+    public AnimationCurve animationCurve;
 
     Vector3 startAngle;   //Reference to the object's original angle values
     float rotationOffset = 50f; //Rotate by 50 units
@@ -28,7 +27,6 @@ public class StunEffect : MonoBehaviour
 
     float speedFactor;
 
-    public bool isFast;
 
     private void Start()
     {
@@ -37,18 +35,10 @@ public class StunEffect : MonoBehaviour
         xOffset = (transform.position - pivot.position).x;
         zOffset = (transform.position - pivot.position).z;
 
-        animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
-        if(isFast) {
-        animationCurve.AddKey(0.5f, 0.5f);
+        // animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
 
-        } else {
-            animationCurve.AddKey(0.5f, 1.5f);
-        }
-        animationCurve.preWrapMode = WrapMode.PingPong;
-        animationCurve.postWrapMode = WrapMode.PingPong;
-
-        // print("loca " + transform.localPosition);
-        // print(transform.position);
+        // animationCurve.preWrapMode = WrapMode.PingPong;
+        // animationCurve.postWrapMode = WrapMode.PingPong;
     }
 
     void Update()

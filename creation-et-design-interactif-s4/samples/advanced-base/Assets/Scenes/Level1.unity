@@ -1110,6 +1110,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isFast: 1
 --- !u!212 &119415787
 SpriteRenderer:
@@ -1413,6 +1419,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isFast: 0
 --- !u!212 &141991525
 SpriteRenderer:
@@ -2731,7 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b1df04b993264890382f5d1d336a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbIconToDisplay: 2
+  nbIconToDisplay: 4
   stunIconPrefab: {fileID: 4953900736947862724, guid: e37785271342cfe40a4d296130f51fa0, type: 3}
   pivot: {fileID: 814072436}
   distanceWithPivot: 0.5
@@ -2784,6 +2796,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isFast: 0
 --- !u!212 &328034461
 SpriteRenderer:
@@ -7336,7 +7354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &443670211
 Transform:
   m_ObjectHideFlags: 0
@@ -30790,6 +30808,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isFast: 0
 --- !u!1001 &948396529
 PrefabInstance:
@@ -61673,6 +61697,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isFast: 0
 --- !u!212 &1898754488
 SpriteRenderer:
