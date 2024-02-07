@@ -206,7 +206,7 @@ MonoBehaviour:
   obstacleCheckRadius: 0.25
   obstacleLayersMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
 --- !u!114 &5600367782922950189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5600367782922950191}
   rb: {fileID: 5600367782922950186}
   animator: {fileID: 5600367782922950190}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 1487734455}
 --- !u!114 &7629500146275898872

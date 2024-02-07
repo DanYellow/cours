@@ -8,6 +8,9 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float oscillationSpeed = 3;
 
+    [SerializeField]
+    private SpriteRenderer sr;
+
     public Transform pivot;
 
     private float xOffset = 0;
@@ -62,5 +65,17 @@ public class StunEffect : MonoBehaviour
 
         finalAngle = startAngle.z + Mathf.Sin(Time.time * oscillationSpeed) * rotationOffset;  //Calculate animation angle
         transform.eulerAngles = new Vector3(startAngle.x, startAngle.y, finalAngle); //Apply new angle to object
+    }
+
+    public void ToggleVisiblity(bool isVisible)
+    {
+        if (isVisible)
+        {
+            sr.color = Color.white;
+        }
+        else
+        {
+            sr.color = Color.clear;
+        }
     }
 }

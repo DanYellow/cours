@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StunEffectManager : MonoBehaviour
@@ -14,10 +15,12 @@ public class StunEffectManager : MonoBehaviour
     [SerializeField]
     private float distanceWithPivot = 0.5f;
 
+    private List<StunEffect> listStunEffects = new List<StunEffect>();
+
     // Start is called before the first frame update
     void Start()
     {
-        for (var i = 0; i < nbIconToDisplay; i++)
+        for (int i = 0; i < nbIconToDisplay; i++)
         {
             AnimationCurve animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1))
             {
@@ -46,10 +49,15 @@ public class StunEffectManager : MonoBehaviour
             GameObject go = Instantiate(stunIconPrefab, transform, true);
             go.transform.localPosition = pos;
             StunEffect stunEffect = go.GetComponent<StunEffect>();
-            // stunEffect.enabled = false;
+            listStunEffects.Add(stunEffect);
             stunEffect.pivot = pivot;
             stunEffect.rotationSpeed = rotationSpeed;
             stunEffect.animationCurve = animationCurve;
         }
+    }
+
+    public void ToggleVisiblity(bool isVisible)
+    {
+        listStunEffects.ForEach((item) => item.ToggleVisiblity(isVisible));
     }
 }

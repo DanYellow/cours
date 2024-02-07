@@ -30,7 +30,7 @@ public class Knockback : MonoBehaviour
 
     private void ToggleEffect(bool isActive) {
         if(effect != null) {
-            effect.SetActive(isActive);
+            effect.GetComponent<StunEffectManager>().ToggleVisiblity(isActive);
         }
     }
 }
