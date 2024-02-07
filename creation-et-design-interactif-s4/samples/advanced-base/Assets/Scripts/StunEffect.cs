@@ -20,10 +20,18 @@ public class StunEffect : MonoBehaviour
     [SerializeField]
     private float yAmplitude = -0.02f;
 
+    private AnimationCurve animationCurve;
+
     Vector3 startAngle;   //Reference to the object's original angle values
     float rotationOffset = 50f; //Rotate by 50 units
 
     float finalAngle;  //Keeping track of final angle to keep code cleaner
+
+    float timeElapsed;
+
+    float speedFactor;
+
+    public bool isFast;
 
     private void Start()
     {
@@ -32,15 +40,31 @@ public class StunEffect : MonoBehaviour
 
         xOffset = (transform.position - pivot.position).x;
         zOffset = (transform.position - pivot.position).z;
+
+        animationCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
+        if(isFast) {
+        animationCurve.AddKey(0.5f, 0.5f);
+
+        } else {
+            animationCurve.AddKey(0.5f, 1.5f);
+        }
+        animationCurve.preWrapMode = WrapMode.PingPong;
+        animationCurve.postWrapMode = WrapMode.PingPong;
     }
 
     void Update()
     {
+        speedFactor = animationCurve.Evaluate(timeElapsed);
+
+
+        timeElapsed += 0.000000025f;
         // 1.5 * cos(L(0, 2 * pi))
         // 1.5 * sin(L(0, 2 * pi))
         float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + pivot.position.y;
 
-        float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);
+        float newSpeed = Mathf.Round(rotationSpeed * speedFactor);
+
+        float angle = Time.time * newSpeed * Mathf.Sign(xOffset);
         var positionCenterObject = pivot.position;
 
         var x = positionCenterObject.x + (Mathf.Cos(angle) * xOffset);

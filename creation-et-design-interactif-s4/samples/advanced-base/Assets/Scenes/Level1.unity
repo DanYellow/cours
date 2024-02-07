@@ -875,6 +875,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &101755585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1954,6 +1960,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &209758305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2594,6 +2606,39 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
 --- !u!212 &279445058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28610,7 +28655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &713195341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28627,6 +28672,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &713195342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29790,8 +29841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb41d7999684aac4caa7beb049d140f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follower: {fileID: 124105394}
-  yDelta: 0
 --- !u!1 &814256511
 GameObject:
   m_ObjectHideFlags: 0
@@ -30827,6 +30876,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &948396529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55457,7 +55512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1349041951
 Transform:
   m_ObjectHideFlags: 0
@@ -55489,6 +55544,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &1349041953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58649,6 +58710,12 @@ MonoBehaviour:
   oscillationSpeed: 3
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &1480708812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60859,6 +60926,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &1734878869
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63270,6 +63343,12 @@ MonoBehaviour:
   oscillationSpeed: 15
   pivot: {fileID: 814072436}
   yAmplitude: -0.02
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!212 &2096368111
 SpriteRenderer:
   m_ObjectHideFlags: 0
