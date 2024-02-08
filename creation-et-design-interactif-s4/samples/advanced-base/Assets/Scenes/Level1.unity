@@ -194,6 +194,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 197116824}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1587641175}
@@ -211,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.33
+      value: -4.406
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -622,15 +626,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486207, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Color.b
-      value: 0.03564434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486207, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Color.g
-      value: 0.03564434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486207, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Color.r
-      value: 0.8396226
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1102,7 +1106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listContactsLayers.m_Bits
-      value: 1288
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]
@@ -1797,7 +1801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &197116824
 Transform:
   m_ObjectHideFlags: 0
@@ -1950,6 +1954,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1301557578}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 580848721}
@@ -1967,7 +1975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.33
+      value: -4.367
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2836,6 +2844,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 703294368}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1547544821}
@@ -2853,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.33
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7837,7 +7849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listContactsLayers.m_Bits
-      value: 1288
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]
@@ -27943,6 +27955,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2031590187}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: rockHeadLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1438983459}
@@ -27956,11 +27976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.89
+      value: -7.61
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28316,7 +28336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &703294368
 Transform:
   m_ObjectHideFlags: 0
@@ -28842,7 +28862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listContactsLayers.m_Bits
-      value: 1288
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]
@@ -29618,7 +29638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listContactsLayers.m_Bits
-      value: 1288
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]
@@ -30091,6 +30111,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 703294368}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1547544821}
@@ -30108,7 +30132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.15
+      value: 6.183
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53855,6 +53879,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2031590187}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: rockHeadLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1438983459}
@@ -53872,7 +53900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.56
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 4635978963782031068, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54417,6 +54445,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1301557578}
     m_Modifications:
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 580848721}
@@ -54516,7 +54548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1301557578
 Transform:
   m_ObjectHideFlags: 0
@@ -62103,7 +62135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2031590187
 Transform:
   m_ObjectHideFlags: 0
@@ -63165,6 +63197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 197116824}
     m_Modifications:
+    - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
+      propertyPath: corner
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4635978963782030882, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

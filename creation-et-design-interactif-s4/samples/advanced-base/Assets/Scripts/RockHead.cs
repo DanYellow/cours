@@ -44,11 +44,11 @@ public class RockHead : MonoBehaviour
     {
         Vector2 firstTriggerPosition = listTriggers[0].transform.position;
 
-        // Vector2 currentDestination = -((Vector2)transform.position - firstTriggerPosition).normalized;
-        // currentDestination.x = Mathf.Round(currentDestination.x);
-        // currentDestination.y = Mathf.Round(currentDestination.y);
+        Vector2 currentDestination = -((Vector2)transform.position - firstTriggerPosition).normalized;
+        currentDestination.x = Mathf.Round(currentDestination.x);
+        currentDestination.y = Mathf.Round(currentDestination.y);
 
-        // currentMovement = GetNextDirection(currentDestination);
+        currentMovement = GetNextDirection(currentDestination);
         EnableTriggers();
         SetTriggersSibling();
         StartCoroutine(GoToTrigger(firstTriggerPosition));
