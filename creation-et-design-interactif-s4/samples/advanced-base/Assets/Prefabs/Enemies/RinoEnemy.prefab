@@ -169,7 +169,7 @@ Rigidbody2D:
   m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -194,8 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightLength: 5
-  knockbackStrength: 2.5
-  isCharging: 0
+  knockbackStrength: 8.25
   spriteRenderer: {fileID: 4000432134071860591}
   delayBetweenCharges: 2
   speed: 20

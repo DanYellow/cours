@@ -6,12 +6,11 @@ public class EnemyCharge : MonoBehaviour
     [Header("Distance of sight")]
     public float sightLength = 4;
 
-    public float knockbackStrength = 2.5f;
+    public float knockbackStrength = 5.5f;
 
-    public bool isCharging = false;
+    private bool isCharging = false;
     private bool isOnScreen = false;
-
-    private float obstacleDetectionLength = 0.15f;
+    private float obstacleDetectionLength = 0.3f;
 
     public SpriteRenderer spriteRenderer;
 
@@ -81,9 +80,8 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
-        Vector3 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
-        float offset = obstacleDetectionLength + (bc.bounds.size.x / 2);
-        Vector3 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y);
+        Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
+        Vector3 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, obstacleLayers);
 
@@ -136,6 +134,7 @@ public class EnemyCharge : MonoBehaviour
     private IEnumerator Charge(Vector3 target)
     {
         isCharging = true;
+
         spriteRenderer.color = Color.red;
 
         float dirX = (target - transform.position).normalized.x;
@@ -156,6 +155,7 @@ public class EnemyCharge : MonoBehaviour
 
         yield return new WaitForSeconds(0.09f);
 
+
         spriteRenderer.color = new Color(1, 1, 1, 1);
         rb.velocity = new Vector2(speed * dirX, rb.velocity.y);
     }
@@ -171,7 +171,8 @@ public class EnemyCharge : MonoBehaviour
         if (collider.TryGetComponent<Knockback>(out Knockback knockback))
         {
             Vector2 direction = (transform.position - collider.transform.position).normalized * -1f;
-            knockback.Knockbacked(direction, knockbackStrength);
+            direction.y = 0;
+            knockback.Apply(direction, knockbackStrength);
         }
 
         if (collider.CompareTag("Player"))
@@ -205,19 +206,12 @@ public class EnemyCharge : MonoBehaviour
         {
             if (isCharging)
             {
-                float offset = obstacleDetectionLength + (bc.bounds.size.x / 2);
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.magenta;
+                Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
                 Gizmos.DrawLine(
-                    new Vector2(bc.bounds.center.x, bc.bounds.center.y),
-                    new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y)
+                    startCast,
+                    new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y)
                 );
-
-                // Gizmos.color = Color.black;
-                // float crushOffset = (0.15f / 2) + (bc.bounds.size.x / 2);
-                // Gizmos.DrawWireCube(
-                //     new Vector2(bc.bounds.center.x + (transform.right.normalized.x * crushOffset), bc.bounds.center.y),
-                //     new Vector2(0.15f, bc.size.y * 0.9f)
-                // );
             }
             else
             {

@@ -10,9 +10,11 @@ public class Knockback : MonoBehaviour
         ToggleEffect(false);
     }
 
-    public void Knockbacked(Vector3 direction, float strength)
+    public void Apply(Vector3 direction, float strength)
     {
-        rb.MovePosition(transform.position + direction * strength);
+        // rb.MovePosition(transform.position + direction * strength);
+        rb.velocity = Vector2.zero;
+        rb.AddForce(direction * strength, ForceMode2D.Impulse);
         StartCoroutine(DisableControls());
     }
 
