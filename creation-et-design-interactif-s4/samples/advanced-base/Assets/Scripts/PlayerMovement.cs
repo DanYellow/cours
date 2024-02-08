@@ -42,11 +42,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isLandingFast = false;
 
     [Header("Events"), SerializeField]
-    private CameraShakeEventChannelSO onLandingFastSO;
+    private CameraShakeEventChannel onLandingFastSO;
     [SerializeField]
     private ShakeTypeVariable landingFastShakeInfo;
     [SerializeField]
-    private BoolEventChannelSO onTogglePauseEvent;
+    private BoolEventChannel onTogglePauseEvent;
 
     [Header("Debug"), SerializeField]
     private VectorEventChannel onDebugTeleportEvent;

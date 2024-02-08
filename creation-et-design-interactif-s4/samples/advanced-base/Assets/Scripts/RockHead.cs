@@ -20,7 +20,7 @@ public class RockHead : MonoBehaviour
     public Animator animator;
     private string lastAnimationPlayed = "";
 
-    public CameraShakeEventChannelSO cameraShake;
+    public CameraShakeEventChannel cameraShake;
     public ShakeTypeVariable shakeInfo;
 
     private bool isOnScreen = false;

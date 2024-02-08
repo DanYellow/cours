@@ -12,8 +12,8 @@ public class CollectibleVariable : ScriptableObject
     [Multiline]
     public string DeveloperDescription = "";
 
-    public PlaySoundAtEventChannelSO onPickUpAudio;
-    public IntEventChannelSO onPickUpValue;
+    public PlaySoundAtEventChannel onPickUpAudio;
+    public IntEventChannel onPickUpValue;
 
     public void PickItem(Vector3 position)
     {

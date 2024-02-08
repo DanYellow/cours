@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public StringEventChannelSO onLevelEnded;
-    public BoolEventChannelSO onDebugConsoleOpenEvent;
+    public StringEventChannel onLevelEnded;
+    public BoolEventChannel onDebugConsoleOpenEvent;
 
     public bool isDebugConsoleOpened = false;
 

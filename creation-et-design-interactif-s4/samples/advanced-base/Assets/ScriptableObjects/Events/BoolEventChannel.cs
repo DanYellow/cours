@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName ="New Bool Event", menuName = "ScriptableObjects/Events/BoolEventChannelSO")]
-public class BoolEventChannelSO : ScriptableObject
+[CreateAssetMenu(fileName ="New Bool Event", menuName = "ScriptableObjects/Events/BoolEventChannel")]
+public class BoolEventChannel : ScriptableObject
 {
     public UnityAction<bool> OnEventRaised;
 

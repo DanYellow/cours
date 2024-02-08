@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    public BoolEventChannelSO onTogglePauseEvent;
-    public BoolEventChannelSO onKeyPauseEvent;
-    public BoolEventChannelSO onDebugConsoleOpenEvent;
+    public BoolEventChannel onTogglePauseEvent;
+    public BoolEventChannel onKeyPauseEvent;
+    public BoolEventChannel onDebugConsoleOpenEvent;
     public GameObject pauseMenuUI;
 
     bool isGamePaused = false;

@@ -29,7 +29,7 @@ public class EnemyCharge : MonoBehaviour
     public LayerMask targetLayers;
 
     [Header("Shake effect")]
-    public CameraShakeEventChannelSO onCrushSO;
+    public CameraShakeEventChannel onCrushSO;
     public ShakeTypeVariable shakeInfo;
 
 

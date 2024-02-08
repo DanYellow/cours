@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 // https://learn.unity.com/tutorial/editor-scripting#5c7f8528edbc2a002053b5f6
-[CustomEditor(typeof(IntEventChannelSO), editorForChildClasses: true)]
+[CustomEditor(typeof(IntEventChannel), editorForChildClasses: true)]
 public class IntEventEditor : Editor
 {
     int value = 0;
@@ -13,7 +13,7 @@ public class IntEventEditor : Editor
  
         GUI.enabled = Application.isPlaying;
 
-        IntEventChannelSO e = target as IntEventChannelSO;
+        IntEventChannel e = target as IntEventChannel;
 
         value = EditorGUILayout.IntField("Value:", value);
         

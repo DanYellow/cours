@@ -3,8 +3,8 @@ using UnityEngine;
 public class EndLevel : MonoBehaviour
 {
     public ParticleSystem particles;
-    public StringEventChannelSO onLevelEnded;
-    public PlaySoundAtEventChannelSO sfxAudioChannel;
+    public StringEventChannel onLevelEnded;
+    public PlaySoundAtEventChannel sfxAudioChannel;
     public string nextLevelName;
     public AudioClip audioClip;
 

@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName ="New String Event", menuName = "ScriptableObjects/Events/StringEventChannelSO")]
-public class StringEventChannelSO : ScriptableObject
+[CreateAssetMenu(fileName ="New String Event", menuName = "ScriptableObjects/Events/StringEventChannel")]
+public class StringEventChannel : ScriptableObject
 {
     public UnityAction<string> OnEventRaised;
 

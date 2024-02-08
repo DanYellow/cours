@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 // https://learn.unity.com/tutorial/editor-scripting#5c7f8528edbc2a002053b5f6
-[CustomEditor(typeof(CameraShakeEventChannelSO), editorForChildClasses: true)]
+[CustomEditor(typeof(CameraShakeEventChannel), editorForChildClasses: true)]
 public class CameraShakeEventEditor : Editor
 {
     float duration;
@@ -14,7 +14,7 @@ public class CameraShakeEventEditor : Editor
  
         GUI.enabled = Application.isPlaying;
 
-        CameraShakeEventChannelSO e = target as CameraShakeEventChannelSO;
+        CameraShakeEventChannel e = target as CameraShakeEventChannel;
 
         duration = EditorGUILayout.FloatField("duration: ", duration);
         magnitude = EditorGUILayout.FloatField("magnitude: ", magnitude);

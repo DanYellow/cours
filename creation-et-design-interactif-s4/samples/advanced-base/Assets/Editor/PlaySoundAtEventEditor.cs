@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 // https://learn.unity.com/tutorial/editor-scripting#5c7f8528edbc2a002053b5f6
-[CustomEditor(typeof(PlaySoundAtEventChannelSO), editorForChildClasses: true)]
+[CustomEditor(typeof(PlaySoundAtEventChannel), editorForChildClasses: true)]
 public class PlaySoundAtEventChannelSOdAtEventEditor : Editor
 {
     private Vector3 position;
@@ -14,7 +14,7 @@ public class PlaySoundAtEventChannelSOdAtEventEditor : Editor
 
         GUI.enabled = Application.isPlaying;
 
-        PlaySoundAtEventChannelSO e = target as PlaySoundAtEventChannelSO;
+        PlaySoundAtEventChannel e = target as PlaySoundAtEventChannel;
 
         position = Vector3.zero;
         audioClip = (AudioClip)EditorGUILayout.ObjectField("Audio", audioClip, typeof(AudioClip), true);

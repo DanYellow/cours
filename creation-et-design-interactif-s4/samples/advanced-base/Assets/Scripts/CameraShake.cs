@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
-    public CameraShakeEventChannelSO onCameraShake;
+    public CameraShakeEventChannel onCameraShake;
 
     private void OnEnable() {
         onCameraShake.OnEventRaised += ShakeProxy;

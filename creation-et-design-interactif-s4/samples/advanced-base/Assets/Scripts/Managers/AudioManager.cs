@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     private float volumeOnPlay = 1f;
     private float volumeStep = 0.005f;
 
-    public PlaySoundAtEventChannelSO sfxAudioChannel;
+    public PlaySoundAtEventChannel sfxAudioChannel;
 
     private void OnEnable() {
         sfxAudioChannel.OnEventRaised += PlayClipAt;
