@@ -49,7 +49,6 @@ public class RockHead : MonoBehaviour
         // currentDestination.y = Mathf.Round(currentDestination.y);
 
         // currentMovement = GetNextDirection(currentDestination);
-
         EnableTriggers();
         SetTriggersSibling();
         StartCoroutine(GoToTrigger(firstTriggerPosition));
@@ -75,6 +74,11 @@ public class RockHead : MonoBehaviour
     {
         rb.AddForce(destination * speed, ForceMode2D.Impulse);
 
+        Crush();
+    }
+
+    private void Crush()
+    {
         switch (currentMovement)
         {
             case Movement.HorizontalNegative:
@@ -115,7 +119,7 @@ public class RockHead : MonoBehaviour
         StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
     }
 
-    IEnumerator GoToTrigger(Vector2 dir)
+    private IEnumerator GoToTrigger(Vector2 dir)
     {
         yield return new WaitForSeconds(delayBetweenMoves);
         destination = -((Vector2)transform.position - dir).normalized;
