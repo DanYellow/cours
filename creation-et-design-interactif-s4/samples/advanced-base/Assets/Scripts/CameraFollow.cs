@@ -12,8 +12,6 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 nextPosition;
 
- // https://www.youtube.com/watch?v=Jn0lYl9j3Hc
-
     void Start()
     {
         nextPosition = GetNextPosition();

@@ -8,7 +8,7 @@ public class VoidEventChannel : ScriptableObject
 
 	public void Raise()
 	{
-		// We wheck if someone is really listening to our event
+		// We check if someone is really listening to our event
 		if (OnEventRaised != null) {
 			OnEventRaised.Invoke();
 		} else {

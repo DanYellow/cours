@@ -62,7 +62,7 @@ public class EnemyCharge : MonoBehaviour
         }
 
         Vector3 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
-        float offset = (sightLength / 5) + (bc.bounds.size.x / 2);
+        float offset = (sightLength / 4) + (bc.bounds.size.x / 2);
         Vector3 endCast = new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
@@ -208,7 +208,7 @@ public class EnemyCharge : MonoBehaviour
                 );
 
                 Gizmos.color = Color.magenta;
-                float offset = (sightLength / 5) + (bc.bounds.size.x / 2);
+                float offset = (sightLength / 4) + (bc.bounds.size.x / 2);
                 Gizmos.DrawLine(
                     new Vector2(bc.bounds.center.x, bc.bounds.center.y),
                     new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y)
