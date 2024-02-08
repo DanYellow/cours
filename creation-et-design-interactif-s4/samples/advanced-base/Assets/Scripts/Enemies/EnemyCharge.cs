@@ -52,6 +52,7 @@ public class EnemyCharge : MonoBehaviour
         CheckForTarget();
         CheckForObstacle();
         FlipCheck();
+        CheckForBottomTarget();
     }
 
     private void FlipCheck()
@@ -109,6 +110,26 @@ public class EnemyCharge : MonoBehaviour
         if (hit.collider != null)
         {
             StartCoroutine(Charge(hit.collider.transform.position));
+        }
+    }
+
+    private void CheckForBottomTarget()
+    {
+        Collider2D hit = Physics2D.OverlapBox(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y - (0.15f / 2)),
+            new Vector2(bc.size.x * 0.9f, 0.15f),
+            0,
+            targetLayers
+        );
+
+        if (hit != null)
+        {
+            PlayerContacts playerContacts = hit.transform.GetComponent<PlayerContacts>();
+            if (playerContacts.hasTopOrBottomCrushContact)
+            {
+                PlayerHealth playerHealth = hit.transform.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(float.MaxValue);
+            }
         }
     }
 
@@ -214,6 +235,13 @@ public class EnemyCharge : MonoBehaviour
                     new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y)
                 );
             }
+
+            Gizmos.color = Color.black;
+            float crushOffset = 0.15f / 2;
+            Gizmos.DrawWireCube(
+                new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushOffset),
+                new Vector2(bc.size.x * 0.9f, 0.15f)
+            );
         }
     }
 

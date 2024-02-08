@@ -99,7 +99,6 @@ public class RockHead : MonoBehaviour
 
         if (listContacts.Length > 1 && player.Length > 0)
         {
-            Rigidbody2D playerRb = player[0].GetComponent<Rigidbody2D>();
             PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
             if (
                 ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.hasLeftOrRightCrushContact) ||
