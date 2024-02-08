@@ -31,8 +31,6 @@ public class EnemyCharge : MonoBehaviour
     public CameraShakeEventChannel onCrushSO;
     public ShakeTypeVariable shakeInfo;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (!isCharging)
