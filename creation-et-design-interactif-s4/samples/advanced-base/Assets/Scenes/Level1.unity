@@ -54996,7 +54996,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_RootOrder
@@ -57953,7 +57953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860588, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_RootOrder
@@ -60669,7 +60669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: isFacingRight
@@ -61811,7 +61811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: range
@@ -62707,7 +62707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: isFacingRight
@@ -63688,7 +63688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860576, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000432134071860577, guid: 7f643e4a1e0627c40ba0bc981b1f24b2, type: 3}
       propertyPath: isFacingRight

@@ -11,7 +11,6 @@ public class EnemyCharge : MonoBehaviour
     public bool isCharging = false;
     private bool isOnScreen = false;
     public bool isMovingForward = false;
-    private bool hasTouchedSomething = false;
     private float obstacleDetectionLength = 0.3f;
 
     public SpriteRenderer spriteRenderer;
@@ -87,14 +86,14 @@ public class EnemyCharge : MonoBehaviour
 
     private void CheckForObstacle()
     {
-        if (!isCharging)
+        contact = GetContact();
+        if (!isCharging || !isMovingForward)
         {
             return;
         }
 
-        contact = GetContact();
 
-        if (contact.collider != null)
+        if (contact.collider != null && isMovingForward)
         {
             Stop(contact.collider);
         }
@@ -169,7 +168,6 @@ public class EnemyCharge : MonoBehaviour
 
             yield return wait;
         }
-        print("Charge");
 
         rb.velocity = Vector2.zero;
         isMovingForward = true;
@@ -177,19 +175,13 @@ public class EnemyCharge : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        // rb.AddForce(new Vector2(speed * dirX, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
-        rb.velocity = new Vector2(speed * dirX, rb.velocity.y);
+        rb.AddForce(new Vector2(speed * dirX, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     void Stop(Collider2D collider)
     {
         animator.SetTrigger("IsHit");
-        hasTouchedSomething = true;
-
-        // if (rb.velocity.magnitude == 0)
-        // {
-        //     yield break;
-        // }
+        isMovingForward = false;
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockback))
         {
@@ -213,7 +205,6 @@ public class EnemyCharge : MonoBehaviour
         }
 
         isCharging = false;
-        hasTouchedSomething = false;
         checkTimer = 0;
     }
 
