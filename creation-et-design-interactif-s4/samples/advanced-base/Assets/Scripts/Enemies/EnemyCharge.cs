@@ -8,8 +8,10 @@ public class EnemyCharge : MonoBehaviour
 
     public float knockbackStrength = 5.5f;
 
-    private bool isCharging = false;
+    public bool isCharging = false;
     private bool isOnScreen = false;
+    public bool isMovingForward = false;
+    private bool hasTouchedSomething = false;
     private float obstacleDetectionLength = 0.3f;
 
     public SpriteRenderer spriteRenderer;
@@ -23,6 +25,8 @@ public class EnemyCharge : MonoBehaviour
 
     public BoxCollider2D bc;
 
+    private RaycastHit2D contact;
+
     [Header("Layers")]
     public LayerMask obstacleLayers;
     public LayerMask targetLayers;
@@ -30,6 +34,11 @@ public class EnemyCharge : MonoBehaviour
     [Header("Shake effect")]
     public CameraShakeEventChannel onCrushSO;
     public ShakeTypeVariable shakeInfo;
+
+    private void Start()
+    {
+        checkTimer = delayBetweenCharges;
+    }
 
     void Update()
     {
@@ -50,6 +59,11 @@ public class EnemyCharge : MonoBehaviour
         CheckForObstacle();
         FlipCheck();
         CheckForBottomTarget();
+
+        if (contact.collider != null && Mathf.Abs(rb.velocity.x) > 0)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     private void FlipCheck()
@@ -78,15 +92,20 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
+        contact = GetContact();
+
+        if (contact.collider != null)
+        {
+            Stop(contact.collider);
+        }
+    }
+
+    private RaycastHit2D GetContact()
+    {
         Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
         Vector3 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
 
-        RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, obstacleLayers);
-
-        if (hit.collider != null)
-        {
-            StartCoroutine(Stop(hit.collider));
-        }
+        return Physics2D.Linecast(startCast, endCast, obstacleLayers);
     }
 
     private void CheckForTarget()
@@ -98,7 +117,7 @@ public class EnemyCharge : MonoBehaviour
 
         float offset = sightLength + (bc.bounds.size.x / 2);
 
-        Vector3 startCast = new Vector2(bc.bounds.center.x + (1.45f * transform.right.normalized.x), bc.bounds.center.y);
+        Vector3 startCast = new Vector2(bc.bounds.center.x + (1.15f * transform.right.normalized.x), bc.bounds.center.y);
         Vector3 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
@@ -139,6 +158,8 @@ public class EnemyCharge : MonoBehaviour
         float current = 0;
         float moveBackDuration = 0.85f;
 
+        WaitForFixedUpdate wait = new WaitForFixedUpdate();
+
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
@@ -146,25 +167,29 @@ public class EnemyCharge : MonoBehaviour
             var dir = (transform.position * (dirX * -1)).normalized;
             rb.velocity = new Vector2(dir.x, rb.velocity.y);
 
-            yield return null;
+            yield return wait;
         }
+        print("Charge");
 
         rb.velocity = Vector2.zero;
+        isMovingForward = true;
 
-        yield return new WaitForSeconds(0.09f);
-
+        yield return new WaitForSeconds(0.15f);
 
         spriteRenderer.color = new Color(1, 1, 1, 1);
+        // rb.AddForce(new Vector2(speed * dirX, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
         rb.velocity = new Vector2(speed * dirX, rb.velocity.y);
     }
 
-    IEnumerator Stop(Collider2D collider)
+    void Stop(Collider2D collider)
     {
         animator.SetTrigger("IsHit");
-        if (rb.velocity.magnitude == 0)
-        {
-            yield break;
-        }
+        hasTouchedSomething = true;
+
+        // if (rb.velocity.magnitude == 0)
+        // {
+        //     yield break;
+        // }
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockback))
         {
@@ -187,9 +212,8 @@ public class EnemyCharge : MonoBehaviour
             onCrushSO.Raise(shakeInfo);
         }
 
-        rb.velocity = Vector2.zero;
-
         isCharging = false;
+        hasTouchedSomething = false;
         checkTimer = 0;
     }
 
@@ -216,7 +240,7 @@ public class EnemyCharge : MonoBehaviour
                 Gizmos.color = Color.blue;
                 float targetSightOffset = sightLength + (bc.bounds.size.x / 2);
                 Gizmos.DrawLine(
-                    new Vector2(bc.bounds.center.x + (1.45f * transform.right.normalized.x), bc.bounds.center.y),
+                    new Vector2(bc.bounds.center.x + (1.15f * transform.right.normalized.x), bc.bounds.center.y),
                     new Vector2(bc.bounds.center.x + (transform.right.normalized.x * targetSightOffset), bc.bounds.center.y)
                 );
 
