@@ -163,6 +163,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Après chaque mort du joueur
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
+- Générer des particules quand le personnage change de direction durant une course
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 

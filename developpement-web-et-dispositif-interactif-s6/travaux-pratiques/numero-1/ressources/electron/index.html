@@ -72,12 +72,11 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Créez une communication (IPC) entre le main process et le renderer
-            process.
+            Créez une communication (IPC) du renderer process vers le main process
+            process
             <ul>
               <li>
-                Pour cette étape, ceci peut être un console.log() comme dans
-                l'exemple.
+                Pour cette étape, ceci peut être un console.log() comme dans les slides du cours
                 <p class="note-information">
                   Le résultat de la fonction console.log(), dans le main
                   process, s'affiche dans la console de node et non celle de
@@ -87,15 +86,15 @@
             </ul>
           </li>
           <li>
-            Créez une autre communication (IPC) entre le main process et le
-            renderer process, retournez le résultat et affichez-le dans votre
-            application.
+            Créez une communication (IPC) du renderer process vers le main process
+            process, envoyez une valeur et affichez-la dans votre
+            application (pas avec un console.log())
           </li>
           <li>
-            Créez une troisième communication (IPC) entre le main process et le
-            renderer process. Le main process doit récupérer la liste des
+            Créez une troisième communication (IPC) du renderer process vers le main process
+            process. Le main process doit récupérer la liste des
             fichiers dans le dossier de votre choix et être affichée dans le
-            renderer process.
+            renderer process
             <ul>
               <li>
                 Il est préférable d'utiliser le package node globby pour
@@ -138,20 +137,6 @@
             fonction CreateWindow (celle qui contient la fonction "loadFile()")
           </p>
         </section>
-        <section class="note-information">
-          <p>
-            Astuce 2 : Vous avez dû le remarquer, vous devez arrêter votre
-            application puis la relancer à chaque mise à jour de code, c'est
-            fastidieux. Pour vous éviter ceci, il existe le node module
-            "electron-reload" qui recharge votre application à chaque
-            modification.
-            <a
-              href="https://www.npmjs.com/package/electron-reload"
-              target="_blank"
-              >Télécharger electron-reload (ouverture dans un nouvel onglet)</a
-            >
-          </p>
-        </section>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -179,7 +164,7 @@
             <li>
               Appeler votre évènement depuis une API native du système
               d'exploitation. Par exemple, ajouter une nouvelle entrée dans le
-              menu principal de votre application avec le code suivant dans la
+              menu principal (le menu en haut de la fenêtre) de votre application avec le code suivant dans la
               promesse de "app.whenReady":
               <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
       <span style="color:rgb(153, 153, 153); font-weight:400;">// Contient les données actuelle du menu principal</span>
@@ -228,7 +213,7 @@
             N'oubliez pas que vous êtes dans un environnement Nodejs, vous
             pouvez tout à fait séparer vos fichiers puis les importer via des
             modules. Cependant pour des questions de sécurité, ceci ne
-            fonctionenra pas dans votre preload process dans le renderer
+            fonctionenra pas dans le preload process ni dans le renderer
             process, il faudra utiliser des outils comme Parcel, vite ou webpack
             pour séparer votre preload process.
           </p>
@@ -281,7 +266,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Créez un fichier CSS et ajoutez un peu de couleurs à votre
+            Créez un fichier CSS et ajoutez un peu de couleurs et mise en page à votre
             application electron
           </li>
         </ol>
@@ -336,12 +321,12 @@
                 Pour éviter que la notification s'affiche dès que vous faites
                 l'appel d'API, vous pouvez ralentir l'exécution avec une
                 promesse. Vous pouvez utiliser le code suivant :
-                <p>
-                  <code
-                    >const delay = ms => new Promise(resolve =>
-                    setTimeout(resolve, ms));
-                  </code>
-                </p>
+                <pre><code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">const</span> <span class="hljs-title function_">delay</span> = ms =&gt; <span style="color:rgb(220, 198, 224); font-weight:400;">new</span> <span class="hljs-title class_">Promise</span>(<span style="color:rgb(248, 248, 242); font-weight:400;"><span style="color:rgb(245, 171, 53); font-weight:400;">resolve</span> =&gt;</span> <span style="color:rgb(245, 171, 53); font-weight:400;">setTimeout</span>(resolve, ms)); 
+<span style="color:rgb(220, 198, 224); font-weight:400;">const</span> <span class="hljs-title function_">apiCall</span> = <span style="color:rgb(220, 198, 224); font-weight:400;">async</span> (<span style="color:rgb(245, 171, 53); font-weight:400;"></span>) =&gt; {
+    <span style="color:rgb(220, 198, 224); font-weight:400;">await</span> <span class="hljs-title function_">fetch</span>(<span style="color:rgb(171, 227, 56); font-weight:400;">&quot;url&quot;</span>);
+    <span style="color:rgb(212, 208, 171); font-weight:400;">// On attend 600 ms</span>
+    <span style="color:rgb(220, 198, 224); font-weight:400;">await</span> <span class="hljs-title function_">delay</span>(<span style="color:rgb(245, 171, 53); font-weight:400;">600</span>);
+}</code></pre>
               </li>
             </ul>
           </li>
