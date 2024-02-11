@@ -17,8 +17,10 @@ L'objectif primaire du site sera de présenter de façon détaillée les aspects
 - AC14.04 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
 
-À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 3-5 environ **au sein du même TD/TP**, le site suivant à partir de la maquette interactive suivante :
+À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 3-5 environ **au sein du même TD/TP**, un site web à partir de la maquette interactive suivante :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
+
+> Vos groupes doivent impérativement être communiqué au maximum deux semaines après la communication des consignes. **Au-delà de ce délai, les membres rajoutés verront leur note divisée par 2 comparé au reste du groupe.**
 
 Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
 - [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
@@ -110,7 +112,8 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
   - Un fichier texte contenant l'URL de votre site hébergé + la composition du groupe
     - Vous pouvez aussi lister les membres du groupe dans le fichier "bareme-notation.ods"
-  - Un document expliquant qui a fait quoi dans le groupe. Plus d'explications dans la partie [gestion d'équipe](#gestion-déquipe)
+  - Un document expliquant qui a fait quoi dans le groupe, **il doit être à la racine de votre archive**. On ne cherchera pas le document pour vous
+    - Plus d'explications dans la partie [gestion d'équipe](#gestion-déquipe)
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
 **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
