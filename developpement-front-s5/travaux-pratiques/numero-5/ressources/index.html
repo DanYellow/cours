@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      <h1 class="h1">Consignes de la pratique - TP2 - Tests end-to-end</h1>
+      <h1 class="h1">Consignes de la pratique - TP5 - Tests end-to-end</h1>
       <details class="consignes-conteneur" open>
         <summary>
           <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
@@ -172,6 +172,40 @@
   cy.<span class="hljs-title function_">on</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;window:before:load&quot;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt;</span> <span class="hljs-title function_">disableCache</span>(win));
 });</code></pre>
 <p>Dans les grandes lignes, il désactive le cache de toutes les requêtes passant par la méthode window.fetch(), et ce, avant chaque test grâce à la fonction beforeEach()</p>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 8 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Faites une capture d'écran de n'importe quel site durant un test
+            <ul>
+                <li>
+                    <a href="https://docs.cypress.io/api/commands/screenshot" target="_blank">Accéder à la documentation de cy.screenshot() (ouverture dans un nouvel onglet)</a>
+                </li>
+            </ul>
+          </li>
+          <li>Prennez une capture d'écran mobile, tablette et PC du site de l'université (https://www.cyu.fr/). Si vous le souhaitez, vous pouvez également gérer l'orientation de l'écran
+            <ul>
+                <li>
+                    <a href="https://docs.cypress.io/api/commands/viewport" target="_blank">Accéder à la documentation de cy.viewport() (ouverture dans un nouvel onglet)</a>
+                </li>
+            </ul>
+          </li>
+          <li>
+           Faites une capture d'écran durant un test sur le site de l'université (https://www.cyu.fr/) <span class="texte-gras">sans que la navigation haute n'apparaisse à plusieurs reprises de même pour l'encart des cookies</span>
+           <ul>
+            <li>
+              <a href="https://docs.cypress.io/api/commands/invoke" target="_blank">Accéder à la documentation de cy.invoke() (ouverture dans un nouvel onglet)</a>
+            </li>
+          </ul>
+          </li>
+        </ol>
+        <section class="note-information">
+            <p>Pour modifier le CSS, il faudra passer par la méthode <code>invoke()</code>. Par exemple :</p>
+            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cy.<span style="color:rgb(86, 156, 214); font-weight:400;">get</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;selecteur-css&#x27;</span>).invoke(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;attr&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;style&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;declarations-css&#x27;</span>)</code></pre>
         </section>
       </details>
       <details class="consignes-conteneur">
