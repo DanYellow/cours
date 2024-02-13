@@ -9,7 +9,7 @@ public class WaypointManager : MonoBehaviour
 
     private bool countUp = true;
 
-    public bool modePingPong = false;
+    public bool isModePingPong = false;
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class WaypointManager : MonoBehaviour
 
         if(Vector3.Distance(transform.position, nextPosition) < 0.1f)
         {
-            if(modePingPong) {
+            if(isModePingPong) {
                 currentWaypointIndex = PingPong(currentWaypointIndex);
             } else {
                 currentWaypointIndex = (currentWaypointIndex + 1) % listWaypoints.Length;

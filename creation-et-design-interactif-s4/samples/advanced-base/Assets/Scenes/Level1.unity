@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b1df04b993264890382f5d1d336a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbIconToDisplay: 4
+  nbIconsToDisplay: 4
   stunIconPrefab: {fileID: 4953900736947862724, guid: e37785271342cfe40a4d296130f51fa0, type: 3}
   pivot: {fileID: 814072436}
   distanceWithPivot: 0.5
@@ -29472,6 +29472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb41d7999684aac4caa7beb049d140f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  follower: {fileID: 319644883}
+  yDelta: 0
 --- !u!1 &814256511
 GameObject:
   m_ObjectHideFlags: 0

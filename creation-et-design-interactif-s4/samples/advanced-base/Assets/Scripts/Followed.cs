@@ -6,7 +6,7 @@ public class Followed : MonoBehaviour
     private Collider2D bc;
 
     [SerializeField]
-    private float yDelta = 0;
+    private float yDelta = 0; 
     private void Awake()
     {
         bc = GetComponent<Collider2D>();

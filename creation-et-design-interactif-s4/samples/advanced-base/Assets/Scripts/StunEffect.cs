@@ -29,6 +29,8 @@ public class StunEffect : MonoBehaviour
     private float timeElapsed;
     private float speedFactor;
 
+    public float phaseShift = 0;
+
     private void Start()
     {
         startAngle = transform.eulerAngles;
@@ -39,12 +41,14 @@ public class StunEffect : MonoBehaviour
 
     void Update()
     {
+        // return;
         speedFactor = animationCurve.Evaluate(timeElapsed);
 
         // Factor to decrease z axis rotation's speed
         timeElapsed += 0.000000025f;
         // 1.5 * cos(L(0, 2 * pi))
         // 1.5 * sin(L(0, 2 * pi))
+        // y = a*sin(2*pi*f*t )
         float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + pivot.position.y;
 
         float newSpeed = Mathf.Round(rotationSpeed * speedFactor);
@@ -52,8 +56,8 @@ public class StunEffect : MonoBehaviour
         float angle = Time.time * newSpeed * Mathf.Sign(xOffset);
         var positionCenterObject = pivot.position;
 
-        var x = positionCenterObject.x + (Mathf.Cos(angle) * xOffset);
-        var z = positionCenterObject.z + (Mathf.Sin(angle) * zOffset);
+        var x = positionCenterObject.x + (Mathf.Cos(angle + phaseShift) * xOffset);
+        var z = positionCenterObject.z + (Mathf.Sin(angle + phaseShift) * zOffset);
         transform.position = new Vector3(x, newY, z);
 
         finalAngle = startAngle.z + Mathf.Sin(Time.time * oscillationSpeed) * rotationOffset;  //Calculate animation angle

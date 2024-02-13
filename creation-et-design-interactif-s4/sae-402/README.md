@@ -8,7 +8,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
 - AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
 - ~~AC 23.04 | Imaginer, écrire et scénariser en vue d'une communication multimédia ou transmédia~~
-- AC 23.06 | Elaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
+- AC 23.06 | Élaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
 Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
@@ -164,6 +164,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course
+- Mettre en place des plateformes qui se déplacent automatiquement. Il y a déjà un script `Scripts/Utils/WaypointManager.cs` pour vous aider à mettre en place ce système
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 

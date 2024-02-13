@@ -75,8 +75,9 @@ public class RockHeadTrigger : MonoBehaviour
                 return new Vector2(bc.bounds.max.x, bc.bounds.min.y);
             case Corner.Right:
                 return new Vector2(bc.bounds.max.x, bc.bounds.center.y);
+            default:
+                return new Vector2(bc.bounds.max.x, bc.bounds.center.y);
         }
-        return new Vector2(bc.bounds.max.x, bc.bounds.center.y);
     }
 
     private void OnDrawGizmos()
