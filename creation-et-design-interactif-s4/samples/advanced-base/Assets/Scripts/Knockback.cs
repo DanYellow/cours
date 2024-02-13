@@ -23,7 +23,7 @@ public class Knockback : MonoBehaviour
         {
             playerMovement.enabled = false;
             ToggleEffect(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.95f);
             ToggleEffect(false);
             playerMovement.enabled = true;
         }
