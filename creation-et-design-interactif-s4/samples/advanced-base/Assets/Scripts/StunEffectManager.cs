@@ -30,20 +30,19 @@ public class StunEffectManager : MonoBehaviour
     void Start()
     {
         List<StunEffectItem> listObj = new List<StunEffectItem>();
-        int nbItemsPerSide = (int)Mathf.Ceil(nbIconsToDisplay / 2);
+        int nbItemsPerSide = (int)Mathf.Ceil((float) nbIconsToDisplay / 2);
 
         for (int i = 0; i < 2; i++)
         {
             for (var j = 0; j < nbItemsPerSide; j++)
             {
                 int offset = i % 2 == 0 ? 1 : -1;
-
                 listObj.Add(
                     new StunEffectItem
                     {
                         offset = offset,
                         rotationSpeed = baseSpeed,
-                        phaseShift = offset * j,
+                        phaseShift = offset * (Mathf.PI * ((float) j / nbItemsPerSide)),
                     }
                 );
             }
@@ -67,7 +66,7 @@ public class StunEffectManager : MonoBehaviour
             stunEffect.pivot = pivot;
             stunEffect.phaseShift = stunEffectItem.phaseShift;
             stunEffect.rotationSpeed = stunEffectItem.rotationSpeed;
-            
+
             listStunEffects.Add(stunEffect);
         }
     }

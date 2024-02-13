@@ -2532,11 +2532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b1df04b993264890382f5d1d336a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbIconsToDisplay: 4
+  nbIconsToDisplay: 3
   stunIconPrefab: {fileID: 4953900736947862724, guid: e37785271342cfe40a4d296130f51fa0, type: 3}
   pivot: {fileID: 814072436}
   distanceWithPivot: 0.5
-  baseSpeed: 4
+  baseSpeed: 8
 --- !u!1001 &340808946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29155,7 +29155,6 @@ GameObject:
   - component: {fileID: 814072442}
   - component: {fileID: 814072443}
   - component: {fileID: 814072444}
-  - component: {fileID: 814072445}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -29461,20 +29460,6 @@ MonoBehaviour:
     m_Bits: 64
   checkDistance: 0.1
   playerMovement: {fileID: 814072430}
---- !u!114 &814072445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814072429}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb41d7999684aac4caa7beb049d140f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  follower: {fileID: 319644883}
-  yDelta: 0
 --- !u!1 &814256511
 GameObject:
   m_ObjectHideFlags: 0
