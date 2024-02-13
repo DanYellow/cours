@@ -7,8 +7,7 @@ public class Knockback : MonoBehaviour
     public GameObject effect;
 
     private void Start() {
-        ToggleEffect(true);
-        // ToggleEffect(false);
+        ToggleEffect(false);
     }
 
     public void Apply(Vector3 direction, float strength)

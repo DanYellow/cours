@@ -17,17 +17,13 @@ public class StunEffect : MonoBehaviour
     private float zOffset = 0;
 
     [SerializeField]
-    private float yAmplitude = -0.02f;
+    private float yAmplitude = -0.9f;
 
-    public AnimationCurve animationCurve;
 
     private Vector3 startAngle;   //Reference to the object's original angle values
     private float rotationOffset = 50f; //Rotate by 50 units
 
     private float finalAngle;  //Keeping track of final angle to keep code cleaner
-
-    private float timeElapsed;
-    private float speedFactor;
 
     public float phaseShift = 0;
 
@@ -41,19 +37,14 @@ public class StunEffect : MonoBehaviour
 
     void Update()
     {
-        // return;
-        speedFactor = animationCurve.Evaluate(timeElapsed);
-
         // Factor to decrease z axis rotation's speed
-        timeElapsed += 0.000000025f;
+        // timeElapsed += 0.000000025f;
         // 1.5 * cos(L(0, 2 * pi))
         // 1.5 * sin(L(0, 2 * pi))
         // y = a*sin(2*pi*f*t )
         float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + pivot.position.y;
 
-        float newSpeed = Mathf.Round(rotationSpeed * speedFactor);
-
-        float angle = Time.time * newSpeed * Mathf.Sign(xOffset);
+        float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);
         var positionCenterObject = pivot.position;
 
         var x = positionCenterObject.x + (Mathf.Cos(angle + phaseShift) * xOffset);
