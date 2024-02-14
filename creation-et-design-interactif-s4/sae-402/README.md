@@ -123,7 +123,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
 
 <span id="list-extras"></span>
-## Liste des choses à faire au choix. Vous devez au moins en faire une (deux si vous êtes plus de trois dans votre groupe)
+## Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
@@ -163,19 +163,28 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Après chaque mort du joueur
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
-- Générer des particules quand le personnage change de direction durant une course
-- Mettre en place des plateformes qui se déplacent automatiquement. Il y a déjà un script `Scripts/Utils/WaypointManager.cs` pour vous aider à mettre en place ce système
+- Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
+- Mettre en place des plateformes qui se déplacent automatiquement sur un chemin balisé via des GameObject. Il y a déjà un script `Scripts/Utils/WaypointManager.cs` pour vous aider à mettre en place ce système
+- Indiquer visuellement l'état de santé du joueur (couleur, vitesse d'animation...)
+- Ajouter des blocs qui peuvent être cassé quand le joueur les touche avec la tête (en sautant donc). Certains peuvent être cachés et même contenir des objets
+    - Si le temps nous le permet, nous le ferons en cours ensemble
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 
 ## Fonctionnalités que nous développerons ensemble
 Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
+
+Etant donné que le projet est en groupe ET que nous allons tous développer ces fonctionnalités, certains développerons ces fonctionnalités "pour rien".
+
 ### Recommencer au dernier checkpoint
 Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un ScriptableObject de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
 
 ### Système de ventilateurs
 Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
 > Le terme "prop" provient du jargon cinématographique, il désigne un accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout accessoire est nommé "prop". [En savoir plus](https://fr.wikipedia.org/wiki/Accessoire#Cin%C3%A9ma).
+
+### Blocs
+Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des fruits ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_.
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -185,17 +194,17 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 - Et vous bien évidemment 
     - Pensez également à mettre le logo de l'université + l'année + le nom de la formation
 
-### Ressources graphiques / musicales gratuites utilisables, source non exhaustives
+### Ressources graphiques / musicales gratuites utilisables, source non exhaustive
 - https://www.kenney.nl/assets
 - https://www.itch.io
 - https://opengameart.org/
 - https://www.youtube.com/@NCALIB
 
 ## Gestion des ennemis
-La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand ont leur sautera dessus.
+La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus.
 
 # Console de debug
-Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur.
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
 
 
 # Astuces et conseils
@@ -224,6 +233,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
     - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
+- **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
@@ -237,6 +247,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - [x] Lire les consignes
 - [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
 - [ ] Respecter les attentes
+- [ ] Tester le jeu avant de le rendre
 - [ ] Générer une archive contenant :
     - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**

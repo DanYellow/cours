@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerInvulnerable : MonoBehaviour
 {
-    private float invulnerableDeltaTime = 0.15f;
-    private WaitForSeconds waitInvulnerableDeltaTime;
-
     public SpriteRenderer spriteRenderer;
 
     public bool isInvulnerable = false;
@@ -21,8 +18,6 @@ public class PlayerInvulnerable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Delay between player flashes
-        waitInvulnerableDeltaTime = new WaitForSeconds(invulnerableDeltaTime);
         CreateListLayers();
         ToggleCollisions(gameObject.layer, false);
     }
@@ -43,15 +38,24 @@ public class PlayerInvulnerable : MonoBehaviour
         isInvulnerable = true;
         ToggleCollisions(gameObject.layer, isInvulnerable);
 
-        for (float i = 0; i < invulnerableDuration; i += invulnerableDeltaTime)
+        float timeElapsed = 0;
+        while (timeElapsed < invulnerableDuration)
         {
-            if(spriteRenderer.color.a == 1) {
-                spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            } else {
-                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            timeElapsed += Time.deltaTime;
+
+            if (Time.frameCount % 8 == 0)
+            {
+                if (spriteRenderer.color.a == 1)
+                {
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                }
             }
 
-            yield return waitInvulnerableDeltaTime;
+            yield return null;
         }
 
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);

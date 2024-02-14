@@ -61,7 +61,6 @@ public class FallingPlatform : MonoBehaviour
 
         while (current <= 1)
         {
-            current += Time.fixedDeltaTime / duration;
             rb.MovePosition(
                 Vector2.Lerp(
                     startPosition, 
@@ -69,6 +68,7 @@ public class FallingPlatform : MonoBehaviour
                     Mathf.PingPong(current, 0.5f)
                 )
             );
+            current += Time.fixedDeltaTime / duration;
 
             yield return null;
         }

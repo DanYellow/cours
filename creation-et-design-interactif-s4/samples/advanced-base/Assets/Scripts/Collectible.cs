@@ -31,14 +31,19 @@ public class Collectible : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameObject effect = Instantiate(collectedEffect, transform.position, transform.rotation);
-            // Destroy effect after its animation ends playing
-            Destroy(effect, effect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-
-            data.PickItem(transform.position);
-            onPickUp?.Invoke();
-
-            Destroy(gameObject);
+            Picked();
         }
+    }
+
+    private void Picked()
+    {
+        GameObject effect = Instantiate(collectedEffect, transform.position, transform.rotation);
+        // Destroy effect after its animation ends playing
+        Destroy(effect, effect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+        data.PickItem(transform.position);
+        onPickUp?.Invoke();
+
+        Destroy(gameObject);
     }
 }

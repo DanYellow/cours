@@ -204,7 +204,7 @@ public class RockHead : MonoBehaviour
         lastAnimationPlayed = side;
         if (isOnScreen)
         {
-            cameraShake?.Raise(shakeInfo);
+            cameraShake.Raise(shakeInfo);
         }
         EnableTriggers();
     }
