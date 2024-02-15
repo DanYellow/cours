@@ -16,7 +16,6 @@ L'objectif primaire du site sera de présenter de façon détaillée les aspects
 **R1.13 – Hébergement**
 - AC14.04 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
-
 À cet effet, CY Cergy Paris Université vous demande de développer, par groupe de 3-5 environ **au sein du même TD/TP**, un site web à partir de la maquette interactive suivante :
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
