@@ -46,12 +46,8 @@
                 <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Survolez les éléments présents après les consignes
-                    <ul>
-                        <li>Note : si les couleurs du lien ne vous plaisent pas n'hésitez pas à les changer dans le
-                            fichier css de la ressource</li>
-                    </ul>
-                </li>
+                <li>Créez un nouveau fichier HTML et liez-le à un fichier CSS lui aussi niveau</li>
+                <li>Ajoutez un lien (balise &lt;a>) avec une classe et la pseudo-classe ":hover" qui permet de changer la couleur du texte au survol</li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -59,7 +55,7 @@
                 <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Appliquez une transition sur la propriété "color" sur la classe ".lien-moodle"
+                <li>Appliquez une transition sur le lien précédemment crée
                     <ul>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transition" rel="noopener noreferrer"
@@ -79,7 +75,7 @@
                 <li>Survolez le lien, que constatez-vous ?
                     <ul>
                         <li>Une fois cette consigne effectuée, essayez de placer la propriété CSS "transition" (et sa
-                            valeur) dans la pseudo-classe ":hover" de la classe "lien-moodle" </li>
+                            valeur) dans la pseudo-classe ":hover" de la classe de votre lien </li>
                     </ul>
                 </li>
             </ol>
@@ -89,7 +85,7 @@
                 <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Effectuez la même chose que l'étape précédent mais sur la propriété "margin-top", "margin-bottom" ou
+                <li>Effectuez une transition sur votre lien sur la propriété "margin-top", "margin-bottom" ou
                     "margin-left"
                     <ul>
                         <li>
@@ -120,15 +116,17 @@
                 <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Ajoutez un nouveau sélecteur CSS permettant d'effectuer une transition sur le lien (celui utilisé
-                    précédemment) <span class="texte-gras">et</span> le paragraphe situé sous ce lien
+                <li>
+                    Ajoutez un paragraphe et mettez-le avec la balise &lt;a> crée précédemment dans une balise qui contiendra les deux balises
+                </li>
+                <li>Ajoutez un nouveau sélecteur CSS permettant d'effectuer une transition sur les deux éléments contenus dans la balise en même temps
                     <ul>
-                        <li>Ce nouveau sélecteur CSS doit impérativement impliquer le sélecteur CSS "conteneur", il vous
+                        <li>Ce nouveau sélecteur CSS doit impérativement impliquer le nom de la classe du conteneur, il vous
                             faudra donc jouer sur l'imbrication de sélecteurs CSS (voir exemple dans la présentation du
                             cours associé) </li>
                     </ul>
                 </li>
-                <li>Survolez la balise .conteneur pour valider votre code</li>
+                <li>Survolez la balise contenant le tout pour valider votre code</li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -150,15 +148,23 @@
                 <li>Survolez votre nouvelle balise, elle doit s'afficher. Que constatez-vous ?</li>
             </ol>
         </details>
-
+        <details class="consignes-conteneur">
+            <summary>
+              <h1 class="h1">
+                Pour aller plus loin
+              </h1>
+            </summary>
+            <ul class="liste-consignes">
+              <li>
+                Refaites cet exercice avec <a href="https://tailwindcss.com/" target="_blank">tailwind css (ouverture dans un nouvel onglet)</a>
+                <ul>
+                  <li>Cliquez sur le bouton "Get Started"</li>
+                  <li>Cliquez sur l'onglet "Play CDN"</li>
+                  <li>Copiez le code de la partie 1 dans votre fichier HTML. Et voilà, tailwindcss est prêt</li>
+                  <li>Consultez la documentation et/ou aidez vous du moteur de recherche pour trouver la classe CSS correspondant à vos besoins</li>
+                </ul>
+              </li>
+            </ul>
+          </details>
     </header>
-    <main>
-        <article class="conteneur">
-            <h1 class="lien-moodle"><a href="https://cours-prod.cyu.fr/my/" rel="noopener noreferrer" target="_blank"
-                    title="Ouverture dans un nouvel onglet">Accéder à Moodle</a></h1>
-            <p>Certaines propriétés CSS peuvent être animées. Cela signifie que leur valeur change de façon graduelle
-                grâce
-                aux animations CSS ou aux transitions CSS.</p>
-        </article>
-    </main>
 </body>
