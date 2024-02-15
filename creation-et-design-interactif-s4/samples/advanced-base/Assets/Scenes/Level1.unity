@@ -57902,6 +57902,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
+      propertyPath: isModePingPong
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783148718577746495, guid: 378c833a373245b4ba316483c73db1e7, type: 3}
       propertyPath: listWaypoints.Array.size
       value: 3
       objectReference: {fileID: 0}
