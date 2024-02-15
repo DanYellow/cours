@@ -29441,7 +29441,8 @@ MonoBehaviour:
   layersToIgnoreAfterHit:
     serializedVersion: 2
     m_Bits: 192
-  invulnerableDuration: 2.5
+  animator: {fileID: 814072434}
+  invulnerableDuration: 2.35
 --- !u!114 &814072443
 MonoBehaviour:
   m_ObjectHideFlags: 0

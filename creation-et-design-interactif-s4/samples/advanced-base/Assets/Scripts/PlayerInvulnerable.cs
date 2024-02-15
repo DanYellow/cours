@@ -10,6 +10,8 @@ public class PlayerInvulnerable : MonoBehaviour
 
     public LayerMask layersToIgnoreAfterHit;
 
+    public Animator animator;
+
     [SerializeField]
     private float invulnerableDuration = 2.5f;
 
@@ -36,7 +38,9 @@ public class PlayerInvulnerable : MonoBehaviour
     public IEnumerator Invulnerable()
     {
         isInvulnerable = true;
+        animator.SetTrigger("IsHit");
         ToggleCollisions(gameObject.layer, isInvulnerable);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         float timeElapsed = 0;
         while (timeElapsed < invulnerableDuration)
