@@ -50,12 +50,12 @@
           </h1>
         </summary>
         <ol class="liste-consignes">
+          <li>Créez une nouvelle page HTML avec son fichier CSS associé</li>
           <li>
-            Placez en "position: relative" le paragraphe commençant par "Position relative" avec une classe CSS.
+            Créez une balise et mettez-la en position relative grâce au CSS
           </li>
           <li>
-            Au sein de la même classe, utilisez les propriétés "top", "bottom",
-            "left" ou "right" pour déplacer la balise
+            Utilisez les propriétés "top", "bottom", "left" ou "right" pour déplacer la balise
             <ul>
               <li>
                 <a
@@ -114,10 +114,10 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Placez en "position: absolute" le paragraphe commençant par "Position absolute" avec une classe CSS.
+            Créez une balise et mettez-la en position absolute grâce au CSS
           </li>
           <li>
-            Au sein de la même classe jouez sur les propriétés "top", "bottom",
+            Utilisez les propriétés "top", "bottom",
             "left" ou "right" pour déplacer la balise
             <ul>
               <li>
@@ -177,15 +177,15 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Placez en "position: fixed" le paragraphe commençant par "Position fixed" avec une classe CSS.
+            Placez en "position: fixed" une balise avec une classe CSS
           </li>
 
           <li>
-            Au sein de la même classe jouez sur les propriétés "top", "bottom",
-            "left" ou "right" pour déplacer la balise
+            Déplacez cette balise grâce aux propriétés "top", "bottom",
+            "left" ou "right"
           </li>
           <li>
-            Défilez sur la page normalement, la balise restera toujours visible
+            Faites défiler votre page, la balise devrait être toujours visible
             <ul>
               <li>
                 <a
@@ -233,6 +233,9 @@
                 >
               </li>
             </ul>
+            <p class="note-information">
+              Si votre page n'est pas assez haute, n'hésitez pas à modifier la hauteur de la balise lt;body> (propriété CSS "height")
+            </p>
           </li>
         </ol>
       </details>
@@ -244,25 +247,14 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Ajoutez une nouvelle balise (vous pouvez copier la balise section
-            ayant la classe "positionnement")
-            <ul>  
-              <li>
-                Retirez toute classe différente de "positionnement" (si vous avez
-                copié la balise section du début)
-              </li>
-            </ul>
-          </li>
-          
-          <li>
-            Mettez cette nouvelle balise en positionnement sticky (<span
-              class="texte-gras"
-              >utilisez une classe</span
-            >)
+            Ajoutez une nouvelle balise en position "sticky"
           </li>
           <li>
-            Au sein de la même classe jouez sur les propriétés "top", "bottom",
-            "left" ou "right" pour déplacer la balise
+            Avec les propriétés "top", "bottom",
+            "left" ou "right" déplacez la balise
+            <p class="note-information">
+              Si votre balise en position "sticky" n'a pas été déplacée grâce aux propriétés CSS "top", "left", "right" ou "bottom". La valeur "sticky" ne sera pas appliquée.
+            </p>
           </li>
           <li>
             Défilez sur la page normalement, une fois la balise atteinte elle
@@ -325,26 +317,11 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Ajoutez une nouvelle balise (vous pouvez copier la balise section
-            ayant la classe "positionnement") en position absolue
-          </li>
-          <li>
-            Retirez toute classe différente de "positionnement" (si vous avez
-            copié la balise section du début)
-          </li>
-          <li>
-            Arrangez-vous pour que la balise chevauche de l'autre balise en
-            position absolute créée précédemment
-            <ul>
-              <li>
-                Il faut utiliser les propriétés "top", "bottom", "left" ou
-                "right" pour déplacer la balise pour rappel
-              </li>
-            </ul>
+            Utilisez la propriété CSS "z-index" pour déplacer vos balises sur l'axe z
           </li>
           <li>
             Utilisez la propriété "z-index" pour changer le chevauchement des
-            balises
+            balises dont le positionnement est différent de "static"
             <ul>
               <li>
                 <a
@@ -355,85 +332,22 @@
                   nouvel onglet)</a
                 >
               </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/position"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Voir documentation de la propriété position (ouverture dans
-                  un nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/top"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Voir documentation de la propriété top (ouverture dans un
-                  nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/bottom"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Voir documentation de la propriété bottom (ouverture dans un
-                  nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/left"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Voir documentation de la propriété left (ouverture dans un
-                  nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/right"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >Voir documentation de la propriété right (ouverture dans un
-                  nouvel onglet)</a
-                >
-              </li>
             </ul>
           </li>
         </ol>
       </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">
+            Pour aller plus loin
+          </h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Refaites cet exercice avec <a href="https://tailwindcss.com/" target="_blank">tailwind css (ouverture dans un nouvel onglet)</a>.
+          </li>
+        </ol>
+      </details>
     </header>
-
-    <main class="main">
-      <section class="positionnement">
-        <p class="titre">Positionnement</p>
-        <p class="paragraphe">
-          Position relative : L'élément est positionné dans le flux normal du document puis décalé,
-          par rapport à lui-même, selon les valeurs fournies par top, right,
-          bottom et left. Le décalage n'a pas d'impact sur la position des
-          éléments. Aussi, l'espace fourni à l'élément sur la page est le même
-          que celui fourni avec static.
-        </p>
-      </section>
-      <p class="paragraphe">
-        Position absolute : Un élément positionné de façon absolue est un élément dont la propriété
-        de position calculée est absolute ou fixed. Dans ce cas, les propriétés
-        top, bottom, right et left indiquent les distances entre les bords de
-        l'élément et les bords du bloc englobant (c'est-à-dire l'ancêtre par
-        rapport auquel l'élément est positionné). Si l'élément possède des
-        marges, elles sont ajoutées aux décalages.
-      </p>
-      <p class="paragraphe">
-        Position fixed : La plupart du temps, les éléments positionnés de façon absolue ont leurs
-        propriétés height et width qui valent auto afin que le contenu ait
-        suffisamment d'espace. Toutefois, les éléments positionnés de façon
-        absolue et qui ne sont pas des éléments remplacés peuvent remplir
-        l'espace vertical en utilisant top et bottom tout en laissant height
-        indéfini (c'est-à-dire avec la valeur auto). On pourra faire de même
-        pour l'espace horizontal avec les propriétés left et right.
-      </p>
-    </main>
   </body>
 </html>
