@@ -37,11 +37,6 @@ public class StunEffect : MonoBehaviour
 
     void Update()
     {
-        // Factor to decrease z axis rotation's speed
-        // timeElapsed += 0.000000025f;
-        // 1.5 * cos(L(0, 2 * pi))
-        // 1.5 * sin(L(0, 2 * pi))
-        // y = a*sin(2*pi*f*t )
         float newY = (Mathf.Sin(Time.time * 5f) * yAmplitude) + pivot.position.y;
 
         float angle = Time.time * rotationSpeed * Mathf.Sign(xOffset);

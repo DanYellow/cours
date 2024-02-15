@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &90802025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29230,7 +29230,7 @@ MonoBehaviour:
   playerHealth: {fileID: 11400000, guid: 60a09431080251441a0b37f15fac0d90, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   animator: {fileID: 814072434}
-  spriteRenderer: {fileID: 814072435}
+  sr: {fileID: 814072435}
   playerInvulnerable: {fileID: 814072442}
   needResetHP: 1
   onDebugDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
@@ -37538,7 +37538,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 70
-      m_TileSpriteIndex: 66
+      m_TileSpriteIndex: 69
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -49118,7 +49118,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 21
-      m_TileSpriteIndex: 67
+      m_TileSpriteIndex: 68
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -52677,14 +52677,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -124314010, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 24468281, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 837712053, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 24468281, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 441400205, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 2

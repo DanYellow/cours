@@ -7,10 +7,9 @@ public class PlayerHealth : MonoBehaviour
     public VoidEventChannel onPlayerDeath;
     public Animator animator;
 
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer sr;
 
     public PlayerInvulnerable playerInvulnerable;
-
 
     [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
@@ -26,10 +25,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         onDebugDeathEvent.OnEventRaised += Die;
     }
- 
+
     public void TakeDamage(float damage)
     {
         if (playerInvulnerable.isInvulnerable && damage < float.MaxValue) return;
@@ -55,10 +55,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnPlayerDeathAnimationCallback()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        sr.enabled = false;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         onDebugDeathEvent.OnEventRaised -= Die;
     }
 }
