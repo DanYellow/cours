@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486204, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_SleepingMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486207, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_Color.b
@@ -1370,11 +1370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 206.44
+      value: 206.45169
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 11.12
+      value: 11.08862
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -63705,14 +63705,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 262433198629486204, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 262433198629486204, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64402,11 +64394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 218.51
+      value: 218.5217
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767277, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 11.1
+      value: 11.068621
       objectReference: {fileID: 0}
     - target: {fileID: 8520597522518767279, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
       propertyPath: m_Name
