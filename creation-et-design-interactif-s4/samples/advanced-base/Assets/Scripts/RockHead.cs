@@ -160,20 +160,6 @@ public class RockHead : MonoBehaviour
         return tmpMovement;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        ContactPoint2D[] contacts = new ContactPoint2D[1];
-        collision.GetContacts(contacts);
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (contacts[0].normal.y < -0.5f)
-            {
-                collision.transform.SetParent(transform);
-            }
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D other)
     {
         if (rb.velocity == Vector2.zero)
@@ -207,14 +193,6 @@ public class RockHead : MonoBehaviour
             cameraShake.Raise(shakeInfo);
         }
         EnableTriggers();
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(null);
-        }
     }
 
     void OnBecameInvisible()
