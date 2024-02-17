@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 161077665
   m_SortingLayer: -2
-  m_SortingOrder: -3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26f6a454a68779c45812ae29a41f253a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   listWaypoints:
   - {fileID: 0}
   - {fileID: 0}
-  modePingPong: 0
+  isModePingPong: 0
 --- !u!114 &8848792254482967011
 MonoBehaviour:
   m_ObjectHideFlags: 0
