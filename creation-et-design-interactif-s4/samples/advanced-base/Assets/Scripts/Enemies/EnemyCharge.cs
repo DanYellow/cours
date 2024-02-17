@@ -139,7 +139,7 @@ public class EnemyCharge : MonoBehaviour
         if (hit != null)
         {
             PlayerContacts playerContacts = hit.transform.GetComponent<PlayerContacts>();
-            if (playerContacts.HasTopAndBottomContact())
+            if (playerContacts.HasBottomContact())
             {
                 PlayerHealth playerHealth = hit.transform.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(float.MaxValue);
@@ -193,7 +193,7 @@ public class EnemyCharge : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             PlayerContacts playerContacts = collider.transform.GetComponent<PlayerContacts>();
-            if (playerContacts.HasLeftAndRightContact())
+            if (playerContacts.HasLeftContact() || playerContacts.HasRightContact())
             {
                 PlayerHealth playerHealth = collider.transform.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(float.MaxValue);

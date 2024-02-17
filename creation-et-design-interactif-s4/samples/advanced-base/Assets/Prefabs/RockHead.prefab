@@ -201,7 +201,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  delayBetweenMoves: 2.45
+  delayBetweenMoves: 2.3
   animator: {fileID: 262433198629486206}
   cameraShake: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   shakeInfo: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}
