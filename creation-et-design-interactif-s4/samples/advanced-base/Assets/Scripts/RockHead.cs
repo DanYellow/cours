@@ -31,7 +31,7 @@ public class RockHead : MonoBehaviour
     public float crushDistance = 0.55f;
 
 
-    private float detectScale = 0.85f;
+    private float detectScale = 0.95f;
 
     private enum Movement
     {
@@ -104,21 +104,22 @@ public class RockHead : MonoBehaviour
 
         if (listContacts.Length > 0 && rb.velocity.sqrMagnitude > crushThreshold)
         {
-            if(player.Length == 0 || (player.Length > 0 && listContacts.Length > 1)) {
+            if (player.Length == 0 || (player.Length > 0 && listContacts.Length > 1))
+            {
                 CrushAnimation();
             }
-            
+
             if (player.Length > 0)
             {
                 PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
 
-                if(
-                    (currentMovement == Movement.VerticalPositive && playerContacts.HasTopContact()) 
-                    ||
+                if (
+                    (currentMovement == Movement.VerticalPositive && playerContacts.HasTopContact()) ||
                     (currentMovement == Movement.VerticalNegative && playerContacts.HasBottomContact()) ||
                     (currentMovement == Movement.HorizontalNegative && playerContacts.HasLeftContact()) ||
                     (currentMovement == Movement.HorizontalPositive && playerContacts.HasRightContact())
-                ) {
+                )
+                {
                     PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
                     playerHealth.TakeDamage(float.MaxValue);
                 }
