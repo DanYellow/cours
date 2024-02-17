@@ -38,11 +38,13 @@ public class RockHead : MonoBehaviour
         HorizontalPositive,
     }
 
+    private float crushThreshold = 10;
+
     private Movement currentMovement;
 
     void Start()
     {
-        Vector2 firstTriggerPosition = listTriggers[0].transform.position;
+        Vector2 firstTriggerPosition = listTriggers[currentIndex].transform.position;
 
         Vector2 currentDestination = -((Vector2)transform.position - firstTriggerPosition).normalized;
         currentDestination.x = Mathf.Round(currentDestination.x);
@@ -97,16 +99,20 @@ public class RockHead : MonoBehaviour
 
         Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
 
-        if (listContacts.Length > 1 && player.Length > 0)
+        if (listContacts.Length >= 1 && rb.velocity.sqrMagnitude > crushThreshold)
         {
-            PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
-            if (
-                ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.HasLeftAndRightContact().Length >= 1) ||
-                ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.HasTopAndBottomContact().Length >= 1)
-            )
+            CrushAnimation();
+            if (player.Length > 0)
             {
-                PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
-                playerHealth.TakeDamage(float.MaxValue);
+                PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
+                if (
+                    ((currentMovement == Movement.HorizontalNegative || currentMovement == Movement.HorizontalPositive) && playerContacts.HasLeftAndRightContact().Length >= 2) ||
+                    ((currentMovement == Movement.VerticalNegative || currentMovement == Movement.VerticalPositive) && playerContacts.HasTopAndBottomContact().Length >= 2)
+                )
+                {
+                    PlayerHealth playerHealth = player[0].transform.GetComponent<PlayerHealth>();
+                    playerHealth.TakeDamage(float.MaxValue);
+                }
             }
         }
     }
@@ -160,27 +166,30 @@ public class RockHead : MonoBehaviour
         return tmpMovement;
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void CrushAnimation()
     {
-        if (rb.velocity == Vector2.zero)
+        if (rb.velocity.sqrMagnitude <= 0)
         {
-            if (currentMovement == Movement.VerticalPositive && lastAnimationPlayed != "HitTop")
-            {
-                OnCrush("HitTop");
-            }
-            else if (currentMovement == Movement.VerticalNegative && lastAnimationPlayed != "HitBottom")
-            {
-                OnCrush("HitBottom");
-            }
-            if (currentMovement == Movement.HorizontalPositive && lastAnimationPlayed != "HitRight")
-            {
-                OnCrush("HitRight");
-            }
-            else if (currentMovement == Movement.HorizontalNegative && lastAnimationPlayed != "HitLeft")
-            {
-                OnCrush("HitLeft");
-            }
+            return;
         }
+
+        if (currentMovement == Movement.VerticalPositive && lastAnimationPlayed != "HitTop")
+        {
+            OnCrush("HitTop");
+        }
+        else if (currentMovement == Movement.VerticalNegative && lastAnimationPlayed != "HitBottom")
+        {
+            OnCrush("HitBottom");
+        }
+        if (currentMovement == Movement.HorizontalPositive && lastAnimationPlayed != "HitRight")
+        {
+            OnCrush("HitRight");
+        }
+        else if (currentMovement == Movement.HorizontalNegative && lastAnimationPlayed != "HitLeft")
+        {
+            OnCrush("HitLeft");
+        }
+
     }
 
     void OnCrush(string side)
