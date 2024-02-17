@@ -104,11 +104,10 @@ public class RockHead : MonoBehaviour
 
         if (listContacts.Length > 0 && rb.velocity.sqrMagnitude > crushThreshold)
         {
-            // foreach (var item in listContacts)
-            // {
-            //     print("rr" + item.transform.name);
-            // }
-            CrushAnimation();
+            if(player.Length == 0 || (player.Length > 0 && listContacts.Length > 1)) {
+                CrushAnimation();
+            }
+            
             if (player.Length > 0)
             {
                 PlayerContacts playerContacts = player[0].transform.GetComponent<PlayerContacts>();
@@ -199,7 +198,6 @@ public class RockHead : MonoBehaviour
         {
             OnCrush("HitLeft");
         }
-
     }
 
     void OnCrush(string side)

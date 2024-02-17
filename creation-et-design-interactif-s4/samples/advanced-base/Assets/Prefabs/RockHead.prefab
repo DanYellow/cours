@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 262433198629486204}
   bc: {fileID: 262433198629486205}
-  speed: 750
+  speed: 1200
   listTriggers:
   - {fileID: 0}
   - {fileID: 0}
