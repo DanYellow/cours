@@ -545,6 +545,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: isReversed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: crushDistance
       value: 0.65
       objectReference: {fileID: 0}
@@ -63778,6 +63782,10 @@ PrefabInstance:
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
       value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: isReversed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]

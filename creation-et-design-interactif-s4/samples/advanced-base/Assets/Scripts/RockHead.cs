@@ -30,7 +30,6 @@ public class RockHead : MonoBehaviour
 
     public float crushDistance = 0.55f;
 
-
     private float detectScale = 0.95f;
 
     private enum Movement
@@ -45,8 +44,13 @@ public class RockHead : MonoBehaviour
 
     private Movement currentMovement;
 
+    public bool isReversed;
+
     void Start()
     {
+        if(isReversed) {
+            System.Array.Reverse(listTriggers);
+        }
         Vector2 firstTriggerPosition = listTriggers[currentIndex].transform.position;
 
         Vector2 currentDestination = -((Vector2)transform.position - firstTriggerPosition).normalized;

@@ -27,7 +27,7 @@ public class RockHeadTrigger : MonoBehaviour
 
     public LayerMask rockHeadLayer;
 
-    private float checkRadius = 0.05f;
+    private float checkRadius = 0.1f;
 
     private Vector2 checkPosition;
 
