@@ -29,15 +29,18 @@ public class Cloud : MonoBehaviour
         }
     }
 
-    IEnumerator Hide() {
+    IEnumerator Hide()
+    {
         isHiding = true;
         yield return StartCoroutine(fade.Hide());
         gameObject.SetActive(false);
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         isHiding = false;
         speed = Random.Range(minSpeed, maxSpeed);
         sr.sprite = listSprites[Random.Range(0, listSprites.Length)];
+        sr.color = Color.white;
     }
 }

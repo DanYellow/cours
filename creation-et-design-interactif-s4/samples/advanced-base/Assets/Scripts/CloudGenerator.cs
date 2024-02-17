@@ -11,17 +11,10 @@ public class CloudGenerator : MonoBehaviour
     [SerializeField]
     private Transform endPos;
 
-    private List<GameObject> listCloudsGenerated;
+    private List<GameObject> listCloudsGenerated = new List<GameObject>();
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        // for (var i = 0; i < 3; i++)
-        // {
-        //     Spawn();
-
-        //     yield return new WaitForSeconds(0.95f);
-        // }
-
         GenerateClouds();
 
         int index = 0;
@@ -36,44 +29,26 @@ public class CloudGenerator : MonoBehaviour
 
                 currentCloud = listCloudsGenerated[index];
                 currentCloud.transform.position = new Vector3(startPos.x, Random.Range(ScreenUtility.Instance.Top - quarter, ScreenUtility.Instance.Top + quarter), 0);
-                currentCloud.SetActive(false);
+                currentCloud.SetActive(true);
                 currentCloud.GetComponent<Cloud>().endPos = endPos.position;
 
                 yield return new WaitForSeconds(0.95f);
 
                 index = (index + 1) % listCloudsGenerated.Count;
             }
-        }
 
-        yield return null;
+            yield return null;
+        }
     }
 
     private void GenerateClouds()
     {
-        startPos = transform.position;
-        float quarter = ScreenUtility.Instance.height * 0.25f;
         for (var i = 0; i < 3; i++)
         {
-            GameObject cloud = Instantiate(
-                listCloudsPrefab[0],
-                new Vector3(startPos.x, Random.Range(ScreenUtility.Instance.Top - quarter, ScreenUtility.Instance.Top + quarter), 0),
-                Quaternion.identity
-            );
+            GameObject cloud = Instantiate(listCloudsPrefab[0]);
+
             listCloudsGenerated.Add(cloud);
             cloud.SetActive(false);
-
         }
-    }
-
-    void Spawn()
-    {
-        startPos = transform.position;
-        float quarter = ScreenUtility.Instance.height * 0.25f;
-        GameObject cloud = Instantiate(
-            listCloudsPrefab[0],
-            new Vector3(startPos.x, Random.Range(ScreenUtility.Instance.Top - quarter, ScreenUtility.Instance.Top + quarter), 0),
-            Quaternion.identity
-        );
-        cloud.GetComponent<Cloud>().endPos = endPos.position;
     }
 }
