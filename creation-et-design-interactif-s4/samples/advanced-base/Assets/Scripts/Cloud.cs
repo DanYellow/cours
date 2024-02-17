@@ -4,62 +4,40 @@ using UnityEngine;
 public class Cloud : MonoBehaviour
 {
     private float speed;
-    public SpriteRenderer sr;
+    [SerializeField]
+    private SpriteRenderer sr;
     public Sprite[] listSprites;
-    private float width;
-    private bool isResettingPos = false;
     private float minSpeed = 0.05f;
     private float maxSpeed = 0.95f;
 
-    private void Awake()
-    {
-        speed = Random.Range(minSpeed, maxSpeed);
-        sr.sprite = listSprites[Random.Range(0, listSprites.Length)];
-    }
+    [SerializeField]
+    private Fade fade;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        width = sr.bounds.size.x;
-        transform.position = new Vector2(
-            Random.Range(
-                ScreenUtility.Instance.Left + (sr.bounds.size.x / 2),
-                ScreenUtility.Instance.Right - (sr.bounds.size.x / 2)
-            ),
-            Random.Range(
-                ScreenUtility.Instance.Top,
-                ScreenUtility.Instance.Top * 0.3f
-            )
-        );
-    }
+    [HideInInspector]
+    public Vector2 endPos = Vector2.zero;
 
-    // Update is called once per frame
+    private bool isHiding = false;
+
     void Update()
     {
-        Vector2 direction = speed * Time.deltaTime * Vector2.left;
+        Vector2 direction = speed * Time.deltaTime * Vector2.right;
         transform.Translate(direction, Space.World);
 
-        if (sr.bounds.max.x < (ScreenUtility.Instance.Left - width) && !isResettingPos)
+        if (transform.position.x > endPos.x && !isHiding)
         {
-            StartCoroutine(ResetPosition());
+            StartCoroutine(Hide());
         }
     }
 
-    IEnumerator ResetPosition()
-    {
-        isResettingPos = true;
-        sr.enabled = false;
+    IEnumerator Hide() {
+        isHiding = true;
+        yield return StartCoroutine(fade.Hide());
+        gameObject.SetActive(false);
+    }
+
+    private void OnEnable() {
+        isHiding = false;
         speed = Random.Range(minSpeed, maxSpeed);
-        yield return new WaitForSeconds(1f);
         sr.sprite = listSprites[Random.Range(0, listSprites.Length)];
-        sr.enabled = true;
-        transform.position = new Vector2(
-            ScreenUtility.Instance.Right + width,
-            Random.Range(
-                ScreenUtility.Instance.Top,
-                ScreenUtility.Instance.Top * 0.3f
-            )
-        );
-        isResettingPos = false;
     }
 }
