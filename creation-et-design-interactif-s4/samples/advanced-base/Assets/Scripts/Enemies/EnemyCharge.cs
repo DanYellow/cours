@@ -8,9 +8,9 @@ public class EnemyCharge : MonoBehaviour
 
     public float knockbackStrength = 5.5f;
 
-    public bool isCharging = false;
+    private bool isCharging = false;
     private bool isOnScreen = false;
-    public bool isMovingForward = false;
+    private bool isMovingForward = false;
     private float obstacleDetectionLength = 0.3f;
 
     public SpriteRenderer spriteRenderer;

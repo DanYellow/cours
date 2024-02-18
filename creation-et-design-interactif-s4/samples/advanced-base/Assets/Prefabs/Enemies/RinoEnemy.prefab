@@ -119,7 +119,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4000432134071860576}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 35e608246bc670349981e18e00ddc936, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -196,11 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightLength: 5
   knockbackStrength: 8.5
-  isCharging: 0
-  isMovingForward: 0
   spriteRenderer: {fileID: 4000432134071860591}
   delayBetweenCharges: 2
-  speed: 20
+  speed: 25
   rb: {fileID: 4000432134071860589}
   animator: {fileID: 4000432134071860590}
   bc: {fileID: 4000432134071860586}
