@@ -29,6 +29,7 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 - Ennemis :
     - Des fleurs qui tirent des projectiles à cadence variable quand on entre dans sa zone de trigger (BoxCollider2D)
     - Des pierres qui se divisent en deux lorsqu'on leur saute dessus
+    - Des escargots qui projetent leur carapace quand ils sont touchés (non présents dans la scène mais dans les prefabs)
 - Pièges :
     - Des rhinocéros qui foncent sur le joueur
     - RockHead : Une pierre qui fonce à intervalle régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
