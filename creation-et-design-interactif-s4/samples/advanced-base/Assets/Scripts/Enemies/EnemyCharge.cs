@@ -26,6 +26,8 @@ public class EnemyCharge : MonoBehaviour
 
     private RaycastHit2D contact;
 
+    public Knockback knockback;
+
     [Header("Layers")]
     public LayerMask obstacleLayers;
     public LayerMask targetLayers;
@@ -33,6 +35,7 @@ public class EnemyCharge : MonoBehaviour
     [Header("Shake effect")]
     public CameraShakeEventChannel onCrushSO;
     public ShakeTypeVariable shakeInfo;
+
 
     private void Start()
     {
@@ -61,13 +64,13 @@ public class EnemyCharge : MonoBehaviour
 
         if (contact.collider != null && Mathf.Abs(rb.velocity.x) > 0)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
     }
 
     private void FlipCheck()
     {
-        if (isCharging)
+        if (isCharging || rb.velocity.y != 0)
         {
             return;
         }
@@ -183,11 +186,18 @@ public class EnemyCharge : MonoBehaviour
         animator.SetTrigger("IsHit");
         isMovingForward = false;
 
-        if (collider.TryGetComponent<Knockback>(out Knockback knockback))
+        if (collider.TryGetComponent<Knockback>(out Knockback knockbackContact))
         {
             Vector2 direction = (transform.position - collider.transform.position).normalized * -1f;
             direction.y = 0;
-            knockback.Apply(direction, knockbackStrength);
+            knockbackContact.Apply(direction, knockbackStrength);
+        }
+
+        if(knockback != null) {
+            knockback.Apply(
+                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f), 
+                knockbackStrength
+            );
         }
 
         if (collider.CompareTag("Player"))

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4000432134071860586}
   - component: {fileID: 4000432134071860589}
   - component: {fileID: 2380668662454079122}
+  - component: {fileID: 2194512245989078259}
   m_Layer: 10
   m_Name: RinoEnemy
   m_TagString: Untagged
@@ -194,13 +195,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightLength: 5
-  knockbackStrength: 10
+  knockbackStrength: 8.5
+  isCharging: 0
+  isMovingForward: 0
   spriteRenderer: {fileID: 4000432134071860591}
   delayBetweenCharges: 2
   speed: 20
   rb: {fileID: 4000432134071860589}
   animator: {fileID: 4000432134071860590}
   bc: {fileID: 4000432134071860586}
+  knockback: {fileID: 2194512245989078259}
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 264
@@ -209,3 +213,17 @@ MonoBehaviour:
     m_Bits: 256
   onCrushSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   shakeInfo: {fileID: 11400000, guid: 86dc0f61e35efdc478aa042ff9b5efd8, type: 2}
+--- !u!114 &2194512245989078259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000432134071860576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8aae41e095db489b6c160ff30047f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4000432134071860589}
+  effect: {fileID: 0}
