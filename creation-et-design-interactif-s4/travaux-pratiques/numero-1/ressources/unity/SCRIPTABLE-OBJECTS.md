@@ -132,6 +132,8 @@ Plus d'informations sur les ScriptableObjects :
 - https://docs.unity3d.com/Manual/class-ScriptableObject.html
 - https://www.youtube.com/watch?v=WLDgtRNK2VE
 - https://learn.unity.com/tutorial/introduction-to-scriptableobjects?language=en#60661f13edbc2a001f55c22b
+- https://unity.com/how-to/scriptableobjects-event-channels-game-code
+- https://unity.com/how-to/architect-game-code-scriptable-objects
 
 Dans le cas de notre projet d'initiation, nous avons déjà défini des ScriptableObjects, pour gagner du temps, vous allez les récupérer ici :
 - [Télécharger les ScriptableObjects du TP d'initiation](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fsamples%2Fbeginner-base%2FAssets%2FScripts%2FScriptableObjects)

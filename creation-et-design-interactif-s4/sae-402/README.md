@@ -3,7 +3,9 @@
 
 > **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
 
-![](./screenshot.png)
+> **Note 2 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+
+![](./screenshot.jpg)
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
@@ -49,12 +51,12 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes (dossier `Assets/Scenes`) :
-- Un menu d'accueil **que vous devrez compléter voir plus bas**
-- Un niveau qui devra faire office de premier niveau
-- Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son
+- Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
+- Un niveau qui devra faire office de premier niveau (Level1)
+- Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
     - Note : Vous n'avez pas besoin de la modifier
-- Une scène de debug pour tester des fonctionnalités rapidement
+- Une scène de debug pour tester des fonctionnalités rapidement (Debug)
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
 > Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
@@ -259,6 +261,18 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
         - Un fichier texte avec le lien du projet git + les fonctionnalités supplémentaires que vous avez ajouté ([partie "Liste des choses à faire au choix"](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe))
 
 # FAQ - Foire Aux Questions
+
+- **Quand j'ai ouvert le projet pour la dernière fois, j'ai eu une scène vide. Pourquoi ?**
+
+    C'est normal, dans certains cas Unity peut lancer un projet sur une scène "vide". Les scènes du projet sont dans le dossier `Assets/Scenes`. Si ça arrive, il vous suffira juste d'ouvrir une scène de ce dossier. Pour rappel, il y a quatre scènes dans le dossier :
+        - Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
+        - Un niveau qui devra faire office de premier niveau (Level1)
+        - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
+            - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
+            - Note : Vous n'avez pas besoin de la modifier
+        - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
+            - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
+
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
     Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
@@ -289,4 +303,3 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     Oui. Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
     - [En savoir plus sur `[SerializeField]`](https://docs.unity3d.com/ScriptReference/SerializeField.html)
 
-0.36 -0.1
