@@ -102,11 +102,12 @@ public class Enemy : MonoBehaviour
 
         float startZAngle = transform.rotation.z;
         float current = 0;
-        float duration = 0.75f;
+        float duration = 0.85f;
 
+        yield return null;
         while(current <= 1) {
             // https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/
-            float angle = Mathf.LerpAngle(startZAngle, 180, Mathf.Sin(current * Mathf.PI * 0.5f));
+            float angle = Mathf.LerpAngle(startZAngle, 180 * Mathf.Sign(transform.right.normalized.x), Mathf.Sin(current * Mathf.PI * 0.5f));
     
             transform.eulerAngles = new Vector3(0, 0, angle);
 

@@ -16,7 +16,7 @@ public class EnemyUnshelled : MonoBehaviour
     private void Unshell()
     {
         Destroy(gameObject);
-        
+
         if (unshelledPrefab != null)
         {
             GameObject unshelledEnemy = Instantiate(unshelledPrefab, transform.position, new Quaternion(0, transform.rotation.y, 0, 0));

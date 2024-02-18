@@ -33,11 +33,11 @@ public class Shell : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Hit();
+            Flip();
         }
     }
 
-    private void Hit()
+    private void Flip()
     {
         if (isVisible)
         {
