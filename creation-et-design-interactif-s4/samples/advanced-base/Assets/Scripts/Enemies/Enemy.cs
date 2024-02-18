@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
         if (rb.bodyType != RigidbodyType2D.Dynamic)
         {
@@ -100,7 +100,19 @@ public class Enemy : MonoBehaviour
         Vector2 bounceForce = Vector2.up * (rb.mass * bounceFactorOnDeath);
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
 
-        gameObject.transform.Rotate(0f, 0f, 80f);
+        float startZAngle = transform.rotation.z;
+        float current = 0;
+        float duration = 0.75f;
+
+        while(current <= 1) {
+            float angle = Mathf.LerpAngle(startZAngle, 180, Mathf.Sin(current * Mathf.PI * 0.5f));
+    
+            transform.eulerAngles = new Vector3(0, 0, angle);
+
+            current += Time.fixedDeltaTime / duration;
+
+            yield return null;
+        }
     }
 
     void OnBecameInvisible()

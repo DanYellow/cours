@@ -16,13 +16,17 @@ public class EnemyUnshelled : MonoBehaviour
     private void Unshell()
     {
         Destroy(gameObject);
-        GameObject unshelledEnemy = Instantiate(unshelledPrefab, transform.position, new Quaternion(0, transform.rotation.y, 0, 0));
-        unshelledEnemy.GetComponent<Enemy>().Hurt();
+        
+        if (unshelledPrefab != null)
+        {
+            GameObject unshelledEnemy = Instantiate(unshelledPrefab, transform.position, new Quaternion(0, transform.rotation.y, 0, 0));
+            unshelledEnemy.GetComponent<Enemy>().Hurt();
+        }
 
         Instantiate(
-            shellPrefab, 
+            shellPrefab,
             transform.position,
-            new Quaternion(0, transform.rotation.y, 0, 0) 
+            new Quaternion(0, transform.rotation.y, 0, 0)
         );
     }
 }
