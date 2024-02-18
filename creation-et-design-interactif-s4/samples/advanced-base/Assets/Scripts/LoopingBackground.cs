@@ -27,7 +27,7 @@ public class LoopingBackground : MonoBehaviour
     }
 
     IEnumerator Die() {
-        render.material.SetColor("_Color", Color.red);
+        render.material.SetColor("_Color", deathColor);
         yield return new WaitForSeconds(0.1f);
         render.material.SetColor("_Color", startColor);
     }

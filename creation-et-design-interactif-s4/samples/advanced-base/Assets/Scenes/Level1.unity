@@ -60249,7 +60249,7 @@ GameObject:
   - component: {fileID: 1773703340}
   - component: {fileID: 1773703341}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60345,10 +60345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   render: {fileID: 1773703338}
-  xAxis: 1
-  yAxis: 0
-  startColor: {r: 0, g: 0, b: 0, a: 0}
-  deathColor: {r: 0, g: 0, b: 0, a: 0}
+  deathColor: {r: 1, g: 1, b: 1, a: 1}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
 --- !u!1001 &1784483869
 PrefabInstance:
