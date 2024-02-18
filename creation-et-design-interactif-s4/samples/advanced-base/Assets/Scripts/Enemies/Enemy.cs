@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
 
     // List of contact points when something collides with that GameObject
-    private ContactPoint2D[] contacts = new ContactPoint2D[1];
+    private ContactPoint2D[] listContacts = new ContactPoint2D[1];
 
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
@@ -36,12 +36,12 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0) return;
 
-        other.GetContacts(contacts);
+        other.GetContacts(listContacts);
 
         if (
             other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
             other.gameObject.CompareTag("Player") &&
-            contacts[0].normal.y > -0.5f
+            listContacts[0].normal.y > -0.5f
             )
         {
             playerHealth.TakeDamage(1f);
@@ -67,7 +67,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            
             spriteRenderer.color = hitColor;
             yield return new WaitForSeconds(0.25f);
             spriteRenderer.color = originalColor;

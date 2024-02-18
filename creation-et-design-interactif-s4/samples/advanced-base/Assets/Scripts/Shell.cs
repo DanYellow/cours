@@ -5,6 +5,7 @@ public class Shell : MonoBehaviour
     public BoxCollider2D bc;
     public Rigidbody2D rb;
     public Animator animator;
+    public Enemy enemy;
 
     public float speed = 0.3f;
 
@@ -45,6 +46,14 @@ public class Shell : MonoBehaviour
         }
         animator.SetTrigger("IsHit");
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            enemy.Hurt();
+        }
     }
 
     void OnDrawGizmos()

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1585011020543414815}
   - component: {fileID: 5204106829649741950}
   - component: {fileID: 2836775215001599961}
-  - component: {fileID: 4099646708331317103}
-  - component: {fileID: 1133563807056441311}
   - component: {fileID: 5718393288743595421}
+  - component: {fileID: 1133563807056441311}
+  - component: {fileID: 4099646708331317103}
   m_Layer: 6
   m_Name: SnailShell
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8139880303022733065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0412748, y: -0.6215155, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,7 +184,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4099646708331317103
+--- !u!114 &5718393288743595421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,17 +193,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8139880303022733065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b729823bfd59646af39df0f0858b1d, type: 3}
+  m_Script: {fileID: 11500000, guid: a3cc69e856bfd8341ad7816d3b5d95c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bc: {fileID: 5204106829649741950}
-  rb: {fileID: 1585011020543414815}
-  animator: {fileID: 2836775215001599961}
-  speed: 0.3
-  particleEmitter: {fileID: 1670954767563882545}
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 8
+  enemy: {fileID: 1133563807056441311}
+  enemySplitting: {fileID: 0}
+  enemyUnshelled: {fileID: 0}
 --- !u!114 &1133563807056441311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +220,7 @@ MonoBehaviour:
   hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 4099646708331317103}
---- !u!114 &5718393288743595421
+--- !u!114 &4099646708331317103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,12 +229,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8139880303022733065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3cc69e856bfd8341ad7816d3b5d95c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 40b729823bfd59646af39df0f0858b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bc: {fileID: 5204106829649741950}
+  rb: {fileID: 1585011020543414815}
+  animator: {fileID: 2836775215001599961}
   enemy: {fileID: 1133563807056441311}
-  enemySplitting: {fileID: 0}
-  enemyUnshelled: {fileID: 0}
+  speed: 0.3
+  particleEmitter: {fileID: 1670954767563882545}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &9168588625862624570
 GameObject:
   m_ObjectHideFlags: 0
