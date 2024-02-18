@@ -13,8 +13,6 @@ public class Shell : MonoBehaviour
 
     public ParticleSystem particleEmitter;
 
-    public Knockback knockback;
-
     [Header("Layers")]
     public LayerMask obstacleLayers;
 
@@ -37,10 +35,7 @@ public class Shell : MonoBehaviour
             Flip();
         }
 
-        if (IsGrounded())
-        {
-            rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
-        }
+        rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     private void Flip()
@@ -72,20 +67,6 @@ public class Shell : MonoBehaviour
         Gizmos.DrawLine(
             startCast,
             new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y)
-        );
-
-        Gizmos.DrawWireSphere(
-            new Vector2(bc.bounds.center.x, bc.bounds.min.y),
-            bc.bounds.size.x / 2 * 0.3f
-        );
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(
-            new Vector2(bc.bounds.center.x, bc.bounds.min.y),
-            bc.bounds.size.x / 2 * 0.3f,
-            obstacleLayers
         );
     }
 
