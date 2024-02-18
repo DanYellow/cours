@@ -6,10 +6,19 @@ public class Shell : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    public float speed = 0.3f;
+
+    private bool isVisible;
+
+    public ParticleSystem particleEmitter;
+
     [Header("Layers")]
     public LayerMask obstacleLayers;
 
-    public float speed = 0.3f;
+    private void Start()
+    {
+        particleEmitter.Stop();
+    }
 
     private void FixedUpdate()
     {
@@ -30,6 +39,10 @@ public class Shell : MonoBehaviour
 
     private void Hit()
     {
+        if (isVisible)
+        {
+            particleEmitter.Play();
+        }
         animator.SetTrigger("IsHit");
         transform.Rotate(0f, 180f, 0f);
     }
@@ -43,5 +56,15 @@ public class Shell : MonoBehaviour
             startCast,
             new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y)
         );
+    }
+
+    private void OnBecameVisible()
+    {
+        isVisible = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        isVisible = false;
     }
 }
