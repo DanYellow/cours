@@ -80,9 +80,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
+            - Déjà présent dans le projet dans le dossier `Assets/Imports/Logos`
         - Le nom du jeu
           - Vous devez en trouver un
-          - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image
+          - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image dans Unity
         - De quoi commencer le jeu au premier niveau
             - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau
         - Un bouton pour permettre de quitter le jeu

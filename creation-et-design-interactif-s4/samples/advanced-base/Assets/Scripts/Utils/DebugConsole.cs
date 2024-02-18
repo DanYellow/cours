@@ -42,6 +42,7 @@ public class DebugConsole : MonoBehaviour
 
     private Vector2 scroll;
 
+    [Header("Broadcast event channels")]
     public VectorEventChannel onDebugTeleportEvent;
     public StringEventChannel onLevelEnded;
     public VoidEventChannel onDebugPlayerDeathEvent;

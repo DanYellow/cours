@@ -9,7 +9,7 @@ public class LoopingBackground : MonoBehaviour
     private Color startColor;
     public Color deathColor;
 
-    [Header("Listen to events")]
+    [Header("Listen to event channels")]
     public VoidEventChannel onPlayerDeath;
 
     private void OnEnable()

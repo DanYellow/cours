@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 
@@ -41,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLandingFast = false;
 
-    [Header("Events"), SerializeField]
+    [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
     [SerializeField]
     private ShakeTypeVariable landingFastShakeInfo;
-    [SerializeField]
+    [SerializeField, Header("Listen to event channels")]
     private BoolEventChannel onTogglePauseEvent;
 
     [Header("Debug"), SerializeField]

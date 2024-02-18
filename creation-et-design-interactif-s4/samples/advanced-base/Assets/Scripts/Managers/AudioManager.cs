@@ -13,9 +13,11 @@ public class AudioManager : MonoBehaviour
     private float volumeOnPlay = 1f;
     private float volumeStep = 0.005f;
 
+    [Header("Listen to event channels")]
     public PlaySoundAtEventChannel sfxAudioChannel;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         sfxAudioChannel.OnEventRaised += PlayClipAt;
     }
 
@@ -74,16 +76,20 @@ public class AudioManager : MonoBehaviour
     public void OnTogglePause(bool isGamePaused)
     {
         // AudioListener.pause = isGamePaused;
-        if(isGamePaused) {
+        if (isGamePaused)
+        {
             StopAllCoroutines();
             StartCoroutine(DecreaseVolume());
-        } else {
+        }
+        else
+        {
             StopAllCoroutines();
             StartCoroutine(IncreaseVolume());
         }
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         sfxAudioChannel.OnEventRaised -= PlayClipAt;
     }
 }

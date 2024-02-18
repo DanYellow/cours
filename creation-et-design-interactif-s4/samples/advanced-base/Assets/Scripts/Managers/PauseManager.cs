@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
+    [Header("Broadcast event channels")]
     public BoolEventChannel onTogglePauseEvent;
+
+    [Header("Listen to event channels")]
     public BoolEventChannel onKeyPauseEvent;
     public BoolEventChannel onDebugConsoleOpenEvent;
-    public GameObject pauseMenuUI;
 
     bool isGamePaused = false;
     bool isDebugConsoleEnabled = false;

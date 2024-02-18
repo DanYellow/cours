@@ -20,9 +20,6 @@ public class RockHead : MonoBehaviour
     public Animator animator;
     private string lastAnimationPlayed = "";
 
-    public CameraShakeEventChannel cameraShake;
-    public ShakeTypeVariable shakeInfo;
-
     private bool isOnScreen = false;
 
     private Collider2D[] listContacts;
@@ -46,9 +43,14 @@ public class RockHead : MonoBehaviour
 
     public bool isReversed;
 
+    [Header("Broadcast event channels")]
+    public CameraShakeEventChannel cameraShake;
+    public ShakeTypeVariable shakeInfo;
+
     void Start()
     {
-        if(isReversed) {
+        if (isReversed)
+        {
             System.Array.Reverse(listTriggers);
         }
         Vector2 firstTriggerPosition = listTriggers[currentIndex].transform.position;

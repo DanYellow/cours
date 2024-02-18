@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
+    [Header("Listen to event channels")]
     public VoidEventChannel onPlayerDeath;
 
     private void OnEnable()

@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public HealthVariable playerHealth;
 
-    public VoidEventChannel onPlayerDeath;
+    
     public Animator animator;
 
     public SpriteRenderer sr;
@@ -16,6 +16,9 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Debug")]
     public VoidEventChannel onDebugDeathEvent;
+
+    [Header("Broadcast event channels")]
+    public VoidEventChannel onPlayerDeath;
 
     private void Awake()
     {

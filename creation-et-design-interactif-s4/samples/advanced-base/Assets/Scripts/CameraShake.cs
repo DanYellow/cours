@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
+    [Header("Listen to event channels")]
     public CameraShakeEventChannel onCameraShake;
 
     private void OnEnable() {
