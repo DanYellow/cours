@@ -142,7 +142,7 @@ public class EnemyCharge : MonoBehaviour
         if (hit != null)
         {
             PlayerContacts playerContacts = hit.transform.GetComponent<PlayerContacts>();
-            if (playerContacts.HasBottomContact())
+            if (playerContacts.HasBottomContact() && rb.velocity.y < 0)
             {
                 PlayerHealth playerHealth = hit.transform.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(float.MaxValue);
