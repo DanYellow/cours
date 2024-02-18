@@ -1,13 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
 {
+    public bool isDebugConsoleOpened = false;
+
+    [Header("Listen to events")]
     public StringEventChannel onLevelEnded;
     public BoolEventChannel onDebugConsoleOpenEvent;
-
-    public bool isDebugConsoleOpened = false;
 
     private void Start()
     {
@@ -58,6 +58,18 @@ public class CurrentSceneManager : MonoBehaviour
         if (SceneManager.GetSceneByName(sceneName).IsValid())
         {
             SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.Log("Unknown scene");
+        }
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        if (SceneManager.GetSceneByBuildIndex(sceneIndex).IsValid())
+        {
+            SceneManager.LoadScene(sceneIndex);
         }
         else
         {
