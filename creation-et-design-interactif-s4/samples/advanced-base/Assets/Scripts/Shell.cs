@@ -13,6 +13,8 @@ public class Shell : MonoBehaviour
 
     public ParticleSystem particleEmitter;
 
+    public Knockback knockback;
+
     [Header("Layers")]
     public LayerMask obstacleLayers;
 
@@ -23,8 +25,6 @@ public class Shell : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
-
         Vector3 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
         RaycastHit2D hit = Physics2D.Linecast(
             startCast,
@@ -36,6 +36,11 @@ public class Shell : MonoBehaviour
         {
             Flip();
         }
+
+        if (IsGrounded())
+        {
+            rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
+        }
     }
 
     private void Flip()
@@ -45,6 +50,9 @@ public class Shell : MonoBehaviour
             particleEmitter.Play();
         }
         animator.SetTrigger("IsHit");
+
+        rb.velocity = new Vector2(-0.25f, 0.35f);
+
         transform.Rotate(0f, 180f, 0f);
     }
 
@@ -64,6 +72,20 @@ public class Shell : MonoBehaviour
         Gizmos.DrawLine(
             startCast,
             new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y)
+        );
+
+        Gizmos.DrawWireSphere(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y),
+            bc.bounds.size.x / 2 * 0.3f
+        );
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y),
+            bc.bounds.size.x / 2 * 0.3f,
+            obstacleLayers
         );
     }
 
