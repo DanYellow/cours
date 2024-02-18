@@ -3,7 +3,10 @@ using UnityEngine;
 public class EnemyDamageManager : MonoBehaviour
 {
     public Enemy enemy;
+
+    [Header("Extra non mandatory components")]
     public EnemySplitting enemySplitting;
+    public EnemyUnshelled enemyUnshelled;
 
     public void Hurt()
     {
@@ -12,9 +15,14 @@ public class EnemyDamageManager : MonoBehaviour
             enemy.Hurt();
         }
 
-        if (enemySplitting)
+        if (enemySplitting != null)
         {
             enemySplitting.Hurt();
+        }
+
+        if (enemyUnshelled != null)
+        {
+            enemyUnshelled.Hurt();
         }
     }
 }
