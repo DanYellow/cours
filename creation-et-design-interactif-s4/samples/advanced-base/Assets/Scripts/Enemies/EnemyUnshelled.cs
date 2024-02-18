@@ -16,9 +16,13 @@ public class EnemyUnshelled : MonoBehaviour
     private void Unshell()
     {
         Destroy(gameObject);
-        GameObject unshelledEnemy = Instantiate(unshelledPrefab, transform.position, Quaternion.identity);
+        GameObject unshelledEnemy = Instantiate(unshelledPrefab, transform.position, new Quaternion(0, transform.rotation.y, 0, 0));
         unshelledEnemy.GetComponent<Enemy>().Hurt();
 
-        GameObject shellEnemy = Instantiate(shellPrefab, transform.position, Quaternion.identity);
+        Instantiate(
+            shellPrefab, 
+            transform.position,
+            new Quaternion(0, transform.rotation.y, 0, 0) 
+        );
     }
 }
