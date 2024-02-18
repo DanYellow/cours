@@ -46,8 +46,6 @@ public class Shell : MonoBehaviour
         }
         animator.SetTrigger("IsHit");
 
-        rb.velocity = new Vector2(-0.25f, 0.35f);
-
         transform.Rotate(0f, 180f, 0f);
     }
 

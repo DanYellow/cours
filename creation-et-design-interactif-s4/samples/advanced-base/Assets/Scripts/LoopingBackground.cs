@@ -1,24 +1,39 @@
+using System.Collections;
 using UnityEngine;
 
 // https://www.youtube.com/watch?v=efYt5h2i_1A
-// Unlit > texture
 public class LoopingBackground : MonoBehaviour
 {
-    [Range(0.1f, 100)]
-    public float speed = 0;
-
     public Renderer render;
 
-    [Tooltip("Define on which axis the texture will loop")]
-    public bool xAxis;
-    public bool yAxis;
+    private Color startColor;
+    public Color deathColor;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Listen to events")]
+    public VoidEventChannel onPlayerDeath;
+
+    private void OnEnable()
     {
-        render.material.mainTextureOffset += new Vector2(
-            xAxis ? Time.deltaTime * speed : 0f, 
-            yAxis ? Time.deltaTime * speed : 0f 
-        );
+        onPlayerDeath.OnEventRaised += DieProxy;
+    }
+
+    private void Start() {
+        startColor = render.material.GetColor("_Color");
+    }
+
+    private void DieProxy()
+    {
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die() {
+        render.material.SetColor("_Color", Color.red);
+        yield return new WaitForSeconds(0.1f);
+        render.material.SetColor("_Color", startColor);
+    }
+
+    private void OnDisable()
+    {
+        onPlayerDeath.OnEventRaised -= DieProxy;
     }
 }
