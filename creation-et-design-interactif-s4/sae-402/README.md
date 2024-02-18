@@ -155,9 +155,9 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Mort du joueur
     - Blessure du joueur
     
-    Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannelSO`.
+    Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannel`.
 - Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint
-- Afficher, lors qu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau
+- Afficher, lorsqu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau et d'autres statistiques (nombre d'ennemis éliminés, nombre de sauts...)
 - Mettre en place un piège parmi ceux présents dans le dossier `sprites/platformer/Traps`
     - A vous de gérer le comportement : Est-ce que ça bouge ? Quels dégâts sont infligés ?
 - Proposer au joueur de choisir un personnage. Ce choix peut être fait :
@@ -170,6 +170,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Indiquer visuellement l'état de santé du joueur (couleur, vitesse d'animation...)
 - Ajouter des blocs qui peuvent être cassé quand le joueur les touche avec la tête (en sautant donc). Certains peuvent être cachés et même contenir des objets
     - Si le temps nous le permet, nous le ferons en cours ensemble
+- Cacher les tuiles qui cachent les zones secrètes au lieu d'utiliser les masques déjà présents
 
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 
