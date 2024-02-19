@@ -169,6 +169,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Proposer au joueur de choisir un personnage. Ce choix peut être fait :
     - Au début du jeu, juste avant de commencer un niveau
     - Après chaque mort du joueur
+    - Pour éviter de faire les animations pour chaque personnage Unity propose un système : https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
@@ -292,10 +293,10 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples, bien qu'il doive faire office de premier niveau dans votre jeu.
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation.
+    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation. [Vous avez toujours le document à sur sujet si vous avez un trou de mémoire.](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/SCRIPTABLE-OBJECTS.md)
 - **Puis-je effectuer un projet à partir de zéro ?**
 
-    Non, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
+    **Non**, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
 
 - **En cours, nous avons affiché la vie du joueur sous forme de barre. Est-il possible de faire autrement ?**
 
