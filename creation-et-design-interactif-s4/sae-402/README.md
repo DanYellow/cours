@@ -92,7 +92,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
     - Vous pouvez récupérer des mécanismes/ennemis déjà présents dans le premier niveau
-     - Il est impératif d'avoir dans vos niveaux supplémentaires la prefab "CurrentSceneManager"
+     - Il est **impératif** d'avoir dans vos niveaux supplémentaires la prefab "CurrentSceneManager"
     - **Il doit être possible de terminer ce nouveau niveau**. Quand le niveau termine (au choix) :
         - Afficher les crédits
         - Retourner au menu principal
@@ -117,14 +117,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - un évènement (OnPlayerDeath) sur le GameObject "Player" (utilisable depuis l'onglet `Assets` en Play Mode)
     - une animation de mort du personnage (testable avec la touche N du clavier)
     - "Suppression" du Rigidbody2D associé (Passage de "Simulated" à "Non simulated"). Le personnage traverse les murs à la mort
-    - La mort instanée si le joueur est écrasé par un rockhead
+    - La mort instanée si le joueur est écrasé par un RockHead ou que ses points de vie atteignent 0
     - **A vous de faire le reste** (liste non exhaustive)
       - Bloquer les mouvements du joueur
       - Afficher un écran de "Fin de partie"
       - ...
 - Rajouter un ennemi parmi ceux proposés
     - Dans l'archive que vous avez récupéré au début des cours, il y a un dossier `ressources/unity/sprites/platformer/Enemies`
-        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy) à vous de les réutiliser, au besoin, pour votre nouvel ennemi
+        - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy)... à vous de les réutiliser, au besoin, pour votre nouvel ennemi
         - Voir [gestion des ennemis](#gestion-des-ennemis) pour en savoir plus
 - Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
     - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
