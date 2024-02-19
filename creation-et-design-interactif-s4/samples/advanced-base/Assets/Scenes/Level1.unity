@@ -1102,7 +1102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
-      value: 750
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: crushDistance
@@ -7935,7 +7935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
-      value: 750
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: crushDistance
@@ -29412,20 +29412,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
-      propertyPath: speed
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
-      propertyPath: crushDistance
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
-      propertyPath: listContactsLayers.m_Bits
-      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]
@@ -30078,7 +30066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: speed
-      value: 750
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: crushDistance
