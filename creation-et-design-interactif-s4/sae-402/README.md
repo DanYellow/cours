@@ -164,6 +164,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Afficher, lorsqu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau et d'autres statistiques (nombre d'ennemis éliminés, nombre de sauts...)
 - Mettre en place un piège parmi ceux présents dans le dossier `sprites/platformer/Traps`
     - A vous de gérer le comportement : Est-ce que ça bouge ? Quels dégâts sont infligés ?
+    - Note : Il y a un script dans le dossier `Assets/Scripts/Utils` nommé `Trap` qui gère de façon simple les dégâts sur le joueur
 - Proposer au joueur de choisir un personnage. Ce choix peut être fait :
     - Au début du jeu, juste avant de commencer un niveau
     - Après chaque mort du joueur
