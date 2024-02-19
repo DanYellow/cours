@@ -2783,9 +2783,9 @@ Transform:
   - {fileID: 8520597521088494288}
   - {fileID: 146469754}
   - {fileID: 1878574314}
+  - {fileID: 1211845209}
   - {fileID: 695988786}
   - {fileID: 1274306354}
-  - {fileID: 1211845209}
   - {fileID: 2031590187}
   - {fileID: 703294368}
   - {fileID: 197116824}
@@ -29410,6 +29410,14 @@ PrefabInstance:
     - target: {fileID: 262433198629486200, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: animationClip
+      value: 
+      objectReference: {fileID: 7400000, guid: f3fcae9555bbd0843a3613ea0ad2bec5, type: 2}
+    - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
+      propertyPath: listTriggers.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 262433198629486202, guid: aeb0d1a122c2ec046af9f57b06ebea21, type: 3}
       propertyPath: listTriggers.Array.data[0]

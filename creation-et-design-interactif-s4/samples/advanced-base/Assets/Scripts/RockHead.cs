@@ -14,6 +14,8 @@ public class RockHead : MonoBehaviour
     private int currentIndex = 0;
 
     public Animator animator;
+    public AnimationClip animationClip;
+
     private string lastAnimationPlayed = "";
 
     private bool isOnScreen = false;
@@ -136,8 +138,6 @@ public class RockHead : MonoBehaviour
         StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
     }
 
-    public AnimationClip animationClip;
-
     private IEnumerator GoToTrigger(Vector2 dir)
     {
         yield return new WaitForSeconds(Mathf.Abs(rockHeadData.delayBetweenMoves - animationClip.length));
@@ -209,7 +209,6 @@ public class RockHead : MonoBehaviour
 
     void OnCrush(string side)
     {
-        animator.SetBool("Blinking", false);
         animator.SetTrigger(side);
         lastAnimationPlayed = side;
         if (isOnScreen)
