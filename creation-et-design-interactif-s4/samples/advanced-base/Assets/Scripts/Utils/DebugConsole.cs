@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Globalization;
-using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 using UnityEngine;
-using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 enum DisplayType
 {
@@ -35,18 +35,9 @@ public class DebugConsole : MonoBehaviour
     public static DebugCommand DIE;
     public static DebugCommand RELOAD;
     public static DebugCommand PRINT_SCREEN;
-
-    public HealthVariable playerHealth;
-
     public List<object> commandList;
 
     private Vector2 scroll;
-
-    [Header("Broadcast event channels")]
-    public VectorEventChannel onDebugTeleportEvent;
-    public StringEventChannel onLevelEnded;
-    public VoidEventChannel onDebugPlayerDeathEvent;
-    public BoolEventChannel onDebugConsoleOpenEvent;
 
     private readonly CultureInfo cultureInfo = new CultureInfo("en-US");
 
@@ -60,6 +51,15 @@ public class DebugConsole : MonoBehaviour
 
     [SerializeField]
     private DisplayType displayType = DisplayType.Hide;
+
+    [Header("ScriptableObjects")]
+    public PlayerData playerData;
+
+    [Header("Broadcast event channels")]
+    public VectorEventChannel onDebugTeleportEvent;
+    public StringEventChannel onLevelEnded;
+    public VoidEventChannel onDebugPlayerDeathEvent;
+    public BoolEventChannel onDebugConsoleOpenEvent;
 
     private void Awake()
     {
@@ -91,12 +91,12 @@ public class DebugConsole : MonoBehaviour
 
         HEAL = new DebugCommand<float?>("heal", "Heal the player with an amount of points (0 by default)", "heal <int>", (val) =>
         {
-            playerHealth.currentValue += val ?? 0;
+            playerData.currentHealth += val ?? 0;
         });
 
         HURT = new DebugCommand<float?>("hurt", "Hurt the player with an amount of points (0 by default)", "hurt <int>", (val) =>
         {
-            playerHealth.currentValue -= val ?? 0;
+            playerData.currentHealth -= val ?? 0;
         });
 
         LOAD = new DebugCommand<string>("load_scene", "Load specific scene by name", "load_scene <string>", (val) =>
@@ -141,9 +141,10 @@ public class DebugConsole : MonoBehaviour
             float x = Convert.ToSingle(listParams[0], cultureInfo);
             float y = Convert.ToSingle(listParams[1], cultureInfo);
             Vector3 rValue = new(x, y, 0);
-            
+
             return rValue;
-        } catch
+        }
+        catch
         {
             return Vector3.zero;
         }

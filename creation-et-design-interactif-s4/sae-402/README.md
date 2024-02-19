@@ -85,9 +85,9 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
           - Vous devez en trouver un
           - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image dans Unity
         - De quoi commencer le jeu au premier niveau
-            - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau
+            - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau grâce au GameObject CurrentSceneManager
         - Un bouton pour permettre de quitter le jeu
-        - Les développeurs / développeuses du jeu
+        - Les développeurs / développeuses du jeu, le nom de la formation et l'année scolaire courante
     - Pour rappel, ici il faudra utiliser un Canvas
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet

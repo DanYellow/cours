@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public HealthVariable playerHealth;
-
-    
     public Animator animator;
 
     public SpriteRenderer sr;
@@ -14,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("Please uncheck it on production")]
     public bool needResetHP = true;
 
+    [Header("ScriptableObjects")]
+    public PlayerData playerData;
+
     [Header("Debug")]
     public VoidEventChannel onDebugDeathEvent;
 
@@ -22,9 +22,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        if (needResetHP || playerHealth.currentValue <= 0)
+        if (needResetHP || playerData.currentHealth <= 0)
         {
-            playerHealth.currentValue = playerHealth.maxValue;
+            playerData.currentHealth = playerData.maxHealth;
         }
     }
 
@@ -37,8 +37,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (playerInvulnerable.isInvulnerable && damage < float.MaxValue) return;
 
-        playerHealth.currentValue -= damage;
-        if (playerHealth.currentValue <= 0)
+        playerData.currentHealth -= damage;
+        if (playerData.currentHealth <= 0)
         {
             Die();
         }

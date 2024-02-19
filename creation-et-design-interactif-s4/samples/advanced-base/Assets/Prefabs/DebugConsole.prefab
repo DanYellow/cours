@@ -44,11 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8db1e3664aeb343becd18f99e60309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 11400000, guid: 60a09431080251441a0b37f15fac0d90, type: 2}
-  onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
-  onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
-  onDebugPlayerDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
-  onDebugConsoleOpenEvent: {fileID: 11400000, guid: c1e0b7bee58fbb84c95a4e721b6af6ae, type: 2}
   mainContainerStyle:
     m_Name: 
     m_Normal:
@@ -184,3 +179,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   displayType: 0
+  playerData: {fileID: 11400000, guid: 128a5caa38b25da4b8d554b3e6931d20, type: 2}
+  onDebugTeleportEvent: {fileID: 11400000, guid: 20f5f2f5c47759b4ca055685870b4a2a, type: 2}
+  onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
+  onDebugPlayerDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
+  onDebugConsoleOpenEvent: {fileID: 11400000, guid: c1e0b7bee58fbb84c95a4e721b6af6ae, type: 2}
