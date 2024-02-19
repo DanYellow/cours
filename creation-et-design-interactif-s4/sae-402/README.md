@@ -92,6 +92,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter un nouveau niveau (décors, ennemis et mécaniques compris)
     - Vous pouvez utiliser le thème que vous souhaitez pour la décoration. Vous pouvez donc importer de nouvelles tilemaps ou utiliser celles déjà présentes dans le projet
     - Vous pouvez récupérer des mécanismes/ennemis déjà présents dans le premier niveau
+     - Il est impératif d'avoir dans vos niveaux supplémentaires la prefab "CurrentSceneManager"
     - **Il doit être possible de terminer ce nouveau niveau**. Quand le niveau termine (au choix) :
         - Afficher les crédits
         - Retourner au menu principal
@@ -101,11 +102,11 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter un écran des crédits [(voir contenu attendu)](#contenu-de-lécran-des-crédits)
 - Afficher dans la splash page de jeu le logo de l'université (voir menu `Project Settings > Player > Logo`)
     - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
-- Compléter le menu de pause
+- Compléter le menu Pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
-    - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEventSO`)
+    - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEvent`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
-    - Rappel : si vous souhaitez animer le menu pause, il ne faut pas oublier de sélectionner l'option "Unscaled Time" dans l'animator des GameObjects qui ne doivent pas être soumis à l'échelle du temps. Sinon vos animations ne se joueront pas. Toutefois, il est reste préférable ne pas utiliser d'Animator dans un canvas
+    - Le menu Pause doit **au minimum** contenir un bouton pour relancer le jeu et revenir au menu principal
     > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie

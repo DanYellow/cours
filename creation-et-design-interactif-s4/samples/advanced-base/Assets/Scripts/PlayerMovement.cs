@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public int jumpCount = 0;
     [SerializeField]
     private int nbMaxJumpsAllowed = 2;
+    private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
 
@@ -164,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
-            bc.bounds.size.x / 2 * 0.8f,
+            bc.bounds.size.x / 2 * groundCheckRadius,
             listGroundLayers
         );
     }
@@ -173,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
-            bc.bounds.size.x / 2 * 0.8f,
+            bc.bounds.size.x / 2 * groundCheckRadius,
             listFloatingPlatformsLayers
         );
     }
@@ -188,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * 0.8f);
+            Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * groundCheckRadius);
         }
     }
 
