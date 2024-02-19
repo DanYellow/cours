@@ -99,7 +99,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8e2765a627b124d468f5a13ca943b340, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -203,10 +203,10 @@ MonoBehaviour:
   - {fileID: 0}
   delayBetweenMoves: 2.25
   animator: {fileID: 262433198629486206}
-  cameraShake: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
-  shakeInfo: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}
   listContactsLayers:
     serializedVersion: 2
     m_Bits: 264
   crushDistance: 0.65
   isReversed: 0
+  cameraShake: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
+  shakeInfo: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}

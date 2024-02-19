@@ -189,11 +189,11 @@ Etant donné que le projet est en groupe ET que nous allons tous développer ces
 Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un ScriptableObject de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
 
 ### Système de ventilateurs
-Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan On (24x8).png`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
+Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
 > Le terme "prop" provient du jargon cinématographique, il désigne un accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout accessoire est nommé "prop". [En savoir plus](https://fr.wikipedia.org/wiki/Accessoire#Cin%C3%A9ma).
 
 ### Blocs
-Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des fruits ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_.
+Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des fruits ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -210,7 +210,7 @@ Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le per
 - https://www.youtube.com/@NCALIB
 
 ## Gestion des ennemis
-La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus.
+La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus. Le script `Assets/Scripts/Enemy` peut accepter un ScriptableObject de type `FloatVariable` représantant le nombre 
 
 # Console de debug
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
