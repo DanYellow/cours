@@ -195,18 +195,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 262433198629486204}
   bc: {fileID: 262433198629486205}
-  speed: 1200
   listTriggers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  delayBetweenMoves: 2.25
   animator: {fileID: 262433198629486206}
-  listContactsLayers:
-    serializedVersion: 2
-    m_Bits: 264
-  crushDistance: 0.65
   isReversed: 0
+  rockHeadData: {fileID: 11400000, guid: 17dd887824f36fb43934516cab559ffd, type: 2}
   cameraShake: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   shakeInfo: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}

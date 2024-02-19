@@ -7,13 +7,9 @@ public class RockHead : MonoBehaviour
     public Rigidbody2D rb;
     public BoxCollider2D bc;
 
-    public float speed;
-
     private Vector3 destination;
 
     public RockHeadTrigger[] listTriggers;
-    [Tooltip("Delay between moves in seconds")]
-    public float delayBetweenMoves;
 
     private int currentIndex = 0;
 
@@ -23,9 +19,6 @@ public class RockHead : MonoBehaviour
     private bool isOnScreen = false;
 
     private Collider2D[] listContacts;
-    public LayerMask listContactsLayers;
-
-    public float crushDistance = 0.55f;
 
     private float detectScale = 0.95f;
 
@@ -42,6 +35,9 @@ public class RockHead : MonoBehaviour
     private Movement currentMovement;
 
     public bool isReversed;
+
+    [Header("ScriptableObjects")]
+    public RockHeadData rockHeadData;
 
     [Header("Broadcast event channels")]
     public CameraShakeEventChannel cameraShake;
@@ -83,7 +79,7 @@ public class RockHead : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(destination * speed, ForceMode2D.Impulse);
+        rb.AddForce(destination * rockHeadData.speed, ForceMode2D.Impulse);
 
         Crush();
     }
@@ -142,7 +138,7 @@ public class RockHead : MonoBehaviour
 
     private IEnumerator GoToTrigger(Vector2 dir)
     {
-        yield return new WaitForSeconds(delayBetweenMoves);
+        yield return new WaitForSeconds(rockHeadData.delayBetweenMoves);
         destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
@@ -232,40 +228,40 @@ public class RockHead : MonoBehaviour
     public Collider2D[] HasLeftContact()
     {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
-            new Vector2(crushDistance, bc.size.y * detectScale),
+            new Vector2(bc.bounds.min.x - rockHeadData.crushDistance / 2, bc.bounds.center.y),
+            new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale),
             0,
-            listContactsLayers
+            rockHeadData.listContactsLayers
         );
     }
 
     public Collider2D[] HasRightContact()
     {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
-            new Vector2(crushDistance, bc.size.y * detectScale),
+            new Vector2(bc.bounds.max.x + rockHeadData.crushDistance / 2, bc.bounds.center.y),
+            new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale),
             0,
-            listContactsLayers
+            rockHeadData.listContactsLayers
         );
     }
 
     public Collider2D[] HasTopContact()
     {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
-            new Vector2(bc.size.x * detectScale, crushDistance),
+            new Vector2(bc.bounds.center.x, bc.bounds.max.y + rockHeadData.crushDistance / 2),
+            new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance),
             0,
-            listContactsLayers
+            rockHeadData.listContactsLayers
         );
     }
 
     public Collider2D[] HasBottomContact()
     {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
-            new Vector2(bc.size.x * detectScale, crushDistance),
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y - rockHeadData.crushDistance / 2),
+            new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance),
             0,
-            listContactsLayers
+            rockHeadData.listContactsLayers
         );
     }
 
@@ -289,26 +285,26 @@ public class RockHead : MonoBehaviour
             {
                 case Movement.HorizontalNegative:
                     Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.min.x - crushDistance / 2, bc.bounds.center.y),
-                        new Vector2(crushDistance, bc.size.y * detectScale)
+                        new Vector2(bc.bounds.min.x - rockHeadData.crushDistance / 2, bc.bounds.center.y),
+                        new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale)
                     );
                     break;
                 case Movement.HorizontalPositive:
                     Gizmos.DrawWireCube(
-                            new Vector2(bc.bounds.max.x + crushDistance / 2, bc.bounds.center.y),
-                            new Vector2(crushDistance, bc.size.y * detectScale)
+                            new Vector2(bc.bounds.max.x + rockHeadData.crushDistance / 2, bc.bounds.center.y),
+                            new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale)
                         );
                     break;
                 case Movement.VerticalNegative:
                     Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushDistance / 2),
-                        new Vector2(bc.size.x * detectScale, crushDistance)
+                        new Vector2(bc.bounds.center.x, bc.bounds.min.y - rockHeadData.crushDistance / 2),
+                        new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
                     );
                     break;
                 case Movement.VerticalPositive:
                     Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.center.x, bc.bounds.max.y + crushDistance / 2),
-                        new Vector2(bc.size.x * detectScale, crushDistance)
+                        new Vector2(bc.bounds.center.x, bc.bounds.max.y + rockHeadData.crushDistance / 2),
+                        new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
                     );
                     break;
             }
