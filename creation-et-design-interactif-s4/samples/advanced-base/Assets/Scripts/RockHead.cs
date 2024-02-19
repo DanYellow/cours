@@ -136,9 +136,13 @@ public class RockHead : MonoBehaviour
         StartCoroutine(GoToTrigger(listTriggers[currentIndex].transform.position));
     }
 
+    public AnimationClip animationClip;
+
     private IEnumerator GoToTrigger(Vector2 dir)
     {
-        yield return new WaitForSeconds(rockHeadData.delayBetweenMoves);
+        yield return new WaitForSeconds(Mathf.Abs(rockHeadData.delayBetweenMoves - animationClip.length));
+        animator.SetTrigger("Blinking");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
