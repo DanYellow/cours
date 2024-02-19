@@ -16,5 +16,5 @@ MonoBehaviour:
   delayBetweenMoves: 2.25
   listContactsLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 1288
   crushDistance: 0.65

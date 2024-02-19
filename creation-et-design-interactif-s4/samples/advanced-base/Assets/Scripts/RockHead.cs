@@ -103,6 +103,7 @@ public class RockHead : MonoBehaviour
                 listContacts = HasTopContact();
                 break;
         }
+        listContacts = listContacts.Where(item => item.transform != transform).ToArray();
 
         Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
 
