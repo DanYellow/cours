@@ -197,7 +197,7 @@ MonoBehaviour:
   sightLength: 5
   knockbackStrength: 8.5
   spriteRenderer: {fileID: 4000432134071860591}
-  delayBetweenCharges: 2
+  delayBetweenCharges: 1.45
   speed: 25
   rb: {fileID: 4000432134071860589}
   animator: {fileID: 4000432134071860590}

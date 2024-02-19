@@ -7,7 +7,6 @@ public class PauseManager : MonoBehaviour
     public BoolEventChannel onTogglePauseEvent;
 
     [Header("Listen to event channels")]
-    public BoolEventChannel onKeyPauseEvent;
     public BoolEventChannel onDebugConsoleOpenEvent;
 
     bool isGamePaused = false;
@@ -21,7 +20,6 @@ public class PauseManager : MonoBehaviour
     private void OnEnable()
     {
         onDebugConsoleOpenEvent.OnEventRaised += TogglePauseDebug;
-        onKeyPauseEvent.OnEventRaised += TogglePause;
     }
 
     void Update()
@@ -29,7 +27,7 @@ public class PauseManager : MonoBehaviour
         if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
         {
             isGamePaused = !isGamePaused;
-            onKeyPauseEvent.Raise(isGamePaused);
+            TogglePause(isGamePaused);
         }
     }
 
@@ -79,6 +77,5 @@ public class PauseManager : MonoBehaviour
     private void OnDisable()
     {
         onDebugConsoleOpenEvent.OnEventRaised -= TogglePauseDebug;
-        onKeyPauseEvent.OnEventRaised -= TogglePause;
     }
 }
