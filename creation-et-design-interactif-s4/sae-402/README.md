@@ -170,6 +170,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Au début du jeu, juste avant de commencer un niveau
     - Après chaque mort du joueur
     - Pour éviter de faire les animations pour chaque personnage Unity propose un système : https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
+        - Note : Comparé à la vidéo, l'interface d'Unity a un peu changé, mais le principe reste le même
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
