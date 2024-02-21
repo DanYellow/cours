@@ -11,7 +11,7 @@ public class FallingPlatform : MonoBehaviour
     public Rigidbody2D rb;
 
     public Animator animator;
-    public bool isFalling = false;
+    private bool isFalling = false;
 
     public ParticleSystem particleEmitter;
 

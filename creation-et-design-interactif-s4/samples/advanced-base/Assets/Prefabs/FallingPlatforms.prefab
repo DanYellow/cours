@@ -4840,12 +4840,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7992860950111955524}
   - component: {fileID: 7992860950111955527}
-  - component: {fileID: 7992860950111955526}
+  - component: {fileID: 7992860950111955525}
   - component: {fileID: 7992860950111955521}
   - component: {fileID: 7992860950111955520}
   - component: {fileID: 7992860950111955523}
-  - component: {fileID: 7992860950111955525}
-  m_Layer: 3
+  - component: {fileID: 7992860950111955526}
+  m_Layer: 11
   m_Name: FallingPlatforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4863,7 +4863,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 171.04, y: 9.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5754446456290574345}
   m_Father: {fileID: 0}
@@ -4920,23 +4920,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7992860950111955526
-MonoBehaviour:
+--- !u!95 &7992860950111955525
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7992860950111955522}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9aff2d39678a5949afe01e5b685d46e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 0.95
-  rb: {fileID: 7992860950111955520}
-  animator: {fileID: 7992860950111955525}
-  isFalling: 0
-  particleEmitter: {fileID: 3987860193968283235}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 580995c3f87ef834cbe72ecefc0c54a7, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &7992860950111955521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5028,24 +5032,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!95 &7992860950111955525
-Animator:
-  serializedVersion: 5
+--- !u!114 &7992860950111955526
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7992860950111955522}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 580995c3f87ef834cbe72ecefc0c54a7, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9aff2d39678a5949afe01e5b685d46e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 0.95
+  rb: {fileID: 7992860950111955520}
+  animator: {fileID: 7992860950111955525}
+  isFalling: 0
+  particleEmitter: {fileID: 3987860193968283235}

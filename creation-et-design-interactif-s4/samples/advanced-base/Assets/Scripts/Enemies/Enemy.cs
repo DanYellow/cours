@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
 
-    private float bounceFactorOnDeath = 7.25f;
+    private float bounceFactorOnDeath = 5.25f;
 
     private void Start()
     {
