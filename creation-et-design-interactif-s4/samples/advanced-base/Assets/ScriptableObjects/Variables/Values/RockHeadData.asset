@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: RockHeadData
   m_EditorClassIdentifier: 
   speed: 1200
+  mass: 1000
   delayBetweenMoves: 2.25
   listContactsLayers:
     serializedVersion: 2
     m_Bits: 1288
   crushDistance: 0.65
+  animationClip: {fileID: 7400000, guid: f3fcae9555bbd0843a3613ea0ad2bec5, type: 2}

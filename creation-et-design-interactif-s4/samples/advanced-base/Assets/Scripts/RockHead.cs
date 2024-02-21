@@ -14,7 +14,6 @@ public class RockHead : MonoBehaviour
     private int currentIndex = 0;
 
     public Animator animator;
-    public AnimationClip animationClip;
 
     private string lastAnimationPlayed = "";
 
@@ -143,8 +142,9 @@ public class RockHead : MonoBehaviour
 
     private IEnumerator GoToTrigger(Vector2 dir)
     {
-        yield return new WaitForSeconds(Mathf.Abs(rockHeadData.delayBetweenMoves - animationClip.length));
+        yield return new WaitForSeconds(Mathf.Abs(rockHeadData.delayBetweenMoves - rockHeadData.animationClip.length));
         animator.SetTrigger("Blinking");
+        yield return null;
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         destination = -((Vector2)transform.position - dir).normalized;
         destination.x = Mathf.Round(destination.x);

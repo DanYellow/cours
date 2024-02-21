@@ -36,7 +36,7 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
     - Des rhinocéros qui foncent sur le joueur
     - RockHead : Une pierre qui fonce à intervalle régulier à des endroits fixes. La mécanique est semblable aux thwomps dans l'univers des jeux Super Mario
     - Scie : Statique ou mobile se déplaçant sur un circuit défini
-    - Chaine : Une boule qui se déplace selon un axe défini
+    - Chaine : Une boule à épines qui pivote autour d'un axe défini
 - Un ensemble de ScriptableObject de type évènementiels ou variables (Assets/Scripts/ScriptableObjects) :
     - Pause / Relance du jeu
     - Nombre de points de vie des ennemis de base
@@ -161,7 +161,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Blessure du joueur
     
     Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannel`.
-- Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint
+- Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint le cas échéant
 - Afficher, lorsqu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau et d'autres statistiques (nombre d'ennemis éliminés, nombre de sauts...)
 - Mettre en place un piège parmi ceux présents dans le dossier `sprites/platformer/Traps`
     - A vous de gérer le comportement : Est-ce que ça bouge ? Quels dégâts sont infligés ?
