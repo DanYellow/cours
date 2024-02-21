@@ -21,11 +21,11 @@ public class Knockback : MonoBehaviour
     {
         if (TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
         {
-            playerMovement.enabled = false;
+            playerMovement.isStunned = true;
             ToggleEffect(true);
             yield return new WaitForSeconds(0.95f);
             ToggleEffect(false);
-            playerMovement.enabled = true;
+            playerMovement.isStunned = false;
         }
     }
 

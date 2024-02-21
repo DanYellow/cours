@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLandingFast = false;
 
+    public bool isStunned = false;
+
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
     [SerializeField]
@@ -68,6 +70,23 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
+        if (!isStunned)
+        {
+            Controls();
+        }
+
+        if (isLandingFast && isGrounded)
+        {
+            LandingImpact();
+        }
+
+        Flip();
+        Animations();
+    }
+
+    private void Controls()
+    {
         moveDirectionX = Input.GetAxis("Horizontal");
 
         if (isGrounded && !Input.GetButton("Jump"))
@@ -98,14 +117,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
             }
         }
-
-        if (isLandingFast && isGrounded)
-        {
-            LandingImpact();
-        }
-
-        Flip();
-        Animations();
     }
 
     private IEnumerator PassThroughPlatforms()
@@ -120,7 +131,10 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
         isFloatingGrounded = IsFloatingGrounded();
 
-        Move();
+        if (!isStunned)
+        {
+            Move();
+        }
     }
 
     private void Move()
