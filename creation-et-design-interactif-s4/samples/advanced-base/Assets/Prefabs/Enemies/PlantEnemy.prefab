@@ -244,6 +244,7 @@ MonoBehaviour:
   hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 107261412584399405}
+  - {fileID: 107261412584399401}
 --- !u!114 &107261412584399405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,3 +384,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 107261412584399406}
   enemySplitting: {fileID: 0}
+  enemyUnshelled: {fileID: 0}

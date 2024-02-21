@@ -193,9 +193,10 @@ public class EnemyCharge : MonoBehaviour
             knockbackContact.Apply(direction, knockbackStrength);
         }
 
-        if(knockback != null) {
+        if (knockback != null)
+        {
             knockback.Apply(
-                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f), 
+                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f),
                 knockbackStrength
             );
         }
