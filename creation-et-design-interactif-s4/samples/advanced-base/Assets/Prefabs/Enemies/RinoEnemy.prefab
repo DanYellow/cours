@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightLength: 5
-  knockbackStrength: 8.5
+  knockbackStrength: 4.25
   spriteRenderer: {fileID: 4000432134071860591}
   delayBetweenCharges: 1.45
   speed: 25

@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
             new Vector2(bc.bounds.size.x * 0.8f, checkDistance),
             0,
             Vector2.down,
-            0.2f,
+            0,
             listEnemiesLayers
         );
 
