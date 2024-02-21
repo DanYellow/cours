@@ -47,6 +47,8 @@ public class RockHead : MonoBehaviour
 
     void Start()
     {
+        rb.mass = rockHeadData.mass;
+
         if (isReversed)
         {
             System.Array.Reverse(listTriggers);
