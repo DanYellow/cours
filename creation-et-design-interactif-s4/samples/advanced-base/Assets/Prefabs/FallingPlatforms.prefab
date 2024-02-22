@@ -4863,7 +4863,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 171.04, y: 9.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5754446456290574345}
   m_Father: {fileID: 0}
@@ -5047,5 +5047,4 @@ MonoBehaviour:
   fallDelay: 0.95
   rb: {fileID: 7992860950111955520}
   animator: {fileID: 7992860950111955525}
-  isFalling: 0
   particleEmitter: {fileID: 3987860193968283235}
