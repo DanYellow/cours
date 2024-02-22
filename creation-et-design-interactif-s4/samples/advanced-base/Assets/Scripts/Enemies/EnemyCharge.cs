@@ -98,6 +98,7 @@ public class EnemyCharge : MonoBehaviour
 
         if (contact.collider != null && isMovingForward)
         {
+            StopAllCoroutines();
             Stop(contact.collider);
         }
     }
@@ -170,16 +171,16 @@ public class EnemyCharge : MonoBehaviour
         float current = 0;
         float moveBackDuration = 0.85f;
 
-        WaitForFixedUpdate wait = new WaitForFixedUpdate();
+        WaitForFixedUpdate waitInterval = new WaitForFixedUpdate();
 
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
-            // Minus 1 because the enemy moveback first
+            // Minus 1 because the enemy moveback firstAssets/Scripts/Enemies/EnemyCharge.cs
             var dir = (transform.position * (dirX * -1)).normalized;
             rb.velocity = new Vector2(dir.x, rb.velocity.y);
 
-            yield return wait;
+            yield return waitInterval;
         }
 
         rb.velocity = Vector2.zero;
@@ -194,6 +195,8 @@ public class EnemyCharge : MonoBehaviour
     void Stop(Collider2D collider)
     {
         animator.SetTrigger("IsHit");
+        // Fallback if the charge is interrupted
+        spriteRenderer.color = new Color(1, 1, 1, 1);
         isMovingForward = false;
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockbackContact))
