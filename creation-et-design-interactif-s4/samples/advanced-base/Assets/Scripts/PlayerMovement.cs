@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isLandingFast = false;
 
     public bool isStunned = false;
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
 
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
@@ -83,6 +85,15 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
         Flip();
         Animations();
     }
@@ -97,7 +108,10 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || isJumping && jumpCount < nbMaxJumpsAllowed))
+        if (
+            Input.GetButtonDown("Jump") && 
+            (isJumping && jumpCount < nbMaxJumpsAllowed || coyoteTimeCounter > 0f)
+        )
         {
             Jump(false);
         }
@@ -176,6 +190,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetTrigger("DoubleJump");
             }
+        }
+        else
+        {
+            coyoteTimeCounter = 0f;
         }
     }
 
