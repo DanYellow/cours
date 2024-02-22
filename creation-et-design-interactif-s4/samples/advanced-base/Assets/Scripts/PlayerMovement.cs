@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // init position : 0.36 -0.1
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
+    private bool isJumping = false;
 
     private bool isLandingFast = false;
 
@@ -92,9 +94,10 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !Input.GetButton("Jump"))
         {
             jumpCount = 0;
+            isJumping = false;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < nbMaxJumpsAllowed))
+        if (Input.GetButtonDown("Jump") && (isGrounded || isJumping && jumpCount < nbMaxJumpsAllowed))
         {
             Jump(false);
         }
@@ -167,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
         if (!shortJump)
         {
             jumpCount++;
+            isJumping = true;
 
             if (jumpCount > 1)
             {
