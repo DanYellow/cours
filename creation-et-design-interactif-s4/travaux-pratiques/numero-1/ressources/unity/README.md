@@ -41,11 +41,11 @@ Comme tout langage de programmation le C# permet de créer des variables, la syn
 Voici des exemples de variables :
 ```cs
 // Un entier
-int anneesBUT = 3;
+int nbYearsBUT = 3;
 // Une chaîne de caractères
 string playerName = "player1";
 // Un tableau de chaînes de caractères
-string[] tableauFormations = {"MMI", "TC", "GE2I", "MT2E"};
+string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
 
 > Si vous souhaitez définir une constante (variable dont la valeur ne peut pas changer au cours du temps), il suffit juste de mettre "const" devant le type de la variable. Exemple : `const string cours = "Unity"`.
@@ -55,7 +55,7 @@ Petit point : En C# (et d'autres langages de programmation), il existe une diff�
 
 ```cs
 // Equivalent du code ci-dessus mais avec une liste, nous pouvons donc ajouter ou retirer des éléments grâce aux méthodes .Add() et .Remove() ou même en remplacer à un index précis grâce à la méthode .Insert(int index, valeur).
-List<string> listeFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
+List<string> listFormations = new List<string>(){"MMI", "TC", "GE2I", "MT2E"};
 ```
 - [Différence Liste et Tableau en C# - anglais](https://www.shekhali.com/c-array-vs-list)
 
@@ -71,7 +71,7 @@ Outils idéaux pour limiter la réutilisation du code et le rendre plus lisible,
 }
 ``` 
 
-- Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. Si votre fonction ne doit rien retourner, on mettra la valeur "void"
+- Type de retour : le principe est le même que le type de variable sauf que c'est ce que la fonction va retourner. Si votre fonction ne doit rien retourner, on mettra la valeur `void`
     - > Une fonction peut retourner plusieurs type à la fois, mais il est préférable de limiter vos retours de fonctions (ou méthodes) à un type à la fois
 - NomDeFonction : Comme les variables, le nom est arbitraire mais certains noms sont interdits et bien évidemment on nommera nos fonctions avec un nom explicite. A noter qu'en C# les fonctions sont écrites en PascalCase [(plus d'informations sur PascalCase)](https://tech-lib.fr/pascalcase/), par convention
 - Les paramètres : tout comme les variables, ils doivent avoir un type et sont séparés par une virgule. **Pour rappel, les paramètres d'une fonction ne sont accessibles que dans la fonction qui les définit**
@@ -85,7 +85,7 @@ void Addition(int num1, int num2)
 }
 ```
 
-> La méthode `Debug.Log()` permet d'afficher textes et valeurs dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. Par ailleurs, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
+> La méthode `Debug.Log()` permet d'afficher textes et valeurs dans la console d'Unity (Window > General > Console). Notez que si vous voulez afficher une chaîne de caractères dans la méthode (ou n'importe où ailleurs), **il faut impérativement utiliser des guillemets doubles (")**. De plus, toutes les instructions en C# doivent impérativement se terminer par un point-virgule (;), **il est obligatoire**.
 > - [Voir documentation de la méthode Debug.Log()](https://docs.unity3d.com/ScriptReference/Debug.Log.html) 
 > 
 > Si jamais vous souhaitez afficher le contenu d'un tableau (ou une liste) sur une ligne dans la console, vous pouvez utiliser l'instruction suivante : `string.Join(",", __tableau__);`. A noter que la virgule passée en premier paramètre peut être remplacée par un autre caractère.
@@ -317,7 +317,7 @@ Il existe d'autres conventions de programmation liée à Unity / C#, vous n'avez
 Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir durant ce cycle de cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
-- [Générateur de sprites](https://codeshack.io/images-sprite-sheet-generator/)
+- [Générateur de spritesheets](https://codeshack.io/images-sprite-sheet-generator/)
 - [Convertisseur image -> police d'écriture](https://yal.cc/r/20/pixelfont/)
 
 Il existe également des sites pour récupérer des ressources gratuites de qualité variable :
@@ -328,15 +328,19 @@ Il existe également des sites pour récupérer des ressources gratuites de qual
 Nous verrons dans les grandes lignes l'interface d'Unity. Néanmoins, si vous avez besoin, à l'avenir, d'un rappel ou de découvrir de nouvelles choses : 
 - [Voir présentation de l'interface d'Unity par Tuto Unity FR (français)](https://www.youtube.com/watch?v=Ef6KMvYNwj8)
 
-Voici un lien qui liste les différents raccourcis d'Unity, ils pourront vous être utiles :
+Voici des liens liés aux raccourcis d'Unity, ils pourront vous être utiles :
 - [https://www.evercast.us/blog/unity-hotkeys-shortcuts (anglais)](https://www.evercast.us/blog/unity-hotkeys-shortcuts)
+- [Liste des raccourcis](https://docs.unity3d.com/2017.3/Documentation/Manual/UnityHotkeys.html)
+- [Documentation sur la personnalisation des raccourcis](https://docs.unity3d.com/Manual/ShortcutsManager.html)
 - Il y a également le menu dédié accessible via `Edit > Shortcuts` (Windows) ou `Unity > Shortcuts` (MacOS)
 
 > Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement votre projet (pas officiellement) et vous pourriez perdre quelques heures de travail précieuses.
 
 ## Si vous n'avez pas d'ordinateur portable
 
-Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants.
+Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants. 
+
+> **Dans tous les cas, il sera demandé de conserver le projet via github, vous devrez commiter et pousser l'avancée de votre projet.**
 
 ### Liste de dossiers/fichiers à copier sur une clef usb / disque dur ou pousser sur git
 - Assets/
@@ -346,3 +350,4 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 
 **N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
+> Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
