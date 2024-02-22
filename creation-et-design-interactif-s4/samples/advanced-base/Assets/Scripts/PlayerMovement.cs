@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Running system"), SerializeField]
     private float moveSpeed;
+    public bool isStunned = false;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -43,9 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLandingFast = false;
 
-    public bool isStunned = false;
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
 
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
@@ -85,9 +88,10 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
-        if (isGrounded)
+        if (isGrounded && !isJumping)
         {
             coyoteTimeCounter = coyoteTime;
+            jumpCount = 0;
         }
         else
         {
@@ -102,17 +106,25 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirectionX = Input.GetAxis("Horizontal");
 
-        if (isGrounded && !Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            jumpCount = 0;
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (isJumping && rb.velocity.y < 0)
+        {
             isJumping = false;
         }
 
         if (
-            Input.GetButtonDown("Jump") && 
-            (isJumping && jumpCount < nbMaxJumpsAllowed || coyoteTimeCounter > 0f)
+            jumpBufferCounter > 0f && jumpCount < nbMaxJumpsAllowed && (coyoteTimeCounter > 0f || jumpCount >= 1)
         )
         {
+            jumpBufferCounter = 0f;
             Jump(false);
         }
 
