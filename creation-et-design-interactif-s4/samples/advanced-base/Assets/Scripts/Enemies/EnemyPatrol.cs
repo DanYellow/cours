@@ -40,7 +40,7 @@ public class EnemyPatrol : MonoBehaviour
     private void Start()
     {
         isFacingRight = transform.right.normalized.x > 0;
-        idleTime = Mathf.Round(walkTime / 1.5f);
+        idleTime = Mathf.Round(walkTime / 2.5f);
 
         waitWalkTime = new WaitForSeconds(walkTime);
         waitIdleTime = new WaitForSeconds(idleTime);
