@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6269539700706445051}
   m_Layer: 6
   m_Name: LittleRockEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,11 +198,11 @@ MonoBehaviour:
   rb: {fileID: 7851825537408949732}
   animator: {fileID: 7851825537408949728}
   speed: 4.25
-  walkTime: 5
+  moveDuration: 5
+  canWait: 0
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 2056
-  canWait: 0
   obstacleDetectionLength: 0.15
   bc: {fileID: 7851825537408949733}
   obstacleCheckRadius: 0.25

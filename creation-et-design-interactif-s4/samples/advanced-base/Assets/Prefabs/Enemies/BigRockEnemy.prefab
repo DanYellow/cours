@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7629500146275898872}
   m_Layer: 6
   m_Name: BigRockEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
