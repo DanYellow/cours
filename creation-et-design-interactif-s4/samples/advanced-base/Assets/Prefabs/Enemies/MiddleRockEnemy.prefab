@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 752091741, guid: ad6acc58ee027a64abae241daae63aa2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 0.875}
@@ -216,6 +216,8 @@ MonoBehaviour:
   sr: {fileID: 4317209785469998156}
   speed: 2.5
   isFacingRight: 0
+  obstacleDetectionLength: 0.15
+  bc: {fileID: 7967640488927838004}
   walkTime: 5
   hasCollisionWithObstacle: 0
   obstacleCheckRadius: 0.25
