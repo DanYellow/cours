@@ -14,6 +14,18 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isFacingRight = true;
 
+    [SerializeField]
+    private Animator animator;
+
+
+    [Tooltip("Running system"), SerializeField]
+    private float moveSpeed = 10;
+    public bool isStunned = false;
+
+    [Header("Position")]
+    public bool isGrounded = false;
+    public bool isFloatingGrounded = false;
+
     public bool isOnFallingPlatform = false;
 
     [Tooltip("Position checks"), SerializeField]
@@ -23,15 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private LayerMask listFloatingPlatformsLayers;
-
-    public bool isGrounded = false;
-    public bool isFloatingGrounded = false;
-    [SerializeField]
-    private Animator animator;
-
-    [Tooltip("Running system"), SerializeField]
-    private float moveSpeed;
-    public bool isStunned = false;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
