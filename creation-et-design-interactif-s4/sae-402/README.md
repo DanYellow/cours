@@ -44,7 +44,6 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
     - Nombre de points de vie des ennemis de base
     - Tremblement de la caméra
     - Mort du joueur
-    - Perte de points de vies du joueur
     - ...
 - Système de pause (Appui sur le bouton Echap)
 - Un gestionnaire de bruitages / Musique
@@ -53,7 +52,7 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes (dossier `Assets/Scenes`) :
-- Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
+- Un menu d'accueil **[que vous devrez compléter voir plus bas](#liste-des-choses-impératives-à-faire-vous-devez-toutes-les-faire)** (MainMenu)
 - Un niveau qui devra faire office de premier niveau (Level1)
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
@@ -82,12 +81,12 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
     - L'écran doit contenir : 
         - Le logo de l'université
-            - Déjà présent dans le projet dans le dossier `Assets/Imports/Logos`
+            - Plusieurs versions sont déjà présentes dans le projet dans le dossier `Assets/Imports/Logos` à vous de choisir
         - Le nom du jeu
           - Vous devez en trouver un
-          - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image dans Unity
+          - Le logo peut être fait sous Photoshop ou autre puis intégré sous forme d'image dans Unity ou tout simplement du texte
         - De quoi commencer le jeu au premier niveau
-            - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau grâce au GameObject CurrentSceneManager
+            - Il y a déjà un bouton, il faut ajouter la fonction pour charger le premier niveau grâce au `GameObject` CurrentSceneManager
         - Un bouton pour permettre de quitter le jeu
         - Les développeurs / développeuses du jeu, le nom de la formation et l'année scolaire courante
     - Pour rappel, ici il faudra utiliser un Canvas
@@ -197,7 +196,7 @@ Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le
 > Le terme "prop" provient du jargon cinématographique, il désigne un accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout accessoire est nommé "prop". [En savoir plus](https://fr.wikipedia.org/wiki/Accessoire#Cin%C3%A9ma).
 
 ### Blocs
-Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des fruits ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
+Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des `GameObject` ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
 
 ## Contenu de l'écran des crédits 
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
@@ -205,7 +204,7 @@ Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le per
 - https://pixelfrog-assets.itch.io/pixel-adventure-1
 - https://opengameart.org/content/8bit-style-music
 - Et vous bien évidemment 
-    - Pensez également à mettre le logo de l'université + l'année + le nom de la formation
+    - Pensez également à mettre le logo de l'université (déjà importé dans le dossier `Assets/Imports/Logos`) + l'année + le nom de la formation
 
 ### Ressources graphiques / musicales gratuites utilisables, source non exhaustive
 - https://www.kenney.nl/assets
@@ -214,10 +213,10 @@ Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le per
 - https://www.youtube.com/@NCALIB
 
 ## Gestion des ennemis
-La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus. Le script `Assets/Scripts/Enemy` peut accepter un ScriptableObject de type `FloatVariable` représantant le nombre 
+La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus. Le script `Assets/Scripts/Enemy` peut accepter un ScriptableObject de type `FloatVariable` représantant le nombre de points de vie.
 
 # Console de debug
-Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
 
 
 # Astuces et conseils
@@ -259,20 +258,20 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 # Votre liste à faire
 - [x] Lire les consignes
 - [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
-- [ ] Initialiser le projet sur github
+- [ ] Initialiser le projet sur github (un seul membre du groupe doit le faire)
 - [ ] Respecter les attentes
 - [ ] Tester le jeu avant de le rendre
 - [ ] Générer une archive contenant :
     - **Votre build pour Windows ou MacOS du jeu (pas de build WebGL)**
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**
-        - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
+            - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
         - Un fichier texte avec le lien du projet git + les fonctionnalités supplémentaires que vous avez ajouté ([partie "Liste des choses à faire au choix"](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe))
 
 # FAQ - Foire Aux Questions
 
-- **Quand j'ai ouvert le projet pour la dernière fois, j'ai eu une scène vide. Pourquoi ?**
+- **Quand j'ai ouvert le projet pour la première fois, j'ai eu une scène vide. Pourquoi ?**
 
-    C'est normal, dans certains cas Unity peut lancer un projet sur une scène "vide". Les scènes du projet sont dans le dossier `Assets/Scenes`. Si ça arrive, il vous suffira juste d'ouvrir une scène de ce dossier. Pour rappel, il y a quatre scènes dans le dossier :
+    **C'est normal,** dans certains cas Unity peut lancer un projet sur une scène "vide". Les scènes du projet sont dans le dossier `Assets/Scenes`. Si ça arrive, il vous suffira juste d'ouvrir une scène de ce dossier. Pour rappel, il y a quatre scènes dans le dossier :
         - Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
         - Un niveau qui devra faire office de premier niveau (Level1)
         - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
@@ -283,31 +282,37 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
-    Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
+    **Il est possible réaliser cette SAE en solitaire.** Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
     
-    Ce n'est pas demandé, mais vous pouvez le faire. Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).
+    **Ce n'est pas demandé, mais vous pouvez le faire.** Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).
         - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
         - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
+- **Je n'entends pas le son en mode Edit, pourquoi ?**
+
+    Il faut l'activer dans la barre de menus de l'onglet "Game" (voir capture ci-dessous).
+    ![](./mute-game.jpg)
+
+    En recliquant dessus, vous le désactiverez.
 - **J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?**
     
-    Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut
+    Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut.
 - **Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?**
 
-    Vous avez tout à fait le droit. Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples, bien qu'il doive faire office de premier niveau dans votre jeu.
+    **Vous avez tout à fait le droit.** Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples, bien qu'il doive faire office de premier niveau dans votre jeu.
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    Non. Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation. [Vous avez toujours le document à sur sujet si vous avez un trou de mémoire.](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/SCRIPTABLE-OBJECTS.md)
+    **Non.** Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation. [Vous avez toujours le document à sur sujet si vous avez un trou de mémoire.](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/SCRIPTABLE-OBJECTS.md)
 - **Puis-je effectuer un projet à partir de zéro ?**
 
     **Non**, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
 
 - **En cours, nous avons affiché la vie du joueur sous forme de barre. Est-il possible de faire autrement ?**
 
-    Oui. A partir du moment où l'information reste claire, il n'y a pas de problème.
+    **Oui.** A partir du moment où l'information reste claire, il n'y a pas de problème.
 
 - **Est-il possible de mettre des propriétés/méthodes de classe en privé ?**
 
-    Oui. Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
+    **Oui.** Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
     - [En savoir plus sur `[SerializeField]`](https://docs.unity3d.com/ScriptReference/SerializeField.html)
 
