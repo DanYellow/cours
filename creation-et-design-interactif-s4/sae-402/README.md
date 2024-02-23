@@ -1,9 +1,11 @@
 # SAE 402 - Concevoir un dispositif interactif
 > _Les consignes pourront être modifiées et peuvent aborder des notions qui n'ont pas pu être vues en cours pour des questions de temps. La cas échéant ne prenez pas en compte ces consignes. Toutefois rien ne nous empêche d'essayer._
 
-> **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
+> **Note : Le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity.**
 
-> **Note 2 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+> **Note 2 : Si vous avez besoin d'un rappel sur certains composants vus en cours, vous avez un [document à disposition.](../travaux-pratiques/numero-1/ressources/unity/MEMO-COMPOSANTS.md)**
+
+> **Note 3 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
 
 ![](./screenshot.jpg)
 
@@ -21,7 +23,7 @@ Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 ![](unity-hub.jpg)
 <p style="text-align: center">L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity.</p>
 
-> **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Néanmoins, vous serez en capacité de l'ouvrir avec une version plus récente. Il est donc inutile de perdre du temps à installer une ancienne version d'Unity pour ouvrir ce projet.**
+> **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Toutefois, vous serez en capacité de l'ouvrir avec une version plus récente. N'allez pas perdre du temps à installer une ancienne version d'Unity.**
 
 Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vous trouverez :
 - Gestion des déplacements du joueur
@@ -257,6 +259,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 # Votre liste à faire
 - [x] Lire les consignes
 - [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
+- [ ] Initialiser le projet sur github
 - [ ] Respecter les attentes
 - [ ] Tester le jeu avant de le rendre
 - [ ] Générer une archive contenant :
