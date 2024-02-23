@@ -110,17 +110,18 @@ Enfin sachez que les layers sont utilisés notamment avec les Raycasts pour déf
 
 # Transform
 
-Composant par défaut de tout GameObject, **le composant `Transform` ne peut pas être retiré d'un GameObject**. Il représente les composantes : Position,Rotation et Échelle d'un objet
+Composant par défaut de tout GameObject, **le composant `Transform` ne peut pas être retiré d'un GameObject**. Il représente les composantes : Position (position), Rotation (rotation) et Échelle (scale) d'un objet
 
 > Pour éviter d'avoir de mauvaises surprises, pensez toujours à réinitialiser (Reset) un Gameobject après avoir ajouté à votre scène. Pour rappel, on fait ceci en cliquant sur les trois petits points situés à droite du nom d'un composant.
 > ![](./printscreens/memo-reset.jpg)
 
 La position d'un GameObject existe dans deux espaces un dit "global" (appelé "world" par Unity) et un autre "local". Les deux sont égaux lorsqu'un GameObject est à la racine de la hiérarchie d'une scène, ceci a son importance lorsqu'un GameObject est imbriqué. En effet, lorsque c'est le cas, Unity ne calcule plus la position du GameObject par rapport à l'origine de la scène mais par rapport à l'origine de son parent direct. Ainsi, c'est la position locale qui est affichée dans l'inspecteur.
-![](./printscreens/memo-layer-collision-matrix.jpg)
 
 De ce fait, il existe les propriétés `localPosition` et `position`, la première représant la position local et l'autre globale. Ce raisonnement reste le même pour la rotation et l'échelle d'un GameObject.
 
-Enfin sachez qu'il existe des méthodes pour convertir une position d'un espace à un autre (local/world)
+> Astuce : les composantes du composant acceptent des fonctions. Il est possible d'y écrire des opérateurs arithmétiques mais aussi d'aller beaucoup plus loin. Par exemple, si vous avez quatre `GameObject`, et que vous voulez les répartir sur l'axe X entre les valeurs -10 et 10, il faudra utiliser la fonction d'interpolation linéaire, représentée par la fonction `L(min, max)`. Après avoir sélectionné vos `GameObject`, passez en paramètre la plage de valeurs `L(-10, 10)` et _voilà_.
+>
+> Il est également possible d'utiliser des fonctions plus complexes comme `cosinus` ou `sinus` et même placer de façon aléatoire les éléments grâce à la fonction `R(min, max)`
 
 # Rigidbody2D
 
@@ -142,7 +143,7 @@ En bref, on appliquera un `Rigidbody2D` à un GameObject lorsqu'on souhaite qu'u
 
 Pour terminer, abordons les propriétés `gravityScale` et `mass` de la classe `Rigidbody2D`. La propriété `mass` représente la masse d'un GameObject, n'a aucune incidence sur son attraction par la gravité. La seule incidence qu'il porte est sur sa capacité à être déplacé par une force.
 
-La propriété `gravityScale` définit à quel point un objet sera attiré par la gravité. **Plus cette valeur est élevée, plus le GameObject atterrira rapidement.** Par exemple, si vous souhaitez faire un jeu de tir avec la caméra au-dessus, il faudra mettre la valeur 0 pour la propriété `gravityScale`, ainsi votre GameObject ne tombera jamais.
+La propriété `gravityScale` définit à quel point un objet sera attiré par la gravité. **Plus cette valeur est élevée, plus le GameObject atterrira rapidement.** Par exemple, si vous souhaitez faire un jeu de tir avec la caméra au-dessus (top-down shooter), il faudra mettre la valeur 0 pour la propriété `gravityScale`, ainsi votre GameObject ne tombera jamais.
 
 > N'utilisez pas la méthode `.Transform()` pour déplacer vos GameObjects, si cela peut être tentant, ceci vous expose à la mauvaise détection des collisions entre éléments. Et par conséquent, entraîner des comportements étranges. Par exemple, traverser les murs.
 
@@ -195,7 +196,7 @@ La gestion des animations peut être définies en quatre grandes parties :
 >
 > - Ne pas en mettre
 > - Faire des animations en C# ou utiliser un package comme [LeanTween (gratuit)](https://assetstore.unity.com/packages/tools/animation/leantween-3595) qui permet de faire des animations en C# via des méthodes clé en main
-> - **Mettre des animations dans des Canvas distincts.** Si dans votre UI, vous avez un texte qui ne change pas et une image qui bouge, faites un Canvas avec le texte et un autre avec l'image le tout contenu dans un autre Canvas
+> - **Mettre des animations dans des Canvas distincts.** Si dans votre UI, vous avez un texte qui ne change pas **et** une image qui bouge, faites un Canvas avec le texte et un autre avec l'image le tout contenu dans un autre Canvas
 
 **Si l'élément est animé en permanence, vous pouvez utiliser le composant `Animator` dans un Canvas, c'est le seul cas.**
 
