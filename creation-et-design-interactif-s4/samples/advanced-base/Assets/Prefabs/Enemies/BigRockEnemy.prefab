@@ -198,17 +198,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5600367782922950186}
   animator: {fileID: 5600367782922950190}
-  sr: {fileID: 5600367782922950191}
   speed: 1.8
-  isFacingRight: 1
-  obstacleDetectionLength: 0.2
-  bc: {fileID: 5600367782922950187}
-  walkTime: 5
-  hasCollisionWithObstacle: 0
-  obstacleCheckRadius: 0.25
+  moveDuration: 5
+  canWait: 1
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 2056
+  obstacleDetectionLength: 0.2
+  bc: {fileID: 5600367782922950187}
+  obstacleCheckRadius: 0.25
 --- !u!114 &5600367782922950189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,8 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5600367782922950190}
-  split: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
-  nbOfSplit: 2
+  splitPrefab: {fileID: 4317209785469998162, guid: f5ea7e794cda6b448b2a8a4452bfdde3, type: 3}
+  nbOfSplits: 2
 --- !u!114 &1487734456
 MonoBehaviour:
   m_ObjectHideFlags: 0

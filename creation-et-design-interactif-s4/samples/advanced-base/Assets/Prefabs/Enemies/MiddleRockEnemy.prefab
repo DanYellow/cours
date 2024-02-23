@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4317209785469998163}
-  split: {fileID: 7851825537408949759, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-  nbOfSplit: 2
+  splitPrefab: {fileID: 7851825537408949759, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
+  nbOfSplits: 2
 --- !u!114 &3285495357072266577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,11 +214,11 @@ MonoBehaviour:
   rb: {fileID: 3102186620743639381}
   animator: {fileID: 4317209785469998163}
   speed: 2.5
-  walkTime: 5
+  moveDuration: 5
+  canWait: 0
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 2056
-  canWait: 0
   obstacleDetectionLength: 0.15
   bc: {fileID: 7967640488927838004}
   obstacleCheckRadius: 0.25

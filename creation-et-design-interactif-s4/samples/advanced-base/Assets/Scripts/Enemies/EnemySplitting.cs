@@ -5,10 +5,10 @@ public class EnemySplitting : MonoBehaviour
     public Animator animator;
 
     [Tooltip("Gameobject to instantiate when the enemy is hit")]
-    public GameObject split;
+    public GameObject splitPrefab;
 
     [Tooltip("Number of items created after being hit")]
-    public int nbOfSplit;
+    public int nbOfSplits;
 
     private bool hasSplitted = false;
 
@@ -23,10 +23,10 @@ public class EnemySplitting : MonoBehaviour
         Quaternion angle;
         Vector3 position = transform.position;
         float posXDelta = 1.5f;
-        if (!hasSplitted && split != null)
+        if (!hasSplitted && splitPrefab != null)
         {
             hasSplitted = true;
-            for (var i = 0; i < nbOfSplit; i++)
+            for (int i = 0; i < nbOfSplits; i++)
             {
                 bool willFacingRight = i % 2 != 0;
 
@@ -38,7 +38,7 @@ public class EnemySplitting : MonoBehaviour
                     position.z
                 );
 
-                Instantiate(split, randomPosition, angle);
+                Instantiate(splitPrefab, randomPosition, angle);
             }
         }
     }
