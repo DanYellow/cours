@@ -197,17 +197,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7851825537408949732}
   animator: {fileID: 7851825537408949728}
-  sr: {fileID: 7851825537408949729}
   speed: 4.25
-  isFacingRight: 1
-  obstacleDetectionLength: 0.15
-  bc: {fileID: 7851825537408949733}
   walkTime: 5
-  hasCollisionWithObstacle: 0
-  obstacleCheckRadius: 0.25
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 2056
+  canWait: 0
+  obstacleDetectionLength: 0.15
+  bc: {fileID: 7851825537408949733}
+  obstacleCheckRadius: 0.25
 --- !u!114 &2400358585589484918
 MonoBehaviour:
   m_ObjectHideFlags: 0

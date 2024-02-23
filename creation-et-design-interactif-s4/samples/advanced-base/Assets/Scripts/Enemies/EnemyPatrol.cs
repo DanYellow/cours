@@ -6,26 +6,28 @@ public class EnemyPatrol : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
-    public float speed;
 
     [ReadOnlyInspector]
-    public bool isFacingRight = false;
+    private bool isFacingRight = false;
 
-    private bool isIdle = true;
+    [Header("Movement management")]
+    public float speed = 0.5f;
+    private bool isIdle = false;
 
     private float idleTime;
 
-    [Tooltip("Define how long the enemy will walk")]
-    public float walkTime = 5f;
+    [Tooltip("Define how long the enemy will move")]
+    public float moveDuration = 5f;
 
     private bool hasCollisionWithObstacle;
 
-    public LayerMask obstacleLayersMask;
-
-    private WaitForSeconds waitWalkTime;
+    private WaitForSeconds waitMoveDuration;
     private WaitForSeconds waitIdleTime;
+    [Tooltip("If false, the enemy will move endlessly back and forth")]
+    public bool canWait = true;
 
     [Header("Collision detection")]
+    public LayerMask obstacleLayersMask;
     public float obstacleDetectionLength = 0.15f;
     public BoxCollider2D bc;
     [UnityEngine.Serialization.FormerlySerializedAs("groundCheckRadius")]
@@ -40,12 +42,16 @@ public class EnemyPatrol : MonoBehaviour
     private void Start()
     {
         isFacingRight = transform.right.normalized.x > 0;
-        idleTime = Mathf.Round(walkTime / 2.5f);
 
-        waitWalkTime = new WaitForSeconds(walkTime);
-        waitIdleTime = new WaitForSeconds(idleTime);
+        if (canWait)
+        {
+            idleTime = Mathf.Round(moveDuration / 2.5f);
 
-        StartCoroutine(ChangeState());
+            waitMoveDuration = new WaitForSeconds(moveDuration);
+            waitIdleTime = new WaitForSeconds(idleTime);
+
+            StartCoroutine(ChangeState());
+        }
     }
 
     private void Update()
@@ -85,7 +91,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             // Enemy will walk during X seconds...
             isIdle = false;
-            yield return waitWalkTime;
+            yield return waitMoveDuration;
 
             // ...then wait during X seconds...
             isIdle = true;
