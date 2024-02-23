@@ -119,9 +119,10 @@ La position d'un GameObject existe dans deux espaces un dit "global" (appelé "w
 
 De ce fait, il existe les propriétés `localPosition` et `position`, la première représant la position local et l'autre globale. Ce raisonnement reste le même pour la rotation et l'échelle d'un GameObject.
 
-> Astuce : les composantes du composant acceptent des fonctions. Il est possible d'y écrire des opérateurs arithmétiques mais aussi d'aller beaucoup plus loin. Par exemple, si vous avez quatre `GameObject`, et que vous voulez les répartir sur l'axe X entre les valeurs -10 et 10, il faudra utiliser la fonction d'interpolation linéaire, représentée par la fonction `L(min, max)`. Après avoir sélectionné vos `GameObject`, passez en paramètre la plage de valeurs `L(-10, 10)` et _voilà_.
+> Astuce : les composantes du composant acceptent des expressions numériques comme des opérateurs arithmétiques mais aussi d'aller beaucoup plus loin. Par exemple, si vous avez quatre `GameObject`, et que vous voulez les répartir sur l'axe X entre les valeurs -10 et 10, on peut utiliser une fonction d'interpolation linéaire, représentée par la fonction `L(min, max)`. Après avoir sélectionné vos `GameObject`, passez en paramètre la plage de valeurs `L(-10, 10)` et _voilà_.
 >
 > Il est également possible d'utiliser des fonctions plus complexes comme `cosinus` ou `sinus` et même placer de façon aléatoire les éléments grâce à la fonction `R(min, max)`
+> [Accéder à la documentation de l'onglet Inspector - voir partie "Numeric field expressions"](https://docs.unity3d.com/Manual/EditingValueProperties.html)
 
 # Rigidbody2D
 
