@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6722714434073853403}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.04, y: -8.86, z: -1.0447927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6722714434073853344
 SpriteRenderer:
@@ -147,6 +147,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 763767b17b6e7a74898a59a5857ac82c, type: 2}
   collectedEffect: {fileID: 4940154600373181178, guid: 38b1435c33331ab4183d95237c544984, type: 3}
   spriteRenderer: {fileID: 6722714434073853344}
+  onPickUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &6722714434073853349
 Animator:
   serializedVersion: 5
@@ -167,3 +170,4 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

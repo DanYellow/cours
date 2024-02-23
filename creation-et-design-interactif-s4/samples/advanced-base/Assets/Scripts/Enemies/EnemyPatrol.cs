@@ -6,60 +6,75 @@ public class EnemyPatrol : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
-    public SpriteRenderer sr;
-    public float speed;
 
-    public bool isFacingRight = false;
+    [ReadOnlyInspector]
+    private bool isFacingRight = false;
 
-    private bool isIdle = true;
+    [Header("Movement management")]
+    public float speed = 0.5f;
+    private bool isIdle = false;
 
     private float idleTime;
 
-    [Tooltip("Define how long the enemy will walk")]
-    public float walkTime = 5f;
+    [Tooltip("Define how long the enemy will move")]
+    public float moveDuration = 5f;
 
-    private Vector3 offset;
+    private bool hasCollisionWithObstacle;
 
-    private Vector3 lastKnownPosition = Vector3.zero;
+    private WaitForSeconds waitMoveDuration;
+    private WaitForSeconds waitIdleTime;
+    [Tooltip("If false, the enemy will move endlessly back and forth")]
+    public bool canWait = true;
 
-    public bool hasCollisionWithObstacle;
+    [Header("Collision detection")]
+    public LayerMask obstacleLayersMask;
+    public float obstacleDetectionLength = 0.15f;
+    public BoxCollider2D bc;
     [UnityEngine.Serialization.FormerlySerializedAs("groundCheckRadius")]
     public float obstacleCheckRadius = 0.25f;
-    private bool isFlipping = false;
-
-    public LayerMask obstacleLayersMask;
-
-    public WaitForSeconds waitWalkTime;
-    public WaitForSeconds waitIdleTime;
 
     private void Awake()
     {
         // We don't want the script to be enabled by default
         enabled = false;
-        waitWalkTime = new WaitForSeconds(walkTime);
-        waitIdleTime = new WaitForSeconds(idleTime);
     }
 
     private void Start()
     {
-        offset = new Vector3(sr.bounds.extents.x * (isFacingRight ? -1 : 1), sr.bounds.extents.y, 0);
-        idleTime = Mathf.Round(Random.Range(0, 3.5f));
-        StartCoroutine(ChangeState());
+        isFacingRight = transform.right.normalized.x > 0;
 
-        InvokeRepeating(nameof(UpdateLastKnownPosition), 3.0f, 3f);
-    }
-
-    void UpdateLastKnownPosition()
-    {
-        if (lastKnownPosition == transform.position && !isFlipping && (rb.velocity.y > -0.1f && rb.velocity.y < 0.1f))
+        if (canWait)
         {
-            StartCoroutine(Flip());
+            idleTime = Mathf.Round(moveDuration / 2.5f);
+
+            waitMoveDuration = new WaitForSeconds(moveDuration);
+            waitIdleTime = new WaitForSeconds(idleTime);
+
+            StartCoroutine(ChangeState());
         }
-        lastKnownPosition = transform.position;
     }
 
     private void Update()
     {
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.velocity.x));
+    }
+
+    private void FixedUpdate()
+    {
+        hasCollisionWithObstacle = HasCollisionWithObstacle();
+
+        Vector2 startCast = new Vector2(
+            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.center.y
+        );
+        Vector2 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
+
+        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
+        if (hitObstacle.collider != null || !hasCollisionWithObstacle)
+        {
+            Flip();
+        }
+
         if (isIdle)
         {
             Idle();
@@ -67,21 +82,6 @@ public class EnemyPatrol : MonoBehaviour
         else
         {
             Move();
-        }
-        animator.SetFloat("MoveDirectionX", Mathf.Abs(rb.velocity.x));
-    }
-
-    private void FixedUpdate()
-    {
-        hasCollisionWithObstacle = HasCollisionWithObstacle();
-        Vector3 startCast = transform.position - new Vector3(offset.x, 0, 0); ;
-        Vector3 endCast = transform.position + (isFacingRight ? Vector3.right : Vector3.left) * 0.9f;
-        Debug.DrawLine(startCast, endCast, Color.green);
-
-        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
-        if (hitObstacle.collider != null || !hasCollisionWithObstacle)
-        {
-            StartCoroutine(Flip());
         }
     }
 
@@ -91,7 +91,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             // Enemy will walk during X seconds...
             isIdle = false;
-            yield return waitWalkTime;
+            yield return waitMoveDuration;
 
             // ...then wait during X seconds...
             isIdle = true;
@@ -106,35 +106,46 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Move()
     {
-        if (isFacingRight)
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
+        rb.velocity = new Vector2(speed * Mathf.Sign(transform.right.normalized.x), rb.velocity.y);
     }
 
     public bool HasCollisionWithObstacle()
-    { 
-        return Physics2D.OverlapCircle(transform.position - offset, obstacleCheckRadius, obstacleLayersMask);
+    {
+        Vector2 center = new Vector2(
+            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.min.y
+        );
+        return Physics2D.OverlapCircle(center, obstacleCheckRadius, obstacleLayersMask);
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position - offset, obstacleCheckRadius);
+        if (bc != null)
+        {
+            Gizmos.DrawWireSphere(
+                new Vector2(
+                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+                    bc.bounds.min.y
+                ),
+                obstacleCheckRadius
+            );
+
+            Gizmos.color = Color.green;
+            Vector2 startCast = new Vector2(
+                bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+                bc.bounds.center.y
+            );
+            Gizmos.DrawLine(
+                startCast,
+                new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y)
+            );
+        }
     }
 
-    public IEnumerator Flip()
+    public void Flip()
     {
-        offset.x *= -1;
-        isFlipping = true;
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-        lastKnownPosition = Vector3.zero;
-        yield return new WaitForSeconds(0.2f);
-        isFlipping = false;
     }
 
     private void OnBecameVisible()

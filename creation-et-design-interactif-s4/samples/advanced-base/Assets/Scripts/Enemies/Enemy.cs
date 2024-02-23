@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
 
-    private float bounceFactorOnDeath = 0.15f;
+    private float bounceFactorOnDeath = 5.25f;
 
     private void Start()
     {
@@ -96,7 +96,10 @@ public class Enemy : MonoBehaviour
         }
 
         rb.velocity = Vector2.zero;
-        Vector2 bounceForce = Vector2.up * (rb.mass * bounceFactorOnDeath);
+        rb.mass = 1;
+        rb.gravityScale = 3;
+        yield return null;
+        Vector2 bounceForce = Vector2.up * bounceFactorOnDeath;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
 
         float startZAngle = transform.rotation.z;
@@ -106,9 +109,9 @@ public class Enemy : MonoBehaviour
         yield return null;
         while(current <= 1) {
             // https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/
-            float angle = Mathf.LerpAngle(startZAngle, 180 * Mathf.Sign(transform.right.normalized.x), Mathf.Sin(current * Mathf.PI * 0.5f));
+            float angle = Mathf.LerpAngle(startZAngle, 180, Mathf.Sin(current * Mathf.PI * 0.5f));
     
-            transform.eulerAngles = new Vector3(0, 0, angle);
+            transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle);
 
             current += Time.fixedDeltaTime / duration;
 

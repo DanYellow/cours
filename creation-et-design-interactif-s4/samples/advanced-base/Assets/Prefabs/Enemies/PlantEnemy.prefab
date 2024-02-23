@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8782243638138392001}
   m_Layer: 6
   m_Name: PlantEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 107261412584399392}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.15, y: -1.358, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -244,6 +244,7 @@ MonoBehaviour:
   hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 107261412584399405}
+  - {fileID: 107261412584399401}
 --- !u!114 &107261412584399405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,3 +384,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 107261412584399406}
   enemySplitting: {fileID: 0}
+  enemyUnshelled: {fileID: 0}

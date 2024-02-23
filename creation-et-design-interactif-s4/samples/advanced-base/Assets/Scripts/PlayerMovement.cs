@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // init position : 0.36 -0.1
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
@@ -12,6 +13,18 @@ public class PlayerMovement : MonoBehaviour
     private bool isGamePaused = false;
 
     private bool isFacingRight = true;
+
+    [SerializeField]
+    private Animator animator;
+
+
+    [Tooltip("Running system"), SerializeField]
+    private float moveSpeed = 10;
+    public bool isStunned = false;
+
+    [Header("Position")]
+    public bool isGrounded = false;
+    public bool isFloatingGrounded = false;
 
     public bool isOnFallingPlatform = false;
 
@@ -23,22 +36,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask listFloatingPlatformsLayers;
 
-    public bool isGrounded = false;
-    public bool isFloatingGrounded = false;
-    [SerializeField]
-    private Animator animator;
-
-    [Tooltip("Running system"), SerializeField]
-    private float moveSpeed;
-
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
     [SerializeField]
     private int nbMaxJumpsAllowed = 2;
+    private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
+    private bool isJumping = false;
 
     private bool isLandingFast = false;
+
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
 
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
@@ -67,15 +80,54 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        moveDirectionX = Input.GetAxis("Horizontal");
 
-        if (isGrounded && !Input.GetButton("Jump"))
+        if (!isStunned)
         {
-            jumpCount = 0;
+            Controls();
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < nbMaxJumpsAllowed))
+        if (isLandingFast && isGrounded)
         {
+            LandingImpact();
+        }
+
+        if (isGrounded && !isJumping)
+        {
+            coyoteTimeCounter = coyoteTime;
+            jumpCount = 0;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        Flip();
+        Animations();
+    }
+
+    private void Controls()
+    {
+        moveDirectionX = Input.GetAxis("Horizontal");
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (isJumping && rb.velocity.y < 0)
+        {
+            isJumping = false;
+        }
+
+        if (
+            jumpBufferCounter > 0f && jumpCount < nbMaxJumpsAllowed && (coyoteTimeCounter > 0f || jumpCount >= 1)
+        )
+        {
+            jumpBufferCounter = 0f;
             Jump(false);
         }
 
@@ -97,14 +149,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
             }
         }
-
-        if (isLandingFast && isGrounded)
-        {
-            LandingImpact();
-        }
-
-        Flip();
-        Animations();
     }
 
     private IEnumerator PassThroughPlatforms()
@@ -119,7 +163,10 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
         isFloatingGrounded = IsFloatingGrounded();
 
-        Move();
+        if (!isStunned)
+        {
+            Move();
+        }
     }
 
     private void Move()
@@ -152,11 +199,16 @@ public class PlayerMovement : MonoBehaviour
         if (!shortJump)
         {
             jumpCount++;
+            isJumping = true;
 
             if (jumpCount > 1)
             {
                 animator.SetTrigger("DoubleJump");
             }
+        }
+        else
+        {
+            coyoteTimeCounter = 0f;
         }
     }
 
@@ -164,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
-            bc.bounds.size.x / 2 * 0.8f,
+            bc.bounds.size.x / 2 * groundCheckRadius,
             listGroundLayers
         );
     }
@@ -173,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
-            bc.bounds.size.x / 2 * 0.8f,
+            bc.bounds.size.x / 2 * groundCheckRadius,
             listFloatingPlatformsLayers
         );
     }
@@ -188,7 +240,7 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * 0.8f);
+            Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * groundCheckRadius);
         }
     }
 

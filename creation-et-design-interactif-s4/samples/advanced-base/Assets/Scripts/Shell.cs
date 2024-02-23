@@ -53,6 +53,7 @@ public class Shell : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<Knockback>().Apply(Vector2.zero, 0);
             enemy.Hurt();
         }
     }

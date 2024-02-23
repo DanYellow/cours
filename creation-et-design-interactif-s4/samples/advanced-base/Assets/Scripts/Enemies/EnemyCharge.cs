@@ -6,12 +6,12 @@ public class EnemyCharge : MonoBehaviour
     [Header("Distance of sight")]
     public float sightLength = 4;
 
-    public float knockbackStrength = 5.5f;
+    public float knockbackStrength = 5.5f; // old value : 8.5
 
     private bool isCharging = false;
     private bool isOnScreen = false;
     private bool isMovingForward = false;
-    private float obstacleDetectionLength = 0.3f;
+    private float obstacleDetectionLength = 0.2f;
 
     public SpriteRenderer spriteRenderer;
 
@@ -98,16 +98,27 @@ public class EnemyCharge : MonoBehaviour
 
         if (contact.collider != null && isMovingForward)
         {
+            StopAllCoroutines();
             Stop(contact.collider);
         }
     }
 
     private RaycastHit2D GetContact()
     {
-        Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
-        Vector3 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
+        Vector2 originCast = new Vector2(
+                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)) + (transform.right.normalized.x * obstacleDetectionLength / 2),
+                    bc.bounds.min.y + (bc.bounds.size.y / 4)
+                );
+        Vector3 sizeCast = new Vector2(obstacleDetectionLength, bc.bounds.size.y * 1 / 2);
 
-        return Physics2D.Linecast(startCast, endCast, obstacleLayers);
+        return Physics2D.BoxCast(
+            originCast,
+            sizeCast,
+            0,
+            transform.right.normalized,
+            0,
+            obstacleLayers
+        );
     }
 
     private void CheckForTarget()
@@ -160,16 +171,16 @@ public class EnemyCharge : MonoBehaviour
         float current = 0;
         float moveBackDuration = 0.85f;
 
-        WaitForFixedUpdate wait = new WaitForFixedUpdate();
+        WaitForFixedUpdate waitInterval = new WaitForFixedUpdate();
 
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
-            // Minus 1 because the enemy moveback first
+            // Minus 1 because the enemy moveback firstAssets/Scripts/Enemies/EnemyCharge.cs
             var dir = (transform.position * (dirX * -1)).normalized;
             rb.velocity = new Vector2(dir.x, rb.velocity.y);
 
-            yield return wait;
+            yield return waitInterval;
         }
 
         rb.velocity = Vector2.zero;
@@ -184,6 +195,8 @@ public class EnemyCharge : MonoBehaviour
     void Stop(Collider2D collider)
     {
         animator.SetTrigger("IsHit");
+        // Fallback if the charge is interrupted
+        spriteRenderer.color = new Color(1, 1, 1, 1);
         isMovingForward = false;
 
         if (collider.TryGetComponent<Knockback>(out Knockback knockbackContact))
@@ -193,10 +206,11 @@ public class EnemyCharge : MonoBehaviour
             knockbackContact.Apply(direction, knockbackStrength);
         }
 
-        if(knockback != null) {
+        if (knockback != null)
+        {
             knockback.Apply(
-                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f), 
-                knockbackStrength
+                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f),
+                knockbackStrength * 1.5f
             );
         }
 
@@ -230,10 +244,13 @@ public class EnemyCharge : MonoBehaviour
             if (isCharging)
             {
                 Gizmos.color = Color.magenta;
-                Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
-                Gizmos.DrawLine(
+                Vector2 startCast = new Vector2(
+                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)) + (transform.right.normalized.x * obstacleDetectionLength / 2),
+                    bc.bounds.min.y + (bc.bounds.size.y / 4)
+                );
+                Gizmos.DrawWireCube(
                     startCast,
-                    new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y)
+                    new Vector2(obstacleDetectionLength, bc.bounds.size.y * 1 / 2)
                 );
             }
             else

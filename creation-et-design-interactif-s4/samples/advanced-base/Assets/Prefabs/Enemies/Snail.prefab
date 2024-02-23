@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1466006758470492236}
   m_Layer: 6
   m_Name: Snail
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,15 +198,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6257348870956570539}
   animator: {fileID: 224868069114828822}
-  sr: {fileID: 4890897391222855339}
   speed: 0.5
-  isFacingRight: 1
-  walkTime: 5
-  hasCollisionWithObstacle: 0
-  obstacleCheckRadius: 0.25
+  moveDuration: 5
+  canWait: 1
   obstacleLayersMask:
     serializedVersion: 2
     m_Bits: 8
+  obstacleDetectionLength: 0.15
+  bc: {fileID: 0}
+  obstacleCheckRadius: 0.25
 --- !u!114 &6788854237532947277
 MonoBehaviour:
   m_ObjectHideFlags: 0
