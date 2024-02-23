@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4953900736947862724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -103,12 +103,7 @@ MonoBehaviour:
   sr: {fileID: 8205920495727439698}
   pivot: {fileID: 0}
   yAmplitude: -0.02
-  animationCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  phaseShift: 0
 --- !u!95 &4336308518823970231
 Animator:
   serializedVersion: 5

@@ -32,7 +32,7 @@ public class StunEffectManager : MonoBehaviour
         transform.position = new Vector3(
             pivot.position.x,
             transform.position.y,
-            0
+            transform.position.z
         );
         List<StunEffectItem> listObj = new List<StunEffectItem>();
         int nbItemsPerSide = (int)Mathf.Ceil((float) nbIconsToDisplay / 2);
