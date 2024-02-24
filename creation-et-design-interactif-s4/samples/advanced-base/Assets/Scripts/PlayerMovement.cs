@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask listFloatingPlatformsLayers;
 
-    private Collider2D hitFloatingPlatformsLayer;
+    private bool hasCrossedFloatingPlatforms;
     private float offsetFloatingPlaformsLayer = 0.2f;
 
     [Header("Jump system"), ReadOnlyInspector]
@@ -66,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug"), SerializeField]
     private VectorEventChannel onDebugTeleportEvent;
 
-    
 
     private void OnEnable()
     {
@@ -145,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isFloatingGrounded && rb.velocity.y <= 0)
             {
-                StartCoroutine(PassThroughPlatforms());
+                StartCoroutine(CrossFloatingPlatforms());
             }
 
             if (!isFloatingGrounded && !isGrounded)
@@ -156,10 +155,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator PassThroughPlatforms()
+    private IEnumerator CrossFloatingPlatforms()
     {
         bc.enabled = false;
-        yield return new WaitUntil(() => hitFloatingPlatformsLayer != null);
+        yield return new WaitUntil(() => hasCrossedFloatingPlatforms == true);
         bc.enabled = true;
     }
 
@@ -167,13 +166,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = IsGrounded();
         isFloatingGrounded = IsFloatingGrounded();
-
-        hitFloatingPlatformsLayer = Physics2D.OverlapBox(
-            new Vector2(bc.bounds.center.x, bc.bounds.max.y + offsetFloatingPlaformsLayer),
-            new Vector2(bc.size.x * 1.5f, 0.05f),
-            0,
-            listFloatingPlatformsLayers
-        );
+        hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
 
         if (!isStunned)
         {
@@ -240,6 +233,17 @@ public class PlayerMovement : MonoBehaviour
             bc.bounds.size.x / 2 * groundCheckRadius,
             listFloatingPlatformsLayers
         );
+    }
+
+    private bool HasCrossedFloatingPlatforms() {
+        Collider2D hitFloatingPlatformsLayer = Physics2D.OverlapBox(
+            new Vector2(bc.bounds.center.x, bc.bounds.max.y + offsetFloatingPlaformsLayer),
+            new Vector2(bc.size.x * 1.5f, 0.05f),
+            0,
+            listFloatingPlatformsLayers
+        );
+
+        return hitFloatingPlatformsLayer != null;
     }
 
     public bool IsFalling()
