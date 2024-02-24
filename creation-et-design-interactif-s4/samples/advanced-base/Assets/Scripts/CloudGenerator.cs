@@ -10,6 +10,8 @@ public class CloudGenerator : MonoBehaviour
     private Vector3 startPos;
     [SerializeField]
     private Transform endPos;
+    [SerializeField]
+    private int nbCloudsToGenerate = 5;
 
     private List<GameObject> listCloudsGenerated = new List<GameObject>();
     // Start is called before the first frame update
@@ -32,7 +34,7 @@ public class CloudGenerator : MonoBehaviour
                 currentCloud.SetActive(true);
                 currentCloud.GetComponent<Cloud>().endPos = endPos.position;
 
-                yield return new WaitForSeconds(0.95f);
+                yield return new WaitForSeconds(0.75f);
 
                 index = (index + 1) % listCloudsGenerated.Count;
             }
@@ -43,7 +45,7 @@ public class CloudGenerator : MonoBehaviour
 
     private void GenerateClouds()
     {
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < nbCloudsToGenerate; i++)
         {
             GameObject cloud = Instantiate(listCloudsPrefab[0]);
 

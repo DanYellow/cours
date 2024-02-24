@@ -30112,6 +30112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 814072433}
   bc: {fileID: 814072432}
+  animator: {fileID: 814072434}
+  moveSpeed: 11
+  isStunned: 0
+  isGrounded: 0
+  isFloatingGrounded: 0
   isOnFallingPlatform: 0
   listGroundLayers:
     serializedVersion: 2
@@ -30120,11 +30125,6 @@ MonoBehaviour:
   listFloatingPlatformsLayers:
     serializedVersion: 2
     m_Bits: 2048
-  isGrounded: 0
-  isFloatingGrounded: 0
-  animator: {fileID: 814072434}
-  moveSpeed: 11
-  isStunned: 0
   jumpCount: 0
   nbMaxJumpsAllowed: 2
   jumpForce: 13
@@ -50757,7 +50757,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 74
-      m_TileSpriteIndex: 63
+      m_TileSpriteIndex: 64
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -53560,10 +53560,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -1568205559, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -947922395, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -947922395, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: -124314010, guid: 8ac10c28ea269a44c9a90b9c284888cb, type: 3}
   - m_RefCount: 2
@@ -55017,7 +55017,7 @@ GameObject:
   m_Layer: 0
   m_Name: CloudGenerator
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
