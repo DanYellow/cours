@@ -30307,7 +30307,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.36, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1911207315}
   - {fileID: 1793315070}
@@ -55052,6 +55052,7 @@ MonoBehaviour:
   listCloudsPrefab:
   - {fileID: 8105876401552982087, guid: 281b735838b479549af988f4d647c3ae, type: 3}
   endPos: {fileID: 985710005}
+  nbCloudsToGenerate: 5
 --- !u!1001 &1286600418
 PrefabInstance:
   m_ObjectHideFlags: 0
