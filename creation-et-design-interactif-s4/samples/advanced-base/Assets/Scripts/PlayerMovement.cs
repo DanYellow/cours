@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private float offsetFloatingPlaformsLayer = 0.2f;
 
     public PlayerContacts playerContacts;
+    private Vector3 currentFloatingPlatformsTilePosition;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -160,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator CrossFloatingPlatforms()
     {
         bc.enabled = false;
-        yield return new WaitUntil(() => hasCrossedFloatingPlatforms || playerContacts.hasLeftContact || playerContacts.hasRightContact);
+        yield return new WaitUntil(() => hasCrossedFloatingPlatforms);
         bc.enabled = true;
     }
 
@@ -169,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
         isFloatingGrounded = IsFloatingGrounded();
         hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
+        currentFloatingPlatformsTilePosition = playerContacts.GetTileUnderFeet(listFloatingPlatformsLayers);
 
         if (!isStunned)
         {
@@ -178,7 +180,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        float xDirection = moveDirectionX * moveSpeed;
+        if(
+            (playerContacts.hasLeftContact || playerContacts.hasRightContact) &&
+            bc.enabled == false
+        ) {
+           xDirection = 0;
+        }
+        rb.velocity = new Vector2(xDirection, rb.velocity.y);
+
     }
 
     private void Animations()

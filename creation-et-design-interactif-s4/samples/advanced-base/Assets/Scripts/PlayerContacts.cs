@@ -16,15 +16,11 @@ public class PlayerContacts : MonoBehaviour
     public bool hasBottomContact = false;
     public bool hasRightContact = false;
 
-    public Grid grid;
-
     private void FixedUpdate() {
         hasLeftContact = HasLeftContact();
         hasTopContact = HasTopContact();
         hasBottomContact = HasBottomContact();
         hasRightContact = HasRightContact();
-
-        GetTilePosition();
     }
 
     private bool HasTopContact() {
@@ -63,32 +59,22 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    private void GetTilePosition() {
+    public Vector3 GetTileUnderFeet(LayerMask layerMask) {
         Collider2D collider2d = Physics2D.OverlapBox(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
             0,
-            listContacts
+            layerMask
         );
         if(collider2d == null) {
-            return;
+            return Vector3.zero;
         }
-        ContactPoint2D[] list = new ContactPoint2D[1];
-        collider2d.GetContacts(list);
+
         Tilemap tilemap = collider2d.GetComponent<Tilemap>();
+        Vector3Int cellPosition = tilemap.WorldToCell(transform.position);
+        Vector3 tilepos = tilemap.GetCellCenterWorld(cellPosition);
 
-        Vector3Int cellPosition = tilemap.WorldToCell(list[0].point);
-        TileBase tile = tilemap.GetTile(cellPosition);
-        // Or, if you need the tile's position:
-        Vector3 tilePosition = tilemap.CellToWorld(cellPosition);
-        // grid
-        // print(Camera.main);
-        // Ray ray = Camera.main.ScreenPointToRay(collider2d.transform.position);
-        // // get the collision point of the ray with the z = 0 plane
-        // Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
-        // Vector3Int position = grid.WorldToCell(worldPoint);
-
-        print(tilePosition);
+        return tilepos;
     }
 
     void OnDrawGizmos()
