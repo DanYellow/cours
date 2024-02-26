@@ -36,8 +36,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask listFloatingPlatformsLayers;
 
-    private bool hasCrossedFloatingPlatforms;
+    public bool hasCrossedFloatingPlatforms;
     private float offsetFloatingPlaformsLayer = 0.2f;
+
+    public PlayerContacts playerContacts;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -141,8 +143,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            if (isFloatingGrounded && rb.velocity.y <= 0)
+        { 
+            if (isFloatingGrounded && !hasCrossedFloatingPlatforms)
             {
                 StartCoroutine(CrossFloatingPlatforms());
             }
@@ -158,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator CrossFloatingPlatforms()
     {
         bc.enabled = false;
-        yield return new WaitUntil(() => hasCrossedFloatingPlatforms == true);
+        yield return new WaitUntil(() => hasCrossedFloatingPlatforms || playerContacts.hasLeftContact || playerContacts.hasRightContact);
         bc.enabled = true;
     }
 

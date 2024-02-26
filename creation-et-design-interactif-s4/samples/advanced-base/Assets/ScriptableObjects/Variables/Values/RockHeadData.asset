@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1200
   mass: 1000
-  delayBetweenMoves: 2.25
+  delayBetweenMoves: 1.85
   listContactsLayers:
     serializedVersion: 2
     m_Bits: 1288

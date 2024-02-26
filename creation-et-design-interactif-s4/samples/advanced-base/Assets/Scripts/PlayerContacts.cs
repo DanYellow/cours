@@ -10,6 +10,18 @@ public class PlayerContacts : MonoBehaviour
     public float boxCastScaleX = 0.95f;
     public float boxCastScaleY = 0.95f;
 
+    public bool hasLeftContact = false;
+    public bool hasTopContact = false;
+    public bool hasBottomContact = false;
+    public bool hasRightContact = false;
+
+    private void FixedUpdate() {
+        hasLeftContact = HasLeftContact();
+        hasTopContact = HasTopContact();
+        hasBottomContact = HasBottomContact();
+        hasRightContact = HasRightContact();
+    }
+
     public bool HasTopContact() {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y + (crushLengthDetection / 2) + 0.05f),
@@ -21,8 +33,8 @@ public class PlayerContacts : MonoBehaviour
 
     public bool HasBottomContact() {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2)),
-            new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection),
+            new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
+            new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
             0,
             listContacts
         ).Length == 1;
