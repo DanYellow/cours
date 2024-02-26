@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerContacts : MonoBehaviour
 {
@@ -15,14 +16,18 @@ public class PlayerContacts : MonoBehaviour
     public bool hasBottomContact = false;
     public bool hasRightContact = false;
 
+    public Grid grid;
+
     private void FixedUpdate() {
         hasLeftContact = HasLeftContact();
         hasTopContact = HasTopContact();
         hasBottomContact = HasBottomContact();
         hasRightContact = HasRightContact();
+
+        GetTilePosition();
     }
 
-    public bool HasTopContact() {
+    private bool HasTopContact() {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y + (crushLengthDetection / 2) + 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection - 0.05f),
@@ -31,7 +36,7 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    public bool HasBottomContact() {
+    private bool HasBottomContact() {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
@@ -40,7 +45,7 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    public bool HasLeftContact() {
+    private bool HasLeftContact() {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x - (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
@@ -49,13 +54,41 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    public bool HasRightContact() {
+    private bool HasRightContact() {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x + (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
             0,
             listContacts
         ).Length == 1;
+    }
+
+    private void GetTilePosition() {
+        Collider2D collider2d = Physics2D.OverlapBox(
+            new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
+            new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
+            0,
+            listContacts
+        );
+        if(collider2d == null) {
+            return;
+        }
+        ContactPoint2D[] list = new ContactPoint2D[1];
+        collider2d.GetContacts(list);
+        Tilemap tilemap = collider2d.GetComponent<Tilemap>();
+
+        Vector3Int cellPosition = tilemap.WorldToCell(list[0].point);
+        TileBase tile = tilemap.GetTile(cellPosition);
+        // Or, if you need the tile's position:
+        Vector3 tilePosition = tilemap.CellToWorld(cellPosition);
+        // grid
+        // print(Camera.main);
+        // Ray ray = Camera.main.ScreenPointToRay(collider2d.transform.position);
+        // // get the collision point of the ray with the z = 0 plane
+        // Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+        // Vector3Int position = grid.WorldToCell(worldPoint);
+
+        print(tilePosition);
     }
 
     void OnDrawGizmos()
