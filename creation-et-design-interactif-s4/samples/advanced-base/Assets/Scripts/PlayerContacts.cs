@@ -42,7 +42,7 @@ public class PlayerContacts : MonoBehaviour
 
     public bool HasLeftContact() {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.min.x + (crushLengthDetection / 2), bc.bounds.center.y),
+            new Vector2(bc.bounds.center.x - (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
             0,
             listContacts
@@ -51,7 +51,7 @@ public class PlayerContacts : MonoBehaviour
 
     public bool HasRightContact() {
         return Physics2D.OverlapBoxAll(
-            new Vector2(bc.bounds.min.x + (crushLengthDetection / 2), bc.bounds.center.y),
+            new Vector2(bc.bounds.center.x + (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
             0,
             listContacts
@@ -64,11 +64,11 @@ public class PlayerContacts : MonoBehaviour
         {
             Gizmos.color = Color.magenta;
             Gizmos.DrawWireCube(
-                new Vector2(bc.bounds.min.x + (crushLengthDetection / 2), bc.bounds.center.y),
+                new Vector2(bc.bounds.center.x - (crushLengthDetection / 2), bc.bounds.center.y),
                 new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY)
             );
             Gizmos.DrawWireCube(
-                new Vector2(bc.bounds.max.x - (crushLengthDetection / 2), bc.bounds.center.y),
+                new Vector2(bc.bounds.center.x + (crushLengthDetection / 2), bc.bounds.center.y),
                 new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY)
             );
 

@@ -30378,7 +30378,7 @@ MonoBehaviour:
   listContacts:
     serializedVersion: 2
     m_Bits: 8
-  crushLengthDetection: 0.25
+  crushLengthDetection: 0.15
   boxCastScaleX: 0.95
   boxCastScaleY: 0.95
   hasLeftContact: 0
