@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
     private float offsetFloatingPlaformsLayer = 0.2f;
 
     public PlayerContacts playerContacts;
-    private Vector3 currentFloatingPlatformsTilePosition;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -68,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug"), SerializeField]
     private VectorEventChannel onDebugTeleportEvent;
-
 
     private void OnEnable()
     {
@@ -144,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        { 
+        {
             if (isFloatingGrounded && !hasCrossedFloatingPlatforms)
             {
                 StartCoroutine(CrossFloatingPlatforms());
@@ -160,9 +158,10 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator CrossFloatingPlatforms()
     {
-        bc.enabled = false;
+        PlatformEffector2D platformEffector2D = playerContacts.GetTilePlatformEffector(listFloatingPlatformsLayers);
+        platformEffector2D.colliderMask &= ~(1 << gameObject.layer);
         yield return new WaitUntil(() => hasCrossedFloatingPlatforms);
-        bc.enabled = true;
+        platformEffector2D.colliderMask |= 1 << gameObject.layer;
     }
 
     private void FixedUpdate()
@@ -170,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
         isFloatingGrounded = IsFloatingGrounded();
         hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
-        currentFloatingPlatformsTilePosition = playerContacts.GetTileUnderFeet(listFloatingPlatformsLayers);
 
         if (!isStunned)
         {
@@ -180,15 +178,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float xDirection = moveDirectionX * moveSpeed;
-        if(
-            (playerContacts.hasLeftContact || playerContacts.hasRightContact) &&
-            bc.enabled == false
-        ) {
-           xDirection = 0;
-        }
-        rb.velocity = new Vector2(xDirection, rb.velocity.y);
-
+        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
     }
 
     private void Animations()
@@ -247,10 +237,11 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
-    private bool HasCrossedFloatingPlatforms() {
+    private bool HasCrossedFloatingPlatforms()
+    {
         Collider2D hitFloatingPlatformsLayer = Physics2D.OverlapBox(
             new Vector2(bc.bounds.center.x, bc.bounds.max.y + offsetFloatingPlaformsLayer),
-            new Vector2(bc.size.x * 1.5f, 0.05f),
+            new Vector2(bc.size.x, 0.05f),
             0,
             listFloatingPlatformsLayers
         );
@@ -271,11 +262,12 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, bc.bounds.size.x / 2 * groundCheckRadius);
         }
 
-        if(bc != null) {
+        if (bc != null)
+        {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(
                 new Vector2(bc.bounds.center.x, bc.bounds.max.y + offsetFloatingPlaformsLayer),
-                new Vector2(bc.size.x * 1.5f, 0.05f)
+                new Vector2(bc.size.x, 0.05f)
             );
         }
     }

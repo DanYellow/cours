@@ -16,14 +16,16 @@ public class PlayerContacts : MonoBehaviour
     public bool hasBottomContact = false;
     public bool hasRightContact = false;
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         hasLeftContact = HasLeftContact();
         hasTopContact = HasTopContact();
         hasBottomContact = HasBottomContact();
         hasRightContact = HasRightContact();
     }
 
-    private bool HasTopContact() {
+    private bool HasTopContact()
+    {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y + (crushLengthDetection / 2) + 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection - 0.05f),
@@ -32,7 +34,8 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    private bool HasBottomContact() {
+    private bool HasBottomContact()
+    {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
@@ -41,7 +44,8 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    private bool HasLeftContact() {
+    private bool HasLeftContact()
+    {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x - (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
@@ -50,7 +54,8 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    private bool HasRightContact() {
+    private bool HasRightContact()
+    {
         return Physics2D.OverlapBoxAll(
             new Vector2(bc.bounds.center.x + (crushLengthDetection / 2), bc.bounds.center.y),
             new Vector2(crushLengthDetection + bc.size.x, bc.size.y * boxCastScaleY),
@@ -59,22 +64,48 @@ public class PlayerContacts : MonoBehaviour
         ).Length == 1;
     }
 
-    public Vector3 GetTileUnderFeet(LayerMask layerMask) {
+    public Vector3 GetTilePositionUnderFeet(LayerMask layerMask)
+    {
         Collider2D collider2d = Physics2D.OverlapBox(
             new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
             new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
             0,
             layerMask
         );
-        if(collider2d == null) {
+
+        if (collider2d == null)
+        {
             return Vector3.zero;
         }
 
         Tilemap tilemap = collider2d.GetComponent<Tilemap>();
+        if (tilemap == null)
+        {
+            return Vector3.zero;
+        }
+
         Vector3Int cellPosition = tilemap.WorldToCell(transform.position);
         Vector3 tilepos = tilemap.GetCellCenterWorld(cellPosition);
 
         return tilepos;
+    }
+
+    public PlatformEffector2D GetTilePlatformEffector(LayerMask layerMask)
+    {
+        Collider2D collider2d = Physics2D.OverlapBox(
+            new Vector2(bc.bounds.center.x, bc.bounds.center.y - (crushLengthDetection / 2) - 0.05f),
+            new Vector2(bc.size.x * boxCastScaleX, bc.size.y + crushLengthDetection + 0.05f),
+            0,
+            layerMask
+        );
+
+        PlatformEffector2D platformEffector2D = collider2d.GetComponent<PlatformEffector2D>();
+        if (platformEffector2D == null)
+        {
+            return null;
+        }
+
+        return platformEffector2D;
     }
 
     void OnDrawGizmos()
