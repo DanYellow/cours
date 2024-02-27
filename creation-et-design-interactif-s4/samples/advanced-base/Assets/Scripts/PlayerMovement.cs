@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isOnFallingPlatform = false;
 
-    [Tooltip("Position checks"), SerializeField]
+    [SerializeField]
     private LayerMask listGroundLayers;
     [SerializeField]
     private Transform groundCheck;
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private float offsetFloatingPlaformsLayer = 0.2f;
 
     public PlayerContacts playerContacts;
+    private PlatformEffector2D platformEffector;
 
     [Header("Jump system"), ReadOnlyInspector]
     public int jumpCount = 0;
@@ -158,10 +159,10 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator CrossFloatingPlatforms()
     {
-        PlatformEffector2D platformEffector2D = playerContacts.GetTilePlatformEffector(listFloatingPlatformsLayers);
-        platformEffector2D.colliderMask &= ~(1 << gameObject.layer);
+        platformEffector = playerContacts.GetTilePlatformEffector(listFloatingPlatformsLayers);
+        platformEffector.colliderMask &= ~(1 << gameObject.layer);
         yield return new WaitUntil(() => hasCrossedFloatingPlatforms);
-        platformEffector2D.colliderMask |= 1 << gameObject.layer;
+        platformEffector.colliderMask |= 1 << gameObject.layer;
     }
 
     private void FixedUpdate()
