@@ -257,7 +257,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
     - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
-- N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajoutez dans la partie "Scenes in build" dans la fenêtre "Build Settings"
+- N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes in build" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 - **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
 # Travail en groupe
