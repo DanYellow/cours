@@ -7,9 +7,6 @@ public class EnemyPatrol : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    [ReadOnlyInspector]
-    private bool isFacingRight = false;
-
     [Header("Movement management")]
     public float speed = 0.5f;
     private bool isIdle = false;
@@ -41,8 +38,6 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Start()
     {
-        isFacingRight = transform.right.normalized.x > 0;
-
         if (canWait)
         {
             idleTime = Mathf.Round(moveDuration / 2.5f);
@@ -144,7 +139,6 @@ public class EnemyPatrol : MonoBehaviour
 
     public void Flip()
     {
-        isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 
