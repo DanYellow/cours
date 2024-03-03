@@ -227,8 +227,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 1. Créez le projet sur github
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard
 1. Clonez votre dépôt sur votre ordinateur avec le lien **ssh**
-    - Elle ressemble à ceci `git@github.com:mon_pseudo/mon_depot.git`
-1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt
+    - Il ressemble à ceci `git@github.com:mon_pseudo/mon_depot.git`
+1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
     - Le projet contient déjà un fichier `.gitignore`, inutile de le créer
 1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
