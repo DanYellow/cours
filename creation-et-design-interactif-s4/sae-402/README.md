@@ -5,7 +5,10 @@
 
 > **Note 2 : Si vous avez besoin d'un rappel sur certains composants vus en cours, vous avez un [document à disposition.](../travaux-pratiques/numero-1/ressources/unity/MEMO-COMPOSANTS.md)**
 
-> **Note 3 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+> **Note 3 : Le projet utilise la [technologie URP](https://unity.com/srp/universal-render-pipeline), de ce fait, il est possible d'utiliser d'ajouter des lumières pour ajouter des effets. A noter qu'il y a déjà une lumière globale dans la scène "Level1" (MainLight)**
+
+> **Note 4 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+
 
 ![](./screenshot.jpg)
 
@@ -60,7 +63,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
-> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser, si vous le souhaitez. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
