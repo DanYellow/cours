@@ -164,12 +164,25 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
    ```
 > Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
+# Utilisation de git
+Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits suivez les étapes suivantes :
+
+1. Créez le projet sur github
+1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard
+1. Clonez votre dépôt sur votre ordinateur avec le lien **ssh**
+    - Il ressemble à ceci `git@github.com:mon_pseudo/mon_depot.git`
+1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
+    - Le projet contient déjà un fichier `.gitignore`, inutile de le créer
+1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
+1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
+
 ## Tâches à effectuer
 
 - [x] Lire les consignes
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] Installer les dépendances [(voir chapitre "mise en place")](#mise-en-place)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages
+- [ ] Initialiser le projet sur github
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
@@ -219,9 +232,12 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 ### Administration
 - [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter
-- [ ] Gérer la date des journées portes ouvertes depuis le backoffice qui créera un fichier json
-    - Le fichier sera lu côté front-end
-    - Le fichier n'existe pas, vous devez le mettre dans le dossier src/data
+- [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil) depuis le backoffice qui lira/modifiera un fichier json
+    - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
+    - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec promesse) :
+        - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
+        - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
+            - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères
 - [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
@@ -257,9 +273,15 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 - [ ] Modifier le modèle "Article" de façon à en permettre le "like"/"dislike"
   - Ne pas oublier de créer des requêtes permettant ceci
 - [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
-  - Il faudra également faire les requêtes ainsi que les formulaires dans l'administration
+  - Il faudra également faire les requêtes, les modèles Mongoose ainsi que les formulaires dans l'administration
 - [ ] Mettre un lien à l'édition d'un article pour accéder à sa version front-end
 - [ ] Proposer un système de suppression multiple d'éléments sur une liste via un système de cases à cocher
+
+
+# Notes et astuces
+- Si votre formulaire est de type POST et qu'il a l'attribut "enctype" avec la valeur "multipart/form-data", la route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`). Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body".
+- Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
+
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -280,12 +302,12 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
     
-    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes.
+    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. I lest également possible d'éditer Postman.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
 Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/index.js`. Voici un exemple d'utilisation.
+  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/index.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
   ```
     {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
   ```
@@ -306,3 +328,7 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
     C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
     
     A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant. 
+
+- **Le navigateur affiche une erreur 404, je ne comprends pas**
+
+    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre router. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également en POST. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.

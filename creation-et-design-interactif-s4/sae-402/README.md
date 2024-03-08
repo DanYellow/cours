@@ -222,7 +222,7 @@ La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` 
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
 
 # Utilisation de git
-Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc indispensable de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour évitez des problèmes lors des premiers commits suivez les étapes suivantes :
+Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **obligatoire** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Créez le projet sur github
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard

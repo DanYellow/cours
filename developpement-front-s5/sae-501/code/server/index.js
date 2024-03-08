@@ -117,6 +117,7 @@ app.set("views", path.join(__dirname, "..", "/src"));
 if(process.env.NODE_ENV === "development") {
     app.use(cors())
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 
 app.use('/admin', backendRouter);
