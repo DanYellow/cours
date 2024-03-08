@@ -5,7 +5,10 @@
 
 > **Note 2 : Si vous avez besoin d'un rappel sur certains composants vus en cours, vous avez un [document à disposition.](../travaux-pratiques/numero-1/ressources/unity/MEMO-COMPOSANTS.md)**
 
-> **Note 3 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+> **Note 3 : Le projet utilise la [technologie URP](https://unity.com/srp/universal-render-pipeline), de ce fait, il est possible d'utiliser d'ajouter des lumières pour ajouter des effets. A noter qu'il y a déjà une lumière globale dans la scène "Level1" (MainLight)**
+
+> **Note 4 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
+
 
 ![](./screenshot.jpg)
 
@@ -60,7 +63,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
-> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser, si vous le souhaitez. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
@@ -218,6 +221,28 @@ La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` 
 # Console de debug
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
 
+# Utilisation de git
+Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc indispensable de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour évitez des problèmes lors des premiers commits suivez les étapes suivantes :
+
+1. Créez le projet sur github
+1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard
+1. Clonez votre dépôt sur votre ordinateur avec le lien **ssh**
+    - Il ressemble à ceci `git@github.com:mon_pseudo/mon_depot.git`
+1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
+    - Le projet contient déjà un fichier `.gitignore`, inutile de le créer
+1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
+1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
+
+Note : Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
+- Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
+    - Il est possible d'imbriquer des prefabs
+- Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
+Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
+    > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
+
+    > [Conseils et recommendations concernant Unity et git](https://unity.com/how-to/version-control-systems)
+
+    > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
 
 # Astuces et conseils
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
@@ -230,35 +255,26 @@ Pour vous aider dans votre productivité, une console de débuggage a été rajo
         - [Conventions de code C# par Microsoft](https://learn.microsoft.com/fr-fr/dotnet/csharp/fundamentals/coding-style/coding-conventions)
         - [Conventions de code C# par Google](https://google.github.io/styleguide/csharp-style.html)
 - Si vous avez du mal à visualiser le niveau que vous devez faire, pourquoi ne pas le faire sur papier avant ?
-- Vu que vous aller travailler à plusieurs, vous aller devoir forcément utiliser git. Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
-    - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
-        - **Il est possible de faire des prefabs de prefabs**
-    - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
-Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
-    > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
 
-    > [Conseils et recommendations concernant Unity et git](https://unity.com/how-to/version-control-systems)
-
-    > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
-
-- Si vous avez besoin d'inspirations pour votre UI, vous avez le site [gameuidatabase](https://www.gameuidatabase.com/). Il rencense les UI des nombreux jeux vidéo.
+- Besoin d'inspirations pour votre UI ? Vous avez le site [gameuidatabase](https://www.gameuidatabase.com/). Il rencense les UI des nombreux jeux vidéo.
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
     - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
+- N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes in build" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 - **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
 - Ajouter un niveau supplémentaire (portant le total de niveaux à trois dans le jeu final)
-- Ajouter un nouvel ennemi au choix
+- Ajouter un nouvel ennemi au choix (avec comportements)
 - Réaliser deux fonctionnalités (au lieu d'une) dans la partie ["Liste des choses à faire au choix"](#list-extras)
 
-Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. Utilisez git, ça vous permettra d'avancer à votre allure. 
+Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. 
 
 # Votre liste à faire
 - [x] Lire les consignes
-- [ ] Former votre groupe, plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
-- [ ] Initialiser le projet sur github (un seul membre du groupe doit le faire)
+- [ ] Former votre groupe (3 à 5 max), plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
+- [ ] Initialiser le projet sur github. [Voir partie sur git](#utilisation-de-git)
 - [ ] Respecter les attentes
 - [ ] Tester le jeu avant de le rendre
 - [ ] Générer une archive contenant :
@@ -272,13 +288,14 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - **Quand j'ai ouvert le projet pour la première fois, j'ai eu une scène vide. Pourquoi ?**
 
     **C'est normal,** dans certains cas Unity peut lancer un projet sur une scène "vide". Les scènes du projet sont dans le dossier `Assets/Scenes`. Si ça arrive, il vous suffira juste d'ouvrir une scène de ce dossier. Pour rappel, il y a quatre scènes dans le dossier :
-        - Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
-        - Un niveau qui devra faire office de premier niveau (Level1)
-        - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
-            - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
+
+    - Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
+    - Un niveau qui devra faire office de premier niveau (Level1)
+    - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
+        - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
             - Note : Vous n'avez pas besoin de la modifier
-        - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
-            - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
+    - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
+        - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
@@ -286,8 +303,9 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
     
     **Ce n'est pas demandé, mais vous pouvez le faire.** Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).
-        - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
-        - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
+
+    - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
+    - [Voir didacticiel sur l'Input System - anglais](https://www.youtube.com/watch?v=24-BkpFSZuI)
 - **Je n'entends pas le son en mode Edit, pourquoi ?**
 
     Il faut l'activer dans la barre de menus de l'onglet "Game" (voir capture ci-dessous).

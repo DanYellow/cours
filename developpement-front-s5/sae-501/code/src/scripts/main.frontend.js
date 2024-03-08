@@ -7,7 +7,7 @@ import "/src/styles/tailwind.css";
 const sidebar = document.querySelector("[data-navigation]");
 
 const scrollLeft = localStorage.getItem("sidebar-scroll");
-if (scrollLeft !== null) {
+if (scrollLeft !== null && sidebar !== null) {
     sidebar.scrollLeft = Number(scrollLeft);
 }
 
