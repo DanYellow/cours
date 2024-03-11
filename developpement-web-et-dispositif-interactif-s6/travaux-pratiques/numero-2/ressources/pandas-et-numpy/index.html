@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP - Jupyter</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+  </head>
+
+  <body>
+    <header class="entete-consignes">
+      <h1 class="h1">Consignes de la pratique - Jupyter</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            (Si ce n'est pas déjà fait) Installez Anaconda (contient Jupyter). <a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener noreferrer">Télécharger Anaconda (gratuit - Ouverture dans un nouvel onglet)</a>
+          </li>
+          <li>
+            Ouvrez et consultez les fichiers "numpy"
+           </li>
+        </ol>
+        <p class="note-information">Si vous avez oublié comment on développe en Python, il y a le notebook "initiation-python".</p>
+        <p class="note-information">Si vous utilisez Google Colab, vous n'avez pas besoin d'effectuer l'étape 1</p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Consultez les fichiers "initiation-pandas-1.ipynb" et "initiation-pandas-2.ipynb" </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez une communication (IPC) du renderer process vers le main process
+            process
+            <ul>
+              <li>
+                Pour cette étape, ceci peut être un console.log() comme dans les slides du cours
+                <p class="note-information">
+                  Le résultat de la fonction console.log(), dans le main
+                  process, s'affiche dans la console de node et non celle de
+                  votre application
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Créez une communication (IPC) du renderer process vers le main process
+            process, envoyez une valeur et affichez-la dans votre
+            application (pas avec un console.log())
+          </li>
+          <li>
+            Créez une troisième communication (IPC) du renderer process vers le main process
+            process. Le main process doit récupérer la liste des
+            fichiers dans le dossier de votre choix et être affichée dans le
+            renderer process
+            <ul>
+              <li>
+                Il est préférable d'utiliser le package node globby pour
+                récupérer la liste des fichiers
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.npmjs.com/package/globby"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Accéder à la documentation de globby</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Pour aller plus loin : affichez la liste des fichiers grâce à la
+            balise &lt;template>
+          </li>
+        </ol>
+        <ul>
+          <li>
+            <a
+              href="https://www.electronjs.org/fr/docs/latest/tutorial/ipc"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Accéder à la documentation de IPC (ouverture dans un nouvel
+              onglet)</a
+            >
+          </li>
+        </ul>
+        <section class="note-information">
+          <p>
+            Astuce : Pour éviter d'ouvrir la console du navigateur à chaque réouverture de votre application via le menu
+            <code>View > Toggle Developper Tools</code> ou
+            <code>Ctrl / Cmd + maj + i</code>, vous pouvez rajouter la ligne
+            suivante <code>win.webContents.openDevTools()</code> dans la
+            fonction CreateWindow (celle qui contient la fonction "loadFile()")
+          </p>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Créez un fichier texte (.txt) dans votre dossier de travail</li>
+          <li>
+            Lisez le contenu de ce fichier grâce à nodejs depuis votre main
+            process et affichez-en le contenu dans votre renderer process
+          </li>
+          <li>
+            Modifiez le contenu du fichier et renvoyez la réponse vers le main
+            process puis sauvegardez le fichier texte sous un autre nom
+          </li>
+        </ol>
+        <section class="note-attention">
+          <p>
+            Note : Si vous appelez votre évènement dès la création de votre
+            application, il ne sera jamais intercepté par le renderer process.
+            Deux solutions :
+          </p>
+          <ul>
+            <li>Mettre l'appel d'évènement dans un setTimeout()</li>
+            <li>
+              Appeler votre évènement depuis une API native du système
+              d'exploitation. Par exemple, ajouter une nouvelle entrée dans le
+              menu principal (le menu en haut de la fenêtre) de votre application avec le code suivant dans la
+              promesse de "app.whenReady":
+              <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span style="color:rgb(136, 174, 206); font-weight:400;">const</span> mainMenu = [
+      <span style="color:rgb(153, 153, 153); font-weight:400;">// Contient les données actuelle du menu principal</span>
+      ...<span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">getApplicationMenu</span>().<span style="color:rgb(255, 255, 255); font-weight:400;">items</span>,
+      {
+        <span style="color:rgb(136, 174, 206); font-weight:400;">label</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;Main Process&quot;</span>,
+        <span style="color:rgb(136, 174, 206); font-weight:400;">submenu</span>: [
+          {
+            <span style="color:rgb(153, 153, 153); font-weight:400;">// Nouvelle entrée de menu</span>
+            <span style="color:rgb(136, 174, 206); font-weight:400;">label</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;Évènement&quot;</span>,
+            <span style="color:rgb(136, 174, 206); font-weight:400;">click</span>: <span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
+              win.<span style="color:rgb(255, 255, 255); font-weight:400;">webContents</span>.<span class="hljs-title function_">send</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;my_event&quot;</span>, <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;hello world&quot;</span>);
+            },
+          },
+        ],
+      },
+  ];
+  <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> menu = <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">buildFromTemplate</span>(mainMenu);
+  <span class="hljs-title class_">Menu</span>.<span class="hljs-title function_">setApplicationMenu</span>(menu);</code></pre>
+            </li>
+          </ul>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Effectuez un appel d'API pour récupérer des données externes</li>
+          <li>Affichez le résultat dans le process renderer</li>
+        </ol>
+        <ul>
+          <li>
+            Si vous n'avez pas d'API à exploiter sous la main, vous pouvez
+            reprendre un de celles proposées dans le TP3 en S4.
+            <a
+              href="https://download-directory.github.io/?url=https://github.com/DanYellow/cours/tree/main/developpement-front-s4/travaux-pratiques/numero-3/ressources/patterns/fetch"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Télécharger le TP3 - S4 (ouverture dans un nouvel onglet)</a
+            >
+          </li>
+        </ul>
+        <section class="note-information">
+          <p>
+            N'oubliez pas que vous êtes dans un environnement Nodejs, vous
+            pouvez tout à fait séparer vos fichiers puis les importer via des
+            modules. Cependant pour des questions de sécurité, ceci ne
+            fonctionenra pas dans le preload process ni dans le renderer
+            process, il faudra utiliser des outils comme Parcel, vite ou webpack
+            pour séparer votre preload process.
+          </p>
+          <p>
+            Dans la ressource, il y a un fichier de configuration pour vitejs,
+            pour l'utiliser, il faut installer vitejs via npm.
+          </p>
+          <ol>
+            <li>
+              Vous aurez besoin d'installer les dépendances suivantes via npm :
+              <ul>
+                <li>npm install vite --save-dev</li>
+                <li>npm install @rollup/plugin-node-resolve --save-dev</li>
+              </ul>
+            </li>
+            <li>
+              Placez le fichier de configuration "vite.config.js" au même niveau
+              que votre fichier package.json
+            </li>
+            <li>
+              Ajoutez une tâche npm executant la commande "vite". Ceci va lancer
+              un serveur
+            </li>
+            <li>
+              Changez la fonction "loadFile()" en "loadURL()" dans votre main
+              process
+            </li>
+          </ol>
+          <p>
+            Note : Il existe des configurations clé en main avec vite et
+            electron. Comme
+            <a href="https://electron-vite.org/" target="_blank"
+              >electron-vite</a
+            >
+            et
+            <a
+              href="https://github.com/vitejs/awesome-vite#get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              >plein d'autres</a
+            >. Rien ne vous empêche d'utiliser un de ses outils, toutefois, ils
+            ont leur propre architecture de fichiers ce qui vous obligera à
+            déplacer les vôtres pour la respecter.
+          </p>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un fichier CSS et ajoutez un peu de couleurs et mise en page à votre
+            application electron
+          </li>
+        </ol>
+        <ul>
+          <li>Le CSS se lie à votre page HTML</li>
+          <li>
+            L'utilisation de bibliothèques CSS externes comme tailwindcss est
+            possible. Leur utilisation est identique à ce que vous avez appris
+            jusqu'à présent
+          </li>
+          <li>Vous pouvez utiliser SASS/SCSS si vous le souhaitez, en revanche, il faudra penser à utiliser vite ou un outil pour compiler votre SCSS en CSS</li>
+        </ul>
+        <section class="note-information">
+          <p>
+            Si vous souhaitez utiliser tailwindcss, l'outil vite s'y prête bien.
+            Il vous suffit juste de suivre le didacticiel proposé par
+            tailwindcss pour le configurer avec vite. Et ensuite de charger
+            votre CSS dans le HTML.
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://tailwindcss.com/docs/guides/vite"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Accéeder au didacticiel tailwindcss + vite (ouverture dans un
+                nouvel onglet)</a
+              >
+            </li>
+          </ul>
+        </section>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 7 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Affichez une notification native lorsque votre chargement d'API est
+            terminé avec le contenu que vous souhaitez.
+            <ul>
+              <li>
+                <a
+                  href="https://www.electronjs.org/docs/latest/api/notification"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Accéder à la documentation de Notification (ouverture dans un
+                  nouvel onglet)</a
+                >
+              </li>
+              <li>
+                <a href="https://www.electronjs.org/docs/latest/tutorial/notifications" target="_blank" rel="noopener noreferrer">
+                    Accéder au didacticiel sur les notifications
+                </a>
+                <p class="note-attention">Attention, les notifications peuvent être gérées via le main process ou le renderer process.</p>
+              </li>
+              <li>
+                Pour éviter que la notification s'affiche dès que vous faites
+                l'appel d'API, vous pouvez ralentir l'exécution avec une
+                promesse. Vous pouvez utiliser le code suivant :
+                <pre><code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">const</span> <span class="hljs-title function_">delay</span> = ms =&gt; <span style="color:rgb(220, 198, 224); font-weight:400;">new</span> <span class="hljs-title class_">Promise</span>(<span style="color:rgb(248, 248, 242); font-weight:400;"><span style="color:rgb(245, 171, 53); font-weight:400;">resolve</span> =&gt;</span> <span style="color:rgb(245, 171, 53); font-weight:400;">setTimeout</span>(resolve, ms)); 
+<span style="color:rgb(220, 198, 224); font-weight:400;">const</span> <span class="hljs-title function_">apiCall</span> = <span style="color:rgb(220, 198, 224); font-weight:400;">async</span> (<span style="color:rgb(245, 171, 53); font-weight:400;"></span>) =&gt; {
+    <span style="color:rgb(220, 198, 224); font-weight:400;">await</span> <span class="hljs-title function_">fetch</span>(<span style="color:rgb(171, 227, 56); font-weight:400;">&quot;url&quot;</span>);
+    <span style="color:rgb(212, 208, 171); font-weight:400;">// On attend 600 ms</span>
+    <span style="color:rgb(220, 198, 224); font-weight:400;">await</span> <span class="hljs-title function_">delay</span>(<span style="color:rgb(245, 171, 53); font-weight:400;">600</span>);
+}</code></pre>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <section class="note-information">
+          Note : Si vous êtes sous Windows, votre notification aura pour en-tête
+          "electron.app.Electron", c'est le nom par défaut de l'application.
+          Normalement, lorsque vous faites un build, c'est le nom de
+          l'application qui apparaît. Vu que nous sommes toujours en mode
+          développement, nous allons devoir forcer le nom via un peu de code.
+          <ol>
+            <li>
+              Dans le fichier package.json, rajoutez à la racine de l'objet, la
+              clé "productName" avec la valeur souhaitée.
+            </li>
+            <li>
+              Dans le main process, rajoutez le bloc suivant :
+              <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">if (process.platform === &#x27;win32&#x27;)
+{
+      app<span style="color:rgb(136, 174, 206); font-weight:400;">.setAppUserModelId</span>(app.name);
+}</code></pre>
+            </li>
+          </ol>
+        </section>
+      </details>
+    </header>
+  </body>
+</html>
