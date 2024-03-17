@@ -14,7 +14,7 @@ export default {
       }
     }),
     nunjucks({
-      // Where the twig files are located
+      // Where the nunjucks files are located
       root: "./src",
     }),
   ],
