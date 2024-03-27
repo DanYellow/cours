@@ -31,7 +31,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
     };
-    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
+    const isEdit = req.params.id !== "add";
 
     let result = null;
     let listErrors = [];
@@ -53,9 +53,11 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 });
 
 // Create or update article
-router.post(`/${base}/:id`, upload.single("image"), async (req, res) => {
+router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
     let ressource = null;
-    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
+
+    const isEdit = req.params.id !== "add";
+
     let listErrors = [];
     let options = {
         headers: {

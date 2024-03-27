@@ -38,6 +38,10 @@ const article = {
         nb_comments: {
             type: "integer",
         },
+        slug: {
+            type: "string",
+            pattern: "[\\w\\d\\-]+\\-[a-f0-9]{24}",
+        },
     },
 };
 

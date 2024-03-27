@@ -16,11 +16,11 @@ const base = "articles";
  *     parameters:
  *      - name: id
  *        in: path
- *        description: Article's _id
+ *        description: Article's _id or slug
  *        required: true
  *        schema:
  *          type: string
- *          pattern: '([0-9a-f]{24})'
+ *          pattern: '([0-9a-f]{24}|[\w\d\-]+\-[a-f0-9]{24})'
  *     requestBody:
  *        content:
  *          application/json:
@@ -50,9 +50,12 @@ const base = "articles";
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}/:id/comments`, async (req, res) => {
+router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments`], async (req, res) => {
     try {
-        const article = await Article.findById(req.params.id)
+        const searchKey = req.params.id ? "_id" : "slug";
+        const searchParam = req.params?.id || req.params.slug;
+
+        const [article] = await Article.find({ [searchKey] : searchParam })
         const ressource = new CommentArticle({ ...req.body, article });
         await ressource.save()
         
@@ -91,11 +94,11 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's _id
+ *        description: article's _id or slug
  *        required: true
  *        schema:
  *          type: string
- *          pattern: '([0-9a-f]{24})'
+ *          pattern: '([0-9a-f]{24}|[\w\d\-]+\-[a-f0-9]{24})'
  *      - in: query
  *        name: page
  *        schema:
@@ -122,13 +125,18 @@ router.post(`/${base}/:id/comments`, async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.get(`/${base}/:id/comments`, async (req, res) => {
+router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments`], async (req, res) => {
     try {
         const page = Math.max(1, req.query.page || 1);
         const perPage = 10;
 
         const ressource = await Article.aggregate([
-            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+            { $match: { 
+                $or: [
+                    { _id: new mongoose.Types.ObjectId(req.params.id) },
+                    { slug: req.params.slug }
+                ]
+            }},
             {
                 $project: {
                     list_comments: 1,
@@ -222,9 +230,9 @@ router.get(`/${base}/:id/comments`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:id/comments`, async (req, res) => {
+router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
     try {
-        const ressource = await CommentArticle.findByIdAndDelete(req.params.id)
+        const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id)
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`;
