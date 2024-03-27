@@ -263,6 +263,16 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes in build" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 - **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
+# Ressources et outils utiles
+Voici une liste non-exhaustive d'outils et ressources qui pourront vous être utiles.
+
+- [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
+- [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
+- [Générateur de spritesheets](https://codeshack.io/images-sprite-sheet-generator/)
+- [Convertisseur image -> police d'écriture](https://yal.cc/r/20/pixelfont/)
+- [https://itch.io/](https://itch.io/)
+- [https://opengameart.org/](https://opengameart.org/)
+
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
 - Ajouter un niveau supplémentaire (portant le total de niveaux à trois dans le jeu final)
@@ -274,6 +284,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 # Votre liste à faire
 - [x] Lire les consignes
 - [ ] Former votre groupe (3 à 5 max), plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
+  - **N'oubliez pas que si vous êtes plus de trois, vous avez plus de choses à faire**
 - [ ] Initialiser le projet sur github. [Voir partie sur git](#utilisation-de-git)
 - [ ] Respecter les attentes
 - [ ] Tester le jeu avant de le rendre
