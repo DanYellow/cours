@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import slugify from "slugify";
 
 import CommentArticle from "./comment-article.js"
 import Author from "./author.js"
@@ -37,6 +38,10 @@ const articleSchema = new Schema(
             ref: "Author",
             default: null,
         },
+        slug: {
+            type: String,
+            index: { unique: true, sparse: true }
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -57,5 +62,13 @@ articleSchema.pre('findOneAndUpdate', function(next) {
     this.options.runValidators = true;
     next();
 });
+
+articleSchema.pre("save", function(next) {
+    if(!this.slug) {
+        this.slug = `${slugify(this.title, { lower: true, trim: true })}-${this._id}`;
+    }
+    next();
+  });
+  
 
 export default mongoose.model("Article", articleSchema);

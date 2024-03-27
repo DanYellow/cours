@@ -40,8 +40,8 @@ const base = "articles";
  *          type: array
  *          items:
  *            type: string
- *            pattern: '([0-9a-f]{24})'
- *        description: List of articles' _id. **Invalid ids will be skipped.**
+ *            pattern: '([0-9a-f]{24}|[\w\d\-]+\-[a-f0-9]{24})'
+ *        description: List of articles' _id or slug (you can mix). **Invalid _ids will be skipped.**
  *     responses:
  *       200:
  *         description: Returns all articles
@@ -65,21 +65,25 @@ router.get(`/${base}`, async (req, res) => {
     if (req.query.id && !Array.isArray(req.query.id)) {
         listIds = [listIds];
     }
-    listIds = (listIds || [])
-        .filter(mongoose.Types.ObjectId.isValid)
-        .map((item) => new mongoose.Types.ObjectId(item));
+    listIds = listIds || []
 
     try {
         const listRessources = await getArticles(
             listIds.length ? listIds : [],
             { page, perPage },
-            true
         );
 
-        const count = await Article.count(
-            listIds.length ? { _id: { $in: listIds } } : null
-        );
+        const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
 
+        const countQuery = { 
+            $or: [
+                { _id: { $in: listBsonIds } },
+                { slug: { $in: listIds } }
+            ]
+        }
+
+        const count = await Article.countDocuments(listIds.length ? countQuery : {})
+        
         const queryParam = Object.fromEntries(
             Object.entries({ ...req.query }).filter(([_, value]) =>
                 Boolean(value)
@@ -115,11 +119,11 @@ router.get(`/${base}`, async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's _id
+ *        description: article's _id or slug
  *        required: true
  *        schema:
  *          type: string
- *          pattern: '([0-9a-f]{24})'
+ *          pattern: '([0-9a-f]{24}|[\\w\\d\\-]+\\-[a-f0-9]{24})'
  *     responses:
  *       200:
  *         description: Returns a specific article
@@ -134,17 +138,16 @@ router.get(`/${base}`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get(`/${base}/:id`, async (req, res) => {
+router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const ressource = await getArticles(
-            new mongoose.Types.ObjectId(req.params.id)
-        );
+        const id = req.params.id ? new mongoose.Types.ObjectId(req.params.id) : req.params.slug
+        const [ressource] = await getArticles(id);
 
-        if (ressource?.[0]) {
-            return res.status(200).json(ressource[0]);
+        if (ressource) {
+            return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`L'article "${req.params.id}" n'existe pas`],
+            errors: [`L'article "${id}" n'existe pas`],
         });
     } catch (e) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -170,7 +173,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *        multipart/form-data:
  *          schema:
  *            type: object
- *            required: ['title', 'content']
+ *            required: ['title', 'content', 'image']
  *            properties:
  *              title:
  *                type: string
@@ -238,16 +241,16 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     try {
         await ressource.save();
-        const ressourceComputed = await getArticles(ressource._id);
+        const [ressourceComputed] = await getArticles(ressource._id);
 
-        if (ressourceComputed[0]?.author) {
-            ressourceComputed[0].author.nb_articles++;
+        if (ressourceComputed?.author) {
+            ressourceComputed.author.nb_articles++;
             await Author.findOneAndUpdate(
                 { _id: req.body.author },
                 { $push: { list_articles: ressource._id } }
             );
         }
-        res.status(201).json(ressourceComputed[0]);
+        res.status(201).json(ressourceComputed);
     } catch (err) {
         res.status(400).json({
             errors: [
@@ -273,11 +276,11 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's _id
+ *        description: article's _id or slug
  *        required: true
  *        schema:
  *          type: string
- *          pattern: '([0-9a-f]{24})'
+ *          pattern: '([0-9a-f]{24}|[\\w\\d\\-]+\\-[a-f0-9]{24})'
  *     requestBody:
  *      content:
  *        multipart/form-data:
@@ -318,13 +321,15 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
+router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
-
+    const searchKey = req.params.id ? "_id" : "slug";
+    const searchParam = req.params?.id || req.params.slug;
+    
     if (uploadedImage) {
         let imageName;
         ({
@@ -337,11 +342,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
     let oldRessource = {};
     try {
-        oldRessource = await Article.findById(req.params.id).lean();
+        [oldRessource] = await Article.find({ [searchKey] : searchParam }).lean();
     } catch (error) {
         oldRessource = {};
     }
-
+    
     if (listErrors.length) {
         return res.status(400).json({
             errors: listErrors,
@@ -350,7 +355,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     }
 
     try {
-        let ressource = await Article.findById(req.params.id);
+        let [ressource] = await Article.find({ [searchKey] : searchParam });
         const newPayload = { ...req.body, ...imagePayload };
         Object.entries(newPayload).forEach(([key, value]) => {
             ressource[key] = value;
@@ -379,13 +384,13 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
         await ressource.save();
 
-        const ressourceComputed = await getArticles(ressource._id);
+        const [ressourceComputed] = await getArticles(ressource._id);
 
-        res.status(200).json(ressourceComputed[0]);
+        res.status(200).json(ressourceComputed);
     } catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
-                errors: [`L'article "${req.params.id}" n'existe pas`],
+                errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
             });
         } else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
@@ -418,11 +423,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *     parameters:
  *      - name: id
  *        in: path
- *        description: article's _id
+ *        description: article's _id or slug
  *        required: true
  *        schema:
  *          type: string
- *          pattern: '([0-9a-f]{24})'
+ *          pattern: '([0-9a-f]{24}|[\w\d\-]+\-[a-f0-9]{24})'
  *     responses:
  *       200:
  *         description: Deletes a specific article
@@ -443,9 +448,11 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:id`, async (req, res) => {
+router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const ressource = await Article.findByIdAndDelete(req.params.id);
+        const searchKey = req.params.id ? "_id" : "slug";
+        const searchParam = req.params?.id || req.params.slug;
+        const ressource = await Article.findOneAndDelete({ [searchKey] : searchParam });
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_dir}${ressource.image}`;
@@ -456,7 +463,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`L'article "${req.params.id}" n'existe pas`],
+            errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
         });
     } catch (error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -470,20 +477,36 @@ router.delete(`/${base}/:id`, async (req, res) => {
     }
 });
 
-const getArticles = async (id, queryParams = {}, isArray = false) => {
+const getArticles = async (id, queryParams = {}) => {
+    const isArray = Array.isArray(id);
+    const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
+
     const ressource = await Article.aggregate([
         ...(isArray
-            ? [...(id.length ? [{ $match: { _id: { $in: id } } }] : [])]
-            : [{ $match: { _id: id } }]),
+            ? [...(id.length ? [
+                { $match: { 
+                    $or: [
+                        { _id: { $in: listBsonIds } },
+                        { slug: { $in: id } }
+                    ]
+                } }
+            ] : [])]
+            : [
+                { $match: { 
+                    $or: [
+                        { _id: id },
+                        { slug: id }
+                    ]
+                } 
+            }]
+            ),
         ...(isArray
             ? [
                 { $sort: { updated_at: -1 } },
                 {
-                    $skip:
-                        Math.max(queryParams.page - 1, 0) *
-                        queryParams.perPage,
+                    $skip: Math.max(queryParams.page - 1, 0) * queryParams.perPage,
                 },
-                { $limit: queryParams.perPage },
+                { $limit: queryParams.perPage }
               ]
             : []),
         {

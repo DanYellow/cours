@@ -179,6 +179,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 ## Tâches à effectuer
 
 - [x] Lire les consignes
+- [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] Installer les dépendances [(voir chapitre "mise en place")](#mise-en-place)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages
