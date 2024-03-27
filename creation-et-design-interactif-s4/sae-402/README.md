@@ -55,7 +55,7 @@ Le projet possède déjà quelques mécaniques de jeu. Parmi ces mécaniques, vo
 > Des Scripts pour l'éditeur Unity sont dans le projet, ils permettent de tester directement, en **Play mode**, les ScriptableObjects de type évènement `Assets/ScriptableObjects/Events/Values/`. Pratique.
 
 Pensez donc bien à observer le code / le projet fournit pour travailler dans de bonnes conditions. Ce projet Unity contient quatre scènes (dossier `Assets/Scenes`) :
-- Un menu d'accueil **[que vous devrez compléter voir plus bas](#liste-des-choses-impératives-à-faire-vous-devez-toutes-les-faire)** (MainMenu)
+- Un menu d'accueil **[que vous devrez compléter - voir plus bas](#liste-des-choses-impératives-à-faire-vous-devez-toutes-les-faire)** (MainMenu)
 - Un niveau qui devra faire office de premier niveau (Level1)
 - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
     - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
@@ -173,8 +173,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Proposer au joueur de choisir un personnage. Ce choix peut être fait :
     - Au début du jeu, juste avant de commencer un niveau
     - Après chaque mort du joueur
-    - Pour éviter de faire les animations pour chaque personnage Unity propose un système : https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
+    - Pour éviter de faire les animations pour chaque personnage Unity propose un système dédié: https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
         - Note : Comparé à la vidéo, l'interface d'Unity a un peu changé, mais le principe reste le même
+        - Note 2 : Il faut impérativement appliquer le système sur toutes les animations, sinon, vous allez avoir un comportement étrange dans votre script
+    - Note 3 : Si vous souhaitez faire référence à un SpriteLibraryAsset dans vos scripts, il faudra impérativement importer la bibliothèque `Unity​Engine.​Experimental.​U2D.​Animation` via la ligne `using Unity​Engine.​Experimental.​U2D.​Animation;`
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
@@ -300,7 +302,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
     **C'est normal,** dans certains cas Unity peut lancer un projet sur une scène "vide". Les scènes du projet sont dans le dossier `Assets/Scenes`. Si ça arrive, il vous suffira juste d'ouvrir une scène de ce dossier. Pour rappel, il y a quatre scènes dans le dossier :
 
-    - Un menu d'accueil **que vous devrez compléter voir plus bas** (MainMenu)
+    - Un menu d'accueil **[que vous devrez compléter - voir plus haut](#liste-des-choses-impératives-à-faire-vous-devez-toutes-les-faire)** (MainMenu)
     - Un niveau qui devra faire office de premier niveau (Level1)
     - Une scène dite de bootstrap, elle sert, dans les grandes lignes, à précharger les éléments communs à toutes les scènes, par exemple, la gestion du son (_Preload)
         - [Plus d'explications sur le fonctionnement la scène de bootstrap - anglais](https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919)
