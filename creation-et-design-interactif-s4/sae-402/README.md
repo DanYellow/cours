@@ -173,8 +173,10 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Proposer au joueur de choisir un personnage. Ce choix peut être fait :
     - Au début du jeu, juste avant de commencer un niveau
     - Après chaque mort du joueur
-    - Pour éviter de faire les animations pour chaque personnage Unity propose un système : https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
+    - Pour éviter de faire les animations pour chaque personnage Unity propose un système dédié: https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
         - Note : Comparé à la vidéo, l'interface d'Unity a un peu changé, mais le principe reste le même
+        - Note 2 : Il faut impérativement appliquer le système sur toutes les animations, sinon, vous allez avoir un comportement étrange dans votre script
+    - Note 3 : Si vous souhaitez faire référence à un SpriteLibraryAsset dans vos scripts, il faudra impérativement importer la bibliothèque `Unity​Engine.​Experimental.​U2D.​Animation` via la ligne `using Unity​Engine.​Experimental.​U2D.​Animation;`
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
