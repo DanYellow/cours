@@ -227,8 +227,8 @@ Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez da
 
 Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :
 - [Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)
-~~Attention tout de même, dans certains cas l'installation du SDK peut mal se dérouler et vous n'aurez pas l'autocomplétion des méthodes d'Unity. Il faudra vous réferrer au lien suivant pour résoudre votre problème :~~
-- ~~[Aide sur les problèmes de SDK .NET - anglais](https://github.com/OmniSharp/omnisharp-vscode/wiki/Troubleshooting:-'The-.NET-Core-SDK-cannot-be-located.'-errors)~~
+
+> **IMPORTANT** : Vous devez effectuer l'installation avec le logiciel VS Code **fermé**. Sinon l'installation échouera de façon silencieuse et vous devrez recommencer en n'oubliant pas de désinstaller.
 
 Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
 
@@ -336,6 +336,8 @@ Voici des liens liés aux raccourcis d'Unity, ils pourront vous être utiles :
 
 > Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement votre projet (pas officiellement) et vous pourriez perdre quelques heures de travail précieuses.
 
+# Notes
+
 ## Si vous n'avez pas d'ordinateur portable
 
 Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants. 
@@ -351,3 +353,6 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 **N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
 > Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
+
+## Problèmes de connexion
+Il peut, dans certains cas, que vous n'arriviez pas à vous connecter. Unity Hub arguant que votre licence a expiré et si vous tentez de la recréer, ceci échoue. Ce problème est lié au Pare-Feu de Windows qui peut bloquer les requêtes d'Unity sur certains réseaux comme celui de l'IUT. Si ceci arrive, il y a un didacticiel sur le site d'Unity : [https://docs.unity3d.com/Packages/com.unity.live-capture@2.0/manual/setup-network.html#manual-firewall-rule-configuration](https://docs.unity3d.com/Packages/com.unity.live-capture@2.0/manual/setup-network.html#manual-firewall-rule-configuration)
