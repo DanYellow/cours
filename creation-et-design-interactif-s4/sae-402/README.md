@@ -175,12 +175,12 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Après chaque mort du joueur
     - Pour éviter de faire les animations pour chaque personnage Unity propose un système dédié: https://www.youtube.com/watch?v=6mNak-mQZpc - anglais
         - Note : Comparé à la vidéo, l'interface d'Unity a un peu changé, mais le principe reste le même
-        - Note 2 : Il faut impérativement appliquer le système sur toutes les animations, sinon, vous allez avoir un comportement étrange dans votre script
-    - Note 3 : Si vous souhaitez faire référence à un SpriteLibraryAsset dans vos scripts, il faudra impérativement importer la bibliothèque `Unity​Engine.​Experimental.​U2D.​Animation` via la ligne `using Unity​Engine.​Experimental.​U2D.​Animation;`
+        - Note 2 : Il faut obligatoirement appliquer le système sur toutes les animations, sinon, vous allez avoir un comportement étrange au niveau des animations
+    - Note 3 : Si vous souhaitez faire référence à un SpriteLibraryAsset dans vos scripts, il faudra **impérativement** importer la bibliothèque `Unity​Engine.​U2D.​Animation` au début de vos scripts via la ligne `using Unity​Engine.​U2D.​Animation;`
 
     > Libre à vous de proposer des caractérisques différentes entre chaque personnage
 - Générer des particules quand le personnage change de direction durant une course (Il existe des didactiels en ligne pour vous aider)
-- Mettre en place des plateformes qui se déplacent automatiquement sur un chemin balisé via des GameObject. Il y a déjà un script `Scripts/Utils/WaypointManager.cs` pour vous aider à mettre en place ce système
+- Mettre en place des plateformes qui se déplacent automatiquement sur un chemin balisé via des points de cheminement ("waypoint" en anglais). Il y a déjà un script `Scripts/Utils/WaypointManager.cs` pour vous aider à mettre en place ce système
 - Indiquer visuellement l'état de santé du joueur (couleur, vitesse d'animation...)
 - Ajouter des blocs qui peuvent être cassé quand le joueur les touche avec la tête (en sautant donc). Certains peuvent être cachés et même contenir des objets
     - Si le temps nous le permet, nous le ferons en cours ensemble
@@ -194,10 +194,10 @@ Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et ré
 Etant donné que le projet est en groupe ET que nous allons tous développer ces fonctionnalités, certains développerons ces fonctionnalités "pour rien".
 
 ### Recommencer au dernier checkpoint
-Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un ScriptableObject de type évènementiel pour notifier tous les composants qui doivent réagir à cet évènement.
+Dans la classe `Scripts/Managers/CurrentSceneManager`, vous trouverez les fonctionnalités qui doivent être présentes pour que ça fonctionne correctement. Nous allons utiliser un ScriptableObject de type Vector3 pour placer le joueur au bon endroit quand il doit réapparaitre au dernier checkpoint.
 
 ### Système de ventilateurs
-Nous rajouterons un _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
+Nous rajouterons une _prop_ qui permettra au joueur de s'élever dans le ciel. Le sprite que nous allons utiliser est déjà dans le projet dans le dossier `Assets/Imports/Sprites/Misc/Fan`. Cette fonctionnalité sera l'occasion de découvrir le composant [`Area Effector 2D`](https://docs.unity3d.com/Manual/class-AreaEffector2D.html). Et de permettre aux joueurs finir le niveau en atteignant le trophée sur-élevé.
 > Le terme "prop" provient du jargon cinématographique, il désigne un accessoire utilisé par les acteurs. Ensuite, il a été transposé dans le monde du jeu vidéo où le sens n'a pas changé. Ainsi tout accessoire est nommé "prop". [En savoir plus](https://fr.wikipedia.org/wiki/Accessoire#Cin%C3%A9ma).
 
 ### Blocs
@@ -235,7 +235,13 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
-Note : Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
+Note : Il faudra penser à ajouter les membres de votre groupe en collaborateurs du projet. Sinon ils seront dans l'incapacité de pousser leur travail
+
+Note 2 : Vu que vous avez cloné le projet via ssh, il faudra impérativement générer une clef ssh de votre ordinateur pour vous authentifier à git. Cette opération n'est à faire qu'une seule fois par ordinateur. [Voir didacticiel pour générer clé ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+> Pensez bien à sélectionner l'onglet concernant votre système d'exploitation dans le lien ci-dessus.
+Une fois la clef générée, il faut l'ajouter à votre compte github. [Voir didacticiel pour ajouter clé ssh à github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
 - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
     - Il est possible d'imbriquer des prefabs
 - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
