@@ -12,7 +12,7 @@ public class GameOverManager : MonoBehaviour
 
     public void OnGameOver()
     {
-        Debug.Log("GameOver !");
+        Debug.Log("<size=15><color=#FF0000><b>GameOver!</b></color></size>");
     }
 
     private void OnDisable()
