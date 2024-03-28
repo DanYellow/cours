@@ -3,8 +3,12 @@ using UnityEngine;
 public class EndLevel : MonoBehaviour
 {
     public ParticleSystem particles;
-    public string nextLevelName;
     public AudioClip audioClip;
+
+    [Space (10)]
+    [Header("Scene's name to load after the collider is triggered")]
+    public string nextLevelName;
+    [Space (10)]
 
     [Header("Broadcast event channels")]
     public StringEventChannel onLevelEnded;
