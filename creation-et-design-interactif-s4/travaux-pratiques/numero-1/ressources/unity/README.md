@@ -203,37 +203,9 @@ Créez un `GameObject` depuis le panneau "Hierarchy" `Clic droit > Create Empty`
 ![](./printscreens/add-component.jpg) 
 
 ---
-> Il est possible de développer en C# avec n'importe quel logiciel. Toutefois, nous vous recommendons d'utiliser un logiciel qui gère Unity, ceci vous permettra d'avoir l'auto-complétion des différentes méthodes et classes pour ainsi être plus productif.
-Si vous utilisez Visual Studio (pas VS Code, c'est différent) tout sera géré nativement après avoir installé Unity, il faut quand même sélectionner les extensions liées à Unity lors de l'installation. 
+Avant d'écrire vos premières lignes de C#, pensez bien à installer toutes les dépendances nécessaires à VS Code pour qu'il puisse fonctionner avec Unity de façon optimale.
 
-Si vous souhaitez utiliser VS Code, vous devrez suivre la démarche suivante :
-- [Extension VS Code - Unity](https://devblogs.microsoft.com/visualstudio/announcing-the-unity-extension-for-visual-studio-code/)
-
-> Il ne faut en aucun cas installer le package "Visual Studio **Code** Editor", il est désuet et provoquera des conflits avec Visual Studio Code et à coup sûr, vous n'aurez pas l'auto-complétion de code. 
-
-Après avoir configuré votre IDE pour gérer C# et Unity, il faudra également indiquer à Unity que vous aller utiliser cet IDE pour développer. Pour ce faire, il faudra procéder de la façon suivante :
-- MacOS : 
-  - Cliquez sur `Unity` en haut à gauche dans la barre de statut
-  - Sélectionnez `Settings`, une fenêtre va apparaître
-  - Sélectionnez `External Tools` dans le menu à gauche 
-  - Sélectionnez la liste déroulante du choix `External Script Editor` et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...) 
-- Windows :
-  - Cliquez sur le menu `Edit > Preferences`
-  - Sélectionnez `External Tools` dans le menu à gauche 
-  - Sélectionnez la liste déroulante du choix `External Script Editor` et choissiez votre IDE (VS Code, Visual Studio, Sublime Text...)
-[Plus d'informations ici](https://learn.unity.com/tutorial/set-your-default-script-editor-ide#)
-
-Si tout a bien été pris en compte, votre IDE devrait s'ouvrir si vous allez dans le menu : `Assets > Open C# Project`.
-
-Enfin, il vous faudra aussi installer le SDK .NET, il est disponible gratuitement sur le site de Microsoft :
-- [Télécharger le SDK .NET](https://dot.net/core-sdk-vscode)
-
-> **IMPORTANT** : Vous devez effectuer l'installation avec le logiciel VS Code **fermé**. Sinon l'installation échouera de façon silencieuse et vous devrez recommencer en n'oubliant pas de désinstaller.
-
-Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
-
-Si ça ne fonctionne toujours pas avec tout ça, vous pouvez tenter de résoudre votre problème en installant Mono qui est lui aussi gratuit :
-- [Télécharger Mono](https://www.mono-project.com/download/stable/#download-win)
+- [Accéder au didactiel configuration VS Code et C#](./INSTALLATION.md#configuration-de-c-et-vs-code)
 
 ---
 
@@ -354,5 +326,3 @@ Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiterie
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
 > Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
 
-## Problèmes de connexion
-Il peut, dans certains cas, que vous n'arriviez pas à vous connecter. Unity Hub arguant que votre licence a expiré et si vous tentez de la recréer, ceci échoue. Ce problème est lié au Pare-Feu de Windows qui peut bloquer les requêtes d'Unity sur certains réseaux comme celui de l'IUT. Si ceci arrive, il y a un didacticiel sur le site d'Unity : [https://docs.unity3d.com/Packages/com.unity.live-capture@2.0/manual/setup-network.html#manual-firewall-rule-configuration](https://docs.unity3d.com/Packages/com.unity.live-capture@2.0/manual/setup-network.html#manual-firewall-rule-configuration)

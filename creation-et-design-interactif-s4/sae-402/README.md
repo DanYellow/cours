@@ -280,6 +280,7 @@ Voici une liste non-exhaustive d'outils et ressources qui pourront vous être ut
 - [Convertisseur image -> police d'écriture](https://yal.cc/r/20/pixelfont/)
 - [https://itch.io/](https://itch.io/)
 - [https://opengameart.org/](https://opengameart.org/)
+- [Chaîne Youtube sur TextMeshPro - anglais](https://www.youtube.com/playlist?list=PLg0yr4zozmZX0dJZ-XNa4v0i_kAVx2sfY)
 
 # Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
