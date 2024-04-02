@@ -20,7 +20,7 @@
 				<tr class="text-slate-800">
 					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-					<th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
+					<th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,7 +30,7 @@
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
 							<p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent min-w-[250px] lg:text-right">
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                             <div class="inline-flex gap-6">
                                 {{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
                                 {{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}

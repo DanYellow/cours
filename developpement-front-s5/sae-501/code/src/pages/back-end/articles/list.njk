@@ -22,8 +22,8 @@
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Activé ?</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
-                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Auteur</th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
+                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5 w-[200px]">Auteur</th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ "Oui" if item.is_active else "Non" }}</td>
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</td>
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Auteur">{{ author if item.author.firstname else 'La rédaction' }}</td>
-                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent min-w-[250px] lg:text-right">
+                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                             <div class="inline-flex gap-6">
                                 {{ list_actions.edit(admin_url ~ '/articles/' ~ item._id)}}
                                 {{ list_actions.delete(base_url ~ "/api/articles/" ~ item._id, item.title)}}

@@ -295,11 +295,11 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 - **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
     
-    Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components). Si vous avez besoin d'icônes, tailwind propose également [heroicons](https://heroicons.com/).
+    Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components). Si vous avez besoin d'icônes, tailwind propose également [heroicons](https://heroicons.com/) qui est déjà utilisé sur le site.
 
 - **Comment je peux tester la version mobile ?**
     
-    Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. 
+    Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. Si vous avez un Mac, vous pouvez installer gratuitement Xcode (via le Mac AppStore) et utiliser le simulateur iOS.
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
     
