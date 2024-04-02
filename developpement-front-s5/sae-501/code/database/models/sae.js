@@ -1,11 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
+import { errorRequiredMessage } from "#database/error-messages.js";
+
 const saeSchema = new Schema({
     title: {
         type: String,
         required: [
             true,
-            "Veuillez mettre un titre, le champ ne peut pas être nul ou vide",
+            errorRequiredMessage("un titre"),
         ],
         trim: true,
     },

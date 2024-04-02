@@ -45,6 +45,7 @@
   "imports": {
     "#models/*.js": "./database/models/*.js",
     "#database/index.js": "./database/index.js",
-    "#database/validator.js": "./database/validator.js"
+    "#database/validator.js": "./database/validator.js",
+    "#database/*.js": "./database/*.js"
   }
 }

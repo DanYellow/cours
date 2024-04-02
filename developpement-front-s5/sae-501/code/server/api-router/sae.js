@@ -288,6 +288,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
 
     const payload = structuredClone(req.body);
 
+    // delete previous image and didn't upload new one
     if("delete_file_image" in payload && "file" in payload === false) {
         payload.image = "";
         const targetPath = `${res.locals.upload_dir}${oldRessource.image}`;

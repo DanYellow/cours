@@ -1,6 +1,8 @@
 import mongoose, { Schema } from "mongoose";
 import validator from "validator";
 
+import { errorRequiredMessage } from "#database/error-messages.js";
+
 import Article from "./article.js";
 
 const defaultColor = "#ff0000";
@@ -10,7 +12,7 @@ const authorSchema = new Schema({
         type: String,
         required: [
             true,
-            "Veuillez mettre un nom de famille, le champ ne peut pas être nul ou vide",
+            errorRequiredMessage("un nom de famille")
         ],
         trim: true,
     },
@@ -18,13 +20,13 @@ const authorSchema = new Schema({
         type: String,
         required: [
             true,
-            "Veuillez mettre un prénom, le champ ne peut pas être nul ou vide",
+            errorRequiredMessage("un prénom")
         ],
         trim: true,
     },
     email: { 
         type: String,
-        required: [true, "Veuillez mettre un email, le champ ne peut pas être nul ou vide"],
+        required: [true, errorRequiredMessage("un email")],
         validate: [validator.isEmail, "Veuillez mettre un email valide"]
     },
     image: {

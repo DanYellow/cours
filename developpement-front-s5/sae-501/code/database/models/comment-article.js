@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+import { errorRequiredMessage } from "#database/error-messages.js";
 import Article from "./article.js"
 
 const commentArticleSchema = new Schema(
@@ -8,7 +9,7 @@ const commentArticleSchema = new Schema(
             type: String,
             required: [
                 true,
-                "Veuillez mettre un commentaire, le champ ne peut pas être nul ou vide",
+                errorRequiredMessage("un commentaire")
             ],
             trim: true,
         },
