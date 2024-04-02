@@ -286,7 +286,15 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         })
     }
 
-    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...req.body, _id: req.params.id, ...imagePayload }, { new: true })
+    const payload = structuredClone(req.body);
+
+    if(payload.current_file_image === "" && oldRessource.image !== "") {
+        payload.image = "";
+        const targetPath = `${res.locals.upload_dir}${oldRessource.image}`;
+        fs.unlink(targetPath, () => {});
+    }
+
+    const ressource = await SAE.findOneAndUpdate({ _id: req.params.id }, { ...payload, _id: req.params.id, ...imagePayload }, { new: true })
     .orFail()
     .catch((err) => {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
