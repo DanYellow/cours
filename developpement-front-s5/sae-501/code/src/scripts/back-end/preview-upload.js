@@ -15,12 +15,11 @@ const previewUpload = (e) => {
         `[data-preview-upload="${uploadName}"]`
     );
     if (file && imgRelated) {
-        // imgRelated.setAttribute('src', URL.createObjectURL(file));
         imgRelated.src = URL.createObjectURL(file);
     }
 };
 
-const srcAttributeObserver = (mutationList) => {
+const previewImageObserver = new MutationObserver((mutationList) => {
     mutationList.forEach((mutation) => {
         if (mutation.type === "attributes") {
             const deleteBtn = document.querySelector(
@@ -31,16 +30,14 @@ const srcAttributeObserver = (mutationList) => {
             deleteBtn.classList.toggle("hidden", newValue === "");
         }
     });
-};
-
-const observer = new MutationObserver(srcAttributeObserver);
+});
 
 listUploadFileInput.forEach((item) => {
     item.addEventListener("change", previewUpload);
 });
 
 listUploadFilePreview.forEach((item) => {
-    observer.observe(item, {
+    previewImageObserver.observe(item, {
         attributes: true,
     });
 });
@@ -50,6 +47,10 @@ listClearUploadFileBtn.forEach((item) => {
         const input = document.querySelector(
             `[data-upload-file="${e.target.dataset.deletePreviewUploadButton}"]`
         );
+        const imgRelated = document.querySelector(
+            `[data-preview-upload="${e.target.dataset.deletePreviewUploadButton}"]`
+        );
+        imgRelated.src = ""
         input.value = input.defaultValue;
     });
 });
