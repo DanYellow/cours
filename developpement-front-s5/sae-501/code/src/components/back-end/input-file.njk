@@ -1,33 +1,64 @@
-{% macro field(path, accepts=".jpg, .jpeg, .png", name = "image") %}
-<figure class="w-fit mb-2 max-h-[300px] max-w-full hover:bg-slate-100 rounded-lg overflow-hidden">
-    <img src="{{ path }}" data-original-image="{{ path }}" data-preview-upload="{{ name }}" alt="" class="max-w-[inherit] max-h-[inherit]">
-    <input type="text" value="{{ path }}" name="current_file_{{ name }}" class="hidden">
-</figure>
-<div class="flex flex-col sm:flex-row gap-y-4">
-    <div>
-        <input 
-            data-upload-file="{{ name }}"
-            type="file" 
-            accept="{{ accepts }}"
-            class="block w-full text-sm text-slate-500
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-full file:border-0
-                file:text-sm
-                text-transparent
-                file:bg-sky-50 file:border-sky-500
-                hover:file:bg-sky-100
-            "
-            name="{{ name }}"
-        />
-        <span class="mt-1 text-sm text-slate-500" id="file_input_help">{{ accepts }} (taille max. 800kB).</span>
-    </div>
+{% macro field(path, accepts = ".jpg, .jpeg, .png", name = "image", id="image") %}
+    {% set border_classes = "border-b border-solid border-slate-300" %}
 
-    <button 
-        type="button" 
-        class="text-sm self-start rounded-full block py-2 px-4 border-sky-500 text-slate-700 bg-blue-50 hover:bg-sky-100" 
-        data-clipboard-upload="{{ name }}"
-    >
-        Coller depuis le presse-papier
-    </button>
-</div>
-{% endmacro %}
+    <table class="table-fixed w-full">
+        <thead>
+            <tr>
+                <th class="{{ border_classes }} text-sm font-bold p-1">Nouvelle image</th>
+                <th class="{{ border_classes }} text-sm font-bold p-1">Image actuelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="relative">
+                <td class="{{ border_classes }} p-2 bg-clip-padding align-top">
+                    <div class="absolute text-4xl right-2/4 top-2/4 -translate-y-2/4 m-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <figure class="flex justify-center items-center h-[16rem]">
+                        <img data-preview-upload="{{ name }}" alt="" class="max-w-full max-h-full">
+                    </figure>
+                </td>
+                <td class="{{ border_classes }} p-2 bg-clip-padding align-top">
+                    <figure class="flex justify-center items-center h-[16rem]">
+                        <img src="{{ path }}" data-original-image="{{ path }}"  alt="" class="max-w-full max-h-full">
+                    </figure>
+                </td>
+            </tr>
+            <tr>
+                <td class="{{ border_classes }} p-5">
+                    <div class="flex flex-col sm:flex-row gap-y-4">
+                        <div>
+                            <input 
+                                data-upload-file="{{ name }}"
+                                type="file" 
+                                accept="{{ accepts }}"
+                                class="block w-full text-sm text-slate-500
+                                    file:mr-4 file:py-2 file:px-4
+                                    file:rounded-full file:border-0
+                                    file:text-sm
+                                    text-transparent
+                                    file:bg-sky-50 file:border-sky-500
+                                    hover:file:bg-sky-100
+                                "
+                                id="{{ id }}"
+                                name="{{ name }}"
+                            />
+                            <span class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</span>
+                        </div>
+
+                        <button 
+                            type="button" 
+                            class="text-sm self-start rounded-full block py-2 px-4 border-sky-500 text-slate-700 bg-blue-50 hover:bg-sky-100" 
+                            data-clipboard-upload="{{ name }}"
+                        >
+                            Coller depuis le presse-papier
+                        </button>
+                    </td>
+                    <td class="{{ border_classes }} p-5"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    {% endmacro %}
