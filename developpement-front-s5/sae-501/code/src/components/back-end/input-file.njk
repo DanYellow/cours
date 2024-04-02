@@ -1,4 +1,4 @@
-{% macro field(path, accepts = ".jpg, .jpeg, .png", name = "image", id="image") %}
+{% macro field(path, accepts = ".jpg, .jpeg, .png", name = "image", id = "image") %}
     {% set border_classes = "border-b border-solid border-slate-300" %}
 
     <table class="table-fixed w-full">
@@ -16,9 +16,12 @@
                             <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
                         </svg>
                     </div>
-                    <figure class="flex justify-center items-center h-[16rem]">
-                        <img data-preview-upload="{{ name }}" alt="" class="max-w-full max-h-full">
-                    </figure>
+                    <div class="relative">
+                        <button data-delete-preview-upload-button="{{ name }}" type="button" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 hover:bg-red-800 px-2 py-1 text-white hidden">Supprimer</button>
+                        <figure class="flex justify-center items-center h-[16rem]">
+                            <img data-preview-upload="{{ name }}" alt="" class="max-w-full max-h-full">
+                        </figure>
+                    </div>
                 </td>
                 <td class="{{ border_classes }} p-2 bg-clip-padding align-top">
                     <figure class="flex justify-center items-center h-[16rem]">
@@ -44,7 +47,7 @@
                                 "
                                 id="{{ id }}"
                                 name="{{ name }}"
-                            />
+/>
                             <span class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</span>
                         </div>
 
