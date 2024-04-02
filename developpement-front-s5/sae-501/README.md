@@ -187,7 +187,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
-    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express
+    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de votre fichier, sinon, celles qui suivront ne seront jamais appelées
 - [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Mettre un favicon
@@ -209,6 +209,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
             // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
             // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href"
         ```
+    - [ ] Le site doit être responsive (des mixins scss et tailwind sont là pour vous aider)
+      - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
@@ -231,14 +233,12 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Note : **le lien des images doit être absolu**
 
 ### Administration
-- [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
-    - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil) depuis le backoffice qui lira/modifiera un fichier json
     - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
     - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec promesse) :
         - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
         - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
-            - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères
+            - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères avant de l'écrire dans le fichier
 - [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
@@ -266,6 +266,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 - [ ] Afficher le détail d'un message via une url dédiée. Par exemple : admin/messages/65687d7a0c092bb7d3f0c07c
+- [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
 
 ### Pour aller plus loin - tâches optionnelles
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
@@ -332,4 +333,4 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
 - **Le navigateur affiche une erreur 404, je ne comprends pas**
 
-    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre router. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également en POST. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
+    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également en POST. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
