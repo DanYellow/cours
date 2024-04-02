@@ -3,6 +3,7 @@
 {% set page_name = "saes" %}
 
 {% import "components/back-end/pagination.njk" as pagination with context %}
+{% import "components/back-end/list-actions.njk" as list_actions %}
 
 {% block main %}
 	<div class="bg-white rounded-2xl shadow-md pb-6">
@@ -14,12 +15,11 @@
             <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-500 hover:text-blue-900 h-fit">Ajouter une nouvelle SAE</a>
 		</header>
 
-		<table class="w-full table-fixed bg-white rounded-lg overflow-hidden border-collapse">
+		<table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
 			<thead class="">
 				<tr class="text-slate-800">
 					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
 					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-					<th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
 					<th class="pl-8 border-solid border-slate-200 border-b pb-5 w-[150px]"></th>
 				</tr>
 			</thead>
@@ -30,9 +30,11 @@
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
 							<p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent"><a href="{{ admin_url ~ '/saes/' ~ item._id }}" class="text-blue-500 hover:text-blue-900 block sm:inline-block w-full sm:w-fit text-left">Editer</a></td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent">
-                            <button type="button" class="text-red-600 block sm:inline-block sm:w-fit w-full text-left" popovertargetaction="open" popovertarget="delete-popup" data-delete-name='{{ item.title }}' data-delete-url="{{ base_url ~ "/api/saes/" ~ item._id  }}">Supprimer</button>
+						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent min-w-[250px] lg:text-right">
+                            <div class="inline-flex gap-6">
+                                {{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
+                                {{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}
+                            </div>
                         </td>
 					</tr>
 				{% else %}
