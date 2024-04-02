@@ -1,5 +1,6 @@
-{% macro field(imagename, accepts = ".jpg, .jpeg, .png", name = "image", id = "image", folder = '/uploads/') %}
+{% macro field(imagename, folder, accepts = ".jpg, .jpeg, .png", name = "image", id = "image") %}
     {% set border_classes = "border-b border-solid border-slate-300" %}
+    {% set upload_dir = folder | default(upload_path) %}
 
     <table class="table-fixed w-full">
         <thead>
@@ -23,9 +24,10 @@
                         </figure>
                     </div>
                 </td>
+    
                 <td class="{{ border_classes }} p-2 bg-clip-padding align-top">
                     <figure class="flex justify-center items-center h-[16rem] relative">
-                        <img src="{{ folder ~ imagename if imagename else null }}" data-current-image="{{ name }}"  alt="" class="max-w-full max-h-full">
+                        <img src="{{ upload_dir ~ imagename if imagename else null }}" data-current-image="{{ name }}"  alt="" class="max-w-full max-h-full">
                         {% if imagename %}
                             <button data-delete-current-image-button="{{ name }}" type="button" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 hover:bg-red-800 px-2 py-1 text-white">Supprimer</button>
                             <input type="checkbox" class="hidden" name="delete_file_{{name}}" id="" data-current-image-checkbox="{{ name }}">
