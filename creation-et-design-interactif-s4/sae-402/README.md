@@ -253,6 +253,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
 
 # Astuces et conseils
+- C'est bien d'avoir des superbes idées, mais il faut penser à les développer à la fin. Ne perdez pas votre temps à poser vos idées de game / level design sans développer. Assurez-vous d'avoir les connaissances / compétences techniques, pensez à faire des prototypes 
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous développerez

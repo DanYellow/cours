@@ -27,24 +27,27 @@ La `requête` ci-dessus pourrait se traduire en "Récupère-moi toutes les ligne
 
 Nous avons notre requête, elle fonctionne très bien en MySQL, toutefois, il faudrait qu'on puisse utiliser son résultat dans notre site et donc php.
 
-##### Première étape : préparation de notre requête.
+##### Première étape : création de notre requête.
 
 ```php
-$articleCommande = $mysqlClient->prepare('SELECT * FROM article');
+$requete_brute = 'SELECT * FROM article';
 ```
-
-Vous l'avez remarqué, nous avons réutilisé notre requête MySQL dans une méthode `prepare`. On ne va pas entrer dans les détails, mais comprenez bien que ceci est indipensable tout comme ce qui va suivre et vous serez obligé de l'utiliser à chaque fois que vous souhaitez communiquer avec la base.
+On définit sous forme d'une chaîne de caractères notre requête. Ici nous souhaitons récupérer tous les éléments de la table "article".
 
 ##### Deuxième étape : exécution de notre requête + récupération des données
 
-La code précédent s'il nous permet d'effectuer une requête, son résultat est inexploitable. Ainsi, nous allons devoir exécuter notre requête puis en récupérer le résultat.
+Ensuite, il nous faut exécuter la requête avec la fonction `mysqli_query()`. Elle prend deux paramètres au minimum (dans l'ordre), la connexion à la base de données et la requête sous forme de chaîne de caractères (on en a une déjà, la variable `$requete_brute`). Pour la connexion à la base de données, il s'agit de la réponse de la fonction `mysqli_connect()`. Si on exécute notre fonction `mysqli_query()`, nous aurons le code suivant : 
 
 ```php
-$listeArticlesCommand->execute();
-$listeArticles = $listeArticlesCommand->fetchAll();
+$resultat_brut = mysqli_query($mysqli_connexion, $requete_brute);
+```
+La requête a été exécutée, mais malheureusement, on ne peut rien faire avec. La variable `$resultat_brut` ne contient que des résultats bruts, pour afficher le contenu de la table "article", il faudra utiliser la fonction `mysqli_fetch_array()` qui prend en paramètre obligatoire le résultat de la fonction `mysqli_query()`. Elle retourne un tableau ou un tableau de tableaux, dépendamment du nombre de résultats.
+
+```php
+$resultat = mysqli_fetch_array($resultat_brut);
 ```
 
-Notre variable `$listeArticles` contient un tableau, et ce même tableau contient des tableaux qui ont chacun la structure suivante :
+Notre variable `$resultat` contient un tableau, et ce même tableau contient des tableaux qui ont chacun la structure suivante :
 
 ```php
   array(
@@ -56,12 +59,12 @@ Notre variable `$listeArticles` contient un tableau, et ce même tableau contien
   )
 ```
 
-Vu que `$listeArticles` est donc un tableau, nous pouvons itérer dedans comme suit :
+Vu que `$resultat` est donc un tableau, nous pouvons itérer dedans comme suit :
 
 ```php
-  foreach ($listeArticles as $article) {
+  while ($article = mysqli_fetch_array($resultat_brut)) {
     // On affiche le titre + chapo de chaque article un à un
-    $echo $article["titre"] . " " . $article["chapo"];
+    echo "{$article['titre']} {$article['chapo']}";
     // ...
   }
 ```
@@ -73,48 +76,45 @@ Vous trouvez cet exemple au complet dans le fichier `index.php` et une adaptatio
 On a vu plus haut que la requête `SELECT * FROM article` nous permettait de sélectionner tous les éléments contenu dans une table. Sachez qu'il est possible d'apporter plus de précisions dans notre sélection via d'autres mots-clés, il y en a plein d'autres qu'on peut utiliser dans un `SELECT`, mais nous allons nous intéresser au mot-clé `WHERE`. Ce dernier nous permet de sélectionner un élément sur la valeur d'un champ. Par exemple : _Essayons de récupérer un élément ayant la valeur 42 pour le champ id dans la table article_.
 
 ```php
-$articleCommande = $mysqlClient->prepare('SELECT * FROM article WHERE id = :id');
+$id = 42;
+$requete_brute = "SELECT * FROM article WHERE article.id = $id";
 
-$articleCommande->execute([
-  "id" => 42
-]);
-$article = $articleCommande->fetch();
+$resultat_brut = mysqli_query($mysqli_connexion, $requete_brute);
+$article = mysqli_fetch_array($resultat_brut);
 ```
 
 Analysons le code ligne par ligne.
 
 ```php
-$articleCommande = $mysqlClient->prepare('SELECT * FROM article WHERE id = :id');
+$id = 42;
+$requete_brute = "SELECT * FROM article WHERE article.id = $id";
 ```
 
-Notre `SELECT` reste identique, nous avons juste rajouté le `WHERE` et précisé quel champ nous allons effectuer le filtre. Pour des questions de sécurité, il ne faut jamais faire une contaténation pour une requête, vous vous exposez aux injections SQL. Le `:id` est un élément qui sera substitué par notre valeur après.
+Notre requête reste identique comparé au premier exemple, nous avons juste rajouté le `WHERE` et précisé quel champ nous allons effectuer le filtre et la valeur que nous souhaitons pour la colonne `id`, dans notre cas "42". Généralement la valeur provient de l'URL de la page. On pourrait s'imaginer que notre 42 soit remplacé par `$_GET["id"]`, on récupèrerait donc le paramètre "id" de l'URL.
+
+Pour des questions de sécurité, il est toujours préférable de s'assurer que la valeur passée en paramètre soit correcte. Nous verrons plus tard au cours du cursus d'autres méthodes plus sécuritaires pour effectuer ce genre de requêtes.
+
+> Attention, le langage php ne peut pas interpéter une variable si elle est entre guillemets simples, ainsi, écrire `'SELECT * FROM article WHERE article.id = $id'` engendrera un bug. **Il faut mettre des guillemets doubles.**
+
 
 ```php
-$articleCommande->execute([
-  "id" => 42
-]);
+$resultat_brut = mysqli_query($mysqli_connexion, $requete_brute);
+$article = mysqli_fetch_array($resultat_brut);
 ```
 
-Comme tout à l'heure, nous exécutons notre requête, toutefois contrairement à tout à l'heure, nous passons un tableau associatif en paramètre à la méthode `execute()`.
-Le fonctionnement est très simple, on définit un ensemble de clef => valeur. Dans notre cas, `:id` va être remplacé par `42`.
+Ensuite, nous exécutons notre requête, récupérons le résultat brute et le transformons grâce à la fonction `mysqli_fetch_array()`, vu que la requête ne retourne qu'un résultat, la variable `$article` ne contiendra qu'un tableau associatif (appelé aussi dictionnaire). 
 
-Généralement la valeur provient de l'URL de la page. On pourrait s'imaginer que notre 42 soit remplacé par `$_GET["id"]`, on récupèrerait donc le paramètre "id" de l'URL.
-
-```php
-$article = $articleCommande->fetch();
-```
-
-Cette fois-ci, on appelle la méthode `fetch()` (et non `fetchAll()`) tout simplement car un seul résultat nous intéresse. De fait, notre résultat sera un tableau associatif et non un tableau de tableaux associatifs.
-
-> Note : Si la requête ne retourne rien, `fetch()` retournera faux (booléen "false"). Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
+> Note : Si la requête ne retourne rien, `mysqli_fetch_array()` retournera "NULL". Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
 
 La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
 
-Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `WHERE`, par exemple : 
+Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `AND`, par exemple : 
 ```sql
 SELECT * FROM article WHERE id = :id AND titre = :titre
 ```
 Dans ce code ci-dessus, on cherche un article avec une valeur spécifique pour le champ `id` **et** une valeur spécifique pour le champ `titre`. Et si vous souhaitez qu'une des deux conditions soit remplie, il faudra remplacer `AND` par `OR`.
+
+> Notez que MySQL sera toujours plus performant sur les requêtes où on recherche par clé étrangère.
 
 ## Insérer des données
 
@@ -137,21 +137,13 @@ Analysons tout ça :
 
 ```php
 // Requête pour envoyer un message :
-  $insertionMessageRequete = "
-    INSERT INTO message(nom, prenom, contenu, email, type, date_creation)
-    VALUES (:nom, :prenom, :contenu, :email, :type, :date)
+  $insertion_requete_brute = "
+    INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+    VALUES ('$nom', '$prenom', '$message', '$email', '$type', '$date')
   ";
 
-  // On prépare la requête
-  $messageCommande = $clientMySQL->prepare($insertionMessageRequete);
-
-  // On exécute la commande et on place nos valeurs avec les mêmes clefs que définies dans la méthode "VALUES" de notre requête
-  $messageCommande->execute([
-            'nom' => "",
-            'prenom' => "",
-            'contenu' => "",
-            // ...
-        ]);
+  // On exécute la requête
+  $resultat_brut = mysqli_query($mysqli_link, $insertion_requete_brute);
 ```
 
 > **Attention :** Pensez toujours à nettoyer des données avant de les envoyer en base. Utilisez la fonction `htmlentities()` sur les variables que vous allez entrer en base pour vous prévenir d'un éventuel piratage de votre site.
@@ -178,18 +170,19 @@ WHERE id = :id;
 Maintenant le code PHP (ici on met à jour un auteur)
 
 ```php
-$majAuteurCommande = $clientMySQL->prepare("
-    UPDATE auteur
-    SET nom = :nom, prenom = :prenom, avatar = :avatar
-    WHERE id = :id
-");
+$nom = htmlentities($_POST["nom"]);
+$prenom = htmlentities($_POST["prenom"]);
+$avatar = htmlentities($_POST["avatar"]);
+$id =  $_POST["id"];
 
-$majAuteurCommande->execute([
-    "nom" => htmlentities($_POST["nom"]),
-    "prenom" => htmlentities($_POST["prenom"]),
-    "avatar" => htmlentities($_POST["avatar"]),
-    "id" => $_POST["id"]
-]);
+$maj_requete_brute = "
+    UPDATE auteur
+    SET nom = $nom, prenom = $prenom, avatar = $avatar
+    WHERE id = $id
+";
+
+// On exécute la requête
+$resultat_brut = mysqli_query($mysqli_link, $insertion_requete_brute);
 ```
 
 Rien de bien nouveau dans ce code. On récupère les valeurs du formulaire pour ensuite envoyer à la base de données. Comme pour `INSERT INTO`, on n'oublie pas de sécuriser les données avec la fonction `htmlentities()`.
@@ -198,6 +191,40 @@ Ici la valeur pour le champ "id" provient d'un champ caché dont la valeur (attr
 
 Ce code est issu du fichier `administration/auteurs/edition.php`, il est incomplet, vous devez le compléter.
 
+## Associer des tables
+
+Dans certains cas, il est possible que vous ayez besoin des données de plus d'une table à la fois. Dans ce cas, il faudra utiliser des jointures.
+> Note : il existe plusieurs types de jointures, mais nous aurons besoin que d'un seul type de jointure dans la SAE (`LEFT JOIN`).
+
+La jointure `LEFT JOIN` permet de récupérer tous les résultats de la table de gauche (`LEFT`) pour les faire correspondre à ceux d'une autre table si les conditions sont remplies. Une requête de type `LEFT JOIN` se présente de la façon suivante :
+
+```php
+$jointure_requete_brute = "
+    SELECT * FROM article
+    LEFT JOIN auteur 
+    ON article.auteur_id = auteur.id;
+";
+
+```
+Dans la requête ci-dessus, nous recherchons tous les éléments de la table `article` et associons à chacun des résultat son auteur (table `auteur`) grâce à la colonne `auteur_id` pour la table `article` et la colonne `id` pour la table `auteur`. De ce fait, nous aurons comme résultat, pour chaque entrée du tableau, le résultat suivant (en ayant bien évidemment exécuté la requête avant) :
+```php
+  array(
+    "id" => "valeur",
+    "titre" => "valeur",
+    "chapo" => "valeur",
+    "image" => "valeur",
+    "...",
+    "nom" => "valeur",
+    "prenom" => "valeur",
+    "...",
+  )
+```
+A noter qu'il est possible de définir des alias pour chacune des colonnes pour éviter des conflits de noms. Vous trouverez un exemple de `LEFT JOIN` ainsi que d'alias de nom dans le fichier `administration/articles/index.php`.
+
+> Il est possible de remplacer `LEFT JOIN` par de multiples requêtes. Toutefois la jointure est plus lisible et peut être plus performante dans certains cas.
+
+> - [En savoir plus sur les jointures MySQL - français](https://aymeric-auberton.fr/academie/mysql/jointure)
+
 ## En résumé
 
 - `INSERT INTO ... VALUES ...` : ajout d'une nouvelle entrée
@@ -205,8 +232,7 @@ Ce code est issu du fichier `administration/auteurs/edition.php`, il est incompl
   - On ne met jamais à jour la valeur de l'id
 - `SELECT` : Sélection d'éléments
   - `WHERE` : permet de filter selon un critère
+- `LEFT JOIN` : Association de plusieurs tables
 
 
 Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes SQL que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour vos autres projets. 
-
-

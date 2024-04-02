@@ -5,14 +5,13 @@ $page_active = "index";
 require_once('./ressources/includes/connexion-bdd.php');
 
 // Code à améliorer
-$id = 1;
+$id = 10;
 $requete_brute = "
     SELECT * FROM article 
     WHERE article.id = $id
 ";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
-
-$entite = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC);
+$entite = mysqli_fetch_array($resultat_brut);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -37,7 +37,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
         <h1 class="titre">Articles sur le BUT MMI</h1>
         <section class="colonne">
             <section class="liste-articles">
-                <?php while ($article = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) { ?>
+                <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
                     <!-- 
                         @hint
                         Nous avons passé un paramètre d'URL GET nommé "id".
