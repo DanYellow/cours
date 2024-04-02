@@ -248,7 +248,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
-- [ ] Affichez les messages envoyés depuis le formulaire de contact
+- [ ] Afficher les messages envoyés depuis le formulaire de contact
     - Il n'y a pas de schéma pour les messages, vous devez le réaliser
         - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
     - Vous devez créer les api pour (POST et GET)

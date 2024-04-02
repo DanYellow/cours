@@ -14,7 +14,7 @@
             <thead>
                 <tr class="text-slate-800">
                     <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
-                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
+                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Contenu</th>
                     <th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
                 </tr>
             </thead>
@@ -22,7 +22,7 @@
                 {% for item in list_saes.data %}
                     <tr class="hover:bg-neutral-50 even:bg-slate-50">
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
-                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
+                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Contenu">
                             <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                         </td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
@@ -59,7 +59,7 @@
         <thead>
             <tr class="text-slate-800">
                 <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5" >Titre</th>
-                <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
+                <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Contenu</th>
                 <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
                 <th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
             </tr>
@@ -68,7 +68,7 @@
             {% for item in list_articles.data %}
                 <tr class="hover:bg-neutral-50 even:bg-slate-50">
                     <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
-                    <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent max-w-[300px]" data-label="Description">
+                    <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent max-w-[300px]" data-label="Contenu">
                         <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                     </td>
                     <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</td>
