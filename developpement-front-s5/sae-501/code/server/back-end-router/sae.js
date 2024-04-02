@@ -68,6 +68,11 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         },
     }
 
+    console.log("req.file", req.file);
+    console.log("req.body.file", req.body.current_file_image);
+
+    return;
+
     if(isEdit) {
         options = {
             ...options,
