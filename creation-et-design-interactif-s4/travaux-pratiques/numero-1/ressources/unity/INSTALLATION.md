@@ -19,6 +19,20 @@ Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" d'une des
 |:--:| 
 | *Pour gagner du temps au niveau du téléchargement, décochez le téléchargement de "Microsoft Visual Studio". Nous n'en aurons pas besoin pour le cours. Nous utiliserons VS Code à la place.* |
 
+# Unity à l'IUT
+
+Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs. Il n'est pas utile de l'installer. Néanmoins, Unity Hub n'est pas forcément conscient qu'Unity est là, vous devrez le faire manuellement. Suivez les étapes.
+
+| ![](printscreens/locate-unity-1.png) | 
+|:--:| 
+| *Cliquez sur le bouton "Locate"* |
+
+| ![](printscreens/locate-unity-2.png) | 
+|:--:| 
+| *Allez dans le dossier "Programmes" et sélectionnez le dossier de la version d'Unity souhaitée. Puis choississez le fichier "Unity.exe" situé dans `Unity XXXX.X.XX > Editor`* |
+
+Après avoir effectuez ces étapes, vous pourrez utiliser la version d'Unity que vous venez d'ajouter soit pour créer un projet soit pour ouvrir un projet existant.
+
 ## Problèmes de connexion
 Dans certains cas, il se peut que vous n'arriviez pas à vous connecter à votre compte Unity. Unity Hub arguant que votre licence a expiré et si vous tentez de la recréer, ceci échoue. Ce problème est lié au Pare-Feu de Windows qui peut bloquer les requêtes d'Unity sur certains réseaux comme celui de l'IUT. Si ceci arrive, il y a un didacticiel sur le site d'Unity.
 - [Accéder au didacticiel](https://docs.unity3d.com/Packages/com.unity.live-capture@2.0/manual/setup-network.html#manual-firewall-rule-configuration)
