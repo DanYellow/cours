@@ -171,6 +171,7 @@ app.listen(port, listDomains, () => {
         console.log("\nSwagger running at :");
         ["localhost", "127.0.0.1", ...listDomains].filter( Boolean ).forEach((item) => {
             console.log(`• \x1b[35mhttp://${item}:${port}/api-docs\x1b[0m`);
+            console.log(`• \x1b[35mhttp://${item}:${port}/swagger\x1b[0m`);
         })
     }
     console.log("---------------------------")
