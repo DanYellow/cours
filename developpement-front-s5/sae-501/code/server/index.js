@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import path from "path";
 import fs from "fs";
 import lodash from "lodash";
@@ -40,6 +41,7 @@ app.use(
         crossOriginResourcePolicy: false,
     })
 );
+app.use(cookieParser());
 
 let publicPath = path.join(path.resolve(), "public");
 if (process.env.NODE_ENV === "production") {

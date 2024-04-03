@@ -81,6 +81,8 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             url: `${res.locals.base_url}/api/${base}`,
         }
     }
+
+    
     
     try {
         const result = await axios(options);
@@ -89,6 +91,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         listErrors = e.response.data.errors
         ressource = e.response.data.ressource || {}
     } finally {
+        res.cookie('is_success', listErrors.length === 0);
         if (listErrors.length || isEdit) {
             res.render("pages/back-end/saes/add-edit.njk", {
                 sae: ressource,
