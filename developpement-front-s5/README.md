@@ -6,6 +6,7 @@ Apprentissage du cours :
 - Approfondir les connaissances de nodejs
 - Découverte des tests unitaires
 - Découverte des tests de bout en bout (appelés plus communément e2e test - end-to-end -) 
+- Découverte de moteurs de templating
 
 But du cours :
 - Être capable de tester son code automatiquement à l'aide d'outils
