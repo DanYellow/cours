@@ -11,8 +11,8 @@
 			<p class="text-4xl">
             Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
-            </p>
-            <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-700 hover:text-blue-950 h-fit">Ajouter une nouvelle SAE</a>
+			</p>
+			<a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-700 hover:text-blue-950 h-fit">Ajouter une nouvelle SAE</a>
 		</header>
 
 		<table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
@@ -31,11 +31,11 @@
 							<p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
 						</td>
 						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
-                            <div class="inline-flex gap-6">
-                                {{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
-                                {{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}
-                            </div>
-                        </td>
+							<div class="inline-flex gap-6">
+								{{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
+								{{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}
+							</div>
+						</td>
 					</tr>
 				{% else %}
 					<tr>
@@ -43,10 +43,9 @@
 					</tr>
 				{% endfor %}
 			</tbody>
-			</tbody>
 		</table>
-        <footer class="flex justify-between px-4">
-            {{ pagination.item(list_saes) }}
-        </footer>
+		<footer class="flex justify-between px-4">
+			{{ pagination.item(list_saes) }}
+		</footer>
 	</div>
 {% endblock %}
