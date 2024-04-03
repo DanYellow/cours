@@ -6,47 +6,51 @@
 {% import "components/back-end/list-actions.njk" as list_actions %}
 
 {% block main %}
-	<div class="bg-white rounded-2xl shadow-md pb-6">
-		<header class="mb-1 p-6 pl-8 flex justify-between lg:flex-row flex-col">
-			<p class="text-4xl">
+    <div class="bg-white rounded-2xl shadow-md pb-6">
+        <header class="mb-1 p-6 pl-8 flex justify-between lg:flex-row flex-col">
+            <p class="text-4xl">
             Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
             </p>
             <a href="{{ admin_url ~ "/saes/add" }}" class="text-md items-center text-blue-700 hover:text-blue-950 h-fit">Ajouter une nouvelle SAE</a>
-		</header>
-
-		<table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
-			<thead class="">
-				<tr class="text-slate-800">
-					<th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
-					<th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
-					<th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for item in list_saes.data %}
-					<tr class="hover:bg-neutral-50 even:bg-slate-50">
-						<td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
-							<p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
-						</td>
-						<td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
+        </header>
+        <div class="px-6">
+            {% if messages.success %}
+                <p class="rounded-lg p-3 bg-green-100 text-green-800 border-solid border-x border-y border-green-700 mb-3">{{ messages.success }}</p>
+            {% endif %}
+        </div>
+        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
+            <thead class="">
+                <tr class="text-slate-800">
+                    <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
+                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Description</th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in list_saes.data %}
+                    <tr class="hover:bg-neutral-50 even:bg-slate-50">
+                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
+                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Description">
+                            <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
+                        </td>
+                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                             <div class="inline-flex gap-6">
                                 {{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
                                 {{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}
                             </div>
                         </td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-			</tbody>
-		</table>
-        <footer class="flex justify-between px-4">
-            {{ pagination.item(list_saes) }}
-        </footer>
-	</div>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </tbody>
+    </table>
+    <footer class="flex justify-between px-4">
+        {{ pagination.item(list_saes) }}
+    </footer>
+</div>
 {% endblock %}

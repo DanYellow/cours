@@ -81,8 +81,6 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             url: `${res.locals.base_url}/api/${base}`,
         }
     }
-
-    
     
     try {
         const result = await axios(options);
@@ -91,13 +89,14 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         listErrors = e.response.data.errors
         ressource = e.response.data.ressource || {}
     } finally {
-        res.cookie('is_success', listErrors.length === 0);
-        if (listErrors.length || isEdit) {
+        if(!listErrors.length) {
+            req.flash('success', isEdit ? 'Element mis à jour' : "Element crée");
+        }
+        if (isEdit) {
             res.render("pages/back-end/saes/add-edit.njk", {
                 sae: ressource,
                 list_errors: listErrors,
-                is_edit: isEdit,
-                is_success: listErrors.length === 0
+                is_edit: isEdit
             });
         } else {
             res.redirect(`${res.locals.admin_url}/${base}`);
