@@ -181,6 +181,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
+> Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière aisément.
+
 ## Tâches à effectuer
 
 - [x] Lire les consignes
@@ -197,7 +199,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
-- [ ] Respecter les normes d'accessibilité web
+- [ ] Respecter les normes d'accessibilité web (font-size, contraste...)
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -293,7 +295,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
     
-    Oui, vous avez tout à fait le droit. A noter que tailwind modifiera un peu l'apparence initiale du site, mais ce n'est pas grave.
+    Oui, vous avez tout à fait le droit. Il est déjà utilisé d'ailleurs.
 
 - **Puis-je mettre sur github ce projet ?**
     
