@@ -21,17 +21,17 @@ Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" d'une des
 
 # Unity à l'IUT
 
-Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs. Il n'est pas utile de l'installer. Néanmoins, Unity Hub n'est pas forcément conscient qu'Unity est là, vous devrez le faire manuellement. Suivez les étapes.
+Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs de l'IUT. Il n'est pas utile de l'installer vous-même. Néanmoins, Unity Hub n'est pas forcément conscient qu'Unity est là, vous devrez le faire manuellement depuis Unity Hub. Suivez les étapes.
 
 | ![](printscreens/locate-unity-1.png) | 
 |:--:| 
-| *Cliquez sur le bouton "Locate"* |
+| *Cliquez sur le menu "Installs" puis le bouton "Locate"* |
 
 | ![](printscreens/locate-unity-2.png) | 
 |:--:| 
 | *Allez dans le dossier "Programmes" et sélectionnez le dossier de la version d'Unity souhaitée. Puis choississez le fichier "Unity.exe" situé dans `Unity XXXX.X.XX > Editor`* |
 
-Après avoir effectuez ces étapes, vous pourrez utiliser la version d'Unity que vous venez d'ajouter soit pour créer un projet soit pour ouvrir un projet existant.
+Après avoir effectué ces étapes, vous pourrez utiliser la version d'Unity que vous venez d'ajouter soit pour créer un projet soit pour ouvrir un projet existant.
 
 ## Problèmes de connexion
 Dans certains cas, il se peut que vous n'arriviez pas à vous connecter à votre compte Unity. Unity Hub arguant que votre licence a expiré et si vous tentez de la recréer, ceci échoue. Ce problème est lié au Pare-Feu de Windows qui peut bloquer les requêtes d'Unity sur certains réseaux comme celui de l'IUT. Si ceci arrive, il y a un didacticiel sur le site d'Unity.
@@ -72,3 +72,10 @@ Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity
 | ![](printscreens/installation-4.png) | 
 |:--:| 
 | *Ici, VS Code me propose des méthodes quand je commence à écrire. Ceci signifie que le SDK .NET s'est bien installé* |
+
+# Utilisation de git
+Pour entretenir vos connaissances de git, vous **devrez mettre l'avancée des cours sur github.** L'avancement de chaque TP devra être enregistré sur github. Par conséquent, créez dès maintenant un nouveau projet sur github en public. Et après avoir cloné ce dépôt sur votre ordinateur, vous créerez votre projet Unity dedans.
+
+Une note sera donnée à la fin des TP concernant votre gestion de git.
+
+Pensez à commiter régulièrement, c'est gratuit. Un commit vous permet d'avoir un point de sauvegarde, vous permettant ainsi de revenir en arrière aisément en cas de problème. Faites-le à chaque étape clé : ajout de ressource / script / changement de structure de niveau...
