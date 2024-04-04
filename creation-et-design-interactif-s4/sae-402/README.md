@@ -354,4 +354,12 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
     **Oui.** Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
     - [En savoir plus sur `[SerializeField]`](https://docs.unity3d.com/ScriptReference/SerializeField.html)
+  - 
+- **Les textes ont remplacés par des carrés violet, pourquoi ?**
+
+Ceci est lié à un problème de shaders, il peut avoir lieu quand vous changez de versions. C'est très facile à corriger. Il faut aller dans le menu `Window > TextMeshPro > Import TMP Essential Ressources` (voir image ci-dessous).
+
+![](shader-textmeshpro.png)
+
+Ceci va ouvrir une fenêtre, laissez tout coché et cliquez sur l'option "Import".
 

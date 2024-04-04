@@ -16,6 +16,8 @@ public class Shell : MonoBehaviour
     [Header("Layers")]
     public LayerMask obstacleLayers;
 
+    private RaycastHit2D hit;
+
     private void Start()
     {
         particleEmitter.Stop();
@@ -24,7 +26,7 @@ public class Shell : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
-        RaycastHit2D hit = Physics2D.Linecast(
+        hit = Physics2D.Linecast(
             startCast,
             new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y),
             obstacleLayers
