@@ -49,10 +49,6 @@ listDeleteCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         displayDeleteItemModal();
         const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
-        // const input = document.querySelector(
-        //     `[data-current-image-checkbox="${dataAttr}"]`
-        // );
-        // input.checked = true;
 
         deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
 
@@ -60,12 +56,5 @@ listDeleteCurrentImageBtn.forEach((item) => {
             `[data-current-image="${dataAttr}"]`
         );
         imageModalContainer.src = img.src;
-        // img.src = "";
-
-        // imageObserver.observe(img, {
-        //     attributes: true,
-        // });
-
-        // e.currentTarget.classList.add("hidden");
     });
 });
