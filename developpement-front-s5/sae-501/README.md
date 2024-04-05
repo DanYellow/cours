@@ -348,4 +348,14 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
 - **Est-il possible d'utiliser bootstrap ?**
     
-    Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss.
+    Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment un outil utile de nos jours.
+
+- **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
+
+    Le caractère "@" est un mot-clé désignant un "container Query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur. Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécique, il faut penser aux containers queries.
+
+    Vous pourrez trouver des explications et exemples complémentaires en français ici :
+    - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
+    - [Les Container Queries en CSS
+](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
+    > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
