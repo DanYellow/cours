@@ -11,6 +11,7 @@
     "prod": "cross-env NODE_ENV=production node server/index.js"
   },
   "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.6",
     "@vituum/vite-plugin-tailwindcss": "^1.0.0",
     "autoprefixer": "^10.4.16",
