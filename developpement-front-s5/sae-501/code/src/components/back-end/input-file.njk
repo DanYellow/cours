@@ -29,7 +29,7 @@
                     <figure class="flex justify-center items-center h-[16rem] relative">
                         <img src="{{ upload_dir ~ imagename if imagename else null }}" data-current-image="{{ name }}" data-image-path="{{ upload_dir ~ imagename if imagename else null }}" alt="" class="max-w-full max-h-full">
                         {% if imagename %}
-                            <button data-delete-current-image-button="{{ name }}" type="button" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 hover:bg-red-800 px-2 py-1 text-white">Supprimer</button>
+                            <button popovertarget="delete-image" data-delete-current-image-button="{{ name }}" type="button" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 hover:bg-red-800 px-2 py-1 text-white">Supprimer</button>
                             <input type="checkbox" class="hidden" name="delete_file_{{name}}" id="" data-current-image-checkbox="{{ name }}">
                         {% endif %}
                     </figure>

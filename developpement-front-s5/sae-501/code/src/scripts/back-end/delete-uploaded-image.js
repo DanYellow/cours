@@ -1,4 +1,17 @@
-const listDeleteCurrentImageBtn = document.querySelectorAll("[data-delete-current-image-button]");
+const listDeleteCurrentImageBtn = document.querySelectorAll(
+    "[data-delete-current-image-button]"
+);
+const deletionModal = document.querySelector("[data-image-deletion-modal]");
+const deleteItemModalBtn = document.querySelector(
+    "[data-image-deletion-modal] [data-delete-item]"
+);
+const imageModalContainer = document.querySelector(
+    "[data-image-deletion-modal] [data-image]"
+);
+
+const displayDeleteItemModal = (e) => {
+    imageModalContainer.src = "";
+};
 
 const imageObserver = new MutationObserver((mutationList) => {
     mutationList.forEach((mutation) => {
@@ -13,20 +26,46 @@ const imageObserver = new MutationObserver((mutationList) => {
     });
 });
 
+deleteItemModalBtn.addEventListener("click", (e) => {
+    const dataAttr = e.currentTarget.dataset.deleteCurrentImageButtonModal;
+    const input = document.querySelector(
+        `[data-current-image-checkbox="${dataAttr}"]`
+    );
+    input.checked = true;
+
+    const img = document.querySelector(
+        `[data-current-image="${dataAttr}"]`
+    );
+    img.src = "";
+
+    imageObserver.observe(img, {
+        attributes: true,
+    });
+
+    document.querySelector(`[data-delete-current-image-button="${dataAttr}"]`).classList.add("hidden");
+});
 
 listDeleteCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
+        displayDeleteItemModal();
         const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
-        const input = document.querySelector(`[data-current-image-checkbox="${dataAttr}"]`);
-        input.checked = true;
-        
-        const img = document.querySelector(`[data-current-image="${dataAttr}"]`);
-        img.src = "";
+        // const input = document.querySelector(
+        //     `[data-current-image-checkbox="${dataAttr}"]`
+        // );
+        // input.checked = true;
 
-        imageObserver.observe(img, {
-            attributes: true,
-        });
+        deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
 
-        e.currentTarget.classList.add("hidden");
+        const img = document.querySelector(
+            `[data-current-image="${dataAttr}"]`
+        );
+        imageModalContainer.src = img.src;
+        // img.src = "";
+
+        // imageObserver.observe(img, {
+        //     attributes: true,
+        // });
+
+        // e.currentTarget.classList.add("hidden");
     });
 });

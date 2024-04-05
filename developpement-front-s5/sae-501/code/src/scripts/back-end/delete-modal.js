@@ -8,7 +8,7 @@ const errorMessageModal = document.querySelector("[data-deletion-modal] [data-er
 
 let focusTrap = null;
 
-const displayDeleteItemModal = async (e) => {
+const displayDeleteItemModal = (e) => {
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
     deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName
 }
