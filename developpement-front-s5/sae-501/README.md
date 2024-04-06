@@ -342,6 +342,8 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
     Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également en POST. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
+    Il y a la commande `npm run debug:router` pour lister toutes les routes de votre projet ainsi que la méthode associée.
+
 - **Puis-je mettre sur github ce projet ?**
     
     Oui. De toute façon, c'est **obligatoire** car vous devrez rendre le lien du dépôt git.

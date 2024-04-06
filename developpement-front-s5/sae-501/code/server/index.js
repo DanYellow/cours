@@ -207,3 +207,5 @@ app.listen(port, listDomains, () => {
     }
     console.log("---------------------------");
 });
+
+export { app };
