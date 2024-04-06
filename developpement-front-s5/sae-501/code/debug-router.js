@@ -1,4 +1,8 @@
 import { app } from "./server/index.js";
+import blessed from "blessed";
+import blessedContrib from "blessed-contrib";
+
+const screen = blessed.screen();
 
 const getColorForMethod = (method) => {
     switch (method.toLowerCase()) {
@@ -15,6 +19,8 @@ const getColorForMethod = (method) => {
     }
 };
 
+const listRoutes = [];
+
 const print = (path, layer) => {
     if (layer.route) {
         layer.route.stack.forEach(
@@ -25,10 +31,14 @@ const print = (path, layer) => {
             print.bind(null, path.concat(split(layer.regexp)))
         );
     } else if (layer.method) {
-        console.log(
-            `${getColorForMethod(layer.method.toUpperCase())} /%s`,
-            path.concat(split(layer.regexp)).filter(Boolean).join("/")
-        );
+        const url = path.concat(split(layer.regexp)).filter(Boolean).join("/");
+
+        url.split(",").forEach((item) => {
+            listRoutes.push({
+                METHOD: `${layer.method.toUpperCase()}`,
+                PATH: item,
+            });
+        });
     }
 };
 
@@ -45,12 +55,44 @@ const split = (thing) => {
             .match(
                 /^\/\^((?:\\[.*+?^${}()|[\]\\\/]|[^.*+?^${}()|[\]\\\/])*)\$\//
             );
-        console.log(thing.toString().split(","))
+
         return match
             ? match[1].replace(/\\(.)/g, "$1").split("/")
-            : "<complex:" + thing.toString() + ">";
+            : thing.toString().substring(1);
     }
 };
 
 app._router.stack.forEach(print.bind(null, []));
-process.exit();
+
+const output = listRoutes.filter(
+    (item) => item.PATH.length > 0 && item.PATH.includes("/")
+);
+
+// console.log(Object.values(output))
+var table = blessedContrib.table({
+    keys: true,
+    fg: "white",
+    selectedFg: "white",
+    selectedBg: "blue",
+    interactive: true,
+    label: "SAE 501 - Liste des routes",
+    border: { type: "line", fg: "cyan" },
+    columnSpacing: 10, //in chars
+    columnWidth: [10, 50] /*in chars*/,
+});
+
+table.focus();
+
+screen.append(table);
+table.setData({
+    headers: Object.keys(output[0]),
+    data: Object.values(output).map((item) => Object.values(item)),
+});
+
+screen.key(["escape", "q", "C-c"], function (ch, key) {
+    return process.exit(0);
+});
+screen.render();
+
+// console.table(listRoutes.filter((item) => item.PATH.length > 0 && item.PATH.includes("/")));
+// process.exit();
