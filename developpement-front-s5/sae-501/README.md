@@ -256,7 +256,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
 - [ ] Afficher les messages envoyés depuis le formulaire de contact
-    - Il n'y a pas de schéma pour les messages, vous devez le réaliser
+    - Il n'y a pas de schéma pour les messages, nous le réaliserons ensemble
         - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
     - Vous devez créer les api pour (POST et GET)
     - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
@@ -352,10 +352,11 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
-    Le caractère "@" est un mot-clé désignant un "container Query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur. Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécique, il faut penser aux containers queries.
+    Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur. Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécifique, il faut penser aux containers queries.
 
     Vous pourrez trouver des explications et exemples complémentaires en français ici :
     - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
-    - [Les Container Queries en CSS
-](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
+    - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
     > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
+    > 
+    > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
