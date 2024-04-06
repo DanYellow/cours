@@ -1,6 +1,8 @@
+console.log = function () {};
 import { app } from "./server/index.js";
 import blessed from "blessed";
 import blessedContrib from "blessed-contrib";
+
 
 const screen = blessed.screen();
 
@@ -35,7 +37,7 @@ const print = (path, layer) => {
 
         url.split(",").forEach((item) => {
             listRoutes.push({
-                METHOD: `${layer.method.toUpperCase()}`,
+                METHOD: `${getColorForMethod(layer.method.toUpperCase())}`,
                 PATH: item,
             });
         });
@@ -64,21 +66,37 @@ const split = (thing) => {
 
 app._router.stack.forEach(print.bind(null, []));
 
-const output = listRoutes.filter(
-    (item) => item.PATH.length > 0 && item.PATH.includes("/")
-);
+const output = listRoutes
+    .filter((item) => item.PATH.length > 0 && item.PATH.includes("/"))
+    .map((item) => {
+        if (item.PATH[0] === "/") {
+            return item;
+        }
 
-// console.log(Object.values(output))
-var table = blessedContrib.table({
+        return {
+            ...item,
+            PATH: `/${item.PATH}`,
+        };
+    })
+    .filter(
+        (value, index, self) =>
+            index ===
+            self.findIndex(
+                (t) => t.METHOD === value.METHOD && t.PATH === value.PATH
+            )
+    );
+
+const table = blessedContrib.table({
     keys: true,
     fg: "white",
     selectedFg: "white",
     selectedBg: "blue",
+    width: "60%",
     interactive: true,
     label: "SAE 501 - Liste des routes",
-    border: { type: "line", fg: "cyan" },
-    columnSpacing: 10, //in chars
-    columnWidth: [10, 50] /*in chars*/,
+    border: { type: "line", fg: "cyan", underline : true },
+    columnSpacing: 0,
+    columnWidth: [10, 110],
 });
 
 table.focus();
@@ -93,6 +111,3 @@ screen.key(["escape", "q", "C-c"], function (ch, key) {
     return process.exit(0);
 });
 screen.render();
-
-// console.table(listRoutes.filter((item) => item.PATH.length > 0 && item.PATH.includes("/")));
-// process.exit();
