@@ -201,18 +201,18 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     const ressource = new SAE({ ...req.body, ...imagePayload });
 
-    await ressource.save().then(() => {
-        res.status(201).json(ressource)
-    })
-    .catch((err) => {
+    try {
+        await ressource.save();
+        res.status(201).json(ressource);
+    } catch (error) {
         res.status(400).json({
             errors: [
                 ...listErrors, 
                 ...deleteUpload(targetPath), 
                 ...Object.values(err?.errors).map((val) => val.message)
             ]
-        })
-    })
+        });
+    }
 });
 
 /**
