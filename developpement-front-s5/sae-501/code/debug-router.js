@@ -3,8 +3,10 @@ import { app } from "./server/index.js";
 import blessed from "blessed";
 import blessedContrib from "blessed-contrib";
 
-
-const screen = blessed.screen();
+const screen = blessed.screen({
+    smartCSR: true,
+    title: "Title",
+});
 
 const getColorForMethod = (method) => {
     switch (method.toLowerCase()) {
@@ -93,10 +95,20 @@ const table = blessedContrib.table({
     selectedBg: "blue",
     width: "60%",
     interactive: true,
-    label: "SAE 501 - Liste des routes",
-    border: { type: "line", fg: "cyan", underline : true },
+    label: ` SAE 501 - Liste des routes (${output.length}) ▲ ▼ `,
+    border: { type: "line", fg: "cyan", underline: true },
     columnSpacing: 0,
     columnWidth: [10, 110],
+});
+
+let currentRowIndex = 0;
+
+table.rows.on("select item", (_, index) => {
+    currentRowIndex = index;
+});
+
+table.rows.key("enter", () => {
+    // console.log("currentRowIndex", output[currentRowIndex]);
 });
 
 table.focus();
