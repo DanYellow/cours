@@ -122,7 +122,7 @@ table.setData({
 });
 
 const box = grid.set(0, 8, 4, 4, blessed.box, {
-    content: `On the left, here's the list of all routes (${output.length}) with their method in the project. You can move the list using top and down arrows.\n
+    content: `On the left, here's the list of all routes (${output.length}) with their method in the project. You can move the list using top (▲) and down (▼) arrows.\n
 You can quit the menu by pressing {bold}"q"{/bold} or {bold}"ctrl+c"{/bold}.
     `,
     label: ` SAE-501 - Infos `,
