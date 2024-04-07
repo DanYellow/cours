@@ -39,7 +39,7 @@ Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les mes
 
 Une collection contient des schémas, ces schémas ont une syntaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers types. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de 24 caractères aléatoires (nombres et lettres) qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" quant à lui sert à garder une trace de la version de votre document. Un document étant un "enfant" d'un schéma, un peu comme une ligne dans une table.
 
-Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ORM (Object Relation Mapper), il nous permettra de manipuler notre base de données NoSQL à travers des objets et classes, ce qui est plus simple à manipuler. Le concept des ORM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR.
+Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ODM (Object Data Modeling), il nous permettra de manipuler notre base de données NoSQL à travers des objets et classes, ce qui est plus simple à manipuler comparé aux requêtes. Le concept des ODM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR, dans ce dernier cas, on ne parlera pas d'ODM mais d'ORM (Object Relation Mapper).
 
 Voilà à quoi ressemble un schéma avec Mongoose :
 
@@ -106,7 +106,7 @@ router.get(`/saes`, async (req, res) => {
             return {};
         });
 
-    // Retourne un objet JSON contenant nos
+    // Retourne un objet JSON contenant nos données
     return res.status(200).json({
         data: listRessources,
     })

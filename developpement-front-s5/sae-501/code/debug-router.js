@@ -98,7 +98,12 @@ const table = grid.set(0, 0, 12, 8, blessedContrib.table, {
     width: "60%",
     interactive: true,
     label: ` SAE 501 - Routes list (${output.length}) ▲ ▼ `,
-    border: { type: "line", fg: "cyan", underline: true },
+    style: {
+        border: {
+            fg: "cyan",
+            bold: true,
+        },
+    },
     columnSpacing: 0,
     columnWidth: [10, 110],
 });
@@ -123,7 +128,7 @@ table.setData({
 
 const box = grid.set(0, 8, 4, 4, blessed.box, {
     content: `On the left, here's the list of all routes (${output.length}) with their method in the project. You can move the list using top (▲) and down (▼) arrows.\n
-You can quit the menu by pressing {bold}"q"{/bold} or {bold}"ctrl+c"{/bold}.
+You can quit the menu by pressing {bold}"q"{/bold}, {bold}"escape"{/bold} or {bold}"ctrl+c"{/bold}.
     `,
     label: ` SAE-501 - Infos `,
     tags: true,
