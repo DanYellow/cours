@@ -71,7 +71,7 @@ const split = (thing) => {
 app._router.stack.forEach(print.bind(null, []));
 
 const output = listRoutes
-    .filter((item) => item.PATH.length > 0 && item.PATH.includes("/"))
+    // .filter((item) => item.PATH.length > 0 && item.PATH.includes("/"))
     .map((item) => {
         if (item.PATH[0] === "/") {
             return item;
@@ -97,12 +97,11 @@ const table = grid.set(0, 0, 12, 8, blessedContrib.table, {
     selectedBg: "blue",
     width: "60%",
     interactive: true,
-    label: ` SAE 501 - Liste des routes (${output.length}) ▲ ▼ `,
+    label: ` SAE 501 - Routes list (${output.length}) ▲ ▼ `,
     border: { type: "line", fg: "cyan", underline: true },
     columnSpacing: 0,
     columnWidth: [10, 110],
 });
-// const table = blessedContrib.table();
 
 let currentRowIndex = 0;
 
@@ -123,7 +122,7 @@ table.setData({
 });
 
 const box = grid.set(0, 8, 4, 4, blessed.box, {
-    content: `On the left, here's the list of all routes (with their method) in the project. You can move the list using top and down arrows.\n
+    content: `On the left, here's the list of all routes (${output.length}) with their method in the project. You can move the list using top and down arrows.\n
 You can quit the menu by pressing {bold}"q"{/bold} or {bold}"ctrl+c"{/bold}.
     `,
     label: ` SAE-501 - Infos `,
