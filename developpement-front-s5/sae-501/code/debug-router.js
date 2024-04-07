@@ -8,6 +8,8 @@ const screen = blessed.screen({
     title: "Title",
 });
 
+const grid = new blessedContrib.grid({ rows: 12, cols: 12, screen: screen });
+
 const getColorForMethod = (method) => {
     switch (method.toLowerCase()) {
         case "get":
@@ -88,7 +90,7 @@ const output = listRoutes
             )
     );
 
-const table = blessedContrib.table({
+const table = grid.set(0, 0, 12, 8, blessedContrib.table, {
     keys: true,
     fg: "white",
     selectedFg: "white",
@@ -100,6 +102,7 @@ const table = blessedContrib.table({
     columnSpacing: 0,
     columnWidth: [10, 110],
 });
+// const table = blessedContrib.table();
 
 let currentRowIndex = 0;
 
@@ -117,6 +120,20 @@ screen.append(table);
 table.setData({
     headers: Object.keys(output[0]),
     data: Object.values(output).map((item) => Object.values(item)),
+});
+
+const box = grid.set(0, 8, 4, 4, blessed.box, {
+    content: `On the left, here's the list of all routes (with their method) in the project. You can move the list using top and down arrows.\n
+You can quit the menu by pressing {bold}"q"{/bold} or {bold}"ctrl+c"{/bold}.
+    `,
+    label: ` SAE-501 - Infos `,
+    tags: true,
+    style: {
+        fg: "white",
+        border: {
+            fg: "yellow",
+        },
+    },
 });
 
 screen.key(["escape", "q", "C-c"], function (ch, key) {
