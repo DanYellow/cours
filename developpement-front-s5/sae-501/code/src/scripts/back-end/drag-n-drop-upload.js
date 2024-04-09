@@ -10,10 +10,12 @@ document.body.addEventListener("drop", (e) => {
     if (e.dataTransfer.items) {
         // Use DataTransferItemList interface to access the file(s)
         [...e.dataTransfer.items].forEach((item, i) => {
-            // If dropped items aren't files, reject them
-            if (item.kind === "file") {
-                listInputFile[0].setAttribute("files", e.dataTransfer.files);
-                listInputFile[0].files = e.dataTransfer.files;
+            const input = listInputFile[i];
+            const listAuthorizedFileType = input.getAttribute("accept");
+            console.log("item", item, input.getAttribute("accept"))
+            if (item.kind === "file" && listAuthorizedFileType.includes(item.type.split('/')[1])) {
+                input.setAttribute("files", e.dataTransfer.files);
+                input.files = e.dataTransfer.files;
             }
         });
     } else {
