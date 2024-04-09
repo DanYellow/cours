@@ -1,5 +1,6 @@
 const listInputFile = document.querySelectorAll("[data-upload-file]");
 const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
+const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
 const toggleDragAndDropIndicator = (element, show = true) => {
     if (show) {
@@ -9,14 +10,15 @@ const toggleDragAndDropIndicator = (element, show = true) => {
     }
 };
 
-window.foo = () => {
-    listDragNDropArea.forEach((item) => {
-        toggleDragAndDropIndicator(item, false);
-    });
-};
-
 listDragNDropArea.forEach((item) => {
     toggleDragAndDropIndicator(item, false);
+});
+
+listDragNDropError.forEach((item) => {
+    item.classList.add("hidden");
+    item.querySelector("button").addEventListener("click", (e) => {
+        item.classList.add("hidden");
+    });
 });
 
 listDragNDropArea.forEach((item) => {
@@ -43,16 +45,27 @@ listDragNDropArea.forEach((item) => {
         toggleDragAndDropIndicator(item, false);
 
         if (e.dataTransfer.items) {
-            [...e.dataTransfer.items].forEach((item, i) => {
+            [...e.dataTransfer.items].forEach((file, i) => {
                 const input = listInputFile[i];
                 const listAuthorizedFileType = input.getAttribute("accept");
 
                 if (
-                    item.kind === "file" &&
-                    listAuthorizedFileType.includes(item.type.split("/")[1])
+                    file.kind === "file" &&
+                    listAuthorizedFileType.includes(file.type.split("/")[1])
                 ) {
                     input.setAttribute("files", e.dataTransfer.files);
                     input.files = e.dataTransfer.files;
+                    document
+                        .querySelector(
+                            `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
+                        )
+                        .classList.add("hidden");
+                } else {
+                    document
+                        .querySelector(
+                            `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
+                        )
+                        .classList.remove("hidden");
                 }
             });
         }

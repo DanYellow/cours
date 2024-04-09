@@ -42,10 +42,10 @@
                                 h-full items-center
                                 rounded-lg animated-border relative
                             "
-                            data-drag-n-drop-area
+                            data-drag-n-drop-area="{{ name }}"
                         >
-                        <p class="text-slate-600">Glissez-déposez votre image</p>
-                        <p class="text-sm">ou</p>
+                            <p class="text-slate-600">Glissez-déposez votre image</p>
+                            <p class="text-sm">ou</p>
                             <div class="flex gap-4 flex-col sm:flex-row justify-center items-center">
                                 <label class="text-sm 
                                             py-2 px-4
@@ -65,7 +65,7 @@
                                         class="hidden"
                                         id="{{ id }}"
                                         name="{{ name }}"
-                                    />
+/>
                                 </label>
                                 <button 
                                     type="button" 
@@ -76,6 +76,15 @@
                                 </button>
                             </div>
                             <p class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</p>
+
+                            <p class="rounded-lg p-2 flex items-center justify-center gap-2 bg-red-100 border-solid border-x border-y border-red-700" data-incorrect-upload="{{ name }}">
+                                Format incorrect
+                                <button type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
