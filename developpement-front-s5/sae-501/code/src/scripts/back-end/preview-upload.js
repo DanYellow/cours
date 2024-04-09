@@ -9,7 +9,6 @@ const listClearUploadFileBtn = document.querySelectorAll(
 const previewUpload = (e) => {
     const element = e.target;
     const file = element.files[0];
-    console.log("f", element)
     const uploadName = element.dataset.uploadFile;
 
     const imgRelated = document.querySelector(
@@ -37,7 +36,6 @@ const dropImageObserver = new MutationObserver((mutationList) => {
     mutationList.forEach((mutation) => {
         switch (mutation.type) {
             case "attributes":
-                console.log("mutation", mutation.target)
                 previewUpload(mutation);
                 break;
         

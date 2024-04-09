@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="bg-neutral-100 @container/base outline-dashed outline-2 -outline-offset-8">
+<html lang="fr" class="bg-neutral-100 @container/base relative">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,7 @@
         {% endif %}
     </head>
     <body class="min-h-screen">
+        <div class="animated-border fixed inset-0 bg-slate-100/75 op p-5 z-10 bg-origin-content"></div>
         <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-indigo-200 to-neutral-100"></div>
         <div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
             {% include "components/back-end/navigation.njk" %}
