@@ -25,7 +25,12 @@
         {% endif %}
     </head>
     <body class="min-h-screen">
-        <div class="animated-border fixed inset-0 bg-slate-100/75 op p-5 z-10 bg-origin-content"></div>
+        <div class="fixed hidden inset-0 bg-slate-100/75 z-10 bg-origin-content justify-center items-center" data-drag-n-drop-indicator>
+            <div>
+                <p class="text-xl">Veuillez déposer vos fichiers</p>
+            </div>
+            <div class="animated-border"></div>
+        </div>
         <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-indigo-200 to-neutral-100"></div>
         <div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
             {% include "components/back-end/navigation.njk" %}

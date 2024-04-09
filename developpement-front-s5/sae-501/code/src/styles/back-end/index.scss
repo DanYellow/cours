@@ -41,25 +41,41 @@
 }
 
 .animated-border {
-    --border-length: 15px;
-    --border-height: 3px;
-    background-image: linear-gradient(90deg, blue 50%, transparent 50%),
-        linear-gradient(90deg, blue 50%, transparent 50%),
-        linear-gradient(0deg, blue 50%, transparent 50%),
-        linear-gradient(0deg, blue 50%, transparent 50%);
-    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-    background-size: var(--border-length) var(--border-height), var(--border-length) var(--border-height), var(--border-height) var(--border-length), var(--border-height) var(--border-length);
-    background-position: left top, right bottom, left bottom, right top;
-    animation: border-dance 0.35s infinite linear;
+    position: fixed;
+    margin: auto;
+    inset: 20px;
+    border-radius: 10px;
+    --distance: 15px;
+    
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0.4rem;
+        border: 3px dashed theme("colors.blue.700");
+        transition: all .5s;
+        animation: clippath 3s infinite linear;
+        border-radius: theme("borderRadius.lg");
+    }
+    
+    &::after {
+        animation: clippath 3s infinite -1.5s linear;
+    }
 }
 
-@keyframes border-dance {
-    0% {
-        background-position: left top, right bottom, left bottom, right top;
-    }
-
+@keyframes clippath {
+    0%,
     100% {
-        background-position: left 15px top, right 15px bottom, left bottom 15px,
-            right top 15px;
+        clip-path: inset(0 0 98% 0);
+    }
+    
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
     }
 }
