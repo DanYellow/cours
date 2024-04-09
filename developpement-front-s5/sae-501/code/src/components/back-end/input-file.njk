@@ -39,9 +39,10 @@
                     <td class="h-full p-3" colspan="2">
                         <div 
                             class="flex flex-col gap-y-4 p-5 
-                                h-full items-center border-dashed border-2
-                                rounded-lg  animated-border relative
+                                h-full items-center
+                                rounded-lg animated-border relative
                             "
+                            data-drag-n-drop-area
                         >
                         <p class="text-slate-600">Glissez-déposez votre image</p>
                         <p class="text-sm">ou</p>
@@ -50,7 +51,7 @@
                                             py-2 px-4
                                             rounded-full border-0
                                             bg-indigo-500 border-indigo-700
-                                            hover:bg-sky-100
+                                            hover:bg-indigo-700
                                             text-white
                                             text-center
                                             w-fit
@@ -74,9 +75,7 @@
                                     Coller depuis le presse-papier
                                 </button>
                             </div>
-                                <span class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</span>
-
-                            
+                            <p class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</p>
                         </td>
                     </tr>
                 </tbody>

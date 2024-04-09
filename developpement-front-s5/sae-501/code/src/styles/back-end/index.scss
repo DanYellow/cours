@@ -40,43 +40,54 @@
     pointer-events: fill;
 }
 
+// Source : https://dev.to/chokcoco/fantastic-css-border-animation-5166
 .animated-border {
-    // position: fixed;
-    // margin: auto;
-    // inset: 20px;
-    // border-radius: 10px;
     --distance: 15px;
+    --animation-speed: 4s;
     position: relative;
-    
+
     &::before,
     &::after {
         content: "";
         position: absolute;
         border: theme("borderWidth.2") dashed theme("colors.blue.700");
-        transition: all .5s;
-        animation: clippath 3s infinite linear;
+        transition: all 0.5s;
+        animation: clippath var(--animation-speed) infinite linear;
         border-radius: theme("borderRadius.lg");
         inset: 0;
+        z-index: -1;
     }
-    
+
     &::after {
-        animation: clippath 3s infinite -1.5s linear;
+        animation: clippath var(--animation-speed) infinite calc(var(--animation-speed) * -0.5) linear;
+        // animation-delay: ;
     }
+
+    &.paused {
+        &::before,
+        &::after {
+            animation-name: none;
+        }
+    }
+}
+
+:root {
+    --percentage: 98%;
 }
 
 @keyframes clippath {
     0%,
     100% {
-        clip-path: inset(0 0 98% 0);
+        clip-path: inset(0 0 var(--percentage) 0);
     }
-    
+
     25% {
-        clip-path: inset(0 98% 0 0);
+        clip-path: inset(0 var(--percentage) 0 0);
     }
     50% {
-        clip-path: inset(98% 0 0 0);
+        clip-path: inset(var(--percentage) 0 0 0);
     }
     75% {
-        clip-path: inset(0 0 0 98%);
+        clip-path: inset(0 0 0 var(--percentage));
     }
 }

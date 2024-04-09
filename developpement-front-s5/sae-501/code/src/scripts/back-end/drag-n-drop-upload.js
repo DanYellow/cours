@@ -1,50 +1,60 @@
 const listInputFile = document.querySelectorAll("[data-upload-file]");
-const dragNDropIndicator = document.querySelector(
-    "[data-drag-n-drop-indicator]"
-);
+const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
 
-const toggleDragAndDropIndicator = (show = true) => {
+const toggleDragAndDropIndicator = (element, show = true) => {
     if (show) {
-        dragNDropIndicator.classList.add("flex");
-        dragNDropIndicator.classList.remove("hidden");
+        element.classList.remove("paused");
     } else {
-        dragNDropIndicator.classList.remove("flex");
-        dragNDropIndicator.classList.add("hidden");
+        element.classList.add("paused");
     }
 };
 
-toggleDragAndDropIndicator(false);
+window.foo = () => {
+    listDragNDropArea.forEach((item) => {
+        toggleDragAndDropIndicator(item, false);
+    });
+};
 
-document.body.addEventListener("dragover", (e) => {
-    e.preventDefault();
-
-    toggleDragAndDropIndicator(true);
+listDragNDropArea.forEach((item) => {
+    toggleDragAndDropIndicator(item, false);
 });
 
-["dragend", "dragleave"].forEach((event) => {
-    document.body.addEventListener(event, (e) => {
+listDragNDropArea.forEach((item) => {
+    item.addEventListener("dragover", (e) => {
         e.preventDefault();
 
-        toggleDragAndDropIndicator(false);
+        toggleDragAndDropIndicator(item, true);
     });
 });
 
-document.body.addEventListener("drop", (e) => {
-    e.preventDefault();
-    toggleDragAndDropIndicator(false);
+["dragend", "dragleave"].forEach((event) => {
+    listDragNDropArea.forEach((item) => {
+        item.addEventListener(event, (e) => {
+            e.preventDefault();
 
-    if (e.dataTransfer.items) {
-        [...e.dataTransfer.items].forEach((item, i) => {
-            const input = listInputFile[i];
-            const listAuthorizedFileType = input.getAttribute("accept");
-
-            if (
-                item.kind === "file" &&
-                listAuthorizedFileType.includes(item.type.split("/")[1])
-            ) {
-                input.setAttribute("files", e.dataTransfer.files);
-                input.files = e.dataTransfer.files;
-            }
+            toggleDragAndDropIndicator(item, false);
         });
-    }
+    });
+});
+
+listDragNDropArea.forEach((item) => {
+    item.addEventListener("drop", (e) => {
+        e.preventDefault();
+        toggleDragAndDropIndicator(item, false);
+
+        if (e.dataTransfer.items) {
+            [...e.dataTransfer.items].forEach((item, i) => {
+                const input = listInputFile[i];
+                const listAuthorizedFileType = input.getAttribute("accept");
+
+                if (
+                    item.kind === "file" &&
+                    listAuthorizedFileType.includes(item.type.split("/")[1])
+                ) {
+                    input.setAttribute("files", e.dataTransfer.files);
+                    input.files = e.dataTransfer.files;
+                }
+            });
+        }
+    });
 });
