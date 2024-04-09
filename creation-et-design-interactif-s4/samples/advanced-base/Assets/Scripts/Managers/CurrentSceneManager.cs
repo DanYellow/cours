@@ -20,60 +20,27 @@ public class CurrentSceneManager : MonoBehaviour
         onDebugConsoleOpenEvent.OnEventRaised += OnDebugConsoleOpen;
     }
 
-    void Update()
-    {
-#if UNITY_EDITOR
-        if (!isDebugConsoleOpened)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                RestartLevel();
-            }
-
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                RestartLastCheckpoint();
-            }
-
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                ToggleGameWindowSizeInEditor();
-            }
-
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                QuitGame();
-            }
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                LoadScene("Debug");
-            }
-        }
-#endif
-    }
-
     public void LoadScene(string sceneName)
     {
-        if (SceneManager.GetSceneByName(sceneName).IsValid())
+        if (UtilsScene.DoesSceneExist(sceneName))
         {
             SceneManager.LoadScene(sceneName);
         }
         else
         {
-            Debug.Log("Unknown scene");
+            Debug.Log($"Unknown scene named {sceneName}. Please add the scene to the build settings.");
         }
     }
 
     public void LoadScene(int sceneIndex)
     {
-        if (SceneManager.GetSceneByBuildIndex(sceneIndex).IsValid())
+        if (UtilsScene.DoesSceneExist(sceneIndex))
         {
             SceneManager.LoadScene(sceneIndex);
         }
         else
         {
-            Debug.Log("Unknown scene");
+            Debug.Log($"Unknown scene with index {sceneIndex}. Please add the scene to the build settings.");
         }
     }
 
@@ -83,7 +50,7 @@ public class CurrentSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void RestartLastCheckpoint()
+    public static void RestartLastCheckpoint()
     {
         Debug.Log("RestartLastCheckpoint");
         // Refill life to full
@@ -94,12 +61,12 @@ public class CurrentSceneManager : MonoBehaviour
         // Reset Player's rotation
     }
 
-    public void QuitGame()
+    public static void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+        Application.Quit();
 #endif
     }
 
@@ -111,14 +78,6 @@ public class CurrentSceneManager : MonoBehaviour
 
     private void OnDebugConsoleOpen(bool debugConsoleOpened)
     {
-       isDebugConsoleOpened = debugConsoleOpened;
+        isDebugConsoleOpened = debugConsoleOpened;
     }
-
-#if UNITY_EDITOR
-    private void ToggleGameWindowSizeInEditor()
-    {
-        UnityEditor.EditorWindow window = UnityEditor.EditorWindow.focusedWindow;
-        window.maximized = !window.maximized;
-    }
-#endif
 }

@@ -10,7 +10,7 @@ public class CurrentSceneManager : MonoBehaviour
             RestartLevel();
         }
     }
-
+    
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
