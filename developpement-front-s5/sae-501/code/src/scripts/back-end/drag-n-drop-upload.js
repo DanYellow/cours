@@ -13,6 +13,8 @@ const toggleDragAndDropIndicator = (show = true) => {
     }
 };
 
+toggleDragAndDropIndicator(false);
+
 document.body.addEventListener("dragover", (e) => {
     e.preventDefault();
 
