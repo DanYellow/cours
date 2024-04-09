@@ -41,21 +41,22 @@
 }
 
 .animated-border {
-    position: fixed;
-    margin: auto;
-    inset: 20px;
-    border-radius: 10px;
+    // position: fixed;
+    // margin: auto;
+    // inset: 20px;
+    // border-radius: 10px;
     --distance: 15px;
+    position: relative;
     
     &::before,
     &::after {
         content: "";
         position: absolute;
-        inset: 0.4rem;
-        border: 3px dashed theme("colors.blue.700");
+        border: theme("borderWidth.2") dashed theme("colors.blue.700");
         transition: all .5s;
         animation: clippath 3s infinite linear;
         border-radius: theme("borderRadius.lg");
+        inset: 0;
     }
     
     &::after {

@@ -35,37 +35,49 @@
                         </figure>
                     </td>
                 </tr>
-                <tr>
-                    <td class="{{ border_classes }} p-5">
-                        <div class="flex flex-col sm:flex-row gap-y-4">
-                            <div>
-                                <input 
-                                data-upload-file="{{ name }}"
-                                type="file" 
-                                accept="{{ accepts }}"
-                                class="block w-full text-sm text-slate-500
-                                    file:mr-4 file:py-2 file:px-4
-                                    file:rounded-full file:border-0
-                                    file:text-sm
-                                    text-transparent
-                                    file:bg-sky-50 file:border-sky-500
-                                    hover:file:bg-sky-100
-                                "
-                                id="{{ id }}"
-                                name="{{ name }}"
-/>
-                                <span class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</span>
-                            </div>
-
-                            <button 
-                            type="button" 
-                            class="text-sm self-start rounded-full block py-2 px-4 border-sky-500 text-slate-700 bg-blue-50 hover:bg-sky-100" 
-                            data-clipboard-upload="{{ name }}"
+                <tr class="{{ border_classes }} max-h-fit">
+                    <td class="h-full p-3" colspan="2">
+                        <div 
+                            class="flex flex-col gap-y-4 p-5 
+                                h-full items-center border-dashed border-2
+                                rounded-lg  animated-border relative
+                            "
                         >
-                            Coller depuis le presse-papier
-                        </button>
+                        <p class="text-slate-600">Glissez-déposez votre image</p>
+                        <p class="text-sm">ou</p>
+                            <div class="flex gap-4 flex-col sm:flex-row justify-center items-center">
+                                <label class="text-sm 
+                                            py-2 px-4
+                                            rounded-full border-0
+                                            bg-indigo-500 border-indigo-700
+                                            hover:bg-sky-100
+                                            text-white
+                                            text-center
+                                            w-fit
+                                            block
+                                        ">
+                                    Sélectionnez un fichier
+                                    <input 
+                                        data-upload-file="{{ name }}"
+                                        type="file" 
+                                        accept="{{ accepts }}"
+                                        class="hidden"
+                                        id="{{ id }}"
+                                        name="{{ name }}"
+                                    />
+                                </label>
+                                <button 
+                                    type="button" 
+                                    class="text-sm self-start rounded-full block py-2 px-4 border-sky-500 text-slate-700 bg-blue-50 hover:bg-sky-100" 
+                                    data-clipboard-upload="{{ name }}"
+                                >
+                                    Coller depuis le presse-papier
+                                </button>
+                            </div>
+                                <span class="mt-1 text-sm text-slate-500" id="file_input_help">Fichiers {{ accepts }} seulement (taille max. 800kB)</span>
+
+                            
                         </td>
-                        <td class="{{ border_classes }} p-5"></td>
                     </tr>
                 </tbody>
             </table>
