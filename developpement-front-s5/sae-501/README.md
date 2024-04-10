@@ -132,7 +132,7 @@ Il contient vos composants nunjucks réutilisables, pour des questions d'organis
 ### src/data/
 Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end. 
 
-Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.njk -> contact.njk.json.
+Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : /pages/contact.njk -> /pages/contact.njk.json.
 
 ### src/layouts/
 Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend et backend du site respectivement. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
@@ -146,6 +146,7 @@ Contient les points d'entrées de vos bundles vite, ils seront compilés par vit
 ### styles/
 Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss et VSCode fera des propositions. Vous pouvez bien utiliser tailwind pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie.
 
+> Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie à un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique. 
 
 ## Mise en place
 
@@ -307,6 +308,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images pour quelle soit inférieure à une taille définie
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil utilisé pour l'upload
 - [ ] Mettre en place des tests e2e
+- [ ] Ajouter un système de connexion à l'administration
 
 
 # Notes et astuces
