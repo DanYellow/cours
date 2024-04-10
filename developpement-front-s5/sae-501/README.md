@@ -70,21 +70,24 @@ La structure est un peu plus complexe que celle avec laquelle vous avez travaill
 Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
 
 ### public/
-Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier css que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre. Le chemin entre vos templates (dossier src/) et le fichier public ne doit pas contenir `public/`, pour rappel. Dans le dossier, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
+Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier CSS que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
+> Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/)
+
+Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
 ### server/
-Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework nodejs permettant de développer en javascript côté serveur et propose pleins de fonctionnalités utiles.
+Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework nodejs permettant de développer en javascript côté serveur.
 
 Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur, vous n'aurez pas besoin d'y toucher. En revanche, les fichiers/dossiers `server/backend-router` et `server/frontend-router.js`, vous y toucherez, ils contiennent le routing du projet.
 
-Autrement dit, ces fichiers définissent ce qu'il doit se passer quand on accède à une url spécifique, c'est souvent le chargement d'une page web. Par exemple :
+Autrement dit, ces fichiers définissent comment le serveur doit réagir quand on accède à une url spécifique avec une méthode spécifique, c'est souvent le chargement d'une page web. Par exemple :
 ```js
 // front-end-router.js
-router.get("/hello", async (_req, res) => {
+router.get(["/hello", "/mon-blog.html"], async (_req, res) => {
   res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier en plus, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide. 
+Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide. 
 
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
 ```js
@@ -114,7 +117,7 @@ La gestion des paramètres possède d'autres fonctionnalités, vous en saurez pl
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez deux choses :
-- Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier html, sinon, vous aurez une erreur 404
+- Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez certainement une erreur 404
 - Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
     - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
     - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
@@ -124,10 +127,10 @@ Retenez deux choses :
 C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
 
 ### src/components/
-Il contient vos blocs nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos blocs dans le bon dossier (front ou back-end).
+Il contient vos composants nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos composants dans le bon dossier (front ou back-end).
 
 ### src/data/
-Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu. 
+Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end. 
 
 Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : contact.njk -> contact.njk.json.
 
@@ -138,7 +141,7 @@ Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, 
 Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous les appelerez dans vos routes.
 
 ### scripts/
-Ce dossier contient les points d'entrées de vos bundles, ils seront compilés par vite lors de l'exécution de la commande `npm run build`. Le backend possède l'entrée `main.backend.js` et le frontend l'entrée `main.frontend.js`. Si vous pouvez créer des dossiers et des fichiers dedans, vous ne devez pas modifier le nom des fichiers **à la racine** déjà présents. Les fichiers "main.backend.js" et "main.frontend.js" servant de point d'entrée
+Contient les points d'entrées de vos bundles vite, ils seront compilés par vite lors de l'exécution de la commande `npm run build`. Le backend possède l'entrée `main.backend.js` et le frontend l'entrée `main.frontend.js`. Si vous pouvez créer des dossiers et des fichiers dedans, vous ne devez pas modifier le nom des fichiers **à la racine** déjà présents. Les fichiers "main.backend.js" et "main.frontend.js" servant de point d'entrée.
 
 ### styles/
 Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss et VSCode fera des propositions. Vous pouvez bien utiliser tailwind pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie.
@@ -169,17 +172,19 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 ### Utilisation - Mode production
 1. Compiler les assets gérés par vite
    ```sh
+   cd code/
    # La commande va compiler les assets vite dans le dossier dist/
    npm build
    ```
 2. Lancer le serveur de production
    ```sh
+   cd code/
    npm prod
    ```
 > Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
 # Flash messages
-Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'une seule fois. Ce concept n'est pas propre à Express, on le trouve également en PHP. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
+Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'une seule fois. Ce concept n'est pas propre à Express, on le trouve également dans d'autres langages côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
 
 Vous pourrez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
@@ -232,7 +237,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
         ```
     - [ ] Le site doit être responsive (des mixins scss et tailwind sont là pour vous aider)
       - Il n'y a pas de maquette responsive, à vous de vous adapter
-- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de l'envoi, la page ne doit pas se recharger
+- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de la soumission du formulaire, la page ne doit pas se recharger
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
     - titre, chapo, contenu, image, video youtube

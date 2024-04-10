@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    background: url("images/montage-cyu.jpg") no-repeat;
+    background: url("/images/montage-cyu.jpg") no-repeat;
     background-position: center center;
     @include tablet-max {
         background-position: top center;

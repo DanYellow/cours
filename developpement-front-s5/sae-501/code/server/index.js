@@ -139,7 +139,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use("/", express.static(publicPath));
+app.use(express.static(publicPath));
 
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
