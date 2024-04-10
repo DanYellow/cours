@@ -52,7 +52,7 @@
         position: absolute;
         border: theme("borderWidth.2") dashed theme("colors.blue.700");
         transition: all 0.5s;
-        animation: clippath var(--animation-speed) infinite linear;
+        animation: clippath var(--animation-speed) infinite ease-in;
         border-radius: theme("borderRadius.lg");
         inset: 0;
         z-index: -1;
@@ -60,7 +60,6 @@
 
     &::after {
         animation: clippath var(--animation-speed) infinite calc(var(--animation-speed) * -0.5) linear;
-        // animation-delay: ;
     }
 
     &.paused {

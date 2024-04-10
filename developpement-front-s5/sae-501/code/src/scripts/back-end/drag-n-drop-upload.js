@@ -1,4 +1,3 @@
-const listInputFile = document.querySelectorAll("[data-upload-file]");
 const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
 const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
@@ -46,7 +45,7 @@ listDragNDropArea.forEach((item) => {
 
         if (e.dataTransfer.items) {
             [...e.dataTransfer.items].forEach((file, i) => {
-                const input = listInputFile[i];
+                const input = item.querySelector("[data-upload-file]");
                 const listAuthorizedFileType = input.getAttribute("accept");
 
                 if (

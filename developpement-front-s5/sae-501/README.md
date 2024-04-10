@@ -287,7 +287,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 - [ ] Afficher le détail d'un message via une url dédiée. Par exemple : admin/messages/65687d7a0c092bb7d3f0c07c
-- [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
+
 
 ### Pour aller plus loin - tâches optionnelles
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
@@ -297,10 +297,11 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Ne pas oublier de créer des requêtes permettant ceci
 - [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
   - Il faudra également faire les requêtes, les modèles Mongoose ainsi que les formulaires dans l'administration
-- [ ] Mettre un lien à l'édition d'un article pour accéder à sa version front-end
+- [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
 - [ ] Proposer un système de suppression multiple d'éléments sur une liste via un système de cases à cocher
 - [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images pour quelle soit inférieure à une taille définie
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil utilisé pour l'upload
+- [ ] Mettre en place des tests e2e
 
 
 # Notes et astuces
