@@ -43,15 +43,20 @@
 // Source : https://dev.to/chokcoco/fantastic-css-border-animation-5166
 .animated-border {
     --distance: 15px;
-    --animation-speed: 2.5s;
+    --animation-speed: 2.25s;
     position: relative;
 
     &::before,
     &::after {
         content: "";
         position: absolute;
-        border: theme("borderWidth.2") dashed theme("colors.blue.700");
-        transition: all 0.5s;
+        border: theme("borderWidth.2") dashed #fff;
+        background: linear-gradient(#fff 0 0) padding-box,
+            linear-gradient(
+                to bottom,
+                theme("colors.sky.700"),
+                theme("colors.blue.700")
+            );
         animation: clippath var(--animation-speed) infinite ease-in;
         border-radius: theme("borderRadius.lg");
         inset: 0;
@@ -59,7 +64,8 @@
     }
 
     &::after {
-        animation: clippath var(--animation-speed) infinite calc(var(--animation-speed) * -0.5) linear;
+        animation: clippath var(--animation-speed) infinite
+            calc(var(--animation-speed) * -0.5) linear;
     }
 
     &.paused {

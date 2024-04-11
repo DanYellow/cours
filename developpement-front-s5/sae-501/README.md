@@ -158,12 +158,11 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
 1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 2. Installer les dépendances
    ```sh
-   cd code/
    npm install
    ```
 
 ### Utilisation - Mode développement
-1. Lancez le serveur
+1. Lancer le serveur
    ```sh
    # La commande va lancer les serveurs express et vite
    npm start
@@ -173,16 +172,14 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 ### Utilisation - Mode production
 1. Compiler les assets gérés par vite
    ```sh
-   cd code/
    # La commande va compiler les assets vite dans le dossier dist/
    npm build
    ```
 2. Lancer le serveur de production
    ```sh
-   cd code/
    npm prod
    ```
-> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site sur un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
+> Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
 # Flash messages
 Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'une seule fois. Ce concept n'est pas propre à Express, on le trouve également dans d'autres langages côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
@@ -314,6 +311,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 # Notes et astuces
 - Si votre formulaire est de type POST et qu'il a l'attribut "enctype" avec la valeur "multipart/form-data", la route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`). Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body".
 - Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
+- Pensez à utiliser au maximum les avantages des templates. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
 
 
 # FAQ - Foire Aux Questions
