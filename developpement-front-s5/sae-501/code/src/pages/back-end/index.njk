@@ -12,10 +12,10 @@
         </header>
 
         {{ saes.table(list_saes)}}
-        
+
         <footer class="mb-6 p-6 pl-8">
             <p class="text-center">
-                <a href="{{ admin_url ~ '/saes' }}" class="bg-blue-700 hover:bg-blue-950 block text-white w-fit m-auto px-3 py-1 rounded-2xl">Voir tout</a>
+                <a href="{{ admin_url ~ '/saes' }}" class="text-sm bg-blue-700 hover:bg-blue-950 block text-white w-fit m-auto px-4 py-2 rounded-2xl">Voir tout</a>
             </p>
         </footer>
     </div>
@@ -62,8 +62,16 @@
 
         <footer class="mb-6 p-6 pl-8">
             <p class="text-center">
-                <a href="{{ admin_url ~ '/articles' }}" class="bg-blue-700 hover:bg-blue-950 block text-white w-fit m-auto px-3 py-1 rounded-2xl">Voir tout</a>
+                <a href="{{ admin_url ~ '/articles' }}" class="text-sm bg-blue-700 hover:bg-blue-950 block text-white w-fit m-auto px-4 py-2 rounded-2xl">Voir tout</a>
             </p>
         </footer>
+    </div>
+
+    <div class="bg-white rounded-2xl mb-10 shadow-md">
+        <header class="mb-6 p-6 pl-8 text-4xl">
+            <p>Liste messages
+            </p>
+        </header>
+        <p>A compléter</p>
     </div>
 {% endblock %}

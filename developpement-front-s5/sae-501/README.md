@@ -266,7 +266,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
-    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà présents
+    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà restants
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
@@ -307,6 +307,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
 - [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
+- [ ] Système de recherche
+  - Il faudra mettre à jour les API pour gérér les paramètres de recherche
+  - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
 
 
 # Notes et astuces
