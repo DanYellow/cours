@@ -306,6 +306,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil utilisé pour l'upload
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
+- [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
 
 
 # Notes et astuces
