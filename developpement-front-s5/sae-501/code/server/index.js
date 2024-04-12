@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
 import fs from "fs";
-import lodash from "lodash";
+import _ from "lodash";
 import FastGlob from "fast-glob";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
@@ -83,7 +83,7 @@ app.use(
 let jsonFilesContent = {};
 FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
     const filePath = path.resolve(entry);
-    jsonFilesContent = lodash.merge(
+    jsonFilesContent = _.merge(
         jsonFilesContent,
         JSON.parse(fs.readFileSync(filePath).toString())
     );
@@ -157,6 +157,7 @@ app.use(frontendRouter);
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
+    noCache: process.env.NODE_ENV !== "development",
     web: {
         useCache: process.env.NODE_ENV !== "development",
     },
@@ -164,6 +165,40 @@ const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
 
 nunjucksEnv.addFilter("date", (value, format) => {
     return DateTime.fromISO(value).toFormat(format);
+});
+
+const getContextData = (root) => {
+    let res = {};
+    const getThroughObj = (obj, parentKey) => {
+        let pathKey = []
+        pathKey.push(parentKey);
+        Object.entries(obj).forEach(([key, value]) => {
+            if (!["settings"].includes(key) && !_.isFunction(value)) {
+                if (value && typeof value === "object" && !Array.isArray(value)) {
+                    return getThroughObj(value, key);
+                } else {
+                    const objKeyPath = pathKey.filter(Boolean);
+                    res = {
+                        ...res,
+                        ...objKeyPath.reduceRight((acc, obj) => {
+                            return { [obj]: acc };
+                        }, {
+                            [key]: value,
+                            ...objKeyPath.reduce((acc, resKey) => acc[resKey], res)
+                        }),
+                    };
+                }
+            }
+        });
+    }
+
+    getThroughObj(root);
+
+    return res;
+};
+
+nunjucksEnv.addGlobal("context", function () {
+    return getContextData(this.ctx);
 });
 
 const listDomains = [hostip];

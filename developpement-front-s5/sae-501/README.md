@@ -318,7 +318,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - Tous les templates nunjucks importent des variables globales, vous pouvez trouver la liste complète dans le fichier `server/index.js` (vers la ligne 101), mais voici une liste non exhaustive des variables :
   - `current_url` : URL courante (sans les query string params)
   - `NODE_ENV` : Retourne "production" ou "development"
-  - A noter également que toutes les variables définies dans votre fichier env seront injectées dans toutes les templates
+    > Note 1 : Toutes les variables définies dans votre fichier env actif seront injectées dans tous les templates
+
+    > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web
 
 
 # FAQ - Foire Aux Questions
