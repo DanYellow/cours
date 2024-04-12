@@ -158,7 +158,7 @@ const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
     web: {
-        useCache: process.env.NODE_ENV === "development",
+        useCache: process.env.NODE_ENV !== "development",
     },
 });
 

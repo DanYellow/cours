@@ -20,9 +20,7 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 **R5.DWeb-DI.05 | Développement front avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté client
 
-> Note : nous avons fait le choix de remplacer twig par nunjucks pour des questions de performances, nunjucks est plus approprié dans un environnement nodejs. Les deux utilisent la même syntaxe à quelques petites différences près. [Accéder à la documentation de nunjucks.](https://mozilla.github.io/nunjucks/fr/templating.html). Ce que vous avez appris avec twig, vous pourrez donc le réutiliser avec nunjucks.
->
-> N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode. Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
+> N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre tp sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
 Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
@@ -317,6 +315,10 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - Si votre formulaire est de type POST et qu'il a l'attribut "enctype" avec la valeur "multipart/form-data", la route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`). Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body".
 - Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
 - Pensez à utiliser au maximum les avantages des templates. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
+- Tous les templates nunjucks importent des variables globales, vous pouvez trouver la liste complète dans le fichier `server/index.js` (vers la ligne 101), mais voici une liste non exhaustive des variables :
+  - `current_url` : URL courante (sans les query string params)
+  - `NODE_ENV` : Retourne "production" ou "development"
+  - A noter également que toutes les variables définies dans votre fichier env seront injectées dans toutes les templates
 
 
 # FAQ - Foire Aux Questions
@@ -326,7 +328,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 - **Puis-je mettre sur github ce projet ?**
     
-    Oui. De toute façon, c'est obligatoire car vous devrez rendre le lien du dépôt git.
+    Oui. De toute façon, c'est **obligatoire** car vous devrez rendre le lien du dépôt git.
 
 - **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
     
@@ -371,13 +373,9 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
     Il y a la commande `npm run debug:router` pour lister toutes les routes de votre projet ainsi que la méthode associée.
 
-- **Puis-je mettre sur github ce projet ?**
-    
-    Oui. De toute façon, c'est **obligatoire** car vous devrez rendre le lien du dépôt git.
-
 - **Est-il possible d'utiliser bootstrap ?**
     
-    Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment un outil utile de nos jours.
+    Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment utile dans ce projet.
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
