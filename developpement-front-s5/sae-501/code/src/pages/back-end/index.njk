@@ -5,22 +5,32 @@
 
 {% block main %}
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-1 p-6 pl-8 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 pr-4 pl-8 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p class="text-4xl">Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
             </p>
-            <a href="{{ admin_url ~ '/saes' }}" class="text-md items-center text-blue-700 hover:text-blue-950 h-fit">Voir tout</a>
+            <a href="{{ admin_url ~ "/saes" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 h-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
+                </svg>
+                Voir tout
+            </a>
         </header>
 
         {{ saes.table(list_saes)}}
     </div>
 
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-1 p-6 pl-8 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 pl-8 pr-4 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p class="text-4xl">Liste articles
                 <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
             </p>
-            <a href="{{ admin_url ~ '/articles' }}" class="text-md items-center text-blue-700 hover:text-blue-950 h-fit">Voir tout</a>
+            <a href="{{ admin_url ~ "/articles" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 h-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
+                </svg>
+                Voir tout
+            </a>
         </header>
 
         <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
@@ -29,12 +39,12 @@
                     <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5" >Titre</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Contenu</th>
                     <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5 min-w-[300px]"></th>
+                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in list_articles.data %}
-                    <tr class="hover:bg-neutral-50 even:bg-slate-50">
+                    <tr class="hover:bg-neutral-50 even:bg-blue-50">
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent max-w-[300px]" data-label="Contenu">
                             <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
@@ -58,7 +68,7 @@
     </div>
 
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-6 p-6 pl-8 text-4xl">
+        <header class="mb-1 p-6 pl-8 pr-4 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p>Liste messages
             </p>
         </header>
