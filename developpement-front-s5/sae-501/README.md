@@ -290,6 +290,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 - [ ] Afficher le détail d'un message via une url dédiée. Par exemple : admin/messages/65687d7a0c092bb7d3f0c07c
+- [ ] Terminer les fonctionnalités implicites. Exemple : les liens qui vont vers des 404
 
 
 ### Pour aller plus loin - tâches optionnelles

@@ -35,7 +35,13 @@
                         </td>
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Activé ?">{{ "Oui" if item.is_active else "Non" }}</td>
                         <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</td>
-                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Auteur">{{ author if item.author.firstname else 'La rédaction' }}</td>
+                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Auteur">
+                            {% if item.author.firstname %}
+                                <a href="" class="text-blue-500 hover:text-blue-900">{{ author }}</a>
+                            {% else %}
+                                La rédaction
+                            {% endif %}
+                        </td>
                         <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                             <div class="inline-flex gap-6">
                                 {{ list_actions.edit(admin_url ~ '/articles/' ~ item._id)}}
