@@ -291,6 +291,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Permettre de changer le logo de l'université dans le footer
   - **Vous ne devez pas utiliser de base de données**
 - [ ] Terminer les fonctionnalités implicites. Exemple : les liens qui vont vers des 404
+- [ ] Proposer un système de thème au niveau des couleurs dans l'administration. Présentement tout tourne autour du bleu, proposez un moyen de changer la couleur pour chaque utilisateur
+  - Vous ne devez pas utiliser une base de données pour stocker la valeur
 
 
 ### Pour aller plus loin - tâches optionnelles
