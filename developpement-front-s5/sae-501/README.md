@@ -103,7 +103,7 @@ Dans l'exemple ci-dessus, les deux paramètres sont obligatoires. Il est possibl
 ```js
 // front-end-router.js
 // Le paramètre gallery est facultatif
-router.get("/user/:id/:gallery?", async (_req, res) => {
+router.get("/user/:id/:gallery?", async (req, res) => {
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
 
@@ -146,7 +146,7 @@ Contient les points d'entrées de vos bundles vite, ils seront compilés par vit
 ### styles/
 Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss et VSCode fera des propositions. Vous pouvez bien utiliser tailwind pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie.
 
-> Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie à un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique. 
+> Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique. 
 
 ## Mise en place
 

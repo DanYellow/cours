@@ -188,7 +188,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     if (uploadedImage) {
         let imageName;
-        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
+        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_path))
         imagePayload = { image: imageName }
     }
 
@@ -268,7 +268,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     
     if (uploadedImage) {
         let imageName;
-        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_dir))
+        ({image_path: targetPath, errors: listErrors, image_name: imageName} = uploadImage(uploadedImage, res.locals.upload_path))
         imagePayload = { image: imageName }
     }
 
@@ -291,13 +291,13 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     // delete previous image and doesn't upload a new one
     if("delete_file_image" in payload && "file" in payload === false) {
         payload.image = "";
-        const targetPath = `${res.locals.upload_dir}${oldRessource.image}`;
+        const targetPath = `${res.locals.upload_path}${oldRessource.image}`;
         fs.unlink(targetPath, () => {});
     }
 
     // delete previous image
     if ("file" in payload) {
-        const targetPath = `${res.locals.upload_dir}${oldRessource.image}`;
+        const targetPath = `${res.locals.upload_path}${oldRessource.image}`;
         fs.unlink(targetPath, () => {});
     }
 
@@ -363,7 +363,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
         const ressource = await SAE.findByIdAndDelete(req.params.id)
 
         if (ressource?.image) {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            const targetPath = `${res.locals.upload_path}${ressource.image}`;
             fs.unlink(targetPath, (err) => {});
         }
 

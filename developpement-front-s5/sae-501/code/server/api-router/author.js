@@ -293,7 +293,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        } = uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 
@@ -390,7 +390,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        } = uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 
@@ -488,7 +488,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
         const ressource = await Author.findByIdAndDelete(req.params.id);
 
         if (ressource?.image) {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            const targetPath = `${res.locals.upload_path}${ressource.image}`;
             fs.unlink(targetPath, () => {});
         }
 

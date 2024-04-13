@@ -235,7 +235,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id)
 
         if (ressource?.image) {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            const targetPath = `${res.locals.upload_path}${ressource.image}`;
             fs.unlink(targetPath, (err) => {});
         }
 

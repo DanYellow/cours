@@ -114,7 +114,8 @@ app.use(function (req, res, next) {
             current_url.indexOf("/admin")
         )}/admin`,
         upload_dir: "/uploads/",
-        upload_path: `${base_url}/uploads/`,
+        upload_path: `${publicPath}/uploads/`,
+        upload_url: `${base_url}/uploads/`,
     }
 
     res.locals = {

@@ -1,3 +1,5 @@
+import { imageValidator } from "#database/validator.js";
+
 const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
 const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
@@ -47,24 +49,25 @@ listDragNDropArea.forEach((item) => {
             [...e.dataTransfer.items].forEach((file, i) => {
                 const input = item.querySelector("[data-upload-file]");
                 const listAuthorizedFileType = input.getAttribute("accept");
+                const errorMessageContainer = document.querySelector(
+                    `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
+                );
 
                 if (
                     file.kind === "file" &&
                     listAuthorizedFileType.includes(file.type.split("/")[1])
                 ) {
-                    input.setAttribute("files", e.dataTransfer.files);
-                    input.files = e.dataTransfer.files;
-                    document
-                        .querySelector(
-                            `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
-                        )
-                        .classList.add("hidden");
+                    const errorMessage = imageValidator(e.dataTransfer.files[0]);
+                    if (errorMessage) {
+                        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
+                        errorMessageContainer.classList.remove("hidden");
+                    } else {
+                        input.setAttribute("files", e.dataTransfer.files);
+                        input.files = e.dataTransfer.files;
+                        errorMessageContainer.classList.add("hidden");
+                    }
                 } else {
-                    document
-                        .querySelector(
-                            `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
-                        )
-                        .classList.remove("hidden");
+                    errorMessageContainer.classList.remove("hidden");
                 }
             });
         }

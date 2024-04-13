@@ -221,7 +221,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        } = uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 
@@ -336,7 +336,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_dir));
+        } = uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 
@@ -455,7 +455,7 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         const ressource = await Article.findOneAndDelete({ [searchKey] : searchParam });
 
         if (ressource?.image) {
-            const targetPath = `${res.locals.upload_dir}${ressource.image}`;
+            const targetPath = `${res.locals.upload_path}${ressource.image}`;
             fs.unlink(targetPath, (err) => {});
         }
 

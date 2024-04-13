@@ -1,4 +1,6 @@
 {
-  "delay": 750,
-  "ext": "js,njk,json,css,scss"
+    "delay": 100,
+    "ext": "js,njk,json,css,scss",
+    "quiet": true,
+    "ignore": ["./debug-router.js"]
 }
