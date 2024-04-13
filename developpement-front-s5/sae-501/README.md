@@ -76,7 +76,7 @@ Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où
 ### server/
 Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework nodejs permettant de développer en javascript côté serveur.
 
-Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur, vous n'aurez pas besoin d'y toucher. En revanche, les fichiers/dossiers `server/backend-router` et `server/frontend-router.js`, vous y toucherez, ils contiennent le routing du projet.
+Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Les fichiers/dossiers `server/backend-router` et `server/frontend-router.js` contiennent le routing du projet.
 
 Autrement dit, ces fichiers définissent comment le serveur doit réagir quand on accède à une url spécifique avec une méthode spécifique, c'est souvent le chargement d'une page web. Par exemple :
 ```js
@@ -87,10 +87,12 @@ router.get(["/hello", "/mon-blog.html"], async (_req, res) => {
 ```
 Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide. 
 
+> Note : les chemins des templates partent de la racine du projet. Il est donc inutile de mettre '../' dans vos chemins.
+
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
 ```js
 // front-end-router.js
-router.get("/user/:id/:gallery", async (_req, res) => {
+router.get("/user/:id/:gallery", async (req, res) => {
     // On récupère le paramètre id et gallery dans l'url.
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
@@ -293,6 +295,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Terminer les fonctionnalités implicites. Exemple : les liens qui vont vers des 404
 - [ ] Proposer un système de thème au niveau des couleurs dans l'administration. Présentement tout tourne autour du bleu, proposez un moyen de changer la couleur pour chaque utilisateur
   - Vous ne devez pas utiliser une base de données pour stocker la valeur
+  - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
 
 
 ### Pour aller plus loin - tâches optionnelles
@@ -325,6 +328,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     > Note 1 : Toutes les variables définies dans votre fichier env actif seront injectées dans tous les templates
 
     > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web
+
+    > Note 3 : Si vous souhaitez ajouter d'autres variables globales, il est préférable de modifier la variable `context` dans le fichier `server/index.js`
 
 
 # FAQ - Foire Aux Questions

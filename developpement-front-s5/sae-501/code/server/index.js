@@ -104,21 +104,23 @@ app.use(function (req, res, next) {
     );
     const base_url = `${req.protocol}://${req.get("host")}`;
 
+    const context = {
+        NODE_ENV: process.env.NODE_ENV,
+        HOST_IP: hostip,
+        current_url,
+        base_url,
+        admin_url: `${current_url.substring(
+            0,
+            current_url.indexOf("/admin")
+        )}/admin`,
+        upload_dir: "/uploads/",
+        upload_path: `${base_url}/uploads/`,
+    }
+
     res.locals = {
         ...jsonFilesContent,
-        ...{
-            NODE_ENV: process.env.NODE_ENV,
-            HOST_IP: hostip,
-            current_url,
-            base_url,
-            admin_url: `${current_url.substring(
-                0,
-                current_url.indexOf("/admin")
-            )}/admin`,
-            upload_dir: "/uploads/",
-            upload_path: `${base_url}/uploads/`,
-            ...envVars.parsed,
-        },
+        ...context,
+        ...envVars.parsed,
     };
 
     const originalRender = res.render;
@@ -170,7 +172,7 @@ nunjucksEnv.addFilter("date", (value, format) => {
 const getContextData = (root) => {
     let res = {};
     const getThroughObj = (obj, parentKey) => {
-        let pathKey = []
+        let pathKey = [];
         pathKey.push(parentKey);
         Object.entries(obj).forEach(([key, value]) => {
             if (!["settings"].includes(key) && !_.isFunction(value)) {
@@ -190,7 +192,7 @@ const getContextData = (root) => {
                 }
             }
         });
-    }
+    };
 
     getThroughObj(root);
 

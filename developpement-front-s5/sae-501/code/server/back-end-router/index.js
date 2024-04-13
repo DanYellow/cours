@@ -43,12 +43,13 @@ router.use(async (_req, res, next) => {
 router.use(SAERouter)
 router.use(articleRouter)
 
-router.get("/", async (_req, res) => {
+router.get("/", async (req, res) => {
     const queryParamsSAEs = querystring.stringify({ per_page: 5 });
     const optionsSAEs = {
         method: "GET",
         url: `${res.locals.base_url}/api/saes?${queryParamsSAEs}`,
     }
+
     const listSAEs = await axios(optionsSAEs);
     
     const queryParamsArticles = querystring.stringify({ per_page: 5 });
