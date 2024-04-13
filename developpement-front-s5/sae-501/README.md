@@ -281,6 +281,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
     - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
     - La suppression et le listage sont déjà gérés
+    - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
