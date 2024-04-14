@@ -1,8 +1,6 @@
 // Validation rules
 
-const imageValidator = (image) => {
-    const listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"];
-
+const imageValidator = (image, listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"], maxSizeFactor = 0.8) => {
     if (
         !listAllowedMimeType.includes(image?.mimetype || image.type)
     ) {
@@ -10,9 +8,10 @@ const imageValidator = (image) => {
     }
 
     const oneMo = 1024 * 1024;
-    const fileLimit = oneMo * 0.8; // 800kB
+    const fileLimit = oneMo * maxSizeFactor; // 800kB
     if (image.size > fileLimit) {
-        return `Image trop lourde (${(image.size / oneMo).toFixed(2)}MB). 800kb maximum`
+        const limitHundred = Math.floor(maxSizeFactor * 1024 / 100) * 100
+        return `Fichier trop lourd (${(image.size / oneMo).toFixed(2)}MB). ${limitHundred}kb maximum`
     }
 
     return null;
