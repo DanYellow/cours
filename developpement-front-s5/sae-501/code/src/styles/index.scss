@@ -11,14 +11,18 @@
     background-position: center center;
     @include tablet-max {
         background-position: top center;
+        background-size: 110%;
     }
     text-decoration: none;
     overflow: hidden;
     transition: background-size 0.5s;
-    background-size: 110%;
+    background-size: 160%;
 
     &:hover {
-        background-size: 140%;
+        background-size: 190%;
+        @include tablet-max {
+            background-size: 140%;
+        }
         &::before {
             opacity: 1;
             inset: 8px;
