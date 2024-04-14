@@ -220,6 +220,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
+- [ ] Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
