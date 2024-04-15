@@ -9,7 +9,6 @@ import dotenv from "dotenv";
 import ip from "ip";
 import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
-import swaggerSpec from "./swagger.js";
 import swaggerUi from "swagger-ui-express";
 import { DateTime } from "luxon";
 import helmet from "helmet";
@@ -17,11 +16,12 @@ import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
 
+import mongoServer from "#database/index.js";
+
+import swaggerSpec from "./swagger.js";
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
-
-import mongoServer from "#database/index.js";
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
