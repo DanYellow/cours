@@ -16,7 +16,7 @@ router.get(`/${base}`, async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     }
-    let result = null
+    let result = null;
     try {
         result = await axios(options);
     } catch (e) {}
@@ -32,17 +32,17 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
     }
-    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id)
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 
-    let result = null
-    let listErrors = []
+    let result = null;
+    let listErrors = [];
     
     if(isEdit) {
         try {
             result = await axios(options);
         } catch (e) {
-            listErrors = e.response.data.errors
-            result = {}
+            listErrors = e.response.data.errors;
+            result = {};
         }
     }
 
@@ -84,10 +84,10 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
     
     try {
         const result = await axios(options);
-        ressource = result.data
+        ressource = result.data;
     } catch (e) {
-        listErrors = e.response.data.errors
-        ressource = e.response.data.ressource || {}
+        listErrors = e.response.data.errors;
+        ressource = e.response.data.ressource || {};
     } finally {
         if(!listErrors.length) {
             req.flash('success', isEdit ? 'Element mis à jour' : "Element crée");
@@ -96,7 +96,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             res.render("pages/back-end/saes/add-edit.njk", {
                 sae: ressource,
                 list_errors: listErrors,
-                is_edit: isEdit
+                is_edit: isEdit,
             });
         } else {
             res.redirect(`${res.locals.admin_url}/${base}`);
