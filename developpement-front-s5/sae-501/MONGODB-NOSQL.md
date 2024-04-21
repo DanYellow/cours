@@ -35,13 +35,13 @@ Une base MongoDB s'articule autour de collections ("équivalent" de tables en SG
 
 ![](./CollectionsDiagram.svg)
 
-Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les messages envoyés depuis la page "contact", c'est à vous de la faire, les champs dépendront des besoins du projet.
+Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les messages envoyés depuis la page "contact", nous la ferons ensemble, les champs dépendront des besoins du projet.
 
 Une collection contient des schémas, ces schémas ont une syntaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers types. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de 24 caractères aléatoires (nombres et lettres) qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" est ajouté via Mongoose, il sert à garder une trace de la version de votre document. 
 
 - [En savoir plus sur la clé "__v"](https://web.archive.org/web/20190903082251/https://aaronheckmann.tumblr.com/post/48943525537/mongoose-v3-part-1-versioning)
 
-Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ODM (Object Data Modeling), il nous permettra de manipuler notre base de données NoSQL à travers des objets et classes, ce qui est plus simple à manipuler comparé aux requêtes. Le concept des ODM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR, dans ce dernier cas, on ne parlera pas d'ODM mais d'ORM (Object Relation Mapper).
+Avec la SAÉ 501, nous allons manipuler MongoDB à travers [Mongoose](https://github.com/Automattic/mongoose), c'est un ODM (Object Data Modeling), il nous permettra de manipuler notre base de données NoSQL à travers des objets et classes, ce qui est plus simple à manipuler comparé aux requêtes. Le concept des ODM n'est pas propre à MongoDB, il en existe en NoSQL et en SGBDR, dans ce dernier cas, on ne parlera pas d'ODM mais d'ORM (Object Relation Mapper). Doctrine étant l'un des ORM les plus connus, il est proposé par défaut avec le framework PHP Symfony.
 
 Voilà à quoi ressemble un schéma avec Mongoose :
 

@@ -1,11 +1,12 @@
 
 # TP#1 - Ergonomie et accessibilité 
 
-Partie 0 (choississez l'un ou l'autre) :
+Partie 0 (consultez l'un ou l'autre ou les deux) :
 - https://userinyerface.com/game.html
 - https://how-i-experience-web-today.com/
 
 > Consignes : Pour chaque partie, vous allez devoir trouver la mauvaise pratique ergonomique commune aux sites. Il n'y a qu'une mauvaise pratique à trouver par partie.
+> A noter que certains problèmes peuvent se révéler via une action ou encore en redimensionnant la fenêtre. N'hésitez pas à l'interagir avec les sites.
 
 Partie 1 :
 - https://www.decathlon.fr/
@@ -18,7 +19,7 @@ Partie 2 :
 
 Partie 3 :
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
-- https://www.6tematik.fr/blog/web-design-menu-hamburger
+- https://www.radiofrance.fr/franceinter/podcasts/affaires-sensibles
 
 Partie 4 (accéder en navigation privée) :
 - https://web.archive.org/web/20180825013901/http://www.coachcyborg.com/
@@ -27,6 +28,7 @@ Partie 5 :
 - https://twitter.com/universitecergy (si vous n'avez pas de compte twitter, vous ne pourrez pas voir le problème)
 - https://www.pinterest.fr/ideas/hanging-plants/902856619311/
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
+- https://www.youtube.com/results?search_query=Cergy
 
 Partie 6 :
 -  https://jsbin.com/zedimafaja/edit?output
