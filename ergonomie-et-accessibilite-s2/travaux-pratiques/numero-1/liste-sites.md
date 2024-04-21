@@ -16,6 +16,7 @@ Partie 1 :
 
 Partie 2 :
 - https://web.archive.org/web/20220129095313/https://www.vovardimmobilier.fr/
+- https://www.tiktok.com/@ayaxbader/video/7343721406544252192
 
 Partie 3 :
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
