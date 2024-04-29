@@ -1,5 +1,5 @@
 console.log = function () {};
-import { app } from "./server/index.js";
+import { app } from "./server/bootstrap.js";
 import blessed from "blessed";
 import blessedContrib from "blessed-contrib";
 
