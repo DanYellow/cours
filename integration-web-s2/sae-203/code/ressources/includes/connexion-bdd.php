@@ -70,11 +70,11 @@ if ($estEnvLocal) {
 (new DotEnv($fichierEnvChemin))->load();
 
 try {
-    $nomBDD = getenv('NOM_BDD');
-    $serveurBDD = getenv('SERVEUR_BDD');
+    $nomBDD = $_ENV['NOM_BDD'];
+    $serveurBDD = $_ENV['SERVEUR_BDD'];
     
     // On se connecte à notre base de données
-    $mysqli_link = mysqli_connect($serveurBDD, getenv('UTILISATEUR_BDD'), getenv('MDP_BDD'), $nomBDD);
+    $mysqli_link = mysqli_connect($serveurBDD, $_ENV['UTILISATEUR_BDD'], $_ENV['MDP_BDD'], $nomBDD);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }

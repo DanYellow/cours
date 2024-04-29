@@ -11,7 +11,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 <html lang="fr">
 
 <head>
-    <base href="/<?php echo getenv('CHEMIN_BASE') ?>">
+    <base href="/<?php echo $_ENV['CHEMIN_BASE']; ?>">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
