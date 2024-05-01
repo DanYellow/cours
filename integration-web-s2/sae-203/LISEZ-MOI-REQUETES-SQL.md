@@ -59,7 +59,7 @@ Notre variable `$resultat` contient un tableau, et ce même tableau contient des
   )
 ```
 
-Vu que `$resultat` est donc un tableau, nous pouvons itérer dedans comme suit :
+Vu que `$resultat` est un tableau, nous pouvons itérer dedans comme suit :
 
 ```php
   while ($article = mysqli_fetch_array($resultat_brut)) {
@@ -114,7 +114,7 @@ SELECT * FROM article WHERE id = :id AND titre = :titre
 ```
 Dans ce code ci-dessus, on cherche un article avec une valeur spécifique pour le champ `id` **et** une valeur spécifique pour le champ `titre`. Et si vous souhaitez qu'une des deux conditions soit remplie, il faudra remplacer `AND` par `OR`.
 
-> Notez que MySQL sera toujours plus performant sur les requêtes où on recherche par clé étrangère.
+> Notez que MySQL sera toujours plus performant sur les requêtes où on recherche par clé primaire.
 
 ## Insérer des données
 
@@ -131,12 +131,13 @@ Analysons tout ça :
 
 - `INSERT INTO message` on indique dans quelle table, nous allons insérer les données
 - On liste entre parenthèses les champs qui vont recevoir une donnée
-- `VALUES(...)` on liste les valeurs qu'on veut insérer. Comme dit précédemment **on ne doit jamais concaténer une requête SQL avec des données externes**, c'est pour ça qu'on utilise des placeholders, ces clefs précédées de deux-points `:`
+- `VALUES(...)` on liste les valeurs qu'on veut insérer.
+**Si votre colonne est de type "TEXT" ou "VARCHAR()", il faudra mettre chaque valeur, même si ce sont des variables, entre guillemets.**
 
 > **Point important :** l'ordre des champs dans la première parenthèses doit être identique à celui dans la deuxième parenthèse, sinon vous ne mettrez pas les valeurs dans les bons champs. Au final, ça nous donne ceci :
 
 ```php
-// Requête pour envoyer un message :
+// Code php pour ajouter un message dans la table "message" :
   $insertion_requete_brute = "
     INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
     VALUES ('$nom', '$prenom', '$message', '$email', '$type', '$date')
@@ -148,11 +149,11 @@ Analysons tout ça :
 
 > **Attention :** Pensez toujours à nettoyer des données avant de les envoyer en base. Utilisez la fonction `htmlentities()` sur les variables que vous allez entrer en base pour vous prévenir d'un éventuel piratage de votre site.
 
-Le code ci-dessus est déjà présent dans le fichier `contact.php`, toutefois il reste à le compléter.
+Le code ci-dessus est déjà présent et fonctionnel dans le fichier `contact.php`.
 
 ## Éditez vos données
 
-Parfois (souvent même), vous devrez mettre à un jour un élément dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
+Parfois (souvent même), vous devrez mettre à un jour un élément déjà présent dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
 Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la table sélectionnée et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
@@ -162,7 +163,7 @@ WHERE id = :id;
 ```
 
 - `UPDATE auteur` : le mot-clé permet d'indiquer que nous allons mettre à jour la table "auteur"
-- `SET` : la syntaxe ressemble plus ou moins à ce qu'on a vu avec notre `SELECT ... WHERE` sauf qu'on a plus de clef. On liste juste l'ensemble des champs que l'on souhaite mettre à jour, il est donc possible de modifier qu'un seul champ
+- `SET` : on liste l'ensemble des champs que l'on souhaite mettre à jour, il est donc possible de mettre à jour qu'un seul champ
 - `WHERE` : on indique quel élément doit être modifié. Pour rappel, en absence du `WHERE` dans ce contexte, **vous modifierez toute la table**
 
 > **Attention :**  Sauf cas très, très spécifiques, vous ne devrez jamais mettre à jour la valeur du champ "id"
@@ -177,7 +178,7 @@ $id =  $_POST["id"];
 
 $maj_requete_brute = "
     UPDATE auteur
-    SET nom = $nom, prenom = $prenom, avatar = $avatar
+    SET nom = '$nom', prenom = '$prenom', avatar = '$avatar'
     WHERE id = $id
 ";
 
@@ -217,11 +218,19 @@ Dans la requête ci-dessus, nous recherchons tous les éléments de la table `ar
     "nom" => "valeur",
     "prenom" => "valeur",
     "...",
-  )
+  );
 ```
 A noter qu'il est possible de définir des alias pour chacune des colonnes pour éviter des conflits de noms. Vous trouverez un exemple de `LEFT JOIN` ainsi que d'alias de nom dans le fichier `administration/articles/index.php`.
 
-> Il est possible de remplacer `LEFT JOIN` par de multiples requêtes. Toutefois la jointure est plus lisible et peut être plus performante dans certains cas.
+Il est possible de remplacer `LEFT JOIN` par de multiples requêtes. Toutefois la jointure est plus lisible et peut être plus performante dans certains cas.
+
+Pour terminer, notez qu'il est possible d'utiliser le mot-clé `WHERE` dans une jointure. Exemple :
+```sql
+SELECT * FROM article
+LEFT JOIN auteur 
+ON article.auteur_id = auteur.id
+WHERE article.id = :id
+```
 
 > - [En savoir plus sur les jointures MySQL - français](https://aymeric-auberton.fr/academie/mysql/jointure)
 
