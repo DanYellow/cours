@@ -34,6 +34,7 @@ const createBuilds = () => {
             build: {
                 emptyOutDir: false,
                 manifest: manifestName,
+                target: 'esnext',
                 lib: {
                     entry: path,
                     fileName: name,
