@@ -182,11 +182,11 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
 > Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
 # Flash messages
-Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'une seule fois. Ce concept n'est pas propre à Express, on le trouve également dans d'autres langages côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
+Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'**une seule fois.** Ce concept n'est pas propre à Express, on le trouve également dans d'autres langages côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
 
-Vous pourrez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
+Ils sont déjà implémentés lors de la création et édition d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
-# Utilisation de git
+# Utilisation de git 
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Créez le projet sur github
@@ -205,9 +205,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [x] Lire les consignes
 - [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
-- [ ] Installer les dépendances [(voir chapitre "mise en place")](#mise-en-place)
-- [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages
-- [ ] Initialiser le projet sur github
+- [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
+- [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages...
+- [ ] Initialiser le projet sur github [(voir partie "utilisation de git")](#utilisation-de-git)
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
