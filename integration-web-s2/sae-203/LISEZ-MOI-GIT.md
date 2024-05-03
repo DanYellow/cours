@@ -40,6 +40,8 @@ git clone URL-du-depot.git
 
 Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
 
+> Le clonage ne s'effectue, si et seulement si, le projet n'est pas sur votre ordinateur.
+
 # Ajouter des fichiers à l'historique 
 Une fois le projet cloné glissez-déposez tout le contenu du dossier "code" de la SAE dans le dossier récemment téléchargé via la commande `git clone`.
 
@@ -72,6 +74,8 @@ L'engistrement d'une modification est appelée `commit`, voyez cette action pour
 ```bash
 git commit -am "Contenu du message"
 ```
+> Les guillemets peuvent être simples ou doubles.
+
 Il est préférable d'avoir un contenu de message clair, ceci vous permettra de comprendre très facilement ce qui a été effectué pour cette ligne du registre, et ce, sans regarder votre code.
 
 > Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", peut être "Ajout de la page d'accueil".
