@@ -95,6 +95,12 @@ git pull origin
 
 La commande `git pull origin` met fin à ce document de présentation brève de git, vous avez l'essentiel pour commencer à l'utilisation. Avec le temps, vous découvrirez d'autres commandes tout aussi utiles.
 
+### Gérer les merges
+Lorsque que vous effectuez un pull, git effectuer une fusion des historiques. Il peut arriver que git vous demande comment gérer cette action (voir image ci-dessous). Généralement, il n'est pas utile de mentionner les raisons du merge. Ainsi pour remettre la console dans son état inital, il vous suffit d'écrire `:q` dans la console.
+|![alt text](./captures-ecran/git-10.png)|
+|:--:|
+|*Quand git fait ça, c'est qu'il est entrain d'effectuer un merge. Faites `:q`. Et ça sera réglé.*|
+
 ## Extras
 
 ### Autoriser d'autres collaborateurs
