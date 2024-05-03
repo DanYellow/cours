@@ -4,7 +4,7 @@
 
 Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous linux, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
+Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
 
 ## git ou github ?
 Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
