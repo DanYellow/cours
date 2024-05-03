@@ -114,3 +114,7 @@ Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas
 Notes :
 - Vos collaborateurs devront valider leur participation au projet
 - Les projets dans lesquels vous collaborés sont dans le menu options, partie "Repositories". [Également accessible via cette URL](https://github.com/settings/repositories).
+
+
+### Liens utiles
+- [Documentation officielle en français](https://git-scm.com/book/fr/v2)
