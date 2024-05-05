@@ -1,6 +1,8 @@
 # Mémo GIT
 
 > **Important : Si vous souhaitez utiliser git pour la SAE, il faut impérativement éditer les fichier .env.local.dev et .env.local.prod et non .env.dev et .env.prod. Ne pas le faire vous expose à des failles de sécurité critiques.**
+>
+> **Si ça arrive, changez immédiatement le mot de passe de votre base de données chez votre hébergeur.**
 
 Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
 
