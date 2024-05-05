@@ -4,7 +4,7 @@
 
 Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous linux, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
+Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
 
 ## git ou github ?
 Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
@@ -45,6 +45,8 @@ git clone URL-du-depot.git
 
 Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
 
+> Le clonage ne s'effectue, si et seulement si, le projet n'est pas sur votre ordinateur.
+
 # Ajouter des fichiers à l'historique 
 Une fois le projet cloné glissez-déposez tout le contenu du dossier "code" de la SAE dans le dossier récemment téléchargé via la commande `git clone`.
 
@@ -77,6 +79,8 @@ L'engistrement d'une modification est appelée `commit`, voyez cette action comm
 ```bash
 git commit -am "Contenu du message"
 ```
+> Les guillemets peuvent être simples ou doubles.
+
 Il est préférable d'avoir un contenu de message clair, ceci vous permettra de comprendre très facilement ce qui a été effectué pour cette ligne du registre, et ce, sans regarder votre code.
 
 > Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", le message du commit peut être "Ajout de la page d'accueil".
