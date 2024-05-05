@@ -7,9 +7,9 @@ Git est un outil qui est un standard dans le milieu du développement. C'est un 
 Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous linux, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
 
 ## git ou github ?
-Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
+Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
 
-> Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon.
+> Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commande.
 
 ## Commandes
 > git possède de nombreuses commandes, ce document ne listera que les commandes principales, celles dont vous aurez le plus besoin. Les autres, vous aurez l'occasion de les découvrir durant vos périgrignations avec git.
@@ -19,11 +19,11 @@ Cette confusion a souvent lieu. Pour faire simple, git est la technologie, githu
 Première étape d'un projet git : l'initialisation. **Cette étape n'est à faire qu'une seule fois par projet.** Pour simplifier les choses, il est préférable de faire cette étape depuis github plutôt que la ligne de commande.
 |![alt text](./captures-ecran/git-1.png)|
 |:--:|
-|Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)|
+|*Allez sur le site github, connecté. Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)*|
 
 |![alt text](./captures-ecran/git-2.png)|
 |:--:|
-|*Définissez un nom unique (par rapport à la liste de vos dépôt). Puis cliquez sur "Create repository"*|
+|*Définissez un nom unique (par rapport à la liste de vos dépôts existants). Puis cliquez sur "Create repository"*|
 
 |![alt text](./captures-ecran/git-3.png)|
 |:--:|
@@ -36,7 +36,12 @@ Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur s
 ```bash
 git clone URL-du-depot.git
 ```
-> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en créant un dossier vide. Glisser ce dossier dans VS Code, ouvrir la console et cloner le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important).
+> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide. : 
+> - Créez un dossier vide sur votre ordinateur
+> - Glisser ce dossier dans VS Code
+> - Ouvrez la console et cloner le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important)
+> 
+> Et voilà, vous avez cloné votre dépôt.
 
 Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
 
@@ -68,13 +73,13 @@ Notre fichier `index.html` est ajouté dans l'historique toutefois nous n'avons 
 
 # Enregistrer les modifications
 
-L'engistrement d'une modification est appelée `commit`, voyez cette action pour l'écriture une action dans un registre. Cette action s'effectue via la commande
+L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre. Cette action s'effectue via la commande :
 ```bash
 git commit -am "Contenu du message"
 ```
 Il est préférable d'avoir un contenu de message clair, ceci vous permettra de comprendre très facilement ce qui a été effectué pour cette ligne du registre, et ce, sans regarder votre code.
 
-> Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", peut être "Ajout de la page d'accueil".
+> Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", le message du commit peut être "Ajout de la page d'accueil".
 
 Une fois le commit définit, n'oubliez pas d'appuyer sur la touche "entrée" pour le valider.
 Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter plusieurs fois par heure. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités... 
@@ -95,16 +100,16 @@ git pull origin
 
 La commande `git pull origin` met fin à ce document de présentation brève de git, vous avez l'essentiel pour commencer à l'utilisation. Avec le temps, vous découvrirez d'autres commandes tout aussi utiles.
 
-### Gérer les merges
-Lorsque que vous effectuez un pull, git effectuer une fusion des historiques. Il peut arriver que git vous demande comment gérer cette action (voir image ci-dessous). Généralement, il n'est pas utile de mentionner les raisons du merge. Ainsi pour remettre la console dans son état inital, il vous suffit d'écrire `:q` dans la console.
+### Gérer les merges (fusion d'historiques)
+Lorsque que vous effectuez un pull, git effectue une fusion des historiques. Il peut arriver que git vous demande comment gérer cette action (voir image ci-dessous). Généralement, il n'est pas utile de mentionner les raisons du merge. Ainsi pour remettre la console dans son état inital, il vous suffit d'écrire `:q` (et appuyer sur `Entrée`) dans la console.
 |![alt text](./captures-ecran/git-10.png)|
 |:--:|
-|*Quand git fait ça, c'est qu'il est entrain d'effectuer un merge. Faites `:q`. Et ça sera réglé.*|
+|*Quand git fait ça, c'est qu'il est en train d'effectuer un merge. Faites `:q`. Et ça sera réglé.*|
 
 ## Extras
 
 ### Autoriser d'autres collaborateurs
-Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas autorisé à pousser sur votre dépôt. Pour permettre aux autres membres de votre groupe de pousser sur votre historique distant, il faudra changer les permissions de votre dépôt sur le site github. Suivez les démarches suivantes :
+Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas autorisé à pousser sur votre dépôt, pas défaut. Pour permettre aux autres membres de votre groupe de pousser sur votre historique distant, il faudra changer les permissions de votre dépôt sur le site github. Suivez la démarche suivante :
 
 |![alt text](./captures-ecran/git-7.png)|
 |:--:|
@@ -117,9 +122,10 @@ Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas
 |![alt text](./captures-ecran/git-9.png)|
 |:--:|
 |*Cliquez sur "Add People" et ajoutez les noms de compte de vos collaborateurs.*|
+
 Notes :
-- Vos collaborateurs devront valider leur participation au projet
-- Les projets dans lesquels vous collaborés sont dans le menu options, partie "Repositories". [Également accessible via cette URL](https://github.com/settings/repositories).
+- Vos collaborateurs devront valider leur participation au projet (un e-mail de validation sera envoyé)
+- Les projets dans lesquels vous collaborés sont dans le menu `Paramètres > Repositories`. [Également accessible via cette URL](https://github.com/settings/repositories).
 
 
 ### Liens utiles
