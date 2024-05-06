@@ -47,7 +47,7 @@ $listDomaineLocaux = array(
 $REMOTE_ADDR = $_SERVER['REMOTE_ADDR'];
 
 $estEnvLocal = in_array($REMOTE_ADDR, $listDomaineLocaux) || 
-    !filter_var($REMOTE_ADDR, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+    !filter_var($REMOTE_ADDR, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
 
 if ($estEnvLocal) {
     $fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.dev";
@@ -72,9 +72,9 @@ if ($estEnvLocal) {
 try {
     $nomBDD = $_ENV['NOM_BDD'];
     $serveurBDD = $_ENV['SERVEUR_BDD'];
-    
+
     // On se connecte à notre base de données
     $mysqli_link = mysqli_connect($serveurBDD, $_ENV['UTILISATEUR_BDD'], $_ENV['MDP_BDD'], $nomBDD);
 } catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+    die('Erreur : ' . $e->getCode() . " - " . $e->getMessage());
 }
