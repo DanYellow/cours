@@ -133,6 +133,19 @@ Notes :
 - Vos collaborateurs devront valider leur participation au projet (un e-mail de validation sera envoyé)
 - Les projets dans lesquels vous collaborés sont dans le menu `Paramètres > Repositories`. [Également accessible via cette URL](https://github.com/settings/repositories).
 
+### Gérer les conflits
+Aussi performant soit-il, git peut parfois se brouiller quand il fusionne des historiques, ça s'appelle un conflit. Ils interviennent la plupart du temps quand plusieurs développeurs ont édité les mêmes lignes de code.
+
+Ainsi, on se retrouve avec un code non interprétable correctement par un compilateur ou le navigateur, ce qui provoque des comportements inattendus.
+
+La résolution des conflits doit se faire manuellement. Pour signaler un conflit git ajoute de multiples chevrons dans le code (`<<<<<<<<<<`). Il faut donc les rechercher dans le code et sélectionner les parties de code qui nous intéresse.
+
+Heureusement, VS Code possède une fonctionnalité de recherche globale.
+|![alt text](./captures-ecran/git-11.png)|
+|:--:|
+|*Après avoir sélectionné l'outil de recherche, on recherche `<<<<<<` pour trouver nos conflits*|
+
+VS Code liste les fichiers avec des conflits, il vous suffira sélectionner chacun des fichiers en conflit et les résoudre.
 
 ### Liens utiles
 - [Documentation officielle en français](https://git-scm.com/book/fr/v2)
