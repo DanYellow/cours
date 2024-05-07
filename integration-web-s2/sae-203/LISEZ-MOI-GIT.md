@@ -6,7 +6,7 @@
 
 Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit gitbash. [Télécharger gitbash](https://gitforwindows.org/).
+Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash. [Télécharger git bash](https://gitforwindows.org/).
 
 ## git ou github ?
 Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
@@ -146,6 +146,17 @@ Heureusement, VS Code possède une fonctionnalité de recherche globale.
 |*Après avoir sélectionné l'outil de recherche, on recherche `<<<<<<` pour trouver nos conflits*|
 
 VS Code liste les fichiers avec des conflits, il vous suffira sélectionner chacun des fichiers en conflit et les résoudre.
+
+### Changer le terminal de VS Code (Windows uniquement)
+On a vu précédemment qu'il était possible d'utiliser le terminal directement depuis l'interface de VS Code (`Terminal > New Terminal`), toutefois, si vous êtes sous Windows, le terminal utilisé est l'invite de commandes. C'est "bien", mais le terminal de git bash est bien meilleur. Pour l'utiliser par défaut dans VS Code suivez la démarche suivante :
+
+|![alt text](./captures-ecran/git-12.png)|
+|:--:|
+|*Ouvrez la "Command Palette" avec le raccourci `ctrl+shift+p" et cherchez "terminal select". Sélectionnez "Terminal: Select Default Profile"*|
+
+|![alt text](./captures-ecran/git-13.png)|
+|:--:|
+|*Sélectionnez "Git Bash". Et voilà, git bash est maintenant votre terminal par défaut dans VS Code*|
 
 ### Liens utiles
 - [Documentation officielle en français](https://git-scm.com/book/fr/v2)
