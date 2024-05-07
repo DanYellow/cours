@@ -9,16 +9,17 @@ Git est un outil qui est un standard dans le milieu du développement. C'est un 
 Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash. [Télécharger git bash](https://gitforwindows.org/).
 
 ## git ou github ?
-Cette confusion a souvent lieu. Pour faire simple, git est la technologie, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
+Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès maintenant. Pour faire simple, git est la technologie, un outil, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
 
-> Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commande.
+> Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commandes.
 
 ## Commandes
 > git possède de nombreuses commandes, ce document ne listera que les commandes principales, celles dont vous aurez le plus besoin. Les autres, vous aurez l'occasion de les découvrir durant vos périgrignations avec git.
-
+> 
+> A noter qu'il existe des variantes concernant certaines commandes qui font plus ou moins la même chose, ne soyez pas étonné si vous y faites face.
 
 ### Initialisation du projet
-Première étape d'un projet git : l'initialisation. **Cette étape n'est à faire qu'une seule fois par projet.** Pour simplifier les choses, il est préférable de faire cette étape depuis github plutôt que la ligne de commande.
+Première étape d'un projet git : l'initialisation. **Cette étape n'est à faire qu'une seule fois par projet.** Pour simplifier les choses, il est préférable de faire cette étape depuis github plutôt que la ligne de commandes.
 |![alt text](./captures-ecran/git-1.png)|
 |:--:|
 |*Allez sur le site github, connecté. Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)*|
@@ -34,20 +35,23 @@ Première étape d'un projet git : l'initialisation. **Cette étape n'est à fai
 > Vous avez maintenant initialisé votre projet, toutefois, il n'est pas sur votre ordinateur encore, c'est ce que nous allons voir dans la partie suivante.
 
 # Cloner le dépôt (repository)
-Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour se faire, il faudra utiliser la ligne de commande et la commande suivante :
+Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour se faire, il faudra utiliser la ligne de commandes et la commande suivante :
 ```bash
 git clone URL-du-depot.git
 ```
 > Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide. : 
 > - Créez un dossier vide sur votre ordinateur
 > - Glisser ce dossier dans VS Code
-> - Ouvrez la console et cloner le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important)
+> - Ouvrez la console et clonez le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important)
 > 
 > Et voilà, vous avez cloné votre dépôt.
 
 Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
 
-> Le clonage ne s'effectue, si et seulement si, le projet n'est pas sur votre ordinateur.
+> N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.
+
+Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
+![alt text](./captures-ecran/git-14.png) 
 
 # Ajouter des fichiers à l'historique 
 Une fois le projet cloné glissez-déposez tout le contenu du dossier "code" de la SAE dans le dossier récemment téléchargé via la commande `git clone`.
