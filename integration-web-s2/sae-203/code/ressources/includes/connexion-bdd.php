@@ -7,74 +7,74 @@ error_reporting(E_ALL);
 $PHP_TARGETED_VERSION = '7.0.0';
 
 if (version_compare(PHP_VERSION, $PHP_TARGETED_VERSION) < 0) {
-    $versionPHP = phpversion();
-    die("ERREUR : Version de PHP trop ancienne ({$versionPHP}). Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
+    $version_php = phpversion();
+    die("ERREUR : Version de PHP trop ancienne ({$version_php}). Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
 }
 
-$racineServerChemin = $_SERVER['DOCUMENT_ROOT'];
+$racine_server_chemin = $_SERVER['DOCUMENT_ROOT'];
 
 $url = $_SERVER['REQUEST_URI'];
-$urlListParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
-$urlListParts = array_filter($urlListParts);
-$racineDossierRaw = [];
+$url_list_parts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
+$url_list_parts = array_filter($url_list_parts);
+$racine_dossier_raw = [];
 
-$listeDossiersExclure = ["administration"];
+$liste_dossiers_exclure = ["administration"];
 
-foreach ($urlListParts as $urlPart) {
-    if (in_array($urlPart, $listeDossiersExclure)) {
+foreach ($url_list_parts as $url_part) {
+    if (in_array($url_part, $liste_dossiers_exclure)) {
         break;
     }
 
     if (
-        strpos($urlPart, ".") === false &&
-        !in_array($urlPart, glob("**", GLOB_ONLYDIR))
+        strpos($url_part, ".") === false &&
+        !in_array($url_part, glob("**", GLOB_ONLYDIR))
     ) {
-        $racineDossierRaw[] = $urlPart;
+        $racine_dossier_raw[] = $url_part;
     }
 }
 
-$racineDossier = "/" . join("/", $racineDossierRaw);
+$racine_dossier = "/" . join("/", $racine_dossier_raw);
 
-require_once("{$racineServerChemin}{$racineDossier}/classes/DotEnv.php");
+require_once("{$racine_server_chemin}{$racine_dossier}/classes/DotEnv.php");
 
-$fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.prod";
+$fichier_env_chemin = "{$racine_server_chemin}{$racine_dossier}/.env.prod";
 
-$listDomaineLocaux = array(
+$liste_domaines_locaux = array(
     '127.0.0.1',
     '::1'
 );
 
 $REMOTE_ADDR = $_SERVER['REMOTE_ADDR'];
 
-$estEnvLocal = in_array($REMOTE_ADDR, $listDomaineLocaux) || 
+$est_env_local = in_array($REMOTE_ADDR, $liste_domaines_locaux) || 
     !filter_var($REMOTE_ADDR, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
 
-if ($estEnvLocal) {
-    $fichierEnvChemin = "{$racineServerChemin}{$racineDossier}/.env.dev";
+if ($est_env_local) {
+    $fichier_env_chemin = "{$racine_server_chemin}{$racine_dossier}/.env.dev";
 
     // Permet de gérer un fichier env.local.dev 
     // pour la configuration s'il existe 
-    $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.dev";
-    if (file_exists($cheminDist)) {
-        $fichierEnvChemin = $cheminDist;
+    $chemin_dist = "{$racine_server_chemin}{$racine_dossier}/.env.local.dev";
+    if (file_exists($chemin_dist)) {
+        $fichier_env_chemin = $chemin_dist;
     }
 } else {
     // Permet de gérer un fichier env.local.prod 
     // pour la configuration s'il existe 
-    $cheminDist = "{$racineServerChemin}{$racineDossier}/.env.local.prod";
-    if (file_exists($cheminDist)) {
-        $fichierEnvChemin = $cheminDist;
+    $chemin_dist = "{$racine_server_chemin}{$racine_dossier}/.env.local.prod";
+    if (file_exists($chemin_dist)) {
+        $fichier_env_chemin = $chemin_dist;
     }
 }
 
-(new DotEnv($fichierEnvChemin))->load();
+(new DotEnv($fichier_env_chemin))->load();
 
 try {
-    $nomBDD = $_ENV['NOM_BDD'];
-    $serveurBDD = $_ENV['SERVEUR_BDD'];
+    $nom_BDD = $_ENV['NOM_BDD'];
+    $serveur_BDD = $_ENV['SERVEUR_BDD'];
 
     // On se connecte à notre base de données
-    $mysqli_link = mysqli_connect($serveurBDD, $_ENV['UTILISATEUR_BDD'], $_ENV['MDP_BDD'], $nomBDD);
+    $mysqli_link = mysqli_connect($serveur_BDD, $_ENV['UTILISATEUR_BDD'], $_ENV['MDP_BDD'], $nom_BDD);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getCode() . " - " . $e->getMessage());
 }
