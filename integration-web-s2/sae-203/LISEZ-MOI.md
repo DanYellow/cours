@@ -39,7 +39,7 @@ Notez également qu'il y a deux dossiers `ressources/`, un à la racine du proje
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
-  
+
 Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas vraiment besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
 Les deux pages à réaliser sont : 
 
@@ -151,7 +151,7 @@ CHEMIN_BASE=
 NOM_BDD=sae_203_db
 # Nom du serveur de base de données. En local, ça doit être quelque chose comme localhost:NOM-DU-PORT
 SERVEUR_BDD=
-# A modifier en fonction. Par défaut (en local donc), les valeurs sont "root" et "root" pour le mot de passe et le nom d'utilisateur.
+# A modifier en fonction. Par défaut (en local donc), les valeurs sont "" et "root" pour le mot de passe et le nom d'utilisateur.
 UTILISATEUR_BDD=
 MDP_BDD=
 ```
@@ -173,7 +173,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 
 > Le contenu des articles est à votre convenance. Bien évidemment ne rédigez pas du contenu offensant ou illégal.
 
-Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
+Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier [LISEZ-MOI-REQUETES-SQL.md](./LISEZ-MOI-REQUETES-SQL.md) pour mieux comprendre ces requêtes.**
 
 > N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
@@ -243,9 +243,9 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
+Les critères suivants seront évalués. Une ou les deux parties (intégration et développement web) peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
 
-### Intégration Web (HTML/CSS/javascript)
+### Intégration Web (HTML/CSS)
 - Qualité du code
   - Pas de classes CSS au nom étrange
   - Réutilisation des classes CSS

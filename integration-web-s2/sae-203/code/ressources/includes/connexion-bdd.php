@@ -1,14 +1,14 @@
 <?php
-// NOTE : SAUF CAS EXCEPTIONNEL, VOUS N'AVEZ PAS BESOIN DE MODIFIER CE FICHIER
+// @NOTE : SAUF CAS EXCEPTIONNEL, VOUS N'AVEZ PAS BESOIN DE MODIFIER CE FICHIER
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$PHP_TARGETED_VERSION = '7.0.0';
+$PHP_MIN_VERSION = '7.0.0';
 
-if (version_compare(PHP_VERSION, $PHP_TARGETED_VERSION) < 0) {
+if (version_compare(PHP_VERSION, $PHP_MIN_VERSION) < 0) {
     $version_php = phpversion();
-    die("ERREUR : Version de PHP trop ancienne ({$version_php}). Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
+    die("ERREUR : Version de PHP trop ancienne ({$version_php}). Votre version de PHP doit être supérieure ou égale à $PHP_MIN_VERSION. Veuillez installer une version plus récente.");
 }
 
 $racine_server_chemin = $_SERVER['DOCUMENT_ROOT'];
