@@ -12,6 +12,7 @@ public class CurrentSceneManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
+        Time.timeScale = 1f;
     }
 
     private void OnEnable()
