@@ -190,7 +190,7 @@ Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettr
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
-Voici le code pour les deux cas. Ce code est à mettre **après que** les données ont été enregistrées dans la base. Donc après l'appel de la méthode `execute()`.
+Voici le code pour les deux cas. Ce code est à mettre **après que** les données ont été enregistrées dans la base. Donc dans le if qui suit l'instruction `$resultat_brut = mysqli_query($mysqli_link, $requete_brute);`, dans le cas où tout se passe bien.
 
 ```php
 // L'utilisateur reste sur la même page
