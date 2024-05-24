@@ -283,7 +283,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs
     - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
-    - Edition à réaliser dans le fichier `administration/ressources/includes/menu-lateral-footer.php`
+    - Edition à réaliser dans le fichier `administration/ressources/includes/global-footer.php`
 - [ ] Intégration de la page "équipe de rédaction"
 - [ ] Complétion de la page "article"
   - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
