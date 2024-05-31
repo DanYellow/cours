@@ -39,7 +39,7 @@ Notez également qu'il y a deux dossiers `ressources/`, un à la racine du proje
 
 - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
-  
+
 Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas vraiment besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
 Les deux pages à réaliser sont : 
 
@@ -151,7 +151,7 @@ CHEMIN_BASE=
 NOM_BDD=sae_203_db
 # Nom du serveur de base de données. En local, ça doit être quelque chose comme localhost:NOM-DU-PORT
 SERVEUR_BDD=
-# A modifier en fonction. Par défaut (en local donc), les valeurs sont "root" et "root" pour le mot de passe et le nom d'utilisateur.
+# A modifier en fonction. Par défaut (en local donc), les valeurs sont "" et "root" pour le mot de passe et le nom d'utilisateur.
 UTILISATEUR_BDD=
 MDP_BDD=
 ```
@@ -173,7 +173,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
 
 > Le contenu des articles est à votre convenance. Bien évidemment ne rédigez pas du contenu offensant ou illégal.
 
-Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier REQUETES-SQL.md pour mieux comprendre ces requêtes.**
+Vu que vous débutez en php/mysql, la plupart des requêtes sont déjà présentes, il faudra toutefois les éditer en fonction de vos besoins. **Nous vous invitons à regarder les commentaires ainsi que le fichier [LISEZ-MOI-REQUETES-SQL.md](./LISEZ-MOI-REQUETES-SQL.md) pour mieux comprendre ces requêtes.**
 
 > N'hésitez pas à tester vos requêtes dans phpmyadmin avant de les insérer dans votre code
 
@@ -190,7 +190,7 @@ Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettr
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
-Voici le code pour les deux cas. Ce code est à mettre **après que** les données ont été enregistrées dans la base. Donc après l'appel de la méthode `execute()`.
+Voici le code pour les deux cas. Ce code est à mettre **après que** les données ont été enregistrées dans la base. Donc dans le if qui suit l'instruction `$resultat_brut = mysqli_query($mysqli_link, $requete_brute);`, dans le cas où tout se passe bien.
 
 ```php
 // L'utilisateur reste sur la même page
@@ -235,7 +235,7 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - La base de données
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - URL vers le site
-    - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
+    - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
   
 > Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
@@ -243,9 +243,9 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
 # Notation
-Les critères suivants seront évalués. Une ou les deux parties peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
+Les critères suivants seront évalués. Une ou les deux parties (intégration et développement web) peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
 
-### Intégration Web (HTML/CSS/javascript)
+### Intégration Web (HTML/CSS)
 - Qualité du code
   - Pas de classes CSS au nom étrange
   - Réutilisation des classes CSS
@@ -283,7 +283,7 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs
     - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
-    - Edition à réaliser dans le fichier `administration/ressources/includes/menu-lateral-footer.php`
+    - Edition à réaliser dans le fichier `administration/ressources/includes/global-footer.php`
 - [ ] Intégration de la page "équipe de rédaction"
 - [ ] Complétion de la page "article"
   - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
@@ -329,6 +329,14 @@ Les critères suivants seront évalués. Une ou les deux parties peuvent être a
 - **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
 
     Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
+  
+- **Après avoir uploadé mes modifications, je ne vois aucune modifications dans mon navigateur**
+
+  Si vous êtes sûr(e) à 100 % d'avoir uploadé les bons fichiers, c'est certainement lié au cache navigateur. Autrement dit, le navigateur garde l'ancienne version de vos fichiers pour économiser la bande passante. Pour y remédier, vous avez les solutions suivantes :
+    - Ouvrir votre site en navigation privée
+    - Supprimer le cache navigateur. Vous pourrez trouver comment faire en ligne selon le navigateur utilisé
+    - Cocher la case "désactiver le cache" dans la console du navigateur
+    - Ajouter un paramètre dans l'URL. Par exemple, localhost:4242?faux=parametre
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
