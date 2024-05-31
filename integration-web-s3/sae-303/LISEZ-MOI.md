@@ -106,18 +106,19 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 # Votre liste à faire
   - [x] Lire les consignes
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
+    - [ ] **Lisez bien le nom du document ainsi que les fichiers d'aides (s'il y en a), une confusion est si vite arrivée**
   - [ ] Respecter les attentes
-  - [ ] **Mettre vos sources dans le résultat final**
+  - [ ] **Mettre vos sources dans le résultat final** (La note sera divisée par deux si ce n'est pas fait)
         - Mettez le lien. Tous les liens sont dans le fichier _liste-source.ods
   - [ ] Générer une archive contenant :
-    - [ ] Votre réalisation (app interactive ou infographie ou vidéo motion)
+    - [ ] Votre réalisation (infographie ou vidéo motion)
     - [ ] Lien vers le dépôt sur github (projet développement uniquement)
 
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
   A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
-  **Attention : Il y a deux onglets (crea et dev) dans le fichier.**
+  **Attention : Il y a deux onglets (crea et dev) dans le fichier.** En cas d'absence de sources, la note sera divisée par deux.
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
@@ -133,7 +134,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - **Est-il possible de réaliser ce travail seul(e) ?**
   
   Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche, et à la fin, il n'y aura pas grand-chose.
-- **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les même images mais de tailles différentes ?**
+- **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les mêmes images mais de tailles différentes ?**
   
   Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
 - **Puis-je effectuer plusieurs images pour Instagram ?**
@@ -146,7 +147,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 - **Dois-je impérativement utiliser git pour le projet ?**
 
-  Si vous avez choisi le projet développement, vous êtes obligés, ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
+  Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
 
 - **Mon application doit-elle être responsive ?**
 
