@@ -235,7 +235,7 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - La base de données
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - URL vers le site
-    - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite
+    - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
   
 > Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
@@ -329,6 +329,14 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
 
     Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
+  
+- **Après avoir uploadé mes modifications, je ne vois aucune modifications dans mon navigateur**
+
+  Si vous êtes sûr(e) à 100 % d'avoir uploadé les bons fichiers, c'est certainement lié au cache navigateur. Autrement dit, le navigateur garde l'ancienne version de vos fichiers pour économiser la bande passante. Pour y remédier, vous avez les solutions suivantes :
+    - Ouvrir votre site en navigation privée
+    - Supprimer le cache navigateur. Vous pourrez trouver comment faire en ligne selon le navigateur utilisé
+    - Cocher la case "désactiver le cache" dans la console du navigateur
+    - Ajouter un paramètre dans l'URL. Par exemple, localhost:4242?faux=parametre
 
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
