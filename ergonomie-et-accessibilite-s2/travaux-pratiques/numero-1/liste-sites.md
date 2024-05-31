@@ -1,9 +1,10 @@
 
 # TP#1 - Ergonomie et accessibilité 
 
-Partie 0 (consultez l'un ou l'autre ou les deux) :
+Partie 0 (consultez l'un des sites ou tous) :
 - https://userinyerface.com/game.html
 - https://how-i-experience-web-today.com/
+- https://www.termsandconditions.game/
 
 > Consignes : Pour chaque partie, vous allez devoir trouver la mauvaise pratique ergonomique commune aux sites. Il n'y a qu'une mauvaise pratique à trouver par partie.
 > A noter que certains problèmes peuvent se révéler via une action ou encore en redimensionnant la fenêtre. N'hésitez pas à l'interagir avec les sites.
