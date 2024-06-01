@@ -56,9 +56,11 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
     let ressource = null;
 
-    const isEdit = req.params.id !== "add";
+    const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 
     let listErrors = [];
+    let listAuthors = [];
+
     let options = {
         headers: {
             "Content-Type": "multipart/form-data",
@@ -86,6 +88,12 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
     try {
         const result = await axios(options);
         ressource = result.data;
+
+        listAuthors = await axios({
+            method: "GET",
+            url: `${res.locals.base_url}/api/authors`,
+        });
+        listAuthors = listAuthors.data.data;
     } catch (e) {
         listErrors = e.response.data.errors;
         ressource = e.response.data.ressource || {};
@@ -94,6 +102,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             res.render("", {
                 article: ressource,
                 list_errors: listErrors,
+                list_authors: listAuthors,
                 is_edit: isEdit,
                 is_success: listErrors.length === 0,
             });
