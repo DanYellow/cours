@@ -42,6 +42,14 @@ const base = "articles";
  *            type: string
  *            pattern: '([0-9a-f]{24}|[\w\d\-]+\-[a-f0-9]{24})'
  *        description: List of articles' _id or slug (you can mix). **Invalid _ids will be skipped.**
+ *      - in: query
+ *        name: sorting
+ *        required: false
+ *        schema:
+ *          type: string
+ *          enum: [ "desc", "asc"]
+ *          example: "desc"
+ *        description: Sorting order of articles related to their last update time. If the param is missing the order is "desc".
  *     responses:
  *       200:
  *         description: Returns all articles
