@@ -5,7 +5,7 @@
 
 {% block main %}
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-1 p-6 pr-4 pl-8 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p class="text-4xl">Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
             </p>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-1 p-6 pl-8 pr-4 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p class="text-4xl">Liste articles
                 <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
             </p>
@@ -36,22 +36,26 @@
         <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
             <thead>
                 <tr class="text-slate-800">
-                    <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5" >Titre</th>
-                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Contenu</th>
-                    <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Dernière mise à jour</th>
-                    <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
+                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Titre</th>
+                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Contenu</th>
+                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">
+                        Dernière mise à jour
+                    </th>
+                    <th class="px-6 py-3 border-solid border-slate-200 border-b"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in list_articles.data %}
                     <tr class="hover:bg-neutral-50 even:bg-blue-50">
-                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
-                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent max-w-[300px]" data-label="Contenu">
+                        <td class="bg-transparent border-solid border-slate-200 border-b p-6" data-label="Titre">{{ item.title }}</td>
+                        <td class="p-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent max-w-[300px]" data-label="Contenu">
                             <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                         </td>
-                        <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Dernière mise à jour"><time datetime="{{ item.updated_at }}">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</time></td>
+                        <td class="bg-transparent border-solid border-slate-200 border-b p-6" data-label="Dernière mise à jour">
+                            <time datetime="{{ item.updated_at }}">{{ item.updated_at|date("dd/LL/yyyy à HH:mm") }}</time>
+                        </td>
 
-                        <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
+                        <td class="p-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                             <div class="inline-flex gap-6">
                                 {{ list_actions.edit(admin_url ~ '/articles/' ~ item._id)}}
                                 {{ list_actions.delete(base_url ~ "/api/articles/" ~ item._id, item.title)}}
@@ -60,7 +64,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
+                        <td colspan="4" class="text-center bg-transparent border-solid border-slate-200 border-b p-6">Pas de contenu pour le moment</td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -68,7 +72,7 @@
     </div>
 
     <div class="bg-white rounded-2xl mb-10 shadow-md pb-6">
-        <header class="mb-1 p-6 pl-8 pr-4 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
             <p class="text-4xl">Liste messages
             </p>
         </header>

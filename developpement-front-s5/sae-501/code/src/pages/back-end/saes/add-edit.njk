@@ -7,7 +7,7 @@
 
 {% block main %}
     <div class="bg-white rounded-2xl shadow-md pb-6">
-        <header class="p-6 pl-8 ">
+        <header class="p-6">
             <p class="text-4xl">
                 {% if is_edit == true %}
 					Editer
@@ -22,7 +22,7 @@
 			</p>
         </header> 
         {{ messages.info }}
-        <div class="px-8">
+        <div class="px-6">
             {% for item in list_errors %}
                 <p class="rounded-lg p-3 bg-red-100 text-red-800 border-solid border-x border-y border-red-700 mb-3">{{ item }}</p>
             {% endfor %}
