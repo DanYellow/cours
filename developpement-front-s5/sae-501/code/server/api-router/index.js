@@ -14,7 +14,7 @@ router.use(ArticleCommentRouter);
 router.all("*", (req, res) => {
     res.status(404).json({
         errors: [
-            `Route "${req.originalUrl}" not found`
+            `La route "${req.originalUrl}" n'existe pas`
         ]
     });
 });
