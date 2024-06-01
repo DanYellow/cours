@@ -1,0 +1,1 @@
+La note est un calcul réalisé par le ministère français du travail de la santé et des solidarité. Vous trouverez plus de détails ici : https://egapro.travail.gouv.fr/aide-simulation
