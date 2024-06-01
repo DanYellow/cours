@@ -3,26 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class DebugManagerEditor
 {
-    [MenuItem("**Debug**/Restart Scene _r")]
+    [MenuItem("**Debug**/Restart Scene _F5")]
     private static void RestartScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
 
-    [MenuItem("**Debug**/Restart Last Checkpoint _m")]
+    // Shift + M
+    [MenuItem("**Debug**/Restart Last Checkpoint #M")]
     private static void RestartLastCheckpoint()
     {
         CurrentSceneManager.RestartLastCheckpoint();
     }
 
-    [MenuItem("**Debug**/Quit game _l")]
+    // Shift + L
+    [MenuItem("**Debug**/Quit game #L")]
     private static void QuitGame()
     {
         CurrentSceneManager.QuitGame();
     }
 
-    [MenuItem("**Debug**/Load Debug scene _o")]
+    // Shift + O
+    [MenuItem("**Debug**/Load Debug scene #O")]
     private static void LoadDebugScene()
     {
         SceneManager.LoadScene("Debug");
