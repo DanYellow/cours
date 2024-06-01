@@ -70,7 +70,7 @@ router.get(`/${base}`, async (req, res) => {
     try {
         const listRessources = await getArticles(
             listIds.length ? listIds : [],
-            { page, perPage },
+            { ...req.query, page, perPage },
         );
 
         const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
@@ -477,7 +477,12 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
     }
 });
 
-const getArticles = async (id, queryParams = {}) => {
+const getArticles = async (id, queryParams) => {
+    const computedQueryParams = {
+        sorting: "desc",
+        ...queryParams
+    }
+
     const isArray = Array.isArray(id);
     const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
 
@@ -502,11 +507,11 @@ const getArticles = async (id, queryParams = {}) => {
             ),
         ...(isArray
             ? [
-                { $sort: { updated_at: -1 } },
+                { $sort: { updated_at: computedQueryParams.sorting === "asc" ? 1 : -1 } },
                 {
-                    $skip: Math.max(queryParams.page - 1, 0) * queryParams.perPage,
+                    $skip: Math.max(computedQueryParams.page - 1, 0) * computedQueryParams.perPage,
                 },
-                { $limit: queryParams.perPage }
+                { $limit: computedQueryParams.perPage }
               ]
             : []),
         {

@@ -115,6 +115,7 @@ app.use(function (req, res, next) {
         upload_dir: "/uploads/",
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
+        query_string_params: req.query,
     }
 
     res.locals = {

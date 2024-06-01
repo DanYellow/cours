@@ -2,19 +2,20 @@
     <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
         <thead>
             <tr class="text-slate-800">
-                <th class="font-bold pl-8  text-left border-solid border-slate-200 border-b pb-5">Titre</th>
-                <th class="font-bold pl-8 text-left border-solid border-slate-200 border-b pb-5">Contenu</th>
-                <th class="pl-8 border-solid border-slate-200 border-b pb-5"></th>
+                <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Titre</th>
+                <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Contenu</th>
+                <th class="px-6 border-solid border-slate-200 border-b py-3"></th>
             </tr>
         </thead>
+        
         <tbody>
             {% for item in list.data %}
                 <tr class="hover:bg-neutral-50 even:bg-blue-50">
-                    <td class="bg-transparent border-solid border-slate-200 border-b p-4 pl-8" data-label="Titre">{{ item.title }}</td>
-                    <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Contenu">
+                    <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="Titre">{{ item.title }}</td>
+                    <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="Contenu">
                         <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                     </td>
-                    <td class="p-4 pl-8 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
+                    <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
                         <div class="inline-flex gap-6">
                             {{ list_actions.edit(admin_url ~ '/saes/' ~ item._id)}}
                             {{ list_actions.delete(base_url ~ "/api/saes/" ~ item._id, item.title)}}
@@ -23,7 +24,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="3" class="text-center bg-transparent border-solid border-slate-200 border-b p-4 pl-8">Pas de contenu pour le moment</td>
+                    <td colspan="3" class="text-center bg-transparent border-solid border-slate-200 border-b py-4 px-6">Pas de contenu pour le moment</td>
                 </tr>
             {% endfor %}
         </tbody>
