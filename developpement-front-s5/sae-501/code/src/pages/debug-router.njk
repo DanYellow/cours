@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Liste routes</title>
+        <title>SAE-501 - List routes</title>
 
         <link rel="stylesheet" href="/styles/reset.css">
         <link rel="stylesheet" href="/styles/fonts.css">
@@ -17,7 +17,7 @@
     <body>
         <header class="p-6">
             <h1 class="text-4xl font-bold">
-                List routes ({{ list_routes | length }})
+                SAE-501 - List routes ({{ list_routes | length }})
             </h1>
             <hr class="my-5">
             {% set filter_entries = [
@@ -69,7 +69,7 @@
 
             <tbody>
                 {% for item in list_routes %}
-                    <tr class="hover:bg-neutral-50 even:bg-blue-50">
+                    <tr class="hover:bg-neutral-50 even:bg-slate-50">
                         <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
                             {% if item.METHOD == "GET" %}
                                 <span class="bg-green-100 text-green-900 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ item.METHOD }}</span>
@@ -96,5 +96,15 @@
                 {% endfor %}
             </tbody>
         </table>
+        <footer class="p-6">
+            <ul class="flex items-center gap-4 justify-center">
+                <li>
+                    <a href="/" class="hover:text-blue-700">Accéder au site</a>
+                </li>
+                <li>
+                    <a href="/admin" class="hover:text-blue-700">Accéder à l'administration</a>
+                </li>
+            </ul>
+        </footer>
     </body>
 </html>

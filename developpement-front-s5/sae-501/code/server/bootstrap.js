@@ -155,7 +155,7 @@ if (process.env.NODE_ENV === "development") {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-    app.get("/debug", async (req, res) => {
+    app.get("/router", async (req, res) => {
         const listRoutes = generateListRoutes(app);
         const listMethods = [...new Set(listRoutes.map((item) => item.METHOD))];
         res.render("pages/debug-router.njk", {
