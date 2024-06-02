@@ -1,6 +1,3 @@
-import mime from 'mime';
-import { imageValidator } from "#database/validator.js";
-
 const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
 const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
@@ -47,31 +44,10 @@ listDragNDropArea.forEach((item) => {
         toggleDragAndDropIndicator(item, false);
 
         if (e.dataTransfer.items) {
-            [...e.dataTransfer.items].forEach((file, i) => {
-                const input = item.querySelector("[data-upload-file]");
-                const listAllowedMimeType =  input.getAttribute("accept").split(',').map((item) => {
-                    return mime.getType(item);
-                });
+            const input = item.querySelector("[data-upload-file]");
 
-                const errorMessageContainer = document.querySelector(
-                    `[data-incorrect-upload="${item.dataset.dragNDropArea}"]`
-                );
-
-                if (file.kind === "file") {
-                    const errorMessage = imageValidator(e.dataTransfer.files[0], listAllowedMimeType);
-                    if (errorMessage) {
-                        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
-                        errorMessageContainer.classList.remove("hidden");
-                    } else {
-                        input.setAttribute("files", e.dataTransfer.files);
-                        input.files = e.dataTransfer.files;
-                        errorMessageContainer.classList.add("hidden");
-                    }
-                } else {
-                    errorMessageContainer.querySelector("[data-error-message]").textContent = "Format incorrect uploadé";
-                    errorMessageContainer.classList.remove("hidden");
-                }
-            });
+            input.setAttribute("files", e.dataTransfer.files);
+            input.files = e.dataTransfer.files;
         }
     });
 });

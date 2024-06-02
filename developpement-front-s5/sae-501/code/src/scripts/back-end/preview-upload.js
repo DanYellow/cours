@@ -1,3 +1,6 @@
+import mime from 'mime';
+import { imageValidator } from "#database/validator.js";
+
 const listUploadFileInput = document.querySelectorAll("[data-upload-file]");
 const listUploadFilePreview = document.querySelectorAll(
     "[data-preview-upload]"
@@ -11,11 +14,24 @@ const previewUpload = (e) => {
     const file = element.files[0];
     const uploadName = element.dataset.uploadFile;
 
-    const imgRelated = document.querySelector(
-        `[data-preview-upload="${uploadName}"]`
+    const listAllowedMimeType = element.getAttribute("accept").split(',').map((item) => {
+        return mime.getType(item);
+    });
+
+    const errorMessageContainer = document.querySelector(
+        `[data-incorrect-upload="${uploadName}"]`
     );
-    if (file && imgRelated) {
+
+    const errorMessage = imageValidator(file, listAllowedMimeType);
+    if (errorMessage) {
+        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
+        errorMessageContainer.classList.remove("hidden");
+    } else {
+        const imgRelated = document.querySelector(
+            `[data-preview-upload="${uploadName}"]`
+        );
         imgRelated.src = URL.createObjectURL(file);
+        errorMessageContainer.classList.add("hidden");
     }
 };
 
