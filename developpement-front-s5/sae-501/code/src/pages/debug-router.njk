@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark:bg-gray-900 dark:text-white text-slate-800">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,9 +59,9 @@
                 {% endfor %}
             </ul>
         </header>
-        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
-            <thead class="bg-white top-0 md:sticky">
-                <tr class="text-slate-800">
+        <table class="w-full bg-white dark:bg-slate-700 rounded-t-lg overflow-hidden border-separate">
+            <thead class="bg-white dark:bg-slate-700 top-0 md:sticky">
+                <tr>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Path</th>
                 </tr>
@@ -69,7 +69,7 @@
 
             <tbody>
                 {% for item in list_routes %}
-                    <tr class="hover:bg-neutral-50 even:bg-slate-50">
+                    <tr class="hover:bg-neutral-50 even:bg-slate-50 dark:hover:bg-gray-600 dark:even:bg-slate-500">
                         <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
                             {% if item.METHOD == "GET" %}
                                 <span class="bg-green-100 text-green-900 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ item.METHOD }}</span>
@@ -80,7 +80,7 @@
                             {% elif item.METHOD == "DELETE" %}
                                 <span class="bg-red-100 text-red-900 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ item.METHOD }}</span>
                             {% elif item.METHOD == "ANY" %}
-                                <span class="bg-gray-100 text-gray-900 me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">{{ item.METHOD }}</span>
+                                <span class="bg-indigo-100 text-indigo-900 me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">{{ item.METHOD }}</span>
                             {% else %}
                                 <span class="bg-yellow-100 text-yellow-900 me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ item.METHOD }}</span>
                             {% endif %}
