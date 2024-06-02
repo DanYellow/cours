@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "8bb6d6fa-2400-4a62-959a-10106b8e9b0a",
+		"_postman_id": "2933a9a9-43f2-4c5f-b6d9-8d81e517d18c",
 		"name": "SAE501",
+		"description": "API details of SAE 501. Please check the swagger for more info.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30809162"
 	},
@@ -257,7 +258,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/articles?per_page&page",
+							"raw": "{{base_url}}/api/articles?per_page&page&sorting",
 							"host": [
 								"{{base_url}}"
 							],
@@ -272,6 +273,10 @@
 								},
 								{
 									"key": "page",
+									"value": null
+								},
+								{
+									"key": "sorting",
 									"value": null
 								}
 							]
