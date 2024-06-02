@@ -4,7 +4,7 @@
   "version": "2024.0.0",
   "type": "module",
   "scripts": {
-    "start": "concurrently 'npm:dev:frontend' 'npm:dev:backend'",
+    "start": "concurrently 'npm:dev:backend' 'npm:dev:frontend'",
     "dev:backend": "cross-env NODE_ENV=development nodemon server/index.js",
     "dev:frontend": "vite",
     "build": "node ./vite.config.build.js",
