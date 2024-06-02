@@ -12,10 +12,15 @@ const print = (path, layer) => {
     } else if (layer.method) {
         const url = path.concat(split(layer.regexp)).filter(Boolean).join("/");
 
-        url.split(",").forEach((item) => {
+        url.split(",").forEach((item, idx, array) => {
+            let computedPath = item;
+            if(array.length > 1 && idx > 0) {
+                const prefix = path.find(el => el !== "");
+                computedPath = prefix + computedPath;
+            } 
             listRoutes.push({
                 METHOD: layer.method.toUpperCase(),
-                PATH: item,
+                PATH: computedPath,
             });
         });
     }
@@ -40,12 +45,6 @@ const split = (thing) => {
             : thing.toString().substring(1);
     }
 };
-
-
-// table.setData({
-//     headers: Object.keys(output[0]),
-//     data: Object.values(output).map((item) => Object.values(item)),
-// });
 
 const generateListRoutes = (app) => {
     app._router.stack.forEach(print.bind(null, []));
