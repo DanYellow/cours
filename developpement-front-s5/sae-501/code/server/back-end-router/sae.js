@@ -89,10 +89,10 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         listErrors = e.response.data.errors;
         ressource = e.response.data.ressource || {};
     } finally {
-        if(!listErrors.length) {
+        if (!listErrors.length) {
             req.flash('success', isEdit ? 'Element mis à jour' : "Element crée");
         }
-        if (isEdit) {
+        if (isEdit || listErrors.length) {
             res.render("pages/back-end/saes/add-edit.njk", {
                 sae: ressource,
                 list_errors: listErrors,

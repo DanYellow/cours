@@ -204,7 +204,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     try {
         await ressource.save();
         res.status(201).json(ressource);
-    } catch (error) {
+    } catch (err) {
         res.status(400).json({
             errors: [
                 ...listErrors, 

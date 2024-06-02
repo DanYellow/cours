@@ -104,7 +104,6 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
                 list_errors: listErrors,
                 list_authors: listAuthors,
                 is_edit: isEdit,
-                is_success: listErrors.length === 0,
             });
         } else {
             res.redirect(`${res.locals.admin_url}/${base}`);

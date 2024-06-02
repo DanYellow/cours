@@ -22,19 +22,19 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
     deleteItemModalBtn.disabled = true;
     closeModalBtn.disabled = true;
 
-    await axios
-        .delete(e.currentTarget.dataset.deleteItem)
-        .then(() => {
-            window.location.reload();
-        })
-        .catch((error) => {
-            errorMessageModal.classList.remove("hidden")
-            errorMessageModal.textContent = error.response.data.error || "Erreur"
-        }).finally(() => {
-            deleteItemModalBtn.disabled = false;
-            closeModalBtn.disabled = false;
-            focusTrap.deactivate();
-        })
+    // await axios
+    //     .delete(e.currentTarget.dataset.deleteItem)
+    //     .then(() => {
+    //         window.location.reload();
+    //     })
+    //     .catch((error) => {
+    //         errorMessageModal.classList.remove("hidden")
+    //         errorMessageModal.textContent = error.response.data.error || "Erreur"
+    //     }).finally(() => {
+    //         deleteItemModalBtn.disabled = false;
+    //         closeModalBtn.disabled = false;
+    //         focusTrap.deactivate();
+    //     })
 })
 
 document.querySelectorAll('[data-delete-url]').forEach((item) => {
