@@ -353,12 +353,12 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
     
-    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. I lest également possible d'éditer Postman.
+    Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. Par ailleurs, si vos points d'accès (endpoints) n'apparaissent pas dans swagger, c'est qu'il y a une erreur dans vos annotations swagger.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
 Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/index.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
+  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
   ```
     {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
   ```
@@ -366,7 +366,7 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
-    Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation).
+    Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 
@@ -384,9 +384,9 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
     Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
-    Il y a la commande `npm run debug:router` pour lister toutes les routes de votre projet ainsi que la méthode associée.
+    Il y a la commande `npm run debug:router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre terminal.
 
-- **Est-il possible d'utiliser bootstrap ?**
+- **Est-il possible d'utiliser le frameworkd CSS bootstrap ?**
     
     Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment utile dans ce projet.
 
