@@ -99,7 +99,7 @@ router.get("/user/:id/:gallery", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Dans l'exemple ci-dessus, les deux paramètres sont obligatoires. Il est possible de les rendre facultatifs grâce à un point d'interrogation (?), syntaxe issue des regex. Exemple :
+Dans l'exemple ci-dessus, les deux paramètres sont obligatoires. Il est possible de les rendre facultatifs grâce à un point d'interrogation (?), syntaxe issue des expressions régulières (regexes). Exemple :
 ```js
 // front-end-router.js
 // Le paramètre gallery est facultatif
@@ -107,8 +107,8 @@ router.get("/user/:id/:gallery?", async (req, res) => {
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
 
-    // On récupère un query string paramètre d'url nommé "per_page"
-    let perPage = Number(req.query.per_page) || 7;
+    // On récupère un paramètre d'url nommé "per_page"
+    const perPage = Number(req.query?.per_page) || 7;
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
@@ -384,7 +384,7 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
     Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
-    Il y a la commande `npm run debug:router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre terminal.
+    Il y a la route `/debug` pour lister toutes les routes de votre projet ainsi que la méthode associée.
 
 - **Est-il possible d'utiliser le frameworkd CSS bootstrap ?**
     

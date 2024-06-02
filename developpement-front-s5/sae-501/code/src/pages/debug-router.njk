@@ -16,10 +16,11 @@
     </head>
     <body>
         <header class="p-6">
-            <h1 class="text-4xl font-bold mb-3">
+            <h1 class="text-4xl font-bold">
                 List routes ({{ list_routes | length }})
             </h1>
-            {% set list_methods = [
+            <hr class="my-5">
+            {% set filter_entries = [
                 {
                     class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-300 outline-transparent",
                     class_active: "bg-gray-700 text-indigo-100 outline-indigo-400",
@@ -44,20 +45,22 @@
                 }
             ] %}
             <ul class="flex gap-3">
-                {% for item in list_methods %}
-                    <li class="rounded outline-2 outline {{ item.class_active if query_string_params.method == item.name else item.class }} relative">
-                        <a 
-                            href="?method={{ item.name }}" 
-                            class="block px-2.5 py-0.5"
-                        >
-                            {{ item.name }}
-                        </a>
-                    </li>
+                {% for item in filter_entries %}
+                    {% if item.name in list_methods or item.name == "ALL" %}
+                        <li class="rounded outline-2 outline {{ item.class_active if query_string_params.method == item.name else item.class }} relative">
+                            <a 
+                                href="?method={{ item.name }}" 
+                                class="block px-2.5 py-0.5"
+                            >
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </header>
         <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
-            <thead>
+            <thead class="bg-white top-0 md:sticky">
                 <tr class="text-slate-800">
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Path</th>
@@ -76,6 +79,8 @@
                                 </span>
                             {% elif item.METHOD == "DELETE" %}
                                 <span class="bg-red-100 text-red-900 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ item.METHOD }}</span>
+                            {% elif item.METHOD == "ANY" %}
+                                <span class="bg-gray-100 text-gray-900 me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">{{ item.METHOD }}</span>
                             {% else %}
                                 <span class="bg-yellow-100 text-yellow-900 me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ item.METHOD }}</span>
                             {% endif %}
