@@ -23,6 +23,8 @@ import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 
+import { generateListRoutes } from "../generate-list-routes.js";
+
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
     envFilePath = ".env.dev.local";
@@ -48,6 +50,7 @@ app.use(
     expressSession({
         secret: "secret",
         resave: false,
+        saveUninitialized: false,
     })
 );
 
@@ -116,7 +119,7 @@ app.use(function (req, res, next) {
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
         query_string_params: req.query,
-    }
+    };
 
     res.locals = {
         ...jsonFilesContent,
@@ -151,6 +154,19 @@ if (process.env.NODE_ENV === "development") {
     app.use(cors());
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+    app.get("/debug", async (req, res) => {
+        const listRoutes = generateListRoutes(app);
+        const listMethods = [...new Set(listRoutes.map((item) => item.METHOD))];
+        res.render("pages/debug-router.njk", {
+            list_routes: listRoutes.filter((item) => {
+                if (listMethods.includes(req.query?.method)) {
+                    return item.METHOD === req.query?.method;
+                }
+                return true;
+            }),
+        });
+    });
 }
 
 app.use("/admin", backendRouter);
@@ -177,18 +193,28 @@ const getContextData = (root) => {
         pathKey.push(parentKey);
         Object.entries(obj).forEach(([key, value]) => {
             if (!["settings"].includes(key) && !_.isFunction(value)) {
-                if (value && typeof value === "object" && !Array.isArray(value)) {
+                if (
+                    value &&
+                    typeof value === "object" &&
+                    !Array.isArray(value)
+                ) {
                     return getThroughObj(value, key);
                 } else {
                     const objKeyPath = pathKey.filter(Boolean);
                     res = {
                         ...res,
-                        ...objKeyPath.reduceRight((acc, obj) => {
-                            return { [obj]: acc };
-                        }, {
-                            [key]: value,
-                            ...objKeyPath.reduce((acc, resKey) => acc[resKey], res)
-                        }),
+                        ...objKeyPath.reduceRight(
+                            (acc, obj) => {
+                                return { [obj]: acc };
+                            },
+                            {
+                                [key]: value,
+                                ...objKeyPath.reduce(
+                                    (acc, resKey) => acc[resKey],
+                                    res
+                                ),
+                            }
+                        ),
                     };
                 }
             }

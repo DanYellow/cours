@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Liste routes</title>
+
+        <link rel="stylesheet" href="/styles/reset.css">
+        <link rel="stylesheet" href="/styles/fonts.css">
+
+        {% if NODE_ENV == "development" %}
+            <script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
+            <script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.backend.js" defer></script>
+        {% endif %}
+
+    </head>
+    <body>
+        <header class="p-6">
+            {% set list_methods = [
+                {
+                    class: "bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-300",
+                    name: "PUT"
+                }, {
+                    class: "bg-red-100 text-red-900 dark:bg-red-900 dark:text-red-300",
+                    name: "DELETE"
+                }, {
+                    class: "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-300",
+                    name: "POST"
+                }, {
+                    class: "bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-300",
+                    name: "GET"
+                }, {
+                    class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-300",
+                    name: "ALL"
+                }
+            ] %}
+            <ul class="flex">
+                {% for item in list_methods %}
+                    <li class="mt-0.5 flex-none border-t-2">
+                        <a 
+                            href="?method={{ item.name }}" 
+                            class="me-2 px-2.5 py-0.5 rounded {{ item.class }}"
+                        >
+                        {{ item.name }}
+                    </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </header>
+        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
+            <thead>
+                <tr class="text-slate-800">
+                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">METHOD</th>
+                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">PATH</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in list_routes %}
+                    <tr class="hover:bg-neutral-50 even:bg-blue-50">
+                        <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
+                            {% if item.METHOD == "GET" %}
+                                <span class="bg-green-100 text-green-900 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ item.METHOD }}</span>
+                            {% elif item.METHOD == "POST" %}
+                                <span class="bg-blue-100 text-blue-900 me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                    {{ item.METHOD }}
+                                </span>
+                            {% elif item.METHOD == "DELETE" %}
+                                <span class="bg-red-100 text-red-900 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ item.METHOD }}</span>
+                            {% else %}
+                                <span class="bg-yellow-100 text-yellow-900 me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ item.METHOD }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="PATH">
+                            {{ item.PATH }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center bg-transparent border-solid border-slate-200 border-b py-4 px-6">There's no routes for now</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -90,6 +90,17 @@ const output = listRoutes
             )
     );
 
+export { output as listRoutes };
+
+if (process.env.NODE_ENV === "development") {
+    app.get("/debug", async (req, res) => {
+    
+        res.render("pages/debug-router.njk", {
+            // list_articles: result.data,
+        });
+    });
+}
+
 const table = grid.set(0, 0, 12, 8, blessedContrib.table, {
     keys: true,
     fg: "white",
