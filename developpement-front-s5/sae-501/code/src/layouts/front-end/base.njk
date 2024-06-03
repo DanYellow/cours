@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="/{{ manifest['style.css'].file }}" />
     {% endif %}
 
+    {% block head %}{% endblock %}
+
     {% block styles %}{% endblock %}
     {% block javascript %}{% endblock %}
 
