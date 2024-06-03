@@ -167,7 +167,7 @@ app.use(frontendRouter);
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
-    noCache: process.env.NODE_ENV !== "development",
+    noCache: process.env.NODE_ENV === "development",
     web: {
         useCache: process.env.NODE_ENV !== "development",
     },
@@ -245,8 +245,10 @@ const listDomains = [hostip];
 const port = envVars?.parsed?.PORT || 3000;
 
 if (process.env.NODE_ENV === "development") {
-    const vite = await createViteServer(viteConfig)
-    app.use(vite.middlewares)
+    (async () => {
+        const vite = await createViteServer(viteConfig);
+        app.use(vite.middlewares);
+    })()
 }
 
 app.listen(port, listDomains, () => {
