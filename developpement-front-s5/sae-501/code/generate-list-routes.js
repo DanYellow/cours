@@ -48,6 +48,10 @@ const split = (thing) => {
 };
 
 const generateListRoutes = (app) => {
+    if(!app) {
+        throw new Error('app object is missing');
+    }
+    
     app._router.stack.forEach(print.bind(null, []));
 
     return (
