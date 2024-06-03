@@ -155,9 +155,6 @@ app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 if (process.env.NODE_ENV === "development") {
-    // const vite = await createViteServer(viteConfig);
-    // app.use(vite.middlewares);
-
     app.use(cors());
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));

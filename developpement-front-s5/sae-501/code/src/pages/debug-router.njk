@@ -9,8 +9,7 @@
         <link rel="stylesheet" href="/styles/fonts.css">
 
         {% if NODE_ENV == "development" %}
-            <script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
-            <script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.backend.js" defer></script>
+            <script type="module" src="/src/scripts/main.backend.js" defer></script>
         {% endif %}
 
     </head>
@@ -44,10 +43,11 @@
                     name: "GET"
                 }
             ] %}
+            {% set qsp_method = query_string_params.method if query_string_params.method else "ALL" %}
             <ul class="flex gap-3">
                 {% for item in filter_entries %}
                     {% if item.name in list_methods or item.name == "ALL" %}
-                        <li class="rounded outline-2 outline {{ item.class_active if query_string_params.method == item.name else item.class }} relative">
+                        <li class="rounded outline-2 outline {{ item.class_active if qsp_method == item.name else item.class }} relative">
                             <a 
                                 href="?method={{ item.name }}" 
                                 class="block px-2.5 py-0.5"
