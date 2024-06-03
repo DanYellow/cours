@@ -75,9 +75,9 @@ Le dossier `public/` contient toutes les ressources qui n'ont pas à être gér�
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
 ### server/
-Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework nodejs permettant de développer en javascript côté serveur.
+Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework permettant de développer des applications web grâce à nodejs.
 
-Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Les fichiers/dossiers `server/backend-router` et `server/frontend-router.js` contiennent le routing du projet.
+Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Au sein du dossier on trouve le routing du projet.
 
 Autrement dit, ces fichiers définissent comment le serveur doit réagir quand on accède à une url spécifique avec une méthode spécifique, c'est souvent le chargement d'une page web. Par exemple :
 ```js
@@ -93,7 +93,7 @@ Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
 ```js
 // front-end-router.js
-router.get("/user/:id/:gallery", async (req, res) => {
+router.post("/user/:id/:gallery", async (req, res) => {
     // On récupère le paramètre id et gallery dans l'url.
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
@@ -103,8 +103,8 @@ router.get("/user/:id/:gallery", async (req, res) => {
 Dans l'exemple ci-dessus, les deux paramètres sont obligatoires. Il est possible de les rendre facultatifs grâce à un point d'interrogation (?), syntaxe issue des expressions régulières (regexes). Exemple :
 ```js
 // front-end-router.js
-// Le paramètre gallery est facultatif
-router.get("/user/:id/:gallery?", async (req, res) => {
+// Le paramètre "gallery" est facultatif mais pas "id"
+router.post("/user/:id/:gallery?", async (req, res) => {
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
 
@@ -117,20 +117,23 @@ router.get("/user/:id/:gallery?", async (req, res) => {
 La gestion des paramètres possède d'autres fonctionnalités, vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
-Retenez deux choses :
+Retenez les points suivants :
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez certainement une erreur 404
 - Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
     - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
     - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
     - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
 
-## src/
-C'est dans ce dossier que vous coderez principalement, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues qui ne seront pas accessibles.
+#### server/api-router
+Le projet tourne autour d'une API respectant le CRUD. Vous pourrez trouver tous les détails de l'API dans le swagger du projet (`/swagger`) et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API est appelée par le back-end-router en fonction des actions voulues. 
 
-### src/components/
+### src/
+C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
+
+#### src/components/
 Il contient vos composants nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos composants dans le bon dossier (front ou back-end).
 
-### src/data/
+#### src/data/
 Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end. 
 
 Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : /pages/contact.njk -> /pages/contact.njk.json.
