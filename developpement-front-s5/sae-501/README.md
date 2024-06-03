@@ -281,13 +281,13 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
 - [ ] Permettre de créer, éditer un article
     - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
-    - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas**
     - La suppression et le listage sont déjà gérés
     - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
-    - Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas
+    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas**
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
@@ -306,7 +306,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
     - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 - [ ] Modifier le modèle "Article" de façon à en permettre le "like"/"dislike"
-  - Ne pas oublier de créer des requêtes permettant ceci
+  - **Ne pas oublier de créer des requêtes permettant ceci**
 - [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
   - Il faudra également faire les requêtes, les modèles Mongoose ainsi que les formulaires dans l'administration
 - [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
@@ -386,7 +386,7 @@ Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au fina
 
     Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
-    Il y a la route `/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur.
+    Il y a la route `/debug/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur. Cette route est également accessible depuis le menu de l'administration.
 
 - **Est-il possible d'utiliser le frameworkd CSS bootstrap ?**
     

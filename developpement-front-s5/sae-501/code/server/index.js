@@ -24,9 +24,8 @@ import swaggerSpec from "./swagger.js";
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
+import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
-
-import { generateListRoutes } from "../generate-list-routes.js";
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
@@ -158,23 +157,7 @@ if (process.env.NODE_ENV === "development") {
     app.use(cors());
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-    app.get("/router", async (req, res) => {
-        const listRoutes = generateListRoutes(app);
-        const listMethods = [...new Set(listRoutes.map((item) => item.METHOD))];
-        res.render("pages/debug-router.njk", {
-            list_methods: listMethods,
-            list_routes: listRoutes.filter((item) => {
-                if (listMethods.includes(req.query?.method)) {
-                    return (
-                        item.METHOD === req.query?.method ||
-                        item.METHOD === "ANY"
-                    );
-                }
-                return true;
-            }),
-        });
-    });
+    app.use("/debug", debugRouter);
 }
 
 app.use("/admin", backendRouter);

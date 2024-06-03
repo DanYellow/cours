@@ -34,8 +34,8 @@
 {% if NODE_ENV == "development" %}
      {% set menu_entries = (menu_entries.push(
         {
-            link: base_url ~ "/router",
-            name: "Debug - Liste des routes",
+            link: base_url ~ "/debug",
+            name: "Debug",
             key: "debug"
         }
     ), menu_entries) %}
