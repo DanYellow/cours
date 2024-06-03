@@ -167,7 +167,9 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
    # La commande va lancer les serveurs express et vite
    npm start
    ```
-Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers ~~et rafraîchit également le navigateur~~. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive. 
+Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
+
+> **N'éditez pas le fichier .env.dev.dist, faites-en une copie que vous nommerez .env.dev.local.**
 
 ### Utilisation - Mode production
 1. Compiler les assets gérés par vite

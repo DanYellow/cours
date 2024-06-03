@@ -268,14 +268,14 @@ if (process.env.NODE_ENV === "development") {
 
 app.listen(port, listDomains, () => {
     console.log("---------------------------");
-    console.log("Express server running at :");
+    console.log("Express server running at (ctrl/cmd + click to open in your browser):");
     ["localhost", "127.0.0.1", ...listDomains]
         .filter(Boolean)
         .forEach((item) => {
             console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
         });
     if (process.env.NODE_ENV === "development") {
-        console.log("\nSwagger running at :");
+        console.log("\nSwagger running at (ctrl/cmd + click to open in your browser):");
         ["localhost", "127.0.0.1", ...listDomains]
             .filter(Boolean)
             .forEach((item) => {

@@ -13,6 +13,7 @@ const base = "articles";
  *   post:
  *     tags:
  *      - Articles
+ *     summary: Add a comment to an article
  *     parameters:
  *      - name: id
  *        in: path
@@ -90,7 +91,7 @@ router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+
  *      - Articles
  *     summary: Get comments for one article
  *     description: |
- *        Returns 10 by 10 comments related to one article
+ *        Returns 20 by 20 comments related to one article
  *     parameters:
  *      - name: id
  *        in: path
@@ -128,7 +129,7 @@ router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+
 router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments`], async (req, res) => {
     try {
         const page = Math.max(1, req.query.page || 1);
-        const perPage = 10;
+        const perPage = 20;
 
         const ressource = await Article.aggregate([
             { $match: { 
