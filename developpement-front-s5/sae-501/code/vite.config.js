@@ -7,8 +7,10 @@ export default {
     devSourcemap: true,
   },
   plugins: [tailwindcss()],
+  appType: "custom",
   server: {
     // Expose the server to the network allowing access from ip address
     host: true,
+    middlewareMode: true,
   },
 };

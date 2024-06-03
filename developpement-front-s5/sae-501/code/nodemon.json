@@ -1,6 +1,0 @@
-{
-    "delay": 850,
-    "ext": "js,njk,json,css,scss",
-    "quiet": true,
-    "ignore": ["./debug-router.js"]
-}

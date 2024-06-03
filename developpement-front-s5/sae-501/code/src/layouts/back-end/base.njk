@@ -20,8 +20,7 @@
         {% block javascript %}{% endblock %}
 
         {% if NODE_ENV == "development" %}
-            <script type="module" src="http://{{ HOST_IP }}:5173/@vite/client"></script>
-            <script type="module" src="http://{{ HOST_IP }}:5173/src/scripts/main.backend.js" defer></script>
+            <script type="module" src="/src/scripts/main.backend.js" defer></script>
         {% else %}
             <script type="module" src="/{{ manifest['src/scripts/main.backend.js'].file }}" defer></script>
         {% endif %}
