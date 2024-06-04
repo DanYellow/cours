@@ -3,6 +3,8 @@ import path from "path";
 import axios from "axios";
 import fs from "fs/promises";
 
+import routeName from "./utils/name-route.middleware.js"
+
 const router = express.Router();
 
 router.use(async (_req, res, next) => {
@@ -34,7 +36,7 @@ const parseManifest = async () => {
     return JSON.parse(manifestFile);
 };
 
-router.get("/", async (req, res) => {
+router.get("/", routeName("index"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     let options = {
         method: "GET",
@@ -51,7 +53,7 @@ router.get("/", async (req, res) => {
 });
 
 // "(.html)?" makes ".html" optional
-router.get("/a-propos(.html)?", async (_req, res) => {
+router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
     let options = {
         method: "GET",
         url: `${res.locals.base_url}/api/saes?per_page=9`,

@@ -1,7 +1,7 @@
 {% extends "layouts/front-end/base.njk" %}
 
 {% block main %}
-<a href="{{ route("test", {"foo": 12})}}">Hello world</a>
+<a href="{{ route("debug-router", {"foo": 12})}}">Hello world</a>
     <h1 class="text-3xl font-bold mb-4">Articles sur le BUT MMI</h1>
     <section class="flex justify-between flex-col-reverse lg:flex-row sm:gap-x-10 gap-y-6 mb-6">
         <ul class="flex md:flex-row flex-col lg:flex-col gap-6">

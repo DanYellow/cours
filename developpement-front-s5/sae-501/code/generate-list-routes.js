@@ -1,6 +1,7 @@
 const listRoutes = [];
 const listNamedRoutes = {};
 const regexRouteParams = /((:[A-z])\w+\??)/g;
+const regexOptionalURLFileExt = /(\(\.([A-z])*\)\??)/g
 
 const print = (path, layer) => {
     if (layer.route) {
@@ -21,10 +22,10 @@ const print = (path, layer) => {
                 computedPath = prefix + computedPath;
             }
 
-            const name = () => {
+            const routeName = () => {
                 if (layer.handle.name === "namedRoute") {
                     listNamedRoutes[layer.handle()] = {
-                        url,
+                        url: url.replace(regexOptionalURLFileExt, ""),
                         params: Array.from(url.matchAll(regexRouteParams))
                             .map((item) => item[0])
                             .map((item) =>
@@ -41,7 +42,7 @@ const print = (path, layer) => {
             listRoutes.push({
                 METHOD: path.includes("*") ? "ANY" : layer.method.toUpperCase(),
                 PATH: computedPath,
-                NAME: name(),
+                NAME: routeName(),
             });
         });
     }

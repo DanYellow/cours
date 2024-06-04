@@ -4,11 +4,11 @@ import routeName from "./utils/name-route.middleware.js"
 
 const router = express.Router();
 
-router.get("/", routeName("admin"), async (req, res) => {
+router.get("/", routeName("debug"), async (req, res) => {
     res.render("pages/back-end/debug/index.njk", {});
 });
 
-router.get("/router/:foo?", routeName("test"), async (req, res) => {
+router.get("/router", routeName("debug_router"), async (req, res) => {
     const listRoutes = generateListRoutes(res.app);
     const listMethods = [...new Set(listRoutes.map((item) => item.METHOD))];
     res.render("pages/back-end/debug/router.njk", {

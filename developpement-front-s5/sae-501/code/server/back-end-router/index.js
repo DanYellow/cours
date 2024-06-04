@@ -4,6 +4,7 @@ import fs from "fs/promises";
 import axios from "axios";
 import querystring from "querystring";
 
+import routeName from "../utils/name-route.middleware.js"
 
 // Routers
 import SAERouter from './sae.js'
@@ -43,7 +44,7 @@ router.use(async (_req, res, next) => {
 router.use(SAERouter)
 router.use(articleRouter)
 
-router.get("/", async (req, res) => {
+router.get("/", routeName("admin"), async (req, res) => {
     const queryParamsSAEs = querystring.stringify({ per_page: 5 });
     const optionsSAEs = {
         method: "GET",

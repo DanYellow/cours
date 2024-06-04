@@ -19,7 +19,7 @@
 ] %}
 
 {% block main %}
-<a href="{{ namedRoute("test")}}">Hello world</a>
+<a href="{{ route("debug2", {id: "41"})}}">Hello world</a>
     <ul class="flex justify-center gap-x-4 bg-neutral-50 my-9 sm:flex-row flex-col gap-y-3">
         {% for item in list_anchors %}
             <li>
