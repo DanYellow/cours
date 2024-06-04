@@ -25,18 +25,27 @@ const filterTable = (inputValue) => {
     const tableRoutesRowsVisible =
         tableRoutes.querySelectorAll("tr:not(.hidden)");
     tableRoutesRowsVisible.forEach((item, idx) => {
+        item.classList.remove(...item.classList);
         if (idx % 2 === 0) {
-            item.classList.remove(...item.classList);
-
             item.classList.add("bg-slate-50", "dark:bg-slate-500");
         } else {
-            item.classList.remove(...item.classList);
             item.classList.add("hover:bg-neutral-50", "dark:hover:bg-gray-600");
         }
     });
 };
 
+const queryKey = "route_name";
 document.querySelector("[data-route-search]").addEventListener("input", (e) => {
     const inputValue = e.target.value.trim();
-    filterTable(inputValue)
+    const url = new URL(window.location);
+    url.searchParams.set(queryKey, inputValue);
+    if (inputValue === "") {
+        url.searchParams.delete(queryKey);
+    }
+
+    history.replaceState(null, "", url);
+
+    filterTable(inputValue);
 });
+
+filterTable(document.querySelector("[data-route-search]").value);
