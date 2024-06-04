@@ -1,21 +1,8 @@
 const listRoutes = [];
 const listNamedRoutes = {};
-const regex = /((:[A-z])\w+\??)/g;
-const print = (path, layer) => {
-    // if(layer.handle.name === "hello") {
-    //     const url = path.concat(split(layer.regexp)).filter(Boolean).join("/");
-    //     // Array.from(url.matchAll(regex)).map((item) => item[0]).map((item) => item[0].replace(":", "").replace("?", ""))
+const regexRouteParams = /((:[A-z])\w+\??)/g;
 
-    //     listNamedRoutes[layer.handle()] = {
-    //         url,
-    //         params: Array.from(url.matchAll(regex))
-    //             .map((item) => item[0])
-    //             .map((item) => item.replace(":", "").replace("?", ""))
-    //     }
-    //     // listNamedRoutes.push({[layer.handle()] : {
-    //     //     url,
-    //     // } })
-    // }
+const print = (path, layer) => {
     if (layer.route) {
         layer.route.stack.forEach(
             print.bind(null, path.concat(split(layer.route.path)))
@@ -35,12 +22,21 @@ const print = (path, layer) => {
             }
 
             const name = () => {
-                if(layer.handle.name === "namedRoute") {
-                    return layer.handle()
+                if (layer.handle.name === "namedRoute") {
+                    listNamedRoutes[layer.handle()] = {
+                        url,
+                        params: Array.from(url.matchAll(regexRouteParams))
+                            .map((item) => item[0])
+                            .map((item) =>
+                                item.replace(":", "").replace("?", "")
+                            ),
+                    };
+
+                    return layer.handle();
                 }
 
-                return ""
-            }
+                return "";
+            };
 
             listRoutes.push({
                 METHOD: path.includes("*") ? "ANY" : layer.method.toUpperCase(),
@@ -97,4 +93,13 @@ const generateListRoutes = (app) => {
         );
 };
 
-export { generateListRoutes };
+const generateNamedRoutes = (app) => {
+    if (!app) {
+        throw new Error("app object is missing");
+    }
+    app._router.stack.forEach(print.bind(null, []));
+
+    return listNamedRoutes;
+};
+
+export { generateListRoutes, generateNamedRoutes };

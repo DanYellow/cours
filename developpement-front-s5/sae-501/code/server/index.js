@@ -27,7 +27,7 @@ import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 
-import { generateNamedRoutes } from "../generate-named-routes.js"
+import { generateNamedRoutes } from "../generate-list-routes.js"
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
