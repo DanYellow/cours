@@ -5,8 +5,6 @@ import querystring from "querystring";
 
 import upload from "../uploader.js";
 
-import routeName from "../utils/name-route.middleware.js"
-
 const base = "saes";
 const router = express.Router();
 
@@ -30,7 +28,7 @@ router.get(`/${base}`, async (req, res) => {
 
 router
     .route([`/${base}/:id`, `/${base}/add`])
-    .get(routeName("admin_sae"), async (req, res) => {
+    .get(async (req, res) => {
         // Get or create SAE
         let options = {
             method: "GET",

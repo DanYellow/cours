@@ -41,7 +41,6 @@
         {% endif %}
     </head>
     <body>
-        <a href="{{ route("about", {"foo": 12})}}">Hello world</a>
         <header class="p-6">
             <h1 class="text-4xl">
                 List routes - SAE-501 ({{ list_routes | length }})
@@ -62,7 +61,14 @@
                 {% endfor %}
             </ul>
         </header>
-        <table class="w-full bg-white dark:bg-slate-700 rounded-t-lg overflow-hidden border-separate">
+        <div class="flex flex-col px-6 pt-0 pb-6">
+            <label for="route">Search by route's name</label>
+            <input class="text-black" type="text" value="" id="route" placeholder="Route's name" data-route-search>
+        </div>
+
+        <div class="hidden">eee</div>
+
+        <table class="w-full bg-white dark:bg-slate-700 rounded-t-lg overflow-hidden border-separate" data-table-routes>
             <thead class="bg-white dark:bg-slate-700 top-0 md:sticky">
                 <tr>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>

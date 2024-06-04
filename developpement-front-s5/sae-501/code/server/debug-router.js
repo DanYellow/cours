@@ -7,6 +7,16 @@ const router = express.Router();
 router.get("/", routeName("debug"), async (req, res) => {
     res.render("pages/back-end/debug/index.njk", {});
 });
+router.get("/2", routeName("debug2"), async (req, res) => {
+    res.render("pages/back-end/debug/index.njk", {});
+});
+router.get("/3", routeName("debug3"), async (req, res) => {
+    res.render("pages/back-end/debug/index.njk", {});
+});
+router.get("/4", routeName("debug4"), async (req, res) => {
+    res.render("pages/back-end/debug/index.njk", {});
+});
+
 
 router.get("/router", routeName("debug_router"), async (req, res) => {
     const listRoutes = generateListRoutes(res.app);
