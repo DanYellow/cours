@@ -334,7 +334,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - `NODE_ENV` : Retourne "production" ou "development"
     > Note 1 : Toutes les variables définies dans votre fichier env actif seront injectées dans tous les templates
 
-    > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web
+    > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web. Ce qui donnerait dans un template nunjucks : `{{ context()|dump }}`
 
     > Note 3 : Si vous souhaitez ajouter d'autres variables globales, il est préférable de modifier la variable `context` dans le fichier `server/index.js`
 - Permettre d'exporter et importer la base de données depuis l'administration
