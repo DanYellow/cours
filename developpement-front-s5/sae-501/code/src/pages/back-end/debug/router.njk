@@ -41,6 +41,7 @@
         {% endif %}
     </head>
     <body>
+        <a href="{{ route("test", {"foo": 12})}}">Hello world</a>
         <header class="p-6">
             <h1 class="text-4xl">
                 List routes - SAE-501 ({{ list_routes | length }})
@@ -65,6 +66,7 @@
             <thead class="bg-white dark:bg-slate-700 top-0 md:sticky">
                 <tr>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
+                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Name</th>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Path</th>
                 </tr>
             </thead>
@@ -86,6 +88,9 @@
                             {% else %}
                                 <span class="bg-yellow-100 text-yellow-900 me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ item.METHOD }}</span>
                             {% endif %}
+                        </td>
+                        <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="NAME">
+                            {{ item.NAME }}
                         </td>
                         <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="PATH">
                             {{ item.PATH }}

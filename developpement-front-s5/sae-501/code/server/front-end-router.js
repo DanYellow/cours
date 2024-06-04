@@ -46,7 +46,7 @@ router.get("/", async (req, res) => {
     } catch (e) {}
 
     res.render("pages/front-end/index.njk", {
-        list_articles: result.data,
+        list_articles: [],
     });
 });
 

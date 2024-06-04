@@ -27,6 +27,8 @@ import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 
+import { generateNamedRoutes } from "../generate-named-routes.js"
+
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
     envFilePath = ".env.dev.local";
@@ -108,7 +110,6 @@ app.use(function (req, res, next) {
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
     );
     const base_url = `${req.protocol}://${req.get("host")}`;
-
     const context = {
         NODE_ENV: process.env.NODE_ENV,
         HOST_IP: hostip,
@@ -219,6 +220,18 @@ const getContextData = (root) => {
 
 nunjucksEnv.addGlobal("context", function () {
     return getContextData(this.ctx);
+});
+
+const listNamedRoutes = generateNamedRoutes(app);
+nunjucksEnv.addGlobal("route", function (name, params) {
+    let finalURL = listNamedRoutes[name].url;
+    listNamedRoutes[name].params.forEach((item) => {
+        let re = new RegExp(String.raw`:[${item}]\w+\??`, "g");
+
+        finalURL = finalURL.replace(re, params[item])
+    })
+
+    return "/" + finalURL;
 });
 
 console.log(`
