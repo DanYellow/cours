@@ -43,8 +43,8 @@
     <body>
         {# <a href="{{ route("debug2", {id: "41"})}}">Hello world</a> #}
         {# <a href="{{ route("foo", {id: "41", "test": 41})}}">Hello world</a> #}
-        <a href="{{ route("foo", {id: "44", gh: 50})}}">Hello world</a>
-        {# <a href="{{ route("foo")}}">Hello world</a> #}
+        {# <a href="{{ route("foo", {id: "44", gh: 50})}}">Hello world</a> #}
+        <a href="{{ route("foo", {hello: 45})}}">Hello world</a>
         <header class="p-6">
             <h1 class="text-4xl">
                 List routes - SAE-501 ({{ list_routes | length }})
