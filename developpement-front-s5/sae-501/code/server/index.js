@@ -15,6 +15,7 @@ import helmet from "helmet";
 import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
+import openEditor from "launch-editor";
 
 import { createServer as createViteServer } from "vite";
 import { codeFrameColumns } from "@babel/code-frame";
@@ -29,6 +30,7 @@ import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 
 import { generateUrl } from "../generate-list-routes.js";
+import routeName from "#server/utils/name-route.middleware.js";
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
@@ -173,20 +175,20 @@ if (process.env.NODE_ENV === "development") {
             error: err,
             statusCode: res.statusCode,
             sourceCode: null,
-        }
+        };
 
         try {
-            const regexErrorLineAndFile = /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
-            const results =  [...err.toString().matchAll(regexErrorLineAndFile)].flat();
-            const filePath = results[1]
-            const lineError = Number(results[3] || 1)
-            const columnError = Number(results[4] || 1)
+            const regexErrorLineAndFile =
+                /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
+            const results = [
+                ...err.toString().matchAll(regexErrorLineAndFile),
+            ].flat();
+            const filePath = results[1];
+            const lineError = Number(results[3] || 1);
+            const columnError = Number(results[4] || 1);
 
-            const data = fs.readFileSync(
-                filePath,
-                "utf8"
-            );
-            const location = { 
+            const data = fs.readFileSync(filePath, "utf8");
+            const location = {
                 start: { line: lineError, column: columnError },
             };
 
@@ -196,16 +198,31 @@ if (process.env.NODE_ENV === "development") {
             });
             response.sourceCode = result;
             const listFileName = {
-                "njk": "nunjucks",
-                "js": "javascript",
-            }
-            response.fileType = listFileName?.[filePath.split(".").at(-1)] || "";
+                njk: "nunjucks",
+                js: "javascript",
+            };
+            response.fileType =
+                listFileName?.[filePath.split(".").at(-1)] || "";
+            response.details = {
+                file_path: filePath,
+                line: lineError,
+                column: columnError,
+            };
         } catch (err) {
             console.error(err);
         }
-        
+
         res.render("pages/error.njk", response);
     });
+
+    app.get(
+        "/debug/open/file",
+        routeName("open_editor"),
+        (req, res) => {
+            openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
+            res.status(200).json(null);
+        }
+    );
 }
 
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
@@ -224,7 +241,7 @@ nunjucksEnv.addFilter("date", (value, format) => {
 const getContextData = (root) => {
     let res = {};
     const getThroughObj = (obj, parentKey) => {
-        let pathKey = [];
+        const pathKey = [];
         pathKey.push(parentKey);
         Object.entries(obj).forEach(([key, value]) => {
             if (!["settings"].includes(key) && !_.isFunction(value)) {
@@ -267,7 +284,7 @@ nunjucksEnv.addGlobal("context", function () {
 
 nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
     const finalURL = generateUrl(name, params);
-    
+
     return `/${finalURL}`;
 });
 

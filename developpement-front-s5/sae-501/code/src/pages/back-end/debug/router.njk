@@ -41,10 +41,6 @@
         {% endif %}
     </head>
     <body>
-        {# <a href="{{ routeName("debug2", {id: "41"})}}">Hello world</a> #}
-        {# <a href="{{ routeName("foo", {id: "41", "test": 41})}}">Hello world</a> #}
-        {# <a href="{{ routeName("foo", {id: "44", gh: 50})}}">Hello world</a> #}
-        <a href="{{ routeName("sae_form", {id: 45, "foo": "woody"}) }}">Hello world</a>
         <header class="p-6">
             <h1 class="text-4xl">
                 List routes - SAE-501 ({{ list_routes | length }})
@@ -114,10 +110,10 @@
         <footer class="p-6">
             <ul class="flex items-center gap-4 justify-center">
                 <li>
-                    <a href="/" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder au site</a>
+                    <a href="{{ routeName("homepage") }}" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder au site</a>
                 </li>
                 <li>
-                    <a href="/admin" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder à l'administration</a>
+                    <a href="{{ routeName("admin") }}" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder à l'administration</a>
                 </li>
             </ul>
         </footer>

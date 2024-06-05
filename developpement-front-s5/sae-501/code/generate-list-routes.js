@@ -116,7 +116,7 @@ const generateUrl = (name, params) => {
             `Route named "${name}" is unknown. Please verify your routes.`
         );
     }
-    
+
     let finalURL = "";
     const nbParamsInCommon = []
 
@@ -136,7 +136,9 @@ const generateUrl = (name, params) => {
             listQSParams.append(item, params[item])
         })
 
-        finalURL += `?${listQSParams.toString()}`;
+        if(listQSParams.toString()) {
+            finalURL += `?${listQSParams.toString()}`;
+        }
     } else {
         const { url, params: urlParams } = listNamedRoutes[name][indexMaxParamsInComment]
         urlParams.forEach((param) => {
@@ -148,7 +150,9 @@ const generateUrl = (name, params) => {
             listQSParams.append(item, params[item])
         })
 
-        finalURL += `?${listQSParams.toString()}`;
+        if(listQSParams.toString()) {
+            finalURL += `?${listQSParams.toString()}`;
+        }
     }
 
     return finalURL;

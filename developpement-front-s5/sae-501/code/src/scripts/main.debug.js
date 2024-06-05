@@ -52,3 +52,11 @@ if (input) {
         filterTable(inputValue);
     });
 }
+
+const openFileBtn = document.querySelector("[data-file]")
+if(openFileBtn) {
+    openFileBtn.addEventListener("click", (e) => {
+        console.log(e.currentTarget.dataset.file)
+        fetch(e.currentTarget.dataset.file, { method: "GET" })
+    })
+}
