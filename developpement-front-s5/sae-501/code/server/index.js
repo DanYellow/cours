@@ -167,7 +167,7 @@ app.use("/api", apiRouter);
 app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
-    app.use(function (err, req, res, next) {
+    app.use((err, req, res, next) => {
         res.status(500);
         const response = {
             error: err,
@@ -176,7 +176,7 @@ if (process.env.NODE_ENV === "development") {
 
         try {
             const regexErrorLineAndFile = /\(([A-z]:.*)\).*\[Line\s(\d+).*Column\s(\d+)/gs;
-            const results =  [...err.toString().matchAll(regexErrorLineAndFile )].flat();
+            const results =  [...err.toString().matchAll(regexErrorLineAndFile)].flat();
             const filePath = results[1]
             const lineError = Number(results[2])
             const columnError = Number(results[3])
@@ -190,9 +190,8 @@ if (process.env.NODE_ENV === "development") {
              };
 
             const result = codeFrameColumns(data, location, {
-                linesAbove: 4,
-                linesBelow: 4,
-                message: "foo"
+                linesAbove: 5,
+                linesBelow: 5,
             });
             response.sourceCode = result;
         } catch (err) {
