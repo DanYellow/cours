@@ -110,4 +110,48 @@ const generateNamedRoutes = (app) => {
     return listNamedRoutes;
 };
 
-export { generateListRoutes, generateNamedRoutes };
+const generateUrl = (name, params) => {
+    if (!listNamedRoutes[name]) {
+        throw new Error(
+            `Route named "${name}" is unknown. Please verify your routes.`
+        );
+    }
+    
+    let finalURL = "";
+    const nbParamsInCommon = []
+
+    listNamedRoutes[name].forEach(({params: urlParams }) => {
+        nbParamsInCommon.push(_.intersection(Object.keys(params), urlParams).length)
+    });
+    const nbMaxParamsInCommon = Math.max(...nbParamsInCommon);
+    const indexMaxParamsInComment = nbParamsInCommon.findIndex((item) => item === nbMaxParamsInCommon);
+
+    if(nbMaxParamsInCommon === 0) {
+        // As default, we take the route with no params
+        const { url, params: urlParams } = listNamedRoutes[name].find((item) => item.params.length === 0)
+        finalURL = url
+
+        const listQSParams = new URLSearchParams();
+        _.difference(Object.keys(params), urlParams).forEach((item) => {
+            listQSParams.append(item, params[item])
+        })
+
+        finalURL += `?${listQSParams.toString()}`;
+    } else {
+        const { url, params: urlParams } = listNamedRoutes[name][indexMaxParamsInComment]
+        urlParams.forEach((param) => {
+            const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
+            finalURL = url.replace(re, params[param]);
+        })
+        const listQSParams = new URLSearchParams();
+        _.difference(Object.keys(params), urlParams).forEach((item) => {
+            listQSParams.append(item, params[item])
+        })
+
+        finalURL += `?${listQSParams.toString()}`;
+    }
+
+    return finalURL;
+}
+
+export { generateListRoutes, generateNamedRoutes, generateUrl };

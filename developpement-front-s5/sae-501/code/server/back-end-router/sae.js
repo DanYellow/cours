@@ -29,7 +29,7 @@ router.get(`/${base}`, async (req, res) => {
 
 router
     .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`]) // , `/${base}/add`
-    .get(routeName("foo"), async (req, res) => {
+    .get(routeName("sae_form"), async (req, res) => {
         // Get or create SAE
         let options = {
             method: "GET",
