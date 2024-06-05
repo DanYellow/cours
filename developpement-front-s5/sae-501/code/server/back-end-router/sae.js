@@ -55,7 +55,7 @@ router
             is_edit: isEdit,
         });
     })
-    .post(upload.single("image"), async (req, res) => {
+    .post(routeName("sae_form"), upload.single("image"), async (req, res) => {
         // Create or update SAE
         let ressource = null;
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);

@@ -62,8 +62,8 @@ Si on souhaite faire un lien vers notre route dans nunjucks, ceci donne le code 
 ```html
 <a href="{{ routeName('my_route', {id: 42, user: 'toto'}) }}">My link</a>
 ```
-La fonction nunjucks transformera le code entre les accolades en "/toto/articles/42". A noter que si vous ajoutez des paramètres supplémentaires qui n'existent pas dans la route, ils seront ajoutés en paramètres query string.
+La fonction nunjucks transformera le code entre les accolades en "/toto/articles/42". A noter que si vous ajoutez des paramètres supplémentaires qui n'existent pas dans la route, ils seront ajoutés en tant que paramètres query string.
 
-> Note : Le middleware `routeName` a été ajouté pour vous aider, son utilisation est facultative.
+> Note : Le middleware `routeName` a été ajouté pour vous aider, **son utilisation est facultative.**
 
 > Note 2 : Toutes vos routes ainsi que leur nom sont accessibles dans la route `/debug/router`. Route accessible également via l'admin dans la partie "Debug".
