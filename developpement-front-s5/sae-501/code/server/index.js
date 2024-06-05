@@ -168,7 +168,6 @@ app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
     app.use((err, req, res, next) => {
-        console.log("ook")
         res.status(500);
         const response = {
             error: err,
@@ -267,18 +266,25 @@ nunjucksEnv.addGlobal("context", function () {
 });
 
 const listNamedRoutes = generateNamedRoutes(app);
-nunjucksEnv.addGlobal("route", function (name, params) {
+nunjucksEnv.addGlobal("route", function (name, params = {}) {
     if (!listNamedRoutes[name]) {
         throw new Error(
             `Route named "${name}" is unknown. Please verify your routes.`
         );
     }
-    let finalURL = listNamedRoutes[name].url;
-    listNamedRoutes[name].params.forEach((item) => {
-        let re = new RegExp(String.raw`:[${item}]\w+\??`, "g");
 
-        finalURL = finalURL.replace(re, params[item]);
-    });
+    let finalURL = "";
+    listNamedRoutes[name].forEach(({url, params: urlParams }) => {
+        if (Object.values(params).length === 0) {
+            // Manage url path with no params
+            finalURL = url
+        } else if (Object.values(params).length === urlParams.length) {
+            urlParams.forEach((param) => {
+                const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
+                finalURL = url.replace(re, params[param]);
+            })
+        }
+    })
 
     return "/" + finalURL;
 });

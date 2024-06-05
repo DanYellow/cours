@@ -1,6 +1,6 @@
 import express from "express";
 import { generateListRoutes } from "../generate-list-routes.js";
-import routeName from "#server/utils/name-route.middleware.js"
+import routeName from "#server/utils/name-route.middleware.js";
 
 const router = express.Router();
 

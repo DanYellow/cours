@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const listRoutes = [];
 const listNamedRoutes = {};
 const regexRouteParams = /((:[A-z])\w+\??)/g;
@@ -24,15 +26,20 @@ const print = (path, layer) => {
 
             const routeName = () => {
                 if (layer.handle.name === "namedRoute") {
-                    listNamedRoutes[layer.handle()] = {
-                        url: url.replace(regexOptionalURLFileExt, ""),
-                        params: Array.from(url.matchAll(regexRouteParams))
-                            .map((item) => item[0])
-                            .map((item) =>
-                                item.replace(":", "").replace("?", "")
-                            ),
-                    };
+                    listNamedRoutes[layer.handle()] = [
+                        ...listNamedRoutes?.[layer.handle()] || [],
+                        {
+                            url: computedPath.replace(regexOptionalURLFileExt, ""),
+                            params: Array.from(computedPath.matchAll(regexRouteParams))
+                                .map((_item) => _item[0])
+                                .map((_item) =>
+                                    _item.replace(":", "").replace("?", "")
+                                ),
+                        }
+                    ];
 
+                    listNamedRoutes[layer.handle()] = _.uniqBy(listNamedRoutes[layer.handle()], "url")
+                    
                     return layer.handle();
                 }
 

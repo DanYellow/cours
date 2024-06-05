@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import axios from "axios";
 import querystring from "querystring";
+import routeName from "#server/utils/name-route.middleware.js";
 
 import upload from "../uploader.js";
 
@@ -27,8 +28,8 @@ router.get(`/${base}`, async (req, res) => {
 });
 
 router
-    .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`])
-    .get(async (req, res) => {
+    .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`]) // , `/${base}/add`
+    .get(routeName("foo"), async (req, res) => {
         // Get or create SAE
         let options = {
             method: "GET",
