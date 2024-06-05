@@ -175,11 +175,11 @@ if (process.env.NODE_ENV === "development") {
         }
 
         try {
-            const regexErrorLineAndFile = /\(([A-z]:.*)\).*\[Line\s(\d+).*Column\s(\d+)/gs;
+            const regexErrorLineAndFile = /\((([A-z]:)?.*)\).*\[Line\s(\d+).*Column\s(\d+)/gs;
             const results =  [...err.toString().matchAll(regexErrorLineAndFile )].flat();
             const filePath = results[1]
-            const lineError = Number(results[2])
-            const columnError = Number(results[3])
+            const lineError = Number(results[3])
+            const columnError = Number(results[4])
 
             const data = fs.readFileSync(
                 filePath,
