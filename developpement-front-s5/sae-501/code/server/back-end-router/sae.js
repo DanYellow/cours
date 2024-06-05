@@ -27,7 +27,7 @@ router.get(`/${base}`, async (req, res) => {
 });
 
 router
-    .route([`/${base}/:id`, `/${base}/add`])
+    .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`])
     .get(async (req, res) => {
         // Get or create SAE
         let options = {

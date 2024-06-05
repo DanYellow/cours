@@ -159,7 +159,7 @@ router.get(`/${base}`, async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.get(`/${base}/:id`, async (req, res) => {
+router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     const page = Math.max(1, Number(req.query.page) || 1);
     let perPage = Number(req.query.per_page) || 7;
     perPage = Math.min(Math.max(perPage, 1), 20);
@@ -377,7 +377,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
+router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -483,7 +483,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:id`, async (req, res) => {
+router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     try {
         const ressource = await Author.findByIdAndDelete(req.params.id);
 

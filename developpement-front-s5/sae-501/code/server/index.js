@@ -168,18 +168,20 @@ app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
     app.use((err, req, res, next) => {
+        console.log("ook")
         res.status(500);
         const response = {
             error: err,
             statusCode: res.statusCode,
+            sourceCode: null,
         }
 
         try {
-            const regexErrorLineAndFile = /\((([A-z]:)?.*)\).*\[Line\s(\d+).*Column\s(\d+)/gs;
+            const regexErrorLineAndFile = /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
             const results =  [...err.toString().matchAll(regexErrorLineAndFile)].flat();
             const filePath = results[1]
-            const lineError = Number(results[3])
-            const columnError = Number(results[4])
+            const lineError = Number(results[3] || 1)
+            const columnError = Number(results[4] || 1)
 
             const data = fs.readFileSync(
                 filePath,
@@ -194,6 +196,11 @@ if (process.env.NODE_ENV === "development") {
                 linesBelow: 5,
             });
             response.sourceCode = result;
+            const listFileName = {
+                "njk": "nunjucks",
+                "js": "javascript",
+            }
+            response.fileType = listFileName?.[filePath.split(".").at(-1)] || "";
         } catch (err) {
             console.error(err);
         }
