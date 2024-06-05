@@ -274,19 +274,54 @@ nunjucksEnv.addGlobal("route", function (name, params = {}) {
     }
 
     let finalURL = "";
-    listNamedRoutes[name].forEach(({url, params: urlParams }) => {
-        if (Object.values(params).length === 0) {
-            // Manage url path with no params
-            finalURL = url
-        } else if (Object.values(params).length === urlParams.length) {
-            urlParams.forEach((param) => {
-                const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
-                finalURL = url.replace(re, params[param]);
-            })
-        }
-    })
+    // console.log(listNamedRoutes[name][0].params)
+    // console.log(listNamedRoutes[name][1].params)
+    console.log(listNamedRoutes[name])
+    // console.log(_.intersection(Object.keys(params), listNamedRoutes[name][0].params))
+    // console.log(_.intersection(Object.keys(params), listNamedRoutes[name][1].params))
 
-    return "/" + finalURL;
+    const nbParamsInCommon = []
+
+    listNamedRoutes[name].forEach(({url, params: urlParams }) => {
+        nbParamsInCommon.push(_.intersection(Object.keys(params), urlParams).length)
+    });
+    const nbMaxParamsInCommon = Math.max(...nbParamsInCommon);
+    const indexMaxParamsInComment = nbParamsInCommon.findIndex((item) => item === nbMaxParamsInCommon);
+
+
+    console.log(indexMaxParamsInComment, nbMaxParamsInCommon, params)
+
+    if(nbMaxParamsInCommon === 0) {
+
+    } else {
+        const {url, params: urlParams} = listNamedRoutes[name][indexMaxParamsInComment]
+        urlParams.forEach((param) => {
+            const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
+            finalURL = url.replace(re, params[param]);
+        })
+        const listQSParams = new URLSearchParams();
+        _.difference(Object.keys(params), urlParams).forEach((item) => {
+            listQSParams.append(item, params[item])
+        })
+
+        finalURL += `?${listQSParams.toString()}`;
+    }
+
+
+
+    // listNamedRoutes[name].forEach(({url, params: urlParams }) => {
+    //     // if (Object.values(params).length === 0) {
+    //     //     // Manage url path with no params
+    //     //     finalURL = url
+    //     // } else if (Object.values(params).length === urlParams.length) {
+    //     //     urlParams.forEach((param) => {
+    //     //         const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
+    //     //         finalURL = url.replace(re, params[param]);
+    //     //     })
+    //     // }
+    // })
+
+    return `/${finalURL}`;
 });
 
 console.log(`
