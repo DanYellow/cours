@@ -16,7 +16,8 @@ import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
 
-import { createServer as createViteServer } from 'vite';
+import { createServer as createViteServer } from "vite";
+import { codeFrameColumns } from "@babel/code-frame";
 
 import mongoServer from "#database/index.js";
 
@@ -27,7 +28,7 @@ import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 
-import { generateNamedRoutes } from "../generate-list-routes.js"
+import { generateNamedRoutes } from "../generate-list-routes.js";
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
@@ -165,6 +166,43 @@ app.use("/admin", backendRouter);
 app.use("/api", apiRouter);
 app.use(frontendRouter);
 
+if (process.env.NODE_ENV === "development") {
+    app.use(function (err, req, res, next) {
+        res.status(500);
+        const response = {
+            error: err,
+            statusCode: res.statusCode,
+        }
+
+        try {
+            const regexErrorLineAndFile = /\(([A-z]:.*)\).*\[Line\s(\d+).*Column\s(\d+)/gs;
+            const results =  [...err.toString().matchAll(regexErrorLineAndFile )].flat();
+            const filePath = results[1]
+            const lineError = Number(results[2])
+            const columnError = Number(results[3])
+
+            const data = fs.readFileSync(
+                filePath,
+                "utf8"
+            );
+            const location = { 
+                start: { line: lineError, column: columnError },
+             };
+
+            const result = codeFrameColumns(data, location, {
+                linesAbove: 4,
+                linesBelow: 4,
+                message: "foo"
+            });
+            response.sourceCode = result;
+        } catch (err) {
+            console.error(err);
+        }
+        
+        res.render("pages/error.njk", response);
+    });
+}
+
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {
     autoescape: true,
     express: app,
@@ -224,12 +262,17 @@ nunjucksEnv.addGlobal("context", function () {
 
 const listNamedRoutes = generateNamedRoutes(app);
 nunjucksEnv.addGlobal("route", function (name, params) {
+    if (!listNamedRoutes[name]) {
+        throw new Error(
+            `Route named "${name}" is unknown. Please verify your routes.`
+        );
+    }
     let finalURL = listNamedRoutes[name].url;
     listNamedRoutes[name].params.forEach((item) => {
         let re = new RegExp(String.raw`:[${item}]\w+\??`, "g");
 
-        finalURL = finalURL.replace(re, params[item])
-    })
+        finalURL = finalURL.replace(re, params[item]);
+    });
 
     return "/" + finalURL;
 });
@@ -261,19 +304,23 @@ if (process.env.NODE_ENV === "development") {
     (async () => {
         const vite = await createViteServer(viteConfig);
         app.use(vite.middlewares);
-    })()
+    })();
 }
 
 app.listen(port, listDomains, () => {
     console.log("---------------------------");
-    console.log("Express server running at (ctrl/cmd + click to open in your browser):");
+    console.log(
+        "Express server running at (ctrl/cmd + click to open in your browser):"
+    );
     ["localhost", "127.0.0.1", ...listDomains]
         .filter(Boolean)
         .forEach((item) => {
             console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
         });
     if (process.env.NODE_ENV === "development") {
-        console.log("\nSwagger running at (ctrl/cmd + click to open in your browser):");
+        console.log(
+            "\nSwagger running at (ctrl/cmd + click to open in your browser):"
+        );
         ["localhost", "127.0.0.1", ...listDomains]
             .filter(Boolean)
             .forEach((item) => {
@@ -283,4 +330,3 @@ app.listen(port, listDomains, () => {
     }
     console.log("---------------------------");
 });
-

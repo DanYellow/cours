@@ -3,7 +3,7 @@ import path from "path";
 import axios from "axios";
 import fs from "fs/promises";
 
-import routeName from "./utils/name-route.middleware.js"
+import routeName from "#server/utils/name-route.middleware.js"
 
 const router = express.Router();
 
@@ -36,7 +36,7 @@ const parseManifest = async () => {
     return JSON.parse(manifestFile);
 };
 
-router.get("/", routeName("index"), async (req, res) => {
+router.get("/", routeName("homepage"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     let options = {
         method: "GET",

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="dark:bg-gray-800 dark:text-white text-slate-800">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Render error</title>
+
+        <link rel="stylesheet" href="/styles/reset.css">
+        <link rel="stylesheet" href="/styles/fonts.css">
+
+        <link rel="icon" href="/images/error-favicon.svg">
+
+        {% if NODE_ENV == "development" %}
+            <script type="module" src="/src/scripts/main.debug.js" defer></script>
+        {% endif %}
+    </head>
+    <body class="">
+        <div class=" bg-red-700 text-white text-xl">
+            <h1 class="p-6 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
+        </div>
+        <a href="file:///I:/projects/cours/developpement-front-s5/sae-501/code/src/pages/back-end/debug/router.njk">test</a>
+
+        <div class="m-auto max-w-7xl p-6">
+            <p class="text-lg mb-4">{{ error.message }}</p>
+            <div class="dark:bg-slate-900 bg-yellow-50 rounded-md p-3 border-2 border-solid border-red-700">
+                <code class="whitespace-break-spaces">{{ sourceCode }}</code>
+            </div>
+        </div>
+    </body>
+</html>

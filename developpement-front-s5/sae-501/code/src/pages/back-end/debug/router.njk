@@ -41,6 +41,7 @@
         {% endif %}
     </head>
     <body>
+        <a href="{{ route("debug2", {id: "41"})}}">Hello world</a>
         <header class="p-6">
             <h1 class="text-4xl">
                 List routes - SAE-501 ({{ list_routes | length }})
@@ -63,7 +64,7 @@
         </header>
         <div class="flex flex-col px-6 pt-0 pb-6">
             <label for="route">Search by route's name</label>
-            <input class="text-black" type="text" value="" id="route" placeholder="Route's name" data-route-search>
+            <input class="text-black" type="text" value="{{ query_string_params.route_name }}" id="route" placeholder="Route's name" data-route-search>
         </div>
 
         <table class="w-full bg-white dark:bg-slate-700 rounded-t-lg overflow-hidden border-separate" data-table-routes>

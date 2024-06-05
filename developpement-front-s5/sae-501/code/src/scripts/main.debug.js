@@ -3,7 +3,8 @@ import "/src/styles/tailwind.css";
 import "/src/styles/back-end/index.scss";
 
 const tableRoutes = document.querySelector("[data-table-routes] tbody");
-const tableRoutesRows = tableRoutes.querySelectorAll("tr");
+const tableRoutesRows = tableRoutes?.querySelectorAll("tr");
+const input = document.querySelector("[data-route-search]");
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
@@ -34,18 +35,20 @@ const filterTable = (inputValue) => {
     });
 };
 
-const queryKey = "route_name";
-document.querySelector("[data-route-search]").addEventListener("input", (e) => {
-    const inputValue = e.target.value.trim();
-    const url = new URL(window.location);
-    url.searchParams.set(queryKey, inputValue);
-    if (inputValue === "") {
-        url.searchParams.delete(queryKey);
-    }
+if (input) {
+    const queryKey = "route_name";
+    filterTable(input.value);
 
-    history.replaceState(null, "", url);
-
-    filterTable(inputValue);
-});
-
-filterTable(document.querySelector("[data-route-search]").value);
+    input.addEventListener("input", (e) => {
+        const inputValue = e.target.value.trim();
+        const url = new URL(window.location);
+        url.searchParams.set(queryKey, inputValue);
+        if (inputValue === "") {
+            url.searchParams.delete(queryKey);
+        }
+    
+        history.replaceState(null, "", url);
+    
+        filterTable(inputValue);
+    });
+}
