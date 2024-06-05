@@ -3,7 +3,7 @@ import path from "path";
 import axios from "axios";
 import fs from "fs/promises";
 
-import routeName from "#server/utils/name-route.middleware.js"
+import routeName from "#server/utils/name-route.middleware.js";
 
 const router = express.Router();
 

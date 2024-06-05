@@ -2,18 +2,18 @@
 
 Postman est un logiciel freemium permettant de tester des API. L'avantage premier de Postman, c'est qu'on n'a pas besoin de front-end pour tester, inutile d'effectuer un parcours utilisateur en entier pour vérifier si un élément en particulier fonctionne. De plus, il est possible de rejouer ses requêtes à l'envie avec différents paramètres 
 - [Télécharger Postman](https://www.postman.com/)
-> A tester, mais il semble qu'il est impossible d'importer une collection sans créer un compte Postman. Et vous aurez besoin d'importer une collection.
+> A tester, mais il semble qu'il est impossible d'importer une collection sans créer un compte Postman (gratuit). Et vous aurez besoin d'importer une collection.
 
 ## Importer une collection
-> Une collection est un ensemble de requêtes d'API, elle est stockée au format JSON. Vous pouvez créer la vôtre, mais dans cette SAE, vous en avez déjà une que vous pourrez éditer en ajoutant vos requêtes relatives aux messages.
+> Une collection est un ensemble de requêtes d'API, elle est stockée au format JSON. Vous pouvez créer la vôtre, mais dans cette SAE, vous en avez déjà une que vous pourrez éditer en ajoutant vos requêtes.
 
-Pour importer une collection, il faut suivre les étapes suivantes :
+Pour importer une collection, suivez les étapes suivantes :
 
 1.
 ![](./captures/postman-1.jpg)
 Cliquez sur le bouton import et selectionnez votre fichier de collection, `SAE501.postman_collection.json` pour la SAE
 
-2. _Et voilà_
+1. _Et voilà_
 
 ## Accéder / créer une requête
 

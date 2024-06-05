@@ -24,7 +24,7 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
-Vu que vous êtes peu nombreux, ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
+Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
 
@@ -127,7 +127,7 @@ Retenez les points suivants :
     - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
 
 #### server/api-router
-Le projet tourne autour d'une API respectant le CRUD. Vous pourrez trouver tous les détails de l'API dans le swagger du projet (`/swagger`) et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API est appelée par le back-end-router en fonction des actions voulues. 
+Le projet tourne autour d'une API respectant le CRUD. Vous pourrez trouver tous les détails de l'API dans le swagger du projet (`/swagger`) et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API est appelée par le back-end-router en fonction des actions effectuées. 
 
 ### src/
 C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
@@ -328,6 +328,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 
 # Notes et astuces
+- [Accéder au document dédié aux astuces](./ASTUCES.md)
 - Si votre formulaire est de type POST et qu'il a l'attribut "enctype" avec la valeur "multipart/form-data", la route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`). Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body".
 - Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
 - Pensez à utiliser au maximum les avantages des templates. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
