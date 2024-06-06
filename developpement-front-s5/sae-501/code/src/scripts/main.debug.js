@@ -29,9 +29,8 @@ const filterTable = (inputValue) => {
         item.classList.remove(...item.classList);
         if (idx % 2 === 0) {
             item.classList.add("bg-slate-50", "dark:bg-slate-500");
-        } else {
-            item.classList.add("hover:bg-neutral-50", "dark:hover:bg-gray-600");
         }
+        item.classList.add("hover:bg-neutral-50", "dark:hover:bg-gray-600");
     });
 };
 
@@ -56,7 +55,6 @@ if (input) {
 const openFileBtn = document.querySelector("[data-file]")
 if(openFileBtn) {
     openFileBtn.addEventListener("click", (e) => {
-        console.log(e.currentTarget.dataset.file)
         fetch(e.currentTarget.dataset.file, { method: "GET" })
     })
 }

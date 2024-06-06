@@ -1,11 +1,11 @@
-const routeName = (routeName) => {
+const routeName = (routeName, opts = {}) => {
     return function namedRoute(req, res, next) {
         if(next) {
             next();
             return;
         }
 
-        return routeName;
+        return { name: routeName, ...opts };
     };
 };
 

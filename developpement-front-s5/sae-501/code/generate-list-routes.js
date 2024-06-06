@@ -26,8 +26,9 @@ const print = (path, layer) => {
 
             const routeName = () => {
                 if (layer.handle.name === "namedRoute") {
-                    listNamedRoutes[layer.handle()] = [
-                        ...listNamedRoutes?.[layer.handle()] || [],
+                    const { name: routeName, strict } = layer.handle();
+                    listNamedRoutes[routeName] = [
+                        ...listNamedRoutes?.[routeName] || [],
                         {
                             url: computedPath.replace(regexOptionalURLFileExt, ""),
                             params: Array.from(computedPath.matchAll(regexRouteParams))
@@ -35,12 +36,15 @@ const print = (path, layer) => {
                                 .map((_item) =>
                                     _item.replace(":", "").replace("?", "")
                                 ),
+                            opts: {
+                                strict: true,
+                            },
                         }
                     ];
 
-                    listNamedRoutes[layer.handle()] = _.uniqBy(listNamedRoutes[layer.handle()], "url")
+                    listNamedRoutes[routeName] = _.uniqBy(listNamedRoutes[routeName], "url")
                     
-                    return layer.handle();
+                    return routeName;
                 }
 
                 return "";
@@ -112,6 +116,7 @@ const generateNamedRoutes = (app) => {
 
 const generateUrl = (app, name, params) => {
     generateNamedRoutes(app);
+    
     if (!listNamedRoutes[name]) {
         throw new Error(
             `Route named "${name}" is unknown. Please verify your routes.`
@@ -143,8 +148,18 @@ const generateUrl = (app, name, params) => {
     } else {
         const { url, params: urlParams } = listNamedRoutes[name][indexMaxParamsInComment]
         urlParams.forEach((param) => {
+            const valueForParam = params[param];
+            // const regexGetUrlRegex = new RegExp(String.raw`:[${param}]+.(?<=\()([\[\]\w\-\{\}\\\+]+)(?=\))`, "g");
+            // const regexUrl = [...url.matchAll(regexGetUrlRegex)][0][1];
+            // const regexTestParam = new RegExp(String.raw`${regexUrl}`, "g");
+
+            // if(!regexTestParam.test(valueForParam)) {
+            //     throw new Error(
+            //         `The value "${valueForParam}" is not correct for the param "${param}" in the route named "${name}". It doesn't match /${regexUrl}/. Please fix the value.`
+            //     );
+            // }
             const re = new RegExp(String.raw`:[${param}]+(\([\[\]\w\-\{\}]+\))?\??`, "g");
-            finalURL = url.replace(re, params[param]);
+            finalURL = url.replace(re, valueForParam);
         })
         const listQSParams = new URLSearchParams();
         _.difference(Object.keys(params), urlParams).forEach((item) => {
