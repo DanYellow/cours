@@ -26,7 +26,7 @@ const print = (path, layer) => {
 
             const routeName = () => {
                 if (layer.handle.name === "namedRoute") {
-                    const { name: routeName, strict } = layer.handle();
+                    const routeName = layer.handle();
                     listNamedRoutes[routeName] = [
                         ...listNamedRoutes?.[routeName] || [],
                         {
@@ -36,9 +36,6 @@ const print = (path, layer) => {
                                 .map((_item) =>
                                     _item.replace(":", "").replace("?", "")
                                 ),
-                            opts: {
-                                strict: true,
-                            },
                         }
                     ];
 
