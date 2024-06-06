@@ -283,7 +283,7 @@ nunjucksEnv.addGlobal("context", function () {
 });
 
 nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
-    const finalURL = generateUrl(name, params);
+    const finalURL = generateUrl(app, name, params);
 
     return `/${finalURL}`;
 });

@@ -240,7 +240,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
     - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/front-end/base.njk) est là pour vous aider
     - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
-    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier src/data/menu.json
+    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier `src/data/menu.json`
         - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
         ```js
             router.get("/formation", async (req, res) => {/* [...] */})
@@ -346,8 +346,6 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web. Ce qui donnerait dans un template nunjucks : `{{ context()|dump }}`
 
     > Note 3 : Si vous souhaitez ajouter d'autres variables globales, il est préférable de modifier la variable `context` dans le fichier `server/index.js`
-- Permettre d'exporter et importer la base de données depuis l'administration
-
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -371,9 +369,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. Par ailleurs, si vos points d'accès (endpoints) n'apparaissent pas dans swagger, c'est qu'il y a une erreur dans vos annotations swagger.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
-Dans le projet, les dates sont enregistrées au format ISO, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
+Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Le projet intègre un filtre (une fonction) nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
+  Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
   ```
     {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
   ```

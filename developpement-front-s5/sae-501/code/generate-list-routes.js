@@ -110,7 +110,8 @@ const generateNamedRoutes = (app) => {
     return listNamedRoutes;
 };
 
-const generateUrl = (name, params) => {
+const generateUrl = (app, name, params) => {
+    generateNamedRoutes(app);
     if (!listNamedRoutes[name]) {
         throw new Error(
             `Route named "${name}" is unknown. Please verify your routes.`
@@ -158,4 +159,4 @@ const generateUrl = (name, params) => {
     return finalURL;
 }
 
-export { generateListRoutes, generateNamedRoutes, generateUrl };
+export { generateListRoutes, generateUrl };

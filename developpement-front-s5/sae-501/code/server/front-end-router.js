@@ -52,7 +52,7 @@ router.get("/", routeName("homepage"), async (req, res) => {
     });
 });
 
-// "(.html)?" makes ".html" optional
+// "(.html)?" makes ".html" optional in the url
 router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
     let options = {
         method: "GET",
