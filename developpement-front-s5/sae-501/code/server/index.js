@@ -15,7 +15,6 @@ import helmet from "helmet";
 import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
-import openEditor from "launch-editor";
 
 import { createServer as createViteServer } from "vite";
 import { codeFrameColumns } from "@babel/code-frame";
@@ -30,7 +29,6 @@ import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 
 import { generateUrl } from "../generate-list-routes.js";
-import routeName from "#server/utils/name-route.middleware.js";
 
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
@@ -54,6 +52,7 @@ app.use(
 );
 app.use(cookieParser());
 app.use(expressFlash());
+app.use(cors());
 app.use(
     expressSession({
         secret: "secret",
@@ -113,15 +112,13 @@ app.use(function (req, res, next) {
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
     );
     const base_url = `${req.protocol}://${req.get("host")}`;
+
     const context = {
         NODE_ENV: process.env.NODE_ENV,
         HOST_IP: hostip,
         current_url,
         base_url,
-        admin_url: `${current_url.substring(
-            0,
-            current_url.indexOf("/admin")
-        )}/admin`,
+        admin_url: `${base_url}/admin`,
         upload_dir: "/uploads/",
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
@@ -157,18 +154,14 @@ app.use(express.static(publicPath));
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
-if (process.env.NODE_ENV === "development") {
-    app.use(cors());
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-    app.use("/debug", debugRouter);
-}
-
 app.use("/admin", backendRouter);
 app.use("/api", apiRouter);
 app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use("/debug", debugRouter);
     app.use((err, req, res, next) => {
         res.status(500);
         const response = {
@@ -214,15 +207,6 @@ if (process.env.NODE_ENV === "development") {
 
         res.render("pages/error.njk", response);
     });
-
-    app.get(
-        "/debug/open/file",
-        routeName("open_editor"),
-        (req, res) => {
-            openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
-            res.status(200).json(null);
-        }
-    );
 }
 
 const nunjucksEnv = nunjucks.configure(path.join(__dirname, "..", "/src"), {

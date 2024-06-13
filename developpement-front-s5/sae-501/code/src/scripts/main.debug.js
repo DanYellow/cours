@@ -45,16 +45,16 @@ if (input) {
         if (inputValue === "") {
             url.searchParams.delete(queryKey);
         }
-    
+
         history.replaceState(null, "", url);
-    
+
         filterTable(inputValue);
     });
 }
 
-const openFileBtn = document.querySelector("[data-file]")
-if(openFileBtn) {
+const openFileBtn = document.querySelector("[data-file]");
+if (openFileBtn) {
     openFileBtn.addEventListener("click", (e) => {
-        fetch(e.currentTarget.dataset.file, { method: "GET" })
-    })
+        fetch(e.currentTarget.dataset.file, { method: "GET" });
+    });
 }

@@ -1,5 +1,7 @@
 ```
-███████╗ █████╗ ███████╗    ███████╗ ██████╗  ██╗ Développer pour le web ou Concevoir un dispositif interactif
+**Développer pour le web ou Concevoir un dispositif interactif**
+
+███████╗ █████╗ ███████╗    ███████╗ ██████╗  ██╗ 
 ██╔════╝██╔══██╗██╔════╝    ██╔════╝██╔═████╗███║
 ███████╗███████║█████╗      ███████╗██║██╔██║╚██║
 ╚════██║██╔══██║██╔══╝      ╚════██║████╔╝██║ ██║
@@ -7,9 +9,6 @@
 ╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═╝
 ```
 _Les consignes pourront être modifiées._
-
-> **IMPORTANT :** Il est préférable d'avoir une version récente de nodejs. Si jamais, pour diverses raisons, vous ne pouvez pas installer la dernière version de nodejs, installez par nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur.
-> - [Accéder à la documentation de nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ## Contexte de la SAÉ
 Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, scss, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -164,6 +163,7 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
 
 ### Pré-requis
 - node >= 18.11 (utilisez les commandes `node -v` pour voir votre version)
+  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, installez par [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
 
 ### Installation
@@ -179,7 +179,7 @@ Contient le css et scss du projet. Le projet importe déjà [tailwindcss](https:
    # La commande va lancer les serveurs express et vite
    npm start
    ```
-Par défaut, le site tourne sur le port 3000, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
+Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier .env.dev.local (voir fichier .env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
 
 > **N'éditez pas le fichier .env.dev.dist, faites-en une copie que vous nommerez .env.dev.local.**
 
@@ -229,7 +229,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
-- [ ] Respecter les normes d'accessibilité web (font-size en rem, contraste...)
+- [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -249,11 +249,12 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
         ```
     - [ ] Le site doit être responsive (des mixins scss et tailwind sont là pour vous aider)
       - Il n'y a pas de maquette responsive, à vous de vous adapter
-- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi de message, autrement dit lors de la soumission du formulaire, la page ne doit pas se recharger
+- [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
+    - la page ne doit pas se recharger lors de la soumission 
     - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
     - titre, chapo, contenu, image, video youtube
-    - Afficher le nom de l'auteur (mettre une valeur par défaut au cas où) avec un lien vers le détail de l'auteur listant tous ses articles
+    - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, utilisez la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
@@ -312,7 +313,6 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Vous ne devez pas utiliser une base de données pour stocker la valeur
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
 
-
 ### Pour aller plus loin - tâches optionnelles
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
@@ -328,6 +328,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
 - [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
+- [ ] Permettre d'activer / désactiver une SAE
+  -  Il faudra mettre à jour l'API des SAE pour afficher que les SAE activées sur le site
+  - Il faudra modifier le modèle de la SAE pour gérer l'activation / désactivation
 - [ ] Système de recherche
   - Il faudra mettre à jour les API pour gérér les paramètres de recherche
   - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
@@ -335,7 +338,10 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
-- Si votre formulaire est de type POST et qu'il a l'attribut "enctype" avec la valeur "multipart/form-data", la route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`). Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body".
+- Si votre formulaire doit permettre l'upload d'image, il doit respecter les conditions suivantes. Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body". :
+  - Est de type POST et qu'il 
+  - A l'attribut "enctype" avec la valeur "multipart/form-data"
+  - La route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`)
 - Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
 - Pensez à utiliser au maximum les avantages des templates. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
 - Tous les templates nunjucks importent des variables globales, vous pouvez trouver la liste complète dans le fichier `server/index.js` (vers la ligne 101), mais voici une liste non exhaustive des variables :
@@ -395,7 +401,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
 - **Le navigateur affiche une erreur 404, je ne comprends pas**
 
-    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3000/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
+    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3900/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
     Il y a la route `/debug/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur. Cette route est également accessible depuis le menu de l'administration.
 
@@ -405,7 +411,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
-    Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur. Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécifique, il faut penser aux containers queries.
+    Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur (une balise). Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécifique, il faut penser aux containers queries.
 
     Vous pourrez trouver des explications et exemples complémentaires en français ici :
     - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
