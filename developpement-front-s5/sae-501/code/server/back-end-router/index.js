@@ -4,7 +4,7 @@ import fs from "fs/promises";
 import axios from "axios";
 import querystring from "querystring";
 
-import routeName from "../utils/name-route.middleware.js"
+import routeName from "#server/utils/name-route.middleware.js";
 
 // Routers
 import SAERouter from './sae.js'

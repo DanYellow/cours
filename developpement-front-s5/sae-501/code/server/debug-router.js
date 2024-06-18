@@ -1,4 +1,6 @@
 import express from "express";
+import openEditor from "launch-editor";
+
 import { generateListRoutes } from "../generate-list-routes.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
@@ -24,5 +26,14 @@ router.get("/router", routeName("debug_router"), async (req, res) => {
         }),
     });
 });
+
+router.get(
+    "/debug/open/file",
+    routeName("open_editor"),
+    (req, res) => {
+        openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
+        res.status(200).json(null);
+    }
+);
 
 export default router;
