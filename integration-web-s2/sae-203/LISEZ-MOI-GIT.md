@@ -164,3 +164,4 @@ On a vu précédemment qu'il était possible d'utiliser le terminal directement 
 
 ### Liens utiles
 - [Documentation officielle en français](https://git-scm.com/book/fr/v2)
+- [Anti-sèche git en anglais](./Atlassian-Git-Cheatsheet.pdf)
