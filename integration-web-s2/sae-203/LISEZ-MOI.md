@@ -54,11 +54,11 @@ Les deux pages à réaliser sont :
         - Mettre une valeur par défaut s'il n'y a pas d'auteur
     - Sa vidéo youtube (si l'article en a une)
         - **Le lecteur Youtube doit s'afficher sur la page de votre site**
-        - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video-conteneur". Exemple :
+        - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video". Exemple :
         ```html
-        <!-- Cette classe permet de garder le ratio 16/9 des vidéos -->
-        <article class="youtube-video-conteneur">
-        <!-- code pour afficher la vidéo de youtube -->
+        <!-- La classe "youtube-video" permet de garder le ratio 16/9 des vidéos -->
+        <iframe class="youtube-video">
+        <!-- reste du code pour afficher la vidéo de youtube -->
         </article>
         ```
   > Note : Cette page possède un bug concernant le chargement du bon article, à vous de le corriger
