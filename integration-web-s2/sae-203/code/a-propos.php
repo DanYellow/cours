@@ -14,13 +14,13 @@ require_once('./ressources/includes/connexion-bdd.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A propos - SAÉ 203</title>
 
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
+    <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/reset.css">
+    <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/fonts.css">
+    <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/global.css">
+    <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
 
-    <link rel="stylesheet" href="ressources/css/global.css">
-    <link rel="stylesheet" href="ressources/css/a-propos.css">
+    <link rel="stylesheet" href="./ressources/css/global.css">
+    <link rel="stylesheet" href="./ressources/css/a-propos.css">
 </head>
 
 <body>

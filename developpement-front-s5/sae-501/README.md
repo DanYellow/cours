@@ -323,7 +323,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Il faudra également faire les requêtes, les modèles Mongoose ainsi que les formulaires dans l'administration
 - [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
 - [ ] Proposer un système de suppression multiple d'éléments sur une liste via un système de cases à cocher
-- [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images pour quelle soit inférieure à une taille définie
+- [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images pour qu'elle soit inférieure à une taille définie
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil utilisé pour l'upload
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration

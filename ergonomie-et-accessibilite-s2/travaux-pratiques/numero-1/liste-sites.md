@@ -1,4 +1,3 @@
-
 # TP#1 - Ergonomie et accessibilité 
 
 Partie 0 (consultez l'un des sites ou tous) :
@@ -44,3 +43,4 @@ Partie 7 :
 - https://codingfactory.fr/nos-formations/master-lead-development/
 - https://web.archive.org/web/20120528084846/http://resto.phivan.free.fr/
 - https://candy-douceur.myshopify.com/collections/epicerie-asiatique
+- https://www.canon.fr/video-cameras/eos-c70/
