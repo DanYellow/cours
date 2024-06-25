@@ -31,7 +31,7 @@ router
     .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`]) // , `/${base}/add`
     .get(routeName("sae_form"), async (req, res) => {
         // Get or create SAE
-        let options = {
+        const options = {
             method: "GET",
             url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
         };
