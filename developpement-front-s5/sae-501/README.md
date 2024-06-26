@@ -238,7 +238,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
     - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser la puissance de nunjucks, un gabarit (src/layouts/front-end/base.njk) est là pour vous aider
+    - Vous devez utiliser nunjucks, un gabarit de base (`src/layouts/front-end/base.njk`) est là pour vous aider
     - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
     - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier `src/data/menu.json`
         - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
@@ -256,13 +256,13 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
-  - Pour gérer les messages plus facilement, utilisez la balise &lt;template>
+  - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable nunjucks
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
 - [ ] Afficher la liste des articles sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
-- [ ] Mettre en place un système de pagination pour les articles
+- [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
 - [ ] Ajouter une page affichant en détails un auteur
     - Cette page n'existe pas, à vous de faire le design
     - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
@@ -331,10 +331,10 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Permettre d'activer / désactiver une SAE
   -  Il faudra mettre à jour l'API des SAE pour afficher que les SAE activées sur le site
   - Il faudra modifier le modèle de la SAE pour gérer l'activation / désactivation
-- [ ] Système de recherche
+- [ ] Système de recherche (administration et/ou site but)
   - Il faudra mettre à jour les API pour gérér les paramètres de recherche
   - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
-
+- [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)

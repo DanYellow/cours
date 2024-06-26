@@ -1,4 +1,5 @@
 import path from "path";
+import dotenv from "dotenv";
 
 // Doc : https://swagger.io/docs/specification/data-models/data-types/
 // Doc : https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md
@@ -9,16 +10,29 @@ import listAuthors, { author } from "./swagger-schemas/author.js";
 
 import swaggerJSDoc from "swagger-jsdoc";
 
+let envFilePath = ".env.prod.local";
+if (process.env.NODE_ENV === "development") {
+    envFilePath = ".env.dev.local";
+}
+
+const envVars = dotenv.config({ path: envFilePath });
+const port = envVars?.parsed?.PORT || 3000;
+
 const options = {
     apis: [path.join(path.resolve(), "server/api-router/*.js")],
     swaggerDefinition: {
-        openapi: "3.0.0",
+        openapi: "3.0.3",
         produces: ["application/json"],
         info: {
-            title: "SAE 501",
-            version: "1.0.0",
+            title: "Swagger SAE 501",
+            version: "2024.0.0",
+            description: "List endpoints of SAE 501",
         },
-        servers: [{ description: "Dev server", url: "/api" }],
+        externalDocs: {
+            description: "Back to site",
+            url:  `http://localhost:${port}`
+        },
+        servers: [{ description: "Dev server", url: `http://localhost:${port}/api` }],
         components: {
             schemas: {
                 Article: article,

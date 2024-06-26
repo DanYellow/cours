@@ -159,8 +159,11 @@ app.use("/api", apiRouter);
 app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    const options = {
+        customSiteTitle: "Swagger SAE 501",
+    };
+
+    app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
     app.use("/debug", debugRouter);
     app.use((err, req, res, next) => {
         res.status(500);

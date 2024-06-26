@@ -11,7 +11,7 @@ const router = express.Router();
 // Get multiple articles
 router.get(`/${base}`, async (req, res) => {
     const queryParams = querystring.stringify(req.query);
-    let options = {
+    const options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };

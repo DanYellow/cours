@@ -28,7 +28,7 @@ router.get("/router", routeName("debug_router"), async (req, res) => {
 });
 
 router.get(
-    "/debug/open/file",
+    "/open/file",
     routeName("open_editor"),
     (req, res) => {
         openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
