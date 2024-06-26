@@ -9,11 +9,11 @@ Postman est un logiciel freemium permettant de tester des API. L'avantage premie
 
 Pour importer une collection, suivez les étapes suivantes :
 
-1.
+1. Sélectionner le fichier de collection
 ![](./captures/postman-1.jpg)
-Cliquez sur le bouton import et selectionnez votre fichier de collection, `SAE501.postman_collection.json` pour la SAE
+Cliquez sur le bouton import et selectionnez votre fichier de collection : `SAE501.postman_collection.json`. Vous l'avez récupéré en même temps que le code de la SAE.
 
-1. _Et voilà_
+_Et voilà_
 
 ## Accéder / créer une requête
 
@@ -50,3 +50,5 @@ Pour finir, il est possible d'utiliser la bibliothèque faker avec Postman, fake
 > ![](./captures/postman-6.jpg)
 > Ici nous générons un court texte pour la clé "content"
 Faker est déjà utilisé dans le projet, dans le but de créer à coup sûr une nouvelle entité unique.
+
+> **Attention :** Postman est un logiciel très gourmand en ressources, si vous n'en avez pas besoin fermez-le, car il pourrait très bien provoquer une sur-utilisation du processeur de votre ordinateur.

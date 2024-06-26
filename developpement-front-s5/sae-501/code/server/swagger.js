@@ -29,7 +29,7 @@ const options = {
             description: "List endpoints of SAE 501",
         },
         externalDocs: {
-            description: "Back to site",
+            description: "Back to homepage",
             url:  `http://localhost:${port}`
         },
         servers: [{ description: "Dev server", url: `http://localhost:${port}/api` }],
