@@ -52,7 +52,7 @@ require_once('./ressources/includes/connexion-bdd.php');
                         </p>
                     </section>
                 </li>
-                <li class="reverse">
+                <li>
                     <figure>
                         <img src="https://placehold.co/522x435" alt="">
                     </figure>
@@ -66,7 +66,7 @@ require_once('./ressources/includes/connexion-bdd.php');
                         </p>
                     </section>
                 </li>
-                <li class="reverse">
+                <li>
                     <figure>
                         <img src="https://placehold.co/522x435" alt="">
                     </figure>

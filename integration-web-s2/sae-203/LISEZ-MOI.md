@@ -284,7 +284,11 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
       - [ ] Tous les articles / auteurs
     - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
     - Edition à réaliser dans le fichier `administration/ressources/includes/global-footer.php`
+    - Je vérifie que toutes les données requises (à vous de les définir) sont présentes
+      - Afficher un message d'erreur (comme pour le formulaire de contact) s'il y a un problème
+      - S'il est à vous de définir les champs obligatoires, il ne doit pas être possible d'enregister des données vides
 - [ ] Intégration de la page "équipe de rédaction"
+  - **La page affiche les données en provenance de la base de données**
 - [ ] Complétion de la page "article"
   - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)

@@ -78,13 +78,13 @@ if ($formulaire_soumis) {
                             <div class="col-span-12">
                                 <label for="avatar" class="block text-lg font-medium text-gray-700">Lien avatar</label>
                                 <input type="url" value="<?php echo $entite['lien_avatar']; ?>" name="lien_avatar" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="avatar">
-                                <div class="text-sm text-gray-500">
+                                <p class="text-sm text-gray-500">
                                     Mettre l'URL de l'avatar (chemin absolu)
-                                </div>
+                                </p>
                             </div>
                             <div class="col-span-12">
                                 <label for="lien_twitter" class="block text-lg font-medium text-gray-700">Lien twitter</label>
-                                <input type="text" value="<?php echo $entite[
+                                <input type="url" value="<?php echo $entite[
                                     'lien_twitter'
                                 ]; ?>" name="lien_twitter" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="lien_twitter">
                             </div>
