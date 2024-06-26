@@ -27,7 +27,7 @@ router.get(`/${base}`, async (req, res) => {
 
 // Get or create article
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
-    let options = {
+    const options = {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
     };

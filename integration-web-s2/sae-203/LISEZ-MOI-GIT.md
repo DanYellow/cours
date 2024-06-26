@@ -97,7 +97,7 @@ Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez p
 ## Mettre à jour le dépôt distant
 Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git. Pour ce faire, il faut utiliser la commande `git push origin`. Cette dernière va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
 
-> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch (`git pull`) avant.
+> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch (`git pull origin`) avant.
 
 Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de vous autoriser automatiquement, autorisez-les.
 
