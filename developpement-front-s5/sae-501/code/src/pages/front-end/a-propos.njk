@@ -83,7 +83,7 @@
                     </figure>
                     <section class="p-8 pb-10 sm:pb-14">
                         <p class="text-2xl font-bold pb-2">{{ item.title }}</p>
-                        <p>{{ item.content }}</p>
+                        <p>{{ item.content | striptags(true) | escape | nl2br }}</p>
                     </section>
                 </article>
             </li>

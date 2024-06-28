@@ -255,6 +255,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
+    - Note : Si le corps de votre article possède des retours à la ligne, il faudra le gérer via la fonction [`nb2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks, vous pouvez également trouver un exemple dans le code dans le fichier `src/pages/front-end/index.njk`
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
@@ -335,6 +336,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Il faudra mettre à jour les API pour gérér les paramètres de recherche
   - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
 - [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
+- [ ] Proposer la mise en place d'images responsives
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
