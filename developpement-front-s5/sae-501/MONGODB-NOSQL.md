@@ -16,13 +16,14 @@ Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a 
 Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très utilisé dans le monde professionnel et open source), l'outil n'étant pas natif, il faudra l'installer **(regardez bien les notes plus bas avant de télécharger).**
 - [Télécharger MongoDB](https://www.mongodb.com/try/download/community)
 
-> Notes pour les utilisateurs de Windows :
+> **Notes pour les utilisateurs de Windows :**
 > - Téléchargez le fichier .msi **pas l'archive .zip**
 > - Lors de l'installation de MongoDB, il vous est proposé de télécharger MongoDBCompass, faites-le, ça vous épargnera de le faire plus tard
 
-> Notes pour les utilisateurs de MacOS :
-> - Certaines commandes listées dans le fichier README ne sont plus pertinentes depuis macOS Catalina (10.15). De ce fait, nous vous conseillons de créer un dossier `data/db/` dans le même dossier que vous avez dezippé MongoDB. Et d'ajouter le paramètre `--dbpath=data/db` à la commande qui permet de lancer le serveur MongoDB. Ce qui donne de la commande `mongod --dbpath=data/db`. **Le serveur NoSQL ne se lance pas automatiquement.**
-> - Installez MongoDB en passant par brew au lieu de télécharger l'archive avec les fichiers binaires. [Vous trouverez les instructions sur le site officiel](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Ceci va rendre les commandes de mongodb globales au système et vous pourrer lancer votre serveur depuis n'importe où avec la commande `mongod --dbpath=chemin/vers/bdd`. Faites juste attention à ne pas commiter votre base de données. Pour éviter ceci, exécutez la commande de lancement du serveur à l'extérieur du projet. **Notez bien que le serveur NoSQL ne se lance pas automatiquement, il faudra le relancer si vous éteignez votre ordinateur.**
+> **Notes pour les utilisateurs de MacOS :**
+> - Certaines commandes listées dans le fichier README ne sont plus pertinentes depuis macOS Catalina (10.15). De ce fait, nous vous conseillons de créer un dossier `data/db/` dans le même dossier que vous avez dezippé MongoDB. Et d'ajouter le paramètre `--dbpath=data/db` à la commande qui permet de lancer le serveur MongoDB. Ce qui donne de la commande `mongod --dbpath=data/db` 
+> - Installez MongoDB en passant par brew au lieu de télécharger l'archive avec les fichiers binaires. [Vous trouverez les instructions sur le site officiel](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Ceci va rendre les commandes de mongodb globales au système et vous pourrer lancer votre serveur depuis n'importe où avec la commande `mongod --dbpath=chemin/vers/bdd`. Faites juste attention à ne pas commiter votre base de données. Pour éviter ceci, exécutez la commande de lancement du serveur à **l'extérieur du projet**
+> - **Le serveur NoSQL ne se lance pas automatiquement.** Si vous arrêtez / redémarrez votre ordinateur, il faudra relancer le serveur MongoDB.
 
 Pour visualiser votre base NoSQL, nous vous conseillons le logiciel MongoDB Compass, il est gratuit. C'est l'équivalent, pour MongoDB, de PhpMyAdmin.
 - [Télécharger MongoDB Compass](https://www.mongodb.com/try/download/compass)
@@ -88,12 +89,12 @@ Ce code simplifié issu du fichier `code/server/api-router/sae.js` nous permet d
 
 Nous ferons ensemble la collection "messages", elle nous permettra de sauvegarder les messages crées depuis le formulaire de contact.
 
-> Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mangoose crée les collections s'il ne les trouve pas. La première création de chaque collection créera la collection en même temps.
+> Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mangoose crée les collections s'il ne les trouve pas. La première requête de chaque collection créera la collection en même temps.
 
 # Requêtes
 Pour créer ces messages, il faudra créer des routes. Le projet respecte la philosophie du CRUD (Create, Read, Update, Delete), conséquemment, dépendamment des besoins, il y a une route permettant de créer, récupérer, mettre à jour et supprimer un document. La gestion de requêtes des composées de deux parties :
 - API : Réalisée avec [axios](https://www.npmjs.com/package/axios). Appelée par les pages et pour supprimer un document
-    - Toutes les routes commencent par "/api" suivi du nom de la collection. Ex : "api/saes" concerne tout ce qui est lié aux API
+    - Toutes les routes commencent par `/api` suivi du nom de la collection. Ex : `api/saes` concerne tout ce qui est lié aux SAES
 - Backend : Appelle l'API pour afficher son contenu dans les pages
 
 Exemple :
@@ -116,7 +117,7 @@ router.get(`/saes`, async (req, res) => {
 
 // backend.js
 router.get(`/saes`, async (req, res) => {
-    let options = {
+    const options = {
         method: "GET",
         url: `http://localhost:{PORT}/api/saes`,
     };
@@ -138,7 +139,7 @@ Mongoose propose plusieurs manières de requêter la base de données, dépendam
 ### Tout rechercher - Model.find()
 Permet de récupérer tous les éléments correspondants à un critère. La méthode `find()` peut prendre en premier paramètre un objet correspondant aux conditions. Exemple :
 ```js
-// Ici on récupère dans notre modèle tous les documents ayant la valeur 18 pour la propriété "age"
+// Ici on récupère dans notre modèle tous les documents ayant exactement la valeur 18 pour la propriété "age"
 await Model.find({ age: 18 });
 ```
 
@@ -162,7 +163,7 @@ await Model.findOne({ country: 'Croatia', formation: "mmi" });
 Si vous souhaitez appliquer des conditions exclusives, vous pouvez utiliser le mot-clé [$or](https://www.mongodb.com/docs/manual/reference/operator/query/or/) de la façon suivante :
 ```js
 // Même exemple que plus haut, mais on cherche cette fois-ci le modèle qui possède la valeur "Croatia" pour le champ "country" OU "mmi" pour le champ "formation"
-await Model.findOne({$or: [{ country: 'Croatia', formation: "mmi" }]});
+await Model.findOne({ $or: [{ country: 'Croatia', formation: "mmi" }] });
 ```
 
 > Vous pouvez égalemet appliquer un "OU" dans vos requêtes grâce à la méthode [`or()`](https://mongoosejs.com/docs/api/query.html#Query.prototype.or()).

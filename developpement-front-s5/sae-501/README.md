@@ -314,7 +314,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Vous ne devez pas utiliser une base de données pour stocker la valeur
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
 
-### Pour aller plus loin - tâches optionnelles
+### Pour aller plus loin - tâches optionnelles - A faire après avoir effectué toutes les tâches listées plus haut
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
     - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
@@ -337,6 +337,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
 - [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
 - [ ] Proposer la mise en place d'images responsives
+- [ ] Utiliser un éditeur de texte riche pour le corps d'un article
+- [Vous pouvez dans cette liste un ensemble de plugin javascript d'éditeur riches](https://github.com/JefMari/awesome-wysiwyg-editors)
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
@@ -407,7 +409,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
     Il y a la route `/debug/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur. Cette route est également accessible depuis le menu de l'administration.
 
-- **Est-il possible d'utiliser le frameworkd CSS bootstrap ?**
+- **Est-il possible d'utiliser le framework CSS bootstrap ?**
     
     Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment utile dans ce projet.
 
@@ -418,6 +420,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     Vous pourrez trouver des explications et exemples complémentaires en français ici :
     - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
     - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
+    - [Les Container Queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
     > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
     > 
     > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
