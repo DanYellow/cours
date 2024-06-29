@@ -18,7 +18,7 @@
     transition: background-size 0.5s;
     background-size: 160%;
 
-    &:hover {
+    &:hover, &:focus-within {
         background-size: 190%;
         @include tablet-max {
             background-size: 140%;
