@@ -36,7 +36,7 @@
             </main>
         </div>
 
-        <div data-deletion-modal id="delete-popup" popover="manual" class="transform shadow-xl left-2/4 -translate-x-2/4 overflow-hidden rounded-lg my-8 w-11/12 sm:w-fit">
+        <div data-deletion-modal id="delete-entry" popover="manual" class="transform shadow-xl left-2/4 -translate-x-2/4 overflow-hidden rounded-lg my-8 w-11/12 sm:w-fit">
             <div class="flex min-h-full items-center justify-center text-center sm:items-center sm:p-0 shadow-xl">
                 <div class="bg-white text-left w-full">
                     <div class="p-4 text-center sm:mt-0 sm:text-left">
@@ -50,7 +50,7 @@
                             {% include "components/icons/delete-icon.njk" %}
                             Supprimer
                         </button>
-                        <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto items-center" data-close-modal popovertarget="delete-popup" popovertargetaction="close">Annuler</button>
+                        <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto items-center" data-close-modal popovertarget="delete-entry" popovertargetaction="close">Annuler</button>
                     </div>
                 </div>
             </div>

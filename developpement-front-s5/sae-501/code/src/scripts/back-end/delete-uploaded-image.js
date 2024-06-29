@@ -9,10 +9,6 @@ const imageModalContainer = document.querySelector(
     "[data-image-deletion-modal] [data-image]"
 );
 
-const displayDeleteItemModal = (e) => {
-    imageModalContainer.src = "";
-};
-
 const imageObserver = new MutationObserver((mutationList) => {
     mutationList.forEach((mutation) => {
         if (mutation.type === "attributes") {
@@ -47,11 +43,9 @@ deleteItemModalBtn.addEventListener("click", (e) => {
 
 listDeleteCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
-        displayDeleteItemModal();
         const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
-
         deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
-
+        
         const img = document.querySelector(
             `[data-current-image="${dataAttr}"]`
         );

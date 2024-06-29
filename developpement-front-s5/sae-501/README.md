@@ -115,7 +115,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
 });
 ```
 
-La gestion des paramètres possède d'autres fonctionnalités, vous en saurez plus dans la documentation ou les fichiers fournis.
+La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 
 Retenez les points suivants :
@@ -343,7 +343,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
 - Si votre formulaire doit permettre l'upload d'image, il doit respecter les conditions suivantes. Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body". :
-  - Est de type POST et qu'il 
+  - A la valeur "POST" pour la propriété "method"
   - A l'attribut "enctype" avec la valeur "multipart/form-data"
   - La route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`)
 - Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
@@ -383,13 +383,13 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
   Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
   ```
-    {{ my_date_raw|date("dd/LL/yyyy à HH:mm:ss") }}
+    {{ my_date_from_db | date("dd/LL/yyyy à HH:mm:ss") }}
   ```
   Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon.
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
-    Vous n'avez pas installé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
+    Vous n'avez pas installé ou lancé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 
