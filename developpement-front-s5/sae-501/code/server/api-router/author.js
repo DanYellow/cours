@@ -493,6 +493,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         }
 
         if (ressource) {
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({

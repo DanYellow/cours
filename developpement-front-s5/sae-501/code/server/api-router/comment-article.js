@@ -236,6 +236,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id)
 
         if(ressource) {
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({

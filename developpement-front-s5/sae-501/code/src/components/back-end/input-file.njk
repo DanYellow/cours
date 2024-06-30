@@ -29,8 +29,9 @@
                         <p class="text-sm font-bold p-1 text-center block @5.5xl/base:hidden">Image actuelle</p>
                         <figure class="flex justify-center items-center h-[16rem] relative">
                             <img src="{{ custom_upload_dir ~ imagename if imagename else null }}" data-current-image="{{ name }}" data-image-path="{{ custom_upload_dir ~ imagename if imagename else null }}" alt="" class="max-w-full max-h-full">
+                    
                             {% if imagename %}
-                                <button popovertarget="delete-image" data-delete-current-image-button="{{ name }}" type="button" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 text-sm hover:bg-red-800 focus-within:bg-red-800 px-4 py-2 text-white">Supprimer</button>
+                                <button type="button" data-delete-current-image-button="{{ name }}" class="absolute right-2/4 bottom-4 translate-x-2/4 rounded-2xl shadow-sm bg-red-600 text-sm hover:bg-red-800 focus-within:bg-red-800 px-4 py-2 text-white">Supprimer</button>
                                 <input type="checkbox" class="hidden" name="delete_file_{{name}}" id="" data-current-image-checkbox="{{ name }}">
                             {% endif %}
                         </figure>
@@ -65,7 +66,7 @@
                                         data-upload-file="{{ name }}"
                                         type="file" 
                                         accept="{{ accepts }}"
-                                        class="w-0 h-0 file:hidden"
+                                        class="w-0 h-0 file:hidden absolute -z-50"
                                         id="{{ id }}"
                                         name="{{ name }}"
                                     />

@@ -45,7 +45,7 @@ listDeleteCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
         deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
-        
+        deletionModal.showPopover();
         const img = document.querySelector(
             `[data-current-image="${dataAttr}"]`
         );
