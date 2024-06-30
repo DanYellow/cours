@@ -22,7 +22,7 @@
     <ul class="flex justify-center gap-x-4 bg-neutral-50 my-9 sm:flex-row flex-col gap-y-3">
         {% for item in list_anchors %}
             <li>
-                <a href="#{{ item.hash }}" class="text-xl text-[#005A47] hover:text-black">{{ item.name }}</a>
+                <a href="#{{ item.hash }}" class="text-xl text-[#005A47] hover:text-black focus-within:text-black">{{ item.name }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -51,7 +51,7 @@
     </p>
 
     <h1 class="text-3xl font-bold mt-12 target:text-[#005A47]" id="{{ list_anchors[1].hash }}">
-        <a href="#{{ list_anchors[1].hash }}" class="before:content-['#'] before:absolute before:right-[100%] before:top-[50%] before:-translate-y-2/4 before:invisible hover:before:visible relative">
+        <a href="#{{ list_anchors[1].hash }}" class="before:content-['#'] before:absolute before:right-[100%] before:top-[50%] before:-translate-y-2/4 before:invisible hover:before:visible focus-within:before:visible relative">
             Situation d'Apprentissage et d'Évaluation
         </a>
     </h1>
@@ -69,7 +69,7 @@
     </p>
 
     <h1 class="text-3xl font-bold mt-12 target:text-[#005A47]" id="{{ list_anchors[2].hash }}">
-        <a href="#{{ list_anchors[2].hash }}" class="before:content-['#'] before:absolute before:right-[100%] before:top-[50%] before:-translate-y-2/4 before:invisible hover:before:visible relative">
+        <a href="#{{ list_anchors[2].hash }}" class="before:content-['#'] before:absolute before:right-[100%] before:top-[50%] before:-translate-y-2/4 before:invisible hover:before:visible focus-within:before:visible relative">
             Exemples de projets réalisés en SAÉ
         </a>
     </h1>

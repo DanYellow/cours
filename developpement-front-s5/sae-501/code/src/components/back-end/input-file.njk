@@ -48,34 +48,37 @@
                             <p class="text-slate-600">Glissez-déposez votre image</p>
                             <p class="text-sm">ou</p>
 
-                            <label 
-                                class="text-sm 
-                                py-2 px-4
-                                rounded-2xl border-0
-                                bg-blue-700 hover:bg-blue-950
-                                focus-within:bg-blue-950
-                                text-white
-                                text-center
-                                w-fit
-                                block
-                            ">
-                                Sélectionnez un fichier
-                                <input 
-                                    data-upload-file="{{ name }}"
-                                    type="file" 
-                                    accept="{{ accepts }}"
-                                    class="w-0 h-0 file:hidden"
-                                    id="{{ id }}"
-                                    name="{{ name }}"
-                                />
-                            </label>
-                            <button 
-                                type="button" 
-                                class="text-sm self-start rounded-2xl block py-2 px-4 border-sky-500 text-slate-700 bg-sky-50 hover:bg-sky-100" 
-                                data-clipboard-upload="{{ name }}"
-                            >
-                                Coller depuis le presse-papier
-                            </button>
+                            <div class="flex gap-3 flex-col sm:flex-row items-center sm:ml-11">
+                                 <label 
+                                    class="text-sm 
+                                    py-2 px-4
+                                    rounded-2xl border-0
+                                    bg-blue-700 hover:bg-blue-950
+                                    focus-within:bg-blue-950
+                                    text-white
+                                    text-center
+                                    w-fit
+                                    block
+                                ">
+                                    Sélectionnez un fichier
+                                    <input 
+                                        data-upload-file="{{ name }}"
+                                        type="file" 
+                                        accept="{{ accepts }}"
+                                        class="w-0 h-0 file:hidden"
+                                        id="{{ id }}"
+                                        name="{{ name }}"
+                                    />
+                                </label>
+                                <button 
+                                    type="button" 
+                                    class="text-sm self-start rounded-2xl block py-2 px-4 border-sky-500 text-slate-700 bg-sky-50 hover:bg-sky-100" 
+                                    data-clipboard-upload="{{ name }}"
+                                >
+                                    Coller depuis le presse-papier
+                                </button>
+                            </div>
+                           
                             <p class="mt-1 text-sm text-slate-500" data-input-file-indicator="{{ name }}">Fichiers {{ accepts }} seulement (taille max. 800kB)</p>
                         
                             <p class="rounded-lg p-2 flex items-center justify-center gap-2 bg-red-100 border-solid border-x border-y border-red-700" data-incorrect-upload="{{ name }}">
