@@ -230,6 +230,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
+  - Quand vous utilisez la pseudo-classe ":focus" pensez toujours à mettre également la pseudo-classe ":focus-within"
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -256,6 +257,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
     - Note : Si le corps de votre article possède des retours à la ligne, il faudra le gérer via la fonction [`nb2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks, vous pouvez également trouver un exemple dans le code dans le fichier `src/pages/front-end/index.njk`
+    - Note 2 : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de placer l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
