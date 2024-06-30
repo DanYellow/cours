@@ -9,7 +9,7 @@
             <p class="text-4xl">Liste SAEs
                 <span class="block text-sm">{{ list_saes.count }} éléments au total</span>
             </p>
-            <a href="{{ admin_url ~ "/saes" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 h-fit">
+            <a href="{{ admin_url ~ "/saes" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 focus-within:bg-blue-950 h-fit">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
                 </svg>
@@ -25,7 +25,7 @@
             <p class="text-4xl">Liste articles
                 <span class="block text-sm">{{ list_articles.count }} éléments au total</span>
             </p>
-            <a href="{{ admin_url ~ "/articles" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 h-fit">
+            <a href="{{ admin_url ~ "/articles" }}" class="inline-flex gap-1 w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 focus-within:bg-blue-950 h-fit">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
                 </svg>
@@ -56,7 +56,7 @@
                         </td>
 
                         <td class="p-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
-                            <div class="inline-flex gap-6">
+                            <div class="inline-flex gap-6 w-full justify-around">
                                 {{ list_actions.edit(admin_url ~ '/articles/' ~ item._id)}}
                                 {{ list_actions.delete(base_url ~ "/api/articles/" ~ item._id, item.title)}}
                             </div>
