@@ -109,7 +109,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
     const paramId = req.params.id;
     const paramGallery = req.params.gallery;
 
-    // On récupère un paramètre d'url nommé "per_page"
+    // On récupère une chaîne de requête (query string) nommée "per_page"
     const perPage = Number(req.query?.per_page) || 7;
     res.render("pages/index.njk", { title: "hello" });
 });
@@ -117,6 +117,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
+- [Exemples regex dans routes - anglais](https://www.kevinleary.net/blog/regex-route-express/)
 
 Retenez les points suivants :
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez certainement une erreur 404
