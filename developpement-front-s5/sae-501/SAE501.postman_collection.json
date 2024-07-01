@@ -462,20 +462,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/articles/:id/comments",
+							"raw": "{{base_url}}/api/articles/:comment_id/comments",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
 								"articles",
-								":id",
+								":comment_id",
 								"comments"
 							],
 							"variable": [
 								{
-									"key": "id",
-									"value": "656071565411bda3030a90b3"
+									"key": "comment_id",
+									"value": ""
 								}
 							]
 						}

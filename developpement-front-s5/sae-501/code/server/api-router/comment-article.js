@@ -198,13 +198,13 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
 
 /**
  * @openapi
- * /articles/{id}/comments:
+ * /articles/{comment_id}/comments:
  *   delete:
  *     tags:
  *      - Articles
  *     summary: Delete a comment
  *     parameters:
- *      - name: id
+ *      - name: comment_id
  *        in: path
  *        description: article's comment's _id
  *        required: true
@@ -240,7 +240,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`Le commentaire "${req.params.id}" n'existe pas`],
+            errors: [`Le commentaire "${req.params.comment_id}" n'existe pas`],
         });
     } catch (error) {
         return res
