@@ -37,7 +37,7 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Note : Vous pouvez tout à fait ajouter des jeux de données externes (et **sourcés**) pour appuyer votre création. N'hésitez pas !
 
-> Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seul les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
+> Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seuls les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
 > Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive.
 
@@ -108,8 +108,9 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
     - [ ] **Lisez bien le nom du document ainsi que les fichiers d'aides (s'il y en a), une confusion est si vite arrivée**
   - [ ] Respecter les attentes
-  - [ ] **Mettre vos sources dans le résultat final** (La note sera divisée par deux si ce n'est pas fait)
-        - Mettez le lien. Tous les liens sont dans le fichier _liste-source.ods
+  - [ ] **Mettre vos sources dans le résultat final** 
+      - **La note sera divisée par deux si ce n'est pas fait**
+      - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
     - [ ] Votre réalisation (infographie ou vidéo motion)
     - [ ] Lien vers le dépôt sur github (projet développement uniquement)
