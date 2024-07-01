@@ -230,6 +230,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
+    - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
   - Quand vous utilisez la pseudo-classe ":focus" pensez toujours à mettre également la pseudo-classe ":focus-within"
 - [ ] Ajouter une validation côté client des formulaires

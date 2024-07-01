@@ -29,7 +29,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>List routes ({{ qsp_method }}) - SAE-501 ({{ list_routes | length }})</title>
+        <title>List routes ({{ qsp_method }}) - {{ list_routes | length }} routes found - SAE-501</title>
 
         <link rel="stylesheet" href="/styles/reset.css">
         <link rel="stylesheet" href="/styles/fonts.css">
@@ -109,10 +109,10 @@
         <footer class="p-6">
             <ul class="flex items-center gap-4 justify-center">
                 <li>
-                    <a href="{{ routeName("homepage") }}" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder au site</a>
+                    <a href="{{ routeName("homepage") }}" class="focus-within:text-blue-700 hover:text-blue-700 dark:hover:text-blue-300 dark:focus-within:text-blue-300">Accéder au site</a>
                 </li>
                 <li>
-                    <a href="{{ routeName("admin") }}" class="hover:text-blue-700 dark:hover:text-blue-300">Accéder à l'administration</a>
+                    <a href="{{ routeName("admin") }}" class="focus-within:text-blue-700 hover:text-blue-700 dark:hover:text-blue-300 dark:focus-within:text-blue-300">Accéder à l'administration</a>
                 </li>
             </ul>
         </footer>
