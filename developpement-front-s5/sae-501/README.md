@@ -253,12 +253,12 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - [ ] Le site doit être responsive (des mixins scss et tailwind sont là pour vous aider)
       - Il n'y a pas de maquette responsive, à vous de vous adapter
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
-    - la page ne doit pas se recharger lors de la soumission 
-    - Il faudra utiliser un outil comme axios (déjà installé) ou fetch, api native de javascript
+    - La page ne doit pas se recharger lors de la soumission du formulaire
+    - Il faudra utiliser un outil comme [axios](https://www.npmjs.com/package/axios) (déjà installé) ou fetch, api native de javascript
 - [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
-    - Note : Si le corps de votre article possède des retours à la ligne, il faudra le gérer via la fonction [`nb2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks, vous pouvez également trouver un exemple dans le code dans le fichier `src/pages/front-end/index.njk`
+    - Note : Si le corps de votre article possède des retours à la ligne, il faudra le gérer via la fonction [`nl2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks, vous pouvez également trouver un exemple dans le code dans le fichier `src/pages/front-end/about.njk`
     - Note 2 : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de placer l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>

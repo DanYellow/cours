@@ -64,7 +64,7 @@ router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
         result = await axios(options);
     } catch (e) {}
 
-    res.render("pages/front-end/a-propos.njk", {
+    res.render("pages/front-end/about.njk", {
         list_saes: result.data,
     });
 });

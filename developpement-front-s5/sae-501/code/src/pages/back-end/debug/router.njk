@@ -78,7 +78,7 @@
             </thead>
             <tbody>
                 {% for item in list_routes %}
-                    <tr class="hover:bg-neutral-50 even:bg-slate-50 dark:hover:bg-gray-600 dark:even:bg-slate-500">
+                    <tr>
                         <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
                             {% if item.METHOD == "GET" %}
                                 <span class="bg-green-100 text-green-900 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ item.METHOD }}</span>

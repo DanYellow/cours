@@ -30,7 +30,7 @@ const filterTable = (inputValue) => {
         if (idx % 2 === 0) {
             item.classList.add("bg-slate-50", "dark:bg-slate-500");
         }
-        item.classList.add("hover:bg-neutral-50", "dark:hover:bg-gray-600");
+        item.classList.add("hover:bg-neutral-100", "dark:hover:bg-gray-600");
     });
 };
 
