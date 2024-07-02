@@ -1,12 +1,12 @@
 # Astuces
 
-Pour vous aider à mener à bien, le projet intègre des outils dont l'utilisation est facultative. Toutefois, nous vous invitons à lire attentivement ce document.
+Pour vous aider à mener à bien, le projet intègre des outils dont **l'utilisation est facultative.** Toutefois, nous vous invitons à lire attentivement ce document.
 
 Ce document n'abordera pas l'utilisation de POSTMAN, vu qu'il y a un document dédié à son utilisation. [Accéder au document de présentation de POSTMAN](./POSTMAN.md).
 
 ## Swagger
 
-En complément de Postman, le projet intégère également Swagger, appelé également  OpenAPI. C'est un outil permettant la documentation d'API via une syntaxe propre à l'outil. Vous pourrez trouver des exemples d'utilisation dans les fichiers du dossier `/server/api`. 
+En complément de Postman, le projet intégère également Swagger, appelé également OpenAPI. C'est un outil permettant la documentation d'API via une syntaxe propre à l'outil. Vous pourrez trouver des exemples d'utilisation dans les fichiers du dossier `/server/api`. 
 
 Comme Postman, Swagger permet de tester les points d'accès de votre API en effectuant de réelles requêtes. Dans le projet, le Swagger est accessible via la routes `/swagger` ou depuis l'administration dans la partie "debug". Partie "debug" visible uniquement en mode "développement".
 
@@ -21,7 +21,7 @@ router.delete('/articles/:id', (req, res, next) => {
    res.send(`Je suis le texte d'un middleware`);
 });
 ```
-Dans le code ci-dessus, la fonction anonyme (avec la signature `(req, res, next)`) est un middleware qui sera appelé quand on effectuera une requête de type DELETE pour l'url `articles/:id` où `:id` est un paramètre dynamique. Lors de l'appel, le middleware fera afficher du texte dans le navigateur, il est possible d'effectuer d'autres actions comme afficher un document JSON, télécharger un fichier ou encore passer des informations au middleware suivant. Exemple :
+Dans le code ci-dessus, la fonction anonyme (avec la signature `(req, res, next)`) est un middleware qui sera appelé quand on effectuera une requête de type DELETE pour l'url `articles/:id` où `:id` est un paramètre dynamique. Lors de l'appel, le middleware retournera du texte, il est possible d'effectuer d'autres actions comme afficher un document JSON, télécharger un fichier ou encore passer des informations au middleware suivant. Exemple :
 
 ```js
 const myMiddleware = (req, res, next) => {
@@ -43,9 +43,9 @@ Le système des middlewares est très puissant et pratique, vous pourrez en savo
 
 ### Middleware "namedRoute"
 
-Aussi pratique puisse être express et son système de route, il possède une lacune assez contraignante : il n'est pas possible de nommer les routes. Fonctionnalité qu'on peut voir dans d'autres frameworks comme Symfony (php) ou Django (Python). Très pratique, elle permet de limiter la duplication de code en écrivant dans les templates non pas le chemin d'URL mais une fonction avec le nom de la route et les paramètres à lui passer.
+Aussi pratique puisse être express et son système de routes, il possède une lacune assez contraignante : il n'est pas possible de nommer les routes. Fonctionnalité qu'on peut voir dans d'autres frameworks comme Symfony (php) ou Django (Python). Très pratique, elle permet de limiter la duplication de code en écrivant dans les templates non pas le chemin d'URL mais une fonction avec le nom de la route et les paramètres à lui passer.
 
-L'avantage de ce système est que si vous changez vos routes, vous n'avez pas besoin de faire des mises à jour dans vos templates. Le projet intégère un middleware nommé "routeName()" (à importer) qui va vous permettre d'utiliser cette fonctionnalité manquante. Vous pourrez en trouver des exemples dans le fichier `server/front-end-router.js`. Néanmoins, voici un exemple d'utilisation :
+L'avantage de ce système est que si vous changez le chemin d'une route, vous n'avez pas besoin de faire des mises à jour dans vos templates. Le projet intégère un middleware nommé "routeName()" (à importer) qui va vous permettre d'utiliser cette fonctionnalité manquante. Vous pourrez en trouver des exemples dans le fichier `server/front-end-router.js`. Néanmoins, voici un exemple d'utilisation :
 
 ```js
 import routeName from "#server/utils/name-route.middleware.js";
@@ -62,7 +62,7 @@ Si on souhaite faire un lien vers notre route dans nunjucks, ceci donne le code 
 ```html
 <a href="{{ routeName('my_route', {id: 42, user: 'toto'}) }}">My link</a>
 ```
-La fonction nunjucks transformera le code entre les accolades en "/toto/articles/42". A noter que si vous ajoutez des paramètres supplémentaires qui n'existent pas dans la route, ils seront ajoutés en tant que paramètres query string.
+La fonction nunjucks transformera le code entre les accolades en "/toto/articles/42". A noter que si vous ajoutez des paramètres supplémentaires qui n'existent pas dans la route, ils seront ajoutés en tant que chaîne de requête.
 
 > Note : Le middleware `routeName` a été ajouté pour vous aider, **son utilisation est facultative.**
 

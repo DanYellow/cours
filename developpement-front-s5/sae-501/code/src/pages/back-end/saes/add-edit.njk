@@ -1,5 +1,13 @@
 {% extends "layouts/back-end/base.njk" %}
 
+{% block title %}
+    {% if is_edit == true %}
+        Editer "{{ sae.title }}"
+    {% else %}
+        Créer SAÉ
+    {% endif %}
+{% endblock %}
+
 {% set chars_limit = 200 %}
 {% set page_name = "saes" %}
 
@@ -21,7 +29,6 @@
 				sont requis
 			</p>
         </header>
-        {{ messages.info }}
         <div class="px-6">
             {% for item in list_errors %}
                 <p class="rounded-lg p-3 bg-red-100 text-red-800 border-solid border-x border-y border-red-700 mb-3">{{ item }}</p>
