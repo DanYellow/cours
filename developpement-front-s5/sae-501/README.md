@@ -217,11 +217,11 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 ## Tâches à effectuer
 
 - [x] Lire les consignes
-- [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages...
 - [ ] Initialiser le projet sur github [(voir partie "utilisation de git")](#utilisation-de-git)
+- [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
@@ -279,7 +279,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Note : **le lien des images doit être absolu**
 
 ### Administration
-- [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil) depuis le backoffice qui lira/modifiera un fichier json
+- [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil du site BUT) depuis le backoffice qui lira/modifiera un fichier json
     - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
     - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec promesse) :
         - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
@@ -288,7 +288,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
-    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères déjà restants
+    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères restants
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
@@ -312,30 +312,13 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
-- [ ] Afficher le détail d'un message via une url dédiée. Par exemple : admin/messages/65687d7a0c092bb7d3f0c07c
+- [ ] Afficher le détail d'un message dans une page dédiée
 - [ ] Permettre de changer le logo de l'université dans le footer
   - **Vous ne devez pas utiliser de base de données**
-- [ ] Terminer les fonctionnalités implicites. Exemple : les liens qui vont vers des 404
-- [ ] Proposer un système de thème au niveau des couleurs dans l'administration. Présentement tout tourne autour du bleu, proposez un moyen de changer la couleur pour chaque utilisateur
-  - Vous ne devez pas utiliser une base de données pour stocker la valeur
-  - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
+- [ ] Terminer les fonctionnalités implicites. Exemple : corriger les liens qui vont vers des 404, etc.
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
-- Si votre formulaire doit permettre l'upload d'image, il doit respecter les conditions suivantes. Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body". :
-  - A la valeur "POST" pour la propriété "method"
-  - A l'attribut "enctype" avec la valeur "multipart/form-data"
-  - La route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`)
-- Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
-- Pensez à utiliser au maximum les avantages des templates. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
-- Tous les templates nunjucks importent des variables globales, vous pouvez trouver la liste complète dans le fichier `server/index.js` (vers la ligne 101), mais voici une liste non exhaustive des variables :
-  - `current_url` : URL courante (sans les query string params)
-  - `NODE_ENV` : Retourne "production" ou "development"
-    > Note 1 : Toutes les variables définies dans votre fichier env actif seront injectées dans tous les templates
-
-    > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web. Ce qui donnerait dans un template nunjucks : `{{ context()|dump }}`
-
-    > Note 3 : Si vous souhaitez ajouter d'autres variables globales, il est préférable de modifier la variable `context` dans le fichier `server/index.js`
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**

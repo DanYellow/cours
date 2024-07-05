@@ -25,3 +25,6 @@
 - [ ] Proposer la mise en place d'images responsives
 - [ ] Utiliser un éditeur de texte riche pour le corps d'un article
 - [Vous pouvez dans cette liste un ensemble de plugin javascript d'éditeur riches](https://github.com/JefMari/awesome-wysiwyg-editors)
+- [ ] Proposer un système de thème au niveau des couleurs dans l'administration. Présentement tout tourne autour du bleu, proposez un moyen de changer la couleur pour chaque utilisateur
+  - Vous ne devez pas utiliser une base de données pour stocker la valeur
+  - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)

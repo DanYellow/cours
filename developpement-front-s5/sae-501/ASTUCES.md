@@ -70,3 +70,21 @@ La fonction nunjucks transformera le code entre les accolades en "/toto/articles
 
 ## Gestion des retours à la ligne
 Si vos textes contenus dans la base de données contiennent des retours à la ligne, ils ne seront pas pris en compte lorsque vous les chargerez. Pour les afficher, il faudra utiliser la [fonction `nl2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks. Vous pouvez trouver un exemple dans le code dans le fichier `src/pages/front-end/about.njk`.
+
+## En vrac
+- Si votre formulaire doit permettre l'upload d'image, il doit respecter les conditions suivantes. Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body". :
+  - A la valeur "POST" pour la propriété "method"
+  - A l'attribut "enctype" avec la valeur "multipart/form-data"
+  - La route doit impérativement avoir le middleware "multer" (représenté dans certaines routes par `upload.single("image")`)
+  - L'input type image doit avoir comme valeur d'attribut "name" "image"
+    - Il y a un component `components/back-end/input-file.njk` qui est là pour gérer ceci
+- Lorsque vous utilisez la méthode `console.log()` dans un fichier du dossier "server/", le résultat ne s'affichera pas dans la console du navigateur mais dans la console de votre terminal
+- Pensez à utiliser au maximum les avantages des templates nunjucks. N'allez pas faire une duplication de code s'il y a possibilité de le découper en morceaux réutilisables.
+- Tous les templates nunjucks importent des variables globales, vous pouvez trouver la liste complète dans le fichier `server/index.js` (vers la ligne 101), mais voici une liste non exhaustive des variables :
+  - `current_url` : URL courante (sans les query string params)
+  - `NODE_ENV` : Retourne "production" ou "development"
+    > Note 1 : Toutes les variables définies dans votre fichier env actif seront injectées dans tous les templates
+
+    > Note 2 : Il existe une fonction nunjucks "context()" (non native) qui contient toutes les variables accessibles sur la page courante sous forme de JSON. Il faudra utiliser le filtre [`|dump`](https://mozilla.github.io/nunjucks/templating.html#dump) pour afficher le contenu sur votre page web. Ce qui donnerait dans un template nunjucks : `{{ context()|dump }}`
+
+    > Note 3 : Si vous souhaitez ajouter d'autres variables globales, il est préférable de modifier la variable `context` dans le fichier `server/index.js`
