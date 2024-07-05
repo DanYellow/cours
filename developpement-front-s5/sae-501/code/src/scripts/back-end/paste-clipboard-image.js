@@ -63,3 +63,10 @@ try {
 listClipboardUploadButton.forEach((item) => {
     item.addEventListener("click", getClipboardPermission);
 });
+
+// document.addEventListener('paste', e => {
+//     if(!["input", "textarea"].includes(document.activeElement.tagName.toLowerCase())) {
+//         e.preventDefault();
+//         pasteClipboard(e);
+//     }
+// });
