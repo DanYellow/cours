@@ -67,3 +67,6 @@ La fonction nunjucks transformera le code entre les accolades en "/toto/articles
 > Note : Le middleware `routeName` a été ajouté pour vous aider, **son utilisation est facultative.**
 
 > Note 2 : Toutes vos routes ainsi que leur nom sont accessibles dans la route `/debug/router`. Route accessible également via l'admin dans la partie "Debug".
+
+## Gestion des retours à la ligne
+Si vos textes contenus dans la base de données contiennent des retours à la ligne, ils ne seront pas pris en compte lorsque vous les chargerez. Pour les afficher, il faudra utiliser la [fonction `nl2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks. Vous pouvez trouver un exemple dans le code dans le fichier `src/pages/front-end/about.njk`.

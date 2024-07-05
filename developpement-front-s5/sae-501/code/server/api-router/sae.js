@@ -76,7 +76,7 @@ router.get(`/${base}`, async (req, res) => {
         ])
 
         const count = await SAE.count(
-            (listIds.length ? {_id: {$in: listIds}} : null)
+            (listIds.length ? { _id: { $in: listIds } } : null)
         );
 
         const queryParam = {...req.query}
