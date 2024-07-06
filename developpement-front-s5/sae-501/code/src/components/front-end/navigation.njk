@@ -1,8 +1,8 @@
 <nav class="max-w-[1200px] mx-auto navigation">
-    <ul data-navigation class="flex lg:justify-end gap-x-10 whitespace-nowrap overflow-x-auto pb-2 px-3">
+    <ul data-navigation class="flex lg:justify-end gap-x-10 overflow-x-auto pb-2 px-3">
         {% for menu_item in menu %}
             <li>
-                <a class="pt-10 block text-lg hover:text-pink-600 focus-within:text-pink-600" href="{{ menu_item.link }}">{{ menu_item.name }}</a>
+                <a class="pt-10 block whitespace-nowrap text-lg hover:text-pink-600 focus-within:text-pink-600" href="{{ menu_item.link }}">{{ menu_item.name }}</a>
             </li>
         {% endfor %}
     </ul>
