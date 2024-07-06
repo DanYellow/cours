@@ -2,7 +2,7 @@
 <html lang="fr" class="bg-neutral-100 @container/base relative">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>
             {% block title %}TITRE MANQUANT !
             {% endblock %}
@@ -29,7 +29,7 @@
     </head>
     <body class="min-h-screen">
         <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-blue-200 to-neutral-100"></div>
-        <div class=" px-6 py-5 flex gap-6 flex-col lg:flex-row">
+        <div class="px-safe mx-6 py-5 flex gap-6 flex-col lg:flex-row ">
             {% include "components/back-end/navigation.njk" %}
             <main class="w-full">
                 {% block main %}{% endblock %}
