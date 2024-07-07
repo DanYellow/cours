@@ -265,6 +265,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
     - Il faudra utiliser une variable nunjucks
+    - Des classes ont déjà été définies dans le fichier `src/styles/hero.scss`, libre à vous de les utiliser
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
 - [ ] Afficher la liste des articles sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher

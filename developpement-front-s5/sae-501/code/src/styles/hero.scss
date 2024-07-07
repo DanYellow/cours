@@ -1,7 +1,10 @@
 .bulle {
     position: relative;
-    margin-bottom: 6rem;
     margin-top: 4.75rem;
+    
+    @media (screen(sm)) {
+        margin-bottom: 6rem;
+    }
 }
 
 .bulle .titre {
@@ -60,32 +63,40 @@
     background-color: #ffe700;
 }
 
-.bulle-icone.gris {
-    background-color: #012a37;
+.bulle-icone.bleu {
+    background-color: #011d37;
 }
 
 .bulle-icone {
     position: absolute;
     top: -46px;
-    right: 283px;
+    right: 0;
     z-index: -1;
     width: 384px;
     height: 350px;
     transition: transform 0.3s;
     mask: url("/images/bulle.svg") no-repeat center / contain;
     -webkit-mask: url("/images/bulle.svg") no-repeat center / contain;
+
+    @media (screen(sm)) {
+        right: 283px;
+    }
 }
 
 .bulle-icone-bordure {
     position: absolute;
     top: -60px;
-    right: 241px;
+    right: 0;
     z-index: -1;
     width: 484px;
     height: 360px;
     transition: transform 0.3s;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
     -webkit-mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
+
+    @media (screen(sm)) {
+        right: 241px;
+    }
 }
 
 .bulle-icone-bordure.rose {
@@ -104,8 +115,8 @@
     background-color: #ee8f00;
 }
 
-.bulle-icone-bordure.gris {
-    background-color: #c9c9c9;
+.bulle-icone-bordure.bleu {
+    background-color: #00a2ff;
 }
 
 .bulle:hover .bulle-icone-bordure {
