@@ -316,6 +316,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Permettre de changer le logo de l'université dans le footer
   - **Vous ne devez pas utiliser de base de données**
 - [ ] Terminer les fonctionnalités implicites. Exemple : corriger les liens qui vont vers des 404, etc.
+- [ ] Mettre les membres du groupe dans le pied de page (fichier `src/layouts/back-end/base.njk`)
 
 # Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)

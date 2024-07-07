@@ -1,6 +1,4 @@
-@import "../mixins/media-queries.scss";
-
-@include tablet-max {
+@container table-responsive (max-width: theme('containers.2xl')) {
     table {
         border: 0;
     }
@@ -15,7 +13,6 @@
         position: absolute;
         width: 1px;
     }
-
     table tr {
         border-bottom: 1px solid #ddd;
         display: block;
