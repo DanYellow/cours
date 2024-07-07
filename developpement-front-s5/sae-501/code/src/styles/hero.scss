@@ -1,15 +1,13 @@
 .bulle {
     position: relative;
     margin-top: 4.75rem;
-    
-    @media (screen(sm)) {
-        margin-bottom: 6rem;
-    }
+    margin-bottom: 6rem;
 }
 
 .bulle .titre {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
+    text-align: left;
 
     @media (screen(sm)) {
         text-align: right;
@@ -17,7 +15,6 @@
 
     @media (max-width: theme('screens.sm')) {
         width: 100%;
-        text-align: left;
     }
 }
 

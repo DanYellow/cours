@@ -19,7 +19,7 @@
 ] %}
 
 {% block main %}
-    <ul class="flex justify-center gap-x-4 bg-neutral-50 my-9 sm:flex-row flex-col gap-y-3">
+    <ul class="flex justify-center gap-x-4 bg-neutral-50 my-9 sm:flex-row flex-col gap-y-3 w-fit md:mx-auto">
         {% for item in list_anchors %}
             <li>
                 <a href="#{{ item.hash }}" class="text-xl text-[#005A47] hover:text-black focus-within:text-black">{{ item.name }}</a>
