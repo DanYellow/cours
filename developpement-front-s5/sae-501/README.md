@@ -226,13 +226,14 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
     - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de votre fichier, sinon, celles qui suivront ne seront jamais appelées
-- [ ] Rendre le site responsive (des mixins scss et tailwind sont là pour vous aider)
-    - Il n'y a pas de maquette responsive, à vous de vous adapter
+- [ ] Rendre le site responsive (tailwind est là pour vous aider)
+    - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
+    - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
 - [ ] Mettre un favicon
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
     - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
-  - Quand vous utilisez la pseudo-classe ":focus" pensez toujours à mettre également la pseudo-classe ":focus-within"
+  - Quand vous utilisez la pseudo-classe ":focus" pensez toujours à mettre également la pseudo-classe ":focus-within". Il y a la mixin ":hocus" qui réunit les deux
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -248,13 +249,11 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
     - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier `src/data/menu.json`
         - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
-        ```js
-            router.get("/formation", async (req, res) => {/* [...] */})
-            // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
-            // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href"
-        ```
-    - [ ] Le site doit être responsive (des mixins scss et tailwind sont là pour vous aider)
-      - Il n'y a pas de maquette responsive, à vous de vous adapter
+    ```js
+    router.get("/formation", async (req, res) => {/* [...] */})
+    // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
+    // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href", et ce, même si le fichier nunjucks s'appelle "training.njk"
+    ```
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
     - **La page ne doit pas se recharger lors de la soumission du formulaire**
     - Il faudra utiliser un outil comme [axios](https://www.npmjs.com/package/axios) (déjà installé) ou fetch, api native de javascript
