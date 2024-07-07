@@ -41,12 +41,12 @@
     ), menu_entries) %}
 {% endif %}
 
-<aside class="self-start w-full lg:w-fit bg-white rounded-2xl flex-initial shadow-md static lg:sticky top-5 shrink-[3]">
+<aside class="self-start w-full lg:w-fit bg-white rounded-2xl flex-initial shadow-md static lg:sticky lg:top-5 shrink-[3]">
     <header>
         <a href="{{ admin_url }}" class="text-center block px-14 pt-6 pb-4 text-xl font-bold bg-gradient-to-b from-blue-900 to-slate-900 bg-clip-text text-transparent hover:from-blue-600 hover:to-slate-600">Administration SAÉ 501</a>
     </header>
     <hr class="h-px">
-    <ul data-navigation="back-end" class="flex md:flex-col pl-0 mb-0 flex-nowrap flex-row overflow-x-auto sm:overflow-x-visible">
+    <ul data-navigation="back-end" class="flex md:flex-col pl-0 mb-0 flex-nowrap flex-row overflow-x-auto md:overflow-x-visible">
         {% for item in menu_entries %}        
             <li class="mt-0.5 w-full border-t-2">
                 <a 
