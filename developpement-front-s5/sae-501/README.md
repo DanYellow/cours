@@ -240,7 +240,6 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 - [ ] Chaque page à une valeur de &lt;title> unique
   - Si la valeur n'est pas présente, il est indiqué "TITRE MANQUANT" dans le navigateur
   - Il y a un bloc nunjucks ```{% title %}{% endblock %}``` dédié dans les gabarits de base du dossier `layouts/`. Utilisez-le
-- [ ] Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
