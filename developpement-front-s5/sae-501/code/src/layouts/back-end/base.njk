@@ -29,7 +29,7 @@
     </head>
     <body class="min-h-screen">
         <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-blue-200 to-neutral-100"></div>
-        <div class="mr-[max(env(safe-area-inset-right),_theme(space.6))] ml-[max(env(safe-area-inset-left),_theme(space.6))] py-5 flex gap-6 flex-col md:flex-row landscape:flex-row">
+        <div class="mr-[max(env(safe-area-inset-right),_theme(space.6))] ml-[max(env(safe-area-inset-left),_theme(space.6))] py-5 flex gap-6 flex-col md:flex-row landscape:sm:flex-row">
             {% include "components/back-end/navigation.njk" %}
             <main class="basis-full @container/main">
                 {% block main %}{% endblock %}
