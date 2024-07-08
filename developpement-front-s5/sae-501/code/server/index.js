@@ -305,7 +305,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const listDomains = [hostip];
-const port = envVars?.parsed?.PORT || 3000;
+const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
     (async () => {
