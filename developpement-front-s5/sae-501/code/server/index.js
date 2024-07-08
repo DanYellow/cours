@@ -107,6 +107,14 @@ const getCurrentURL = (url) => {
     return computedURL;
 };
 
+const getAllCookies = (cookie) => {
+    const res = cookie?.split('; ').map((item) => {
+        return {[item.split("=")[0]]: item.split("=")[1]}
+    })
+
+    return res?.reduce(((result, curr) => Object.assign(result, curr)), {}) || {};
+}
+
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
@@ -123,6 +131,7 @@ app.use(function (req, res, next) {
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
         query_string_params: req.query,
+        list_cookies: getAllCookies(req.headers.cookie),
     };
 
     res.locals = {

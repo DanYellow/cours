@@ -15,7 +15,7 @@ router.get(`/${base}`, async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
-    let result = null;
+    let result = {};
     try {
         result = await axios(options);
     } catch (e) {}
@@ -33,7 +33,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     };
     const isEdit = req.params.id !== "add";
 
-    let result = null;
+    let result = {};
     let listErrors = [];
 
     try {
@@ -42,7 +42,6 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         }
     } catch (e) {
         listErrors = e.response.data.errors;
-        result = {};
     }
 
     res.render("/", {
@@ -54,7 +53,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
 // Create or update article
 router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
-    let ressource = null;
+    let ressource = {};
 
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 

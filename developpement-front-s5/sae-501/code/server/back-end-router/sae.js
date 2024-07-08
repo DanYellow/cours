@@ -17,7 +17,7 @@ router.get(`/${base}`, async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
-    let result = null;
+    let result = {};
     try {
         result = await axios(options);
     } catch (e) {}
@@ -37,7 +37,7 @@ router
         };
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 
-        let result = null;
+        let result = {};
         let listErrors = [];
 
         if (isEdit) {
@@ -45,7 +45,6 @@ router
                 result = await axios(options);
             } catch (e) {
                 listErrors = e.response.data.errors;
-                result = {};
             }
         }
 
