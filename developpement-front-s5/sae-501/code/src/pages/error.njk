@@ -2,7 +2,7 @@
 <html lang="en" class="dark:bg-gray-800 dark:text-white text-slate-800">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>Render error</title>
 
         <link rel="stylesheet" href="/styles/reset.css">
@@ -15,10 +15,10 @@
         {% endif %}
     </head>
     <body class="">
-        <div class=" bg-red-700 text-white text-xl">
-            <h1 class="px-6 py-3 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
+        <div class="bg-red-700 text-white text-xl">
+            <h1 class="px-safe px-6 py-3 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
         </div>
-        <div class="m-auto max-w-7xl p-6">
+        <div class="m-auto max-w-7xl p-6 px-safe">
             <p class="text-lg mb-4">{{ error.message }}</p>
             {% if sourceCode %}
                 <div class="dark:bg-slate-900 bg-yellow-50 rounded-md border-2 border-solid border-red-700">
