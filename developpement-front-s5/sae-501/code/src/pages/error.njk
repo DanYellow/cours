@@ -16,9 +16,9 @@
     </head>
     <body class="">
         <div class="bg-red-700 text-white text-xl">
-            <h1 class="px-safe px-6 py-3 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
+            <h1 class="pr-[max(env(safe-area-inset-right),_theme(space.6))] pl-[max(env(safe-area-inset-left),_theme(space.6))] py-3 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
         </div>
-        <div class="m-auto max-w-7xl p-6 px-safe">
+        <div class="m-auto max-w-7xl pr-[max(env(safe-area-inset-right),_theme(space.6))] pl-[max(env(safe-area-inset-left),_theme(space.6))]">
             <p class="text-lg mb-4">{{ error.message }}</p>
             {% if sourceCode %}
                 <div class="dark:bg-slate-900 bg-yellow-50 rounded-md border-2 border-solid border-red-700">
