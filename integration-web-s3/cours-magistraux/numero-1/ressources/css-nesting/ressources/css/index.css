@@ -4,48 +4,51 @@
     gap: 1.25rem;
     justify-content: center;
     margin-bottom: 2rem;
-    padding: 1rem 0;
+    margin-top: 1rem;
+    margin-right: -1rem;
+    padding: 0.25rem 0;
 
     @media (max-width: 767px) {
         overflow-x: scroll;
         flex-wrap: nowrap;
-        column-gap: 10px;
+        column-gap: 0.5rem;
         justify-content: flex-start;
         scroll-snap-type: x proximity;
-        margin-right: -1rem;
     }
 
-    .recette {
+    .recette-conteneur {
         scroll-snap-align: start;
         flex: 0 0 30%;
-        padding: 0.5rem;
-        transition: transform 350ms;
-        border-radius: 0.5rem;
-        /* overflow: hidden; */
-
-        &:hover,
-        &:focus-within {
-            background-color: white;
-            z-index: 9999;
-            outline: 2px solid rgb(0, 110, 255);
-
-            @media (prefers-color-scheme: dark) {
-                background-color: #202020;
-                outline-color: aliceblue;
-            }
-
-            .faux-bouton {
-                background: blue;
-            }
-        }
+        padding: 0 0.5rem;
 
         @media (max-width: 767px) {
             flex-basis: 85%;
         }
 
-        a {
-            text-decoration: none;
+        &:hover,
+        &:focus-within {
+            .recette {
+                background-color: white;
+                z-index: 9999;
+                outline: 2px solid rgb(0, 110, 255);
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: #202020;
+                    outline-color: aliceblue;
+                }
+
+                .faux-bouton {
+                    background: blue;
+                }
+            }
         }
+    }
+
+    .recette {
+        display: block;
+        transition: transform 350ms;
+        border-radius: 0.5rem;
+        text-decoration: none;
 
         figure {
             aspect-ratio: 1 / 1.1;
