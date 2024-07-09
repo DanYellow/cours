@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CM - JavaScript asynchrone - API Fetch</title>
+
+        <link rel="stylesheet" href="ressources/reset.css" />
+        <link rel="stylesheet" href="ressources/style.css" />
+
+        <script src="ressources/pokedex-avance.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <section>
+                <form action="" data-form-pkmn>
+                    <div class="form-el">
+                        <label for="nb_pkmn">Numéro du Pokémon</label>
+                        <input
+                            type="number"
+                            id="nb_pkmn"
+                            required
+                            name="nb_pkmn"
+                            data-search-input=""
+                            value="1"
+                            max="3025"
+                            min="1"
+                            step="1"
+                            class="num-dex"
+                        />
+                    </div>
+                    <button type="submit">Rechercher</button>
+                </form>
+            </section>
+            <section class="dex">
+                <figure class="sprite-conteneur">
+                    <img data-pkmn="image" alt="" />
+                </figure>
+                <section class="textes">
+                    <header class="entete-pkmn">
+                        <h1 data-pkmn="nom" class="nom-pkmn"></h1>
+                        <p data-pkmn="categorie" class="nom-categorie"></p>
+                    </header>
+                    <p data-pkmn="description" class="description-pkmn"></p>
+                    <p>Type(s)</p>
+                    <ul data-pkmn="types" class="liste-donnees-pkmn">
+                        <li>/</li>
+                    </ul>
+                    <p>Apparu dans les jeux suivants : </p>
+                    <ul data-pkmn="jeux" class="liste-donnees-pkmn">
+                        <li>/</li>
+                    </ul>
+                </section>
+            </section>
+        </main>
+    </body>
+</html>

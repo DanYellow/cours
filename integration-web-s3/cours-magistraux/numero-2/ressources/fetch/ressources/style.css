@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.95rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.paragraphe {
+    margin: 0.95rem 0;
+}
+
+.num-dex {
+    width: 4rem;
+}
+
+.form-el {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.sprite-conteneur {
+    flex: 0 0 15%;
+    display: flex;
+    place-content: center;
+}
+
+.sprite-conteneur img {
+    align-self: center;
+}
+
+.dex {
+    display: flex;
+    margin-top: 1rem;
+    border: 2px solid black;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 0.5rem;
+}
+
+.nom-pkmn {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.description-pkmn {
+    margin-bottom: 0.95rem;
+}
+
+.nom-categorie {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.entete-pkmn {
+    margin-bottom: 1.75rem;
+}
+
+.liste-donnees-pkmn {
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.type-pkmn {
+    padding: 0.25rem;
+    border: 1px solid black;
+    border-radius: 0.35rem;
+}
+
+.pokedex-avance {
+    width: 100%;
+    min-height: 500px;
+}
+
+.titre {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+
+.paragraphe {
+    margin-bottom: 1rem;
+}
+
+/* Système d'onglets */
+.tab-wrap {
+    border-radius: 6px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    list-style: none;
+    background-color: #fff;
+    margin: 40px 0;
+}
+
+.tab {
+    appearance: none;
+    position: absolute;
+}
+
+.tab + label {
+    box-shadow: 0 -1px 0 #eee inset;
+    border-radius: 6px 6px 0 0;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    background-color: #fff;
+    flex: 0 0 50%;
+
+    user-select: none;
+    text-align: center;
+    transition: 0.3s background-color ease, 0.3s box-shadow ease;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.tab:checked + label {
+    background-color: #f2f2f2;
+    z-index: 10;
+    font-weight: bold;
+}
+
+.tab:focus-visible + label {
+    outline: #333 solid 3px;
+}
+
+.tab:hover + label {
+    background-color: #f9f9f9;
+}
+
+.tab-content {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    border-radius: 0 0 0.5rem 0.5rem;
+    opacity: 0;
+    left: 0;
+    padding: 1rem;
+    border: 3px solid #f2f2f2;
+    border-top: none;
+}
+
+.tab:checked:nth-of-type(1) ~ .tab-content:nth-of-type(1) {
+    opacity: 1;
+    position: relative;
+    top: 0;
+    z-index: 100;
+}
+
+.tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2) {
+    opacity: 1;
+    position: relative;
+    top: 0;
+    z-index: 100;
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CM - JavaScript asynchrone - API Fetch</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <link rel="stylesheet" href="ressources/reset.css" />
+        <link rel="stylesheet" href="ressources/style.css" />
+
+        <script src="ressources/pokedex.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <h1 class="titre">CM - JavaScript asynchrone - API Fetch</h1>
+            <p class="paragraphe">
+                L'API fetch de javascript permet le chargement d'une ressource
+                sur le réseau (local ou distante) et retourne une promesse
+                contenant le contenu de la ressource. Ce contenu est très
+                souvent du JSON, mais ça peut être du simple texte.
+            </p>
+            <p class="paragraphe">
+                Etant donné que fetch retourne une promesse, fetch doit être
+                utilisé dans une fonction asynchrone, il est impératif
+                d'utiliser mots-clés "async" et "await". Le but de cet exemple
+                va être d'obtenir une ressource en provenance de deux API liées
+                à Pokémon. Ces API sont officieuses, elles proposent de
+                récupérer des informations en tout genre concernant la série de
+                jeux Pokémon, elle propose d'obtenir, et ce, gratuitement. Car
+                il existe des API payantes. Payante ou non, le principe reste le
+                même : on passe à la méthode "fetch" l'URL de l'API qu'on veut
+                requêter puis on attend son résultat pour l'exploiter.
+            </p>
+
+            <p class="paragraphe">
+                Le but de cet exemple sera très simple mais très instructif,
+                nous allons utiliser l'API Pokémon pour retourner les
+                informations sur un pokémon en fonction du numéro de Pokémon
+                entré dans le formulaire. Quelque soit l'API, vous devrez
+                toujours regarder la documentation pour savoir comment elle
+                fonctionne : paramètres attendus, réponse possible, limites,
+                etc.
+            </p>
+            <p class="note-information">
+                Ces deux API (Pokeapi et Tyradex) retournent les données au
+                format JSON. Et les deux exemples proposés ont leur code javascript
+                commenté.
+            </p>
+            <ul>
+                <li>
+                    <a
+                        href="https://pokeapi.co/docs/v2#pokemon"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Voir documentation Pokeapi - anglais - onglet "Pokédex
+                        avancé" (ouverture dans un nouvel onglet)</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://tyradex.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Voir documentation Tyradex - français - onglet "Pokédex
+                        simple" (ouverture dans un nouvel onglet)</a
+                    >
+                </li>
+            </ul>
+
+            <p class="paragraphe">
+                Dans chaque onglet, vous avez une liste d'améliorations
+                que vous pouvez réaliser pour vous exercer sur le javascript. En
+                cas de problème, n'oubliez pas de consulter la console du
+                navigateur > onglet console, pour potentiellement obtenir des
+                informations sur l'origine de votre erreur.
+            </p>
+
+            <div class="tab-wrap">
+                <input
+                    type="radio"
+                    id="tab1"
+                    name="tabGroup1"
+                    class="tab"
+                    checked
+                />
+                <label for="tab1">Pokédex simple</label>
+
+                <input type="radio" id="tab2" name="tabGroup1" class="tab" />
+                <label for="tab2">Pokédex avancé</label>
+
+                <div class="tab-content">
+                    <section>
+                        <form action="" data-form-pkmn>
+                            <div class="form-el">
+                                <label for="nb_pkmn">Numéro du Pokémon</label>
+                                <input
+                                    type="number"
+                                    id="nb_pkmn"
+                                    required
+                                    name="nb_pkmn"
+                                    data-search-input=""
+                                    value="1"
+                                    max="3025"
+                                    min="1"
+                                    step="1"
+                                    class="num-dex"
+                                />
+                            </div>
+                            <button type="submit">Rechercher</button>
+                        </form>
+                    </section>
+                    <section class="dex">
+                        <figure class="sprite-conteneur">
+                            <img data-pkmn="image" alt="" />
+                        </figure>
+                        <section class="textes">
+                            <header class="entete-pkmn">
+                                <h1 data-pkmn="nom" class="nom-pkmn"></h1>
+                                <p
+                                    data-pkmn="categorie"
+                                    class="nom-categorie"
+                                ></p>
+                            </header>
+                        </section>
+                    </section>
+                    <details class="consignes-conteneur">
+                        <summary>
+                            <h1 class="h1">
+                                Pour aller plus loin (cliquer pour afficher /
+                                cacher)
+                            </h1>
+                        </summary>
+                        <ul>
+                            <li>Afficher par défaut la première entrée du Pokédex</li>
+                            <li>
+                                Afficher les types, la taille et la masse du
+                                Pokémon affiché
+                            </li>
+                            <li>
+                                Afficher le ratio mâle/female grâce à chartjs
+                            </li>
+                            <li>
+                                Afficher les listes des évolutions du Pokémon
+                                (nom + conditions à atteindre)
+                            </li>
+                            <li>Améliorer le design</li>
+                            <li>Utiliser SCSS</li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="tab-content">
+                    <iframe
+                        src="index-avance.html"
+                        frameborder="0"
+                        class="pokedex-avance"
+                    ></iframe>
+                    <details class="consignes-conteneur">
+                        <summary>
+                            <h1 class="h1">
+                                Pour aller plus loin (cliquer pour afficher /
+                                cacher)
+                            </h1>
+                        </summary>
+                        <ul>
+                            <li>
+                                Afficher les multiples descriptions françaises
+                                du Pokémon chargé. Il faudra utiliser la méthode
+                                "filter" sur la liste des descriptions
+                            </li>
+                            <li>
+                                Permettre de rejouer le cri d'un Pokémon si les
+                                données ont déjà a été chargées
+                            </li>
+                            <li>
+                                Appliquer une couleur spécifique pour chaque
+                                type. Il faudra vous aider d'un object
+                                Javascript pour ce faire
+                            </li>
+                            <li>
+                                Afficher le dimorphisme sexuel des Pokémon et
+                                l'indiquer via les sprites
+                            </li>
+                            <li>Proposer de change la langue du Pokédex</li>
+                            <li>
+                                Complexe : Mettre en place un système de cache
+                                pour la liste des jeux pour éviter de faire des
+                                appels d'API à chaque fois.
+                            </li>
+                            <li>Améliorer le design</li>
+                            <li>Utiliser SCSS</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+            <div class="note-information">
+                <p>Sources</p>
+                <ul style="list-style: revert; padding: revert">
+                    <li>
+                        <a
+                            href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/Asynchronous/Introducing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Introduction au JavaScript asynchrone</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Documentation fetch</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/try...catch"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Documentation try...catch</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </body>
+</html>

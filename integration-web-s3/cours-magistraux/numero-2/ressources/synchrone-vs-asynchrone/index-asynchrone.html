@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CM - Synchrone vs asynchrone</title>
+
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+
+    <script src="./asynchrone.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Exemple code asynchrone</h1>
+        <div class="form-el">
+          <label for="quota">Quantité de nombres premiers :</label>
+          <input id="quota" name="quota-async" value="1000000" type="number"
+          min="0" />
+        </div>
+
+        <button data-async-btn-generer type="button">
+          Générer des nombres premiers
+        </button>
+        <button data-async-btn-recharger type="button">Recharger</button>
+
+        <p data-async-resultat></p>
+        <div class="form-el">
+          <label for="text">Texte utilisateur :</label>
+          <textarea id="text" rows="5" cols="62">
+Essayez de m'éditer après avoir cliqué sur le bouton "Générer des nombres premiers"</textarea
+          >
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

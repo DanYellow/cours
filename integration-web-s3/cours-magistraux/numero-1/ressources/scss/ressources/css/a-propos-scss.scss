@@ -1,0 +1,23 @@
+// styles.scss
+@import "_base";
+
+.conteneur-image {
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+        height: 200px;
+    }
+
+    img {
+        position: absolute;
+        transform: translate(0, -50%);
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
