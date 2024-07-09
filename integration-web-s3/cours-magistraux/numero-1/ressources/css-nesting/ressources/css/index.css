@@ -1,0 +1,92 @@
+.liste-recettes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+
+    @media (max-width: 767px) {
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+        column-gap: 10px;
+        justify-content: flex-start;
+        scroll-snap-type: x proximity;
+        margin-right: -1rem;
+    }
+
+    .recette {
+        scroll-snap-align: start;
+        flex: 0 0 30%;
+        padding: 0.5rem;
+        transition: transform 350ms;
+        border-radius: 0.5rem;
+        /* overflow: hidden; */
+
+        &:hover,
+        &:focus-within {
+            background-color: white;
+            z-index: 9999;
+            outline: 2px solid rgb(0, 110, 255);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #202020;
+                outline-color: aliceblue;
+            }
+
+            .faux-bouton {
+                background: blue;
+            }
+        }
+
+        @media (max-width: 767px) {
+            flex-basis: 85%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        figure {
+            aspect-ratio: 1 / 1.1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .textes {
+            margin-top: 1.3rem;
+            padding-bottom: 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+            @media (prefers-color-scheme: dark) {
+                color: aliceblue;
+            }
+        }
+
+        .nom {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.85rem;
+        }
+
+        .faux-bouton {
+            width: fit-content;
+            padding: 0.75rem 1.2rem;
+            background-color: rgb(0, 110, 255);
+            color: aliceblue;
+            border-radius: 0.5rem;
+            @media (prefers-color-scheme: dark) {
+                color: aliceblue;
+            }
+        }
+    }
+}
