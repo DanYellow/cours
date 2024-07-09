@@ -109,8 +109,8 @@ const getCurrentURL = (url) => {
 
 const getAllCookies = (cookie) => {
     const res = cookie?.split('; ').map((item) => {
-        return {[item.split("=")[0]]: item.split("=")[1]}
-    })
+        return { [item.split("=")[0]]: item.split("=")[1] };
+    });
 
     return res?.reduce(((result, curr) => Object.assign(result, curr)), {}) || {};
 }
