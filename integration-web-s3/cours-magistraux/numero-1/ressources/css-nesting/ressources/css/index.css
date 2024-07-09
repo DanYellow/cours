@@ -4,8 +4,6 @@
     gap: 1.25rem;
     justify-content: center;
     margin-bottom: 2rem;
-    margin-top: 1rem;
-    margin-right: -1rem;
     padding: 0.25rem 0;
 
     @media (max-width: 767px) {
@@ -14,6 +12,7 @@
         column-gap: 0.5rem;
         justify-content: flex-start;
         scroll-snap-type: x proximity;
+        margin-right: -1rem;
     }
 
     .recette-conteneur {
