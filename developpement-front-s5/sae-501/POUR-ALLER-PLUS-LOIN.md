@@ -25,4 +25,7 @@
 - [ ] Proposer la mise en place d'images responsives
 - [ ] Utiliser un éditeur de texte riche pour le corps d'un article
 - [Vous pouvez dans cette liste un ensemble de plugin javascript d'éditeur riches](https://github.com/JefMari/awesome-wysiwyg-editors)
+- [ ] Appliquer des meta og sur toutes les pages
+    - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
+    - Note : **le lien des images doit être absolu**
 

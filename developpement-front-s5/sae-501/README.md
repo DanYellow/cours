@@ -273,9 +273,6 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Cette page n'existe pas, à vous de faire le design
     - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
     - La couleur de la bulle change en fonction de l'auteur (optionnel)
-- [ ] Appliquer des meta og sur toutes les pages
-    - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
-    - Note : **le lien des images doit être absolu**
 
 ### Administration
 - [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil du site BUT) depuis le backoffice qui lira/modifiera un fichier json
@@ -379,6 +376,11 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 - **Est-il possible d'utiliser le framework CSS bootstrap ?**
     
     Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment utile dans ce projet.
+
+- **Est-il possible d'utiliser une bibliothèque JS comme React ou Angular ?**
+    
+    Vous pouvez si vous estimez que c'est nécessaire. Aucun de ces outils n'a été installé en revanche, à vous de le faire. En règle générale, si vous avez besoin d'un plugin ou node_module supplémentaire, n'hésitez pas à l'installer.
+
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
