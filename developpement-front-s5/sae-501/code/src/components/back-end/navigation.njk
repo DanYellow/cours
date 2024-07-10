@@ -41,12 +41,12 @@
     ), menu_entries) %}
 {% endif %}
 
-<aside class="self-start w-full bg-white rounded-2xl flex-initial shadow-md static md:sticky md:top-5 basis-[min-content]">
+<aside class="self-start w-full bg-white rounded-2xl flex-initial shadow-md static xl:sticky md:portrait:sticky md:top-5 basis-[min-content]">
     <header>
         <a href="{{ admin_url }}" class="text-center block mx-8 xl:mx-14 pt-6 pb-4 text-xl font-bold bg-gradient-to-b from-blue-900 to-slate-900 bg-clip-text text-transparent hover:from-blue-600 hover:to-slate-600">Administration SAÉ 501</a>
     </header>
     <hr class="h-px">
-    <ul data-navigation="back-end" class="flex md:flex-col pl-0 mb-0 flex-nowrap flex-row overflow-x-auto md:overflow-x-visible">
+    <ul data-navigation="back-end" class="flex md:flex-col pl-0 mb-0 flex-nowrap flex-row landscape:lg:max-xl:flex-row overflow-x-auto ">
         {% for item in menu_entries %}        
             <li class="mt-0.5 w-full {{ 'sm:border-t-2 sm:border-slate-100 sm:border-solid' if loop.last else "" }} ">
                 <a 
@@ -55,7 +55,7 @@
                         {{ 'bg-yellow-100' if loop.last and NODE_ENV == "development" else "" }} 
                         {{ 'bg-blue-50' if (page_name == item.key) else "" }} 
                         px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base hover:bg-blue-100 whitespace-nowrap
-                        sm:max-lg:landscape::justify-center
+                        landscape:lg:max-xl:justify-center
                     "
                 >
                     {{ item.name }}
