@@ -1,7 +1,15 @@
 .bulle {
     position: relative;
     margin-top: 4.75rem;
-    margin-bottom: 6rem;
+    
+
+    @media (screen(sm)) {
+        margin-bottom: 2rem;
+    }
+
+    @media (screen(lg)) {
+        margin-bottom: 6rem;
+    }
 }
 
 .bulle .titre {
