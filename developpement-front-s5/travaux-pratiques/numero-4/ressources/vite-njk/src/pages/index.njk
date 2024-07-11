@@ -1,55 +1,88 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8"/>
-		<link rel="icon" type="image/svg+xml" href="/vite.svg"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>SAE 203 - Nunjucks edition</title>
-		<link rel="stylesheet" href="/assets/css/reset.css">
-		<link rel="stylesheet" href="/assets/css/fonts.css">
-		<script type="module" src="/src/scripts/main.js" defer></script>
-	</head>
-	<body>
-		<nav class="navigation-principale conteneur-1280">
-			<ul>
-				<li><a href="./">ACCUEIL</a></li>
-				<li><a href="./">ÉQUIPE DE RÉDACTION</a></li>
-			</ul>
-		</nav>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>TP Nunjucks</title>
+        <link rel="stylesheet" href="/assets/css/reset.css">
+        <link rel="stylesheet" href="/assets/css/fonts.css">
+        <script type="module" src="/src/scripts/main.js" defer></script>
+    </head>
+    <body class="conteneur-principal conteneur-1280">
+        <nav class="navigation-principale">
+            <ul>
+                <li>
+                    <a href="./">MES PATISSERIES</a>
+                </li>
+                <li>
+                    <a href="./">A PROPOS</a>
+                </li>
+            </ul>
+        </nav>
 
-		<header class="bulle conteneur-1280">
-			<article class="titre">
-				<h1 class="txt-grand">
-					<span>Bachelor</span>
-					<span>Universitaire de</span>
-					<span>Technologie</span>
-				</h1>
-				<h2 class="txt-petit">
-					<span>Métiers du Multimédia et de</span>
-					<span>l'Internet</span>
-				</h2>
-			</article>
-			<article class="bulle-icone rouge"></article>
-			<article class="bulle-icone-bordure rouge"></article>
-		</header>
-
-		<main class="conteneur-principal conteneur-1280">
-			<h1 class="titre">Articles sur le BUT MMI</h1>
-			<section class="colonne">
-				<section class="liste-articles">
-					<article class="article">
-						<figure>
-							<img src='https://placehold.co/600x400' alt='' loading="lazy">
-						</figure>
-						<section class='textes'>
-							<h1 class='titre'>Test</h1>
-							<p class='description'>
-								Lorem ipsum
-							</p>
-						</section>
-					</article>
-				</section>
-			</section>
-		</main>
-	</body>
+        <main>
+            <h1 class="titre">MES PATISSERIES</h1>
+            <ul class="pastries-list">
+                <li class="pastry">
+                    <figure>
+                        <img src='/assets/images/brioche-cannelle.jpg' alt='' loading="lazy">
+                    </figure>
+                    <section class='textes'>
+                        <h1 class='titre'>Brioche à la cannelle ou Kanelbulle</h1>
+                        <p class='description'>
+                            1,75€ / unité
+                        </p>
+                    </section>
+                </li>
+                <li class="pastry">
+                    <figure>
+                        <img src='/assets/images/lunettes.jpg' alt='' loading="lazy">
+                    </figure>
+                    <section class='textes'>
+                        <h1 class='titre'>Lunettes fraise ou abricot</h1>
+                        <p class='description'>
+                            1,5€ / unité
+                        </p>
+                    </section>
+                </li>
+                <li class="pastry">
+                    <figure>
+                        <img src='/assets/images/macarons.jpg' alt='' loading="lazy">
+                    </figure>
+                    <section class='textes'>
+                        <h1 class='titre'>Macarons (plusieurs goûts)</h1>
+                        <p class='description'>
+                            20€ / la douzaine
+                        </p>
+                    </section>
+                </li>
+                <li class="pastry">
+                    <figure>
+                        <img src='/assets/images/opera-the-matcha.jpg' alt='' loading="lazy">
+                    </figure>
+                    <section class='textes'>
+                        <h1 class='titre'>Opéra au thé matcha</h1>
+                        <p class='description'>
+                            3.5 € / la part
+                        </p>
+                    </section>
+                </li>
+                <li class="pastry">
+                    <figure>
+                        <img src='/assets/images/financiers.jpg' alt='' loading="lazy">
+                    </figure>
+                    <section class='textes'>
+                        <h1 class='titre'>Financiers</h1>
+                        <p class='description'>
+                            5 € / la demi-douzaine
+                        </p>
+                    </section>
+                </li>
+            </ul>
+        </main>
+        <footer class="footer">
+            <p>Crédits Le ptit chef - 2003-2024</p>
+        </footer>
+    </body>
 </html>

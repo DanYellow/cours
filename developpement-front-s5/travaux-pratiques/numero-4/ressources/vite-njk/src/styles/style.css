@@ -1,88 +1,93 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #fafafa;
-  font-family: "Open Sans", sans-serif;
+    background-color: #fef4ff;
+    font-family: "Open Sans", sans-serif;
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .conteneur-1280 {
-  max-width: 1280px;
-  padding: 0 0.8rem;
-  margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 0.8rem;
+    margin: 0 auto;
 }
 
 .navigation-principale ul {
-  display: flex;
-  justify-content: flex-end;
-  column-gap: 2.625rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2.625rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .navigation-principale a {
-  text-decoration: none;
-  color: black;
-  padding-top: 2.25rem;
-  border-top: 3px solid transparent;
-  display: block;
+    text-decoration: none;
+    color: black;
+    padding-top: 2.25rem;
+    border-top: 3px solid transparent;
+    display: block;
 }
 
 .navigation-principale a:hover,
-.navigation-principale a:focus {
-  color: #ef509f;
+.navigation-principale a:focus-within {
+    color: #ef509f;
 }
 
 .titre {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.066666666666667rem;
-  max-width: 800px;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+    max-width: 800px;
+}
+
+.pastries-list {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
 }
 
 .colonne {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
-.article:focus {
-  outline: dotted 1px black;
+.pastry:focus-within {
+    outline: dotted 1px black;
 }
 
-.article {
-  color: black;
-  text-decoration: none;
-  width: 750px;
-  box-shadow: 0px 3px 6px #00000029;
-  margin-bottom: 2.15rem;
+.pastry {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: rgb(255, 250, 250);
 }
 
-.article .titre {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.pastry .titre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
 }
 
-.article .textes {
-  padding: 34px 100px 80px 60px;
+.pastry img {
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 100%;
 }
 
-.article .description {
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  display: -webkit-box;
+.pastry .textes {
+    padding: 1.5rem 1.75rem 2.75rem;
 }
 
-.article img {
-  object-fit: fill;
-  height: 100%;
-  width: 100%;
+.footer {
+    margin-top: 2.5rem;
+    text-align: center;
 }
