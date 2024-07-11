@@ -75,12 +75,29 @@ img {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.75rem;
+    color: #632c99;
 }
 
 .pastry img {
     aspect-ratio: 1/1;
     height: auto;
     width: 100%;
+    display: block;
+}
+
+.pastry figure {
+    position: relative;
+}
+
+.pastry figure::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    z-index: 999;
+    right: 0.875rem;
+    left: 0.875rem;
+    bottom: 0;
+    background: rgb(255, 250, 250);
 }
 
 .pastry .textes {

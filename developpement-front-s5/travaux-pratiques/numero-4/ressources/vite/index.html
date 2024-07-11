@@ -116,7 +116,17 @@
           </li>
           <li>Utilisez un tableau pour afficher les pâtisseries sur la page d'accueil
           </li>
-          <li>Réécrivez le CSS (une partie) du projet en SCSS ou avec le CSS Nesting et rendez le site compatible au mobile grâce aux media queries
+          <li>Réécrivez le CSS (une partie) du projet en SCSS ou avec le CSS Nesting et rendez le site responsive grâce aux media queries
+            <section class="note-information">
+                <p>Notes si vous souhaitez utiliser SASS/SCSS : </p>
+                <ul>
+                    <li>SASS/SCSS n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
+                    <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
+                    <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour le rendre plus digeste</li>
+                </ul>
+                <hr>
+                <p>La page index utilise CSS Grid pour faire la mise en page des pâtisseries. Pensez à diminuer / augmenter le nombre de colonnes / lignes pour rendre le site responsive</p>
+            </section>
             <ul class="note-information">
                 <li>Si vous souhaitez utiliser SASS/SCSS, il n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
                 <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
