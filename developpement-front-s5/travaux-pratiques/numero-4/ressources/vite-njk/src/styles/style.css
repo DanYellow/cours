@@ -13,13 +13,13 @@ img {
     max-width: 100%;
 }
 
-.conteneur-1280 {
+.container-1280 {
     max-width: 1280px;
     padding: 0 0.8rem;
     margin: 0 auto;
 }
 
-.navigation-principale ul {
+.main-nav ul {
     display: flex;
     justify-content: flex-end;
     column-gap: 2.625rem;
@@ -28,7 +28,7 @@ img {
     margin-bottom: 1rem;
 }
 
-.navigation-principale a {
+.main-nav a {
     text-decoration: none;
     color: black;
     padding-top: 2.25rem;
@@ -36,8 +36,8 @@ img {
     display: block;
 }
 
-.navigation-principale a:hover,
-.navigation-principale a:focus-within {
+.main-nav a:hover,
+.main-nav a:focus-within {
     color: #ef509f;
 }
 

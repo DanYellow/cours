@@ -1,13 +1,10 @@
 {
   "menu": [
     {
-      "name": "ACCUEIL"
+      "name": "MES PATISSERIES"
     },
     {
       "name": "A PROPOS"
-    },
-    {
-      "name": "CONTACT"
     }
   ]
 }

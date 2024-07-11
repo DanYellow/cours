@@ -111,36 +111,36 @@
         <ol class="liste-consignes">
           <li>Affichez le menu grâce au contenu du fichier menu.json contenu dans le dossier src/data
             <ul>
-                <li>Vous utilisez Twig, il est possible de séparer le menu dans un fichier dédié pour ensuite l'importer dans d'autres fichiers</li>
+                <li>Vous utilisez Nunjucks, il est possible de séparer le menu dans un fichier dédié pour ensuite l'importer dans d'autres fichiers</li>
             </ul>
           </li>
-          <li>Complétez le fichier menu.json de façon à ce que vous puissiez gérer les liens pour chaque entrée du menu 
-            <ul>
-                <li>Il faudra ajouter une nouvelle clé pour chaque élémént du tableau pour ce faire</li>
-            </ul>
+          <li>Utilisez un tableau pour afficher les pâtisseries sur la page d'accueil
           </li>
           <li>Réécrivez le CSS (une partie) du projet en SCSS ou avec le CSS Nesting et rendez le site compatible au mobile grâce aux media queries
-            <ol class="note-information">
+            <ul class="note-information">
                 <li>Si vous souhaitez utiliser SASS/SCSS, il n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
                 <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
                 <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour le rendre plus digeste</li>
-            </ol>
+            </ul>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">Voir documentation de CSS Nesting (ouverture dans un nouvel onglet)</a></li>
+            </ul>
           </li>
-          <li>Créez une nouvelle page twig reprenant une partie de la structure actuelle comme le menu et les bulles</li>
+          <li>Créez la page "à propos" avec Nunjucks. Pour utiliser toute la puissance de Nunjucks, pensez à créer un gabarit (dossier /layouts) de base qui sera partagé entre les deux pages</li>
           <li>Faites un lien entre les pages dans le menu
             <ul>
-                <li>Note : L'attribut "href" doit contenir un lien vers un fichier .html, pas .twig</li>
+                <li>Note : L'attribut "href" doit contenir un lien vers un fichier .html, pas .njk</li>
                 <!-- <li>Note 2 : Les modifications de lien doivent être faites dans le fichier src/data/menu.json</li> -->
             </ul>
           </li>
-          <li>Gérez la couleur de la bulle + la page active dans le menu grâce à une variable Twig
+          <li>Gérez la page active dans le menu grâce à une variable Nunjucks
             <ul>
                 <li><a href="https://mozilla.github.io/nunjucks/templating.html#set" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
             </ul>
           </li>
-          <li>Avec l'aide un autre fichier json, gérez la liste d'articles sur la page d'accueil. A vous de définir la structure en fonction de l'existant.
+          <li>A l'aide de fichiers json, gérez la page détails d'un produit
             <ul>
-                <li>Vous pouvez rajouter une clé pour accéder au contenu complet d'un article, si vous le souhaitez</li>
+                <li>Dans le cas de fichiers json, il faudra faire le lien vers le nom du fichier + html. Par exemple "hello.json" -> "hello.html"</li>
                 <li>Pour rappel, l'extension twig de vite charge un fichier json de deux façons :
                     <ul>
                         <li>Un fichier json qui partage son nom avec un template et situés au même niveau. Ex : ./index.twig → ./index.twig.json</li>
