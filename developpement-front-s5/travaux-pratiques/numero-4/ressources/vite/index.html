@@ -37,7 +37,7 @@
             </ul>
           </li>
           <li>Ajoutez un fichier .css ou .js dans le dossier public et chargez-le dans votre fichier .html qu'observez-vous quand vous mettez à jour le fichier ?
-            <p class="note-information">N'oubliez pas qu'il ne faut pas mettre "/public/" dans le chemin du fichier.</p>
+            <p class="note-information">N'oubliez pas qu'il ne faut pas mettre "/public/" dans le chemin du fichier juste un slash (/) au début du chemin.</p>
         </li>
         </ol>
         <section class="note-information">
@@ -47,6 +47,9 @@
                 <li>build : compile le projet pour la production</li>
                 <li>preview : lance un serveur de production à partir d'un build (nécessite d'avoir lancé la commande <code>npm run build</code> avant)</li>
             </ol>
+            <p>
+                <a href="https://vitejs.dev/guide/cli.html" target="_blank">En savoir plus sur les commandes vite (ouverture dans un nouvel onglet)</a>
+            </p>
         </section>
       </details>
       <details class="consignes-conteneur">
@@ -116,7 +119,7 @@
           </li>
           <li>Utilisez un tableau pour afficher les pâtisseries sur la page d'accueil
           </li>
-          <li>Réécrivez le CSS (une partie) du projet en SCSS ou avec le CSS Nesting et rendez le site responsive grâce aux media queries
+          <li>Réécrivez le CSS (une partie) du projet en SCSS ou avec le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">CSS Nesting</a> et rendez le site responsive grâce aux media queries
             <section class="note-information">
                 <p>Notes si vous souhaitez utiliser SASS/SCSS : </p>
                 <ul>
@@ -125,14 +128,9 @@
                     <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour le rendre plus digeste</li>
                 </ul>
                 <hr>
-                <p>La page index utilise CSS Grid pour faire la mise en page des pâtisseries. Si CSS Gris vous êtes inconnu, le site mdn propose une <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout" target="_blank">introduction complète à la techno (ouverture dans un nouvel onglet).</a> 
-                    Mais en gros le but ici sera de diminuer / augmenter le nombre de colonnes / lignes pour rendre cette partie responsive</p>
+                <p>La page index utilise CSS Grid pour faire la mise en page des pâtisseries. Si CSS Grid vous êtes inconnu, le site mdn propose une <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout" target="_blank">introduction complète à la techno (ouverture dans un nouvel onglet).</a> 
+                    Mais en gros le but ici sera de diminuer / augmenter le nombre de colonnes / lignes pour rendre cette partie responsive. Sachez également qu'il existe des <a href="https://grid.layoutit.com/" target="_blank">générateurs de code pour CSS Grid</a></p>
             </section>
-            <ul class="note-information">
-                <li>Si vous souhaitez utiliser SASS/SCSS, il n'est pas installé dans le projet. Ne pas oublier de faire <code>npm install -D sass</code></li>
-                <li>Il y a des mixins (des blocs) permettant de gérer le responsive dans le fichier src/assets/styles/media-queries.scss. Il y a des exemples à la fin du fichier.</li>
-                <li>Pensez à partager le CSS en plusieurs fichiers SCSS pour le rendre plus digeste</li>
-            </ul>
             <ul>
                 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">Voir documentation de CSS Nesting (ouverture dans un nouvel onglet)</a></li>
             </ul>
