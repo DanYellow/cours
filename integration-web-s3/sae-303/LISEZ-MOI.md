@@ -128,7 +128,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
   Non. Vous devrez faire juste une production visuelle et rien d'autre.
 - **Est-ce que je peux limiter le jeu de données ?**
   
-  Il est possible d'ometre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
+  Il est possible d'omettre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
 - **Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?**
   
   Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser cette SAE.**
