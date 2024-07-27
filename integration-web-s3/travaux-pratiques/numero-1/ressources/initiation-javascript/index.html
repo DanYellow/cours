@@ -26,14 +26,6 @@
                     Créez un nouveau fichier html (avec la structure de base d'un site
                     web. Rappel, vous avez le raccourci "html:5")
                 </li>
-                <li>
-                    Copiez la balise &lt;main> (et son contenu) dans le fichier HTML que vous
-                    venez de créer (si elle existe)
-                </li>
-                <li>
-                    Copiez les balises &lt;link> présentes dans le &lt;head> dans le fichier html que vous
-                    venez de créer
-                </li>
                 <li>Sauvegardez-le et commencez votre TP dedans</li>
             </ol>
         </details>
@@ -116,9 +108,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
                     <code>console.log()</code>
                     <ul>
-                        <li>Vous devez mettre l'appel de la fonction dans la méthode console.log(). <br> Exemple :
-                            <code>console.log(maFonction(41, "hello"))</code>
-                        </li>
+                        <li>Vous pouvez stocker le retour de la fonction dans une variable ou appeler directement la fonction dans la méthode <code>console.log()</code>.</li>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
                                 rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
@@ -136,22 +126,22 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 </li>
                 <li>Créez les fonctions suivantes :
                     <ul>
-                        <li>Une fonction qui prend en paramètre un entier et le multiplie par lui-même</li>
-                        <li>Une fonction qui prend en paramètres deux chaînes de caractères et souhaite bonjour à cette
+                        <li>Prend en paramètre un entier et le multiplie par lui-même</li>
+                        <li>Prend en paramètres deux chaînes de caractères et souhaite bonjour à cette
                             personne
                             <ul>
                                 <li>Pour ce faire, il faudra concaténer une chaîne de caractères. <a
                                         href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals"
-                                        rel="noopener noreferrer" target="_blank">Voilà la documentation sur la
+                                        rel="noopener noreferrer" target="_blank">Documentation sur la
                                         contacténation de chaînes de caractères (ouverture dans un
                                         nouvel onglet)</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>Une fonction qui prend en paramètres deux entiers, les multiplie et retourne <span
+                        <li>Prend en paramètres deux entiers, les multiplie et retourne <span
                                 class="texte-gras">toujours</span> un <span class="texte-gras">produit strictement
                                 positif</span> </li>
-                        <li>Une fonction qui prend en paramètres deux entiers qui les multiplie <span
+                        <li>Prend en paramètres deux entiers qui les multiplie <span
                                 class="texte-gras">sans utiliser</span> l'opérateur de multiplication</span></li>
                     </ul>
                     <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé
@@ -163,6 +153,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
 <span style="color:rgb(78, 201, 176); font-weight:400;">console</span>.log(maFonction())</code></pre>
                 </li>
             </ol>
+            <p class="note-information">N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites.</p>
         </details>
         <details class="consignes-conteneur">
             <summary>
@@ -171,11 +162,11 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
             <ol class="liste-consignes">
                 <li>Créez les fonctions suivantes :
                     <ul>
-                        <li>Une fonction qui prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
+                        <li>Prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
                             du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
                             Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
                             de Sarcelles"</li>
-                        <li>Une fonction qui prend en paramètre un nombre entier et qui retourne une chaîne de
+                        <li>Prend en paramètre un nombre entier et qui retourne une chaîne de
                             caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
                             besoins) :
                             <ul>
@@ -204,7 +195,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Ajoutez un bouton (balise &lt;button type="button">) et appelez une des fonctions que vous avez crée
+                <li>Ajoutez un bouton (balise &lt;button type="button">) et au clic appelez une des fonctions que vous avez crée
                     précédemment (ou une nouvelle)
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Récupérer un élément dans la page HTML (document.querySelector)</a></li>
@@ -214,23 +205,28 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/click_event#exemples"
+                            rel="noopener noreferrer" target="_blank">Voir documentation de l'évènement "click"
+                            (ouverture dans un
+                            nouvel onglet)</a>
+                    </li>
                     </ul>
-                    <p class="note-information">Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
+                    <section class="note-information">
+                    <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
                     <pre>
 <code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;">cible.<span class="hljs-title function_">addEventListener</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&#x27;click&#x27;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">maFonction</span>())
-}) </code></pre>
+}) </code></pre></section>
                 </li>
-                <li>
-                    En utilisant, la fonction textContent, changez le texte sur les éléments ayant la classe "mon-texte"
-                    en cliquant sur le bouton précédemment crée
-                    <p class="note-information">Il y a plusieurs éléments avec la classe "mon-texte", il faudra
-                        impérativement utiliser une boucle pour appliquer la propriété <code>.textContent</code> sur
+                <li>Créez plusieurs balises &lt;p> avec du texte et la même classe CSS. Puis, grâce à la propriété "textContent", faites changer le contenu textuel de ces balises lorsqu'on clique sur un bouton (vous pouvez réutiliser le même ou un créer un nouveau).
+                    <section class="note-information"><p>Etant donné que vous devez modifier plusieurs éléments en même temps, il faudra
+                        impérativement utiliser une boucle pour modifier la propriété <code>.textContent</code> sur
                         chaque élément. Par exemple : </p>
                     <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
 <span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
     listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
 }</code></pre>
+</section>
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
                                 rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent
@@ -252,10 +248,12 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[data-attribute-personnalise]&quot;</span>)</code></pre>
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[data-attribut-personnalise]&quot;</span>)</code></pre>
                         <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
-                            le data-attribute "data-attribute-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
+                            le data-attribute "data-attribut-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
+                        <p>Si vous souhaitez cibler un data-attribut avec une valeur spécifique, il faut procéder de la façon suivante : </p>
+                        <pre><code id="htmlViewer" style="color:rgb(252, 232, 195); font-weight:400;background-color:rgb(28, 27, 25);background:rgb(28, 27, 25);display:block;padding: .5em;">document<span style="color:rgb(104, 168, 228); font-weight:400;">.querySelector</span>(&quot;<span style="color:rgb(192, 122, 190); font-weight:400;">[data-attribut-personnalise=<span style="color:rgb(152, 188, 55); font-weight:400;">&#x27;ma valeur&#x27;</span>]</span>&quot;);</code></pre>
                     </article>
                     <ul>
                         <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans le fichier css/style.css.
@@ -264,6 +262,12 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                 rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
                                 (ouverture dans un
                                 nouvel onglet)</a></li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
+                            rel="noopener noreferrer" target="_blank">Voir documentation des data-attributes
+                            (ouverture dans un
+                            nouvel onglet)</a>
+                        </li>
                     </ul>
                 </li>
             </ol>
@@ -274,20 +278,27 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
             </summary>
             <ol class="liste-consignes">
                 <li>Ajoutez un champ de texte de type "text" (pas besoin de le mettre dans un formulaire)</li>
-                <li>Ciblez le champ et ajoutez l'évènement "input". Cet évènement permet d'écouter tout changement sur un champ "en temps réel"</li>
-                <li>Affichez un message sur une balise &lt;p> en fonction du texte entré par l'utilisateur
+                <li>Ciblez le champ via un data-attribute et ajoutez l'évènement "input". Cet évènement permet d'écouter tout changement sur un champ "en temps réel"</li>
+                <li>Affichez le contenu de la balise &lt;input /> dans une balise &lt;p> qui aura été elle-même ciblée avec un data-attribute
                     <article class="note-information">
                         <p>Pour récupérer le texte écrit, il faudra récupérer l'argument de notre notion d'évènement. Par exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;input&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> (<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) </span>{
-    <span style="color:rgb(87, 166, 74); font-weight:400;">// textChamp contient le texte actuellement dans le champ de texte</span>
-    <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> textChamp = evt.target.value;
+                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.<span class="hljs-title function_">addEventListener</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;input&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;">(<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) =&gt;</span> {
+    <span style="color:rgb(87, 166, 74); font-weight:400;">// texteChamp contient le texte actuellement dans le champ de texte</span>
+    <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> texteChamp = evt.<span style="color:rgb(220, 220, 220); font-weight:400;">target</span>.<span style="color:rgb(220, 220, 220); font-weight:400;">value</span>;
 })</code></pre>
                     </article>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/input_event"
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/input_event"
                                 rel="noopener noreferrer" target="_blank">Voir documentation l"évènement "input"
                                 (ouverture dans un
                                 nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
+                            rel="noopener noreferrer" target="_blank">Voir documentation des data-attributes
+                            (ouverture dans un
+                            nouvel onglet)</a>
                         </li>
                     </ul>
                 </li>
@@ -354,11 +365,4 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
             </ul>
         </details>
     </header>
-    <main>
-        <section class="conteneur-principal">
-            <p class="mon-texte">Mon texte</p>
-            <p class="mon-texte">Mon autre texte</p>
-            <p class="mon-texte">Un troisième texte</p>
-        </section>
-    </main>
 </body>
