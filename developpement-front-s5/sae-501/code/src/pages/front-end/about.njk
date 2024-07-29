@@ -19,7 +19,7 @@
 ] %}
 
 {% block main %}
-    <ul class="flex justify-center gap-x-4 bg-neutral-50 mb-9 sm:flex-row flex-col gap-y-3 w-fit md:mx-auto">
+    <ul class="flex justify-center gap-x-4 bg-neutral-50 mb-9 sm:flex-row flex-col gap-y-3 w-fit sm:mx-auto">
         {% for item in list_anchors %}
             <li>
                 <a href="#{{ item.hash }}" class="text-xl text-[#005A47] hover:text-black focus-within:text-black">{{ item.name }}</a>
@@ -74,11 +74,11 @@
         </a>
     </h1>
 
-    <ul class="snap-mandatory snap-x md:px-0 pb-2 grid sm:max-lg:landscape:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-5 my-4 grid-flow-col auto-cols-[92%] grid-cols-none sm:grid-flow-row overflow-x-auto sm:overflow-x-visible -mr-4 sm:mr-0">
+    <ul class="snap-mandatory snap-x sm:px-0 pb-2 grid sm:max-lg:landscape:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-5 my-4 grid-flow-col auto-cols-[92%] grid-cols-none sm:grid-flow-row overflow-x-auto sm:overflow-x-visible -mr-4 sm:mr-0">
         {% for item in list_saes.data %}
-            <li class="h-full snap-start px-0.5 last:pr-3">
+            <li class="h-full snap-start px-0.5 last:pr-3 sm:max-lg:landscape:h-[65vh] sm:max-lg:landscape:max-h-[300px]">
                 <article class="shadow h-full rounded-lg overflow-hidden flex flex-col sm:max-lg:landscape:flex-row lg:landscape:flex-col">
-                    <figure class="h-[300px] sm:h-[325px] sm:max-lg:landscape:h-[65vh] aspect-square">
+                    <figure class="h-[300px] lg:h-[325px] sm:max-lg:landscape:h-full aspect-square">
                         <img class="h-full w-full object-cover" src="{{ 'images/default-sae-image.png' if item.image|length == 0 else '/uploads/' ~ item.image }}" alt="">
                     </figure>
                     <section class="p-8 pb-10 sm:pb-14 grow">
