@@ -5,7 +5,6 @@ const toggleDragAndDropIndicator = (element, show = true) => {
     const hoverClass = Array.from(element.querySelector("label").classList)
         .find((cssClass) => cssClass.includes("hover"))
         ?.split(":")[1];
-   
 
     if (show) {
         element.classList.remove("paused");

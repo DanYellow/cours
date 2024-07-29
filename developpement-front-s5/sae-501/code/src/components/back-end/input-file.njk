@@ -38,18 +38,18 @@
                     </td>
                 </tr>
                 <tr class="{{ border_classes }} max-h-fit">
-                    <td class="h-full py-3" colspan="2">
+                    <td class="py-3" colspan="2">
                         <div 
                             class="flex flex-col gap-y-4 p-5 
-                                h-full items-center
+                                items-center
                                 rounded-lg animated-border relative
                             "
                             data-drag-n-drop-area="{{ name }}"
                         >
-                            <p class="text-slate-600">Glissez-déposez votre image</p>
-                            <p class="text-sm">ou</p>
+                            <p class="text-slate-600 z-10">Glissez-déposez votre image</p>
+                            <p class="text-sm z-10">ou</p>
 
-                            <div class="flex gap-3 flex-col sm:flex-row items-center">
+                            <div class="flex gap-3 flex-col sm:flex-row items-center z-10">
                                 <label 
                                     class="text-sm 
                                     py-2 px-4
@@ -80,9 +80,9 @@
                                 </button>
                             </div>
                            
-                            <p class="mt-1 text-sm text-slate-500" data-input-file-indicator="{{ name }}">Fichiers {{ accepts }} seulement (taille max. 800kB)</p>
+                            <p class="mt-1 text-sm text-slate-500 z-10" data-input-file-indicator="{{ name }}">Fichiers {{ accepts }} seulement (taille max. 800kB)</p>
                         
-                            <p class="rounded-lg p-2 flex items-center justify-center gap-2 bg-red-100 border-solid border-x border-y border-red-700" data-incorrect-upload="{{ name }}">
+                            <p class="rounded-lg p-2 flex items-center justify-center gap-2 bg-red-100 border-solid border-x border-y border-red-700 z-10" data-incorrect-upload="{{ name }}">
                                 <span data-error-message>Format incorrect</span>
                                 <button type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
