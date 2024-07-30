@@ -70,7 +70,7 @@
 
 .bulle-icone {
     position: absolute;
-    top: -46px;
+    
     right: 0;
     z-index: -1;
     width: 384px;
@@ -78,15 +78,19 @@
     transition: transform 0.3s;
     mask: url("/images/bulle.svg") no-repeat center / contain;
     -webkit-mask: url("/images/bulle.svg") no-repeat center / contain;
+    transform: scale(0.7);
+    top: -87px;
 
     @media (screen(sm)) {
         right: 283px;
+        transform: scale(1);
+        top: -46px;
     }
 }
 
 .bulle-icone-bordure {
     position: absolute;
-    top: -60px;
+    top: -101px;
     right: 0;
     z-index: -1;
     width: 484px;
@@ -94,9 +98,12 @@
     transition: transform 0.3s;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
     -webkit-mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
+    transform: scale(0.7);
 
     @media (screen(sm)) {
         right: 241px;
+        transform: scale(1);
+        top: -60px;
     }
 }
 
@@ -121,9 +128,17 @@
 }
 
 .bulle:hover .bulle-icone-bordure {
-    transform: translate(-30px, 4px);
+    transform:  scale(0.7) translate(-30px, 4px);
+    @media (screen(sm)) {
+        transform:  scale(1) translate(-30px, 4px);
+
+    }
 }
 
 .bulle:hover .bulle-icone {
-    transform: translate(5px, -6px);
+    transform:  scale(0.7) translate(5px, -6px);
+    @media (screen(sm)) {
+        transform:  scale(1) translate(5px, -6px);
+
+    }
 }
