@@ -1,6 +1,6 @@
 import "/src/styles/base.css";
 import "/src/styles/tailwind.css";
-import "/src/styles/back-end/index.scss";
+import "/src/styles/back-end/index.css";
 
 import "./back-end/delete-modal.js";
 import "./back-end/preview-upload.js";

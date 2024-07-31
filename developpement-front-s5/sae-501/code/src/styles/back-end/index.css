@@ -32,12 +32,12 @@
 
 ::backdrop {
     backdrop-filter: blur(3px);
-    background-color: rgba(107, 114, 128, 0.35); //theme("colors.gray.500");
+    background-color: rgba(107, 114, 128, 0.35); /* theme("colors.gray.500"); */
     position: fixed;
     pointer-events: fill;
 }
 
-// Source : https://dev.to/chokcoco/fantastic-css-border-animation-5166
+/* Source : https://dev.to/chokcoco/fantastic-css-border-animation-5166 */
 .animated-border {
     --distance: 15px;
     --animation-speed: 2.25s;

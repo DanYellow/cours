@@ -1,6 +1,6 @@
 import "/src/styles/base.css";
 import "/src/styles/tailwind.css";
-import "/src/styles/back-end/index.scss";
+import "/src/styles/back-end/index.css";
 
 const tableRoutes = document.querySelector("[data-table-routes] tbody");
 const tableRoutesRows = tableRoutes?.querySelectorAll("tr");
