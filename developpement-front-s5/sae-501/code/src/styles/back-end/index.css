@@ -1,32 +1,33 @@
-@container main (max-width: theme('containers.2xl')) {
+@container main (width <= theme('containers.2xl')) {
     table {
         border: 0;
-    }
 
-    table thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-    table tr {
-        border-bottom: 1px solid #ddd;
-        display: block;
-    }
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
 
-    table td {
-        display: block;
-        text-align: left;
-    }
+        tr {
+            border-bottom: 1px solid #ddd;
+            display: block;
+        }
 
-    table td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        display: block;
+        td {
+            display: block;
+            text-align: left;
+
+            &::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+            }
+        }
     }
 }
 
