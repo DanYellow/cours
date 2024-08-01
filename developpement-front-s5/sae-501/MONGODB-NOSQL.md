@@ -85,7 +85,7 @@ const createSAE = async () => {
     }
 }
 ```
-Ce code simplifié issu du fichier `code/server/api-router/sae.js` nous permet de créer une SAE dans la collection associée (saes).
+Ce code simplifié, issu du fichier `code/server/api-router/sae.js`, nous permet de créer une SAE dans la collection associée (saes).
 
 Nous ferons ensemble la collection "messages", elle nous permettra de sauvegarder les messages crées depuis le formulaire de contact.
 
@@ -137,7 +137,7 @@ router.get(`/saes`, async (req, res) => {
 Mongoose propose plusieurs manières de requêter la base de données, dépendamment ce que vous souhaitez faire.
 
 ### Tout rechercher - Model.find()
-Permet de récupérer tous les éléments correspondants à un critère. La méthode `find()` peut prendre en premier paramètre un objet correspondant aux conditions. Exemple :
+Permet de récupérer tous les éléments correspondants à un critère. La méthode `find()` peut prendre en premier paramètre un objet correspondant aux prédicats de recherche. Exemple :
 ```js
 // Ici on récupère dans notre modèle tous les documents ayant exactement la valeur 18 pour la propriété "age"
 await Model.find({ age: 18 });
@@ -151,13 +151,14 @@ await Model.findById("507f1f77bcf86cd799439011");
 ```
 A noter que dans certains cas, passer un _id sous forme de chaîne de caractères ne fonctionne pas. Il faudra caster cette chaîne en ObjectId grâce au constructeur `new mongoose.Types.ObjectId()`.
 ```js
-await Model.findById(new mongoose.Types.ObjectId("507f1f77bcf86cd799439011"));
+const searchID = new mongoose.Types.ObjectId("507f1f77bcf86cd799439011");
+await Model.findById(searchID);
 ```
 
 ### Chercher un élément par critères - Model.findOne()
-Récupère un élément correspondant aux critères passés sous forme d'objet (comme pour `find()`). Exemple :
+Récupère un élément correspondant aux prédicats passés sous forme d'objet (comme pour `find()`). Exemple :
 ```js
-// Ici on récupère le première modèle ayant comme valeur "Croatia" pour le champ "country" ET "mmi" pour le champ "formation"
+// Ici on récupère le premier modèle ayant comme valeur "Croatia" pour le champ "country" ET "mmi" pour le champ "formation"
 await Model.findOne({ country: 'Croatia', formation: "mmi" });
 ```
 Si vous souhaitez appliquer des conditions exclusives, vous pouvez utiliser le mot-clé [$or](https://www.mongodb.com/docs/manual/reference/operator/query/or/) de la façon suivante :
