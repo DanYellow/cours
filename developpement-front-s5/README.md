@@ -1,6 +1,6 @@
 Apprentissages critiques :
-	- AC34.01 : Produire des pages et des applications Web responsives
-	- AC34.03 : Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
+- AC34.01 : Produire des pages et des applications Web responsives
+- AC34.03 : Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
 
 Apprentissage du cours :
 - Approfondir les connaissances de nodejs
