@@ -17,7 +17,7 @@ mockApi.fetchNationalHolidays.mockImplementation((param) => {
 
   // We can force promise rejection if the param of the function is "fail"
   if (param === "fail") {
-    return Promise.reject([]);
+    return Promise.reject({ error: "Error" });
   }
 
   return Promise.resolve(mockedData);

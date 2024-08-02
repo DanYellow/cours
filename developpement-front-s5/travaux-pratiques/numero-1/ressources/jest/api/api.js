@@ -4,7 +4,9 @@ const fetchNationalHolidays = (region = "metropole") =>
   axios
     .get(`https://calendrier.api.gouv.fr/jours-feries/${region}.json`)
     .then((response) => response.data)
-    .catch(() => []);
+    .catch((error) => {
+        return { error };
+    });
 
 export {
     fetchNationalHolidays
