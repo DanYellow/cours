@@ -20,9 +20,12 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            En vous inspirant de l'exemple dans les slides du cours, créez et affichez votre propre template à un fichier HTML que vous aurez créer.
+            En vous inspirant de l'exemple dans les slides du cours, créez et affichez votre propre template à un fichier HTML que vous aurez crée.
             <ul>
               <li>Si vous avez oublié "html:5" puis touche entrée, vous crée un squelette de page html</li>
+              <li>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/template" target="_blank" rel="noopener noreferrer">Voir documentation de &lt;template> (ouverture dans un nouvel onglet)</a>
+              </li>
             </ul>
           </li>
         </ol>
@@ -40,19 +43,21 @@
             </ul> 
           </li>
         </ol>
-        <p class="note-information">Si il est préférable d'utiliser un data-attribute pour cibler un élément. Si votre template est relativement simple (des balises uniques), vous pouvez cibler directement la balise, mais attention si choix de balise n'est pas sûr.</p>
+        <p class="note-information">S'il est préférable d'utiliser un data-attribute pour cibler un élément, vous pouvez cibler directement la balise si la structure est simple.</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>
-            Utilisez la fonction "getListNationalHolidays" contenue dans le fichier index.js
-          </li>
-          <li>Affichez son contenu grâce à un template. Ceci peut être une liste ou un tableau</li>
+            <li>Ajoutez un bouton qui, au clic, effectue les actions suivantes :
+                <ul>
+                    <li>Appelle la fonction "getListNationalHolidays" (contenue dans le fichier index.js)</li>
+                    <li>Affiche les dates grâce à la balise &lt;template>. Ceci peut être via une liste ou un tableau</li>
+                </ul>
+            </li>
         </ol>
-        <p class="note-information">L'API retourne une liste.</p>
+        <p class="note-information">L'API retourne une liste d'objet ayant la structure : {name, value}</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
