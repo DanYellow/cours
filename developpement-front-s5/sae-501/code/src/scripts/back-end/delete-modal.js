@@ -5,8 +5,6 @@ const closeModalBtn = document.querySelector("[data-deletion-modal] [data-close-
 const deleteItemModalBtn = document.querySelector("[data-deletion-modal] [data-delete-item]")
 const errorMessageModal = document.querySelector("[data-deletion-modal] [data-error-modal]")
 
-let focusTrap = null;
-
 const displayDeleteItemModal = (e) => {
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
     deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName
@@ -28,10 +26,9 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
         .catch((error) => {
             errorMessageModal.textContent = error.response.data.error || "Erreur";
             errorMessageModal.classList.remove("hidden");
-        }).finally(() => {
             deleteItemModalBtn.disabled = false;
             closeModalBtn.disabled = false;
-        })
+        });
 })
 
 document.querySelectorAll('[data-delete-url]').forEach((item) => {

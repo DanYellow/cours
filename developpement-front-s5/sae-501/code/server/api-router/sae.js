@@ -320,7 +320,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
         }
     });
 
-    return res.status(200).json(ressource)
+    return res.status(200).json(ressource);
 });
 
 /**
