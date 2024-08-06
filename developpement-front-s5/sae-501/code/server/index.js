@@ -247,24 +247,25 @@ const getContextData = (root) => {
                     !Array.isArray(value)
                 ) {
                     return getThroughObj(value, key);
-                } else {
-                    const objKeyPath = pathKey.filter(Boolean);
-                    res = {
-                        ...res,
-                        ...objKeyPath.reduceRight(
-                            (acc, obj) => {
-                                return { [obj]: acc };
-                            },
-                            {
-                                [key]: value,
-                                ...objKeyPath.reduce(
-                                    (acc, resKey) => acc[resKey],
-                                    res
-                                ),
-                            }
-                        ),
-                    };
-                }
+                } 
+                
+                const objKeyPath = pathKey.filter(Boolean);
+                res = {
+                    ...res,
+                    ...objKeyPath.reduceRight(
+                        (acc, obj) => {
+                            return { [obj]: acc };
+                        },
+                        {
+                            [key]: value,
+                            ...objKeyPath.reduce(
+                                (acc, resKey) => acc[resKey],
+                                res
+                            ),
+                        }
+                    ),
+                };
+                
             }
         });
     };
@@ -275,7 +276,10 @@ const getContextData = (root) => {
 };
 
 nunjucksEnv.addGlobal("context", function () {
-    return getContextData(this.ctx);
+    if (process.env.NODE_ENV === "development") {
+        return getContextData(this.ctx);
+    }
+    return {};
 });
 
 nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
