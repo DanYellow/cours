@@ -32,7 +32,7 @@
 }
 
 ::backdrop {
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
     background-color: rgba(107, 114, 128, 0.35); /* theme("colors.gray.500"); */
     position: fixed;
     pointer-events: fill;
