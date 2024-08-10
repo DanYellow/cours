@@ -287,9 +287,6 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères restants
-- [ ] Gérer "proprement" les messages d'erreur
-    - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
-    - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
     - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
 - [ ] Afficher les messages envoyés depuis le formulaire de contact

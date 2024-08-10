@@ -1,5 +1,5 @@
 # Pour aller plus loin - tâches optionnelles 
-### A faire après avoir effectué toutes les tâches obligatoires du fichier [README.md](./README.md)
+### A faire après avoir effectué toutes les tâches obligatoires du fichier [README.md](./README.md#tâches-à-effectuer)
 
 - [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
     - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
@@ -19,7 +19,7 @@
   -  Il faudra mettre à jour l'API des SAE pour afficher que les SAE activées sur le site
   - Il faudra modifier le modèle de la SAE pour gérer l'activation / désactivation
 - [ ] Système de recherche (administration et/ou site but)
-  - Il faudra mettre à jour les API pour gérér les paramètres de recherche
+  - Il faudra mettre à jour les API pour gérér les prédicats de recherche
   - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
 - [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
 - [ ] Proposer la mise en place d'images responsives
@@ -31,3 +31,6 @@
 - [ ] Rendre unique le champ "title" dans le modèle "SAE"
   - Mongoose permet l'ajout d'une clé "unique" dans un modèle. [Voir exemple](https://mongoosejs.com/docs/api/schematype.html#SchemaType.prototype.unique()).
   - Pour une question de confort, il sera préférable de mettre en place une API pour valider le champ "title" qui sera appelé lors de l'évènement "blur" sur le champ
+- [ ] Gérer "proprement" les messages d'erreur
+    - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
+    - Les messages d'erreurs sont dans les dossiers "server" et "database"
