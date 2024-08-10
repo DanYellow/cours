@@ -24,7 +24,7 @@ const previewUpload = (e) => {
 
     const errorMessage = imageValidator(file, listAllowedMimeType);
     if (errorMessage) {
-        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
+        // errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
         errorMessageContainer.classList.remove("hidden");
     } else {
         const imgRelated = document.querySelector(

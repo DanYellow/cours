@@ -5,6 +5,11 @@ import forms from "@tailwindcss/forms";
 
 export default {
     content: ["./src/**/*.{js,ts,jsx,tsx,njk}"],
+    safelist: [
+        {
+            pattern: /!?(bg|text)-.+/,
+        },
+    ],
     theme: {
         extend: {
             spacing: {

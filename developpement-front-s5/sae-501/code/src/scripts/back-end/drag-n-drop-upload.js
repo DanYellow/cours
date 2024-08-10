@@ -3,15 +3,15 @@ const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
 const toggleDragAndDropIndicator = (element, show = true) => {
     const hoverClass = Array.from(element.querySelector("label").classList)
-        .find((cssClass) => cssClass.includes("hover"))
-        ?.split(":")[1];
+        .filter((item) => item.includes("hover"))
+        .map((item) => item.replace("hover:", "!"));
 
     if (show) {
         element.classList.remove("paused");
     } else {
         element.classList.add("paused");
         if (hoverClass) {
-            element.querySelector("label").classList.remove(String(hoverClass));
+            element.querySelector("label").classList.remove(...hoverClass);
         }
     }
 };
@@ -32,10 +32,11 @@ listDragNDropArea.forEach((item) => {
         e.preventDefault();
 
         const hoverClass = Array.from(item.querySelector("label").classList)
-            .find((cssClass) => cssClass.includes("hover"))
-            ?.split(":")[1];
+            .filter((item) => item.includes("hover"))
+            .map((item) => item.replace("hover:", "!"));
+
         if (hoverClass) {
-            item.querySelector("label").classList.add(String(hoverClass));
+            item.querySelector("label").classList.add(...hoverClass);
         }
 
         toggleDragAndDropIndicator(item, true);
