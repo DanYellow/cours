@@ -28,4 +28,6 @@
 - [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
-
+- [ ] Rendre unique le champ "title" dans le modèle "SAE"
+  - Mongoose permet l'ajout d'une clé "unique" dans un modèle. [Voir exemple](https://mongoosejs.com/docs/api/schematype.html#SchemaType.prototype.unique()).
+  - Pour une question de confort, il sera préférable de mettre en place une API pour valider le champ "title" qui sera appelé lors de l'évènement "blur" sur le champ
