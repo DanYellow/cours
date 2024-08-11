@@ -1,4 +1,4 @@
-@container main (width <= theme('containers.2xl')) {
+@container main (width <= theme('containers.3xl')) {
     table {
         border: 0;
 
