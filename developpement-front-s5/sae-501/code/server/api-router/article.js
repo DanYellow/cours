@@ -47,9 +47,21 @@ const base = "articles";
  *        required: false
  *        schema:
  *          type: string
- *          enum: [ "desc", "asc"]
+ *          enum: ["desc", "asc"]
  *          example: "desc"
- *        description: Sorting order of articles related to their last update time. If the param is missing the order is "desc".
+ *          default: desc
+ *        description: Sort articles related to their last update time. If the param is missing the order is "desc".
+ *      - in: query
+ *        name: is_active
+ *        required: false
+ *        schema:
+ *          type: string
+ *          enum: ["true", "false", "all"]
+ *          example: "all"
+ *          default: all
+ *        description: | 
+ *          Search articles related to their "is_active" key value. If the value is unknown only `{ is_active: false }` articles will be returned.
+ *          **Note : You cannot use that predicate with search by _id or slug**
  *     responses:
  *       200:
  *         description: Returns all articles
@@ -73,13 +85,19 @@ router.get(`/${base}`, async (req, res) => {
     if (req.query.id && !Array.isArray(req.query.id)) {
         listIds = [listIds];
     }
-    listIds = listIds || []
+    listIds = listIds || [];
+
+    const isActive = req.query.is_active?.toLowerCase() || "all";
 
     try {
         const listRessources = await getArticles(
             listIds.length ? listIds : [],
-            { ...req.query, page, perPage },
+            { ...req.query, page, perPage, isActive },
         );
+
+        const searchPredicates = {
+            ...(isActive !== "all" ? { is_active: isActive === "true" } : {}),
+        }
 
         const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
 
@@ -87,11 +105,11 @@ router.get(`/${base}`, async (req, res) => {
             $or: [
                 { _id: { $in: listBsonIds } },
                 { slug: { $in: listIds } }
-            ]
+            ],
         }
 
-        const count = await Article.countDocuments(listIds.length ? countQuery : {})
-        
+        const count = await Article.countDocuments(listIds.length ? countQuery : searchPredicates)
+
         const queryParam = Object.fromEntries(
             Object.entries({ ...req.query }).filter(([_, value]) =>
                 Boolean(value)
@@ -489,7 +507,11 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
 const getArticles = async (id, queryParams) => {
     const computedQueryParams = {
         sorting: "desc",
-        ...queryParams
+        ...queryParams,
+    }
+
+    const searchPredicates = {
+        ...(queryParams.isActive !== "all" ? { is_active: queryParams.isActive === "true" } : {}),
     }
 
     const isArray = Array.isArray(id);
@@ -516,11 +538,13 @@ const getArticles = async (id, queryParams) => {
             ),
         ...(isArray
             ? [
+                { $match: searchPredicates },
                 { $sort: { updated_at: computedQueryParams.sorting === "asc" ? 1 : -1 } },
                 {
                     $skip: Math.max(computedQueryParams.page - 1, 0) * computedQueryParams.perPage,
                 },
-                { $limit: computedQueryParams.perPage }
+                { $limit: computedQueryParams.perPage },
+                
               ]
             : []),
         {

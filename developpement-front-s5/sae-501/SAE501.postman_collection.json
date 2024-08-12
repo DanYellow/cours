@@ -258,7 +258,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/articles?per_page&page&sorting",
+							"raw": "{{base_url}}/api/articles?per_page&page&sorting&is_active=all",
 							"host": [
 								"{{base_url}}"
 							],
@@ -278,6 +278,11 @@
 								{
 									"key": "sorting",
 									"value": null
+								},
+								{
+									"key": "is_active",
+									"value": "all",
+									"description": "Available values : all|false|true"
 								}
 							]
 						}
