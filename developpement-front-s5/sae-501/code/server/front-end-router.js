@@ -40,15 +40,15 @@ router.get("/", routeName("homepage"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     const options = {
         method: "GET",
-        url: `${res.locals.base_url}/api/articles?${queryParams}`,
+        url: `${res.locals.base_url}/api/articles?${queryParams}&is_active=true`,
     };
-    let result = null;
+    let result = {};
     try {
         result = await axios(options);
     } catch (e) {}
 
     res.render("pages/front-end/index.njk", {
-        list_articles: [],
+        list_articles: result.data,
     });
 });
 
@@ -59,7 +59,7 @@ router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
         url: `${res.locals.base_url}/api/saes?per_page=9`,
     };
 
-    let result = null;
+    let result = {};
     try {
         result = await axios(options);
     } catch (e) {}

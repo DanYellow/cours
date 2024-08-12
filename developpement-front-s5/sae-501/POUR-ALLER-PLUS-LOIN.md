@@ -34,3 +34,4 @@
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
+- [ ] Afficher 3 par 3 les SAE de la page "a propos" via AJAX

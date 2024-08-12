@@ -268,7 +268,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Il faudra utiliser une variable nunjucks
     - Des classes ont déjà été définies dans le fichier `src/styles/hero.css`, libre à vous de les utiliser
     - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
-- [ ] Afficher la liste des articles sur la page d'accueil
+- [ ] Afficher la liste des articles **actifs** sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
 - [ ] Ajouter une page affichant en détails un auteur
