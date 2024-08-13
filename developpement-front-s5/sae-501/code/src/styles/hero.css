@@ -24,7 +24,7 @@
 
 .bulle .txt-grand {
     font-size: 2.375rem;
-    color: black;
+    color: theme("colors.slate.900");
 
     @media (screen(sm)) {
         font-size: 3.375rem;
@@ -40,7 +40,7 @@
 }
 
 .bulle .txt-petit {
-    color: black;
+    color: theme("colors.slate.900");
     font-size: 1.65rem;
 
     @media (screen(sm)) {
