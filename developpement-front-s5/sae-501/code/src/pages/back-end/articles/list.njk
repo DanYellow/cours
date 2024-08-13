@@ -32,7 +32,7 @@
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b hover:bg-blue-50" aria-sort="{{ "ascending" if using_asc else "descending" }}">
                         {% set sort_param = "desc" if using_asc == true else "asc" %}
-                        <a href="{{ "?sorting=" ~ sort_param }}">
+                        <a href="{{ "?sorting=" ~ sort_param }}" class="block">
                             Dernière mise à jour <span aria-hidden="true">{{ "▲" if using_asc else "▼" }}</span>
                         </a>
                     </th>

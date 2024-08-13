@@ -35,3 +35,5 @@
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Afficher 3 par 3 les SAE de la page "a propos" via AJAX
+- [ ] Mettre en place un système de galerie à place d'un upload d'image pour chaque entité
+  - Il faudra mettre en place un nouveau modèle pour gérer les images et ayant de préférence une relation de type One-to-Many avec les entités où se trouveront ces images
