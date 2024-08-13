@@ -128,7 +128,7 @@
 }
 
 .bulle:hover .bulle-icone-bordure {
-    transform:  scale(0.7) translate(-30px, 4px);
+    transform: scale(0.7) translate(-30px, 4px);
     @media (screen(sm)) {
         transform:  scale(1) translate(-30px, 4px);
 
@@ -136,7 +136,7 @@
 }
 
 .bulle:hover .bulle-icone {
-    transform:  scale(0.7) translate(5px, -6px);
+    transform: scale(0.7) translate(5px, -6px);
     @media (screen(sm)) {
         transform:  scale(1) translate(5px, -6px);
 
