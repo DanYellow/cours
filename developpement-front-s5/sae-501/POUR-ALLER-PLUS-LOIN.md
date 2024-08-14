@@ -37,3 +37,5 @@
 - [ ] Afficher 3 par 3 les SAE de la page "a propos" via AJAX
 - [ ] Mettre en place un système de galerie à place d'un upload d'image pour chaque entité
   - Il faudra mettre en place un nouveau modèle pour gérer les images et ayant de préférence une relation de type One-to-Many avec les entités où se trouveront ces images
+- [ ] Proposer un mode sombre. Pour rappel, tailwindcss possède un modifier "dark:" pour gérer ce mode
+  - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)

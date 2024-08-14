@@ -55,8 +55,8 @@ router.get('/:user/articles/:id', routeName("my_route"), (req, res, next) => {
 });
 ```
 Dans le code ci-dessus, nous avons nommé notre route "my_route" grâce au middleware `routeName()`. Côté nunjucks, vous avez également une fonction `routeName()` dont la signature est un peu différente comparé au middleware. La fonction prend les paramètres suivants :
-- Nom de la route
-- Paramètres de la route
+- Nom de la route (string)
+- Paramètres de la route (objet)
 
 Si on souhaite faire un lien vers notre route dans nunjucks, ceci donne le code suivant :
 ```html
