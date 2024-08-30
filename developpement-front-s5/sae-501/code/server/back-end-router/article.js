@@ -27,10 +27,6 @@ router.get(`/${base}`, async (req, res) => {
 
 // Get or create article
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
-    const options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
-    };
     const isEdit = req.params.id !== "add";
 
     let result = {};
@@ -38,13 +34,17 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
     try {
         if (isEdit) {
+            const options = {
+                method: "GET",
+                url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+            };
             result = await axios(options);
         }
     } catch (e) {
         listErrors = e.response.data.errors;
     }
 
-    res.render("/", {
+    res.render("", {
         article: result?.data || {},
         list_errors: listErrors,
         is_edit: isEdit,
