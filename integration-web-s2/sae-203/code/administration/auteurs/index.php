@@ -23,7 +23,7 @@ $URL_creation = "{$racine_URL}/creation.php";
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
             <div>
-                <h1 class="text-3xl font-bold text-gray-900">Liste auteurs</h1>
+                <p class="text-3xl font-bold text-gray-900">Liste auteurs</p>
                 <p class="text-gray-500">Nombre d'auteurs : <?php echo mysqli_num_rows($resultat_brut); ?></p>
             </div>
             <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel auteur</a>

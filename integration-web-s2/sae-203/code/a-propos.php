@@ -60,7 +60,7 @@ require_once('./ressources/includes/connexion-bdd.php');
             </p>
         </section>
 
-        <h1 class="titre" id="sae">Situation d'Apprentissage et d'Évaluation</h1>
+        <p class="titre" id="sae">Situation d'Apprentissage et d'Évaluation</p>
 
         <section>
             <p class="paragraphe">
@@ -74,7 +74,7 @@ require_once('./ressources/includes/connexion-bdd.php');
             </p>
         </section>
 
-        <h1 class="titre" id="exemple-sae">Exemples de projets réalisés en SAÉ</h1>
+        <p class="titre" id="exemple-sae">Exemples de projets réalisés en SAÉ</p>
 
         <section class="liste-projets">
             <?php for ($i = 0; $i < 6; $i++) {

@@ -29,7 +29,7 @@ $liste_entrees_menu = [
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <h1 class="text-white font-bold">Administration SAE 203</h1>
+                    <p class="text-white font-bold">Administration SAE 203</p>
                 </div>
                     <div class="ml-10 flex items-baseline space-x-4">
                         <?php foreach ($liste_entrees_menu as $entree_menu) {

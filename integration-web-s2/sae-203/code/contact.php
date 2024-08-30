@@ -82,7 +82,7 @@ if ($formulaire_soumis) {
     <?php require_once('./ressources/includes/bulle.php'); ?>
 
     <main class="conteneur-principal conteneur-1280">
-        <h1 class="titre">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
+        <p class="titre">Plus d'infos sur la formation ? <br /> Contactez-nous !</p>
 
         <section>
             <p class="paragraphe">
@@ -90,7 +90,7 @@ if ($formulaire_soumis) {
             </p>
         </section>
 
-        <h1 class="titre">Nous contacter en ligne</h1>
+        <p class="titre">Nous contacter en ligne</p>
 
         <form action="" method="POST" class="formulaire-contact">
             <article class="champ-conteneur">
@@ -139,7 +139,7 @@ if ($formulaire_soumis) {
             </article>
         </form>
 
-        <h1 class="titre">Nous contacter par courrier</h1>
+        <p class="titre">Nous contacter par courrier</p>
         <p class="paragraphe">
             IUT de Cergy-Pontoise,<br>
             Département Métiers du Multimédia et de l’Internet (MMI) <br>

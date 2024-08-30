@@ -19,7 +19,7 @@ $page_courante = "messages";
 <?php include_once "../ressources/includes/menu-principal.php"; ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6">
-            <h1 class="text-3xl font-bold text-gray-900">Liste messages reçus</h1>
+            <p class="text-3xl font-bold text-gray-900">Liste messages reçus</p>
             <p class="text-gray-500">Nombre de messages : A REMPLACER</p>
         </div>
     </header>

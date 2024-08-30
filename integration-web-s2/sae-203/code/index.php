@@ -34,7 +34,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
-        <h1 class="titre">Articles sur le BUT MMI</h1>
+        <p class="titre">Articles sur le BUT MMI</p>
         <section class="colonne">
             <section class="liste-articles">
                 <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
@@ -50,7 +50,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                                 <img src='ressources/images/image-article.png' alt=''>
                             </figure>
                             <section class='textes'>
-                                <h1 class='titre'><?php echo $article["titre"]; ?></h1>
+                                <p class='titre'><?php echo $article["titre"]; ?></p>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
                                 </p>
