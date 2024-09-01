@@ -13,6 +13,7 @@ Partie 1 :
 - https://cestmeilleurquandcestbon.com/f/a-la-maison/recette-du-boeuf-bourguignon/
 - https://www.costco.fr/
 - https://www.bahadourian.com/
+- http://web.archive.org/web/20240901165019/https://limitedrungames.com/
 
 Partie 2 :
 - https://web.archive.org/web/20220129095313/https://www.vovardimmobilier.fr/
