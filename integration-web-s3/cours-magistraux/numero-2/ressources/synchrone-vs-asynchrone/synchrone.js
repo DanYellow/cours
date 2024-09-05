@@ -8,28 +8,29 @@ const genererNbPremiersSync = (quota) => {
         return true;
     };
 
-    const nbPremiers = [];
+    const listNbPremiers = [];
     const maximum = 1000000;
 
-    while (nbPremiers.length < quota) {
-        const candidat = Math.floor(Math.random() * (maximum + 1));
-        if (estPremier(candidat)) {
-            nbPremiers.push(candidat);
+    while (listNbPremiers.length < quota) {
+        const nombre = Math.floor(Math.random() * (maximum + 1));
+        if (estPremier(nombre)) {
+            listNbPremiers.push(nombre);
         }
     }
-
-    return nbPremiers;
+    console.log(listNbPremiers);
+    return listNbPremiers;
 };
 
 document
     .querySelector("[data-sync-btn-generer]")
     .addEventListener("click", () => {
-        const quota = document.querySelector("[name='quota-sync']").value;
+        const nbAGenerer = document.querySelector("[name='quota-sync']").value;
         // Fonction qui prend du temps
-        genererNbPremiersSync(quota);
+        genererNbPremiersSync(nbAGenerer);
+        const nbAGenererFormatte = new Intl.NumberFormat("fr-FR").format(nbAGenerer);
         document.querySelector(
             "[data-sync-resultat]"
-        ).textContent = `Génération de ${quota} nombres premiers terminée !`;
+        ).textContent = `Génération de ${nbAGenererFormatte} nombres premiers terminée !`;
     });
 
 document

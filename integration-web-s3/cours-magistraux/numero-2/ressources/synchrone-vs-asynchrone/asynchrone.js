@@ -10,32 +10,35 @@ const genererNbPremiersAsync = async (quota) => {
         return true;
     };
 
-    const nbPremiers = [];
-    let nombre = 1;
-    while (nbPremiers.length < quota) {
+    const listNbPremiers = [];
+    let nombre = 2;
+
+    while (listNbPremiers.length < quota) {
         if (estPremier(nombre)) {
             // Le fait d'ajouter cette action asynchrone rend l'exécution de notre fonction
             // non bloquante
-            await delay(15);
-            nbPremiers.push(nombre);
+            await delay(5);
+            listNbPremiers.push(nombre);
         }
         nombre++;
     }
-
-    return nbPremiers;
+    console.log(listNbPremiers)
+    return listNbPremiers;
 };
 
 document
     .querySelector("[data-async-btn-generer]")
     .addEventListener("click", async () => {
-        const quota = document.querySelector("[name='quota-async']").value;
+        const nbAGenerer = document.querySelector("[name='quota-async']").value;
         const texteConteneur = document.querySelector(
             "[data-async-resultat]"
         );
-        texteConteneur.textContent = "Opération en cours";
-        // Fonction qui prend du temps
-        const listeNbPremiers = await genererNbPremiersAsync(quota);
-        texteConteneur.textContent = `Génération des ${quota} premiers nombres premiers terminée ! (${listeNbPremiers.join(", ")})`;
+        texteConteneur.textContent = "Opération en cours...";
+        // Fonction qui prend du temps mais asynchrone
+        const listeNbPremiers = await genererNbPremiersAsync(nbAGenerer);
+
+        const nbAGenererFormatte = new Intl.NumberFormat("fr-FR").format(nbAGenerer);
+        texteConteneur.textContent = `Génération des ${nbAGenererFormatte} premiers nombres premiers terminée ! (${listeNbPremiers.join(", ")})`;
     });
 
 document
