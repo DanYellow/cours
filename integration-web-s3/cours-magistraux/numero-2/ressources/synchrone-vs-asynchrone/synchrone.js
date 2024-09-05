@@ -9,7 +9,7 @@ const genererNbPremiersSync = (quota) => {
     };
 
     const listNbPremiers = [];
-    const maximum = 1000000;
+    const maximum = 10000000;
 
     while (listNbPremiers.length < quota) {
         const nombre = Math.floor(Math.random() * (maximum + 1));
