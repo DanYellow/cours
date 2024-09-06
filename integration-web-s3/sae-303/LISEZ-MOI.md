@@ -33,7 +33,7 @@ Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffic
 
 - [Accéder aux jeux de données proposés](datasets/)
 
-Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page pour une une ingographie.
+Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page.
 
 > Note : Vous pouvez tout à fait ajouter des jeux de données externes (et **sourcés**) pour appuyer votre création. N'hésitez pas !
 
@@ -44,11 +44,11 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 > Les jeux de données ont des titres relativement explicites, mais si vous avez un doute n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
-Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Rappelez-vous donc bien de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
+Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
 > Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
-**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisation (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
+**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisations (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
 
 > Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée. Tout comme assurez-vous de respecter les contrastes et autres règles de mise en page.
 
@@ -59,6 +59,17 @@ Ne négligez pas la présence de textes servant de présentation et/ou de commen
 
 > **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose, faites également attention au choix des graphiques.**
 
+Votre infographie devra être présentée sur un site web, une seule page suffit. Cette page devra contenir : 
+- Une brève présentation de votre réalisation
+- La réalisation (instagram ou print ou vidéo)
+  - La vidéo peut être hébergée sur Youtube en privé ou autre
+- Logo de l'université
+- Année universitaire
+- Membres du groupe
+- Sources (en plus de celles présentent sur l'inforgraphie / vidéo)
+
+N'oubliez pas l'accessibilité sur ce site.
+
 L'infographie devra respecter les règles suivantes :
 - La présence des sources 
   - Carton final si en vidéo motion design (possible à chaque "plan" de la vidéo)
@@ -66,10 +77,11 @@ L'infographie devra respecter les règles suivantes :
 - Formats print et instagram :
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage. Le format peut être plus long que large ou l'inverse. L'idée, c'est d'avoir un grand document print
   - Instagram : Format carré (possibilité d'avoir plusieurs images)
-- Taille de texte minimum : 12px
+- Taille de texte minimum : 14px
   - Peut être plus petit pour vos sources et les auteurs
 - Et bien évidemment le contenu
   - Vous vous adressez à des francophones, si votre jeu de données est dans une langue étrangère, il faudra le traduire
+
 ### Conseils - Infographie
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
 - [Voir subreddit Infographics](https://www.reddit.com/r/Infographics/)
@@ -112,7 +124,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
       - **La note sera divisée par deux si ce n'est pas fait**
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
-    - [ ] Votre réalisation (infographie ou vidéo motion)
+    - [ ] Votre site et votre réalisation (infographie ou vidéo motion)
     - [ ] Lien vers le dépôt sur github (projet développement uniquement)
 
 # FAQ - Foire Aux Questions
@@ -123,9 +135,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
-- **J'ai choisi le sujet "infographie" devrais-je également faire du développement ?**
-  
-  Non. Vous devrez faire juste une production visuelle et rien d'autre.
+
 - **Est-ce que je peux limiter le jeu de données ?**
   
   Il est possible d'omettre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
@@ -150,6 +160,6 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
   Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
 
-- **Mon application doit-elle être responsive ?**
+- **Mon site web doit-elle être responsive ?**
 
-  Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre application javascript responsive.
+  Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre site web responsive.
