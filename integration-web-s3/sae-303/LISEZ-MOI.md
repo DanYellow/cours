@@ -103,7 +103,7 @@ Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google M
 
 **Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent.
 
-> Javascript ne sait pas changer naturellement un fichier .xlsx ou .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, demandez-moi, je le convertirai pour vous)
+> Javascript ne sait pas charger naturellement un fichier .xlsx ou .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, faites-en la demande, nous ferons la conversion pour vous)
 
 Pour manipuler les données ou les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
