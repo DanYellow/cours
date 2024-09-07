@@ -33,7 +33,6 @@ Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous dev
 Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc (gratuit).
 
 - <a id="datasets" href="datasets/">Accéder aux jeux de données proposés</a>
-- [Accéder aux jeux de données proposés](datasets/)
 
 Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page.
 
