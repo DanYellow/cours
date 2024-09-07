@@ -116,6 +116,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - [Assiduité des députés Français à l'Assemblée Nationale](https://www.nosdeputes.fr/)
 - [Statistiques des formations sur Parcoursup](https://beta.suptracker.org/)
 
+L'application peut prendre également la forme d'un jeu, par exemple, comparer deux produits et demander à l'utilisateur lequel des deux est le plus cher (ou autre).
+
 # Votre liste à faire
   - [x] Lire les consignes
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
