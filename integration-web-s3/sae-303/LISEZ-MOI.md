@@ -3,8 +3,9 @@ _Les consignes pourront être modifiées._
 
 ## Contexte de la SAÉ
 De nos jours, les mots "data" ou "donnée" se réfèrent à l’information dématérialisée capable de circuler à travers un réseau de télécommunication ou informatique.
-Dans un monde où la data se fait de plus en plus présente, l'internaute sollicite des outils et des supports de visualisation qui lui permettent de lire et interpréter correctement des flux d'informations de plus en plus énormes.  
-Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral. Ainsi, cette SAE est l'occasion de données vie (et envie) à un jeu de données que vous aurez choisi, parmi ceux triés par nos soins (voir plus bas).
+Dans un monde où la data se fait de plus en plus présente, l'internaute sollicite des outils et des supports de visualisation qui lui permettent de lire et interpréter correctement des flux d'informations de plus en plus énormes.
+
+Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral. Ainsi, cette SAE est l'occasion de _données_ vie (et envie) à un jeu de données que vous aurez choisi, parmi ceux triés par nos soins [(voir plus bas)](#datasets).
 
 Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants : 
 
@@ -29,8 +30,9 @@ Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous dev
 > **La date butoir vous sera remise ultérieurement.**
 
 Étant malheureusement très limité par le temps, vous n'aurez pas le travail de nettoyage de données à effectuer, vous avez à votre disposition des jeux de données propres et très limités en contenu. De ce fait, les sujets seront plus ou moins fermés (surtout pour les jeux de données pour le sujet infographie).
-Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc.
+Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc (gratuit).
 
+- <a id="datasets" href="datasets/">Accéder aux jeux de données proposés</a>
 - [Accéder aux jeux de données proposés](datasets/)
 
 Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page.
@@ -41,18 +43,18 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive.
 
-> Les jeux de données ont des titres relativement explicites, mais si vous avez un doute n'hésitez pas à demander des informations supplémentaires au référent de la SAE
+> Les jeux de données ont des titres relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
 Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
 > Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
 
-**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisations (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement.
+**Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisations (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement. N'allez pas utiliser un diagramme circulaire pour afficher 42 catégories, ça sera illisible. [Il y a le cours dédié aux graphiques pour vous rafraîchir la mémoire](cours-magistraux/numero-1/presentation.pdf).
 
 > Ne mettez pas un graphique seul et rien d'autre dans votre data-viz, votre note risque de ne pas être très élevée. Tout comme assurez-vous de respecter les contrastes et autres règles de mise en page.
 
-Ne négligez pas la présence de textes servant de présentation et/ou de commentaires, ils peuvent servir à mieux amener votre histoire et mieux contextualiser vos données. Les émissions le dessous des cartes ou encore DataGueule le font très bien.
+Ne négligez pas la présence de textes servant de présentation et/ou de commentaires, ils peuvent servir à mieux amener votre histoire et mieux contextualiser vos données. Les émissions "Le dessous des cartes" ou encore "DataGueule" le font très bien.
 - [Voir émission _Le Dessous des cartes_ sur Youtube](https://www.youtube.com/c/LeDessousdesCartesARTE)
 - [Voir émission _Le chiffroscope_ sur Youtube](https://www.youtube.com/playlist?list=PLTWD_IG2XnYtps4vw7RmOAttFlMm2qlcv)
 - [Voir émission _DataGueule_ sur Youtube](https://www.youtube.com/user/datagueule)
@@ -60,15 +62,15 @@ Ne négligez pas la présence de textes servant de présentation et/ou de commen
 > **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose, faites également attention au choix des graphiques.**
 
 Votre infographie devra être présentée sur un site web, une seule page suffit. Cette page devra contenir : 
-- Une brève présentation de votre réalisation
+- Un paragraphe présentant de votre réalisation
 - La réalisation (instagram ou print ou vidéo)
   - La vidéo peut être hébergée sur Youtube en privé ou autre
 - Logo de l'université
-- Année universitaire
+- Année universitaire + promotion
 - Membres du groupe
 - Sources (en plus de celles présentent sur l'inforgraphie / vidéo)
 
-N'oubliez pas l'accessibilité sur ce site.
+N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/).
 
 L'infographie devra respecter les règles suivantes :
 - La présence des sources 
@@ -163,3 +165,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - **Mon site web doit-elle être responsive ?**
 
   Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre site web responsive.
+
+- **Est-il possible d'utiliser [tailwindcss](https://tailwindcss.com/) ?**
+  
+  Oui, vous avez tout à fait le droit.
+  
