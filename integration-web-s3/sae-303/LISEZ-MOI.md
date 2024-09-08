@@ -40,7 +40,7 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seuls les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
-> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive.
+> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques, pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte.
 
 > Les jeux de données ont des titres relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
