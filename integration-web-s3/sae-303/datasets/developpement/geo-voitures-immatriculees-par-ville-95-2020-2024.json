@@ -33,7 +33,8 @@
         ]
       },
       "properties": {
-        "code": "95277",
+        "code_insee": "95277",
+        "code_postal": "95500",
         "nom": "Gonesse",
         "annees": [
           {
@@ -89,7 +90,8 @@
         ]
       },
       "properties": {
-        "code": "95476",
+        "code_insee": "95476",
+        "code_postal": "95520",
         "nom": "Osny",
         "annees": [
           {
@@ -148,7 +150,8 @@
         ]
       },
       "properties": {
-        "code": "95585",
+        "code_insee": "95585",
+        "code_postal": "95200",
         "nom": "Sarcelles",
         "annees": [
           {
@@ -209,7 +212,8 @@
         ]
       },
       "properties": {
-        "code": "95580",
+        "code_insee": "95580",
+        "code_postal": "95470",
         "nom": "Saint-Witz",
         "annees": [
           {
@@ -267,38 +271,44 @@
         ]
       },
       "properties": {
-        "code": "95052",
+        "code_insee": "95052",
         "nom": "Beaumont-sur-Oise",
+        "code_postal": "95260",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 29,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 9092
+            "nb_vp": 9092,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 46,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 9336
+            "nb_vp": 9336,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 65,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 9514
+            "nb_vp": 9514,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-06-30",
             "nb_vp_rechargeables_el": 82,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 9558
+            "nb_vp": 9558,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 121,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 9699
+            "nb_vp": 9699,
+            "annee": 2024
           }
         ]
       }
@@ -324,38 +334,44 @@
         ]
       },
       "properties": {
-        "code": "95116",
+        "code_insee": "95116",
+        "code_postal": "95820",
         "nom": "Bruyères-sur-Oise",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 11,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4033
+            "nb_vp": 4033,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 15,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4348
+            "nb_vp": 4348,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 36,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4460
+            "nb_vp": 4460,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 58,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4579
+            "nb_vp": 4579,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 74,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4638
+            "nb_vp": 4638,
+            "annee": 2024
           }
         ]
       }
@@ -385,38 +401,44 @@
         ]
       },
       "properties": {
-        "code": "95258",
+        "code_insee": "95258",
+        "code_postal": "95690",
         "nom": "Frouville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 432
+            "nb_vp": 432,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 439
+            "nb_vp": 439,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 444
+            "nb_vp": 444,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 458
+            "nb_vp": 458,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 462
+            "nb_vp": 462,
+            "annee": 2024
           }
         ]
       }
@@ -442,38 +464,44 @@
         ]
       },
       "properties": {
-        "code": "95308",
+        "code_insee": "95308",
+        "code_postal": "95300",
         "nom": "Hérouville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 651
+            "nb_vp": 651,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 677
+            "nb_vp": 677,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 14,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 702
+            "nb_vp": 702,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 21,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 710
+            "nb_vp": 710,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 22,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 725
+            "nb_vp": 725,
+            "annee": 2024
           }
         ]
       }
@@ -496,38 +524,44 @@
         ]
       },
       "properties": {
-        "code": "95019",
+        "code_insee": "95019",
+        "code_postal": "95400",
         "nom": "Arnouville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 31,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 12336
+            "nb_vp": 12336,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 66,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 12527
+            "nb_vp": 12527,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 132,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 12703
+            "nb_vp": 12703,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 188,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 12909
+            "nb_vp": 12909,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 228,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 13024
+            "nb_vp": 13024,
+            "annee": 2024
           }
         ]
       }
@@ -555,39 +589,45 @@
         ]
       },
       "properties": {
-        "code": "95055",
+        "code_insee": "95055",
+        "code_postal": "95270",
         "nom": "Bellefontaine",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 456
+            "nb_vp": 456,
+            "annee": 2020
           },
           {
             "libgeo": "BELLEFONTAINE",
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 462
+            "nb_vp": 462,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 450
+            "nb_vp": 450,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 457
+            "nb_vp": 457,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 11,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 463
+            "nb_vp": 463,
+            "annee": 2024
           }
         ]
       }
@@ -613,32 +653,45 @@
         ]
       },
       "properties": {
-        "code": "95395",
+        "code_insee": "95395",
+        "code_postal": "95720",
         "nom": "Mesnil-Aubry",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1101
+            "nb_vp": 1101,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1116
+            "nb_vp": 1116,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 26,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1160
+            "nb_vp": 1160,
+            "annee": 2022
           },
+          {
+            "date_arrete": "2023-12-31",
+            "nb_vp_rechargeables_el": 34,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 1179,
+            "annee": 2023
+          },
+
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 37,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1192
+            "nb_vp": 1192,
+            "annee": 2024
           }
         ]
       }
@@ -665,38 +718,44 @@
         ]
       },
       "properties": {
-        "code": "95574",
+        "code_insee": "95574",
+        "code_postal": "95390",
         "nom": "Saint-Prix",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 74,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7436
+            "nb_vp": 7436,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 124,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7544
-          },
-          {
-            "date_arrete": "2024-06-30",
-            "nb_vp_rechargeables_el": 261,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7867
-          },
-          {
-            "date_arrete": "2023-12-31",
-            "nb_vp_rechargeables_el": 238,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7741
+            "nb_vp": 7544,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 187,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7634
+            "nb_vp": 7634,
+            "annee": 2022
+          },
+          {
+            "date_arrete": "2023-12-31",
+            "nb_vp_rechargeables_el": 238,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 7741,
+            "annee": 2023
+          },
+          {
+            "date_arrete": "2024-06-30",
+            "nb_vp_rechargeables_el": 261,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 7867,
+            "annee": 2024
           }
         ]
       }
@@ -724,38 +783,44 @@
         ]
       },
       "properties": {
-        "code": "95011",
+        "code_insee": "95011",
+        "code_postal": "95420",
         "nom": "Ambleville",
         "annees": [
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 466
+            "nb_vp": 466,
+            "annee": 2021
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 478
+            "nb_vp": 478,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 481
+            "nb_vp": 481,
+            "annee": 2024
           },
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 450
+            "nb_vp": 450,
+            "annee": 2020
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 476
+            "nb_vp": 476,
+            "annee": 2022
           }
         ]
       }
@@ -779,38 +844,44 @@
         ]
       },
       "properties": {
-        "code": "95316",
+        "code_insee": "95316",
+        "code_postal": "95850",
         "nom": "Jagny-sous-Bois",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 289
+            "nb_vp": 289,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 291
+            "nb_vp": 291,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 297
+            "nb_vp": 297,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 307
+            "nb_vp": 307,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 313
+            "nb_vp": 313,
+            "annee": 2024
           }
         ]
       }
@@ -836,38 +907,44 @@
         ]
       },
       "properties": {
-        "code": "95584",
+        "code_insee": "95584",
+        "code_postal": "95640",
         "nom": "Santeuil",
         "annees": [
-          {
-            "date_arrete": "2022-12-31",
-            "nb_vp_rechargeables_el": 24,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 694
-          },
-          {
-            "date_arrete": "2024-06-30",
-            "nb_vp_rechargeables_el": 37,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 711
-          },
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 675
+            "nb_vp": 675,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 16,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 687
+            "nb_vp": 687,
+            "annee": 2021
+          },
+          {
+            "date_arrete": "2022-12-31",
+            "nb_vp_rechargeables_el": 24,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 694,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 35,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 709
+            "nb_vp": 709,
+            "annee": 2023
+          },
+          {
+            "date_arrete": "2024-06-30",
+            "nb_vp_rechargeables_el": 37,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 711,
+            "annee": 2024
           }
         ]
       }
@@ -895,38 +972,44 @@
         ]
       },
       "properties": {
-        "code": "95510",
+        "code_insee": "95510",
+        "code_postal": "95650",
         "nom": "Puiseux-Pontoise",
         "annees": [
+          {
+            "date_arrete": "2020-12-31",
+            "nb_vp_rechargeables_el": 3,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 655,
+            "annee": 2020
+          },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 666
-          },
-          {
-            "date_arrete": "2023-12-31",
-            "nb_vp_rechargeables_el": 47,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 677
+            "nb_vp": 666,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 28,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 670
+            "nb_vp": 670,
+            "annee": 2022
+          },
+          {
+            "date_arrete": "2023-12-31",
+            "nb_vp_rechargeables_el": 47,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 677,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 47,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 668
-          },
-          {
-            "date_arrete": "2020-12-31",
-            "nb_vp_rechargeables_el": 3,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 655
+            "nb_vp": 668,
+            "annee": 2024
           }
         ]
       }
@@ -953,38 +1036,44 @@
         ]
       },
       "properties": {
-        "code": "95060",
+        "code_insee": "95060",
+        "code_postal": "95550",
         "nom": "Bessancourt",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 43,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 6973
+            "nb_vp": 6973,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 75,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7126
+            "nb_vp": 7126,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 103,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7381
+            "nb_vp": 7381,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 164,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7599
+            "nb_vp": 7599,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 191,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7725
+            "nb_vp": 7725,
+            "annee": 2024
           }
         ]
       }
@@ -1008,38 +1097,44 @@
         ]
       },
       "properties": {
-        "code": "95074",
+        "code_insee": "95074",
+        "code_postal": "95000",
         "nom": "Boisemont",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 900
+            "nb_vp": 900,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 24,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 938
-          },
-          {
-            "date_arrete": "2024-06-30",
-            "nb_vp_rechargeables_el": 62,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 949
+            "nb_vp": 938,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 39,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 945
+            "nb_vp": 945,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 54,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 968
+            "nb_vp": 968,
+            "annee": 2023
+          },
+          {
+            "date_arrete": "2024-06-30",
+            "nb_vp_rechargeables_el": 62,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 949,
+            "annee": 2024
           }
         ]
       }
@@ -1064,38 +1159,44 @@
         ]
       },
       "properties": {
-        "code": "95256",
+        "code_insee": "95256",
+        "code_postal": "95740",
         "nom": "Frépillon",
         "annees": [
+          {
+            "date_arrete": "2020-12-31",
+            "nb_vp_rechargeables_el": 33,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 3012,
+            "annee": 2020
+          },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 52,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3111
+            "nb_vp": 3111,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 81,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3196
+            "nb_vp": 3196,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 124,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3385
+            "nb_vp": 3385,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 149,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3498
-          },
-          {
-            "date_arrete": "2020-12-31",
-            "nb_vp_rechargeables_el": 33,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3012
+            "nb_vp": 3498,
+            "annee": 2024
           }
         ]
       }
@@ -1141,38 +1242,44 @@
         ]
       },
       "properties": {
-        "code": "95352",
+        "code_insee": "95352",
+        "code_postal": "95270",
         "nom": "Luzarches",
         "annees": [
+          {
+            "date_arrete": "2020-12-31",
+            "nb_vp_rechargeables_el": 32,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 4759,
+            "annee": 2020
+          },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 57,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4877
-          },
-          {
-            "date_arrete": "2023-12-31",
-            "nb_vp_rechargeables_el": 146,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5057
-          },
-          {
-            "date_arrete": "2024-06-30",
-            "nb_vp_rechargeables_el": 166,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5118
+            "nb_vp": 4877,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 103,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4997
+            "nb_vp": 4997,
+            "annee": 2022
           },
           {
-            "date_arrete": "2020-12-31",
-            "nb_vp_rechargeables_el": 32,
+            "date_arrete": "2023-12-31",
+            "nb_vp_rechargeables_el": 146,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4759
+            "nb_vp": 5057,
+            "annee": 2023
+          },
+          {
+            "date_arrete": "2024-06-30",
+            "nb_vp_rechargeables_el": 166,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 5118,
+            "annee": 2024
           }
         ]
       }
@@ -1193,38 +1300,44 @@
         ]
       },
       "properties": {
-        "code": "95491",
+        "code_insee": "95491",
+        "code_postal": "95130",
         "nom": "Plessis-Bouchard",
         "annees": [
-          {
-            "date_arrete": "2022-12-31",
-            "nb_vp_rechargeables_el": 134,
-            "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7198
-          },
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 44,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7076
+            "nb_vp": 7076,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 94,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7124
+            "nb_vp": 7124,
+            "annee": 2021
+          },
+          {
+            "date_arrete": "2022-12-31",
+            "nb_vp_rechargeables_el": 134,
+            "nb_vp_rechargeables_gaz": 0,
+            "nb_vp": 7198,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 179,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7267
+            "nb_vp": 7267,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 208,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 7340
+            "nb_vp": 7340,
+            "annee": 2024
           }
         ]
       }
@@ -1256,38 +1369,44 @@
         ]
       },
       "properties": {
-        "code": "95641",
+        "code_insee": "95641",
+        "code_postal": "95470",
         "nom": "Vémars",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 13,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2709
+            "nb_vp": 2709,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 24,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2821
+            "nb_vp": 2821,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 37,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2862
+            "nb_vp": 2862,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 51,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2933
+            "nb_vp": 2933,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 60,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2963
+            "nb_vp": 2963,
+            "annee": 2024
           }
         ]
       }
@@ -1312,38 +1431,44 @@
         ]
       },
       "properties": {
-        "code": "95059",
+        "code_insee": "95059",
+        "code_postal": "95810",
         "nom": "Berville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 376
+            "nb_vp": 376,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 387
+            "nb_vp": 387,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 402
+            "nb_vp": 402,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 403
+            "nb_vp": 403,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 403
+            "nb_vp": 403,
+            "annee": 2024
           }
         ]
       }
@@ -1372,38 +1497,44 @@
         ]
       },
       "properties": {
-        "code": "95213",
+        "code_insee": "95213",
+        "code_postal": "95810",
         "nom": "Épiais-Rhus",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 812
+            "nb_vp": 812,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 17,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 843
+            "nb_vp": 843,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 25,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 849
+            "nb_vp": 849,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 28,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 881
+            "nb_vp": 881,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 34,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 897
+            "nb_vp": 897,
+            "annee": 2024
           }
         ]
       }
@@ -1432,38 +1563,44 @@
         ]
       },
       "properties": {
-        "code": "95270",
+        "code_insee": "95270",
+        "code_postal": "95420",
         "nom": "Genainville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 591
+            "nb_vp": 591,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 603
+            "nb_vp": 603,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 615
+            "nb_vp": 615,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 15,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 633
+            "nb_vp": 633,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 17,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 655
+            "nb_vp": 655,
+            "annee": 2024
           }
         ]
       }
@@ -1489,38 +1626,44 @@
         ]
       },
       "properties": {
-        "code": "95298",
+        "code_insee": "95298",
+        "code_postal": "95640",
         "nom": "Haravilliers",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 619
+            "nb_vp": 619,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 625
+            "nb_vp": 625,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 11,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 660
+            "nb_vp": 660,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 16,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 657
+            "nb_vp": 657,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 16,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 667
+            "nb_vp": 667,
+            "annee": 2024
           }
         ]
       }
@@ -1548,38 +1691,44 @@
         ]
       },
       "properties": {
-        "code": "95271",
+        "code_insee": "95271",
+        "code_postal": "95650",
         "nom": "Génicourt",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 591
+            "nb_vp": 591,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 597
+            "nb_vp": 597,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 601
+            "nb_vp": 601,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 21,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 614
+            "nb_vp": 614,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 25,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 613
+            "nb_vp": 613,
+            "annee": 2024
           }
         ]
       }
@@ -1601,38 +1750,44 @@
         ]
       },
       "properties": {
-        "code": "95331",
+        "code_insee": "95331",
+        "code_postal": "95270",
         "nom": "Lassy",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 210
+            "nb_vp": 210,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 218
+            "nb_vp": 218,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 217
+            "nb_vp": 217,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 221
+            "nb_vp": 221,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 225
+            "nb_vp": 225,
+            "annee": 2024
           }
         ]
       }
@@ -1656,38 +1811,44 @@
         ]
       },
       "properties": {
-        "code": "95388",
+        "code_insee": "95388",
+        "code_postal": "95180",
         "nom": "Menucourt",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 19,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4928
+            "nb_vp": 4928,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 41,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5042
+            "nb_vp": 5042,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 62,
             "nb_vp_rechargeables_gaz": 1,
-            "nb_vp": 5087
+            "nb_vp": 5087,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 93,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5191
+            "nb_vp": 5191,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 115,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5223
+            "nb_vp": 5223,
+            "annee": 2024
           }
         ]
       }
@@ -1710,38 +1871,44 @@
         ]
       },
       "properties": {
-        "code": "95094",
+        "code_insee": "95094",
+        "code_postal": "95720",
         "nom": "Bouqueval",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 362
+            "nb_vp": 362,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 361
+            "nb_vp": 361,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 357
+            "nb_vp": 357,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 353
+            "nb_vp": 353,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 350
+            "nb_vp": 350,
+            "annee": 2024
           }
         ]
       }
@@ -1763,38 +1930,44 @@
         ]
       },
       "properties": {
-        "code": "95447",
+        "code_insee": "95447",
+        "code_postal": "95640",
         "nom": "Neuilly-en-Vexin",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 255
+            "nb_vp": 255,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 270
+            "nb_vp": 270,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 269
+            "nb_vp": 269,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 266
+            "nb_vp": 266,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 11,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 273
+            "nb_vp": 273,
+            "annee": 2024
           }
         ]
       }
@@ -1828,38 +2001,44 @@
         ]
       },
       "properties": {
-        "code": "95026",
+        "code_insee": "95026",
+        "code_postal": "95270",
         "nom": "Asnières-sur-Oise",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 20,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3170
+            "nb_vp": 3170,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 35,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3267
+            "nb_vp": 3267,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 54,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3336
+            "nb_vp": 3336,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 73,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3347
+            "nb_vp": 3347,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 87,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3364
+            "nb_vp": 3364,
+            "annee": 2024
           }
         ]
       }
@@ -1884,38 +2063,44 @@
         ]
       },
       "properties": {
-        "code": "95219",
+        "code_insee": "95219",
+        "code_postal": "95120",
         "nom": "Ermont",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 105,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 22461
+            "nb_vp": 22461,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 174,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 22579
+            "nb_vp": 22579,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 256,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 22563
+            "nb_vp": 22563,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 369,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 22648
+            "nb_vp": 22648,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 427,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 22740
+            "nb_vp": 22740,
+            "annee": 2024
           }
         ]
       }
@@ -1941,38 +2126,44 @@
         ]
       },
       "properties": {
-        "code": "95430",
+        "code_insee": "95430",
+        "code_postal": "95560",
         "nom": "Montsoult",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 28,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3578
+            "nb_vp": 3578,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 50,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3652
+            "nb_vp": 3652,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 70,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3729
+            "nb_vp": 3729,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 98,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3755
+            "nb_vp": 3755,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 114,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3792
+            "nb_vp": 3792,
+            "annee": 2024
           }
         ]
       }
@@ -1998,38 +2189,44 @@
         ]
       },
       "properties": {
-        "code": "95604",
+        "code_insee": "95604",
         "nom": "Survilliers",
+        "code_postal": "95470",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3812
+            "nb_vp": 3812,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 28,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3868
+            "nb_vp": 3868,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 42,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 3945
+            "nb_vp": 3945,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 59,
             "nb_vp_rechargeables_gaz": 1,
-            "nb_vp": 3994
+            "nb_vp": 3994,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 66,
             "nb_vp_rechargeables_gaz": 1,
-            "nb_vp": 4044
+            "nb_vp": 4044,
+            "annee": 2024
           }
         ]
       }
@@ -2053,38 +2250,44 @@
         ]
       },
       "properties": {
-        "code": "95658",
+        "code_insee": "95658",
+        "code_postal": "95450",
         "nom": "Vigny",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 13,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1327
+            "nb_vp": 1327,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 29,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1351
+            "nb_vp": 1351,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 38,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1353
+            "nb_vp": 1353,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 57,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1374
+            "nb_vp": 1374,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 65,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 1397
+            "nb_vp": 1397,
+            "annee": 2024
           }
         ]
       }
@@ -2106,38 +2309,44 @@
         ]
       },
       "properties": {
-        "code": "95144",
+        "code_insee": "95144",
+        "code_postal": "95190",
         "nom": "Châtenay-en-France",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 49
+            "nb_vp": 49,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 50
+            "nb_vp": 50,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 51
+            "nb_vp": 51,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 48
+            "nb_vp": 48,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 53
+            "nb_vp": 53,
+            "annee": 2024
           }
         ]
       }
@@ -2163,38 +2372,44 @@
         ]
       },
       "properties": {
-        "code": "95170",
+        "code_insee": "95170",
+        "code_postal": "95450",
         "nom": "Condécourt",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 596
+            "nb_vp": 596,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 12,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 612
+            "nb_vp": 612,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 14,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 627
+            "nb_vp": 627,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 20,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 638
+            "nb_vp": 638,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 21,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 642
+            "nb_vp": 642,
+            "annee": 2024
           }
         ]
       }
@@ -2223,38 +2438,44 @@
         ]
       },
       "properties": {
-        "code": "95012",
+        "code_insee": "95012",
+        "code_postal": "95510",
         "nom": "Amenucourt",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 220
+            "nb_vp": 220,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 227
+            "nb_vp": 227,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 245
+            "nb_vp": 245,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 248
+            "nb_vp": 248,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 250
+            "nb_vp": 250,
+            "annee": 2024
           }
         ]
       }
@@ -2278,38 +2499,44 @@
         ]
       },
       "properties": {
-        "code": "95489",
+        "code_insee": "95489",
+        "code_postal": "95350",
         "nom": "Piscop",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 5,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 791
+            "nb_vp": 791,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 811
+            "nb_vp": 811,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 21,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 811
+            "nb_vp": 811,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 35,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 845
+            "nb_vp": 845,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 44,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 855
+            "nb_vp": 855,
+            "annee": 2024
           }
         ]
       }
@@ -2334,40 +2561,44 @@
         ]
       },
       "properties": {
-        "code": "95492",
-        "nom": "Plessis-Gassot",
+        "code_insee": "95492",
+        "code_postal": "95720",
+        "nom": "Le Plessis-Gassot",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 83
+            "nb_vp": 83,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 90
+            "nb_vp": 90,
+            "annee": 2021
           },
           {
-            "libgeo": "LE PLESSIS-GASSOT",
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 94
+            "nb_vp": 94,
+            "annee": 2022
           },
           {
-            "libgeo": "LE PLESSIS-GASSOT",
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 103
+            "nb_vp": 103,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 106
+            "nb_vp": 106,
+            "annee": 2024
           }
         ]
       }
@@ -2392,38 +2623,44 @@
         ]
       },
       "properties": {
-        "code": "95612",
+        "code_insee": "95612",
+        "code_postal": "95500",
         "nom": "Le Thillay",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 31,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4825
+            "nb_vp": 4825,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 69,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4940
+            "nb_vp": 4940,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 104,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 4984
+            "nb_vp": 4984,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 146,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5100
+            "nb_vp": 5100,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 158,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 5137
+            "nb_vp": 5137,
+            "annee": 2024
           }
         ]
       }
@@ -2453,38 +2690,44 @@
         ]
       },
       "properties": {
-        "code": "95142",
+        "code_insee": "95142",
+        "code_postal": "95750",
         "nom": "Chars",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2010
+            "nb_vp": 2010,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 18,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2048
+            "nb_vp": 2048,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 27,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2075
+            "nb_vp": 2075,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 36,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2082
+            "nb_vp": 2082,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 39,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2092
+            "nb_vp": 2092,
+            "annee": 2024
           }
         ]
       }
@@ -2516,38 +2759,44 @@
         ]
       },
       "properties": {
-        "code": "95462",
+        "code_insee": "95462",
+        "code_postal": "95420",
         "nom": "Omerville",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 2,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 379
+            "nb_vp": 379,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 394
+            "nb_vp": 394,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 394
+            "nb_vp": 394,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 401
+            "nb_vp": 401,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 10,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 397
+            "nb_vp": 397,
+            "annee": 2024
           }
         ]
       }
@@ -2570,38 +2819,44 @@
         ]
       },
       "properties": {
-        "code": "95120",
+        "code_insee": "95120",
+        "code_postal": "95430",
         "nom": "Butry-sur-Oise",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 16,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2035
+            "nb_vp": 2035,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 21,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2091
+            "nb_vp": 2091,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 37,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2108
+            "nb_vp": 2108,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 52,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2138
+            "nb_vp": 2138,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 63,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 2160
+            "nb_vp": 2160,
+            "annee": 2024
           }
         ]
       }
@@ -2626,38 +2881,44 @@
         ]
       },
       "properties": {
-        "code": "95214",
+        "code_insee": "95214",
+        "code_postal": "95270",
         "nom": "Épinay-Champlâtreux",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 50
+            "nb_vp": 50,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 55
+            "nb_vp": 55,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 54
+            "nb_vp": 54,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 55
+            "nb_vp": 55,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 56
+            "nb_vp": 56,
+            "annee": 2024
           }
         ]
       }
@@ -2686,38 +2947,44 @@
         ]
       },
       "properties": {
-        "code": "95379",
+        "code_insee": "95379",
+        "code_postal": "95420",
         "nom": "Maudétour-en-Vexin",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 1,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 246
+            "nb_vp": 246,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 246
+            "nb_vp": 246,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 6,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 256
+            "nb_vp": 256,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 8,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 246
+            "nb_vp": 246,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 9,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 249
+            "nb_vp": 249,
+            "annee": 2024
           }
         ]
       }
@@ -2746,38 +3013,44 @@
         ]
       },
       "properties": {
-        "code": "95500",
+        "code_insee": "95500",
+        "code_postal": "95300",
         "nom": "Pontoise",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 164,
             "nb_vp_rechargeables_gaz": 3,
-            "nb_vp": 25171
+            "nb_vp": 25171,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 302,
             "nb_vp_rechargeables_gaz": 17,
-            "nb_vp": 25759
+            "nb_vp": 25759,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 416,
             "nb_vp_rechargeables_gaz": 17,
-            "nb_vp": 26012
+            "nb_vp": 26012,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 576,
             "nb_vp_rechargeables_gaz": 20,
-            "nb_vp": 26411
+            "nb_vp": 26411,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 673,
             "nb_vp_rechargeables_gaz": 18,
-            "nb_vp": 26611
+            "nb_vp": 26611,
+            "annee": 2024
           }
         ]
       }
@@ -2804,39 +3077,43 @@
         ]
       },
       "properties": {
-        "code": "95295",
+        "code_insee": "95295",
         "nom": "Guiry-en-Vexin",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 180
+            "nb_vp": 180,
+            "annee": 2020
           },
           {
-            "libgeo": "GUIRY-EN-VEXIN",
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 0,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 177
+            "nb_vp": 177,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 181
+            "nb_vp": 181,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 188
+            "nb_vp": 188,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 188
+            "nb_vp": 188,
+            "annee": 2024
           }
         ]
       }
@@ -2871,38 +3148,44 @@
         ]
       },
       "properties": {
-        "code": "95607",
+        "code_insee": "95607",
+        "code_postal": "95150",
         "nom": "Taverny",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 117,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 24239
+            "nb_vp": 24239,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 207,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 24902
+            "nb_vp": 24902,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 304,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 25372
+            "nb_vp": 25372,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 447,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 25844
+            "nb_vp": 25844,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 526,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 26090
+            "nb_vp": 26090,
+            "annee": 2024
           }
         ]
       }
@@ -2925,38 +3208,44 @@
         ]
       },
       "properties": {
-        "code": "95054",
+        "code_insee": "95054",
+        "code_postal": "95750",
         "nom": "Le Bellay-en-Vexin",
         "annees": [
           {
             "date_arrete": "2020-12-31",
             "nb_vp_rechargeables_el": 3,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 288
+            "nb_vp": 288,
+            "annee": 2020
           },
           {
             "date_arrete": "2021-12-31",
             "nb_vp_rechargeables_el": 4,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 290
+            "nb_vp": 290,
+            "annee": 2021
           },
           {
             "date_arrete": "2022-12-31",
             "nb_vp_rechargeables_el": 7,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 293
+            "nb_vp": 293,
+            "annee": 2022
           },
           {
             "date_arrete": "2023-12-31",
             "nb_vp_rechargeables_el": 13,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 291
+            "nb_vp": 291,
+            "annee": 2023
           },
           {
             "date_arrete": "2024-06-30",
             "nb_vp_rechargeables_el": 13,
             "nb_vp_rechargeables_gaz": 0,
-            "nb_vp": 297
+            "nb_vp": 297,
+            "annee": 2024
           }
         ]
       }
@@ -2981,7 +3270,7 @@
         ]
       },
       "properties": {
-        "code": "95254",
+        "code_insee": "95254",
         "nom": "Frémécourt",
         "annees": [
           {
@@ -3041,7 +3330,7 @@
         ]
       },
       "properties": {
-        "code": "95151",
+        "code_insee": "95151",
         "nom": "Chauvry",
         "annees": [
           {
@@ -3100,7 +3389,7 @@
         ]
       },
       "properties": {
-        "code": "95675",
+        "code_insee": "95675",
         "nom": "Villeron",
         "annees": [
           {
@@ -3154,7 +3443,7 @@
         ]
       },
       "properties": {
-        "code": "95309",
+        "code_insee": "95309",
         "nom": "Hodent",
         "annees": [
           {
@@ -3210,7 +3499,7 @@
         ]
       },
       "properties": {
-        "code": "95487",
+        "code_insee": "95487",
         "nom": "Persan",
         "annees": [
           {
@@ -3266,7 +3555,7 @@
         ]
       },
       "properties": {
-        "code": "95119",
+        "code_insee": "95119",
         "nom": "Buhy",
         "annees": [
           {
@@ -3325,7 +3614,7 @@
         ]
       },
       "properties": {
-        "code": "95002",
+        "code_insee": "95002",
         "nom": "Ableiges",
         "annees": [
           {
@@ -3379,7 +3668,7 @@
         ]
       },
       "properties": {
-        "code": "95387",
+        "code_insee": "95387",
         "nom": "Menouville",
         "annees": [
           {
@@ -3438,7 +3727,7 @@
         ]
       },
       "properties": {
-        "code": "95287",
+        "code_insee": "95287",
         "nom": "Grisy-les-Plâtres",
         "annees": [
           {
@@ -3494,7 +3783,7 @@
         ]
       },
       "properties": {
-        "code": "95341",
+        "code_insee": "95341",
         "nom": "Livilliers",
         "annees": [
           {
@@ -3548,7 +3837,7 @@
         ]
       },
       "properties": {
-        "code": "95637",
+        "code_insee": "95637",
         "nom": "Vauréal",
         "annees": [
           {
@@ -3604,7 +3893,7 @@
         ]
       },
       "properties": {
-        "code": "95063",
+        "code_insee": "95063",
         "nom": "Bezons",
         "annees": [
           {
@@ -3663,7 +3952,7 @@
         ]
       },
       "properties": {
-        "code": "95176",
+        "code_insee": "95176",
         "nom": "Cormeilles-en-Parisis",
         "annees": [
           {
@@ -3720,7 +4009,7 @@
         ]
       },
       "properties": {
-        "code": "95042",
+        "code_insee": "95042",
         "nom": "Baillet-en-France",
         "annees": [
           {
@@ -3781,7 +4070,7 @@
         ]
       },
       "properties": {
-        "code": "95523",
+        "code_insee": "95523",
         "nom": "Roche-Guyon",
         "annees": [
           {
@@ -3836,7 +4125,7 @@
         ]
       },
       "properties": {
-        "code": "95046",
+        "code_insee": "95046",
         "nom": "Banthelu",
         "annees": [
           {
@@ -3898,7 +4187,7 @@
         ]
       },
       "properties": {
-        "code": "95150",
+        "code_insee": "95150",
         "nom": "Chaussy",
         "annees": [
           {
@@ -3952,7 +4241,7 @@
         ]
       },
       "properties": {
-        "code": "95288",
+        "code_insee": "95288",
         "nom": "Groslay",
         "annees": [
           {
@@ -4015,7 +4304,7 @@
         ]
       },
       "properties": {
-        "code": "95446",
+        "code_insee": "95446",
         "nom": "Nesles-la-Vallée",
         "annees": [
           {
@@ -4071,7 +4360,7 @@
         ]
       },
       "properties": {
-        "code": "95088",
+        "code_insee": "95088",
         "nom": "Bonneuil-en-France",
         "annees": [
           {
@@ -4132,7 +4421,7 @@
         ]
       },
       "properties": {
-        "code": "95127",
+        "code_insee": "95127",
         "nom": "Cergy",
         "annees": [
           {
@@ -4189,7 +4478,7 @@
         ]
       },
       "properties": {
-        "code": "95301",
+        "code_insee": "95301",
         "nom": "Haute-Isle",
         "annees": [
           {
@@ -4247,7 +4536,7 @@
         ]
       },
       "properties": {
-        "code": "95370",
+        "code_insee": "95370",
         "nom": "Marines",
         "annees": [
           {
@@ -4306,7 +4595,7 @@
         ]
       },
       "properties": {
-        "code": "95572",
+        "code_insee": "95572",
         "nom": "Saint-Ouen-l'Aumône",
         "annees": [
           {
@@ -4365,7 +4654,7 @@
         ]
       },
       "properties": {
-        "code": "95652",
+        "code_insee": "95652",
         "nom": "Viarmes",
         "annees": [
           {
@@ -4420,7 +4709,7 @@
         ]
       },
       "properties": {
-        "code": "95166",
+        "code_insee": "95166",
         "nom": "Cléry-en-Vexin",
         "annees": [
           {
@@ -4479,7 +4768,7 @@
         ]
       },
       "properties": {
-        "code": "95313",
+        "code_insee": "95313",
         "nom": "Isle-Adam",
         "annees": [
           {
@@ -4537,7 +4826,7 @@
         ]
       },
       "properties": {
-        "code": "95056",
+        "code_insee": "95056",
         "nom": "Belloy-en-France",
         "annees": [
           {
@@ -4591,7 +4880,7 @@
         ]
       },
       "properties": {
-        "code": "95409",
+        "code_insee": "95409",
         "nom": "Moisselles",
         "annees": [
           {
@@ -4649,7 +4938,7 @@
         ]
       },
       "properties": {
-        "code": "95535",
+        "code_insee": "95535",
         "nom": "Sagy",
         "annees": [
           {
@@ -4710,7 +4999,7 @@
         ]
       },
       "properties": {
-        "code": "95348",
+        "code_insee": "95348",
         "nom": "Longuesse",
         "annees": [
           {
@@ -4766,7 +5055,7 @@
         ]
       },
       "properties": {
-        "code": "95582",
+        "code_insee": "95582",
         "nom": "Sannois",
         "annees": [
           {
@@ -4824,7 +5113,7 @@
         ]
       },
       "properties": {
-        "code": "95328",
+        "code_insee": "95328",
         "nom": "Labbeville",
         "annees": [
           {
@@ -4878,7 +5167,7 @@
         ]
       },
       "properties": {
-        "code": "95682",
+        "code_insee": "95682",
         "nom": "Villiers-le-Sec",
         "annees": [
           {
@@ -4933,7 +5222,7 @@
         ]
       },
       "properties": {
-        "code": "95426",
+        "code_insee": "95426",
         "nom": "Montlignon",
         "annees": [
           {
@@ -4994,7 +5283,7 @@
         ]
       },
       "properties": {
-        "code": "95592",
+        "code_insee": "95592",
         "nom": "Seraincourt",
         "annees": [
           {
@@ -5058,7 +5347,7 @@
         ]
       },
       "properties": {
-        "code": "95023",
+        "code_insee": "95023",
         "nom": "Arronville",
         "annees": [
           {
@@ -5113,7 +5402,7 @@
         ]
       },
       "properties": {
-        "code": "95218",
+        "code_insee": "95218",
         "nom": "Éragny",
         "annees": [
           {
@@ -5168,7 +5457,7 @@
         ]
       },
       "properties": {
-        "code": "95427",
+        "code_insee": "95427",
         "nom": "Montmagny",
         "annees": [
           {
@@ -5228,7 +5517,7 @@
         ]
       },
       "properties": {
-        "code": "95134",
+        "code_insee": "95134",
         "nom": "Champagne-sur-Oise",
         "annees": [
           {
@@ -5285,7 +5574,7 @@
         ]
       },
       "properties": {
-        "code": "95205",
+        "code_insee": "95205",
         "nom": "Écouen",
         "annees": [
           {
@@ -5338,7 +5627,7 @@
         ]
       },
       "properties": {
-        "code": "95210",
+        "code_insee": "95210",
         "nom": "Enghien-les-Bains",
         "annees": [
           {
@@ -5400,7 +5689,7 @@
         ]
       },
       "properties": {
-        "code": "95351",
+        "code_insee": "95351",
         "nom": "Louvres",
         "annees": [
           {
@@ -5455,7 +5744,7 @@
         ]
       },
       "properties": {
-        "code": "95058",
+        "code_insee": "95058",
         "nom": "Bernes-sur-Oise",
         "annees": [
           {
@@ -5511,7 +5800,7 @@
         ]
       },
       "properties": {
-        "code": "95139",
+        "code_insee": "95139",
         "nom": "Chapelle-en-Vexin",
         "annees": [
           {
@@ -5571,7 +5860,7 @@
         ]
       },
       "properties": {
-        "code": "95177",
+        "code_insee": "95177",
         "nom": "Cormeilles-en-Vexin",
         "annees": [
           {
@@ -5631,7 +5920,7 @@
         ]
       },
       "properties": {
-        "code": "95394",
+        "code_insee": "95394",
         "nom": "Méry-sur-Oise",
         "annees": [
           {
@@ -5689,7 +5978,7 @@
         ]
       },
       "properties": {
-        "code": "95676",
+        "code_insee": "95676",
         "nom": "Villers-en-Arthies",
         "annees": [
           {
@@ -5742,7 +6031,7 @@
         ]
       },
       "properties": {
-        "code": "95303",
+        "code_insee": "95303",
         "nom": "Le Heaulme",
         "annees": [
           {},
@@ -5803,7 +6092,7 @@
         ]
       },
       "properties": {
-        "code": "95554",
+        "code_insee": "95554",
         "nom": "Saint-Gervais",
         "annees": [
           {
@@ -5860,7 +6149,7 @@
         ]
       },
       "properties": {
-        "code": "95157",
+        "code_insee": "95157",
         "nom": "Chérence",
         "annees": [
           {
@@ -5916,7 +6205,7 @@
         ]
       },
       "properties": {
-        "code": "95211",
+        "code_insee": "95211",
         "nom": "Ennery",
         "annees": [
           {
@@ -5973,7 +6262,7 @@
         ]
       },
       "properties": {
-        "code": "95014",
+        "code_insee": "95014",
         "nom": "Andilly",
         "annees": [
           {
@@ -6029,7 +6318,7 @@
         ]
       },
       "properties": {
-        "code": "95252",
+        "code_insee": "95252",
         "nom": "Franconville",
         "annees": [
           {
@@ -6088,7 +6377,7 @@
         ]
       },
       "properties": {
-        "code": "95610",
+        "code_insee": "95610",
         "nom": "Théméricourt",
         "annees": [
           {
@@ -6143,7 +6432,7 @@
         ]
       },
       "properties": {
-        "code": "95424",
+        "code_insee": "95424",
         "nom": "Montigny-lès-Cormeilles",
         "annees": [
           {
@@ -6199,7 +6488,7 @@
         ]
       },
       "properties": {
-        "code": "95611",
+        "code_insee": "95611",
         "nom": "Theuville",
         "annees": [
           {
@@ -6255,7 +6544,7 @@
         ]
       },
       "properties": {
-        "code": "95078",
+        "code_insee": "95078",
         "nom": "Boissy-l'Aillerie",
         "annees": [
           {
@@ -6309,7 +6598,7 @@
         ]
       },
       "properties": {
-        "code": "95257",
+        "code_insee": "95257",
         "nom": "Frette-sur-Seine",
         "annees": [
           {
@@ -6372,7 +6661,7 @@
         ]
       },
       "properties": {
-        "code": "95306",
+        "code_insee": "95306",
         "nom": "Herblay",
         "annees": [
           {
@@ -6430,7 +6719,7 @@
         ]
       },
       "properties": {
-        "code": "95169",
+        "code_insee": "95169",
         "nom": "Commeny",
         "annees": [
           {
@@ -6485,7 +6774,7 @@
         ]
       },
       "properties": {
-        "code": "95212",
+        "code_insee": "95212",
         "nom": "Épiais-lès-Louvres",
         "annees": [
           {
@@ -6537,7 +6826,7 @@
         ]
       },
       "properties": {
-        "code": "95282",
+        "code_insee": "95282",
         "nom": "Gouzangrez",
         "annees": [
           {
@@ -6592,7 +6881,7 @@
         ]
       },
       "properties": {
-        "code": "95197",
+        "code_insee": "95197",
         "nom": "Deuil-la-Barre",
         "annees": [
           {
@@ -6648,7 +6937,7 @@
         ]
       },
       "properties": {
-        "code": "95483",
+        "code_insee": "95483",
         "nom": "Le Perchay",
         "annees": [
           {
@@ -6705,7 +6994,7 @@
         ]
       },
       "properties": {
-        "code": "95183",
+        "code_insee": "95183",
         "nom": "Courdimanche",
         "annees": [
           {
@@ -6759,7 +7048,7 @@
         ]
       },
       "properties": {
-        "code": "95436",
+        "code_insee": "95436",
         "nom": "Mours",
         "annees": [
           {
@@ -6813,7 +7102,7 @@
         ]
       },
       "properties": {
-        "code": "95061",
+        "code_insee": "95061",
         "nom": "Béthemont-la-Forêt",
         "annees": [
           {
@@ -6872,7 +7161,7 @@
         ]
       },
       "properties": {
-        "code": "95651",
+        "code_insee": "95651",
         "nom": "Vétheuil",
         "annees": [
           {
@@ -6928,7 +7217,7 @@
         ]
       },
       "properties": {
-        "code": "95203",
+        "code_insee": "95203",
         "nom": "Eaubonne",
         "annees": [
           {
@@ -6987,7 +7276,7 @@
         ]
       },
       "properties": {
-        "code": "95241",
+        "code_insee": "95241",
         "nom": "Fontenay-en-Parisis",
         "annees": [
           {
@@ -7047,7 +7336,7 @@
         ]
       },
       "properties": {
-        "code": "95428",
+        "code_insee": "95428",
         "nom": "Montmorency",
         "annees": [
           {
@@ -7106,7 +7395,7 @@
         ]
       },
       "properties": {
-        "code": "95563",
+        "code_insee": "95563",
         "nom": "Saint-Leu-la-Forêt",
         "annees": [
           {
@@ -7162,7 +7451,7 @@
         ]
       },
       "properties": {
-        "code": "95365",
+        "code_insee": "95365",
         "nom": "Mareil-en-France",
         "annees": [
           {
@@ -7216,7 +7505,7 @@
         ]
       },
       "properties": {
-        "code": "95392",
+        "code_insee": "95392",
         "nom": "Mériel",
         "annees": [
           {
@@ -7275,7 +7564,7 @@
         ]
       },
       "properties": {
-        "code": "95566",
+        "code_insee": "95566",
         "nom": "Saint-Martin-du-Tertre",
         "annees": [
           {
@@ -7339,7 +7628,7 @@
         ]
       },
       "properties": {
-        "code": "95040",
+        "code_insee": "95040",
         "nom": "Avernes",
         "annees": [
           {
@@ -7396,7 +7685,7 @@
         ]
       },
       "properties": {
-        "code": "95149",
+        "code_insee": "95149",
         "nom": "Chaumontel",
         "annees": [
           {
@@ -7452,7 +7741,7 @@
         ]
       },
       "properties": {
-        "code": "95250",
+        "code_insee": "95250",
         "nom": "Fosses",
         "annees": [
           {
@@ -7511,7 +7800,7 @@
         ]
       },
       "properties": {
-        "code": "95628",
+        "code_insee": "95628",
         "nom": "Valmondois",
         "annees": [
           {
@@ -7571,7 +7860,7 @@
         ]
       },
       "properties": {
-        "code": "95480",
+        "code_insee": "95480",
         "nom": "Parmain",
         "annees": [
           {
@@ -7628,7 +7917,7 @@
         ]
       },
       "properties": {
-        "code": "95353",
+        "code_insee": "95353",
         "nom": "Maffliers",
         "annees": [
           {
@@ -7680,7 +7969,7 @@
         ]
       },
       "properties": {
-        "code": "95656",
+        "code_insee": "95656",
         "nom": "Vienne-en-Arthies",
         "annees": [
           {
@@ -7737,7 +8026,7 @@
         ]
       },
       "properties": {
-        "code": "95229",
+        "code_insee": "95229",
         "nom": "Ézanville",
         "annees": [
           {
@@ -7794,7 +8083,7 @@
         ]
       },
       "properties": {
-        "code": "95459",
+        "code_insee": "95459",
         "nom": "Nucourt",
         "annees": [
           {
@@ -7850,7 +8139,7 @@
         ]
       },
       "properties": {
-        "code": "95690",
+        "code_insee": "95690",
         "nom": "Wy-dit-Joli-Village",
         "annees": [
           {
@@ -7905,7 +8194,7 @@
         ]
       },
       "properties": {
-        "code": "95154",
+        "code_insee": "95154",
         "nom": "Chennevières-lès-Louvres",
         "annees": [
           {
@@ -7961,7 +8250,7 @@
         ]
       },
       "properties": {
-        "code": "95091",
+        "code_insee": "95091",
         "nom": "Bouffémont",
         "annees": [
           {
@@ -8018,7 +8307,7 @@
         ]
       },
       "properties": {
-        "code": "95438",
+        "code_insee": "95438",
         "nom": "Moussy",
         "annees": [
           {
@@ -8082,7 +8371,7 @@
         ]
       },
       "properties": {
-        "code": "95527",
+        "code_insee": "95527",
         "nom": "Roissy-en-France",
         "annees": [
           {
@@ -8141,7 +8430,7 @@
         ]
       },
       "properties": {
-        "code": "95429",
+        "code_insee": "95429",
         "nom": "Montreuil-sur-Epte",
         "annees": [
           {
@@ -8201,7 +8490,7 @@
         ]
       },
       "properties": {
-        "code": "95627",
+        "code_insee": "95627",
         "nom": "Vallangoujard",
         "annees": [
           {
@@ -8265,7 +8554,7 @@
         ]
       },
       "properties": {
-        "code": "95541",
+        "code_insee": "95541",
         "nom": "Saint-Clair-sur-Epte",
         "annees": [
           {
@@ -8315,7 +8604,7 @@
         ]
       },
       "properties": {
-        "code": "95633",
+        "code_insee": "95633",
         "nom": "Vaudherland",
         "annees": [
           {
@@ -8370,7 +8659,7 @@
         ]
       },
       "properties": {
-        "code": "95450",
+        "code_insee": "95450",
         "nom": "Neuville-sur-Oise",
         "annees": [
           {
@@ -8431,7 +8720,7 @@
         ]
       },
       "properties": {
-        "code": "95678",
+        "code_insee": "95678",
         "nom": "Villiers-Adam",
         "annees": [
           {
@@ -8493,7 +8782,7 @@
         ]
       },
       "properties": {
-        "code": "95018",
+        "code_insee": "95018",
         "nom": "Argenteuil",
         "annees": [
           {
@@ -8550,7 +8839,7 @@
         ]
       },
       "properties": {
-        "code": "95259",
+        "code_insee": "95259",
         "nom": "Gadancourt",
         "annees": []
       }
@@ -8576,7 +8865,7 @@
         ]
       },
       "properties": {
-        "code": "95422",
+        "code_insee": "95422",
         "nom": "Montgeroult",
         "annees": [
           {
@@ -8635,7 +8924,7 @@
         ]
       },
       "properties": {
-        "code": "95488",
+        "code_insee": "95488",
         "nom": "Pierrelaye",
         "annees": [
           {
@@ -8691,7 +8980,7 @@
         ]
       },
       "properties": {
-        "code": "95028",
+        "code_insee": "95028",
         "nom": "Attainville",
         "annees": [
           {
@@ -8747,7 +9036,7 @@
         ]
       },
       "properties": {
-        "code": "95101",
+        "code_insee": "95101",
         "nom": "Bray-et-Lû",
         "annees": [
           {
@@ -8804,7 +9093,7 @@
         ]
       },
       "properties": {
-        "code": "95253",
+        "code_insee": "95253",
         "nom": "Frémainville",
         "annees": [
           {
@@ -8855,7 +9144,7 @@
         ]
       },
       "properties": {
-        "code": "95594",
+        "code_insee": "95594",
         "nom": "Seugy",
         "annees": [
           {
@@ -8914,7 +9203,7 @@
         ]
       },
       "properties": {
-        "code": "95008",
+        "code_insee": "95008",
         "nom": "Aincourt",
         "annees": [
           {
@@ -8969,7 +9258,7 @@
         ]
       },
       "properties": {
-        "code": "95555",
+        "code_insee": "95555",
         "nom": "Saint-Gratien",
         "annees": [
           {
@@ -9024,7 +9313,7 @@
         ]
       },
       "properties": {
-        "code": "95141",
+        "code_insee": "95141",
         "nom": "Charmont",
         "annees": [
           {
@@ -9078,7 +9367,7 @@
         ]
       },
       "properties": {
-        "code": "95456",
+        "code_insee": "95456",
         "nom": "Noisy-sur-Oise",
         "annees": [
           {
@@ -9129,7 +9418,7 @@
         ]
       },
       "properties": {
-        "code": "95369",
+        "code_insee": "95369",
         "nom": "Margency",
         "annees": [
           {
@@ -9182,7 +9471,7 @@
         ]
       },
       "properties": {
-        "code": "95452",
+        "code_insee": "95452",
         "nom": "Nointel",
         "annees": [
           {
@@ -9233,7 +9522,7 @@
         ]
       },
       "properties": {
-        "code": "95493",
+        "code_insee": "95493",
         "nom": "Plessis-Luzarches",
         "annees": [
           {
@@ -9292,7 +9581,7 @@
         ]
       },
       "properties": {
-        "code": "95539",
+        "code_insee": "95539",
         "nom": "Saint-Brice-sous-Forêt",
         "annees": [
           {
@@ -9353,7 +9642,7 @@
         ]
       },
       "properties": {
-        "code": "95509",
+        "code_insee": "95509",
         "nom": "Puiseux-en-France",
         "annees": [
           {
@@ -9414,7 +9703,7 @@
         ]
       },
       "properties": {
-        "code": "95280",
+        "code_insee": "95280",
         "nom": "Goussainville",
         "annees": [
           {
@@ -9483,7 +9772,7 @@
         ]
       },
       "properties": {
-        "code": "95355",
+        "code_insee": "95355",
         "nom": "Magny-en-Vexin",
         "annees": [
           {
@@ -9543,7 +9832,7 @@
         ]
       },
       "properties": {
-        "code": "95529",
+        "code_insee": "95529",
         "nom": "Ronquerolles",
         "annees": [
           {
@@ -9603,7 +9892,7 @@
         ]
       },
       "properties": {
-        "code": "95051",
+        "code_insee": "95051",
         "nom": "Beauchamp",
         "annees": [
           {
@@ -9666,7 +9955,7 @@
         ]
       },
       "properties": {
-        "code": "95504",
+        "code_insee": "95504",
         "nom": "Presles",
         "annees": [
           {
@@ -9732,7 +10021,7 @@
         ]
       },
       "properties": {
-        "code": "95102",
+        "code_insee": "95102",
         "nom": "Bréançon",
         "annees": [
           {
@@ -9792,7 +10081,7 @@
         ]
       },
       "properties": {
-        "code": "95181",
+        "code_insee": "95181",
         "nom": "Courcelles-sur-Viosne",
         "annees": [
           {
@@ -9856,7 +10145,7 @@
         ]
       },
       "properties": {
-        "code": "95304",
+        "code_insee": "95304",
         "nom": "Hédouville",
         "annees": [
           {
@@ -9918,7 +10207,7 @@
         ]
       },
       "properties": {
-        "code": "95024",
+        "code_insee": "95024",
         "nom": "Arthies",
         "annees": [
           {
@@ -9978,7 +10267,7 @@
         ]
       },
       "properties": {
-        "code": "95268",
+        "code_insee": "95268",
         "nom": "Garges-lès-Gonesse",
         "annees": [
           {
@@ -10041,7 +10330,7 @@
         ]
       },
       "properties": {
-        "code": "95371",
+        "code_insee": "95371",
         "nom": "Marly-la-Ville",
         "annees": [
           {
@@ -10102,7 +10391,7 @@
         ]
       },
       "properties": {
-        "code": "95680",
+        "code_insee": "95680",
         "nom": "Villiers-le-Bel",
         "annees": [
           {
@@ -10168,7 +10457,7 @@
         ]
       },
       "properties": {
-        "code": "95039",
+        "code_insee": "95039",
         "nom": "Auvers-sur-Oise",
         "annees": [
           {
@@ -10229,7 +10518,7 @@
         ]
       },
       "properties": {
-        "code": "95323",
+        "code_insee": "95323",
         "nom": "Jouy-le-Moutier",
         "annees": [
           {
@@ -10289,7 +10578,7 @@
         ]
       },
       "properties": {
-        "code": "95598",
+        "code_insee": "95598",
         "nom": "Soisy-sous-Montmorency",
         "annees": [
           {
@@ -10355,7 +10644,7 @@
         ]
       },
       "properties": {
-        "code": "95199",
+        "code_insee": "95199",
         "nom": "Domont",
         "annees": [
           {
@@ -10417,7 +10706,7 @@
         ]
       },
       "properties": {
-        "code": "95625",
+        "code_insee": "95625",
         "nom": "Us",
         "annees": [
           {
@@ -10476,7 +10765,7 @@
         ]
       },
       "properties": {
-        "code": "95660",
+        "code_insee": "95660",
         "nom": "Villaines-sous-Bois",
         "annees": [
           {
@@ -10535,7 +10824,7 @@
         ]
       },
       "properties": {
-        "code": "95110",
+        "code_insee": "95110",
         "nom": "Brignancourt",
         "annees": [
           {
@@ -10596,7 +10885,7 @@
         ]
       },
       "properties": {
-        "code": "95445",
+        "code_insee": "95445",
         "nom": "Nerville-la-Forêt",
         "annees": [
           {
@@ -10658,7 +10947,7 @@
         ]
       },
       "properties": {
-        "code": "95543",
+        "code_insee": "95543",
         "nom": "Saint-Cyr-en-Arthies",
         "annees": [
           {
