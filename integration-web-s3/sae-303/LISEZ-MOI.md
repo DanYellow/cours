@@ -40,9 +40,9 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seuls les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
-> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques, pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte.
+> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques, pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte. Ces derniers sont au format "geojson" qui est un format de données pensé pour les données géographique. Bien que le nom diffère, un fichier geojson se charge comme un fichier json.
 
-> Les jeux de données ont des titres relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
+> Les jeux de données ont des titres ainsi que des colonnes/clés relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
 ## Infographie
 Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
@@ -170,4 +170,8 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 - **Est-il possible d'utiliser [tailwindcss](https://tailwindcss.com/) ?**
   
   Oui, vous avez tout à fait le droit.
+
+- **Devons-nous apporter une analyse sur nos réalisations ?**
+
+    Non. Le but de cette SAE est de réaliser un rendu créatif ou de développement définit par les consignes plus haut. Après, si vous le souhaitez, pourquoi pas.
   
