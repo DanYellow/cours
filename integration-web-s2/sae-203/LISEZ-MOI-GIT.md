@@ -16,19 +16,19 @@ Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès m
 ## Commandes
 > git possède de nombreuses commandes, ce document ne listera que les commandes principales, celles dont vous aurez le plus besoin. Les autres, vous aurez l'occasion de les découvrir durant vos périgrignations avec git.
 > 
-> A noter qu'il existe des variantes concernant certaines commandes qui font plus ou moins la même chose, ne soyez pas étonné si vous y faites face.
+> A noter qu'il existe des variantes concernant certaines commandes qui font plus ou moins la même chose, ne soyez pas étonné(e) si vous y faites face.
 
 ### Initialisation du projet
 Première étape d'un projet git : l'initialisation. **Cette étape n'est à faire qu'une seule fois par projet.** Pour simplifier les choses, il est préférable de faire cette étape depuis github plutôt que la ligne de commandes.
-|![alt text](./captures-ecran/git-1.png)|
+|![](./captures-ecran/git-1.png)|
 |:--:|
 |*Allez sur le site github, connecté. Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)*|
 
-|![alt text](./captures-ecran/git-2.png)|
+|![](./captures-ecran/git-2.png)|
 |:--:|
 |*Définissez un nom unique (par rapport à la liste de vos dépôts existants). Puis cliquez sur "Create repository"*|
 
-|![alt text](./captures-ecran/git-3.png)|
+|![](./captures-ecran/git-3.png)|
 |:--:|
 |*Voilà, votre repository est prêt. La page est ainsi car il n'y a pas encore de fichiers ajoutés*|
 
@@ -51,20 +51,20 @@ Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre 
 > N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.
 
 Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
-![alt text](./captures-ecran/git-14.png) 
+![](./captures-ecran/git-14.png) 
 
 # Ajouter des fichiers à l'historique 
-Une fois le projet cloné glissez-déposez tout le contenu du dossier "code" de la SAE dans le dossier récemment téléchargé via la commande `git clone`.
+Une fois le projet cloné glissez-déposez tout le contenu du dossier de la SAE dans le dossier récemment où vous avez cloné le projet via la commande `git clone`.
 
 Git permet de garder un historique des fichiers au sens d'un dépôt (ajout, suppression, modification). Toutefois, git crée un registre uniquement des fichiers qu'il connait. Après avoir déplacé tous les fichiers de la SAE 203 dans le dossier, vous avez du remarquer sur la gauche de VS Code une pastille avec un nombre, ce nombre représente le nombre de fichiers ajoutés/modifiés dans votre dépôt. Cliquez dessus.
 
-|![alt text](./captures-ecran/git-4.png)|
+|![](./captures-ecran/git-4.png)|
 |:--:|
 |*La pastille à gauche nous indique le status de notre projet git*|
 
 La partie "Source control" garde une trace actuelle de votre dernière modification. Dans la liste des fichiers, vous remarquerez qu'il y a la lettre "U" d'affichée. Ce "U" signifie "Unstagged", cet état signifie que ce fichier n'est pas lié à git, il n'est pas dans l'historique.
 
-|![alt text](./captures-ecran/git-5.png)|
+|![](./captures-ecran/git-5.png)|
 |:--:|
 |*Ici notre fichier `index.html` bien que dans le dossier de notre dépôt, il est marqué comme **U**nstagged. Il faut y remédier.*|
 
@@ -73,7 +73,7 @@ Pour ajouter nos fichiers à l'historique, il faut utiliser la commande suivante
 git add .
 ```
 
-|![alt text](./captures-ecran/git-6.png)|
+|![](./captures-ecran/git-6.png)|
 |:--:|
 |*Après avoir exécuté la commande `git add .`, notre U de Unstagged s'est transformé en A pour Added*|
 
@@ -95,11 +95,11 @@ Une fois le commit définit, n'oubliez pas d'appuyer sur la touche "entrée" pou
 Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter plusieurs fois par heure. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités... 
 
 ## Mettre à jour le dépôt distant
-Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git. Pour ce faire, il faut utiliser la commande `git push origin`. Cette dernière va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
+Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git. Pour ce faire, il faut utiliser la commande "`git push origin`". Cette dernière va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
 
-> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch (`git pull origin`) avant.
+> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch avant avec la commande "`git pull origin`".
 
-Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de vous autoriser automatiquement, autorisez-les.
+Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de manipuler sans restrictions le registre, autorisez-les.
 
 
 ## Récupérer l'historique distant
@@ -112,30 +112,30 @@ La commande `git pull origin` met fin à ce document de présentation brève de 
 
 ### Gérer les merges (fusion d'historiques)
 Lorsque que vous effectuez un pull, git effectue une fusion des historiques. Il peut arriver que git vous demande comment gérer cette action (voir image ci-dessous). Généralement, il n'est pas utile de mentionner les raisons du merge. Ainsi pour remettre la console dans son état inital, il vous suffit d'écrire `:q` (et appuyer sur `Entrée`) dans la console.
-|![alt text](./captures-ecran/git-10.png)|
+|![](./captures-ecran/git-10.png)|
 |:--:|
 |*Quand git fait ça, c'est qu'il est en train d'effectuer un merge. Faites `:q`. Et ça sera réglé.*|
 
 ## Extras
 
 ### Autoriser d'autres collaborateurs
-Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas autorisé à pousser sur votre dépôt, pas défaut. Pour permettre aux autres membres de votre groupe de pousser sur votre historique distant, il faudra changer les permissions de votre dépôt sur le site github. Suivez la démarche suivante :
+Si n'importe qui peut cloner (`git clone`) votre projet, tout le monde n'est pas autorisé à pousser sur votre dépôt, par défaut. Pour permettre aux autres membres de votre groupe de pousser sur votre historique distant, il faudra changer les permissions de votre dépôt sur le site github. Suivez la démarche suivante :
 
-|![alt text](./captures-ecran/git-7.png)|
+|![](./captures-ecran/git-7.png)|
 |:--:|
 |*Allez dans le menu "Settings" de notre dépôt*|
 
-|![alt text](./captures-ecran/git-8.png)|
+|![](./captures-ecran/git-8.png)|
 |:--:|
 |*Puis le menu "Collaborators"*|
 
-|![alt text](./captures-ecran/git-9.png)|
+|![](./captures-ecran/git-9.png)|
 |:--:|
 |*Cliquez sur "Add People" et ajoutez les noms de compte de vos collaborateurs.*|
 
 Notes :
 - Vos collaborateurs devront valider leur participation au projet (un e-mail de validation sera envoyé)
-- Les projets dans lesquels vous collaborés sont dans le menu `Paramètres > Repositories`. [Également accessible via cette URL](https://github.com/settings/repositories).
+- Les projets dans lesquels vous collaborez sont dans le menu `Paramètres > Repositories`. [Également accessible via cette URL](https://github.com/settings/repositories).
 
 ### Gérer les conflits
 Aussi performant soit-il, git peut parfois se brouiller quand il fusionne des historiques, ça s'appelle un conflit. Ils interviennent la plupart du temps quand plusieurs développeurs ont édité les mêmes lignes de code.
@@ -145,7 +145,7 @@ Ainsi, on se retrouve avec un code non interprétable correctement par un compil
 La résolution des conflits doit se faire manuellement. Pour signaler un conflit git ajoute de multiples chevrons dans le code (`<<<<<<<<<<`). Il faut donc les rechercher dans le code et sélectionner les parties de code qui nous intéresse.
 
 Heureusement, VS Code possède une fonctionnalité de recherche globale.
-|![alt text](./captures-ecran/git-11.png)|
+|![](./captures-ecran/git-11.png)|
 |:--:|
 |*Après avoir sélectionné l'outil de recherche, on recherche `<<<<<<` pour trouver nos conflits*|
 
@@ -154,11 +154,11 @@ VS Code liste les fichiers avec des conflits, il vous suffira sélectionner chac
 ### Changer le terminal de VS Code (Windows uniquement)
 On a vu précédemment qu'il était possible d'utiliser le terminal directement depuis l'interface de VS Code (`Terminal > New Terminal`), toutefois, si vous êtes sous Windows, le terminal utilisé est l'invite de commandes. C'est "bien", mais le terminal de git bash est bien meilleur. Pour l'utiliser par défaut dans VS Code suivez la démarche suivante :
 
-|![alt text](./captures-ecran/git-12.png)|
+|![](./captures-ecran/git-12.png)|
 |:--:|
 |*Ouvrez la "Command Palette" avec le raccourci `ctrl+shift+p" et cherchez "terminal select". Sélectionnez "Terminal: Select Default Profile"*|
 
-|![alt text](./captures-ecran/git-13.png)|
+|![](./captures-ecran/git-13.png)|
 |:--:|
 |*Sélectionnez "Git Bash". Et voilà, git bash est maintenant votre terminal par défaut dans VS Code*|
 
