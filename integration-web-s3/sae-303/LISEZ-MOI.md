@@ -127,14 +127,14 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
       - **La note sera divisée par deux si ce n'est pas fait**
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
-    - [ ] Votre site et votre réalisation (infographie ou vidéo motion)
-    - [ ] Lien vers le dépôt sur github (projet développement uniquement)
+    - [ ] Votre site et votre réalisation (sujet infographie)
+    - [ ] Lien vers le dépôt sur github (sujet application interactive en javascript)
 
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
   A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
-  **Attention : Il y a deux onglets (crea et dev) dans le fichier.** En cas d'absence de sources, la note sera divisée par deux.
+  **Attention : Il y a deux onglets (crea et dev) dans le fichier. En cas d'absence de sources, la note sera divisée par deux.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
@@ -155,7 +155,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
   
   Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple : image_1, image_2...
 
-- **Est-ce que le choix de l'axe (crea ou dev) est conditionné par le parcours choisi pour le S3 ?**
+- **Est-ce que le choix de l'axe (crea ou dev) est conditionné par notre parcours ?**
   
   Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
 
@@ -163,7 +163,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
   Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
 
-- **Mon site web doit-elle être responsive ?**
+- **Mon site web doit-il être responsive ?**
 
   Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre site web responsive.
 
