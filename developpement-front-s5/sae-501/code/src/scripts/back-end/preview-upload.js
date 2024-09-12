@@ -21,15 +21,17 @@ const previewUpload = (e) => {
     const errorMessageContainer = document.querySelector(
         `[data-incorrect-upload="${uploadName}"]`
     );
+    const imgRelated = document.querySelector(
+        `[data-preview-upload="${uploadName}"]`
+    );
+    imgRelated.src = "";
 
     const errorMessage = imageValidator(file, listAllowedMimeType);
     if (errorMessage) {
-        // errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
+        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
         errorMessageContainer.classList.remove("hidden");
+        element.value = null;
     } else {
-        const imgRelated = document.querySelector(
-            `[data-preview-upload="${uploadName}"]`
-        );
         imgRelated.src = URL.createObjectURL(file);
         errorMessageContainer.classList.add("hidden");
     }

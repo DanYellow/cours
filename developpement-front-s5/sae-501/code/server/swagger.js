@@ -10,10 +10,7 @@ import listAuthors, { author } from "./swagger-schemas/author.js";
 
 import swaggerJSDoc from "swagger-jsdoc";
 
-let envFilePath = ".env.prod.local";
-if (process.env.NODE_ENV === "development") {
-    envFilePath = ".env.dev.local";
-}
+const envFilePath = ".env.dev.local";
 
 const envVars = dotenv.config({ path: envFilePath });
 const port = envVars?.parsed?.PORT || 3000;
