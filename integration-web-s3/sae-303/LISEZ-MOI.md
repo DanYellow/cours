@@ -69,7 +69,7 @@ Votre infographie devra être présentée sur un site web, une seule page suffit
 - Membres du groupe
 - Sources (en plus de celles présentent sur l'inforgraphie / vidéo)
 
-N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/).
+N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/). Vous n'avez pas besoin d'utiliser Wordpress, ça rendra votre développement plus complexe pour un gain très faible, seuls les langages HTML et CSS vous serviront.
 
 L'infographie devra respecter les règles suivantes :
 - La présence des sources 
@@ -118,6 +118,8 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 L'application peut prendre également la forme d'un jeu, par exemple, comparer deux produits et demander à l'utilisateur lequel des deux est le plus cher (ou autre).
 
+> Pensez bien à soigner le design de votre application en n'omettant pas l'accessibilité ou la mise en page. Un outil comme [tailwindcss](https://tailwindcss.com/) vous aidera.
+
 # Votre liste à faire
   - [x] Lire les consignes
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
@@ -128,7 +130,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
     - [ ] Votre site et votre réalisation (sujet infographie)
-    - [ ] Lien vers le dépôt sur github (sujet application interactive en javascript)
+    - [ ] Lien vers le dépôt sur github (sujet développement)
 
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
