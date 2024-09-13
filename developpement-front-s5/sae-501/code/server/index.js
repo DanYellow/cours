@@ -114,7 +114,7 @@ const getAllCookies = (cookie) => {
 
     return res?.reduce(((result, curr) => Object.assign(result, curr)), {}) || {};
 }
-console.log(envVars)
+
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
@@ -126,7 +126,7 @@ app.use(function (req, res, next) {
         HOST_IP: hostip,
         current_url,
         base_url,
-        admin_url: `${base_url}/admin${envVars.parsed.ADMIN_SUFFIX}`,
+        admin_url: `${base_url}/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`,
         upload_dir: "/uploads/",
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
@@ -163,7 +163,7 @@ app.use(express.static(publicPath));
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
-app.use(`/admin${envVars.parsed.ADMIN_SUFFIX}`, backendRouter);
+app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, backendRouter);
 app.use("/api", apiRouter);
 app.use(frontendRouter);
 
