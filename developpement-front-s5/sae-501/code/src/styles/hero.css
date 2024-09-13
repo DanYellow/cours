@@ -70,12 +70,12 @@
     z-index: -1;
     width: 384px;
     height: 350px;
-    transition: transform 0.3s, translate 0.3s;
     mask: url("/images/bulle.svg") no-repeat center / contain;
     transform: scale(0.7);
     top: -87px;
-
+    
     @media (screen(sm)) {
+        transition: transform 0.3s, translate 0.3s;
         right: 283px;
         top: -46px;
         transform: scale(1);
@@ -109,11 +109,11 @@
     z-index: -1;
     width: 484px;
     height: 360px;
-    transition: transform 0.3s, translate 0.3s;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
     transform: scale(0.7);
-
+    
     @media (screen(sm)) {
+        transition: transform 0.3s, translate 0.3s;
         right: 241px;
         top: -60px;
         transform: scale(1);
