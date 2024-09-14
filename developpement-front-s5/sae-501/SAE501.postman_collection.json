@@ -212,8 +212,7 @@
 									"key": "content",
 									"value": "{{$randomLoremParagraphs}}",
 									"description": "mandatory",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "image",
@@ -224,11 +223,10 @@
 									"key": "is_active",
 									"value": "0\n",
 									"description": "Disable to set is_active as false",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
-									"key": "yt_link_id",
+									"key": "yt_video_id",
 									"value": "",
 									"type": "text"
 								},
@@ -343,7 +341,7 @@
 									"type": "text"
 								},
 								{
-									"key": "yt_link_id",
+									"key": "yt_video_id",
 									"value": "",
 									"type": "text"
 								},

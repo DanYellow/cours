@@ -1,4 +1,4 @@
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='592' height='935' viewBox='0 0 592 935' >
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='624' height='750' viewBox='0 0 624 750' >
   <script type='text/ecmascript'>
   <![CDATA[
   function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
@@ -218,37 +218,26 @@
   <marker id='Arrow' viewBox='0 0 8.00 8.00' refX='4.00' refY='4.00' markerWidth='8.00' markerHeight='8.00' orient='auto-start-reverse'>
     <path d='M 4.000,4.000 L 8.000,4.000 L 4.000,0.000 L 8.000,4.000 L 4.000,8.000' style='stroke-width:1;'/>
   </marker>
-  <linearGradient id='tbg_F4DDBE' x1='0%' y1='0%' x2='0%' y2='100%' >
-     <stop offset='0%' stop-color='#FFFEFE' /> 
-     <stop offset='75%' stop-color='#FDF0DF' /> 
-     <stop offset='100%' stop-color='#FEE0BA' /> 
+  <linearGradient id='tbg_3986C1' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#FEFEFF' /> 
+     <stop offset='75%' stop-color='#DFEFFD' /> 
+     <stop offset='100%' stop-color='#BAE0FE' /> 
   </linearGradient>
   <linearGradient id='tbg_BED3F4' x1='0%' y1='0%' x2='0%' y2='100%' >
      <stop offset='0%' stop-color='#FEFEFF' /> 
      <stop offset='75%' stop-color='#DFEAFD' /> 
      <stop offset='100%' stop-color='#BAD4FE' /> 
   </linearGradient>
-  <linearGradient id='tbg_C7F4BE' x1='0%' y1='0%' x2='0%' y2='100%' >
-     <stop offset='0%' stop-color='#FEFFFE' /> 
-     <stop offset='75%' stop-color='#E4FDDF' /> 
-     <stop offset='100%' stop-color='#C5FEBA' /> 
-  </linearGradient>
-  <linearGradient id='tbg_3986C1' x1='0%' y1='0%' x2='0%' y2='100%' >
-     <stop offset='0%' stop-color='#FEFEFF' /> 
-     <stop offset='75%' stop-color='#DFEFFD' /> 
-     <stop offset='100%' stop-color='#BAE0FE' /> 
-  </linearGradient>
 </defs>
 
 <!-- == Shape Colors == -->
 <!-- == Desktop == -->
-<rect x='1' y='1' width='590' height='933' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
-<rect x='1' y='1' width='590' height='933' rx='8' ry='8' style='fill:url(#layoutBgEval);' />
+<rect x='1' y='1' width='622' height='748' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
 
 <!-- == Legend == -->
 <g transform='translate(10,10)'>
   <rect x='10' y='10' width='310' height='70' rx='6' ry='6' style='fill:url(#legendGradient);filter:url(#shadow);'/> 
-  <use id='logo' x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >Main Layout</text> 
+  <use id='logo' x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >SAE501</text> 
   <text x='57' y='47' class='legendSubTitle'><tspan>Comments as mouse-over tips, zoom and pan.<title>Read column and table comments by hovering the columns and tables.
 Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title></tspan></text> 
   <a xlink:href='https%3A%2F%2Fdbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>by DbSchema.com - Wise Coders<title>DbSchema is an universal database designer.
@@ -256,155 +245,133 @@ DbSchema has a free Community Edition.</title></tspan></text></a>
 </g>
 
 <g transform='translate(0,110)'>
-<!-- == Group 'Collection 'authors'' == -->
-<rect class='grp' style='fill:#ECF2FD;stroke:#717D91' x='336' y='45' width='144' height='242' />
-<text x='348' y='61' style='fill:#6680AC;'>Collection &#39;authors&#39;</text>
-<!-- == Group 'Collection 'commentarticles'' == -->
-<rect class='grp' style='fill:#EEFDEC;stroke:#769171' x='336' y='429' width='144' height='194' />
-<text x='348' y='445' style='fill:#71AC66;'>Collection &#39;commentarticles&#39;</text>
-<!-- == Group 'Collection 'articles'' == -->
-<rect class='grp' style='fill:#FDF5EC;stroke:#918371' x='96' y='45' width='160' height='290' />
-<text x='108' y='61' style='fill:#AC8D66;'>Collection &#39;articles&#39;</text>
-<!-- == Fk 'articles_Relationship' == -->
-<path id='articles_Relationship'  onmouseover="hghl(['articles_Relationship','sae501.articles.author','sae501.authors._id'])" onmouseout="uhghl(['articles_Relationship','sae501.articles.author','sae501.authors._id'])" transform='translate(8,0)' class='unhighlight' d='M 240,112L 336,112' >
-	<title>&#x1F517;  Foreign Key Relationship
+<!-- == Group 'articles' == -->
+<rect class='grp' style='fill:#ECF2FD;stroke:#717D91' x='32' y='93' width='192' height='306' />
+<text x='44' y='109' style='fill:#6680AC;'>articles</text>
+<!-- == Fk 'authors_fk_authors_authors' == -->
+<path id='authors_fk_authors_authors'  onmouseover="hghl(['authors_fk_authors_authors','sae501.authors._id','sae501.articles.author'])" onmouseout="uhghl(['authors_fk_authors_authors','sae501.authors._id','sae501.articles.author'])" transform='translate(8,0)' class='unhighlight' d='M 368,160L 208,160' >
+	<title>&#x1F517;  Foreign Key fk_authors_authors
+authors ref articles ( _id -&gt; author )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#ZeroOne)' marker-end='url(#One)'  class='virtual'  d='M 368,160L 208,160' ><title>&#x1F517;  Foreign Key fk_authors_authors
+authors ref articles ( _id -&gt; author )</title></path>
+<text x='361' y='155' transform='rotate(0 361,155)' class='relName'>&#95;id</text>
+<!-- == Fk 'articles_fk_articles_authors' == -->
+<path id='articles_fk_articles_authors'  onmouseover="hghl(['articles_fk_articles_authors','sae501.articles.author','sae501.authors._id'])" onmouseout="uhghl(['articles_fk_articles_authors','sae501.articles.author','sae501.authors._id'])" transform='translate(8,0)' class='unhighlight' d='M 208,144L 368,144' >
+	<title>&#x1F517;  Foreign Key fk_articles_authors
 articles ref authors ( author -&gt; _id )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='dotted virtual'  d='M 240,112L 336,112' ><title>&#x1F517;  Foreign Key Relationship
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='virtual'  d='M 208,144L 368,144' ><title>&#x1F517;  Foreign Key fk_articles_authors
 articles ref authors ( author -&gt; _id )</title></path>
-<text x='249' y='107' transform='rotate(0 249,107)' class='relName'>Relationship</text>
-<!-- == Fk 'articles_Relationship' == -->
-<path id='articles_Relationship'  onmouseover="hghl(['articles_Relationship','sae501.articles.list_comments','sae501.commentarticles._id'])" onmouseout="uhghl(['articles_Relationship','sae501.articles.list_comments','sae501.commentarticles._id'])" transform='translate(8,0)' class='unhighlight' d='M 240,304L 360,304Q 368,304 368,312L 368,448' >
-	<title>&#x1F517;  Foreign Key Relationship
+<text x='217' y='139' transform='rotate(0 217,139)' class='relName'>author</text>
+<!-- == Fk 'articles_fk_articles_commentarticles' == -->
+<path id='articles_fk_articles_commentarticles'  onmouseover="hghl(['articles_fk_articles_commentarticles','sae501.articles.list_comments','sae501.commentarticles._id'])" onmouseout="uhghl(['articles_fk_articles_commentarticles','sae501.articles.list_comments','sae501.commentarticles._id'])" transform='translate(8,0)' class='unhighlight' d='M 208,368L 384,368' >
+	<title>&#x1F517;  Foreign Key fk_articles_commentarticles
 articles ref commentarticles ( list_comments -&gt; _id )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='virtual'  d='M 240,304L 360,304Q 368,304 368,312L 368,448' ><title>&#x1F517;  Foreign Key Relationship
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='virtual'  d='M 208,368L 384,368' ><title>&#x1F517;  Foreign Key fk_articles_commentarticles
 articles ref commentarticles ( list_comments -&gt; _id )</title></path>
-<text x='249' y='299' transform='rotate(0 249,299)' class='relName'>Relationship</text>
-<!-- == Fk 'authors_Relationship' == -->
-<path id='authors_Relationship'  onmouseover="hghl(['authors_Relationship','sae501.authors.list_articles','sae501.articles._id'])" onmouseout="uhghl(['authors_Relationship','sae501.authors.list_articles','sae501.articles._id'])" transform='translate(8,0)' class='unhighlight' d='M 336,96L 240,96' >
-	<title>&#x1F517;  Foreign Key Relationship
-authors ref articles ( list_articles -&gt; _id )</title>
-</path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='virtual'  d='M 336,96L 240,96' ><title>&#x1F517;  Foreign Key Relationship
-authors ref articles ( list_articles -&gt; _id )</title></path>
-<text x='275' y='91' transform='rotate(0 275,91)' class='relName'>Relationship</text>
-<!-- == Fk 'commentarticles_Relationship' == -->
-<path id='commentarticles_Relationship'  onmouseover="hghl(['commentarticles_Relationship','sae501.commentarticles.article','sae501.articles._id'])" onmouseout="uhghl(['commentarticles_Relationship','sae501.commentarticles.article','sae501.articles._id'])" transform='translate(8,0)' class='unhighlight' d='M 336,464L 232,464Q 224,464 224,456L 224,320' >
-	<title>&#x1F517;  Foreign Key Relationship
-commentarticles ref articles ( article -&gt; _id )</title>
-</path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#One)'  class='virtual'  d='M 336,464L 232,464Q 224,464 224,456L 224,320' ><title>&#x1F517;  Foreign Key Relationship
-commentarticles ref articles ( article -&gt; _id )</title></path>
-<text x='275' y='459' transform='rotate(0 275,459)' class='relName'>Relationship</text>
-<!-- == Table 'articles' == -->
-<rect id='depict_sae501&#46;articles' class='entity' style='stroke:#B99B76' x='112' y='72' width='128' height='240' />
-<rect x='112' y='72' width='128' height='28' style='stroke-width:0; fill:#FAF6F1'/>
-<line class='topLine' style='stroke:#986017;' stroke-linecap='round' x1='112' y1='72' x2='240' y2='72'/>
-<a xlink:href='#sae501.articles'><text x='152' y='91' >articles</text><title>Collection sae501.articles</title></a>
-  <use id='nn' x='114' y='109' xlink:href='#nn'/><use id='pk' x='114' y='108' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.articles__id'><text id='sae501&#46;articles&#46;&#95;id' x='131' y='119' onmouseover="hghl(['authors_Relationship','sae501.authors.list_articles','commentarticles_Relationship','sae501.commentarticles.article'])" onmouseout="uhghl(['authors_Relationship','sae501.authors.list_articles','commentarticles_Relationship','sae501.commentarticles.article'])">&#95;id</text><title>&#10697;  _id
-     * objectid
- &#8601; authors( _id )
- &#8601; commentarticles( _id )</title></a>
-<a xlink:href='#sae501.articles._id'><use id='ref' x='228' y='108' xlink:href='#ref'/><title>&#x1F517;  Referred by authors ( list_articles -&gt; _id ) 
-Referred by commentarticles ( article -&gt; _id ) </title></a>
-  <use id='nn' x='114' y='125' xlink:href='#nn'/><a xlink:href='#sae501.articles_title'><text id='sae501&#46;articles&#46;title' x='131' y='135'>title</text><title>&#10697;  title
-     * string</title></a>
-<text x='237' y='132' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='141' xlink:href='#nn'/><a xlink:href='#sae501.articles_abstract'><text id='sae501&#46;articles&#46;abstract' x='131' y='151'>abstract</text><title>&#10697;  abstract
-     * string</title></a>
-<text x='237' y='148' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='157' xlink:href='#nn'/><a xlink:href='#sae501.articles_content'><text id='sae501&#46;articles&#46;content' x='131' y='167'>content</text><title>&#10697;  content
-     * string</title></a>
-<text x='237' y='164' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='173' xlink:href='#nn'/><a xlink:href='#sae501.articles_image'><text id='sae501&#46;articles&#46;image' x='131' y='183'>image</text><title>&#10697;  image
-     * string</title></a>
-<text x='237' y='180' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='189' xlink:href='#nn'/><a xlink:href='#sae501.articles_yt_link_id'><text id='sae501&#46;articles&#46;yt&#95;link&#95;id' x='131' y='199'>yt&#95;link&#95;id</text><title>&#10697;  yt_link_id
-     * string</title></a>
-<text x='237' y='196' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='205' xlink:href='#nn'/><a xlink:href='#sae501.articles_is_active'><text id='sae501&#46;articles&#46;is&#95;active' x='131' y='215'>is&#95;active</text><title>&#10697;  is_active
-     * boolean</title></a>
-<text x='237' y='212' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='221' xlink:href='#nn'/><a xlink:href='#sae501.articles_list_comments'><text id='sae501&#46;articles&#46;list&#95;comments' x='131' y='231' onmouseover="hghl(['articles_Relationship','sae501.commentarticles._id'])" onmouseout="uhghl(['articles_Relationship','sae501.commentarticles._id'])">list&#95;comments</text><title>&#10697;  list_comments
-     * array[objectid]
- &#8599; articles( _id )</title></a>
-<a xlink:href='#sae501.articles.list_comments'><use id='fk' x='228' y='220' xlink:href='#fk'/><title>&#x1F517;  References commentarticles ( list_comments -&gt; _id ) </title></a>
-  <use id='nn' x='114' y='237' xlink:href='#nn'/><a xlink:href='#sae501.articles_created_at'><text id='sae501&#46;articles&#46;created&#95;at' x='131' y='247'>created&#95;at</text><title>&#10697;  created_at
-     * date</title></a>
-<text x='237' y='244' text-anchor='end' class='colType'>d</text>  <use id='nn' x='114' y='253' xlink:href='#nn'/><a xlink:href='#sae501.articles_updated_at'><text id='sae501&#46;articles&#46;updated&#95;at' x='131' y='263'>updated&#95;at</text><title>&#10697;  updated_at
-     * date</title></a>
-<text x='237' y='260' text-anchor='end' class='colType'>d</text>  <use id='nn' x='114' y='269' xlink:href='#nn'/><a xlink:href='#sae501.articles___v'><text id='sae501&#46;articles&#46;&#95;&#95;v' x='131' y='279'>&#95;&#95;v</text><title>&#10697;  __v
-     * int</title></a>
-<text x='237' y='276' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#sae501.articles_author'><text id='sae501&#46;articles&#46;author' x='131' y='295' onmouseover="hghl(['articles_Relationship','sae501.authors._id'])" onmouseout="uhghl(['articles_Relationship','sae501.authors._id'])">author</text><title>&#10697;  author
-     objectid
- &#8599; articles( _id )</title></a>
-<a xlink:href='#sae501.articles.author'><use id='fk' x='228' y='284' xlink:href='#fk'/><title>&#x1F517;  References authors ( author -&gt; _id ) </title></a>
-
+<text x='217' y='363' transform='rotate(0 217,363)' class='relName'>list&#95;comments</text>
 <!-- == Table 'authors' == -->
-<rect id='depict_sae501&#46;authors' class='entity' style='stroke:#768FB9' x='352' y='72' width='112' height='192' />
-<rect x='352' y='72' width='112' height='28' style='stroke-width:0; fill:#F1F4FA'/>
-<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='352' y1='72' x2='464' y2='72'/>
-<a xlink:href='#sae501.authors'><text x='383' y='91' >authors</text><title>Collection sae501.authors</title></a>
-  <use id='nn' x='354' y='109' xlink:href='#nn'/><use id='pk' x='354' y='108' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.authors__id'><text id='sae501&#46;authors&#46;&#95;id' x='371' y='119' onmouseover="hghl(['articles_Relationship','sae501.articles.author'])" onmouseout="uhghl(['articles_Relationship','sae501.articles.author'])">&#95;id</text><title>&#10697;  _id
+<rect id='depict_sae501&#46;authors' class='entity' style='stroke:#769BB9' x='384' y='72' width='192' height='192' />
+<rect x='384' y='72' width='192' height='28' style='stroke-width:0; fill:#F1F6FA'/>
+<line class='topLine' style='stroke:#176098;' stroke-linecap='round' x1='384' y1='72' x2='576' y2='72'/>
+<a xlink:href='#sae501.authors'><text x='455' y='91' >authors</text><title>Collection sae501.authors</title></a>
+  <use id='nn' x='386' y='109' xlink:href='#nn'/><use id='pk' x='386' y='108' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.authors__id'><text id='sae501&#46;authors&#46;&#95;id' x='403' y='119' onmouseover="hghl(['authors_fk_authors_authors','sae501.articles.author','articles_fk_articles_authors','sae501.articles.author'])" onmouseout="uhghl(['authors_fk_authors_authors','sae501.articles.author','articles_fk_articles_authors','sae501.articles.author'])">&#95;id</text><title>&#10697;  _id
      * objectid
+ &#8599; authors( author )
  &#8601; articles( _id )</title></a>
-<a xlink:href='#sae501.authors._id'><use id='ref' x='452' y='108' xlink:href='#ref'/><title>&#x1F517;  Referred by articles ( author -&gt; _id ) </title></a>
-  <use id='nn' x='354' y='125' xlink:href='#nn'/><a xlink:href='#sae501.authors_lastname'><text id='sae501&#46;authors&#46;lastname' x='371' y='135'>lastname</text><title>&#10697;  lastname
+<text x='560' y='120' text-anchor='end' style='fill:#86A0B5;stroke:0;'>objectId</text><a xlink:href='#sae501.authors._id'><use id='fk' x='564' y='108' xlink:href='#fk'/><title>&#x1F517;  References articles ( _id -&gt; author ) 
+Referred by articles ( author -&gt; _id ) </title></a>
+  <use id='nn' x='386' y='125' xlink:href='#nn'/><a xlink:href='#sae501.authors_lastname'><text id='sae501&#46;authors&#46;lastname' x='403' y='135'>lastname</text><title>&#10697;  lastname
      * string</title></a>
-<text x='461' y='132' text-anchor='end' class='colType'>t</text>  <use id='nn' x='354' y='141' xlink:href='#nn'/><a xlink:href='#sae501.authors_firstname'><text id='sae501&#46;authors&#46;firstname' x='371' y='151'>firstname</text><title>&#10697;  firstname
+<text x='560' y='136' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='141' xlink:href='#nn'/><a xlink:href='#sae501.authors_firstname'><text id='sae501&#46;authors&#46;firstname' x='403' y='151'>firstname</text><title>&#10697;  firstname
      * string</title></a>
-<text x='461' y='148' text-anchor='end' class='colType'>t</text>  <use id='nn' x='354' y='157' xlink:href='#nn'/><a xlink:href='#sae501.authors_email'><text id='sae501&#46;authors&#46;email' x='371' y='167'>email</text><title>&#10697;  email
+<text x='560' y='152' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='157' xlink:href='#nn'/><a xlink:href='#sae501.authors_email'><text id='sae501&#46;authors&#46;email' x='403' y='167'>email</text><title>&#10697;  email
      * string</title></a>
-<text x='461' y='164' text-anchor='end' class='colType'>t</text>  <use id='nn' x='354' y='173' xlink:href='#nn'/><a xlink:href='#sae501.authors_image'><text id='sae501&#46;authors&#46;image' x='371' y='183'>image</text><title>&#10697;  image
+<text x='560' y='168' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='173' xlink:href='#nn'/><a xlink:href='#sae501.authors_image'><text id='sae501&#46;authors&#46;image' x='403' y='183'>image</text><title>&#10697;  image
      * string</title></a>
-<text x='461' y='180' text-anchor='end' class='colType'>t</text>  <use id='nn' x='354' y='189' xlink:href='#nn'/><a xlink:href='#sae501.authors_list_articles'><text id='sae501&#46;authors&#46;list&#95;articles' x='371' y='199' onmouseover="hghl(['authors_Relationship','sae501.articles._id'])" onmouseout="uhghl(['authors_Relationship','sae501.articles._id'])">list&#95;articles</text><title>&#10697;  list_articles
-     * array[objectid]
- &#8599; authors( _id )</title></a>
-<a xlink:href='#sae501.authors.list_articles'><use id='fk' x='452' y='188' xlink:href='#fk'/><title>&#x1F517;  References articles ( list_articles -&gt; _id ) </title></a>
-  <use id='nn' x='354' y='205' xlink:href='#nn'/><a xlink:href='#sae501.authors___v'><text id='sae501&#46;authors&#46;&#95;&#95;v' x='371' y='215'>&#95;&#95;v</text><title>&#10697;  __v
+<text x='560' y='184' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='189' xlink:href='#nn'/><a xlink:href='#sae501.authors_bio'><text id='sae501&#46;authors&#46;bio' x='403' y='199'>bio</text><title>&#10697;  bio
+     * string</title></a>
+<text x='560' y='200' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='205' xlink:href='#nn'/><a xlink:href='#sae501.authors_color'><text id='sae501&#46;authors&#46;color' x='403' y='215'>color</text><title>&#10697;  color
+     * string</title></a>
+<text x='560' y='216' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='386' y='221' xlink:href='#nn'/><a xlink:href='#sae501.authors_list_articles'><text id='sae501&#46;authors&#46;list&#95;articles' x='403' y='231'>list&#95;articles</text><title>&#10697;  list_articles
+     * array[objectid]</title></a>
+<text x='560' y='232' text-anchor='end' style='fill:#86A0B5;stroke:0;'>array&#91;objectid&#93;</text>  <use id='nn' x='386' y='237' xlink:href='#nn'/><a xlink:href='#sae501.authors___v'><text id='sae501&#46;authors&#46;&#95;&#95;v' x='403' y='247'>&#95;&#95;v</text><title>&#10697;  __v
      * int</title></a>
-<text x='461' y='212' text-anchor='end' class='colType'>&#35;</text>  <use id='nn' x='354' y='221' xlink:href='#nn'/><a xlink:href='#sae501.authors_bio'><text id='sae501&#46;authors&#46;bio' x='371' y='231'>bio</text><title>&#10697;  bio
-     * string</title></a>
-<text x='461' y='228' text-anchor='end' class='colType'>t</text>  <a xlink:href='#sae501.authors_color'><text id='sae501&#46;authors&#46;color' x='371' y='247'>color</text><title>&#10697;  color
-     string</title></a>
-<text x='461' y='244' text-anchor='end' class='colType'>t</text>
+<text x='560' y='248' text-anchor='end' style='fill:#86A0B5;stroke:0;'>int</text>
 <!-- == Table 'commentarticles' == -->
-<rect id='depict_sae501&#46;commentarticles' class='entity' style='stroke:#81B976' x='352' y='456' width='112' height='144' />
-<rect x='352' y='456' width='112' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='352' y1='456' x2='464' y2='456'/>
-<a xlink:href='#sae501.commentarticles'><text x='357' y='475' >commentarticles</text><title>Collection sae501.commentarticles</title></a>
-  <use id='nn' x='354' y='493' xlink:href='#nn'/><use id='pk' x='354' y='492' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.commentarticles__id'><text id='sae501&#46;commentarticles&#46;&#95;id' x='371' y='503' onmouseover="hghl(['articles_Relationship','sae501.articles.list_comments'])" onmouseout="uhghl(['articles_Relationship','sae501.articles.list_comments'])">&#95;id</text><title>&#10697;  _id
+<rect id='depict_sae501&#46;commentarticles' class='entity' style='stroke:#769BB9' x='400' y='360' width='128' height='144' />
+<rect x='400' y='360' width='128' height='28' style='stroke-width:0; fill:#F1F6FA'/>
+<line class='topLine' style='stroke:#176098;' stroke-linecap='round' x1='400' y1='360' x2='528' y2='360'/>
+<a xlink:href='#sae501.commentarticles'><text x='413' y='379' >commentarticles</text><title>Collection sae501.commentarticles</title></a>
+  <use id='nn' x='402' y='397' xlink:href='#nn'/><use id='pk' x='402' y='396' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.commentarticles__id'><text id='sae501&#46;commentarticles&#46;&#95;id' x='419' y='407' onmouseover="hghl(['articles_fk_articles_commentarticles','sae501.articles.list_comments'])" onmouseout="uhghl(['articles_fk_articles_commentarticles','sae501.articles.list_comments'])">&#95;id</text><title>&#10697;  _id
      * objectid
  &#8601; articles( _id )</title></a>
-<a xlink:href='#sae501.commentarticles._id'><use id='ref' x='452' y='492' xlink:href='#ref'/><title>&#x1F517;  Referred by articles ( list_comments -&gt; _id ) </title></a>
-  <use id='nn' x='354' y='509' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_content'><text id='sae501&#46;commentarticles&#46;content' x='371' y='519'>content</text><title>&#10697;  content
-     * string</title></a>
-<text x='461' y='516' text-anchor='end' class='colType'>t</text>  <use id='nn' x='354' y='525' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_article'><text id='sae501&#46;commentarticles&#46;article' x='371' y='535' onmouseover="hghl(['commentarticles_Relationship','sae501.articles._id'])" onmouseout="uhghl(['commentarticles_Relationship','sae501.articles._id'])">article</text><title>&#10697;  article
-     * objectid
- &#8599; commentarticles( _id )</title></a>
-<a xlink:href='#sae501.commentarticles.article'><use id='fk' x='452' y='524' xlink:href='#fk'/><title>&#x1F517;  References articles ( article -&gt; _id ) </title></a>
-  <use id='nn' x='354' y='541' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_created_at'><text id='sae501&#46;commentarticles&#46;created&#95;at' x='371' y='551'>created&#95;at</text><title>&#10697;  created_at
-     * date</title></a>
-<text x='461' y='548' text-anchor='end' class='colType'>d</text>  <use id='nn' x='354' y='557' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_updatedAt'><text id='sae501&#46;commentarticles&#46;updatedAt' x='371' y='567'>updatedAt</text><title>&#10697;  updatedAt
-     * date</title></a>
-<text x='461' y='564' text-anchor='end' class='colType'>d</text>  <use id='nn' x='354' y='573' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles___v'><text id='sae501&#46;commentarticles&#46;&#95;&#95;v' x='371' y='583'>&#95;&#95;v</text><title>&#10697;  __v
-     * int</title></a>
-<text x='461' y='580' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'saes' == -->
-<rect id='depict_sae501&#46;saes' class='entity' style='stroke:#769BB9' x='112' y='456' width='80' height='128' />
-<rect x='112' y='456' width='80' height='28' style='stroke-width:0; fill:#F1F6FA'/>
-<line class='topLine' style='stroke:#176098;' stroke-linecap='round' x1='112' y1='456' x2='192' y2='456'/>
-<a xlink:href='#sae501.saes'><text x='136' y='475' >saes</text><title>Collection sae501.saes</title></a>
-  <use id='nn' x='114' y='493' xlink:href='#nn'/><use id='pk' x='114' y='492' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.saes__id'><text id='sae501&#46;saes&#46;&#95;id' x='131' y='503'>&#95;id</text><title>&#10697;  _id
-     * objectid</title></a>
-  <use id='nn' x='114' y='509' xlink:href='#nn'/><a xlink:href='#sae501.saes_title'><text id='sae501&#46;saes&#46;title' x='131' y='519'>title</text><title>&#10697;  title
-     * string</title></a>
-<text x='189' y='516' text-anchor='end' class='colType'>t</text>  <use id='nn' x='114' y='525' xlink:href='#nn'/><a xlink:href='#sae501.saes___v'><text id='sae501&#46;saes&#46;&#95;&#95;v' x='131' y='535'>&#95;&#95;v</text><title>&#10697;  __v
-     * int</title></a>
-<text x='189' y='532' text-anchor='end' class='colType'>&#35;</text>  <use id='nn' x='114' y='541' xlink:href='#nn'/><a xlink:href='#sae501.saes_content'><text id='sae501&#46;saes&#46;content' x='131' y='551'>content</text><title>&#10697;  content
-     * string</title></a>
-<text x='189' y='548' text-anchor='end' class='colType'>t</text>  <a xlink:href='#sae501.saes_image'><text id='sae501&#46;saes&#46;image' x='131' y='567'>image</text><title>&#10697;  image
+<text x='512' y='408' text-anchor='end' style='fill:#86A0B5;stroke:0;'>objectId</text><a xlink:href='#sae501.commentarticles._id'><use id='ref' x='516' y='396' xlink:href='#ref'/><title>&#x1F517;  Referred by articles ( list_comments -&gt; _id ) </title></a>
+  <a xlink:href='#sae501.commentarticles_content'><text id='sae501&#46;commentarticles&#46;content' x='419' y='423'>content</text><title>&#10697;  content
      string</title></a>
-<text x='189' y='564' text-anchor='end' class='colType'>t</text>
-<!-- == Callout == -->
-<rect class='callout' x='48' y='656' width='512' height='89' rx='16' ry='16'  />
-<text x='72' y='656' class='callout'>
-    <tspan x='52.000000' dx='8' dy='20'>This is a layout&#46; You can create multiple layouts with the same or different collections&#46; </tspan>
-    <tspan x='52.000000' dx='8' dy='59'>&#45; Edit collections and validation rules by double&#45;clicking the collection headers&#46;</tspan>
-</text>
+<text x='512' y='424' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='402' y='429' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_article'><text id='sae501&#46;commentarticles&#46;article' x='419' y='439'>article</text><title>&#10697;  article
+     * objectid</title></a>
+<text x='512' y='440' text-anchor='end' style='fill:#86A0B5;stroke:0;'>objectId</text>  <use id='nn' x='402' y='445' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_created_at'><text id='sae501&#46;commentarticles&#46;created&#95;at' x='419' y='455'>created&#95;at</text><title>&#10697;  created_at
+     * date</title></a>
+<text x='512' y='456' text-anchor='end' style='fill:#86A0B5;stroke:0;'>date</text>  <use id='nn' x='402' y='461' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles_updatedAt'><text id='sae501&#46;commentarticles&#46;updatedAt' x='419' y='471'>updatedAt</text><title>&#10697;  updatedAt
+     * date</title></a>
+<text x='512' y='472' text-anchor='end' style='fill:#86A0B5;stroke:0;'>date</text>  <use id='nn' x='402' y='477' xlink:href='#nn'/><a xlink:href='#sae501.commentarticles___v'><text id='sae501&#46;commentarticles&#46;&#95;&#95;v' x='419' y='487'>&#95;&#95;v</text><title>&#10697;  __v
+     * int</title></a>
+<text x='512' y='488' text-anchor='end' style='fill:#86A0B5;stroke:0;'>int</text>
+<!-- == Table 'saes' == -->
+<rect id='depict_sae501&#46;saes' class='entity' style='stroke:#769BB9' x='80' y='424' width='112' height='128' />
+<rect x='80' y='424' width='112' height='28' style='stroke-width:0; fill:#F1F6FA'/>
+<line class='topLine' style='stroke:#176098;' stroke-linecap='round' x1='80' y1='424' x2='192' y2='424'/>
+<a xlink:href='#sae501.saes'><text x='120' y='443' >saes</text><title>Collection sae501.saes</title></a>
+  <use id='nn' x='82' y='461' xlink:href='#nn'/><use id='pk' x='82' y='460' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.saes__id'><text id='sae501&#46;saes&#46;&#95;id' x='99' y='471'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='176' y='472' text-anchor='end' style='fill:#86A0B5;stroke:0;'>objectId</text>  <use id='nn' x='82' y='477' xlink:href='#nn'/><a xlink:href='#sae501.saes_title'><text id='sae501&#46;saes&#46;title' x='99' y='487'>title</text><title>&#10697;  title
+     * string</title></a>
+<text x='176' y='488' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='82' y='493' xlink:href='#nn'/><a xlink:href='#sae501.saes_content'><text id='sae501&#46;saes&#46;content' x='99' y='503'>content</text><title>&#10697;  content
+     * string</title></a>
+<text x='176' y='504' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>  <use id='nn' x='82' y='509' xlink:href='#nn'/><a xlink:href='#sae501.saes___v'><text id='sae501&#46;saes&#46;&#95;&#95;v' x='99' y='519'>&#95;&#95;v</text><title>&#10697;  __v
+     * int</title></a>
+<text x='176' y='520' text-anchor='end' style='fill:#86A0B5;stroke:0;'>int</text>  <use id='nn' x='82' y='525' xlink:href='#nn'/><a xlink:href='#sae501.saes_image'><text id='sae501&#46;saes&#46;image' x='99' y='535'>image</text><title>&#10697;  image
+     * string</title></a>
+<text x='176' y='536' text-anchor='end' style='fill:#86A0B5;stroke:0;'>string</text>
+<!-- == Table 'articles' == -->
+<rect id='depict_sae501&#46;articles' class='entity' style='stroke:#768FB9' x='48' y='120' width='160' height='256' />
+<rect x='48' y='120' width='160' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='48' y1='120' x2='208' y2='120'/>
+<a xlink:href='#sae501.articles'><text x='104' y='139' >articles</text><title>Collection sae501.articles</title></a>
+  <use id='nn' x='50' y='157' xlink:href='#nn'/><use id='pk' x='50' y='156' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#sae501.articles__id'><text id='sae501&#46;articles&#46;&#95;id' x='67' y='167'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='192' y='168' text-anchor='end' style='fill:#8698B5;stroke:0;'>objectId</text>  <use id='nn' x='50' y='173' xlink:href='#nn'/><a xlink:href='#sae501.articles_title'><text id='sae501&#46;articles&#46;title' x='67' y='183'>title</text><title>&#10697;  title
+     * string</title></a>
+<text x='192' y='184' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <use id='nn' x='50' y='189' xlink:href='#nn'/><a xlink:href='#sae501.articles_abstract'><text id='sae501&#46;articles&#46;abstract' x='67' y='199'>abstract</text><title>&#10697;  abstract
+     * string</title></a>
+<text x='192' y='200' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <use id='nn' x='50' y='205' xlink:href='#nn'/><a xlink:href='#sae501.articles_content'><text id='sae501&#46;articles&#46;content' x='67' y='215'>content</text><title>&#10697;  content
+     * string</title></a>
+<text x='192' y='216' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <use id='nn' x='50' y='221' xlink:href='#nn'/><a xlink:href='#sae501.articles_image'><text id='sae501&#46;articles&#46;image' x='67' y='231'>image</text><title>&#10697;  image
+     * string</title></a>
+<text x='192' y='232' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <a xlink:href='#sae501.articles_yt_video_id'><text id='sae501&#46;articles&#46;yt&#95;video&#95;id' x='67' y='247'>yt&#95;video&#95;id</text><title>&#10697;  yt_video_id
+     string</title></a>
+<text x='192' y='248' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <use id='nn' x='50' y='253' xlink:href='#nn'/><a xlink:href='#sae501.articles_is_active'><text id='sae501&#46;articles&#46;is&#95;active' x='67' y='263'>is&#95;active</text><title>&#10697;  is_active
+     * boolean</title></a>
+<text x='192' y='264' text-anchor='end' style='fill:#8698B5;stroke:0;'>Boolean</text>  <use id='nn' x='50' y='269' xlink:href='#nn'/><a xlink:href='#sae501.articles_list_comments'><text id='sae501&#46;articles&#46;list&#95;comments' x='67' y='279' onmouseover="hghl(['articles_fk_articles_commentarticles','sae501.commentarticles._id'])" onmouseout="uhghl(['articles_fk_articles_commentarticles','sae501.commentarticles._id'])">list&#95;comments</text><title>&#10697;  list_comments
+     * array
+ &#8599; articles( _id )</title></a>
+<text x='192' y='280' text-anchor='end' style='fill:#8698B5;stroke:0;'>array</text><a xlink:href='#sae501.articles.list_comments'><use id='fk' x='196' y='268' xlink:href='#fk'/><title>&#x1F517;  References commentarticles ( list_comments -&gt; _id ) </title></a>
+  <use id='nn' x='50' y='285' xlink:href='#nn'/><a xlink:href='#sae501.articles_author'><text id='sae501&#46;articles&#46;author' x='67' y='295' onmouseover="hghl(['articles_fk_articles_authors','sae501.authors._id','authors_fk_authors_authors','sae501.authors._id'])" onmouseout="uhghl(['articles_fk_articles_authors','sae501.authors._id','authors_fk_authors_authors','sae501.authors._id'])">author</text><title>&#10697;  author
+     * objectid
+ &#8599; articles( _id )
+ &#8601; authors( author )</title></a>
+<text x='192' y='296' text-anchor='end' style='fill:#8698B5;stroke:0;'>objectId</text><a xlink:href='#sae501.articles.author'><use id='fk' x='196' y='284' xlink:href='#fk'/><title>&#x1F517;  References authors ( author -&gt; _id ) 
+Referred by authors ( _id -&gt; author ) </title></a>
+  <use id='nn' x='50' y='301' xlink:href='#nn'/><a xlink:href='#sae501.articles_created_at'><text id='sae501&#46;articles&#46;created&#95;at' x='67' y='311'>created&#95;at</text><title>&#10697;  created_at
+     * date</title></a>
+<text x='192' y='312' text-anchor='end' style='fill:#8698B5;stroke:0;'>date</text>  <use id='nn' x='50' y='317' xlink:href='#nn'/><a xlink:href='#sae501.articles_updated_at'><text id='sae501&#46;articles&#46;updated&#95;at' x='67' y='327'>updated&#95;at</text><title>&#10697;  updated_at
+     * date</title></a>
+<text x='192' y='328' text-anchor='end' style='fill:#8698B5;stroke:0;'>date</text>  <use id='nn' x='50' y='333' xlink:href='#nn'/><use id='unq' x='50' y='332' xlink:href='#unq'><title>&#x1F50D;  Unq slug_1 ( slug ) </title></use><a xlink:href='#sae501.articles_slug'><text id='sae501&#46;articles&#46;slug' x='67' y='343'>slug</text><title>&#10697;  slug
+     * string</title></a>
+<text x='192' y='344' text-anchor='end' style='fill:#8698B5;stroke:0;'>string</text>  <use id='nn' x='50' y='349' xlink:href='#nn'/><a xlink:href='#sae501.articles___v'><text id='sae501&#46;articles&#46;&#95;&#95;v' x='67' y='359'>&#95;&#95;v</text><title>&#10697;  __v
+     * int</title></a>
+<text x='192' y='360' text-anchor='end' style='fill:#8698B5;stroke:0;'>int</text>
 </g></svg>
