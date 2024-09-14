@@ -295,10 +295,11 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Vous devez créer les api pour (POST et GET)
     - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
 - [ ] Permettre de créer, éditer un article
-    - Toutes les routes sont déjà prêtes pour manipuler la base de données. Il faut créer le formulaire
+    - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
     - **Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas**
     - La suppression et le listage sont déjà gérés
     - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
+      - Vous devez vérifier que le lien ou l'id de la vidéo est valide
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
