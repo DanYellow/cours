@@ -21,7 +21,10 @@ const articleSchema = new Schema(
             type: String,
             required: [true, "Veuillez mettre une image, le champ ne peut pas être nul ou vide"]
         },
-        yt_link_id: String,
+        yt_video_id: {
+            type: String,
+            default: null,
+        },
         is_active: {
             type: Boolean,
             default: false,
