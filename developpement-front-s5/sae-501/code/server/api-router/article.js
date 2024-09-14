@@ -511,7 +511,7 @@ const getArticles = async (id, queryParams) => {
     }
 
     const searchPredicates = {
-        ...(queryParams.isActive !== "all" ? { is_active: queryParams.isActive === "true" } : {}),
+        ...(queryParams?.isActive !== "all" ? { is_active: queryParams?.isActive === "true" } : {}),
     }
 
     const isArray = Array.isArray(id);
