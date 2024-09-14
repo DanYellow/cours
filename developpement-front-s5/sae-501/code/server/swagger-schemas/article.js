@@ -17,7 +17,7 @@ const article = {
         image: {
             type: "string",
         },
-        yt_link_id: {
+        yt_video_id: {
             type: "string",
         },
         is_active: {

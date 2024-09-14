@@ -214,9 +214,9 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
  *              is_active:
  *                type: boolean
  *                default: false
- *              yt_link_id:
+ *              yt_video_id:
  *                type: string
- *                description: article's Youtube link id
+ *                description: article's Youtube video id
  *              author:
  *                type: string
  *                description: author's _id. If the value is not valid or null, the article won't have a author anymore
@@ -264,7 +264,6 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     }
 
     const ressource = new Article({ ...computedBody, ...imagePayload });
-
     try {
         await ressource.save();
         const [ressourceComputed] = await getArticles(ressource._id);
@@ -327,9 +326,9 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *              is_active:
  *                type: boolean
  *                default: false
- *              yt_link_id:
+ *              yt_video_id:
  *                type: string
- *                description: article's Youtube link id
+ *                description: article's Youtube video id
  *              author:
  *                type: string
  *                description: author's _id. If the value is not valid or null, the article won't have a author anymore
