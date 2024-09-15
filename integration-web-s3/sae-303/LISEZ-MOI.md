@@ -33,6 +33,7 @@ Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous dev
 Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc (gratuit).
 
 - <a id="datasets" href="datasets/">Accéder aux jeux de données proposés</a>
+> Vous devrez impérativement mettre vos sources dans vos réalisations, **si cette règle n'est pas respectée votre note sera un tiers de la note finale sera retiré**
 
 Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page.
 
@@ -40,7 +41,7 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seuls les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
-> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques, pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte. Ces derniers sont au format "geojson" qui est un format de données pensé pour les données géographique. Bien que le nom diffère, un fichier geojson se charge comme un fichier json.
+> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques. Ces derniers sont au format "geojson" qui est un format de données pensé pour les données géographique. Bien que le nom diffère, un fichier geojson se charge comme un fichier json. Pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte
 
 > Les jeux de données ont des titres ainsi que des colonnes/clés relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
 
@@ -95,19 +96,23 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 
 ## Application interactive en javascript 
 
-Autre proposition de rendu : l'application interactive en javascript, elle sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver géographiquement.
+Autre proposition de rendu : l'application interactive en javascript, elle sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver géographiquement (dépendamment du jeu de données).
 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
   - Pensez bien à sélectionner l'onglet "Javascript" pour le code
 
-**Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent.
+**Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent via un message ou une icône.
 
-> Javascript ne sait pas charger naturellement un fichier .xlsx ou .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, faites-en la demande, nous ferons la conversion pour vous)
+> Javascript ne sait pas charger naturellement un fichier .xlsx ou .csv, il faudra donc utiliser l'équivalent au format .json (si le jeu de données que vous voulez utiliser n'existe pas au format .json, faites-en la demande, nous ferons la conversion pour vous). Par ailleurs pour vous permettre une meilleure visualisation, certains fichiers .json ont leur équivalent .xlsx, toutefois la structure de données peut être différente entre les deux.
 
 Pour manipuler les données ou les transformer dans le but de les rendre utilisables par [chart.js](https://www.chartjs.org/), vous pouvez utiliser la librairie javascript [lodash](https://lodash.com/docs/4.17.15).
 
 > Vous avez appris à utiliser git. C'est un standard dans le monde du travail, **vous devrez impérativement l'utiliser.**
+
+Votre application javascript devra respecter les règles suivantes :
+- Utilisation de git
+- Lister les sources sur le site web contenant votre application
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
@@ -126,7 +131,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
     - [ ] **Lisez bien le nom du document ainsi que les fichiers d'aides (s'il y en a), une confusion est si vite arrivée**
   - [ ] Respecter les attentes
   - [ ] **Mettre vos sources dans le résultat final** 
-      - **La note sera divisée par deux si ce n'est pas fait**
+      - **La note finale se verra ôtée d'un tiers si ce n'est pas fait**
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
     - [ ] Votre site et votre réalisation (sujet infographie)
@@ -136,7 +141,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
   A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
-  **Attention : Il y a deux onglets (crea et dev) dans le fichier. En cas d'absence de sources, la note sera divisée par deux.**
+  > Attention : Il y a deux onglets (crea et dev) dans le fichier. **Et en cas d'absence de sources, un tiers de la note finale sera retiré.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
