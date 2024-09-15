@@ -11,10 +11,11 @@ const pasteClipboard = async (e) => {
         const img = clipboardContents.filter((item) =>
             item.types.includes("image/png")
         )[0];
+
         if (img) {
             const blob = await img.getType("image/png");
 
-            const file = new File([blob], "img.jpg", {
+            const file = new File([blob], "img.png", {
                 type: blob.type,
                 lastModified: new Date().getTime(),
             });
