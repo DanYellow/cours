@@ -26,14 +26,20 @@ const previewUpload = (e) => {
     );
     imgRelated.src = "";
 
+    const btnPreview = document.querySelector(
+        `[data-preview-current-image-button="${uploadName}"]`
+    );
+
     const errorMessage = imageValidator(file, listAllowedMimeType);
     if (errorMessage) {
         errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
         errorMessageContainer.classList.remove("hidden");
+        btnPreview.classList.add("hidden");
         element.value = null;
     } else {
         imgRelated.src = URL.createObjectURL(file);
         errorMessageContainer.classList.add("hidden");
+        btnPreview.classList.remove("hidden");
     }
 };
 
@@ -80,12 +86,18 @@ listUploadFilePreview.forEach((item) => {
 
 listClearUploadFileBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
+        const dataAttr = e.target.dataset.deletePreviewUploadButton;
         const input = document.querySelector(
-            `[data-upload-file="${e.target.dataset.deletePreviewUploadButton}"]`
+            `[data-upload-file="${dataAttr}"]`
         );
         const imgRelated = document.querySelector(
-            `[data-preview-upload="${e.target.dataset.deletePreviewUploadButton}"]`
+            `[data-preview-upload="${dataAttr}"]`
         );
+        const btnPreview = document.querySelector(
+            `[data-preview-current-image-button="${dataAttr}"]`
+        );
+
+        btnPreview.classList.add("hidden");
         imgRelated.src = ""
         input.value = input.defaultValue;
     });
