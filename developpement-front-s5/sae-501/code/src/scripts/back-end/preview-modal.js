@@ -11,17 +11,12 @@ listPreviewCurrentImageBtn.forEach((item) => {
         const previewType = e.currentTarget.dataset.previewType;
         previewModal.showPopover();
 
-        let img = document.querySelector(
-            `[data-current-image="${dataAttr}"]`
-        );
+        let img = document.querySelector(`[data-current-image="${dataAttr}"]`);
 
-        if(previewType === "blob") {
-            img = document.querySelector(
-                `[data-preview-upload="${dataAttr}"]`
-            )
+        if (previewType === "blob") {
+            img = document.querySelector(`[data-preview-upload="${dataAttr}"]`);
         }
-        
+        imageModalContainer.closest("a").href = img.src;
         imageModalContainer.src = img.src;
-        
     });
 });
