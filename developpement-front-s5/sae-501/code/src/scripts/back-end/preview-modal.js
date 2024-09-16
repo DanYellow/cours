@@ -15,7 +15,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
             `[data-current-image="${dataAttr}"]`
         );
 
-        if(previewType) {
+        if(previewType === "blob") {
             img = document.querySelector(
                 `[data-preview-upload="${dataAttr}"]`
             )

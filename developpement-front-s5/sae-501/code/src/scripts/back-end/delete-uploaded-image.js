@@ -15,9 +15,14 @@ const imageObserver = new MutationObserver((mutationList) => {
             const deleteBtn = document.querySelector(
                 `[data-delete-current-image-button="${mutation.target.dataset.currentImage}"]`
             );
+            const btnPreview = document.querySelector(
+                `[data-preview-current-image-button="${mutation.target.dataset.currentImage}"][data-preview-type="image"]`
+            );
 
             const newValue = mutation.target.getAttribute("src");
+
             deleteBtn.classList.toggle("hidden", newValue === "");
+            btnPreview.classList.toggle("hidden", newValue === "");
         }
     });
 });
