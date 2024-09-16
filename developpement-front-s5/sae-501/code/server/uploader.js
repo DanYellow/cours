@@ -19,7 +19,7 @@ const uploadImage = (image, dist_dir) => {
     let targetPath = undefined;
     const listErrors = []
     const error = imageValidator(image);
-       
+
     if(error !== null) {
         listErrors.push(error)
     } else {

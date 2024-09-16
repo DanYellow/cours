@@ -85,5 +85,20 @@
                 </div>
             </div>
         </div>
+        <div data-image-preview-modal data-focus-trap-modal id="preview-image" popover="manual" class="transform shadow-xl left-2/4 -translate-x-2/4 overflow-hidden rounded-lg my-8 w-11/12 sm:w-2/4 sm:max-w-2xl">
+            <div class="flex min-h-full items-center justify-center text-center sm:items-center sm:p-0 shadow-xl">
+                <div class="bg-white text-left w-full">
+                    <div class="p-4 text-center sm:mt-0 sm:text-left">
+                        <h3 class="mb-2 font-semibold leading-6 text-gray-900" id="modal-title">Aperçu</h3>
+                        <figure class="flex justify-center p-3 max-h-80">
+                            <img src="" data-image alt="" class="object-contain">
+                        </figure>
+                    </div>
+                    <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 sm:px-6 justify-end">
+                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" data-close-modal popovertarget="preview-image" popovertargetaction="close">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

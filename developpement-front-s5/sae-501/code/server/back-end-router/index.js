@@ -44,7 +44,7 @@ router.use(async (_req, res, next) => {
 router.use(SAERouter)
 router.use(articleRouter)
 
-router.get(["/", ".php"], routeName("admin"), async (req, res) => {
+router.get("/", routeName("admin"), async (req, res) => {
     const queryParamsSAEs = querystring.stringify({ per_page: 5 });
     const optionsSAEs = {
         method: "GET",
