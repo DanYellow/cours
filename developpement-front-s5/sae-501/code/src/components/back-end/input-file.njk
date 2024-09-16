@@ -18,7 +18,10 @@
                                 <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <div class="relative">
+                            
+                        <figure class="flex justify-center items-center h-[16rem] min-h-fit relative">
+                            <img data-preview-upload="{{ name }}" alt="" class="max-w-full max-h-full">
+
                             <div class="absolute right-2/4 bottom-4 translate-x-2/4 flex gap-x-3 items-center">
                                 <button type="button" data-preview-type="blob" data-preview-current-image-button="{{ name }}" class="bg-blue-700 focus-within:bg-blue-950 hover:bg-blue-950 text-white rounded-full p-2 hidden">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -27,14 +30,11 @@
                                 </button>
                                 <button data-delete-preview-upload-button="{{ name }}" type="button" class="rounded-2xl shadow-sm bg-red-600 hover:bg-red-800 focus-within:bg-red-800 px-4 py-2 text-white hidden text-sm">Annuler</button>
                             </div>
-                            <figure class="flex justify-center items-center h-[16rem]">
-                                <img data-preview-upload="{{ name }}" alt="" class="max-w-full max-h-full">
-                            </figure>
-                        </div>
+                        </figure>
                     </td>
                     <td class="{{ border_classes }} p-5 md:p-2 bg-clip-padding align-top">
                         <p class="text-sm font-bold p-1 text-center block @2xl/main:hidden">Image actuelle</p>
-                        <figure class="flex justify-center items-center h-[16rem] relative">
+                        <figure class="flex justify-center items-center h-[16rem] min-h-fit relative">
                             <img src="{{ custom_upload_dir ~ imagename if imagename else null }}" data-current-image="{{ name }}" data-image-path="{{ custom_upload_dir ~ imagename if imagename else null }}" alt="" class="max-w-full max-h-full">
                     
                             {% if imagename %}
