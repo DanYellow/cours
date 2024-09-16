@@ -34,6 +34,11 @@ deleteItemModalBtn.addEventListener("click", (e) => {
     );
     img.src = "";
 
+    const btnPreview = document.querySelector(
+        `[data-preview-current-image-button="${dataAttr}"][data-preview-type="image"]`
+    );
+    btnPreview.classList.add("hidden");
+
     imageObserver.observe(img, {
         attributes: true,
     });
