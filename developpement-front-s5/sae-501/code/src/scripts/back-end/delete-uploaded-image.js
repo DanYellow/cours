@@ -39,6 +39,7 @@ deleteItemModalBtn.addEventListener("click", (e) => {
     });
 
     document.querySelector(`[data-delete-current-image-button="${dataAttr}"]`).classList.add("hidden");
+    document.querySelector(`[data-preview-current-image-button="${dataAttr}"]`).classList.add("hidden");
 });
 
 listDeleteCurrentImageBtn.forEach((item) => {
