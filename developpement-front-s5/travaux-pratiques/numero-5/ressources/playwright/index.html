@@ -327,12 +327,15 @@
                         <ul>
                             <li>
                                 <a
-                                    href="https://docs.cypress.io/api/commands/getcookie"
+                                    href="https://playwright.dev/docs/api/class-browsercontext#browser-context-cookies"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    >Voir documentation de getcookie dans
+                                    >Voir documentation de cookies dans
                                     playwright (ouveture dans un nouvel onglet)</a
                                 >
+                                <p class="note-information">
+                                    Notez bien que la méthode cookies() retourne un tableau d'objets, pour évaluer un cookie, il faudra filtrer ce tableau. Exemple : <code>expect(listCookies.find(item => item.name === "my_cookie").value).toBe("my_value")</code>. Par ailleurs les cookies sont contenus dans l'objet "context".
+                                </p>
                             </li>
                             <li>
                                 <a
