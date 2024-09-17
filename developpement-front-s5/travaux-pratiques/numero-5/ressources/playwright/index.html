@@ -199,27 +199,20 @@
                     </li>
                     <li>
                         Dans le fichier src/script.js remplacez les sélecteurs
-                        de balise par des data-attributes personnalisés
-                        <ul>
-                            <li>
-                                Ces data-attributes ne doivent pas avoir de
-                                rapport avec
-                            </li>
-                        </ul>
+                        de balises par des data-attributes personnalisés. Pas forcément des "data-testid"
                     </li>
                 </ol>
                 <section class="note-information">
                     <p>
                         Pour soumettre un formulaire, vous pouvez cliquer sur le
-                        bouton dédié ou utiliser la méthode ".submit()" sur le
-                        formulaire directement.
+                        bouton dédié ou appuyer sur la touche "Enter" d'un champ de texte grâce à la méthode press().
                     </p>
                     <ul>
                         <li>
                             <a
-                                href="https://docs.cypress.io/api/commands/submit"
+                                href="https://playwright.dev/docs/api/class-locator#locator-press"
                                 target="_blank"
-                                >Accéder à la documentation de cy.submit()
+                                >Accéder à la documentation de press()
                                 (ouverture dans un nouvel onglet)</a
                             >
                         </li>
@@ -238,8 +231,8 @@
                         Ajoutez un nouveau champ de type "file" dans le
                         formulaire contenu dans le fichier src/form.html avec le
                         libellé de votre choix tout comme son emplacement. Ce
-                        champ est facultatif et doit permettre d'uploader des
-                        images uniquement.
+                        champ est facultatif et doit permettre d'uploader une
+                        image uniquement.
                     </li>
                     <li>
                         Mettez à jour vos tests (des parties 4 et 5) pour
@@ -253,9 +246,7 @@
                 </ol>
                 <section class="note-information">
                     <p>
-                        N'oubliez pas de mettre dans le dossier
-                        "cypress/fixtures" les potentiels media que vous
-                        essayerez d'uploader
+                        N'oubliez pas que le chemin de l'image est relatif à la racine du projet pour la méthode <a href="https://playwright.dev/docs/api/class-locator#locator-set-input-files" target="_blank">.setInputFiles()</a>
                     </p>
                 </section>
             </details>
