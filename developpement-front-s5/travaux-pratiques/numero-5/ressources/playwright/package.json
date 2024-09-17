@@ -2,6 +2,7 @@
   "name": "playwright",
   "version": "2024.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "e2e": "npx playwright test --ui",
     "cypress": "npx playwright test",
