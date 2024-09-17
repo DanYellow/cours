@@ -51,8 +51,8 @@ app.get("/api/:region?", async (req, res) => {
             delete item.rawDate;
             return item;
         });
-
-    res.json(resOrdered);
+    
+    res.status(200).json(resOrdered);
 });
 
 app.listen(3000, () => {

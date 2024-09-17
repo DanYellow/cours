@@ -258,22 +258,15 @@
                 </summary>
                 <ol class="liste-consignes">
                     <li>
-                        Importez la fonction asynchrone
-                        "getListNationalHolidays" du fichier "src/api.js" dans
-                        le fichier "src/script.js"
+                        L'API retourne une liste d'éléments. Elle est accessible à "http://localhost:3000/api". Affichez-en le contenu sur le site. Préférez l'utilisation de la balise &lt;template>.
                     </li>
                     <li>
-                        Appelez la fonction "getListNationalHolidays" lors de la
-                        soumission du formulaire
-                        <p class="note-information">
-                            La fonction est asynchrone. Utilisez les mot-clés
-                            (async/await)
-                        </p>
-                    </li>
-                    <li>
-                        Mettez à jour votre test e2e pour prendre en compte la
-                        requête serveur en utilisant les méthodes "intercept()"
-                        et "wait()"
+                        Mockez la réponse d'API
+                        <p class="note-information">L'API est lente. Il faudra penser à utiliser la méthode waitForResponse</p>
+
+                        <ul>
+                            <li>Accéder à la documentation de <a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">waitForResponse (ouverture dans un nouvel onglet)</a></li>
+                        </ul>
                     </li>
                 </ol>
                 <section class="note-information">
@@ -282,28 +275,6 @@
                         vous pouvez utiliser le mot-clé <code>import</code> pour
                         charger le fichier "src/api.js" dans le fichier
                         "src/script.js".
-                    </p>
-                </section>
-
-                <section class="note-information">
-                    <p>
-                        Comme dit précédemment, Cypress n'intercepte pas les
-                        requêtes en cache. Ainsi, vous devez forcer la
-                        désactivation du cache, pour des raisons de simplicité,
-                        nous le ferons directement dans le test grâce au code
-                        suivant :
-                    </p>
-                    <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span class="hljs-title function_">beforeEach</span>(<span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
-  <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> <span class="hljs-title function_">disableCache</span> = (<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt; {
-    <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> original = win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span>;
-    win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span> = <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">...args</span>) =&gt;</span> <span class="hljs-title function_">original</span>(...args, { <span style="color:rgb(136, 174, 206); font-weight:400;">cache</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;no-store&quot;</span> });
-  };
-  cy.<span class="hljs-title function_">on</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;window:before:load&quot;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt;</span> <span class="hljs-title function_">disableCache</span>(win));
-});</code></pre>
-                    <p>
-                        Dans les grandes lignes, il désactive le cache de toutes
-                        les requêtes passant par la méthode window.fetch(), et
-                        ce, avant chaque test grâce à la fonction beforeEach()
                     </p>
                 </section>
             </details>
