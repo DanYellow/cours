@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "e2e": "npx playwright test --ui",
-    "cypress": "npx playwright test",
+    "playwright": "npx playwright test",
     "server": "node server.js"
   },
   "keywords": [],

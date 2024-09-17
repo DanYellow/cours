@@ -25,14 +25,14 @@
                 <ol class="liste-consignes">
                     <li>
                         Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou
-                        git bash sur Windows) le dossier ressources/cypress et
+                        git bash sur Windows) le dossier ressources/playwright et
                         installez les dépendances avec la commande
                         <code>npm run install</code>
                     </li>
                     <li>
-                        Ouvrez cypress en exécutant la commande
+                        Ouvrez playwright en exécutant la commande
                         <code>npm run e2e</code> ou
-                        <code>npm run cypress</code> dans la console
+                        <code>npm run playwright</code> dans la console
                     </li>
                     <li>
                         Cliquez sur un des icônes "play" de la fenêtre de
@@ -83,12 +83,6 @@
                         </ul>
                     </li>
                 </ol>
-                <p class="note-information">
-                    <a href="https://example.cypress.io/" target="_blank"
-                        >Accéder à un ensemble d'exemples (ouverture dans un
-                        nouvel onglet)</a
-                    >
-                </p>
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -142,7 +136,7 @@
                 <ol class="liste-consignes">
                     <li>
                         Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou
-                        git bash sur Windows) le dossier ressources/cypress
+                        git bash sur Windows) le dossier ressources/playwright
                         (nouvelle fenêtre ou onglet de votre terminal)
                     </li>
                     <li>Exécutez la commande <code>npm run server</code></li> (dans un nouvel onglet)
@@ -269,14 +263,6 @@
                         </ul>
                     </li>
                 </ol>
-                <section class="note-information">
-                    <p>
-                        Le script chargé est de type module, ceci signifie que
-                        vous pouvez utiliser le mot-clé <code>import</code> pour
-                        charger le fichier "src/api.js" dans le fichier
-                        "src/script.js".
-                    </p>
-                </section>
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -291,10 +277,10 @@
                         <ul>
                             <li>
                                 <a
-                                    href="https://docs.cypress.io/api/commands/screenshot"
+                                    href="https://playwright.dev/docs/api/class-page#page-screenshot"
                                     target="_blank"
                                     >Accéder à la documentation de
-                                    cy.screenshot() (ouverture dans un nouvel
+                                    screenshot() (ouverture dans un nouvel
                                     onglet)</a
                                 >
                             </li>
@@ -308,9 +294,9 @@
                         <ul>
                             <li>
                                 <a
-                                    href="https://docs.cypress.io/api/commands/viewport"
+                                    href="https://playwright.dev/docs/api/class-page#page-set-viewport-size"
                                     target="_blank"
-                                    >Accéder à la documentation de cy.viewport()
+                                    >Accéder à la documentation de setViewportSize()
                                     (ouverture dans un nouvel onglet)</a
                                 >
                             </li>
@@ -327,17 +313,17 @@
                         <ul>
                             <li>
                                 <a
-                                    href="https://docs.cypress.io/api/commands/invoke"
+                                    href="https://playwright.dev/docs/api/class-page#page-evaluate"
                                     target="_blank"
-                                    >Accéder à la documentation de cy.invoke()
+                                    >Accéder à la documentation de evaluate()
                                     (ouverture dans un nouvel onglet)</a
                                 >
                             </li>
                         </ul>
                     </li>
                     <li>
-                        Créez un cookie lorsque le formulaire est validé et
-                        vérifiez sa présence grâce à cypress
+                        Créez un cookie en javascript lorsque le formulaire est validé et
+                        vérifiez sa présence grâce à playwright
                         <ul>
                             <li>
                                 <a
@@ -345,7 +331,7 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >Voir documentation de getcookie dans
-                                    cypress (ouveture dans un nouvel onglet)</a
+                                    playwright (ouveture dans un nouvel onglet)</a
                                 >
                             </li>
                             <li>
@@ -364,9 +350,15 @@
                 <section class="note-information">
                     <p>
                         Pour modifier le CSS, il faudra passer par la méthode
-                        <code>invoke()</code>. Par exemple :
+                        <code>evaluate()</code>. Par exemple :
                     </p>
-                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cy.<span style="color:rgb(86, 156, 214); font-weight:400;">get</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;selecteur-css&#x27;</span>).invoke(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;attr&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;style&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;declarations-css&#x27;</span>)</code></pre>
+                    <pre>
+<code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(226, 137, 100); font-weight:400;">await</span> page
+    .<span class="hljs-title function_">locator</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;input&quot;</span>)
+    .<span class="hljs-title function_">nth</span>(<span style="color:rgb(51, 135, 204); font-weight:400;">0</span>)
+    .evaluate(<span style="color:rgb(248, 248, 248); font-weight:400;">(<span style="color:rgb(62, 135, 227); font-weight:400;">item</span>) =&gt;</span> {
+        item.<span style="color:rgb(248, 248, 248); font-weight:400;">style</span>.<span style="color:rgb(248, 248, 248); font-weight:400;">display</span> = <span style="color:rgb(101, 176, 66); font-weight:400;">&quot;none&quot;</span>;
+    });</code></pre>
                 </section>
             </details>
         </header>
