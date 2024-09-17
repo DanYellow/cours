@@ -14,6 +14,11 @@ document
         const formData = new FormData(e.target);
         const formValues = Object.fromEntries(formData.entries())
         const bannerTextTpl = banner.querySelector('p').innerHTML;
+
+        console.log("--------- formValues ---------")
+        console.log(JSON.stringify(formValues))
+        console.log(document.querySelector("input[type=\"file\"]").files[0].name)
+        console.log("------------------------------------")
         
         banner.querySelector('p').innerHTML = bannerTextTpl.replace("__parcours_placeholder__", parcoursFullName[formValues.parcours])
         banner.classList.remove("hidden")
