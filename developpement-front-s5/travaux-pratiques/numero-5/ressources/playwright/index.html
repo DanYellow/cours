@@ -1,219 +1,412 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consignes TP5 - Tests end-to-end</title>
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Consignes TP5 - Tests end-to-end</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+    </head>
 
-  <body>
-    <header>
-      <h1 class="h1">Consignes de la pratique - TP5 - Tests end-to-end</h1>
-      <details class="consignes-conteneur" open>
-        <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur
-            Windows) le dossier ressources/cypress et installez les dépendances avec la commande <code>npm run install</code>
-          </li>
-          <li>
-            Ouvrez cypress en exécutant la
-            commande <code>npm run e2e</code> ou <code>npm run cypress</code> dans la console
-          </li>
-          <li>Cliquez sur un des icônes "play" de la fenêtre de Playwright pour exécuter votre premier test e2e</li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Améliorez le test contenu dans "tests/example.spec.js" pour cliquer sur la première actualité (zone "actualités") de la page d'accueil</li>
-          <li>Vérifiez que vous êtes bien arrivé sur la page d'une actualité
-            <ul>
-              <li>Pour éviter un test trop rigide, n'allez pas tester l'égalité parfaite, cela n'a pas trop de sens. Les liens d'actualité contiennent "universite/media-et-communication/actualites" testez si l'url courante contient bien cette partie grâce à la méthode <code>.toHaveURL()</code>. <a href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url" target="_blank">Accéder à la documentation de .toHaveURL()</a></li>
-            </ul>
-          </li>
-        </ol>
-        <p class="note-information">
-          <a href="https://example.cypress.io/" target="_blank">Accéder à un ensemble d'exemples (ouverture dans un nouvel onglet)</a>
-        </p>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ul class="liste-consignes">
-          <li>
-            Ajoutez un nouveau test (fichier de test ou bloc de test) qui respecte le plan suivant :
-            <ol>
-              <li>Accède au site wikipédia (<a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" target="_blank">https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal</a>)</li>
-              <li>Effectue une recherche de votre choix en écrivant dans le champ de recherche, il faut utiliser la méthode <code>type()</code></li>
-              <li>S'assure que vous êtes sur la page de votre recherche</li>
-            </ol>
-          </li>
-        </ul>
-        <section class="note-information">
-          <ul>
-            <li>
-              <a href="https://docs.cypress.io/api/commands/type" target="_blank">Accéder à la documentation de cy.type() (ouverture dans un nouvel onglet)</a>
-            </li>
-          </ul>
-        </section>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou git bash sur Windows) le dossier ressources/cypress (nouvelle fenêtre ou onglet de votre terminal)
-          </li>
-          <li>
-            Exécutez la commande <code>npm run server</code>
-          </li>
-          <li>
-            Ajoutez un nouveau fichier de test avec le test qui respecte le plan suivant :
-            <ol>
-              <li>Accède à http://localhost:3000</li>
-              <li>Remplit le formulaire</li>
-              <li>Vérifie que le formulaire a été soumis
-                <ul>
-                  <li>Pensez à tester / découvrir le formulaire manuellement avant d'écrire vos tests</li>
-                  <li>Note : Il existe plusieurs moyens de savoir que le formulaire a été soumis</li>
+    <body>
+        <header>
+            <h1 class="h1">
+                Consignes de la pratique - TP5 - Tests end-to-end
+            </h1>
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <h1 class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou
+                        git bash sur Windows) le dossier ressources/cypress et
+                        installez les dépendances avec la commande
+                        <code>npm run install</code>
+                    </li>
+                    <li>
+                        Ouvrez cypress en exécutant la commande
+                        <code>npm run e2e</code> ou
+                        <code>npm run cypress</code> dans la console
+                    </li>
+                    <li>
+                        Cliquez sur un des icônes "play" de la fenêtre de
+                        Playwright pour exécuter votre premier test e2e
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Améliorez le test contenu dans "tests/example.spec.js"
+                        pour cliquer sur la première actualité (zone
+                        "actualités") de la page d'accueil
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://playwright.dev/docs/api/class-locator#locator-click"
+                                    target="_blank"
+                                    >Accéder à la documentation de .click()</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Vérifiez que vous êtes bien arrivé sur la page d'une
+                        actualité
+                        <ul>
+                            <li>
+                                Pour éviter un test trop rigide, n'allez pas
+                                tester l'égalité parfaite, cela n'a pas trop de
+                                sens. Les liens d'actualité contiennent
+                                "universite/media-et-communication/actualites"
+                                testez si l'url courante contient bien cette
+                                partie grâce à la méthode
+                                <code>.toHaveURL()</code>.
+                                <a
+                                    href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url"
+                                    target="_blank"
+                                    >Accéder à la documentation de
+                                    .toHaveURL()</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p class="note-information">
+                    <a href="https://example.cypress.io/" target="_blank"
+                        >Accéder à un ensemble d'exemples (ouverture dans un
+                        nouvel onglet)</a
+                    >
+                </p>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ul class="liste-consignes">
+                    <li>
+                        Ajoutez un nouveau test (fichier de test ou bloc de
+                        test) qui respecte le plan suivant :
+                        <ol>
+                            <li>
+                                Accède au site wikipédia (<a
+                                    href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
+                                    target="_blank"
+                                    >https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal</a
+                                >)
+                            </li>
+                            <li>
+                                Effectue une recherche de votre choix en
+                                écrivant dans le champ de recherche, il faut
+                                utiliser la méthode <code>fill()</code>
+                            </li>
+                            <li>
+                                S'assure que vous êtes sur la page de votre
+                                recherche
+                            </li>
+                        </ol>
+                    </li>
                 </ul>
-              </li>
-            </ol>
-          </li>
-        </ol>
-        <section class="note-information">
-          <p>Pour manipuler un &lt;select>, il faudra utiliser la méthode ".select()"</p>
-          <ul>
-            <li>
-              <a href="https://docs.cypress.io/api/commands/select" target="_blank">Accéder à la documentation de cy.select() (ouverture dans un nouvel onglet)</a>
-            </li>
-          </ul>
-        </section>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Réécrivez le test de la partie 4 en utilisant des sélecteurs relatifs au data-attribute "data-testid" 
-          </li>
-          <li>Dans le fichier src/script.js remplacez les sélecteurs de balise par des data-attributes personnalisés 
-            <ul>
-              <li>Ces data-attributes ne doivent pas avoir de rapport avec </li>
-            </ul>
-          </li>
-        </ol>
-        <section class="note-information">
-          <p>Pour soumettre un formulaire, vous pouvez cliquer sur le bouton dédié ou utiliser la méthode ".submit()" sur le formulaire directement.</p>
-          <ul>
-            <li>
-              <a href="https://docs.cypress.io/api/commands/submit" target="_blank">Accéder à la documentation de cy.submit() (ouverture dans un nouvel onglet)</a>
-            </li>
-          </ul>
-        </section>
-      </details>
+                <section class="note-information">
+                    <ul>
+                        <li>
+                            <a
+                                href="https://playwright.dev/docs/api/class-locator#locator-fill"
+                                target="_blank"
+                                >Accéder à la documentation de locator.fill()
+                                (ouverture dans un nouvel onglet)</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 4 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou
+                        git bash sur Windows) le dossier ressources/cypress
+                        (nouvelle fenêtre ou onglet de votre terminal)
+                    </li>
+                    <li>Exécutez la commande <code>npm run server</code></li> (dans un nouvel onglet)
+                    <li>
+                        Ajoutez un nouveau fichier de test avec le test qui
+                        respecte le plan suivant :
+                        <ol>
+                            <li>Accède à http://localhost:3000</li>
+                            <li>Remplit le formulaire</li>
+                            <li>
+                                Vérifie que le formulaire a été soumis
+                                <ul>
+                                    <li>
+                                        Pensez à tester / découvrir le
+                                        formulaire manuellement avant d'écrire
+                                        vos tests
+                                    </li>
+                                    <li>
+                                        Note : Il existe plusieurs moyens de
+                                        savoir que le formulaire a été soumis
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        Pour manipuler un &lt;select>, il faudra utiliser la
+                        méthode ".selectOption()"
+                    </p>
+                    <ul>
+                        <li>
+                            <a
+                                href="https://playwright.dev/docs/input#select-options"
+                                target="_blank"
+                                >Accéder à la documentation de .selectOption()
+                                (ouverture dans un nouvel onglet)</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 5 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Réécrivez le test de la partie 4 en utilisant des
+                        sélecteurs relatifs au data-attribute "data-testid"
+                    </li>
+                    <li>
+                        Dans le fichier src/script.js remplacez les sélecteurs
+                        de balise par des data-attributes personnalisés
+                        <ul>
+                            <li>
+                                Ces data-attributes ne doivent pas avoir de
+                                rapport avec
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        Pour soumettre un formulaire, vous pouvez cliquer sur le
+                        bouton dédié ou utiliser la méthode ".submit()" sur le
+                        formulaire directement.
+                    </p>
+                    <ul>
+                        <li>
+                            <a
+                                href="https://docs.cypress.io/api/commands/submit"
+                                target="_blank"
+                                >Accéder à la documentation de cy.submit()
+                                (ouverture dans un nouvel onglet)</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </details>
 
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 6 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>Ajoutez un nouveau champ de type "file" dans le formulaire contenu dans le fichier src/form.html avec le libellé de votre choix tout comme son emplacement. Ce champ est facultatif et doit permettre d'uploader des images uniquement.
-          </li>
-          <li>Mettez à jour vos tests (des parties 4 et 5) pour prendre en compte ces modifications
-          </li>
-          <li>Ajoutez un autre test pour vous assurer que le formulaire est bien réintialisé avec le bouton "rechoisir"</li>
-        </ol>
-        <section class="note-information">
-          <p>N'oubliez pas de mettre dans le dossier "cypress/fixtures" les potentiels media que vous essayerez d'uploader</p>
-        </section>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 7 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Importez la fonction asynchrone "getListNationalHolidays" du fichier "src/api.js" dans le fichier "src/script.js"
-          </li>
-          <li>Appelez la fonction "getListNationalHolidays" lors de la soumission du formulaire
-            <p class="note-information">
-              La fonction est asynchrone. Utilisez les mot-clés (async/await)
-            </p>
-          </li>
-          <li>
-            Mettez à jour votre test e2e pour prendre en compte la requête serveur en utilisant les méthodes "intercept()" et "wait()"
-          </li>
-        </ol>
-        <section class="note-information">
-          <p>
-            Le script chargé est de type module, ceci signifie que vous pouvez utiliser le mot-clé <code>import</code> pour charger le fichier "src/api.js" dans le fichier "src/script.js".
-          </p>
-        </section>
-        
-        <section class="note-information">
-          <p>Comme dit précédemment, Cypress n'intercepte pas les requêtes en cache. Ainsi, vous devez forcer la désactivation du cache, pour des raisons de simplicité, nous le ferons directement dans le test grâce au code suivant :</p>
-          <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span class="hljs-title function_">beforeEach</span>(<span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 6 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Ajoutez un nouveau champ de type "file" dans le
+                        formulaire contenu dans le fichier src/form.html avec le
+                        libellé de votre choix tout comme son emplacement. Ce
+                        champ est facultatif et doit permettre d'uploader des
+                        images uniquement.
+                    </li>
+                    <li>
+                        Mettez à jour vos tests (des parties 4 et 5) pour
+                        prendre en compte ces modifications
+                    </li>
+                    <li>
+                        Ajoutez un autre test pour vous assurer que le
+                        formulaire est bien réintialisé avec le bouton
+                        "rechoisir"
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        N'oubliez pas de mettre dans le dossier
+                        "cypress/fixtures" les potentiels media que vous
+                        essayerez d'uploader
+                    </p>
+                </section>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 7 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Importez la fonction asynchrone
+                        "getListNationalHolidays" du fichier "src/api.js" dans
+                        le fichier "src/script.js"
+                    </li>
+                    <li>
+                        Appelez la fonction "getListNationalHolidays" lors de la
+                        soumission du formulaire
+                        <p class="note-information">
+                            La fonction est asynchrone. Utilisez les mot-clés
+                            (async/await)
+                        </p>
+                    </li>
+                    <li>
+                        Mettez à jour votre test e2e pour prendre en compte la
+                        requête serveur en utilisant les méthodes "intercept()"
+                        et "wait()"
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        Le script chargé est de type module, ceci signifie que
+                        vous pouvez utiliser le mot-clé <code>import</code> pour
+                        charger le fichier "src/api.js" dans le fichier
+                        "src/script.js".
+                    </p>
+                </section>
+
+                <section class="note-information">
+                    <p>
+                        Comme dit précédemment, Cypress n'intercepte pas les
+                        requêtes en cache. Ainsi, vous devez forcer la
+                        désactivation du cache, pour des raisons de simplicité,
+                        nous le ferons directement dans le test grâce au code
+                        suivant :
+                    </p>
+                    <pre><code id="htmlViewer" style="color:rgb(255, 255, 255); font-weight:400;background-color:rgb(28, 27, 27);background:rgb(28, 27, 27);display:block;padding: .5em;"><span class="hljs-title function_">beforeEach</span>(<span style="color:rgb(255, 255, 255); font-weight:400;">() =&gt;</span> {
   <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> <span class="hljs-title function_">disableCache</span> = (<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt; {
     <span style="color:rgb(136, 174, 206); font-weight:400;">const</span> original = win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span>;
     win.<span style="color:rgb(255, 255, 255); font-weight:400;">fetch</span> = <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">...args</span>) =&gt;</span> <span class="hljs-title function_">original</span>(...args, { <span style="color:rgb(136, 174, 206); font-weight:400;">cache</span>: <span style="color:rgb(181, 189, 104); font-weight:400;">&quot;no-store&quot;</span> });
   };
   cy.<span class="hljs-title function_">on</span>(<span style="color:rgb(181, 189, 104); font-weight:400;">&quot;window:before:load&quot;</span>, <span style="color:rgb(255, 255, 255); font-weight:400;">(<span style="color:rgb(255, 255, 255); font-weight:400;">win</span>) =&gt;</span> <span class="hljs-title function_">disableCache</span>(win));
 });</code></pre>
-<p>Dans les grandes lignes, il désactive le cache de toutes les requêtes passant par la méthode window.fetch(), et ce, avant chaque test grâce à la fonction beforeEach()</p>
-        </section>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 8 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Faites une capture d'écran de n'importe quel site durant un test
-            <ul>
-                <li>
-                    <a href="https://docs.cypress.io/api/commands/screenshot" target="_blank">Accéder à la documentation de cy.screenshot() (ouverture dans un nouvel onglet)</a>
-                </li>
-            </ul>
-          </li>
-          <li>Prennez une capture d'écran mobile, tablette et PC du site de l'université (https://www.cyu.fr/). Si vous le souhaitez, vous pouvez également gérer l'orientation de l'écran
-            <ul>
-                <li>
-                    <a href="https://docs.cypress.io/api/commands/viewport" target="_blank">Accéder à la documentation de cy.viewport() (ouverture dans un nouvel onglet)</a>
-                </li>
-            </ul>
-          </li>
-          <li>
-           Faites une capture d'écran durant un test sur le site de l'université (https://www.cyu.fr/) <span class="texte-gras">sans que la navigation haute n'apparaisse à plusieurs reprises de même pour l'encart des cookies</span>
-           <ul>
-            <li>
-              <a href="https://docs.cypress.io/api/commands/invoke" target="_blank">Accéder à la documentation de cy.invoke() (ouverture dans un nouvel onglet)</a>
-            </li>
-          </ul>
-          </li>
-          <li>Créez un cookie lorsque le formulaire est validé et vérifiez sa présence grâce à cypress
-            <ul>
-                <li><a href="https://docs.cypress.io/api/commands/getcookie" target="_blank" rel="noopener noreferrer">Voir documentation de getcookie dans cypress (ouveture dans un nouvel onglet)</a></li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#write_a_new_cookie" target="_blank" rel="noopener noreferrer">Voir documentation de document.cookie en javascript (ouveture dans un nouvel onglet)</a></li>
-            </ul>
-          </li>
-        </ol>
-        <section class="note-information">
-            <p>Pour modifier le CSS, il faudra passer par la méthode <code>invoke()</code>. Par exemple :</p>
-            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cy.<span style="color:rgb(86, 156, 214); font-weight:400;">get</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;selecteur-css&#x27;</span>).invoke(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;attr&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;style&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;declarations-css&#x27;</span>)</code></pre>
-        </section>
-      </details>
-    </header>
-  </body>
+                    <p>
+                        Dans les grandes lignes, il désactive le cache de toutes
+                        les requêtes passant par la méthode window.fetch(), et
+                        ce, avant chaque test grâce à la fonction beforeEach()
+                    </p>
+                </section>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 8 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Faites une capture d'écran de n'importe quel site durant
+                        un test
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://docs.cypress.io/api/commands/screenshot"
+                                    target="_blank"
+                                    >Accéder à la documentation de
+                                    cy.screenshot() (ouverture dans un nouvel
+                                    onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Prennez une capture d'écran mobile, tablette et PC du
+                        site de l'université (https://www.cyu.fr/). Si vous le
+                        souhaitez, vous pouvez également gérer l'orientation de
+                        l'écran
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://docs.cypress.io/api/commands/viewport"
+                                    target="_blank"
+                                    >Accéder à la documentation de cy.viewport()
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Faites une capture d'écran durant un test sur le site de
+                        l'université (https://www.cyu.fr/)
+                        <span class="texte-gras"
+                            >sans que la navigation haute n'apparaisse à
+                            plusieurs reprises de même pour l'encart des
+                            cookies</span
+                        >
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://docs.cypress.io/api/commands/invoke"
+                                    target="_blank"
+                                    >Accéder à la documentation de cy.invoke()
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Créez un cookie lorsque le formulaire est validé et
+                        vérifiez sa présence grâce à cypress
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://docs.cypress.io/api/commands/getcookie"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de getcookie dans
+                                    cypress (ouveture dans un nouvel onglet)</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#write_a_new_cookie"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de document.cookie en
+                                    javascript (ouveture dans un nouvel
+                                    onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        Pour modifier le CSS, il faudra passer par la méthode
+                        <code>invoke()</code>. Par exemple :
+                    </p>
+                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cy.<span style="color:rgb(86, 156, 214); font-weight:400;">get</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;selecteur-css&#x27;</span>).invoke(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;attr&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;style&#x27;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;declarations-css&#x27;</span>)</code></pre>
+                </section>
+            </details>
+        </header>
+    </body>
 </html>
