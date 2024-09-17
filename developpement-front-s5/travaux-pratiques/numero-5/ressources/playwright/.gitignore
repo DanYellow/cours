@@ -141,4 +141,8 @@ tmp/
 **/libs/**
 **/templates_c/**
 
-creation-et-design-interactif-s4/travaux-pratiques/Scripts/*
+/test-results/
+/tests-examples/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

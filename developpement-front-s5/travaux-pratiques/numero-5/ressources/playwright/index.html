@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consignes TP2 - Tests end-to-end</title>
+    <title>Consignes TP5 - Tests end-to-end</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -27,7 +27,7 @@
             Ouvrez cypress en exécutant la
             commande <code>npm run e2e</code> ou <code>npm run cypress</code> dans la console
           </li>
-          <li>Cliquez sur le fichier "example.cy.js" dans le logiciel cypress pour exécuter votre premier test e2e</li>
+          <li>Cliquez sur un des icônes "play" de la fenêtre de Playwright pour exécuter votre premier test e2e</li>
         </ol>
       </details>
       <details class="consignes-conteneur">
@@ -35,10 +35,10 @@
           <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Améliorez le test contenu dans "cypress/e2e/example.cy.js" pour cliquer sur la première actualité (zone "actualités")</li>
+          <li>Améliorez le test contenu dans "tests/example.spec.js" pour cliquer sur la première actualité (zone "actualités") de la page d'accueil</li>
           <li>Vérifiez que vous êtes bien arrivé sur la page d'une actualité
             <ul>
-              <li>Pour éviter un test trop rigide, n'allez pas tester l'égalité parfaite, cela n'a pas trop de sens. Les liens d'actualité ont pour racine "https://www.cyu.fr/universite/media-et-communication/actualites/" testez si l'url courante contient bien cette partie grâce à <code>cy.location("href").should("contains", "url")</code></li>
+              <li>Pour éviter un test trop rigide, n'allez pas tester l'égalité parfaite, cela n'a pas trop de sens. Les liens d'actualité contiennent "universite/media-et-communication/actualites" testez si l'url courante contient bien cette partie grâce à la méthode <code>.toHaveURL()</code>. <a href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url" target="_blank">Accéder à la documentation de .toHaveURL()</a></li>
             </ul>
           </li>
         </ol>
