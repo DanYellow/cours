@@ -144,12 +144,14 @@
                         git bash sur Windows) le dossier ressources/playwright
                         (nouvelle fenêtre ou onglet de votre terminal)
                     </li>
-                    <li>Exécutez la commande <code>npm run server</code></li> (dans un nouvel onglet)
+                    <li>Exécutez la commande <code>npm run server</code></li>
                     <li>
-                        Ajoutez un nouveau fichier de test avec le test qui
+                        Ajoutez un nouveau fichier de test, dans le dossier dédié, avec le test qui
                         respecte le plan suivant :
                         <ol>
-                            <li>Accède à http://localhost:3000</li>
+                            <li>Accède à "http://localhost:3000"
+                                <p class="note-information">Cette url est déjà définie dans la configuration de Playwright. Libre à vous d'utiliser "/" ou "http://localhost:3000" dans vos tests.</p>
+                            </li>
                             <li>Remplit le formulaire</li>
                             <li>
                                 Vérifie que le formulaire a été soumis
