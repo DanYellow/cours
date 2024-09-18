@@ -384,8 +384,7 @@
                 <ol class="liste-consignes">
                     <li>
                         Utilisez la commande <code>npx playwright codegen (ou "open")</code>
-                        <p class="note-information">La commande accepte comme paramètre une url. Ceci ouvrira le navigateur avec cette url.</p>
-
+                        <p class="note-information">La commande ouvre Chromium par défaut. Néanmoins, vous pouvez choisir votre navigateur en remplaçant codegen (ou "open") par "ff", "cc" ou encore "wk".</p>
                         <ul>
                             <li>
                                 <a
@@ -400,6 +399,7 @@
                     </li>
                     <li>
                         Entrez l'adresse d'un site dans le navigateur qui s'est ouvert suite à la commande précédente
+                        <p class="note-information">Au lieu d'entrer dans le navigateur l'url du site, vous pouvez passer en paramètre cette url de la commande La commande <code>npx playwright codegen (ou "open")</code>. Ce qui ouvrira directement le navigateur avec cette url.</p>
                     </li>
                     <li>
                         Enregistez des commandes d'actions dans le but de générer un test
@@ -409,6 +409,9 @@
                         Exécutez ce test via Playwright
                     </li>
                 </ol>
+                <p class="note-information">
+                    Il est possible de lister tous les paramètres possibles de la commande npx playwright codegen (ou "open") en ajoutant le paramètre "-h" ou "--help".
+                </p>
             </details>
         </header>
     </body>
