@@ -6,7 +6,8 @@
   "scripts": {
     "e2e": "npx playwright test --ui",
     "playwright": "npx playwright test",
-    "server": "node server.js"
+    "server": "node server.js",
+    "report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
