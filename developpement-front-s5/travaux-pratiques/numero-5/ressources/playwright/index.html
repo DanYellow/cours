@@ -30,6 +30,7 @@
                         git bash sur Windows) le dossier ressources/playwright et
                         installez les dépendances avec la commande
                         <code>npm run install</code>
+                        <p class="note-information">S'il vous manque certains navigateurs, vous devrez installer leur version exécutable. Par exemple pour Chromium, il faut utiliser la commande <code>npx playwright install chromium</code>. Playwright vous l'indiquera dans le terminal en tous les cas.</p>
                     </li>
                     <li>
                         Ouvrez playwright en exécutant la commande
@@ -42,7 +43,7 @@
                     </li>
                 </ol>
                 <p class="note-information">
-                    Le projet que vous avez récupéré possède Playwright ôté de certains fichiers et déjà configuré, notamment pour les modules javascript. Dans une configuration standard, Playwright crée plus de fichiers et dossiers.
+                    Le projet que vous avez récupéré possède Playwright ôté de certains fichiers et déjà configuré, notamment pour l'utilisation de modules javascript. Dans une configuration standard, Playwright crée plus de fichiers et dossiers.
                 </p>
             </details>
             <details class="consignes-conteneur">
@@ -68,7 +69,7 @@
                     </li>
                     <li>
                         Vérifiez que vous êtes bien arrivé sur la page d'une
-                        actualité
+                        actualité en utilisation une assertion
                         <ul>
                             <li>
                                 Pour éviter un test trop rigide, n'allez pas
@@ -77,7 +78,7 @@
                                 "universite/media-et-communication/actualites"
                                 testez si l'url courante contient bien cette
                                 partie grâce à la méthode
-                                <code>.toHaveURL()</code>.
+                                <code>.toHaveURL()</code>. Elle accepte des RegEx.
                                 <a
                                     href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url"
                                     target="_blank"
