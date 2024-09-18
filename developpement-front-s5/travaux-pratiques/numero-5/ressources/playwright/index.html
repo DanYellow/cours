@@ -144,12 +144,12 @@
                     </h1>
                 </summary>
                 <ol class="liste-consignes">
-                    <li>
+                    <!-- <li>
                         Ouvrez dans la console (Terminal / iTerm2 sur MacOS ou
                         git bash sur Windows) le dossier ressources/playwright
                         (nouvelle fenêtre ou onglet de votre terminal)
                     </li>
-                    <li>Exécutez la commande <code>npm run server</code></li>
+                    <li>Exécutez la commande <code>npm run server</code></li> -->
                     <li>
                         Ajoutez un nouveau fichier de test, dans le dossier dédié, avec le test qui
                         respecte le plan suivant :
@@ -191,6 +191,7 @@
                         </li>
                     </ul>
                 </section>
+                <p class="note-information">Note : Playwright permet d'exécuter une commande avant que l'outil se lance. Ceci est configuré dans la clé "webServer" avec laquelle nous lançons la commande <code>npm run server</code> qui exécute un serveur node sur le port 3000. Nous aurions pu également faire le choix de lancer cette commande dans un autre terminal en plus de la commande qui lance les tests.</p>
             </details>
             <details class="consignes-conteneur">
                 <summary>
