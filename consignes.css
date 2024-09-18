@@ -159,30 +159,33 @@
     margin-bottom: 1rem;
 }
 
-.consignes-conteneur code {
-    font-family: monospace;
-    letter-spacing: 1.2;
-    background-color: black;
-    padding: 0 0.35rem;
-    color: white;
-    border: 1px solid #b4b4b4;
-    margin-bottom: 1rem;
-}
+.consignes-conteneur {
+    code {
+        font-family: monospace;
+        letter-spacing: 1.2;
+        background-color: black;
+        padding: 0 0.35rem;
+        color: white;
+        border: 1px solid #b4b4b4;
+        margin-bottom: 1rem;
+        white-space: nowrap;
+    }
 
-.consignes-conteneur p {
-    margin: 0.8rem 0;
+    p {
+        margin: 0.8rem 0;
+    }
+
+    .link {
+        font-size: 0.9rem;
+        position: absolute;
+        right: 15px;
+    }
 }
 
 .consignes-title-conteneur {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-}
-
-.consignes-conteneur .link {
-    font-size: 0.9rem;
-    position: absolute;
-    right: 15px;
 }
 
 .tab-wrapper .list-tabs {
@@ -199,11 +202,11 @@
     padding: 14px 16px;
     appearance: none;
     border: none;
-}
 
-.tab-wrapper .list-tabs button.active {
-    background-color: cadetblue;
-    color: white;
+    &.active {
+        background-color: cadetblue;
+        color: white;
+    }
 }
 
 .tab-wrapper .tab-content {
@@ -213,10 +216,8 @@
 .tab-wrapper .list-tab-content {
     border: 1px solid white;
     padding: 0.5rem;
-}
 
-@media (prefers-color-scheme: light) {
-    .tab-wrapper .list-tab-content {
+    @media (prefers-color-scheme: light) {
         border: 1px solid black;
     }
 }
