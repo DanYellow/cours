@@ -6,6 +6,6 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-test('Visit one news on university\'s website', async ({ page }) => {
+test('Should visit one news on university\'s website', async ({ page }) => {
   await page.goto('https://www.cyu.fr/');
 });
