@@ -30,7 +30,7 @@
                         git bash sur Windows) le dossier ressources/playwright et
                         installez les dépendances avec la commande
                         <code>npm run install</code>
-                        <p class="note-information">S'il vous manque certains navigateurs, vous devrez installer leur version exécutable. Par exemple pour Chromium, il faut utiliser la commande <code>npx playwright install chromium</code>. Playwright vous l'indiquera dans le terminal en tous les cas.</p>
+                        <p class="note-information">S'il vous manque certains navigateurs, vous devrez installer leur version exécutable. Par exemple pour Chromium, il faut utiliser la commande <code>npx playwright install chromium</code>. Playwright ne se lancera pas et vous l'indiquera dans le terminal en tous les cas.</p>
                     </li>
                     <li>
                         Ouvrez playwright en exécutant la commande
@@ -78,13 +78,17 @@
                                 "universite/media-et-communication/actualites"
                                 testez si l'url courante contient bien cette
                                 partie grâce à la méthode
-                                <code>.toHaveURL()</code>. Elle accepte des RegEx.
-                                <a
+                                <code>.toHaveURL()</code>. Elle accepte une RegEx en paramètre.
+                                <ul>
+                                    <li>
+                                        <a
                                     href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url"
                                     target="_blank"
                                     >Accéder à la documentation de
                                     .toHaveURL()</a
                                 >
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -196,12 +200,11 @@
                 </summary>
                 <ol class="liste-consignes">
                     <li>
-                        Réécrivez le test de la partie 4 en utilisant des
-                        sélecteurs relatifs au data-attribute "data-testid"
+                        Réécrivez le test de la partie 4 en utilisant le sélecteur "data-testid" sur les éléments manipulés
                     </li>
                     <li>
                         Dans le fichier src/script.js remplacez les sélecteurs
-                        de balises par des data-attributes personnalisés. Pas forcément des "data-testid"
+                        de balises par des data-attributes personnalisés. Il n'est pas nécéssaire d'utiliser le data-attribute "testid"
                     </li>
                 </ol>
                 <section class="note-information">
@@ -260,7 +263,7 @@
                 </summary>
                 <ol class="liste-consignes">
                     <li>
-                        L'API retourne une liste d'éléments. Elle est accessible à "http://localhost:3000/api". Affichez-en le contenu sur le site. Préférez l'utilisation de la balise &lt;template>.
+                        L'API retourne une liste d'éléments. Elle est accessible à "http://localhost:3000/api". Affichez-en le contenu sur le site. Préférez l'utilisation de la balise &lt;template>
                     </li>
                     <li>
                         Mockez la réponse d'API
@@ -314,9 +317,8 @@
                         Faites une capture d'écran durant un test sur le site de
                         l'université (https://www.cyu.fr/)
                         <span class="texte-gras"
-                            >sans que la navigation haute n'apparaisse à
-                            plusieurs reprises de même pour l'encart des
-                            cookies</span
+                            >sans que l'encart des
+                            cookies n'apparaisse</span
                         >
                         <ul>
                             <li>
@@ -330,7 +332,7 @@
                         </ul>
                     </li>
                     <li>
-                        Créez un cookie en javascript lorsque le formulaire est validé et
+                        Réutilisez le site qui tourne sur le port 3000 et créez un cookie en javascript lorsque le formulaire est validé et
                         vérifiez sa présence grâce à playwright
                         <ul>
                             <li>
@@ -342,7 +344,7 @@
                                     playwright (ouveture dans un nouvel onglet)</a
                                 >
                                 <p class="note-information">
-                                    Notez bien que la méthode cookies() retourne un tableau d'objets, pour évaluer un cookie, il faudra filtrer ce tableau. Exemple : <code>expect(listCookies.find(item => item.name === "my_cookie").value).toBe("my_value")</code>. Par ailleurs les cookies sont contenus dans l'objet "context".
+                                    Notez bien que la méthode cookies() retourne un tableau d'objets, pour évaluer un cookie, il faudra filtrer ce tableau. Exemple : <code>listCookies.find(item => item.name === "my_cookie").value</code>. Par ailleurs les cookies sont contenus dans l'objet "context".
                                 </p>
                             </li>
                             <li>
