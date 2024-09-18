@@ -35,8 +35,12 @@ const initAccordionSystem = () => {
 
     document.querySelectorAll("summary").forEach((item, idx) => {
         item.addEventListener("click", () => {
-            url.searchParams.set("a", idx);
-            history.pushState(null, "", url);
+            if(document.querySelectorAll("summary")[idx].closest("details").open) {
+                url.searchParams.delete("a", idx);
+            } else {
+                url.searchParams.set("a", idx);
+            }
+            history.replaceState(null, "", url);
         });
 
         document.querySelectorAll("summary")[idx].closest("details").open = accordionIndex === idx;
