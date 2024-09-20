@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CM - Leaflet</title>
+
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+        <!-- code CSS et JS de leaflet -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+
+        <script src="map.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <h1 class="titre-consignes">CM - Leaflet</h1>
+            <p class="paragraphe">
+                Leaflet est un plugin javascript open source permettant
+                d'ajouter des données sur une carte OpenStreet Map. Tout comme
+                le système de cartographie, l'outil est gratuit. Le but de cet
+                exercice est de prendre en main. Bien évidemment nous allons
+                respecter les bonnes règles pour notre utilisation de javascript
+                en utilisant notamment un fichier javascript externe.
+            </p>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Étape 1 - Afficher une carte
+                    </p>
+                </summary>
+                <div data-map="etape-1" class="carte"></div>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Étape 2 - Afficher un marqueur
+                    </p>
+                </summary>
+                <div data-map="etape-2" class="carte"></div>
+            </details>
+
+        </main>
+    </body>
+</html>
