@@ -16,3 +16,9 @@ img {
 .carte {
     height: 580px;
 }
+
+.leaflet-container {
+    a {
+        color: black!important;
+    }
+}
