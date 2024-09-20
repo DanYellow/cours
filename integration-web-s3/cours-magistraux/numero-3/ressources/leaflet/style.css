@@ -32,3 +32,13 @@ img {
     border-radius: 5px;
     color: #333;
 }
+
+.liste {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin: 0.5rem 0;
+}
+
+.paragraphe {
+    margin: 0.5rem 0;
+}

@@ -195,7 +195,8 @@
         }
 
         if (nomRegion.toLowerCase() === "bourgogne-franche-comté") {
-            return "#AAF47B";
+
+            return "#0FF";
         }
 
         if (nomRegion.toLowerCase() === "pays de la loire") {
