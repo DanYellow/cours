@@ -85,8 +85,6 @@
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(carte);
 
-    const afficherRegion = (e) => {};
-
     // Au survol de la zone, on change son style. Style qui sera retiré quand on ne la survolera plus
     const survolZone = (e) => {
         const calque = e.target;
@@ -135,29 +133,32 @@
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(carte);
 
-    const afficherRegion = (e) => {};
-
+    // On définit notre élément de contrôle ainsi que ses comportements :
+    // - onAdd : quand il est ajouté
+    // - onUpdate : quand il reçoit de nouvelles données
     const info = L.control();
+    info.onAdd = function () {
+        // Notre élément de contrôle sera une div avec la classe "conteneur-informations"
+        this._div = L.DomUtil.create("div", "conteneur-informations");
+        this.update();
 
-    info.onAdd = (map) => {
-        const _div = L.DomUtil.create("div", "info"); // create a div with a class "info"
-        // this.update();
-        return _div;
+        return this._div;
     };
 
-    // method that we will use to update the control based on feature properties passed
-    // info.update = (properties) => {
-    //     this._div.innerHTML = `
-    //         <p>Région</p>
-    //         ${properties ? properties.name : ""}
-    //     `;
-    // };
-
+    info.update = function (properties) {
+        this._div.innerHTML = `
+            <p>Région</p>
+            ${properties ? properties.nom : ""}
+        `;
+    };
+    // On ajoute notre élément sur la carte
     info.addTo(carte);
 
     // Au survol de la zone, on change son style. Style qui sera retiré quand on ne la survolera plus
     const survolZone = (e) => {
         const calque = e.target;
+        const calqueListProprietes = e.sourceTarget.feature.properties;
+        info.update(calqueListProprietes);
 
         calque.setStyle({
             weight: 5,
@@ -169,6 +170,7 @@
     };
 
     const reinitaliserZone = (e) => {
+        info.update()
         calqueGeoJSON.resetStyle(e.target);
     };
 
@@ -206,7 +208,7 @@
         style: (feature) => {
             return {
                 // On sélectionne une couleur en fonction du nom de la région
-                fillColor: selectionCouleurZone(feature.properties.nom) 
+                fillColor: selectionCouleurZone(feature.properties.nom),
             };
         },
         onEachFeature: onEachFeature,
