@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CM - Leaflet - Points</title>
+        <title>CM - Leaflet - GeoJSON</title>
 
         <link rel="stylesheet" href="reset.css" />
         <link rel="stylesheet" href="style.css" />
@@ -29,25 +29,24 @@
     </head>
     <body>
         <main>
-            <h1 class="titre-consignes">CM - Leaflet - Points</h1>
+            <h1 class="titre-consignes">CM - Leaflet - GeoJSON</h1>
             <p class="paragraphe">
-                Leaflet est un plugin javascript open source permettant
-                d'ajouter des données sur une carte OpenStreet Map. Tout comme
-                le système de cartographie, l'outil est gratuit. Le but de cet
-                exercice est de prendre en main. Bien évidemment nous allons
-                respecter les bonnes règles pour notre utilisation de javascript
-                en utilisant notamment un fichier javascript externe.
+                En plus de points, Leaflet permet également de gérer des polygones, d'afficher des formes géométriques sur une carte. Généralement, on utilisera les zones de villes ou de pays. Ces données sont souvent stockées au format GeoJSON. On l'a vu en cours, ce format est un json standardisé pour les données géographiques, format que c'est gérer Leaflet grâce à la méthode <a href="https://leafletjs.com/reference.html#geojson" target="_blank" rel="noopener noreferrer">"geoJSON"</a>. Pour cette exemple, nous utiliserons le site france-geojson pour afficher les régions françaises sur une carte.
             </p>
+            <p>Nous utiliserons également la méthode fetch() pour charger nos données.</p>
             <ul>
                 <li>
                     <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Accéder à la documentation de leaflet</a>
+                </li>
+                <li>
+                    <a href="https://france-geojson.gregoiredavid.fr/" target="_blank" rel="noopener noreferrer">GeoJSON sur les régions françaises</a>
                 </li>
             </ul>
 
             <details class="consignes-conteneur">
                 <summary>
                     <p class="h1">
-                        Étape 1 - Afficher une carte
+                        Étape 1 - Afficher des zones géographiques
                     </p>
                 </summary>
                 <div data-map="etape-1" class="carte"></div>
