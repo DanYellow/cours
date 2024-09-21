@@ -90,3 +90,31 @@ listePoints.forEach((item) => {
     }).addTo(carte2);
     markerBoucle.bindPopup(`<p>${item.info}</p>`);
 });
+
+// ------------ ETAPE 3 ---------------
+// Ici nous allons utiliser des données graphiques qui sont parfois rapprochées, en terme de lisibilité, ce n'est pas optimal.
+// Dans ce cas, nous allons utiliser un cluster (ou groupe) de marqueurs ceci permettant l'augmentation de la lisibilité
+const carte3 = L.map(document.querySelector("[data-map='etape-3']")).setView(
+    [48.974628, 2.376788],
+    13
+);
+
+L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
+    maxZoom: 24,
+    minZoom: 10,
+    attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(carte3);
+
+// On définit notre cluster
+const cluster = new L.MarkerClusterGroup();
+
+const listePointsCluster = [[48.98824217,2.25662443737],[48.9717773111,2.25299514112],[49.0296655684,2.32290103729],[49.0620216513,1.70672153604],[49.0084494157,2.40385604039],[49.0267316203,2.22116067166],[49.0401131567,2.05082123731],[49.00660444,2.51417743519],[48.9884077875,2.30049978342],[48.97016048,2.30485955429],[49.1231107932,2.37799676025],[49.0401131567,2.05082123731],[48.9909940165,2.27800925488],[49.00660444,2.51417743519],[48.9511344629,2.2410409502],[48.9909940165,2.27800925488],[49.0401131567,2.05082123731],[49.00660444,2.51417743519],[48.9884077875,2.30049978342],[48.8984504771,2.25570587289],[48.98824217,2.25662443737],[49.0202164812,2.24676044206],[49.0267316203,2.22116067166],[48.9909940165,2.27800925488],[49.0803858577,2.15488070885],[49.00660444,2.51417743519],[49.1595393224,1.85643409298],[48.9918643363,2.32119797848],[49.1151211125,2.44082640954],[48.9902250437,2.38160272749],[48.9701231267,2.40534038501],[49.1407338587,2.3800597257],[49.0441683455,2.12861303743],[48.97016048,2.30485955429],[48.9689724948,2.28518003438],[49.0401131567,2.05082123731],[49.158617564,1.81039322129],[49.0513737853,2.09487928948],[49.0513737853,2.09487928948],[48.97016048,2.30485955429],[49.0032793478,2.23401999637],[49.0401131567,2.05082123731]];
+
+listePointsCluster.forEach((item, index) => {
+    // On ajoute nos marqueurs à notre cluster
+    cluster.addLayer(L.marker(item).bindPopup(`<p>${index}</p>`));
+});
+
+// Enfin notre cluster est affiché sur la carte
+carte3.addLayer(cluster);

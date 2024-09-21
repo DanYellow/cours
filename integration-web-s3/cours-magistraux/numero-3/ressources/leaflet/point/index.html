@@ -25,6 +25,12 @@
             crossorigin=""
         ></script>
 
+        <!-- Code pour cluster partie 3 -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js'></script>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css' rel='stylesheet' />
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css' rel='stylesheet' />
+        
+
         <script src="map.js" defer></script>
     </head>
     <body>
@@ -76,8 +82,29 @@
                 </ul>
                 <div data-map="etape-2" class="carte"></div>
             </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Étape 3 - Afficher des clusters
+                    </p>
+                </summary>
+                <p class="paragraphe">Si les marqueurs sont indispensables pour afficher l'emplacement géographique de points d'intérêt, leur lisibité est très mauvaise lorsqu'il en a trop au même endroit.</p>
+                <p class="paragraphe">Dans ce cas, il faut utiliser un cluster, ceci permet de grouper ou dégrouper des marqueurs selon le niveau de zoom de la carte. Malheureusement cette fonctionnalité n'est pas présente pas défaut dans leaflet, il faudra utiliser le plugin "Leaflet.markercluster" pour ce faire.</p>
+                <ul class="liste">
+                    <li>
+                        <a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank" rel="noopener noreferrer">Voir documentation des clusters</a>
+                    </li>
+                    <li>
+                        <a href="https://leafletjs.com/2012/08/20/guest-post-markerclusterer-0-1-released.html" target="_blank" rel="noopener noreferrer">Didacticiel sur les clusters</a>
+                    </li>
+                    <li>
+                        <a href="https://leaflet.github.io/Leaflet.markercluster/example/marker-clustering-realworld.50000.html" target="_blank" rel="noopener noreferrer">Example de cluster à 50 000 points</a>
+                    </li>
+                </ul>
+                <div data-map="etape-3" class="carte"></div>
+            </details>
             <p class="note-attention">
-                Les exemples de code, bien que fonctionnels, utilisent parfois d'anciennes syntaxes de javascript. N'utilisez pas le mot-clé "var". Préférez "let" et "const".
+                Les exemples de code présents sur le site leaflet, bien que fonctionnels, utilisent parfois d'anciennes syntaxes de javascript. N'utilisez pas le mot-clé "var". Préférez "let" et "const".
             </p>
         </main>
     </body>
