@@ -43,3 +43,7 @@ img {
 .paragraphe {
     margin: 0.5rem 0;
 }
+
+a:hover {
+    text-decoration: none;
+}

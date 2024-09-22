@@ -1,0 +1,202 @@
+body {
+  max-width: 900px;
+  margin: 0.75rem auto;
+  padding: 0 0.75rem;
+  aspect-ratio: 1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.conteneur {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-color: #19190f;
+  gap: 0.5rem;
+  height: 100%;
+  border: 0.8rem solid #c05500;
+}
+
+.blanc {
+  background-color: #f6f5f6;
+}
+
+.jaune {
+  background-color: #f0c432;
+}
+
+.rouge {
+  background-color: #b33a27;
+}
+
+.noir {
+  background-color: #19190f;
+}
+
+.bleu {
+  background-color: #1900a5;
+}
+
+.premier {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.deux {
+  grid-column-start: 3;
+  grid-column-end: 6;
+}
+
+.troisieme {
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+.quatrieme {
+  grid-column-start: 8;
+  grid-column-end: 9;
+
+  grid-row-start: 1;
+  grid-row-end: 7;
+}
+
+.cinquieme {
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.sixieme {
+  grid-row-start: 2;
+  grid-row-end: 6;
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+
+.septieme {
+  grid-column-start: 6;
+  grid-column-end: 8;
+
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.huitieme {
+  grid-row-start: 4;
+  grid-row-end: 7;
+}
+
+.neuvieme {
+  grid-column-start: 2;
+  grid-column-end: 4;
+
+  grid-row-start: 6;
+  grid-row-end: 8;
+}
+
+.dixieme {
+  grid-column-start: 4;
+  grid-column-end: 6;
+
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+.onzieme {
+  grid-column-start: 6;
+  grid-column-end: 8;
+
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+.douzieme {
+  grid-column-start: 6;
+  grid-column-end: 7;
+
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.treizieme {
+  grid-column-start: 7;
+  grid-column-end: 8;
+
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.quatorzieme {
+  grid-row-start: 7;
+  grid-row-end: 9;
+}
+
+.quinzieme {
+  grid-column-start: 4;
+  grid-column-end: 6;
+
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
+.seizieme {
+  grid-column-start: 4;
+  grid-column-end: 6;
+
+  grid-row-start: 7;
+  grid-row-end: span 1;
+}
+
+.dixseptieme {
+  grid-column-start: 6;
+  grid-column-end: 8;
+
+  grid-row-start: 7;
+  grid-row-end: span 2;
+}
+
+.dixhuitieme {
+  grid-column-start: 8;
+  grid-column-end: 9;
+
+  grid-row-start: 7;
+  grid-row-end: span 2;
+}
+
+.dixneuvieme {
+  grid-column-start: 2;
+  grid-column-end: span 2;
+
+  grid-row-start: 8;
+  grid-row-end: span 1;
+}
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.header .h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.header .paragraphe {
+  margin-bottom: 0.75rem;
+}
+
+.liste {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin: 0.5rem 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.code {
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
