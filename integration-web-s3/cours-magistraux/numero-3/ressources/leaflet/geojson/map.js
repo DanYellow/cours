@@ -126,11 +126,10 @@
         6
     );
 
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    L.tileLayer("https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png", {
         maxZoom: 19,
         minZoom: 3,
-        attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="http://www.openstreetmap.bzh/" target="_blank">Breton OpenStreetMap Team</a>',
     }).addTo(carte);
 
     // On définit notre élément de contrôle ainsi que ses comportements :
