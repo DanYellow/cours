@@ -139,6 +139,7 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
       - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/) (vous n'avez pas à toutes les respecter)
+  - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 ## Développement Web (PHP)
@@ -171,6 +172,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
     - [...]
+    - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
   - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
 # FAQ - Foire Aux Questions
