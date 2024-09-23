@@ -3,7 +3,7 @@
 > **IMPORTANT :** Le code fourni possède quelques modifications mineures par rapport à la maquette finale. Vous n'avez pas à les corriger.
 
 ## Contexte de la SAÉ
-CY Cergy Paris Université nous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
+CY Cergy Paris Université vous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
 L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants : 
 
 **R1.11 – Intégration**

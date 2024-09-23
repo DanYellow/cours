@@ -263,6 +263,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
     - **Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem**
       - Conversion px -> rem : Diviser la valeur en pixels par 16 pour obtenir la valeur en rem
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
+  - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - L'aspect final du site, comment il s'affiche dans un navigateur
   - Le site sera testé sur Firefox et/ou Chrome
 
@@ -297,6 +298,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
   - [ ] Les éléments de formulaire ont bien un libellé qui leur est rattaché avec les bons attributs ("for" et "id")
+  - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
