@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-    --titre-taille: 1.35rem;
+  --titre-taille: 1.35rem;
 }
 
 img {
@@ -34,8 +34,11 @@ img {
 
 .liste {
   list-style-type: disc;
-  list-style-position: inside;
-  margin: 0.5rem 0;
+  list-style-position: outside;
+  margin: 0.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .macbook-pro {
@@ -64,11 +67,6 @@ img {
   font-weight: bold;
 }
 
-.liste {
-  list-style-type: disc;
-  list-style-position: inside;
-  margin: 0.5rem 0;
-}
 
 .vision-pro {
   grid-column-start: 1;
@@ -197,7 +195,7 @@ img {
 }
 
 .ipad .image {
-  width: 400px;
+  width: 475px;
 }
 
 .iphone {
@@ -211,6 +209,7 @@ img {
   background-position: bottom -175px right;
   background-color: cornsilk;
 }
+
 .iphone .titre {
   font-size: var(--titre-taille);
   font-weight: bold;
