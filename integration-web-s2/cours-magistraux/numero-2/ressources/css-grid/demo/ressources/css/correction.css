@@ -46,6 +46,27 @@ img {
     font-weight: bold;
 }
 
+.pkmn-card .pkmn-equipe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    gap: 0.5rem;
+    margin-left: 0.75rem;
+}
+
+.pkmn-card .pkmn-element {
+    aspect-ratio: 50/30;
+    overflow: hidden;
+    border: #1d1d1d 3px solid;
+    position: relative;
+}
+
+.pkmn-card .pkmn-element .image-centre {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .footer {
     padding: 0.75rem 1rem;
     margin: 0.75rem;
@@ -61,4 +82,15 @@ img {
 .footer .titre {
     font-size: 1.25rem;
     font-weight: bold;
+}
+
+.footer .liste-badges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.footer .liste-badges img {
+    width: 40px;
 }
