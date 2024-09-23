@@ -39,13 +39,19 @@ img {
   display: flex;
   overflow: hidden;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.5rem 3rem;
+  align-items: center;
+  background-color: #f7f7f7;
+
+  background-image: url("../images/mbp16.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center right -50%;
 }
 
-.macbook-pro .image {
-  height: 100%;
-  position: relative;
-  left: 25%;
+.macbook-pro .textes {
+    width: 65%;
+    height: fit-content;
 }
 
 .macbook-pro .titre {
@@ -97,7 +103,7 @@ img {
   background-image: url("../images/imac.png");
   background-repeat: no-repeat;
   background-size: 200px;
-  background-position: bottom left 50px;
+  background-position: bottom 10px left 50px;
 }
 
 .imac .textes {
