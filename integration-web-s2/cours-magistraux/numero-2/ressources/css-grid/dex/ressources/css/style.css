@@ -1,0 +1,191 @@
+body {
+  max-width: 1280px;
+  margin: 0.75rem auto;
+  padding: 0 0.75rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.conteneur {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 390px);
+}
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.header .h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.header .paragraphe {
+  margin-bottom: 0.75rem;
+}
+
+.liste {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0.5rem 0;
+}
+
+.macbook-pro {
+  grid-column-end: span 2;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.macbook-pro .image {
+  height: 100%;
+  position: relative;
+  left: 25%;
+}
+
+.macbook-pro .titre {
+  margin: 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.liste {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0.5rem 0;
+}
+
+.vision-pro {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vision-pro img {
+  width: 200px;
+}
+
+.vision-pro .titre {
+  margin: 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.imac {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: white;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-image: url("../images/imac.png");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: bottom left 50px;
+}
+
+.imac .textes {
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+}
+
+.imac img {
+  width: 200px;
+}
+
+.imac .titre {
+  margin: 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.watch-ultra {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: span 2;
+  background-color: rgb(0, 114, 95);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.watch-ultra .image {
+  width: 250px;
+  margin-bottom: 2rem;
+}
+
+.watch-ultra .titre {
+  margin: 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.clavier {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(248, 248, 248);
+}
+
+.clavier .image {
+  width: 250px;
+}
+
+.clavier .titre {
+  margin: 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ipad {
+  grid-column-start: 2;
+  grid-column-end: span 2;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.ipad .titre {
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ipad .image {
+    width: 400px;
+  }
