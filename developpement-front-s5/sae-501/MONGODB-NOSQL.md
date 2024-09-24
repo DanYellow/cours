@@ -32,11 +32,11 @@ Pour visualiser votre base NoSQL, nous vous conseillons le logiciel MongoDB Comp
 
 # Base de données et requêtes - suite
 
-Une base MongoDB s'articule autour de collections ("équivalent" de tables en SGBDR). Le projet de la SAE en contient cinq que voici :
+Une base MongoDB s'articule autour de collections ("équivalent" de tables en SGBDR). Le projet de la SAE que vous avez récupéré contient les collections suivantes :
 
 ![](./CollectionsDiagram.svg)
 
-Dans ce schéma, il n'y a que quatre collections, la cinquième concerne les messages envoyés depuis la page "contact", nous la ferons ensemble, les champs dépendront des besoins du projet.
+Une cinquième collection, concernant les messages envoyés depuis la page "contact", sera faite lors d'un TP. Ses champs seront les champs dépendront de nos besoins.
 
 Une collection contient des schémas, ces schémas ont une syntaxe proche de ce que vous avez vu en MySQL avec un ensemble de champs de divers types. Les différences résident dans la présence du champ "_id" qui remplace "id" en MySQL, ici "_id" n'est pas un nombre qui s'incrémente à chaque nouvelle entrée mais une chaîne de 24 caractères aléatoires (nombres et lettres) qui sert de clé primaire, donc plus performante pour faire une recherche dans une collection. Le champ "__v" est ajouté via Mongoose, il sert à garder une trace de la version de votre document. 
 
@@ -59,7 +59,7 @@ const saeSchema = new Schema({
 });
 
 // Transformation de notre schéma en Model, classe exploitable pour créer des documents
-// Note : "SAE" correspond au nom de la collection dans MongoDB, ce nom sera toujours mis en majuscule et au pluriel 
+// Note : "SAE" correspond au nom de la collection dans MongoDB, ce nom sera toujours mis en minuscules et au pluriel 
 export default mongoose.model("SAE", saeSchema);
 ```
 
@@ -89,7 +89,7 @@ Ce code simplifié, issu du fichier `code/server/api-router/sae.js`, nous permet
 
 Nous ferons ensemble la collection "messages", elle nous permettra de sauvegarder les messages crées depuis le formulaire de contact.
 
-> Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mangoose crée les collections s'il ne les trouve pas. La première requête de chaque collection créera la collection en même temps.
+> Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mongoose crée les collections s'il ne les trouve pas. La première requête de chaque collection créera la collection en même temps.
 
 # Requêtes
 Pour créer ces messages, il faudra créer des routes. Le projet respecte la philosophie du CRUD (Create, Read, Update, Delete), conséquemment, dépendamment des besoins, il y a une route permettant de créer, récupérer, mettre à jour et supprimer un document. La gestion de requêtes des composées de deux parties :
@@ -158,12 +158,12 @@ await Model.findById(searchID);
 ### Chercher un élément par critères - Model.findOne()
 Récupère un élément correspondant aux prédicats passés sous forme d'objet (comme pour `find()`). Exemple :
 ```js
-// Ici on récupère le premier modèle ayant comme valeur "Croatia" pour le champ "country" ET "mmi" pour le champ "formation"
+// Ici on récupère un élément ayant comme valeur "Croatia" pour le champ "country" ET "mmi" pour le champ "formation"
 await Model.findOne({ country: 'Croatia', formation: "mmi" });
 ```
 Si vous souhaitez appliquer des conditions exclusives, vous pouvez utiliser le mot-clé [$or](https://www.mongodb.com/docs/manual/reference/operator/query/or/) de la façon suivante :
 ```js
-// Même exemple que plus haut, mais on cherche cette fois-ci le modèle qui possède la valeur "Croatia" pour le champ "country" OU "mmi" pour le champ "formation"
+// Cette fois-ci, on cherche l'élément de la table Model qui possède la valeur "Croatia" pour le champ "country" OU "mmi" pour le champ "formation"
 await Model.findOne({ $or: [{ country: 'Croatia', formation: "mmi" }] });
 ```
 
