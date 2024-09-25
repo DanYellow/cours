@@ -228,14 +228,13 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     </ul>
                     <section class="note-information">
                     <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
-                    <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
+                    <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
 <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"selecteur"</span>);
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// Sur cet élément on lie un évènement "click"</span>
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// grâce à la méthode "addEventListener"</span>
 cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListener</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">'click'</span>, <span style="color: rgb(201, 209, 217); font-weight: 400;">() =&gt;</span> {
     <span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(<span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>());
-});
-                    </pre>
+});</pre>
                 </section>
                 </li>
                 <li>Créez plusieurs balises &lt;p> avec du texte et la même classe CSS. Puis, grâce à la propriété "textContent", faites changer le contenu textuel de ces balises lorsqu'on clique sur un bouton (vous pouvez réutiliser le même ou un créer un nouveau)
@@ -249,10 +248,13 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                     <section class="note-information"><p>Etant donné que vous devez modifier plusieurs éléments en même temps, il faudra
                         impérativement utiliser une boucle pour modifier la propriété <code>.textContent</code> sur
                         chaque élément. Par exemple : </p>
-                    <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(86, 156, 214); font-weight:400;">const</span> listeElementsMaClasse = <span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelectorAll(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;.ma-classe&quot;</span>);
-<span style="color:rgb(86, 156, 214); font-weight:400;">for</span> (<span style="color:rgb(86, 156, 214); font-weight:400;">let</span> i = <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>; i &lt; listeElementsMaClasse.length; i++) {
-    listeElementsMaClasse[i].addEventListener(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;click&#x27;</span>, maFonction) 
-}</code></pre>
+                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
+<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> listeElementsMaClasse = <span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelectorAll</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">".ma-classe"</span>);
+<span style="color: rgb(139, 148, 158); font-weight: 400;">// On parcourt notre liste d'éléments</span>
+<span style="color: rgb(255, 123, 114); font-weight: 400;">for</span> (<span style="color: rgb(255, 123, 114); font-weight: 400;">let</span> i = <span style="color: rgb(121, 192, 255); font-weight: 400;">0</span>; i &lt; listeElementsMaClasse.<span style="color: rgb(201, 209, 217); font-weight: 400;">length</span>; i++) {
+    <span style="color: rgb(139, 148, 158); font-weight: 400;">// listeElementsMaClasse[i] représente un élément ayant la classe "ma-classe"</span>
+    listeElementsMaClasse[i].<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListener</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">'click'</span>, maFonction) 
+}</pre>
 </section>
                     
                 </li>
@@ -269,16 +271,22 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(78, 201, 176); font-weight:400;">document</span>.querySelector(<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[data-attribut-personnalise]&quot;</span>)</code></pre>
+                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Contient le premier élément qui a le data-attribute</span>
+<span style="color: rgb(139, 148, 158); font-weight: 400;">// "data-attribut-personnalise"</span>
+<span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"[data-attribut-personnalise]"</span>)</pre>
                         <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
                             le data-attribute "data-attribut-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
                         <p>Si vous souhaitez cibler un data-attribut avec une valeur spécifique, il faut procéder de la façon suivante : </p>
-                        <pre><code id="htmlViewer" style="color:rgb(252, 232, 195); font-weight:400;background-color:rgb(28, 27, 25);background:rgb(28, 27, 25);display:block;padding: .5em;">document<span style="color:rgb(104, 168, 228); font-weight:400;">.querySelector</span>(&quot;<span style="color:rgb(192, 122, 190); font-weight:400;">[data-attribut-personnalise=<span style="color:rgb(152, 188, 55); font-weight:400;">&#x27;ma valeur&#x27;</span>]</span>&quot;);</code></pre>
+                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
+<span style="color: rgb(139, 148, 158); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
+<span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
                     </article>
+                    <p class="note-information">
+                        Cette classe CSS, à ajouter/retirer, devra être rajoutée dans un fichier CSS.
+                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications ainsi que lier votre fichier html à votre fichier CSS.
+                    </p>
                     <ul>
-                        <li>Cette classe CSS, à ajouter/retirer, devra être rajoutée dans un fichier CSS.
-                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications ainsi que lier votre fichier html à votre fichier CSS.</li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
                                 rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList
                                 (ouverture dans un
