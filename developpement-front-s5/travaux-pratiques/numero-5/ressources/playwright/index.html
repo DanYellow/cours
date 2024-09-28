@@ -201,7 +201,7 @@
                         </li>
                     </ul>
                 </section>
-                <p class="note-information">Note : Playwright permet d'exécuter une commande avant que l'outil se lance. Ceci est configuré dans la clé "webServer" avec laquelle nous lançons la commande <code>npm run server</code> qui exécute un serveur node sur le port 3000. Nous aurions pu également faire le choix de lancer cette commande dans un autre terminal en plus de la commande qui lance les tests.</p>
+                <p class="note-information">Note : Playwright permet d'exécuter une commande avant que l'outil se lance. Dans le fichier de configuration, nous avons la clé "webServer" avec laquelle nous lançons la commande <code>npm run server</code> qui exécute un serveur node sur le port 3000. Nous aurions pu également faire le choix de lancer cette commande dans un autre terminal en plus de la commande qui lance les tests.</p>
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -221,7 +221,7 @@
                 <section class="note-information">
                     <p>
                         Pour soumettre un formulaire, vous pouvez cliquer sur le
-                        bouton dédié ou appuyer sur la touche "Enter" d'un champ de texte grâce à la méthode press().
+                        bouton dédié ou appuyer sur la touche "Enter" dans un champ de texte grâce à la méthode press().
                     </p>
                     <ul>
                         <li>
@@ -273,14 +273,23 @@
                 </summary>
                 <ol class="liste-consignes">
                     <li>
-                        L'API retourne une liste d'éléments. Elle est accessible à "http://localhost:3000/api". Affichez-en le contenu sur le site. Préférez l'utilisation de la balise &lt;template>
+                        Affichez le contenu de l'API qui se trouve à "http://localhost:3000/api" sur le site de façon asynchrone. Elle retourne la liste des projets jours fériés
+                        <ul>
+                            <li>Préférez l'utilisation de la balise &lt;template></li>
+                        </ul>
                     </li>
                     <li>
-                        Mockez la réponse d'API
-                        <p class="note-information">L'API est lente. Il faudra penser à utiliser la méthode waitForResponse</p>
-
+                        Créez un test e2e permettant de vérifier le bon affichage de votre liste de jours féries
                         <ul>
-                            <li>Accéder à la documentation de <a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">waitForResponse - ouverture dans un nouvel onglet</a></li>
+                            <li>
+                                Vous devez mocker la réponse d'API.
+                                <section class="note-information">
+                                    <p>L'API est lente. Il faudra penser à utiliser la méthode waitForResponse</p>
+                                    <ul>
+                                        <li><a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">Accéder à la documentation de waitForResponse - ouverture dans un nouvel onglet</a></li>
+                                    </ul>
+                                </section>
+                            </li>
                         </ul>
                     </li>
                 </ol>
@@ -307,7 +316,7 @@
                         </ul>
                     </li>
                     <li>
-                        Prennez une capture d'écran mobile, tablette et PC du
+                        Prenez une capture d'écran mobile, tablette et PC du
                         site de l'université (https://www.cyu.fr/). Si vous le
                         souhaitez, vous pouvez également gérer l'orientation de
                         l'écran
@@ -405,7 +414,7 @@
                     </li>
                     <li>
                         Entrez l'adresse d'un site dans le navigateur qui s'est ouvert suite à la commande précédente
-                        <p class="note-information">Au lieu d'entrer dans le navigateur l'url du site, vous pouvez passer en paramètre cette url de la commande La commande <code>npx playwright codegen (ou "open")</code>. Ce qui ouvrira directement le navigateur avec cette url.</p>
+                        <p class="note-information">Au lieu d'entrer dans le navigateur l'url du site, vous pouvez passer en paramètre cette url dans la commande. Ex : <code>npx playwright codegen (ou "open")</code>. Ce qui ouvrira directement le navigateur avec cette url.</p>
                     </li>
                     <li>
                         Enregistez des commandes d'actions dans le but de générer un test

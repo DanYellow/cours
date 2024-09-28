@@ -17,7 +17,7 @@ document
 
         console.log("--------- formValues ---------")
         console.log(JSON.stringify(formValues))
-        console.log(document.querySelector("input[type=\"file\"]").files[0].name)
+        console.log(document.querySelector("input[type=\"file\"]")?.files[0].name)
         console.log("------------------------------------")
         
         banner.querySelector('p').innerHTML = bannerTextTpl.replace("__parcours_placeholder__", parcoursFullName[formValues.parcours])
