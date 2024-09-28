@@ -12,16 +12,16 @@
 - [ ] Proposer un système de suppression multiple d'éléments sur une liste via un système de cases à cocher
 - [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images côté serveur
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil déjà utilisé pour l'upload
-- [ ] Mettre en place des tests e2e avec Cypress
+- [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
   - N'allez pas faire un système de cookies avec un l'un d'entre-eux qui est un simple booléen. C'est très mauvais niveau sécurité, il faudra utiliser un token d'authentification. Le jwt est un très bon système de token sécurisé. Il existe pléthore de node_modules gérant le jwt. Pensez à prendre le module le plus populaire, pas un avec presque aucun téléchargement hebdomadaire
 - [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
 - [ ] Permettre d'activer / désactiver une SAE
-  -  Il faudra mettre à jour l'API des SAE pour afficher que les SAE activées sur le site
-  - Il faudra modifier le modèle de la SAE pour gérer l'activation / désactivation
+  -  Il faudra mettre à jour 
+     - L'API des SAE pour afficher que les SAE activées sur le site
+     - Le modèle de la SAE pour gérer l'activation / désactivation
 - [ ] Système de recherche (administration et/ou site but)
-  - Il faudra mettre à jour les API pour gérér les prédicats de recherche
-  - Pensez également à modifier l'URL pour pouvoir rejouer la recherche
+  - Pensez à mettre à jour les API pour gérér les prédicats de recherche
 - [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
 - [ ] Proposer la mise en place d'images responsives
 - [ ] Utiliser un éditeur de texte riche pour le corps d'un article
