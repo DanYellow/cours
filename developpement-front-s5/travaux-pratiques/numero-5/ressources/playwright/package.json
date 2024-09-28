@@ -14,8 +14,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.47.1",
-    "@types/node": "^22.5.5",
+    "@playwright/test": "latest",
     "express": "^4.18.2"
   }
 }

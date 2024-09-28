@@ -40,6 +40,8 @@ export default defineConfig({
     },
 
     /* Configure projects for major browsers */
+    /* List of devices : https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json */
+    /* More infos about devices : https://playwright.dev/docs/browsers */
     projects: [
         {
             name: "chromium",
