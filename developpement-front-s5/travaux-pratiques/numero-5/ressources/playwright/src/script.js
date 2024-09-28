@@ -1,9 +1,9 @@
 const banner = document.querySelector(".banner")
 
-const parcoursFullName = {
+const routeFullName = {
     "dev": "développement web et dispositifs interactifs",
     "crea": "création numérique",
-    "strat": "stratégie de communication numérique et design d’expérience"
+    "strat": "stratégie de communication numérique et design d’expérience",
 };
 
 document
@@ -15,15 +15,19 @@ document
         const formValues = Object.fromEntries(formData.entries())
         const bannerTextTpl = banner.querySelector('p').innerHTML;
 
-        console.log("--------- formValues ---------")
+        console.log("--------- form's values ---------")
         console.log(JSON.stringify(formValues))
         console.log(document.querySelector("input[type=\"file\"]")?.files[0].name)
         console.log("------------------------------------")
         
-        banner.querySelector('p').innerHTML = bannerTextTpl.replace("__parcours_placeholder__", parcoursFullName[formValues.parcours])
+        banner.querySelector('p').innerHTML = bannerTextTpl.replace(
+            "__route_placeholder__", 
+            routeFullName[formValues.parcours]
+        )
         banner.classList.remove("hidden")
         document.querySelector('a').classList.remove("pointer-events-none", "opacity-50")
                 
+        // e.target.elements contient tous les champs du formulaire
         Array.from(e.target.elements)
             .forEach((item) => {
                 item.disabled = true
