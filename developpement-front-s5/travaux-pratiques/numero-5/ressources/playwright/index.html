@@ -62,35 +62,46 @@
                                 <a
                                     href="https://playwright.dev/docs/api/class-locator#locator-click"
                                     target="_blank"
-                                    >Accéder à la documentation de .click()</a
+                                    >Accéder à la documentation de .click() - ouverture dans un nouvel onglet</a
                                 >
                             </li>
                         </ul>
                     </li>
                     <li>
                         Vérifiez que vous êtes bien arrivé sur la page d'une
-                        actualité en utilisation une assertion
+                        actualité en utilisation une assertion. Vous avez deux solutions pour cette assertion.
                         <ul>
                             <li>
-                                Pour éviter un test trop rigide, n'allez pas
-                                tester l'égalité parfaite, cela n'a pas trop de
-                                sens. Les liens d'actualité contiennent
-                                "universite/media-et-communication/actualites"
-                                testez si l'url courante contient bien cette
+                                Récupérer la valeur de l'attribut "href" avec la méthode <code>.getAttribute()</code> et tester l'url avec la méthode <code>.toHaveURL()</code>
+                            </li>
+                            <li>
+                                Les liens d'actualité contiennent
+                                "universite/media-et-communication/actualites", testez si l'url courante contient bien cette
                                 partie grâce à la méthode
-                                <code>.toHaveURL()</code>. Elle accepte une RegEx en paramètre.
-                                <ul>
-                                    <li>
-                                        <a
-                                    href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url"
-                                    target="_blank"
-                                    >Accéder à la documentation de
-                                    .toHaveURL()</a
-                                >
-                                    </li>
-                                </ul>
+                                <code>.toHaveURL()</code>. Elle accepte une RegEx en paramètre
                             </li>
                         </ul>
+                        <section class="note-information">
+                            <ul>
+                                <li>
+                                    <a
+                                href="https://playwright.dev/docs/next/api/class-pageassertions#page-assertions-to-have-url"
+                                target="_blank"
+                                >Accéder à la documentation de
+                                .toHaveURL() - ouverture dans un nouvel onglet</a
+                            >
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://playwright.dev/docs/next/api/class-locator#locator-get-attribute"
+                                        target="_blank"
+                                        >Accéder à la documentation de
+                                        .getAttribute() - ouverture dans un nouvel onglet</a
+                                    >
+                                </li>
+                            </ul>
+                        </section>
+                        
                     </li>
                 </ol>
             </details>
@@ -131,7 +142,7 @@
                                 href="https://playwright.dev/docs/api/class-locator#locator-fill"
                                 target="_blank"
                                 >Accéder à la documentation de locator.fill()
-                                (ouverture dans un nouvel onglet)</a
+                                - ouverture dans un nouvel onglet</a
                             >
                         </li>
                     </ul>
@@ -185,8 +196,7 @@
                             <a
                                 href="https://playwright.dev/docs/input#select-options"
                                 target="_blank"
-                                >Accéder à la documentation de .selectOption()
-                                (ouverture dans un nouvel onglet)</a
+                                >Accéder à la documentation de .selectOption() - ouverture dans un nouvel onglet</a
                             >
                         </li>
                     </ul>
@@ -218,8 +228,7 @@
                             <a
                                 href="https://playwright.dev/docs/api/class-locator#locator-press"
                                 target="_blank"
-                                >Accéder à la documentation de press()
-                                (ouverture dans un nouvel onglet)</a
+                                >Accéder à la documentation de press() - ouverture dans un nouvel onglet</a
                             >
                         </li>
                     </ul>
@@ -271,7 +280,7 @@
                         <p class="note-information">L'API est lente. Il faudra penser à utiliser la méthode waitForResponse</p>
 
                         <ul>
-                            <li>Accéder à la documentation de <a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">waitForResponse (ouverture dans un nouvel onglet)</a></li>
+                            <li>Accéder à la documentation de <a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">waitForResponse - ouverture dans un nouvel onglet</a></li>
                         </ul>
                     </li>
                 </ol>
@@ -292,8 +301,7 @@
                                     href="https://playwright.dev/docs/api/class-page#page-screenshot"
                                     target="_blank"
                                     >Accéder à la documentation de
-                                    screenshot() (ouverture dans un nouvel
-                                    onglet)</a
+                                    screenshot() - ouverture dans un nouvel onglet</a
                                 >
                             </li>
                         </ul>
@@ -308,8 +316,7 @@
                                 <a
                                     href="https://playwright.dev/docs/api/class-page#page-set-viewport-size"
                                     target="_blank"
-                                    >Accéder à la documentation de setViewportSize()
-                                    (ouverture dans un nouvel onglet)</a
+                                    >Accéder à la documentation de setViewportSize() - ouverture dans un nouvel onglet</a
                                 >
                             </li>
                         </ul>
@@ -326,8 +333,7 @@
                                 <a
                                     href="https://playwright.dev/docs/api/class-page#page-evaluate"
                                     target="_blank"
-                                    >Accéder à la documentation de evaluate()
-                                    (ouverture dans un nouvel onglet)</a
+                                    >Accéder à la documentation de evaluate() - ouverture dans un nouvel onglet</a
                                 >
                             </li>
                         </ul>
