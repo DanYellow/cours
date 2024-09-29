@@ -1,85 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consignes TP1 - Tests unitaires - Async</title>
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Consignes TP - Tests unitaires - Async</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+    </head>
 
-  <body>
-    <header>
-      <h1 class="h1">Consignes de la pratique</h1>
-      <details class="consignes-conteneur" open>
-        <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Lancez les tests relatifs au dossier "/api" via la commande <code>npm run test:api</code> et assurez-vous que tous les tests fonctionnent
-          </li>
-          <li>Ajoutez un nouveau test au choix :
-            <ul>
-              <li>Vérifier que les clés retournées sont de type String</li>
-              <li>Vérifier que notre méthode mockée est bel et bien appelée</li>
-            </ul>
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            A partir d'une api que vous aurez choisi (voir liste plus bas), appelez-la avec axios et appliquez une transformation sur la réponse de l'API
-          </li>
-          <li>
-            Testez cette nouvelle fonction grâce aux tests unitaires (inspirez-vous du fichier "api/example.test.js" pour vous aider)
-          </li>
-        </ol>
-        <section class="note-information">
-          <p>Voici une liste d'API que vous pouvez utiliser si vous n'en avez pas une sous la main. Dans tous les cas pensez bien à mocker l'API et modifier la réponse pour avoir quelque chose à tester.</p>
-          <ul>
-            <li><a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">https://pokeapi.co/ (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://fr.openfoodfacts.org/data" target="_blank" rel="noopener noreferrer">https://fr.openfoodfacts.org/data (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://quizzapi.jomoreschi.fr/documentation/" target="_blank" rel="noopener noreferrer">quizzapi (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://autoecoles.securite-routiere.gouv.fr/" target="_blank" rel="noopener noreferrer">Carte des auto-écoles (Faites une recherche et regardez la console du navigateur) (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://api.gouv.fr/documentation/api_carto_codes_postaux" target="_blank" rel="noopener noreferrer">Codes postaux (ouverture dans un nouvel onglet)</a></li>
-          </ul>
-        </section>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Obtenez le code coverage du projet grâce à commande node <code>npm run test:coverage</code>
-          </li>
-          <li>Essayez d'augmenter la couveture de code. Regardez le fichier coverage/index.html dans le navigateur pour voir quelle partie de code ne sont pas couvertes</li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            A la racine du dossier "jest/" créez un fichier "jest.config.js"
-          </li>
-          <li>A l'aide de la documentation, ajoutez la clé "collectCoverageFrom" dans le fichier "jest.config.js" pour vous permettre d'exclure de la couverture de code le fichier "api/api.js". 
-            <ul>
-              <li><a href="https://jestjs.io/docs/configuration#collectcoveragefrom-array" target="_blank">Voir documentation de la clé "collectCoverageFrom" (ouverture dans un nouvel onglet)</a></li>
-            </ul>
-          </li>
-          <li>Assurez-vous que le fichier "api/api.js" n'est plus pris en compte par istanbul en relançant la commande <code>npm run test:coverage</code> dans votre terminal</li>
-        </ol>
-      </details>
-    </header>
-  </body>
+    <body>
+        <header>
+            <h1 class="h1">Consignes de la pratique</h1>
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <h1 class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Lancez les tests relatifs au dossier "/api" via la
+                        commande <code>npm run test</code> et assurez-vous que
+                        tous les tests fonctionnent
+                        <p class="note-attention">
+                            N'oubliez pas d'installer les dépendences avec la
+                            commande <code>npm run install</code>
+                        </p>
+                    </li>
+                    <li>
+                        Ajoutez un nouveau test au choix :
+                        <ul>
+                            <li>
+                                Vérifier que les clés retournées sont de type
+                                String
+                                <p class="note-information">
+                                    Il faudra utiliser l'opérateur
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/typeof"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >typeof - ouverture dans un nouvel
+                                        onglet</a
+                                    >
+                                    pour réaliser cette tâche
+                                </p>
+                            </li>
+                            <li>
+                                Vérifier que notre méthode mockée (en haut du
+                                fichier de test) est bel et bien appelée
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://jestjs.io/docs/expect#tohavebeencalled"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Accéder à la documentation de
+                                            toHaveBeenCalled()</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        A partir d'une api que vous aurez choisi (voir liste
+                        plus bas), appelez-la avec axios et appliquez une
+                        transformation sur la réponse de l'API
+                    </li>
+                    <li>
+                        Testez cette nouvelle fonction grâce aux tests unitaires
+                        (inspirez-vous du fichier "api/example.test.js" pour
+                        vous aider)
+                    </li>
+                </ol>
+                <section class="note-information">
+                    <p>
+                        Voici une liste d'API que vous pouvez utiliser si vous
+                        n'en avez pas une sous la main. Dans tous les cas pensez
+                        bien à mocker l'API et modifier la réponse pour avoir
+                        quelque chose à tester.
+                    </p>
+                    <ul>
+                        <li>
+                            <a
+                                href="https://pokeapi.co/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >https://pokeapi.co/ (ouverture dans un nouvel
+                                onglet)</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://fr.openfoodfacts.org/data"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >https://fr.openfoodfacts.org/data (ouverture
+                                dans un nouvel onglet)</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://quizzapi.jomoreschi.fr/documentation/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >quizzapi (ouverture dans un nouvel onglet)</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://autoecoles.securite-routiere.gouv.fr/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Carte des auto-écoles (Faites une recherche et
+                                regardez la console du navigateur) (ouverture
+                                dans un nouvel onglet)</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://api.gouv.fr/documentation/api_carto_codes_postaux"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Codes postaux (ouverture dans un nouvel
+                                onglet)</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Obtenez le code coverage du projet grâce à commande node
+                        <code>npm run test:coverage</code>
+                    </li>
+                    <li>
+                        Essayez d'augmenter la couveture de code. Regardez le
+                        fichier coverage/index.html dans le navigateur pour voir
+                        quelle partie de code ne sont pas couvertes
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h1 class="h1">
+                        Partie 4 (cliquer pour afficher / cacher)
+                    </h1>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        A la racine du dossier "jest/" créez un fichier
+                        "jest.config.js"
+                    </li>
+                    <li>
+                        A l'aide de la documentation, ajoutez la clé
+                        "collectCoverageFrom" dans le fichier "jest.config.js"
+                        pour vous permettre d'exclure de la couverture de code
+                        le fichier "api/api.js".
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://jestjs.io/docs/configuration#collectcoveragefrom-array"
+                                    target="_blank"
+                                    >Voir documentation de la clé
+                                    "collectCoverageFrom" (ouverture dans un
+                                    nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Assurez-vous que le fichier "api/api.js" n'est plus pris
+                        en compte par istanbul en relançant la commande
+                        <code>npm run test:coverage</code> dans votre terminal
+                    </li>
+                </ol>
+            </details>
+        </header>
+    </body>
 </html>
