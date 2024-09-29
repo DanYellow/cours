@@ -1,0 +1,24 @@
+{
+  "name": "jest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@types/jest": "latest",
+    "babel-jest": "latest",
+    "jest": "latest"
+  },
+  "dependencies": {
+    "axios": "latest"
+  }
+}

@@ -1,11 +1,10 @@
 {
-  "name": "numero-1",
+  "name": "jest-initiation",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./initiation",
-    "test:api": "jest ./api",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
@@ -13,13 +12,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.1",
-    "@babel/preset-env": "^7.22.4",
-    "@types/jest": "^29.5.2",
-    "babel-jest": "^29.5.0",
-    "jest": "^29.5.0"
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@types/jest": "latest",
+    "babel-jest": "latest",
+    "jest": "latest"
   },
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "latest"
   }
 }
