@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
+    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
   </head>
 
   <body>
@@ -20,7 +21,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            En vous inspirant de l'exemple dans les slides du cours, créez et affichez votre propre template à un fichier HTML que vous aurez crée.
+            En vous inspirant de l'exemple dans les slides du cours, créez et affichez un template HTML sur votre page.
             <ul>
               <li>Si vous avez oublié "html:5" puis touche entrée, vous crée un squelette de page html</li>
               <li>
@@ -43,7 +44,7 @@
             </ul> 
           </li>
         </ol>
-        <p class="note-information">S'il est préférable d'utiliser un data-attribute pour cibler un élément, vous pouvez cibler directement la balise si la structure est simple.</p>
+        <p class="note-information">S'il est préférable d'utiliser un data-attribute pour cibler un élément.Vous pouvez aussi cibler directement la balise si la structure est simple.</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -53,11 +54,11 @@
             <li>Ajoutez un bouton qui, au clic, effectue les actions suivantes :
                 <ul>
                     <li>Appelle la fonction "getListNationalHolidays" (contenue dans le fichier index.js)</li>
-                    <li>Affiche les dates grâce à la balise &lt;template>. Ceci peut être via une liste ou un tableau</li>
+                    <li>Affiche les dates grâce à la balise &lt;template>. Ceci peut être via une liste (&lt;ol>) ou un tableau (&lt;table>)</li>
                 </ul>
             </li>
         </ol>
-        <p class="note-information">L'API retourne une liste d'objet ayant la structure : {name, value}</p>
+        <p class="note-information">L'API retourne une liste d'objets ayant la structure : {name, value}</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -76,7 +77,14 @@
             </ul>
           </li>
         </ol>
-        <p class="note-information">Pensez à mettre les données en cache pour éviter un appel d'api à chaque changement de région. La liste des régions est trouvable dans la documentation. <a href="https://calendrier.api.gouv.fr/jours-feries/" target="_blank">Accéder à la documentation (ouverture dans un nouvel onglet)</a></p>
+        <section class="note-information">
+            <p>Pour proposer de meilleures performances, vous pouvez mettre les données en cache pour éviter un appel d'api si vous avez déjà chargé ces données. La liste des régions est trouvable dans la documentation.</p>
+            <ul>
+                <li>
+                    <a href="https://calendrier.api.gouv.fr/jours-feries/" target="_blank">Accéder à la documentation (ouverture dans un nouvel onglet)</a>
+                </li>
+            </ul>
+        </section>
       </details>
     </header>
   </body>
