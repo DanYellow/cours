@@ -7,11 +7,6 @@ body {
     margin: 1rem;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 .conteneur {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -27,7 +22,7 @@ img {
     grid-row-end: 3;
     border-radius: 0.85rem;
     background-image: url("../images/IMG_3346.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -38,7 +33,7 @@ img {
     border-radius: 0.85rem;
 
     background-image: url("../images/IMG_1629.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -51,7 +46,7 @@ img {
     border-radius: 0.85rem;
 
     background-image: url("../images/IMG_5062.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -63,7 +58,7 @@ img {
     grid-column-start: 2;
     grid-column-end: 4;
     background-image: url("../images/IMG_5801.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -76,7 +71,7 @@ img {
     grid-column-start: 4;
     grid-column-end: 5;
     background-image: url("../images/IMG_7249.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -87,7 +82,7 @@ img {
     grid-row-start: 4;
     grid-row-end: 6;
     background-image: url("../images/IMG_5302.jpg");
-    width: 100%;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
