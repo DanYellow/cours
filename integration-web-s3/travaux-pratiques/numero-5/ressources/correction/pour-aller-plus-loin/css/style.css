@@ -16,8 +16,6 @@ img {
     aspect-ratio: 203 / 150;
     margin: auto;
     gap: 1.05rem;
-    /* background-color: #1d1d1d; */
-    /* https://bentonow.com/ */
 }
 
 .photoshop {
@@ -63,16 +61,14 @@ img {
     grid-row-end: 2;
     border-radius: 0.85rem;
     padding: 1.5rem 2rem;
+    /* Généré avec https://10015.io/tools/css-background-pattern-generator */
     background: 
       linear-gradient(135deg,#0000 20.5%,#ffffff 0 29.5%,#0000 0) 0 16px,
       linear-gradient( 45deg,#0000 8%,#ffffff 0 17%, #0000 0 58%) 32px 0,
       linear-gradient(135deg,#0000 8%,#ffffff 0 17%, #0000 0 58%,#ffffff 0 67%,#0000 0),        
       linear-gradient( 45deg,#0000 8%,#ffffff 0 17%, #0000 0 58%,#ffffff 0 67%,#0000 0 83%,#ffffff 0 92%,#0000 0),
       #9a9aff;
-background-size: 64px 64px;
-
-
-
+    background-size: 64px 64px;
 }
 
 .premiere-pro {
@@ -101,14 +97,19 @@ background-size: 64px 64px;
     grid-column-start: 2;
     grid-column-end: 3;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 1.5rem 1rem;
     justify-content: end;
     gap: 1rem;
-    text-align: center;
+    text-align: right;
     background-color: #ffa4bb;
     font-size: 1rem;
+
+    img {
+        width: 100px;
+        align-self: center;
+    }
 }
 
 .achat {
