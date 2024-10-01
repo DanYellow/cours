@@ -18,7 +18,6 @@
     .recette-conteneur {
         scroll-snap-align: start;
         flex: 0 0 30%;
-        padding: 0 0.5rem;
 
         @media (max-width: 767px) {
             flex-basis: 85%;
@@ -48,6 +47,7 @@
         transition: transform 350ms;
         border-radius: 0.5rem;
         text-decoration: none;
+        padding: 0.5rem;
 
         figure {
             aspect-ratio: 1 / 1.1;
