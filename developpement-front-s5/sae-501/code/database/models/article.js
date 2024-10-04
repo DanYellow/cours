@@ -3,6 +3,7 @@ import slugify from "slugify";
 
 import CommentArticle from "./comment-article.js"
 import Author from "./author.js"
+import { listStopWords } from "#database/list-stop-words.js";
 
 const articleSchema = new Schema(
     {
@@ -68,7 +69,10 @@ articleSchema.pre('findOneAndUpdate', function(next) {
 
 articleSchema.pre("save", function(next) {
     if(!this.slug) {
-        this.slug = `${slugify(this.title, { lower: true, trim: true })}-${this._id}`;
+        const regex = new RegExp(listStopWords.join("|"), 'gi')
+        const replacedTitle = this.title.replace(regex, "")
+        
+        this.slug = `${slugify(replacedTitle, { lower: true, trim: true })}-${this._id}`;
     }
     next();
   });
