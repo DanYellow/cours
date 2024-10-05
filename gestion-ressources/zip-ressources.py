@@ -13,6 +13,7 @@ start_time = time.time()
 # a token error from https://download-directory.github.io/
 
 os.chdir("../")
+print("--- Archives generation started. Please wait. ---")
 
 def slugify(value, allow_unicode=False):
     """
