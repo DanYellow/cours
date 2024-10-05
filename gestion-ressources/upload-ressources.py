@@ -3,6 +3,10 @@ import re
 import glob
 import os
 import shutil
+import time
+
+start_time = time.time()
+
 
 def slugify(value, allow_unicode=False):
     """
@@ -23,13 +27,36 @@ def slugify(value, allow_unicode=False):
 
 os.chdir("../")
 
-list_folders_raw = glob.glob("**/ressources*", recursive=True) #, root_dir="../"
-list_folders = [path for path in list_folders_raw if os.path.isdir(path)]
+list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
+list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
 
-list_folders_non_nested = [path for path in list_folders if path.count('ressources') == 1]
-list_folders_non_nested = [path for path in list_folders_non_nested if path.count('code') == 0]
+list_ressources_folders_non_nested = [path for path in list_ressources_folders if path.count('ressources') == 1]
+list_ressources_folders_non_nested = [path for path in list_ressources_folders_non_nested if path.count('code') == 0]
 
-for folder_path in list_folders_non_nested:
+
+list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
+list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
+list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
+
+# SAES at the root of the ressource's folder
+list_saes_folders_root_ressources = []
+
+for folder_path in list_saes_folders_non_nested:
+    normalized_path = os.path.normpath(folder_path)
+    arrayed_path = normalized_path.split(os.sep)
+
+    sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
+    if len(sae_indexes) == 1 and sae_indexes[0] == 1:
+        list_saes_folders_root_ressources.append(folder_path)
+        
+        
+list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
+
+for folder_path in list_ressources_folders_non_nested:
     head, tail = os.path.split(folder_path)
-    archive_name = slugify(head.replace("\\", "_").replace("/", "_"))
-    shutil.make_archive(f"{head}/{archive_name}.tmp", 'zip', folder_path)
+    
+    archive_suffix = f"-{tail}" if "sae" in tail else ""
+    archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
+    shutil.make_archive(f"{head}/{archive_name}.ressources", 'zip', folder_path)
+    
+print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
