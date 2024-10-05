@@ -3,3 +3,5 @@
 python zip-ressources.py
 ```
 Note : Les archives sont générées au même niveau que le dossier lui-même
+
+TODO : Mettre dans un pre-commit hook ?
