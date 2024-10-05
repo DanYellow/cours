@@ -7,6 +7,12 @@ import time
 
 start_time = time.time()
 
+# Take all ressources's folder in each folder and create archives type zip. The folder MUST but named "ressources" or it will be ignored
+# Note : If ressources folder is within another one, only the root one will be taken
+# Note 2 : SAE's folder are excluded from the operation since the students, most of them, will download the code at home, there's almost no chance we have
+# a token error from https://download-directory.github.io/
+
+os.chdir("../")
 
 def slugify(value, allow_unicode=False):
     """
@@ -25,14 +31,10 @@ def slugify(value, allow_unicode=False):
 
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
-os.chdir("../")
-
 list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
 list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
-
 list_ressources_folders_non_nested = [path for path in list_ressources_folders if path.count('ressources') == 1]
 list_ressources_folders_non_nested = [path for path in list_ressources_folders_non_nested if path.count('code') == 0]
-
 
 list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
 list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
@@ -49,7 +51,7 @@ for folder_path in list_saes_folders_non_nested:
     if len(sae_indexes) == 1 and sae_indexes[0] == 1:
         list_saes_folders_root_ressources.append(folder_path)
         
-        
+# Contains ressources folder and saes folder, you can use that variable in the loop below if needed
 list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
 
 for folder_path in list_ressources_folders_non_nested:
