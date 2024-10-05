@@ -29,17 +29,41 @@ html {
 }
 
 .description,
+.note-importante,
+.note-information,
 .slider-container {
   /* 
-        La taille de texte des classes "description" et "slider-container"
-        ne changera pas avec le slider de la page car nous avons fixé la taille de la font-size.
-        Il ne faut donc pas utiliser l'unité px, c'est très mauvais pour l'accessibilité.
-        Le choix a été fait ici pour éviter d'affecter toute la page lors de la modification du slider.
-    */
+    La taille de texte des classes "description" et "slider-container"
+    ne changera pas avec le slider de la page car nous avons fixé la taille de la font-size.
+    Il ne faut donc pas utiliser l'unité px, c'est très mauvais pour l'accessibilité.
+    Le choix a été fait ici pour éviter d'affecter toute la page lors de la modification du slider.
+*/
   font-size: 20px;
 }
 
 .slider-container {
   display: flex;
-  gap: 0.6rem;
+  gap: 16px;
+  margin-bottom: 0.25rem;
+}
+
+.note-importante,
+.note-information {
+  border-left: 5px solid rgb(218, 1, 1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.note-importante {
+  border-color: rgb(218, 1, 1);
+  background-color: #f6969638;
+}
+
+.note-information {
+  border-color: rgb(4, 0, 255);
+  background-color: #96d4f638;
+}
+
+.liste {
+    font-size: 18px;
 }

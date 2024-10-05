@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP5 — Exemple unité rem</title>
+    <title>TP#Formattage texte — Exemple unité rem</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -13,28 +13,34 @@
 <body>
     <header>
         <p class="description">
-            Déplacez le slider ci-dessous pour faire varier la valeur de la propriété "font-size" de la balise
-            &lt;html> pour ainsi faire
-            varier la taille de texte des balises enfant qui ont pour unité "rem". La valeur de la propriété "font-size" de la classe ".titre" (texte "unité rem") est 1.5rem, elle sera
-            dont toujours 1.5x plus grande que celle du root, et ce, sans toucher la propriété "font-size" de la classe
-            ".titre". Cet exemple vise à simuler le changement de la taille de police par défaut du navigateur, fonctionnalité
-            souvent
-            utilisée par les personnes ayant des problèmes de vue.
+            Le slider ci-dessous permet de faire varier la valeur de la propriété CSS "font-size" de la balise &lt;html>. Etant donné que l'unité rem se base sur l'élément racine de la page (la balise &lt;html>), ils verront leur taille changer en fonction.
         </p>
-        <p class="description">C'est pour ça qu'il ne faut absolument pas utiliser l'unité "px" pour la propriété CSS "font-size".</p>
-        <p class="description">
-            Notez également que l'espace entre le slider et "valeur du slider" est également en rem, il sera donc
+        <p class="description">Dans cet exemple, la valeur de la propriété "font-size" de la classe ".titre" (texte libellé "Texte en rem") est 1.5rem, elle sera dont toujours 1.5x plus grande que celle de l'élément racine de la page, et ce, sans toucher la propriété "font-size" de la classe ".titre".</p>
+
+        <p class="description">De ce fait, en utilisant l'unité rem, nous permettons aux personnes atteinte de troubles visuels (ou qui souhaitent un texte plus grand) d'augmenter la taille de tous les textes d'un site web.</p>
+
+        <p class="note-importante" >Vous ne devez en aucun cas utiliser l'unité px pour la propriété "font-size. Nous vous sanctionnerons si c'est le cas.</p>
+
+        <p class="note-information">
+            Notez également que l'espace sous le slider est en rem, il sera donc
             également influencé par le déplacement du slider.
         </p>
-    </header>
-    <hr>
 
+        <ul class="liste">
+            <li>
+                <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Values_and_units#ems_et_rems" target="_blank" rel="noopener noreferrer">
+                    En savoir plus sur l'unité rem - Ouverture dans un nouvel onglet
+                </a>
+            </li>
+        </ul>
+    </header>
     <main>
-        <section class="titre-section">
-            <h1 class="titre">
-                Unité rem
-            </h1>
+        <hr style="font-size: 32px;">
+        <section class="slider-container">
+            <input type="range" id="volume" name="volume" min="10" max="250" step="1" data-slider>
+            <label for="volume">Valeur du slider : <span data-slider-value></span></label>
         </section>
+        
         <p class="description">Valeur de la propriété "font-size" pour la balise &lt;html> : <span
                 data-root-font-size></span>px
         </p>
@@ -43,15 +49,12 @@
                 data-root-font-size></span>)
         </p>
 
-        <hr>
-
-        <section class="slider-container">
-            <input type="range" id="volume" name="volume" min="10" max="250" step="1" data-slider>
-            <label for="volume">Valeur du slider : <span data-slider-value></span></label>
+        <section class="titre-section">
+            <h1 class="titre">
+                Texte en rem
+            </h1>
         </section>
     </main>
-
-    
 </body>
 
 </html>
