@@ -140,7 +140,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 # FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
-  A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données n'ont pas forcément une source.
+  A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données ont une source.
   > Attention : Il y a deux onglets (crea et dev) dans le fichier. **Et en cas d'absence de sources, un tiers de la note finale sera retiré.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
   
