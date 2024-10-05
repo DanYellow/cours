@@ -15,7 +15,7 @@ nom-cours/
         ├── index.html
         ├── style.css
         ├── scripts.js
-        └── ressources/
+        └── ressources/ <- Ce dossier ne sera que contenu dans un zip, il ne sera pas zippé
             └── images/
                 └── ...
 ```
