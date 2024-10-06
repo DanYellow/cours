@@ -58,25 +58,39 @@ for folder_path in list_saes_folders_non_nested:
 # Contains ressources folder and saes folder, you can use that variable in the loop below if needed
 list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
 
-list_folders_excluded = ["correction", "node_modules", "vendors", "playwright-report"]
+list_folders_excluded = ["correction", "node_modules", "vendors", "playwright-report", "tmp"]
 
-# list_ressources_folders_non_nested = ["developpement-front-s5/travaux-pratiques/numero-1/ressources"]
+# list_ressources_folders_non_nested = [r"integration-web-s3\travaux-pratiques\numero-5\ressources"]
 
-for folder_path in list_ressources_folders_non_nested:
-    head, tail = os.path.split(folder_path)
-    
-    archive_suffix = f"-{tail}" if "sae" in tail else ""
-    archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
-    # print(folder_path)
+dict_correction_archive_created = {}
 
-    with ZipFile(f'{head}/{archive_name}.ressources.zip', 'w') as zip_object:
-        abs_src = os.path.abspath(folder_path)
-        for dirname, subdirs, files in os.walk(folder_path):
-            for filename in files:
-                absname = os.path.abspath(os.path.join(dirname, filename))
-                arcname = absname[len(abs_src) + 1:]
-                if bool([ele for ele in list_folders_excluded if(ele in arcname.encode("unicode_escape").decode("utf-8"))]) == False:
-                    zip_object.write(absname, arcname)
-        zip_object.close()
+def generate_zip(list_folders, is_correction_directory = False):
+    for folder_path in list_folders:
+        head, tail = os.path.split(folder_path)
+        
+        archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
+        archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
+        archive_path = f'{head}/{archive_name.replace("_ressources", "")}.ressources.zip'        
+        
+        if is_correction_directory:
+            if archive_path not in dict_correction_archive_created:
+                dict_correction_archive_created[archive_path] = True
+            else:
+                continue
+
+        with ZipFile(archive_path, 'w') as zip_object:
+            abs_src = os.path.abspath(folder_path)
+            for dirname, subdirs, files in os.walk(folder_path):
+                for filename in files:
+                    absname = os.path.abspath(os.path.join(dirname, filename))
+                    arcname = absname[len(abs_src) + 1:]
+        
+                    if bool([ele for ele in list_folders_excluded if(ele in arcname.encode("unicode_escape").decode("utf-8"))]) == False:
+                        zip_object.write(absname, arcname)
+                    if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
+                        generate_zip([os.path.join(folder_path, "correction")], True)
+            zip_object.close()
+            
+generate_zip(list_ressources_folders_non_nested)
 
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))

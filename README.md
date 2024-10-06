@@ -10,11 +10,12 @@ nom-cours/
 ├── fichier1.txt
 ├── fichier2.jpg
 ├── fichier3.odp
-└── ressources/ <- Ce dossier sera zippé
+└── ressources/ <- Le contenu du dossier sera dans un zip
     └── tp/
         ├── index.html
         ├── style.css
         ├── scripts.js
+        ├── correction/ <- Ce dossier sera dans son **propre** zip
         └── ressources/ <- Ce dossier ne sera que contenu dans un zip, il ne sera pas zippé
             └── images/
                 └── ...
@@ -31,6 +32,8 @@ nom-cours/
         ├── index.html
         ├── style.css
         ├── scripts.js
+        ├── correction/
+        ├── **nom-cours.ressources-correction.zip**
         └── ressources/
             └── images/
                 └── ...
