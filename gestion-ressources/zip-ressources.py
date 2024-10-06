@@ -35,59 +35,48 @@ def slugify(value, allow_unicode=False):
 
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
-# list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
-# list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
-# list_ressources_folders_non_nested = [path for path in list_ressources_folders if path.count('ressources') == 1]
-# list_ressources_folders_non_nested = [path for path in list_ressources_folders_non_nested if path.count('code') == 0]
+list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
+list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
+list_ressources_folders_non_nested = [path for path in list_ressources_folders if path.count('ressources') == 1]
+list_ressources_folders_non_nested = [path for path in list_ressources_folders_non_nested if path.count('code') == 0]
 
-# list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
-# list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
-# list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
+list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
+list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
+list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
 
-# # SAES at the root of the ressource's folder
-# list_saes_folders_root_ressources = []
+# SAES at the root of the ressource's folder
+list_saes_folders_root_ressources = []
 
-# for folder_path in list_saes_folders_non_nested:
-#     normalized_path = os.path.normpath(folder_path)
-#     arrayed_path = normalized_path.split(os.sep)
+for folder_path in list_saes_folders_non_nested:
+    normalized_path = os.path.normpath(folder_path)
+    arrayed_path = normalized_path.split(os.sep)
 
-#     sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
-#     if len(sae_indexes) == 1 and sae_indexes[0] == 1:
-#         list_saes_folders_root_ressources.append(folder_path)
+    sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
+    if len(sae_indexes) == 1 and sae_indexes[0] == 1:
+        list_saes_folders_root_ressources.append(folder_path)
         
-# # Contains ressources folder and saes folder, you can use that variable in the loop below if needed
-# list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
+# Contains ressources folder and saes folder, you can use that variable in the loop below if needed
+list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
 
-# for folder_path in list_ressources_folders_non_nested:
-#     head, tail = os.path.split(folder_path)
+list_folders_excluded = ["correction", "node_modules", "vendors", "playwright-report"]
+
+# list_ressources_folders_non_nested = ["developpement-front-s5/travaux-pratiques/numero-1/ressources"]
+
+for folder_path in list_ressources_folders_non_nested:
+    head, tail = os.path.split(folder_path)
     
-#     archive_suffix = f"-{tail}" if "sae" in tail else ""
-#     archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
-#     shutil.make_archive(f"{head}/{archive_name}.ressources", 'zip', folder_path)
+    archive_suffix = f"-{tail}" if "sae" in tail else ""
+    archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
+    # print(folder_path)
 
-
-def filter_function(tarinfo):
-    if "correction" in tarinfo.name:
-        return None
-    else:
-        return tarinfo
-
-    
-# EXCLUDE_FILES = ['correction']
-# tar = tarfile.open("sample.tmp.tar.gz", "w:gz")
-# tar.add("integration-web-s3/travaux-pratiques/numero-5/ressources", filter=filter_function)
-# tar.close()
-    # zip_object.write("integration-web-s3/travaux-pratiques/numero-5/ressources/**")
-
-with ZipFile('sample.tmp.zip', 'w') as zip_object:
-    abs_src = os.path.abspath("integration-web-s3/travaux-pratiques/numero-5/ressources/")
-    for dirname, subdirs, files in os.walk("integration-web-s3/travaux-pratiques/numero-5/ressources/"):
-        for filename in files:
-            absname = os.path.abspath(os.path.join(dirname, filename))
-            arcname = absname[len(abs_src) + 1:]
-            print(arcname)
-            if "correction" not in arcname:
-                zip_object.write(absname, arcname)
-    zip_object.close()
+    with ZipFile(f'{head}/{archive_name}.ressources.zip', 'w') as zip_object:
+        abs_src = os.path.abspath(folder_path)
+        for dirname, subdirs, files in os.walk(folder_path):
+            for filename in files:
+                absname = os.path.abspath(os.path.join(dirname, filename))
+                arcname = absname[len(abs_src) + 1:]
+                if bool([ele for ele in list_folders_excluded if(ele in arcname.encode("unicode_escape").decode("utf-8"))]) == False:
+                    zip_object.write(absname, arcname)
+        zip_object.close()
 
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
