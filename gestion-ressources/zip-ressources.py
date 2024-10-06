@@ -58,7 +58,20 @@ for folder_path in list_saes_folders_non_nested:
 # Contains ressources folder and saes folder, you can use that variable in the loop below if needed
 list_all_folders = list_ressources_folders_non_nested + list_saes_folders_root_ressources
 
-list_folders_excluded = ["correction", "node_modules", "vendors", "playwright-report", "tmp"]
+list_folders_excluded = [
+    "correction", 
+    "node_modules", 
+    "vendors", 
+    "playwright-report", 
+    "tmp",
+    "temp",
+    "test-results",
+    "tests-examples",
+    "blob-report",
+    ".cache",
+    ".DS_STORE",
+    "lock.",
+]
 
 # list_ressources_folders_non_nested = [r"integration-web-s3\travaux-pratiques\numero-5\ressources"]
 
