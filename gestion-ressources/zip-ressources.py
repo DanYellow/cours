@@ -2,9 +2,7 @@ import unicodedata
 import re
 import glob
 import os
-import shutil
 import time
-import tarfile
 from zipfile import ZipFile
 
 
@@ -93,7 +91,7 @@ def generate_zip(list_folders, is_correction_directory = False):
 
         with ZipFile(archive_path, 'w') as zip_object:
             abs_src = os.path.abspath(folder_path)
-            for dirname, subdirs, files in os.walk(folder_path):
+            for dirname, _, files in os.walk(folder_path):
                 for filename in files:
                     absname = os.path.abspath(os.path.join(dirname, filename))
                     arcname = absname[len(abs_src) + 1:]
