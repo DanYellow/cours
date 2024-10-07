@@ -45,11 +45,12 @@ def get_folders_updated():
     
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
-    
+    list_cleared_directories_ressources = list(dict.fromkeys(list_cleared_directories_ressources))
+
     return list_cleared_directories_ressources
 
-get_folders_updated()
-# print("My version is", version.decode())
+foo = get_folders_updated()
+print(foo)
 
 # def slugify(value, allow_unicode=False):
 #     """
