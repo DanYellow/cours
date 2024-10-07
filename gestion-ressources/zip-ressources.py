@@ -16,9 +16,6 @@ start_time = time.time()
 os.chdir("../")
 print("--- Archives generation started. Please wait. ---")
 
-# getVersion =  subprocess.Popen("git status", shell=True, stdout=subprocess.PIPE).stdout
-# version =  getVersion.read()
-
 def get_folders_updated():
     stdout_git_status = subprocess.check_output('git status', shell=True)
     git_status_raw = re.findall(
@@ -34,13 +31,22 @@ def get_folders_updated():
         "odp",
     ]
 
-    def clean_folder_path(path):
+    def clean_directory_path(path):
         cleaned_path = path.replace("modified:", "").strip()
         return cleaned_path
+    
+    def get_cleared_directory(path):
+        r = re.search(r"^(.*?)numero-\d+", path)
 
-    result = map(clean_folder_path, git_status_raw)
-    print([x for x in list(result) if any(substring in x for substring in list_excluded_words) == False])
-    # print(git_status_raw)
+        return r.group(0) if r else ""
+
+    list_cleaned_paths = map(clean_directory_path, git_status_raw)
+    list_directories_ressources = [x for x in list(list_cleaned_paths) if any(substring in x for substring in list_excluded_words) == False]
+    
+    list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
+    list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
+    
+    return list_cleared_directories_ressources
 
 get_folders_updated()
 # print("My version is", version.decode())
