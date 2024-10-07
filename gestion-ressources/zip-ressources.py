@@ -19,15 +19,15 @@ print("--- Archives generation started. Please wait. ---")
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "-p",
-    "--partial", 
-    help="Crée les archives uniquement des dossiers mis à jour",
+    "-a",
+    "--all", 
+    help="Crée les archives de tous les dossiers",
     required=False,
     action='store_true',
 )
 args = parser.parse_args()
 
-def get_folders_updated():
+def get_list_directories_updated():
     stdout_git_status = subprocess.check_output('git status', shell=True)
     git_status_raw = re.findall(
         r"modified:[\w\s./-]+$", 
@@ -40,6 +40,8 @@ def get_folders_updated():
         "zip",
         "pdf",
         "odp",
+        "sae",
+        "code"
     ]
 
     def clean_directory_path(path):
@@ -77,28 +79,40 @@ def slugify(value, allow_unicode=False):
 
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
-list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
-list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
-list_ressources_folders_to_zip = [path for path in list_ressources_folders if path.count('ressources') == 1]
-list_ressources_folders_to_zip = [path for path in list_ressources_folders_to_zip if path.count('code') == 0]
 
-list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
-list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
-list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
+def get_all_ressources_sae_directories():
+    list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
+    list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
+    list_ressources_folders_to_zip = [path for path in list_ressources_folders if path.count('ressources') == 1]
+    list_ressources_folders_to_zip = [path for path in list_ressources_folders_to_zip if path.count('code') == 0]
 
-# SAES at the root of the ressource's folder
-list_saes_folders_root_ressources = []
+    list_saes_folders_raw = glob.glob("**/*sae*", recursive=True)
+    list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
+    list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
 
-for folder_path in list_saes_folders_non_nested:
-    normalized_path = os.path.normpath(folder_path)
-    arrayed_path = normalized_path.split(os.sep)
+    # SAES at the root of the ressource's folder
+    list_saes_folders_root_ressources = []
 
-    sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
-    if len(sae_indexes) == 1 and sae_indexes[0] == 1:
-        list_saes_folders_root_ressources.append(folder_path)
-        
-# Contains ressources folder and saes folder, you can use that variable in the loop below if needed
-list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
+    for folder_path in list_saes_folders_non_nested:
+        normalized_path = os.path.normpath(folder_path)
+        arrayed_path = normalized_path.split(os.sep)
+
+        sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
+        if len(sae_indexes) == 1 and sae_indexes[0] == 1:
+            list_saes_folders_root_ressources.append(folder_path)
+            
+    # Contains ressources folder and saes folder, you can use that variable in the loop below if needed
+    # list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
+    
+    return list_ressources_folders_to_zip
+
+if args.all:
+    list_ressources_folders_to_zip = get_all_ressources_sae_directories()
+else:
+    list_ressources_folders_to_zip = get_list_directories_updated()
+
+# Debug purpose
+# list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
 
 list_folders_excluded = [
     "correction", 
@@ -114,11 +128,6 @@ list_folders_excluded = [
     ".DS_STORE",
     "lock.",
 ]
-
-if args.partial:
-    list_ressources_folders_to_zip = get_folders_updated()
-
-# list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
 
 dict_correction_archive_created = {}
 
