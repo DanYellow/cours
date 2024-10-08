@@ -29,11 +29,29 @@ args = parser.parse_args()
 
 def get_list_directories_updated():
     stdout_git_status = subprocess.check_output('git status', shell=True)
-    git_status_raw = re.findall(
-        r"modified:[\w\s./-]+$", 
+
+    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)"
+    # re_staged = "(?<=\(.+--staged.+\)[\r\n\t]+)([\w:.\/-\s\n\r\t]*)(?=\n.+staged.+)"
+
+    git_status_raw = re.search(
+        re_staged, 
         stdout_git_status.decode("utf-8"), 
         re.MULTILINE
     )
+
+    list_staged_files = []
+    print("----")
+    # git log --name-status HEAD^..HEAD
+    if git_status_raw:
+        list_staged_files = re.findall(
+            r"modified:[\w\s./-]+$", 
+            git_status_raw.group(2), 
+            re.MULTILINE
+        )
+    print(list_staged_files)
+    print("----")
+
+    return
 
     list_excluded_words = [
         "gestion-ressources",
@@ -49,6 +67,9 @@ def get_list_directories_updated():
         # (?<=\(.+--staged.+\)[\r\n\t]+)([\w:.\/-\s\n\r\t]*)(?=\n.+staged.+)
         cleaned_path = path.replace("modified:", "").strip()
         return cleaned_path
+    
+    def get_staged_directory():
+        return
     
     def get_cleared_directory(path):
         r = re.search(r"^(.*?)numero-\d+\/ressources", path)
@@ -159,6 +180,6 @@ def generate_zip(list_folders, is_correction_directory = False):
                         generate_zip([os.path.join(folder_path, "correction")], True)
             zip_object.close()
             
-generate_zip(list_ressources_folders_to_zip)
-
+# generate_zip(list_ressources_folders_to_zip)
+print(list_ressources_folders_to_zip)
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
