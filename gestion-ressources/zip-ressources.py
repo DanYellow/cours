@@ -25,13 +25,24 @@ parser.add_argument(
     required=False,
     action='store_true',
 )
+parser.add_argument(
+    "-lc",
+    "--last-commit", 
+    help="Crée les archives des dossiers du dernier commit",
+    required=False,
+    action='store_true',
+)
 args = parser.parse_args()
 
 def get_list_directories_updated():
-    stdout_git_status = subprocess.check_output('git status', shell=True)
+    command = "git status"
+    if args.last_commit == True:
+        command = 'git log --name-status HEAD^..HEAD'
+
+    stdout_git_status = subprocess.check_output(command, shell=True)
 
     re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)"
-    # re_staged = "(?<=\(.+--staged.+\)[\r\n\t]+)([\w:.\/-\s\n\r\t]*)(?=\n.+staged.+)"
+    re_last_commit = r"(?:M|A)([\s\n]+.+)"
 
     git_status_raw = re.search(
         re_staged, 
@@ -39,19 +50,24 @@ def get_list_directories_updated():
         re.MULTILINE
     )
 
-    list_staged_files = []
-    print("----")
-    # git log --name-status HEAD^..HEAD
-    if git_status_raw:
-        list_staged_files = re.findall(
-            r"modified:[\w\s./-]+$", 
-            git_status_raw.group(2), 
+    if args.last_commit == True:
+        git_status_raw = re.findall(
+            re_last_commit, 
+            stdout_git_status.decode("utf-8"), 
             re.MULTILINE
         )
-    print(list_staged_files)
-    print("----")
 
-    return
+    list_staged_files = []
+
+    if args.last_commit == False: 
+        if git_status_raw:
+            list_staged_files = re.findall(
+                r"modified:[\w\s./-]+$", 
+                git_status_raw.group(), 
+                re.MULTILINE
+            )
+    else:
+        list_staged_files = git_status_raw
 
     list_excluded_words = [
         "gestion-ressources",
@@ -68,15 +84,21 @@ def get_list_directories_updated():
         cleaned_path = path.replace("modified:", "").strip()
         return cleaned_path
     
-    def get_staged_directory():
-        return
+    def get_last_commit_path(entry):
+        path = ' '.join(entry.split())
+        r = re.search(r"^(.*?)numero-\d+\/ressources", path)
+
+        return r.group(0) if r else ""
     
     def get_cleared_directory(path):
         r = re.search(r"^(.*?)numero-\d+\/ressources", path)
 
         return r.group(0) if r else ""
 
-    list_cleaned_paths = map(clean_directory_path, git_status_raw)
+    list_cleaned_paths = map(
+        get_last_commit_path if args.last_commit else clean_directory_path, 
+        list_staged_files
+    )
     list_directories_ressources = [x for x in list(list_cleaned_paths) if any(substring in x for substring in list_excluded_words) == False]
     
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
@@ -180,6 +202,6 @@ def generate_zip(list_folders, is_correction_directory = False):
                         generate_zip([os.path.join(folder_path, "correction")], True)
             zip_object.close()
             
-# generate_zip(list_ressources_folders_to_zip)
-print(list_ressources_folders_to_zip)
+generate_zip(list_ressources_folders_to_zip)
+
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
