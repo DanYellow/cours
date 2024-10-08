@@ -41,7 +41,7 @@ def get_list_directories_updated():
 
     stdout_git_status = subprocess.check_output(command, shell=True)
 
-    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)"
+    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)?"
     re_last_commit = r"(?:M|A)([\s\n]+.+)"
 
     git_status_raw = re.search(
