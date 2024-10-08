@@ -2,7 +2,7 @@
 
 #### Uniquement les dossiers staged - Comportement par défaut
 ```python
-# Zippe tous les dossiers ressources qui ont été 
+# Zippe toutes les ressources 
 python zip-ressources.py
 ```
 
