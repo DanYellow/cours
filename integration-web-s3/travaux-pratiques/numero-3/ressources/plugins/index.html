@@ -10,6 +10,7 @@
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
   </head>
 
   <body>
@@ -67,7 +68,7 @@
                   href="https://www.chartjs.org/docs/latest/charts/line.html"
                   target="_blank"
                 >
-                  Voir documentation du graphique en bâtons de chartjs
+                  Voir documentation du graphique en courbe de chartjs
                   (ouverture dans un nouvel onglet)
                 </a>
               </li>
@@ -75,8 +76,8 @@
                 Astuce 2 : pour utiliser ces données, il faudra les formater,
                 voici le code qu'il faudra utiliser :
                 <pre>
-                    <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">let</span> data = prenomPauline.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">nombre</span>) <span style="color:rgb(212, 208, 171); font-weight:400;">// Donnée, propriété data</span>
-<span style="color:rgb(220, 198, 224); font-weight:400;">let</span> listeAnnees = prenomPauline.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">annais</span>) <span style="color:rgb(212, 208, 171); font-weight:400;">// Libellé, propriété labels</span></code></pre>
+                    <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">let</span> nombrePauline = prenomPauline.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">nombre</span>) <span style="color:rgb(212, 208, 171); font-weight:400;">// Donnée, propriété data</span>
+<span style="color:rgb(220, 198, 224); font-weight:400;">let</span> anneesPauline = prenomPauline.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">annais</span>) <span style="color:rgb(212, 208, 171); font-weight:400;">// Libellé, propriété labels</span></code></pre>
 
                 Ensuite, il faudra les utiliser pour les bons paramètres pour
                 afficher le graphique.
@@ -104,8 +105,8 @@
                 Astuce : pour utiliser ces données, il faudra les formater,
                 voici le code qu'il faudra utiliser :
                 <pre>
-                    <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">let</span> data = prenomJerome2005.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">nombre</span>)
-<span style="color:rgb(220, 198, 224); font-weight:400;">let</span> labels = prenomJerome2005.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">dpt</span>)</code></pre>
+                    <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;">let</span> nombreJerome = prenomJerome2005.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">nombre</span>)
+<span style="color:rgb(220, 198, 224); font-weight:400;">let</span> dptJerome = prenomJerome2005.<span style="color: #00e0e0;">map</span>(<span style="color:rgb(248, 248, 242); font-weight:400;">(<span style="color:rgb(245, 171, 53); font-weight:400;">item</span>) =&gt;</span> item.<span style="color:rgb(248, 248, 242); font-weight:400;">dpt</span>)</code></pre>
                 Ensuite, il faudra les utiliser pour les bons paramètres pour
                 afficher le graphique.
               </li>
