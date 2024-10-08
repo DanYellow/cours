@@ -79,9 +79,8 @@ def get_list_directories_updated():
     ]
 
     def clean_directory_path(path):
-        # \(use "git restore --staged <file>\.\.\." to unstage\)[\r\n\t]+(modified:[\w\s./-]+)$
-        # (?<=\(.+--staged.+\)[\r\n\t]+)([\w:.\/-\s\n\r\t]*)(?=\n.+staged.+)
         cleaned_path = path.replace("modified:", "").strip()
+        
         return cleaned_path
     
     def get_last_commit_path(entry):

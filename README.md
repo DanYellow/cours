@@ -1,8 +1,22 @@
 ## Générer les archives pour chaque dossier ressources contenu dans chaque sous-dossier
+
+#### Uniquement les dossiers staged - Comportement par défaut
 ```python
+# Zippe tous les dossiers ressources qui ont été 
 python zip-ressources.py
 ```
-Note : Les archives sont générées au même niveau que le dossier lui-même
+
+#### Uniquement les dossiers du dernier commit
+```python
+python zip-ressources.py --last-commit / -lc
+```
+
+#### Tous les dossiers
+```python
+python zip-ressources.py --all / -a
+```
+
+Note : Les archives sont générées au même niveau que le dossier zippé
 
 ### Exemple de structure
 ```
@@ -33,7 +47,7 @@ nom-cours/
         ├── style.css
         ├── scripts.js
         ├── correction/
-        ├── **nom-cours.ressources-correction.zip**
+        ├── **nom-cours-correction.ressources.zip**
         └── ressources/
             └── images/
                 └── ...
