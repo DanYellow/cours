@@ -124,9 +124,6 @@ _tmp*
 # correction_*
 # correction*
 
-/integration-web-s2/travaux-dirigés/numero-2/ressources/icones/style.css.map
-/integration-web-s2/travaux-dirigés/numero-2/ressources/icones/style.css
-
 __MACOSX/
 
 .~lock.*
@@ -162,3 +159,9 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+/test-results/
+/tests-examples/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
