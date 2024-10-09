@@ -17,6 +17,16 @@ start_time = time.time()
 os.chdir("../")
 print("--- Archives generation started. Please wait. ---")
 
+with open('.gitignore') as my_file:
+    list_ignored_files = my_file.readlines()
+    list_ignored_files = list(filter(lambda x: not x.startswith("#"), list_ignored_files))
+    list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
+    list_ignored_files = list(filter(None, list_ignored_files))
+    
+    list_ignored_files.extend(["odp", "pdf", "code", "zip", "gestion-ressources", "sae"])
+    list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
+    list_ignored_files = list(dict.fromkeys(list_ignored_files))    
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "-a",
@@ -69,15 +79,6 @@ def get_list_directories_updated():
     else:
         list_staged_files = git_status_raw
 
-    list_excluded_words = [
-        "gestion-ressources",
-        "zip",
-        "pdf",
-        "odp",
-        "sae",
-        "code"
-    ]
-
     def clean_directory_path(path):
         cleaned_path = path.replace("modified:", "").strip()
         
@@ -98,7 +99,7 @@ def get_list_directories_updated():
         get_last_commit_path if args.last_commit else clean_directory_path, 
         list_staged_files
     )
-    list_directories_ressources = [x for x in list(list_cleaned_paths) if any(substring in x for substring in list_excluded_words) == False]
+    list_directories_ressources = [x for x in list(list_cleaned_paths) if any(substring in x for substring in list_ignored_files) == False]
     
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
@@ -158,22 +159,11 @@ else:
 # Debug purpose
 # list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
 
-list_folders_excluded = [
-    "correction", 
-    "node_modules", 
-    "vendors", 
-    "playwright-report", 
-    "tmp",
-    "temp",
-    "test-results",
-    "tests-examples",
-    "blob-report",
-    ".cache",
-    ".DS_STORE",
-    "lock.",
-]
 
 dict_correction_archive_created = {}
+
+list_ignored_files_to_generate_zip = list_ignored_files
+list_ignored_files_to_generate_zip.append("correction")
 
 def generate_zip(list_folders, is_correction_directory = False):
     for folder_path in list_folders:
@@ -195,7 +185,7 @@ def generate_zip(list_folders, is_correction_directory = False):
                     absname = os.path.abspath(os.path.join(dirname, filename))
                     arcname = absname[len(abs_src) + 1:]
 
-                    if bool([ele for ele in list_folders_excluded if(ele in arcname.encode("unicode_escape").decode("utf-8"))]) == False:
+                    if bool([ele for ele in list_ignored_files_to_generate_zip if(ele in arcname.encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
                         zip_object.write(absname, arcname)
                     if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
                         generate_zip([os.path.join(folder_path, "correction")], True)
