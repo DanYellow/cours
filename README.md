@@ -52,5 +52,6 @@ nom-cours/
             └── images/
                 └── ...
 ```
+> Note : Tout fichier / dossier listé dans le fichier .gitignore sera également exclu des fichiers zip
 
 TODO : Mettre dans un pre-commit hook ?
