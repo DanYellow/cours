@@ -146,7 +146,7 @@ def get_all_ressources_sae_directories():
         if len(sae_indexes) == 1 and sae_indexes[0] == 1:
             list_saes_folders_root_ressources.append(folder_path)
             
-    # Contains ressources folder and saes folder, you can use that variable in the loop below if needed
+    # Contains ressources folder and saes folder, you can use that if needed
     # list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
     
     return list_ressources_folders_to_zip
