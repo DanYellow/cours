@@ -15,7 +15,12 @@
         <link rel="stylesheet" href="/{{ manifest['style.css'].file }}" />
     {% endif %}
 
-    {% block head_tags %}{% endblock %}
+    {% block head_tags %}
+        <meta 
+            name="description" 
+            content="Bienvenue sur le site de présentation du Bachelor Universitaire de Technologie spécialité Métiers du Multimédia et de l'Internet, appellé également MMI."
+        >
+    {% endblock %}
 
     {% block styles %}{% endblock %}
     {% block javascript %}{% endblock %}
