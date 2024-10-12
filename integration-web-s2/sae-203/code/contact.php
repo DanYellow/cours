@@ -82,7 +82,7 @@ if ($formulaire_soumis) {
     <?php require_once('./ressources/includes/bulle.php'); ?>
 
     <main class="conteneur-principal conteneur-1280">
-        <p class="titre">Plus d'infos sur la formation ? <br /> Contactez-nous !</p>
+        <h1 class="titre">Plus d'infos sur la formation ? <br /> Contactez-nous !</h1>
 
         <section>
             <p class="paragraphe">

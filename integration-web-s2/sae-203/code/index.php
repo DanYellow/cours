@@ -34,7 +34,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
-        <p class="titre">Articles sur le BUT MMI</p>
+        <h1 class="titre">Articles sur le BUT MMI</h1>
         <section class="colonne">
             <section class="liste-articles">
                 <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
@@ -46,11 +46,11 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                         Vous pourrez récupérer la valeur en php grâce à $_GET["id"]
                      -->
                         <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
-                            <figure>
+                            <div>
                                 <img src='ressources/images/image-article.png' alt=''>
-                            </figure>
+                            </div>
                             <section class='textes'>
-                                <p class='titre'><?php echo $article["titre"]; ?></p>
+                                <h2 class='titre'><?php echo $article["titre"]; ?></h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
                                 </p>
