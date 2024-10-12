@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours Magistral - Référencement Naturel / SEO</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
 </head>
 <body class="max-w-screen-xl mx-auto px-3 my-4">
     <h1 class="mb-3 text-2xl">Cours Magistral S1 - Référencement Naturel / Search Engine Optimization</h1>
     <div class="mb-4">
         <p>Le SEO (Search Engine Optimization) ou Référencement Naturel représente une part importante dans la construction d'un site web à quoi bon de développer le meilleur site du monde si à la fin personne ne le trouve.</p>
-        <p>Dans cette ressource, vous avez deux versions du même site, si l'apparence est la même, la structure du code HTML est, quant à elle, différente. Les balises sont mieux choisies ainsi que les attributs. On l'a vu en cours, le code HTML représente une grande part du référencement d'un site web, un code de mauvaise qualité peut très fortement sanctionner un site web.</p>
+        <p>Dans cette ressource, vous avez deux versions du même site, si l'apparence est la même (et le contenu plus ou moins), la structure du code HTML est, quant à elle, différente. Les balises sont mieux choisies ainsi que les attributs, permettant ainsi d'obtenir un meilleur score par Lighthouse. On l'a vu en cours, le code HTML représente une grande part du référencement naturel d'un site web, un code de mauvaise qualité peut très fortement sanctionner un site web.</p>
         <p>Grâce à lighthouse, vous pouvez tester le score de ces deux sites. Attention tout de même, Lighthouse ne fonctionne qu'avec le protocole HTTP(S), il faut donc que le site tourne sur un serveur. De même pour Screamingfrog. Pensez à déplacer le contenu des sites dans WAMP/MAMP ou un serveur distant.</p>
     </div>
-    <ul class="list-disc list-inside">
+    <ul class="list-disc list-inside mb-4">
         <li>
             <a class="underline hover:no-underline" href="mauvais-exemple/index.html" target="_blank" rel="noopener noreferrer">Exemple mauvais SEO</a>
         </li>
@@ -21,5 +22,15 @@
             <a class="underline hover:no-underline" href="bon-exemple/index.html" target="_blank" rel="noopener noreferrer">Exemple bon SEO</a>
         </li>
     </ul>
+    <div class="note-information">
+        <p>
+            Les images du "bon-exemple" utilisent le format avif, ce format d'image, très bien géré de nos jours, possède l'avatange de proposer une compression sans perte. De plus, il permet même la gestion de la transparence, comme pour le format png. Ainsi, si vous souhaitez diminuer drastiquement la taille de vos images, pensez au format avif. Il existe des convertisseurs en ligne pour vos images, comme le site <a href="https://squoosh.app/" target="_blank" class="underline hover:no-underline">squoosh.app - ouverture dans un nouvel onglet</a>.
+        </p>
+        <p>
+            Pensez au format avif, votre site se chargera plus vite et vos ferez faire des économies de bande passante à vos utilisateurs.
+        </p>
+    </div>
+
+    <p class="mt-4">Ces deux exemples utilisent des technologies / notions que nous aurons l'occasion de voir plus tard dans le cursus. Mais si ceci vous intéresse rien ne vous empêche de vous informer sur tailwindcss (abordé en S2) ou encore le responsive web design (abordé en S3).</p>
 </body>
 </html>
