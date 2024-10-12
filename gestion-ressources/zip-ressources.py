@@ -47,7 +47,7 @@ args = parser.parse_args()
 def get_list_directories_updated():
     command = "git status"
     if args.last_commit == True:
-        command = 'git log --name-status HEAD^..HEAD'
+        command = ['git', 'log', '--name-status', '-1'] 
 
     stdout_git_status = subprocess.check_output(command, shell=True)
 
