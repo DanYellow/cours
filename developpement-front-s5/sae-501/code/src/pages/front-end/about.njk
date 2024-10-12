@@ -79,7 +79,7 @@
             <li class="h-full snap-start px-0.5 last:pr-3 sm:max-lg:landscape:h-[65vh] sm:max-lg:landscape:max-h-[300px]">
                 <article class="shadow h-full rounded-lg overflow-hidden flex flex-col sm:max-lg:landscape:flex-row lg:landscape:flex-col">
                     <div class="h-[300px] lg:h-[325px] sm:max-lg:landscape:h-full aspect-square">
-                        <img class="h-full w-full object-cover" src="{{ 'images/default-sae-image.png' if item.image|length == 0 else '/uploads/' ~ item.image }}" alt="">
+                        <img class="h-full w-full object-cover" src="{{ 'images/default-sae-image.png' if item.image|length == 0 else '/uploads/' ~ item.image }}" loading="lazy" alt="">
                     </div>
                     <section class="p-8 pb-10 sm:pb-14 grow">
                         <p class="text-2xl font-bold pb-2">{{ item.title }}</p>

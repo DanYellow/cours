@@ -10,7 +10,7 @@
   - Il faudra également faire les requêtes, les modèles Mongoose ainsi que les formulaires dans l'administration
 - [ ] Pour les listes (articles, saés et auteurs), ajouter une nouvelle action pour permettre à l'utilisateur d'accéder à l'équivalent côté frontend
 - [ ] Proposer un système de suppression multiple d'éléments sur une liste via un système de cases à cocher
-- [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`) et réduire la taille des images côté serveur
+- [ ] Retirer la limite de taille d'upload des fichiers (gérée dans le fichier `database/validator.js`), réduire la taille des images côté serveur et les convertir au format AVIF
   - Vous pouvez utiliser un module comme [sharp](https://www.npmjs.com/package/sharp) pour réaliser cette tâche. Il existe de nombreuses sources en ligne pour coupler sharp avec multer, outil déjà utilisé pour l'upload
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
@@ -25,7 +25,7 @@
 - [ ] Permettre d'ordonner des champs autres que la date de création dans l'administration
 - [ ] Proposer la mise en place d'images responsives
 - [ ] Utiliser un éditeur de texte riche pour le corps d'un article
-- [Vous pouvez dans cette liste un ensemble de plugin javascript d'éditeur riches](https://github.com/JefMari/awesome-wysiwyg-editors)
+- [Vous pouvez dans cette liste un ensemble de plugins javascript d'éditeurs riches](https://github.com/JefMari/awesome-wysiwyg-editors)
 - [ ] Appliquer des meta og sur toutes les pages
     - Il existe des générateurs : [https://metatags.io/](https://metatags.io/)
     - Note : **le lien des images doit être absolu**
@@ -35,7 +35,6 @@
 - [ ] Gérer "proprement" les messages d'erreur
     - Présentement, certains messages d'erreurs sont dupliqués, proposez une solution plus maintenable
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
-- [ ] Afficher 3 par 3 les SAE de la page "a propos" via AJAX
 - [ ] Mettre en place un système de galerie à place d'un upload d'image pour chaque entité
   - Il faudra mettre en place un nouveau modèle pour gérer les images et ayant de préférence une relation de type One-to-Many avec les entités où se trouveront ces images
 - [ ] Proposer un mode sombre. Pour rappel, tailwindcss possède un modifier "dark:" pour gérer ce mode
