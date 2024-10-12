@@ -35,7 +35,6 @@
     "express": "^4.19.2",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.0",
-    "focus-trap": "^7.5.4",
     "helmet": "^7.1.0",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",

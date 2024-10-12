@@ -6,6 +6,7 @@ const deleteItemModalBtn = document.querySelector("[data-deletion-modal] [data-d
 const errorMessageModal = document.querySelector("[data-deletion-modal] [data-error-modal]")
 
 const displayDeleteItemModal = (e) => {
+    deletionModal.showModal()
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
     deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName
 }
@@ -31,6 +32,6 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
         });
 })
 
-document.querySelectorAll('[data-delete-url]').forEach((item) => {
+document.querySelectorAll('[data-modal="delete-entry"]').forEach((item) => {
     item.addEventListener("click", displayDeleteItemModal)
-});
+})

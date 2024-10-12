@@ -9,7 +9,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         const dataAttr = e.currentTarget.dataset.previewCurrentImageButton;
         const previewType = e.currentTarget.dataset.previewType;
-        previewModal.showPopover();
+        previewModal.showModal();
 
         let img = document.querySelector(`[data-current-image="${dataAttr}"]`);
 
