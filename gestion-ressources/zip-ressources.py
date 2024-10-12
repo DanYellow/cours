@@ -165,6 +165,8 @@ dict_correction_archive_created = {}
 list_ignored_files_to_generate_zip = list_ignored_files
 list_ignored_files_to_generate_zip.append("correction")
 
+list_zip_files_generated = []
+
 def generate_zip(list_folders, is_correction_directory = False):
     for folder_path in list_folders:
         head, tail = os.path.split(folder_path)
@@ -177,6 +179,8 @@ def generate_zip(list_folders, is_correction_directory = False):
                 dict_correction_archive_created[archive_path] = True
             else:
                 continue
+        
+        list_zip_files_generated.append(archive_path)
         
         with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
             abs_src = os.path.abspath(folder_path)
@@ -192,5 +196,9 @@ def generate_zip(list_folders, is_correction_directory = False):
             zip_object.close()
             
 generate_zip(list_ressources_folders_to_zip)
+
+with open("output.tmp.txt", "w") as txt_file:
+    for line in list_zip_files_generated:
+        txt_file.write(line + "\n")
 
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
