@@ -310,19 +310,20 @@ Voici des liens liés aux raccourcis d'Unity, ils pourront vous être utiles :
 
 # Notes
 
-## Si vous n'avez pas d'ordinateur portable
+Vous serez noté(e) sur votre utilisation de git lors de nos TP. A la fin, vous devrez envoyer le lien de votre dépôt git. Pour éviter d'avoir une mauvaise note, nous vous invitons à commiter régulièrement, un commit, c'est gratuit. 
 
-Dans le cas où vous ne possez pas d'ordinateur portable et que vous souhaiteriez continuer vos projets à la maison. Ne copiez pas tout votre projet sur une clé USB ou un dépôt git. Seuls les dossiers/fichiers suivants sont importants, le reste Unity les recrée lorsqu'ils sont manquants. 
+De plus, seuls les dossiers suivants doivent être poussés :
 
-> **Dans tous les cas, il sera demandé de conserver le projet via github, vous devrez commiter et pousser l'avancée de votre projet.**
-
-### Liste de dossiers/fichiers à copier sur une clef usb / disque dur ou pousser sur git
 - Assets/
 - Packages/
 - ProjectSettings/
 - UserSettings/
 
-**N'allez pas copier/pousser les dossiers Logs/ ou Library/, ils sont très lourds et contiennent de nombreux dossiers imbriqués. Unity les crée à l'ouverture du projet s'ils sont manquants.** Si vous utilisez git, pensez à mettre à la racine de votre projet un fichier .gitignore pour ne pas commiter les fichiers et dossiers inutiles.
+> Note : Dans le cas où vous souhaitez copier un projet Unity sur une clef usb / disque dur ce sont ces mêmes dossiers qu'il faudra copier. Le reste, s'il est manquant, Unity le recréera.
+
+Pour éviter de mettre dans votre dépôt des fichiers / dossiers inutiles vous devez mettre un fichier .gitignore à la racine du projet. 
+
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
-> Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
+  - Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
+
 

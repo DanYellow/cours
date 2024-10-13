@@ -20,6 +20,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [AnimatorState](#animatorstate)
   - [AnimatorStateTransition](#animatorstatetransition)
     - [Trigger ou booléen ?](#trigger-ou-booléen-)
+- [Tilemap](#tilemap)
 
 # <a name="gameobject"></a>GameObject
 
@@ -315,3 +316,13 @@ Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement
 - Can Transition To Self (uniquement avec Any State) : Indique à Unity si l'animation ne doit être jouée qu'une seule fois. Si la case n'est pas décochée, il est possible que votre animation se bloque lorsque les conditions sont remplies
 ---
 - [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
+
+# <a name="tilemap"></a>Tilemap
+
+Le principe d'un tilemap est très simple mais extrêmement puissant, il consiste à générer une grille et y placer des composants dessus en tout genre : tuiles (animées ou non), composants, plateformes et bien d'autres.
+
+Si vous avez crée un projet 2D le package "2D Tilemap Editor" devrait être déjà installé. Si ce n'est pas le cas, vous pouvez aller dans le menu `Window > Package Manager` et cherchez "2D Tilemap Editor".
+
+Une fois installé, pour créer votre Tilemap, rien de plus simple : `Clic droit dans la fenêtre "Hierarchy" > 2D Object > Tilemap`. Si tout s'est bien passé, Unity a dû créer deux GameObject : "Grid" et "Tilemap"
+
+https://learn.unity.com/tutorial/introduction-to-tilemaps#
