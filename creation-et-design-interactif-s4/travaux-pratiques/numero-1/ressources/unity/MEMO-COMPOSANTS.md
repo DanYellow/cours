@@ -2,7 +2,26 @@
 
 Dans le but de vous aider à mieux retenir le rôle des différents composants que nous avons vu jusqu'à présent, voici un document qui résume leur rôle. A noter tout de même que ce document n'est pas exhaustif et vise à mettre en lumière les points clés de ces composants. Nous vous invitons toujours à vous aider de la documentation si vous avez besoin de plus d'informations et d'exemples.
 
-# GameObject
+### Table de matières
+
+- [Mémo composants/classes](#mémo-composantsclasses)
+    - [Table de matières](#table-de-matières)
+- [GameObject](#gameobject)
+  - [Tag](#tag)
+  - [Layer](#layer)
+- [Transform](#transform)
+- [Rigidbody2D](#rigidbody2d)
+- [Collider2D](#collider2d)
+- [C# Script](#c-script)
+- [Animator](#animator)
+  - [Animator - Composant](#animator---composant)
+  - [Animator Controller](#animator-controller)
+    - [Points à retenir](#points-à-retenir)
+  - [AnimatorState](#animatorstate)
+  - [AnimatorStateTransition](#animatorstatetransition)
+    - [Trigger ou booléen ?](#trigger-ou-booléen-)
+
+# <a name="gameobject"></a>GameObject
 
 Objet de base de tous les éléments dans une scène Unity, le GameObject est la classe que vous utiliserez le plus. De conteneur des sprites de votre joueur à l'affichage des points de vie. Le GameObject est indispensable.
 Un GameObject est toujours embarqué avec le composant `Transform`, ce dernier gère la Position, la Rotation et l'Échelle d'un objet, pour éviter tout comportement inattendu, pensez toujours à réinitialiser (Reset) un Gameobject après avoir ajouté à votre scène, ça vous assure qu'il part de l'origine de votre scène ou de son parent.
@@ -14,7 +33,7 @@ En effet, il est possible d'imbriquer un GameObject dans un autre, un peu comme 
 
 En plus de pouvoir changer son nom, il est possible de changer le tag ainsi que le calque (layer) d'un GameObject.
 
-## Tag
+## <a name="tag"></a>Tag
 
 Un tag permet de récupérer un GameObject depuis n'importe quel Script. Par défaut, un GameObject n'a pas de tag, vous devez le définir via la fenêtre `Inspector`. Généralement on associera le tag "Player" aux joueurs et "Enemy" aux ennemis. Bien évidemment, vous pouvez en ajouter de nouveaux.
 
@@ -90,7 +109,7 @@ Il existe également la méthode `Find()`, elle prend en paramètre une chaîne 
 Comme la méthode `FindWithTag()`, `Find()` est très coûteuse en ressource, pensez à cacher les résultats pour les réutiliser plus tard.
 
 
-## Layer (ou calque en français)
+## <a name="layer"></a>Layer
 
 Les layers définissent les interactions entre les GameObjects de votre scène. Tout comme les tags, un GameObject ne peut avoir qu'un seul et un unique layer et est interchangeable aussi bien via le code ou le panneau `Inspector`. Et vous pouvez en ajouter de nouveaux dans la limite de 32 au maximum (2^32).
 
@@ -124,7 +143,7 @@ De ce fait, il existe les propriétés `localPosition` et `position`, la premiè
 > Il est également possible d'utiliser des fonctions plus complexes comme `cosinus` ou `sinus` et même placer de façon aléatoire les éléments grâce à la fonction `R(min, max)`
 > [Accéder à la documentation de l'onglet Inspector - voir partie "Numeric field expressions"](https://docs.unity3d.com/Manual/EditingValueProperties.html)
 
-# Rigidbody2D
+# <a name="rigidbody-2D"></a>Rigidbody2D
 
 Utilisable uniquement dans un environnement 2D, le composant Rigidbody2D soumet un GameObject au moteur physique d'Unity. Ainsi tout GameObject avec un Rigidbody2D sera donc attiré par la gravité. Ainsi, en absence de `Collider2D` un GameObject avec un Rigidbody2D fera une chute infinie. Avoir des notions de physique de base aide à mieux comprendre le comportement d'un Rigidbody2D.
 
@@ -148,7 +167,7 @@ La propriété `gravityScale` définit à quel point un objet sera attiré par l
 
 > N'utilisez pas la méthode `.Transform()` pour déplacer vos GameObjects, si cela peut être tentant, ceci vous expose à la mauvaise détection des collisions entre éléments. Et par conséquent, entraîner des comportements étranges. Par exemple, traverser les murs. Vous avez la méthode `MovePosition()` de la classe Rigidbody2D qui vous permet de faire la même chose mais de façon appropriée.
 
-# Collider2D
+# <a name="collider-2D"></a>Collider2D
 
 Composant souvent lié à un Rigidbody2D, Unity propose plusieurs types de `Collider2D`, la différence se trouve au niveau de leur forme. Ainsi un `Collider2D` peut être un carré, un cercle ou même un polygone. Cependant leur fonctionnement reste le même : permettre à un objet 2D d'exister auprès d'autres GameObject.
 
@@ -164,7 +183,7 @@ Trigger ou non, un `Collider2D` possède trois états :
 
 Dépendamment de votre choix (Trigger ou non), ce ne sont pas les mêmes évènements qui seront appelés. Si c'est un trigger, ce sont les méthodes de la famille `OnTriggerEnter2D`, `OnTriggerExit2D` et `OnTriggerStay2D` qu'il faudra utiliser. Si ce n'est pas un trigger, il faudra utiliser les méthodes `OnCollisionEnter2D`, `OnCollisionExit2D` et `OnCollisionStay2D`.
 
-# C# Script
+# <a name="c-sharp"></a>C# Script
 
 Composant écrit par vos soins, un `C# Script` est un composant vierge, par défaut. Pour des questions d'organisation, il est préférable de mettre vos scripts dans un dossier "Scripts/" lui-même dans le dossier "Assets/".
 
@@ -178,7 +197,7 @@ Pour plus d'informations sur le `C#`, veuillez vous référer au document d'intr
 
 - [Accéder au document](./README.md)
 
-# Animator
+#  <a name="animator"></a>Animator
 
 Chef d'orchestre de vos `AnimationStates`, le composant `Animator` permet de définir les relations entre les différentes `AnimationStates` grâce à des transitions appelées `AnimatorStateTransition`.
 
@@ -237,7 +256,7 @@ IEnumerator MyCoroutine()
 }
 ```
 
-## Animator Controller
+## <a name="animation-controller"></a>Animator Controller
 L'`Animator Controller` contrôle l'enchaînement des animations. Par défaut, il possède quatre blocs :
 - Entry : Point d'entrée de votre `Animator Controller`, elle va lancer la première animation
 - Default AnimatorState (en orange) : C'est l'animation qui va être jouée juste après que votre GameObject est instancié
@@ -294,5 +313,5 @@ Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement
   - Les conditions doivent être remplies **avant** que la transition soit possible
   - Les paramètres de conditions sont sensibles à la casse, ainsi écrire "jump" n'a pas la même signification que "Jump"
 - Can Transition To Self (uniquement avec Any State) : Indique à Unity si l'animation ne doit être jouée qu'une seule fois. Si la case n'est pas décochée, il est possible que votre animation se bloque lorsque les conditions sont remplies
-
-> [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
+---
+- [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)

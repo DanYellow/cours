@@ -4,7 +4,7 @@
 Accessible depuis la fenêtre du menu `File > Build Settings` ou `Edit > Project Settings > Player`. Ce menu permet de modifier certains éléments concernant les informations globales sur jeu comme son nom ou encore son icône. Dans ce document, nous allons traiter des parties qui pourront vous intéresser. Si vous cherchez d'amples informations, il y a la documentation d'Unity qui entre en détails sur chacun des points du menu.
 - [Accéder à la documentation de Player du menu Project Settings - anglais](https://docs.unity3d.com/Manual/class-PlayerSettings.html)
 
-Si certaines options sont propres à chaque plateformes, d'autres sont globales et ne doivent être remplies qu'une seule fois :
+Si certaines options sont propres à chaque plateformes d'autres sont globales et ne doivent être remplies qu'une seule fois :
 - Company Name : Nom de votre studio
 - Product Name : Nom de votre jeu, c'est ce nom qu'aura votre exécutable lors du build et sera affiché dans la barre de tâches de votre système d'exploitation
 - Version : Version de votre jeu. Il est préférable de l'incrémenter à chaque build. A noter qu'il est possible de créer un script pour augmenter la valeur automatiquement. Généralement, on met à jour le numéro de valeur selon la nomenclature SemVer (Semantic Versionning).   

@@ -209,7 +209,7 @@ Avant d'écrire vos premières lignes de C#, pensez bien à installer toutes les
 
 ---
 
-**Réalisez les tâches suivantes (n'oubliez pas de retourner le résultat et l'afficher avec la méthode `Debug.Log()`) :** 
+**Réalisez les tâches suivantes (n'oubliez pas de retourner le résultat - dans le cas d'une méthode / fonction - et l'afficher avec la méthode `Debug.Log()`) :** 
 - Un nombre décimal
     - A définir dans la fonction `Start()`
 - Une chaîne de caractères
