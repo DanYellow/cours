@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -e output.tmp.txt ]; then
+    rm output.tmp.txt
+else
+    echo "zip-commit"
+	cd "gestion-ressources/"
+
+    # if ! command -v foo &> /dev/null
+
+    if ! command -v python &> /dev/null; then
+        # For linux env
+        python3 zip-ressources.py
+    else
+        python zip-ressources.py
+    fi
+fi
+
+exit
