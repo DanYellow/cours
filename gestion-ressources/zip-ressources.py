@@ -45,7 +45,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 def get_list_directories_updated():
-    command = "git status"
+    command = ['git', 'status']
     if args.last_commit == True:
         command = ['git', 'log', '--name-status', '-1'] 
 
@@ -72,7 +72,7 @@ def get_list_directories_updated():
     if args.last_commit == False: 
         if git_status_raw:
             list_staged_files = re.findall(
-                r"modified:[\w\s./-]+$", 
+                r"(modified|new file):[\w\s./-]+$", 
                 git_status_raw.group(), 
                 re.MULTILINE
             )

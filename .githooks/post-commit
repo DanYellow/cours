@@ -7,7 +7,7 @@ list_files=$(echo "$list_files" | tr '[:space:]' ' ' <<< "$file")
 
 git add $list_files
 
-sleep 0.5s
+sleep 0.25s
 
 git commit --amend --no-edit
 

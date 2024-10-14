@@ -53,3 +53,14 @@ nom-cours/
                 └── ...
 ```
 > Note : Tout fichier / dossier listé dans le fichier .gitignore sera également exclu des fichiers zip
+
+#### Gestion des hooks
+Le dossier .githooks/ contient un ensemble de hooks permettant de générer et ajouter les archives des dossiers ressources modifiés.
+
+Il faudra tout de même penser à les activer et les rendre exécutables avec les commandes suivantes.
+```bash
+# Rendre les hooks exécutables
+chmod ug+x .githooks/*
+# Indique à git où se trouvent les hooks
+git config core.hooksPath .githooks
+```
