@@ -1,0 +1,16 @@
+#!/bin/sh 
+
+if [ -e output.tmp.txt ]; then
+
+file=$(cat $(dirname "$0")/../../output.tmp.txt)
+list_files=$(echo "$list_files" | tr '[:space:]' ' ' <<< "$file")
+
+git add $list_files
+
+sleep 0.5s
+
+git commit --amend --no-edit
+
+fi
+
+exit
