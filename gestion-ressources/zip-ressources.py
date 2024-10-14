@@ -49,7 +49,7 @@ def get_list_directories_updated():
     if args.last_commit == True:
         command = ['git', 'log', '--name-status', '-1'] 
 
-    stdout_git_status = subprocess.check_output(command, shell=True)
+    stdout_git_status = subprocess.run(command, stdout=subprocess.PIPE).stdout
 
     re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)?"
     re_last_commit = r"(?:M|A)([\s\n]+.+)"
