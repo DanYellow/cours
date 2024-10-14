@@ -191,6 +191,8 @@ Dépendamment de votre choix (Trigger ou non), ce ne sont pas les mêmes évène
 
 Composant écrit par vos soins, un `C# Script` est un composant vierge, par défaut. Pour des questions d'organisation, il est préférable de mettre vos scripts dans un dossier "Scripts/" lui-même dans le dossier "Assets/".
 
+> Le même composant peut être utilisé sur plusieurs GameObject, on évitera donc d'avoir des propriétés en dur dans un composant.
+
 Le même `C# Script` peut être appliqué sur n'importe quel GameObject. En interne, Unity crée une instance de ce `C# Script` comme nous le ferions avec un autre langage de programmation.
 
 Par défaut, un `C# Script` hérite de la classe `MonoBehaviour`, c'est ce qui nous permet notamment de faire appel aux méthodes `Start()`, `Update()` ou encore `OnCollisionExit2D()`.
