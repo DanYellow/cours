@@ -21,6 +21,9 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [AnimatorStateTransition](#animatorstatetransition)
     - [Trigger ou booléen ?](#trigger-ou-booléen-)
 - [Tilemap](#tilemap)
+  - [Ajouter une Tile Palette](#ajouter-une-tile-palette)
+  - [Créer des Tiles](#créer-des-tiles)
+  - [Ajouter des collisions](#ajouter-des-collisions)
 
 # <a name="gameobject"></a>GameObject
 
@@ -32,7 +35,7 @@ En effet, il est possible d'imbriquer un GameObject dans un autre, un peu comme 
 - Permettre à des GameObjects de se déplacer ensemble. Par exemple, un objet lié au joueur
 - Servir de "dossiers" pour grouper plusieurs GameObjects et donc organiser votre scène. En effet, un GameObject peut contenir que le composant Transform
 
-En plus de pouvoir changer son nom, il est possible de changer le tag ainsi que le calque (layer) d'un GameObject.
+En plus de pouvoir changer son nom, il est possible de changer le tag ainsi que le calque (layer) d'un GameObject. Le changement de nom peut se faire depuis la fenêtre Inspector ou en double-cliquant sur le GameObject dans la fenêtre "Hierarchy".
 
 ## <a name="tag"></a>Tag
 
@@ -42,7 +45,7 @@ A noter qu'il est préférable de chercher un GameObject par tag que par son nom
 
 Exemple :
 
-```c#
+```cs
 // [...]
 // Bonne pratique : Le résultat de FindWithTag() est caché dans une variable
 public class ExampleClass : MonoBehaviour
@@ -83,7 +86,7 @@ Par ailleurs, vous comparerez souvent le tag d'un GameObject avec un tag attendu
 
 Exemple :
 
-```c#
+```cs
 // Bonne pratique : on utilise la méthode CompareTag()
 private void OnCollisionEnter2D(Collision2D other)
 {
@@ -247,7 +250,7 @@ Changer la valeur de la propriété Culling Mode permet de gagner en performance
 
 Le composant `Animator` est contrôlable depuis un script C#. Par exemple, grâce à une Coroutine, vous pouvez bloquer le code jusqu'à la fin de l'animation courante avec le code suivant :
 
-```C#
+```cs
 IEnumerator MyCoroutine()
 {
     // [...]
@@ -318,11 +321,65 @@ Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement
 - [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
 
 # <a name="tilemap"></a>Tilemap
+- [Voir documentation des Tilemaps](https://learn.unity.com/tutorial/introduction-to-tilemaps)
 
 Le principe d'un tilemap est très simple mais extrêmement puissant, il consiste à générer une grille et y placer des composants dessus en tout genre : tuiles (animées ou non), composants, plateformes et bien d'autres.
 
-Si vous avez crée un projet 2D le package "2D Tilemap Editor" devrait être déjà installé. Si ce n'est pas le cas, vous pouvez aller dans le menu `Window > Package Manager` et cherchez "2D Tilemap Editor".
+Si vous avez crée un projet 2D le package "2D Tilemap Editor" devrait être déjà installé. Si ce n'est pas le cas, vous pouvez aller dans le menu `Window > Package Manager` et chercher "2D Tilemap Editor".
 
-Une fois installé, pour créer votre Tilemap, rien de plus simple : `Clic droit dans la fenêtre "Hierarchy" > 2D Object > Tilemap`. Si tout s'est bien passé, Unity a dû créer deux GameObject : "Grid" et "Tilemap"
+Une fois installé, pour créer votre Tilemap, rien de plus simple : `Clic droit dans la fenêtre "Hierarchy" > 2D Object > Tilemap > Rectangular`. Si tout s'est bien passé, Unity a dû créer deux GameObject : "Grid" et "Tilemap"
 
-https://learn.unity.com/tutorial/introduction-to-tilemaps#
+![](./printscreens/tilemap-1.jpg)
+> Si vous souhaitez ajouter un nouveau Tilemap, il vous suffit de faire un clic droit sur le GameObject "Grid" et d'ajouter un nouveau Tilemap avec les mêmes étapes que listées plus haut. L'ordre des Tilemap a son importance quand vous les peindrez. Pensez également à nommer vos Tilemaps avec un nom explicite, plus simple pour vous y retrouver.
+
+Sauf cas spéciaux, les valeurs par défaut des composants Grid, Tilemap et Tilemap Renderer sont amplement suffisantes pour nos besoins
+
+## Ajouter une Tile Palette
+Une Tile Palette fonctionne comme la palette d'un peindre, la fenêtre est accessible depuis `Window > 2D > Tile Palette`
+
+|![](./printscreens/tilemap-2.jpg)|
+|:--:| 
+| Notre palette est vide, remplissons-la. Pensez bien à la nommer de façon explicite |
+
+Après avoir cliqué sur "Create New Palette", sélectionnez le dossier qui va recevoir votre palette. Pour des questions d'organisations, il est préférable de créer un dossier "TilePalettes" à la racine du dossier "Assets".
+
+## Créer des Tiles
+Une tile (ou tuile en français) est le fragment d'une sprite. Généralement un sprite va contenir plusieurs images de forme carrée qui vont être découpées en tuile et chacune de ces tuiles pourra être placée comme bon vous semble sur votre composant Tilemap pour ainsi donner vie à votre jeu. Pour des questions de simplicité, il est préférable de connaître la taille de vos tuiles en avance pour réaliser le découpage.
+
+Une fois l'image importée, il faut prévenir Unity que cette image est découpée grâce à son outil de slice. Pour ce faire :
+- Sélectionnez l'image dans la fenêtre "Project"
+- Dans la fenêtre "Inspector" changez Single -> Multiple pour l'option "Sprite Mode"
+- Validez votre choix en cliquant sur "Apply"
+
+  ![](./printscreens/tilemap-3.jpg)
+
+- Cliquez sur le bouton "Sprite Editor". Ceci va ouvrir une nouvelle fenêtre
+- Cliquez sur "Slice" :
+  - Si vous connaissez la taille des tuiles : Grid by Cell Size 
+  - Si vous connaissez le nombre de tuiles par colonne et ligne : Grid by Cell Count
+
+  ![](./printscreens/tilemap-4.jpg)
+  > Quelque soit l'option choisie, Unity affiche des repères pour voir où vous découpez
+- Une fois les paramètres entrés, cliquez sur le bouton "Slice" puis le bouton "Apply" (à droite). Et fermez la fenêtre
+  ![](./printscreens/tilemap-5.jpg)
+
+Dans la fenêtre "Project", le nom de l'image est maintenant précédé d'un triangle qui indique un groupement, vous pouvez cliquer dessus pour voir le contenu qui n'est autre que ces images découpées.
+
+Pour remplir notre TilePalette crée, il suffit juste de glisser-déposer le conteneur de nos tuiles (l'image précédée d'un triangle) dans la fenêtre de votre palette. Ceci va ouvrir une nouvelle fenêtre qui vous demande où vous souhaitez créer vos tuiles. Encore une fois pour mieux vous organiser, créez un dossier (Tiles, par exemple) pour contenir vos Tiles.
+
+Une fois validé, vos images s'afficheront dans la palette et vous pourrez l'appliquer sur vos Tilemap grâce aux différents outils de la fenêtre "Tile Palette".
+
+> Note : Assurez-vous de sélectionner le bon Tilemap.
+
+## Ajouter des collisions
+
+La gestion des collision pour un tilemap nécessite les trois composants suivants avec les paramètres associés :
+- Tilemap Collider 2D
+  - Cocher "Used By Composite"
+- Composite Collider 2D
+- Rigidbody 2D (crée automatiquement après avoir ajouté le composant `Composite Collider 2D`)
+  - bodyType : Static
+  
+L'utilisation des composants vous assure d'avoir un bloc uni pour vos colliders. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
+
+> Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap.
