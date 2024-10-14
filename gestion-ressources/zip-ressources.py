@@ -72,10 +72,11 @@ def get_list_directories_updated():
     if args.last_commit == False: 
         if git_status_raw:
             list_staged_files = re.findall(
-                r"(modified|new file):[\w\s./-]+$", 
+                r"(modified|new file):([\w\s./-]+)$", 
                 git_status_raw.group(), 
                 re.MULTILINE
             )
+            list_staged_files = list(map(lambda x: x[1], list(list_staged_files)))
     else:
         list_staged_files = git_status_raw
 
@@ -194,7 +195,7 @@ def generate_zip(list_folders, is_correction_directory = False):
                     if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
                         generate_zip([os.path.join(folder_path, "correction")], True)
             zip_object.close()
-            
+
 generate_zip(list_ressources_folders_to_zip)
 
 with open("output.tmp.txt", "w") as txt_file:
