@@ -1,5 +1,9 @@
 ## Générer les archives pour chaque dossier ressources contenu dans chaque sous-dossier
 
+#### Dépendences
+- Python 3
+- git
+
 #### Uniquement les dossiers staged - Comportement par défaut
 ```python
 # Zippe toutes les ressources 
@@ -52,7 +56,7 @@ nom-cours/
             └── images/
                 └── ...
 ```
-> Note : Tout fichier / dossier listé dans le fichier .gitignore sera également exclu des fichiers zip
+> Note : Tout fichier / dossier listé dans le fichier .gitignore sera exclu des fichiers zip
 
 #### Gestion des hooks
 Le dossier .githooks/ contient un ensemble de hooks permettant de générer et ajouter les archives des dossiers ressources modifiés.
