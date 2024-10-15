@@ -24,6 +24,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [Ajouter une Tile Palette](#ajouter-une-tile-palette)
   - [Créer des Tiles](#créer-des-tiles)
   - [Ajouter des collisions](#ajouter-des-collisions)
+- [Canvas](#canvas)
 
 # <a name="gameobject"></a>GameObject
 
@@ -357,12 +358,12 @@ Une fois l'image importée, il faut prévenir Unity que cette image est découp�
 
 - Cliquez sur le bouton "Sprite Editor". Ceci va ouvrir une nouvelle fenêtre
 - Cliquez sur "Slice" :
-  - Si vous connaissez la taille des tuiles : Grid by Cell Size 
-  - Si vous connaissez le nombre de tuiles par colonne et ligne : Grid by Cell Count
+  - Si vous connaissez la taille des tuiles : Choississez "Grid by Cell Size" 
+  - Si vous connaissez le nombre de tuiles par colonne et ligne : Choississez "Grid by Cell Count"
 
   ![](./printscreens/tilemap-4.jpg)
-  > Quelque soit l'option choisie, Unity affiche des repères pour voir où vous découpez
-- Une fois les paramètres entrés, cliquez sur le bouton "Slice" puis le bouton "Apply" (à droite). Et fermez la fenêtre
+  > Quelque soit l'option choisie, Unity affiche des repères pour voir où vous découpez. Si les repères ne tombent pas correctement, il faut que vous revoyez les valeurs.
+- Une fois les paramètres entrés, cliquez sur le bouton "Slice" puis le bouton "Apply" (à droite). Et fermez la fenêtre.
   ![](./printscreens/tilemap-5.jpg)
 
 Dans la fenêtre "Project", le nom de l'image est maintenant précédé d'un triangle qui indique un groupement, vous pouvez cliquer dessus pour voir le contenu qui n'est autre que ces images découpées.
@@ -384,6 +385,20 @@ La gestion des collision pour un tilemap nécessite les trois composants suivant
 - Rigidbody 2D (crée automatiquement après avoir ajouté le composant `Composite Collider 2D`)
   - bodyType : Static
   
-L'utilisation des composants vous assure d'avoir un bloc uni pour vos colliders. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
+L'utilisation des composants vous assure d'avoir un bloc uni pour vos tiles, évitant ainsi aux Colliders qui se déplaceront sur vos Tiles de se bloquer entre deux Tiles. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
 
-> Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap.
+> Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap. Permettant ainsi de traverser les Tiles en fonction de votre position.
+
+
+# <a name="canvas"></a>Canvas
+
+Le Canvas est un type spécial de GameObject, il permet de contenir des interfaces de jeux (menus, ATH, etc.).
+
+> Par son fonctionnement, Unity créera automatiquement un Canvas si vous créez un élément graphique tel qu'un texte ou un bouton.
+
+Un Canvas peut s'afficher de la façon suivante :
+- Screen Space - Overlay : Affichage par défaut. Les éléments d'UI s'affichent en permanence. Ex : barre de vie ou menu
+- Screen Space - Camera : Influencé par la position de la caméra. Si l'élément n'est plus dans le champ de la caméra, il n'est plus visible. Ex : barre de vie au-dessus d'un ennemi
+- World Space : Le Canvas fait partie du jeu. Dans ce mode l'UI peut d'afficher devant ou derrière d'autres GameObject dans l'espace 3D. Le mode est également appelé "diegétique interface"
+
+> Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin [DoTween (freemium)](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
