@@ -7,6 +7,21 @@ body {
     margin: 1rem;
 }
 
+hr {
+    color: #333;
+    margin: 1rem 0;
+}
+
+.titre {
+    font-size: 1.5rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .conteneur {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -21,7 +36,7 @@ body {
     grid-row-start: 1;
     grid-row-end: 3;
     border-radius: 0.85rem;
-    background-image: url("../images/IMG_3346.jpg");
+    background-image: url("../images/flan.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,7 +47,7 @@ body {
     grid-row-end: 6;
     border-radius: 0.85rem;
 
-    background-image: url("../images/IMG_1629.jpg");
+    background-image: url("../images/lunettes.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
@@ -45,7 +60,7 @@ body {
     grid-row-end: 5;
     border-radius: 0.85rem;
 
-    background-image: url("../images/IMG_5062.jpg");
+    background-image: url("../images/tarte-aux-pommes.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
@@ -57,7 +72,7 @@ body {
     border-radius: 0.85rem;
     grid-column-start: 2;
     grid-column-end: 4;
-    background-image: url("../images/IMG_5801.jpg");
+    background-image: url("../images/carolines.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
@@ -70,7 +85,7 @@ body {
     grid-row-end: 4;
     grid-column-start: 4;
     grid-column-end: 5;
-    background-image: url("../images/IMG_7249.jpg");
+    background-image: url("../images/macarons.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
@@ -81,7 +96,7 @@ body {
     border-radius: 0.85rem;
     grid-row-start: 4;
     grid-row-end: 6;
-    background-image: url("../images/IMG_5302.jpg");
+    background-image: url("../images/cookies.jpg");
     
     background-repeat: no-repeat;
     background-size: cover;
