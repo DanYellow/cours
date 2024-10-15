@@ -69,12 +69,17 @@
             </p>
             <figure style="margin: 1rem 0">
               <img src="exemple-partie-1.jpg" alt="" />
+              <figcaption>Image cible</figcaption>
             </figure>
+            <p class="note-attention">
+              N'oubliez pas d'ajouter la déclaration CSS
+              <code>display: grid</code> sur le conteneur.
+            </p>
             <section class="note-information">
               <p>
                 Ici le plus simple n'est pas d'utiliser la balise &lt;img> mais
                 plutôt la propriété CSS background-image et pour la taille du
-                background, on utilisera background-size
+                background, on utilisera background-size. Enfin pour déplacer le background-image, vous pouvez utiliser la propriété background-position.
               </p>
               <ul>
                 <li>
@@ -93,7 +98,21 @@
                     >Accéder à la documentation de background-size - ouverture dans un nouvel onglet</a
                   >
                 </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/fr/docs/Web/CSS/background-position"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Accéder à la documentation de background-position - ouverture dans un nouvel onglet</a
+                  >
+                </li>
               </ul>
+              <p>Si vous souhaitez utiliser la balise &lt;img>, il faut <span class="texte-gras">impérativement</span> appliquer les déclarations suivantes sur vos images. Sinon, elles déformeront vos grilles.</p>
+              <pre style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; padding: 0.5rem; border-radius: 10px;"><span style="color: rgb(220, 198, 224); font-weight: 400;">img</span> {
+    <span style="color: rgb(255, 215, 0); font-weight: 400;">width</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
+    <span style="color: rgb(255, 215, 0); font-weight: 400;">height</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
+    <span style="color: rgb(255, 215, 0); font-weight: 400;">object-fit</span>: cover;
+}</pre>
               <p>Pour la partie CSS Grid, vous avez les liens suivants :</p>
               <ul>
                 <li>
@@ -170,10 +189,6 @@
                 
               </ul>
             </section>
-            <p class="note-attention">
-              N'oubliez pas d'ajouter la déclaration CSS
-              <code>display: grid</code> sur le conteneur.
-            </p>
           </li>
         </ol>
       </details>
@@ -221,7 +236,7 @@
         </ul>
         <div class="note-information">
             <p><a href="https://github.com/DanYellow/cours/raw/refs/heads/main/integration-web-s3/travaux-pratiques/numero-5/ressources/integration-web-s3_travaux-pratiques_numero-5-correction.ressources.zip" target="_blank" rel="noopener noreferrer">La correction se trouve ici - ouverture dans un nouvel onglet</a></p>
-            <p>La correction utilise le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank" rel="noopener noreferrer">CSS Nesting - anglais</a>, il y a également le <a href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf" target="_blank" rel="noopener noreferrer">CM#3</a> qui traite de ce sujet.</p>
+            <p>La correction utilise le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank" rel="noopener noreferrer">CSS Nesting - anglais</a>, il y a également le <a href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf" target="_blank" rel="noopener noreferrer">CM#1</a> qui traite de ce sujet.</p>
         </div>
       </details>
     </header>

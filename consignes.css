@@ -1,6 +1,7 @@
 .consignes-en-tete {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 0.55rem;
 }
 
 .consignes-conteneur {
@@ -38,7 +39,7 @@
         list-style: revert;
     }
 
-    .block-consigne {
+    .block-consignes {
         margin-bottom: 2.5rem;
 
         &::after {
