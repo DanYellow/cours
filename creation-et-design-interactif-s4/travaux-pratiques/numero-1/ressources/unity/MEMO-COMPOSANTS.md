@@ -371,6 +371,8 @@ Pour remplir notre TilePalette crée, il suffit juste de glisser-déposer le con
 
 Une fois validé, vos images s'afficheront dans la palette et vous pourrez l'appliquer sur vos Tilemap grâce aux différents outils de la fenêtre "Tile Palette".
 
+- [Détails des outils de la fenêtre Tile Palette - anglais](https://learn.unity.com/tutorial/introduction-to-tilemaps#5f35935dedbc2a0894536d00)
+
 > Note : Assurez-vous de sélectionner le bon Tilemap.
 
 ## Ajouter des collisions
