@@ -24,6 +24,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [Ajouter une Tile Palette](#ajouter-une-tile-palette)
   - [Créer des Tiles](#créer-des-tiles)
   - [Ajouter des collisions](#ajouter-des-collisions)
+- [Canvas](#canvas)
 
 # <a name="gameobject"></a>GameObject
 
@@ -191,6 +192,8 @@ Dépendamment de votre choix (Trigger ou non), ce ne sont pas les mêmes évène
 
 Composant écrit par vos soins, un `C# Script` est un composant vierge, par défaut. Pour des questions d'organisation, il est préférable de mettre vos scripts dans un dossier "Scripts/" lui-même dans le dossier "Assets/".
 
+> Le même composant peut être utilisé sur plusieurs GameObject, on évitera donc d'avoir des propriétés en dur dans un composant.
+
 Le même `C# Script` peut être appliqué sur n'importe quel GameObject. En interne, Unity crée une instance de ce `C# Script` comme nous le ferions avec un autre langage de programmation.
 
 Par défaut, un `C# Script` hérite de la classe `MonoBehaviour`, c'est ce qui nous permet notamment de faire appel aux méthodes `Start()`, `Update()` ou encore `OnCollisionExit2D()`.
@@ -355,12 +358,12 @@ Une fois l'image importée, il faut prévenir Unity que cette image est découp�
 
 - Cliquez sur le bouton "Sprite Editor". Ceci va ouvrir une nouvelle fenêtre
 - Cliquez sur "Slice" :
-  - Si vous connaissez la taille des tuiles : Grid by Cell Size 
-  - Si vous connaissez le nombre de tuiles par colonne et ligne : Grid by Cell Count
+  - Si vous connaissez la taille des tuiles : Choississez "Grid by Cell Size" 
+  - Si vous connaissez le nombre de tuiles par colonne et ligne : Choississez "Grid by Cell Count"
 
   ![](./printscreens/tilemap-4.jpg)
-  > Quelque soit l'option choisie, Unity affiche des repères pour voir où vous découpez
-- Une fois les paramètres entrés, cliquez sur le bouton "Slice" puis le bouton "Apply" (à droite). Et fermez la fenêtre
+  > Quelque soit l'option choisie, Unity affiche des repères pour voir où vous découpez. Si les repères ne tombent pas correctement, il faut que vous revoyez les valeurs.
+- Une fois les paramètres entrés, cliquez sur le bouton "Slice" puis le bouton "Apply" (à droite). Et fermez la fenêtre.
   ![](./printscreens/tilemap-5.jpg)
 
 Dans la fenêtre "Project", le nom de l'image est maintenant précédé d'un triangle qui indique un groupement, vous pouvez cliquer dessus pour voir le contenu qui n'est autre que ces images découpées.
@@ -368,6 +371,8 @@ Dans la fenêtre "Project", le nom de l'image est maintenant précédé d'un tri
 Pour remplir notre TilePalette crée, il suffit juste de glisser-déposer le conteneur de nos tuiles (l'image précédée d'un triangle) dans la fenêtre de votre palette. Ceci va ouvrir une nouvelle fenêtre qui vous demande où vous souhaitez créer vos tuiles. Encore une fois pour mieux vous organiser, créez un dossier (Tiles, par exemple) pour contenir vos Tiles.
 
 Une fois validé, vos images s'afficheront dans la palette et vous pourrez l'appliquer sur vos Tilemap grâce aux différents outils de la fenêtre "Tile Palette".
+
+- [Détails des outils de la fenêtre Tile Palette - anglais](https://learn.unity.com/tutorial/introduction-to-tilemaps#5f35935dedbc2a0894536d00)
 
 > Note : Assurez-vous de sélectionner le bon Tilemap.
 
@@ -380,6 +385,20 @@ La gestion des collision pour un tilemap nécessite les trois composants suivant
 - Rigidbody 2D (crée automatiquement après avoir ajouté le composant `Composite Collider 2D`)
   - bodyType : Static
   
-L'utilisation des composants vous assure d'avoir un bloc uni pour vos colliders. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
+L'utilisation des composants vous assure d'avoir un bloc uni pour vos tiles, évitant ainsi aux Colliders qui se déplaceront sur vos Tiles de se bloquer entre deux Tiles. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
 
-> Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap.
+> Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap. Permettant ainsi de traverser les Tiles en fonction de votre position.
+
+
+# <a name="canvas"></a>Canvas
+
+Le Canvas est un type spécial de GameObject, il permet de contenir des interfaces de jeux (menus, ATH, etc.).
+
+> Par son fonctionnement, Unity créera automatiquement un Canvas si vous créez un élément graphique tel qu'un texte ou un bouton.
+
+Un Canvas peut s'afficher de la façon suivante :
+- Screen Space - Overlay : Affichage par défaut. Les éléments d'UI s'affichent en permanence. Ex : barre de vie ou menu
+- Screen Space - Camera : Influencé par la position de la caméra. Si l'élément n'est plus dans le champ de la caméra, il n'est plus visible. Ex : barre de vie au-dessus d'un ennemi
+- World Space : Le Canvas fait partie du jeu. Dans ce mode l'UI peut d'afficher devant ou derrière d'autres GameObject dans l'espace 3D. Le mode est également appelé "diegétique interface"
+
+> Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin [DoTween (freemium)](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
