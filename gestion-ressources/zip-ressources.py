@@ -166,7 +166,6 @@ else:
 # Debug purpose
 # list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
 
-
 dict_correction_archive_created = {}
 
 list_ignored_files_to_generate_zip = list_ignored_files
@@ -196,7 +195,7 @@ def generate_zip(list_folders, is_correction_directory = False):
                     absname = os.path.abspath(os.path.join(dirname, filename))
                     arcname = absname[len(abs_src) + 1:]
 
-                    if bool([ele for ele in list_ignored_files_to_generate_zip if(ele in arcname.encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
+                    if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
                         zip_object.write(absname, arcname)
                     if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
                         generate_zip([os.path.join(folder_path, "correction")], True)
