@@ -368,17 +368,18 @@ Une fois l'image importée, il faut prévenir Unity que cette image est découp�
 
 Dans la fenêtre "Project", le nom de l'image est maintenant précédé d'un triangle qui indique un groupement, vous pouvez cliquer dessus pour voir le contenu qui n'est autre que ces images découpées.
 
-Pour remplir notre TilePalette crée, il suffit juste de glisser-déposer le conteneur de nos tuiles (l'image précédée d'un triangle) dans la fenêtre de votre palette. Ceci va ouvrir une nouvelle fenêtre qui vous demande où vous souhaitez créer vos tuiles. Encore une fois pour mieux vous organiser, créez un dossier (Tiles, par exemple) pour contenir vos Tiles.
+Pour remplir notre TilePalette crée, il suffit juste de glisser-déposer le conteneur de nos tuiles (l'image précédée d'un triangle) dans la fenêtre de votre palette. Ceci va ouvrir une nouvelle fenêtre qui vous demande où vous souhaitez créer vos tuiles. Encore une fois pour mieux vous organiser, créez un dossier (nommé Tiles, par exemple) pour contenir vos Tiles.
 
 Une fois validé, vos images s'afficheront dans la palette et vous pourrez l'appliquer sur vos Tilemap grâce aux différents outils de la fenêtre "Tile Palette".
 
 - [Détails des outils de la fenêtre Tile Palette - anglais](https://learn.unity.com/tutorial/introduction-to-tilemaps#5f35935dedbc2a0894536d00)
+  - Les touches `)` et `^` permettent de faire pivoter une tuile. En combinant avec la touche `Maj`, vous pourrez refléter sur l'axe horizontal et vertical
 
-> Note : Assurez-vous de sélectionner le bon Tilemap.
+> Note : Assurez-vous de sélectionner le bon Tilemap avant de peindre dessus.
 
 ## Ajouter des collisions
 
-La gestion des collision pour un tilemap nécessite les trois composants suivants avec les paramètres associés :
+La gestion des collisions pour un tilemap nécessite les trois composants suivants avec les paramètres associés :
 - Tilemap Collider 2D
   - Cocher "Used By Composite"
 - Composite Collider 2D
