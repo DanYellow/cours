@@ -136,6 +136,11 @@ def get_all_ressources_sae_directories():
     list_saes_folders = [path for path in list_saes_folders_raw if os.path.isdir(path)]
     list_saes_folders_non_nested = [path for path in list_saes_folders if path.count('sae') == 1]
 
+    list_datasets_folders_raw = glob.glob("**/*datasets*", recursive=True)
+    list_datasets_folders = [path for path in list_datasets_folders_raw if os.path.isdir(path)]
+    list_datasets_folders_non_nested = [path for path in list_datasets_folders if path.count('sae') == 1]
+
+
     # SAES at the root of the ressource's folder
     list_saes_folders_root_ressources = []
 
