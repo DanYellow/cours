@@ -23,7 +23,8 @@ with open('.gitignore') as my_file:
     list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
     list_ignored_files = list(filter(None, list_ignored_files))
     
-    list_ignored_files.extend(["odp", "pdf", "code", "zip", "gestion-ressources", "sae"])
+    list_ignored_files.extend(["odp", "pdf", "code", "zip", "gestion-ressources"])
+    list_ignored_files.extend(["sae"])
     list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
     list_ignored_files = list(dict.fromkeys(list_ignored_files))    
 
@@ -87,12 +88,12 @@ def get_list_directories_updated():
     
     def get_last_commit_path(entry):
         path = ' '.join(entry.split())
-        r = re.search(r"^(.*?)numero-\d+\/ressources", path)
+        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets)", path)
 
         return r.group(0) if r else ""
     
     def get_cleared_directory(path):
-        r = re.search(r"^(.*?)numero-\d+\/ressources", path)
+        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets)", path)
 
         return r.group(0) if r else ""
 
@@ -100,12 +101,17 @@ def get_list_directories_updated():
         get_last_commit_path if args.last_commit else clean_directory_path, 
         list_staged_files
     )
-    list_directories_ressources = [x for x in list(list_cleaned_paths) if any(substring in x for substring in list_ignored_files) == False]
-    
+
+    def get_zippable_directories(path):
+        if "datasets" in path:
+            return True
+        return any(substring not in path for substring in list_ignored_files)
+
+    list_directories_ressources = filter(get_zippable_directories, list(list_cleaned_paths))
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
     list_cleared_directories_ressources = list(dict.fromkeys(list_cleared_directories_ressources))
-
+    
     return list_cleared_directories_ressources
 
 def slugify(value, allow_unicode=False):
