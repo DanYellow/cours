@@ -112,6 +112,7 @@ img {
 .tab {
     appearance: none;
     position: absolute;
+    opacity: 0;
 }
 
 .tab + label {
@@ -123,7 +124,7 @@ img {
     text-align: center;
     background-color: #fff;
     flex: 0 0 50%;
-
+    
     user-select: none;
     text-align: center;
     transition: 0.3s background-color ease, 0.3s box-shadow ease;
@@ -140,6 +141,8 @@ img {
 
 .tab:focus-visible + label {
     outline: #333 solid 3px;
+    z-index: 999;
+    outline-offset: -3px;
 }
 
 .tab:hover + label {
