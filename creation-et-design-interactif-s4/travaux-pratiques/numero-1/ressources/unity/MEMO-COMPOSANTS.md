@@ -26,6 +26,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [Ajouter des collisions](#ajouter-des-collisions)
 - [Canvas](#canvas)
 - [Scène](#scène)
+- [Prefab](#prefab)
 
 # <a name="gameobject"></a>GameObject
 
@@ -422,3 +423,14 @@ Le plus simple est de séparer de façon logique votre jeu en scènes. Exemple :
 > N'oubliez pas que grâce aux ScriptableObject, il est possible de faire passer des informations d'une scène à l'autre. [En savoir plus](./SCRIPTABLE-OBJECTS.md).
 
 Il n'y a pas vraiment de limite définie de GameObject dans une scène. Il faut expérimenter. A noter qu'une scène n'est pas ajoutée à votre jeu automatiquement, car elle peut servir pour expérimenter, il faut l'ajouter manuellement. [Vous en saurez plus dans le document sur les BUILD](./BUILD.md).
+
+# <a name="prefab"></a>Prefab
+- [Voir documentation des Prefabs](https://docs.unity3d.com/Manual/Prefabs.html)
+
+Une Prefab est un type spécial de composant, c'est un GameObject qui a été sauvegardé dans le but d'être réutilisé à l'envie. Un exemple très simple ça serait un ennemi, une fois défini (Scripts, Sprites...), on aimerait en avoir plusieurs dans nos scènes. Au lieu de copier cet ennemi et s'exposer à de multiples modifications si on doit changer certaines parties de notre ennemi, on en fait une Prefab. 
+
+Avec une Prefab, le GameObject est "centralisé" et toute modification sur le GameObject original est répercutée sur ses copies. Il est tout de même possible de surcharger les propriétés d'un GameObject (sauf supprimer un composant).
+
+> Pour transformer un GameObject en Prefab, il suffit juste de glisser-déposer un GameObject depuis l'onglet "Hierarchy" vers l'onglet "Project". Encore une fois, on préfèrera mettre les Prefabs dans un dossier dédié.
+
+Il est possible d'imbriquer des Prefabs dans d'autres Prefabs. Pour modifier le Prefab original, il suffit d'effectuer un double clic dessus aussi bien dans l'onglet "Hierarchy" que "Project". D'ailleurs, il est toujours préférable de réinitialiser la position d'une Prefab en 0, 0, 0.
