@@ -25,6 +25,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
   - [Créer des Tiles](#créer-des-tiles)
   - [Ajouter des collisions](#ajouter-des-collisions)
 - [Canvas](#canvas)
+- [Scène](#scène)
 
 # <a name="gameobject"></a>GameObject
 
@@ -403,3 +404,21 @@ Un Canvas peut s'afficher de la façon suivante :
 - World Space : Le Canvas fait partie du jeu. Dans ce mode l'UI peut d'afficher devant ou derrière d'autres GameObject dans l'espace 3D. Le mode est également appelé "diegétique interface"
 
 > Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin freemium [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
+
+
+# <a name="scene"></a>Scène
+- [Voir documentation des scènes](https://docs.unity3d.com/Manual/CreatingScenes.html)
+
+Composant indispensable une scène représente un écran de jeu. Un écran de jeu peut être un niveau ou encore votre menu principal. L'idée des scènes est de découper votre jeu pour le charger progressivement. Si votre scène a trop de contenus, donc trop lourde, elle risque de prendre du temps à être chargée ou pire faire crasher votre jeu si vous essayez de mettre trop de choses dans la mémoire vidéo (GPU RAM). Il est possible de faire un jeu avec une seule scène et charger / décharger les GameObject à la demande, ça fonctionne mais c'est assez fastidieux et nécessite une certaine organisation. 
+
+> Tout projet Unity possède une scène par défaut nommée "SampleScene". Un projet Unity ne pouvant pas fonctionner sans scène. Il est préférable de nommer ses scènes avec un nom explicite dans un dossier "Scenes".
+
+Le plus simple est de séparer de façon logique votre jeu en scènes. Exemple :
+- Menu principal -> Scène
+- Niveau 1 -> Autre scène
+- Niveau ... -> Autre scène
+- Crédits -> Scène
+
+> N'oubliez pas que grâce aux ScriptableObject, il est possible de faire passer des informations d'une scène à l'autre. [En savoir plus](./SCRIPTABLE-OBJECTS.md).
+
+Il n'y a pas vraiment de limite définie de GameObject dans une scène. Il faut expérimenter. A noter qu'une scène n'est pas ajoutée à votre jeu automatiquement, car elle peut servir pour expérimenter, il faut l'ajouter manuellement. [Vous en saurez plus dans le document sur les BUILD](./BUILD.md).
