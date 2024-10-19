@@ -27,6 +27,7 @@ Dans le but de vous aider à mieux retenir le rôle des différents composants q
 - [Canvas](#canvas)
 - [Scène](#scène)
 - [Prefab](#prefab)
+- [Texte - TextMeshPro](#texte---textmeshpro)
 
 # <a name="gameobject"></a>GameObject
 
@@ -186,9 +187,9 @@ Trigger ou non, un `Collider2D` possède trois états :
 
 - Enter : Un GameObject vient de rentrer ou on lui entre dedans
 - Exit : Un GameObject sort ou quelque chose en est sorti
-- Stay : Un GameObject est en contact avec un autre ou est dans quelque chose
+- Stay : Un GameObject reste en contact avec un autre ou est dans quelque chose
 
-Dépendamment de votre choix (Trigger ou non), ce ne sont pas les mêmes évènements qui seront appelés. Si c'est un trigger, ce sont les méthodes de la famille `OnTriggerEnter2D`, `OnTriggerExit2D` et `OnTriggerStay2D` qu'il faudra utiliser. Si ce n'est pas un trigger, il faudra utiliser les méthodes `OnCollisionEnter2D`, `OnCollisionExit2D` et `OnCollisionStay2D`.
+Dépendamment de votre choix (trigger ou non), ce ne sont pas les mêmes évènements qui seront appelés. Si c'est un trigger, ce sont les méthodes de la famille `OnTriggerEnter2D`, `OnTriggerExit2D` et `OnTriggerStay2D` qu'il faudra utiliser. Si ce n'est pas un trigger, il faudra utiliser les méthodes `OnCollisionEnter2D`, `OnCollisionExit2D` et `OnCollisionStay2D`.
 
 # <a name="c-sharp"></a>C# Script
 
@@ -406,6 +407,13 @@ Un Canvas peut s'afficher de la façon suivante :
 
 > Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin freemium [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
 
+Pour des questions de performances du GPU, on appliquera les optimisations suivantes : 
+- Ayez un Canvas par rôle, car même si vous cachez les éléments dont vous n'avez pas besoin, ils sont quand même calculés par Unity. Le mieux est de cacher le Canvas en entier
+  > Il est possible d'avoir un Canvas dans un autre Canvas
+- Désactivez la propriété "Raycast Target" si votre image n'est pas interactive
+- Ajouter le composant `Rect Mask 2D` sur le Canvas pour appliquer un UI Culling dessus, autrement dit, cacher tout élément d'UI qui n'est pas dans le champ de vision de la caméra
+
+
 
 # <a name="scene"></a>Scène
 - [Voir documentation des scènes](https://docs.unity3d.com/Manual/CreatingScenes.html)
@@ -434,3 +442,9 @@ Avec une Prefab, le GameObject est "centralisé" et toute modification sur le Ga
 > Pour transformer un GameObject en Prefab, il suffit juste de glisser-déposer un GameObject depuis l'onglet "Hierarchy" vers l'onglet "Project". Encore une fois, on préfèrera mettre les Prefabs dans un dossier dédié.
 
 Il est possible d'imbriquer des Prefabs dans d'autres Prefabs. Pour modifier le Prefab original, il suffit d'effectuer un double clic dessus aussi bien dans l'onglet "Hierarchy" que "Project". D'ailleurs, il est toujours préférable de réinitialiser la position d'une Prefab en 0, 0, 0.
+
+# <a name="texte"></a>Texte - TextMeshPro
+
+Composant associé au Canvas (le composant Texte ne peut pas exister hors d'un Canvas), il permet d'afficher du texte. Toutefois, on évitera à tout prix d'utiliser le composant Text proposé par Unity, d'ailleurs, il est catégorisé en "Legacy" (héritage). A la place on utilisera TextMeshPro (ou TMP), il propose un meilleur contrôle de l'apparence du texte comparé au composant Text. Il est notamment possible d'utiliser une syntaxe proche du HTML pour personnaliser le texte.
+- [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
+- [Bases de TMP - anglais - env 15 min](https://www.youtube.com/watch?v=gVialGm65Yw)
