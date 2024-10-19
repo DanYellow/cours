@@ -48,6 +48,7 @@ deleteItemModalBtn.addEventListener("click", (e) => {
         attributes: true,
     });
 
+    e.currentTarget.closest("dialog").close();
     document.querySelector(`[data-delete-current-image-button="${dataAttr}"]`).classList.add("hidden");
     document.querySelector(`[data-preview-current-image-button="${dataAttr}"]`).classList.add("hidden");
 });
