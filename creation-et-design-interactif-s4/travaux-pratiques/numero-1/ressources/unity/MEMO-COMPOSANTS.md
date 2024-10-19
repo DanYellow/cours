@@ -448,3 +448,4 @@ Il est possible d'imbriquer des Prefabs dans d'autres Prefabs. Pour modifier le 
 Composant associé au Canvas (le composant Texte ne peut pas exister hors d'un Canvas), il permet d'afficher du texte. Toutefois, on évitera à tout prix d'utiliser le composant Text proposé par Unity, d'ailleurs, il est catégorisé en "Legacy" (héritage). A la place on utilisera TextMeshPro (ou TMP), il propose un meilleur contrôle de l'apparence du texte comparé au composant Text. Il est notamment possible d'utiliser une syntaxe proche du HTML pour personnaliser le texte.
 - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
 - [Bases de TMP - anglais - env 15 min](https://www.youtube.com/watch?v=gVialGm65Yw)
+  - Vous avez également [ce mémo réalisé par la même chaîne](./TMP-Cheat-Sheet-V2-Christina-Creates-Games.pdf)
