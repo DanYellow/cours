@@ -88,9 +88,8 @@ def get_list_directories_updated():
     
     def get_last_commit_path(entry):
         path = ' '.join(entry.split())
-        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets)", path)
 
-        return r.group(0) if r else ""
+        return get_cleared_directory(path)
     
     def get_cleared_directory(path):
         r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets)", path)
