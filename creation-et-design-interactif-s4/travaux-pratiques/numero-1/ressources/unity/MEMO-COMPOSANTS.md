@@ -389,7 +389,7 @@ La gestion des collisions pour un tilemap nécessite les trois composants suivan
 - Rigidbody 2D (crée automatiquement après avoir ajouté le composant `Composite Collider 2D`)
   - bodyType : Static
   
-L'utilisation des composants vous assure d'avoir un bloc uni pour vos tiles, évitant ainsi aux Colliders qui se déplaceront sur vos Tiles de se bloquer entre deux Tiles. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
+L'utilisation des composants vous assure d'avoir un grand Collider qui regroupera toutes vos tiles, évitant ainsi aux Colliders qui se déplaceront sur vos Tiles de se bloquer entre deux Tiles. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
 
 > Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap. Permettant ainsi de traverser les Tiles en fonction de votre position.
 
