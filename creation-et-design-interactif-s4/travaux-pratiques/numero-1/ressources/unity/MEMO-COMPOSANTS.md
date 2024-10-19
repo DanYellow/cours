@@ -400,19 +400,20 @@ Le Canvas est un type spécial de GameObject, il permet de contenir des interfac
 
 > Par son fonctionnement, Unity créera automatiquement un Canvas si vous créez un élément graphique tel qu'un texte ou un bouton.
 
-Un Canvas peut s'afficher de la façon suivante :
+Un Canvas peut s'afficher plusieurs façons, propriété "Render Mode" :
 - Screen Space - Overlay : Affichage par défaut. Les éléments d'UI s'affichent en permanence. Ex : barre de vie ou menu
+  > Ce mode permet l'activation ou non de l'option "Pixel perfect". Activée, elle rend les éléments d'UI moins flous et plus nets. Cependant, on évitera de l'activer si votre Canvas contient une liste déroulante (composant `Scroll Rect`) pour éviter de trop nuire aux performances. Idem si votre Canvas contient des éléments qui sont animés.
 - Screen Space - Camera : Influencé par la position de la caméra. Si l'élément n'est plus dans le champ de la caméra, il n'est plus visible. Ex : barre de vie au-dessus d'un ennemi
 - World Space : Le Canvas fait partie du jeu. Dans ce mode l'UI peut d'afficher devant ou derrière d'autres GameObject dans l'espace 3D. Le mode est également appelé "diegétique interface"
 
 > Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin freemium [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
 
 Pour des questions de performances du GPU, on appliquera les optimisations suivantes : 
-- Ayez un Canvas par rôle, car même si vous cachez les éléments dont vous n'avez pas besoin, ils sont quand même calculés par Unity. Le mieux est de cacher le Canvas en entier
+- Ayez un Canvas par rôle, car même si vous cachez les éléments dont vous n'avez pas besoin, ils sont quand même calculés par Unity. Le mieux est de désactiver le Canvas
   > Il est possible d'avoir un Canvas dans un autre Canvas
 - Désactivez la propriété "Raycast Target" si votre image n'est pas interactive
 - Ajouter le composant `Rect Mask 2D` sur le Canvas pour appliquer un UI Culling dessus, autrement dit, cacher tout élément d'UI qui n'est pas dans le champ de vision de la caméra
-
+- Si un élément est animé, il est préférable qu'il soit dans un Canvas dans un dédié aux GameObject animés
 
 
 # <a name="scene"></a>Scène
