@@ -22,13 +22,13 @@ $URLCreation = "{$racineURL}/creation.php";
 <body>
     <?php include_once("../ressources/includes/menu-principal.php"); ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 justify-between flex">
+        <div class="mx-auto max-w-7xl py-6 px-4 justify-between flex">
             <p class="text-3xl font-bold text-gray-900">Liste A REMPLACER</p>
-            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
+            <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>
-        <div class="mx-auto max-w-7xl py-6">
+        <div class="mx-auto max-w-7xl py-6 px-4">
             <div class="py-6">
                 <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
                     <thead class="bg-gray-100">

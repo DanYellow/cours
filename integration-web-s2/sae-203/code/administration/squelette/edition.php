@@ -51,7 +51,7 @@ if ($formulaire_soumis) {
         </div>
     </header>
     <main>
-        <div class="mx-auto max-w-7xl py-6">
+        <div class="mx-auto max-w-7xl py-6 px-4">
             <div class="py-6">
             <?php if ($entite) { ?>
                     <form method="POST" action="" class="rounded-lg bg-white p-4 shadow border-gray-300 border-1">

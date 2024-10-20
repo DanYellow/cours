@@ -25,13 +25,15 @@ $liste_entrees_menu = [
 ?>
 
 <nav class="bg-gradient-to-r from-gray-800 to-slate-900">
-    <div class="mx-auto px-4 max-w-7xl">
+    <div class="mx-auto max-w-7xl px-4">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <p class="text-white font-bold">Administration SAE 203</p>
+                    <p class="text-white font-bold">
+                        <a href="/admin">Administration SAE 203</a>
+                    </p>
                 </div>
-                    <div class="ml-10 flex items-baseline space-x-4">
+                    <nav class="ml-10 flex items-baseline space-x-4">
                         <?php foreach ($liste_entrees_menu as $entree_menu) {
                             $liste_classes = 'text-white ';
                             $aria_current_attr = "";
@@ -46,7 +48,7 @@ $liste_entrees_menu = [
                                 </a>
                             ";
                         } ?>
-                    </div>
+                    </nav>
             </div>
         </div>
     </div>
