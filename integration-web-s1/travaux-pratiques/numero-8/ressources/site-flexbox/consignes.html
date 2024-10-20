@@ -96,37 +96,52 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>Rendre la video youtube responsive
+                    </ul>
+                </li>
+                <li>Appropriez-vous le site, mettez en place de nouveaux blocs ou stylisez les parties du texte</li>
+                <li>Ajoutez une version sombre du site (pensez bien aux contrastes). Il existe deux façons de faire, les deux nécessitent du CSS, nul besoin de javascript :
+                    <ul>
+                        <li>
+                            <p>Méthode 1 : Utilisation de règle-at "prefers-color-scheme"</p>
+                            <p class="note-information">
+                                Avec cette méthode, il est préférable d'utiliser des propriétés personnalisées.
+                            </p>
                             <ul>
                                 <li>
-                                    <a href="https://yesyouweb.com/video-youtube-responsive/" target="_blank"
-                                        rel="noopener noreferrer">
-                                        Voir tutorial pour rendre une vidéo Youtube responsive
+                                    <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/prefers-color-scheme"
+                                        target="_blank" rel="noopener noreferrer">
+                                        Documentation de la règle at "prefers-color-scheme"
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css
+                                    " target="_blank" rel="noopener noreferrer">
+                                        Exemple de la règle at "prefers-color-scheme"
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Méthode 2 : Utilisation de la fonction CSS light-dark()</p>
+                            <ul>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark"
+                                        target="_blank" rel="noopener noreferrer">
+                                        Documentation de la fonction light-dark() - anglais
                                     </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li>Appropriez-vous le site, mettez en place de nouveaux blocs ou stylisez les parties du texte</li>
-                <li>Ajoutez une version sombre du site (pensez bien aux contrastes). <b>Il faudra impérativement
-                        utiliser des variables CSS. Ne pas utiliser du javascript</b>
-                    <ul>
-                        <li>
-                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/prefers-color-scheme"
-                                target="_blank" rel="noopener noreferrer">
-                                Documentation de la règle at "prefers-color-scheme"
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css
-                            " target="_blank" rel="noopener noreferrer">
-                                Exemple de la règle at "prefers-color-scheme"
-                            </a>
-                        </li>
-                        <li>Regardez la présentation sur les trucs et astuces sur le cours pour activer/désactiver le
-                            mode sombre avec la console du navigateur</li>
-                    </ul>
+                    <details>
+                        <summary>Activer le mode sombre - Chrome / Brave / Opera</summary>
+                        <img src="dark-mode-chrome.gif" alt="">
+                    </details>
+                    <details>
+                        <summary>Activer le mode sombre - Firefox</summary>
+                        <img src="dark-mode-firefox.gif" alt="">
+                    </details>
+                    <p class="note-information">L'activation du mode sombre se fait au global sur le site</p>
                 </li>
             </ul>
         </details>

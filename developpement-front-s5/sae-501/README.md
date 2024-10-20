@@ -209,7 +209,8 @@ Ils sont déjà implémentés lors de la création, l'édition et la suppression
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Un membre du groupe crée le projet sur github
-1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard
+1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) 
+   - Ceci peut se faire plus tard
 2. Clonez votre dépôt sur votre ordinateur (ssh ou https)
 3. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
     - Le projet contient déjà un fichier `.gitignore`, inutile d'en créer un de vôtre côté
