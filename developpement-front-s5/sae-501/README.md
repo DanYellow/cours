@@ -158,6 +158,8 @@ Contient les points d'entrées de vos bundles vite, ils seront compilés par vit
 ### styles/
 Contient le CSS du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss ou de faire `ctrl/cmd + espace` et VSCode fera des propositions. Vous pouvez bien utiliser tailwindcss pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie. Pour vous aider avec la complétion de code, il existe le plugin gratuit VSCode [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), il indique également les incohérences dans le code, les classes CSS antinomiques, par exemple.
 
+Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le fichier tailwind.config.js, ils permettent notamment de cibler des écrans tactiles / non-tactiles.
+
 > Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">CSS Nesting</a>. Ceci permet d'utiliser l'imbrication de sélecteurs CSS. Toutefois SCSS est installé, vous pouvez l'utiliser si vous souhaitez.
 
 > Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique. 
