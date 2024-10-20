@@ -35,7 +35,7 @@ Première étape d'un projet git : l'initialisation. **Cette étape n'est à fai
 > Vous avez maintenant initialisé votre projet, toutefois, il n'est pas sur votre ordinateur encore, c'est ce que nous allons voir dans la partie suivante.
 
 # Cloner le dépôt (repository)
-Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour se faire, il faudra utiliser la ligne de commandes et la commande suivante :
+Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour ce faire, il faudra utiliser la ligne de commandes et la commande suivante :
 ```bash
 git clone URL-du-depot.git
 ```

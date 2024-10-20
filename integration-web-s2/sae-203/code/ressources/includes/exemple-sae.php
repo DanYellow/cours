@@ -11,9 +11,9 @@
     ]
 ?>
 <article class="projet">
-    <figure class="img">
+    <div class="img">
         <img src="ressources/images/image-article.png" alt="">
-    </figure>
+    </div>
     <section class='textes'>
         <h2 class="titre"><?php echo $listSAES[$i]; ?> • SAÉ <?php echo $numSAE; ?></h2>
         <p class='paragraphe description'>Apprendre les bases du reportage vidéo sur un sujet libre</p>

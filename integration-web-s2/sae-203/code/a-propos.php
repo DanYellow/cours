@@ -50,9 +50,9 @@ require_once('./ressources/includes/connexion-bdd.php');
             </ul>
         </section>
 
-        <figure class="img-quebec">
+        <div class="img-quebec">
             <img src="ressources/images/img-quebec.jpeg" alt="">
-        </figure>
+        </div>
 
         <section>
             <p class="paragraphe">

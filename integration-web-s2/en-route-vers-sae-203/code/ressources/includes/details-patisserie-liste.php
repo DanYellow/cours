@@ -1,7 +1,7 @@
 <li class='patisserie'>
-    <figure>
+    <div>
         <img src='ressources/images/patisseries/financiers.jpg' alt=''>
-    </figure>
+    </div>
     <section class='details'>
         <section class='textes'>
             <p class='titre'>Madeleines</p>

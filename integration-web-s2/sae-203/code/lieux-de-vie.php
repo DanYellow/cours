@@ -42,9 +42,9 @@ require_once('./ressources/includes/connexion-bdd.php');
             </p>
             <ul class="liste-lieux">
                 <li>
-                    <figure>
+                    <div>
                         <img src="https://placehold.co/522x435" alt="">
-                    </figure>
+                    </div>
                     <section class="textes">
                         <h2 class="titre">Bibliothèque universitaire</h2>
                         <p class="paragraphe">
@@ -53,9 +53,9 @@ require_once('./ressources/includes/connexion-bdd.php');
                     </section>
                 </li>
                 <li>
-                    <figure>
+                    <div>
                         <img src="https://placehold.co/522x435" alt="">
-                    </figure>
+                    </div>
                     <section class="textes">
                         <h2 class="titre">Se restaurer</h2>
                         <p class="paragraphe">
@@ -67,9 +67,9 @@ require_once('./ressources/includes/connexion-bdd.php');
                     </section>
                 </li>
                 <li>
-                    <figure>
+                    <div>
                         <img src="https://placehold.co/522x435" alt="">
-                    </figure>
+                    </div>
                     <section class="textes">
                         <h2 class="titre">Réseau des fablabs de CY Cergy Paris Université</h2>
                         <p class="paragraphe">

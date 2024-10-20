@@ -1,8 +1,8 @@
 <footer class="pied-de-page-principal conteneur-1280">
-    <figure class="logo">
+    <div class="logo">
         <!-- Format svg est un format vectoriel, il se charge comme une image normale -->
         <img src="ressources/images/logo-cyu-couleur.svg" alt="">
-    </figure>
+    </div>
 
     <section class="textes">
         <p>Certains textes sont issus de Wikipédia</p>
