@@ -7,9 +7,6 @@
 
 > **Note 3 : Le projet utilise la [technologie URP](https://unity.com/srp/universal-render-pipeline), de ce fait, il est possible d'utiliser d'ajouter des lumières pour ajouter des effets. A noter qu'il y a déjà une lumière globale dans la scène "Level1" (MainLight)**
 
-> **Note 4 : Merci de bien lire l'ensemble des consignes avant de poser des questions sur le projet.**
-
-
 ![](./screenshot.jpg)
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -23,8 +20,10 @@ Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 
 > Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. 
-![](unity-hub.jpg)
-<p style="text-align: center">L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity.</p>
+> 
+| ![](unity-hub.jpg) |
+|:--:|
+| L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity. |
 
 > **Pour rappel, le projet a été développé avec une ancienne version d'Unity. Toutefois, vous serez en capacité de l'ouvrir avec une version plus récente. N'allez pas perdre du temps à installer une ancienne version d'Unity.**
 
@@ -335,13 +334,13 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
     En recliquant dessus, vous le désactiverez.
 - **J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?**
     
-    Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets de qualité et gratuit. Ainsi que d'autres sites listés plus haut.
+    Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets libres de droits de qualité et gratuits. Ainsi que d'autres sites listés plus haut.
 - **Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?**
 
     **Vous avez tout à fait le droit.** Si une fonctionnalité ne sied pas à votre besoin final, modifiez-la ou même supprimez-la. Le niveau de base a été réalisé pour vous fournir une base de travail et d'exemples, bien qu'il doive faire office de premier niveau dans votre jeu.
 - **Sommes-nous obligés d'utiliser les Scriptables Objects ?**
 
-    **Non.** Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation. [Vous avez toujours le document à sur sujet si vous avez un trou de mémoire.](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/SCRIPTABLE-OBJECTS.md)
+    **Non.** Toutefois, nous vous conseillons fortement de ne pas vous en passer. Ils sont très utiles et limitent très fortement le couplage de votre code et donc des crashs en cas de référence manquante. Pour rappel, un couplage fort implique de nombreuses dépendances et surtout des difficultés à extraire un GameObject / Composant d'une scène sans embarquer avec lui d'autres GameObjects non nécessaires ailleurs. Encore une fois, ce n'est pas obligatoire, mais préférez leur utilisation. [Vous avez toujours le document à ce sujet si vous avez un trou de mémoire.](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/SCRIPTABLE-OBJECTS.md)
 - **Puis-je effectuer un projet à partir de zéro ?**
 
     **Non**, utilisez le projet qu'on vous fournit. Si vous souhaitez commencer un projet à partir de zéro, faites ça plutôt dans le cadre d'un projet personnel.
@@ -354,12 +353,12 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
     **Oui.** Durant le cours, nous avons tout mis en public, mais si vous estimez qu'une des propriétés/méthodes doit être privée, n'hésitez pas. C'est même préférable, ceci vous évitera de modifier par inadvertance vos classes. D'ailleurs, dans le projet, le mot-clé `private` est utilisé ainsi que l'attribut `[SerializeField]` qui permet de rendre accessible une propriété dans l'onglet Inspector sans pour autant la rendre accessible à d'autres classes.
     - [En savoir plus sur `[SerializeField]`](https://docs.unity3d.com/ScriptReference/SerializeField.html)
-  - 
+
 - **Les textes ont remplacés par des carrés violet, pourquoi ?**
 
-Ceci est lié à un problème de shaders, il peut avoir lieu quand vous changez de versions. C'est très facile à corriger. Il faut aller dans le menu `Window > TextMeshPro > Import TMP Essential Ressources` (voir image ci-dessous).
+    Ceci est lié à un problème de shaders, il peut avoir lieu quand vous changez de version. C'est très facile à corriger. Il faut aller dans le menu `Window > TextMeshPro > Import TMP Essential Ressources` (voir image ci-dessous).
 
-![](shader-textmeshpro.png)
+    ![](shader-textmeshpro.png)
 
-Ceci va ouvrir une fenêtre, laissez tout coché et cliquez sur l'option "Import".
+    Ceci va ouvrir une fenêtre, laissez tout coché et cliquez sur l'option "Import".
 
