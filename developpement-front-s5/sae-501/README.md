@@ -238,7 +238,8 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
     - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
-  - Quand vous utilisez la pseudo-classe ":focus" pensez toujours à mettre également la pseudo-classe ":focus-within". Il y a la mixin ":hocus" qui réunit les deux
+  - Quand vous utilisez la pseudo-classe ":focus", pensez toujours à mettre également la pseudo-classe ":focus-within"
+    - Il y a la mixin SCSS ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" 
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
