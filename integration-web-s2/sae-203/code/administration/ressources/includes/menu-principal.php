@@ -43,7 +43,7 @@ $liste_entrees_menu = [
                             }
             
                             echo "
-                                <a href='{$entree_menu["lien"]}' class='{$liste_classes} rounded-md font-medium hover:bg-gray-700 hover:text-white px-3 py-2' $aria_current_attr>
+                                <a href='{$entree_menu["lien"]}' class='{$liste_classes} rounded-md font-medium hover:bg-gray-700 hover:text-white focus-within:bg-gray-700 focus-within:text-white px-3 py-2' $aria_current_attr>
                                     {$entree_menu["nom"]}
                                 </a>
                             ";

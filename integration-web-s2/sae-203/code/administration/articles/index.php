@@ -39,7 +39,7 @@ $URL_creation = "{$racine_URL}/creation.php";
             <div>
                 <p class="text-3xl font-bold text-gray-900">Liste A-REMPLACER</p>
             </div>
-            <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base font-medium text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel article</a>
+            <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base font-medium text-white shadow-sm bg-slate-700 hover:bg-slate-900 focus-within:bg-slate-900">Ajouter un nouvel article</a>
         </div>
     </header>
     <main>

@@ -56,14 +56,14 @@ if ($formulaire_soumis) {
                         <input type="hidden" value="" name="id">
                         <div class="col-span-12">
                             <label for="titre" class="block text-lg font-medium text-gray-700">Titre</label>
-                            <input type="text" name="titre"  value="<?php echo $entite['titre']; ?>"  id="titre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
+                            <input type="text" name="titre"  value="<?php echo $entite['titre']; ?>"  id="titre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="prenom">
                         </div>
                         <div class="col-span-12">
                             <label for="chapo" class="block text-lg font-medium text-gray-700">Chapô</label>
-                            <textarea type="text" name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="chapo"><?php echo $entite['contenu']; ?></textarea>
+                            <textarea type="text" name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="chapo"><?php echo $entite['contenu']; ?></textarea>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Créer</button>
+                            <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus-within:bg-indigo-700">Créer</button>
                         </div>
                     </section>
                 </form>
