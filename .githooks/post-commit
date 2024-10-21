@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-if [ -e output.tmp.txt ]; then
+if [ -e output.tmp.txt ] && [ -s output.tmp.txt ]; then
 
 file=$(cat output.tmp.txt)
 list_files=$(echo "$list_files" | tr '[:space:]' ' ' <<< "$file")
