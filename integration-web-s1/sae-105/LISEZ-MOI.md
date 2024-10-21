@@ -2,6 +2,21 @@
 
 > **IMPORTANT :** Le code fourni possède quelques modifications mineures par rapport à la maquette finale. Vous n'avez pas à les corriger.
 
+- [SAÉ 105 - Produire un site web](#saé-105---produire-un-site-web)
+  - [Contexte de la SAÉ](#contexte-de-la-saé)
+  - [Contenu du site à réaliser](#contenu-du-site-à-réaliser)
+  - [Police d'écriture](#police-décriture)
+  - [Astuces](#astuces)
+  - [Rendus attendus](#rendus-attendus)
+    - [Notation](#notation)
+      - [Intégration Web (HTML/CSS)](#intégration-web-htmlcss)
+      - [Développement Web (PHP)](#développement-web-php)
+      - [Gestion d'équipe](#gestion-déquipe)
+  - [Votre liste à faire](#votre-liste-à-faire)
+  - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+  - [Pour aller plus loin](#pour-aller-plus-loin)
+
+
 ## Contexte de la SAÉ
 CY Cergy Paris Université vous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
 L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants : 
@@ -23,6 +38,8 @@ L'objectif primaire du site sera de présenter de façon détaillée les aspects
 
 Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
 - [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
+
+## Contenu du site à réaliser
 
 Dans le site sont prévues six pages qui partagent une structure commune composée par :
 - Un header (en-tête) qui contient un menu de navigation et l’intitulé du BUT MMI ainsi qu'un logo stylisé (bulle)
@@ -61,7 +78,7 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 > Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
 > [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
 
-# Police d'écriture
+## Police d'écriture
 La maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
 > [Voir documentation de @font-face](https://developer.mozilla.org/fr/docs/Web/CSS/%40font-face).
 
@@ -78,7 +95,7 @@ Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoi
 
 Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
-# Astuces
+## Astuces
 - La navigation principale et la bulle du site se trouvent dans le fichier `ressources/css/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
 - A la racine du projet, il y a un fichier nommé `squelette.php`. A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
@@ -105,7 +122,7 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
     1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
 
 
-# Rendus attendus
+## Rendus attendus
 - **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
@@ -117,10 +134,10 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
 **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
 
-# Notation
+### Notation
 Les critères suivants seront évalués. Une ou les deux parties **peuvent** être amenées à être évaluée via un oral.
 
-## Intégration Web (HTML/CSS)
+#### Intégration Web (HTML/CSS)
 Cette partie sera évaluée par vos enseignants en Intégration Web.
 - Qualité du code :
   - Pas de classes au nom étrange
@@ -142,21 +159,21 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
-## Développement Web (PHP)
+#### Développement Web (PHP)
 Cette partie (page "contact") sera évaluée par vos enseignants en Développement Web.
 - Qualité du code
   - Utilisation de la fonction `require_once()`
 - Bon fonctionnement du formulaire avec envoi d'e-mail
   - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
-## Gestion d'équipe
+#### Gestion d'équipe
 Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à trouver, quelque chose qui vous a apporté de la fierté quand vous l'avez développé.
 
-Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de texte.
+Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de texte, une page par membre de groupe est largement suffisant.
 
 > Cette partie pourra être notée individuellement.
 
-# Votre liste à faire
+## Votre liste à faire
   - [x] Lire les consignes
   - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
     - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
@@ -175,7 +192,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
     - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
   - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
-# FAQ - Foire Aux Questions
+## FAQ - Foire Aux Questions
 - **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden" ou un explorateur de fichier qui s'affiche. Pourquoi ?**
 
   Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut impérativement un fichier `index.php` sinon, c'est comme construire une maison sans porte d'entrée.
@@ -215,5 +232,5 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
         - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
         - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
 
-# Pour aller plus loin
+## Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
