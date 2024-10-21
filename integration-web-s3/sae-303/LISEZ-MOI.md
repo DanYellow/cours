@@ -7,6 +7,7 @@ _Les consignes pourront être modifiées._
     - [Conseils - Infographie](#conseils---infographie)
   - [Application interactive en javascript](#application-interactive-en-javascript)
     - [Conseils - Application interactive](#conseils---application-interactive)
+  - [Logos](#logos)
   - [Votre liste à faire](#votre-liste-à-faire)
   - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
 
@@ -79,7 +80,7 @@ Votre infographie devra être présentée sur un site web, une seule page suffit
 - La réalisation (instagram ou print ou vidéo)
   - La vidéo peut être hébergée sur Youtube en privé ou autre
 - Logo de l'université
-  - [Télécharger le logo couleur de l'université - format jpg](https://www.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1614954987956-jpg?INLINE=FALSE)
+  - [Accéder aux logos](#logos)
 - Année universitaire + promotion
 - Membres du groupe
 - Sources (en plus de celles présentent sur l'infographie / vidéo)
@@ -132,7 +133,7 @@ Votre application javascript devra respecter les règles suivantes :
   - Lister les sources
   - Présenter votre application
   - Le logo de l'université
-    - [Télécharger le logo couleur de l'université - format jpg](https://www.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1614954987956-jpg?INLINE=FALSE)
+    - [Accéder aux logos](#logos)
   - Année universitaire + promotion
   - Membres du groupe
 
@@ -146,6 +147,13 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 L'application peut prendre également la forme d'un jeu, par exemple, comparer deux produits et demander à l'utilisateur lequel des deux est le plus cher (ou autre).
 
 > Pensez bien à soigner le design de votre application en n'omettant pas l'accessibilité ou la mise en page. Un outil comme [tailwindcss](https://tailwindcss.com/) vous aidera.
+
+## <a name="#logos"></a>Logos
+Comme annoncé dans la consigne, vous devez afficher les logos de l'université (IUT et Université) dans vos réalisations, et ce, quelque soit le thème utilisé.
+- [Télécharger le logo couleur de l'université - format png](/CY_Cergy_Paris_Universite_-_Logo.png "download")
+- [Télécharger le logo couleur de l'IUT - format png](/CY-IUT_coul240.png "download")
+- [Télécharger le logo blanc de l'IUT - format png](/CY-IUT_Blanc-mini.png "download")
+- [Télécharger le logo noir de l'IUT - format png](/CY-IUT_noir.png "download")
 
 ## Votre liste à faire
   - [x] Lire les consignes
