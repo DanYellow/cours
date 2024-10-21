@@ -1,15 +1,33 @@
 # Mémo GIT
 
+- [Mémo GIT](#mémo-git)
+  - [git ou github ?](#git-ou-github-)
+  - [Commandes](#commandes)
+    - [Initialisation du projet](#initialisation-du-projet)
+    - [Cloner le dépôt (repository) - git clone](#cloner-le-dépôt-repository---git-clone)
+    - [Ajouter des fichiers à l'historique - git add](#ajouter-des-fichiers-à-lhistorique---git-add)
+    - [Enregistrer les modifications - git commit](#enregistrer-les-modifications---git-commit)
+    - [Mettre à jour le dépôt distant - git push](#mettre-à-jour-le-dépôt-distant---git-push)
+  - [Récupérer l'historique distant - git pull](#récupérer-lhistorique-distant---git-pull)
+    - [Gérer les merges (fusion d'historiques)](#gérer-les-merges-fusion-dhistoriques)
+  - [Extras](#extras)
+    - [Autoriser d'autres collaborateurs](#autoriser-dautres-collaborateurs)
+    - [Gérer les conflits](#gérer-les-conflits)
+    - [Changer le terminal de VS Code (Windows uniquement)](#changer-le-terminal-de-vs-code-windows-uniquement)
+    - [Liens utiles](#liens-utiles)
+
+
 > **Important : Si vous souhaitez utiliser git pour la SAE, il faut impérativement éditer les fichier .env.local.dev et .env.local.prod et non .env.dev et .env.prod. Ne pas le faire vous expose à des failles de sécurité critiques.**
 >
 > **Si ça arrive, changez immédiatement le mot de passe de votre base de données chez votre hébergeur.**
 
 Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash. [Télécharger git bash](https://gitforwindows.org/).
+Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash. 
+- [Télécharger git bash](https://gitforwindows.org/)
 
 ## git ou github ?
-Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès maintenant. Pour faire simple, git est la technologie, un outil, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à créer votre compte sur [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home), si ce n'est pas déjà fait.
+Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès maintenant. Pour faire simple, git est la technologie, un outil, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à [créer votre compte sur github](https://github.com/signup), si ce n'est pas déjà fait.
 
 > Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commandes.
 
@@ -34,7 +52,7 @@ Première étape d'un projet git : l'initialisation. **Cette étape n'est à fai
 
 > Vous avez maintenant initialisé votre projet, toutefois, il n'est pas sur votre ordinateur encore, c'est ce que nous allons voir dans la partie suivante.
 
-# Cloner le dépôt (repository)
+### Cloner le dépôt (repository) - git clone
 Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour ce faire, il faudra utiliser la ligne de commandes et la commande suivante :
 ```bash
 git clone URL-du-depot.git
@@ -54,7 +72,7 @@ Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change
 
 ![](./captures-ecran/git-14.png) 
 
-# Ajouter des fichiers à l'historique 
+### Ajouter des fichiers à l'historique - git add 
 Une fois le projet cloné glissez-déposez tout le contenu du dossier de la SAE dans le dossier récemment où vous avez cloné le projet via la commande `git clone`.
 
 Git permet de garder un historique des fichiers au sens d'un dépôt (ajout, suppression, modification). Toutefois, git crée un registre uniquement des fichiers qu'il connait. Après avoir déplacé tous les fichiers de la SAE 203 dans le dossier, vous avez du remarquer sur la gauche de VS Code une pastille avec un nombre, ce nombre représente le nombre de fichiers ajoutés/modifiés dans votre dépôt. Cliquez dessus.
@@ -94,7 +112,7 @@ Pour ajouter nos fichiers à l'historique, il vous suffit de cliquer sur le sign
 
 Notre fichier `index.html` est ajouté dans l'historique toutefois nous n'avons encore rien enregistré, c'est ce que nous allons voir dans la partie suivante.
 
-# Enregistrer les modifications
+### Enregistrer les modifications - git commit
 
 L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre. Autrement dit on indique ce que nous avons fait.
 
@@ -126,7 +144,7 @@ Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez p
 
 Commiter souvent, ça vous permet de plus facilement "retourner" dans le temps en cas d'erreur.
 
-## Mettre à jour le dépôt distant
+### Mettre à jour le dépôt distant - git push
 Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git.
 
 <details open> 
@@ -155,7 +173,7 @@ L'action de "Push" va envoyer sur le serveur distant tous les commits effectués
 Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de manipuler sans restrictions le registre, autorisez-les.
 
 
-## <a name="git-pull"></a>Récupérer l'historique distant
+## <a name="git-pull"></a>Récupérer l'historique distant - git pull
 Si vous changez d'ordinateur ou travaillez d'avec d'autres, votre historique local ne sera certainement pas à jour s'il y a eu des modifications entre-temps. Pour les récupérer, rien de plus simple :
 
 <details open> 
