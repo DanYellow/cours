@@ -1,6 +1,16 @@
 # SAÉ 303 - Concevoir des visualisations de données pour le web
 _Les consignes pourront être modifiées._
 
+- [SAÉ 303 - Concevoir des visualisations de données pour le web](#saé-303---concevoir-des-visualisations-de-données-pour-le-web)
+  - [Contexte de la SAÉ](#contexte-de-la-saé)
+  - [Infographie](#infographie)
+    - [Conseils - Infographie](#conseils---infographie)
+  - [Application interactive en javascript](#application-interactive-en-javascript)
+    - [Conseils - Application interactive](#conseils---application-interactive)
+  - [Votre liste à faire](#votre-liste-à-faire)
+  - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+
+
 ## Contexte de la SAÉ
 De nos jours, les mots "data" ou "donnée" se réfèrent à l’information dématérialisée capable de circuler à travers un réseau de télécommunication ou informatique.
 Dans un monde où la data se fait de plus en plus présente, l'internaute sollicite des outils et des supports de visualisation qui lui permettent de lire et interpréter correctement des flux d'informations de plus en plus énormes.
@@ -127,7 +137,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
 > Pensez bien à soigner le design de votre application en n'omettant pas l'accessibilité ou la mise en page. Un outil comme [tailwindcss](https://tailwindcss.com/) vous aidera.
 
-# Votre liste à faire
+## Votre liste à faire
   - [x] Lire les consignes
   - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
     - [ ] **Lisez bien le nom du document ainsi que les fichiers d'aides (s'il y en a), une confusion est si vite arrivée**
@@ -139,7 +149,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
     - [ ] Votre site et votre réalisation (sujet infographie)
     - [ ] Lien vers le dépôt sur github (sujet développement)
 
-# FAQ - Foire Aux Questions
+## FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
   
   A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données ont une source.
