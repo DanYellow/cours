@@ -42,9 +42,9 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 
 > Pour télécharger les fichiers .csv, .json ou .xlsx, il vous faudra cliquer sur le bouton "Raw" et ensuite faire `ctrl + s` ou `Clic droit > Enregistrer sous`. **Seuls les fichiers .csv et .xslx peuvent être ouverts avec Excel sans problèmes.**
 
-> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographique que des points (lattitude et longitude), d'autres possèdent des formes géographiques. Ces derniers sont au format "geojson" qui est un format de données pensé pour les données géographique. Bien que le nom diffère, un fichier geojson se charge comme un fichier json. Pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte
+> Les jeux de données préfixés par "geo-" sont des jeux de données qui peuvent être exploités dans le cadre du dévéloppement d'une carte interactive. Certains fichiers n'ont pour données géographiques que des points (lattitude et longitude), d'autres possèdent des formes géographiques. Ces derniers sont au format "geojson" qui est un format de données pensé pour les données géographiques. Bien que le nom diffère, un fichier geojson se charge comme un fichier json. Pensez bien à regarder le contenu de ses fichiers pour savoir quelles méthodes utiliser pour afficher les données sur la carte
 
-> Les jeux de données ont des titres ainsi que des colonnes/clés relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE
+> Les jeux de données ont des titres ainsi que des colonnes/clés relativement explicites, mais si vous avez un doute, n'hésitez pas à demander des informations supplémentaires au référent de la SAE.
 
 ## Infographie
 Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
@@ -87,8 +87,8 @@ L'infographie devra respecter les règles suivantes :
 
 ### Conseils - Infographie
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
-- [Voir subreddit Infographics](https://www.reddit.com/r/Infographics/)
-- [Voir subreddit dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/)
+- [Voir subreddit Infographics](https://www.reddit.com/r/Infographics/top/?t=all)
+- [Voir subreddit dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/top/?t=all)
 - [Voir histoire de l'iPhone (2007-2012)](https://www.pinterest.fr/pin/91479436152166905/)
 - [Voir infographie sur l'usage des sacs au Royaume-Uni (anglais)](https://www.informationisbeautifulawards.com/showcase/3906-breaking-bag-habits)
 - [Voir exemples d'infographies réalisées avec tableau.com](https://public.tableau.com/app/discover/viz-of-the-day)
@@ -102,6 +102,7 @@ Autre proposition de rendu : l'application interactive en javascript, elle sera 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
   - Pensez bien à sélectionner l'onglet "Javascript" pour le code
+- [Voir cours sur Leaflet](https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-3/presentation.pdf)
 
 **Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent via un message ou une icône.
 
@@ -163,7 +164,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
   
   Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple : image_1, image_2...
 
-- **Est-ce que le choix de l'axe (crea ou dev) est conditionné par notre parcours ?**
+- **Est-ce que le choix de l'axe (créa ou dev) est conditionné par notre parcours ?**
   
   Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
 
@@ -173,7 +174,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
 - **Mon site web doit-il être responsive ?**
 
-  Vous n'êtes pas obligé, néanmoins, ça reste préférable de rendre votre site web responsive.
+  Ce n'est pas obligatoire, néanmoins, ça reste préférable de rendre votre site web responsive.
 
 - **Est-il possible d'utiliser [tailwindcss](https://tailwindcss.com/) ?**
   
