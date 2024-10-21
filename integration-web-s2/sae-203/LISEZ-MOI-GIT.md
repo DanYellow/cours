@@ -1,4 +1,5 @@
 # Mémo GIT
+Pour certaines commandes, il vous sera proposé une alternative avec VS Code.
 
 - [Mémo GIT](#mémo-git)
   - [git ou github ?](#git-ou-github-)
