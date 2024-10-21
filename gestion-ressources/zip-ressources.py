@@ -52,7 +52,7 @@ def get_list_directories_updated():
 
     stdout_git_status = subprocess.run(command, stdout=subprocess.PIPE).stdout
 
-    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([-\w:.\/\s\n\r\t]*)(?=\n.+staged.+)?"
+    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([->\w:.\/\s\n\r\t]*)(?=\n.+staged.+)?"
     re_last_commit = r"(?:M|A)([\s\n]+.+)"
 
     git_status_raw = re.search(
@@ -69,11 +69,11 @@ def get_list_directories_updated():
         )
 
     list_staged_files = []
-
+    
     if args.last_commit == False: 
         if git_status_raw:
             list_staged_files = re.findall(
-                r"(modified|new file):([\w\s./-]+)$", 
+                r"(modified|new file|renamed):([\w\s./-]+)\.\w{2,5}", 
                 git_status_raw.group(), 
                 re.MULTILINE
             )
@@ -82,7 +82,12 @@ def get_list_directories_updated():
         list_staged_files = git_status_raw
 
     def clean_directory_path(path):
-        cleaned_path = path.replace("modified:", "").strip()
+        cleaned_path = (
+            path
+                .replace("modified:", "")
+                .replace(" -", "")
+                .strip()
+        )
         
         return cleaned_path
     
