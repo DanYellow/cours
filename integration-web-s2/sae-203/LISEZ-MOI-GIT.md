@@ -48,9 +48,10 @@ git clone URL-du-depot.git
 
 Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
 
-> N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.
+> **N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.**
 
 Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
+
 ![](./captures-ecran/git-14.png) 
 
 # Ajouter des fichiers à l'historique 
@@ -68,47 +69,115 @@ La partie "Source control" garde une trace actuelle de votre dernière modificat
 |:--:|
 |*Ici notre fichier `index.html` bien que dans le dossier de notre dépôt, il est marqué comme **U**nstagged. Il faut y remédier.*|
 
+<details open> 
+    <summary>Ligne de commande</summary> <br/>
 Pour ajouter nos fichiers à l'historique, il faut utiliser la commande suivante dans le terminal :
+
 ```bash
 git add .
 ```
+</details>
+
+<details> 
+    <summary>VS Code</summary> <br/>
+Pour ajouter nos fichiers à l'historique, il vous suffit de cliquer sur le signe "+" qui groupe tous les fichiers modifiés
+
+![](./captures-ecran/git-15.jpg)
+
+> Note : il est possible de choisir quel fichier ajouter en cliquant sur le signe "+" qui est à côté de chaque nom de fichier.
+</details>
+
 
 |![](./captures-ecran/git-6.png)|
 |:--:|
-|*Après avoir exécuté la commande `git add .`, notre U de Unstagged s'est transformé en A pour Added*|
+|*Après avoir ajouté nos fichier via la commande `git add .` ou l'ajout via VS Code, notre U de Unstagged s'est transformé en A pour Added*|
 
 Notre fichier `index.html` est ajouté dans l'historique toutefois nous n'avons encore rien enregistré, c'est ce que nous allons voir dans la partie suivante.
 
 # Enregistrer les modifications
 
-L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre. Cette action s'effectue via la commande :
-```bash
-git commit -am "Contenu du message"
-```
-> Les guillemets peuvent être simples ou doubles.
+L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre. Autrement dit on indique ce que nous avons fait.
 
-Il est préférable d'avoir un contenu de message clair, ceci vous permettra de comprendre très facilement ce qui a été effectué pour cette ligne du registre, et ce, sans regarder votre code.
+<details open> 
+    <summary>Ligne de commande</summary> <br/>
+Cette action s'effectue via la commande :
+
+```bash
+git commit -am "Contenu du commit"
+```
+> Les guillemets peuvent être simples ou doubles. Si vous réutilisez le même type de commit dans un message, n'oubliez pas d'échapper les guillemets avec l'anti-slash (\).
+
+Et on valide le commit en appuyant sur entrée.
+</details>
+
+<details> 
+    <summary>VS Code</summary> <br/>
+Dans VS Code, il vous suffit d'écrire le contenu de votre commit dans l'onglet "Source Control" et de valider son contenu en cliquant sur "Commit".
+
+![](./captures-ecran/git-16.jpg)
+
+</details>
+
+Il est préférable d'avoir un contenu de message clair, ceci vous permettra de comprendre très facilement ce qui a été effectué pour cette ligne du registre, et ce, sans même regarder votre code.
 
 > Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", le message du commit peut être "Ajout de la page d'accueil".
 
-Une fois le commit définit, n'oubliez pas d'appuyer sur la touche "entrée" pour le valider.
-Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter plusieurs fois par heure. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités... 
+Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter régulièrement. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités... 
+
+Commiter souvent, ça vous permet de plus facilement "retourner" dans le temps en cas d'erreur.
 
 ## Mettre à jour le dépôt distant
-Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git. Pour ce faire, il faut utiliser la commande "`git push origin`". Cette dernière va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
+Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git.
 
-> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch avant avec la commande "`git pull origin`".
+<details open> 
+    <summary>Ligne de commande</summary> <br/>
+Cette action s'effectue via la commande :
+
+```bash
+git push origin
+```
+
+Et on n'oublie pas de valider l'action en appuyant sur entrée.
+</details>
+
+<details> 
+    <summary>VS Code</summary> <br/>
+Dans VS Code, survolez "Source control", cliquez sur les trois points (...) et cliquez sur "Push" comme dans la capture ci-dessous.
+
+![](./captures-ecran/git-17.jpg)
+
+</details>
+
+L'action de "Push" va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
+
+> Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch avant. Voir chapitre [récupérer l'historique distant](#git-pull).
 
 Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de manipuler sans restrictions le registre, autorisez-les.
 
 
-## Récupérer l'historique distant
+## <a name="git-pull"></a>Récupérer l'historique distant
 Si vous changez d'ordinateur ou travaillez d'avec d'autres, votre historique local ne sera certainement pas à jour s'il y a eu des modifications entre-temps. Pour les récupérer, rien de plus simple :
+
+<details open> 
+    <summary>Ligne de commande</summary> <br/>
+Cette action s'effectue via la commande :
+
 ```bash
 git pull origin
 ```
 
-La commande `git pull origin` met fin à ce document de présentation brève de git, vous avez l'essentiel pour commencer à l'utilisation. Avec le temps, vous découvrirez d'autres commandes tout aussi utiles.
+Et on n'oublie pas de valider l'action en appuyant sur entrée.
+</details>
+
+<details> 
+    <summary>VS Code</summary> <br/>
+Dans VS Code, survolez "Source control", cliquez sur les trois points (...) et cliquez sur "Pull" comme dans la capture ci-dessous.
+
+![](./captures-ecran/git-18.jpg)
+
+</details>
+
+Ce chapitre met fin à cette présentation brève de git, vous avez l'essentiel pour commencer à l'utiliser. Avec le temps, vous découvrirez d'autres commandes tout aussi utiles.
 
 ### Gérer les merges (fusion d'historiques)
 Lorsque que vous effectuez un pull, git effectue une fusion des historiques. Il peut arriver que git vous demande comment gérer cette action (voir image ci-dessous). Généralement, il n'est pas utile de mentionner les raisons du merge. Ainsi pour remettre la console dans son état inital, il vous suffit d'écrire `:q` (et appuyer sur `Entrée`) dans la console.
