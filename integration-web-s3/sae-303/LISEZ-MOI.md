@@ -154,6 +154,8 @@ Comme annoncé dans la consigne, vous devez afficher les logos de l'université 
 - [Télécharger le logo couleur de l'IUT - format png](/CY-IUT_coul240.png "download")
 - [Télécharger le logo blanc de l'IUT - format png](/CY-IUT_Blanc-mini.png "download")
 - [Télécharger le logo noir de l'IUT - format png](/CY-IUT_noir.png "download")
+- <a href="/CY-IUT_noir.png" title="Download" download>Download</a>
+
 
 ## Votre liste à faire
   - [x] Lire les consignes
