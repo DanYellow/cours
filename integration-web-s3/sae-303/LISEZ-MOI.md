@@ -150,12 +150,10 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
 ## <a name="#logos"></a>Logos
 Comme annoncé dans la consigne, vous devez afficher les logos de l'université (IUT et Université) dans vos réalisations, et ce, quelque soit le thème utilisé.
-- [Télécharger le logo couleur de l'université - format png](/CY_Cergy_Paris_Universite_-_Logo.png "download")
-- [Télécharger le logo couleur de l'IUT - format png](/CY-IUT_coul240.png "download")
-- [Télécharger le logo blanc de l'IUT - format png](/CY-IUT_Blanc-mini.png "download")
-- [Télécharger le logo noir de l'IUT - format png](/CY-IUT_noir.png "download")
-- <a href="/CY-IUT_noir.png" title="Download" download>Download</a>
-
+- [Télécharger le logo couleur de l'université - format png](/CY_Cergy_Paris_Universite_-_Logo.png)
+- [Télécharger le logo couleur de l'IUT - format png](/CY-IUT_coul240.png)
+- [Télécharger le logo blanc de l'IUT - format png](/CY-IUT_Blanc-mini.png)
+- [Télécharger le logo noir de l'IUT - format png](/CY-IUT_noir.png)
 
 ## Votre liste à faire
   - [x] Lire les consignes
