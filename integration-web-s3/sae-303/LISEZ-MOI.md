@@ -59,7 +59,9 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 ## Infographie
 Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
-> Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design et libre de droit de préférence.
+> Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design.
+
+Infographie ou motion design, vous prendrez soin à **préférer** du contenu libre de droits.
 
 **Rappelons qu'une infographie n'est pas une data-visualisation.** Une infographie est un ensemble de data-visualisations (ou graphiques) qui peuvent raconter une histoire dans le but de faire parler des données plus facilement. N'oubliez pas également que chaque graphique a un rôle très particulier, choississez-les judicieusement. N'allez pas utiliser un diagramme circulaire pour afficher 42 catégories, ça sera illisible. [Il y a le cours dédié aux graphiques pour vous rafraîchir la mémoire](cours-magistraux/numero-1/presentation.pdf).
 
@@ -193,4 +195,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 - **Devons-nous apporter une analyse sur nos réalisations ?**
 
     Non. Le but de cette SAE est de réaliser un rendu créatif ou de développement définit par les consignes plus haut. Après, si vous le souhaitez, pourquoi pas.
-  
+
+- **Est-il obligatorie d'utiliser du contenu libre de droits ?**
+
+    Non. Toutefois, ça reste préférable. Ne serait-ce que pour prendre une bonne habitude en prévision de votre entrée dans le monde du travail. 
