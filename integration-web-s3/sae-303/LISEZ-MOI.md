@@ -79,9 +79,10 @@ Votre infographie devra être présentée sur un site web, une seule page suffit
 - La réalisation (instagram ou print ou vidéo)
   - La vidéo peut être hébergée sur Youtube en privé ou autre
 - Logo de l'université
+  - [Télécharger le logo couleur de l'université - format jpg](https://www.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1614954987956-jpg?INLINE=FALSE)
 - Année universitaire + promotion
 - Membres du groupe
-- Sources (en plus de celles présentent sur l'inforgraphie / vidéo)
+- Sources (en plus de celles présentent sur l'infographie / vidéo)
 
 N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/). Vous n'avez pas besoin d'utiliser Wordpress, ça rendra votre développement plus complexe pour un gain très faible, seuls les langages HTML et CSS vous serviront.
 
@@ -126,7 +127,14 @@ Pour manipuler les données ou les transformer dans le but de les rendre utilisa
 
 Votre application javascript devra respecter les règles suivantes :
 - Utilisation de git
-- Lister les sources sur le site web contenant votre application
+- Respecter les règles d'accessibilité (contrastes, taille de texte...)
+- Sur le site web contenant votre application :
+  - Lister les sources
+  - Présenter votre application
+  - Le logo de l'université
+    - [Télécharger le logo couleur de l'université - format jpg](https://www.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1614954987956-jpg?INLINE=FALSE)
+  - Année universitaire + promotion
+  - Membres du groupe
 
 ### Conseils - Application interactive
 N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un design. Vous pourrez trouver des inspirations ici :
