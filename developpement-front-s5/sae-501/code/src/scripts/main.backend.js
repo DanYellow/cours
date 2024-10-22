@@ -11,4 +11,3 @@ import "./back-end/drag-n-drop-upload.js";
 import "./back-end/close-modal.js";
 import "./back-end/preview-modal.js";
 import "/src/scripts/store-scroll-position.utils";
-

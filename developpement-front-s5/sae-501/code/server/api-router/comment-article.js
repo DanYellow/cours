@@ -242,7 +242,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         return res.status(404).json({
             errors: [`Le commentaire "${req.params.comment_id}" n'existe pas`],
         });
-    } catch (error) {
+    } catch (_error) {
         return res
             .status(400)
             .json({

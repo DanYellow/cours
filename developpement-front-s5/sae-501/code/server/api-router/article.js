@@ -175,7 +175,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         return res.status(404).json({
             errors: [`L'article "${id}" n'existe pas`],
         });
-    } catch (e) {
+    } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -276,13 +276,13 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             );
         }
         res.status(201).json(ressourceComputed);
-    } catch (err) {
+    } catch (error) {
         res.status(400).json({
             errors: [
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    err?.errors || [{ message: "Il y a eu un problème" }]
+                    error?.errors || [{ message: "Il y a eu un problème" }]
                 ).map((val) => val.message),
             ],
         });
@@ -368,7 +368,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
     let oldRessource = {};
     try {
         [oldRessource] = await Article.find({ [searchKey] : searchParam }).lean();
-    } catch (error) {
+    } catch (_error) {
         oldRessource = {};
     }
     
@@ -481,7 +481,7 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_path}${ressource.image}`;
-            fs.unlink(targetPath, (err) => {});
+            fs.unlink(targetPath, () => {});
         }
 
         if (ressource) {
@@ -491,7 +491,7 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         return res.status(404).json({
             errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
         });
-    } catch (error) {
+    } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],

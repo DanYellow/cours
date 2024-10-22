@@ -397,7 +397,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
     let oldRessource = {};
     try {
         oldRessource = await Author.findById(req.params.id).lean();
-    } catch (error) {
+    } catch (_error) {
         oldRessource = {};
     }
 
@@ -499,7 +499,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         return res.status(404).json({
             errors: [`L'auteur "${req.params.id}" n'existe pas`],
         });
-    } catch (error) {
+    } catch (_error) {
         return res.status(400).json({
             error: "Quelque chose s'est mal passé, veuillez recommencer",
         });

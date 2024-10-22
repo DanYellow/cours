@@ -20,7 +20,7 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    } catch (e) {}
+    } catch (_error) {}
 
     res.render("pages/back-end/saes/list.njk", {
         list_saes: result.data,
@@ -43,8 +43,8 @@ router
         if (isEdit) {
             try {
                 result = await axios(options);
-            } catch (e) {
-                listErrors = e.response.data.errors;
+            } catch (error) {
+                listErrors = error.response.data.errors;
             }
         }
 
@@ -86,9 +86,9 @@ router
         try {
             const result = await axios(options);
             ressource = result.data;
-        } catch (e) {
-            listErrors = e.response.data.errors;
-            ressource = e.response.data.ressource || {};
+        } catch (error) {
+            listErrors = error.response.data.errors;
+            ressource = error.response.data.ressource || {};
         } finally {
             if (!listErrors.length) {
                 req.flash(

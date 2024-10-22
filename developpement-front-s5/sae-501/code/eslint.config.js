@@ -6,7 +6,17 @@ export default [
     pluginJs.configs.recommended,
     {
         rules: {
-            "no-unused-vars": "warn",
-        }
+            "no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                    caughtErrorsIgnorePattern: "^_",
+                },
+            ],
+        },
+    },
+    {
+        ignores: ["dist/", "generate-list-routes.js"],
     }
 ];

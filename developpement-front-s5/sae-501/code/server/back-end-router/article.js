@@ -18,7 +18,7 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    } catch (e) {}
+    } finally {}
 
     res.render("pages/back-end/articles/list.njk", {
         list_articles: result.data,
@@ -40,8 +40,8 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
             };
             result = await axios(options);
         }
-    } catch (e) {
-        listErrors = e.response.data.errors;
+    } catch (error) {
+        listErrors = error.response.data.errors;
     }
 
     res.render("", {

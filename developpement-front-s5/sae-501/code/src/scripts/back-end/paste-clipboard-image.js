@@ -31,7 +31,7 @@ const pasteClipboard = async (e) => {
         } else {
             alert("Image non trouvée dans le presse-papier");
         }
-    } catch (error) {
+    } catch (_error) {
         alert("Image non trouvée dans le presse-papier");
     }
 };
@@ -55,7 +55,7 @@ try {
     await navigator.permissions.query({
         name: "clipboard-read",
     });
-} catch (error) {
+} catch (_error) {
     listClipboardUploadButton.forEach((item) => {
         item.remove();
     });

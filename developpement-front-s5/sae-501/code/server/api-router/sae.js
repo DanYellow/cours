@@ -276,7 +276,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let oldRessource = {}
     try {
         oldRessource = await SAE.findById(req.params.id).lean();
-    } catch (error) {
+    } catch (_error) {
         oldRessource = {}
     }
 
@@ -365,7 +365,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_path}${ressource.image}`;
-            fs.unlink(targetPath, (err) => {});
+            fs.unlink(targetPath, () => {});
         }
 
         if(ressource) {
@@ -375,7 +375,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
         return res.status(404).json({
             errors: [`La SAE "${req.params.id}" n'existe pas`],
         });
-    } catch (error) {
+    } catch (_error) {
         return res
             .status(400)
             .json({

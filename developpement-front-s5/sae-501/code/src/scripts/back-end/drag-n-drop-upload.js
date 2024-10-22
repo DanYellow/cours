@@ -22,7 +22,7 @@ listDragNDropArea.forEach((item) => {
 
 listDragNDropError.forEach((item) => {
     item.classList.add("hidden");
-    item.querySelector("button").addEventListener("click", (e) => {
+    item.querySelector("button").addEventListener("click", () => {
         item.classList.add("hidden");
     });
 });

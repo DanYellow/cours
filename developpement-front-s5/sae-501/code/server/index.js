@@ -174,7 +174,7 @@ if (process.env.NODE_ENV === "development") {
 
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
     app.use("/debug", debugRouter);
-    app.use((err, req, res, next) => {
+    app.use((err, req, res) => {
         res.status(500);
         const response = {
             error: err,

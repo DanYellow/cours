@@ -43,7 +43,7 @@ commentArticleSchema.pre(
     async function (next) {
         try {
             await Article.findOneAndUpdate({ list_comments: this.getQuery()._id }, { "$pull": { list_comments: this.getQuery()._id } });
-        } catch (e) {}
+        } finally {}
 
         next();
     }
