@@ -14,9 +14,10 @@ export default [
                     caughtErrorsIgnorePattern: "^_",
                 },
             ],
+            "no-empty": ["error", { allowEmptyCatch: true }],
         },
     },
     {
         ignores: ["dist/", "generate-list-routes.js"],
-    }
+    },
 ];
