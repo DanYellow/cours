@@ -1,17 +1,39 @@
-```
-**Développer pour le web ou Concevoir un dispositif interactif**
+# SAE 501 - Développer pour le web ou Concevoir un dispositif interactif
 
-███████╗ █████╗ ███████╗    ███████╗ ██████╗  ██╗ 
-██╔════╝██╔══██╗██╔════╝    ██╔════╝██╔═████╗███║
-███████╗███████║█████╗      ███████╗██║██╔██║╚██║
-╚════██║██╔══██║██╔══╝      ╚════██║████╔╝██║ ██║
-███████║██║  ██║███████╗    ███████║╚██████╔╝ ██║
-╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═╝
-```
 _Les consignes pourront être modifiées._
 
+- [SAE 501 - Développer pour le web ou Concevoir un dispositif interactif](#sae-501---développer-pour-le-web-ou-concevoir-un-dispositif-interactif)
+  - [Contexte de la SAÉ](#contexte-de-la-saé)
+  - [Structure du projet](#structure-du-projet)
+    - [Dossier database/](#dossier-database)
+    - [Dossier public/](#dossier-public)
+    - [Dossier server/](#dossier-server)
+      - [server/api-router](#serverapi-router)
+    - [Dossier src/](#dossier-src)
+      - [src/components/](#srccomponents)
+      - [src/data/](#srcdata)
+    - [src/layouts/](#srclayouts)
+    - [src/pages/](#srcpages)
+    - [scripts/](#scripts)
+    - [styles/](#styles)
+  - [Mise en place](#mise-en-place)
+    - [Pré-requis](#pré-requis)
+    - [Installation](#installation)
+    - [Utilisation - Mode développement](#utilisation---mode-développement)
+    - [Utilisation - Mode production](#utilisation---mode-production)
+  - [Flash messages](#flash-messages)
+  - [Utilisation de git](#utilisation-de-git)
+  - [eslint](#eslint)
+  - [Tâches à effectuer](#tâches-à-effectuer)
+    - [Site BUT et administration](#site-but-et-administration)
+    - [Site BUT](#site-but)
+    - [Administration](#administration)
+- [Notes et astuces](#notes-et-astuces)
+- [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+
+
 ## Contexte de la SAÉ
-Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, scss, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
 
 **R5.DWeb-DI.06 | Développement back avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté serveur
@@ -33,6 +55,7 @@ Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouvere
 
 Le projet se structure de la façon suivante (structure non exhaustive) :
 
+## Structure du projet
 ```
 code/
 ├── database/
@@ -66,16 +89,16 @@ code/
 
 La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S1/S2. Le projet se base principalement sur les outils vitejs et express. Regardons en détails tout ça.
 
-### database/
+### Dossier database/
 Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
 
-### public/
+### Dossier public/
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier CSS que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
 > Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/)
 
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
-### server/
+### Dossier server/
 Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework permettant de développer des applications web grâce à nodejs.
 
 Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Au sein du dossier on trouve le routing du projet.
@@ -135,7 +158,7 @@ Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonct
 
 Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
 
-### src/
+### Dossier src/
 C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
 
 #### src/components/
@@ -167,8 +190,9 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 ## Mise en place
 
 ### Pré-requis
-- node >= 18.11 (utilisez les commandes `node -v` pour voir votre version)
-  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, installez par [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
+- node >= 18.11 (utilisez la commande `node -v` pour voir votre version)
+  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
+    - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
 
 ### Installation
@@ -200,12 +224,12 @@ Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce
    ```
 > Note : Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez, temporairement, exposer votre site, vous pouvez utiliser un outil gratuit comme [localtunnel](https://localtunnel.github.io/www/).
 
-# Flash messages
+## Flash messages
 Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'**une seule fois.** après sa création. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
 
 Ils sont déjà implémentés lors de la création, l'édition et la suppression d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
-# Utilisation de git 
+## Utilisation de git 
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Un membre du groupe crée le projet sur github
@@ -218,6 +242,31 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 5. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
+
+## eslint
+Dans une volonté de produire une code de qualité, le projet possède l'outil eslint. eslint est un linter, autrement dit, il a analyse le code javascript du projet et lève les différentes erreurs présentes. Ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
+
+Pour lancer le linter, il y a la commande `npm run lint`, mais le linter tourne également quand vous lancez le serveur en mode développement.
+
+eslint n'aime pas quand une variable n'est pas utilisée, les raisons peuvent être multiples :
+- try/catch utilisé partiellement,
+- paramètre de fonction non utilisé
+- ...
+Pour éviter de lever une erreur / alerte, un ajout a été fait dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
+```js
+// Sera ignoré par eslint
+const _myIgnoredVar = 42;
+
+// Ne sera pas ignoré par eslint
+const myIgnoredVar = 42;
+```
+
+Notez qu'eslint possède trois niveaux de contrôle : 
+- error / 2 : lève une erreur en cas de problème. Peut bloquer la compilation ou autre dépendamment de la configuration
+- warn / 1 : lève une alerte en cas de problème
+- off / 0: désactive la règle
+
+La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js.
 
 ## Tâches à effectuer
 
