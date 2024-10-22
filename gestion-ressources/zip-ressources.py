@@ -73,7 +73,7 @@ def get_list_directories_updated():
     if args.last_commit == False: 
         if git_status_raw:
             list_staged_files = re.findall(
-                r"(modified|new file|renamed):([\w\s./-]+)\.\w{2,8}", 
+                r"(modified|new file|renamed|deleted):([\w\s./-]+)\.\w{2,8}", 
                 git_status_raw.group(), 
                 re.MULTILINE
             )
