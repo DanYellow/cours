@@ -72,7 +72,7 @@ authorSchema.pre("findOneAndUpdate", function (next) {
         if (!validator.isHexColor(this._update.color)) {
             this._update.color = defaultColor;
         }
-    } finally {}
+    } catch {}
 
     next();
 });
@@ -87,7 +87,7 @@ authorSchema.pre(
                 { author: this.getQuery()._id },
                 { author: null }
             );
-        } finally {}
+        } catch {}
 
         next();
     }

@@ -57,7 +57,7 @@ articleSchema.pre('findOneAndDelete', { document: true, query: true }, async fun
         // Deletes all related comments when an Article is deleted
         await CommentArticle.deleteMany({ article: this.getQuery()._id });
         await Author.findOneAndUpdate({ list_articles: this.getQuery()._id }, { "$pull": { list_articles: this.getQuery()._id } });
-    } finally {}
+    } catch {}
 
     next();
 });

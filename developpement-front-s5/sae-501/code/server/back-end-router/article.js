@@ -18,7 +18,7 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    } finally {}
+    } catch {}
 
     res.render("pages/back-end/articles/list.njk", {
         list_articles: result.data,
