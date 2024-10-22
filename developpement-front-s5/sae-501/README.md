@@ -244,7 +244,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
 ## eslint
-Dans une volonté de produire une code de qualité, le projet possède l'outil eslint. eslint est un linter, autrement dit, il a analyse le code javascript du projet et lève les différentes erreurs présentes. Ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
+Dans une volonté de produire une code de qualité, le projet possède l'outil eslint. eslint est un linter, autrement dit, il analyse le code javascript du projet et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... Elles sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
 
 Pour lancer le linter, il y a la commande `npm run lint`, mais le linter tourne également quand vous lancez le serveur en mode développement.
 
@@ -252,7 +252,7 @@ eslint n'aime pas quand une variable n'est pas utilisée, les raisons peuvent ê
 - try/catch utilisé partiellement,
 - paramètre de fonction non utilisé
 - ...
-Pour éviter de lever une erreur / alerte, un ajout a été fait dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
+Pour éviter de lever une alerte, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
 ```js
 // Sera ignoré par eslint
 const _myIgnoredVar = 42;
@@ -262,11 +262,14 @@ const myIgnoredVar = 42;
 ```
 
 Notez qu'eslint possède trois niveaux de contrôle : 
-- error / 2 : lève une erreur en cas de problème. Peut bloquer la compilation ou autre dépendamment de la configuration
+- error / 2 : lève une erreur en cas de problème. Le code ne compilera pas tant que le problème n'est pas résolu
 - warn / 1 : lève une alerte en cas de problème
-- off / 0: désactive la règle
+- off / 0 : désactive la règle
 
-La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js.
+La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js. [Vous pourrez trouver toutes les règles sur le site d'eslint.](https://eslint.org/docs/latest/rules/). Celles avec l'icône ✅ sont actives dans le projet.
+
+> Il existe l'extension gratuite eslint pour VS Code pour avoir des aides plus visuelles.
+> - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 
 
 ## Tâches à effectuer
 
