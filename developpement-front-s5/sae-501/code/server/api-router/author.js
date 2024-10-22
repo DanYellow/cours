@@ -1,15 +1,15 @@
-import express from "express";
-import fs from "fs";
-import mongoose from "mongoose";
-import querystring from "querystring";
+import express from 'express';
+import fs from 'fs';
+import mongoose from 'mongoose';
+import querystring from 'querystring';
 
-import Author from "#models/author.js";
+import Author from '#models/author.js';
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js";
+import upload, { uploadImage, deleteUpload } from '../uploader.js';
 
 const router = express.Router();
 
-const base = "authors";
+const base = 'authors';
 
 /**
  * @openapi
@@ -59,16 +59,16 @@ router.get(`/${base}`, async (req, res) => {
     const page = Math.max(1, Number(req.query.page) || 1);
     const perPage = Number(req.query.per_page);
 
-    let listIds = req.query?.id 
-    if(req.query.id && !Array.isArray(req.query.id)) {
-        listIds = [listIds]
-    }    
+    let listIds = req.query?.id;
+    if (req.query.id && !Array.isArray(req.query.id)) {
+        listIds = [listIds];
+    }
 
-    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
+    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
 
     try {
         const listRessources = await Author.aggregate([
-            ...(listIds.length ? [{ $match: { _id: { $in: listIds } }}] : []),
+            ...(listIds.length ? [{ $match: { _id: { $in: listIds } } }] : []),
             { $sort: { lastname: 1 } },
             ...(perPage ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }] : []),
             ...(perPage ? [{ $limit: Number(perPage) }] : []),
@@ -76,22 +76,22 @@ router.get(`/${base}`, async (req, res) => {
                 $project: {
                     _id: 1,
                     lastname: 1,
-                    firstname: 1, 
+                    firstname: 1,
                     image: 1,
                     bio: 1,
                     email: 1,
-                    nb_articles: { $size: "$list_articles" },
+                    nb_articles: { $size: '$list_articles' },
                 },
             },
         ]);
 
         const count = await Author.count(
-            (listIds.length ? { _id: { $in: listIds } } : null)
+            (listIds.length ? { _id: { $in: listIds } } : null),
         );
         const total_pages = Math.ceil(count / perPage);
 
-        const queryParam = {...req.query}
-        delete queryParam.page
+        const queryParam = { ...req.query };
+        delete queryParam.page;
 
         res.status(200).json({
             data: listRessources,
@@ -100,12 +100,13 @@ router.get(`/${base}`, async (req, res) => {
             page,
             query_params: querystring.stringify(queryParam),
         });
-    } catch (e) {
+    }
+    catch (e) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }]
-                ).map((val) => val.message),
+                    e?.errors || [{ message: 'Il y a eu un problème' }],
+                ).map(val => val.message),
             ],
         });
     }
@@ -169,55 +170,56 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
             {
                 $addFields: {
-                    nb_articles: { $size: "$list_articles" },
+                    nb_articles: { $size: '$list_articles' },
                     page: Number(page),
                     total_pages: {
                         $ceil: {
-                            $divide: [{ $size: "$list_articles" }, perPage],
+                            $divide: [{ $size: '$list_articles' }, perPage],
                         },
                     },
-                }
+                },
             },
-            { 
-                $lookup: { 
-                    from: 'articles', 
-                    localField: 'list_articles', 
-                    foreignField: '_id', 
+            {
+                $lookup: {
+                    from: 'articles',
+                    localField: 'list_articles',
+                    foreignField: '_id',
                     as: 'list_articles',
                     pipeline: [
                         { $sort: { created_at: -1 } },
-                        { $skip: Math.max(page - 1, 0) * perPage},
-                        { $limit: perPage }
-                    ]
-                } 
+                        { $skip: Math.max(page - 1, 0) * perPage },
+                        { $limit: perPage },
+                    ],
+                },
             },
-            { $addFields: { 
+            { $addFields: {
                 list_articles: {
-                    "$map": {
-                        input: "$list_articles", 
-                        as: "article", 
+                    $map: {
+                        input: '$list_articles',
+                        as: 'article',
                         in: {
-                            "$mergeObjects": [
-                                "$$article",
+                            $mergeObjects: [
+                                '$$article',
                                 {
-                                    nb_comments: { "$size": "$$article.list_comments" },
-                                }
-                            ]
-                        } 
-                    } 
-                } 
-            }},
-            { $unset: [ "list_articles.list_comments" ] }
+                                    nb_comments: { $size: '$$article.list_comments' },
+                                },
+                            ],
+                        },
+                    },
+                },
+            } },
+            { $unset: ['list_articles.list_comments'] },
         ]);
 
-        if(!ressource.length) {
+        if (!ressource.length) {
             return res.status(404).json({
                 errors: [`L'auteur "${req.params.id}" n'existe pas`],
             });
         }
-        
+
         return res.status(200).json(ressource[0]);
-    } catch (err) {
+    }
+    catch (err) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -228,9 +230,9 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             errors: [
                 ...Object.values(
                     err?.errors || [
-                        { message: "Quelque chose s'est mal passé" },
-                    ]
-                ).map((val) => val.message),
+                        { message: 'Quelque chose s\'est mal passé' },
+                    ],
+                ).map(val => val.message),
             ],
         });
     }
@@ -264,7 +266,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
  *                type: string
  *              color:
  *                type: string
- *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
+ *                description: Author's **hexadecimal** color used on his page for the bubble in the front.
  *                default: "#ff0000"
  *     responses:
  *       201:
@@ -280,7 +282,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}`, upload.single("image"), async (req, res) => {
+router.post(`/${base}`, upload.single('image'), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -318,9 +320,9 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
                     ...deleteUpload(targetPath),
                     ...Object.values(
                         err?.errors || [
-                            { message: "Quelque chose s'est mal passé" },
-                        ]
-                    ).map((val) => val.message),
+                            { message: 'Quelque chose s\'est mal passé' },
+                        ],
+                    ).map(val => val.message),
                 ],
             });
         });
@@ -361,7 +363,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *                type: string
  *              color:
  *                type: string
- *                description: Author's **hexadecimal** color used on his page for the bubble in the front. 
+ *                description: Author's **hexadecimal** color used on his page for the bubble in the front.
  *                default: "#ff0000"
  *     responses:
  *       200:
@@ -377,7 +379,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res) => {
+router.put(`/${base}/:id([a-f0-9]{24})`, upload.single('image'), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -397,7 +399,8 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
     let oldRessource = {};
     try {
         oldRessource = await Author.findById(req.params.id).lean();
-    } catch (_error) {
+    }
+    catch (_error) {
         oldRessource = {};
     }
 
@@ -411,7 +414,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
     const ressource = await Author.findOneAndUpdate(
         { _id: req.params.id },
         { ...req.body, _id: req.params.id, ...imagePayload },
-        { new: true }
+        { new: true },
     )
         .orFail()
         .catch((err) => {
@@ -419,23 +422,25 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
                 res.status(404).json({
                     errors: [`L'auteur "${req.params.id}" n'existe pas`],
                 });
-            } else if (err instanceof mongoose.Error.CastError) {
+            }
+            else if (err instanceof mongoose.Error.CastError) {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
-                        "Élément non trouvé",
+                        'Élément non trouvé',
                         ...deleteUpload(targetPath),
                     ],
                 });
-            } else {
+            }
+            else {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
                         ...Object.values(
                             err?.errors || [
-                                { message: "Il y a eu un problème" },
-                            ]
-                        ).map((val) => val.message),
+                                { message: 'Il y a eu un problème' },
+                            ],
+                        ).map(val => val.message),
                         ...deleteUpload(targetPath),
                     ],
                     ressource: { ...oldRessource, ...req.body },
@@ -493,15 +498,16 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         }
 
         if (ressource) {
-            req.flash("success", "Element supprimé");
+            req.flash('success', 'Element supprimé');
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
             errors: [`L'auteur "${req.params.id}" n'existe pas`],
         });
-    } catch (_error) {
+    }
+    catch (_error) {
         return res.status(400).json({
-            error: "Quelque chose s'est mal passé, veuillez recommencer",
+            error: 'Quelque chose s\'est mal passé, veuillez recommencer',
         });
     }
 });

@@ -1,16 +1,16 @@
-import express from "express";
-import fs from "fs";
-import querystring from "querystring";
+import express from 'express';
+import fs from 'fs';
+import querystring from 'querystring';
 
-import Article from "#models/article.js";
-import Author from "#models/author.js";
+import Article from '#models/article.js';
+import Author from '#models/author.js';
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js";
-import mongoose from "mongoose";
+import upload, { uploadImage, deleteUpload } from '../uploader.js';
+import mongoose from 'mongoose';
 
 const router = express.Router();
 
-const base = "articles";
+const base = 'articles';
 
 /**
  * @openapi
@@ -59,7 +59,7 @@ const base = "articles";
  *          enum: ["true", "false", "all"]
  *          example: "all"
  *          default: all
- *        description: | 
+ *        description: |
  *          Search articles related to their "is_active" key value. If the value is unknown only `{ is_active: false }` articles will be returned.
  *          **Note : You cannot use that predicate with search by _id or slug**
  *     responses:
@@ -87,7 +87,7 @@ router.get(`/${base}`, async (req, res) => {
     }
     listIds = listIds || [];
 
-    const isActive = req.query.is_active?.toLowerCase() || "all";
+    const isActive = req.query.is_active?.toLowerCase() || 'all';
 
     try {
         const listRessources = await getArticles(
@@ -96,24 +96,24 @@ router.get(`/${base}`, async (req, res) => {
         );
 
         const searchPredicates = {
-            ...(isActive !== "all" ? { is_active: isActive === "true" } : {}),
-        }
+            ...(isActive !== 'all' ? { is_active: isActive === 'true' } : {}),
+        };
 
-        const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
+        const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
 
-        const countQuery = { 
+        const countQuery = {
             $or: [
                 { _id: { $in: listBsonIds } },
-                { slug: { $in: listIds } }
+                { slug: { $in: listIds } },
             ],
-        }
+        };
 
-        const count = await Article.countDocuments(listIds.length ? countQuery : searchPredicates)
+        const count = await Article.countDocuments(listIds.length ? countQuery : searchPredicates);
 
         const queryParam = Object.fromEntries(
             Object.entries({ ...req.query }).filter(([_, value]) =>
-                Boolean(value)
-            )
+                Boolean(value),
+            ),
         );
         delete queryParam.page;
 
@@ -124,12 +124,13 @@ router.get(`/${base}`, async (req, res) => {
             page,
             query_params: querystring.stringify(queryParam),
         });
-    } catch (e) {
+    }
+    catch (e) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }]
-                ).map((val) => val.message),
+                    e?.errors || [{ message: 'Il y a eu un problème' }],
+                ).map(val => val.message),
             ],
         });
     }
@@ -166,7 +167,7 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const id = req.params.id ? new mongoose.Types.ObjectId(req.params.id) : req.params.slug
+        const id = req.params.id ? new mongoose.Types.ObjectId(req.params.id) : req.params.slug;
         const [ressource] = await getArticles(id);
 
         if (ressource) {
@@ -175,7 +176,8 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         return res.status(404).json({
             errors: [`L'article "${id}" n'existe pas`],
         });
-    } catch (_error) {
+    }
+    catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -183,7 +185,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         }
         return res
             .status(400)
-            .json({ errors: ["Quelque chose s'est mal passé"] });
+            .json({ errors: ['Quelque chose s\'est mal passé'] });
     }
 });
 
@@ -234,7 +236,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}`, upload.single("image"), async (req, res) => {
+router.post(`/${base}`, upload.single('image'), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -272,18 +274,19 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             ressourceComputed.author.nb_articles++;
             await Author.findOneAndUpdate(
                 { _id: req.body.author },
-                { $push: { list_articles: ressource._id } }
+                { $push: { list_articles: ressource._id } },
             );
         }
         res.status(201).json(ressourceComputed);
-    } catch (error) {
+    }
+    catch (error) {
         res.status(400).json({
             errors: [
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    error?.errors || [{ message: "Il y a eu un problème" }]
-                ).map((val) => val.message),
+                    error?.errors || [{ message: 'Il y a eu un problème' }],
+                ).map(val => val.message),
             ],
         });
     }
@@ -346,15 +349,15 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], upload.single("image"), async (req, res) => {
+router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], upload.single('image'), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
-    const searchKey = req.params.id ? "_id" : "slug";
+    const searchKey = req.params.id ? '_id' : 'slug';
     const searchParam = req.params?.id || req.params.slug;
-    
+
     if (uploadedImage) {
         let imageName;
         ({
@@ -367,11 +370,12 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
 
     let oldRessource = {};
     try {
-        [oldRessource] = await Article.find({ [searchKey] : searchParam }).lean();
-    } catch (_error) {
+        [oldRessource] = await Article.find({ [searchKey]: searchParam }).lean();
+    }
+    catch (_error) {
         oldRessource = {};
     }
-    
+
     if (listErrors.length) {
         return res.status(400).json({
             errors: listErrors,
@@ -380,7 +384,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
     }
 
     try {
-        let [ressource] = await Article.find({ [searchKey] : searchParam });
+        let [ressource] = await Article.find({ [searchKey]: searchParam });
         const newPayload = { ...req.body, ...imagePayload };
         Object.entries(newPayload).forEach(([key, value]) => {
             ressource[key] = value;
@@ -390,19 +394,20 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
             // Unlink article with author
             await Author.findOneAndUpdate(
                 { _id: ressource.author },
-                { $pull: { list_articles: ressource._id } }
+                { $pull: { list_articles: ressource._id } },
             );
 
             if (
-                req.body.author &&
-                mongoose.Types.ObjectId.isValid(req.body.author)
+                req.body.author
+                && mongoose.Types.ObjectId.isValid(req.body.author)
             ) {
                 ressource.author = req.body.author;
                 await Author.findOneAndUpdate(
                     { _id: req.body.author },
-                    { $addToSet: { list_articles: ressource._id } }
+                    { $addToSet: { list_articles: ressource._id } },
                 );
-            } else {
+            }
+            else {
                 // Unlink with no author
                 ressource.author = null;
             }
@@ -412,22 +417,25 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         const [ressourceComputed] = await getArticles(ressource._id);
 
         res.status(200).json(ressourceComputed);
-    } catch (err) {
+    }
+    catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
             });
-        } else if (err instanceof mongoose.Error.CastError) {
+        }
+        else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
-        } else {
+        }
+        else {
             res.status(400).json({
                 errors: [
                     ...listErrors,
                     ...Object.values(
-                        err?.errors || [{ message: "Il y a eu un problème" }]
-                    ).map((val) => val.message),
+                        err?.errors || [{ message: 'Il y a eu un problème' }],
+                    ).map(val => val.message),
                     ...deleteUpload(targetPath),
                 ],
                 ressource: { ...oldRessource, ...req.body },
@@ -475,9 +483,9 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
  */
 router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const searchKey = req.params.id ? "_id" : "slug";
+        const searchKey = req.params.id ? '_id' : 'slug';
         const searchParam = req.params?.id || req.params.slug;
-        const ressource = await Article.findOneAndDelete({ [searchKey] : searchParam });
+        const ressource = await Article.findOneAndDelete({ [searchKey]: searchParam });
 
         if (ressource?.image) {
             const targetPath = `${res.locals.upload_path}${ressource.image}`;
@@ -485,13 +493,14 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         }
 
         if (ressource) {
-            req.flash("success", "Element supprimé");
+            req.flash('success', 'Element supprimé');
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
             errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
         });
-    } catch (_error) {
+    }
+    catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -499,89 +508,94 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         }
         return res
             .status(400)
-            .json({ errors: ["Quelque chose s'est mal passé"] });
+            .json({ errors: ['Quelque chose s\'est mal passé'] });
     }
 });
 
 const getArticles = async (id, queryParams) => {
     const computedQueryParams = {
-        sorting: "desc",
+        sorting: 'desc',
         ...queryParams,
-    }
+    };
 
     const searchPredicates = {
-        ...(queryParams?.isActive !== "all" ? { is_active: queryParams?.isActive === "true" } : {}),
-    }
+        ...(queryParams?.isActive !== 'all' ? { is_active: queryParams?.isActive === 'true' } : {}),
+    };
 
     const isArray = Array.isArray(id);
-    const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map((item) => new mongoose.Types.ObjectId(item))
+    const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
 
     const ressource = await Article.aggregate([
         ...(isArray
-            ? [...(id.length ? [
-                { $match: { 
-                    $or: [
-                        { _id: { $in: listBsonIds } },
-                        { slug: { $in: id } }
-                    ]
-                } }
-            ] : [])]
+            ? [...(id.length
+                    ? [
+                            { $match: {
+                                $or: [
+                                    { _id: { $in: listBsonIds } },
+                                    { slug: { $in: id } },
+                                ],
+                            } },
+                        ]
+                    : [])]
             : [
-                { $match: { 
-                    $or: [
-                        { _id: id },
-                        { slug: id }
-                    ]
-                } 
-            }]
-            ),
+                    {
+                        $match: {
+                            $or: [
+                                { _id: id },
+                                { slug: id },
+                            ],
+                        },
+                    },
+                ]
+        ),
         ...(isArray
             ? [
-                { $match: searchPredicates },
-                { $sort: { updated_at: computedQueryParams.sorting === "asc" ? 1 : -1 } },
-                {
-                    $skip: Math.max(computedQueryParams.page - 1, 0) * computedQueryParams.perPage,
-                },
-                { $limit: computedQueryParams.perPage },
-                
-              ]
-            : []),
+                    { $match: searchPredicates },
+                    { $sort: { updated_at: computedQueryParams.sorting === 'asc' ? 1 : -1 } },
+                    {
+                        $skip: Math.max(computedQueryParams.page - 1, 0) * computedQueryParams.perPage,
+                    },
+                    { $limit: computedQueryParams.perPage },
+
+                ]
+            : []
+        ),
         {
             $lookup: {
-                from: "commentarticles",
-                localField: "list_comments",
-                foreignField: "_id",
-                as: "list_comments",
+                from: 'commentarticles',
+                localField: 'list_comments',
+                foreignField: '_id',
+                as: 'list_comments',
             },
         },
         {
             $addFields: {
-                nb_comments: { $size: "$list_comments" },
+                nb_comments: { $size: '$list_comments' },
             },
         },
-        { $unset: "list_comments" },
+        { $unset: 'list_comments' },
         {
             $lookup: {
-                from: "authors",
-                localField: "author",
-                foreignField: "_id",
-                as: "author",
+                from: 'authors',
+                localField: 'author',
+                foreignField: '_id',
+                as: 'author',
             },
         },
         {
             $unwind: {
-                path: "$author",
+                path: '$author',
                 preserveNullAndEmptyArrays: true,
             },
         },
         {
             $addFields: {
-                "author.nb_articles": {
+                'author.nb_articles': {
                     // https://stackoverflow.com/questions/14213636/conditional-grouping-with-exists-inside-cond
                     $cond: [
-                        { $not: ["$author.list_articles"] },
-                        "$$REMOVE",
-                        { $size: "$author.list_articles" },
+                        { $not: ['$author.list_articles'] },
+                        '$$REMOVE',
+                        { $size: '$author.list_articles' },
                     ],
                 },
             },
@@ -590,14 +604,14 @@ const getArticles = async (id, queryParams) => {
             $set: {
                 author: {
                     $cond: [
-                        { $not: ["$author.list_articles"] },
+                        { $not: ['$author.list_articles'] },
                         null,
-                        "$author",
+                        '$author',
                     ],
                 },
             },
         },
-        { $unset: "author.list_articles" },
+        { $unset: 'author.list_articles' },
     ]);
 
     return ressource;

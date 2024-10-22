@@ -1,6 +1,6 @@
 const routeName = (routeName) => {
     return function namedRoute(req, res, next) {
-        if(next) {
+        if (next) {
             next();
             return;
         }

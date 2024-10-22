@@ -1,11 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import mongoose from 'mongoose';
 
-import CommentArticle from '#models/comment-article.js'
-import Article from '#models/article.js'
+import CommentArticle from '#models/comment-article.js';
+import Article from '#models/article.js';
 
 const router = express.Router();
-const base = "articles";
+const base = 'articles';
 
 /**
  * @openapi
@@ -53,32 +53,35 @@ const base = "articles";
  */
 router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments`], async (req, res) => {
     try {
-        const searchKey = req.params.id ? "_id" : "slug";
+        const searchKey = req.params.id ? '_id' : 'slug';
         const searchParam = req.params?.id || req.params.slug;
 
-        const [article] = await Article.find({ [searchKey] : searchParam })
+        const [article] = await Article.find({ [searchKey]: searchParam });
         const ressource = new CommentArticle({ ...req.body, article });
-        await ressource.save()
-        
+        await ressource.save();
+
         article.list_comments.push(ressource);
         await article.save();
 
-        res.status(201).json(ressource.getClean())
-    } catch (err) {
+        res.status(201).json(ressource.getClean());
+    }
+    catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],
             });
-        } else if(err instanceof mongoose.Error.CastError) {
+        }
+        else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
-        } else {
+        }
+        else {
             res.status(400).json({
                 errors: [
-                    ...Object.values(err?.errors || [{'message': "Il y a eu un problème"}]).map((val) => val.message)
-                ]
-            })
+                    ...Object.values(err?.errors || [{ message: 'Il y a eu un problème' }]).map(val => val.message),
+                ],
+            });
         }
     }
 });
@@ -132,12 +135,12 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
         const perPage = 20;
 
         const ressource = await Article.aggregate([
-            { $match: { 
+            { $match: {
                 $or: [
                     { _id: new mongoose.Types.ObjectId(req.params.id) },
-                    { slug: req.params.slug }
-                ]
-            }},
+                    { slug: req.params.slug },
+                ],
+            } },
             {
                 $project: {
                     list_comments: 1,
@@ -145,33 +148,33 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
             },
             {
                 $lookup: {
-                    from: "commentarticles",
-                    localField: "list_comments",
-                    foreignField: "_id",
-                    as: "list_comments",
+                    from: 'commentarticles',
+                    localField: 'list_comments',
+                    foreignField: '_id',
+                    as: 'list_comments',
                 },
             },
             {
                 $addFields: {
                     page: page,
-                    count: { $size: "$list_comments" },
+                    count: { $size: '$list_comments' },
                     total_pages: {
                         $ceil: {
-                            $divide: [{ $size: "$list_comments" }, perPage],
+                            $divide: [{ $size: '$list_comments' }, perPage],
                         },
                     },
                     list_comments: {
                         $slice: [
                             {
                                 $sortArray: {
-                                    input: "$list_comments",
+                                    input: '$list_comments',
                                     sortBy: {
                                         created_at: -1,
                                     },
                                 },
                             },
                             Math.max(page - 1, 0) * perPage,
-                            perPage
+                            perPage,
                         ],
                     },
                 },
@@ -185,12 +188,13 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
         }
 
         res.status(200).json(ressource[0]);
-    } catch (err) {
+    }
+    catch (err) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    err?.errors || [{ message: "Il y a eu un problème" }]
-                ).map((val) => val.message),
+                    err?.errors || [{ message: 'Il y a eu un problème' }],
+                ).map(val => val.message),
             ],
         });
     }
@@ -233,20 +237,21 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
  */
 router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
     try {
-        const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id)
+        const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id);
 
-        if(ressource) {
-            req.flash("success", "Element supprimé");
+        if (ressource) {
+            req.flash('success', 'Element supprimé');
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
             errors: [`Le commentaire "${req.params.comment_id}" n'existe pas`],
         });
-    } catch (_error) {
+    }
+    catch (_error) {
         return res
             .status(400)
             .json({
-                error: "Quelque chose s'est mal passé, veuillez recommencer",
+                error: 'Quelque chose s\'est mal passé, veuillez recommencer',
             });
     }
 });

@@ -1,26 +1,26 @@
-import express from "express";
-import path from "path";
-import fs from "fs/promises";
-import axios from "axios";
-import querystring from "querystring";
+import express from 'express';
+import path from 'path';
+import fs from 'fs/promises';
+import axios from 'axios';
+import querystring from 'querystring';
 
-import routeName from "#server/utils/name-route.middleware.js";
+import routeName from '#server/utils/name-route.middleware.js';
 
 // Routers
-import SAERouter from './sae.js'
-import articleRouter from './article.js'
+import SAERouter from './sae.js';
+import articleRouter from './article.js';
 
 const router = express.Router();
 
 const parseManifest = async () => {
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== 'production') {
         return {};
     }
 
     const manifestPath = path.join(
         path.resolve(),
-        "dist",
-        "backend.manifest.json"
+        'dist',
+        'backend.manifest.json',
     );
     const manifestFile = await fs.readFile(manifestPath);
 
@@ -41,26 +41,26 @@ router.use(async (_req, res, next) => {
     next();
 });
 
-router.use(SAERouter)
-router.use(articleRouter)
+router.use(SAERouter);
+router.use(articleRouter);
 
-router.get("/", routeName("admin"), async (req, res) => {
+router.get('/', routeName('admin'), async (req, res) => {
     const queryParamsSAEs = querystring.stringify({ per_page: 5 });
     const optionsSAEs = {
-        method: "GET",
+        method: 'GET',
         url: `${res.locals.base_url}/api/saes?${queryParamsSAEs}`,
-    }
+    };
 
     const listSAEs = await axios(optionsSAEs);
-    
+
     const queryParamsArticles = querystring.stringify({ per_page: 5 });
     const optionsArticles = {
-        method: "GET",
+        method: 'GET',
         url: `${res.locals.base_url}/api/articles?${queryParamsArticles}`,
-    }
+    };
     const listArticles = await axios(optionsArticles);
 
-    res.render("pages/back-end/index.njk", {
+    res.render('pages/back-end/index.njk', {
         list_saes: {
             data: listSAEs.data.data,
             count: listSAEs.data.count,
