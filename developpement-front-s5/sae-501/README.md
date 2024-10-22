@@ -244,14 +244,12 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
 ## eslint
-Dans une volonté de produire une code de qualité, le projet possède l'outil eslint. eslint est un linter, autrement dit, il analyse le code javascript du projet et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... Elles sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
+Dans une volonté de produire une code de qualité, le projet intègre un linter. En programmation, un linter analyse le code du projet et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... En javascript, eslint est le plus répandu, dans le projet, ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
 
-Pour lancer le linter, il y a la commande `npm run lint`, mais le linter tourne également quand vous lancez le serveur en mode développement.
+> Quand une erreur / alerte s'affiche, vous pouvez effectuer un ctrl / cmd + clic sur l'erreur dans le terminal de VS Code pour atterrir à l'endroit du problème dans le fichier.
 
-eslint n'aime pas quand une variable n'est pas utilisée, les raisons peuvent être multiples :
-- try/catch utilisé partiellement,
-- paramètre de fonction non utilisé
-- ...
+Pour exécuter uniquement le linter, il y a la commande `npm run lint`, mais le linter tourne également quand vous lancez le serveur en mode développement.
+
 Pour éviter de lever une alerte, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
 ```js
 // Sera ignoré par eslint
