@@ -19,6 +19,8 @@ import expressSession from "express-session";
 import { createServer as createViteServer } from "vite";
 import { codeFrameColumns } from "@babel/code-frame";
 
+import { ESLint } from "eslint";
+
 import mongoServer from "#database/index.js";
 
 import swaggerSpec from "./swagger.js";
@@ -218,6 +220,29 @@ if (process.env.NODE_ENV === "development") {
         }
 
         res.render("pages/error.njk", response);
+    });
+
+    ;(async() => {
+        const eslint = new ESLint();
+    
+        const results = await eslint.lintFiles([
+            "./server/**/*.js", 
+            "./database/**/*.js",
+        ]);
+    
+        await ESLint.outputFixes(results);
+    
+        const formatter = await eslint.loadFormatter("stylish");
+        const resultText = formatter.format(results);
+
+        if (resultText.length) {
+            console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
+            console.log(resultText);
+            console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
+        }
+    })().catch((error) => {
+        process.exitCode = 1;
+        console.error(error);
     });
 }
 

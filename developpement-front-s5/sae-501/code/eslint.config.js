@@ -15,6 +15,7 @@ export default [
                 },
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
+            "no-var": "error",
         },
     },
     {

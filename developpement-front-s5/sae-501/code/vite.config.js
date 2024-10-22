@@ -7,7 +7,12 @@ export default {
         // Displays the source of sass files in dev
         devSourcemap: true,
     },
-    plugins: [tailwindcss(), eslint()],
+    plugins: [
+        tailwindcss(),
+        eslint({
+            include: "**/*.js",
+        }),
+    ],
     appType: "custom",
     server: {
         // Expose the server to the network allowing access from ip address
