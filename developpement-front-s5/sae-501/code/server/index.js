@@ -250,16 +250,28 @@ if (process.env.NODE_ENV === "development") {
 
             return copy;
         });
-        
-        fs.writeFile(
-            "src/pages/back-end/debug/eslint.tmp.njk.json", 
-            JSON.stringify({ data: resultJSON }), 
-            (err) => {
-                if (err) {
-                    console.error(err);
+        resultJSON = resultJSON.filter((item) => {
+            return item.messages.length > 0;
+        });
+
+        if (resultText.length) {
+            fs.writeFile(
+                "src/pages/back-end/debug/eslint.tmp.njk.json", 
+                JSON.stringify({ 
+                    data: {
+                        report_details: resultJSON,
+                        summary: {
+                            errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
+                            warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
+                        },
+                    },
+                }), 
+                (err) => {
+                    if (err) {
+                        console.error(err);
+                    }
                 }
-            }
-        );
+            );
 
         if (resultText.length) {
             console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
@@ -385,6 +397,12 @@ if (process.env.NODE_ENV === "development") {
                 eslintVite({
                     include: "**/*.js",
                     fix: useEslintAutoFix,
+                    formatter: "stylish",
+                }),
+                eslintVite({
+                    include: "**/*.js",
+                    fix: useEslintAutoFix,
+                    formatter: "json",
                 }),
             ],
         };
