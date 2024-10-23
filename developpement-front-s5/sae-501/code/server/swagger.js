@@ -1,5 +1,6 @@
 import path from "path";
 import dotenv from "dotenv";
+import swaggerJSDoc from "swagger-jsdoc";
 
 // Doc : https://swagger.io/docs/specification/data-models/data-types/
 // Doc : https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md
@@ -8,7 +9,7 @@ import listCommentsArticle, { commentArticle } from "./swagger-schemas/comment-a
 import listSAEs, { sae } from "./swagger-schemas/sae.js";
 import listAuthors, { author } from "./swagger-schemas/author.js";
 
-import swaggerJSDoc from "swagger-jsdoc";
+import packageJSON from "../package.json" with { "type": "json" };
 
 const envFilePath = ".env.dev.local";
 
@@ -22,7 +23,7 @@ const options = {
         produces: ["application/json"],
         info: {
             title: "Swagger SAE 501",
-            version: "2024.0.0",
+            version: packageJSON.version,
             description: "List endpoints of SAE 501",
         },
         externalDocs: {

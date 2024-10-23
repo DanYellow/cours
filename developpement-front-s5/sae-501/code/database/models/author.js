@@ -37,7 +37,7 @@ const authorSchema = new Schema({
         type: String,
         maxlength: [
             300,
-            "Le champ \"bio\" ne peut pas dépasser 300 caractères",
+            'Le champ "bio" ne peut pas dépasser 300 caractères',
         ],
         trim: true,
     },
