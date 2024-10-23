@@ -1,3 +1,4 @@
+// Used to create production build
 import tailwindcss from "@vituum/vite-plugin-tailwindcss";
 import path from "path";
 import fs from "fs";
@@ -9,7 +10,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const createBuilds = () => {
+(() => {
     fs.rmSync(path.resolve(__dirname, "dist"), {
         recursive: true,
         force: true,
@@ -49,6 +50,4 @@ const createBuilds = () => {
             plugins: [tailwindcss()],
         });
     });
-};
-
-createBuilds();
+})();

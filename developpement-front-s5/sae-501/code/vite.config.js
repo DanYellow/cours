@@ -1,5 +1,4 @@
 import tailwindcss from "@vituum/vite-plugin-tailwindcss";
-import eslint from "vite-plugin-eslint";
 
 export default {
     base: "./",
@@ -9,9 +8,6 @@ export default {
     },
     plugins: [
         tailwindcss(),
-        eslint({
-            include: "**/*.js",
-        }),
     ],
     appType: "custom",
     server: {

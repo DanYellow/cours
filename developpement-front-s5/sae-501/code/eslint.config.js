@@ -23,6 +23,18 @@ export default [
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
             "no-var": "error",
+            "@stylistic/semi": "warn",
+            "@stylistic/brace-style": ["error", "1tbs"],
+            "@stylistic/comma-dangle": [
+                "error",
+                {
+                    arrays: "always-multiline",
+                    objects: "always-multiline",
+                    imports: "always-multiline",
+                    exports: "always-multiline",
+                    functions: "never",
+                },
+            ],
         },
     },
     {
@@ -33,6 +45,7 @@ export default [
             "vite.config.js",
             "vite.config.build.js",
             "eslint.config.js",
+            "postcss.config.js",
             "server/swagger.js",
             "server/swagger-schemas/",
         ],
