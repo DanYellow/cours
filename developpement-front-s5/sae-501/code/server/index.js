@@ -255,7 +255,7 @@ if (process.env.NODE_ENV === "development") {
         });
 
         if (resultText.length) {
-            fs.writeFile(
+            await fs.promises.writeFile(
                 "src/pages/back-end/debug/eslint.tmp.njk.json", 
                 JSON.stringify({ 
                     data: {
@@ -265,12 +265,7 @@ if (process.env.NODE_ENV === "development") {
                             warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
                         },
                     },
-                }), 
-                (err) => {
-                    if (err) {
-                        console.error(err);
-                    }
-                }
+                })
             );
 
         if (resultText.length) {
