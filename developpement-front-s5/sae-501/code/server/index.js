@@ -149,8 +149,13 @@ app.use(function (req, res, next) {
 
         const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
 
+        const tplTmpFilename = path.format({ ...path.parse(view), base: '', ext: '.tmp.njk' })
+        const tplTmpContentPath = path.join(__dirname, "..", `/src/${tplTmpFilename}.json`);
+
         if (fs.existsSync(tplContentPath)) {
             tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
+        } else if (fs.existsSync(tplTmpContentPath)) {
+            tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
         const args = [view, { ...local, ...tplContent }, callback];
