@@ -9,5 +9,5 @@ const htmlBGColor = window
     .getComputedStyle(document.documentElement, null)
     .getPropertyValue("background-color");
 document
-    .querySelector("meta[name=\"theme-color\"]")
+    .querySelector('meta[name="theme-color"]')
     .setAttribute("content", htmlBGColor);

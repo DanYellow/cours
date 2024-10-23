@@ -32,6 +32,6 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
         });
 });
 
-document.querySelectorAll("[data-modal=\"delete-entry\"]").forEach((item) => {
+document.querySelectorAll('[data-modal="delete-entry"]').forEach((item) => {
     item.addEventListener("click", displayDeleteItemModal);
 });

@@ -8,7 +8,7 @@ const input = document.querySelector("[data-route-search]");
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
-        const cellRow = item.querySelector("[data-label=\"NAME\"]");
+        const cellRow = item.querySelector('[data-label="NAME"]');
         if (cellRow) {
             if (
                 cellRow.innerText

@@ -15,7 +15,7 @@ const saeSchema = new Schema({
         type: String,
         maxlength: [
             200,
-            "Le champ \"contenu\" ne peut pas dépasser 200 caractères",
+            'Le champ "contenu" ne peut pas dépasser 200 caractères',
         ],
         trim: true,
     },
