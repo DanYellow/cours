@@ -37,7 +37,7 @@ router.get(
 );
 
 router.get("/eslint", routeName("eslint"), async (req, res) => {
-    res.render("pages/back-end/debug/eslint.njk", {});
+    res.render("pages/back-end/debug/eslint.njk");
 });
 
 export default router;
