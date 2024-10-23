@@ -244,13 +244,20 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
 ## eslint
-Dans une volonté de produire une code de qualité, le projet intègre un linter. En programmation, un linter analyse le code du projet et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... En javascript, eslint est le plus répandu, dans le projet, ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
+Dans une volonté de produire une code de qualité et constant, le projet intègre un linter. C'est un outil d'analyse de code et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... En javascript, eslint est le plus répandu, dans le projet, ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
 
 > Quand une erreur / alerte s'affiche, vous pouvez effectuer un ctrl / cmd + clic sur l'erreur dans le terminal de VS Code pour atterrir à l'endroit du problème dans le fichier.
 
-Pour exécuter uniquement le linter, il y a la commande `npm run lint`, mais le linter tourne également quand vous lancez le serveur en mode développement.
+eslint est configuré pour fonctionner en mode "fix", autrement dit **certaines** erreurs seront corrigées à chaque sauvegarde de votre fichier, si et seulement si, le projet est lancé.
 
-Pour éviter de lever une alerte, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
+> Si vous souhaitez désactiver l'auto-formattage des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
+
+Pour exécuter uniquement le linter, il y a la commande `npm run lint`. La commande `npm run lint:fix`. Vous permet de corriger certaines erreurs.
+
+En plus de la configuration de base d'eslint, le plugin stylistic a également été rajouté, il vérifie le formattage du code (indentation, virgules, etc.).
+- [Accéder à la documentation d'esling stylistic](https://eslint.style/)
+
+Le projet possède, parfois, des variables non utilisées, pour éviter de polluer la console avec des alertes inutiles, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
 ```js
 // Sera ignoré par eslint
 const _myIgnoredVar = 42;
@@ -260,7 +267,7 @@ const myIgnoredVar = 42;
 ```
 
 Notez qu'eslint possède trois niveaux de contrôle : 
-- error / 2 : lève une erreur en cas de problème. Le code ne compilera pas tant que le problème n'est pas résolu
+- error / 2 : lève une erreur en cas de problème. Le code ne compilera pas tant que le problème n'est pas résolu. Dans certaines configurations, on peut même bloquer la commande `git push`
 - warn / 1 : lève une alerte en cas de problème
 - off / 0 : désactive la règle
 
