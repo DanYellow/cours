@@ -23,6 +23,13 @@ export default [
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
             "no-var": "error",
+            "@stylistic/quotes": [
+                "error",
+                "double",
+                {
+                    avoidEscape: true,
+                },
+            ],
             "@stylistic/semi": "warn",
             "@stylistic/brace-style": ["error", "1tbs"],
             "@stylistic/comma-dangle": [
