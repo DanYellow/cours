@@ -245,8 +245,8 @@ if (process.env.NODE_ENV === "development") {
 
         let resultJSON = JSON.parse(JSONformatter.format(results));
         resultJSON = resultJSON.map((item) => {
-            const copy = { ...item }
-            delete copy.source
+            const copy = { ...item };
+            delete copy.source;
 
             return copy;
         });
@@ -257,8 +257,6 @@ if (process.env.NODE_ENV === "development") {
             (err) => {
                 if (err) {
                     console.error(err);
-                } else {
-                    // file written successfully
                 }
             }
         );
@@ -340,6 +338,18 @@ nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
     const finalURL = generateUrl(app, name, params);
 
     return `/${finalURL}`;
+});
+
+nunjucksEnv.addGlobal("getEslintLink", function (rule) {
+    const baseURLStylistic = "https://eslint.style/rules/js"
+    const baseURLEslint = "https://eslint.org/docs/latest/rules"
+
+    if (rule.includes("stylistic")) {
+        const cleanedRule = rule.replace("@stylistic/", "");
+        return `${baseURLStylistic}/${cleanedRule}`;
+    }
+
+    return `${baseURLEslint}/${rule}`;
 });
 
 console.log(`

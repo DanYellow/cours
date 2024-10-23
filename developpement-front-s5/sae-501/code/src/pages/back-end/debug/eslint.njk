@@ -5,6 +5,10 @@
 
 {% block head_tags %}
     <link rel="icon" href="/images/wrench-screwdiver-favicon.svg">
+
+    {% if NODE_ENV == "development" %}
+        <script type="module" src="/src/scripts/main.debug.js" defer></script>
+    {% endif %}
 {% endblock %}
 
 {% block title %}Eslint Report - Debug{% endblock %}
@@ -39,12 +43,11 @@
                                 {% for error in report.messages %}
                                     <tr class="hover:bg-neutral-50 even:bg-blue-50">
                                         <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Titre">
-                                            <a href="{{
-                                                routeName("open_editor", { file: report.filePath, line: error.line, column: error.column })
-                                            }}">
+                                            <button class="py-1 px-3 rounded text-start" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                                 <p class="text-sm">Line: {{ error.line }}</p>
                                                 <p class="text-sm">Column: {{ error.column }}</p>
-                                            </a>
+                                                <p class="text-xs">Ouvrir dans Code</p>
+                                            </button>
                                         </td>
                                         <td class="{{ row_padding }} bg-transparent border-solid border-slate-200 border-b shadow-transparent @2xl/main:max-w-[300px] align-middle" data-label="Contenu">
                                             {% if error.severity == 1 %}
