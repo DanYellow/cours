@@ -235,7 +235,28 @@ if (process.env.NODE_ENV === "development") {
         await ESLint.outputFixes(results);
 
         const formatter = await eslint.loadFormatter("stylish");
+        const JSONformatter = await eslint.loadFormatter("json");
         const resultText = formatter.format(results);
+
+        let resultJSON = JSON.parse(JSONformatter.format(results));
+        resultJSON = resultJSON.map((item) => {
+            const copy = { ...item }
+            delete copy.source
+
+            return copy;
+        });
+        
+        fs.writeFile(
+            "src/pages/back-end/debug/eslint.tmp.njk.json", 
+            JSON.stringify({ data: resultJSON }), 
+            (err) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    // file written successfully
+                }
+            }
+        );
 
         if (resultText.length) {
             console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
@@ -247,6 +268,8 @@ if (process.env.NODE_ENV === "development") {
         console.error(error);
     });
 }
+
+const foo = 48
 
 const nunjucksEnv = nunjucks.configure(app.get("views"), {
     autoescape: true,
