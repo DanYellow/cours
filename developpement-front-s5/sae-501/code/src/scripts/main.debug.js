@@ -54,7 +54,12 @@ if (input) {
 
 
 document.querySelectorAll("[data-file]").forEach((item) => {
-    item.addEventListener("click", (e) => {
-        fetch(e.currentTarget.dataset.file, { method: "GET" });
+    item.addEventListener("click", async (e) => {
+        const req = await fetch(e.currentTarget.dataset.file, { method: "GET" });
+        const res = await req.json();
+
+        if (res.url) {
+            window.location.href = res.url;
+        }
     });
 });

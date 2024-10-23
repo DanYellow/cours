@@ -149,7 +149,7 @@ app.use(function (req, res, next) {
 
         const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
 
-        const tplTmpFilename = path.format({ ...path.parse(view), base: '', ext: '.tmp.njk' })
+        const tplTmpFilename = path.format({ ...path.parse(view), base: "", ext: ".tmp.njk" });
         const tplTmpContentPath = path.join(__dirname, "..", `/src/${tplTmpFilename}.json`);
 
         if (fs.existsSync(tplContentPath)) {
@@ -254,32 +254,38 @@ if (process.env.NODE_ENV === "development") {
             return item.messages.length > 0;
         });
 
-        if (resultText.length) {
-            await fs.promises.writeFile(
-                "src/pages/back-end/debug/eslint.tmp.njk.json", 
-                JSON.stringify({ 
-                    data: {
-                        report_details: resultJSON,
-                        summary: {
-                            errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
-                            warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
-                        },
-                    },
-                })
-            );
+        let jsonContent = {
+            data: {
+                report_details: [],
+                summary: {},
+            },
+        };
 
         if (resultText.length) {
+            jsonContent = { 
+                data: {
+                    report_details: resultJSON,
+                    summary: {
+                        errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
+                        warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
+                    },
+                },
+            };
+
             console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
             console.log(resultText);
             console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
         }
+
+        await fs.promises.writeFile(
+            "src/pages/back-end/debug/eslint.tmp.njk.json", 
+            JSON.stringify(jsonContent)
+        );
     })().catch((error) => {
         process.exitCode = 1;
         console.error(error);
     });
 }
-
-const foo = 48
 
 const nunjucksEnv = nunjucks.configure(app.get("views"), {
     autoescape: true,
@@ -348,8 +354,8 @@ nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
 });
 
 nunjucksEnv.addGlobal("getEslintLink", function (rule) {
-    const baseURLStylistic = "https://eslint.style/rules/js"
-    const baseURLEslint = "https://eslint.org/docs/latest/rules"
+    const baseURLStylistic = "https://eslint.style/rules/js";
+    const baseURLEslint = "https://eslint.org/docs/latest/rules";
 
     if (rule.includes("stylistic")) {
         const cleanedRule = rule.replace("@stylistic/", "");
@@ -385,6 +391,13 @@ const port = envVars?.parsed?.PORT || 3900;
 if (process.env.NODE_ENV === "development") {
     (async () => {
         const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
+        
+        // const foo = eslintVite({
+        //     include: "**/*.js",
+        //     fix: useEslintAutoFix,
+        //     formatter: "json",
+        // });
+        // console.log("foo", foo);
         const overridenViteConfig = {
             ...viteConfig,
             plugins: [
@@ -394,11 +407,7 @@ if (process.env.NODE_ENV === "development") {
                     fix: useEslintAutoFix,
                     formatter: "stylish",
                 }),
-                eslintVite({
-                    include: "**/*.js",
-                    fix: useEslintAutoFix,
-                    formatter: "json",
-                }),
+                
             ],
         };
 

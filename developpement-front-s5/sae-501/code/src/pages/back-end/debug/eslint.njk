@@ -4,7 +4,7 @@
 {% set row_padding = "py-2 px-4" %}
 
 {% block head_tags %}
-    <link rel="icon" href="/images/wrench-screwdiver-favicon.svg">
+    <link rel="icon" href="/images/code-icon.svg">
 
     {% if NODE_ENV == "development" %}
         <script type="module" src="/src/scripts/main.debug.js" defer></script>
@@ -22,9 +22,21 @@
             </p>
         </header>
 
-        <div class="px-6">
-            {% for report in data %}
-                {% set summary_bg_color = "bg-red-100" if report.messages | length > 0 else "" %}
+        <div class="pr-6 pl-8">
+            {% if data.summary | length %}
+                <header class="rounded-sm mb-2 flex justify-between items-end">
+                    <p class="text-lg font-bold">Summary : {{ data.summary.errorCount + data.summary.warningCount }} problems - {{ data.summary.errorCount }} error(s), {{ data.summary.warningCount }} warning(s)</p>
+                    <button
+                        data-file="{{ routeName("eslint_fix", { url: current_url }) }}"
+                        class="inline-flex gap-1 w-full sm:w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 focus-within:bg-blue-950 h-fit justify-center"
+                    >
+                        Run "npm run lint:fix" command
+                    </button>
+                </header>
+            {% endif %}
+            {% for report in data.report_details %}
+                {% set summary_bg_color = "" %}
+                {# {% set summary_bg_color = "bg-red-100" if report.messages | length > 0 else "" %} #}
                 <details class="border border-solid border-stone-500 py-2 [&_svg]:open:-rotate-180">
                     <summary class="flex cursor-pointer list-none items-center gap-4 px-4 -my-2 py-2 {{ summary_bg_color }}">
                         <div>
@@ -32,7 +44,7 @@
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </div>
-                        <div class="flex w-full justify-between">
+                        <div class="flex w-full justify-between items-center">
                             <p>{{ report.filePath }}</p>
                             <p class="text-sm">{{ report.messages | length }} problems - {{ report.errorCount }} error(s), {{ report.warningCount }} warning(s)</p>
                         </div>
@@ -42,14 +54,14 @@
                             <tbody>
                                 {% for error in report.messages %}
                                     <tr class="hover:bg-neutral-50 even:bg-blue-50">
-                                        <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Titre">
-                                            <button class="py-1 px-3 rounded text-start" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
+                                        <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Line/column">
+                                            <button class="py-2 rounded text-start" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                                 <p class="text-sm">Line: {{ error.line }}</p>
                                                 <p class="text-sm">Column: {{ error.column }}</p>
                                                 <p class="text-xs">Ouvrir dans Code</p>
                                             </button>
                                         </td>
-                                        <td class="{{ row_padding }} bg-transparent border-solid border-slate-200 border-b shadow-transparent @2xl/main:max-w-[300px] align-middle" data-label="Contenu">
+                                        <td class="{{ row_padding }} bg-transparent border-solid border-slate-200 border-b shadow-transparent @2xl/main:max-w-[300px] align-middle" data-label="Severity">
                                             {% if error.severity == 1 %}
                                                 <p class="text-yellow-600 font-bold">
                                                     Warning
@@ -60,11 +72,20 @@
                                                 </p>
                                             {% endif %}
                                         </td>
-                                        <td class="bg-transparent border-solid border-slate-200 border-b p-6 align-middle" data-label="Auteur">
+                                        <td class="bg-transparent border-solid border-slate-200 border-b p-6 align-middle" data-label="Message">
                                             {{ error.message }}
                                         </td>
-                                        <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Dernière mise à jour">
-                                            <a href="{{ getEslintLink(error.ruleId) }}" target="_blank" rel="noopener noreferrer" class="underline text-blue-800 hover:no-underline focus-within:no-underline">{{ error.ruleId }}</a>
+                                        <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Error type">
+                                            <a href="{{ getEslintLink(error.ruleId) }}" aria-label="Ouvrir dans un nouvel onglet" target="_blank" rel="noopener noreferrer" class="underline text-blue-800 hover:no-underline focus-within:no-underline flex gap-1 items-center justify-end">
+                                                <span>
+                                                    {{ error.ruleId }}
+                                                </span>
+                                                <span class="-rotate-180">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                                                    </svg>
+                                                </span>
+                                            </a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -72,6 +93,8 @@
                         </table>
                     </div>
                 </details>
+            {% else %}
+                <p>No error found</p>
             {% endfor %}
         </div>
     </div>
