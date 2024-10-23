@@ -224,8 +224,7 @@ if (process.env.NODE_ENV === "development") {
     })
 
     ;(async () => {
-        const useEslintAutoFix = (envVars.parsed?.ESLINT_AUTO_FIX === "true");
-        console.log(useEslintAutoFix);
+        const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
         const eslint = new ESLint({ fix: useEslintAutoFix });
 
         const results = await eslint.lintFiles([
@@ -340,7 +339,7 @@ const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
     (async () => {
-        const useEslintAutoFix = (envVars.parsed?.ESLINT_AUTO_FIX === "true");
+        const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
         const overridenViteConfig = {
             ...viteConfig,
             plugins: [

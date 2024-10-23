@@ -11,4 +11,3 @@ const htmlBGColor = window
 document
     .querySelector("meta[name=\"theme-color\"]")
     .setAttribute("content", htmlBGColor);
-let foo = "ffe1e1";
