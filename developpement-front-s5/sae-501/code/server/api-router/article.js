@@ -92,7 +92,7 @@ router.get(`/${base}`, async (req, res) => {
     try {
         const listRessources = await getArticles(
             listIds.length ? listIds : [],
-            { ...req.query, page, perPage, isActive },
+            { ...req.query, page, perPage, isActive }
         );
 
         const searchPredicates = {
@@ -112,8 +112,8 @@ router.get(`/${base}`, async (req, res) => {
 
         const queryParam = Object.fromEntries(
             Object.entries({ ...req.query }).filter(([_, value]) =>
-                Boolean(value),
-            ),
+                Boolean(value)
+            )
         );
         delete queryParam.page;
 
@@ -124,12 +124,11 @@ router.get(`/${base}`, async (req, res) => {
             page,
             query_params: querystring.stringify(queryParam),
         });
-    }
-    catch (e) {
+    } catch (e) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }],
+                    e?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
@@ -176,8 +175,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         return res.status(404).json({
             errors: [`L'article "${id}" n'existe pas`],
         });
-    }
-    catch (_error) {
+    } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -274,18 +272,17 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
             ressourceComputed.author.nb_articles++;
             await Author.findOneAndUpdate(
                 { _id: req.body.author },
-                { $push: { list_articles: ressource._id } },
+                { $push: { list_articles: ressource._id } }
             );
         }
         res.status(201).json(ressourceComputed);
-    }
-    catch (error) {
+    } catch (error) {
         res.status(400).json({
             errors: [
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    error?.errors || [{ message: "Il y a eu un problème" }],
+                    error?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
@@ -371,8 +368,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
     let oldRessource = {};
     try {
         [oldRessource] = await Article.find({ [searchKey]: searchParam }).lean();
-    }
-    catch (_error) {
+    } catch (_error) {
         oldRessource = {};
     }
 
@@ -394,7 +390,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
             // Unlink article with author
             await Author.findOneAndUpdate(
                 { _id: ressource.author },
-                { $pull: { list_articles: ressource._id } },
+                { $pull: { list_articles: ressource._id } }
             );
 
             if (
@@ -404,10 +400,9 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
                 ressource.author = req.body.author;
                 await Author.findOneAndUpdate(
                     { _id: req.body.author },
-                    { $addToSet: { list_articles: ressource._id } },
+                    { $addToSet: { list_articles: ressource._id } }
                 );
-            }
-            else {
+            } else {
                 // Unlink with no author
                 ressource.author = null;
             }
@@ -417,24 +412,21 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         const [ressourceComputed] = await getArticles(ressource._id);
 
         res.status(200).json(ressourceComputed);
-    }
-    catch (err) {
+    } catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
             });
-        }
-        else if (err instanceof mongoose.Error.CastError) {
+        } else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
-        }
-        else {
+        } else {
             res.status(400).json({
                 errors: [
                     ...listErrors,
                     ...Object.values(
-                        err?.errors || [{ message: "Il y a eu un problème" }],
+                        err?.errors || [{ message: "Il y a eu un problème" }]
                     ).map(val => val.message),
                     ...deleteUpload(targetPath),
                 ],
@@ -499,8 +491,7 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         return res.status(404).json({
             errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
         });
-    }
-    catch (_error) {
+    } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],

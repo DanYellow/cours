@@ -3,8 +3,8 @@ const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
 const toggleDragAndDropIndicator = (element, show = true) => {
     const hoverClass = Array.from(element.querySelector("label").classList)
-        .filter((item) => item.includes("hover"))
-        .map((item) => item.replace("hover:", "!"));
+        .filter(item => item.includes("hover"))
+        .map(item => item.replace("hover:", "!"));
 
     if (show) {
         element.classList.remove("paused");
@@ -32,8 +32,8 @@ listDragNDropArea.forEach((item) => {
         e.preventDefault();
 
         const hoverClass = Array.from(item.querySelector("label").classList)
-            .filter((item) => item.includes("hover"))
-            .map((item) => item.replace("hover:", "!"));
+            .filter(item => item.includes("hover"))
+            .map(item => item.replace("hover:", "!"));
 
         if (hoverClass) {
             item.querySelector("label").classList.add(...hoverClass);

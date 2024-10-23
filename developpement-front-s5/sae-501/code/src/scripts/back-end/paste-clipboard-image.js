@@ -8,7 +8,7 @@ const pasteClipboard = async (e) => {
 
     try {
         const clipboardContents = await navigator.clipboard.read();
-        const img = clipboardContents.filter((item) =>
+        const img = clipboardContents.filter(item =>
             item.types.includes("image/png")
         )[0];
 

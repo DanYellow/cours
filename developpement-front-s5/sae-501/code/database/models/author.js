@@ -72,8 +72,7 @@ authorSchema.pre("findOneAndUpdate", function (next) {
         if (!validator.isHexColor(this._update.color)) {
             this._update.color = defaultColor;
         }
-    }
-    catch {}
+    } catch {}
 
     next();
 });
@@ -86,13 +85,12 @@ authorSchema.pre(
             // Unset all articles' author
             await Article.updateMany(
                 { author: this.getQuery()._id },
-                { author: null },
+                { author: null }
             );
-        }
-        catch {}
+        } catch {}
 
         next();
-    },
+    }
 );
 
 authorSchema.pre("findOneAndUpdate", function (next) {

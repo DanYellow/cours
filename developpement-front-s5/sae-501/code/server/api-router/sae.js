@@ -78,7 +78,7 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await SAE.count(
-            listIds.length ? { _id: { $in: listIds } } : null,
+            listIds.length ? { _id: { $in: listIds } } : null
         );
 
         const queryParam = { ...req.query };
@@ -91,12 +91,11 @@ router.get(`/${base}`, async (req, res) => {
             page,
             query_params: querystring.stringify(queryParam),
         });
-    }
-    catch (e) {
+    } catch (e) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }],
+                    e?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
@@ -217,14 +216,13 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     try {
         await ressource.save();
         res.status(201).json(ressource);
-    }
-    catch (err) {
+    } catch (err) {
         res.status(400).json({
             errors: [
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    err?.errors || [{ message: "Il y a eu un problème" }],
+                    err?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
             ressource: req.body,
@@ -296,8 +294,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let oldRessource = {};
     try {
         oldRessource = await SAE.findById(req.params.id).lean();
-    }
-    catch (_error) {
+    } catch (_error) {
         oldRessource = {};
     }
 
@@ -326,7 +323,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     const ressource = await SAE.findOneAndUpdate(
         { _id: req.params.id },
         { ...payload, _id: req.params.id, ...imagePayload },
-        { new: true },
+        { new: true }
     )
         .orFail()
         .catch((err) => {
@@ -334,20 +331,18 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
                 res.status(404).json({
                     errors: [`La SAÉ "${req.params.id}" n'existe pas`],
                 });
-            }
-            else if (err instanceof mongoose.Error.CastError) {
+            } else if (err instanceof mongoose.Error.CastError) {
                 res.status(400).json({
                     errors: [`"${req.params.id}" n'est pas un _id valide`],
                 });
-            }
-            else {
+            } else {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
                         ...Object.values(
                             err?.errors || [
                                 { message: "Il y a eu un problème" },
-                            ],
+                            ]
                         ).map(val => val.message),
                         ...deleteUpload(targetPath),
                     ],
@@ -410,8 +405,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
         return res.status(404).json({
             errors: [`La SAE "${req.params.id}" n'existe pas`],
         });
-    }
-    catch (_error) {
+    } catch (_error) {
         return res.status(400).json({
             error: "Quelque chose s'est mal passé, veuillez recommencer",
         });

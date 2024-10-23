@@ -8,13 +8,13 @@ const input = document.querySelector("[data-route-search]");
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
-        const cellRow = item.querySelector('[data-label="NAME"]');
+        const cellRow = item.querySelector("[data-label=\"NAME\"]");
         if (cellRow) {
             if (
                 cellRow.innerText
                     .toLowerCase()
-                    .includes(inputValue.toLowerCase()) ||
-                inputValue === ""
+                    .includes(inputValue.toLowerCase())
+                    || inputValue === ""
             ) {
                 item.classList.remove("hidden");
             } else {
@@ -23,8 +23,8 @@ const filterTable = (inputValue) => {
         }
     });
 
-    const tableRoutesRowsVisible =
-        tableRoutes.querySelectorAll("tr:not(.hidden)");
+    const tableRoutesRowsVisible
+        = tableRoutes.querySelectorAll("tr:not(.hidden)");
     tableRoutesRowsVisible.forEach((item, idx) => {
         item.classList.remove(...item.classList);
         if (idx % 2 === 0) {

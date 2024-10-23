@@ -18,8 +18,7 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    }
-    catch {}
+    } catch {}
 
     res.render("pages/back-end/authors/list.njk", {
         list_authors: result.data,
@@ -40,8 +39,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     if (isEdit) {
         try {
             result = await axios(options);
-        }
-        catch (e) {
+        } catch (e) {
             listErrors = e.response.data.errors;
         }
     }
@@ -74,8 +72,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             method: "PUT",
             url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
         };
-    }
-    else {
+    } else {
         options = {
             ...options,
             method: "POST",
@@ -86,20 +83,17 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
     try {
         const result = await axios(options);
         ressource = result.data;
-    }
-    catch (e) {
+    } catch (e) {
         listErrors = e.response.data.errors;
         ressource = e.response.data.ressource || {};
-    }
-    finally {
+    } finally {
         if (listErrors.length || isEdit) {
             res.render("", {
                 author: ressource,
                 list_errors: listErrors,
                 is_edit: isEdit,
             });
-        }
-        else {
+        } else {
             res.redirect(`${res.locals.admin_url}/${base}`);
         }
     }

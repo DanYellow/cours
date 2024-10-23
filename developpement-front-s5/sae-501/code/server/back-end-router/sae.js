@@ -20,8 +20,7 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    }
-    catch (_error) {}
+    } catch (_error) {}
 
     res.render("pages/back-end/saes/list.njk", {
         list_saes: result.data,
@@ -44,8 +43,7 @@ router
         if (isEdit) {
             try {
                 result = await axios(options);
-            }
-            catch (error) {
+            } catch (error) {
                 listErrors = error.response.data.errors;
             }
         }
@@ -77,8 +75,7 @@ router
                 method: "PUT",
                 url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
             };
-        }
-        else {
+        } else {
             options = {
                 ...options,
                 method: "POST",
@@ -89,16 +86,14 @@ router
         try {
             const result = await axios(options);
             ressource = result.data;
-        }
-        catch (error) {
+        } catch (error) {
             listErrors = error.response.data.errors;
             ressource = error.response.data.ressource || {};
-        }
-        finally {
+        } finally {
             if (!listErrors.length) {
                 req.flash(
                     "success",
-                    isEdit ? "Element mis à jour" : "Element crée",
+                    isEdit ? "Element mis à jour" : "Element crée"
                 );
             }
             if (isEdit || listErrors.length) {
@@ -107,8 +102,7 @@ router
                     list_errors: listErrors,
                     is_edit: isEdit,
                 });
-            }
-            else {
+            } else {
                 res.redirect(`${res.locals.admin_url}/${base}`);
             }
         }

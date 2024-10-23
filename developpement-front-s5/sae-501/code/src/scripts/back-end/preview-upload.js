@@ -1,4 +1,4 @@
-import mime from 'mime';
+import mime from "mime";
 import { imageValidator } from "#database/validator.js";
 
 const listUploadFileInput = document.querySelectorAll("[data-upload-file]");
@@ -14,7 +14,7 @@ const previewUpload = (e) => {
     const file = element.files[0];
     const uploadName = element.dataset.uploadFile;
 
-    const listAllowedMimeType = element.getAttribute("accept").split(',').map((item) => {
+    const listAllowedMimeType = element.getAttribute("accept").split(",").map((item) => {
         return mime.getType(item);
     });
 
@@ -62,12 +62,12 @@ const dropImageObserver = new MutationObserver((mutationList) => {
             case "attributes":
                 previewUpload(mutation);
                 break;
-        
+
             default:
                 break;
         }
-    })
-})
+    });
+});
 
 listUploadFileInput.forEach((item) => {
     item.addEventListener("change", previewUpload);
@@ -98,7 +98,7 @@ listClearUploadFileBtn.forEach((item) => {
         );
 
         btnPreview.classList.add("hidden");
-        imgRelated.src = ""
+        imgRelated.src = "";
         input.value = input.defaultValue;
     });
 });

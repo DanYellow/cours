@@ -33,7 +33,7 @@ router.get(
     (req, res) => {
         openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
         res.status(200).json(null);
-    },
+    }
 );
 
 export default router;

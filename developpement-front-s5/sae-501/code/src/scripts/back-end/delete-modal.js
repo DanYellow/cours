@@ -1,19 +1,19 @@
 import axios from "axios";
 
-const deletionModal = document.querySelector("[data-deletion-modal]")
-const closeModalBtn = document.querySelector("[data-deletion-modal] [data-close-modal]")
-const deleteItemModalBtn = document.querySelector("[data-deletion-modal] [data-delete-item]")
-const errorMessageModal = document.querySelector("[data-deletion-modal] [data-error-modal]")
+const deletionModal = document.querySelector("[data-deletion-modal]");
+const closeModalBtn = document.querySelector("[data-deletion-modal] [data-close-modal]");
+const deleteItemModalBtn = document.querySelector("[data-deletion-modal] [data-delete-item]");
+const errorMessageModal = document.querySelector("[data-deletion-modal] [data-error-modal]");
 
 const displayDeleteItemModal = (e) => {
-    deletionModal.showModal()
-    deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl
-    deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName
-}
+    deletionModal.showModal();
+    deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
+    deletionModal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName;
+};
 
 closeModalBtn.addEventListener("click", () => {
-    errorMessageModal.classList.add("hidden")
-})
+    errorMessageModal.classList.add("hidden");
+});
 
 deleteItemModalBtn.addEventListener("click", async (e) => {
     deleteItemModalBtn.disabled = true;
@@ -30,8 +30,8 @@ deleteItemModalBtn.addEventListener("click", async (e) => {
             deleteItemModalBtn.disabled = false;
             closeModalBtn.disabled = false;
         });
-})
+});
 
-document.querySelectorAll('[data-modal="delete-entry"]').forEach((item) => {
-    item.addEventListener("click", displayDeleteItemModal)
-})
+document.querySelectorAll("[data-modal=\"delete-entry\"]").forEach((item) => {
+    item.addEventListener("click", displayDeleteItemModal);
+});

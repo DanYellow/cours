@@ -21,7 +21,7 @@ const commentArticleSchema = new Schema(
     },
     {
         timestamps: { createdAt: "created_at" },
-    },
+    }
 );
 
 commentArticleSchema.methods.getClean = function () {
@@ -43,11 +43,10 @@ commentArticleSchema.pre(
     async function (next) {
         try {
             await Article.findOneAndUpdate({ list_comments: this.getQuery()._id }, { $pull: { list_comments: this.getQuery()._id } });
-        }
-        catch {}
+        } catch {}
 
         next();
-    },
+    }
 );
 
 export default mongoose.model("CommentArticle", commentArticleSchema);

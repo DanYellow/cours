@@ -58,7 +58,7 @@ const articleSchema = new Schema(
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
-    },
+    }
 );
 
 articleSchema.pre(
@@ -70,13 +70,12 @@ articleSchema.pre(
             await CommentArticle.deleteMany({ article: this.getQuery()._id });
             await Author.findOneAndUpdate(
                 { list_articles: this.getQuery()._id },
-                { $pull: { list_articles: this.getQuery()._id } },
+                { $pull: { list_articles: this.getQuery()._id } }
             );
-        }
-        catch {}
+        } catch {}
 
         next();
-    },
+    }
 );
 
 articleSchema.pre("findOneAndUpdate", function (next) {

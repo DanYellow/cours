@@ -29,7 +29,7 @@ const parseManifest = async () => {
     const manifestPath = path.join(
         path.resolve(),
         "dist",
-        "frontend.manifest.json",
+        "frontend.manifest.json"
     );
     const manifestFile = await fs.readFile(manifestPath);
 
@@ -45,8 +45,7 @@ router.get("/", routeName("homepage"), async (req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    }
-    catch (_error) {}
+    } catch (_error) {}
 
     res.render("pages/front-end/index.njk", {
         list_articles: result.data,
@@ -63,8 +62,7 @@ router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
     let result = {};
     try {
         result = await axios(options);
-    }
-    catch (_error) {}
+    } catch (_error) {}
 
     res.render("pages/front-end/about.njk", {
         list_saes: result.data,

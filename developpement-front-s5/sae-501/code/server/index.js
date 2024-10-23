@@ -20,6 +20,7 @@ import { createServer as createViteServer } from "vite";
 import { codeFrameColumns } from "@babel/code-frame";
 
 import { ESLint } from "eslint";
+import eslintVite from "vite-plugin-eslint";
 
 import mongoServer from "#database/index.js";
 
@@ -50,7 +51,7 @@ app.use(
     helmet({
         contentSecurityPolicy: false,
         crossOriginResourcePolicy: false,
-    }),
+    })
 );
 app.use(cookieParser());
 app.use(expressFlash());
@@ -60,7 +61,7 @@ app.use(
         secret: "secret",
         resave: false,
         saveUninitialized: false,
-    }),
+    })
 );
 
 let publicPath = path.join(path.resolve(), "public");
@@ -83,12 +84,12 @@ app.use(
             "application/csp-report",
             "application/reports+json",
         ],
-    }),
+    })
 );
 app.use(
     bodyParser.urlencoded({
         extended: true,
-    }),
+    })
 );
 
 let jsonFilesContent = {};
@@ -96,7 +97,7 @@ FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
     const filePath = path.resolve(entry);
     jsonFilesContent = _.merge(
         jsonFilesContent,
-        JSON.parse(fs.readFileSync(filePath).toString()),
+        JSON.parse(fs.readFileSync(filePath).toString())
     );
 });
 
@@ -119,7 +120,7 @@ const getAllCookies = (cookie) => {
 
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
-        `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`,
+        `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
     );
     const base_url = `${req.protocol}://${req.get("host")}`;
 
@@ -215,8 +216,7 @@ if (process.env.NODE_ENV === "development") {
                 line: lineError,
                 column: columnError,
             };
-        }
-        catch (err) {
+        } catch (err) {
             console.error(err);
         }
 
@@ -224,7 +224,9 @@ if (process.env.NODE_ENV === "development") {
     })
 
     ;(async () => {
-        const eslint = new ESLint({ fix: true });
+        const useEslintAutoFix = (envVars.parsed?.ESLINT_AUTO_FIX === "true");
+        console.log(useEslintAutoFix);
+        const eslint = new ESLint({ fix: useEslintAutoFix });
 
         const results = await eslint.lintFiles([
             "./server/**/*.js",
@@ -286,9 +288,9 @@ const getContextData = (root) => {
                             [key]: value,
                             ...objKeyPath.reduce(
                                 (acc, resKey) => acc[resKey],
-                                res,
+                                res
                             ),
-                        },
+                        }
                     ),
                 };
             }
@@ -338,7 +340,19 @@ const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
     (async () => {
-        const vite = await createViteServer(viteConfig);
+        const useEslintAutoFix = (envVars.parsed?.ESLINT_AUTO_FIX === "true");
+        const overridenViteConfig = {
+            ...viteConfig,
+            plugins: [
+                ...viteConfig.plugins,
+                eslintVite({
+                    include: "**/*.js",
+                    fix: useEslintAutoFix,
+                }),
+            ],
+        };
+
+        const vite = await createViteServer(overridenViteConfig);
         app.use(vite.middlewares);
     })();
 }
@@ -346,7 +360,7 @@ if (process.env.NODE_ENV === "development") {
 app.listen(port, listDomains, () => {
     console.log("---------------------------");
     console.log(
-        "Express server running at (ctrl/cmd + click to open in your browser):",
+        "Express server running at (ctrl/cmd + click to open in your browser):"
     );
     ["localhost", "127.0.0.1", ...listDomains]
         .filter(Boolean)
@@ -355,7 +369,7 @@ app.listen(port, listDomains, () => {
         });
     if (process.env.NODE_ENV === "development") {
         console.log(
-            "\nSwagger running at (ctrl/cmd + click to open in your browser):",
+            "\nSwagger running at (ctrl/cmd + click to open in your browser):"
         );
         ["localhost", "127.0.0.1", ...listDomains]
             .filter(Boolean)

@@ -86,7 +86,7 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await Author.count(
-            (listIds.length ? { _id: { $in: listIds } } : null),
+            (listIds.length ? { _id: { $in: listIds } } : null)
         );
         const total_pages = Math.ceil(count / perPage);
 
@@ -100,12 +100,11 @@ router.get(`/${base}`, async (req, res) => {
             page,
             query_params: querystring.stringify(queryParam),
         });
-    }
-    catch (e) {
+    } catch (e) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }],
+                    e?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
@@ -218,8 +217,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         }
 
         return res.status(200).json(ressource[0]);
-    }
-    catch (err) {
+    } catch (err) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un id valide`],
@@ -231,7 +229,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
                 ...Object.values(
                     err?.errors || [
                         { message: "Quelque chose s'est mal passé" },
-                    ],
+                    ]
                 ).map(val => val.message),
             ],
         });
@@ -321,7 +319,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
                     ...Object.values(
                         err?.errors || [
                             { message: "Quelque chose s'est mal passé" },
-                        ],
+                        ]
                     ).map(val => val.message),
                 ],
             });
@@ -399,8 +397,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
     let oldRessource = {};
     try {
         oldRessource = await Author.findById(req.params.id).lean();
-    }
-    catch (_error) {
+    } catch (_error) {
         oldRessource = {};
     }
 
@@ -414,7 +411,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
     const ressource = await Author.findOneAndUpdate(
         { _id: req.params.id },
         { ...req.body, _id: req.params.id, ...imagePayload },
-        { new: true },
+        { new: true }
     )
         .orFail()
         .catch((err) => {
@@ -422,8 +419,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
                 res.status(404).json({
                     errors: [`L'auteur "${req.params.id}" n'existe pas`],
                 });
-            }
-            else if (err instanceof mongoose.Error.CastError) {
+            } else if (err instanceof mongoose.Error.CastError) {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
@@ -431,15 +427,14 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res
                         ...deleteUpload(targetPath),
                     ],
                 });
-            }
-            else {
+            } else {
                 res.status(400).json({
                     errors: [
                         ...listErrors,
                         ...Object.values(
                             err?.errors || [
                                 { message: "Il y a eu un problème" },
-                            ],
+                            ]
                         ).map(val => val.message),
                         ...deleteUpload(targetPath),
                     ],
@@ -504,8 +499,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         return res.status(404).json({
             errors: [`L'auteur "${req.params.id}" n'existe pas`],
         });
-    }
-    catch (_error) {
+    } catch (_error) {
         return res.status(400).json({
             error: "Quelque chose s'est mal passé, veuillez recommencer",
         });

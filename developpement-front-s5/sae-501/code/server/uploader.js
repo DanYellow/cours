@@ -22,8 +22,7 @@ const uploadImage = (image, dist_dir) => {
 
     if (error !== null) {
         listErrors.push(error);
-    }
-    else {
+    } else {
         targetPath = `${dist_dir}${image.filename}`;
         const tempPath = image.path;
 

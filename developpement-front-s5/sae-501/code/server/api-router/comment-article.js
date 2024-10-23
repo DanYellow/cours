@@ -64,19 +64,16 @@ router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+
         await article.save();
 
         res.status(201).json(ressource.getClean());
-    }
-    catch (err) {
+    } catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
                 errors: [`L'article "${req.params.id}" n'existe pas`],
             });
-        }
-        else if (err instanceof mongoose.Error.CastError) {
+        } else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
                 errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
-        }
-        else {
+        } else {
             res.status(400).json({
                 errors: [
                     ...Object.values(err?.errors || [{ message: "Il y a eu un problème" }]).map(val => val.message),
@@ -188,12 +185,11 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
         }
 
         res.status(200).json(ressource[0]);
-    }
-    catch (err) {
+    } catch (err) {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    err?.errors || [{ message: "Il y a eu un problème" }],
+                    err?.errors || [{ message: "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
@@ -246,8 +242,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         return res.status(404).json({
             errors: [`Le commentaire "${req.params.comment_id}" n'existe pas`],
         });
-    }
-    catch (_error) {
+    } catch (_error) {
         return res
             .status(400)
             .json({
