@@ -1,40 +1,40 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import path from 'path';
-import fs from 'fs';
-import _ from 'lodash';
-import ip from 'ip';
-import FastGlob from 'fast-glob';
-import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
-import bodyParser from 'body-parser';
-import nunjucks from 'nunjucks';
-import swaggerUi from 'swagger-ui-express';
-import { DateTime } from 'luxon';
-import helmet from 'helmet';
-import cors from 'cors';
-import expressFlash from 'express-flash';
-import expressSession from 'express-session';
+import express from "express";
+import cookieParser from "cookie-parser";
+import path from "path";
+import fs from "fs";
+import _ from "lodash";
+import ip from "ip";
+import FastGlob from "fast-glob";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+import bodyParser from "body-parser";
+import nunjucks from "nunjucks";
+import swaggerUi from "swagger-ui-express";
+import { DateTime } from "luxon";
+import helmet from "helmet";
+import cors from "cors";
+import expressFlash from "express-flash";
+import expressSession from "express-session";
 
-import { createServer as createViteServer } from 'vite';
-import { codeFrameColumns } from '@babel/code-frame';
+import { createServer as createViteServer } from "vite";
+import { codeFrameColumns } from "@babel/code-frame";
 
-import { ESLint } from 'eslint';
+import { ESLint } from "eslint";
 
-import mongoServer from '#database/index.js';
+import mongoServer from "#database/index.js";
 
-import swaggerSpec from './swagger.js';
-import frontendRouter from './front-end-router.js';
-import backendRouter from './back-end-router/index.js';
-import apiRouter from './api-router/index.js';
-import debugRouter from './debug-router.js';
-import viteConfig from '../vite.config.js';
+import swaggerSpec from "./swagger.js";
+import frontendRouter from "./front-end-router.js";
+import backendRouter from "./back-end-router/index.js";
+import apiRouter from "./api-router/index.js";
+import debugRouter from "./debug-router.js";
+import viteConfig from "../vite.config.js";
 
-import { generateUrl } from '../generate-list-routes.js';
+import { generateUrl } from "../generate-list-routes.js";
 
-let envFilePath = '.env.prod.local';
-if (process.env.NODE_ENV === 'development') {
-    envFilePath = '.env.dev.local';
+let envFilePath = ".env.prod.local";
+if (process.env.NODE_ENV === "development") {
+    envFilePath = ".env.dev.local";
 }
 
 const envVars = dotenv.config({ path: envFilePath });
@@ -57,31 +57,31 @@ app.use(expressFlash());
 app.use(cors());
 app.use(
     expressSession({
-        secret: 'secret',
+        secret: "secret",
         resave: false,
         saveUninitialized: false,
     }),
 );
 
-let publicPath = path.join(path.resolve(), 'public');
-if (process.env.NODE_ENV === 'production') {
-    publicPath = path.join(path.resolve(), 'dist');
+let publicPath = path.join(path.resolve(), "public");
+if (process.env.NODE_ENV === "production") {
+    publicPath = path.join(path.resolve(), "dist");
 }
 
 mongoServer()
     .then((res) => {
-        console.log('---------------------------');
+        console.log("---------------------------");
         console.log(`• \x1b[36m${res}\x1b[0m`);
-        console.log('---------------------------');
+        console.log("---------------------------");
     })
     .catch(console.error);
 
 app.use(
     bodyParser.json({
         type: [
-            'application/json',
-            'application/csp-report',
-            'application/reports+json',
+            "application/json",
+            "application/csp-report",
+            "application/reports+json",
         ],
     }),
 );
@@ -92,7 +92,7 @@ app.use(
 );
 
 let jsonFilesContent = {};
-FastGlob.sync('./src/data/**/*.json').forEach((entry) => {
+FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
     const filePath = path.resolve(entry);
     jsonFilesContent = _.merge(
         jsonFilesContent,
@@ -102,7 +102,7 @@ FastGlob.sync('./src/data/**/*.json').forEach((entry) => {
 
 const getCurrentURL = (url) => {
     let computedURL = url;
-    if (url.at(-1) === '/') {
+    if (url.at(-1) === "/") {
         computedURL = computedURL.substring(0, computedURL.length - 1);
     }
 
@@ -110,8 +110,8 @@ const getCurrentURL = (url) => {
 };
 
 const getAllCookies = (cookie) => {
-    const res = cookie?.split('; ').map((item) => {
-        return { [item.split('=')[0]]: item.split('=')[1] };
+    const res = cookie?.split("; ").map((item) => {
+        return { [item.split("=")[0]]: item.split("=")[1] };
     });
 
     return res?.reduce((result, curr) => Object.assign(result, curr), {}) || {};
@@ -119,17 +119,17 @@ const getAllCookies = (cookie) => {
 
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
-        `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}`,
+        `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`,
     );
-    const base_url = `${req.protocol}://${req.get('host')}`;
+    const base_url = `${req.protocol}://${req.get("host")}`;
 
     const context = {
         NODE_ENV: process.env.NODE_ENV,
         HOST_IP: hostip,
         current_url,
         base_url,
-        admin_url: `${base_url}/admin${envVars.parsed?.ADMIN_SUFFIX || ''}`,
-        upload_dir: '/uploads/',
+        admin_url: `${base_url}/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`,
+        upload_dir: "/uploads/",
         upload_path: `${publicPath}/uploads/`,
         upload_url: `${base_url}/uploads/`,
         query_string_params: req.query,
@@ -146,7 +146,7 @@ app.use(function (req, res, next) {
     res.render = function (view, local, callback) {
         let tplContent = {};
 
-        const tplContentPath = path.join(__dirname, '..', `/src/${view}.json`);
+        const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
 
         if (fs.existsSync(tplContentPath)) {
             tplContent = JSON.parse(fs.readFileSync(tplContentPath).toString());
@@ -162,20 +162,20 @@ app.use(function (req, res, next) {
 
 app.use(express.static(publicPath));
 
-app.set('view engine', 'nunjucks');
-app.set('views', path.join(__dirname, '..', '/src'));
+app.set("view engine", "nunjucks");
+app.set("views", path.join(__dirname, "..", "/src"));
 
-app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ''}`, backendRouter);
-app.use('/api', apiRouter);
+app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, backendRouter);
+app.use("/api", apiRouter);
 app.use(frontendRouter);
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
     const options = {
-        customSiteTitle: 'Swagger SAE 501',
+        customSiteTitle: "Swagger SAE 501",
     };
 
-    app.use(['/swagger', '/api-docs'], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
-    app.use('/debug', debugRouter);
+    app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
+    app.use("/debug", debugRouter);
     app.use((err, req, res, _next) => {
         res.status(500);
         const response = {
@@ -194,7 +194,7 @@ if (process.env.NODE_ENV === 'development') {
             const lineError = Number(results[3] || 1);
             const columnError = Number(results[4] || 1);
 
-            const data = fs.readFileSync(filePath, 'utf8');
+            const data = fs.readFileSync(filePath, "utf8");
             const location = {
                 start: { line: lineError, column: columnError },
             };
@@ -205,11 +205,11 @@ if (process.env.NODE_ENV === 'development') {
             });
             response.sourceCode = result;
             const listFileName = {
-                njk: 'nunjucks',
-                js: 'javascript',
+                njk: "nunjucks",
+                js: "javascript",
             };
             response.fileType
-                = listFileName?.[filePath.split('.').at(-1)] || '';
+                = listFileName?.[filePath.split(".").at(-1)] || "";
             response.details = {
                 file_path: filePath,
                 line: lineError,
@@ -220,26 +220,26 @@ if (process.env.NODE_ENV === 'development') {
             console.error(err);
         }
 
-        res.render('pages/error.njk', response);
+        res.render("pages/error.njk", response);
     })
 
     ;(async () => {
         const eslint = new ESLint({ fix: true });
 
         const results = await eslint.lintFiles([
-            './server/**/*.js',
-            './database/**/*.js',
+            "./server/**/*.js",
+            "./database/**/*.js",
         ]);
 
         await ESLint.outputFixes(results);
 
-        const formatter = await eslint.loadFormatter('stylish');
+        const formatter = await eslint.loadFormatter("stylish");
         const resultText = formatter.format(results);
 
         if (resultText.length) {
-            console.log('\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m');
+            console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
             console.log(resultText);
-            console.log('\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m');
+            console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
         }
     })().catch((error) => {
         process.exitCode = 1;
@@ -247,16 +247,16 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
-const nunjucksEnv = nunjucks.configure(app.get('views'), {
+const nunjucksEnv = nunjucks.configure(app.get("views"), {
     autoescape: true,
     express: app,
-    noCache: process.env.NODE_ENV === 'development',
+    noCache: process.env.NODE_ENV === "development",
     web: {
-        useCache: process.env.NODE_ENV !== 'development',
+        useCache: process.env.NODE_ENV !== "development",
     },
 });
 
-nunjucksEnv.addFilter('date', (value, format) => {
+nunjucksEnv.addFilter("date", (value, format) => {
     return DateTime.fromISO(value).toFormat(format);
 });
 
@@ -266,10 +266,10 @@ const getContextData = (root) => {
         const pathKey = [];
         pathKey.push(parentKey);
         Object.entries(obj).forEach(([key, value]) => {
-            if (!['settings'].includes(key) && !_.isFunction(value)) {
+            if (!["settings"].includes(key) && !_.isFunction(value)) {
                 if (
                     value
-                    && typeof value === 'object'
+                    && typeof value === "object"
                     && !Array.isArray(value)
                 ) {
                     return getThroughObj(value, key);
@@ -300,14 +300,14 @@ const getContextData = (root) => {
     return res;
 };
 
-nunjucksEnv.addGlobal('context', function () {
-    if (process.env.NODE_ENV === 'development') {
+nunjucksEnv.addGlobal("context", function () {
+    if (process.env.NODE_ENV === "development") {
         return getContextData(this.ctx);
     }
     return {};
 });
 
-nunjucksEnv.addGlobal('routeName', function (name, params = {}) {
+nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
     const finalURL = generateUrl(app, name, params);
 
     return `/${finalURL}`;
@@ -322,7 +322,7 @@ console.log(`
         ╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═╝
 `);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
     console.log(`
     ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗
     ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
@@ -336,7 +336,7 @@ if (process.env.NODE_ENV === 'production') {
 const listDomains = [hostip];
 const port = envVars?.parsed?.PORT || 3900;
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
     (async () => {
         const vite = await createViteServer(viteConfig);
         app.use(vite.middlewares);
@@ -344,25 +344,25 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.listen(port, listDomains, () => {
-    console.log('---------------------------');
+    console.log("---------------------------");
     console.log(
-        'Express server running at (ctrl/cmd + click to open in your browser):',
+        "Express server running at (ctrl/cmd + click to open in your browser):",
     );
-    ['localhost', '127.0.0.1', ...listDomains]
+    ["localhost", "127.0.0.1", ...listDomains]
         .filter(Boolean)
         .forEach((item) => {
             console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
         });
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
         console.log(
-            '\nSwagger running at (ctrl/cmd + click to open in your browser):',
+            "\nSwagger running at (ctrl/cmd + click to open in your browser):",
         );
-        ['localhost', '127.0.0.1', ...listDomains]
+        ["localhost", "127.0.0.1", ...listDomains]
             .filter(Boolean)
             .forEach((item) => {
                 console.log(`• \x1b[35mhttp://${item}:${port}/api-docs\x1b[0m`);
                 console.log(`• \x1b[35mhttp://${item}:${port}/swagger\x1b[0m`);
             });
     }
-    console.log('---------------------------');
+    console.log("---------------------------");
 });

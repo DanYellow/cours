@@ -1,18 +1,18 @@
-import express from 'express';
-import axios from 'axios';
-import mongoose from 'mongoose';
-import querystring from 'querystring';
+import express from "express";
+import axios from "axios";
+import mongoose from "mongoose";
+import querystring from "querystring";
 
-import upload from '../uploader.js';
+import upload from "../uploader.js";
 
-const base = 'authors';
+const base = "authors";
 const router = express.Router();
 
 // Get multiple authors
 router.get(`/${base}`, async (req, res) => {
     const queryParams = querystring.stringify({ per_page: 7, ...req.query });
     let options = {
-        method: 'GET',
+        method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
     let result = {};
@@ -21,7 +21,7 @@ router.get(`/${base}`, async (req, res) => {
     }
     catch {}
 
-    res.render('pages/back-end/authors/list.njk', {
+    res.render("pages/back-end/authors/list.njk", {
         list_authors: result.data,
     });
 });
@@ -29,7 +29,7 @@ router.get(`/${base}`, async (req, res) => {
 // Get or create author
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     const options = {
-        method: 'GET',
+        method: "GET",
         url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
     };
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
@@ -46,7 +46,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         }
     }
 
-    res.render('/', {
+    res.render("/", {
         author: result?.data || {},
         list_errors: listErrors,
         is_edit: isEdit,
@@ -54,13 +54,13 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 });
 
 // Create or update author
-router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req, res) => {
+router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
     let ressource = null;
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
     let listErrors = [];
     let options = {
         headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
         },
         data: {
             ...req.body,
@@ -71,14 +71,14 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
     if (isEdit) {
         options = {
             ...options,
-            method: 'PUT',
+            method: "PUT",
             url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
         };
     }
     else {
         options = {
             ...options,
-            method: 'POST',
+            method: "POST",
             url: `${res.locals.base_url}/api/${base}`,
         };
     }
@@ -93,7 +93,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
     }
     finally {
         if (listErrors.length || isEdit) {
-            res.render('', {
+            res.render("", {
                 author: ressource,
                 list_errors: listErrors,
                 is_edit: isEdit,

@@ -1,14 +1,14 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import fs from 'fs';
-import querystring from 'querystring';
+import express from "express";
+import mongoose from "mongoose";
+import fs from "fs";
+import querystring from "querystring";
 
-import SAE from '#models/sae.js';
+import SAE from "#models/sae.js";
 
-import upload, { uploadImage, deleteUpload } from '../uploader.js';
+import upload, { uploadImage, deleteUpload } from "../uploader.js";
 
 const router = express.Router();
-const base = 'saes';
+const base = "saes";
 
 /**
  * @openapi
@@ -96,7 +96,7 @@ router.get(`/${base}`, async (req, res) => {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: 'Il y a eu un problème' }],
+                    e?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
         });
@@ -145,7 +145,7 @@ router.get(`/${base}/:id`, async (req, res) => {
         .orFail()
         .catch(() => {
             res.status(404).json({
-                errors: [...listErrors, 'Élément non trouvé'],
+                errors: [...listErrors, "Élément non trouvé"],
             });
         });
 
@@ -189,7 +189,7 @@ router.get(`/${base}/:id`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}`, upload.single('image'), async (req, res) => {
+router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -224,7 +224,7 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    err?.errors || [{ message: 'Il y a eu un problème' }],
+                    err?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
             ressource: req.body,
@@ -276,7 +276,7 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id`, upload.single('image'), async (req, res) => {
+router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -311,14 +311,14 @@ router.put(`/${base}/:id`, upload.single('image'), async (req, res) => {
     const payload = structuredClone(req.body);
 
     // delete previous image and doesn't upload a new one
-    if ('delete_file_image' in payload && 'file' in payload === false) {
-        payload.image = '';
+    if ("delete_file_image" in payload && "file" in payload === false) {
+        payload.image = "";
         const targetPath = `${res.locals.upload_path}${oldRessource.image}`;
         fs.unlink(targetPath, () => {});
     }
 
     // delete previous image
-    if ('file' in payload) {
+    if ("file" in payload) {
         const targetPath = `${res.locals.upload_path}${oldRessource.image}`;
         fs.unlink(targetPath, () => {});
     }
@@ -346,7 +346,7 @@ router.put(`/${base}/:id`, upload.single('image'), async (req, res) => {
                         ...listErrors,
                         ...Object.values(
                             err?.errors || [
-                                { message: 'Il y a eu un problème' },
+                                { message: "Il y a eu un problème" },
                             ],
                         ).map(val => val.message),
                         ...deleteUpload(targetPath),
@@ -404,7 +404,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
         }
 
         if (ressource) {
-            req.flash('success', 'Element supprimé');
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
@@ -413,7 +413,7 @@ router.delete(`/${base}/:id`, async (req, res) => {
     }
     catch (_error) {
         return res.status(400).json({
-            error: 'Quelque chose s\'est mal passé, veuillez recommencer',
+            error: "Quelque chose s'est mal passé, veuillez recommencer",
         });
     }
 });

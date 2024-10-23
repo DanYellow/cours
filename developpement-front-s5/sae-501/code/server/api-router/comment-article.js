@@ -1,11 +1,11 @@
-import express from 'express';
-import mongoose from 'mongoose';
+import express from "express";
+import mongoose from "mongoose";
 
-import CommentArticle from '#models/comment-article.js';
-import Article from '#models/article.js';
+import CommentArticle from "#models/comment-article.js";
+import Article from "#models/article.js";
 
 const router = express.Router();
-const base = 'articles';
+const base = "articles";
 
 /**
  * @openapi
@@ -53,7 +53,7 @@ const base = 'articles';
  */
 router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments`], async (req, res) => {
     try {
-        const searchKey = req.params.id ? '_id' : 'slug';
+        const searchKey = req.params.id ? "_id" : "slug";
         const searchParam = req.params?.id || req.params.slug;
 
         const [article] = await Article.find({ [searchKey]: searchParam });
@@ -79,7 +79,7 @@ router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+
         else {
             res.status(400).json({
                 errors: [
-                    ...Object.values(err?.errors || [{ message: 'Il y a eu un problème' }]).map(val => val.message),
+                    ...Object.values(err?.errors || [{ message: "Il y a eu un problème" }]).map(val => val.message),
                 ],
             });
         }
@@ -148,26 +148,26 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
             },
             {
                 $lookup: {
-                    from: 'commentarticles',
-                    localField: 'list_comments',
-                    foreignField: '_id',
-                    as: 'list_comments',
+                    from: "commentarticles",
+                    localField: "list_comments",
+                    foreignField: "_id",
+                    as: "list_comments",
                 },
             },
             {
                 $addFields: {
                     page: page,
-                    count: { $size: '$list_comments' },
+                    count: { $size: "$list_comments" },
                     total_pages: {
                         $ceil: {
-                            $divide: [{ $size: '$list_comments' }, perPage],
+                            $divide: [{ $size: "$list_comments" }, perPage],
                         },
                     },
                     list_comments: {
                         $slice: [
                             {
                                 $sortArray: {
-                                    input: '$list_comments',
+                                    input: "$list_comments",
                                     sortBy: {
                                         created_at: -1,
                                     },
@@ -193,7 +193,7 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    err?.errors || [{ message: 'Il y a eu un problème' }],
+                    err?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
         });
@@ -240,7 +240,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id);
 
         if (ressource) {
-            req.flash('success', 'Element supprimé');
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
@@ -251,7 +251,7 @@ router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
         return res
             .status(400)
             .json({
-                error: 'Quelque chose s\'est mal passé, veuillez recommencer',
+                error: "Quelque chose s'est mal passé, veuillez recommencer",
             });
     }
 });

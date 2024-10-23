@@ -1,16 +1,16 @@
-import express from 'express';
-import fs from 'fs';
-import querystring from 'querystring';
+import express from "express";
+import fs from "fs";
+import querystring from "querystring";
 
-import Article from '#models/article.js';
-import Author from '#models/author.js';
+import Article from "#models/article.js";
+import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from '../uploader.js';
-import mongoose from 'mongoose';
+import upload, { uploadImage, deleteUpload } from "../uploader.js";
+import mongoose from "mongoose";
 
 const router = express.Router();
 
-const base = 'articles';
+const base = "articles";
 
 /**
  * @openapi
@@ -87,7 +87,7 @@ router.get(`/${base}`, async (req, res) => {
     }
     listIds = listIds || [];
 
-    const isActive = req.query.is_active?.toLowerCase() || 'all';
+    const isActive = req.query.is_active?.toLowerCase() || "all";
 
     try {
         const listRessources = await getArticles(
@@ -96,7 +96,7 @@ router.get(`/${base}`, async (req, res) => {
         );
 
         const searchPredicates = {
-            ...(isActive !== 'all' ? { is_active: isActive === 'true' } : {}),
+            ...(isActive !== "all" ? { is_active: isActive === "true" } : {}),
         };
 
         const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
@@ -129,7 +129,7 @@ router.get(`/${base}`, async (req, res) => {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: 'Il y a eu un problème' }],
+                    e?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
         });
@@ -185,7 +185,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         }
         return res
             .status(400)
-            .json({ errors: ['Quelque chose s\'est mal passé'] });
+            .json({ errors: ["Quelque chose s'est mal passé"] });
     }
 });
 
@@ -236,7 +236,7 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}`, upload.single('image'), async (req, res) => {
+router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -285,7 +285,7 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
                 ...listErrors,
                 ...deleteUpload(targetPath),
                 ...Object.values(
-                    error?.errors || [{ message: 'Il y a eu un problème' }],
+                    error?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
         });
@@ -349,13 +349,13 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], upload.single('image'), async (req, res) => {
+router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
 
     const uploadedImage = req.body.file || req.file;
-    const searchKey = req.params.id ? '_id' : 'slug';
+    const searchKey = req.params.id ? "_id" : "slug";
     const searchParam = req.params?.id || req.params.slug;
 
     if (uploadedImage) {
@@ -434,7 +434,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
                 errors: [
                     ...listErrors,
                     ...Object.values(
-                        err?.errors || [{ message: 'Il y a eu un problème' }],
+                        err?.errors || [{ message: "Il y a eu un problème" }],
                     ).map(val => val.message),
                     ...deleteUpload(targetPath),
                 ],
@@ -483,7 +483,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
  */
 router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const searchKey = req.params.id ? '_id' : 'slug';
+        const searchKey = req.params.id ? "_id" : "slug";
         const searchParam = req.params?.id || req.params.slug;
         const ressource = await Article.findOneAndDelete({ [searchKey]: searchParam });
 
@@ -493,7 +493,7 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         }
 
         if (ressource) {
-            req.flash('success', 'Element supprimé');
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
@@ -508,18 +508,18 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
         }
         return res
             .status(400)
-            .json({ errors: ['Quelque chose s\'est mal passé'] });
+            .json({ errors: ["Quelque chose s'est mal passé"] });
     }
 });
 
 const getArticles = async (id, queryParams) => {
     const computedQueryParams = {
-        sorting: 'desc',
+        sorting: "desc",
         ...queryParams,
     };
 
     const searchPredicates = {
-        ...(queryParams?.isActive !== 'all' ? { is_active: queryParams?.isActive === 'true' } : {}),
+        ...(queryParams?.isActive !== "all" ? { is_active: queryParams?.isActive === "true" } : {}),
     };
 
     const isArray = Array.isArray(id);
@@ -551,7 +551,7 @@ const getArticles = async (id, queryParams) => {
         ...(isArray
             ? [
                     { $match: searchPredicates },
-                    { $sort: { updated_at: computedQueryParams.sorting === 'asc' ? 1 : -1 } },
+                    { $sort: { updated_at: computedQueryParams.sorting === "asc" ? 1 : -1 } },
                     {
                         $skip: Math.max(computedQueryParams.page - 1, 0) * computedQueryParams.perPage,
                     },
@@ -562,40 +562,40 @@ const getArticles = async (id, queryParams) => {
         ),
         {
             $lookup: {
-                from: 'commentarticles',
-                localField: 'list_comments',
-                foreignField: '_id',
-                as: 'list_comments',
+                from: "commentarticles",
+                localField: "list_comments",
+                foreignField: "_id",
+                as: "list_comments",
             },
         },
         {
             $addFields: {
-                nb_comments: { $size: '$list_comments' },
+                nb_comments: { $size: "$list_comments" },
             },
         },
-        { $unset: 'list_comments' },
+        { $unset: "list_comments" },
         {
             $lookup: {
-                from: 'authors',
-                localField: 'author',
-                foreignField: '_id',
-                as: 'author',
+                from: "authors",
+                localField: "author",
+                foreignField: "_id",
+                as: "author",
             },
         },
         {
             $unwind: {
-                path: '$author',
+                path: "$author",
                 preserveNullAndEmptyArrays: true,
             },
         },
         {
             $addFields: {
-                'author.nb_articles': {
+                "author.nb_articles": {
                     // https://stackoverflow.com/questions/14213636/conditional-grouping-with-exists-inside-cond
                     $cond: [
-                        { $not: ['$author.list_articles'] },
-                        '$$REMOVE',
-                        { $size: '$author.list_articles' },
+                        { $not: ["$author.list_articles"] },
+                        "$$REMOVE",
+                        { $size: "$author.list_articles" },
                     ],
                 },
             },
@@ -604,14 +604,14 @@ const getArticles = async (id, queryParams) => {
             $set: {
                 author: {
                     $cond: [
-                        { $not: ['$author.list_articles'] },
+                        { $not: ["$author.list_articles"] },
                         null,
-                        '$author',
+                        "$author",
                     ],
                 },
             },
         },
-        { $unset: 'author.list_articles' },
+        { $unset: "author.list_articles" },
     ]);
 
     return ressource;

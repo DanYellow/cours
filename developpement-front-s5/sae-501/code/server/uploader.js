@@ -1,12 +1,12 @@
-import path from 'path';
-import multer from 'multer';
-import fs from 'fs/promises';
+import path from "path";
+import multer from "multer";
+import fs from "fs/promises";
 
-import { imageValidator } from '#database/validator.js';
+import { imageValidator } from "#database/validator.js";
 
 const storage = multer.diskStorage({
     filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
         cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
     },
 });

@@ -1,10 +1,10 @@
 // Validation rules
 
-const imageValidator = (image, listAllowedMimeType = ['image/png', 'image/jpg', 'image/jpeg'], maxSizeFactor = 0.8) => {
+const imageValidator = (image, listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"], maxSizeFactor = 0.8) => {
     if (
         !listAllowedMimeType.includes(image?.mimetype || image.type)
     ) {
-        return 'Format incorrect uploadé';
+        return "Format incorrect uploadé";
     }
 
     const oneMo = 1024 * 1024;

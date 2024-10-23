@@ -1,15 +1,15 @@
-import express from 'express';
-import fs from 'fs';
-import mongoose from 'mongoose';
-import querystring from 'querystring';
+import express from "express";
+import fs from "fs";
+import mongoose from "mongoose";
+import querystring from "querystring";
 
-import Author from '#models/author.js';
+import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from '../uploader.js';
+import upload, { uploadImage, deleteUpload } from "../uploader.js";
 
 const router = express.Router();
 
-const base = 'authors';
+const base = "authors";
 
 /**
  * @openapi
@@ -80,7 +80,7 @@ router.get(`/${base}`, async (req, res) => {
                     image: 1,
                     bio: 1,
                     email: 1,
-                    nb_articles: { $size: '$list_articles' },
+                    nb_articles: { $size: "$list_articles" },
                 },
             },
         ]);
@@ -105,7 +105,7 @@ router.get(`/${base}`, async (req, res) => {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: 'Il y a eu un problème' }],
+                    e?.errors || [{ message: "Il y a eu un problème" }],
                 ).map(val => val.message),
             ],
         });
@@ -170,21 +170,21 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
             {
                 $addFields: {
-                    nb_articles: { $size: '$list_articles' },
+                    nb_articles: { $size: "$list_articles" },
                     page: Number(page),
                     total_pages: {
                         $ceil: {
-                            $divide: [{ $size: '$list_articles' }, perPage],
+                            $divide: [{ $size: "$list_articles" }, perPage],
                         },
                     },
                 },
             },
             {
                 $lookup: {
-                    from: 'articles',
-                    localField: 'list_articles',
-                    foreignField: '_id',
-                    as: 'list_articles',
+                    from: "articles",
+                    localField: "list_articles",
+                    foreignField: "_id",
+                    as: "list_articles",
                     pipeline: [
                         { $sort: { created_at: -1 } },
                         { $skip: Math.max(page - 1, 0) * perPage },
@@ -195,20 +195,20 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             { $addFields: {
                 list_articles: {
                     $map: {
-                        input: '$list_articles',
-                        as: 'article',
+                        input: "$list_articles",
+                        as: "article",
                         in: {
                             $mergeObjects: [
-                                '$$article',
+                                "$$article",
                                 {
-                                    nb_comments: { $size: '$$article.list_comments' },
+                                    nb_comments: { $size: "$$article.list_comments" },
                                 },
                             ],
                         },
                     },
                 },
             } },
-            { $unset: ['list_articles.list_comments'] },
+            { $unset: ["list_articles.list_comments"] },
         ]);
 
         if (!ressource.length) {
@@ -230,7 +230,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             errors: [
                 ...Object.values(
                     err?.errors || [
-                        { message: 'Quelque chose s\'est mal passé' },
+                        { message: "Quelque chose s'est mal passé" },
                     ],
                 ).map(val => val.message),
             ],
@@ -282,7 +282,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post(`/${base}`, upload.single('image'), async (req, res) => {
+router.post(`/${base}`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -320,7 +320,7 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
                     ...deleteUpload(targetPath),
                     ...Object.values(
                         err?.errors || [
-                            { message: 'Quelque chose s\'est mal passé' },
+                            { message: "Quelque chose s'est mal passé" },
                         ],
                     ).map(val => val.message),
                 ],
@@ -379,7 +379,7 @@ router.post(`/${base}`, upload.single('image'), async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id([a-f0-9]{24})`, upload.single('image'), async (req, res) => {
+router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -427,7 +427,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single('image'), async (req, res
                 res.status(400).json({
                     errors: [
                         ...listErrors,
-                        'Élément non trouvé',
+                        "Élément non trouvé",
                         ...deleteUpload(targetPath),
                     ],
                 });
@@ -438,7 +438,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, upload.single('image'), async (req, res
                         ...listErrors,
                         ...Object.values(
                             err?.errors || [
-                                { message: 'Il y a eu un problème' },
+                                { message: "Il y a eu un problème" },
                             ],
                         ).map(val => val.message),
                         ...deleteUpload(targetPath),
@@ -498,7 +498,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
         }
 
         if (ressource) {
-            req.flash('success', 'Element supprimé');
+            req.flash("success", "Element supprimé");
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
@@ -507,7 +507,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     }
     catch (_error) {
         return res.status(400).json({
-            error: 'Quelque chose s\'est mal passé, veuillez recommencer',
+            error: "Quelque chose s'est mal passé, veuillez recommencer",
         });
     }
 });

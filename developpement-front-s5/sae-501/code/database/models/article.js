@@ -1,9 +1,9 @@
-import mongoose, { Schema } from 'mongoose';
-import slugify from 'slugify';
+import mongoose, { Schema } from "mongoose";
+import slugify from "slugify";
 
-import CommentArticle from './comment-article.js';
-import Author from './author.js';
-import { listStopWords } from '#database/list-stop-words.js';
+import CommentArticle from "./comment-article.js";
+import Author from "./author.js";
+import { listStopWords } from "#database/list-stop-words.js";
 
 const articleSchema = new Schema(
     {
@@ -11,7 +11,7 @@ const articleSchema = new Schema(
             type: String,
             required: [
                 true,
-                'Veuillez mettre un titre, le champ ne peut pas être nul ou vide',
+                "Veuillez mettre un titre, le champ ne peut pas être nul ou vide",
             ],
             trim: true,
         },
@@ -20,7 +20,7 @@ const articleSchema = new Schema(
             type: String,
             required: [
                 true,
-                'Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide',
+                "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide",
             ],
             trim: true,
         },
@@ -28,7 +28,7 @@ const articleSchema = new Schema(
             type: String,
             required: [
                 true,
-                'Veuillez mettre une image, le champ ne peut pas être nul ou vide',
+                "Veuillez mettre une image, le champ ne peut pas être nul ou vide",
             ],
         },
         yt_video_id: {
@@ -43,12 +43,12 @@ const articleSchema = new Schema(
         list_comments: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'CommentArticle',
+                ref: "CommentArticle",
             },
         ],
         author: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Author',
+            ref: "Author",
             default: null,
         },
         slug: {
@@ -57,12 +57,12 @@ const articleSchema = new Schema(
         },
     },
     {
-        timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+        timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
     },
 );
 
 articleSchema.pre(
-    'findOneAndDelete',
+    "findOneAndDelete",
     { document: true, query: true },
     async function (next) {
         try {
@@ -79,15 +79,15 @@ articleSchema.pre(
     },
 );
 
-articleSchema.pre('findOneAndUpdate', function (next) {
+articleSchema.pre("findOneAndUpdate", function (next) {
     this.options.runValidators = true;
     next();
 });
 
-articleSchema.pre('save', function (next) {
+articleSchema.pre("save", function (next) {
     if (!this.slug) {
-        const regex = new RegExp(listStopWords.join('|'), 'gi');
-        const replacedTitle = this.title.replace(regex, '');
+        const regex = new RegExp(listStopWords.join("|"), "gi");
+        const replacedTitle = this.title.replace(regex, "");
 
         this.slug = `${slugify(replacedTitle, { lower: true, trim: true })}-${
             this._id
@@ -96,4 +96,4 @@ articleSchema.pre('save', function (next) {
     next();
 });
 
-export default mongoose.model('Article', articleSchema);
+export default mongoose.model("Article", articleSchema);

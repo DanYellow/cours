@@ -1,18 +1,18 @@
-import express from 'express';
-import axios from 'axios';
-import mongoose from 'mongoose';
-import querystring from 'querystring';
+import express from "express";
+import axios from "axios";
+import mongoose from "mongoose";
+import querystring from "querystring";
 
-import upload from '../uploader.js';
+import upload from "../uploader.js";
 
-const base = 'articles';
+const base = "articles";
 const router = express.Router();
 
 // Get multiple articles
 router.get(`/${base}`, async (req, res) => {
     const queryParams = querystring.stringify(req.query);
     const options = {
-        method: 'GET',
+        method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
     let result = {};
@@ -21,14 +21,14 @@ router.get(`/${base}`, async (req, res) => {
     }
     catch {}
 
-    res.render('pages/back-end/articles/list.njk', {
+    res.render("pages/back-end/articles/list.njk", {
         list_articles: result.data,
     });
 });
 
 // Get or create article
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
-    const isEdit = req.params.id !== 'add';
+    const isEdit = req.params.id !== "add";
 
     let result = {};
     let listErrors = [];
@@ -36,7 +36,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     try {
         if (isEdit) {
             const options = {
-                method: 'GET',
+                method: "GET",
                 url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
             };
             result = await axios(options);
@@ -46,7 +46,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         listErrors = error.response.data.errors;
     }
 
-    res.render('', {
+    res.render("", {
         article: result?.data || {},
         list_errors: listErrors,
         is_edit: isEdit,
@@ -54,7 +54,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 });
 
 // Create or update article
-router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req, res) => {
+router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
     let ressource = {};
 
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
@@ -64,7 +64,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
 
     let options = {
         headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
         },
         data: {
             ...req.body,
@@ -75,14 +75,14 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
     if (isEdit) {
         options = {
             ...options,
-            method: 'PUT',
+            method: "PUT",
             url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
         };
     }
     else {
         options = {
             ...options,
-            method: 'POST',
+            method: "POST",
             url: `${res.locals.base_url}/api/${base}`,
         };
     }
@@ -92,7 +92,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
         ressource = result.data;
 
         listAuthors = await axios({
-            method: 'GET',
+            method: "GET",
             url: `${res.locals.base_url}/api/authors`,
         });
         listAuthors = listAuthors.data.data;
@@ -103,7 +103,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single('image'), async (req
     }
     finally {
         if (listErrors.length || isEdit) {
-            res.render('', {
+            res.render("", {
                 article: ressource,
                 list_errors: listErrors,
                 list_authors: listAuthors,

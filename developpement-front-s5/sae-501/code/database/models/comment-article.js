@@ -1,7 +1,7 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from "mongoose";
 
-import { errorRequiredMessage } from '#database/error-messages.js';
-import Article from './article.js';
+import { errorRequiredMessage } from "#database/error-messages.js";
+import Article from "./article.js";
 
 const commentArticleSchema = new Schema(
     {
@@ -9,18 +9,18 @@ const commentArticleSchema = new Schema(
             type: String,
             required: [
                 true,
-                errorRequiredMessage('un commentaire'),
+                errorRequiredMessage("un commentaire"),
             ],
             trim: true,
         },
         article: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Article',
+            ref: "Article",
             required: true,
         },
     },
     {
-        timestamps: { createdAt: 'created_at' },
+        timestamps: { createdAt: "created_at" },
     },
 );
 
@@ -38,7 +38,7 @@ commentArticleSchema.methods.getClean = function () {
 };
 
 commentArticleSchema.pre(
-    'findOneAndDelete',
+    "findOneAndDelete",
     { document: true, query: true },
     async function (next) {
         try {
@@ -50,4 +50,4 @@ commentArticleSchema.pre(
     },
 );
 
-export default mongoose.model('CommentArticle', commentArticleSchema);
+export default mongoose.model("CommentArticle", commentArticleSchema);
