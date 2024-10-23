@@ -52,9 +52,9 @@ if (input) {
     });
 }
 
-const openFileBtn = document.querySelector("[data-file]");
-if (openFileBtn) {
-    openFileBtn.addEventListener("click", (e) => {
+
+document.querySelectorAll("[data-file]").forEach((item) => {
+    item.addEventListener("click", (e) => {
         fetch(e.currentTarget.dataset.file, { method: "GET" });
     });
-}
+});
