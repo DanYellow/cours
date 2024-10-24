@@ -55,8 +55,8 @@ router.get("/eslint", routeName("eslint"), (req, res) => {
         },
     };
 
-    if (req.app?.get("data")) {
-        payload = JSON.parse(req.app?.get("data"));
+    if (req.app.locals?.data) {
+        payload = JSON.parse(req.app.locals?.data);
     }
 
     res.render("pages/back-end/debug/eslint.njk", { ...payload });

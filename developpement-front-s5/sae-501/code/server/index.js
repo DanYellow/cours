@@ -123,17 +123,17 @@ const eslintReportProxy = new Proxy({}, {
     set: async (target, key, value) => {
         target[key] = value;
 
-        // if (!checkEmptyObject(value)) {
         app.set(
             "data", 
             JSON.stringify(eslintReportProxy)
         );
+        // console.log(eslintReportProxy)
+        app.locals.data = JSON.stringify(eslintReportProxy);
 
-        await fs.promises.writeFile(
-            "./eslint-report.tmp.json", 
-            JSON.stringify(eslintReportProxy)
-        );
-        // }
+        // await fs.promises.writeFile(
+        //     "./eslint-report.tmp.json", 
+        //     JSON.stringify(eslintReportProxy)
+        // )
 
         return true;
     },
