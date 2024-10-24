@@ -119,35 +119,21 @@ const getAllCookies = (cookie) => {
     return res?.reduce((result, curr) => Object.assign(result, curr), {}) || {};
 };
 
-const checkEmptyObject = (obj) => {
-    for (const value of Object.values(obj)) {
-        if (value instanceof Object === true) {
-            if (checkEmptyObject(value) === false) {
-                return false;
-            }
-        } else {
-            if (value.length !== 0) return false;
-        }
-    }
-  
-    return true;
-};
-
 const eslintReportProxy = new Proxy({}, {
     set: async (target, key, value) => {
         target[key] = value;
 
-        if (!checkEmptyObject(value)) {
-            app.set(
-                "data", 
-                JSON.stringify(eslintReportProxy)
-            );
-            
-            await fs.promises.writeFile(
-                "./eslint-report.tmp.json", 
-                JSON.stringify(eslintReportProxy)
-            );
-        }
+        // if (!checkEmptyObject(value)) {
+        app.set(
+            "data", 
+            JSON.stringify(eslintReportProxy)
+        );
+
+        await fs.promises.writeFile(
+            "./eslint-report.tmp.json", 
+            JSON.stringify(eslintReportProxy)
+        );
+        // }
 
         return true;
     },
@@ -326,7 +312,7 @@ if (process.env.NODE_ENV === "development") {
                 },
             };
             
-            console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
+            console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
             console.log(resultText);
             console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
         }
