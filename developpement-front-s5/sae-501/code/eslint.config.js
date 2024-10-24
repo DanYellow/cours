@@ -51,6 +51,7 @@ export default [
             "dist/",
             "generate-list-routes.js",
             "tailwind.config.js",
+            "eslint-vite.plugin.js",
             "vite.config.js",
             "vite.config.build.js",
             "eslint.config.js",

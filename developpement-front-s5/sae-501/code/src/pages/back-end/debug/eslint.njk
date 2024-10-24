@@ -24,7 +24,14 @@
         </header>
 
         <div class="pr-6 pl-8">
-            {{ eslint.report(frontend) }}
+            <nav class="flex">
+                <button data-tab-name="server" class="px-3 py-2 rounded-md">Server</button>
+                <button data-tab-name="front" class="px-3 py-2 rounded-md">Front-end</button>
+            </nav>
+            <section class="list-tab-content pt-3">
+                <div data-tab-content="server">{{ eslint.report(server) }}</div>
+                <div data-tab-content="front">{{ eslint.report(frontend) }}</div>
+            </section>
         </div>
     </div>
 {% endblock %}

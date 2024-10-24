@@ -25,12 +25,17 @@ export default {
         },
     },
     plugins: [
-        containerQueries, 
+        containerQueries,
         forms,
-        plugin(({ addVariant }) => {
-            addVariant('touch', '@media (pointer: coarse)')
-            addVariant('no-touch', '@media (pointer: fine)')
-            addVariant('hocus', ['&:hover', '&:focus-within'])
-        })
+        plugin(({ addVariant, addComponents, theme }) => {
+            addVariant("touch", "@media (pointer: coarse)");
+            addVariant("no-touch", "@media (pointer: fine)");
+            addVariant("hocus", ["&:hover", "&:focus-within"]);
+            addComponents({
+                ".active-tab": {
+                    backgroundColor: theme("colors.gray.100"),
+                },
+            });
+        }),
     ],
 };
