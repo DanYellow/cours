@@ -41,7 +41,7 @@ router.get(
 );
 
 router.get("/eslint", routeName("eslint"), (req, res) => {
-    res.render("pages/back-end/debug/eslint.njk");
+    res.render("pages/back-end/debug/eslint.njk", { ...JSON.parse(req.app?.get("data") || "{}") });
 });
 
 router.get("/eslint-fix", routeName("eslint_fix"), async (req, res) => {
