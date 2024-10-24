@@ -4,11 +4,11 @@
         <header class="rounded-sm mb-2 gap-y-2 flex justify-between lg:items-end lg:flex-row flex-col">
             <p class="text-lg font-bold">Summary : {{ data.summary.errorCount + data.summary.warningCount }}&nbsp;problems - {{ data.summary.errorCount }}&nbsp;error(s), {{ data.summary.warningCount }}&nbsp;warning(s)</p>
             <button
-                        data-file="{{ routeName("eslint_fix", { url: current_url }) }}"
-                        class="inline-flex gap-1 w-full sm:w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 focus-within:bg-blue-950 h-fit justify-center"
-                    >
-                        Run "npm run lint:fix" command
-                    </button>
+                data-file="{{ routeName("eslint_fix", { url: current_url }) }}"
+                class="inline-flex gap-1 w-full sm:w-fit text-md text-white rounded-2xl items-center text-sm py-2 px-4 bg-blue-700 hover:bg-blue-950 focus-within:bg-blue-950 h-fit justify-center"
+            >
+                Run "npm run lint:fix" command
+            </button>
         </header>
     {% endif %}
     {% for report in data.report_details %}
