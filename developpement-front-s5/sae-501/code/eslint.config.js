@@ -33,6 +33,7 @@ export default [
             "@stylistic/semi": "warn",
             "@stylistic/no-trailing-spaces": "off",
             "@stylistic/no-multiple-empty-lines": "off",
+            "@stylistic/arrow-parens": "off",
             "@stylistic/brace-style": ["error", "1tbs"],
             "@stylistic/comma-dangle": [
                 "error",

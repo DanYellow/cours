@@ -15,7 +15,6 @@ export default (params) => {
             if (params.fix) {
                 await ESLint.outputFixes(filesLinted);
             }      
-            
             const outputPayload = {};
 
             for (const item of params.formatter) {
@@ -35,11 +34,6 @@ export default (params) => {
             }
 
             params.callback?.(outputPayload)
-
-            // return outputPayload;
-        },
-        async transform(src, id) {
-            
-        },
+        }
     };
 };
