@@ -1,13 +1,10 @@
 import express from "express";
-import { exec } from "child_process";
 import openEditor from "launch-editor";
-import util from "util";
 
 import { generateListRoutes } from "../generate-list-routes.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
 const router = express.Router();
-const execPromise = util.promisify(exec);
 
 
 router.get("/", routeName("debug"), async (req, res) => {
@@ -41,15 +38,28 @@ router.get(
 );
 
 router.get("/eslint", routeName("eslint"), (req, res) => {
-    res.render("pages/back-end/debug/eslint.njk", { ...JSON.parse(req.app?.get("data") || "{}") });
-});
+    let payload = {
+        server: {
+            report_details: [],
+            summary: {
+                errorCount: 0,
+                warningCount: 0,
+            },
+        },
+        frontend: {
+            report_details: [],
+            summary: {
+                errorCount: 0,
+                warningCount: 0,
+            },
+        },
+    };
 
-router.get("/eslint-fix", routeName("eslint_fix"), async (req, res) => {
-    try {
-        await execPromise("npm run lint:fix");
-    } finally {
-        res.status(200).json({ url: req.query.url });
+    if (req.app?.get("data")) {
+        payload = JSON.parse(req.app?.get("data"));
     }
+
+    res.render("pages/back-end/debug/eslint.njk", { ...payload });
 });
 
 export default router;
