@@ -20,7 +20,6 @@ import { createServer as createViteServer } from "vite";
 import { codeFrameColumns } from "@babel/code-frame";
 
 import { ESLint } from "eslint";
-import eslintVite from "vite-plugin-eslint";
 
 import mongoServer from "#database/index.js";
 
@@ -30,6 +29,7 @@ import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
+import eslintVite from "../eslint-vite.plugin.js";
 
 import { generateUrl } from "../generate-list-routes.js";
 
@@ -118,6 +118,20 @@ const getAllCookies = (cookie) => {
     return res?.reduce((result, curr) => Object.assign(result, curr), {}) || {};
 };
 
+const checkEmptyObject = (obj) => {
+    for (const value of Object.values(obj)) {
+        if (value instanceof Object === true) {
+            if (checkEmptyObject(value) === false) {
+                return false;
+            }
+        } else {
+            if (value.length !== 0) return false;
+        }
+    }
+  
+    return true;
+};
+
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
@@ -173,7 +187,23 @@ app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, backendRouter);
 app.use("/api", apiRouter);
-app.use(frontendRouter);
+app.use(frontendRouter)
+
+const eslintReportProxy = new Proxy({}, {
+    set: async (target, key, value) => {
+        target[key] = value;
+
+        if (!checkEmptyObject(value)) {
+            // console.log("target", target);
+            await fs.promises.writeFile(
+                "src/pages/back-end/debug/eslint.tmp.njk.json", 
+                JSON.stringify(target)
+            );
+        }
+
+        return true;
+    },
+});
 
 if (process.env.NODE_ENV === "development") {
     const options = {
@@ -226,7 +256,7 @@ if (process.env.NODE_ENV === "development") {
         }
 
         res.render("pages/error.njk", response);
-    })
+    });
 
     ;(async () => {
         const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
@@ -237,50 +267,43 @@ if (process.env.NODE_ENV === "development") {
             "./database/**/*.js",
         ]);
 
-        await ESLint.outputFixes(results);
+        if (useEslintAutoFix) {
+            await ESLint.outputFixes(results);
+        }
 
         const formatter = await eslint.loadFormatter("stylish");
         const JSONformatter = await eslint.loadFormatter("json");
         const resultText = formatter.format(results);
 
         let resultJSON = JSON.parse(JSONformatter.format(results));
+        resultJSON = resultJSON.filter((item) => {
+            return item.messages.length > 0;
+        });
         resultJSON = resultJSON.map((item) => {
             const copy = { ...item };
             delete copy.source;
 
             return copy;
         });
-        resultJSON = resultJSON.filter((item) => {
-            return item.messages.length > 0;
-        });
 
-        let jsonContent = {
-            data: {
-                report_details: [],
-                summary: {},
-            },
+        eslintReportProxy["server"] = {
+            report_details: [],
+            summary: {},
         };
 
         if (resultText.length) {
-            jsonContent = { 
-                data: {
-                    report_details: resultJSON,
-                    summary: {
-                        errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
-                        warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
-                    },
+            eslintReportProxy["server"] = {
+                report_details: resultJSON,
+                summary: {
+                    errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
+                    warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
                 },
             };
-
+            
             console.log("\x1b[30m\x1b[33m\x1b[4m------ ESLint server ------\x1b[0m");
             console.log(resultText);
             console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
         }
-
-        await fs.promises.writeFile(
-            "src/pages/back-end/debug/eslint.tmp.njk.json", 
-            JSON.stringify(jsonContent)
-        );
     })().catch((error) => {
         process.exitCode = 1;
         console.error(error);
@@ -390,24 +413,48 @@ const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
     (async () => {
+        // eslintReportProxy["frontend"] = {
+        //     report_details: [],
+        //     summary: {},
+        // };
+
+
         const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
-        
-        // const foo = eslintVite({
-        //     include: "**/*.js",
-        //     fix: useEslintAutoFix,
-        //     formatter: "json",
-        // });
-        // console.log("foo", foo);
+        const eslintCallback = (value) => {
+            if (value.json) {
+                let resultJSON = JSON.parse(value.json);
+                resultJSON = resultJSON.filter((item) => {
+                    return item.messages.length > 0;
+                });
+                resultJSON = resultJSON.map((item) => {
+                    const copy = { ...item };
+                    delete copy.source;
+    
+                    return copy;
+                });
+    
+                eslintReportProxy["frontend"] = {
+                    report_details: resultJSON,
+                    summary: {
+                        errorCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
+                        warningCount: resultJSON.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
+                    },
+                };
+            }
+        }
+
+        const eslintVitePlugin = eslintVite({
+            formatter: ["stylish", { formatter: "json", getOutput: true }],
+            include: "**/*.js",
+            fix: useEslintAutoFix,
+            callback: eslintCallback,
+        });
+
         const overridenViteConfig = {
             ...viteConfig,
             plugins: [
                 ...viteConfig.plugins,
-                eslintVite({
-                    include: "**/*.js",
-                    fix: useEslintAutoFix,
-                    formatter: "stylish",
-                }),
-                
+                // eslintVitePlugin,
             ],
         };
 

@@ -8,14 +8,14 @@ export default (params) => {
     return {
         name: "eslint-vite",
         apply: "serve",
-        async transform() {
+        async buildStart() {
             const eslint = new ESLint({ fix: false });
             const filesLinted = await eslint.lintFiles(["./src/**/*.js"]);
 
             if (params.fix) {
                 await ESLint.outputFixes(filesLinted);
-            }
-
+            }      
+            
             const outputPayload = {};
 
             for (const item of params.formatter) {
@@ -34,7 +34,12 @@ export default (params) => {
                 }
             }
 
-            return outputPayload;
+            params.callback?.(outputPayload)
+
+            // return outputPayload;
+        },
+        async transform(src, id) {
+            
         },
     };
 };
