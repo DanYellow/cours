@@ -5,6 +5,8 @@ import "/src/styles/back-end/index.css";
 const tableRoutes = document.querySelector("[data-table-routes] tbody");
 const tableRoutesRows = tableRoutes?.querySelectorAll("tr");
 const input = document.querySelector("[data-route-search]");
+const emptyRouteResultRowRaw = document.querySelector('[data-tpl="empty-route-result-row"]')
+const emptyRouteResultRow = emptyRouteResultRowRaw?.content.cloneNode(true);
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
@@ -31,6 +33,13 @@ const filterTable = (inputValue) => {
         }
         item.classList.add("hover:bg-neutral-50");
     });
+
+    if (Array.from(tableRoutesRowsVisible).length === 0) {
+        tableRoutes.insertRow(0).append(emptyRouteResultRow);
+    } else {
+        const row = document.querySelector("[data-no-result-row]");
+        row?.parentNode.removeChild(row);
+    }
 };
 
 if (input) {
