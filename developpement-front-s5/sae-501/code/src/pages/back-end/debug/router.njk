@@ -1,3 +1,13 @@
+{% extends "layouts/back-end/base.njk" %}
+
+{% set page_name = "debug" %}
+
+{% block head_tags %}
+    <link rel="icon" href="/images/wrench-screwdiver-favicon.svg">
+
+    <script type="module" src="/src/scripts/main.debug.js" defer></script>
+{% endblock %}
+
 {% set filter_entries = [
     {
         class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-300 hover:bg-indigo-200 hover:dark:bg-indigo-950 outline-transparent",
@@ -24,30 +34,19 @@
         name: "DELETE"
     }
 ] %}
-{% set qsp_method = query_string_params.method if query_string_params.method else "ALL" %}
 
-<!DOCTYPE html>
-<html lang="en" class="dark:bg-gray-900 dark:text-white text-slate-800">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>List routes ({{ qsp_method }}) - {{ list_routes | length }} routes found - SAE-501</title>
+{% set qsp_method = query_string_params.method if query_string_params.method else 
+    "ALL" %}
+{% block title %}List routes ({{ qsp_method }}) - {{ list_routes | length }} routes found - SAE-501{% endblock %}
 
-        <link rel="stylesheet" href="/styles/reset.css">
-        <link rel="stylesheet" href="/styles/fonts.css">
-
-        <link rel="icon" href="/images/wrench-screwdiver-favicon.svg">
-
-        {% if NODE_ENV == "development" %}
-            <script type="module" src="/src/scripts/main.debug.js" defer></script>
-        {% endif %}
-    </head>
-    <body class="@container/main px-2">
-        <header class="p-6">
-            <h1 class="text-4xl">
+{% block main %}
+    <div class="bg-white rounded-2xl shadow-md pb-6">
+        <header class="mb-1 p-6 pr-4 pl-8 flex justify-between gap-2 flex-col">
+            <p class="text-4xl">
                 List routes - SAE-501
-                <span class="block text-base">{{ list_routes | length }} routes found</span>
-            </h1>
+                <span class="block text-sm">{{ list_routes | length }} routes found</span>
+            </p>
+
             <hr class="my-5">
             <ul class="flex gap-3">
                 {% for item in filter_entries %}
@@ -64,12 +63,14 @@
                 {% endfor %}
             </ul>
         </header>
-        <div class="flex flex-col px-6 pt-0 pb-6">
+
+        <div class="flex flex-col pt-0 mb-6 pr-6 pl-8">
             <label for="route">Search by route's name</label>
             <input class="text-black rounded" type="text" value="{{ query_string_params.route_name }}" id="route" placeholder="Route's name" data-route-search>
         </div>
-        <table class="w-full bg-white dark:bg-slate-700 rounded-t-lg overflow-hidden border-separate" data-table-routes>
-            <thead class="bg-white dark:bg-slate-700 top-0 md:sticky">
+
+        <table class="w-full bg-white rounded-t-lg overflow-hidden border-separate" data-table-routes>
+            <thead class="bg-white top-0 md:sticky">
                 <tr>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Name</th>
@@ -108,15 +109,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <footer class="p-6">
-            <ul class="flex items-center gap-4 justify-center flex-col sm:flex-row">
-                <li>
-                    <a href="{{ routeName("homepage") }}" class="focus-within:text-blue-700 hover:text-blue-700 dark:hover:text-blue-300 dark:focus-within:text-blue-300">Accéder au site</a>
-                </li>
-                <li>
-                    <a href="{{ routeName("admin") }}" class="focus-within:text-blue-700 hover:text-blue-700 dark:hover:text-blue-300 dark:focus-within:text-blue-300">Accéder à l'administration</a>
-                </li>
-            </ul>
-        </footer>
-    </body>
-</html>
+
+    </div>
+{% endblock %}
