@@ -28,8 +28,8 @@ _Les consignes pourront être modifiées._
     - [Site BUT et administration](#site-but-et-administration)
     - [Site BUT](#site-but)
     - [Administration](#administration)
-- [Notes et astuces](#notes-et-astuces)
-- [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+  - [Notes et astuces](#notes-et-astuces)
+  - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
 
 
 ## Contexte de la SAÉ
@@ -379,10 +379,10 @@ La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
   - Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
 
-# Notes et astuces
+## Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
 
-# FAQ - Foire Aux Questions
+## FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
     
     Oui, vous avez tout à fait le droit. Il est déjà utilisé d'ailleurs.
@@ -418,7 +418,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 
-    Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactivez "Récepteur AirPlay".
+    Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactiver "Récepteur AirPlay".
     ![](captures/airreceiver.png)
     - [En savoir plus](https://developer.apple.com/forums/thread/682332)
 
@@ -430,7 +430,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
 - **Le navigateur affiche une erreur 404, je ne comprends pas**
 
-    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre router. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3900/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appelez une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
+    Vous essayez d'accéder à une URL qui n'a pas d'équivalent dans votre routeur. Vérifiez bien que votre route existe bien dans votre routeur. Par exemple, si vous écrivez GET - `ressources/:id` et que vous accédez dans l'URL à GET - `localhost:3900/ressources`, vous aurez une 404 car il manque un paramètre après. Notez bien que cette règle s'applique également sur la méthode. Appeler une requête en POST alors qu'elle n'existe qu'en GET engendrera également une erreur 404.
 
     Il y a la route `/debug/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur. Cette route est également accessible depuis le menu de l'administration.
 
