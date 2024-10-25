@@ -66,7 +66,10 @@ document.querySelectorAll("[data-file]").forEach((item) => {
 
 
 (() => {
-    const openTab = (e) => {
+    const url = new URL(window.location);
+    const tabIndex = Number(url.searchParams?.get("t") || 0);
+
+    const openTab = (e, idx) => {
         document.querySelectorAll("[data-tab-content]").forEach((item) => {
             item.style.display = "none";
         });
@@ -80,7 +83,10 @@ document.querySelectorAll("[data-file]").forEach((item) => {
         ).style.display = "block";
         document
             .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
-            .classList.add("active-tab");
+            .classList.add("active-tab")
+
+        url.searchParams.set("t", idx);
+        history.replaceState(null, "", url);
     };
 
     if (document.querySelectorAll("[data-tab-content]").length) {
@@ -88,11 +94,12 @@ document.querySelectorAll("[data-file]").forEach((item) => {
             item.style.display = "none";
         });
 
-        document.querySelectorAll("[data-tab-content]")[0].style.display = "block";
-        document.querySelectorAll("[data-tab-name]")[0].classList.add("active-tab");
+        document.querySelectorAll("[data-tab-content]")[tabIndex].style.display = "block";
+        document.querySelectorAll("[data-tab-name]")[tabIndex].classList.add("active-tab");
     }
 
-    document.querySelectorAll("[data-tab-name]").forEach((item) => {
-        item.addEventListener("click", openTab);
+    document.querySelectorAll("[data-tab-name]").forEach((item, idx) => {
+        item.addEventListener("click", (e) => openTab(e, idx));
     });
 })();
+
