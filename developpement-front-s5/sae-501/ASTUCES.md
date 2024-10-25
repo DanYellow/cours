@@ -1,5 +1,14 @@
 # Astuces
 
+- [Astuces](#astuces)
+  - [Swagger](#swagger)
+  - [Middleware](#middleware)
+    - [Middleware "namedRoute"](#middleware-namedroute)
+  - [Gestion des retours à la ligne (nunjucks)](#gestion-des-retours-à-la-ligne-nunjucks)
+  - [Ouvrir avec Code / Afficher le code](#ouvrir-avec-code--afficher-le-code)
+  - [En vrac](#en-vrac)
+
+
 Pour vous aider à mener à bien, le projet intègre des outils dont **l'utilisation est facultative.** Toutefois, nous vous invitons à lire attentivement ce document.
 
 Ce document n'abordera pas l'utilisation de POSTMAN, vu qu'il y a un document dédié à son utilisation. [Accéder au document de présentation de POSTMAN](./POSTMAN.md).
@@ -68,8 +77,16 @@ La fonction nunjucks transformera le code entre les accolades en "/toto/articles
 
 > Note 2 : Toutes vos routes ainsi que leur nom sont accessibles dans la route `/debug/router`. Route accessible également via l'admin dans la partie "Debug".
 
-## Gestion des retours à la ligne
+## Gestion des retours à la ligne (nunjucks)
 Si vos textes contenus dans la base de données contiennent des retours à la ligne, ils ne seront pas pris en compte lorsque vous les chargerez. Pour les afficher, il faudra utiliser la [fonction `nl2br`](https://mozilla.github.io/nunjucks/templating.html#nl2br) de nunjucks. Vous pouvez trouver un exemple dans le code dans le fichier `src/pages/front-end/about.njk`.
+
+## Ouvrir avec Code / Afficher le code
+Sur certaines pages comme la page de debug eslint (url debug/eslint), il est donné la possibilité d'ouvrir le code directement à l'endroit où se trouve le problème. Toutefois il est possible que cette fonctionnalité dysfonctionne. Pour ce faire :
+- **MacOS uniquement** : Soyez sûr(e) que VS Code est dans le dossier "Applications"
+- Ouvrez la Commande Palette `ctrl/cmd + shift + p`
+- Recherchez "shell command"
+- Sélectionnez "Uninstall 'code'" puis "Install 'code'"
+![alt text](./captures/shell-command.png)
 
 ## En vrac
 - Si votre formulaire doit permettre l'upload d'image, il doit respecter les conditions suivantes. Sinon, vous ne recupèrerez **jamais** les données du formulaire contenues dans l'objet "req.body". :
