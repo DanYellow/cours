@@ -5,8 +5,7 @@ import "/src/styles/back-end/index.css";
 const tableRoutes = document.querySelector("[data-table-routes] tbody");
 const tableRoutesRows = tableRoutes?.querySelectorAll("tr");
 const input = document.querySelector("[data-route-search]");
-const emptyRouteResultRowRaw = document.querySelector('[data-tpl="empty-route-result-row"]')
-const emptyRouteResultRow = emptyRouteResultRowRaw?.content.cloneNode(true);
+const emptyRouteResultRow = document.querySelector("[data-no-result-row]")
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
@@ -25,7 +24,7 @@ const filterTable = (inputValue) => {
         }
     });
 
-    const tableRoutesRowsVisible = tableRoutes.querySelectorAll("tr:not(.hidden)");
+    const tableRoutesRowsVisible = tableRoutes.querySelectorAll("tbody tr:not(.hidden):not([data-no-result-row])");
     tableRoutesRowsVisible.forEach((item, idx) => {
         item.classList.remove(...item.classList);
         if (idx % 2 === 0) {
@@ -34,12 +33,7 @@ const filterTable = (inputValue) => {
         item.classList.add("hover:bg-neutral-50");
     });
 
-    if (Array.from(tableRoutesRowsVisible).length === 0) {
-        tableRoutes.insertRow(0).append(emptyRouteResultRow);
-    } else {
-        const row = document.querySelector("[data-no-result-row]");
-        row?.parentNode.removeChild(row);
-    }
+    emptyRouteResultRow.classList.toggle("hidden", Array.from(tableRoutesRowsVisible).length !== 0);
 };
 
 if (input) {
