@@ -5,7 +5,7 @@ import "/src/styles/back-end/index.css";
 const tableRoutes = document.querySelector("[data-table-routes] tbody");
 const tableRoutesRows = tableRoutes?.querySelectorAll("tr");
 const input = document.querySelector("[data-route-search]");
-const emptyRouteResultRow = document.querySelector("[data-no-result-row]")
+const emptyRouteResultRow = document.querySelector("[data-no-result-row]");
 
 const filterTable = (inputValue) => {
     tableRoutesRows.forEach((item) => {
@@ -84,7 +84,7 @@ document.querySelectorAll("[data-file]").forEach((item) => {
         ).style.display = "block";
         document
             .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
-            .classList.add("active-tab")
+            .classList.add("active-tab");
 
         url.searchParams.set("t", idx);
         history.replaceState(null, "", url);

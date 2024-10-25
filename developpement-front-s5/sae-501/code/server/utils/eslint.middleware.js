@@ -1,8 +1,9 @@
 import { ESLint } from "eslint";
 
-const eslint = new ESLint();
 
 export default async (req, res, next) => {
+    const eslint = new ESLint();
+
     const results = await eslint.lintFiles([
         "./server/**/*.js",
         "./database/**/*.js",
