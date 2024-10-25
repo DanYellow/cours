@@ -442,7 +442,6 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     
     Vous pouvez si vous estimez que c'est nécessaire. Aucun de ces outils n'a été installé en revanche, à vous de le faire. En règle générale, si vous avez besoin d'un plugin ou node_module supplémentaire, n'hésitez pas à l'installer.
 
-
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
     Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur (une balise). Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécifique, il faut penser aux containers queries.

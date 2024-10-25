@@ -92,7 +92,7 @@ app.use(
 );
 
 let jsonFilesContent = {};
-[...FastGlob.sync("./src/data/**/*.json"), "./eslint-report.tmp.json"].forEach((entry) => {
+FastGlob.sync("./src/data/**/*.json").forEach((entry) => {
     try {
         const filePath = path.resolve(entry);
         jsonFilesContent = _.merge(
@@ -118,26 +118,6 @@ const getAllCookies = (cookie) => {
 
     return res?.reduce((result, curr) => Object.assign(result, curr), {}) || {};
 };
-
-const eslintReportProxy = new Proxy({}, {
-    set: async (target, key, value) => {
-        target[key] = value;
-
-        app.set(
-            "data", 
-            JSON.stringify(eslintReportProxy)
-        );
-        // console.log(eslintReportProxy)
-        app.locals.data = JSON.stringify(eslintReportProxy);
-
-        // await fs.promises.writeFile(
-        //     "./eslint-report.tmp.json", 
-        //     JSON.stringify(eslintReportProxy)
-        // )
-
-        return true;
-    },
-});
 
 app.use(function (req, res, next) {
     const current_url = getCurrentURL(
@@ -252,7 +232,7 @@ if (process.env.NODE_ENV === "development") {
     ;(async () => {
         const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
         const eslint = new ESLint({ fix: useEslintAutoFix });
-
+        
         const results = await eslint.lintFiles([
             "./server/**/*.js",
             "./database/**/*.js",
@@ -264,54 +244,9 @@ if (process.env.NODE_ENV === "development") {
         }
 
         const formatter = await eslint.loadFormatter("stylish");
-        const JSONformatter = await eslint.loadFormatter("json");
         const resultText = formatter.format(results);
 
-        let resultJSON = JSON.parse(JSONformatter.format(results));
-        resultJSON = resultJSON.filter((item) => {
-            return item.messages.length > 0;
-        });
-        resultJSON = resultJSON.map((item) => {
-            const copy = { ...item };
-            delete copy.source;
-
-            return copy;
-        });
-
-        eslintReportProxy["server"] = {
-            report_details: [],
-            summary: {
-                errorCount: 0,
-                warningCount: 0,
-            },
-        };
-        eslintReportProxy["frontend"] = {
-            report_details: [],
-            summary: {
-                errorCount: 0,
-                warningCount: 0,
-            },
-        };
-
         if (resultText.length) {
-            const frontendResult = resultJSON.filter((item) => item.filePath.includes("src"));
-            const serverResult = resultJSON.filter((item) => !item.filePath.includes("src"));
-
-            eslintReportProxy["server"] = {
-                report_details: serverResult,
-                summary: {
-                    errorCount: serverResult.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
-                    warningCount: serverResult.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
-                },
-            };
-            eslintReportProxy["frontend"] = {
-                report_details: frontendResult,
-                summary: {
-                    errorCount: frontendResult.reduce((accumulator, currentValue) => accumulator + currentValue.errorCount, 0),
-                    warningCount: frontendResult.reduce((accumulator, currentValue) => accumulator + currentValue.warningCount, 0),
-                },
-            };
-            
             console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
             console.log(resultText);
             console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");

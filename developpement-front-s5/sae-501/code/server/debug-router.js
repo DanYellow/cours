@@ -4,6 +4,8 @@ import openEditor from "launch-editor";
 import { generateListRoutes } from "../generate-list-routes.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
+import eslintMiddleware from "./utils/eslint.middleware.js";
+
 const router = express.Router();
 
 
@@ -37,27 +39,8 @@ router.get(
     }
 );
 
-router.get("/eslint", routeName("eslint"), (req, res) => {
-    let payload = {
-        server: {
-            report_details: [],
-            summary: {
-                errorCount: 0,
-                warningCount: 0,
-            },
-        },
-        frontend: {
-            report_details: [],
-            summary: {
-                errorCount: 0,
-                warningCount: 0,
-            },
-        },
-    };
-
-    if (req.app.locals?.data) {
-        payload = JSON.parse(req.app.locals?.data);
-    }
+router.get("/eslint", eslintMiddleware, routeName("eslint"), (req, res) => {
+    const payload = JSON.parse(res.locals.data);
 
     res.render("pages/back-end/debug/eslint.njk", { ...payload });
 });
