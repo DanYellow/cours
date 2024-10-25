@@ -34,7 +34,7 @@ router.get(
     "/open/file",
     routeName("open_editor"),
     (req, res) => {
-        openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`, "code");
+        openEditor(`${req.query.file}:${req.query.line}:${req.query.column}`);
         res.status(200).json(null);
     }
 );
