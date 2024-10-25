@@ -9,17 +9,11 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
-import swaggerUi from "swagger-ui-express";
 import { DateTime } from "luxon";
 import helmet from "helmet";
 import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
-
-import { createServer as createViteServer } from "vite";
-import { codeFrameColumns } from "@babel/code-frame";
-
-import { ESLint } from "eslint";
 
 import mongoServer from "#database/index.js";
 
@@ -32,9 +26,13 @@ import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
 
+let swaggerUi;
+
 let envFilePath = ".env.prod.local";
 if (process.env.NODE_ENV === "development") {
     envFilePath = ".env.dev.local";
+
+    swaggerUi = await import("swagger-ui-express")
 }
 
 const envVars = dotenv.config({ path: envFilePath });
@@ -183,7 +181,7 @@ if (process.env.NODE_ENV === "development") {
 
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
     app.use("/debug", debugRouter);
-    app.use((err, req, res, _next) => {
+    app.use(async (err, req, res, _next) => {
         res.status(500);
         const response = {
             error: err,
@@ -205,6 +203,8 @@ if (process.env.NODE_ENV === "development") {
             const location = {
                 start: { line: lineError, column: columnError },
             };
+
+            const { codeFrameColumns } = await import("@babel/code-frame")
 
             const result = codeFrameColumns(data, location, {
                 linesAbove: 5,
@@ -231,6 +231,7 @@ if (process.env.NODE_ENV === "development") {
 
     ;(async () => {
         const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
+        const { ESLint } = await import("eslint");
         const eslint = new ESLint({ fix: useEslintAutoFix });
         
         const results = await eslint.lintFiles([
@@ -360,6 +361,7 @@ const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
     (async () => {
+        const { createServer: createViteServer } = await import("vite");
         const vite = await createViteServer(viteConfig);
         app.use(vite.middlewares);
     })();
