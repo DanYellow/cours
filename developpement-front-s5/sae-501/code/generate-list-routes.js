@@ -19,12 +19,14 @@ const print = (path, layer) => {
 
         url.split(",").forEach((item, idx, array) => {
             let computedPath = item;
+            const method = path.includes("*") ? "ANY" : layer.method.toUpperCase();
+           
             if (array.length > 1 && idx > 0) {
                 const prefix = path.find((el) => el !== "");
                 computedPath = prefix + computedPath;
             }
 
-            const routeName = () => {
+            const _routeName = () => {
                 if (layer.handle.name === "namedRoute") {
                     const routeName = layer.handle();
                     listNamedRoutes[routeName] = [
@@ -55,10 +57,12 @@ const print = (path, layer) => {
                 return "";
             };
 
+            const routeName = _routeName();
+
             listRoutes.push({
-                METHOD: path.includes("*") ? "ANY" : layer.method.toUpperCase(),
+                METHOD: method,
                 PATH: computedPath,
-                NAME: routeName(),
+                NAME: routeName,
             });
         });
     }
@@ -89,8 +93,8 @@ const generateListRoutes = (app) => {
         throw new Error("app object is missing");
     }
     app._router.stack.forEach(print.bind(null, []));
-
-    return listRoutes
+    
+    const listRoutesComputed = listRoutes
         .map((item) => {
             if (item.PATH[0] === "/") {
                 return item;
@@ -101,13 +105,22 @@ const generateListRoutes = (app) => {
                 PATH: `/${item.PATH}`,
             };
         })
-        .filter(
-            (value, index, self) =>
-                index ===
-                self.findIndex(
-                    (t) => t.METHOD === value.METHOD && t.PATH === value.PATH
-                )
-        );
+        
+    const response = []
+    let indexRoute = -1;
+    listRoutesComputed.forEach((route) => {
+        indexRoute = response.findIndex((_item) => _item.PATH === route.PATH && _item.METHOD === route.METHOD)
+        if(indexRoute > -1) {
+            if (response[indexRoute].NAME === "") {
+                response[indexRoute] = route;
+            }
+            return;
+        } 
+
+        response.push(route);
+    })
+
+    return response;
 };
 
 const generateNamedRoutes = (app) => {

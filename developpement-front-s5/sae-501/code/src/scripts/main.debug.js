@@ -23,8 +23,7 @@ const filterTable = (inputValue) => {
         }
     });
 
-    const tableRoutesRowsVisible
-        = tableRoutes.querySelectorAll("tr:not(.hidden)");
+    const tableRoutesRowsVisible = tableRoutes.querySelectorAll("tr:not(.hidden)");
     tableRoutesRowsVisible.forEach((item, idx) => {
         item.classList.remove(...item.classList);
         if (idx % 2 === 0) {
