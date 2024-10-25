@@ -250,7 +250,7 @@ Dans une volonté de produire une code de qualité et constant, le projet intèg
 
 eslint est configuré pour fonctionner en mode "fix", autrement dit **certaines** erreurs seront corrigées à chaque sauvegarde de votre fichier, si et seulement si, le projet est lancé.
 
-> Si vous souhaitez désactiver l'auto-formattage des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
+> Si vous souhaitez désactiver l'auto-correction des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
 
 Pour exécuter uniquement le linter, il y a la commande `npm run lint`. La commande `npm run lint:fix`. Vous permet de corriger certaines erreurs.
 
@@ -267,7 +267,7 @@ const myIgnoredVar = 42;
 ```
 
 Notez qu'eslint possède trois niveaux de contrôle : 
-- error / 2 : lève une erreur en cas de problème. Le code ne compilera pas tant que le problème n'est pas résolu. Dans certaines configurations, on peut même bloquer la commande `git push`
+- error / 2 : lève une erreur en cas de problème. Dans certaines configurations, on peut même bloquer la commande `git push` ou la compilation du code
 - warn / 1 : lève une alerte en cas de problème
 - off / 0 : désactive la règle
 

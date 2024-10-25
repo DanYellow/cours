@@ -11,7 +11,7 @@
         <details class="border border-solid border-stone-500 py-2 [&_svg]:open:-rotate-180">
             <summary class="flex cursor-pointer list-none items-center gap-4 px-4 -my-2 py-2 {{ summary_bg_color }}">
                 <div>
-                    <svg class="rotate-0 transform text-blue-700 transition-all duration-300" fill="none" height="20" width="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                    <svg class="rotate-0 transform text-black transition-all duration-300" fill="none" height="20" width="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </div>
@@ -24,7 +24,7 @@
                 <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
                     <tbody>
                         {% for error in report.messages %}
-                            <tr class="hover:bg-neutral-50 even:bg-blue-50">
+                            <tr class="hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
                                 <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Line/column">
                                     <button class="py-2 rounded text-start" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                         <p class="text-sm">Line: {{ error.line }}</p>
