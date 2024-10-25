@@ -12,7 +12,7 @@ export default {
     server: {
         // Expose the server to the network allowing access from ip address
         host: true,
-        hmr: false,
+        hmr: true,
         middlewareMode: true,
     },
 };
