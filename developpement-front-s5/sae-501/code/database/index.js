@@ -10,15 +10,18 @@ const envVars = dotenv.config({ path: envFilePath });
 // https://www.mongodb.com/try/download/community-kubernetes-operator
 // Database Name
 const dbName = "sae501";
-const port = envVars.MONGODB_PORT || 27017;
+const port = envVars.parsed?.MONGODB_PORT || 27017;
 const url = `mongodb://0.0.0.0:${port}/${dbName}`;
 
 const main = async () => {
-    await mongoose.connect(url);
-
-    return `MongoDB Server started on port : ${port}`;
+    try {
+        await mongoose.connect(url, {
+            serverSelectionTimeoutMS: 20000,
+        });
+        return `MongoDB Server started on port : ${port}`;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 export default main;
-
-// node database/index.js --input-type=module

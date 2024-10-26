@@ -68,7 +68,11 @@ mongoServer()
         console.log(`• \x1b[36m${res}\x1b[0m`);
         console.log("---------------------------");
     })
-    .catch(console.error);
+    .catch((err) => {
+        console.log("\x1b[31m---------------------------");
+        console.log(`• \x1b[31m${err}\x1b[0m`);
+        console.log("\x1b[31m---------------------------");
+    });
 
 app.use(
     bodyParser.json({
