@@ -137,7 +137,7 @@ router.get(`/${base}`, async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get(`/${base}/:id`, async (req, res) => {
+router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     let listErrors = [];
 
     const ressource = await SAE.findOne({ _id: req.params.id })
@@ -274,7 +274,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
+router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res) => {
     let imagePayload = {};
     let listErrors = [];
     let targetPath = undefined;
@@ -389,7 +389,7 @@ router.put(`/${base}/:id`, upload.single("image"), async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:id`, async (req, res) => {
+router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     try {
         const ressource = await SAE.findByIdAndDelete(req.params.id);
 
