@@ -179,6 +179,27 @@ if (process.env.NODE_ENV === "development") {
         customSiteTitle: "Swagger SAE 501",
     };
 
+    app.use(function (req, res, next) {
+        res.on("finish", async function () {
+            if (req.route !== undefined) {
+                const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
+                const { ESLint } = await import("eslint");
+                const eslint = new ESLint({ fix: useEslintAutoFix });
+                
+                const results = await eslint.lintFiles([
+                    "./server/**/*.js",
+                    "./database/**/*.js",
+                    "./src/**/*.js",
+                ]);
+        
+                if (useEslintAutoFix) {
+                    await ESLint.outputFixes(results);
+                }        
+            }
+        });
+        next();
+    });
+
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
     app.use("/debug", debugRouter);
     app.use(async (err, req, res, _next) => {
@@ -230,19 +251,14 @@ if (process.env.NODE_ENV === "development") {
     });
 
     ;(async () => {
-        const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
         const { ESLint } = await import("eslint");
-        const eslint = new ESLint({ fix: useEslintAutoFix });
+        const eslint = new ESLint();
         
         const results = await eslint.lintFiles([
             "./server/**/*.js",
             "./database/**/*.js",
             "./src/**/*.js",
         ]);
-
-        if (useEslintAutoFix) {
-            await ESLint.outputFixes(results);
-        }
 
         const formatter = await eslint.loadFormatter("stylish");
         const resultText = formatter.format(results);
