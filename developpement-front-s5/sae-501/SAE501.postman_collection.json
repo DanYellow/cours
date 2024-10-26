@@ -465,17 +465,23 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/articles/:comment_id/comments",
+							"raw": "{{base_url}}/api/articles/:id/comments/:comment_id/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
 								"articles",
+								":id",
+								"comments",
 								":comment_id",
-								"comments"
+								""
 							],
 							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
 								{
 									"key": "comment_id",
 									"value": ""

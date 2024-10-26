@@ -198,12 +198,19 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
 
 /**
  * @openapi
- * /articles/{comment_id}/comments:
+ * /articles/{id}/comments/{comment_id}:
  *   delete:
  *     tags:
  *      - Articles
  *     summary: Delete a comment
  *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: article's _id
+ *        required: true
+ *        schema:
+ *          type: string
+ *          pattern: '([0-9a-f]{24})'
  *      - name: comment_id
  *        in: path
  *        description: article's comment's _id
@@ -231,9 +238,12 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:comment_id/comments`, async (req, res) => {
+router.delete(`/${base}/:id([a-f0-9]{24})/comments/:comment_id([a-f0-9]{24})`, async (req, res) => {
     try {
-        const ressource = await CommentArticle.findByIdAndDelete(req.params.comment_id);
+        const ressource = await CommentArticle.findOneAndDelete({
+            article: req.params.id,
+            _id: req.params.comment_id,
+        });
 
         if (ressource) {
             req.flash("success", "Element supprimé");
