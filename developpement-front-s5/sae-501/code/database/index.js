@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-let envFilePath = ".env.prod.local";
+let envFilePath = "./env/.env.prod.local";
 if (process.env.NODE_ENV === "development") {
-    envFilePath = ".env.dev.local";
+    envFilePath = "./env/.env.dev.local";
 }
 const envVars = dotenv.config({ path: envFilePath });
 

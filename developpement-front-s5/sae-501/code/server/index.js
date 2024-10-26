@@ -14,7 +14,6 @@ import helmet from "helmet";
 import cors from "cors";
 import expressFlash from "express-flash";
 import expressSession from "express-session";
-import { spawn } from "child_process";
 
 import mongoServer from "#database/index.js";
 
@@ -27,9 +26,9 @@ import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
 
-let envFilePath = ".env.prod.local";
+let envFilePath = "./env/.env.prod.local";
 if (process.env.NODE_ENV === "development") {
-    envFilePath = ".env.dev.local";
+    envFilePath = "./env/.env.dev.local";
 }
 
 const envVars = dotenv.config({ path: envFilePath });
@@ -179,22 +178,6 @@ if (process.env.NODE_ENV === "development") {
     const options = {
         customSiteTitle: "Swagger SAE 501",
     };
-
-    fs.watchFile(".env.dev.local", async () => {
-        const out = fs.openSync("./out.log", "a");
-        const err = fs.openSync("./err.log", "a");
-
-        setTimeout(() => {            
-            process.on("exit", function () {
-                spawn(process.argv[0], process.argv.splice(1), {
-                    cwd: process.cwd(),
-                    detached: true,
-                    stdio: ["pipe", out, err],
-                }).unref();
-            });
-            process.exit();
-        }, 0);
-    });
 
     app.use(function (req, res, next) {
         res.on("finish", async function () {
