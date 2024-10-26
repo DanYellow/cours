@@ -26,13 +26,9 @@ import debugRouter from "./debug-router.js";
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
 
-let swaggerUi;
-
-let envFilePath = ".env.prod.local";
+let envFilePath = "./env/.env.prod.local";
 if (process.env.NODE_ENV === "development") {
-    envFilePath = ".env.dev.local";
-
-    swaggerUi = await import("swagger-ui-express")
+    envFilePath = "./env/.env.dev.local";
 }
 
 const envVars = dotenv.config({ path: envFilePath });
@@ -199,6 +195,8 @@ if (process.env.NODE_ENV === "development") {
         });
         next();
     });
+
+    const swaggerUi = await import("swagger-ui-express")
 
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
     app.use("/debug", debugRouter);
