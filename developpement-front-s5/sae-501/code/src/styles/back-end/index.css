@@ -34,7 +34,6 @@
 ::backdrop {
     backdrop-filter: blur(5px);
     background-color: rgba(107, 114, 128, 0.35); /* theme("colors.gray.500"); */
-    position: fixed;
     pointer-events: fill;
 }
 
@@ -58,7 +57,7 @@
         animation: clippath var(--animation-speed) infinite ease-in;
         border-radius: theme("borderRadius.lg");
         inset: 0;
-        z-index: 0; 
+        z-index: 0;
     }
 
     &::after {
@@ -83,7 +82,6 @@
     100% {
         clip-path: inset(0 0 var(--percentage) 0);
     }
-
     25% {
         clip-path: inset(0 var(--percentage) 0 0);
     }
@@ -92,5 +90,20 @@
     }
     75% {
         clip-path: inset(0 0 0 var(--percentage));
+    }
+}
+
+dialog {
+    &[open] {
+        animation: slide-in-up 0.35s cubic-bezier(0.25, 0, 0.3, 1) both;
+    }
+}
+
+@keyframes slide-in-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
     }
 }
