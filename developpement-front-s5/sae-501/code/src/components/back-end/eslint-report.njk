@@ -1,15 +1,28 @@
 {% macro report(data) %}
     {% set row_padding = "py-2 px-4" %}
     {% if data.summary | length %}
-        <header class="rounded-sm mb-2 gap-y-2 flex justify-between lg:items-end lg:flex-row flex-col">
+        <header class="mb-2">
+            <div class="eslint-report-summary gap-1 mb-3 text-xl font-bold">
+                <p class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl"> 
+                    <span>{{ data.summary.errorCount + data.summary.warningCount }} &nbsp;problem(s)</span>
+                    <span class="text-sm block font-normal">Generated on {{ last_report_time }}</span>
+                </p>
+                <p class="px-4 py-3 border border-solid border-black rounded-2xl bg-rose-100 text-red-600">{{ data.summary.errorCount }}&nbsp;error(s)</p>
+                <p class="px-4 py-3 border border-solid border-black rounded-2xl bg-amber-50 text-yellow-600">{{ data.summary.warningCount }}&nbsp;warning(s)</p>
+            </div>
+        </header>
+        {# <header class="rounded-sm mb-2 gap-y-2 flex justify-between lg:items-end lg:flex-row flex-col">
             <p class="text-lg">Summary : {{ data.summary.errorCount + data.summary.warningCount }}&nbsp;problems - {{ data.summary.errorCount }}&nbsp;error(s), {{ data.summary.warningCount }}&nbsp;warning(s) - 
                 Generated on {{ last_report_time }}</p>
-        </header>
+        </header> #}
     {% endif %}
     {% for report in data.report_details %}
         {% set summary_bg_color = "" %}
+        {% set first_classes = "rounded-t-2xl open:rounded-b-none open:rounded-t-2xl" if loop.first else "" %}
+        {% set first_classes = "rounded-2xl" if data.report_details | length == 1 else first_classes %}
+        {% set last_classes = "rounded-b-2xl" if loop.last else "" %}
         {# {% set summary_bg_color = "bg-red-100" if report.messages | length > 0 else "" %} #}
-        <details class="border border-solid border-stone-500 py-2 [&_svg]:open:-rotate-180">
+        <details class="border border-solid border-stone-500 py-2 [&_svg]:open:-rotate-180 overflow-hidden {{ first_classes ~ " " ~ last_classes }}">
             <summary class="flex cursor-pointer list-none items-center gap-4 px-4 -my-2 py-2 {{ summary_bg_color }}">
                 <div>
                     <svg class="rotate-0 transform text-black transition-all duration-300" fill="none" height="20" width="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
@@ -18,7 +31,7 @@
                 </div>
                 <div class="flex flex-col @3xl/main:flex-row w-full justify-between @3xl/main:items-center">
                     <p>{{ report.filePath }}</p>
-                    <p class="text-sm">{{ report.messages | length }} problems - {{ report.errorCount }}&nbsp;error(s), {{ report.warningCount }}&nbsp;warning(s)</p>
+                    <p class="text-sm">{{ report.messages | length }} problem(s) - {{ report.errorCount }}&nbsp;error(s), {{ report.warningCount }}&nbsp;warning(s)</p>
                 </div>
             </summary>
             <div class="border-t border-solid border-stone-500 mt-2 -mb-2 @container/main">
@@ -66,6 +79,11 @@
             </div>
         </details>
     {% else %}
-        <p>No problem found</p>
+        <div class="p-6 text-center rounded-2xl border border-black border-solid flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <p>No problems found in the code</p>
+        </div>
     {% endfor %}
 {% endmacro %}
