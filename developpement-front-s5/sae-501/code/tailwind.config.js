@@ -33,7 +33,7 @@ export default {
             addVariant("hocus", ["&:hover", "&:focus-within"]);
             addComponents({
                 ".active-tab": {
-                    backgroundColor: theme("colors.gray.100"),
+                    backgroundColor: theme("colors.slate.100"),
                 },
             });
         }),

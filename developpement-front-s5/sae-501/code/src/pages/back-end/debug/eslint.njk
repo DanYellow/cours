@@ -23,9 +23,9 @@
             </p>
         </header>
         <div class="pr-6 pl-8">
-            <nav class="flex">
-                <button data-tab-name="server" class="px-3 py-2 rounded-md">Server ({{ server.summary.errorCount + server.summary.warningCount }})</button>
-                <button data-tab-name="front" class="px-3 py-2 rounded-md">Front-end ({{ frontend.summary.errorCount + frontend.summary.warningCount }})</button>
+            <nav class="flex gap-2">
+                <button data-tab-name="server" class="px-3 py-2 rounded-md hover:bg-slate-300">Server ({{ server.summary.errorCount + server.summary.warningCount }})</button>
+                <button data-tab-name="front" class="px-3 py-2 rounded-md hover:bg-slate-300">Front-end ({{ frontend.summary.errorCount + frontend.summary.warningCount }})</button>
             </nav>
             <section class="list-tab-content pt-3">
                 <div data-tab-content="server">{{ eslint.report(server) }}</div>
