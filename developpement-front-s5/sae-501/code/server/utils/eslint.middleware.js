@@ -1,5 +1,6 @@
 import { ESLint } from "eslint";
 
+// const diffString = (diffMe, diffBy) => diffMe.split(diffBy).join("");
 
 export default async (req, res, next) => {
     const eslint = new ESLint();
@@ -28,14 +29,19 @@ export default async (req, res, next) => {
     };
 
     const JSONformatter = await eslint.loadFormatter("json");
-    let resultJSON = JSON.parse(JSONformatter.format(results));
+    let resultJSON = JSON.parse(JSONformatter.format(results, { hour12: false }));
     resultJSON = resultJSON.filter((item) => {
         return item.messages.length > 0;
     });
 
+    
+   
+
+
     if (resultJSON.length > 0) {
         resultJSON = resultJSON.map((item) => {
             const copy = { ...item };
+            // copy.filePath = diffString(item.filePath, process.cwd());
             delete copy.source;
 
             return copy;
@@ -80,7 +86,19 @@ export default async (req, res, next) => {
         };
     }
 
-    res.locals.data = JSON.stringify(eslintReport);
+    if (req.app.locals.data !== JSON.stringify(eslintReport)) {
+        const options = { weekday: "short", year: "numeric", month: "short", day: "numeric" };
+        const today = new Date();
+
+        // const date = today.toLocaleDateString("en-US", options);
+        // const time = today.toLocaleTimeString("en-US", { hour12: false });
+        console.log(today.toUTCString());
+        console.log(today.getTimezoneOffset());
+        const timezoneOffset = -(today.getTimezoneOffset() / 60)
+        req.app.locals.last_report_time = `${today.toUTCString()}+${timezoneOffset} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`;
+    }
+
+    req.app.locals.data = JSON.stringify(eslintReport);
 
     next();
 };

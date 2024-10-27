@@ -2,7 +2,8 @@
     {% set row_padding = "py-2 px-4" %}
     {% if data.summary | length %}
         <header class="rounded-sm mb-2 gap-y-2 flex justify-between lg:items-end lg:flex-row flex-col">
-            <p class="text-lg font-bold">Summary : {{ data.summary.errorCount + data.summary.warningCount }}&nbsp;problems - {{ data.summary.errorCount }}&nbsp;error(s), {{ data.summary.warningCount }}&nbsp;warning(s)</p>
+            <p class="text-lg">Summary : {{ data.summary.errorCount + data.summary.warningCount }}&nbsp;problems - {{ data.summary.errorCount }}&nbsp;error(s), {{ data.summary.warningCount }}&nbsp;warning(s) - 
+                Generated on {{ last_report_time }}</p>
         </header>
     {% endif %}
     {% for report in data.report_details %}
@@ -15,7 +16,7 @@
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </div>
-                <div class="flex flex-col gap-2 @3xl/main:flex-row w-full justify-between @3xl/main:items-center">
+                <div class="flex flex-col @3xl/main:flex-row w-full justify-between @3xl/main:items-center">
                     <p>{{ report.filePath }}</p>
                     <p class="text-sm">{{ report.messages | length }} problems - {{ report.errorCount }}&nbsp;error(s), {{ report.warningCount }}&nbsp;warning(s)</p>
                 </div>
