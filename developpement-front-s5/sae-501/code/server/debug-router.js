@@ -42,7 +42,11 @@ router.get(
 router.get("/eslint", eslintMiddleware, routeName("eslint"), (req, res) => {
     const payload = JSON.parse(req.app.locals.data);
 
-    res.render("pages/back-end/debug/eslint.njk", { ...payload, last_report_time: req.app.locals.last_report_time });
+    res.render("pages/back-end/debug/eslint.njk", { 
+        ...payload, 
+        last_report_time: req.app.locals.last_report_time,
+        time_execution: req.app.locals.time_execution,
+    });
 });
 
 export default router;

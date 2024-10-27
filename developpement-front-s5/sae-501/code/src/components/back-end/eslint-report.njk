@@ -9,7 +9,7 @@
             <div class="eslint-report-summary gap-x-1 gap-y-2 mb-3 text-xl font-bold">
                 <p class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl">
                     <span class="text-4xl">{{ data.summary.errorCount + data.summary.warningCount }}</span>&nbsp;problem(s)
-                    <span class="text-sm block font-normal">Generated on {{ last_report_time }}</span>
+                    <span class="text-sm block font-normal">Generated in {{ time_execution }} seconds on {{ last_report_time }}</span>
                 </p>
                 {% if data.report_details | length > 0 %}
                     <div class="px-4 py-3 border border-solid border-black rounded-2xl relative {{ error_report_classes }} overflow-hidden">
@@ -96,7 +96,7 @@
             </div>
         </details>
     {% else %}
-        <div class="px-6 py-8 text-center rounded-2xl border border-black border-solid flex flex-col items-center">
+        <div class="px-6 py-8 text-center text-xl">
             <p>No problems found in the code</p>
         </div>
     {% endfor %}

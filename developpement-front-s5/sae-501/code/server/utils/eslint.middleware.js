@@ -2,6 +2,7 @@ import { ESLint } from "eslint";
 
 export default async (req, res, next) => {
     const eslint = new ESLint();
+    const t0 = performance.now();
 
     const results = await eslint.lintFiles([
         "./server/**/*.js",
@@ -80,13 +81,15 @@ export default async (req, res, next) => {
         };
     }
 
+    const t1 = performance.now();
     if (req.app.locals.data !== JSON.stringify(eslintReport)) {
         const today = new Date();
         const timezoneOffset = -(today.getTimezoneOffset() / 60);
 
+        req.app.locals.time_execution = ((t1 - t0) / 1000).toFixed(2);
         req.app.locals.last_report_time = `${today.toUTCString()}+${timezoneOffset} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`;
     }
-
+    
     req.app.locals.data = JSON.stringify(eslintReport);
 
     next();
