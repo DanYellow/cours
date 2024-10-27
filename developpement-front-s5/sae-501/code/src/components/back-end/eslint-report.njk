@@ -15,7 +15,7 @@
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </div>
-                <div class="flex flex-col md:flex-row w-full justify-between items-center">
+                <div class="flex flex-col gap-2 @3xl/main:flex-row w-full justify-between @3xl/main:items-center">
                     <p>{{ report.filePath }}</p>
                     <p class="text-sm">{{ report.messages | length }} problems - {{ report.errorCount }}&nbsp;error(s), {{ report.warningCount }}&nbsp;warning(s)</p>
                 </div>
