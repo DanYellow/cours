@@ -114,11 +114,12 @@ dialog {
 
     @container main (width <= theme('containers.3xl')) {
         grid-template-columns: none;
-        /* grid-template-rows:repeat(3, 1fr); */
     }
-    /* grid-template-rows: repeat(2, 1fr); */
 }
 
 .eslint-report-problems {
     grid-column: 1 / span 2;
+    @container main (width <= theme('containers.3xl')) {
+        grid-column: auto / auto;
+    }
 }

@@ -1,20 +1,22 @@
 {% macro report(data) %}
     {% set row_padding = "py-2 px-4" %}
+    {% set empty_report_classes = "bg-slate-50 text-slate-600 opacity-75" %}
+    {% set error_report_classes = empty_report_classes if data.summary.errorCount == 0 else "bg-rose-100 text-red-600" %}
+    {% set warning_report_classes = empty_report_classes if data.summary.warningCount == 0 else "bg-amber-50 text-yellow-600" %}
+    
     {% if data.summary | length %}
         <header class="mb-2">
-            <div class="eslint-report-summary gap-1 mb-3 text-xl font-bold">
+            <div class="eslint-report-summary gap-x-1 gap-y-2 mb-3 text-xl font-bold">
                 <p class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl"> 
-                    <span>{{ data.summary.errorCount + data.summary.warningCount }} &nbsp;problem(s)</span>
+                    <span class="text-4xl">{{ data.summary.errorCount + data.summary.warningCount }}</span>&nbsp;problem(s)
                     <span class="text-sm block font-normal">Generated on {{ last_report_time }}</span>
                 </p>
-                <p class="px-4 py-3 border border-solid border-black rounded-2xl bg-rose-100 text-red-600">{{ data.summary.errorCount }}&nbsp;error(s)</p>
-                <p class="px-4 py-3 border border-solid border-black rounded-2xl bg-amber-50 text-yellow-600">{{ data.summary.warningCount }}&nbsp;warning(s)</p>
+                {% if data.report_details | length > 0 %}
+                    <p class="px-4 py-3 border border-solid border-black rounded-2xl {{ error_report_classes }}"><span class="text-4xl">{{ data.summary.errorCount }}</span>&nbsp;error(s)</p>
+                    <p class="px-4 py-3 border border-solid border-black rounded-2xl {{ warning_report_classes }}"><span class="text-4xl">{{ data.summary.warningCount }}</span>&nbsp;warning(s)</p>
+                {% endif %}
             </div>
         </header>
-        {# <header class="rounded-sm mb-2 gap-y-2 flex justify-between lg:items-end lg:flex-row flex-col">
-            <p class="text-lg">Summary : {{ data.summary.errorCount + data.summary.warningCount }}&nbsp;problems - {{ data.summary.errorCount }}&nbsp;error(s), {{ data.summary.warningCount }}&nbsp;warning(s) - 
-                Generated on {{ last_report_time }}</p>
-        </header> #}
     {% endif %}
     {% for report in data.report_details %}
         {% set summary_bg_color = "" %}
@@ -79,10 +81,7 @@
             </div>
         </details>
     {% else %}
-        <div class="p-6 text-center rounded-2xl border border-black border-solid flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
+        <div class="px-6 py-8 text-center rounded-2xl border border-black border-solid flex flex-col items-center">
             <p>No problems found in the code</p>
         </div>
     {% endfor %}
