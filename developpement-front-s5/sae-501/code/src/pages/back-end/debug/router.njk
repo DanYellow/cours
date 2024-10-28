@@ -10,27 +10,28 @@
 
 {% set filter_entries = [
     {
-        class: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-300 hover:bg-indigo-200 hover:dark:bg-indigo-950 outline-transparent",
-        class_active: "bg-gray-700 text-indigo-100 outline-indigo-400",
+        class: "bg-slate-50 text-slate-900 outline-slate-900 hover:bg-slate-100",
+        class_active: "bg-slate-900 text-slate-300 hover:bg-slate-950 outline-transparent",
         name: "ALL"
     },
-     {
-        class: "bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-300 hover:bg-green-200 hover:dark:bg-green-950 outline-transparent",
-        class_active: "bg-gray-700 text-green-100 outline-green-400",
+    {
+        class: "bg-green-50 text-green-900 outline-green-900 hover:bg-green-100",
+        class_active: "bg-green-900 text-green-300 hover:bg-green-950 outline-transparent",
         name: "GET"
     },
     {
-        class: "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 hover:dark:bg-blue-950 outline-transparent",
-        class_active: "bg-gray-700 text-blue-100 outline-blue-400",
+        class: "bg-blue-50 text-blue-900 outline-blue-900 hover:bg-blue-100",
+        class_active: "bg-blue-900 text-blue-300 hover:bg-blue-950 outline-transparent",
         name: "POST"
     },
     {
-        class: "bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-300 hover:bg-yellow-200 hover:dark:bg-yellow-950 outline-transparent",
-        class_active: "bg-gray-700 text-yellow-100 outline-yellow-400",
+        class: "bg-yellow-50 text-yellow-900 outline-yellow-900 hover:bg-yellow-100",
+        class_active: "bg-yellow-900 text-yellow-300 hover:bg-yellow-950 outline-transparent",
         name: "PUT"
-    }, {
-        class: "bg-red-100 text-red-900 dark:bg-red-900 dark:text-red-300 hover:bg-red-200 hover:dark:bg-red-950 outline-transparent",
-        class_active: "bg-gray-700 text-red-100 outline-red-400",
+    }, 
+    {
+        class: "bg-red-50 text-red-900 outline-red-900 hover:bg-red-100",
+        class_active: "bg-red-900 text-red-300 hover:bg-red-950 outline-transparent",
         name: "DELETE"
     }
 ] %}
@@ -41,14 +42,14 @@
 
 {% block main %}
     <div class="bg-white rounded-2xl shadow-md pb-6" lang="en">
-        <header class="mb-1 p-6 pr-4 pl-8 flex justify-between gap-2 flex-col">
+        <header class="mb-1 p-6 pr-4 pl-6 flex justify-between gap-2 flex-col">
             <p class="text-4xl">
-                List routes - SAE-501
+                List routes
                 <span class="block text-sm">{{ list_routes | length }} routes found</span>
             </p>
 
             <hr class="my-5">
-            <ul class="flex gap-3">
+            <ul class="flex gap-3 flex-wrap">
                 {% for item in filter_entries %}
                     {% if item.name in list_methods or item.name == "ALL" %}
                         <li class="rounded outline-2 outline {{ item.class_active if qsp_method == item.name else item.class }} relative">
@@ -64,13 +65,13 @@
             </ul>
         </header>
 
-        <div class="flex flex-col pt-0 mb-6 pr-6 pl-8">
+        <div class="flex flex-col pt-0 mb-6 pr-6 pl-6">
             <label for="route">Search by route's name</label>
             <input class="text-black rounded" type="text" value="{{ query_string_params.route_name }}" id="route" placeholder="Route's name" data-route-search>
         </div>
 
-        <table class="w-full bg-white rounded-t-lg overflow-hidden border-separate" data-table-routes>
-            <thead class="bg-white top-0 md:sticky">
+        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse" data-table-routes>
+            <thead class="bg-white top-0 @3xl/main:sticky">
                 <tr>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
                     <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Name</th>
@@ -82,17 +83,17 @@
                     <tr>
                         <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
                             {% if item.METHOD == "GET" %}
-                                <span class="bg-green-100 text-green-900 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ item.METHOD }}</span>
+                                <span class="me-2 px-2.5 py-0.5 rounded bg-green-900 text-green-300">{{ item.METHOD }}</span>
                             {% elif item.METHOD == "POST" %}
-                                <span class="bg-blue-100 text-blue-900 me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                <span class=" me-2 px-2.5 py-0.5 rounded bg-blue-900 text-blue-300">
                                     {{ item.METHOD }}
                                 </span>
                             {% elif item.METHOD == "DELETE" %}
-                                <span class="bg-red-100 text-red-900 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ item.METHOD }}</span>
+                                <span class="me-2 px-2.5 py-0.5 rounded bg-red-900 text-red-300">{{ item.METHOD }}</span>
                             {% elif item.METHOD == "ANY" %}
-                                <span class="bg-indigo-100 text-indigo-900 me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">{{ item.METHOD }}</span>
+                                <span class="me-2 px-2.5 py-0.5 rounded bg-slate-900 text-slate-300">{{ item.METHOD }}</span>
                             {% else %}
-                                <span class="bg-yellow-100 text-yellow-900 me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ item.METHOD }}</span>
+                                <span class="me-2 px-2.5 py-0.5 rounded bg-yellow-900 text-yellow-300">{{ item.METHOD }}</span>
                             {% endif %}
                         </td>
                         <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent" data-label="NAME">
