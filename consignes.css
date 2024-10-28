@@ -164,6 +164,8 @@
     font-size: 1.15rem;
     background-color: #f6969638;
     margin-bottom: 1rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
 
     p {
         margin-bottom: 0.95rem;
@@ -185,6 +187,8 @@
     font-size: 1.15rem;
     background-color: #96d4f638;
     margin-bottom: 1rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
 
     p {
         margin-bottom: 0.95rem;
@@ -206,6 +210,8 @@
     font-size: 1.15rem;
     background-color: #f6f09638;
     margin-bottom: 1rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
 
     p {
         margin-bottom: 0.95rem;
