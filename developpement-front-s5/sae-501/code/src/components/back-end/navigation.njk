@@ -52,7 +52,7 @@
     <hr class="h-px">
     <ul data-navigation="back-end" class="flex md:flex-col pl-0 mb-0 flex-nowrap flex-row landscape:lg:max-xl:flex-row overflow-x-auto ">
         {% for item in menu_entries %}        
-            <li class="mt-0.5 w-full {{ 'sm:border-t-2 sm:portrait:border-slate-100 sm:portrait:border-solid' if loop.last else "" }} ">
+            <li class="mt-0.5 w-full {{ 'sm:border-t-2 sm:portrait:border-slate-100 sm:portrait:border-solid' if loop.last else "" }} flex-grow flex-shrink-0 basis-5/12 sm:flex-shrink sm:flex-grow-0 sm:basis-auto">
                 <a 
                     href="{{ item.link }}" 
                     class="
@@ -60,6 +60,8 @@
                         {{ 'bg-blue-50' if (page_name == item.key) else "" }} 
                         px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base hover:bg-blue-100 focus-within:bg-blue-100 whitespace-nowrap
                         landscape:lg:max-xl:justify-center
+                        md:justify-start
+                        justify-center
                     "
                 >
                     {{ item.name }}
