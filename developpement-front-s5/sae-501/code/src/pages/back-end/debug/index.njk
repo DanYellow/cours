@@ -36,19 +36,20 @@
         </header>
         <ul class="
             px-6 grid grid-cols-1
-            xl:grid-cols-4
+            xl:grid-cols-6
             sm:max-xl:portrait:grid-cols-2
             sm:max-lg:landscape:grid-cols-2
-            sm:max-xl:grid-cols-3 
+            sm:max-xl:grid-cols-4
             gap-4
         ">
             {% for item in menu_entries %}        
-                <li class="border-t-2 aspect-square">
+                <li class="border-t-2 aspect-auto sm:max-xl:aspect-square md:aspect-square">
                     <a 
                         href="{{ item.link }}" 
                         class="
-                            flex w-full h-full items-center justify-center
-                            flex-col 
+                            flex w-full h-full items-center md:justify-center
+                            md:flex-col
+                            sm:max-xl:flex-col sm:max-xl:justify-center
                             px-2 py-3 rounded-lg gap-3 text-base hover:bg-blue-100
                         "
                     >
