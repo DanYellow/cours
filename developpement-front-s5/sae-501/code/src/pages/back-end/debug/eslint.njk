@@ -16,13 +16,13 @@
 
 {% block main %}
     <div class="bg-white rounded-2xl shadow-md pb-6" lang="en">
-        <header class="mb-1 py-6 pr-4 pl-8 flex justify-between gap-2 lg:flex-row flex-col">
+        <header class="mb-1 p-6 flex justify-between gap-2 lg:flex-row flex-col">
             <p class="text-4xl">
                 Eslint Report
                 <span class="block text-sm">Page accessible uniquement en mode "développement"</span>
             </p>
         </header>
-        <div class="pr-6 pl-8">
+        <div class="px-6">
             <nav class="flex gap-2">
                 <button data-tab-name="server" class="px-3 py-2 rounded-md hover:bg-slate-300">Server ({{ server.summary.errorCount + server.summary.warningCount }})</button>
                 <button data-tab-name="front" class="px-3 py-2 rounded-md hover:bg-slate-300">Front-end ({{ frontend.summary.errorCount + frontend.summary.warningCount }})</button>

@@ -57,7 +57,7 @@
                     <tbody>
                         {% for error in report.messages %}
                             {% set problem_text_color = "text-yellow-700" if error.severity == 1 else "text-red-700" %}
-                            <tr class="hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
+                            <tr class="group hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
                                 <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle @3xl/main:w-40" data-label="Line/column">
                                     <button class="py-2 rounded text-start {{ "hover:" ~ problem_text_color }} focus-within:{{ problem_text_color }} leading-none" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                         <span class="text-sm">Line: {{ error.line }}</span><br>
@@ -73,7 +73,7 @@
                                 <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Message">
                                     {{ error.message }}
                                 </td>
-                                <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} @3xl/main:!border-b group-last:border-b-0 align-middle @3xl/main:text-right" data-label="Error type">
+                                <td class="bg-transparent border-solid border-slate-200 border-b group-last:border-none {{ row_padding }} @3xl/main:!border-b group-last:border-b-0 align-middle @3xl/main:text-right" data-label="Error type">
                                     <a href="{{ getEslintLink(error.ruleId) }}" aria-label="Ouvrir dans un nouvel onglet" target="_blank" rel="noopener noreferrer" class="underline text-blue-800 hover:no-underline focus-within:no-underline inline-flex gap-1 items-center @2xl/main:justify-end whitespace-nowrap">
                                         <span>
                                             {{ error.ruleId }}
