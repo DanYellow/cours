@@ -248,9 +248,9 @@ Dans une volonté de produire une code de qualité et constant, le projet intèg
 
 > Quand une erreur / alerte s'affiche, vous pouvez effectuer un ctrl / cmd + clic sur l'erreur dans le terminal de VS Code pour atterrir à l'endroit du problème dans le fichier.
 
-eslint est configuré pour fonctionner en mode "fix", autrement dit **certaines** erreurs seront corrigées à chaque sauvegarde de votre fichier, si et seulement si, le projet est lancé.
+eslint permet, via le paramètre "fix", de corriger **certaines** erreurs de code après chaque sauvegarde de votre projet, si et seulement si, le projet est lancé.
 
-> Si vous souhaitez désactiver l'auto-correction des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
+> Si vous souhaitez activer l'auto-correction des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
 
 Pour exécuter uniquement le linter, il y a la commande `npm run lint`. La commande `npm run lint:fix`. Vous permet de corriger certaines erreurs.
 
@@ -273,8 +273,14 @@ Notez qu'eslint possède trois niveaux de contrôle :
 
 La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js. [Vous pourrez trouver toutes les règles sur le site d'eslint.](https://eslint.org/docs/latest/rules/). Celles avec l'icône ✅ sont actives dans le projet.
 
-> Il existe l'extension gratuite eslint pour VS Code pour avoir des aides plus visuelles.
-> - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 
+> Il existe l'extension gratuite eslint pour VS Code pour avoir des indications dans le code.
+> - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Enfin dans la partie debug de l'administration, il y a une partie eslint affichant un rapport des problèmes trouvés par l'outil. Ce rapport est partagé en deux parties : 
+- Server : Représente la partie back-office (api inclue)
+- Front-end : Représente la partie front-office
+  
+D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volontairement dans le code.
 
 ## Tâches à effectuer
 
