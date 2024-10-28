@@ -1,14 +1,14 @@
 {% macro previous(url, is_disabled = false) %}
     {% if is_disabled %}
-        <span class="gap-x-2 items-center px-2 py-4 opacity-30 flex">
-            <svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+        <span class="gap-x-2 items-center px-2 py-4 opacity-30 flex text-gray-500">
+            <svg class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
             </svg>
             <span class="hidden lg:inline">Précédent</span>
         </span>
     {% else %}
-        <a aria-label="Précédent" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent focus-within:border-t-blue-200 hover:border-t-blue-200 border-solid flex">
-            <svg class="h-5 w-5 text-black" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+        <a aria-label="Précédent" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent focus-within:text-blue-700 hover:text-blue-700 border-solid flex">
+            <svg class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
             </svg>
             <span class="hidden lg:inline">Précédent</span>
@@ -18,16 +18,16 @@
 
 {% macro next(url, is_disabled = false) %}
     {% if is_disabled %}
-        <span class="gap-x-2 items-center px-2 py-4 opacity-30 lg:flex">
+        <span class="gap-x-2 items-center px-2 py-4 opacity-30 lg:flex text-gray-500">
             <span class="hidden lg:inline">Suivant</span>
-            <svg class="h-5 w-5 text-gray-500" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+            <svg class="h-5 w-5 " fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
         </span>
     {% else %}
-        <a aria-label="Suivant" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent focus-within:border-t-blue-200 hover:border-t-blue-200 border-solid flex">
+        <a aria-label="Suivant" href="{{ url }}" class="gap-x-2 items-center px-2 py-4 border-t-2 border-t-transparent focus-within:text-blue-700 hover:text-blue-700 border-solid flex">
             <span class="hidden lg:inline">Suivant</span>
-            <svg class="h-5 w-5 text-black" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+            <svg class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
         </a>
@@ -50,7 +50,7 @@
             {% for i in range(1, paginator.total_pages + 1) %}
                 {% if (i <= 2 or i >= paginator.total_pages - 2 or (i - paginator.page)|abs <= 2) %}
                     <li>
-                        <a class="{{ 'border-t-blue-500' if i == paginator.page else 'border-t-transparent' }} hover:border-t-blue-200 focus-within:border-t-blue-200 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
+                        <a class="{{ 'border-t-blue-500 font-bold' if i == paginator.page else 'border-t-transparent' }} hover:border-t-blue-200 focus-within:border-t-blue-200 focus-within:text-blue-700 hover:text-blue-700 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
                     </li>
                 {% elseif out_of_range == false %}
                     <select class="flex" data-paginator="{{ name }}">
