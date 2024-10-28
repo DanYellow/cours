@@ -14,7 +14,7 @@ import packageJSON from "../package.json" with { "type": "json" };
 const envFilePath = "env/.env.dev.local";
 
 const envVars = dotenv.config({ path: envFilePath });
-const port = envVars?.parsed?.PORT || 3000;
+const port = envVars?.parsed?.PORT || 3900;
 
 const options = {
     apis: [path.join(path.resolve(), "server/api-router/*.js")],
