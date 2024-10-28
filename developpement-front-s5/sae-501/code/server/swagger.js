@@ -11,7 +11,7 @@ import listAuthors, { author } from "./swagger-schemas/author.js";
 
 import packageJSON from "../package.json" with { "type": "json" };
 
-const envFilePath = ".env.dev.local";
+const envFilePath = "env/.env.dev.local";
 
 const envVars = dotenv.config({ path: envFilePath });
 const port = envVars?.parsed?.PORT || 3000;
@@ -27,8 +27,8 @@ const options = {
             description: "List endpoints of SAE 501",
         },
         externalDocs: {
-            description: "Back to homepage",
-            url:  `http://localhost:${port}`
+            description: "Back to debug",
+            url:  `http://localhost:${port}/debug`
         },
         servers: [{ description: "Dev server", url: `http://localhost:${port}/api` }],
         components: {
