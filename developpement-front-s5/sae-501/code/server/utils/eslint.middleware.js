@@ -1,4 +1,7 @@
 import { ESLint } from "eslint";
+import path from "path";
+
+const diffString = (diffMe, diffBy) => diffMe.split(diffBy).join("");
 
 export default async (req, res, next) => {
     const eslint = new ESLint();
@@ -36,7 +39,9 @@ export default async (req, res, next) => {
     if (resultJSON.length > 0) {
         resultJSON = resultJSON.map((item) => {
             const copy = { ...item };
-            // copy.filePath = diffString(item.filePath, process.cwd());
+            const rootFolder = item.filePath.split(path.sep)[0];
+            copy.filePathShorten = `${rootFolder}${path.sep}[...]${diffString(item.filePath, process.cwd())}`;
+
             delete copy.source;
 
             return copy;

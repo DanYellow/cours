@@ -47,12 +47,13 @@
                     </svg>
                 </div>
                 <div class="flex flex-col @3xl/main:flex-row w-full justify-between @3xl/main:items-center">
-                    <p>{{ report.filePath }}</p>
+                    <p class="hidden @3xl/main:block">{{ report.filePath }}</p>
+                    <p class="@3xl/main:hidden break-all">{{ report.filePathShorten }}</p>
                     <p class="text-sm">{{ report.messages | length }} problem(s) - {{ report.errorCount }}&nbsp;error(s), {{ report.warningCount }}&nbsp;warning(s)</p>
                 </div>
             </summary>
             <div class="border-t border-solid border-stone-500 mt-2 -mb-2 @container/main">
-                <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
+                <table class="w-full bg-white overflow-hidden border-collapse">
                     <tbody>
                         {% for error in report.messages %}
                             <tr class="hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
