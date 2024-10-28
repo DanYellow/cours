@@ -1,12 +1,12 @@
 {% macro report(data) %}
     {% set row_padding = "py-2 px-4" %}
     {% set empty_report_classes = "bg-slate-50 text-slate-600 opacity-75" %}
-    {% set error_report_classes = empty_report_classes if data.summary.errorCount == 0 else "bg-rose-100 text-red-600" %}
-    {% set warning_report_classes = empty_report_classes if data.summary.warningCount == 0 else "bg-amber-50 text-yellow-600" %}
+    {% set error_report_classes = empty_report_classes if data.summary.errorCount == 0 else "bg-rose-100 text-red-700" %}
+    {% set warning_report_classes = empty_report_classes if data.summary.warningCount == 0 else "bg-amber-50 text-yellow-700" %}
 
     {% if data.summary | length %}
         <header class="mb-2">
-            <div class="eslint-report-summary gap-x-1 gap-y-2 mb-3 text-xl font-bold">
+            <div class="eslint-report-summary gap-x-2 gap-y-1 mb-3 text-xl font-bold">
                 <p class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl">
                     <span class="text-4xl">{{ data.summary.errorCount + data.summary.warningCount }}</span>&nbsp;problem(s)
                     <span class="text-sm block font-normal">Generated in {{ time_execution }} seconds on {{ last_report_time }}</span>
@@ -56,30 +56,25 @@
                 <table class="w-full bg-white overflow-hidden border-collapse">
                     <tbody>
                         {% for error in report.messages %}
+                            {% set problem_text_color = "text-yellow-700" if error.severity == 1 else "text-red-700" %}
                             <tr class="hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
-                                <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Line/column">
-                                    <button class="py-2 rounded text-start" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
+                                <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle @3xl/main:w-40" data-label="Line/column">
+                                    <button class="py-2 rounded text-start hover:{{ problem_text_color }}" data-file="{{ routeName("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                         <p class="text-sm">Line: {{ error.line }}</p>
                                         <p class="text-sm">Column: {{ error.column }}</p>
-                                        <p class="text-xs">Ouvrir dans Code</p>
+                                        <p class="text-xs">Open in Code</p>
                                     </button>
                                 </td>
-                                <td class="{{ row_padding }} bg-transparent border-solid border-slate-200 border-b shadow-transparent @2xl/main:max-w-[300px] align-middle" data-label="Severity">
-                                    {% if error.severity == 1 %}
-                                        <p class="text-yellow-600 font-bold">
-                                            Warning
-                                        </p>
-                                    {% else %}
-                                        <p class="text-red-600 font-bold">
-                                            Error
-                                        </p>
-                                    {% endif %}
+                                <td class="{{ row_padding }} bg-transparent border-solid border-slate-200 border-b shadow-transparent @2xl/main:max-w-[300px] align-middle @3xl/main:w-12" data-label="Severity">
+                                    <p class="{{ problem_text_color }} font-bold">
+                                        {{ "Warning" if error.severity == 1 else "Error" }}
+                                    </p>
                                 </td>
                                 <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Message">
                                     {{ error.message }}
                                 </td>
-                                <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle" data-label="Error type">
-                                    <a href="{{ getEslintLink(error.ruleId) }}" aria-label="Ouvrir dans un nouvel onglet" target="_blank" rel="noopener noreferrer" class="underline text-blue-800 hover:no-underline focus-within:no-underline flex gap-1 items-center @2xl/main:justify-end">
+                                <td class="bg-transparent border-solid border-slate-200 border-b {{ row_padding }} align-middle @3xl/main:text-right" data-label="Error type">
+                                    <a href="{{ getEslintLink(error.ruleId) }}" aria-label="Ouvrir dans un nouvel onglet" target="_blank" rel="noopener noreferrer" class="underline text-blue-800 hover:no-underline focus-within:no-underline inline-flex gap-1 items-center @2xl/main:justify-end whitespace-nowrap">
                                         <span>
                                             {{ error.ruleId }}
                                         </span>
@@ -97,7 +92,7 @@
             </div>
         </details>
     {% else %}
-        <div class="px-6 py-8 text-center text-xl">
+        <div class="px-6 py-8 text-center">
             <p>No problems found in the code</p>
         </div>
     {% endfor %}
