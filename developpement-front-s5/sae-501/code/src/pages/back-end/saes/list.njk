@@ -28,8 +28,8 @@
             </div>
         {% endif %}
         {{ saes.table(list_saes)}}
-        <nav class="flex justify-between px-4" role="navigation" aria-label="Pagination">
+        <footer class="flex justify-between px-4 flex-col @3xl/main:flex-row relative items-center">
             {{ pagination.item(list_saes) }}
-        </nav>
+        </footer>
     </div>
 {% endblock %}
