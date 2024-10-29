@@ -15,7 +15,6 @@
 - [ ] Mettre en place des tests e2e
 - [ ] Ajouter un système de connexion à l'administration
   - N'allez pas faire un système de cookies avec un l'un d'entre-eux qui est un simple booléen. C'est très mauvais niveau sécurité, il faudra utiliser un token d'authentification. Le jwt est un très bon système de token sécurisé. Il existe pléthore de node_modules gérant le jwt. Pensez à prendre le module le plus populaire, pas un avec presque aucun téléchargement hebdomadaire
-- [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
 - [ ] Permettre d'activer / désactiver une SAE
   -  Il faudra mettre à jour 
      - L'API des SAE pour afficher que les SAE activées sur le site

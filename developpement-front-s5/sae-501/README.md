@@ -380,6 +380,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - **Vous ne devez pas utiliser de base de données**
 - [ ] Terminer les fonctionnalités implicites. Exemple : corriger les liens qui vont vers des 404, etc.
 - [ ] Mettre les membres du groupe dans le pied de page (fichier `src/layouts/back-end/base.njk`)
+- [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
 - [ ] Proposer un système de thème au niveau des couleurs dans l'administration. Présentement tout tourne autour du bleu, proposez un moyen de changer la couleur pour chaque utilisateur
   - **Vous ne devez pas utiliser une base de données pour stocker la valeur**
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
