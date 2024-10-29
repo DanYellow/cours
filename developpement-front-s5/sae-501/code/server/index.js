@@ -25,6 +25,7 @@ import debugRouter from "./debug-router.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
+// import packageJSON from "../package.json" with { "type": "json" };
 
 let envFilePath = "./env/.env.prod.local";
 if (process.env.NODE_ENV === "development") {
@@ -346,7 +347,7 @@ nunjucksEnv.addGlobal("getEslintLink", function (rule) {
     const baseURLStylistic = "https://eslint.style/rules/js";
     const baseURLEslint = "https://eslint.org/docs/latest/rules";
 
-    if (rule.includes("stylistic")) {
+    if (rule?.includes("stylistic")) {
         const cleanedRule = rule.replace("@stylistic/", "");
         return `${baseURLStylistic}/${cleanedRule}`;
     }
@@ -393,18 +394,10 @@ app.listen(port, listDomains, () => {
     ["localhost", "127.0.0.1", ...listDomains]
         .filter(Boolean)
         .forEach((item) => {
-            console.log(`• \x1b[33mhttp://${item}:${port}/\x1b[0m`);
+            let prefix = "Network";
+            if (item.includes("localhost")) {
+                prefix = "Local";
+            }
+            console.log(`\x1b[35m➜\x1b[0m  ${prefix}: \x1b[35mhttp://${item}:${port}/\x1b[0m`);
         });
-    if (process.env.NODE_ENV === "development") {
-        console.log(
-            "\nSwagger running at (ctrl/cmd + click to open in your browser):"
-        );
-        ["localhost", "127.0.0.1", ...listDomains]
-            .filter(Boolean)
-            .forEach((item) => {
-                console.log(`• \x1b[35mhttp://${item}:${port}/api-docs\x1b[0m`);
-                console.log(`• \x1b[35mhttp://${item}:${port}/swagger\x1b[0m`);
-            });
-    }
-    console.log("---------------------------");
 });
