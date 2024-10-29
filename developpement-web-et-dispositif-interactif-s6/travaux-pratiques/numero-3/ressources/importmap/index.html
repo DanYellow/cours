@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consignes TP - importmap</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+    <script src="https://danyellow.net/cours-mmi/scripts.js"></script>
+  </head>
+
+  <body>
+    <header class="entete-consignes">
+      <h1 class="h1">Consignes de la pratique - importmap</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Créez un fichier html
+          </li>
+          <li>
+            Cherchez un ou plusieurs modules sur le site <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">jsdelivr.com - ouverture dans un nouvel onglet</a> ou <a href="https://www.skypack.dev/" target="_blank" rel="noopener noreferrer">skypack.dev - ouverture dans un nouvel onglet</a>
+            Définissez un importmap et importez-le dans voter fichier html.
+            <p class="note-attention">L'import de modules ne fonctionne qu'avec... les modules. Assurez-vous que le script soit ESM (EcmaScript Module). Si ce n'est pas le cas, le script ne sera pas chargé et le navigateur lèvera une erreur.</p>
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/script/type/importmap" target="_blank" rel="noopener noreferrer">Voir documentation d'importmap - Ouveture dans un nouvel onglet</a>
+                </li>
+            </ul>
+           </li>
+           <li>Utilisez le(s) module(s) importé(s) dans votre script. 
+            <p class="note-attention">N'oubliez pas de marquer votre script comme étant de type module dans la balise &lt;script>, sinon ça ne fonctionnera pas.</p>
+           </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <p>L'importmap fonctionne également avec des modules locaux, il est possible de définir un module en local pour ensuite le définir dans l'importmap. Le fonctionnement reste le même. Quand le module est local, vous pouvez utiliser un chemin relatif ou absolu, en sachant que c'est l'importmap qui charge les modules et non le fichier HTML. Les chemins doivent donc être faits entre les modules et l'importmap.</p>
+        <!-- <p>L'importmap fonctionne également avec l'import dynamique de modules. En effet, pour des questions de temps de chargement, il est possible de charger un module à la volée grâce à une fonction asynchrone (async / await).</p> -->
+        <ol class="liste-consignes">
+          <li>Créez un module local et ajoutez-le à votre importmap
+            <p class="note-information">Ce module peut contenir une variable ou une fonction qui fait juste des addition. Intuile de faire quelque chose d'élaboré.</p>
+          </li>
+          <li>Utilisez ce module fraîchement crée dans votre script</li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+            <li>
+                Récupérez le jeu de données des naissances sur le site de l'INSEE. <a href="https://www.insee.fr/fr/statistiques/7633685?sommaire=7635552" target="_blank" rel="noopener noreferrer">Télécharger le jeu de données</a>
+                <p class="note-information">Il faut sélectionner le fichier csv de la partie "Fichiers par département de naissance".</p>
+            </li>
+            <li>Consultez le notebook "initiation-pandas-2.ipynb"</li>
+          </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+            <li>
+               Il y a un notebook "gabarit" qui peut vous servir d'exemple pour se souvenir de la démarche à suivre, si vous souhaitez manipuler d'autres jeux de données à l'avenir</li>
+          </ol>
+        </section>
+      </details>
+    </header>
+  </body>
+</html>
