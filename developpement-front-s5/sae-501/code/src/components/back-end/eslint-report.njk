@@ -7,10 +7,12 @@
     {% if data.summary | length %}
         <header class="mb-2">
             <div class="eslint-report-summary gap-x-2 gap-y-1 mb-3 text-xl font-bold">
-                <p class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl">
-                    <span class="text-4xl">{{ data.summary.errorCount + data.summary.warningCount }}</span>&nbsp;problem(s)
-                    <span class="text-sm block font-normal">Generated in {{ time_execution }} seconds on {{ last_report_time }}</span>
-                </p>
+                <div class="eslint-report-problems px-4 py-3 border border-solid border-black rounded-2xl">
+                    <p>
+                        <span class="text-4xl">{{ data.summary.errorCount + data.summary.warningCount }}</span>&nbsp;problem(s)
+                    </p>
+                    <p class="text-sm block font-normal">Generated in {{ time_execution }} seconds on {{ last_report_time }}</p>
+                </div>
                 {% if data.report_details | length > 0 %}
                     <div class="px-4 py-3 border border-solid border-black rounded-2xl relative {{ error_report_classes }} overflow-hidden">
                         <p>
