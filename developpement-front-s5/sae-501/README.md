@@ -282,6 +282,9 @@ Enfin dans la partie debug de l'administration, il y a une partie eslint afficha
   
 D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volontairement dans le code.
 
+> Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
+> [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
+
 ## Tâches à effectuer
 
 - [x] Lire les consignes
@@ -325,7 +328,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
     - **La page ne doit pas se recharger lors de la soumission du formulaire**
     - Il faudra utiliser un outil comme [axios](https://www.npmjs.com/package/axios) (déjà installé) ou fetch, api native de javascript
-- [ ] Afficher les détails d'un article quand on clique sur un article de la page d'accueil
+- [ ] Afficher les détails d'un article quand on clique dessus depuis la page d'accueil
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
     - Note : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
