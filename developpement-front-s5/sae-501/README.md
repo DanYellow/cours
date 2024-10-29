@@ -341,6 +341,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Afficher la liste des articles **actifs** sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
+- [ ] Ajouter une barre de progression sur les articles grâce à la propriété CSS [animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
+  - Google propose un exemple sur son site. [Voir exemple.](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
 - [ ] Ajouter une page affichant en détails un auteur
     - Cette page n'existe pas, à vous de faire le design
     - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
