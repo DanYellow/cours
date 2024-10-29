@@ -391,7 +391,7 @@ app.listen(port, listDomains, () => {
     console.log(
         "Express server running at (ctrl/cmd + click to open in your browser):"
     );
-    ["localhost", "127.0.0.1", ...listDomains]
+    ["localhost", ...listDomains]
         .filter(Boolean)
         .forEach((item) => {
             let prefix = "Network";
