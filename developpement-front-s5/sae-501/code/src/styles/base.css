@@ -1,32 +1,52 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-    view-transition-name: unset !important;
-  }
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        view-transition-name: unset !important;
+    }
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
+}
+
+.page-active {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: theme("borderWidth.2"); 
+        border-top: theme("borderWidth.2") theme("borderColor.blue.500") solid;
+        left: 0;
+        top: calc(-1 * theme("borderWidth.2"));
+        right: 0;
+        transform: scaleX(1);
+        transition: transform 0.1s ease-in;
+
+        @starting-style {
+            transform: scaleX(0);
+        }
+    }
 }

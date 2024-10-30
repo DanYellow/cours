@@ -56,7 +56,7 @@
                     {% if i <= 1 or i == paginator.total_pages or (i - paginator.page)|abs <= nb_items_to_show %}
                         <li class="hidden @3xl/main:[display:revert]">
                             {% if i == paginator.page %}
-                                <span class="border-t-blue-500 font-bold block p-4 border-t-2 border-solid" aria-current="page">{{ i }}</span>
+                                <span class="page-active font-bold block p-4 border-transparent border-t-2 border-solid" aria-current="page">{{ i }}</span>
                             {% else %}
                                 <a class="border-t-transparent hover:border-t-blue-200 focus-within:border-t-blue-200 focus-within:text-blue-700 hover:text-blue-700 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
                             {% endif %}
