@@ -131,3 +131,23 @@ dialog {
 details summary::-webkit-details-marker {
     display: none;
 }
+
+.page-active {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: theme("borderWidth.2");
+        border-top: theme("borderWidth.2") theme("borderColor.blue.500") solid;
+        left: 0;
+        top: calc(-1 * theme("borderWidth.2"));
+        right: 0;
+        transform: scaleX(1);
+        transition: transform 0.1s ease-in;
+
+        @starting-style {
+            transform: scaleX(0);
+        }
+    }
+}
