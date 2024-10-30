@@ -38,3 +38,5 @@
   - Il faudra mettre en place un nouveau modèle pour gérer les images et ayant de préférence une relation de type One-to-Many avec les entités où se trouveront ces images
 - [ ] Proposer un mode sombre. Pour rappel, tailwindcss possède un modifier "dark:" pour gérer ce mode
   - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)
+- [ ] Mettre en place un linter de CSS. Stylint est le plus utilisé
+  - [Accéder à la documentation de Stylint](https://github.com/stylelint/stylelint/tree/main)

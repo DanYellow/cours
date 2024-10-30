@@ -244,7 +244,7 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
 ## eslint
-Dans une volonté de produire une code de qualité et constant, le projet intègre un linter. C'est un outil d'analyse de code et lève les différentes erreurs présentes. Ces erreurs peuvent être en tout genre : variable non utilisée, condition dupliquée... En javascript, eslint est le plus répandu, dans le projet, ces erreurs sont affichées à chaque sauvegarde d'un fichier javascript (back-end et front-end).
+Dans une volonté de produire une code de qualité et constant, le projet intègre un linter. C'est un outil d'analyse de code et lève les différentes erreurs présentes. Dépendemment du langage, différents types d'erreurs seront levées. Dans l'environnement javascript, une variable non utilisée, ou une condition dupliquée peut être notifiée comme problème. Dans le projet, c'est eslint qui a été utilisé, c'est le plus répandu en javascript. Les problèmes sont affichés à chaque sauvegarde d'un fichier javascript (back-end et front-end) dans votre Terminal (pas la console du navigateur).
 
 > Quand une erreur / alerte s'affiche, vous pouvez effectuer un ctrl / cmd + clic sur l'erreur dans le terminal de VS Code pour atterrir à l'endroit du problème dans le fichier.
 
