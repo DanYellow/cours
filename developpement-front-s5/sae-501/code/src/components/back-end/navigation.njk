@@ -57,7 +57,7 @@
                     href="{{ item.link }}" 
                     class="
                         {{ 'bg-yellow-100' if loop.last and NODE_ENV == "development" else "" }} 
-                        {{ 'bg-blue-50' if (page_name == item.key) else "" }} 
+                        {{ 'bg-blue-50 font-bold' if (page_name == item.key) else "" }} 
                         px-4 py-3 rounded-lg flex items-center my-1 mx-2 text-base hover:bg-blue-100 focus-within:bg-blue-100 whitespace-nowrap
                         landscape:lg:max-xl:justify-center
                         md:justify-start
