@@ -36,6 +36,7 @@
     - Les messages d'erreurs sont dans les dossiers "server" et "database"
 - [ ] Mettre en place un système de galerie à place d'un upload d'image pour chaque entité
   - Il faudra mettre en place un nouveau modèle pour gérer les images et ayant de préférence une relation de type One-to-Many avec les entités où se trouveront ces images
+  - Chaque image uploadé devra permettre d'avoir une valeur pour son attribut "alt"
 - [ ] Proposer un mode sombre. Pour rappel, tailwindcss possède un modifier "dark:" pour gérer ce mode
   - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)
 - [ ] Mettre en place un linter de CSS. Stylint est le plus utilisé
