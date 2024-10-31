@@ -31,6 +31,7 @@ export default {
         plugin(({ addVariant, addComponents, theme }) => {
             addVariant("touch", "@media (pointer: coarse)");
             addVariant("no-touch", "@media (pointer: fine)");
+            addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-within"]);
             addVariant("starting", "@starting-style");
             addComponents({
