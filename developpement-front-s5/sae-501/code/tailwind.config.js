@@ -10,6 +10,7 @@ export default {
         {
             pattern: /!?(bg|text)-.+/,
         },
+        "hidden",
     ],
     theme: {
         extend: {

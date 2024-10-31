@@ -152,10 +152,6 @@ details summary::-webkit-details-marker {
     }
 }
 
-.pagination-ellipsis {
-    anchor-name: --myAnchor;
-}
-
 .infobox {
     position: fixed;
     position-anchor: --myAnchor;
@@ -175,8 +171,8 @@ details summary::-webkit-details-marker {
     grid-template-columns: repeat(10, auto);
 }
 
-@supports (position-area: top) or (inset-area: top) {
-    .not-supported {
+@supports not (position-area: top) {
+    .infobox {
         display: none;
     }
 }
