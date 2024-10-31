@@ -71,13 +71,13 @@
                         </li>
                     {% elseif before_ellipsis == false and i < paginator.page - nb_items_to_show %}
                         <li class="hidden @3xl/main:[display:revert] pagination-ellipsis">
-                            <button type="button" data-toggle-pagination-shortcut-btn class="hidden p-4 text-gray-500 supports-[position-area]:block">…</button>
+                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden p-4 text-gray-500 supports-[position-area]:block focus-within:text-blue-700 hover:text-blue-700">…</button>
                             <span class="block p-4 text-gray-500 supports-[position-area]:hidden">…</span>
                         </li>
                         {% set before_ellipsis = true %}
                     {% elseif after_ellipsis == false and i > paginator.page + nb_items_to_show %}
                         <li class="hidden @3xl/main:[display:revert] pagination-ellipsis">
-                            <button type="button" data-toggle-pagination-shortcut-btn class="hidden p-4 text-gray-500 supports-[position-area]:block">…</button>
+                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden p-4 text-gray-500 supports-[position-area]:block focus-within:text-blue-700 hover:text-blue-700">…</button>
                             <span class="block p-4 text-gray-500 supports-[position-area]:hidden">…</span>
                         </li>
                         {% set after_ellipsis = true %}
