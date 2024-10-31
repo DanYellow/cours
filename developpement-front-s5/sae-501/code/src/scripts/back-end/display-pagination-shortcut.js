@@ -5,22 +5,20 @@ const listPaginationShortcutButtons = document.querySelectorAll(
 
 const clearAnchors = () => {
     listPaginationShortcutButtons.forEach((item) => {
-        item.querySelector("span").textContent = "…";
+        item.textContent = "…";
         item.style["anchor-name"] = "none";
     });
 };
 
 listPaginationShortcutButtons.forEach((item) => {
     item.addEventListener("click", (e) => {
-        const currentItemSpanTag = e.currentTarget.querySelector("span");
-
-        if (currentItemSpanTag.textContent === "…") {
+        if (e.currentTarget.textContent === "…") {
             clearAnchors();
-            currentItemSpanTag.textContent = "✖";
+            e.currentTarget.textContent = "✖";
             e.currentTarget.style["anchor-name"] = "--paginationShortcutAnchor";
             paginationShortcut.classList.remove("!hidden");
         } else {
-            currentItemSpanTag.textContent = "…";
+            e.currentTarget.textContent = "…";
             paginationShortcut.classList.add("fade-out");
             paginationShortcut.addEventListener("transitionend", (e) => {
                 if (e.target.matches(".fade-out")) {
