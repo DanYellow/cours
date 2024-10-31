@@ -8,17 +8,17 @@
 
 {% set menu_entries = [
     {
-        link: base_url ~ "/debug/router",
+        link: routeName("debug_router"),
         name: "Liste des routes",
         icon: "/images/server-icon.svg"
     },
     {
-        link: base_url ~ "/swagger",
+        link: routeName("swagger"),
         name: "Swagger",
         icon: "/images/code-icon.svg"
     },
     {
-        link: base_url ~ "/debug/eslint",
+        link: routeName("eslint"),
         name: "eslint",
         icon: "/images/code-icon.svg"
     }

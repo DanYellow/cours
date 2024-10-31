@@ -49,4 +49,9 @@ router.get("/eslint", eslintMiddleware, routeName("eslint"), (req, res) => {
     });
 });
 
+
+router.get("/swagger", routeName("swagger"), (req, res) => {
+    res.render("pages/back-end/debug/swagger.njk");
+});
+
 export default router;

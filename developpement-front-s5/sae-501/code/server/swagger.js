@@ -22,14 +22,14 @@ const options = {
         openapi: "3.0.3",
         produces: ["application/json"],
         info: {
-            title: "Swagger SAE 501",
+            title: "SAE 501",
             version: packageJSON.version,
             description: "List endpoints of SAE 501",
         },
-        externalDocs: {
-            description: "Back to debug",
-            url:  `http://localhost:${port}/debug`
-        },
+        // externalDocs: {
+        //     description: "Back to debug",
+        //     url:  `http://localhost:${port}/debug`
+        // },
         servers: [{ description: "Dev server", url: `http://localhost:${port}/api` }],
         components: {
             schemas: {
