@@ -57,6 +57,9 @@ router.post([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+
         const searchParam = req.params?.id || req.params.slug;
 
         const [article] = await Article.find({ [searchKey]: searchParam });
+        if (!article) {
+            throw new mongoose.Error.DocumentNotFoundError();
+        }
         const ressource = new CommentArticle({ ...req.body, article });
         await ressource.save();
 
