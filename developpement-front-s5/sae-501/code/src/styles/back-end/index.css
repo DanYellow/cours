@@ -151,3 +151,32 @@ details summary::-webkit-details-marker {
         }
     }
 }
+
+.pagination-ellipsis {
+    anchor-name: --myAnchor;
+}
+
+.infobox {
+    position: fixed;
+    position-anchor: --myAnchor;
+    position-area: top;
+    margin: 0 0 10px 0;
+    position-try-fallbacks: --compact-target, flip-block;
+
+    border: theme("borderWidth.DEFAULT") theme("borderColor.black") solid;
+    border-radius: theme("borderRadius.2xl");
+    z-index: 99;
+
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+}
+
+@position-try --compact-target {
+    grid-template-columns: repeat(10, auto);
+}
+
+@supports (position-area: top) or (inset-area: top) {
+    .not-supported {
+        display: none;
+    }
+}
