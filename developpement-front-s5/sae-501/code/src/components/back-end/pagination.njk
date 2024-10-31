@@ -21,15 +21,15 @@
     {% set after_ellipsis = false %}
     {% set query_params = "&" ~ (paginator.query_params) if paginator.query_params else "" %}
     {% set nb_items_to_show = 5 if (paginator.page == 1 or paginator.page == paginator.total_pages) else 2 %}
-    <nav class="pagination-tooltip bg-white !hidden" data-pagination-shortcut role="navigation" aria-label="Pagination" tabindex="0">
+    <nav class="pagination-tooltip bg-white !hidden" data-pagination-shortcut role="navigation" aria-label="Pagination">
         <p class="px-3 py-3">Aller à la page</p>
         <hr>
-        <div class="pagination max-h-36 overflow-y-auto">
+        <div class="pagination max-h-36 overflow-y-auto p-1">
             {% for i in range(1, paginator.total_pages + 1) %}
                 {% if i == paginator.page %}
-                    <span class="font-bold block p-4 text-center" aria-current="page">{{ i }}</span>
+                    <span class="font-bold block p-4 text-center" aria-hidden="true" aria-current="page">{{ i }}</span>
                 {% else %}
-                    <a class="text-black text-center hover:text-blue-700 block p-4" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
+                    <a class="text-black text-center hover:text-blue-700 focus-within:text-blue-700 block p-4" aria-hidden="true" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
                 {% endif %}
             {% endfor %}
         </div>
