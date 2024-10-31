@@ -154,17 +154,38 @@ details summary::-webkit-details-marker {
 
 .infobox {
     position: fixed;
-    position-anchor: --myAnchor;
+    position-anchor: --paginationShortcutAnchor;
     position-area: top;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     position-try-fallbacks: --compact-target, flip-block;
 
-    border: theme("borderWidth.DEFAULT") theme("borderColor.black") solid;
+    border: theme("borderWidth.DEFAULT") theme("colors.gray.200")  solid;
     border-radius: theme("borderRadius.2xl");
     z-index: 99;
 
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
+
+    transform: scale(1);
+        transition: transform 0.1s ease-in;
+
+    @starting-style {
+        transform: scale(0);
+    }
+    
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: theme("colors.gray.200") transparent transparent transparent;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+  }
 }
 
 @position-try --compact-target {
