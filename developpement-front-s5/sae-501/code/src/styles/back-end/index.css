@@ -152,7 +152,7 @@ details summary::-webkit-details-marker {
     }
 }
 
-.infobox {
+.pagination-tooltip {
     position: fixed;
     position-anchor: --paginationShortcutAnchor;
     position-area: top;
@@ -163,17 +163,24 @@ details summary::-webkit-details-marker {
     border-radius: theme("borderRadius.2xl");
     z-index: 99;
 
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-
     transform: scale(1);
     opacity: 1;
     transform-origin: center bottom;
-    transition: transform 0.35s ease-in, opacity 0.35s ease-in;
+    transition: transform 0.25s ease-in, opacity 0.35s ease-in;
 
     @starting-style {
         transform: scale(0);
         opacity: 0.25;
+    }
+
+    &.fade-out {
+        transform: scale(0);
+        opacity: 0.25;
+    }
+
+    .pagination {
+        display: grid;
+        grid-template-columns: repeat(6, auto);
     }
 }
 
@@ -182,7 +189,21 @@ details summary::-webkit-details-marker {
 }
 
 @supports not (position-area: top) {
-    .infobox {
+    .pagination-tooltip {
         display: none;
     }
 }
+
+/* .pagination-ellipsis {
+    position: relative;
+    z-index: 2;
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background-color: tomato;
+        aspect-ratio: 1 / 1;
+        z-index: 0;
+    }
+} */
