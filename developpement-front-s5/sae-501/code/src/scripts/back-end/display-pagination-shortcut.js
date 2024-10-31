@@ -12,7 +12,6 @@ const clearAnchors = () => {
 
 listPaginationShortcutButtons.forEach((item) => {
     item.addEventListener("click", (e) => {
-        
         if (e.currentTarget.textContent === "…") {
             clearAnchors();
             e.currentTarget.textContent = "✖";
@@ -20,8 +19,14 @@ listPaginationShortcutButtons.forEach((item) => {
             paginationShortcut.classList.remove("!hidden");
         } else {
             e.currentTarget.textContent = "…";
-            e.currentTarget.style["anchor-name"] = "none";
-            paginationShortcut.classList.add("!hidden");
+            paginationShortcut.classList.add("fade-out");
+            paginationShortcut.addEventListener("transitionend", (e) => {
+                if (e.target.matches(".fade-out")) {
+                    paginationShortcut.classList.remove("fade-out");
+                    paginationShortcut.classList.add("!hidden");
+                    e.currentTarget.style["anchor-name"] = "none";
+                }
+            });
         }
     });
 });
