@@ -15,7 +15,6 @@ export default (req, res, next) => {
         });
 
     breadcrumb = breadcrumb.flat();
-    breadcrumb.pop();
 
     req.app.locals.breadcrumb = breadcrumb.flat();
 
