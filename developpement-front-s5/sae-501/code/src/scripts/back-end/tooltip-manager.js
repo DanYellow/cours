@@ -23,10 +23,14 @@ const showTooltip = (e) => {
 
 listTooltipAnchors.forEach((item) => {
     item.style["anchor-name"] = `--${item.dataset.tooltipAnchor}`;
+    item.setAttribute("aria-details", item.dataset.tooltipAnchor);
     item.addEventListener("mouseenter", showTooltip);
+    item.addEventListener("focus", showTooltip);
     item.addEventListener("mouseleave", hideTooltip);
+    item.addEventListener("blur", hideTooltip);
 });
 
 listTooltips.forEach((item) => {
     item.style["position-anchor"] = `--${item.dataset.tooltip}`;
+    item.setAttribute("id", item.dataset.tooltip);
 });
