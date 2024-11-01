@@ -1,22 +1,21 @@
 export default (req, res, next) => {
     const fullUrl = req.originalUrl;
+    const arrayURL = fullUrl.split("/").filter(Boolean);
     let breadcrumb = [];
 
-    fullUrl
-        .split("/")
-        .filter(Boolean)
-        .forEach((item, idx) => {
-            const payload = [item];
-            if (idx === 0) {
-                breadcrumb.push(payload);
-            } else {
-                breadcrumb.push([...breadcrumb[idx - 1], ...payload].join("/"));
-            }
-        });
+    arrayURL.forEach((item, idx) => {
+        const urlPart = [arrayURL[idx]];
 
-    breadcrumb = breadcrumb.flat();
+        if (idx === 0) {
+            breadcrumb.push(urlPart);
+        } else {
+            breadcrumb.push([...breadcrumb[idx - 1].filter(Boolean), ...urlPart]);
+        }
+    });
 
-    req.app.locals.breadcrumb = breadcrumb.flat();
+    breadcrumb = breadcrumb.map((item) => item.flat().join("/"));
+
+    req.app.locals.breadcrumb = breadcrumb;
 
     next();
 };
