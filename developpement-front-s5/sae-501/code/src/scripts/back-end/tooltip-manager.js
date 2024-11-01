@@ -18,7 +18,7 @@ const showTooltip = (e) => {
     const tooltip = document.querySelector(
         `[data-tooltip="${e.currentTarget.dataset.tooltipAnchor}"]`
     );
-    tooltip.classList.remove("hidden");
+    tooltip.classList.remove("hidden", "fade-out");
 };
 
 listTooltipAnchors.forEach((item) => {
