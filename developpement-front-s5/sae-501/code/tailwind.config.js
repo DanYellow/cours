@@ -6,12 +6,12 @@ import plugin from "tailwindcss/plugin";
 
 export default {
     content: ["./src/**/*.{js,ts,jsx,tsx,njk}"],
-    safelist: [
-        {
-            pattern: /!?(bg|text)-.+/,
-        },
-        "hidden",
-    ],
+    // safelist: [
+    //     {
+    //         pattern: /!?(bg|text)-.+/,
+    //     },
+    //     "hidden",
+    // ],
     theme: {
         extend: {
             spacing: {

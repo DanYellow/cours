@@ -156,7 +156,7 @@ Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonct
 - U - Update : Mise à jour d'une ressource. Représenté par la méthode HTTP `PUT`
 - D - Delete : Suppression d'une ressource. Représenté par la méthode HTTP `DELETE`
 
-Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
+Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
 
 ### Dossier src/
 C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
