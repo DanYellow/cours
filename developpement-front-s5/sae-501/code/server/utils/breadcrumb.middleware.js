@@ -3,7 +3,7 @@ export default (req, res, next) => {
     const arrayURL = fullUrl.split("/").filter(Boolean);
     let breadcrumb = [];
 
-    arrayURL.forEach((item, idx) => {
+    arrayURL.forEach((_, idx) => {
         const urlPart = [arrayURL[idx]];
 
         if (idx === 0) {
