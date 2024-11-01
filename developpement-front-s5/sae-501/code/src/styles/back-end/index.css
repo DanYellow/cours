@@ -191,7 +191,7 @@ details summary::-webkit-details-marker {
 }
 
 @supports not (position-area: top) {
-    .pagination-tooltip {
+    .pagination-tooltip, .tooltip {
         display: none;
     }
 }

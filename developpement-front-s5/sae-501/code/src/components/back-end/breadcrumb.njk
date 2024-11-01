@@ -9,7 +9,7 @@
                 </a>
             </li>
             {% if loop.last == false %}
-                <li class="text-gray-400 last:hidden" aria-hidden="true">❯</li>
+                <li inert class="text-gray-400 last:hidden">❯</li>
             {% endif %}
         {% endfor %}
     </ol>
