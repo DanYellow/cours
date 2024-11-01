@@ -1,5 +1,7 @@
 export default (req, res, next) => {
-    const fullUrl = req.originalUrl;
+    const fullUrl = req.originalUrl.split("?")[0];
+
+
     const arrayURL = fullUrl.split("/").filter(Boolean);
     let breadcrumb = [];
 
@@ -9,7 +11,10 @@ export default (req, res, next) => {
         if (idx === 0) {
             breadcrumb.push(urlPart);
         } else {
-            breadcrumb.push([...breadcrumb[idx - 1].filter(Boolean), ...urlPart]);
+            breadcrumb.push([
+                ...breadcrumb[idx - 1].filter(Boolean),
+                ...urlPart,
+            ]);
         }
     });
 
