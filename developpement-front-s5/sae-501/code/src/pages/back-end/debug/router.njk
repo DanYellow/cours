@@ -65,24 +65,24 @@
             </ul>
         </header>
         <search>
-            <form class="flex flex-col pt-0 mb-6 pr-6 pl-6">
+            <form class="flex flex-col pt-0 mb-6 pr-6 pl-6" autocomplete="off">
                 <label for="route">Search by route's name</label>
                 <input class="text-black rounded" type="search" name="route_name" value="{{ query_string_params.route_name }}" id="route" placeholder="Route's name" data-route-search>
             </form>
         </search>
 
-        <table class="w-full bg-white overflow-hidden border-collapse" data-table-routes>
-            <thead class="bg-white top-0 @3xl/main:sticky">
+        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse" data-table-routes>
+            <thead>
                 <tr>
-                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Method</th>
-                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Name</th>
-                    <th class="font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Path</th>
+                    <th class="bg-white top-0 @3xl/main:sticky font-bold px-6 text-left border-solid border-slate-200 border-b py-3 @3xl/main:w-48">Method</th>
+                    <th class="bg-white top-0 @3xl/main:sticky font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Name</th>
+                    <th class="bg-white top-0 @3xl/main:sticky font-bold px-6 text-left border-solid border-slate-200 border-b py-3">Path</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in list_routes %}
                     <tr>
-                        <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6" data-label="METHOD">
+                        <td class="bg-transparent border-solid border-slate-200 border-b py-4 px-6 @3xl/main:w-48" data-label="METHOD">
                             {% if item.METHOD == "GET" %}
                                 <span class="me-2 px-2.5 py-0.5 rounded bg-green-900 text-green-300">{{ item.METHOD }}</span>
                             {% elif item.METHOD == "POST" %}
