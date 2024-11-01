@@ -6,7 +6,7 @@ const hideTooltip = (e) => {
         `[data-tooltip="${e.currentTarget.dataset.tooltipAnchor}"]`
     );
     tooltip.classList.add("fade-out");
-    tooltip.addEventListener("transitionend", (e) => {
+    tooltip.addEventListener("transitionend", () => {
         if (tooltip.matches(".fade-out")) {
             tooltip.classList.remove("fade-out");
             tooltip.classList.add("hidden");
