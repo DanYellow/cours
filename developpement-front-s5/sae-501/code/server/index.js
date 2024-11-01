@@ -22,6 +22,7 @@ import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
+import breadcrumb from "./utils/breadcrumb.middleware.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
@@ -50,6 +51,7 @@ app.use(
 app.use(cookieParser());
 app.use(expressFlash());
 app.use(cors());
+
 app.use(
     expressSession({
         secret: "secret",
@@ -171,7 +173,7 @@ app.use(express.static(publicPath));
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
-app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, backendRouter);
+app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
 app.use("/api", apiRouter);
 app.use(frontendRouter);
 
@@ -204,7 +206,7 @@ if (process.env.NODE_ENV === "development") {
     const swaggerUi = await import("swagger-ui-express")
 
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
-    app.use("/debug", debugRouter);
+    app.use("/debug", breadcrumb, debugRouter);
     app.use(async (err, req, res, _next) => {
         res.status(500);
         const response = {

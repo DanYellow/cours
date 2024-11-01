@@ -15,8 +15,10 @@
 {% block title %}Eslint Report - Debug{% endblock %}
 
 {% block main %}
+
     <div class="bg-white rounded-2xl shadow-md pb-6">
-        <header class="mb-1 p-6 flex justify-between gap-2 lg:flex-row flex-col">
+        <header class="mb-1 p-6">
+            {% include "components/back-end/breadcrumb.njk" %}
             <p class="text-4xl">
                 Eslint Report
                 <span class="block text-sm">Page accessible uniquement en mode "développement"</span>

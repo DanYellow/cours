@@ -1,0 +1,16 @@
+<nav>
+    <ol class="flex gap-1">
+        {% for breadcrumb_item in breadcrumb %}
+            <li class="group">
+                <a 
+                    class="text-gray-400 px-2 py-1 rounded-md hocus:bg-gray-200 hocus:text-gray-900 text-sm" href="/{{ breadcrumb_item }}"
+                >
+                    {{ breadcrumb_item.split('/') | last | capitalize }}
+                </a>
+            </li>
+            <li class="text-gray-400 last:hidden" aria-hidden="true">
+                ❯
+            </li>
+        {% endfor %}
+    </ol>
+</nav>
