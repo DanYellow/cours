@@ -87,7 +87,7 @@ export default async (req, res, next) => {
     }
 
     const t1 = performance.now();
-    if (req.app.locals.data !== JSON.stringify(eslintReport)) {
+    if (req.app.locals.eslint_report !== JSON.stringify(eslintReport)) {
         const today = new Date();
         const timezoneOffset = -(today.getTimezoneOffset() / 60);
 
@@ -95,7 +95,7 @@ export default async (req, res, next) => {
         req.app.locals.last_report_time = `${today.toUTCString()}+${timezoneOffset} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`;
     }
     
-    req.app.locals.data = JSON.stringify(eslintReport);
+    req.app.locals.eslint_report = eslintReport;
 
     next();
 };

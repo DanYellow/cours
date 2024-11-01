@@ -26,12 +26,12 @@
         </header>
         <div class="px-6" lang="en">
             <nav class="flex gap-2">
-                <button data-tab-name="server" class="px-3 py-2 rounded-md hover:bg-slate-300">Server ({{ server.summary.errorCount + server.summary.warningCount }})</button>
-                <button data-tab-name="front" class="px-3 py-2 rounded-md hover:bg-slate-300">Front-end ({{ frontend.summary.errorCount + frontend.summary.warningCount }})</button>
+                <button data-tab-name="server" class="px-3 py-2 rounded-md hover:bg-slate-300">Server ({{ eslint_report.server.summary.errorCount + eslint_report.server.summary.warningCount }})</button>
+                <button data-tab-name="front" class="px-3 py-2 rounded-md hover:bg-slate-300">Front-end ({{ eslint_report.frontend.summary.errorCount + eslint_report.frontend.summary.warningCount }})</button>
             </nav>
             <section class="list-tab-content pt-3">
-                <div data-tab-content="server">{{ eslint.report(server) }}</div>
-                <div data-tab-content="front">{{ eslint.report(frontend) }}</div>
+                <div data-tab-content="server">{{ eslint.report(eslint_report.server) }}</div>
+                <div data-tab-content="front">{{ eslint.report(eslint_report.frontend) }}</div>
             </section>
         </div>
     </div>
