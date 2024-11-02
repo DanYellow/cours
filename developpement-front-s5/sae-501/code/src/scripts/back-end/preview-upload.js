@@ -50,8 +50,13 @@ const previewImageObserver = new MutationObserver((mutationList) => {
                 `[data-delete-preview-upload-button="${mutation.target.dataset.previewUpload}"]`
             );
 
+            const btnPreview = document.querySelector(
+                `[data-preview-current-image-button="${mutation.target.dataset.previewUpload}"]`
+            );
+
             const newValue = mutation.target.getAttribute("src");
             deleteBtn.classList.toggle("hidden", newValue === "");
+            btnPreview.classList.toggle("hidden", newValue === "");
         }
     });
 });
@@ -93,11 +98,7 @@ listClearUploadFileBtn.forEach((item) => {
         const imgRelated = document.querySelector(
             `[data-preview-upload="${dataAttr}"]`
         );
-        const btnPreview = document.querySelector(
-            `[data-preview-current-image-button="${dataAttr}"]`
-        );
 
-        btnPreview.classList.add("hidden");
         imgRelated.src = "";
         input.value = input.defaultValue;
     });
