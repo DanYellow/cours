@@ -11,6 +11,7 @@ const clearAnchors = () => {
 };
 
 listPaginationShortcutButtons.forEach((item) => {
+    item.setAttribute("aria-details", "pagination-shortcut");
     item.addEventListener("click", (e) => {
         if (e.currentTarget.textContent === "…") {
             clearAnchors();

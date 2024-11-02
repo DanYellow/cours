@@ -21,7 +21,7 @@
     {% set after_ellipsis = false %}
     {% set query_params = "&" ~ (paginator.query_params) if paginator.query_params else "" %}
     {% set nb_items_to_show = 5 if (paginator.page == 1 or paginator.page == paginator.total_pages) else 2 %}
-    <nav class="pagination-tooltip bg-white !hidden" data-pagination-shortcut role="navigation" aria-label="Selection page">
+    <nav class="pagination-tooltip bg-white !hidden" data-pagination-shortcut role="navigation" aria-label="Selection page" id="pagination-shortcut">
         <p class="px-3 py-3">Aller à la page</p>
         <hr>
         <div class="pagination max-h-36 overflow-y-auto p-1">
@@ -57,13 +57,13 @@
                         </li>
                     {% elseif before_ellipsis == false and i < paginator.page - nb_items_to_show %}
                         <li class="hidden @3xl/main:[display:revert]">
-                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden font-bold p-4 text-gray-500 supports-[position-area]:block hocus:text-blue-700">…</button>
+                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden font-bold p-4 text-gray-500 supports-[position-area]:block hocus:text-blue-700 w-11">…</button>
                             <span class="block p-4 text-gray-500 supports-[position-area]:hidden">…</span>
                         </li>
                         {% set before_ellipsis = true %}
                     {% elseif after_ellipsis == false and i > paginator.page + nb_items_to_show %}
                         <li class="hidden @3xl/main:[display:revert]">
-                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden font-bold p-4 text-gray-500 supports-[position-area]:block hocus:text-blue-700">…</button>
+                            <button type="button" aria-hidden="true" data-toggle-pagination-shortcut-btn class="hidden font-bold p-4 text-gray-500 supports-[position-area]:block hocus:text-blue-700 w-11">…</button>
                             <span class="block p-4 text-gray-500 supports-[position-area]:hidden">…</span>
                         </li>
                         {% set after_ellipsis = true %}
