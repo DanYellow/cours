@@ -8,7 +8,7 @@ _Les consignes pourront être modifiées._
     - [Dossier database/](#dossier-database)
     - [Dossier public/](#dossier-public)
     - [Dossier server/](#dossier-server)
-      - [server/api-router](#serverapi-router)
+      - [server/api-router/](#serverapi-router)
     - [Dossier src/](#dossier-src)
       - [src/components/](#srccomponents)
       - [src/data/](#srcdata)
@@ -149,14 +149,15 @@ Retenez les points suivants :
     - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
     - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
 
-#### server/api-router
+#### server/api-router/
 Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonctionne de la façon suivante :
 - C - Create : Création d'une ressource. Représenté par la méthode HTTP `POST`
 - R - Read : Lecture d'une ressource. Représenté par la méthode HTTP `GET`
 - U - Update : Mise à jour d'une ressource. Représenté par la méthode HTTP `PUT`
 - D - Delete : Suppression d'une ressource. Représenté par la méthode HTTP `DELETE`
 
-Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de [Postman](./POSTMAN.md) est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
+Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
+- [Accéder à la présentation de Postman](./POSTMAN.md)
 
 ### Dossier src/
 C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
@@ -304,8 +305,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
     - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
-  - Quand vous utilisez la pseudo-classe ":focus", pensez toujours à mettre également la pseudo-classe ":focus-within"
-    - Il y a la mixin SCSS ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" 
+  - Quand vous utilisez la pseudo-classe ":hover", pensez toujours à mettre également la pseudo-classe ":focus-visible"
+    - Il y a la mixin SCSS ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" qui remplit le même rôle. Il fonctionne également pour les groupes
 - [ ] Ajouter une validation côté client des formulaires
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
