@@ -1,4 +1,4 @@
-{% macro field(imagename, folder, accepts = ".jpg, .jpeg, .png", name = "image", id = "image") %}
+{% macro field(imagename, folder, accepts = ".jpg, .jpeg, .png, .avif", name = "image", id = "image") %}
     {% set border_classes = "border-b border-solid border-slate-300" %}
     {% set custom_upload_dir = folder | default(upload_dir) %}
     <div>

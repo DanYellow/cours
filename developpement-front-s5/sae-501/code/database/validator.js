@@ -1,6 +1,6 @@
 // Validation rules
 
-const imageValidator = (image, listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg"], maxSizeFactor = 0.8) => {
+const imageValidator = (image, listAllowedMimeType = ["image/png", "image/jpg", "image/jpeg", "image/avif"], maxSizeFactor = 0.8) => {
     if (
         !listAllowedMimeType.includes(image?.mimetype || image.type)
     ) {
