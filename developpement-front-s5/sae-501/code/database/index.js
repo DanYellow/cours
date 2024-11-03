@@ -18,7 +18,7 @@ const main = async () => {
         await mongoose.connect(url, {
             serverSelectionTimeoutMS: 20000,
         });
-        return `MongoDB Server started on port : ${port}`;
+        return `MongoDB Server started on port: ${port}`;
     } catch (error) {
         throw new Error(error);
     }

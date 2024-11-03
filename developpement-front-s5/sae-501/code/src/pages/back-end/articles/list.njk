@@ -1,6 +1,7 @@
 {% extends "layouts/back-end/base.njk" %}
 {% set page_name = "articles" %}
 {% set using_asc = query_string_params.sorting == "asc" %}
+{% set sort_param = "desc" if using_asc == true else "asc" %}
 
 {% import "components/back-end/pagination.njk" as pagination with context %}
 {% import "components/back-end/list-actions.njk" as list_actions %}
@@ -21,6 +22,9 @@
                 </svg>
                 Ajouter un nouvel article
             </a>
+            <a href="{{ "?sorting=" ~ sort_param }}" class="w-full lg:hidden sm:w-fit text-md bg-neutral-100 hocus:bg-neutral-200 text-black rounded-2xl items-center text-sm py-2 px-4 h-fit text-center">
+                <span aria-hidden="true">{{ "▲" if using_asc else "▼" }}</span> Trier du plus récent au plus ancien
+            </a>
         </header>
 
         <div class="tooltip hidden bg-slate-800 text-white border border-gray-200 border-solid py-2 px-4 rounded-2xl" data-tooltip="sort">
@@ -28,7 +32,7 @@
             <p class="text-sm">{{ text }}</p>
         </div>
 
-        <table class="w-full bg-white rounded-lg overflow-hidden border-collapse">
+        <table class="w-full bg-white border-collapse">
             <thead class="">
                 <tr class="text-slate-800">
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b min-w-52">Titre</th>
@@ -36,7 +40,6 @@
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Activé ?</th>
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
                     <th class="font-bold text-left border-solid border-slate-200 border-b hover:bg-blue-50">
-                        {% set sort_param = "desc" if using_asc == true else "asc" %}
                         <a href="{{ "?sorting=" ~ sort_param }}" class="block px-6 py-3 " aria-sort="{{ "ascending" if using_asc else "descending" }}" data-tooltip-anchor="sort">
                             Dernière mise à jour <span aria-hidden="true">{{ "▲" if using_asc else "▼" }}</span>
                         </a>
