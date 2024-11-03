@@ -200,4 +200,19 @@ const generateUrl = (app, name, params) => {
     return finalURL;
 };
 
-export { generateListRoutes, generateUrl };
+const getNameForRoute = (app, route) => {
+    if (!app) {
+        throw new Error("app object is missing");
+    }
+
+    const listRoutes = generateListRoutes(app);
+    const _route = listRoutes.filter((item) => item.NAME !== "").find((item) => {
+        const regex = new RegExp(`${item.PATH}$`);
+
+        return regex.test(route)
+    })
+
+    return _route || { NAME: null };
+}
+
+export { generateListRoutes, generateUrl, getNameForRoute };

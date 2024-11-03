@@ -11,7 +11,8 @@ export default (req, res, next) => {
 
     onHeaders(res, () => {
         const duration = new Date() - start;
-        res.set("X-Response-Time", `${duration}ms`);
+        res.set("X-Response-Time", `${duration} ms`);
+        req.app.locals.response_time = `${duration} ms`;
     });
 
     next();

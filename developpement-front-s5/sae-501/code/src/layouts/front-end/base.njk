@@ -33,6 +33,7 @@
         {% endif %}
     </head>
     <body class="mr-[max(env(safe-area-inset-right),_theme(space.4))] ml-[max(env(safe-area-inset-left),_theme(space.4))]">
+        {{ profiler | dump }}
         {% if NODE_ENV == "development" and (eslint_report.warningCount > 0 or eslint_report.errorCount > 0) %}
             <div tabindex="-1" class="w-fit left-1/2 -translate-x-1/2 bottom-6 z-50 fixed flex flex-col md:flex-row justify-between p-4 bg-gray-200 border border-gray-500 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 gap-4 opacity-5 touch:hidden hover:opacity-100">
                 <div class="flex flex-col items-start mb-3 me-4 md:items-center md:flex-row md:mb-0">

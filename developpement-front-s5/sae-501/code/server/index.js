@@ -25,6 +25,7 @@ import debugRouter from "./debug-router.js";
 import breadcrumb from "./utils/breadcrumb.middleware.js";
 import eslintMiddleware from "./utils/eslint.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
+import profilerMiddleware from "./utils/profiler.middleware.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
@@ -61,7 +62,6 @@ app.use(
         saveUninitialized: false,
     })
 );
-
 
 let publicPath = path.join(path.resolve(), "public");
 if (process.env.NODE_ENV === "production") {
@@ -153,7 +153,6 @@ app.use(function (req, res, next) {
         let tplContent = {};
 
         const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
-
         const tplTmpFilename = path.format({ ...path.parse(view), base: "", ext: ".tmp.njk" });
         const tplTmpContentPath = path.join(__dirname, "..", `/src/${tplTmpFilename}.json`);
 
@@ -172,8 +171,7 @@ app.use(function (req, res, next) {
     next();
 });
 app.get("*", eslintMiddleware("short"));
-
-app.use(responseTimeMiddleware);
+app.use(responseTimeMiddleware, profilerMiddleware);
 app.use(express.static(publicPath));
 
 app.set("view engine", "nunjucks");
