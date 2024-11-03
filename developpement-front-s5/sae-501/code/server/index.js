@@ -24,6 +24,7 @@ import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import breadcrumb from "./utils/breadcrumb.middleware.js";
 import eslintMiddleware from "./utils/eslint.middleware.js";
+import responseTimeMiddleware from "./utils/responsetime.middleware.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
@@ -169,22 +170,23 @@ app.use(function (req, res, next) {
 
     next();
 });
+app.get("*", eslintMiddleware("short"));
 
+app.use(responseTimeMiddleware);
 app.use(express.static(publicPath));
-app.use("/", eslintMiddleware("short"), frontendRouter);
 
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
 
 app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
 app.use("/api", apiRouter);
-// app.get("*", eslintMiddleware("short"));
+app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
     const options = {
         customSiteTitle: "Swagger SAE 501",
     };
-
+    
     app.use(function (req, res, next) {
         res.on("finish", async function () {
             if (req.route !== undefined) {

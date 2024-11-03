@@ -15,8 +15,6 @@ export default (type = "full") => {
         ) {
             return next();
         }
-
-        console.log(req.originalUrl)
         const eslint = new ESLint();
         const t0 = performance.now();
 
