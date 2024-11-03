@@ -5,6 +5,10 @@ import "/src/styles/tailwind.css";
 
 import "./store-scroll-position.utils";
 
+if (process.env.NODE_ENV === "development") {
+    await import("./profiler-bar");
+}
+
 const htmlBGColor = window
     .getComputedStyle(document.documentElement, null)
     .getPropertyValue("background-color");

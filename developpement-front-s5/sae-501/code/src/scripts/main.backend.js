@@ -13,3 +13,7 @@ import "./back-end/preview-modal.js";
 import "./back-end/display-pagination-shortcut.js";
 import "./back-end/tooltip-manager.js";
 import "/src/scripts/store-scroll-position.utils";
+
+if (process.env.NODE_ENV === "development") {
+    await import("./profiler-bar");
+}

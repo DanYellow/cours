@@ -104,3 +104,6 @@ document.querySelectorAll("[data-file]").forEach((item) => {
     });
 })();
 
+if (process.env.NODE_ENV === "development") {
+    await import("./profiler-bar");
+}
