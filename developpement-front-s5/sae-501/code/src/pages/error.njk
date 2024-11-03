@@ -16,7 +16,8 @@
             <script type="module" src="/src/scripts/main.debug.js" defer></script>
         {% endif %}
     </head>
-    <body class="">
+    <body>
+        {% include "components/profiler.njk" %}
         <div class="bg-red-700 text-white text-xl mb-2">
             <h1 class="pr-[max(env(safe-area-inset-right),_theme(space.6))] pl-[max(env(safe-area-inset-left),_theme(space.6))] py-3 m-auto max-w-7xl">Error {{ statusCode }} - Something went wrong</h1>
         </div>

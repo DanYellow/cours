@@ -33,17 +33,8 @@
         {% endif %}
     </head>
     <body class="mr-[max(env(safe-area-inset-right),_theme(space.4))] ml-[max(env(safe-area-inset-left),_theme(space.4))]">
-        {{ profiler | dump }}
-        {% if NODE_ENV == "development" and (eslint_report.warningCount > 0 or eslint_report.errorCount > 0) %}
-            <div tabindex="-1" class="w-fit left-1/2 -translate-x-1/2 bottom-6 z-50 fixed flex flex-col md:flex-row justify-between p-4 bg-gray-200 border border-gray-500 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 gap-4 opacity-5 touch:hidden hover:opacity-100">
-                <div class="flex flex-col items-start mb-3 me-4 md:items-center md:flex-row md:mb-0">
-                    <p class="text-sm font-normal text-gray-500 dark:text-gray-200">Eslint : {{ eslint_report.errorCount }} error(s), {{ eslint_report.warningCount }} warning(s)</p>
-                </div>
-                <div class="flex items-center flex-shrink-0">
-                    <a href="{{ routeName("eslint") }}" class="px-5 py-2 me-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Voir le rapport eslint en détails</a>
-                </div>
-            </div>
-        {% endif %}
+        {% include "components/profiler.njk" %}
+        
         {% include "components/front-end/navigation.njk" %}
         {% include "components/front-end/hero.njk" %}
 
