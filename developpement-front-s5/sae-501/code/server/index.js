@@ -23,9 +23,6 @@ import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import breadcrumb from "./utils/breadcrumb.middleware.js";
-import eslintMiddleware from "./utils/eslint.middleware.js";
-import responseTimeMiddleware from "./utils/responsetime.middleware.js";
-import profilerMiddleware from "./utils/profiler.middleware.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
@@ -170,8 +167,7 @@ app.use(function (req, res, next) {
 
     next();
 });
-app.get("*", eslintMiddleware("short"));
-app.use(responseTimeMiddleware, profilerMiddleware);
+
 app.use(express.static(publicPath));
 
 app.set("view engine", "nunjucks");
