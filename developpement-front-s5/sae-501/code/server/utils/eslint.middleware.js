@@ -117,7 +117,7 @@ export default async (req, res, next) => {
     }
 
     const t0 = performance.now();
-    const eslintReport = await eslintReport();
+    const eslintReport = await getReport();
     const t1 = performance.now();
 
     if (req.app.locals.eslint_report !== JSON.stringify(eslintReport)) {
@@ -131,7 +131,7 @@ export default async (req, res, next) => {
     }
 
     req.app.locals.eslint_report = eslintReport;
-
+    
     next();
 };
 

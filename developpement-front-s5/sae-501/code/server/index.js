@@ -28,7 +28,7 @@ import responseTimeMiddleware from "./utils/responsetime.middleware.js";
 import profilerMiddleware from "./utils/profiler.middleware.js";
 
 import viteConfig from "../vite.config.js";
-import { generateUrl } from "../generate-list-routes.js";
+import { generateUrl, getNameForRoute } from "../generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
 
 let envFilePath = "./env/.env.prod.local";
@@ -124,6 +124,7 @@ const getAllCookies = (cookie) => {
 };
 
 app.use(responseTimeMiddleware, function (req, res, next) {
+    const start = new Date();
     const current_url = getCurrentURL(
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
     );
@@ -162,12 +163,16 @@ app.use(responseTimeMiddleware, function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
-        req.app.locals.eslint_report = await getEslintReport("short");
+        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.originalUrl).NAME !== "eslint") {
+            req.app.locals.eslint_report = await getEslintReport("short");
+        }
+
+        const duration = new Date() - start;
 
         profilerMiddleware(req, res, next);
     
         res.type(".html");
-        const args = [view, { ...local, ...tplContent }, callback];
+        const args = [view, { ...local, ...tplContent, response_time: duration }, callback];
 
         originalRender.apply(this, args);
     };
@@ -362,6 +367,12 @@ nunjucksEnv.addGlobal("getEslintLink", function (rule) {
     }
 
     return `${baseURLEslint}/${rule}`;
+});
+
+nunjucksEnv.addGlobal("formatNumber", function (value) {
+    return new Intl.NumberFormat("fr-FR").format(
+        value
+    );
 });
 
 console.log(`

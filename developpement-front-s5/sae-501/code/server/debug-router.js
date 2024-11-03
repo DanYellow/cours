@@ -8,7 +8,6 @@ import eslintMiddleware from "./utils/eslint.middleware.js";
 
 const router = express.Router();
 
-
 router.get("/", routeName("debug"), async (req, res) => {
     res.render("pages/back-end/debug/index.njk", {});
 });
