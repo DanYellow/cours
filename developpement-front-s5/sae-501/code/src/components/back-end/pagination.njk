@@ -52,7 +52,9 @@
                             {% if i == paginator.page %}
                                 <span class="page-active font-bold block p-4 border-transparent border-t-2 border-solid" aria-current="page">{{ i }}</span>
                             {% else %}
-                                <a class="border-t-transparent hocus:border-t-blue-200 hocus:text-blue-700 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">{{ i }}</a>
+                                <a class="border-t-transparent hocus:border-t-blue-200 hocus:text-blue-700 block p-4 border-t-2 border-solid" href="{{ current_url ~ "?page=" ~ i ~ query_params }}">
+                                    <span class="sr-only">Aller à la page</span> {{ i }}
+                                </a>
                             {% endif %}
                         </li>
                     {% elseif before_ellipsis == false and i < paginator.page - nb_items_to_show %}
