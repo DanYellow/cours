@@ -132,7 +132,7 @@ gitGraph
     commit
 ```
 
-Chaque point indique un "point de sauvegarde".
+Chaque point indique un "point de sauvegarde". Main est le nom de la branche de base de git, elle est également parfois appelée "Master".
 
 <details open> 
     <summary>Ligne de commande</summary> <br/>
