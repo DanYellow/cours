@@ -163,6 +163,7 @@ app.use(function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
+        res.type(".html");
         const args = [view, { ...local, ...tplContent }, callback];
 
         originalRender.apply(this, args);
