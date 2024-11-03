@@ -1,7 +1,6 @@
 export default (req, res, next) => {
     const fullUrl = req.originalUrl.split("?")[0];
 
-
     const arrayURL = fullUrl.split("/").filter(Boolean);
     let breadcrumb = [];
 

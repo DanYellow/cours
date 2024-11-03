@@ -39,7 +39,7 @@ router.get(
     }
 );
 
-router.get("/eslint", eslintMiddleware, routeName("eslint"), (req, res) => {
+router.get("/eslint", eslintMiddleware(), routeName("eslint"), (req, res) => {
     res.render("pages/back-end/debug/eslint.njk");
 });
 
