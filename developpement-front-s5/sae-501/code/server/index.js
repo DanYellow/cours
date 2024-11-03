@@ -23,6 +23,9 @@ import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
 import debugRouter from "./debug-router.js";
 import breadcrumb from "./utils/breadcrumb.middleware.js";
+import { getReport as getEslintReport } from "./utils/eslint.middleware.js";
+import responseTimeMiddleware from "./utils/responsetime.middleware.js";
+import profilerMiddleware from "./utils/profiler.middleware.js";
 
 import viteConfig from "../vite.config.js";
 import { generateUrl } from "../generate-list-routes.js";
@@ -120,7 +123,7 @@ const getAllCookies = (cookie) => {
     return res?.reduce((result, curr) => Object.assign(result, curr), {}) || {};
 };
 
-app.use(function (req, res, next) {
+app.use(responseTimeMiddleware, function (req, res, next) {
     const current_url = getCurrentURL(
         `${req.protocol}://${req.get("host")}${req.baseUrl}${req.path}`
     );
@@ -143,10 +146,10 @@ app.use(function (req, res, next) {
         ...jsonFilesContent,
         ...context,
         ...envVars.parsed,
-    };
+    };    
 
     const originalRender = res.render;
-    res.render = function (view, local, callback) {
+    res.render = async function (view, local, callback) {
         let tplContent = {};
 
         const tplContentPath = path.join(__dirname, "..", `/src/${view}.json`);
@@ -159,6 +162,10 @@ app.use(function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
+        req.app.locals.eslint_report = await getEslintReport("short");
+
+        profilerMiddleware(req, res, next);
+    
         res.type(".html");
         const args = [view, { ...local, ...tplContent }, callback];
 
