@@ -115,7 +115,24 @@ Notre fichier `index.html` est ajouté dans l'historique toutefois nous n'avons 
 
 ### Enregistrer les modifications - git commit
 
-L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre. Autrement dit on indique ce que nous avons fait.
+L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre, comme le schéma ci-dessous :
+
+```mermaid
+---
+title: Example de diagramme git
+---
+gitGraph
+    commit
+    commit
+    commit
+    commit
+    commit
+    commit
+    commit
+    commit
+```
+
+Chaque point indique un "point de sauvegarde".
 
 <details open> 
     <summary>Ligne de commande</summary> <br/>
@@ -124,14 +141,14 @@ Cette action s'effectue via la commande :
 ```bash
 git commit -am "Contenu du commit"
 ```
-> Les guillemets peuvent être simples ou doubles. Si vous réutilisez le même type de commit dans un message, n'oubliez pas d'échapper les guillemets avec l'anti-slash (\).
+> Les guillemets peuvent être simples ou doubles. Si vous réutilisez le même type de commit dans un message, n'oubliez pas d'échapper les guillemets avec l'anti-slash (\\).
 
 Et on valide le commit en appuyant sur entrée.
 </details>
 
 <details> 
     <summary>VS Code</summary> <br/>
-Dans VS Code, il vous suffit d'écrire le contenu de votre commit dans l'onglet "Source Control" et de valider son contenu en cliquant sur "Commit".
+Dans VS Code, il vous suffit d'écrire le contenu de votre commit dans l'onglet "Source Control" <img alt="" src="captures-ecran/source-control-vs-code-icon.png" /> et de valider son contenu en cliquant sur "Commit".
 
 ![](./captures-ecran/git-16.jpg)
 
