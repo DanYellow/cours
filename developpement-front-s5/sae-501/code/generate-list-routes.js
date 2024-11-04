@@ -208,10 +208,12 @@ const getNameForRoute = (app, route) => {
     const listRoutes = generateListRoutes(app);
     const [url, queryString = ""] = route.split('?');
     const _route = listRoutes.filter((item) => item.NAME !== "").find((item) => {
-        const pathRegexPattern = item.PATH.replaceAll(/(\:.+?\()/g, "(");
+        const pathRegexPattern = item.PATH.replaceAll(/(\:.+?\()/g, "(")
+            .replaceAll(/\//g, "/?")
+            .replaceAll(/(\:.+?\?)/g, "(/.+)?");
         const regex = new RegExp(`${pathRegexPattern}$`);
 
-        return regex.test(url)
+        return regex.test(url);
     })
 
     return {
