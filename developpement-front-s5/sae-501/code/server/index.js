@@ -46,6 +46,8 @@ if (!hasEnvFile) {
     console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     console.log(`⚠ Please create a ${envFilePath.replace(process.cwd(), "")} file`);
     console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    // process.exit(5);
 }
 
 const app = express();
@@ -184,7 +186,16 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         };
     
         res.type(".html");
-        const args = [view, { ...local, ...tplContent, response_time: duration }, callback];
+        const args = [
+            view, 
+            { 
+                ...local, 
+                ...tplContent, 
+                response_time: duration, 
+                is_admin: ["admin", "debug"].some((item) => req.originalUrl.includes(item))  
+            }, 
+            callback,
+        ];
 
         originalRender.apply(this, args);
     };

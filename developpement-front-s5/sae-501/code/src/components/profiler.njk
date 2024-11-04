@@ -34,7 +34,8 @@
         </button>
     </div>
     {% if profiler.has_env_file == false %}
-        <div lang="en" class="relative py-2 px-4 bg-yellow-800 text-gray-100 -mr-[max(env(safe-area-inset-right),_theme(space.4))] -ml-[max(env(safe-area-inset-left),_theme(space.4))]"  aria-hidden="true">
+        {% set warning_env_margins = "" if is_admin else "-mr-[max(env(safe-area-inset-right),_theme(space.4))] -ml-[max(env(safe-area-inset-left),_theme(space.4))]" %}
+        <div lang="en" class="relative py-2 px-8 bg-yellow-800 text-gray-100 {{ warning_env_margins }}" aria-hidden="true">
             <p class="font-bold">Missing env file</p>
             <p>You are using default env vars. Please copy and rename ./env/.env.dev.dist file into ./env/.env.dev.local.</p>
             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20 absolute right-0 top-1/2 -translate-y-1/2 opacity-10">
