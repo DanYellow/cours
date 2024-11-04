@@ -26,20 +26,20 @@ const previewUpload = (e) => {
     );
     imgRelated.src = "";
 
-    const btnPreview = document.querySelector(
-        `[data-preview-current-image-button="${uploadName}"]`
+    const fileName = document.querySelector(
+        `[data-filename="${uploadName}"]`
     );
 
     const errorMessage = imageValidator(file, listAllowedMimeType);
     if (errorMessage) {
         errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
         errorMessageContainer.classList.remove("hidden");
-        btnPreview.classList.add("hidden");
         element.value = null;
+        fileName.textContent = "";
     } else {
         imgRelated.src = URL.createObjectURL(file);
+        fileName.textContent = file.name;
         errorMessageContainer.classList.add("hidden");
-        btnPreview.classList.remove("hidden");
     }
 };
 
@@ -49,14 +49,17 @@ const previewImageObserver = new MutationObserver((mutationList) => {
             const deleteBtn = document.querySelector(
                 `[data-delete-preview-upload-button="${mutation.target.dataset.previewUpload}"]`
             );
-
             const btnPreview = document.querySelector(
                 `[data-preview-current-image-button="${mutation.target.dataset.previewUpload}"]`
+            );
+            const fileName = document.querySelector(
+                `[data-filename="${mutation.target.dataset.previewUpload}"]`
             );
 
             const newValue = mutation.target.getAttribute("src");
             deleteBtn.classList.toggle("hidden", newValue === "");
             btnPreview.classList.toggle("hidden", newValue === "");
+            fileName.classList.toggle("hidden", newValue === "");
         }
     });
 });
