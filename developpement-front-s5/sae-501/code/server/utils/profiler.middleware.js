@@ -18,7 +18,7 @@ export default (req, res, next) => {
     const routeData = getNameForRoute(res.app, req.originalUrl);
 
     req.app.locals.profiler = {
-        statusCode: res.statusCode,
+        status_code: res.statusCode,
         current_route: routeData.NAME,
         query_string: routeData.QUERY_STRING,
         eslint_report: req.app.locals.eslint_report,
