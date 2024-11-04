@@ -53,6 +53,12 @@ if (!hasEnvFile) {
 const app = express();
 const hostip = ip.address();
 
+if (process.env.NODE_ENV === "development") {
+    const { createServer: createViteServer } = await import("vite");
+    const vite = await createViteServer(viteConfig);
+    app.use(vite.middlewares);
+}
+
 // To improve security
 app.use(
     helmet({
@@ -95,6 +101,7 @@ app.use(
             "application/json",
             "application/csp-report",
             "application/reports+json",
+            "application/importmap+json",
         ],
     })
 );
@@ -156,8 +163,8 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         ...jsonFilesContent,
         ...context,
         ...envVars.parsed,
-    };    
-
+    };   
+    
     const originalRender = res.render;
     res.render = async function (view, local, callback) {
         let tplContent = {};
@@ -184,7 +191,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
             ...req.app.locals.profiler,
             has_env_file: hasEnvFile,
         };
-    
+
         res.type(".html");
         const args = [
             view, 
@@ -421,11 +428,6 @@ if (process.env.NODE_ENV === "production") {
 const listDomains = [hostip];
 const port = envVars?.parsed?.PORT || 3900;
 
-if (process.env.NODE_ENV === "development") {
-    const { createServer: createViteServer } = await import("vite");
-    const vite = await createViteServer(viteConfig);
-    app.use(vite.middlewares);
-}
 
 app.listen(port, listDomains, () => {
     console.log("---------------------------");
