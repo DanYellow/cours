@@ -74,7 +74,7 @@
         </a>
     </p>
 
-    <ul class="snap-mandatory snap-x sm:px-0 pb-2 grid sm:max-lg:landscape:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-5 my-4 grid-flow-col auto-cols-[92%] grid-cols-none sm:grid-flow-row overflow-x-auto sm:overflow-x-visible -mr-4 sm:mr-0">
+    <ul class="snap-mandatory snap-x sm:px-0 pb-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-5 my-4 grid-flow-col auto-cols-[92%] sm:max-lg:landscape::grid-cols-none grid-cols-none md:max-lg:landscape:grid-flow-col sm:grid-flow-row overflow-x-auto -mr-4 sm:mr-0">
         {% for item in list_saes.data %}
             <li class="h-full snap-start px-0.5 last:pr-3 sm:max-lg:landscape:h-[65vh] sm:max-lg:landscape:max-h-[300px]">
                 <article class="shadow h-full rounded-lg overflow-hidden flex flex-col sm:max-lg:landscape:flex-row lg:landscape:flex-col">
@@ -83,7 +83,10 @@
                     </div>
                     <section class="p-8 pb-10 sm:pb-14 grow">
                         <p class="text-2xl font-bold pb-2">{{ item.title }}</p>
-                        <p>{{ item.content | striptags(true) | escape | nl2br }}</p>
+                        {% set content = item.content | striptags(true) | escape | nl2br %}
+                        {% if content | length > 0 %}
+                            <p>{{ item.content | striptags(true) | escape | nl2br }}</p>
+                        {% endif %}
                     </section>
                 </article>
             </li>
