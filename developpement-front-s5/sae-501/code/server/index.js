@@ -179,7 +179,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
-        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.originalUrl).NAME !== "eslint") {
+        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.baseUrl + req.route.path).NAME !== "eslint") {
             req.app.locals.eslint_report = await getEslintReport("short");
         }
 

@@ -1,7 +1,7 @@
 import { getNameForRoute } from "../../generate-list-routes.js";
 
 export default (req, res) => {
-    const routeData = getNameForRoute(res.app, req.originalUrl);
+    const routeData = getNameForRoute(res.app, req.baseUrl + req.route.path);
 
     req.app.locals.profiler = {
         status_code: res.statusCode,
