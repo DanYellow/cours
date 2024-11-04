@@ -4,8 +4,19 @@ const profilerBarOpenBtn = document.querySelector("[data-profiler-bar-open-btn]"
 const isProfilerBarCollapsed = localStorage.getItem("is-profiler-bar-collapsed") || false;
 
 if (JSON.parse(isProfilerBarCollapsed) === true) {
-    profilerBar.classList.add("hide");
+    const profilerBarTransitionSpeed = window.getComputedStyle(profilerBar).getPropertyValue("transition-duration");
+    const openProfilerBarBtnTransitionSpeed = window.getComputedStyle(profilerBarOpenBtn).getPropertyValue("transition-duration");
+    
+    profilerBar.style["transition-duration"] = "0s";
+    profilerBarOpenBtn.style["transition-duration"] = "0s";
+
     profilerBarOpenBtn.classList.add("show");
+    profilerBar.classList.add("hide");
+    setTimeout(() => {
+        profilerBar.style["transition-duration"] = profilerBarTransitionSpeed;
+        profilerBarOpenBtn.style["transition-duration"] = openProfilerBarBtnTransitionSpeed;
+    }, profilerBarTransitionSpeed + openProfilerBarBtnTransitionSpeed);
+
 }
 
 profilerBarCloseBtn.addEventListener("click", () => {

@@ -192,7 +192,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
                 ...local, 
                 ...tplContent, 
                 response_time: duration, 
-                is_admin: ["admin", "debug"].some((item) => req.originalUrl.includes(item))  
+                is_admin: ["admin", "debug"].some((item) => req.originalUrl.includes(item)), 
             }, 
             callback,
         ];

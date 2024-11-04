@@ -209,9 +209,10 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
    # La commande va lancer les serveurs express et vite
    npm start
    ```
-Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples). Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
+Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples).
+Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
 
-> **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/env.dev.local.**
+> **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
 ### Utilisation - Mode production
 1. Compiler les assets gérés par vite
@@ -243,6 +244,9 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 5. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
+
+Si vous avez oublié comment fonctionne git. Vous avez un mémo qui rappelle les commandes de base.
+- [Accéder au mémo sur les commandes de base de git](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-GIT.md)
 
 ## eslint
 Dans une volonté de produire une code de qualité et constant, le projet intègre un linter. C'est un outil d'analyse de code et lève les différentes erreurs présentes. Dépendemment du langage, différents types d'erreurs seront levées. Dans l'environnement javascript, une variable non utilisée, ou une condition dupliquée peut être notifiée comme problème. Dans le projet, c'est eslint qui a été utilisé, c'est le plus répandu en javascript. Les problèmes sont affichés à chaque sauvegarde d'un fichier javascript (back-end et front-end) dans votre Terminal (pas la console du navigateur).
