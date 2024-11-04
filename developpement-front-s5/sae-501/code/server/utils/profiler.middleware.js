@@ -19,7 +19,6 @@ export default (req, res, next) => {
         statusCode: res.statusCode,
         current_route: getNameForRoute(res.app, req.originalUrl).NAME,
         eslint_report: req.app.locals.eslint_report,
-        response_time: req.app.locals.response_time,
     };
 
     next();

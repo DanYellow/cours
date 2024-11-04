@@ -31,15 +31,22 @@ import viteConfig from "../vite.config.js";
 import { generateUrl, getNameForRoute } from "../generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
 
-let envFilePath = "./env/.env.prod.local";
+let envFilePath = `${process.cwd()}/env/.env.prod.local`;
 if (process.env.NODE_ENV === "development") {
-    envFilePath = "./env/.env.dev.local";
+    envFilePath = `${process.cwd()}/env/.env.dev.local`;
 }
 
 const envVars = dotenv.config({ path: envFilePath });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const hasEnvFile = fs.existsSync(envFilePath);
+
+if (!hasEnvFile) {
+    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log(`⚠ Please create a ${envFilePath.replace(process.cwd(), "")} file`);
+    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+}
 
 const app = express();
 const hostip = ip.address();
@@ -170,6 +177,11 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         const duration = new Date() - start;
 
         profilerMiddleware(req, res, next);
+
+        req.app.locals.profiler = {
+            ...req.app.locals.profiler,
+            has_env_file: hasEnvFile,
+        };
     
         res.type(".html");
         const args = [view, { ...local, ...tplContent, response_time: duration }, callback];
@@ -399,11 +411,9 @@ const listDomains = [hostip];
 const port = envVars?.parsed?.PORT || 3900;
 
 if (process.env.NODE_ENV === "development") {
-    (async () => {
-        const { createServer: createViteServer } = await import("vite");
-        const vite = await createViteServer(viteConfig);
-        app.use(vite.middlewares);
-    })();
+    const { createServer: createViteServer } = await import("vite");
+    const vite = await createViteServer(viteConfig);
+    app.use(vite.middlewares);
 }
 
 app.listen(port, listDomains, () => {

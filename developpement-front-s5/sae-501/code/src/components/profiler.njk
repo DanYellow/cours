@@ -1,4 +1,5 @@
 {% if NODE_ENV == "development" %}
+
     <style>
         .profiler-bar {
             transition-property: translate;
@@ -32,7 +33,16 @@
             </svg>
         </button>
     </div>
-    <div data-profiler-bar tabindex="-1" class="profiler-bar overflow-hidden w-fit left-1/2 -translate-x-1/2 bottom-6 z-50 fixed flex flex-row justify-between bg-gray-200 border border-gray-500 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 touch:hidden">
+    {% if profiler.has_env_file == false %}
+        <div lang="en" class="relative py-2 px-4 bg-yellow-800 text-gray-100 -mr-[max(env(safe-area-inset-right),_theme(space.4))] -ml-[max(env(safe-area-inset-left),_theme(space.4))]"  aria-hidden="true">
+            <p class="font-bold">Missing env file</p>
+            <p>You are using default env vars. Please copy and rename ./env/.env.dev.dist file into ./env/.env.dev.local.</p>
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20 absolute right-0 top-1/2 -translate-y-1/2 opacity-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/>
+            </svg>
+        </div>
+    {% endif %}
+    <div lang="en" data-profiler-bar tabindex="-1" class="profiler-bar overflow-hidden w-fit left-1/2 -translate-x-1/2 bottom-6 z-50 fixed flex flex-row justify-between bg-gray-200 border border-gray-500 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 touch:hidden">
         <div class="py-2 px-4 bg-green-700 text-gray-200">
             <p class="text-xs font-bold">HTTP status</p>
             <p class="text-lg ">
