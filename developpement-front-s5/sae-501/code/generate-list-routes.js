@@ -206,14 +206,18 @@ const getNameForRoute = (app, route) => {
     }
 
     const listRoutes = generateListRoutes(app);
+    const [url, queryString = ""] = route.split('?');
     const _route = listRoutes.filter((item) => item.NAME !== "").find((item) => {
-        const pathRegexPattern = item.PATH.replaceAll(/(\:.+?\()/g, "(")
+        const pathRegexPattern = item.PATH.replaceAll(/(\:.+?\()/g, "(");
         const regex = new RegExp(`${pathRegexPattern}$`);
 
-        return regex.test(route)
+        return regex.test(url)
     })
 
-    return _route || { NAME: null };
+    return {
+        ...(_route || { NAME: null }), 
+        QUERY_STRING: Object.fromEntries(new URLSearchParams(queryString)) 
+    };
 }
 
 export { generateListRoutes, generateUrl, getNameForRoute };
