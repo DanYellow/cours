@@ -49,7 +49,7 @@
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Activé ?</th>
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
                     <th class="font-bold text-left border-solid border-slate-200 border-b hover:bg-blue-50">
-                        <a href="{{ "?sorting=" ~ sort_param }}" class="grid grid-cols-[1fr_0.5fr] gap-2 px-6 py-3 items-center" aria-sort="{{ "ascending" if using_asc else "descending" }}" data-tooltip-anchor="sort">
+                        <a href="{{ "?sorting=" ~ sort_param }}" class="flex gap-2 px-6 py-3 items-center" aria-sort="{{ "ascending" if using_asc else "descending" }}" data-tooltip-anchor="sort">
                             <span>Dernière mise à jour</span>
                             {% if using_asc %}
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
