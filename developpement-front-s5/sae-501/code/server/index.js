@@ -58,8 +58,9 @@ if (process.env.NODE_ENV === "production") {
     const limiter = rateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
         max: nbMaxRequests,
+        headers: true,
         message: async () => {
-            return `La limite de ${nbMaxRequests} requêtes par minute a été dépassée.`;
+            return { message: `La limite de ${nbMaxRequests} requêtes par minute a été dépassée.` };
         },
     });
     app.use(limiter);
