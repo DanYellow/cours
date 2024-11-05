@@ -42,14 +42,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const hasEnvFile = fs.existsSync(envFilePath);
 
-if (!hasEnvFile) {
-    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log(`⚠ Please create a ${envFilePath.replace(process.cwd(), "")} file`);
-    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-    // process.exit(5);
-}
-
 const app = express();
 const hostip = ip.address();
 
@@ -62,9 +54,13 @@ if (process.env.NODE_ENV === "development") {
 if (process.env.NODE_ENV === "production") {
     const RateLimit = await import("express-rate-limit");
     // Authorize 15 requests / minutes / client
+    const nbMaxRequests = 15;
     const limiter = RateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
-        max: 15,
+        max: nbMaxRequests,
+        message: async () => {
+            return `La limite de ${nbMaxRequests} requêtes par minute a été dépassée.`;
+        },
     });
     app.use(limiter);
 }
@@ -189,7 +185,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
-        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.baseUrl + req.route.path).NAME !== "eslint") {
+        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.baseUrl + req.route?.path).NAME !== "eslint") {
             req.app.locals.eslint_report = await getEslintReport("short");
         }
 
@@ -224,6 +220,18 @@ app.use(express.static(publicPath));
 
 app.set("view engine", "nunjucks");
 app.set("views", path.join(__dirname, "..", "/src"));
+
+if (!hasEnvFile) {
+    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log(`⚠ Please create a ${envFilePath.replace(process.cwd(), "")} file`);
+    console.log("\x1b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    if (process.env.NODE_ENV === "production") {
+        app.use("*", (req, res) => {
+            res.render("pages/missing-env.njk");
+        });
+    }
+}
 
 app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
 app.use("/api", apiRouter);
@@ -282,7 +290,7 @@ if (process.env.NODE_ENV === "development") {
                 start: { line: lineError, column: columnError },
             };
 
-            const { codeFrameColumns } = await import("@babel/code-frame")
+            const { codeFrameColumns } = await import("@babel/code-frame");
 
             const result = codeFrameColumns(data, location, {
                 linesAbove: 5,
