@@ -1,5 +1,6 @@
 import { getNameForRoute } from "../../generate-list-routes.js";
 
+// Note : Fake middleware
 export default (req, res) => {
     const routeData = getNameForRoute(res.app, req.baseUrl + req.route.path);
 

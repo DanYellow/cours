@@ -5,7 +5,7 @@ export default (req, res, next) => {
     let breadcrumb = [];
 
     arrayURL.forEach((_, idx) => {
-        const urlPart = [arrayURL[idx]].map((item) => item.replace("add", "créer"));
+        const urlPart = [arrayURL[idx]].map((item) => item.toLowerCase().replace("add", "créer"));
 
         if (idx === 0) {
             breadcrumb.push(urlPart);
