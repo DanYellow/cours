@@ -2,13 +2,14 @@
 {% set page_name = "articles" %}
 {% set using_asc = query_string_params.sorting == "asc" %}
 {% set sort_param = "desc" if using_asc == true else "asc" %}
+{% set sort_text = "Trier du plus récent au plus ancien" if using_asc == true else "Trier du plus ancien au plus récent" %}
 
 {% import "components/back-end/pagination.njk" as pagination with context %}
 {% import "components/back-end/list-actions.njk" as list_actions %}
 
 {% block main %}
     <div class="bg-white rounded-2xl shadow-md pb-6">
-        <header class="mb-1 p-6 gap-2 lg:gap-0 flex justify-between lg:flex-row flex-col">
+        <header class="mb-1 p-6 gap-2 @3xl/main:gap-0 flex justify-between @3xl/main:flex-row flex-col">
             <div>
                 {% include "components/back-end/breadcrumb.njk" %}
                 <h2 class="text-4xl">
@@ -22,7 +23,7 @@
                 </svg>
                 Ajouter un nouvel article
             </a>
-            <a href="{{ "?sorting=" ~ sort_param }}" class="w-full flex gap-1 justify-center lg:hidden sm:w-fit text-md bg-neutral-100 hocus:bg-neutral-200 text-black rounded-2xl items-center text-sm py-2 px-4 h-fit text-center">
+            <a href="{{ "?sorting=" ~ sort_param }}" class="w-full flex gap-1 justify-center @3xl/main:hidden sm:w-fit text-md bg-neutral-100 hocus:bg-neutral-200 text-black rounded-2xl items-center text-sm py-2 px-4 h-fit text-center">
                 {% if using_asc %}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" />
@@ -37,8 +38,7 @@
         </header>
 
         <div class="tooltip hidden bg-slate-800 text-white border border-gray-200 border-solid py-2 px-4 rounded-2xl" data-tooltip="sort">
-             {% set text = "Trier du plus récent au plus ancien" if using_asc == true else "Trier du plus ancien au plus récent" %}
-            <p class="text-sm">{{ text }}</p>
+            <p class="text-sm">{{ sort_text }}</p>
         </div>
 
         <table class="w-full bg-white border-collapse">
@@ -49,17 +49,19 @@
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Activé ?</th>
                     <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
                     <th class="font-bold text-left border-solid border-slate-200 border-b hover:bg-blue-50">
-                        <a href="{{ "?sorting=" ~ sort_param }}" class="flex gap-2 px-6 py-3 items-center" aria-sort="{{ "ascending" if using_asc else "descending" }}" data-tooltip-anchor="sort">
+                        <a href="{{ "?sorting=" ~ sort_param }}" class="flex gap-2 px-6 py-3 items-center" aria-sort="{{ "ascending" if using_asc else "descending" }}" title="{{ sort_text }}" data-tooltip-anchor="sort">
                             <span>Dernière mise à jour</span>
-                            {% if using_asc %}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" />
-                                </svg>
-                            {% else %}
-                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25" />
-                                </svg>
-                            {% endif %}
+                            <div class="shrink-0">
+                                {% if using_asc %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" />
+                                    </svg>
+                                {% else %}
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25" />
+                                    </svg>
+                                {% endif %}
+                            </div>
                         </a>
                     </th>
                     <th class=" px-6 py-3 border-solid border-slate-200 border-b"></th>
