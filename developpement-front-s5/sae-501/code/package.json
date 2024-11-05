@@ -40,6 +40,7 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "express-flash": "^0.0.2",
+    "express-rate-limit": "^7.4.1",
     "express-session": "^1.18.0",
     "helmet": "^7.1.0",
     "lodash": "^4.17.21",
@@ -57,5 +58,8 @@
     "#server/utils/*.js": "./server/utils/*.js",
     "#database/validator.js": "./database/validator.js",
     "#database/*.js": "./database/*.js"
+  },
+  "engines": {
+    "node": ">=18.11"
   }
 }

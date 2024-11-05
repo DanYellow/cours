@@ -59,6 +59,16 @@ if (process.env.NODE_ENV === "development") {
     app.use(vite.middlewares);
 }
 
+if (process.env.NODE_ENV === "production") {
+    const RateLimit = await import("express-rate-limit");
+    // Authorize 15 requests / minutes / client
+    const limiter = RateLimit({
+        windowMs: 1 * 60 * 1000, // 1 minute
+        max: 15,
+    });
+    app.use(limiter);
+}
+
 // To improve security
 app.use(
     helmet({
