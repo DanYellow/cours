@@ -52,10 +52,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 if (process.env.NODE_ENV === "production") {
-    const RateLimit = await import("express-rate-limit");
+    const { rateLimit } = await import("express-rate-limit");
     // Authorize 15 requests / minutes / client
-    const nbMaxRequests = 15;
-    const limiter = RateLimit({
+    const nbMaxRequests = 20;
+    const limiter = rateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
         max: nbMaxRequests,
         message: async () => {
