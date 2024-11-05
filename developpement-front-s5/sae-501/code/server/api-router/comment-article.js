@@ -241,7 +241,7 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete(`/${base}/:id([a-f0-9]{24})/comments/:comment_id([a-f0-9]{24})`, async (req, res) => {
+router.delete([`/${base}/:id([a-f0-9]{24})/comments/:comment_id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})/comments/:comment_id([a-f0-9]{24})`], async (req, res) => {
     try {
         const ressource = await CommentArticle.findOneAndDelete({
             article: req.params.id,
