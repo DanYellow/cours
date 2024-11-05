@@ -9,16 +9,16 @@ const envVars = dotenv.config({ path: envFilePath });
 
 // https://www.mongodb.com/try/download/community-kubernetes-operator
 // Database Name
-const dbName = "sae501";
-const port = envVars.parsed?.MONGODB_PORT || 27017;
-const url = `mongodb://0.0.0.0:${port}/${dbName}`;
+const defaultDBName = "sae501";
+const defaultMongoDBURL = `0.0.0.0:27017/${defaultDBName}`;
+const mongoDBURL = envVars.parsed?.MONGODB_URL || defaultMongoDBURL;
 
 const main = async () => {
     try {
-        await mongoose.connect(url, {
+        await mongoose.connect(mongoDBURL, {
             serverSelectionTimeoutMS: 20000,
         });
-        return `MongoDB Server started on port: ${port}`;
+        return `MongoDB Server running on ${mongoDBURL}`;
     } catch (error) {
         throw new Error(error);
     }
