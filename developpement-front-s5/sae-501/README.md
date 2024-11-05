@@ -137,6 +137,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
+> Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string).
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
@@ -360,7 +361,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
         - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
         - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
             - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères avant de l'écrire dans le fichier
-- [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyé depuis le formulaire de contact
+- [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyés depuis le formulaire de contact
     - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
     - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères restants
@@ -370,17 +371,17 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Il n'y a pas de schéma pour les messages, nous le réaliserons ensemble
         - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
     - Vous devez créer les api pour (POST et GET)
-    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `server-back-end-router/` 
+    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `./server/back-end-router/` 
 - [ ] Permettre de créer, éditer un article
     - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
-    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas**
+    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
     - La suppression et le listage sont déjà gérés
     - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
       - Vous devez vérifier que le lien ou l'id de la vidéo est valide
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
-    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image", sinon ça ne fonctionnera pas**
+    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
