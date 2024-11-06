@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === "development") {
 if (process.env.NODE_ENV === "production") {
     const { rateLimit } = await import("express-rate-limit");
     // Authorize 15 requests / minutes / client
-    const nbMaxRequests = 20;
+    const nbMaxRequests = 42;
     const limiter = rateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
         max: nbMaxRequests,
@@ -449,7 +449,6 @@ if (process.env.NODE_ENV === "production") {
 
 const listDomains = [hostip, "::"];
 const port = envVars?.parsed?.PORT || 3900;
-
 
 app.listen(port, listDomains, () => {
     console.log("---------------------------");
