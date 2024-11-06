@@ -1,10 +1,9 @@
 import express from "express";
-import path from "path";
-import fs from "fs/promises";
 import axios from "axios";
 import querystring from "querystring";
 
 import routeName from "#server/utils/name-route.middleware.js";
+import parseManifest from "#server/utils/parse-manifest.js";
 
 // Routers
 import SAERouter from "./sae.js";
@@ -12,26 +11,11 @@ import articleRouter from "./article.js";
 
 const router = express.Router();
 
-const parseManifest = async () => {
-    if (process.env.NODE_ENV !== "production") {
-        return {};
-    }
-
-    const manifestPath = path.join(
-        path.resolve(),
-        "dist",
-        "backend.manifest.json"
-    );
-    const manifestFile = await fs.readFile(manifestPath);
-
-    return JSON.parse(manifestFile);
-};
-
 router.use(async (_req, res, next) => {
     const originalRender = res.render;
     res.render = async function (view, local, callback) {
         const manifest = {
-            manifest: await parseManifest(),
+            manifest: await parseManifest("backend.manifest.json"),
         };
 
         const args = [view, { ...local, ...manifest }, callback];

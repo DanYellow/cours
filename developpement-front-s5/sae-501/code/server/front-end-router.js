@@ -1,9 +1,8 @@
 import express from "express";
-import path from "path";
 import axios from "axios";
-import fs from "fs/promises";
 
 import routeName from "#server/utils/name-route.middleware.js";
+import parseManifest from "#server/utils/parse-manifest.js";
 
 const router = express.Router();
 
@@ -11,7 +10,7 @@ router.use(async (_req, res, next) => {
     const originalRender = res.render;
     res.render = async function (view, local, callback) {
         const manifest = {
-            manifest: await parseManifest(),
+            manifest: await parseManifest("frontend.manifest.json"),
         };
 
         const args = [view, { ...local, ...manifest }, callback];
@@ -20,21 +19,6 @@ router.use(async (_req, res, next) => {
 
     next();
 });
-
-const parseManifest = async () => {
-    if (process.env.NODE_ENV !== "production") {
-        return {};
-    }
-
-    const manifestPath = path.join(
-        path.resolve(),
-        "dist",
-        "frontend.manifest.json"
-    );
-    const manifestFile = await fs.readFile(manifestPath);
-
-    return JSON.parse(manifestFile);
-};
 
 router.get("/", routeName("homepage"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
