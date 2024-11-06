@@ -13,7 +13,7 @@ import { DateTime } from "luxon";
 import helmet from "helmet";
 import cors from "cors";
 import expressFlash from "express-flash";
-import expressSession from "express-session";
+import cookieSession from "cookie-session";
 
 import mongoServer from "#database/index.js";
 
@@ -77,10 +77,10 @@ app.use(expressFlash());
 app.use(cors());
 
 app.use(
-    expressSession({
-        secret: "secret",
-        resave: false,
-        saveUninitialized: false,
+    cookieSession({
+        name: "session",
+        keys: ["scret"],
+        maxAge: 24 * 60 * 60 * 1000,
     })
 );
 
