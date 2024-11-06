@@ -32,6 +32,9 @@ const __dirname = path.dirname(__filename);
 
         await build({
             configFile: false,
+            define: {
+                'process.env.NODE_ENV': JSON.stringify("production"),
+            },
             build: {
                 emptyOutDir: false,
                 manifest: manifestName,
