@@ -17,17 +17,14 @@ import expressSession from "express-session";
 
 import mongoServer from "#database/index.js";
 
-import swaggerSpec from "./swagger.js";
 import frontendRouter from "./front-end-router.js";
 import backendRouter from "./back-end-router/index.js";
 import apiRouter from "./api-router/index.js";
-import debugRouter from "./debug-router.js";
+
 import breadcrumb from "./utils/breadcrumb.middleware.js";
-import { getReport as getEslintReport } from "./utils/eslint.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
 import profilerMiddleware from "./utils/profiler.middleware.js";
 
-import viteConfig from "../vite.config.js";
 import { generateUrl, getNameForRoute } from "../generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
 
@@ -46,8 +43,10 @@ const app = express();
 const hostip = ip.address();
 
 if (process.env.NODE_ENV === "development") {
+    const viteConfig = await import("../vite.config.js");
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer(viteConfig);
+
     app.use(vite.middlewares);
 }
 
@@ -187,6 +186,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         }
 
         if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.baseUrl + req.route?.path).NAME !== "eslint") {
+            const { getReport: getEslintReport } = await import("./utils/eslint.middleware.js");
             req.app.locals.eslint_report = await getEslintReport("short");
         }
 
@@ -265,9 +265,12 @@ if (process.env.NODE_ENV === "development") {
     });
 
     const swaggerUi = await import("swagger-ui-express")
+    const swaggerSpec = await import("./swagger.js");
 
     app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
-    app.use("/debug", breadcrumb, debugRouter);
+
+    const debugRouter = await import("./debug-router.js");
+    app.use("/debug", breadcrumb, debugRouter.default);
     app.use(async (err, req, res, _next) => {
         res.status(500);
         const response = {
@@ -444,7 +447,7 @@ if (process.env.NODE_ENV === "production") {
 `);
 }
 
-const listDomains = [hostip];
+const listDomains = [hostip, "::"];
 const port = envVars?.parsed?.PORT || 3900;
 
 
@@ -455,6 +458,7 @@ app.listen(port, listDomains, () => {
     );
     ["localhost", ...listDomains]
         .filter(Boolean)
+        .filter((item) => item !== "::")
         .forEach((item) => {
             let prefix = "Network";
             if (item.includes("localhost")) {
