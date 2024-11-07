@@ -1,12 +1,17 @@
+import closeModal from "./close-modal";
+
 const listDeleteCurrentImageBtn = document.querySelectorAll(
     "[data-delete-current-image-button]"
 );
-const deletionModal = document.querySelector("[data-image-deletion-modal]");
-const deleteItemModalBtn = document.querySelector(
-    "[data-image-deletion-modal] [data-delete-item]"
+const modal = document.querySelector("[data-modal]");
+const modalTemplate = document.querySelector("[data-tpl-id='delete-image']");
+const modalTemplateContent = document.importNode(modalTemplate.content, true);
+
+const deleteItemModalBtn = modalTemplateContent.querySelector(
+    "[data-delete-item]"
 );
-const imageModalContainer = document.querySelector(
-    "[data-image-deletion-modal] [data-image]"
+const imageModalContainer = modalTemplateContent.querySelector(
+    "[data-image]"
 );
 
 const imageObserver = new MutationObserver((mutationList) => {
@@ -57,10 +62,13 @@ listDeleteCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
         deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
-        deletionModal.showModal();
         const img = document.querySelector(
             `[data-current-image="${dataAttr}"]`
         );
         imageModalContainer.src = img.src;
+
+        modal.appendChild(modalTemplateContent);
+        modal.showModal();
+        closeModal();
     });
 });

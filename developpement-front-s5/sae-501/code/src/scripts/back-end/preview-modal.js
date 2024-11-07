@@ -1,12 +1,18 @@
+import closeModal from "./close-modal";
+
 const listPreviewCurrentImageBtn = document.querySelectorAll(
     "[data-preview-current-image-button]"
 );
-const previewModal = document.querySelector("[data-image-preview-modal]");
+const previewModal = document.querySelector("[data-modal]");
 
-const imageModalContainer = previewModal.querySelector("[data-image]");
-const imageDimensions = previewModal.querySelector("[data-image-dimensions]");
-const imageSize = previewModal.querySelector("[data-image-size]");
-const imageMime = previewModal.querySelector("[data-image-mime]");
+const modalTemplate = document.querySelector("[data-tpl-id='preview-image']");
+const modalTemplateContent = document.importNode(modalTemplate.content, true);
+
+const imageModalContainer = modalTemplateContent.querySelector("[data-image]");
+const imageDimensions = modalTemplateContent.querySelector("[data-image-dimensions]");
+const imageSize = modalTemplateContent.querySelector("[data-image-size]");
+const imageMime = modalTemplateContent.querySelector("[data-image-mime]");
+
 // const imageDimensions = previewModal.querySelector("[data-image-mime]");
 
 const oneMo = 1024 * 1024;
@@ -42,11 +48,14 @@ listPreviewCurrentImageBtn.forEach((item) => {
 
         const imgData = await getImageInfos(img);
 
+        previewModal.appendChild(modalTemplateContent);
+
         // previewModal.querySelector("[data-img-name]").textContent = imgData.type;
         imageDimensions.textContent = `${imgData.width}x${imgData.height}`;
         imageSize.textContent = `${(imgData.size / oneMo).toFixed(2)}MB`;
         imageMime.textContent = imgData.mime;
 
         previewModal.showModal();
+        closeModal();
     });
 });
