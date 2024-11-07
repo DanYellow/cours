@@ -10,7 +10,7 @@ const envVars = dotenv.config({ path: envFilePath });
 // https://www.mongodb.com/try/download/community-kubernetes-operator
 // Database Name
 const defaultDBName = "sae501";
-const defaultMongoDBURL = `0.0.0.0:27017/${defaultDBName}`;
+const defaultMongoDBURL = `mongodb://0.0.0.0:27017/${defaultDBName}`;
 const mongoDBURL = envVars.parsed?.MONGODB_URL || defaultMongoDBURL;
 
 const main = async () => {

@@ -23,7 +23,7 @@ import apiRouter from "./api-router/index.js";
 
 import breadcrumb from "./utils/breadcrumb.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
-import profilerMiddleware from "./utils/profiler.middleware.js";
+import profilerFakeMiddleware from "./utils/profiler.middleware.js";
 
 import { generateUrl, getNameForRoute } from "../generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === "development") {
 
 if (process.env.NODE_ENV === "production") {
     const { rateLimit } = await import("express-rate-limit");
-    // Authorize 15 requests / minutes / client
+    // Authorize X requests / minutes / client
     const nbMaxRequests = 42;
     const limiter = rateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
@@ -192,7 +192,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
 
         const duration = new Date() - start;
 
-        profilerMiddleware(req, res, next);
+        profilerFakeMiddleware(req, res);
 
         req.app.locals.profiler = {
             ...req.app.locals.profiler,
