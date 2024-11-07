@@ -12,10 +12,20 @@ const imageModalContainer = modalTemplateContent.querySelector("[data-image]");
 const imageDimensions = modalTemplateContent.querySelector("[data-image-dimensions]");
 const imageSize = modalTemplateContent.querySelector("[data-image-size]");
 const imageMime = modalTemplateContent.querySelector("[data-image-mime]");
+const imageName = modalTemplateContent.querySelector("[data-image-name]");
 
-// const imageName = modal.querySelector("[data-image-name]");
 
-const oneMo = 1024 * 1024;
+function formatBytes(bytes, decimals = 2) {
+    if (!+bytes) return "0 Bytes";
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PiB", "EiB", "ZiB", "YiB"];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+}
 
 const getImageInfos = async (img) => {
     const blobQuery = await fetch(img.src);
@@ -30,6 +40,7 @@ const getImageInfos = async (img) => {
         height: imgInstance.height,
         size: blob.size,
         mime: blob.type,
+        name: img.src.replace(/^.*[\\/]/, ""),
     };
 };
 
@@ -48,9 +59,10 @@ listPreviewCurrentImageBtn.forEach((item) => {
 
         const imgData = await getImageInfos(img);
 
-        // modal.querySelector("[data-img-name]").textContent = imgData.type;
-        imageDimensions.textContent = `${imgData.width}x${imgData.height}`;
-        imageSize.textContent = `${(imgData.size / oneMo).toFixed(2)}MB`;
+        imageName.textContent = imgData.name;
+        imageName.title = imgData.name;
+        imageDimensions.textContent = `${imgData.width} x ${imgData.height}`;
+        imageSize.textContent = `${formatBytes(imgData.size)}`;
         imageMime.textContent = imgData.mime;
         
         while (modal.firstChild) {
