@@ -14,7 +14,7 @@ const displayDeleteItemModal = (e) => {
     while (modal.firstChild) {
         modal.removeChild(modal.firstChild);
     }
-    modal.appendChild(modalTemplateContent.cloneNode(true));
+    modal.append(modalTemplateContent.cloneNode(true));
     modal.showModal();
     closeModal();
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
