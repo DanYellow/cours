@@ -205,8 +205,9 @@ const getNameForRoute = (app, pattern) => {
         throw new Error("app object is missing");
     }
     const listRoutes = generateListRoutes(app);
+
     const _route = listRoutes.filter((item) => item.NAME !== "").find((item) => {
-        return item.PATH === pattern;
+        return pattern.split(",").includes(item.PATH);
     })
 
     return {
