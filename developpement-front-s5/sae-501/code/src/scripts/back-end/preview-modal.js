@@ -62,7 +62,7 @@ const getReduceImageBtn = () => {
 };
 
 const toggleBigImage = (displayBigImage) => {
-    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    ["!bg-transparent", "!shadow-none", "!h-screen", "md:my-8"].forEach((cssClass) => modal.classList.toggle(cssClass));
     getModalMainContent().classList.toggle("opacity-0");
     ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => getReduceImageBtn().classList.toggle(cssClass));
 
