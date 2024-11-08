@@ -15,7 +15,10 @@ const imageSize = modalTemplateContent.querySelector("[data-image-size]");
 const imageMime = modalTemplateContent.querySelector("[data-image-mime]");
 const imageName = modalTemplateContent.querySelector("[data-image-name]");
 
-function formatBytes(bytes, decimals = 2) {
+let modalMainContent = null;
+let reduceImageBtn = null;
+
+const formatBytes = (bytes, decimals = 2) => {
     if (!+bytes) return "0 Bytes";
 
     const k = 1024;
@@ -44,32 +47,49 @@ const getImageInfos = async (img) => {
     };
 };
 
-delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", (e) => {
-    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
-    modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
+const getModalMainContent = () => {
+    if (!modalMainContent) {
+        modalMainContent = modal.querySelector("[data-main-content]");
+    }
+    return modalMainContent;
+};
 
-    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
+const getReduceImageBtn = () => {
+    if (!reduceImageBtn) {
+        reduceImageBtn = modal.querySelector("[data-reduce-image-btn]");
+    }
+    return reduceImageBtn;
+};
+
+const toggleBigImage = (displayBigImage) => {
+    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    getModalMainContent().classList.toggle("opacity-0");
+    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => getReduceImageBtn().classList.toggle(cssClass));
+
+    if (!displayBigImage) {
+        getModalMainContent().classList.toggle("!hidden");
+    }
+};
+
+delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", () => {
+    toggleBigImage(true);
 });
 
 modal.addEventListener("transitionend", (e) => {
-    e.target.dataset.hasTransitionEvent = true;
     if (e.target.matches(".\\!bg-transparent")) {
-        modal.querySelector("[data-main-content]").classList.add("!hidden");
-        modal.querySelector("[data-reduce-image-btn]").inert = false;
+        getModalMainContent().classList.add("!hidden");
+        getReduceImageBtn().inert = false;
         modal.querySelector("[data-enlarge-image-btn]").inert = true;
     } else {
-        modal.querySelector("[data-main-content]").classList.remove("!hidden");
-        modal.querySelector("[data-reduce-image-btn]").inert = true;
+        getModalMainContent().classList.remove("!hidden");
+        getReduceImageBtn().inert = true;
         modal.querySelector("[data-enlarge-image-btn]").inert = false;
     }
 });
 
-delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", (e) => {
-    console.log(e.target, e.currentTarget);
-    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
-    modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
-    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
-    modal.querySelector("[data-main-content]").classList.toggle("!hidden");
+delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", () => {
+    toggleBigImage(false);
+    modalMainContent.classList.toggle("!hidden");
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
