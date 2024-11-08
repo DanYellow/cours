@@ -1,41 +1,41 @@
 import axios from "axios";
 
+import { delegateEventHandler } from "../utils";
+
 const modal = document.querySelector("[data-modal]");
-const modalTemplate = document.querySelector("[data-tpl-id='delete-entry']");
+const tplId = "delete-entry";
+const modalTemplate = document.querySelector(`[data-tpl-id='${tplId}']`);
 const modalTemplateContent = document.importNode(modalTemplate.content, true);
 
-const closeModalBtn = modalTemplateContent.querySelector("[data-close-modal]");
-const deleteItemModalBtn = modalTemplateContent.querySelector("[data-delete-item]");
-const errorMessageModal = modalTemplateContent.querySelector("[data-error-modal]");
 
 const displayDeleteItemModal = (e) => {
     while (modal.firstChild) {
         modal.removeChild(modal.firstChild);
     }
+    modal.dataset.modal = "delete-entry";
     modal.append(modalTemplateContent.cloneNode(true));
     modal.showModal();
-    deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
+    console.log("e.currentTarget.dataset.deleteUrl", e.currentTarget.dataset.deleteUrl)
+    modal.querySelector("[data-delete-item]").dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
     modal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName;
 };
 
-closeModalBtn.addEventListener("click", () => {
-    errorMessageModal.classList.add("hidden");
-});
+delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
+    e.target.inert = true;
+    modal.querySelector("[data-close-modal]").inert = true;
 
-deleteItemModalBtn.addEventListener("click", async (e) => {
-    deleteItemModalBtn.disabled = true;
-    closeModalBtn.disabled = true;
+    const errorMessageModal = modalTemplateContent.querySelector("[data-error-modal]");
 
     await axios
-        .delete(e.currentTarget.dataset.deleteItem)
+        .delete(e.target.dataset.deleteItem)
         .then(() => {
             window.location.reload();
         })
         .catch((error) => {
-            errorMessageModal.textContent = error.response.data.error || "Erreur";
+            errorMessageModal.textContent = error.response.data.error || "Erreur"; // error.response.data.error || 
             errorMessageModal.classList.remove("hidden");
-            deleteItemModalBtn.disabled = false;
-            closeModalBtn.disabled = false;
+            e.target.inert = false;
+            modal.querySelector("[data-close-modal]").inert = false;
         });
 });
 
