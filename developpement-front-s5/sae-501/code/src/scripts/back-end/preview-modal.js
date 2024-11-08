@@ -1,4 +1,3 @@
-import closeModalEvents from "./close-modal";
 import { delegateEvtHandler } from "../utils";
 
 const listPreviewCurrentImageBtn = document.querySelectorAll(
@@ -118,7 +117,5 @@ listPreviewCurrentImageBtn.forEach((item) => {
         }
         modal.append(modalTemplateContent.cloneNode(true));
         modal.showModal();
-
-        closeModalEvents();
     });
 });

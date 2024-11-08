@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import closeModal from "./close-modal";
-
 const modal = document.querySelector("[data-modal]");
 const modalTemplate = document.querySelector("[data-tpl-id='delete-entry']");
 const modalTemplateContent = document.importNode(modalTemplate.content, true);
@@ -16,7 +14,6 @@ const displayDeleteItemModal = (e) => {
     }
     modal.append(modalTemplateContent.cloneNode(true));
     modal.showModal();
-    closeModal();
     deleteItemModalBtn.dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
     modal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName;
 };

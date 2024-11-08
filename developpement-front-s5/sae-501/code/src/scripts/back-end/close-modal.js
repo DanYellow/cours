@@ -1,15 +1,7 @@
+import { delegateEvtHandler } from "../utils";
+
 const closeModal = (e) => {
-    e.currentTarget.closest("dialog").close();
+    e.target.closest("dialog[open]").close();
 };
 
-document.querySelectorAll("[data-close-modal]").forEach((item) => {
-    item.removeEventListener("click", closeModal);
-    item.addEventListener("click", closeModal);
-});
-
-export default () => {
-    document.querySelectorAll("[data-close-modal]").forEach((item) => {
-        item.removeEventListener("click", closeModal);
-        item.addEventListener("click", closeModal);
-    });    
-};
+delegateEvtHandler(document, "click", "[data-close-modal]", closeModal);

@@ -1,5 +1,3 @@
-import closeModal from "./close-modal";
-
 const listDeleteCurrentImageBtn = document.querySelectorAll(
     "[data-delete-current-image-button]"
 );
@@ -66,7 +64,5 @@ listDeleteCurrentImageBtn.forEach((item) => {
         }
         modal.append(modalTemplateContent.cloneNode(true));
         modal.showModal();
-
-        closeModal();
     });
 });
