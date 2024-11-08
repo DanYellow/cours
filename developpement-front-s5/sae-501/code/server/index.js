@@ -267,7 +267,7 @@ if (process.env.NODE_ENV === "development") {
     const swaggerUi = await import("swagger-ui-express")
     const swaggerSpec = await import("./swagger.js");
 
-    app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec, options));
+    app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec.default, options));
 
     const debugRouter = await import("./debug-router.js");
     app.use("/debug", breadcrumb, debugRouter.default);
