@@ -7,15 +7,11 @@ const modal = document.querySelector("[data-modal]");
 
 const modalTemplate = document.querySelector("[data-tpl-id='preview-image']");
 const modalTemplateContent = modalTemplate.content.cloneNode(true);
-
 const listImageModal = modalTemplateContent.querySelectorAll("[data-image]");
 const imageDimensions = modalTemplateContent.querySelector("[data-image-dimensions]");
 const imageSize = modalTemplateContent.querySelector("[data-image-size]");
 const imageMime = modalTemplateContent.querySelector("[data-image-mime]");
 const imageName = modalTemplateContent.querySelector("[data-image-name]");
-
-let modalMainContent = null;
-let reduceImageBtn = null;
 
 const formatBytes = (bytes, decimals = 2) => {
     if (!+bytes) return "0 Bytes";
@@ -46,28 +42,26 @@ const getImageInfos = async (img) => {
     };
 };
 
-const getModalMainContent = () => {
-    if (!modalMainContent) {
-        modalMainContent = modal.querySelector("[data-main-content]");
-    }
-    return modalMainContent;
-};
-
-const getReduceImageBtn = () => {
-    if (!reduceImageBtn) {
-        reduceImageBtn = modal.querySelector("[data-reduce-image-btn]");
-    }
-    return reduceImageBtn;
-};
-
 const toggleBigImage = (displayBigImage) => {
-    ["!bg-transparent", "!shadow-none", "!h-screen", "md:my-8"].forEach((cssClass) => modal.classList.toggle(cssClass));
-    getModalMainContent().classList.toggle("opacity-0");
-    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => getReduceImageBtn().classList.toggle(cssClass));
+    ["!bg-transparent", "!shadow-none", "!h-screen", "md:my-8", "!max-w-full"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
+    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
 
-    if (!displayBigImage) {
-        getModalMainContent().classList.toggle("!hidden");
-    }
+    // if (!displayBigImage) {
+    //     modal.querySelector("[data-main-content]").classList.toggle("!hidden");
+    // }
+
+    // if (displayBigImage) {
+    //     modal.classList.add(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
+    //     modal.classList.remove("md:my-8");
+    //     modal.querySelector("[data-main-content]").classList.add("opacity-0");
+    //     modal.querySelector("[data-reduce-image-btn]").classList.remove(...["opacity-0", "pointer-events-none", "h-0"]);
+    // } else {
+    //     modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
+    //     modal.classList.add("md:my-8");
+    //     modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
+    //     modal.querySelector("[data-main-content]").classList.remove("opacity-0");
+    // }
 };
 
 delegateEventHandler(modal, "click", "[data-enlarge-image-btn]", () => {
@@ -75,20 +69,25 @@ delegateEventHandler(modal, "click", "[data-enlarge-image-btn]", () => {
 });
 
 modal.addEventListener("transitionend", (e) => {
-    if (e.target.matches(".\\!bg-transparent")) {
-        getModalMainContent().classList.add("!hidden");
-        getReduceImageBtn().inert = false;
+    if (e.propertyName !== "background-color") {
+        return;
+    }
+
+    const bgColor = window.getComputedStyle(e.target).getPropertyValue("background-color");
+    if (bgColor === "rgba(0, 0, 0, 0)") {
+        modal.querySelector("[data-reduce-image-btn]").inert = false;
         modal.querySelector("[data-enlarge-image-btn]").inert = true;
+        modal.querySelector("[data-main-content]").classList.add("!hidden");
     } else {
-        getModalMainContent().classList.remove("!hidden");
-        getReduceImageBtn().inert = true;
+        modal.querySelector("[data-reduce-image-btn]").inert = true;
         modal.querySelector("[data-enlarge-image-btn]").inert = false;
+        modal.querySelector("[data-main-content]").classList.remove("!hidden");
     }
 });
 
 delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
     toggleBigImage(false);
-    modalMainContent.classList.toggle("!hidden");
+    modal.querySelector("[data-main-content]").classList.toggle("!hidden");
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
@@ -115,7 +114,18 @@ listPreviewCurrentImageBtn.forEach((item) => {
         while (modal.firstChild) {
             modal.removeChild(modal.firstChild);
         }
+
         modal.append(modalTemplateContent.cloneNode(true));
         modal.showModal();
     });
+});
+
+modal.addEventListener("close", () => {
+    modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
+    modal.classList.add("md:my-8");
+    
+    modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
+    modal.querySelector("[data-main-content]").classList.remove("opacity-0");
+    modal.querySelector("[data-reduce-image-btn]").inert = true;
+    modal.querySelector("[data-enlarge-image-btn]").inert = false;
 });
