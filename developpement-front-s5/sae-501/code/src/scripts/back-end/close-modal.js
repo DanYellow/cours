@@ -1,7 +1,7 @@
-import { delegateEvtHandler } from "../utils";
+import { delegateEventHandler } from "../utils";
 
 const closeModal = (e) => {
     e.target.closest("dialog[open]").close();
 };
 
-delegateEvtHandler(document, "click", "[data-close-modal]", closeModal);
+delegateEventHandler(document, "click", "[data-close-modal]", closeModal);

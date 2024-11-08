@@ -1,4 +1,4 @@
-import { delegateEvtHandler } from "../utils";
+import { delegateEventHandler } from "../utils";
 
 const listPreviewCurrentImageBtn = document.querySelectorAll(
     "[data-preview-current-image-button]"
@@ -70,7 +70,7 @@ const toggleBigImage = (displayBigImage) => {
     }
 };
 
-delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", () => {
+delegateEventHandler(modal, "click", "[data-enlarge-image-btn]", () => {
     toggleBigImage(true);
 });
 
@@ -86,7 +86,7 @@ modal.addEventListener("transitionend", (e) => {
     }
 });
 
-delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", () => {
+delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
     toggleBigImage(false);
     modalMainContent.classList.toggle("!hidden");
 });

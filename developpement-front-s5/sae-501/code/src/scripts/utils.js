@@ -1,4 +1,4 @@
-const delegateEvtHandler = (el, evt, sel, handler) => {
+const delegateEventHandler = (el, evt, sel, handler) => {
     el.addEventListener(evt, function (event) {
         let t = event.target;
         while (t && t !== this) {
@@ -10,4 +10,4 @@ const delegateEvtHandler = (el, evt, sel, handler) => {
     });
 };
 
-export { delegateEvtHandler };
+export { delegateEventHandler };
