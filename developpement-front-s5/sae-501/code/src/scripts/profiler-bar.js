@@ -18,14 +18,15 @@ if (JSON.parse(isProfilerBarCollapsed) === true) {
     }, profilerBarTransitionSpeed + openProfilerBarBtnTransitionSpeed);
 }
 
+profilerBar.addEventListener("transitionend", (e) => {
+    if (e.target.matches(".hide")) {
+        profilerBarOpenBtn.classList.add("show");
+    }
+});
+
 profilerBarCloseBtn.addEventListener("click", () => {
     localStorage.setItem("is-profiler-bar-collapsed", true);
     profilerBar.classList.add("hide");
-    profilerBar.addEventListener("transitionend", (e) => {
-        if (e.target.matches(".hide")) {
-            profilerBarOpenBtn.classList.add("show");
-        }
-    });
 });
 
 profilerBarOpenBtn.addEventListener("click", () => {
