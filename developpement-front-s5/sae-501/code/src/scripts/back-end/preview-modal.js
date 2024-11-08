@@ -9,12 +9,11 @@ const modal = document.querySelector("[data-modal]");
 const modalTemplate = document.querySelector("[data-tpl-id='preview-image']");
 const modalTemplateContent = modalTemplate.content.cloneNode(true);
 
-const imageModalContainer = modalTemplateContent.querySelector("[data-image]");
+const listImageModal = modalTemplateContent.querySelectorAll("[data-image]");
 const imageDimensions = modalTemplateContent.querySelector("[data-image-dimensions]");
 const imageSize = modalTemplateContent.querySelector("[data-image-size]");
 const imageMime = modalTemplateContent.querySelector("[data-image-mime]");
 const imageName = modalTemplateContent.querySelector("[data-image-name]");
-const imageContainer = modalTemplateContent.querySelector("[data-container-image]");
 
 function formatBytes(bytes, decimals = 2) {
     if (!+bytes) return "0 Bytes";
@@ -45,11 +44,39 @@ const getImageInfos = async (img) => {
     };
 };
 
-delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", () => {
-    ["!bg-transparent", "!max-w-max", "!shadow-none"].forEach((cssClass) => modal.classList.toggle(cssClass));
+delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", (e) => {
+    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
 
-    modal.querySelector("[data-image-data]").classList.toggle("!hidden");
-    modal.querySelector("[data-container-image]").classList.toggle("!max-h-max");
+    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
+
+    // modal.querySelector("[data-image-data]").classList.toggle("opacity-0");
+    // modal.querySelector("[data-image-data]").classList.remove("!hidden")
+    if (modal.dataset.hasTransitionEvent !== "true") {
+        
+    }
+
+    // modal.querySelector("[data-modal-title]").classList.toggle("!hidden");
+    // modal.querySelector("[data-container-image]").classList.toggle("!w-full");
+    // modal.querySelector("[data-enlarge-text]").classList.toggle("-translate-y-[200%]");
+});
+
+modal.addEventListener("transitionend", (e) => {
+    e.target.dataset.hasTransitionEvent = true;
+    if (e.target.matches(".\\!bg-transparent")) {
+        modal.querySelector("[data-main-content]").classList.add("!hidden");
+    } else {
+        modal.querySelector("[data-main-content]").classList.remove("!hidden");
+    }
+    // modal.querySelector("[data-main-content]").classList.toggle("!hidden");
+});
+
+delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", (e) => {
+    ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
+    ["opacity-0", "pointer-events-none"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
+    modal.querySelector("[data-main-content]").classList.toggle("!hidden");
+    // ["opacity-0", "pointer-events-none"].forEach((cssClass) => modal.classList.toggle(cssClass));
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
@@ -63,7 +90,8 @@ listPreviewCurrentImageBtn.forEach((item) => {
             img = document.querySelector(`[data-preview-upload="${dataAttr}"]`);
         }
         // imageModalContainer.closest("a")?.href = img.src;
-        imageModalContainer.src = img.src;
+        // imageModalContainer.src = img.src;
+        listImageModal.forEach((item) => item.src = img.src)
 
         const imgData = await getImageInfos(img);
 

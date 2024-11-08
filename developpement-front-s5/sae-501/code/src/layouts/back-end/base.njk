@@ -48,23 +48,24 @@
         </div>
 
 
-        <dialog data-modal class="duration-100 transition-all bg-white shadow-xl rounded-lg md:my-8 w-11/12 sm:w-3/4 sm:max-w-2xl"></dialog>
+        <dialog data-modal class="duration-300 transition-dialog bg-white shadow-xl rounded-lg md:my-8 w-11/12 sm:w-3/4 sm:max-w-2xl"></dialog>
 
         <template data-tpl-id="preview-image">
-            <div class="flex min-h-full items-center justify-center text-center sm:items-center sm:p-0 shadow-xl">
-                <div class="text-left w-full">
+            <button data-reduce-image-btn class="opacity-0 pointer-events-none h-0 block" title="Rétrécir image">
+                <img src="" data-image alt="" class="max-h-full max-w-full absolute top-2/4 -translate-y-1/2">
+            </button>
+            <div class="flex min-h-full items-center justify-center text-center sm:items-center sm:p-0 shadow-xl" data-main-content>
+                <div class="text-left">
                     <div class="p-4 sm:mt-0 text-left">
-                        <h2 class="mb-2 font-semibold leading-6 text-gray-900">Aperçu</h2>
+                        <h2 class="mb-2 font-semibold leading-6 text-gray-900" data-modal-title>Aperçu</h2>
                         <div class="flex my-3 max-h-96 justify-center" data-container-image>
                             <button data-enlarge-image-btn class="flex justify-center relative group" title="Voir image en grand">
-                                <span class="absolute z-10 bg-slate-50 px-2 py-0.5 rounded-xl top-3 touch:opacity-100 opacity-10 group-hocus:opacity-100 text-xs">Cliquez pour agrandir</span>
+                                <span class="absolute z-10 bg-slate-50 px-2 py-0.5 rounded-xl top-3 touch:opacity-100 opacity-10 group-hocus:opacity-100 text-xs duration-100 transition-all" data-enlarge-text>Cliquez pour agrandir</span>
                                 <img src="" data-image alt="" class="max-h-full max-w-full">
                             </button>
-                            {# <a href="" target="_blank" class="flex justify-center relative group" title="Voir image en grand"> #}
-                            {# </a> #}
                         </div>
                     </div>
-                    <div class="bg-gray-50 p-4" data-image-data>
+                    <div class="bg-gray-50 p-4 transition-all duration-300" data-image-data>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <p class="text-xs text-gray-600">Nom</p>
