@@ -49,16 +49,6 @@ delegateEvtHandler(modal, "click", "[data-enlarge-image-btn]", (e) => {
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
 
     ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
-
-    // modal.querySelector("[data-image-data]").classList.toggle("opacity-0");
-    // modal.querySelector("[data-image-data]").classList.remove("!hidden")
-    if (modal.dataset.hasTransitionEvent !== "true") {
-        
-    }
-
-    // modal.querySelector("[data-modal-title]").classList.toggle("!hidden");
-    // modal.querySelector("[data-container-image]").classList.toggle("!w-full");
-    // modal.querySelector("[data-enlarge-text]").classList.toggle("-translate-y-[200%]");
 });
 
 modal.addEventListener("transitionend", (e) => {
@@ -68,15 +58,13 @@ modal.addEventListener("transitionend", (e) => {
     } else {
         modal.querySelector("[data-main-content]").classList.remove("!hidden");
     }
-    // modal.querySelector("[data-main-content]").classList.toggle("!hidden");
 });
 
-delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", (e) => {
+delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", () => {
     ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
     ["opacity-0", "pointer-events-none"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("!hidden");
-    // ["opacity-0", "pointer-events-none"].forEach((cssClass) => modal.classList.toggle(cssClass));
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
@@ -89,8 +77,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
         if (previewType === "blob") {
             img = document.querySelector(`[data-preview-upload="${dataAttr}"]`);
         }
-        // imageModalContainer.closest("a")?.href = img.src;
-        // imageModalContainer.src = img.src;
+
         listImageModal.forEach((item) => item.src = img.src)
 
         const imgData = await getImageInfos(img);
