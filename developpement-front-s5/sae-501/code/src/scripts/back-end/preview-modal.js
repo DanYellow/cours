@@ -42,26 +42,10 @@ const getImageInfos = async (img) => {
     };
 };
 
-const toggleBigImage = (displayBigImage) => {
+const toggleBigImage = () => {
     ["!bg-transparent", "!shadow-none", "!h-screen", "md:my-8", "!max-w-full"].forEach((cssClass) => modal.classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
     ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
-
-    // if (!displayBigImage) {
-    //     modal.querySelector("[data-main-content]").classList.toggle("!hidden");
-    // }
-
-    // if (displayBigImage) {
-    //     modal.classList.add(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
-    //     modal.classList.remove("md:my-8");
-    //     modal.querySelector("[data-main-content]").classList.add("opacity-0");
-    //     modal.querySelector("[data-reduce-image-btn]").classList.remove(...["opacity-0", "pointer-events-none", "h-0"]);
-    // } else {
-    //     modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
-    //     modal.classList.add("md:my-8");
-    //     modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
-    //     modal.querySelector("[data-main-content]").classList.remove("opacity-0");
-    // }
 };
 
 delegateEventHandler(modal, "click", "[data-enlarge-image-btn]", () => {
@@ -86,7 +70,7 @@ modal.addEventListener("transitionend", (e) => {
 });
 
 delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
-    toggleBigImage(false);
+    toggleBigImage();
     modal.querySelector("[data-main-content]").classList.toggle("!hidden");
 });
 
@@ -123,7 +107,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
 modal.addEventListener("close", () => {
     modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
     modal.classList.add("md:my-8");
-    
+
     modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
     modal.querySelector("[data-main-content]").classList.remove("opacity-0");
     modal.querySelector("[data-reduce-image-btn]").inert = true;
