@@ -55,15 +55,20 @@ modal.addEventListener("transitionend", (e) => {
     e.target.dataset.hasTransitionEvent = true;
     if (e.target.matches(".\\!bg-transparent")) {
         modal.querySelector("[data-main-content]").classList.add("!hidden");
+        modal.querySelector("[data-reduce-image-btn]").inert = false;
+        modal.querySelector("[data-enlarge-image-btn]").inert = true;
     } else {
         modal.querySelector("[data-main-content]").classList.remove("!hidden");
+        modal.querySelector("[data-reduce-image-btn]").inert = true;
+        modal.querySelector("[data-enlarge-image-btn]").inert = false;
     }
 });
 
-delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", () => {
+delegateEvtHandler(modal, "click", "[data-reduce-image-btn]", (e) => {
+    console.log(e.target, e.currentTarget);
     ["!bg-transparent", "!shadow-none", "!h-screen"].forEach((cssClass) => modal.classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
-    ["opacity-0", "pointer-events-none"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
+    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("!hidden");
 });
 
