@@ -1,0 +1,51 @@
+{% extends "layouts/back-end/base.njk" %}
+
+{% import "components/back-end/eslint-report.njk" as eslint with context %}
+
+{% set active_menu_item = "debug" %}
+
+{% block head_tags %}
+    <link rel="icon" href="/images/code-icon.svg">
+
+    {% if NODE_ENV == "development" %}
+        <script type="module" src="/src/scripts/main.debug.js" defer></script>
+    {% endif %}
+{% endblock %}
+
+{% block title %}Todo list - Debug{% endblock %}
+
+{% block main %}
+    <div class="bg-white rounded-2xl shadow-md pb-6" lang="en">
+        <header class="mb-1 p-6 pr-4 pl-6 flex justify-between gap-2 flex-col">
+            {% include "components/back-end/breadcrumb.njk" %}
+            <h2 class="text-4xl">
+                Liste à faire
+            </h2>
+        </header>
+        <div class="px-6" data-todo-list>
+            {{ todo | safe }}
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll("input[disabled]").forEach((item) => item.disabled = false);
+
+        document.querySelectorAll("input").forEach((item) => {
+            item.addEventListener("change", async (e) => {
+                e.currentTarget.setAttribute("checked", "");
+
+                const query = await fetch("/debug/save-todo", { 
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        html: document.querySelector("[data-todo-list]").innerHTML
+                    })
+                });
+
+                await query.json();
+            })
+        })
+    </script>
+{% endblock %}
