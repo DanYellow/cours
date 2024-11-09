@@ -303,6 +303,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
 > [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
+<section data-todolist>
 ## Tâches à effectuer
 
 - [x] Lire les consignes
@@ -408,6 +409,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - **Vous ne devez pas utiliser une base de données pour stocker la valeur**
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
   - Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
+</section>
 
 ## Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
