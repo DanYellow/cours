@@ -13,7 +13,6 @@ const previewUpload = (e) => {
     const element = e.target;
     const file = element.files[0];
     const uploadName = element.dataset.uploadFile;
-
     const listAllowedMimeType = element.getAttribute("accept").split(",").map((item) => {
         return mime.getType(item);
     });
@@ -38,6 +37,7 @@ const previewUpload = (e) => {
         fileName.textContent = "";
     } else {
         imgRelated.src = URL.createObjectURL(file);
+        imgRelated.dataset.originalName = file.name;
         fileName.textContent = file.name;
         errorMessageContainer.classList.add("hidden");
     }

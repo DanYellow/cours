@@ -33,12 +33,14 @@ const getImageInfos = async (img) => {
     imgInstance.src = img.src;
     await imgInstance.decode();
 
+    const imgName = img.dataset?.originalName || img.src.replace(/^.*[\\/]/, "");
+
     return {
         width: imgInstance.width,
         height: imgInstance.height,
         size: blob.size,
         mime: blob.type,
-        name: img.src.replace(/^.*[\\/]/, ""),
+        name: imgName,
     };
 };
 
