@@ -1,8 +1,11 @@
+import { delegateEventHandler } from "../utils";
+
 const listDeleteCurrentImageBtn = document.querySelectorAll(
     "[data-delete-current-image-button]"
 );
 const modal = document.querySelector("[data-modal]");
-const modalTemplate = document.querySelector("[data-tpl-id='delete-image']");
+const tplId = "delete-image";
+const modalTemplate = document.querySelector(`[data-tpl-id='${tplId}']`);
 const modalTemplateContent = modalTemplate.content.cloneNode(true);
 
 const deleteItemModalBtn = modalTemplateContent.querySelector("[data-delete-item]");
@@ -26,8 +29,25 @@ const imageObserver = new MutationObserver((mutationList) => {
     });
 });
 
-deleteItemModalBtn.addEventListener("click", (e) => {
-    const dataAttr = e.currentTarget.dataset.deleteCurrentImageButtonModal;
+listDeleteCurrentImageBtn.forEach((item) => {
+    item.addEventListener("click", (e) => {
+        const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
+        deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
+        const img = document.querySelector(
+            `[data-current-image="${dataAttr}"]`
+        );
+        imageModalContainer.src = img.src;
+
+        while (modal.firstChild) {
+            modal.removeChild(modal.firstChild);
+        }
+        modal.append(modalTemplateContent.cloneNode(true));
+        modal.showModal();
+    });
+});
+
+delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
+    const dataAttr = e.target.dataset.deleteCurrentImageButtonModal;
     const input = document.querySelector(
         `[data-current-image-checkbox="${dataAttr}"]`
     );
@@ -45,24 +65,7 @@ deleteItemModalBtn.addEventListener("click", (e) => {
         attributes: true,
     });
 
-    e.currentTarget.closest("dialog").close();
+    e.target.closest("dialog").close();
     document.querySelector(`[data-delete-current-image-button="${dataAttr}"]`).classList.add("hidden");
     document.querySelector(`[data-preview-current-image-button="${dataAttr}"]`).classList.add("hidden");
-});
-
-listDeleteCurrentImageBtn.forEach((item) => {
-    item.addEventListener("click", (e) => {
-        const dataAttr = e.currentTarget.dataset.deleteCurrentImageButton;
-        deleteItemModalBtn.dataset.deleteCurrentImageButtonModal = dataAttr;
-        const img = document.querySelector(
-            `[data-current-image="${dataAttr}"]`
-        );
-        imageModalContainer.src = img.src;
-
-        while (modal.firstChild) {
-            modal.removeChild(modal.firstChild);
-        }
-        modal.append(modalTemplateContent.cloneNode(true));
-        modal.showModal();
-    });
 });

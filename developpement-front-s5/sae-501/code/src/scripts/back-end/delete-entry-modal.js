@@ -7,7 +7,6 @@ const tplId = "delete-entry";
 const modalTemplate = document.querySelector(`[data-tpl-id='${tplId}']`);
 const modalTemplateContent = document.importNode(modalTemplate.content, true);
 
-
 const displayDeleteItemModal = (e) => {
     while (modal.firstChild) {
         modal.removeChild(modal.firstChild);
