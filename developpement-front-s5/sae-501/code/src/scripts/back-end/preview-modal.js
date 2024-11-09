@@ -22,7 +22,7 @@ const formatBytes = (bytes, decimals = 2) => {
 
     const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+    return `${String(parseFloat((bytes / Math.pow(k, i)).toFixed(dm))).replace(".", ",")} ${sizes[i]}`;
 }
 
 const getImageInfos = async (img) => {
@@ -40,7 +40,7 @@ const getImageInfos = async (img) => {
         height: imgInstance.height,
         size: blob.size,
         mime: blob.type,
-        name: imgName,
+        name: imgName.split(".")[0],
     };
 };
 
@@ -94,7 +94,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
 
         imageName.textContent = imgData.name;
         imageName.title = imgData.name;
-        imageDimensions.textContent = `${imgData.width} x ${imgData.height}`;
+        imageDimensions.textContent = `${imgData.width} × ${imgData.height}`;
         imageSize.textContent = `${formatBytes(imgData.size)}`;
         imageMime.textContent = imgData.mime;
         
