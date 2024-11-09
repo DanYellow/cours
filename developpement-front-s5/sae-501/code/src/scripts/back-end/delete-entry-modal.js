@@ -11,10 +11,10 @@ const displayDeleteItemModal = (e) => {
     while (modal.firstChild) {
         modal.removeChild(modal.firstChild);
     }
-    modal.dataset.modal = "delete-entry";
+    modal.dataset.modal = tplId;
     modal.append(modalTemplateContent.cloneNode(true));
     modal.showModal();
-    console.log("e.currentTarget.dataset.deleteUrl", e.currentTarget.dataset.deleteUrl)
+
     modal.querySelector("[data-delete-item]").dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
     modal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName;
 };

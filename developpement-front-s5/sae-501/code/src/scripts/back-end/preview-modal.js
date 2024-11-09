@@ -4,8 +4,8 @@ const listPreviewCurrentImageBtn = document.querySelectorAll(
     "[data-preview-current-image-button]"
 );
 const modal = document.querySelector("[data-modal]");
-
-const modalTemplate = document.querySelector("[data-tpl-id='preview-image']");
+const tplId = "preview-image";
+const modalTemplate = document.querySelector(`[data-tpl-id='${tplId}']`);
 const modalTemplateContent = modalTemplate.content.cloneNode(true);
 const listImageModal = modalTemplateContent.querySelectorAll("[data-image]");
 const imageDimensions = modalTemplateContent.querySelector("[data-image-dimensions]");
@@ -76,6 +76,7 @@ delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
 
 listPreviewCurrentImageBtn.forEach((item) => {
     item.addEventListener("click", async (e) => {
+        modal.dataset.modal = tplId;
         const dataAttr = e.currentTarget.dataset.previewCurrentImageButton;
         const previewType = e.currentTarget.dataset.previewType;
         
@@ -104,7 +105,11 @@ listPreviewCurrentImageBtn.forEach((item) => {
     });
 });
 
-modal.addEventListener("close", () => {
+modal.addEventListener("close", (e) => {
+    if (e.currentTarget.dataset.modal !== tplId) {
+        return;
+    }
+
     modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
     modal.classList.add("md:my-8");
 
