@@ -210,6 +210,8 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
    # La commande va lancer les serveurs express et vite
    npm start
    ```
+> Note : Le serveur de développement est plus lent que le serveur de production. Il intégère des outils qui ne sont pas présents en production. Si vous n'êtes pas sûr(e) des performances de votre site, n'hésitez pas à passer en production pour tester.
+
 Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples).
 Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
 
