@@ -17,7 +17,7 @@
                             <p class="line-clamp-2 md:line-clamp-1" title="{{ item.content }}">{{ item.content }}</p>
                         {% endif %}
                     </td>
-                    <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b shadow-transparent lg:text-right align-middle">
+                    <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b-2 @3xl/main:!border-b shadow-transparent lg:text-right align-middle">
                         <div class="inline-flex gap-6 w-full justify-around">
                             {{ list_actions.edit("sae_form" | routeName({ id: item._id })) }}
                             {{ list_actions.delete("sae_api" | routeName({ id: item._id }), item.title) }}
