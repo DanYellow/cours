@@ -47,6 +47,10 @@ listDeleteCurrentImageBtn.forEach((item) => {
 });
 
 delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
+    if (!modal.open && e.currentTarget.dataset.modal !== tplId) {
+        return;
+    }
+
     const dataAttr = e.target.dataset.deleteCurrentImageButtonModal;
     const input = document.querySelector(
         `[data-current-image-checkbox="${dataAttr}"]`
