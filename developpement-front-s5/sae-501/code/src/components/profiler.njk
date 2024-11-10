@@ -28,8 +28,8 @@
         <button data-profiler-bar-open-btn class="btn-open-profiler-bar rounded-full bg-blue-700 hover:bg-blue-800 p-3 text-gray-100 border-2 border-gray-100 border-solid">
             {% set nbProblems = profiler.eslint_report.warningCount + profiler.eslint_report.errorCount %}
             {% if nbProblems > 0 %}
-                <span class="inline-flex justify-center items-center z-20 h-5 w-fit p-1 rounded-full absolute -top-1 -right-1 bg-red-500">
-                    <span title="{{ nbProblems }} eslint problems found" class="text-sm text-white">{{ nbProblems }}000</span>
+                <span class="inline-flex justify-center items-center z-20 h-5 min-w-5 w-fit p-1 rounded-full absolute -top-1 right-0 translate-x-1/2 bg-red-500">
+                    <span title="{{ nbProblems }} eslint problems found" class="text-sm text-white">{{ nbProblems }}</span>
                 </span>
             {% endif %}
             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
