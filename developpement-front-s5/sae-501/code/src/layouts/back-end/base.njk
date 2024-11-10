@@ -69,17 +69,14 @@
                             <p class="text-xs text-gray-600">Nom</p>
                             <p class="truncate" data-image-name>/</p>
                         </div>
-
                         <div>
                             <p class="text-xs text-gray-600">Dimensions en pixels</p>
                             <p data-image-dimensions>950x600</p>
                         </div>
-
                         <div>
                             <p class="text-xs text-gray-600">Taille</p>
                             <p data-image-size>950x600</p>
                         </div>
-
                         <div>
                             <p class="text-xs text-gray-600">Type</p>
                             <p data-image-mime>image/jpeg</p>
@@ -103,7 +100,7 @@
                             <img src="" data-image alt="" class="object-contain">
                         </div>
                     </div>
-                    <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 sm:px-6 justify-end">
+                    <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 justify-end">
                         <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hocus:bg-red-800 sm:w-auto" data-delete-item>
                             {% include "components/icons/delete-icon.njk" %}
                             Supprimer
@@ -123,7 +120,7 @@
                         <p>Souhaitez-vous supprimer "<span data-modal-item-name class="bg-indigo-100"></span>" ?</p>
                         <p class="text-sm font-bold text-red-700" role="alert">Cette action est irréversible</p>
                     </div>
-                    <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 sm:px-6 justify-end">
+                    <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 justify-end">
                         <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 hocus:bg-red-800 px-4 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto" data-delete-item>
                             {% include "components/icons/delete-icon.njk" %}
                             Supprimer
