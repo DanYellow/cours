@@ -7,7 +7,6 @@ import ip from "ip";
 import FastGlob from "fast-glob";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import bodyParser from "body-parser";
 import nunjucks from "nunjucks";
 import { DateTime } from "luxon";
 import helmet from "helmet";
@@ -102,18 +101,13 @@ mongoServer()
     });
 
 app.use(
-    bodyParser.json({
+    express.json({
         type: [
             "application/json",
             "application/csp-report",
             "application/reports+json",
             "application/importmap+json",
         ],
-    })
-);
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
     })
 );
 
