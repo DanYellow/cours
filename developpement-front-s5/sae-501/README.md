@@ -33,7 +33,9 @@ _Les consignes pourront être modifiées._
 
 
 ## Contexte de la SAÉ
-Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Certaines technologies n'ont pas été vues en cours, toutefois, elles sont soient accompagnées d'un mémo, d'une pratique qui sera effectuée en cours pour vous aider à démarrer ou assez simples à prendre en main pour avoir les ressources nécessaires en ligne. 
+
+Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants : 
 
 **R5.DWeb-DI.06 | Développement back avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté serveur
@@ -45,7 +47,7 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
-Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
+Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
 
@@ -99,14 +101,14 @@ Le dossier `public/` contient toutes les ressources qui n'ont pas à être gér�
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
 ### Dossier server/
-Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par nodejs et express. express est un framework permettant de développer des applications web grâce à nodejs.
+Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par javascript et Apache par nodejs. Le serveur utilise express qui est un framework permettant de développer des applications web grâce à nodejs. Express a été pensé pour être minimaliste, ainsi, il possède très peu de fonctionnalités par défaut mais beaucoup de plugins ont été développés par la communauté.
 
 Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Au sein du dossier on trouve le routing du projet.
 
 Autrement dit, ces fichiers définissent comment le serveur doit réagir quand on accède à une url spécifique avec une méthode spécifique, c'est souvent le chargement d'une page web. Par exemple :
 ```js
 // front-end-router.js
-router.get(["/hello", "/mon-blog.html"], async (_req, res) => {
+router.get(["/hello", "/mon-blog.html"], async (req, res) => {
   res.render("pages/index.njk", { title: "hello" });
 });
 ```
@@ -137,7 +139,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
-> Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string).
+> Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string). Les chaînes de requêtes (query string) ne se mettent pas dans la route, il suffit juste qu'ils soient dans l'url pour ensuite être récupéré dans l'objet `req.query`.
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
