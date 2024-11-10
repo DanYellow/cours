@@ -28,7 +28,7 @@
         <button data-profiler-bar-open-btn class="btn-open-profiler-bar rounded-full bg-blue-700 hover:bg-blue-800 p-3 text-gray-100 border-2 border-gray-100 border-solid">
             {% set nbProblems = profiler.eslint_report.warningCount + profiler.eslint_report.errorCount %}
             {% if nbProblems > 0 %}
-                <span class="inline-flex justify-center items-center z-20 h-5 min-w-5 w-fit p-1 rounded-full absolute -top-1 right-0 translate-x-1/2 bg-red-500">
+                <span class="inline-flex justify-center items-center z-20 h-5 min-w-5 w-fit p-1 rounded-full absolute -top-1 right-1 translate-x-1/2 bg-red-500">
                     <span title="{{ nbProblems }} eslint problems found" class="text-sm text-white">{{ nbProblems }}</span>
                 </span>
             {% endif %}
@@ -64,7 +64,7 @@
                 <span class="opacity-25">/</span>
                 {% endif %}
             </p>
-            <a href="{{ routeName("debug_router") }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <a href="{{ "debug_router" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 See all routes
                 <span>
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -76,14 +76,14 @@
         <div class="py-2 px-4 text-gray-500 dark:text-gray-200 {{ border_classes }}">
             <p class="text-xs font-bold">Response time</p>
             <p class="text-lg">
-                {{ formatNumber(response_time) }}&nbsp;ms
+                {{ response_time | formatNumber }}&nbsp;ms
             </p>
         </div>
         {% if "errorCount" in profiler.eslint_report %}
             <div class="py-2 px-4 {{ border_classes }} text-gray-500 dark:text-gray-200 flex flex-col gap-1">
                 <p class="text-xs font-bold">Eslint</p>
                 <p class="text-lg font-normal -mt-1">{{ profiler.eslint_report.errorCount }}&nbsp;error(s), {{ profiler.eslint_report.warningCount }}&nbsp;warning(s)</p>
-                <a href="{{ routeName("eslint") }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="{{ "eslint" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     See more
                     <span>
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

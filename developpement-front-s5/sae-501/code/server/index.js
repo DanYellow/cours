@@ -403,13 +403,13 @@ nunjucksEnv.addGlobal("context", function () {
     return {};
 });
 
-nunjucksEnv.addGlobal("routeName", function (name, params = {}) {
+nunjucksEnv.addFilter("routeName", function (name, params = {}) {
     const finalURL = generateUrl(app, name, params);
 
     return `/${finalURL}`;
 });
 
-nunjucksEnv.addGlobal("getEslintLink", function (rule) {
+nunjucksEnv.addFilter("getEslintLink", function (rule) {
     const baseURLStylistic = "https://eslint.style/rules/js";
     const baseURLEslint = "https://eslint.org/docs/latest/rules";
 
@@ -421,7 +421,7 @@ nunjucksEnv.addGlobal("getEslintLink", function (rule) {
     return `${baseURLEslint}/${rule}`;
 });
 
-nunjucksEnv.addGlobal("formatNumber", function (value) {
+nunjucksEnv.addFilter("formatNumber", function (value) {
     return new Intl.NumberFormat("fr-FR").format(
         value
     );
