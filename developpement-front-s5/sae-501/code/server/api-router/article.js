@@ -99,7 +99,7 @@ router.get(`/${base}`, async (req, res) => {
             ...(isActive !== "all" ? { is_active: isActive === "true" } : {}),
         };
 
-        const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
+        const listBsonIds = listIds.filter(mongoose.Types.ObjectId.isValid).map(item => mongoose.Types.ObjectId.createFromHexString(item));
 
         const countQuery = {
             $or: [
@@ -166,7 +166,7 @@ router.get(`/${base}`, async (req, res) => {
  */
 router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9]{24})`], async (req, res) => {
     try {
-        const id = req.params.id ? new mongoose.Types.ObjectId(req.params.id) : req.params.slug;
+        const id = req.params.id ? mongoose.Types.ObjectId.createFromHexString(req.params.id) : req.params.slug;
         const [ressource] = await getArticles(id);
 
         if (ressource) {
@@ -514,7 +514,7 @@ const getArticles = async (id, queryParams) => {
     };
 
     const isArray = Array.isArray(id);
-    const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
+    const listBsonIds = (isArray ? id : []).filter(mongoose.Types.ObjectId.isValid).map(item => mongoose.Types.ObjectId.createFromHexString(item));
 
     const ressource = await Article.aggregate([
         ...(isArray

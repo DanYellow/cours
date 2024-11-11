@@ -64,7 +64,7 @@ router.get(`/${base}`, async (req, res) => {
         listIds = [listIds];
     }
 
-    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map(item => new mongoose.Types.ObjectId(item));
+    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map(item => mongoose.Types.ObjectId.createFromHexString(item));
 
     try {
         const listRessources = await Author.aggregate([
@@ -166,7 +166,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
 
     try {
         const ressource = await Author.aggregate([
-            { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+            { $match: { _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) } },
             {
                 $addFields: {
                     nb_articles: { $size: "$list_articles" },

@@ -137,7 +137,7 @@ router.get([`/${base}/:id([a-f0-9]{24})/comments`, `/${base}/:slug([\\w\\d\\-]+\
         const ressource = await Article.aggregate([
             { $match: {
                 $or: [
-                    { _id: new mongoose.Types.ObjectId(req.params.id) },
+                    { _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) },
                     { slug: req.params.slug },
                 ],
             } },
