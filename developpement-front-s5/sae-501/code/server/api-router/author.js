@@ -85,7 +85,7 @@ router.get(`/${base}`, async (req, res) => {
             },
         ]);
 
-        const count = await Author.count(
+        const count = await Author.countDocuments(
             (listIds.length ? { _id: { $in: listIds } } : null)
         );
         const total_pages = Math.ceil(count / perPage);

@@ -68,7 +68,7 @@ router.get(`/${base}`, routeName("sae_api"), async (req, res) => {
 
     listIds = (listIds || [])
         .filter(mongoose.Types.ObjectId.isValid)
-        .map(item => new mongoose.Types.ObjectId(item));
+        .map(item => mongoose.Types.ObjectId.createFromHexString(item));
 
     try {
         const listRessources = await SAE.aggregate([
@@ -78,7 +78,7 @@ router.get(`/${base}`, routeName("sae_api"), async (req, res) => {
             { $limit: perPage },
         ]);
 
-        const count = await SAE.count(
+        const count = await SAE.countDocuments(
             listIds.length ? { _id: { $in: listIds } } : null
         );
 
@@ -96,7 +96,7 @@ router.get(`/${base}`, routeName("sae_api"), async (req, res) => {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }]
+                    e?.errors || [{ message: e?.message || "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
