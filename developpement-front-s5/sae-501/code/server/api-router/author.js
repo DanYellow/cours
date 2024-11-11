@@ -104,7 +104,7 @@ router.get(`/${base}`, async (req, res) => {
         res.status(400).json({
             errors: [
                 ...Object.values(
-                    e?.errors || [{ message: "Il y a eu un problème" }]
+                    e?.errors || [{ message: e?.message || "Il y a eu un problème" }]
                 ).map(val => val.message),
             ],
         });
