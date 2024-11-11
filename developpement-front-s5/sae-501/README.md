@@ -30,6 +30,7 @@ _Les consignes pourront être modifiées._
     - [Administration](#administration)
   - [Notes et astuces](#notes-et-astuces)
   - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+  - [Documentation](#documentation)
 
 
 ## Contexte de la SAÉ
@@ -306,9 +307,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
 > [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
-<section data-todolist>
-## Tâches à effectuer
 
+## Tâches à effectuer
 - [x] Lire les consignes
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
@@ -354,6 +354,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
     - Note : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
+    - Note 2 : N'oubliez pas que Youtube propose également des shorts, on doit également pouvoir les utiliser
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
@@ -396,7 +397,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
       - Vous devez vérifier que le lien ou l'id de la vidéo est valide
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
-    - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Il faut créer la partie front
+    - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Tout comme le routeur, à vous de le connecter au reste.
     - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
@@ -412,12 +413,17 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - **Vous ne devez pas utiliser une base de données pour stocker la valeur**
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
   - Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
-</section>
 
 ## Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
 
 ## FAQ - Foire Aux Questions
+- **Est-ce que les dépendences du projet sont à jour ?**
+    
+    Pas forcément, ce projet est mis à jour chaque année mais pas forcément juste avant le début de cette SAÉ. Si vous souhaitez avoir vos dépendences à jour, vous pouvez utiliser la commande `npm update --save`. Elle se chargera de mettre toutes les dépendances dans leur dernière version. Vous pouvez également lister les dépendences qui ne sont pas à jour avec la commande `npm outdated`.
+
+    En revanche, rien ne garantit que tout fonctionnera correctement après la mise à jour des dépendances. Une mise à jour majeure, par exemple, 1.X.X vers 2.X.X peut apporter des changements majeurs et donc apporter des dysfonctionnements.
+
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
     
     Oui, vous avez tout à fait le droit. Il est déjà utilisé d'ailleurs.
@@ -488,3 +494,12 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
     > 
     > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
+
+## Documentation
+Voici une liste non exhaustive des documentations des divers technologies utilisées dans le projet
+- [luxon](https://moment.github.io/luxon/)
+- [express v4.x](https://expressjs.com/en/4x/api.html)
+- [mongoose](https://mongoosejs.com/)
+- [nunjucks](https://mozilla.github.io/nunjucks/)
+- [multer](https://expressjs.com/en/resources/middleware/multer.html)
+- [validator](https://www.npmjs.com/package/validator)
