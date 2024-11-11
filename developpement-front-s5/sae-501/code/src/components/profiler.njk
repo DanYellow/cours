@@ -65,7 +65,7 @@
                 {% endif %}
             </p>
             <a href="{{ "debug_router" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                See all routes
+                See&nbsp;all&nbsp;routes
                 <span>
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
@@ -76,7 +76,7 @@
         <div class="py-2 px-4 text-gray-500 dark:text-gray-200 {{ border_classes }}">
             <p class="text-xs font-bold">Response time</p>
             <p class="text-lg">
-                {{ response_time | formatNumber }}&nbsp;ms
+                {{ response_time | formatNumber }}&nbsp;<span class="text-gray-400">ms</span>
             </p>
         </div>
         {% if "errorCount" in profiler.eslint_report %}
@@ -84,7 +84,7 @@
                 <p class="text-xs font-bold">Eslint</p>
                 <p class="text-lg font-normal -mt-1">{{ profiler.eslint_report.errorCount }}&nbsp;error(s), {{ profiler.eslint_report.warningCount }}&nbsp;warning(s)</p>
                 <a href="{{ "eslint" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    See more
+                    See&nbsp;details
                     <span>
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
