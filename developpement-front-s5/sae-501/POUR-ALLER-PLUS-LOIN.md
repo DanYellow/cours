@@ -41,3 +41,5 @@
   - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)
 - [ ] Mettre en place un linter de CSS. Stylint est le plus utilisé
   - [Accéder à la documentation de Stylint](https://github.com/stylelint/stylelint/tree/main)
+- [ ] Afficher une barre de progression sur les articles au fur et à mesure de la lecture
+  - Vous pouvez utiliser l'API CSS animation-timeline dont [un exemple se trouve sur le site scroll-driven-animations.style](https://scroll-driven-animations.style/demos/progress-bar/css/)
