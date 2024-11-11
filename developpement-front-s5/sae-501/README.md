@@ -139,7 +139,8 @@ router.post("/user/:id/:gallery?", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
-> Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string). Les chaînes de requêtes (query string) ne se mettent pas dans la route, il suffit juste qu'ils soient dans l'url pour ensuite être récupéré dans l'objet `req.query`.
+> Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string). Les chaînes de requêtes (query string) ne se mettent pas dans la route, il suffit juste qu'ils soient dans l'url pour ensuite être récupéré dans l'objet `req.query`. Si vous souhaitez savoir les informations contenus dans les paramètres "req" et "res", vous avez la documentation d'express.
+> - [Accéder à la documentation d'express](https://expressjs.com/en/4x/api.html#req)
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
@@ -343,7 +344,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
         - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
     ```js
     router.get("/formation", async (req, res) => {/* [...] */})
-    // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation" pour charger une page.
+    // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation".
     // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href", et ce, même si le fichier nunjucks s'appelle "training.njk"
     ```
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
@@ -372,7 +373,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 ### Administration
 - [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil du site BUT) depuis le backoffice qui lira/modifiera un fichier json
     - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
-    - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec promesse) :
+    - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec async / await) :
         - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
         - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
             - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères avant de l'écrire dans le fichier
