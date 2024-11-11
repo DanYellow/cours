@@ -301,10 +301,10 @@ La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint
 > - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 Enfin dans la partie debug de l'administration, il y a une partie eslint affichant un rapport des problèmes trouvés par l'outil. Ce rapport est partagé en deux parties : 
-- Server : Représente la partie back-office (api inclue)
+- Server : Représente la partie serveur (api et gestion de mongodb inclus)
 - Front-end : Représente la partie front-office
   
-D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volontairement dans le code.
+D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volontairement dans le code. A vous de les corriger.
 
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
 > [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
@@ -415,6 +415,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - **Vous ne devez pas utiliser une base de données pour stocker la valeur**
   - Pour rendre les choses les plus simples possibles, vous ne proposerez que les [couleurs listées par tailwind](https://tailwindcss.com/docs/customizing-colors)
   - Changer la valeur de la balise [meta "theme-color"](https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta/name/theme-color) en fonction du background-color de l'écran
+
+> Tous les formulaires doivent afficher une alerte si l'utilisateur change de page s'il n'a pas sauvegardé les données. Pour ce faire, il faut utiliser l'évènement `beforeunload` qui permet de prévenir l'utilisateur lorsque le changement de page intervient.
 
 ## Notes et astuces
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
