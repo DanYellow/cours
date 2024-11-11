@@ -50,6 +50,8 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
+> Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée.
+
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
 
 > - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
@@ -420,7 +422,9 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 ## FAQ - Foire Aux Questions
 - **Est-ce que les dépendences du projet sont à jour ?**
     
-    Pas forcément, ce projet est mis à jour chaque année mais pas forcément juste avant le début de cette SAÉ. Si vous souhaitez avoir vos dépendences à jour, vous pouvez utiliser la commande `npm update --save`. Elle se chargera de mettre toutes les dépendances dans leur dernière version. Vous pouvez également lister les dépendences qui ne sont pas à jour avec la commande `npm outdated`.
+    Pas forcément, ce projet est mis à jour chaque année mais pas forcément juste avant le début de cette SAÉ. Si vous souhaitez avoir vos dépendences à jour, vous pouvez utiliser la commande `npm update --save`. Elle se chargera de mettre toutes les dépendances dans leur dernière version mineure. Vous pouvez également lister les dépendences qui ne sont pas à jour avec la commande `npm outdated`.
+
+    Cette tâche peut également se faire dépendence par dépendence en précisant la version dans la commande `npm install`, exemple `npm install module@X.X.X` ou `npm install module@latest`, si on souhaite installer la dernière version.
 
     En revanche, rien ne garantit que tout fonctionnera correctement après la mise à jour des dépendances. Une mise à jour majeure, par exemple, 1.X.X vers 2.X.X peut apporter des changements majeurs et donc apporter des dysfonctionnements.
 
