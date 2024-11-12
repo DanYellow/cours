@@ -366,8 +366,11 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Afficher la liste des articles **actifs** sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
-- [ ] Ajouter une barre de progression sur les articles grâce à la propriété CSS [animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
-  - Google propose un exemple sur son site. [Voir exemple.](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
+- [ ] **Sans javascript**, afficher une barre de progression sur les articles au fur et à mesure de la lecture grâce à la propriété CSS[animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
+  - Google propose un exemple sur son site. [Voir exemple](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
+  - [Vous avez un autre exemple sur le site scroll-driven-animations.style](https://scroll-driven-animations.style/demos/progress-bar/css/)
+    - Ce site contient plein d'exemple concernant cette nouvelle API très pratique
+  - Note : A l'heure actuelle, ceci ne fonctionne que sur Chrome, gérez que ce navigateur
 - [ ] Ajouter une page affichant en détails un auteur
     - Cette page n'existe pas, à vous de faire le design
     - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
@@ -398,6 +401,9 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
       - Vous devez vérifier que le lien ou l'id de la vidéo est valide
     - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
+    - La gestion de l'auteur doit être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
+    - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
+      - Vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
     - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Tout comme le routeur, à vous de le connecter au reste.
     - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**

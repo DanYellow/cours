@@ -1,9 +1,6 @@
 # Pour aller plus loin - tâches optionnelles 
 ### A faire après avoir effectué toutes les tâches obligatoires du fichier [README.md](./README.md#tâches-à-effectuer)
 
-- [ ] Permettre la recherche d'auteurs au lieu d'une liste déroulante. Cette fonctionnalité peut être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
-    - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
-    - Pour le cas de la SAÉ, vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 - [ ] Modifier le modèle "Article" de façon à en permettre le "like"/"dislike"
   - **Ne pas oublier de créer des requêtes permettant ceci**
 - [ ] Ajouter un nouveau modèle permettant de gérer les vidéos du site (page "sur les medias")
@@ -41,5 +38,3 @@
   - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)
 - [ ] Mettre en place un linter de CSS. Stylint est le plus utilisé
   - [Accéder à la documentation de Stylint](https://github.com/stylelint/stylelint/tree/main)
-- [ ] Afficher une barre de progression sur les articles au fur et à mesure de la lecture
-  - Vous pouvez utiliser l'API CSS animation-timeline dont [un exemple se trouve sur le site scroll-driven-animations.style](https://scroll-driven-animations.style/demos/progress-bar/css/)
