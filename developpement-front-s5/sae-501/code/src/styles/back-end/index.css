@@ -226,68 +226,58 @@ details summary::-webkit-details-marker {
 }
 
 @supports (animation-timeline: scroll()) {
-    .main-menu {
-        position: relative;
-    }
-    .main-menu::before,
-    .main-menu::after {
-        font-weight: bold;
-        display: inline-block;
-        position: sticky;
-        top: 0;
-        bottom: 0;
-        font-size: 1.35rem;
-        padding-top: 0.8rem;
-    }
+    @media (width < theme("screens.md")) {
+        .main-menu {
+            position: relative;
+            scroll-timeline: --scroll-timeline x;
 
-    .main-menu::before {
-        content: "\00a0❰\00a0";
-        left: 0;
-        background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(240, 240, 240, 0.47) 100%
-        );
-    }
+            &::before,
+            &::after {
+                font-weight: bold;
+                display: block;
+                position: sticky;
+                top: 0;
+                bottom: 0;
+                font-size: 1.35rem;
+                padding-top: 0.8rem;
 
-    .main-menu::after {
-        content: "\00a0❱\00a0";
-        right: 0;
-        background: linear-gradient(
-            -90deg,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(240, 240, 240, 0.47) 100%
-        );
-    }
+                animation-name: reveal;
+                animation-timeline: --scroll-timeline;
+                animation-fill-mode: both;
+            }
 
-    .main-menu {
-        scroll-timeline: --scroll-timeline x;
-    }
+            &::before {
+                content: "\00a0❰\00a0";
+                left: 0;
+                background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(240, 240, 240, 0.47) 100%
+                );
+                animation-range: 1em 2em;
+            }
 
-    @keyframes reveal {
-        0% {
-            opacity: 0;
-            scale: 0.25;
+            &::after {
+                content: "\00a0❱\00a0";
+                right: 0;
+                background: linear-gradient(
+                    -90deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(240, 240, 240, 0.47) 100%
+                );
+                animation-direction: reverse;
+                animation-range: calc(100% - 2em) calc(100% - 1em);
+            }
         }
-        100% {
-            opacity: 1;
-            scale: 1;
+        @keyframes reveal {
+            0% {
+                opacity: 0;
+                scale: 0.25;
+            }
+            100% {
+                opacity: 1;
+                scale: 1;
+            }
         }
-    }
-
-    .main-menu::before,
-    .main-menu::after {
-        animation-name: reveal;
-        animation-timeline: --scroll-timeline;
-        animation-fill-mode: both;
-    }
-
-    .main-menu::before {
-        animation-range: 1em 2em;
-    }
-
-    .main-menu::after {
-        animation-direction: reverse;
-        animation-range: calc(100% - 2em) calc(100% - 1em);
     }
 }
