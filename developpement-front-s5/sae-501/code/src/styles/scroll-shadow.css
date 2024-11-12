@@ -2,7 +2,7 @@
 
 @supports (animation-timeline: scroll()) {
     @media (width < theme("screens.md")) {
-        .scroll-shadow {
+        .horizontal-scroll-shadow {
             position: relative;
             scroll-timeline: --scroll-timeline x;
 
@@ -14,11 +14,12 @@
                 top: 0;
                 bottom: 0;
                 font-size: 1.35rem;
-                padding-top: 0.8rem;
+                padding-top: 0.7rem;
 
                 animation-name: reveal;
                 animation-timeline: --scroll-timeline;
                 animation-fill-mode: both;
+                animation-timing-function: linear;
             }
 
             &::before {

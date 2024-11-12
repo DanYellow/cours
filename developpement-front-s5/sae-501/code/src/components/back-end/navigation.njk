@@ -50,9 +50,9 @@
         </h1>
     </header>
     <hr class="h-px">
-    <ul data-navigation="back-end" class="scroll-shadow flex md:flex-col rounded-b-2xl pl-0 mb-0 flex-nowrap flex-row overflow-x-auto">
+    <ul data-navigation="back-end" class="horizontal-scroll-shadow flex md:flex-col rounded-b-2xl pl-0 mb-0 flex-nowrap flex-row overflow-x-auto">
         {% for item in menu_entries %}        
-            <li class="mt-0.5 w-full {{ 'md:border-t-2 md:border-slate-100 md:border-solid' if loop.last else "" }} flex-grow flex-shrink-0 basis-5/12 sm:flex-shrink sm:flex-grow-0 sm:basis-auto">
+            <li class="mt-0.5 {{ '-ml-5' if loop.first else ''}} {{ '-mr-5' if loop.last else ''}} md:mr-0 md:ml-0 w-full {{ 'md:border-t-2 md:border-slate-100 md:border-solid' if loop.last else "" }} flex-grow flex-shrink-0 basis-5/12 sm:flex-shrink sm:flex-grow-0 sm:basis-auto">
                 <a 
                     href="{{ item.link }}" 
                     class="
