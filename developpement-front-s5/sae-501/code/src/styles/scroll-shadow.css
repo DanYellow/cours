@@ -1,4 +1,4 @@
-/* https://scroll-driven-animations.style/demos/scroll-shadows/css/ */
+/* Source : https://scroll-driven-animations.style/demos/scroll-shadows/css/ */
 
 @supports (animation-timeline: scroll()) {
     @media (width < theme("screens.md")) {

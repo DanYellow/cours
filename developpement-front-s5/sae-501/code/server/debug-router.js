@@ -9,7 +9,7 @@ import eslintMiddleware from "./utils/eslint.middleware.js";
 const router = express.Router();
 
 router.get("/", routeName("debug"), async (req, res) => {
-    res.render("pages/back-end/debug/index.njk", {});
+    res.render("pages/back-end/debug/index.njk");
 });
 
 router.get("/router", routeName("debug_router"), async (req, res) => {
