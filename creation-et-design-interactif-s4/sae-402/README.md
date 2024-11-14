@@ -7,6 +7,27 @@
 
 > **Note 3 : Le projet utilise la [technologie URP](https://unity.com/srp/universal-render-pipeline), de ce fait, il est possible d'utiliser d'ajouter des lumières pour ajouter des effets. A noter qu'il y a déjà une lumière globale dans la scène "Level1" (MainLight)**
 
+
+- [SAE 402 - Concevoir un dispositif interactif](#sae-402---concevoir-un-dispositif-interactif)
+  - [Commandes du jeu](#commandes-du-jeu)
+  - [Liste des choses impératives à faire. **Vous devez toutes les faire**](#liste-des-choses-impératives-à-faire-vous-devez-toutes-les-faire)
+  - [Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe)
+  - [Fonctionnalités que nous développerons ensemble](#fonctionnalités-que-nous-développerons-ensemble)
+    - [Recommencer au dernier checkpoint](#recommencer-au-dernier-checkpoint)
+    - [Système de ventilateurs](#système-de-ventilateurs)
+    - [Blocs](#blocs)
+  - [Contenu de l'écran des crédits](#contenu-de-lécran-des-crédits)
+    - [Ressources graphiques / musicales gratuites utilisables, source non exhaustive](#ressources-graphiques--musicales-gratuites-utilisables-source-non-exhaustive)
+  - [Gestion des ennemis](#gestion-des-ennemis)
+  - [Console de debug](#console-de-debug)
+  - [Utilisation de git](#utilisation-de-git)
+  - [Astuces et conseils](#astuces-et-conseils)
+  - [Ressources et outils utiles](#ressources-et-outils-utiles)
+  - [Travail en groupe](#travail-en-groupe)
+  - [Votre liste à faire](#votre-liste-à-faire)
+  - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
+
+
 ![](./screenshot.jpg)
 
 Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
@@ -71,7 +92,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Touche L : Arrête le mode "Play"
 - Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont correctement passées entre les scènes
 
-# Commandes du jeu
+## Commandes du jeu
 - Flèches gauche et droite (touches q et d) : déplacement du joueur
 - Flèche vers le bas (touche "s") : déplacement rapide vers le sol (en hauteur). Passer à travers certaines plate-formes
 - Barre espace : Saut
@@ -132,8 +153,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
     - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
 
-<span id="list-extras"></span>
-## Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)
+## <span id="list-extras">Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)</span>
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
     - http://dig.ccmixter.org/games
     - https://www.playonloop.com/royalty-free-music/video-game-chiptune-music/
@@ -219,10 +239,10 @@ Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le per
 ## Gestion des ennemis
 La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus. Le script `Assets/Scripts/Enemy` peut accepter un ScriptableObject de type `FloatVariable` représantant le nombre de points de vie.
 
-# Console de debug
+## Console de debug
 Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
 
-# Utilisation de git
+## Utilisation de git
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **obligatoire** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Créez le projet sur github
@@ -251,7 +271,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 
     > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
 
-# Astuces et conseils
+## Astuces et conseils
 - C'est bien d'avoir des superbes idées, mais il faut penser à les développer à la fin. Ne perdez pas votre temps à poser vos idées de game / level design sans développer. Assurez-vous d'avoir les connaissances / compétences techniques, pensez à faire des prototypes 
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
@@ -271,7 +291,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes in build" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 - **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
-# Ressources et outils utiles
+## Ressources et outils utiles
 Voici une liste non-exhaustive d'outils et ressources qui pourront vous être utiles.
 
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
@@ -282,7 +302,7 @@ Voici une liste non-exhaustive d'outils et ressources qui pourront vous être ut
 - [https://opengameart.org/](https://opengameart.org/)
 - [Chaîne Youtube sur TextMeshPro - anglais](https://www.youtube.com/playlist?list=PLg0yr4zozmZX0dJZ-XNa4v0i_kAVx2sfY)
 
-# Travail en groupe
+## Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
 - Ajouter un niveau supplémentaire (portant le total de niveaux à trois dans le jeu final)
 - Ajouter un nouvel ennemi au choix (avec comportements)
@@ -290,7 +310,7 @@ Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous
 
 Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. 
 
-# Votre liste à faire
+## Votre liste à faire
 - [x] Lire les consignes
 - [ ] Former votre groupe (3 à 5 max), plus tôt vous le ferez, plus tôt vous pourrez commencer à travailler sereinement
   - **N'oubliez pas que si vous êtes plus de trois, vous avez plus de choses à faire**
@@ -303,7 +323,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
             - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
         - Un fichier texte avec le lien du projet git + les fonctionnalités supplémentaires que vous avez ajouté ([partie "Liste des choses à faire au choix"](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe))
 
-# FAQ - Foire Aux Questions
+## FAQ - Foire Aux Questions
 
 - **Quand j'ai ouvert le projet pour la première fois, j'ai eu une scène vide. Pourquoi ?**
 
