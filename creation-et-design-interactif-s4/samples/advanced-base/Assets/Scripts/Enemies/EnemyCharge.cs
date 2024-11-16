@@ -51,7 +51,7 @@ public class EnemyCharge : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetFloat("VelocityX", rb.velocity.x * transform.right.normalized.x);
+            animator.SetFloat("VelocityX", rb.linearVelocity.x * transform.right.normalized.x);
         }
     }
 
@@ -62,15 +62,15 @@ public class EnemyCharge : MonoBehaviour
         FlipCheck();
         CheckForBottomTarget();
 
-        if (contact.collider != null && Mathf.Abs(rb.velocity.x) > 0)
+        if (contact.collider != null && Mathf.Abs(rb.linearVelocity.x) > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y);
         }
     }
 
     private void FlipCheck()
     {
-        if (isCharging || rb.velocity.y != 0)
+        if (isCharging || rb.linearVelocity.y != 0)
         {
             return;
         }
@@ -153,7 +153,7 @@ public class EnemyCharge : MonoBehaviour
         if (hit != null)
         {
             PlayerContacts playerContacts = hit.transform.GetComponent<PlayerContacts>();
-            if (playerContacts.hasBottomContact && rb.velocity.y < 0)
+            if (playerContacts.hasBottomContact && rb.linearVelocity.y < 0)
             {
                 PlayerHealth playerHealth = hit.transform.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(float.MaxValue);
@@ -178,18 +178,18 @@ public class EnemyCharge : MonoBehaviour
             current += Time.deltaTime / moveBackDuration;
             // Minus 1 because the enemy moveback firstAssets/Scripts/Enemies/EnemyCharge.cs
             var dir = (transform.position * (dirX * -1)).normalized;
-            rb.velocity = new Vector2(dir.x, rb.velocity.y);
+            rb.linearVelocity = new Vector2(dir.x, rb.linearVelocity.y);
 
             yield return waitInterval;
         }
 
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         isMovingForward = true;
 
         yield return new WaitForSeconds(0.15f);
 
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        rb.AddForce(new Vector2(speed * dirX, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(speed * dirX, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     void Stop(Collider2D collider)

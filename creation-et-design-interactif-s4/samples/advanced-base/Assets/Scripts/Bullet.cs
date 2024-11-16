@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
     public void OnDisable()
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
 
         if (autoDestroyCoroutine != null)
         {
@@ -74,7 +74,7 @@ public class Bullet : MonoBehaviour
         {
             factor = -1;
         }
-        rb.velocity = factor * moveSpeed * transform.right.normalized;
+        rb.linearVelocity = factor * moveSpeed * transform.right.normalized;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }

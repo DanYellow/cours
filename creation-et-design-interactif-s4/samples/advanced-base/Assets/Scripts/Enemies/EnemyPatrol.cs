@@ -49,7 +49,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("VelocityX", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocity.x));
     }
 
     private void FixedUpdate()
@@ -85,12 +85,12 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Idle()
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void Move()
     {
-        rb.velocity = new Vector2(speed * Mathf.Sign(transform.right.normalized.x), rb.velocity.y);
+        rb.linearVelocity = new Vector2(speed * Mathf.Sign(transform.right.normalized.x), rb.linearVelocity.y);
     }
 
     public bool HasCollisionWithObstacle()

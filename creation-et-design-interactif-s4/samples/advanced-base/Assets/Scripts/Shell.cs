@@ -37,7 +37,7 @@ public class Shell : MonoBehaviour
             Flip();
         }
 
-        rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.velocity.y) * rb.mass, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     private void Flip()

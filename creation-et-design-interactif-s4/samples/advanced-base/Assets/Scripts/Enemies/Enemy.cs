@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
             child.gameObject.SetActive(false);
         }
 
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.mass = 1;
         rb.gravityScale = 3;
         yield return null;

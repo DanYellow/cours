@@ -108,7 +108,7 @@ public class RockHead : MonoBehaviour
 
         Collider2D[] player = listContacts.Where(item => item.transform.CompareTag("Player")).ToArray();
 
-        if (listContacts.Length > 0 && rb.velocity.sqrMagnitude > crushThreshold)
+        if (listContacts.Length > 0 && rb.linearVelocity.sqrMagnitude > crushThreshold)
         {
             if (player.Length == 0 || (player.Length > 0 && listContacts.Length > 1))
             {
@@ -187,7 +187,7 @@ public class RockHead : MonoBehaviour
 
     private void CrushAnimation()
     {
-        if (rb.velocity.sqrMagnitude <= 0)
+        if (rb.linearVelocity.sqrMagnitude <= 0)
         {
             return;
         }

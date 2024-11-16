@@ -12,7 +12,7 @@ public class Knockback : MonoBehaviour
 
     public void Apply(Vector3 direction, float strength)
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * strength * rb.mass, ForceMode2D.Impulse);
         StartCoroutine(DisableControls());
     }

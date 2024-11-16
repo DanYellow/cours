@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (isJumping && rb.velocity.y < 0)
+        if (isJumping && rb.linearVelocity.y < 0)
         {
             isJumping = false;
         }
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             Jump(false);
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
             Jump(true);
         }
@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
             if (!isFloatingGrounded && !isGrounded)
             {
                 isLandingFast = true;
-                rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
             }
         }
     }
@@ -179,13 +179,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Animations()
     {
         animator.SetFloat("VelocityX", Mathf.Abs(moveDirectionX));
-        animator.SetFloat("VelocityY", rb.velocity.y);
+        animator.SetFloat("VelocityY", rb.linearVelocity.y);
         animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
         animator.SetBool("IsGrounded", isGrounded);
     }
@@ -201,8 +201,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(bool shortJump = false)
     {
-        float jumpPower = shortJump ? rb.velocity.y * 0.5f : jumpForce;
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        float jumpPower = shortJump ? rb.linearVelocity.y * 0.5f : jumpForce;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
 
         if (!shortJump)
         {
@@ -252,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsFalling()
     {
-        return rb.velocity.y <= -jumpForce;
+        return rb.linearVelocity.y <= -jumpForce;
     }
 
     void OnDrawGizmos()

@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
             bool isAboveEnemy = hit.collider.transform.position.y < bc.bounds.min.y;
 
             EnemyDamageManager enemyDamageManager = hit.collider.GetComponent<EnemyDamageManager>();
-            if (enemyDamageManager != null && isAboveEnemy && rb.velocity.y <= 2.5f)
+            if (enemyDamageManager != null && isAboveEnemy && rb.linearVelocity.y <= 2.5f)
             {
                 playerMovement.jumpCount = 0;
                 enemyDamageManager.Hurt();
