@@ -473,7 +473,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
     Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactiver "Récepteur AirPlay".
     ![](captures/airreceiver.png)
-    - [En savoir plus](https://developer.apple.com/forums/thread/682332)
+    - [En savoir plus - anglais](https://developer.apple.com/forums/thread/682332)
 
 - **Le navigateur affiche l'erreur `Error: Failed to lookup view "" in views directory "undefined"`**
     
@@ -497,7 +497,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
 
-    Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur (une balise). Par exemple, si on souhaite appliquer un style différent quand un conteneur a atteint une taille spécifique, il faut penser aux containers queries.
+    Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur (une balise). Ils permettent d'appliquer un style différent quand un conteneur a atteint une taille spécifique. Ce qui rend encore plus réutilisable vos structures html.
 
     Vous pourrez trouver des explications et exemples complémentaires en français ici :
     - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
@@ -508,7 +508,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
 
 ## Documentation
-Voici une liste non exhaustive des documentations des divers technologies utilisées dans le projet
+Voici une liste non exhaustive des documentations des divers technologies utilisées dans le projet :
 - [luxon](https://moment.github.io/luxon/)
 - [express v4.x](https://expressjs.com/en/4x/api.html)
 - [mongoose](https://mongoosejs.com/)
