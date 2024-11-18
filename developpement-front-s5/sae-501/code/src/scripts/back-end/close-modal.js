@@ -1,4 +1,4 @@
-import { delegateEventHandler } from "../utils";
+import { delegateEventHandler } from "#fe/utils";
 
 const closeModal = (e) => {
     e.target.closest("dialog[open]").close();

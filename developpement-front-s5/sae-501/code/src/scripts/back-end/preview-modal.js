@@ -1,4 +1,4 @@
-import { delegateEventHandler } from "../utils";
+import { delegateEventHandler } from "#fe/utils";
 
 const listPreviewCurrentImageBtn = document.querySelectorAll(
     "[data-preview-current-image-button]"

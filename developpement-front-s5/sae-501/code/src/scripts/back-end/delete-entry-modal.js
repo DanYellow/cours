@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { delegateEventHandler } from "../utils";
+import { delegateEventHandler } from "#fe/utils";
 
 const modal = document.querySelector("[data-modal]");
 const tplId = "delete-entry";

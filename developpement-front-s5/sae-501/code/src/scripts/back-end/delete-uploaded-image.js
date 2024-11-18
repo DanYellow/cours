@@ -1,4 +1,4 @@
-import { delegateEventHandler } from "../utils";
+import { delegateEventHandler } from "#fe/utils";
 
 const listDeleteCurrentImageBtn = document.querySelectorAll(
     "[data-delete-current-image-button]"

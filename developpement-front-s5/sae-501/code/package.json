@@ -56,7 +56,8 @@
     "#database/index.js": "./database/index.js",
     "#server/utils/*.js": "./server/utils/*.js",
     "#database/validator.js": "./database/validator.js",
-    "#database/*.js": "./database/*.js"
+    "#database/*.js": "./database/*.js",
+    "#fe/utils": "./src/scripts/utils.js"
   },
   "engines": {
     "node": ">=18.11"
