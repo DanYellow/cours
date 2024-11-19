@@ -30,8 +30,10 @@ const previewUpload = (e) => {
     );
 
     const errorMessage = imageValidator(file, listAllowedMimeType);
-    if (errorMessage) {
-        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage;
+    if (Object.keys(errorMessage).length) {
+        errorMessageContainer.querySelector("[data-error-message]").textContent = errorMessage.message;
+        errorMessageContainer.querySelector("[data-reduce-upload-link]").classList.toggle("hidden", errorMessage.type === "incorrect_format");
+
         errorMessageContainer.classList.remove("hidden");
         element.value = null;
         fileName.textContent = "";

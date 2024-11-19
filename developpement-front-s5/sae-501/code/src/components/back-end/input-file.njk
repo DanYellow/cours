@@ -102,14 +102,19 @@
 
                             <p class="text-sm text-slate-500 z-10" data-input-file-indicator="{{ name }}">Fichiers {{ accepts }} seulement (taille max. 800 kB)</p>
 
-                            <p class="rounded-lg p-2 flex items-center justify-center gap-2 bg-red-100 border-solid border-x border-y border-red-700 z-10" data-incorrect-upload="{{ name }}">
-                                <span data-error-message>Format incorrect</span>
+                            <div class="rounded-lg p-2 flex items-start justify-center gap-3 bg-red-100 border-solid border-x border-y border-red-700 z-10" data-incorrect-upload="{{ name }}">
+                                <div>
+                                    <p data-error-message>Format incorrect</p>
+                                    <p data-reduce-upload-link>
+                                        <a href="https://squoosh.app/" target="_blank" class="underline hocus:no-underline">Réduire la taille de l'image avec squoosh</a>
+                                    </p>
+                                </div>
                                 <button type="button" class="hocus:text-red-600">
                                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
                                     </svg>
                                 </button>
-                            </p>
+                            </div>
                         </div>
                     </td>
                 </tr>

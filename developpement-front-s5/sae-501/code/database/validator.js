@@ -4,17 +4,20 @@ const imageValidator = (image, listAllowedMimeType = ["image/png", "image/jpg", 
     if (
         !listAllowedMimeType.includes(image?.mimetype || image.type)
     ) {
-        return "Format incorrect uploadé";
+        return { message: "Format incorrect uploadé", type: "incorrect_format" };
     }
 
     const oneMo = 1024 * 1024;
     const fileLimit = oneMo * maxSizeFactor; // 800kB
     if (image.size > fileLimit) {
         const limitHundred = Math.floor(maxSizeFactor * 1024 / 100) * 100;
-        return `Fichier trop lourd (${(image.size / oneMo).toFixed(2)} MB). ${limitHundred} kB maximum.`;
+        return { 
+            message: `Fichier trop lourd (${(image.size / oneMo).toFixed(2)} MB). ${limitHundred} kB maximum.`, 
+            type: "upload_size",
+        };
     }
 
-    return null;
+    return { };
 };
 
 export { imageValidator };
