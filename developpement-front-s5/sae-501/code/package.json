@@ -57,7 +57,8 @@
     "#server/utils/*.js": "./server/utils/*.js",
     "#database/validator.js": "./database/validator.js",
     "#database/*.js": "./database/*.js",
-    "#fe/utils": "./src/scripts/utils.js"
+    "#fe/utils": "./src/scripts/utils.js",
+    "#generate-list-routes.js": "./generate-list-routes.js"
   },
   "engines": {
     "node": ">=18.11"

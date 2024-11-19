@@ -298,7 +298,6 @@ router.put(`/${base}/:id([a-f0-9]{24})`, routeName("sae_api"), upload.single("im
     } catch (_error) {
         oldRessource = {};
     }
-
     if (listErrors.length) {
         return res.status(400).json({
             errors: listErrors,
