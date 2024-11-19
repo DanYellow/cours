@@ -201,7 +201,7 @@ router.post(`/${base}`, routeName("sae_api"), upload.single("image"), async (req
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_path));
+        } = await uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 
@@ -288,7 +288,7 @@ router.put(`/${base}/:id([a-f0-9]{24})`, routeName("sae_api"), upload.single("im
             image_path: targetPath,
             errors: listErrors,
             image_name: imageName,
-        } = uploadImage(uploadedImage, res.locals.upload_path));
+        } = await uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
     }
 

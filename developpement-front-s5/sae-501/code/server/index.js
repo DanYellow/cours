@@ -153,7 +153,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         base_url,
         admin_url: `${base_url}/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`,
         upload_dir: "/uploads/",
-        upload_path: `${publicPath}/uploads/`,
+        upload_path: path.normalize(`${publicPath}/uploads/`),
         upload_url: `${base_url}/uploads/`,
         query_string_params: req.query,
         list_cookies: getAllCookies(req.headers.cookie),
