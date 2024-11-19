@@ -31,16 +31,15 @@ router
     .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`])
     .get(routeName("sae_form"), async (req, res) => {
         // Get or create SAE
-        const options = {
-            method: "GET",
-            url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
-        };
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
-
         let result = {};
         let listErrors = [];
 
         if (isEdit) {
+            const options = {
+                method: "GET",
+                url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+            };
             try {
                 result = await axios(options);
             } catch (error) {
