@@ -1,7 +1,7 @@
 import express from "express";
 import openEditor from "launch-editor";
 
-import { generateListRoutes } from "../generate-list-routes.js";
+import { generateListRoutes } from "#generate-list-routes.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
 import eslintMiddleware from "./utils/eslint.middleware.js";

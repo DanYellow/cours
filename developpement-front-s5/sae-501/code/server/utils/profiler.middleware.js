@@ -1,4 +1,4 @@
-import { getNameForRoute } from "../../generate-list-routes.js";
+import { getNameForRoute } from "#generate-list-routes.js";
 
 // Note : Fake middleware
 export default (req, res) => {

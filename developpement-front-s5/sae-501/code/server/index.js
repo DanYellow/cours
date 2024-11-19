@@ -24,7 +24,7 @@ import breadcrumb from "./utils/breadcrumb.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
 import profilerFakeMiddleware from "./utils/profiler.middleware.js";
 
-import { generateUrl, getNameForRoute } from "../generate-list-routes.js";
+import { generateUrl, getNameForRoute } from "#generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
 
 let envFilePath = `${process.cwd()}/env/.env.prod.local`;
