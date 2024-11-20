@@ -1,5 +1,5 @@
 <nav role="navigation" aria-label="Fil d'ariane">
-    <ol class="flex gap-1">
+    <ol class="flex gap-1 items-center">
         {% for breadcrumb_item in breadcrumb %}
             <li class="inert:opacity-40 text-gray-400 {{ "truncate overflow-hidden" if loop.last else "" }}" {{ "inert" if loop.last else "" }}>
                 <a 
@@ -9,7 +9,11 @@
                 </a>
             </li>
             {% if loop.last == false %}
-                <li inert class="text-gray-400 last:hidden">❯</li>
+                <li inert class="text-gray-400 last:hidden size-3 inline-flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path d="M18.44 10.566l-.679-.714c-.011-.013-.028-.017-.044-.03L8.951.591a1.848 1.848 0 00-2.711 0l-.68.712a2.096 2.096 0 000 2.854l7.45 7.843-7.45 7.84a2.098 2.098 0 000 2.857l.68.71c.747.79 1.961.79 2.71 0l8.767-9.227c.014-.014.033-.018.044-.033l.68-.712c.375-.396.56-.916.559-1.435a2.065 2.065 0 00-.56-1.435z"></path>
+                    </svg>
+                </li>
             {% endif %}
         {% endfor %}
     </ol>
