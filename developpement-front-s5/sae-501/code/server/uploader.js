@@ -1,7 +1,7 @@
 import path from "path";
-import multer from "multer";
 import fs from "fs/promises";
 import { existsSync } from "node:fs";
+import multer from "multer";
 
 import { imageValidator } from "#database/validator.js";
 
