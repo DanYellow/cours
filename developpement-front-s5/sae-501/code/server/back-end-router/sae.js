@@ -4,7 +4,7 @@ import axios from "axios";
 import querystring from "querystring";
 import routeName from "#server/utils/name-route.middleware.js";
 
-import upload from "../uploader.js";
+import upload from "#server/uploader.js";
 
 const base = "saes";
 const router = express.Router();

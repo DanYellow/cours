@@ -6,7 +6,7 @@ import querystring from "querystring";
 import SAE from "#models/sae.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
 
 const router = express.Router();
 const base = "saes";

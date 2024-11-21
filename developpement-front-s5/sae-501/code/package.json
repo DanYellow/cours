@@ -55,6 +55,7 @@
     "#models/*.js": "./database/models/*.js",
     "#database/index.js": "./database/index.js",
     "#server/utils/*.js": "./server/utils/*.js",
+    "#server/*.js": "./server/*.js",
     "#database/validator.js": "./database/validator.js",
     "#database/*.js": "./database/*.js",
     "#fe/utils": "./src/scripts/utils.js",

@@ -3,7 +3,7 @@ import axios from "axios";
 import mongoose from "mongoose";
 import querystring from "querystring";
 
-import upload from "../uploader.js";
+import upload from "#server/uploader.js";
 
 const base = "auteurs";
 const router = express.Router();

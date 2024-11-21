@@ -5,7 +5,7 @@ import querystring from "querystring";
 
 import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
 
 const router = express.Router();
 

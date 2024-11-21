@@ -5,7 +5,7 @@ import querystring from "querystring";
 import Article from "#models/article.js";
 import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from "../uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
 import mongoose from "mongoose";
 
 const router = express.Router();
