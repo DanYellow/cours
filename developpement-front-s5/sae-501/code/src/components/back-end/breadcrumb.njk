@@ -12,7 +12,7 @@
             </li>
             {% if has_shown_ellipsis == false and loop.index0 > 1 %}
                 <li class="inline-flex @xl/main:hidden items-center text-gray-400 {{ "min-w-0" if loop.last else "" }}">
-                    <button type="button" aria-hidden="true" class="font-bold p-4 text-gray-500 hocus:text-blue-700 w-11">…</button>
+                    <button type="button" class="font-bold p-4 text-gray-500 hocus:text-blue-700 w-11" data-display-details-breadcrumb="{{ breadcrumb }}">…</button>
                 </li>
                 <li inert class="inline-flex @xl/main:hidden shrink-0 text-gray-400 last:hidden size-3 items-center justify-center">
                     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
