@@ -48,7 +48,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
             jumpCount = 0;
         }
 
-        if (rb.velocity.y < fallingThreshold)
+        if (rb.linearVelocity.y < fallingThreshold)
         {
             isFalling = true;
         }
@@ -64,7 +64,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
             // AddForceAtAngle(15f, 45);
         }
 
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
 
         Flip();
     }
@@ -75,7 +75,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
         float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * force;
 
         Vector2 vforce = new Vector2(xcomponent, ycomponent);
-        rb.velocity = vforce;
+        rb.linearVelocity = vforce;
         // rb.AddForce(vforce, ForceMode2D.Impulse);
     }
 
@@ -113,7 +113,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
             Jump(false);
         }
 
-        if (context.canceled && rb.velocity.y > 0f)
+        if (context.canceled && rb.linearVelocity.y > 0f)
         {
             Jump(true);
         }
@@ -121,8 +121,8 @@ public class PlayerMovementInputSystem : MonoBehaviour
 
     private void Jump(bool shortJump = false)
     {
-        float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        float jumpPower = (shortJump ? rb.linearVelocity.y * 0.5f : jumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
         if (!shortJump)
         {
             jumpCount = jumpCount + 1;

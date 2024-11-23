@@ -17,7 +17,7 @@ public class EnemySpawn : MonoBehaviour
     void SpawnEnemy()
     {
         GameObject go = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
-        go.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * 12.5f;
+        go.GetComponent<Rigidbody2D>().linearVelocity = Random.insideUnitCircle * 12.5f;
         onEnemySpawn.Raise();
     }
 }
