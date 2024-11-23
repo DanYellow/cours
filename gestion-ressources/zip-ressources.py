@@ -209,6 +209,7 @@ generate_zip(list_ressources_folders_to_zip)
 
 with open("output.tmp.txt", "w") as txt_file:
     for line in list_zip_files_generated:
-        txt_file.write(line + "\n")
+        if os.path.isfile(line):
+            txt_file.write(line + "\n")
 
 print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
