@@ -1,5 +1,5 @@
 {
-  "name": "vite-config",
+  "name": "tp-vite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,6 @@
     "preview": "vite build && vite preview"
   },
   "devDependencies": {
-    "vite": "^5.3.3"
+    "vite": "latest"
   }
 }
