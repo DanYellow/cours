@@ -53,19 +53,19 @@ public class PlayerMovement : MonoBehaviour
             Jump(false);
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
             Jump(true);
         }
 
-        if (rb.velocity.y < fallingThreshold)
+        if (rb.linearVelocity.y < fallingThreshold)
         {
             isFalling = true;
         }
 
         if (isFalling && isGrounded)
         {
-            Debug.Log("rb.velocity.y : " + rb.velocity.y);
+            Debug.Log("rb.velocity.y : " + rb.linearVelocity.y);
             isFalling = false;
         }
 
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * force;
 
         Vector2 vforce = new Vector2(xcomponent, ycomponent);
-        rb.velocity = vforce;
+        rb.linearVelocity = vforce;
         // rb.AddForce(vforce, ForceMode2D.Impulse);
     }
 
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirectionX * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Flip()
@@ -119,8 +119,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(bool shortJump = false)
     {
-        float jumpPower = (shortJump ? rb.velocity.y * 0.5f : jumpForce);
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        float jumpPower = (shortJump ? rb.linearVelocity.y * 0.5f : jumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
         if (!shortJump)
         {
             jumpCount = jumpCount + 1;
