@@ -101,7 +101,7 @@
             <p class="note-information">Note 2 : Le fichier vite.config.js est déjà configuré pour vituum et le plugin qui permet la gestion des fichiers nunjucks avec vite</p>
           </li>
           <li>Lancez le projet avec <code>npm start</code> ou <code>npm run dev</code></li>
-          <li>Prenez en main le moteur de template Twig en effectuant les tâches suivantes :
+          <li>Prenez en main le moteur de template Nunjucks en effectuant les tâches suivantes :
             <ul>
                 <li>Créez et affichez une variable. <a href="https://mozilla.github.io/nunjucks/templating.html#set" target="_blank" rel="noopener noreferrer">Voir documentation de set</a></li>
                 <li>Utilisez une condition if/else. <a href="https://mozilla.github.io/nunjucks/templating.html#if" target="_blank" rel="noopener noreferrer">Voir documentation de if/else</a></li>
@@ -160,9 +160,9 @@
           <li>A l'aide de fichiers json, gérez la page détails d'un produit
             <ul>
                 <li>Dans le cas de fichiers json, il faudra faire le lien vers le nom du fichier + html. Par exemple "hello.json" -> "hello.html"</li>
-                <li>Pour rappel, l'extension twig de vite charge un fichier json de deux façons :
+                <li>Pour rappel, l'extension Nunjucks de vite charge un fichier json de deux façons :
                     <ul>
-                        <li>Un fichier json qui partage son nom avec un template et situés au même niveau. Ex : ./index.twig → ./index.twig.json</li>
+                        <li>Un fichier json qui partage son nom avec un template et situés au même niveau. Ex : ./index.njk → ./index.njk.json</li>
                         <li>Un fichier json placé dans le dossier src/data</li>
                     </ul>
                     Ce fichier json doit avoir des clés contenant les données à injecter (voir cours pour exemple)
@@ -178,7 +178,7 @@
           <h1 class="h1">Partie 5 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Créez un fichier .env et ajoutez une variable d'environnement qui sera affichée dans une de vos pages .twig
+          <li>Créez un fichier .env et ajoutez une variable d'environnement qui sera affichée dans une de vos pages .njk
             <p class="note-information">Pour rappel, si votre variable d'environnement ne commence pas par "VITE_", elle ne sera pas prise en compte par vite</p>
           </li>
           <li>Avec une variable d'environnement, gérez le port du serveur de développement (clé "server.port" dans le fichier vite.config.js)
