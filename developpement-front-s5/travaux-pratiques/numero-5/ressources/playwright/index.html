@@ -70,9 +70,9 @@
                     <li>
                         Vérifiez que vous êtes bien arrivé sur la page d'une
                         actualité en utilisation une assertion. Vous avez deux solutions pour cette assertion.
-                        <ul>
+                        <ol>
                             <li>
-                                Récupérer la valeur de l'attribut "href" avec la méthode <code>.getAttribute()</code> et tester l'url avec la méthode <code>.toHaveURL()</code>
+                                Récupérer la valeur de l'attribut "href" de la balise &lt;a> avec la méthode <code>.getAttribute()</code> et tester l'url avec la méthode <code>.toHaveURL()</code>
                             </li>
                             <li>
                                 Les liens d'actualité contiennent
@@ -80,7 +80,7 @@
                                 partie grâce à la méthode
                                 <code>.toHaveURL()</code>. Elle accepte une RegEx en paramètre
                             </li>
-                        </ul>
+                        </ol>
                         <section class="note-information">
                             <ul>
                                 <li>
@@ -245,7 +245,7 @@
                     <li>
                         Ajoutez un nouveau champ de type "file" dans le
                         formulaire contenu dans le fichier src/form.html avec le
-                        libellé de votre choix tout comme son emplacement. Ce
+                        libellé de votre choix tout comme son emplacement dans le formulaire. Ce
                         champ est facultatif et doit permettre d'uploader une
                         image uniquement.
                     </li>
@@ -255,7 +255,7 @@
                     </li>
                     <li>
                         Ajoutez un autre test pour vous assurer que le
-                        formulaire est bien réintialisé avec le bouton
+                        formulaire est bien réinitialisé avec le bouton
                         "rechoisir"
                     </li>
                 </ol>
@@ -444,6 +444,7 @@
                                 <li>Nombre de notes</li>
                                 <li>Note sur 5</li>
                             </ul>
+                            <p class="note-information"></p>
                         </li>
                     </ul>
                 </div>
