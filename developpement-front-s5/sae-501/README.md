@@ -369,7 +369,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] **Sans javascript**, afficher une barre de progression sur les articles au fur et à mesure de la lecture grâce à la propriété CSS[animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
   - Google propose un exemple sur son site. [Voir exemple](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
   - [Vous avez un autre exemple sur le site scroll-driven-animations.style](https://scroll-driven-animations.style/demos/progress-bar/css/)
-    - Ce site contient plein d'exemple concernant cette nouvelle API très pratique
+    - Ce site contient plein d'exemples concernant cette nouvelle API très pratique
   - Note : A l'heure actuelle, ceci ne fonctionne que sur Chrome, gérez que ce navigateur
 - [ ] Ajouter une page affichant en détails un auteur
     - Cette page n'existe pas, à vous de faire le design
