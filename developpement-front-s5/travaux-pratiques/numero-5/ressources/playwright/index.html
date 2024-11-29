@@ -414,7 +414,7 @@
                     </li>
                     <li>
                         Entrez l'adresse d'un site dans le navigateur qui s'est ouvert suite à la commande précédente
-                        <p class="note-information">Au lieu d'entrer dans le navigateur l'url du site, vous pouvez passer en paramètre cette url dans la commande. Ex : <code>npx playwright codegen (ou "open")</code>. Ce qui ouvrira directement le navigateur avec cette url.</p>
+                        <p class="note-information">Au lieu d'entrer dans le navigateur l'url du site, vous pouvez passer en paramètre cette url dans la commande. Ex : <code>npx playwright codegen (ou "open") url-du-site.com</code>. Ce qui ouvrira directement le navigateur avec cette url.</p>
                     </li>
                     <li>
                         Enregistez des commandes d'actions dans le but de générer un test
@@ -436,7 +436,7 @@
                 </summary>
                 <div>
                     <ul>
-                        <li>Générez un fichier JSON à partir des résultats du site www.boulanger.com. Chaque entrée du fichier JSON doit contenir :
+                        <li>Générez un fichier JSON à partir des résultats (plusieurs pages) du site www.boulanger.com. Chaque entrée du fichier JSON doit contenir :
                             <ul>
                                 <li>Nom</li>
                                 <li>Prix</li>
@@ -444,9 +444,19 @@
                                 <li>Nombre de notes</li>
                                 <li>Note sur 5</li>
                             </ul>
-                            <p class="note-information"></p>
+                            <div class="note-information">
+                                <p>Vous pouvez utiliser un autre site si vous le souhaitez. A noter que pour éviter d'être banni du site, il est conseillé de temporiser ses actions. Effectuer un délai entre chaque changement de page.</p>
+                            </div>
                         </li>
                     </ul>
+                    <div class="note-information">
+                        <p>Pour créer votre fichier JSON, il faudra utiliser l'API fs de nodejs et sa fonction writeFile().</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.youtube.com/watch?v=kD34sd8xlSM" target="_blank" rel="noopener noreferrer">Accéder à la documentation de fs - ouverture dans un nouvel onglet</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </details>
         </header>
