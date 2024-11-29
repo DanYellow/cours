@@ -25,14 +25,12 @@ document
             routeFullName[formValues.parcours]
         )
         banner.classList.remove("hidden")
-        document.querySelector('a').classList.remove("pointer-events-none", "opacity-50")
+        document.querySelector('a').inert = false;
                 
         // e.target.elements contient tous les champs du formulaire
         Array.from(e.target.elements)
             .forEach((item) => {
-                item.disabled = true
-
-                item.classList.add("disabled:opacity-50")
-                item.classList.toggle("disabled:bg-gray-100", item.tagName.toLowerCase() !== "button")
+                item.inert = true;
         })
+
 })

@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP#5 - S5</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        *:where([inert], [inert] *) {
+            opacity: 0.5;
+            background-color: rgb(148 163 184)!important;
+        }
+    </style>
     <script src="script.js" type="module"></script>
 </head>
 <body class="p-4">
@@ -41,28 +47,28 @@
         <section class="flex gap-x-4 flex-wrap">
             <section class="mb-3">
                 <label for="ue1" class="block">Moyenne UE1 <span class="text-red-500">*</span> :</label>
-                <input type="number" min="0" max="20" step="0.01" id="ue1" name="ue1" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue1" name="ue1" class="inert:opacity-50" required>
             </section>
             <section class="mb-3">
                 <label for="ue2" class="block">Moyenne UE2 <span class="text-red-500">*</span> :</label>
-                <input type="number" min="0" max="20" step="0.01" id="ue2" name="ue2" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue2" name="ue2" class="inert:opacity-50" required>
             </section>
             <section class="mb-3">
                 <label for="ue3" class="block">Moyenne UE3 <span class="text-red-500">*</span> :</label>
-                <input type="number" min="0" max="20" step="0.01" id="ue3" name="ue3" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue3" name="ue3" class="inert:opacity-50" required>
             </section class="mb-3">
             <section>
                 <label for="ue4" class="block">Moyenne UE4 <span class="text-red-500">*</span> :</label>
-                <input type="number" min="0" max="20" step="0.01" id="ue4" name="ue4" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue4" name="ue4" class="inert:opacity-50" required>
             </section>
             <section class="mb-3">
                 <label for="ue5" class="block">Moyenne UE5 <span class="text-red-500">*</span> :</label>
-                <input type="number" min="0" max="20" step="0.01" id="ue5" name="ue5" required>
+                <input type="number" min="0" max="20" step="0.01" id="ue5" name="ue5" class="inert:opacity-50" required>
             </section>
         </section>
         <section class="mb-3">
             <label for="parcours" class="block">Choix parcours <span class="text-red-500">*</span> :</label>
-            <select required name="parcours" id="parcours">
+            <select class="inert:opacity-50" required name="parcours" id="parcours">
                 <option value="">Veuillez sélectionner un parcours</option>
                 <option value="dev">Parcours développement web et dispositifs interactifs</option>
                 <option value="crea">Parcours création numérique</option>
@@ -75,9 +81,9 @@
         </section>
 
         <section class="flex justify-start gap-x-3">
-            <button type="submit" class="px-4 py-2 font-semibold text-l focus:bg-cyan-700 hover:bg-cyan-700 bg-cyan-500 text-white rounded-full shadow-sm">Envoyer</button>
-            <button type="reset" class="px-4 py-2 font-semibold text-l focus:bg-red-700 hover:bg-red-700 bg-red-500 text-white rounded-full shadow-sm">Annuler</button>
-            <a href="" class="px-4 py-2 font-semibold text-l focus:bg-green-700 hover:bg-green-700 bg-green-500 text-white rounded-full shadow-sm ml-auto pointer-events-none opacity-50">Rechoisir</a>
+            <button type="submit" class="inert:opacity-50 px-4 py-2 font-semibold text-l focus:bg-cyan-700 hover:bg-cyan-700 bg-cyan-500 text-white rounded-full shadow-sm">Envoyer</button>
+            <button type="reset" class="inert:opacity-50 px-4 py-2 font-semibold text-l focus:bg-red-700 hover:bg-red-700 bg-red-500 text-white rounded-full shadow-sm">Annuler</button>
+            <a href="" inert class="px-4 py-2 font-semibold text-l focus:bg-green-700 hover:bg-green-700 bg-green-500 text-white rounded-full shadow-sm ml-auto" data-reselect-link>Rechoisir</a>
         </section>
     </form>
     <p class="mt-4">
