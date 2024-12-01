@@ -3,7 +3,7 @@
 - [Astuces](#astuces)
   - [Swagger](#swagger)
   - [Middleware](#middleware)
-    - [Middleware "namedRoute"](#middleware-namedroute)
+    - [Middleware "routeName"](#middleware-routename)
   - [Gestion des retours à la ligne (nunjucks)](#gestion-des-retours-à-la-ligne-nunjucks)
   - [Ouvrir avec Code / Afficher le code](#ouvrir-avec-code--afficher-le-code)
   - [En vrac](#en-vrac)
@@ -50,7 +50,7 @@ A noter qu'on peut placer plusieurs middlewares, il suffit juste de les séparer
 
 Le système des middlewares est très puissant et pratique, vous pourrez en savoir plus en consultant la documentation. [Accéder à la documentation des middlewares](https://expressjs.com/fr/guide/using-middleware.html).
 
-### Middleware "namedRoute"
+### Middleware "routeName"
 
 Aussi pratique puisse être express et son système de routes, il possède une lacune assez contraignante : il n'est pas possible de nommer les routes. Fonctionnalité qu'on peut voir dans d'autres frameworks comme Symfony (php) ou Django (Python). Très pratique, elle permet de limiter la duplication de code en écrivant dans les templates non pas le chemin d'URL mais une fonction avec le nom de la route et les paramètres à lui passer.
 
