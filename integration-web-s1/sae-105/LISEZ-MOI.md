@@ -76,11 +76,12 @@ La page contact possède trois états :
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la sixième page.
 
 > Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
+> 
 > [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
 
 ## Police d'écriture
 La maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
-> [Voir documentation de @font-face](https://developer.mozilla.org/fr/docs/Web/CSS/%40font-face).
+- [Voir documentation de @font-face](https://developer.mozilla.org/fr/docs/Web/CSS/%40font-face).
 
 Quoiqu'il en soit sachez que la police "Open Sans" est nommée "Open Sans" dans le projet, ainsi si vous souhaitez appliquer la police sur un élément, il faudra écrire la chose suivante :
 ```css
@@ -96,13 +97,13 @@ Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoi
 Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
 ## Astuces
-- La navigation principale et la bulle du site se trouvent dans le fichier `ressources/css/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
+- La navigation principale et la bulle du site se trouvent dans le fichier `ressources/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
 - A la racine du projet, il y a un fichier nommé `squelette.php`. A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichiers CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
-- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Vous pouvez récupérer les propriétés CSS suivantes depuis AdobeXD :
+- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Néanmoins, vous pouvez récupérer les propriétés CSS suivantes depuis Adobe XD :
   - font-size. **N'oubliez pas de faire la conversion px -> rem**
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
@@ -118,8 +119,8 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 - **Votre projet doit impérativement avoir un fichier "index.php".** Il y en a déjà un, n'allez pas le renommer
 - Par défaut, VS Code ne permet pas l'auto-complétion de balises HTML dans un fichier PHP. Il faut l'activer, pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
-    1. Recherchez "emmet" dans la barre de recherche
-    1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
+    2. Recherchez "emmet" dans la barre de recherche
+    3. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
 
 
 ## Rendus attendus
@@ -150,10 +151,10 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
 - Accessibilité
   - Présence de l'attribut "alt" sur la balise &lt;img> même vide
   - Le contenu est contrasté dans la sixième page que vous devez réaliser
-  - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
+  - Toutes les pages ont une valeur unique et pertinente pour la balise &lt;title>
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
-      - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : 24px -> 24/16 -> 1.5rem.
+      - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : $rem = {24px \over 16px} = 1.5rem$
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/) (vous n'avez pas à toutes les respecter)
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
@@ -193,7 +194,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
   - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
 ## FAQ - Foire Aux Questions
-- **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden" ou un explorateur de fichier qui s'affiche. Pourquoi ?**
+- **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden" ou un explorateur de fichiers qui s'affiche. Pourquoi ?**
 
   Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut impérativement un fichier `index.php` sinon, c'est comme construire une maison sans porte d'entrée.
 
@@ -207,7 +208,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
     - [Accéder à la documentation de CSS Transition](https://developer.mozilla.org/fr/docs/Web/CSS/transition)
 - **C'est compliqué de travailler en groupe, il y a parfois des fichiers dupliqués, est-ce grave ?**
     
-    Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie Astuces, pour limiter les problèmes lors de la fusion, pour chaque page faites un CSS dédié quitte à avoir des doublons dans les sélecteurs.
+    Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie [Astuces](#astuces), pour limiter les problèmes lors de la fusion, pour chaque page faites un CSS dédié quitte à avoir des doublons dans les sélecteurs.
 
 - **Le raccourci `html:5` ne fonctionne pas dans mes fichiers PHP, pourquoi ?**
     
@@ -218,7 +219,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
 
 - **Je n'arrive plus à formatter mon code HTML dans les fichiers PHP, pourquoi ?**
 
-    Par défaut, VS code ne permet pas ceci. Toutefois, vous pouvez contrevenir à ce problème, grâce à l'extension gratuite[Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php). Vous pouvez l'installer via le lien précédent. Ou en passant par le gestionnaire d'extensions de VS Code qui es représenté par les quatre carrés à gauche de la fenêtre du logiciel. Cliquez dessus et cherchez "Format HTML in PHP", la bonne extension devrait être le premier résultat. Puis cliquez sur le bouton "Install".
+    Par défaut, VS code ne permet pas ceci. Toutefois, vous pouvez contrevenir à ce problème, grâce à l'extension gratuite [Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php). Vous pouvez l'installer via le lien précédent. Ou en passant par le gestionnaire d'extensions de VS Code qui est représenté par les quatre carrés à gauche de la fenêtre du logiciel. Cliquez dessus et cherchez "Format HTML in PHP", la bonne extension devrait être le premier résultat. Puis cliquez sur le bouton "Install".
 
     Une fois installé, vous pourrez utiliser le raccourci `Maj + Alt + F` ou clic droit "Format Document".
 
@@ -231,6 +232,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
         - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
         - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
         - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
+    > Normalement, lorsque la console est ouverte, le cache est désactivé.
 
 ## Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
