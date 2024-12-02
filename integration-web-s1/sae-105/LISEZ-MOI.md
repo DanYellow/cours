@@ -235,4 +235,4 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
     > Normalement, lorsque la console est ouverte, le cache est désactivé.
 
 ## Pour aller plus loin
-[Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
+- [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
