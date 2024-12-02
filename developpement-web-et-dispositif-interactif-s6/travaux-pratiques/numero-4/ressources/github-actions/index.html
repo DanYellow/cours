@@ -41,12 +41,14 @@
         </summary>
         <ol class="liste-consignes">
             <li>
-                Remplacez le contenu du repo crée précédemment par un projet npm (commande <code>npm init --y</code>)
+                Remplacez le contenu du dépôt crée précédemment par un projet npm (commande <code>npm init --y</code>).
             </li>
             <li>Installez les dépendances suivantes :
                 <ul>
                     <li>
-                        <a href="https://www.npmjs.com/package/release-it" target="_blank" rel="noopener noreferrer">release-it - Ouverture dans un nouvel onglet</a>
+                        <a href="https://www.npmjs.com/package/release-it" target="_blank" rel="noopener noreferrer">release-it - Ouverture dans un nouvel onglet</a>.
+                        <p> Pensez à sélectionner ".release-it.json" lors de l'installation avec la commande <code>npm init release-it</code>, sinon créez vous-même le fichier.</p>
+                       
                     </li>
                     <li>
                         <a href="https://www.npmjs.com/package/@release-it/conventional-changelog" target="_blank" rel="noopener noreferrer">@release-it/conventional-changelog - Ouverture dans un nouvel onglet</a>
@@ -61,8 +63,24 @@
                         </li>
                     </ul>
                 </div>
+                <p class="note-attention">
+                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de ça pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est un sous-niveau) avec la valeur "false" dans le fichier .release-it.json. 
+                </p>
             </li>
-            <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir :
+            <li>Testez la tâche de release, elle a été ajoutée dans votre fichier package.json. 
+                <div class="note-information">
+                    <p>
+                        Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour les afficher, il faut respecter un certain formattage qui permettra au module release-it de savoir quel est le prochain numéro de version (major, minor, patch).
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format">Accéder au formattage de commit selon Angular</a>
+                        </li>
+                    </ul>
+                    <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH.</p>
+                </div>            
+            </li>
+            <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir dans votre fichier YAML :
                 <ol>
                     <li>Installer des dépendances : <code>npm ci</code> ("ci" fait un "clean install")</li>
                     <li>Définir l'utilisateur git : <code>npm git config --global user.email / user.name</code>. Note : Il n'est pas nécessaire de mettre une vraie adresse e-mail et nom d'utilisateur</li>
@@ -76,19 +94,11 @@
                         <img src="actions-1.jpg" alt="">
                     </figure>
                 </div>
+                <p class="note-attention">
+                    Il est possible que la tâche de release soit bloquée. Pour régler ce problème, allez dans les "Settings" de votre dépôt puis dans la partie Actions > General > Workflow permissions, sélectionnez "Read and write permissions" et sauvegardez.
+                </p>
             </li>
         </ol>
-    <div class="note-information">
-        <p>
-            Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour les afficher, il faut respecter un certain formattage qui permettra à release-it de savoir quel est le prochain numéro de version (minor, patch, major).
-        </p>
-        <ul>
-            <li>
-                <a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format">Accéder au formattage de commit selon Angular</a>
-            </li>
-        </ul>
-        <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH.</p>
-    </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
