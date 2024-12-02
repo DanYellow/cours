@@ -39,14 +39,56 @@
         <summary>
           <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
         </summary>
-        <p>L'importmap fonctionne également avec des modules locaux, il est possible de définir un module en local pour ensuite le définir dans l'importmap. Le fonctionnement reste le même. Quand le module est local, vous pouvez utiliser un chemin relatif ou absolu entre le fichier HTML et les modules. A l'avenir, il sera possible d'externaliser l'importmap dans un fichier json.</p>
-        <!-- <p>L'importmap fonctionne également avec l'import dynamique de modules. En effet, pour des questions de temps de chargement, il est possible de charger un module à la volée grâce à une fonction asynchrone (async / await).</p> -->
         <ol class="liste-consignes">
-          <li>Créez un module local et ajoutez-le à votre importmap
-            <p class="note-information">Ce module peut contenir une variable ou une fonction qui effectue une addition. Inutile de faire quelque chose d'élaboré.</p>
-          </li>
-          <li>Utilisez ce module fraîchement crée dans votre script</li>
+            <li>
+                Remplacez le contenu du repo crée précédemment par un projet npm (commande <code>npm init --y</code>)
+            </li>
+            <li>Installez les dépendances suivantes :
+                <ul>
+                    <li>
+                        <a href="https://www.npmjs.com/package/release-it" target="_blank" rel="noopener noreferrer">release-it - Ouverture dans un nouvel onglet</a>
+                    </li>
+                    <li>
+                        <a href="https://www.npmjs.com/package/@release-it/conventional-changelog" target="_blank" rel="noopener noreferrer">@release-it/conventional-changelog - Ouverture dans un nouvel onglet</a>
+                    </li>
+                </ul>
+                <div class="note-information">
+                    <p>N'oubliez pas de mettre un fichier .gitignore à la racine de votre projet. Les node_modules (ou tout autre fichier de dépendances) n'ont rien à faire sur votre dépôt.</p>
+                    <p>Si vous n'êtes pas à l'aise avec ce genre de fichiers, il en existe déjà fait dans un dépôt dédié. Dans le cas de notre projet, prenez celui de Node.</p>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/github/gitignore" target="_blank" rel="noopener noreferrer">Accéder à la liste de gitignore - Ouverture dans un nouvel onglet</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir :
+                <ol>
+                    <li>Installer des dépendances : <code>npm ci</code> ("ci" fait un "clean install")</li>
+                    <li>Définir l'utilisateur git : <code>npm git config --global user.email / user.name</code>. Note : Il n'est pas nécessaire de mettre une vraie adresse e-mail et nom d'utilisateur</li>
+                    <li>Mettre à jour la version : <code>npm run release --ci </code></li>
+                </ol>
+                <div class="note-information">
+                    <p>
+                        On veut que cette Action se lance manuellement, ainsi l'évènement (clé "on") devra être "workflow_dispatch". Voir image ci-dessous pour lancer manuellement votre Action.
+                    </p>
+                    <figure>
+                        <img src="actions-1.jpg" alt="">
+                    </figure>
+                </div>
+            </li>
         </ol>
+    <div class="note-information">
+        <p>
+            Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour les afficher, il faut respecter un certain formattage qui permettra à release-it de savoir quel est le prochain numéro de version (minor, patch, major).
+        </p>
+        <ul>
+            <li>
+                <a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format">Accéder au formattage de commit selon Angular</a>
+            </li>
+        </ul>
+        <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH.</p>
+    </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
