@@ -64,20 +64,21 @@
                     </ul>
                 </div>
                 <p class="note-attention">
-                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de ça pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est un sous-niveau) avec la valeur "false" dans le fichier .release-it.json. 
+                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de ça et si nos identifiants npm ne sont pas définir, vous serez bloqué(e). Pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est une imbrication de clés) avec la valeur "false" dans le fichier .release-it.json. 
                 </p>
             </li>
-            <li>Testez la tâche de release, elle a été ajoutée dans votre fichier package.json. 
+            <li>Testez la tâche de release depuis la ligne de commandes, elle a été ajoutée dans votre fichier package.json. 
                 <div class="note-information">
                     <p>
-                        Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour les afficher, il faut respecter un certain formattage qui permettra au module release-it de savoir quel est le prochain numéro de version (major, minor, patch).
+                        Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour générer correctement ce fichier, il faut respecter un certain formattage qui permettra au module release-it de savoir quel est le prochain numéro de version (major, minor, patch).
                     </p>
                     <ul>
                         <li>
                             <a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format">Accéder au formattage de commit selon Angular</a>
                         </li>
                     </ul>
-                    <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH.</p>
+                    <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH. Il est bien évidemment possible d'avoir plusieurs commits commençant par "feat:" ou "fix:" au sein de la même version.</p>
+                    <p>C'est pour cette raison qu'il est important de séparer ses commits par fonctionnalité. Grâce à ce système, vous pouvez voir en un coup d'oeil la liste des fonctionnalités / bugs corrigés version par version.</p>
                 </div>            
             </li>
             <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir dans votre fichier YAML :
@@ -93,6 +94,11 @@
                     <figure>
                         <img src="actions-1.jpg" alt="">
                     </figure>
+                    <ul>
+                        <li>
+                            <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows" target="_blank" rel="noopener noreferrer">Voir liste des évènements - Ouverture dans un nouvel onglet</a>
+                        </li>
+                    </ul>
                 </div>
                 <p class="note-attention">
                     Il est possible que la tâche de release soit bloquée. Pour régler ce problème, allez dans les "Settings" de votre dépôt puis dans la partie Actions > General > Workflow permissions, sélectionnez "Read and write permissions" et sauvegardez.
@@ -106,17 +112,7 @@
         </summary>
         <ol class="liste-consignes">
             <li>
-                Ajoutez une clé "scopes" à votre importmap et chargez un module en fonction du chemin défini dans votre importmap
-                <div class="note-information">
-                    <p>Pour vous assurer que le module est différent, vous pouvez essayer de charger un module qui permet d'afficher le numéro de version du module. Lodash le permet grâce à sa propriété "VERSION".</p>
-                    <ul>
-                        <li>
-                            <a href="https://lodash.com/docs/4.17.15#VERSION" target="_blank" rel="noopener noreferrer">
-                                Voir documentation de la propriété VERSION de lodash - Ouverture dans un nouvel onglet
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            
             </li>
         </ol>
       </details>
