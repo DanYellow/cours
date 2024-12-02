@@ -54,13 +54,11 @@ Les deux pages à réaliser sont :
         - Mettre une valeur par défaut s'il n'y a pas d'auteur
     - Sa vidéo youtube (si l'article en a une)
         - **Le lecteur Youtube doit s'afficher sur la page de votre site**
-        - La balise contenant votre vidéo devra elle-même être contenue dans une balise ayant la classe CSS "youtube-video". Exemple :
+        - Pour garder le ratio de 16/9 de la vidéo, tailwind nous propose des classes. Exemple :
         ```html
-        <!-- La classe "youtube-video" permet de garder le ratio 16/9 des vidéos -->
-        <iframe class="youtube-video">
-        <!-- reste du code pour afficher la vidéo de youtube -->
-        </article>
+        <iframe class="w-full aspect-video [...]"></iframe>
         ```
+        - [Pour en savoir plus](https://tailwindcss.com/docs/aspect-ratio)
   > Note : Cette page possède un bug concernant le chargement du bon article, à vous de le corriger
 - La liste des auteurs du site ("équipe de rédaction")
   - Le lien pour y accéder est déjà dans la navigation mais le fichier php n'existe pas
