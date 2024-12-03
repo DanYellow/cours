@@ -20,20 +20,21 @@
           <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>
-            Créez un dépôt sur votre compte Github
-        </li>
-        <li>A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en exemple dans votre projet
-            <ul>
-                <li>
-                    <a href="https://docs.github.com/fr/actions/writing-workflows/quickstart" target="_blank" rel="noopener noreferrer">Didacticiel sur les Github Actions - Ouverture dans un nouvel onglet</a>
-                </li>
-            </ul>
-        </li>
-        <li>Ajoutez une commande à votre fichier d'Actions
-            <p class="note-information">N'oubliez pas de commiter et pusher vos modifications, sinon, vous ne verrez pas vos mises à jour.</p>
-        </li>
+            <li>
+                Créez un dépôt sur votre compte Github
+            </li>
+            <li>A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en exemple dans votre projet
+                <ul>
+                    <li>
+                        <a href="https://docs.github.com/fr/actions/writing-workflows/quickstart" target="_blank" rel="noopener noreferrer">Didacticiel sur les Github Actions - Ouverture dans un nouvel onglet</a>
+                    </li>
+                </ul>
+            </li>
+            <li>Ajoutez une commande linux de votre choix à votre fichier d'Actions
+                <p class="note-information">N'oubliez pas de commiter et pusher vos modifications, sinon, vous ne verrez pas vos mises à jour.</p>
+            </li>
         </ol>
+        <p class="note-information">Vos actions sont exécutées dans l'onglet "Actions" de votre dépôt. Également accessible via l'URL : https://github.com/votre-pseudo/nom-du-depot/actions</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -64,7 +65,7 @@
                     </ul>
                 </div>
                 <p class="note-attention">
-                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de ça et si nos identifiants npm ne sont pas définir, vous serez bloqué(e). Pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est une imbrication de clés) avec la valeur "false" dans le fichier .release-it.json. 
+                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de cette fonctionnalité et si nos identifiants npm ne sont pas définis, vous serez bloqué(e). Pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est une imbrication de clés) avec la valeur "false" dans le fichier .release-it.json. 
                 </p>
             </li>
             <li>Testez la tâche de release depuis la ligne de commandes, elle a été ajoutée dans votre fichier package.json. 
@@ -83,6 +84,7 @@
             </li>
             <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir dans votre fichier YAML :
                 <ol>
+                    <li>Cloner le projet : <code>actions/checkout@v4</code>. C'est une action prédéfinie, il faudra utiliser la clé "uses" à la place de "run"</li>
                     <li>Installer des dépendances : <code>npm ci</code> ("ci" fait un "clean install")</li>
                     <li>Définir l'utilisateur git : <code>npm git config --global user.email / user.name</code>. Note : Il n'est pas nécessaire de mettre une vraie adresse e-mail et nom d'utilisateur</li>
                     <li>Mettre à jour la version : <code>npm run release --ci </code></li>
@@ -110,9 +112,27 @@
         <summary>
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
+        <div class="note-information">
+            <p>Pour cette dernière partie, vous allez déployer en SSH, grâce aux actions, le projet contenu dans le dossier "partie-3", c'est un site web en php utilisant nodejs pour tailwind ou encore la gestion des modules javascript.</p>
+            <p>A noter que pour déployer en SSH, il vous faut un hébergeur qui vous le permet. Si vous n'en avez pas, sachez qu'Alwaysdata vous le permet.</p>
+            <p>Dans tous les cas, il faudra que vous ayez sous la main : le serveur d'hôte, le nom d'utilisateur et votre clef ssh.</p>
+        </div>
+
         <ol class="liste-consignes">
             <li>
-            
+                Créez un nouveau dépôt ou remplacez le contenu de votre dépôt existant avec le contenu du dossier "partie-3"
+            </li>
+            <li>Définissez une CI/CD permettant les actions suivantes : 
+                <ul>
+                    <li>Lint le code javascript</li>
+                    <li>Exécute les tests unitaires</li>
+                    <li>Build le projet</li>
+                    <li>Déploie le tout en SSH
+                        <div class="note-information">
+                            <p>Pour le déploiement en SSH, vous devrez utiliser une action </p>
+                        </div>
+                    </li>
+                </ul>
             </li>
         </ol>
       </details>
