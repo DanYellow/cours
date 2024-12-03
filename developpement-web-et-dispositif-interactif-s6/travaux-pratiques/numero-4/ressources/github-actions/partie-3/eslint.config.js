@@ -8,6 +8,7 @@ export default [
   {
     ignores: [
       "dist/",
+      "tests/",
       "tailwind.config.js",
       "vite.config.js",
       "eslint.config.js",
