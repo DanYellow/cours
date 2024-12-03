@@ -36,6 +36,7 @@ export default {
         plugin(({ addVariant, addComponents, theme }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
+            addVariant('group-hocus', [':merge(.group):hover &', ':merge(.group):focus-visible &']);
             addComponents({
                 ".plante": {
                     backgroundColor: theme("colors.green.500"),

@@ -14,17 +14,17 @@
         <footer class="px-2">
             <button
                 data-load-generation="2"
-                class="block w-full my-4 p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white"
+                class="block rounded-md w-full my-4 p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white"
             >
                 Charger la génération suivante
             </button>
         </footer>
         <template data-tpl-id="pokemon">
             <li>
-                <button data-pokemon-data>
-                    <figure>
+                <button data-pokemon-data class="hocus:bg-slate-100 rounded-md p-2 group">
+                    <figure class="flex flex-col gap-3 items-center">
                         <img src="" loading="lazy" alt="" />
-                        <figcaption class="text-center"></figcaption>
+                        <figcaption class="text-center group-hocus:bg-slate-900 group-hocus:text-white w-fit rounded-md px-2"></figcaption>
                     </figure>
                 </button>
             </li>
@@ -45,7 +45,7 @@
                 </div>
             </header>
             <ul
-                class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 mb-4 mx-auto max-w-6xl px-2"
+                class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 mb-4 mx-auto max-w-6xl px-2 mt-2"
                 data-pokedex
             ></ul>
         </template>
