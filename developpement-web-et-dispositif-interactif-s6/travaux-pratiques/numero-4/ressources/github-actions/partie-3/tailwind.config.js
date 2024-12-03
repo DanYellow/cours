@@ -19,6 +19,10 @@ export default {
         "psy",
         "roche",
         "combat",
+        "acier",
+        "dragon",
+        "fee",
+        "spectre",
         "hidden",
     ],
     theme: {
@@ -79,6 +83,18 @@ export default {
                 },
                 ".combat": {
                     backgroundColor: theme("colors.orange.500"),
+                },
+                ".acier": {
+                    backgroundColor: theme("colors.slate.500"),
+                },
+                ".fee": {
+                    backgroundColor: theme("colors.fuchsia.500"),
+                },
+                ".dragon": {
+                    backgroundColor: theme("colors.teal.500"),
+                },
+                ".spectre": {
+                    backgroundColor: theme("colors.indigo.500"),
                 },
             });
         }),
