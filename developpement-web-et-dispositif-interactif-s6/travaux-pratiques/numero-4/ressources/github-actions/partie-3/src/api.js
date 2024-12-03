@@ -9,6 +9,15 @@ const fetchAllTypes = async () => {
     }
 }
 
+const fetchPokemonExtraData = async (pkmnId) => {
+    try {
+        const req = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`);
+        return req.data;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     try {
         const req = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`);
@@ -23,7 +32,7 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-export { fetchAllTypes, fetchPokemonDescription };
+export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

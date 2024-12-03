@@ -1,5 +1,5 @@
 import "./style.css";
-import fetchPokemonForGeneration, { fetchPokemonDescription, fetchAllTypes } from "./api";
+import fetchPokemonForGeneration, { fetchPokemonDescription, fetchAllTypes, fetchPokemonExtraData } from "./api";
 import { getVersionForName, cleanString, clearTagContent } from "./utils";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
@@ -25,6 +25,8 @@ const modal_DOM = {
     height: modal.querySelector("[data-weight]"),
     weight: modal.querySelector("[data-height]"),
     listAbilities: modal.querySelector("[data-list-abilities]"),
+    listGames: modal.querySelector("[data-list-games]"),
+    nbGames: modal.querySelector("[data-nb-games]"),
 };
 
 const dataCache = {};
@@ -61,11 +63,17 @@ const displayDetails = async (e) => {
     });
 
     const descriptionsContainer = modal.querySelector("dl");
-
-    let listDescriptions = dataCache[pkmnData.pokedex_id];
+    
+    let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
+    let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
     if (!dataCache[pkmnData.pokedex_id]) {
         listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
-        dataCache[pkmnData.pokedex_id] = listDescriptions;
+        pkmnExtraData = await fetchPokemonExtraData(pkmnData.pokedex_id);
+
+        dataCache[pkmnData.pokedex_id] = {
+            descriptions: listDescriptions,
+            extras: pkmnExtraData,
+        };
     }
 
     clearTagContent(descriptionsContainer);
@@ -137,6 +145,18 @@ const displayDetails = async (e) => {
 
         modal_DOM.listAbilities.append(li);
     })
+
+    clearTagContent(modal_DOM.listGames);
+    pkmnExtraData.game_indices.forEach((item) => {
+        const li = document.createElement("li");
+        const versionName = `Pokémon ${
+            getVersionForName[item.version.name] || "Unknown"
+        }`;
+        li.textContent = versionName;
+
+        modal_DOM.listGames.append(li)
+    });
+    modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`
 
 
     modal.showModal();
