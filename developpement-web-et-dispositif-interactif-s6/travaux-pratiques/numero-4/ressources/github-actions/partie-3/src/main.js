@@ -1,5 +1,6 @@
 import "./style.css";
-import fetchPokemonForGeneration from "./api";
+import fetchPokemonForGeneration, { fetchPokemonDescription } from "./api";
+import { getVersionForName } from "./utils";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
@@ -7,7 +8,6 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
-
 
 const displayDetails = async (e) => {
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
@@ -17,15 +17,41 @@ const displayDetails = async (e) => {
     imgTag.src = pkmnData.sprites.regular;
     imgTag.alt = `sprite de ${pkmnData.name.fr}`;
 
-    modal.querySelector("h2").textContent = pkmnData.name.fr;
+    modal.querySelector("h2").textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
     modal.querySelector("[data-sprite]").textContent = pkmnData.name.fr;
+
+    const listTypes = modal.querySelector("[data-list-types]");
+
+    while (listTypes.firstChild) {
+        listTypes.removeChild(listTypes.firstChild);
+    }
 
     pkmnData.types.forEach((type) => {
         const li = document.createElement("li");
         li.textContent = type.name;
-        li.classList.add(...[type.name.toLowerCase(), "rounded-lg", "px-2", "py-1"])
+        li.classList.add(...[type.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, ''), "rounded-lg", "px-2", "py-1"])
 
-        modal.querySelector("[data-list-types]").append(li);
+        listTypes.append(li);
+    })
+
+    const descriptionsContainer = modal.querySelector("dl");
+    const listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
+
+    while (descriptionsContainer.firstChild) {
+        descriptionsContainer.removeChild(descriptionsContainer.firstChild);
+    }
+
+    listDescriptions.flavor_text_entries.forEach((description) => {
+        const dt = document.createElement("dt");
+        const versionName = `Pokémon ${getVersionForName[description.version.name] || "Unknown"}`
+        dt.textContent = versionName;
+        dt.classList.add("font-bold")
+        descriptionsContainer.append(dt);
+        
+        const dd = document.createElement("dd");
+        dd.textContent = description.flavor_text;
+        dd.classList.add("mb-2")
+        descriptionsContainer.append(dd);
     })
 
     modal.showModal();
