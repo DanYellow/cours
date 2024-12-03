@@ -49,9 +49,13 @@ const fetchListPokemon = async (generation = 1) => {
         const req = await axios.get(`https://tyradex.vercel.app/api/v1/gen/${generation}`);
         listPokemon = req.data;
 
+        if(req.data?.status >= 400) {
+            throw new Error("", {cause: req.data} );
+        }
+
         return listPokemon;
     } catch (error) {
-        throw new Error(error);
+        throw new Error("", { cause: error.cause });
     }
 }
 

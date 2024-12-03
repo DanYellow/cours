@@ -225,7 +225,11 @@ const loadTemplateForGeneration = async (generation = 1) => {
         pokedexContainer.append(cloneDex);
         loadGenerationBtn.inert = false;
     } catch (error) {
-        console.log(error);
+        if(error?.cause?.status === 404) {
+            loadGenerationBtn.inert = true;
+        } else {
+            loadGenerationBtn.inert = false;
+        }
     }
 };
 
