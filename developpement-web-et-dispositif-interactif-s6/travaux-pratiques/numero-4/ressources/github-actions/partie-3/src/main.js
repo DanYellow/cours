@@ -244,5 +244,8 @@ loadGenerationBtn.addEventListener("click", (e) => {
 });
 
 closeModalBtn.addEventListener("click", () => {
+    const url = new URL(location);
+    url.searchParams.delete("id");
+    history.replaceState({}, "", url);
     modal.close();
 });
