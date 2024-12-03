@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const fetchPokemon = async (url) => {
+const fetchAllTypes = async () => {
     try {
-        const req = await axios.get(url);
+        const req = await axios.get("https://tyradex.app/api/v1/types");
         return req.data;
     } catch (error) {
         throw new Error(error);
@@ -23,7 +23,7 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-export { fetchPokemon, fetchPokemonDescription };
+export { fetchAllTypes, fetchPokemonDescription };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

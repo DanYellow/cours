@@ -1,9 +1,11 @@
 import "./style.css";
-import fetchPokemonForGeneration, { fetchPokemonDescription } from "./api";
-import { getVersionForName } from "./utils";
+import fetchPokemonForGeneration, { fetchPokemonDescription, fetchAllTypes } from "./api";
+import { getVersionForName, cleanString } from "./utils";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
+const pkmnSensibilityTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sensibility']");
+
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
@@ -13,12 +15,18 @@ const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
     img: modal.querySelector("img"),
     listTypes: modal.querySelector("[data-list-types]"),
+    listSensibilities: modal.querySelector("[data-list-sensibilities]"),
     sexMale: modal.querySelector("[data-sex='male']"),
     sexAsexual: modal.querySelector("[data-sex='asexual']"),
     sexFemale: modal.querySelector("[data-sex='female']"),
     sexRateMale: modal.querySelector("[data-sex-rate='male']"),
     sexRateFemale: modal.querySelector("[data-sex-rate='female']"),
 };
+
+const dataCache = {};
+
+let listTypes = await fetchAllTypes();
+listTypes = listTypes.map((item) => ({sprite: item.sprites, name: cleanString(item.name.fr)}))
 
 const displayDetails = async (e) => {
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
@@ -38,10 +46,7 @@ const displayDetails = async (e) => {
         li.textContent = type.name;
         li.classList.add(
             ...[
-                type.name
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/\p{Diacritic}/gu, ""),
+                cleanString(type.name),
                 "py-0.5",
                 "px-2",
                 "rounded-md",
@@ -52,7 +57,12 @@ const displayDetails = async (e) => {
     });
 
     const descriptionsContainer = modal.querySelector("dl");
-    const listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
+
+    let listDescriptions = dataCache[pkmnData.pokedex_id];
+    if (!dataCache[pkmnData.pokedex_id]) {
+        listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
+        dataCache[pkmnData.pokedex_id] = listDescriptions;
+    }
 
     while (descriptionsContainer.firstChild) {
         descriptionsContainer.removeChild(descriptionsContainer.firstChild);
@@ -73,9 +83,36 @@ const displayDetails = async (e) => {
         descriptionsContainer.append(dd);
     });
 
-    modal_DOM.sexMale.classList.toggle("hidden", pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined);
-    modal_DOM.sexFemale.classList.toggle("hidden", pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined);
-    modal_DOM.sexAsexual.classList.toggle("hidden", !(pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined));
+    while (modal_DOM.listSensibilities.firstChild) {
+        modal_DOM.listSensibilities.removeChild(modal_DOM.listSensibilities.firstChild);
+    }
+
+    pkmnData.resistances.forEach((item) => {
+        const clone = document.importNode(pkmnSensibilityTemplateRaw.content, true);
+        const typeData = listTypes.find((type) => cleanString(type.name) === cleanString(item.name))
+
+        clone.querySelector("img").src = typeData.sprite;
+        clone.querySelector("[data-type]").textContent = item.name;
+        clone.querySelector("[data-damage-factor]").textContent = `x${item.multiplier}`;
+        
+        modal_DOM.listSensibilities.append(clone);
+    })
+
+    modal_DOM.sexMale.classList.toggle(
+        "hidden",
+        pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
+    );
+    modal_DOM.sexFemale.classList.toggle(
+        "hidden",
+        pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined
+    );
+    modal_DOM.sexAsexual.classList.toggle(
+        "hidden",
+        !(
+            pkmnData.sexe?.female === undefined &&
+            pkmnData.sexe?.male === undefined
+        )
+    );
 
     modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
     modal_DOM.sexRateMale.textContent = `${pkmnData.sexe?.male}%`;
@@ -85,7 +122,6 @@ const displayDetails = async (e) => {
     modal.showModal();
 
     console.log(pkmnDataRaw);
-    console.log(pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined);
 };
 
 const loadTemplateForGeneration = async (generation = 1) => {
@@ -106,11 +142,12 @@ const loadTemplateForGeneration = async (generation = 1) => {
             pokedexData.at(-1).pokedex_id
         }`;
 
-        pokedexData.forEach((item) => {
+        pokedexData.forEach((item, index) => {
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
             imgTag.src = item.sprites.regular;
             imgTag.alt = `sprite de ${item.name.fr}`;
+            imgTag.fetchPriority = index <= 20 ? "high" : "low";
             clone.querySelector(
                 "figcaption"
             ).textContent = `#${item.pokedex_id} ${item.name.fr}`;
@@ -130,7 +167,8 @@ const loadTemplateForGeneration = async (generation = 1) => {
     }
 };
 
-loadTemplateForGeneration();
+
+await loadTemplateForGeneration();
 
 loadGenerationBtn.addEventListener("click", (e) => {
     loadTemplateForGeneration(e.currentTarget.dataset.loadGeneration);
