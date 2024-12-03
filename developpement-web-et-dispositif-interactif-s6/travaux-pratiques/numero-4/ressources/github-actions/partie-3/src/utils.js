@@ -26,6 +26,7 @@ const getVersionForName = {
     "omega-ruby": "Rubis Oméga",
     "alpha-sapphire": "Saphir Alpha",
     "sword": "Épée",
+    "shield": "Bouclier",
     "sun": "Soleil",
     "moon": "Lune",
     "lets-go-eevee": "Let's Go, Évoli",
