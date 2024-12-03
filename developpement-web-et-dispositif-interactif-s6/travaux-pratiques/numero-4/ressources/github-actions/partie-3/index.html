@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Pokédex</title>
   </head>
   <body>
-    <div id="app"></div>
+    <main class="mx-auto max-w-6xl px-2">
+        <ul class="grid grid-cols-3 lg:grid-cols-8 gap-4" data-pokedex></ul>
+    </main>
     <script type="module" src="/src/main.js"></script>
+    <template data-tpl-id="pokemon">
+        <li>
+            <button>
+                <figure>
+                    <img src="" loading="lazy" alt="">
+                    <figcaption class="text-center"></figcaption>
+                </figure>
+            </button>
+        </li>
+    </template>
   </body>
 </html>
