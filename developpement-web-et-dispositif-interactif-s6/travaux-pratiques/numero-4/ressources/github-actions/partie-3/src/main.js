@@ -14,6 +14,7 @@ const modal_DOM = {
     img: modal.querySelector("img"),
     listTypes: modal.querySelector("[data-list-types]"),
     sexMale: modal.querySelector("[data-sex='male']"),
+    sexAsexual: modal.querySelector("[data-sex='asexual']"),
     sexFemale: modal.querySelector("[data-sex='female']"),
     sexRateMale: modal.querySelector("[data-sex-rate='male']"),
     sexRateFemale: modal.querySelector("[data-sex-rate='female']"),
@@ -72,17 +73,19 @@ const displayDetails = async (e) => {
         descriptionsContainer.append(dd);
     });
 
-    modal_DOM.sexMale.classList.toggle("hidden", pkmnData.sexe.male === 0);
-    modal_DOM.sexFemale.classList.toggle("hidden", pkmnData.sexe.female === 0);
-    
-    modal_DOM.sexMale.style.width = `${pkmnData.sexe.male}%`;
-    modal_DOM.sexRateMale.textContent = `${pkmnData.sexe.male}%`;
-    modal_DOM.sexFemale.style.width = `${pkmnData.sexe.female}%`;
-    modal_DOM.sexRateFemale.textContent = `${pkmnData.sexe.female}%`;
+    modal_DOM.sexMale.classList.toggle("hidden", pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined);
+    modal_DOM.sexFemale.classList.toggle("hidden", pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined);
+    modal_DOM.sexAsexual.classList.toggle("hidden", !(pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined));
+
+    modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
+    modal_DOM.sexRateMale.textContent = `${pkmnData.sexe?.male}%`;
+    modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
+    modal_DOM.sexRateFemale.textContent = `${pkmnData.sexe?.female}%`;
 
     modal.showModal();
 
     console.log(pkmnDataRaw);
+    console.log(pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined);
 };
 
 const loadTemplateForGeneration = async (generation = 1) => {
