@@ -14,6 +14,7 @@ const displayDetails = async (e) => {
 
 const loadTemplateForGeneration = async (generation = 1) => {
     try {
+        loadGenerationBtn.inert = true;
         const pokedexData = await fetchPokemonForGeneration(generation);
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
         const pokedex = cloneDex.querySelector("[data-pokedex]");
@@ -38,6 +39,7 @@ const loadTemplateForGeneration = async (generation = 1) => {
         loadGenerationBtn.dataset.loadGeneration = Number(generation) + 1;
 
         pokedexContainer.append(cloneDex);
+        loadGenerationBtn.inert = false;
     } catch (error) {
         console.log(error);
     }

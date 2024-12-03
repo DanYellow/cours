@@ -9,11 +9,6 @@
   <body>
     <main class="mx-auto max-w-6xl px-2">
         <div data-list-pokedex></div>
-        <!-- <header class="sticky top-0  border-black border-b-2 bg-slate-50 pb-3">
-            <h2 class="text-3xl">Generation #1</h2>
-            <p>1 -> 151</p>
-        </header>
-        <ul class="grid grid-cols-3 lg:grid-cols-8 gap-4" data-pokedex></ul> -->
         <button data-load-generation="2" class="block w-full my-4 p-2 border border-black border-solid">Charger la génération suivante</button>
     </main>
     <script type="module" src="/src/main.js"></script>
@@ -30,10 +25,10 @@
 
     <template data-tpl-id="pokedex">
         <header class="sticky top-0 border-black border-b-2 bg-slate-50 pb-3">
-            <h2 class="text-3xl">Generation <span data-generation-number></span></h2>
-            <p data-generation-range>1 -> 151</p>
+            <h2 class="text-3xl">Génération <span data-generation-number></span></h2>
+            <p data-generation-range></p>
         </header>
-        <ul class="grid grid-cols-3 lg:grid-cols-8 gap-4 mb-4" data-pokedex></ul>
+        <ul class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 mb-4" data-pokedex></ul>
     </template>
   </body>
 </html>
