@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png"  />
     <title>Consignes TP - Github actions</title>
     <link
       rel="stylesheet"
@@ -20,92 +21,194 @@
           <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-            <li>
-                Créez un dépôt sur votre compte Github
-            </li>
-            <li>A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en exemple dans votre projet
-                <ul>
-                    <li>
-                        <a href="https://docs.github.com/fr/actions/writing-workflows/quickstart" target="_blank" rel="noopener noreferrer">Didacticiel sur les Github Actions - Ouverture dans un nouvel onglet</a>
-                    </li>
-                </ul>
-            </li>
-            <li>Ajoutez une commande linux de votre choix à votre fichier d'Actions
-                <p class="note-information">N'oubliez pas de commiter et pusher vos modifications, sinon, vous ne verrez pas vos mises à jour.</p>
-            </li>
+          <li>Créez un dépôt sur votre compte Github</li>
+          <li>
+            A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en
+            exemple dans votre projet
+            <ul>
+              <li>
+                <a
+                  href="https://docs.github.com/fr/actions/writing-workflows/quickstart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Didacticiel sur les Github Actions - Ouverture dans un nouvel
+                  onglet</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            Ajoutez une commande linux de votre choix à votre fichier d'Actions
+            <p class="note-information">
+              N'oubliez pas de commiter et pusher vos modifications, sinon, vous
+              ne verrez pas vos mises à jour.
+            </p>
+          </li>
         </ol>
-        <p class="note-information">Vos actions sont exécutées dans l'onglet "Actions" de votre dépôt. Également accessible via l'URL : https://github.com/votre-pseudo/nom-du-depot/actions</p>
+        <p class="note-information">
+          Vos actions sont exécutées dans l'onglet "Actions" de votre dépôt.
+          Également accessible via l'URL :
+          https://github.com/votre-pseudo/nom-du-depot/actions
+        </p>
       </details>
       <details class="consignes-conteneur">
         <summary>
           <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-            <li>
-                Remplacez le contenu du dépôt crée précédemment par un projet npm (commande <code>npm init --y</code>).
-            </li>
-            <li>Installez les dépendances suivantes :
-                <ul>
-                    <li>
-                        <a href="https://www.npmjs.com/package/release-it" target="_blank" rel="noopener noreferrer">release-it - Ouverture dans un nouvel onglet</a>.
-                        <p> Pensez à sélectionner ".release-it.json" lors de l'installation avec la commande <code>npm init release-it</code>, sinon créez vous-même le fichier.</p>
-                       
-                    </li>
-                    <li>
-                        <a href="https://www.npmjs.com/package/@release-it/conventional-changelog" target="_blank" rel="noopener noreferrer">@release-it/conventional-changelog - Ouverture dans un nouvel onglet</a>
-                    </li>
-                </ul>
-                <div class="note-information">
-                    <p>N'oubliez pas de mettre un fichier .gitignore à la racine de votre projet. Les node_modules (ou tout autre fichier de dépendances) n'ont rien à faire sur votre dépôt.</p>
-                    <p>Si vous n'êtes pas à l'aise avec ce genre de fichiers, il en existe déjà fait dans un dépôt dédié. Dans le cas de notre projet, prenez celui de Node.</p>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/github/gitignore" target="_blank" rel="noopener noreferrer">Accéder à la liste de gitignore - Ouverture dans un nouvel onglet</a>
-                        </li>
-                    </ul>
-                </div>
-                <p class="note-attention">
-                    Le module "release-it" a été pensé pour déployer sur npm. Nous n'avons pas besoin de cette fonctionnalité et si nos identifiants npm ne sont pas définis, vous serez bloqué(e). Pour éviter tout bloquage, il faudra préciser au module qu'on souhaite juste deployer sur git. De ce fait, vous devrez avoir la clé "npm.publish" (c'est une imbrication de clés) avec la valeur "false" dans le fichier .release-it.json. 
+          <li>
+            Remplacez le contenu du dépôt crée précédemment par un projet npm
+            (commande <code>npm init --y</code>).
+          </li>
+          <li>
+            Installez les dépendances suivantes :
+            <ul>
+              <li>
+                <a
+                  href="https://www.npmjs.com/package/release-it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >release-it - Ouverture dans un nouvel onglet</a
+                >.
+                <p>
+                  Pensez à sélectionner ".release-it.json" lors de
+                  l'installation avec la commande
+                  <code>npm init release-it</code>, sinon créez vous-même le
+                  fichier.
                 </p>
-            </li>
-            <li>Testez la tâche de release depuis la ligne de commandes, elle a été ajoutée dans votre fichier package.json. 
-                <div class="note-information">
-                    <p>
-                        Grâce au module "@release-it/conventional-changelog", vous allez pouvoir générer un fichier CHANGELOG.md, ce fichier permet de traquer toutes les releases que vous avez fait, version par version en indiquant le détail de commits. Toutefois pour générer correctement ce fichier, il faut respecter un certain formattage qui permettra au module release-it de savoir quel est le prochain numéro de version (major, minor, patch).
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format">Accéder au formattage de commit selon Angular</a>
-                        </li>
-                    </ul>
-                    <p>Mais pour faire simple, si votre commit commence par "feat:", ceci incrémentera le numéro de minor : X.MINOR.X. Si votre commit commence par "fix:", ceci incrémentera le numéro de minor : X.X.PATCH. Il est bien évidemment possible d'avoir plusieurs commits commençant par "feat:" ou "fix:" au sein de la même version.</p>
-                    <p>C'est pour cette raison qu'il est important de séparer ses commits par fonctionnalité. Grâce à ce système, vous pouvez voir en un coup d'oeil la liste des fonctionnalités / bugs corrigés version par version.</p>
-                </div>            
-            </li>
-            <li>Ajoutez un nouveau job ou un nouveau fichier d'Actions pour effectuer une release de votre projet. Pour ce faire voici les actions que vous devez avoir dans votre fichier YAML :
-                <ol>
-                    <li>Cloner le projet : <code>actions/checkout@v4</code>. C'est une action prédéfinie, il faudra utiliser la clé "uses" à la place de "run"</li>
-                    <li>Installer des dépendances : <code>npm ci</code> ("ci" fait un "clean install")</li>
-                    <li>Définir l'utilisateur git : <code>npm git config --global user.email / user.name</code>. Note : Il n'est pas nécessaire de mettre une vraie adresse e-mail et nom d'utilisateur</li>
-                    <li>Mettre à jour la version : <code>npm run release --ci </code></li>
-                </ol>
-                <div class="note-information">
-                    <p>
-                        On veut que cette Action se lance manuellement, ainsi l'évènement (clé "on") devra être "workflow_dispatch". Voir image ci-dessous pour lancer manuellement votre Action.
-                    </p>
-                    <figure>
-                        <img src="actions-1.jpg" alt="">
-                    </figure>
-                    <ul>
-                        <li>
-                            <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows" target="_blank" rel="noopener noreferrer">Voir liste des évènements - Ouverture dans un nouvel onglet</a>
-                        </li>
-                    </ul>
-                </div>
-                <p class="note-attention">
-                    Il est possible que la tâche de release soit bloquée. Pour régler ce problème, allez dans les "Settings" de votre dépôt puis dans la partie Actions > General > Workflow permissions, sélectionnez "Read and write permissions" et sauvegardez.
-                </p>
-            </li>
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/package/@release-it/conventional-changelog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >@release-it/conventional-changelog - Ouverture dans un nouvel
+                  onglet</a
+                >
+              </li>
+            </ul>
+            <div class="note-information">
+              <p>
+                N'oubliez pas de mettre un fichier .gitignore à la racine de
+                votre projet. Les node_modules (ou tout autre fichier de
+                dépendances) n'ont rien à faire sur votre dépôt.
+              </p>
+              <p>
+                Si vous n'êtes pas à l'aise avec ce genre de fichiers, il en
+                existe déjà fait dans un dépôt dédié. Dans le cas de notre
+                projet, prenez celui de Node.
+              </p>
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/github/gitignore"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Accéder à la liste de gitignore - Ouverture dans un nouvel
+                    onglet</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <p class="note-attention">
+              Le module "release-it" a été pensé pour déployer sur npm. Nous
+              n'avons pas besoin de cette fonctionnalité et si nos identifiants
+              npm ne sont pas définis, vous serez bloqué(e). Pour éviter tout
+              bloquage, il faudra préciser au module qu'on souhaite juste
+              deployer sur git. De ce fait, vous devrez avoir la clé
+              "npm.publish" (c'est une imbrication de clés) avec la valeur
+              "false" dans le fichier .release-it.json.
+            </p>
+          </li>
+          <li>
+            Testez la tâche de release depuis la ligne de commandes, elle a été
+            ajoutée dans votre fichier package.json.
+            <div class="note-information">
+              <p>
+                Grâce au module "@release-it/conventional-changelog", vous allez
+                pouvoir générer un fichier CHANGELOG.md, ce fichier permet de
+                traquer toutes les releases que vous avez fait, version par
+                version en indiquant le détail de commits. Toutefois pour
+                générer correctement ce fichier, il faut respecter un certain
+                formattage qui permettra au module release-it de savoir quel est
+                le prochain numéro de version (major, minor, patch).
+              </p>
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format"
+                    >Accéder au formattage de commit selon Angular</a
+                  >
+                </li>
+              </ul>
+              <p>
+                Mais pour faire simple, si votre commit commence par "feat:",
+                ceci incrémentera le numéro de minor : X.MINOR.X. Si votre
+                commit commence par "fix:", ceci incrémentera le numéro de minor
+                : X.X.PATCH. Il est bien évidemment possible d'avoir plusieurs
+                commits commençant par "feat:" ou "fix:" au sein de la même
+                version.
+              </p>
+              <p>
+                C'est pour cette raison qu'il est important de séparer ses
+                commits par fonctionnalité. Grâce à ce système, vous pouvez voir
+                en un coup d'oeil la liste des fonctionnalités / bugs corrigés
+                version par version.
+              </p>
+            </div>
+          </li>
+          <li>
+            Ajoutez un nouveau job ou un nouveau fichier d'Actions pour
+            effectuer une release de votre projet. Pour ce faire voici les
+            actions que vous devez avoir dans votre fichier YAML :
+            <ol>
+              <li>
+                Cloner le projet : <code>actions/checkout@v4</code>. C'est une
+                action prédéfinie, il faudra utiliser la clé "uses" à la place
+                de "run"
+              </li>
+              <li>
+                Installer des dépendances : <code>npm ci</code> ("ci" fait un
+                "clean install")
+              </li>
+              <li>
+                Définir l'utilisateur git :
+                <code>npm git config --global user.email / user.name</code>.
+                Note : Il n'est pas nécessaire de mettre une vraie adresse
+                e-mail et nom d'utilisateur
+              </li>
+              <li>
+                Mettre à jour la version : <code>npm run release --ci </code>
+              </li>
+            </ol>
+            <div class="note-information">
+              <p>
+                On veut que cette Action se lance manuellement, ainsi
+                l'évènement (clé "on") devra être "workflow_dispatch". Voir
+                image ci-dessous pour lancer manuellement votre Action.
+              </p>
+              <figure>
+                <img src="actions-1.jpg" alt="" />
+              </figure>
+              <ul>
+                <li>
+                  <a
+                    href="https://docs.github.com/fr/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Voir liste des évènements - Ouverture dans un nouvel
+                    onglet</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <p class="note-attention">
+              Il est possible que la tâche de release soit bloquée. Pour régler
+              ce problème, allez dans les "Settings" de votre dépôt puis dans la
+              partie Actions > General > Workflow permissions, sélectionnez
+              "Read and write permissions" et sauvegardez.
+            </p>
+          </li>
         </ol>
       </details>
       <details class="consignes-conteneur">
@@ -113,27 +216,45 @@
           <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
         </summary>
         <div class="note-information">
-            <p>Pour cette dernière partie, vous allez déployer en SSH, grâce aux actions, le projet contenu dans le dossier "partie-3", c'est un site web en php utilisant nodejs pour tailwind ou encore la gestion des modules javascript.</p>
-            <p>A noter que pour déployer en SSH, il vous faut un hébergeur qui vous le permet. Si vous n'en avez pas, sachez qu'Alwaysdata vous le permet.</p>
-            <p>Dans tous les cas, il faudra que vous ayez sous la main : le serveur d'hôte, le nom d'utilisateur et votre clef ssh.</p>
+          <p>
+            Pour cette dernière partie, vous allez déployer, grâce aux actions,
+            le build du projet contenu dans le dossier "partie-3", c'est un site
+            web en html utilisant vite pour tailwind ou encore la gestion des
+            modules javascript.
+          </p>
+          <p>
+            A noter que pour déployer via la CI/CD, il vous faut un hébergeur
+            qui vous permet d'accéder au serveur via la ligne de commande. Si
+            vous n'en avez pas, sachez qu'Alwaysdata vous le permet aussi bien
+            en SSH qu'avec rsync.
+          </p>
+          <p>
+            Dans tous les cas, il faudra que vous ayez sous la main : le serveur
+            d'hôte, le nom d'utilisateur et votre clef ssh.
+          </p>
         </div>
 
         <ol class="liste-consignes">
-            <li>
-                Créez un nouveau dépôt ou remplacez le contenu de votre dépôt existant avec le contenu du dossier "partie-3"
-            </li>
-            <li>Définissez une CI/CD permettant les actions suivantes : 
-                <ul>
-                    <li>Lint le code javascript</li>
-                    <li>Exécute les tests unitaires</li>
-                    <li>Build le projet</li>
-                    <li>Déploie le tout en SSH
-                        <div class="note-information">
-                            <p>Pour le déploiement en SSH, vous devrez utiliser une action </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+          <li>
+            Créez un nouveau dépôt ou remplacez le contenu de votre dépôt
+            existant avec le contenu du dossier "partie-3"
+          </li>
+          <li>
+            Définissez une CI/CD permettant les actions suivantes :
+            <ul>
+              <li>Lint le code javascript</li>
+              <li>Exécute les tests unitaires</li>
+              <li>Build le projet</li>
+              <li>
+                Déploie le tout
+                <div class="note-information">
+                  <p>
+                    Pour le déploiement en SSH, vous devrez utiliser une action
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </li>
         </ol>
       </details>
     </header>
