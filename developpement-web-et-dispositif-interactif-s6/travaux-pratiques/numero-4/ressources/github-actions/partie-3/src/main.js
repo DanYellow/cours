@@ -9,30 +9,46 @@ const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
 
+const modal_DOM = {
+    pkmnName: modal.querySelector("h2"),
+    img: modal.querySelector("img"),
+    listTypes: modal.querySelector("[data-list-types]"),
+    sexMale: modal.querySelector("[data-sex='male']"),
+    sexFemale: modal.querySelector("[data-sex='female']"),
+    sexRateMale: modal.querySelector("[data-sex-rate='male']"),
+    sexRateFemale: modal.querySelector("[data-sex-rate='female']"),
+};
+
 const displayDetails = async (e) => {
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
-    const imgTag = modal.querySelector("img");
-    imgTag.src = pkmnData.sprites.regular;
-    imgTag.alt = `sprite de ${pkmnData.name.fr}`;
+    modal_DOM.img.src = pkmnData.sprites.regular;
+    modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
-    modal.querySelector("h2").textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
-    modal.querySelector("[data-sprite]").textContent = pkmnData.name.fr;
+    modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
 
-    const listTypes = modal.querySelector("[data-list-types]");
-
-    while (listTypes.firstChild) {
-        listTypes.removeChild(listTypes.firstChild);
+    while (modal_DOM.listTypes.firstChild) {
+        modal_DOM.listTypes.removeChild(modal_DOM.listTypes.firstChild);
     }
 
     pkmnData.types.forEach((type) => {
         const li = document.createElement("li");
         li.textContent = type.name;
-        li.classList.add(...[type.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, ''), "rounded-lg", "px-2", "py-1"])
+        li.classList.add(
+            ...[
+                type.name
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/\p{Diacritic}/gu, ""),
+                "py-0.5",
+                "px-2",
+                "rounded-md",
+            ]
+        );
 
-        listTypes.append(li);
-    })
+        modal_DOM.listTypes.append(li);
+    });
 
     const descriptionsContainer = modal.querySelector("dl");
     const listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
@@ -43,16 +59,26 @@ const displayDetails = async (e) => {
 
     listDescriptions.flavor_text_entries.forEach((description) => {
         const dt = document.createElement("dt");
-        const versionName = `Pokémon ${getVersionForName[description.version.name] || "Unknown"}`
+        const versionName = `Pokémon ${
+            getVersionForName[description.version.name] || "Unknown"
+        }`;
         dt.textContent = versionName;
-        dt.classList.add("font-bold")
+        dt.classList.add("font-bold");
         descriptionsContainer.append(dt);
-        
+
         const dd = document.createElement("dd");
         dd.textContent = description.flavor_text;
-        dd.classList.add("mb-2")
+        dd.classList.add("mb-2");
         descriptionsContainer.append(dd);
-    })
+    });
+
+    modal_DOM.sexMale.classList.toggle("hidden", pkmnData.sexe.male === 0);
+    modal_DOM.sexFemale.classList.toggle("hidden", pkmnData.sexe.female === 0);
+    
+    modal_DOM.sexMale.style.width = `${pkmnData.sexe.male}%`;
+    modal_DOM.sexRateMale.textContent = `${pkmnData.sexe.male}%`;
+    modal_DOM.sexFemale.style.width = `${pkmnData.sexe.female}%`;
+    modal_DOM.sexRateFemale.textContent = `${pkmnData.sexe.female}%`;
 
     modal.showModal();
 

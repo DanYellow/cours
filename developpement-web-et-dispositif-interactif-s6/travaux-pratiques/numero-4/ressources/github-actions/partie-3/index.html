@@ -35,7 +35,7 @@
                 <h2 class="text-3xl">
                     Génération <span data-generation-number></span>
                 </h2>
-                <p data-generation-range></p>
+                <p data-generation-range class="py-0.5 px-2 rounded-md bg-slate-600 text-white inline-flex"></p>
             </header>
             <ul
                 class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 mb-4"
@@ -48,14 +48,26 @@
             class="overscroll-y-contain px-4 duration-300 transition-dialog bg-white shadow-xl rounded-lg md:my-8 w-11/12 sm:w-3/4 sm:max-w-2xl"
         >
             <header
-                class="flex flex-row gap-3 border-b border-black border-solid py-4 mb-3 sticky top-0 bg-white"
+                class="border-b border-black border-solid py-4 mb-3 sticky top-0 bg-white"
             >
-                <div class="w-20">
-                    <img data-sprite src="" alt="" />
+                <div class="flex flex-row gap-3">
+                    <div class="w-20">
+                        <img data-sprite src="" alt="" />
+                    </div>
+                    <div>
+                        <h2 class="text-2xl"></h2>
+                        <ul data-list-types class="flex gap-1"></ul>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="text-2xl"></h2>
-                    <ul data-list-types class="flex gap-1"></ul>
+                <div class="flex w-full rounded-lg overflow-hidden mt-2">
+                    <div data-sex="male" class="bg-sky-300 px-2 py-1">
+                        <p>Mâle</p>
+                        <p class="text-xs" data-sex-rate="male"></p>
+                    </div>
+                    <div data-sex="female" class="bg-pink-300 px-2 py-1">
+                        <p>Female</p>
+                        <p class="text-xs" data-sex-rate="female"></p>
+                    </div>
                 </div>
             </header>
             <details>
@@ -64,7 +76,7 @@
                 </summary>
                 <dl></dl>
             </details>
-            <details>
+            <details class="mt-3">
                 <summary>
                     <p class="inline-block font-bold">Sensibilités</p>
                 </summary>

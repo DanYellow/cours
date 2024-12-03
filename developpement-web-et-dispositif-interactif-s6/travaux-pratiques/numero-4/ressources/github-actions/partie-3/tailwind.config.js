@@ -19,6 +19,7 @@ export default {
         "psy",
         "roche",
         "combat",
+        "hidden",
     ],
     theme: {
         extend: {
