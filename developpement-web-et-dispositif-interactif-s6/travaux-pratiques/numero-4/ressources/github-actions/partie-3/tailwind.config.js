@@ -3,7 +3,7 @@
 import plugin from "tailwindcss/plugin";
 
 export default {
-    content: ["./index.html", "./src/**/*.{js}"],
+    content: ["./index.html", "./src/**/*.js"],
     safelist: [
         "plante",
         "poison",
