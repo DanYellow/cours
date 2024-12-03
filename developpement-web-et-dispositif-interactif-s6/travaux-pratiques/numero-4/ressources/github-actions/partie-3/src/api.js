@@ -18,6 +18,15 @@ const fetchPokemonExtraData = async (pkmnId) => {
     }
 }
 
+const fetchPokemon = async (pkmnId) => {
+    try {
+        const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`);
+        return req.data;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     try {
         const req = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`);
@@ -32,7 +41,7 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData };
+export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

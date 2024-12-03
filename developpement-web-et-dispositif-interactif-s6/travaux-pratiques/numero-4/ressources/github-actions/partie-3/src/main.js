@@ -1,11 +1,20 @@
 import "./style.css";
-import fetchPokemonForGeneration, { fetchPokemonDescription, fetchAllTypes, fetchPokemonExtraData } from "./api";
+import fetchPokemonForGeneration, {
+    fetchPokemonDescription,
+    fetchAllTypes,
+    fetchPokemonExtraData,
+    fetchPokemon,
+} from "./api";
 import { getVersionForName, cleanString, clearTagContent } from "./utils";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
-const pkmnSensibilityTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sensibility']");
-const pkmnHiddenAbilityTemplateRaw = document.querySelector("[data-tpl-id='pokemon-hidden-ability']");
+const pkmnSensibilityTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-sensibility']"
+);
+const pkmnHiddenAbilityTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-hidden-ability']"
+);
 
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
@@ -32,12 +41,12 @@ const modal_DOM = {
 const dataCache = {};
 
 let listTypes = await fetchAllTypes();
-listTypes = listTypes.map((item) => ({sprite: item.sprites, name: cleanString(item.name.fr)}))
+listTypes = listTypes.map((item) => ({
+    sprite: item.sprites,
+    name: cleanString(item.name.fr),
+}));
 
-const displayDetails = async (e) => {
-    const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
-    const pkmnData = JSON.parse(pkmnDataRaw);
-
+const displayDetails = async (pkmnData) => {
     modal_DOM.img.src = pkmnData.sprites.regular;
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
@@ -47,23 +56,22 @@ const displayDetails = async (e) => {
         modal_DOM.listTypes.removeChild(modal_DOM.listTypes.firstChild);
     }
 
+    const url = new URL(location);
+    url.searchParams.set("id", pkmnData.pokedex_id);
+    history.pushState({}, "", url);
+
     pkmnData.types.forEach((type) => {
         const li = document.createElement("li");
         li.textContent = type.name;
         li.classList.add(
-            ...[
-                cleanString(type.name),
-                "py-0.5",
-                "px-2",
-                "rounded-md",
-            ]
+            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md"]
         );
 
         modal_DOM.listTypes.append(li);
     });
 
     const descriptionsContainer = modal.querySelector("dl");
-    
+
     let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
     let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
     if (!dataCache[pkmnData.pokedex_id]) {
@@ -93,20 +101,30 @@ const displayDetails = async (e) => {
         descriptionsContainer.append(dd);
     });
 
-    clearTagContent(modal_DOM.listSensibilities)
+    clearTagContent(modal_DOM.listSensibilities);
 
     pkmnData.resistances.forEach((item) => {
-        const clone = document.importNode(pkmnSensibilityTemplateRaw.content, true);
-        const typeData = listTypes.find((type) => cleanString(type.name) === cleanString(item.name));
-        const damageFactorContainer = clone.querySelector("[data-damage-factor]");
+        const clone = document.importNode(
+            pkmnSensibilityTemplateRaw.content,
+            true
+        );
+        const typeData = listTypes.find(
+            (type) => cleanString(type.name) === cleanString(item.name)
+        );
+        const damageFactorContainer = clone.querySelector(
+            "[data-damage-factor]"
+        );
 
         clone.querySelector("img").src = typeData.sprite;
         clone.querySelector("[data-type]").textContent = item.name;
         damageFactorContainer.textContent = `x${item.multiplier}`;
-        damageFactorContainer.classList.toggle("font-bold", item.multiplier === 2 || item.multiplier === 4 )
-        
+        damageFactorContainer.classList.toggle(
+            "font-bold",
+            item.multiplier === 2 || item.multiplier === 4
+        );
+
         modal_DOM.listSensibilities.append(clone);
-    })
+    });
 
     modal_DOM.sexMale.classList.toggle(
         "hidden",
@@ -139,12 +157,15 @@ const displayDetails = async (e) => {
         li.textContent = item.name;
 
         if (item.tc) {
-            const clone = document.importNode(pkmnHiddenAbilityTemplateRaw.content, true);
+            const clone = document.importNode(
+                pkmnHiddenAbilityTemplateRaw.content,
+                true
+            );
             li.append(clone);
         }
 
         modal_DOM.listAbilities.append(li);
-    })
+    });
 
     clearTagContent(modal_DOM.listGames);
     pkmnExtraData.game_indices.forEach((item) => {
@@ -154,14 +175,11 @@ const displayDetails = async (e) => {
         }`;
         li.textContent = versionName;
 
-        modal_DOM.listGames.append(li)
+        modal_DOM.listGames.append(li);
     });
-    modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`
-
+    modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
 
     modal.showModal();
-
-    console.log(pkmnDataRaw);
 };
 
 const loadTemplateForGeneration = async (generation = 1) => {
@@ -194,7 +212,11 @@ const loadTemplateForGeneration = async (generation = 1) => {
 
             const button = clone.querySelector("[data-pokemon-data]");
             button.dataset.pokemonData = JSON.stringify(item);
-            button.addEventListener("click", displayDetails);
+            button.addEventListener("click", (e) => {
+                const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
+                const pkmnData = JSON.parse(pkmnDataRaw);
+                displayDetails(pkmnData);
+            });
 
             pokedex.append(clone);
         });
@@ -207,8 +229,15 @@ const loadTemplateForGeneration = async (generation = 1) => {
     }
 };
 
-
 await loadTemplateForGeneration();
+
+const urlParams = new URLSearchParams(window.location.search);
+const pkmnId = urlParams.get("id");
+
+if (pkmnId !== null) {
+    const pkmnData = await fetchPokemon(pkmnId)
+    displayDetails(pkmnData);
+}
 
 loadGenerationBtn.addEventListener("click", (e) => {
     loadTemplateForGeneration(e.currentTarget.dataset.loadGeneration);
