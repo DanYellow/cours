@@ -9,7 +9,21 @@ const fetchPokemon = async (url) => {
     }
 }
 
-export { fetchPokemon };
+const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
+    try {
+        const req = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`);
+        const res = {
+            ...req.data,
+            flavor_text_entries: req.data.flavor_text_entries.filter((item) => item.language.name === lang),
+        }
+    
+        return res;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+export { fetchPokemon, fetchPokemonDescription };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];
