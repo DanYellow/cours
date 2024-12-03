@@ -42,4 +42,10 @@ const cleanString = (string) =>
         .normalize("NFD")
         .replace(/\p{Diacritic}/gu, "");
 
-export { getVersionForName, cleanString };
+const clearTagContent = (tag) => {
+    while (tag.firstChild) {
+        tag.removeChild(tag.firstChild);
+    }
+};
+
+export { getVersionForName, cleanString, clearTagContent };

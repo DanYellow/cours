@@ -5,18 +5,20 @@
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pokédex</title>
+        <script defer type="module" src="/src/main.js"></script>
     </head>
     <body>
-        <main class="mx-auto max-w-6xl px-2">
+        <main>
             <div data-list-pokedex></div>
+        </main>
+        <footer class="px-2">
             <button
                 data-load-generation="2"
                 class="block w-full my-4 p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white"
             >
                 Charger la génération suivante
             </button>
-        </main>
-        <script type="module" src="/src/main.js"></script>
+        </footer>
         <template data-tpl-id="pokemon">
             <li>
                 <button data-pokemon-data>
@@ -30,15 +32,20 @@
 
         <template data-tpl-id="pokedex">
             <header
-                class="sticky top-0 border-black border-b-2 bg-slate-50 pb-3"
+                class="sticky top-0 border-black border-b-2 bg-slate-50 pb-3 px-2"
             >
-                <h2 class="text-3xl">
-                    Génération <span data-generation-number></span>
-                </h2>
-                <p data-generation-range class="py-0.5 px-2 rounded-md bg-slate-600 text-white inline-flex"></p>
+                <div class="mx-auto max-w-6xl">
+                    <h2 class="text-3xl">
+                        Génération <span data-generation-number></span>
+                    </h2>
+                    <p
+                        data-generation-range
+                        class="py-0.5 px-2 rounded-md bg-slate-600 text-white inline-flex"
+                    ></p>
+                </div>
             </header>
             <ul
-                class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 mb-4"
+                class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 mb-4 mx-auto max-w-6xl px-2"
                 data-pokedex
             ></ul>
         </template>
@@ -46,13 +53,22 @@
         <template data-tpl-id="pokemon-sensibility">
             <li class="flex gap-3">
                 <div>
-                    <img fetchpriority="high" class="aspect-square size-12" src="" alt="">
+                    <img
+                        fetchpriority="high"
+                        class="aspect-square size-12"
+                        src=""
+                        alt=""
+                    />
                 </div>
                 <div>
                     <p data-type>Vol</p>
                     <p data-damage-factor>x2</p>
                 </div>
             </li>
+        </template>
+
+        <template data-tpl-id="pokemon-hidden-ability">
+            <span class="py-0.5 px-1 bg-slate-900 text-white rounded-md text-xs align-super">Talent caché</span>
         </template>
 
         <dialog
@@ -64,14 +80,16 @@
             >
                 <div class="flex flex-row gap-3">
                     <div class="w-20">
-                        <img data-sprite src="" alt="" fetchpriority="high"  />
+                        <img data-sprite src="" alt="" fetchpriority="high" />
                     </div>
                     <div>
                         <h2 class="text-2xl"></h2>
                         <ul data-list-types class="flex gap-1"></ul>
                     </div>
                 </div>
-                <div class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden mt-2">
+                <div
+                    class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden mt-2"
+                >
                     <div data-sex="male" class="bg-sky-300 px-2 py-1">
                         <p class="whitespace-nowrap">Mâle ♂</p>
                         <p class="text-xs" data-sex-rate="male"></p>
@@ -80,8 +98,21 @@
                         <p class="whitespace-nowrap">Female ♀</p>
                         <p class="text-xs" data-sex-rate="female"></p>
                     </div>
-                    <div data-sex="asexual" class="bg-slate-300 px-2 py-1 hidden w-full">
+                    <div
+                        data-sex="asexual"
+                        class="bg-slate-300 px-2 py-1 hidden w-full"
+                    >
                         <p>Asexué</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <ul>
+                        <li><span class="font-bold">Poids : </span><span data-weight></span></li>
+                        <li><span class="font-bold">Taille : </span><span data-height></span></li>
+                    </ul>
+                    <div>
+                        <p class="font-bold">Talents</p>
+                        <ul class="list-inside list-disc" data-list-abilities></ul>
                     </div>
                 </div>
             </header>
@@ -95,8 +126,10 @@
                 <summary>
                     <p class="inline-block font-bold">Sensibilités</p>
                 </summary>
-                <ul class="grid grid-cols-3 lg:grid-cols-5 gap-3" data-list-sensibilities="">
-                </ul>
+                <ul
+                    class="grid grid-cols-2 lg:grid-cols-5 gap-3"
+                    data-list-sensibilities=""
+                ></ul>
             </details>
             <footer class="bottom-0 bg-white sticky pb-4">
                 <button

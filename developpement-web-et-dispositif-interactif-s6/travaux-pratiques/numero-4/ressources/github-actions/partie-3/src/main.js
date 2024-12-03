@@ -1,10 +1,11 @@
 import "./style.css";
 import fetchPokemonForGeneration, { fetchPokemonDescription, fetchAllTypes } from "./api";
-import { getVersionForName, cleanString } from "./utils";
+import { getVersionForName, cleanString, clearTagContent } from "./utils";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 const pkmnSensibilityTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sensibility']");
+const pkmnHiddenAbilityTemplateRaw = document.querySelector("[data-tpl-id='pokemon-hidden-ability']");
 
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
@@ -21,6 +22,9 @@ const modal_DOM = {
     sexFemale: modal.querySelector("[data-sex='female']"),
     sexRateMale: modal.querySelector("[data-sex-rate='male']"),
     sexRateFemale: modal.querySelector("[data-sex-rate='female']"),
+    height: modal.querySelector("[data-weight]"),
+    weight: modal.querySelector("[data-height]"),
+    listAbilities: modal.querySelector("[data-list-abilities]"),
 };
 
 const dataCache = {};
@@ -64,9 +68,7 @@ const displayDetails = async (e) => {
         dataCache[pkmnData.pokedex_id] = listDescriptions;
     }
 
-    while (descriptionsContainer.firstChild) {
-        descriptionsContainer.removeChild(descriptionsContainer.firstChild);
-    }
+    clearTagContent(descriptionsContainer);
 
     listDescriptions.flavor_text_entries.forEach((description) => {
         const dt = document.createElement("dt");
@@ -83,17 +85,17 @@ const displayDetails = async (e) => {
         descriptionsContainer.append(dd);
     });
 
-    while (modal_DOM.listSensibilities.firstChild) {
-        modal_DOM.listSensibilities.removeChild(modal_DOM.listSensibilities.firstChild);
-    }
+    clearTagContent(modal_DOM.listSensibilities)
 
     pkmnData.resistances.forEach((item) => {
         const clone = document.importNode(pkmnSensibilityTemplateRaw.content, true);
-        const typeData = listTypes.find((type) => cleanString(type.name) === cleanString(item.name))
+        const typeData = listTypes.find((type) => cleanString(type.name) === cleanString(item.name));
+        const damageFactorContainer = clone.querySelector("[data-damage-factor]");
 
         clone.querySelector("img").src = typeData.sprite;
         clone.querySelector("[data-type]").textContent = item.name;
-        clone.querySelector("[data-damage-factor]").textContent = `x${item.multiplier}`;
+        damageFactorContainer.textContent = `x${item.multiplier}`;
+        damageFactorContainer.classList.toggle("font-bold", item.multiplier === 2 || item.multiplier === 4 )
         
         modal_DOM.listSensibilities.append(clone);
     })
@@ -118,6 +120,24 @@ const displayDetails = async (e) => {
     modal_DOM.sexRateMale.textContent = `${pkmnData.sexe?.male}%`;
     modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
     modal_DOM.sexRateFemale.textContent = `${pkmnData.sexe?.female}%`;
+
+    modal_DOM.height.textContent = pkmnData.height;
+    modal_DOM.weight.textContent = pkmnData.weight;
+
+    clearTagContent(modal_DOM.listAbilities);
+
+    pkmnData.talents.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item.name;
+
+        if (item.tc) {
+            const clone = document.importNode(pkmnHiddenAbilityTemplateRaw.content, true);
+            li.append(clone);
+        }
+
+        modal_DOM.listAbilities.append(li);
+    })
+
 
     modal.showModal();
 
