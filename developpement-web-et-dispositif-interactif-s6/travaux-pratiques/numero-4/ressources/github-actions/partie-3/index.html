@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pokédex</title>
         <script defer type="module" src="/src/main.js"></script>
+        <link rel="shortcut icon" href="/favicon.png" type="image/png">
     </head>
     <body>
         <main>
@@ -67,8 +68,8 @@
             </li>
         </template>
 
-        <template data-tpl-id="pokemon-hidden-ability">
-            <span class="py-0.5 px-1 bg-slate-900 text-white rounded-md text-xs align-super">Talent caché</span>
+        <template data-tpl-id="pokemon-highlight">
+            <span class="py-0.5 px-1 whitespace-nowrap bg-slate-900 text-white rounded-md text-xs align-super font-normal">Talent caché</span>
         </template>
 
         <dialog
@@ -80,7 +81,7 @@
             >
                 <div class="flex flex-row gap-3">
                     <div class="w-20">
-                        <img data-sprite src="" alt="" fetchpriority="high" />
+                        <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
                     </div>
                     <div>
                         <h2 class="text-2xl"></h2>
@@ -127,7 +128,7 @@
                     <p class="inline-block font-bold">Sensibilités</p>
                 </summary>
                 <ul
-                    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3"
+                    class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3"
                     data-list-sensibilities=""
                 ></ul>
             </details>
@@ -136,7 +137,7 @@
                     <p class="inline-block font-bold">Apparitions <span data-nb-games></span> </p>
                 </summary>
                 <ul
-                    class="grid grid-cols-2 list-inside list-disc"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 list-inside list-disc"
                     data-list-games=""
                 ></ul>
             </details>

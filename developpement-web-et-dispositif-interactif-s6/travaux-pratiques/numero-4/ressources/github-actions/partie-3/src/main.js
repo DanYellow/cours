@@ -7,13 +7,15 @@ import fetchPokemonForGeneration, {
 } from "./api";
 import { getVersionForName, cleanString, clearTagContent } from "./utils";
 
+import loadingImage from "/loading.svg";
+
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 const pkmnSensibilityTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-sensibility']"
 );
-const pkmnHiddenAbilityTemplateRaw = document.querySelector(
-    "[data-tpl-id='pokemon-hidden-ability']"
+const pkmnHighlightTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-highlight']"
 );
 
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
@@ -123,6 +125,16 @@ const displayDetails = async (pkmnData) => {
             item.multiplier === 2 || item.multiplier === 4
         );
 
+        if(item.multiplier === 2 || item.multiplier === 4) {
+            const cloneHighlight = document.importNode(
+                pkmnHighlightTemplateRaw.content,
+                true
+            );
+            cloneHighlight.querySelector("span").textContent = item.multiplier === 2 ? "Double faiblesse" : "Quadruple faiblesse";
+
+            damageFactorContainer.append(cloneHighlight);
+        }
+
         modal_DOM.listSensibilities.append(clone);
     });
 
@@ -158,7 +170,7 @@ const displayDetails = async (pkmnData) => {
 
         if (item.tc) {
             const clone = document.importNode(
-                pkmnHiddenAbilityTemplateRaw.content,
+                pkmnHighlightTemplateRaw.content,
                 true
             );
             li.append(clone);
@@ -253,3 +265,8 @@ closeModalBtn.addEventListener("click", () => {
     history.replaceState({}, "", url);
     modal.close();
 });
+
+modal.addEventListener("close", () => {
+    modal_DOM.img.src = loadingImage;
+    modal_DOM.img.alt = "";
+})

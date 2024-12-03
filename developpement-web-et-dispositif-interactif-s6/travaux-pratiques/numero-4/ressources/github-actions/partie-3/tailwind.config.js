@@ -23,7 +23,6 @@ export default {
         "dragon",
         "fee",
         "spectre",
-        "hidden",
     ],
     theme: {
         extend: {
@@ -64,11 +63,11 @@ export default {
                 },
                 ".tenebres": {
                     backgroundColor: theme("colors.gray.900"),
-                    color: theme("colors.white"),
+                    color: theme("colors.slate.50"),
                 },
                 ".spectre": {
                     backgroundColor: theme("colors.black"),
-                    color: theme("colors.white"),
+                    color: theme("colors.slate.50"),
                 },
                 ".psy": {
                     backgroundColor: theme("colors.pink.500"),
@@ -87,6 +86,7 @@ export default {
                 },
                 ".acier": {
                     backgroundColor: theme("colors.slate.500"),
+                    color: theme("colors.slate.50"),
                 },
                 ".fee": {
                     backgroundColor: theme("colors.fuchsia.500"),
