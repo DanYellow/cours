@@ -11,7 +11,7 @@ export default [
             "no-undef": "error",
             "no-magic-numbers": [
                 "warn",
-                { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1] },
+                { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1, 1] },
             ],
         },
     },

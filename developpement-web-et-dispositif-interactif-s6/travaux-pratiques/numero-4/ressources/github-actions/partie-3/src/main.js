@@ -308,7 +308,7 @@ const loadPokedexForGeneration = async (generation = 1) => {
 
             pokedex.append(clone);
         });
-        loadGenerationBtn.dataset.loadGeneration = 8; // Number(generation) + 1;
+        loadGenerationBtn.dataset.loadGeneration = Number(generation) + 1;
 
         pokedexContainer.append(cloneDex);
         loadGenerationBtn.inert = false;
