@@ -9,6 +9,10 @@ export default [
         rules: {
             "no-unused-vars": "error",
             "no-undef": "error",
+            "no-magic-numbers": [
+                "warn",
+                { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1] },
+            ],
         },
     },
     {
