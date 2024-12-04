@@ -223,6 +223,7 @@ const displayDetails = async (pkmnData) => {
 
         modal_DOM.listVarieties.append(clone);
     }
+    modal_DOM.listVarieties.closest("details").inert = (pkmnData?.formes || []).length === 0;
 
     console.log(pkmnData)
     modal.showModal();
