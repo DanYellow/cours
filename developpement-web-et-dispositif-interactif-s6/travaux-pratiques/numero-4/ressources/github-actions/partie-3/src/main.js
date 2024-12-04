@@ -1,5 +1,5 @@
-import resolveConfig from 'tailwindcss/resolveConfig';
-import _tailwindConfig from '/tailwind.config.js';
+import resolveConfig from "tailwindcss/resolveConfig";
+import _tailwindConfig from "/tailwind.config.js";
 
 import fetchPokemonForGeneration, {
     fetchPokemonDescription,
@@ -7,7 +7,13 @@ import fetchPokemonForGeneration, {
     fetchPokemonExtraData,
     fetchPokemon,
 } from "./api";
-import { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem } from "./utils";
+import {
+    getVersionForName,
+    cleanString,
+    clearTagContent,
+    convertTailwindRemToPx,
+    aRem,
+} from "./utils";
 
 import loadingImage from "/loading.svg";
 
@@ -136,23 +142,31 @@ const displayDetails = async (pkmnData) => {
         const superEffectiveDamageMultiplier = 4;
         damageFactorContainer.classList.toggle(
             "font-bold",
-            item.multiplier === effectiveDamageMultiplier || item.multiplier === superEffectiveDamageMultiplier
+            item.multiplier === effectiveDamageMultiplier ||
+                item.multiplier === superEffectiveDamageMultiplier
         );
 
-        if(item.multiplier === effectiveDamageMultiplier || item.multiplier === superEffectiveDamageMultiplier) {
+        if (
+            item.multiplier === effectiveDamageMultiplier ||
+            item.multiplier === superEffectiveDamageMultiplier
+        ) {
             const cloneHighlight = document.importNode(
                 pkmnHighlightTemplateRaw.content,
                 true
             );
-            const isTypeEffectiveAgainst = item.multiplier === effectiveDamageMultiplier;
-            cloneHighlight.querySelector("span").textContent = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse";
+            const isTypeEffectiveAgainst =
+                item.multiplier === effectiveDamageMultiplier;
+            cloneHighlight.querySelector("span").textContent =
+                isTypeEffectiveAgainst
+                    ? "Double faiblesse"
+                    : "Quadruple faiblesse";
 
             damageFactorContainer.append(cloneHighlight);
         }
 
         modal_DOM.listSensibilities.append(clone);
     });
-    
+
     modal_DOM.sexMale.classList.toggle(
         "hidden",
         pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
@@ -205,32 +219,48 @@ const displayDetails = async (pkmnData) => {
         modal_DOM.listGames.append(li);
     });
     modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
-    
+
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
-    
-    for (const item of (pkmnData?.formes || [])) {
+
+    for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
 
         const clone = document.importNode(pkmnTemplateRaw.content, true);
         const imgTag = clone.querySelector("img");
         imgTag.src = pkmnForm.sprites.regular;
-        imgTag.alt = `sprite de ${pkmnForm.name.fr} forme ${pkmnForm.region}`;
+        imgTag.alt = `sprite de ${pkmnForm.name.fr} forme ${item.region}`;
         imgTag.fetchPriority = "low";
-        clone.querySelector(
-            "figcaption"
-        ).textContent = `${pkmnForm.name.fr}`;
+        clone.querySelector("figcaption").textContent = `${pkmnForm.name.fr}`;
+
+        const button = clone.querySelector("[data-pokemon-data]");
+        button.dataset.pokemonData = JSON.stringify(pkmnForm);
+        button.addEventListener("click", (e) => {
+            const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
+
+            const url = new URL(location);
+            url.searchParams.set("region", item.region);
+            history.replaceState({}, "", url);
+            const pkmnData = JSON.parse(pkmnDataRaw);
+            displayDetails(pkmnData);
+        });
 
         modal_DOM.listVarieties.append(clone);
     }
-    modal_DOM.listVarieties.closest("details").inert = (pkmnData?.formes || []).length === 0;
+    modal_DOM.listVarieties.closest("details").inert =
+        (pkmnData?.formes || []).length === 0;
 
-    console.log(pkmnData)
+    console.log(pkmnData);
     modal.showModal();
 
     document.documentElement.style.setProperty(
-        '--header-height-collapsed', 
-        `${((modal_DOM.topInfos.offsetHeight + convertTailwindRemToPx(tailwindConfig.theme.padding["4"]) + convertTailwindRemToPx(tailwindConfig.theme.padding["2"])) / aRem)}rem`
+        "--header-height-collapsed",
+        `${
+            (modal_DOM.topInfos.offsetHeight +
+                convertTailwindRemToPx(tailwindConfig.theme.padding["4"]) +
+                convertTailwindRemToPx(tailwindConfig.theme.padding["2"])) /
+            aRem
+        }rem`
     );
 };
 
@@ -255,14 +285,15 @@ const loadPokedexForGeneration = async (generation = 1) => {
 
         const fetchPriorityHighThreshold = 20;
         pokedexData.forEach((item, index) => {
-            if(firstPkmnId > item.pokedex_id) {
+            if (firstPkmnId > item.pokedex_id) {
                 return;
             }
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
             imgTag.src = item.sprites.regular;
             imgTag.alt = `sprite de ${item.name.fr}`;
-            imgTag.fetchPriority = index <= fetchPriorityHighThreshold ? "high" : "low";
+            imgTag.fetchPriority =
+                index <= fetchPriorityHighThreshold ? "high" : "low";
             clone.querySelector(
                 "figcaption"
             ).textContent = `#${item.pokedex_id} ${item.name.fr}`;
@@ -283,7 +314,7 @@ const loadPokedexForGeneration = async (generation = 1) => {
         loadGenerationBtn.inert = false;
     } catch (error) {
         const errorRessourceNotFound = 404;
-        if(error?.cause?.status === errorRessourceNotFound) {
+        if (error?.cause?.status === errorRessourceNotFound) {
             loadGenerationBtn.inert = true;
         } else {
             loadGenerationBtn.inert = false;
@@ -297,7 +328,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
 
 if (pkmnId !== null) {
-    const pkmnData = await fetchPokemon(pkmnId)
+    const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
     displayDetails(pkmnData);
 }
 
@@ -308,6 +339,7 @@ loadGenerationBtn.addEventListener("click", (e) => {
 closeModalBtn.addEventListener("click", () => {
     const url = new URL(location);
     url.searchParams.delete("id");
+    url.searchParams.delete("region");
     history.replaceState({}, "", url);
     modal.close();
 });
