@@ -23,10 +23,6 @@ export default [
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
             "no-var": "error",
-            "no-magic-numbers": [
-                "warn",
-                { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1, -2] },
-            ],
             "@stylistic/quotes": [
                 "error",
                 "double",
