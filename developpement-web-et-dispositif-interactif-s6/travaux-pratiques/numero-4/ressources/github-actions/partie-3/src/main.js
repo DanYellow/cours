@@ -197,12 +197,22 @@ const displayDetails = async (pkmnData) => {
     
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
-    pkmnData.formes?.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item.name.fr;
+    
+    for (const item of (pkmnData?.formes || [])) {
+        const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
 
-        modal_DOM.listVarieties.append(li);
-    })
+        const clone = document.importNode(pkmnTemplateRaw.content, true);
+        const imgTag = clone.querySelector("img");
+        imgTag.src = pkmnForm.sprites.regular;
+        imgTag.alt = `sprite de ${pkmnForm.name.fr} forme ${pkmnForm.region}`;
+        imgTag.fetchPriority = "low";
+        clone.querySelector(
+            "figcaption"
+        ).textContent = `${pkmnForm.name.fr}`;
+
+        modal_DOM.listVarieties.append(clone);
+    }
+
     console.log(pkmnData)
     modal.showModal();
 };

@@ -18,9 +18,11 @@ const fetchPokemonExtraData = async (pkmnId) => {
     }
 }
 
-const fetchPokemon = async (pkmnId) => {
+const fetchPokemon = async (pkmnId, region = null) => {
     try {
-        const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`);
+        const regionName = region ? `/${region}` : "";
+        const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}${regionName}`);
+        
         return req.data;
     } catch (error) {
         throw new Error(error);
