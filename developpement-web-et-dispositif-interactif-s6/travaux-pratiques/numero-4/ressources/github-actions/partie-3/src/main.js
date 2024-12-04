@@ -1,13 +1,19 @@
-import "./style.css";
+import resolveConfig from 'tailwindcss/resolveConfig';
+import _tailwindConfig from '/tailwind.config.js';
+
 import fetchPokemonForGeneration, {
     fetchPokemonDescription,
     fetchAllTypes,
     fetchPokemonExtraData,
     fetchPokemon,
 } from "./api";
-import { getVersionForName, cleanString, clearTagContent } from "./utils";
+import { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem } from "./utils";
 
 import loadingImage from "/loading.svg";
+
+import "./style.css";
+
+const tailwindConfig = resolveConfig(_tailwindConfig);
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
@@ -43,8 +49,6 @@ const modal_DOM = {
     listVarieties: modal.querySelector("[data-list-varieties]"),
     topInfos: modal.querySelector("[data-top-infos]"),
 };
-
-// modal_DOM.topInfos.style.height = modal_DOM.topInfos.clientHeight
 
 const dataCache = {};
 
@@ -127,24 +131,28 @@ const displayDetails = async (pkmnData) => {
         clone.querySelector("img").src = typeData.sprite;
         clone.querySelector("[data-type]").textContent = item.name;
         damageFactorContainer.textContent = `x${item.multiplier}`;
+
+        const effectiveDamageMultiplier = 2;
+        const superEffectiveDamageMultiplier = 4;
         damageFactorContainer.classList.toggle(
             "font-bold",
-            item.multiplier === 2 || item.multiplier === 4
+            item.multiplier === effectiveDamageMultiplier || item.multiplier === superEffectiveDamageMultiplier
         );
 
-        if(item.multiplier === 2 || item.multiplier === 4) {
+        if(item.multiplier === effectiveDamageMultiplier || item.multiplier === superEffectiveDamageMultiplier) {
             const cloneHighlight = document.importNode(
                 pkmnHighlightTemplateRaw.content,
                 true
             );
-            cloneHighlight.querySelector("span").textContent = item.multiplier === 2 ? "Double faiblesse" : "Quadruple faiblesse";
+            const isTypeEffectiveAgainst = item.multiplier === effectiveDamageMultiplier;
+            cloneHighlight.querySelector("span").textContent = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse";
 
             damageFactorContainer.append(cloneHighlight);
         }
 
         modal_DOM.listSensibilities.append(clone);
     });
-
+    
     modal_DOM.sexMale.classList.toggle(
         "hidden",
         pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
@@ -218,6 +226,11 @@ const displayDetails = async (pkmnData) => {
 
     console.log(pkmnData)
     modal.showModal();
+
+    document.documentElement.style.setProperty(
+        '--header-height-collapsed', 
+        `${((modal_DOM.topInfos.offsetHeight + convertTailwindRemToPx(tailwindConfig.theme.padding["4"]) + convertTailwindRemToPx(tailwindConfig.theme.padding["2"])) / aRem)}rem`
+    );
 };
 
 const loadPokedexForGeneration = async (generation = 1) => {
@@ -239,6 +252,7 @@ const loadPokedexForGeneration = async (generation = 1) => {
             pokedexData.at(-1).pokedex_id
         }`;
 
+        const fetchPriorityHighThreshold = 20;
         pokedexData.forEach((item, index) => {
             if(firstPkmnId > item.pokedex_id) {
                 return;
@@ -247,7 +261,7 @@ const loadPokedexForGeneration = async (generation = 1) => {
             const imgTag = clone.querySelector("img");
             imgTag.src = item.sprites.regular;
             imgTag.alt = `sprite de ${item.name.fr}`;
-            imgTag.fetchPriority = index <= 20 ? "high" : "low";
+            imgTag.fetchPriority = index <= fetchPriorityHighThreshold ? "high" : "low";
             clone.querySelector(
                 "figcaption"
             ).textContent = `#${item.pokedex_id} ${item.name.fr}`;
@@ -267,7 +281,8 @@ const loadPokedexForGeneration = async (generation = 1) => {
         pokedexContainer.append(cloneDex);
         loadGenerationBtn.inert = false;
     } catch (error) {
-        if(error?.cause?.status === 404) {
+        const errorRessourceNotFound = 404;
+        if(error?.cause?.status === errorRessourceNotFound) {
             loadGenerationBtn.inert = true;
         } else {
             loadGenerationBtn.inert = false;
@@ -299,4 +314,4 @@ closeModalBtn.addEventListener("click", () => {
 modal.addEventListener("close", () => {
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
-})
+});

@@ -48,4 +48,7 @@ const clearTagContent = (tag) => {
     }
 };
 
-export { getVersionForName, cleanString, clearTagContent };
+const aRem = 16;
+const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
+
+export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem };
