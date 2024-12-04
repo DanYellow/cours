@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --header-height-collapsed: 6.5rem;
+}
+
+@keyframes adjust-info {
+    to {
+        height: var(--header-height-collapsed);
+    }
+}
+
+@supports (animation-timeline: auto) {
+    .extra-infos {
+        height: 16.75rem;
+        overflow: hidden;
+        animation: adjust-info linear both;
+    }
+    .extra-infos {
+        animation-timeline: scroll();
+        animation-range: 0 200px;
+    }
+}

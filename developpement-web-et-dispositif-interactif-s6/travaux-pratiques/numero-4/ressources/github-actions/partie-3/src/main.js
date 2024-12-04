@@ -41,7 +41,10 @@ const modal_DOM = {
     nbGames: modal.querySelector("[data-nb-games]"),
     nbVarieties: modal.querySelector("[data-nb-varieties]"),
     listVarieties: modal.querySelector("[data-list-varieties]"),
+    topInfos: modal.querySelector("[data-top-infos]"),
 };
+
+// modal_DOM.topInfos.style.height = modal_DOM.topInfos.clientHeight
 
 const dataCache = {};
 
