@@ -26,6 +26,7 @@ const modal = document.querySelector("[data-pokemon-modal]");
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
     img: modal.querySelector("img"),
+    category: modal.querySelector("[data-category]"),
     listTypes: modal.querySelector("[data-list-types]"),
     listSensibilities: modal.querySelector("[data-list-sensibilities]"),
     sexMale: modal.querySelector("[data-sex='male']"),
@@ -38,6 +39,8 @@ const modal_DOM = {
     listAbilities: modal.querySelector("[data-list-abilities]"),
     listGames: modal.querySelector("[data-list-games]"),
     nbGames: modal.querySelector("[data-nb-games]"),
+    nbVarieties: modal.querySelector("[data-nb-varieties]"),
+    listVarieties: modal.querySelector("[data-list-varieties]"),
 };
 
 const dataCache = {};
@@ -53,6 +56,7 @@ const displayDetails = async (pkmnData) => {
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
     modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
+    modal_DOM.category.textContent = pkmnData.category;
 
     while (modal_DOM.listTypes.firstChild) {
         modal_DOM.listTypes.removeChild(modal_DOM.listTypes.firstChild);
@@ -190,7 +194,16 @@ const displayDetails = async (pkmnData) => {
         modal_DOM.listGames.append(li);
     });
     modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
+    
+    clearTagContent(modal_DOM.listVarieties);
+    modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
+    pkmnData.formes?.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item.name.fr;
 
+        modal_DOM.listVarieties.append(li);
+    })
+    console.log(pkmnData)
     modal.showModal();
 };
 
