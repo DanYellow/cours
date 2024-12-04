@@ -12,4 +12,7 @@ export default defineConfig({
     build: {
         target: "esnext",
     },
+    define: {
+        "import.meta.env.VERSION": JSON.stringify(process.env.npm_package_version),
+    }
 });
