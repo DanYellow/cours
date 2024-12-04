@@ -236,8 +236,11 @@
                 <a href="https://doc.ubuntu-fr.org/rsync" target="_blank" rel="noopener noreferrer">Voir documentation de la commande rsync - ouverture dans un nouvel onglet</a>
             </li>
           </ul>
+          <p>
+            N'oubliez pas que sur un serveur, la racine est le dossier www, n'allez pas tout copier n'importe où.
+          </p>
         </div>
-
+        <p class="note-attention">L'utilisation de la commande rsync fonctionne, mais elle n'est pas des plus optimale. Dans une pipeline CI/CD optimale, on génèrera plutôt une image Docker qui sera uploadée sur le serveur de production.</p>
         <ol class="liste-consignes">
           <li>
             Créez un nouveau dépôt ou remplacez le contenu de votre dépôt
@@ -250,12 +253,7 @@
               <li>Exécute les tests unitaires</li>
               <li>Build le projet</li>
               <li>
-                Déploie le tout
-                <div class="note-information">
-                  <p>
-                    Pour le déploiement en SSH, vous devrez utiliser une action
-                  </p>
-                </div>
+                Déploie le tout sur votre serveur
               </li>
             </ul>
           </li>
