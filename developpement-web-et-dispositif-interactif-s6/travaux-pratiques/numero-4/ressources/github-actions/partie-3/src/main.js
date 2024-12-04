@@ -65,10 +65,38 @@ listTypes = listTypes.map((item) => ({
 }));
 
 const displayDetails = async (pkmnData) => {
+    let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
+    let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
+    if (!dataCache[pkmnData.pokedex_id]) {
+        listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
+        pkmnExtraData = await fetchPokemonExtraData(pkmnData.pokedex_id);
+
+        dataCache[pkmnData.pokedex_id] = {
+            descriptions: listDescriptions,
+            extras: pkmnExtraData,
+        };
+    }
+    // is_legendary	true
+    // is_mythical	false
     modal_DOM.img.src = pkmnData.sprites.regular;
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
-
+    
     modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
+    
+    if(listDescriptions.is_legendary || listDescriptions.is_mythical) {
+        const cloneHighlight = document.importNode(
+            pkmnHighlightTemplateRaw.content,
+            true
+        );
+        const span = cloneHighlight.querySelector("span");
+        span.textContent =
+        listDescriptions.is_legendary
+                ? "Pokémon Légendaire"
+                : "Pokémon Fabuleux";
+        span.classList.add(listDescriptions.is_legendary ? "bg-amber-400" :  "bg-slate-400", "text-black");
+        modal_DOM.pkmnName.append(cloneHighlight);
+    }
+
     modal_DOM.category.textContent = pkmnData.category;
 
     while (modal_DOM.listTypes.firstChild) {
@@ -90,18 +118,6 @@ const displayDetails = async (pkmnData) => {
     });
 
     const descriptionsContainer = modal.querySelector("dl");
-
-    let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
-    let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
-    if (!dataCache[pkmnData.pokedex_id]) {
-        listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
-        pkmnExtraData = await fetchPokemonExtraData(pkmnData.pokedex_id);
-
-        dataCache[pkmnData.pokedex_id] = {
-            descriptions: listDescriptions,
-            extras: pkmnExtraData,
-        };
-    }
 
     clearTagContent(descriptionsContainer);
 
