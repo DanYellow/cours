@@ -207,7 +207,7 @@ const displayDetails = async (pkmnData) => {
     modal.showModal();
 };
 
-const loadTemplateForGeneration = async (generation = 1) => {
+const loadPokedexForGeneration = async (generation = 1) => {
     try {
         loadGenerationBtn.inert = true;
         const pokedexData = await fetchPokemonForGeneration(generation);
@@ -221,11 +221,15 @@ const loadTemplateForGeneration = async (generation = 1) => {
         );
 
         generationNumber.textContent = `#${generation}`;
-        generationRange.textContent = `${pokedexData[0].pokedex_id} -> ${
+        const firstPkmnId = pokedexData[0].pokedex_id;
+        generationRange.textContent = `${firstPkmnId} -> ${
             pokedexData.at(-1).pokedex_id
         }`;
 
         pokedexData.forEach((item, index) => {
+            if(firstPkmnId > item.pokedex_id) {
+                return;
+            }
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
             imgTag.src = item.sprites.regular;
@@ -245,7 +249,7 @@ const loadTemplateForGeneration = async (generation = 1) => {
 
             pokedex.append(clone);
         });
-        loadGenerationBtn.dataset.loadGeneration = Number(generation) + 1;
+        loadGenerationBtn.dataset.loadGeneration = 8; // Number(generation) + 1;
 
         pokedexContainer.append(cloneDex);
         loadGenerationBtn.inert = false;
@@ -258,7 +262,7 @@ const loadTemplateForGeneration = async (generation = 1) => {
     }
 };
 
-await loadTemplateForGeneration();
+await loadPokedexForGeneration();
 
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
@@ -269,7 +273,7 @@ if (pkmnId !== null) {
 }
 
 loadGenerationBtn.addEventListener("click", (e) => {
-    loadTemplateForGeneration(e.currentTarget.dataset.loadGeneration);
+    loadPokedexForGeneration(e.currentTarget.dataset.loadGeneration);
 });
 
 closeModalBtn.addEventListener("click", () => {
