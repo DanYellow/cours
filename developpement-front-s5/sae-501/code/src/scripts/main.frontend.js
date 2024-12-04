@@ -8,6 +8,7 @@ import "./store-scroll-position.utils";
 
 if (process.env.NODE_ENV === "development") {
     await import("./profiler-bar");
+    await import("./vite.error-overlay");
 }
 
 const htmlBGColor = window
