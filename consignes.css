@@ -131,7 +131,7 @@
     }
 
     li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
     }
 }
 
@@ -156,7 +156,6 @@
 .consignes-conteneur ul,
 .consignes-conteneur ol,
 .consignes-conteneur li {
-    margin: revert;
     padding: revert;
     list-style: revert;
 }
@@ -173,7 +172,7 @@
     margin: 0.5rem 0;
 
     p {
-        margin-bottom: 0.95rem;
+        margin-bottom: 0.75rem;
     }
 
     *:last-child {
@@ -197,7 +196,7 @@
     margin: 0.5rem 0;
 
     p {
-        margin-bottom: 0.95rem;
+        margin-bottom: 0.75rem;
     }
 
     *:last-child {
@@ -221,7 +220,7 @@
     margin: 0.5rem 0;
 
     p {
-        margin-bottom: 0.95rem;
+        margin-bottom: 0.75rem;
     }
 
     *:last-child {
