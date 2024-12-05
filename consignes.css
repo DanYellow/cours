@@ -129,6 +129,10 @@
         position: absolute;
         right: 15px;
     }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
 }
 
 .consignes-conteneur a:hover {
@@ -166,6 +170,7 @@
     margin-bottom: 1rem;
     border-top-right-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
+    margin: 0.5rem 0;
 
     p {
         margin-bottom: 0.95rem;
@@ -189,6 +194,7 @@
     margin-bottom: 1rem;
     border-top-right-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
+    margin: 0.5rem 0;
 
     p {
         margin-bottom: 0.95rem;
@@ -212,6 +218,7 @@
     margin-bottom: 1rem;
     border-top-right-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
+    margin: 0.5rem 0;
 
     p {
         margin-bottom: 0.95rem;
