@@ -240,7 +240,7 @@
             N'oubliez pas que sur un serveur, la racine est le dossier www, n'allez pas tout copier n'importe où.
           </p>
         </div>
-        <p class="note-attention">L'utilisation de la commande rsync fonctionne, mais elle n'est pas des plus optimale. Dans une pipeline CI/CD optimale, on génèrera plutôt une image Docker qui sera uploadée sur le serveur de production.</p>
+        <p class="note-attention">L'utilisation de la commande rsync fonctionne, mais elle n'est pas des plus optimale. Dans une pipeline CI/CD "parfaite", on génèrera plutôt une image Docker qui sera uploadée sur le serveur de production.</p>
         <ol class="liste-consignes">
           <li>
             Créez un nouveau dépôt ou remplacez le contenu de votre dépôt
@@ -255,6 +255,36 @@
               <li>Build le projet</li>
               <li>
                 Déploie le tout sur votre serveur
+                <div class="note-information">
+                  <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
+                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. Le plus simple et d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" pour ainsi vous permettre de faire un rsync en ssh sans entrer le mot de passe à chaque fois. </p>
+                  <p class="texte-gras">Ajouter sa clé ssh à un serveur</p>
+                  <ol>
+                    <li><code>ssh-copy-id user@server</code> 
+                    <p class="note-attention">ssh-copy-id copie <span class="texte-gras">toutes</span> vos clefs ssh, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé (extension .pub)</p>
+                    </li>
+                    <li>Entrez le mot de passe ssh du serveur de production</li>
+                    <li>Et voilà</li>
+                  </ol>
+                  <p class="texte-gras">Effectuer un rsync en ssh</p>
+                  <ol>
+                    <li>
+                      <p>Ajouter sa clé ssh dans le conteneur Docker</p>
+                      <code></code>
+                    </li>
+                    <li>
+                      <code>rsync -Pavz -e "ssh -i ssh_key" source/ user@server:destination</code>
+                    </li>
+                  </ol>
+                  <div class="note-attention">
+                    <p>Pour des questions de sécurité, les paramètres suivants doivent être mis en secret</p>
+                    <ul>
+                      <li>user</li>
+                      <li>server</li>
+                      <li>ssh_key</li>
+                    </ul>
+                  </div>
+                </div>
               </li>
             </ul>
             <div class="note-information">
