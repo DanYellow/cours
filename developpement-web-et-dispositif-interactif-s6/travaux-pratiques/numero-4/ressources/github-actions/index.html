@@ -224,7 +224,7 @@
           </p>
           <p>
             A noter que pour déployer via la CI/CD, il vous faut un hébergeur
-            qui vous permet d'accéder au serveur via la ligne de commande. Si
+            qui vous permet de vous connecter en SSH. Si
             vous n'en avez pas, sachez qu'Alwaysdata vous le permet aussi bien
             en SSH qu'avec rsync.
           </p>
@@ -251,13 +251,29 @@
             <ul>
               <li>Lint le code javascript</li>
               <li>Exécute les tests unitaires</li>
+              <li>Exécute les tests e2e</li>
               <li>Build le projet</li>
               <li>
                 Déploie le tout sur votre serveur
               </li>
             </ul>
+            <div class="note-information">
+                <p>Au lieu d'utiliser l'image ubuntu-latest, vous avez également une image de node qui est proposé par GitHub.</p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/actions/setup-node" target="_blank" rel="noopener noreferrer">En savoir plus sur l'image node de GitHub Actions</a>
+                    </li>
+                </ul>
+            </div>
           </li>
         </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <ol class="liste-consignes">
+          <li>Ajouter release-it dans le projet de la partie 3 et mettre la commande dans votre pipeline de la CI/CD</li>
       </details>
     </header>
   </body>
