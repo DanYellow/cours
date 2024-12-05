@@ -270,14 +270,23 @@
                   <ol>
                     <li>
                       <p>Ajouter sa clé ssh dans le conteneur Docker</p>
-                      <code></code>
+                      <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
                     </li>
                     <li>
-                      <code>rsync -Pavz -e "ssh -i ssh_key" source/ user@server:destination</code>
+                      <p>Déplacer le contenu du dossier vers un serveur</p>
+                      <code>rsync -Pavz -e "ssh -i __ssh_key_path__  -o StrictHostKeyChecking=no" source/ user@server:destination</code>
+                      <div class="note-information">
+                        <p><code>rsync</code> permet également de synchroniser un seul fichier ou encore exclure des dossiers.</p>
+                        <ul>
+                          <li>
+                            <a href="https://doc.ubuntu-fr.org/rsync" target="_blank" rel="noopener noreferrer">Voir documentation de la commande rsync - ouverture dans un nouvel onglet</a>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                   </ol>
                   <div class="note-attention">
-                    <p>Pour des questions de sécurité, les paramètres suivants doivent être mis en secret</p>
+                    <p>Pour des questions de sécurité, les paramètres suivants doivent être mis en secret. Settings > Secrets and variables > Actions > Repository secrets</p>
                     <ul>
                       <li>user</li>
                       <li>server</li>
