@@ -77,6 +77,7 @@ closeModalBtn.addEventListener("click", () => {
     const url = new URL(location);
     url.searchParams.delete("id");
     url.searchParams.delete("region");
+    url.searchParams.delete("alternate_form_id");
     history.replaceState({}, "", url);
     modal.close();
 });
@@ -90,18 +91,33 @@ const loadDetailsModal = (e, region) => {
     
     const url = new URL(location);
     url.searchParams.set("region", region);
+    if(pkmnData.alternate_form_id) {
+        url.searchParams.set("alternate_form_id", pkmnData.alternate_form_id);
+    }
+
     history.replaceState({}, "", url);
     displayModal(pkmnData);
 }
 
 displayModal = async (pkmnData) => {
-    let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
-    let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
-    if (!dataCache[pkmnData.pokedex_id]) {
-        listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
-        pkmnExtraData = await fetchPokemonExtraData(pkmnData.pokedex_id);
+    const formId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
+    console.log(formId)
+    let pkmnExtraData = dataCache[formId]?.extras;
+    let listDescriptions = dataCache[formId]?.descriptions;
+    if (!dataCache[formId]) {
+        try {
+            listDescriptions = await fetchPokemonDescription(formId);
+        } catch (_e) {
+            listDescriptions = {}
+        }
 
-        dataCache[pkmnData.pokedex_id] = {
+        try {
+            pkmnExtraData = await fetchPokemonExtraData(formId);
+        } catch (_e) {
+            pkmnExtraData = {}
+        }
+
+        dataCache[formId] = {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
         };
@@ -113,7 +129,7 @@ displayModal = async (pkmnData) => {
     modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
     document.title = `${modal_DOM.pkmnName.textContent} - ${initialPageTitle}`;
 
-    if (listDescriptions.is_legendary || listDescriptions.is_mythical) {
+    if (listDescriptions?.is_legendary || listDescriptions?.is_mythical) {
         const cloneHighlight = document.importNode(
             pkmnHighlightTemplateRaw.content,
             true
@@ -153,7 +169,7 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(descriptionsContainer);
 
-    listDescriptions.flavor_text_entries.forEach((description) => {
+    listDescriptions.flavor_text_entries?.forEach((description) => {
         const dt = document.createElement("dt");
         const versionName = `Pokémon ${
             getVersionForName[description.version.name] || "Unknown"
@@ -344,6 +360,7 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
 
+
     for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
 
@@ -355,7 +372,16 @@ displayModal = async (pkmnData) => {
         clone.querySelector("figcaption").textContent = `${pkmnForm.name.fr}`;
 
         const aTag = clone.querySelector("[data-pokemon-data]");
-        url.searchParams.set("region", item.region);
+        const alternateForm = listDescriptions.varieties?.filter((_item) => !_item.is_default).find((_item) => {
+            return _item.pokemon?.name.includes(item.region);
+        });
+        
+        if (alternateForm) {
+            pkmnForm.alternate_form_id = alternateForm?.pokemon.url?.split('/').filter(Boolean).at(-1)
+            url.searchParams.set("region", item.region);
+            url.searchParams.set("alternate_form_id", pkmnForm.alternate_form_id);
+        }
+        
         aTag.href = url;
         aTag.dataset.pokemonData = JSON.stringify(pkmnForm);
         aTag.addEventListener("click", (e) => loadDetailsModal(e, item.region));

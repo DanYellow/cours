@@ -102,6 +102,7 @@ const pkmnId = urlParams.get("id");
 
 if (pkmnId !== null) {
     const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
+    pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
     displayPkmnModal(pkmnData);
 }
 

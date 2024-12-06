@@ -17,6 +17,7 @@ export default [
                 "warn",
                 { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1, 1] },
             ],
+            "no-empty": ["error", { "allowEmptyCatch": true }],
         },
     },
     {
