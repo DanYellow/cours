@@ -239,9 +239,8 @@ const displayModal = async (pkmnData) => {
         modal_DOM.listAbilities.append(li);
     });
 
-    // clearTagContent(modal_DOM.listSprites);
+    clearTagContent(modal_DOM.spritesContainer);
 
-    
     const listSpritesObj = pkmnExtraData.sprites.other.home;
     const listSprites = [];
     Object.entries(listSpritesObj).forEach(([key, value]) => {
@@ -251,12 +250,16 @@ const displayModal = async (pkmnData) => {
         listSprites.push({name: key, sprite: value})
     });
     const groupedSprites = Object.groupBy(listSprites, ({ name }) => name.includes("female") ? "Female ♀" : "Male ♂");
+
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
         const listPokemonSpritesTemplate = document.importNode(
             listPokemonSpritesTemplateRaw.content,
             true
         );
         listPokemonSpritesTemplate.querySelector("p").textContent = `${key} ${(Object.keys(groupedSprites).length) === 1 ? '/ Female ♀' : ''}`;
+        if (pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined) {
+            listPokemonSpritesTemplate.querySelector("p").textContent =  "";
+        }
 
         const listSpritesUI = listPokemonSpritesTemplate.querySelector("[data-list-sprites]");
         sprites.forEach((item) => {
@@ -266,11 +269,21 @@ const displayModal = async (pkmnData) => {
             );
 
             const img = pokemonSpriteTemplate.querySelector("img");
-            img.src = item.sprite;
+            
+            const newImg = new Image();
+            newImg.onload = () => {
+                img.src = newImg.src; 
+            }
+            newImg.src = item.sprite;    
+
             img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
 
+            if(!item.name.includes("shiny")) {
+                pokemonSpriteTemplate.querySelector("p").classList.add("hidden");
+            }
+
             listSpritesUI.append(pokemonSpriteTemplate);
-        })
+        });
 
         modal_DOM.spritesContainer.append(listPokemonSpritesTemplate);
     }); 
@@ -330,5 +343,6 @@ const displayModal = async (pkmnData) => {
         }rem`
     );
 };
+
 
 export default displayModal;

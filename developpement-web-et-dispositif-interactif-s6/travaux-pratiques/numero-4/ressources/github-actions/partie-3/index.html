@@ -85,6 +85,25 @@
             <span class="py-0.5 px-1 whitespace-nowrap bg-slate-900 text-white rounded-md text-xs align-super font-normal">Talent caché</span>
         </template>
 
+        <template data-tpl-id="pokemon-list-sprites">
+            <div>
+                <p class="text-center">Male ♂</p>
+                    <ul
+                    class="flex flex-col gap-3 mt-3 w-"
+                    data-list-sprites=""
+                ></ul>
+            </div>
+        </template>
+
+        <template data-tpl-id="pokemon-sprite">
+            <li class="flex justify-center">
+                <div>
+                    <img class="w-52" src="/loading.svg" alt="" fetchpriority="low" />
+                    <p class="text-center">Chromatique</p>
+                </div>
+            </li>
+        </template>
+
         <dialog
             data-pokemon-modal
             data-testid="pokemon-modal"
@@ -151,10 +170,8 @@
                 <summary>
                     <p class="inline-block font-bold text-xl">Sprites</p>
                 </summary>
-                <ul
-                    class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3"
-                    data-list-sprites=""
-                ></ul>
+                <div class="mt-3 grid grid-cols-1 md:grid-cols-fluid gap-2 grid-flow-col-dense" data-sprites-container>
+                </div>
             </details>
             <details class="mt-3">
                 <summary class="inert:opacity-20">
