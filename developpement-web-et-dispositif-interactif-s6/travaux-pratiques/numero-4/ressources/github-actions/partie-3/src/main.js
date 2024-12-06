@@ -16,6 +16,7 @@ const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
+const modal = document.querySelector("[data-pokemon-modal]");
 
 const loadDetailsModal = (e) => {
     e.preventDefault()
@@ -114,3 +115,15 @@ loadGenerationBtn.addEventListener("click", (e) => {
     loadPokedexForGeneration(e.currentTarget.dataset.loadGeneration);
 });
 
+
+window.addEventListener('popstate', async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if(urlParams.get("id") !== null) {
+        const pkmnData = await fetchPokemon(urlParams.get("id"), urlParams.get("region"));
+        pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
+        displayPkmnModal(pkmnData);
+    } else {
+        modal.close();
+    }
+});
