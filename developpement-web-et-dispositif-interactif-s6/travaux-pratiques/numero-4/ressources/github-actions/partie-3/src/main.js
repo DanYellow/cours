@@ -17,6 +17,13 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 
+const loadDetailsModal = (e) => {
+    e.preventDefault()
+    const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
+    const pkmnData = JSON.parse(pkmnDataRaw);
+    displayPkmnModal(pkmnData);
+}
+
 const loadPokedexForGeneration = async (generation = 1) => {
     try {
         loadGenerationBtn.inert = true;
@@ -37,7 +44,11 @@ const loadPokedexForGeneration = async (generation = 1) => {
         }`;
 
         const fetchPriorityHighThreshold = 20;
+        const url = new URL(window.location);
+        
         pokedexData.forEach((item, index) => {
+            url.searchParams.set("id", item.pokedex_id)
+
             if (firstPkmnId > item.pokedex_id) {
                 return;
             }
@@ -62,13 +73,10 @@ const loadPokedexForGeneration = async (generation = 1) => {
                 "figcaption"
             ).textContent = `#${item.pokedex_id} ${item.name.fr}`;
 
-            const button = clone.querySelector("[data-pokemon-data]");
-            button.dataset.pokemonData = JSON.stringify(item);
-            button.addEventListener("click", (e) => {
-                const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
-                const pkmnData = JSON.parse(pkmnDataRaw);
-                displayPkmnModal(pkmnData);
-            });
+            const aTag = clone.querySelector("[data-pokemon-data]");
+            aTag.href = url;
+            aTag.dataset.pokemonData = JSON.stringify(item);
+            aTag.addEventListener("click", loadDetailsModal);
 
             pokedex.append(clone);
         });

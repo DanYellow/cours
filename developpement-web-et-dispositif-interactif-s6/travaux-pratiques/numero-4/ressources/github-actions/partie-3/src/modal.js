@@ -81,7 +81,20 @@ closeModalBtn.addEventListener("click", () => {
     modal.close();
 });
 
-const displayModal = async (pkmnData) => {
+let displayModal = null;
+
+const loadDetailsModal = (e, region) => {
+    e.preventDefault()
+    const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
+    const pkmnData = JSON.parse(pkmnDataRaw);
+    
+    const url = new URL(location);
+    url.searchParams.set("region", region);
+    history.replaceState({}, "", url);
+    displayModal(pkmnData);
+}
+
+displayModal = async (pkmnData) => {
     let pkmnExtraData = dataCache[pkmnData.pokedex_id]?.extras;
     let listDescriptions = dataCache[pkmnData.pokedex_id]?.descriptions;
     if (!dataCache[pkmnData.pokedex_id]) {
@@ -336,22 +349,16 @@ const displayModal = async (pkmnData) => {
 
         const clone = document.importNode(pkmnTemplateRaw.content, true);
         const imgTag = clone.querySelector("img");
-        imgTag.src = pkmnForm.sprites.regular;
+        replaceImage(imgTag, pkmnForm.sprites.regular);
         imgTag.alt = `sprite de ${pkmnForm.name.fr} forme ${item.region}`;
         imgTag.fetchPriority = "low";
         clone.querySelector("figcaption").textContent = `${pkmnForm.name.fr}`;
 
-        const button = clone.querySelector("[data-pokemon-data]");
-        button.dataset.pokemonData = JSON.stringify(pkmnForm);
-        button.addEventListener("click", (e) => {
-            const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
-
-            const url = new URL(location);
-            url.searchParams.set("region", item.region);
-            history.replaceState({}, "", url);
-            const pkmnData = JSON.parse(pkmnDataRaw);
-            displayModal(pkmnData);
-        });
+        const aTag = clone.querySelector("[data-pokemon-data]");
+        url.searchParams.set("region", item.region);
+        aTag.href = url;
+        aTag.dataset.pokemonData = JSON.stringify(pkmnForm);
+        aTag.addEventListener("click", (e) => loadDetailsModal(e, item.region));
 
         modal_DOM.listVarieties.append(clone);
     }
