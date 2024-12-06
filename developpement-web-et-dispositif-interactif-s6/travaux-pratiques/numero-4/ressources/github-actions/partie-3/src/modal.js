@@ -17,7 +17,7 @@ import {
     replaceImage,
 } from "./utils";
 
-import loadingImage from "/loading.svg?raw";
+import loadingImage from "/loading.svg";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
@@ -29,7 +29,7 @@ const pkmnHighlightTemplateRaw = document.querySelector(
 );
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const listPokemonSpritesTemplateRaw = document.querySelector("[data-tpl-id='pokemon-list-sprites']");
-const listPokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
+const pokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
 
@@ -41,6 +41,7 @@ const modal_DOM = {
     category: modal.querySelector("[data-category]"),
     listTypes: modal.querySelector("[data-list-types]"),
     listSensibilities: modal.querySelector("[data-list-sensibilities]"),
+    listEvolutions: modal.querySelector("[data-list-evolutions]"),
     sexMale: modal.querySelector("[data-sex='male']"),
     sexAsexual: modal.querySelector("[data-sex='asexual']"),
     sexFemale: modal.querySelector("[data-sex='female']"),
@@ -153,6 +154,35 @@ const displayModal = async (pkmnData) => {
         dd.classList.add("mb-2");
         descriptionsContainer.append(dd);
     });
+
+    // clearTagContent(modal_DOM.listEvolutions);
+    // const listEvolutions = [...(pkmnData.evolution?.pre || []), { pokedex_id: pkmnData.pokedex_id, name: pkmnData.name.fr , condition: "" }, ...(pkmnData.evolution?.next || [])]
+    // listEvolutions.forEach((item) => {
+    //     const clone = document.importNode(
+    //         pokemonSpriteTemplateRaw.content,
+    //         true
+    //     );
+
+    //     const img = clone.querySelector("img");
+    //     img.alt = `Sprite de ${item.name}`;
+    //     img.classList.replace("w-52", "w-36");
+    //     replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
+
+    //     const textContainer = clone.querySelector("p");
+    //     const evolutionName = document.createElement("p");
+    //     evolutionName.textContent = item.condition;
+    //     evolutionName.classList.add("text-xs", 'text-center')
+    //     textContainer.textContent = item.name;
+    //     textContainer.insertAdjacentElement("afterend", evolutionName);
+
+    //     modal_DOM.listEvolutions.append(clone);
+        
+    //     const nextArrow = document.createElement("li");
+    //     nextArrow.textContent = "►";
+    //     nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
+    //     modal_DOM.listEvolutions.append(nextArrow);
+    // })
+
 
     clearTagContent(modal_DOM.listSensibilities);
 
@@ -267,12 +297,11 @@ const displayModal = async (pkmnData) => {
         const listSpritesUI = listPokemonSpritesTemplate.querySelector("[data-list-sprites]");
         sprites.forEach((item) => {
             const pokemonSpriteTemplate = document.importNode(
-                listPokemonSpriteTemplateRaw.content,
+                pokemonSpriteTemplateRaw.content,
                 true
             );
 
             const img = pokemonSpriteTemplate.querySelector("img");
-
             replaceImage(img, item.sprite);
 
             img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
