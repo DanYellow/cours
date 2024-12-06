@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-    console.log(`Running ${test.info().title}`);
+    // console.log(`Running ${test.info().title}`);
     await page.goto("http://localhost:5173");
 });
 
@@ -20,23 +20,24 @@ test("should add new Pokedex", async ({ page }) => {
     );
 });
 
-test("should disable load generation button", async ({ page }) => {
+test("should disable load generation button when there's no generation anymore", async ({ page }) => {
     await page.waitForResponse((resp) =>
         resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
     );
     const loadGenerationBtn = await page
         .getByTestId("load-generation-btn")
         .first();
-
+    const fakeGeneration = "42";
     await page.evaluate(() => {
+        const fakeGeneration = "42";
         const selector = document.querySelector("[data-load-generation]");
-        selector.dataset.loadGeneration = "45";
+        selector.dataset.loadGeneration = fakeGeneration;
     })
 
+    await expect(loadGenerationBtn).toHaveAttribute("data-load-generation", fakeGeneration);
     await loadGenerationBtn.click();
-    await expect(loadGenerationBtn).toHaveAttribute("data-load-generation", "45");
     await page.waitForResponse((resp) =>
-        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/45")
+        resp.url().includes(`https://tyradex.vercel.app/api/v1/gen/${fakeGeneration}`)
     );
 
     await expect(loadGenerationBtn).toHaveAttribute("inert", "");

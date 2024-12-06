@@ -34,6 +34,7 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
+const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
@@ -333,6 +334,7 @@ const loadPokedexForGeneration = async (generation = 1) => {
         const errorRessourceNotFound = 404;
         if (error?.cause?.status === errorRessourceNotFound) {
             loadGenerationBtn.inert = true;
+            noGenerationBanner.showPopover();
         } else {
             loadGenerationBtn.inert = false;
         }
