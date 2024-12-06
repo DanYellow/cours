@@ -38,64 +38,63 @@ export default {
             addVariant('group-hocus', [':merge(.group):hover &', ':merge(.group):focus-visible &']);
             addComponents({
                 ".plante": {
-                    backgroundColor: theme("colors.green.500"),
+                    backgroundColor: "#3fa129",
                 },
                 ".poison": {
-                    backgroundColor: theme("colors.violet.500"),
-                },
-                ".vol": {
-                    backgroundColor: theme("colors.sky.500"),
-                },
-                ".eau": {
-                    backgroundColor: theme("colors.blue.500"),
-                },
-                ".feu": {
-                    backgroundColor: theme("colors.red.500"),
-                },
-                ".normal": {
-                    backgroundColor: theme("colors.zinc.100"),
-                },
-                ".insecte": {
-                    backgroundColor: theme("colors.emerald.500"),
-                },
-                ".sol": {
-                    backgroundColor: theme("colors.amber.500"),
-                },
-                ".tenebres": {
-                    backgroundColor: theme("colors.gray.900"),
+                    backgroundColor: "#8f41cb",
                     color: theme("colors.slate.50"),
                 },
-                ".spectre": {
-                    backgroundColor: theme("colors.black"),
+                ".vol": {
+                    backgroundColor: "#81b9ef",
+                },
+                ".eau": {
+                    backgroundColor: "#2980ef",
+                },
+                ".feu": {
+                    backgroundColor: "#e62829",
+                },
+                ".normal": {
+                    backgroundColor: "#9fa19f",
+                },
+                ".insecte": {
+                    backgroundColor: "#91a119",
+                },
+                ".sol": {
+                    backgroundColor: "#915121",
+                    color: theme("colors.slate.50"),
+                },
+                ".tenebres": {
+                    backgroundColor: "#50413f",
                     color: theme("colors.slate.50"),
                 },
                 ".psy": {
-                    backgroundColor: theme("colors.pink.500"),
+                    backgroundColor: "#ef4179",
                 },
                 ".electrik": {
-                    backgroundColor: theme("colors.yellow.500"),
+                    backgroundColor: "#fac000",
                 },
                 ".glace": {
-                    backgroundColor: theme("colors.blue.100"),
+                    backgroundColor: "#3fd8ff",
                 },
                 ".roche": {
-                    backgroundColor: theme("colors.stone.500"),
+                    backgroundColor: "#afa981",
                 },
                 ".combat": {
-                    backgroundColor: theme("colors.orange.500"),
+                    backgroundColor: "#ff8000",
                 },
                 ".acier": {
-                    backgroundColor: theme("colors.slate.500"),
-                    color: theme("colors.slate.50"),
+                    backgroundColor: "#60a1b8",
                 },
                 ".fee": {
-                    backgroundColor: theme("colors.fuchsia.500"),
+                    backgroundColor: "#ef71ef",
                 },
                 ".dragon": {
-                    backgroundColor: theme("colors.teal.500"),
+                    backgroundColor: "#5061e1",
+                    color: theme("colors.slate.50"),
                 },
                 ".spectre": {
-                    backgroundColor: theme("colors.indigo.500"),
+                    backgroundColor: "#704170",
+                    color: theme("colors.slate.50"),
                 },
             });
         }),
