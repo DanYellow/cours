@@ -18,6 +18,10 @@ const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 
+const listPokemon = [];
+
+export { listPokemon };
+
 const loadDetailsModal = (e) => {
     e.preventDefault()
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
@@ -50,6 +54,8 @@ const loadPokedexForGeneration = async (generation = 1) => {
 
         const fetchPriorityHighThreshold = 20;
         const url = new URL(window.location);
+
+        listPokemon.push(...pokedexData);
         
         pokedexData.forEach((item, index) => {
             url.searchParams.set("id", item.pokedex_id)

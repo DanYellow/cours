@@ -17,6 +17,8 @@ import {
     replaceImage,
 } from "./utils";
 
+import { listPokemon } from "./main";
+
 import loadingImage from "/loading.svg";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
@@ -30,6 +32,7 @@ const pkmnHighlightTemplateRaw = document.querySelector(
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const listPokemonSpritesTemplateRaw = document.querySelector("[data-tpl-id='pokemon-list-sprites']");
 const pokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
+const pokemonSiblingTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sibling']");
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
 
@@ -56,6 +59,7 @@ const modal_DOM = {
     listVarieties: modal.querySelector("[data-list-varieties]"),
     spritesContainer: modal.querySelector("[data-sprites-container]"),
     topInfos: modal.querySelector("[data-top-infos]"),
+    listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
 };
 
 const dataCache = {};
@@ -391,6 +395,42 @@ displayModal = async (pkmnData) => {
         (pkmnData?.formes || []).length === 0;
 
     console.log(pkmnData);
+    // console.log(listPokemon.at(pkmnData.pokedex_id - 1));
+    const nextPokemon = listPokemon.at(pkmnData.pokedex_id);
+    const prevPokemon = listPokemon.at(pkmnData.pokedex_id - 2);
+
+
+    [prevPokemon, pkmnData, nextPokemon].forEach((item, idx) => {
+        const clone = document.importNode(pokemonSiblingTemplateRaw.content, true);
+        const li = clone.querySelector("li");
+
+        // , "md:[display:revert]
+        li.classList.toggle("shrink-0", idx === 1);
+        li.classList.toggle("hidden", idx === 1);
+        li.classList.toggle("md:[display:revert]", idx === 1);
+        li.classList.toggle("grow", idx !== 1);
+        
+        const imgTag = clone.querySelector("img");
+        imgTag.src = loadingImage;
+        replaceImage(imgTag, item.sprites.regular);
+        imgTag.classList.toggle("hidden", idx === 1);
+
+        const name = clone.querySelector("[data-name]");
+        name.textContent = item.name.fr;
+        
+        const pkmnId = clone.querySelector("[data-id]");
+        pkmnId.textContent = `#${item.pokedex_id}`;
+        pkmnId.classList.toggle("text-center", idx === 1);
+
+        const siblingUrl = new URL(location);
+        siblingUrl.searchParams.set("id", item.pokedex_id);
+        const aTag = clone.querySelector("a");
+        aTag.href = siblingUrl;
+        aTag.inert = idx === 1;
+        
+        modal_DOM.listSiblings.append(clone);
+    })
+
     modal.showModal();
 
     document.documentElement.style.setProperty(
