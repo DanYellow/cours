@@ -22,6 +22,7 @@ export default [
             "tailwind.config.js",
             "vite.config.js",
             "eslint.config.js",
+            "playwright.config.js",
             "postcss.config.js",
         ],
     },
