@@ -78,7 +78,7 @@ closeModalBtn.addEventListener("click", () => {
     url.searchParams.delete("id");
     url.searchParams.delete("region");
     url.searchParams.delete("alternate_form_id");
-    history.replaceState({}, "", url);
+    history.pushState({}, "", url);
     modal.close();
 });
 
@@ -95,29 +95,29 @@ const loadDetailsModal = (e, region) => {
         url.searchParams.set("alternate_form_id", pkmnData.alternate_form_id);
     }
 
-    history.replaceState({}, "", url);
+    history.pushState({}, "", url);
     displayModal(pkmnData);
 }
 
 displayModal = async (pkmnData) => {
-    const formId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
-    console.log(formId)
-    let pkmnExtraData = dataCache[formId]?.extras;
-    let listDescriptions = dataCache[formId]?.descriptions;
-    if (!dataCache[formId]) {
+    const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
+
+    let pkmnExtraData = dataCache[pkmnId]?.extras;
+    let listDescriptions = dataCache[pkmnId]?.descriptions;
+    if (!dataCache[pkmnId]) {
         try {
-            listDescriptions = await fetchPokemonDescription(formId);
+            listDescriptions = await fetchPokemonDescription(pkmnId);
         } catch (_e) {
             listDescriptions = {}
         }
 
         try {
-            pkmnExtraData = await fetchPokemonExtraData(formId);
+            pkmnExtraData = await fetchPokemonExtraData(pkmnId);
         } catch (_e) {
             pkmnExtraData = {}
         }
 
-        dataCache[formId] = {
+        dataCache[pkmnId] = {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
         };
@@ -153,7 +153,6 @@ displayModal = async (pkmnData) => {
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
-    history.pushState({}, "", url);
 
     pkmnData.types.forEach((type) => {
         const li = document.createElement("li");

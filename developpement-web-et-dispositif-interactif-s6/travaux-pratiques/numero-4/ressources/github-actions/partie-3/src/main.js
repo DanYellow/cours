@@ -22,6 +22,10 @@ const loadDetailsModal = (e) => {
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
     displayPkmnModal(pkmnData);
+
+    const url = new URL(location);
+    url.searchParams.set("id", pkmnData.pokedex_id);
+    history.pushState({}, "", url);
 }
 
 const loadPokedexForGeneration = async (generation = 1) => {
