@@ -22,7 +22,7 @@
         </footer>
         <template data-tpl-id="pokemon">
             <li>
-                <button data-pokemon-data class="hocus:bg-slate-100 rounded-md p-2 group">
+                <button data-pokemon-data class="hocus:bg-slate-100 rounded-md p-2 group" data-testid="pokemon">
                     <figure class="flex flex-col gap-3 items-center">
                         <img src="" loading="lazy" alt="" />
                         <figcaption class="text-center group-hocus:bg-slate-900 group-hocus:text-white w-fit rounded-md px-2"></figcaption>
@@ -74,6 +74,7 @@
 
         <dialog
             data-pokemon-modal
+            data-testid="pokemon-modal"
             class="backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain px-4 duration-300 transition-dialog bg-white shadow-xl rounded-lg md:my-8 w-11/12 sm:max-w-3xl"
         >
             <header

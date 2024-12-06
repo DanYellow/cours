@@ -10,7 +10,7 @@
     "build": "vite build",
     "lint": "npx eslint",
     "preview": "vite preview",
-    "e2e": "npx playwright"
+    "e2e": "npx playwright test --ui"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
