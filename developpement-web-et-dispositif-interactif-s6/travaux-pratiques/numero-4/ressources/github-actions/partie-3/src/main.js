@@ -57,6 +57,7 @@ const modal_DOM = {
 };
 
 const dataCache = {};
+const initialPageTitle = document.title;
 
 let listTypes = await fetchAllTypes();
 listTypes = listTypes.map((item) => ({
@@ -76,12 +77,12 @@ const displayDetails = async (pkmnData) => {
             extras: pkmnExtraData,
         };
     }
-    // is_legendary	true
-    // is_mythical	false
+
     modal_DOM.img.src = pkmnData.sprites.regular;
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
     
     modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
+    document.title = `${modal_DOM.pkmnName.textContent} - ${initialPageTitle}`;
     
     if(listDescriptions.is_legendary || listDescriptions.is_mythical) {
         const cloneHighlight = document.importNode(
@@ -93,7 +94,7 @@ const displayDetails = async (pkmnData) => {
         listDescriptions.is_legendary
                 ? "Pokémon Légendaire"
                 : "Pokémon Fabuleux";
-        span.classList.add(listDescriptions.is_legendary ? "bg-amber-400" :  "bg-slate-400", "text-black");
+        span.classList.add(listDescriptions.is_legendary ? "!bg-amber-400" :  "!bg-slate-400", "!text-black");
         modal_DOM.pkmnName.append(cloneHighlight);
     }
 
@@ -363,4 +364,5 @@ closeModalBtn.addEventListener("click", () => {
 modal.addEventListener("close", () => {
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
+    document.title = initialPageTitle;
 });
