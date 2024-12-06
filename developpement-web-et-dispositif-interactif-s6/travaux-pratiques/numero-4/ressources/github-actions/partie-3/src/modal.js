@@ -237,6 +237,22 @@ const displayModal = async (pkmnData) => {
         modal_DOM.listAbilities.append(li);
     });
 
+    clearTagContent(modal_DOM.listSprites);
+    
+    Object.entries(pkmnExtraData.sprites).forEach(([key, value]) => {
+        if(value === null || typeof value === "object") {
+            return;
+        }
+        const li = document.createElement("li");
+        const img = document.createElement("img");
+        img.src = value;
+        img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
+
+        li.append(img);
+        modal_DOM.listSprites.append(li);
+    })
+
+
     clearTagContent(modal_DOM.listGames);
     pkmnExtraData.game_indices.forEach((item) => {
         const li = document.createElement("li");

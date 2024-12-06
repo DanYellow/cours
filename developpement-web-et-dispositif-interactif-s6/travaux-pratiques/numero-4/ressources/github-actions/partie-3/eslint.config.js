@@ -7,8 +7,12 @@ export default [
     pluginJs.configs.recommended,
     {
         rules: {
-            "no-unused-vars": "error",
             "no-undef": "error",
+            "no-unused-vars": ["error", {
+                argsIgnorePattern: "^_",
+                varsIgnorePattern: "^_",
+                caughtErrorsIgnorePattern: "^_",
+            }],
             "no-magic-numbers": [
                 "warn",
                 { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1, 1] },
