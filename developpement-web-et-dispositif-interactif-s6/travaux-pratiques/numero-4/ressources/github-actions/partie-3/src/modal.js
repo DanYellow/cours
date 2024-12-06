@@ -27,6 +27,8 @@ const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
+const listPokemonSpritesTemplateRaw = document.querySelector("[data-tpl-id='pokemon-list-sprites']");
+const listPokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
 
@@ -48,7 +50,7 @@ const modal_DOM = {
     nbGames: modal.querySelector("[data-nb-games]"),
     nbVarieties: modal.querySelector("[data-nb-varieties]"),
     listVarieties: modal.querySelector("[data-list-varieties]"),
-    listSprites: modal.querySelector("[data-list-sprites]"),
+    spritesContainer: modal.querySelector("[data-sprites-container]"),
     topInfos: modal.querySelector("[data-top-infos]"),
 };
 
@@ -237,21 +239,41 @@ const displayModal = async (pkmnData) => {
         modal_DOM.listAbilities.append(li);
     });
 
-    clearTagContent(modal_DOM.listSprites);
+    // clearTagContent(modal_DOM.listSprites);
+
     
-    Object.entries(pkmnExtraData.sprites).forEach(([key, value]) => {
-        if(value === null || typeof value === "object") {
+    const listSpritesObj = pkmnExtraData.sprites.other.home;
+    const listSprites = [];
+    Object.entries(listSpritesObj).forEach(([key, value]) => {
+        if(value === null) {
             return;
         }
-        const li = document.createElement("li");
-        const img = document.createElement("img");
-        img.src = value;
-        img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
+        listSprites.push({name: key, sprite: value})
+    });
+    const groupedSprites = Object.groupBy(listSprites, ({ name }) => name.includes("female") ? "Female ♀" : "Male ♂");
+    Object.entries(groupedSprites).forEach(([key, sprites]) => {
+        const listPokemonSpritesTemplate = document.importNode(
+            listPokemonSpritesTemplateRaw.content,
+            true
+        );
+        listPokemonSpritesTemplate.querySelector("p").textContent = `${key} ${(Object.keys(groupedSprites).length) === 1 ? '/ Female ♀' : ''}`;
 
-        li.append(img);
-        modal_DOM.listSprites.append(li);
-    })
+        const listSpritesUI = listPokemonSpritesTemplate.querySelector("[data-list-sprites]");
+        sprites.forEach((item) => {
+            const pokemonSpriteTemplate = document.importNode(
+                listPokemonSpriteTemplateRaw.content,
+                true
+            );
 
+            const img = pokemonSpriteTemplate.querySelector("img");
+            img.src = item.sprite;
+            img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
+
+            listSpritesUI.append(pokemonSpriteTemplate);
+        })
+
+        modal_DOM.spritesContainer.append(listPokemonSpritesTemplate);
+    }); 
 
     clearTagContent(modal_DOM.listGames);
     pkmnExtraData.game_indices.forEach((item) => {

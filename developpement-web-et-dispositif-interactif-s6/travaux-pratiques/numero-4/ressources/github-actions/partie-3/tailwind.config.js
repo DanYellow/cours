@@ -29,13 +29,19 @@ export default {
             transitionProperty: {
                 dialog: "background-color box-shadow",
             },
+            gridTemplateColumns: {
+                fluid: "repeat(auto-fit, minmax(0, 1fr))",
+            },
         },
     },
     plugins: [
         plugin(({ addVariant, addComponents, theme }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
-            addVariant('group-hocus', [':merge(.group):hover &', ':merge(.group):focus-visible &']);
+            addVariant("group-hocus", [
+                ":merge(.group):hover &",
+                ":merge(.group):focus-visible &",
+            ]);
             addComponents({
                 ".plante": {
                     backgroundColor: "#3fa129",
