@@ -32,6 +32,27 @@ export default {
             gridTemplateColumns: {
                 fluid: "repeat(auto-fit, minmax(0, 1fr))",
             },
+            colors: {
+                type_plante: "#3fa129",
+                type_poison: "#8f41cb",
+                type_vol: "#81b9ef",
+                type_eau: "#2980ef",
+                type_feu: "#e62829",
+                type_normal: "#9fa19f",
+                type_insecte: "#91a119",
+                type_sol: "#915121",
+                type_tenebres: "#50413f",
+                type_sol: "#915121",
+                type_psy: "#ef4179",
+                type_electrik: "#fac000",
+                type_glace: "#3fd8ff",
+                type_combat: "#ff8000",
+                type_roche: "#afa981",
+                type_acier: "#60a1b8",
+                type_fee: "#ef71ef",
+                type_dragon: "#5061e1",
+                type_spectre: "#704170",
+            },
         },
     },
     plugins: [
@@ -44,62 +65,64 @@ export default {
             ]);
             addComponents({
                 ".plante": {
-                    backgroundColor: "#3fa129",
+                    backgroundColor: theme("colors.type_plante"),
                 },
                 ".poison": {
-                    backgroundColor: "#8f41cb",
+                    backgroundColor: theme("colors.type_poison"),
                     color: theme("colors.slate.50"),
                 },
                 ".vol": {
-                    backgroundColor: "#81b9ef",
+                    backgroundColor: theme("colors.type_vol"),
                 },
                 ".eau": {
-                    backgroundColor: "#2980ef",
+                    backgroundColor: theme("colors.type_eau"),
                 },
                 ".feu": {
-                    backgroundColor: "#e62829",
+                    backgroundColor: theme("colors.type_feu"),
                 },
                 ".normal": {
-                    backgroundColor: "#9fa19f",
+                    backgroundColor: theme("colors.type_normal"),
                 },
                 ".insecte": {
-                    backgroundColor: "#91a119",
+                    backgroundColor: theme("colors.type_insecte"),
                 },
                 ".sol": {
-                    backgroundColor: "#915121",
+                    backgroundColor: theme("colors.type_sol"),
                     color: theme("colors.slate.50"),
                 },
                 ".tenebres": {
-                    backgroundColor: "#50413f",
+                    backgroundColor: theme("colors.type_tenebres"),
                     color: theme("colors.slate.50"),
                 },
                 ".psy": {
-                    backgroundColor: "#ef4179",
+                    backgroundColor: theme("colors.type_psy"),
                 },
                 ".electrik": {
-                    backgroundColor: "#fac000",
+                    backgroundColor: theme("colors.type_electrik"),
                 },
                 ".glace": {
+                    backgroundColor: theme("colors.type_glace"),
                     backgroundColor: "#3fd8ff",
                 },
                 ".roche": {
-                    backgroundColor: "#afa981",
+                    backgroundColor: theme("colors.type_roche"),
                 },
                 ".combat": {
-                    backgroundColor: "#ff8000",
+                    backgroundColor: theme("colors.type_combat"),
                 },
                 ".acier": {
-                    backgroundColor: "#60a1b8",
+                    backgroundColor: theme("colors.type_acier"),
                 },
                 ".fee": {
                     backgroundColor: "#ef71ef",
                 },
                 ".dragon": {
+                    backgroundColor: theme("colors.type_dragon"),
                     backgroundColor: "#5061e1",
                     color: theme("colors.slate.50"),
                 },
                 ".spectre": {
-                    backgroundColor: "#704170",
+                    backgroundColor: theme("colors.type_spectre"),
                     color: theme("colors.slate.50"),
                 },
             });

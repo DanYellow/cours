@@ -51,4 +51,12 @@ const clearTagContent = (tag) => {
 const aRem = 16;
 const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
 
-export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem };
+const replaceImage = (img, heavyImagePath) => {
+    const newImg = new Image();
+    newImg.onload = () => {
+        img.src = newImg.src; 
+    }
+    newImg.src = heavyImagePath;    
+}
+
+export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage };

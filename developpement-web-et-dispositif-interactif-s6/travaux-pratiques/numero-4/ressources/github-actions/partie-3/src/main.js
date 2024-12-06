@@ -1,8 +1,13 @@
 import fetchPokemonForGeneration, {
     fetchPokemon,
 } from "./api";
-import displayPkmnModal from "./modal";
+import displayPkmnModal, { tailwindConfig } from "./modal";
+import {
+    replaceImage,
+    cleanString
+} from "./utils";
 
+import loadingImage from "/loading.svg?raw";
 import "./style.css";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
@@ -11,7 +16,6 @@ const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
-
 
 const loadPokedexForGeneration = async (generation = 1) => {
     try {
@@ -39,7 +43,18 @@ const loadPokedexForGeneration = async (generation = 1) => {
             }
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
-            imgTag.src = item.sprites.regular;
+
+            const newImg = new Image();
+            newImg.onload = () => {
+                imgTag.src = newImg.src; 
+            }
+            newImg.src = item.sprites.regular;    
+
+            const encodedData = window.btoa(loadingImage.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
+            imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+
+            replaceImage(imgTag, item.sprites.regular);
+
             imgTag.alt = `sprite de ${item.name.fr}`;
             imgTag.fetchPriority =
                 index <= fetchPriorityHighThreshold ? "high" : "low";

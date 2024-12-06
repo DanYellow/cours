@@ -14,9 +14,10 @@ import {
     clearTagContent,
     convertTailwindRemToPx,
     aRem,
+    replaceImage,
 } from "./utils";
 
-import loadingImage from "/loading.svg";
+import loadingImage from "/loading.svg?raw";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
@@ -31,6 +32,8 @@ const listPokemonSpritesTemplateRaw = document.querySelector("[data-tpl-id='poke
 const listPokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
+
+export { tailwindConfig };
 
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
@@ -110,7 +113,7 @@ const displayModal = async (pkmnData) => {
             "!text-black"
         );
         modal_DOM.pkmnName.append(cloneHighlight);
-    }
+    }    
 
     modal_DOM.category.textContent = pkmnData.category;
 
@@ -269,12 +272,8 @@ const displayModal = async (pkmnData) => {
             );
 
             const img = pokemonSpriteTemplate.querySelector("img");
-            
-            const newImg = new Image();
-            newImg.onload = () => {
-                img.src = newImg.src; 
-            }
-            newImg.src = item.sprite;    
+
+            replaceImage(img, item.sprite);
 
             img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
 
