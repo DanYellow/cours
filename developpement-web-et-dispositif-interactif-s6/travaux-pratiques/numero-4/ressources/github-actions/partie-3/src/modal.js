@@ -23,6 +23,8 @@ import loadingImage from "/loading.svg";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
+const pikachuLoading = document.querySelector("[data-pikachu-loading]");
+
 const pkmnSensibilityTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-sensibility']"
 );
@@ -164,7 +166,45 @@ const createSibling = (template, data, idx) => {
     return template;
 };
 
+const createRegionForm = (template, data) => {
+    const url = new URL(location);
+    const imgTag = template.querySelector("img");
+    replaceImage(imgTag, data.sprite);
+    imgTag.alt = `sprite de ${data.name} forme ${data.region}`;
+    imgTag.fetchPriority = "low";
+    template.querySelector("figcaption").textContent = `${data.name}`;
+
+    const aTag = template.querySelector("[data-pokemon-data]");
+    const alternateForm = data.varieties
+        ?.filter((_item) => !_item.is_default)
+        .find((_item) => {
+            return _item.pokemon?.name.includes(data.region);
+        });
+
+    if (alternateForm) {
+        data.alternate_form_id = alternateForm?.pokemon.url
+            ?.split("/")
+            .filter(Boolean)
+            .at(-1);
+        url.searchParams.set("region", data.region);
+        url.searchParams.set(
+            "alternate_form_id",
+            data.alternate_form_id
+        );
+    }
+
+    aTag.href = url;
+    aTag.dataset.pokemonData = JSON.stringify(data);
+    aTag.addEventListener("click", (e) => loadDetailsModal(e, data.region));
+
+    return template;
+}
+
 displayModal = async (pkmnData) => {
+    pikachuLoading.classList.remove("hidden");
+    const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
+    listPokedexEntries.forEach((item) => { item.inert = true; })
+
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
 
     let pkmnExtraData = dataCache[pkmnId]?.extras;
@@ -366,7 +406,7 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.spritesContainer);
 
-    const listSpritesObj = pkmnExtraData.sprites.other.home;
+    const listSpritesObj = pkmnExtraData.sprites?.other.home || {};
     const listSprites = [];
     Object.entries(listSpritesObj).forEach(([key, value]) => {
         if (value === null) {
@@ -437,35 +477,10 @@ displayModal = async (pkmnData) => {
     for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
 
-        const clone = document.importNode(pkmnTemplateRaw.content, true);
-        const imgTag = clone.querySelector("img");
-        replaceImage(imgTag, pkmnForm.sprites.regular);
-        imgTag.alt = `sprite de ${pkmnForm.name.fr} forme ${item.region}`;
-        imgTag.fetchPriority = "low";
-        clone.querySelector("figcaption").textContent = `${pkmnForm.name.fr}`;
-
-        const aTag = clone.querySelector("[data-pokemon-data]");
-        const alternateForm = listDescriptions.varieties
-            ?.filter((_item) => !_item.is_default)
-            .find((_item) => {
-                return _item.pokemon?.name.includes(item.region);
-            });
-
-        if (alternateForm) {
-            pkmnForm.alternate_form_id = alternateForm?.pokemon.url
-                ?.split("/")
-                .filter(Boolean)
-                .at(-1);
-            url.searchParams.set("region", item.region);
-            url.searchParams.set(
-                "alternate_form_id",
-                pkmnForm.alternate_form_id
-            );
-        }
-
-        aTag.href = url;
-        aTag.dataset.pokemonData = JSON.stringify(pkmnForm);
-        aTag.addEventListener("click", (e) => loadDetailsModal(e, item.region));
+        const clone = createRegionForm(
+            document.importNode(pkmnTemplateRaw.content, true),
+            {...item, name: pkmnForm.name.fr, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
+        );
 
         modal_DOM.listVarieties.append(clone);
     }
@@ -473,7 +488,7 @@ displayModal = async (pkmnData) => {
         (pkmnData?.formes || []).length === 0;
 
     console.log(pkmnData);
-
+    
     const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || null;
     const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || {};
 
@@ -504,6 +519,9 @@ displayModal = async (pkmnData) => {
     }
 
     modal.showModal();
+    pikachuLoading.classList.add("hidden");
+    listPokedexEntries.forEach((item) => { item.inert = false; })
+
 
     document.documentElement.style.setProperty(
         "--header-height-collapsed",
