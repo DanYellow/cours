@@ -123,27 +123,27 @@ const loadDetailsModal = (e, region = null) => {
     displayModal(pkmnData);
 };
 
-const createSibling = (template, data, idx) => {
+const createSibling = (template, data, isInert, isPrevious) => {
     const li = template.querySelector("li");
 
-    li.classList.toggle("shrink-0", idx === 1);
-    li.classList.toggle("hidden", idx === 1);
-    li.classList.toggle("md:[display:revert]", idx === 1);
-    li.classList.toggle("grow", idx !== 1);
-    li.classList.toggle("basis-0", idx !== 1);
+    li.classList.toggle("shrink-0", isInert);
+    li.classList.toggle("hidden", isInert);
+    li.classList.toggle("md:[display:revert]", isInert);
+    li.classList.toggle("grow", !isInert);
+    li.classList.toggle("basis-0", !isInert);
 
-    if (Object.keys(data).length > 0) {
+    if (Object.keys(data || {}).length > 0) {
         const imgTag = template.querySelector("img");
         imgTag.src = loadingImage;
         replaceImage(imgTag, data.sprites.regular);
-        imgTag.classList.toggle("hidden", idx === 1);
+        imgTag.classList.toggle("hidden", isInert);
 
         const name = template.querySelector("[data-name]");
         name.textContent = data.name.fr;
 
         const pkmnId = template.querySelector("[data-id]");
         pkmnId.textContent = `#${data.pokedex_id}`;
-        pkmnId.classList.toggle("text-center", idx === 1);
+        pkmnId.classList.toggle("!text-center", isInert);
 
         const siblingUrl = new URL(location);
         siblingUrl.searchParams.set("id", data.pokedex_id);
@@ -154,14 +154,14 @@ const createSibling = (template, data, idx) => {
         aTag.dataset.pokemonData = JSON.stringify(data);
         aTag.addEventListener("click", (e) => loadDetailsModal(e));
 
-        if (idx !== 1) {
+        if (!isInert) {
             const arrow = document.createElement("p");
-            arrow.textContent = idx === 0 ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", idx === 0 ? "-mr-3.5" : "-ml-3.5"])
+            arrow.textContent = isPrevious ? "◄" : "►";
+            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5"])
             aTag.prepend(arrow);
         }
     }
-    li.inert = idx === 1 || Object.keys(data).length === 0;
+    li.inert = isInert || Object.keys(data || {}).length === 0;
 
     return template;
 };
@@ -498,16 +498,17 @@ displayModal = async (pkmnData) => {
     console.log(pkmnData);
     
     const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || null;
-    const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || {};
+    const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || null;
 
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
         .filter(Boolean)
-        .forEach((item, idx) => {
+        .forEach((item) => {
             const clone = createSibling(
                 document.importNode(pokemonSiblingTemplateRaw.content, true),
                 item,
-                idx
+                item.pokedex_id === pkmnData.pokedex_id,
+                item.pokedex_id < pkmnData.pokedex_id
             );
 
             modal_DOM.listSiblings.append(clone);
