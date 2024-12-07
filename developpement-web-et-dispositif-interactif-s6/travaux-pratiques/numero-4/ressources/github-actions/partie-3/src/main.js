@@ -17,6 +17,7 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
+const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 
 const listPokemon = [];
 
@@ -35,7 +36,7 @@ const loadDetailsModal = (e) => {
 
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
-
+    pikachuLoading.classList.remove("hidden");
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
@@ -108,6 +109,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         } else {
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
+    } finally {
+        pikachuLoading.classList.add("hidden");
     }
 };
 
@@ -137,3 +140,7 @@ window.addEventListener('popstate', async () => {
         modal.close();
     }
 });
+
+if (process.env.NODE_ENV === "development") {
+    await import("./vite.error-overlay");
+}

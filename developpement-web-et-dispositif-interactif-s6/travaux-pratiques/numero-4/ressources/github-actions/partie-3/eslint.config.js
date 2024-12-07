@@ -32,4 +32,11 @@ export default [
             "postcss.config.js",
         ],
     },
+    {
+        languageOptions: {
+            globals: {
+                process: "readonly",
+            }
+        }
+    }
 ];
