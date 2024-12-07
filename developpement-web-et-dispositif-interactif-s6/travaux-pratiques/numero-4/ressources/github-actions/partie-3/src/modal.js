@@ -153,8 +153,9 @@ const createSibling = (template, data, isInert, isPrevious) => {
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
         aTag.addEventListener("click", (e) => loadDetailsModal(e));
-
+        
         if (!isInert) {
+            aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
             const arrow = document.createElement("p");
             arrow.textContent = isPrevious ? "◄" : "►";
             arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5"])
@@ -245,6 +246,7 @@ const createSensibility = (template, data) => {
 }
 
 displayModal = async (pkmnData) => {
+    modal.dataset.pokemonData = JSON.stringify(pkmnData);
     pikachuLoading.classList.remove("hidden");
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
     listPokedexEntries.forEach((item) => { item.inert = true; });

@@ -91,7 +91,7 @@
 
         <template data-tpl-id="pokemon-sibling">
             <li class="group basis-0">
-                <a href="" class="group-last:flex-row-reverse flex gap-5 items-center hocus:bg-slate-200 rounded-lg p-2 inert:opacity-25">
+                <a href="" data-testid="" class="group-last:flex-row-reverse flex gap-5 items-center hocus:bg-slate-200 rounded-lg p-2 inert:opacity-25">
                     <img class="w-12" src="" alt="">
                     <div>
                         <p data-name></p>
@@ -133,6 +133,7 @@
 
         <dialog
             data-pokemon-modal
+            data-pokemon-data
             data-testid="pokemon-modal"
             class="backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain px-4 duration-300 transition-dialog bg-white shadow-xl rounded-lg md:my-8 w-11/12 sm:max-w-3xl"
         >
