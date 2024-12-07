@@ -49,18 +49,26 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             "[data-generation-range]"
         );
 
+        const nonRegionalPokedexData = pokedexData.filter((item) => {
+            const name = item.name.fr;
+            const listNames = (item.formes || []).map((form) => form.name.fr);
+
+            return !listNames.includes(name);
+        })
+
         generationNumber.textContent = `#${generation}`;
-        const firstPkmnId = pokedexData[0].pokedex_id;
+        const firstPkmnId = nonRegionalPokedexData[0].pokedex_id;
+
         generationRange.textContent = `${firstPkmnId} -> ${
-            pokedexData.at(-1).pokedex_id
+            nonRegionalPokedexData.at(-1).pokedex_id
         }`;
 
         const fetchPriorityHighThreshold = 20;
         const url = new URL(window.location);
 
-        listPokemon.push(...pokedexData);
-        
-        pokedexData.forEach((item, index) => {
+        listPokemon.push(...nonRegionalPokedexData);
+
+        nonRegionalPokedexData.forEach((item, index) => {
             url.searchParams.set("id", item.pokedex_id)
 
             if (firstPkmnId > item.pokedex_id) {
