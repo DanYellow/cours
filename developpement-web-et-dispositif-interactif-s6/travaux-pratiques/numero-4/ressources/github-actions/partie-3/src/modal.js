@@ -159,6 +159,8 @@ const createSibling = (template, data, isInert, isPrevious) => {
             arrow.textContent = isPrevious ? "◄" : "►";
             arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5"])
             aTag.prepend(arrow);
+        } else {
+            aTag.classList.replace("inert:opacity-25", "inert:opacity-100")
         }
     }
     li.inert = isInert || Object.keys(data || {}).length === 0;

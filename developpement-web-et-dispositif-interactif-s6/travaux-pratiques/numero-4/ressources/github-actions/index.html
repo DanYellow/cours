@@ -50,6 +50,14 @@
           Également accessible via l'URL :
           https://github.com/votre-pseudo/nom-du-depot/actions
         </p>
+        <div class="note-information">
+            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion de vos  fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github)</p>
+            <ul>
+                <li>
+                    <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions" target="_blank" rel="noopener noreferrer">Télécharger l'extension GitHub Actions pour VS Code</a>
+                </li>
+            </ul>
+        </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -151,10 +159,11 @@
               </p>
               <p>
                 C'est pour cette raison qu'il est important de séparer ses
-                commits par fonctionnalité. Grâce à ce système, vous pouvez voir
+                commits par fonctionnalité et les nommer clairement. Grâce à ce système, vous pouvez voir
                 en un coup d'oeil la liste des fonctionnalités / bugs corrigés
                 version par version.
               </p>
+              <p>A noter qu'en absence de nouveaux commits avec la bonne nomenclature, seul le numéro de PATCH sera incrémenté.</p>
             </div>
           </li>
           <li>
@@ -321,7 +330,7 @@
           <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Ajouter release-it dans le projet de la partie 3 et mettre la commande dans votre pipeline de la CI/CD</li>
+          <li>Ajouter le module release-it (utilisé dans la partie 2) dans la CI/CD du projet de la partie 3</li>
       </details>
     </header>
   </body>
