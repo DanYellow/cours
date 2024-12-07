@@ -501,8 +501,8 @@ displayModal = async (pkmnData) => {
 
     console.log(pkmnData);
     
-    const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || null;
-    const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || null;
+    const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || (pkmnData.pokedex_id === listPokemon.length ? null : {});
+    const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || {};
 
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
