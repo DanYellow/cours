@@ -59,4 +59,16 @@ const replaceImage = (img, heavyImagePath) => {
     newImg.src = heavyImagePath;    
 }
 
-export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage };
+const delegateEventHandler = (el, evt, sel, handler) => {
+    el.addEventListener(evt, function (event) {
+        let t = event.target;
+        while (t && t !== this) {
+            if (t.matches(sel)) {
+                handler.call(t, event);
+            }
+            t = t.parentNode;
+        }
+    });
+};
+
+export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler };

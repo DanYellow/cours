@@ -418,6 +418,7 @@ displayModal = async (pkmnData) => {
         li.classList.toggle("hidden", idx === 1);
         li.classList.toggle("md:[display:revert]", idx === 1);
         li.classList.toggle("grow", idx !== 1);
+        li.classList.toggle("basis-0", idx !== 1);
 
         if(Object.keys(item).length > 0) {
             const imgTag = clone.querySelector("img");

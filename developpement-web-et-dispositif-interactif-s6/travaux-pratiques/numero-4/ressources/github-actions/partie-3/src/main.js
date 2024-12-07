@@ -4,7 +4,8 @@ import fetchPokemonForGeneration, {
 import displayPkmnModal, { tailwindConfig } from "./modal";
 import {
     replaceImage,
-    cleanString
+    cleanString,
+    delegateEventHandler,
 } from "./utils";
 
 import loadingImage from "/loading.svg?raw";
@@ -14,7 +15,7 @@ const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
-const loadGenerationBtn = document.querySelector("[data-load-generation]");
+const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 
@@ -35,7 +36,7 @@ const loadDetailsModal = (e) => {
 
 const loadPokedexForGeneration = async (generation = 1) => {
     try {
-        loadGenerationBtn.inert = true;
+        listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
         const pokedex = cloneDex.querySelector("[data-pokedex]");
@@ -91,17 +92,17 @@ const loadPokedexForGeneration = async (generation = 1) => {
 
             pokedex.append(clone);
         });
-        loadGenerationBtn.dataset.loadGeneration = Number(generation) + 1;
+        listLoadGenerationBtns.forEach((item) => item.dataset.loadGeneration = Number(generation) + 1);
 
         pokedexContainer.append(cloneDex);
-        loadGenerationBtn.inert = false;
+        listLoadGenerationBtns.forEach((item) => item.inert = false);
     } catch (error) {
         const errorRessourceNotFound = 404;
         if (error?.cause?.status === errorRessourceNotFound) {
-            loadGenerationBtn.inert = true;
+            listLoadGenerationBtns.forEach((item) => item.inert = true);
             noGenerationBanner.showPopover();
         } else {
-            loadGenerationBtn.inert = false;
+            listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
     }
 };
@@ -117,10 +118,7 @@ if (pkmnId !== null) {
     displayPkmnModal(pkmnData);
 }
 
-loadGenerationBtn.addEventListener("click", (e) => {
-    loadPokedexForGeneration(e.currentTarget.dataset.loadGeneration);
-});
-
+delegateEventHandler(document, "click", "[data-load-generation]", loadPokedexForGeneration);
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);

@@ -107,6 +107,14 @@
             </div>
         </template>
 
+        <template data-tpl-id="load-generation-btn">
+            <button
+                data-load-generation
+                class="block rounded-md bg-white w-full mt-4 p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white h-full"
+            >
+            </button>
+        </template>
+
         <template data-tpl-id="pokemon-sprite">
             <li class="flex justify-center">
                 <div>
@@ -129,7 +137,7 @@
                         <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
                     </div>
                     <div>
-                        <h2 class="text-2xl"></h2>
+                        <h2 class="text-2xl font-bold"></h2>
                         <p data-category class="text-sm -mt-2"></p>
                         <ul data-list-types class="flex gap-1 mt-2"></ul>
                     </div>
