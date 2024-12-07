@@ -245,7 +245,8 @@ const createSensibility = (template, data) => {
 displayModal = async (pkmnData) => {
     pikachuLoading.classList.remove("hidden");
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
-    listPokedexEntries.forEach((item) => { item.inert = true; })
+    listPokedexEntries.forEach((item) => { item.inert = true; });
+    modal_DOM.img.src = loadingImage;
 
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
 
@@ -270,7 +271,8 @@ displayModal = async (pkmnData) => {
         };
     }
 
-    modal_DOM.img.src = pkmnData.sprites.regular;
+    
+    replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
     modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
@@ -553,7 +555,8 @@ const pkmnSiblingsObserver = new MutationObserver((e) => {
             const clone = createSibling(
                 document.importNode(pokemonSiblingTemplateRaw.content, true),
                 nextPokemon,
-                2
+                false,
+                false
             );
             modal_DOM.listSiblings.append(clone);
         }
