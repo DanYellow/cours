@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import svgLoader from "vite-svg-loader";
 
 import eslint from "vite-plugin-eslint";
 
@@ -9,7 +8,6 @@ export default defineConfig({
         eslint({
             include: "./src/**/*.js",
         }),
-        svgLoader(),
     ],
     build: {
         target: "esnext",
