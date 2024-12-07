@@ -201,6 +201,47 @@ const createRegionForm = (template, data) => {
     return template;
 }
 
+const createSensibility = (template, data) => {
+    const typeData = listTypes.find(
+        (type) => cleanString(type.name) === cleanString(data.name)
+    );
+    const damageFactorContainer = template.querySelector(
+        "[data-damage-factor]"
+    );
+
+    template.querySelector("img").src = typeData.sprite;
+    template.querySelector("[data-type]").textContent = data.name;
+    damageFactorContainer.textContent = `x${data.multiplier}`;
+
+    const effectiveDamageMultiplier = 2;
+    const superEffectiveDamageMultiplier = 4;
+    damageFactorContainer.classList.toggle(
+        "font-bold",
+        data.multiplier === effectiveDamageMultiplier ||
+        data.multiplier === superEffectiveDamageMultiplier
+    );
+
+    if (
+        data.multiplier === effectiveDamageMultiplier ||
+        data.multiplier === superEffectiveDamageMultiplier
+    ) {
+        const cloneHighlight = document.importNode(
+            pkmnHighlightTemplateRaw.content,
+            true
+        );
+        const isTypeEffectiveAgainst =
+            data.multiplier === effectiveDamageMultiplier;
+        cloneHighlight.querySelector("span").textContent =
+            isTypeEffectiveAgainst
+                ? "Double faiblesse"
+                : "Quadruple faiblesse";
+
+        damageFactorContainer.append(cloneHighlight);
+    }
+
+    return template;
+}
+
 displayModal = async (pkmnData) => {
     pikachuLoading.classList.remove("hidden");
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
@@ -320,46 +361,13 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listSensibilities);
 
     pkmnData.resistances.forEach((item) => {
-        const clone = document.importNode(
-            pkmnSensibilityTemplateRaw.content,
-            true
-        );
-        const typeData = listTypes.find(
-            (type) => cleanString(type.name) === cleanString(item.name)
-        );
-        const damageFactorContainer = clone.querySelector(
-            "[data-damage-factor]"
-        );
-
-        clone.querySelector("img").src = typeData.sprite;
-        clone.querySelector("[data-type]").textContent = item.name;
-        damageFactorContainer.textContent = `x${item.multiplier}`;
-
-        const effectiveDamageMultiplier = 2;
-        const superEffectiveDamageMultiplier = 4;
-        damageFactorContainer.classList.toggle(
-            "font-bold",
-            item.multiplier === effectiveDamageMultiplier ||
-                item.multiplier === superEffectiveDamageMultiplier
-        );
-
-        if (
-            item.multiplier === effectiveDamageMultiplier ||
-            item.multiplier === superEffectiveDamageMultiplier
-        ) {
-            const cloneHighlight = document.importNode(
-                pkmnHighlightTemplateRaw.content,
+        const clone = createSensibility(
+            document.importNode(
+                pkmnSensibilityTemplateRaw.content,
                 true
-            );
-            const isTypeEffectiveAgainst =
-                item.multiplier === effectiveDamageMultiplier;
-            cloneHighlight.querySelector("span").textContent =
-                isTypeEffectiveAgainst
-                    ? "Double faiblesse"
-                    : "Quadruple faiblesse";
-
-            damageFactorContainer.append(cloneHighlight);
-        }
+            ),
+            item
+        );
 
         modal_DOM.listSensibilities.append(clone);
     });
