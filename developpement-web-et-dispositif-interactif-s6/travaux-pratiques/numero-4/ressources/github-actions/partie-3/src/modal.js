@@ -511,7 +511,7 @@ displayModal = async (pkmnData) => {
 
 const pkmnSiblingsObserver = new MutationObserver((e) => {
     if (e[0].removedNodes) {
-        if (Array.from(e[0].removedNodes)[0].tagName) {
+        if (Array.from(e[0].removedNodes)[0]?.tagName) {
             const urlParams = new URLSearchParams(window.location.search);
             const pkmnId = urlParams.get("id");
             const nextPokemon = listPokemon.at(pkmnId);
