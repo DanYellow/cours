@@ -151,6 +151,13 @@ const createSibling = (template, data, idx) => {
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
         aTag.addEventListener("click", (e) => loadDetailsModal(e));
+
+        if (idx !== 1) {
+            const arrow = document.createElement("p");
+            arrow.textContent = idx === 0 ? "◄" : "►";
+            arrow.classList.add(...["font-['serif']", idx === 0 ? "-mr-3.5" : "-ml-3.5"])
+            aTag.prepend(arrow);
+        }
     }
     li.inert = idx === 1 || Object.keys(data).length === 0;
 
