@@ -86,7 +86,7 @@
         </template>
 
         <template data-tpl-id="pokemon-sibling">
-            <li class="group  basis-0">
+            <li class="group basis-0">
                 <a href="" class="group-last:flex-row-reverse flex gap-5 items-center hocus:bg-slate-200 rounded-lg p-2">
                     <img class="w-12" src="" alt="">
                     <div>
@@ -108,11 +108,14 @@
         </template>
 
         <template data-tpl-id="load-generation-btn">
-            <button
-                data-load-generation
-                class="block rounded-md bg-white w-full mt-4 p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white h-full"
-            >
-            </button>
+            <li class="group basis-0 grow">
+                <button
+                    data-load-generation
+                    data-self-delete
+                    class="block rounded-md bg-white w-full p-2 border border-black border-solid hocus:bg-slate-950 hocus:text-white h-full"
+                >
+                </button>
+            </li>
         </template>
 
         <template data-tpl-id="pokemon-sprite">

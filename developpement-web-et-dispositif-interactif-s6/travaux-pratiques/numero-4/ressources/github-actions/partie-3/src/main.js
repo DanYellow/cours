@@ -13,9 +13,8 @@ import "./style.css";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
-
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
-const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
+
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 
@@ -34,7 +33,9 @@ const loadDetailsModal = (e) => {
     history.pushState({}, "", url);
 }
 
-const loadPokedexForGeneration = async (generation = 1) => {
+const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
+    const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
+
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
@@ -96,6 +97,9 @@ const loadPokedexForGeneration = async (generation = 1) => {
 
         pokedexContainer.append(cloneDex);
         listLoadGenerationBtns.forEach((item) => item.inert = false);
+        if (triggerElement) {
+            triggerElement.parentNode.parentNode.removeChild(triggerElement.parentNode)
+        }
     } catch (error) {
         const errorRessourceNotFound = 404;
         if (error?.cause?.status === errorRessourceNotFound) {
@@ -118,7 +122,9 @@ if (pkmnId !== null) {
     displayPkmnModal(pkmnData);
 }
 
-delegateEventHandler(document, "click", "[data-load-generation]", loadPokedexForGeneration);
+delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
+    loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
+});
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);

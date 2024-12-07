@@ -29,10 +29,20 @@ const pkmnSensibilityTemplateRaw = document.querySelector(
 const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
+
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
-const listPokemonSpritesTemplateRaw = document.querySelector("[data-tpl-id='pokemon-list-sprites']");
-const pokemonSpriteTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sprite']");
-const pokemonSiblingTemplateRaw = document.querySelector("[data-tpl-id='pokemon-sibling']");
+const listPokemonSpritesTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-list-sprites']"
+);
+const pokemonSpriteTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-sprite']"
+);
+const pokemonSiblingTemplateRaw = document.querySelector(
+    "[data-tpl-id='pokemon-sibling']"
+);
+const btnLoadGenerationTemplateRaw = document.querySelector(
+    "[data-tpl-id='load-generation-btn']"
+);
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
 
@@ -89,10 +99,10 @@ closeModalBtn.addEventListener("click", () => {
 let displayModal = null;
 
 const loadDetailsModal = (e, region = null) => {
-    e.preventDefault()
+    e.preventDefault();
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
-    
+
     const url = new URL(location);
     if (region) {
         url.searchParams.set("region", region);
@@ -109,7 +119,43 @@ const loadDetailsModal = (e, region = null) => {
 
     history.pushState({}, "", url);
     displayModal(pkmnData);
-}
+};
+
+const createSibling = (template, data, idx) => {
+    const li = template.querySelector("li");
+
+    li.classList.toggle("shrink-0", idx === 1);
+    li.classList.toggle("hidden", idx === 1);
+    li.classList.toggle("md:[display:revert]", idx === 1);
+    li.classList.toggle("grow", idx !== 1);
+    li.classList.toggle("basis-0", idx !== 1);
+
+    if (Object.keys(data).length > 0) {
+        const imgTag = template.querySelector("img");
+        imgTag.src = loadingImage;
+        replaceImage(imgTag, data.sprites.regular);
+        imgTag.classList.toggle("hidden", idx === 1);
+
+        const name = template.querySelector("[data-name]");
+        name.textContent = data.name.fr;
+
+        const pkmnId = template.querySelector("[data-id]");
+        pkmnId.textContent = `#${data.pokedex_id}`;
+        pkmnId.classList.toggle("text-center", idx === 1);
+
+        const siblingUrl = new URL(location);
+        siblingUrl.searchParams.set("id", data.pokedex_id);
+        siblingUrl.searchParams.delete("region");
+        siblingUrl.searchParams.delete("alternate_form_id");
+        const aTag = template.querySelector("a");
+        aTag.href = siblingUrl;
+        aTag.dataset.pokemonData = JSON.stringify(data);
+        aTag.addEventListener("click", (e) => loadDetailsModal(e));
+    }
+    li.inert = idx === 1 || Object.keys(data).length === 0;
+
+    return template;
+};
 
 displayModal = async (pkmnData) => {
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
@@ -120,13 +166,13 @@ displayModal = async (pkmnData) => {
         try {
             listDescriptions = await fetchPokemonDescription(pkmnId);
         } catch (_e) {
-            listDescriptions = {}
+            listDescriptions = {};
         }
 
         try {
             pkmnExtraData = await fetchPokemonExtraData(pkmnId);
         } catch (_e) {
-            pkmnExtraData = {}
+            pkmnExtraData = {};
         }
 
         dataCache[pkmnId] = {
@@ -155,7 +201,7 @@ displayModal = async (pkmnData) => {
             "!text-black"
         );
         modal_DOM.pkmnName.append(cloneHighlight);
-    }    
+    }
 
     modal_DOM.category.textContent = pkmnData.category;
 
@@ -216,13 +262,12 @@ displayModal = async (pkmnData) => {
     //     textContainer.insertAdjacentElement("afterend", evolutionName);
 
     //     modal_DOM.listEvolutions.append(clone);
-        
+
     //     const nextArrow = document.createElement("li");
     //     nextArrow.textContent = "►";
     //     nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
     //     modal_DOM.listEvolutions.append(nextArrow);
     // })
-
 
     clearTagContent(modal_DOM.listSensibilities);
 
@@ -317,24 +362,33 @@ displayModal = async (pkmnData) => {
     const listSpritesObj = pkmnExtraData.sprites.other.home;
     const listSprites = [];
     Object.entries(listSpritesObj).forEach(([key, value]) => {
-        if(value === null) {
+        if (value === null) {
             return;
         }
-        listSprites.push({name: key, sprite: value})
+        listSprites.push({ name: key, sprite: value });
     });
-    const groupedSprites = Object.groupBy(listSprites, ({ name }) => name.includes("female") ? "Female ♀" : "Male ♂");
+    const groupedSprites = Object.groupBy(listSprites, ({ name }) =>
+        name.includes("female") ? "Female ♀" : "Male ♂"
+    );
 
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
         const listPokemonSpritesTemplate = document.importNode(
             listPokemonSpritesTemplateRaw.content,
             true
         );
-        listPokemonSpritesTemplate.querySelector("p").textContent = `${key} ${(Object.keys(groupedSprites).length) === 1 ? '/ Female ♀' : ''}`;
-        if (pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined) {
-            listPokemonSpritesTemplate.querySelector("p").textContent =  "";
+        listPokemonSpritesTemplate.querySelector("p").textContent = `${key} ${
+            Object.keys(groupedSprites).length === 1 ? "/ Female ♀" : ""
+        }`;
+        if (
+            pkmnData.sexe?.female === undefined &&
+            pkmnData.sexe?.male === undefined
+        ) {
+            listPokemonSpritesTemplate.querySelector("p").textContent = "";
         }
 
-        const listSpritesUI = listPokemonSpritesTemplate.querySelector("[data-list-sprites]");
+        const listSpritesUI = listPokemonSpritesTemplate.querySelector(
+            "[data-list-sprites]"
+        );
         sprites.forEach((item) => {
             const pokemonSpriteTemplate = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -346,15 +400,17 @@ displayModal = async (pkmnData) => {
 
             img.alt = `sprite ${key} de ${pkmnData.name.fr}`;
 
-            if(!item.name.includes("shiny")) {
-                pokemonSpriteTemplate.querySelector("p").classList.add("hidden");
+            if (!item.name.includes("shiny")) {
+                pokemonSpriteTemplate
+                    .querySelector("p")
+                    .classList.add("hidden");
             }
 
             listSpritesUI.append(pokemonSpriteTemplate);
         });
 
         modal_DOM.spritesContainer.append(listPokemonSpritesTemplate);
-    }); 
+    });
 
     clearTagContent(modal_DOM.listGames);
     pkmnExtraData.game_indices.forEach((item) => {
@@ -371,7 +427,6 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
 
-
     for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
 
@@ -383,16 +438,24 @@ displayModal = async (pkmnData) => {
         clone.querySelector("figcaption").textContent = `${pkmnForm.name.fr}`;
 
         const aTag = clone.querySelector("[data-pokemon-data]");
-        const alternateForm = listDescriptions.varieties?.filter((_item) => !_item.is_default).find((_item) => {
-            return _item.pokemon?.name.includes(item.region);
-        });
-        
+        const alternateForm = listDescriptions.varieties
+            ?.filter((_item) => !_item.is_default)
+            .find((_item) => {
+                return _item.pokemon?.name.includes(item.region);
+            });
+
         if (alternateForm) {
-            pkmnForm.alternate_form_id = alternateForm?.pokemon.url?.split('/').filter(Boolean).at(-1)
+            pkmnForm.alternate_form_id = alternateForm?.pokemon.url
+                ?.split("/")
+                .filter(Boolean)
+                .at(-1);
             url.searchParams.set("region", item.region);
-            url.searchParams.set("alternate_form_id", pkmnForm.alternate_form_id);
+            url.searchParams.set(
+                "alternate_form_id",
+                pkmnForm.alternate_form_id
+            );
         }
-        
+
         aTag.href = url;
         aTag.dataset.pokemonData = JSON.stringify(pkmnForm);
         aTag.addEventListener("click", (e) => loadDetailsModal(e, item.region));
@@ -403,49 +466,35 @@ displayModal = async (pkmnData) => {
         (pkmnData?.formes || []).length === 0;
 
     console.log(pkmnData);
-    // console.log(listPokemon.at(pkmnData.pokedex_id - 1));
-    const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || {};
+
+    const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || null;
     const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || {};
 
     clearTagContent(modal_DOM.listSiblings);
-    [prevPokemon, pkmnData, nextPokemon].forEach((item, idx) => {
-        const clone = document.importNode(pokemonSiblingTemplateRaw.content, true);
-        
-        const li = clone.querySelector("li");
+    [prevPokemon, pkmnData, nextPokemon]
+        .filter(Boolean)
+        .forEach((item, idx) => {
+            const clone = createSibling(
+                document.importNode(pokemonSiblingTemplateRaw.content, true),
+                item,
+                idx
+            );
 
-        // , "md:[display:revert]
-        li.classList.toggle("shrink-0", idx === 1);
-        li.classList.toggle("hidden", idx === 1);
-        li.classList.toggle("md:[display:revert]", idx === 1);
-        li.classList.toggle("grow", idx !== 1);
-        li.classList.toggle("basis-0", idx !== 1);
+            modal_DOM.listSiblings.append(clone);
+        });
 
-        if(Object.keys(item).length > 0) {
-            const imgTag = clone.querySelector("img");
-            imgTag.src = loadingImage;
-            replaceImage(imgTag, item.sprites.regular);
-            imgTag.classList.toggle("hidden", idx === 1);
-    
-            const name = clone.querySelector("[data-name]");
-            name.textContent = item.name.fr;
-            
-            const pkmnId = clone.querySelector("[data-id]");
-            pkmnId.textContent = `#${item.pokedex_id}`;
-            pkmnId.classList.toggle("text-center", idx === 1);
-    
-            const siblingUrl = new URL(location);
-            siblingUrl.searchParams.set("id", item.pokedex_id);
-            siblingUrl.searchParams.delete("region");
-            siblingUrl.searchParams.delete("alternate_form_id");
-            const aTag = clone.querySelector("a");
-            aTag.href = siblingUrl;
-            aTag.dataset.pokemonData = JSON.stringify(item);
-            aTag.addEventListener("click", (e) => loadDetailsModal(e));
-        }
-        li.inert = idx === 1 || Object.keys(item).length === 0;
+    if (pkmnData.pokedex_id === listPokemon.length) {
+        const clone = document.importNode(
+            btnLoadGenerationTemplateRaw.content,
+            true
+        );
+
+        const button = clone.querySelector("button");
+        button.textContent = "Charger la génération suivante";
+        button.dataset.loadGeneration = Number(pkmnData.generation) + 1;
 
         modal_DOM.listSiblings.append(clone);
-    })
+    }
 
     modal.showModal();
 
@@ -460,5 +509,23 @@ displayModal = async (pkmnData) => {
     );
 };
 
+const pkmnSiblingsObserver = new MutationObserver((e) => {
+    if (e[0].removedNodes) {
+        if (Array.from(e[0].removedNodes)[0].tagName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pkmnId = urlParams.get("id");
+            const nextPokemon = listPokemon.at(pkmnId);
+
+            const clone = createSibling(
+                document.importNode(pokemonSiblingTemplateRaw.content, true),
+                nextPokemon,
+                2
+            );
+            modal_DOM.listSiblings.append(clone);
+        }
+    }
+});
+
+pkmnSiblingsObserver.observe(modal_DOM.listSiblings, { childList: true, subtree: true });
 
 export default displayModal;
