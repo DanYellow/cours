@@ -168,11 +168,12 @@ const createSibling = (template, data, idx) => {
 
 const createRegionForm = (template, data) => {
     const url = new URL(location);
+    url.searchParams.set("id", data.pokedex_id);
     const imgTag = template.querySelector("img");
     replaceImage(imgTag, data.sprite);
-    imgTag.alt = `sprite de ${data.name} forme ${data.region}`;
+    imgTag.alt = `sprite de ${data.name.fr} forme ${data.region}`;
     imgTag.fetchPriority = "low";
-    template.querySelector("figcaption").textContent = `${data.name}`;
+    template.querySelector("figcaption").textContent = `${data.name.fr}`;
 
     const aTag = template.querySelector("[data-pokemon-data]");
     const alternateForm = data.varieties
@@ -476,10 +477,9 @@ displayModal = async (pkmnData) => {
 
     for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
-
         const clone = createRegionForm(
             document.importNode(pkmnTemplateRaw.content, true),
-            {...item, name: pkmnForm.name.fr, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
+            {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
         );
 
         modal_DOM.listVarieties.append(clone);
