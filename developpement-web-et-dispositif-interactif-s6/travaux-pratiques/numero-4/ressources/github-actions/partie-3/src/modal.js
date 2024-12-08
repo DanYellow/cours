@@ -135,6 +135,7 @@ const createSibling = (template, data, isInert, isPrevious) => {
     if (Object.keys(data || {}).length > 0) {
         const imgTag = template.querySelector("img");
         imgTag.src = loadingImage;
+        imgTag.alt = `sprite de ${data.name.fr}`;
         replaceImage(imgTag, data.sprites.regular);
         imgTag.classList.toggle("hidden", isInert);
 
