@@ -22,6 +22,9 @@ test("should close modal", async ({ page }) => {
     
     await page.getByTestId("close-modal").first().click();
     await expect(page.getByTestId("pokemon-modal")).not.toHaveAttribute("open", "");
+
+    const currentUrl = new URL(await page.url());
+    await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(0);
 });
 
 test("should load next pokemon", async ({ page }) => {
@@ -68,4 +71,24 @@ test("should load previous pokemon", async ({ page }) => {
     const previousPokemonData = JSON.parse(previousPokemonDataRaw);
     
     await expect(currentUrl.searchParams.get("id")).toEqual(String(previousPokemonData.pokedex_id));
+});
+
+test("should open regional form ", async ({ page }) => {
+    const pkmnId = 19;
+    await page.goto(`/?id=${pkmnId}`);
+
+    await Promise.all([
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
+        ),
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
+        )
+    ])
+
+    await page.getByTestId("regional-forms").first().click();
+    await page.getByTestId("regional-forms").getByTestId("pokemon").first().click();
+    
+    const currentUrl = new URL(await page.url());
+    await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
 });
