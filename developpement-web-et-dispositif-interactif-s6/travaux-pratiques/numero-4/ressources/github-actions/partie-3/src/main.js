@@ -23,17 +23,21 @@ const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 const initialPageTitle = document.title;
 const listPokemon = [];
 
-export { listPokemon };
+const setTitleTagForGeneration = () => {
+    const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
+    let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
+    const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
+    document.title = `${currentGenerationName} - ${initialPageTitle}`;
+}
+
+export { listPokemon, setTitleTagForGeneration };
 
 const generationScrollingObserver = new IntersectionObserver(
     (entries) => {
         entries.forEach((item) =>  {
             item.target.classList.toggle("is-pinned", item.intersectionRatio < 1)
         })
-        const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
-        let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
-        const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
-        document.title = `${currentGenerationName} - ${initialPageTitle}`
+        setTitleTagForGeneration()
     },
     { threshold: [1] }
   );
@@ -52,6 +56,7 @@ const loadDetailsModal = (e) => {
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
     pikachuLoading.classList.remove("hidden");
+    document.title = `Chargement - ${initialPageTitle}`;
 
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
@@ -143,7 +148,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 };
 
 await loadPokedexForGeneration();
-await loadPokedexForGeneration(2);
 
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");

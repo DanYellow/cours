@@ -17,7 +17,7 @@ import {
     replaceImage,
 } from "./utils";
 
-import { listPokemon } from "./main";
+import { listPokemon, setTitleTagForGeneration } from "./main";
 
 import loadingImage from "/loading.svg";
 
@@ -86,7 +86,7 @@ listTypes = listTypes.map((item) => ({
 modal.addEventListener("close", () => {
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
-    document.title = initialPageTitle;
+    setTitleTagForGeneration();
 });
 
 closeModalBtn.addEventListener("click", () => {
@@ -247,6 +247,7 @@ const createSensibility = (template, data) => {
 
 displayModal = async (pkmnData) => {
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
+    document.title = `Chargement - ${initialPageTitle}`;
     pikachuLoading.classList.remove("hidden");
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
     listPokedexEntries.forEach((item) => { item.inert = true; });
