@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-test("should open modal", async ({ page, request }) => {
-    await page.goto("http://localhost:5173");
+test("should open modal", async ({ page }) => {
+    await page.goto("/");
     const firstPkmn = await page.getByTestId("pokemon").first();
     const firstPkmnDataRaw = await firstPkmn.getAttribute("data-pokemon-data");
     const firstPkmnData = JSON.parse(firstPkmnDataRaw);
@@ -13,8 +13,8 @@ test("should open modal", async ({ page, request }) => {
     );
 });
 
-test("should close modal", async ({ page, request }) => {
-    await page.goto("http://localhost:5173?id=17");
+test("should close modal", async ({ page }) => {
+    await page.goto("/?id=17");
     await page.waitForResponse((resp) =>
         resp.url().includes("https://pokeapi.co/api/v2/pokemon-species/17")
     );
@@ -26,7 +26,7 @@ test("should close modal", async ({ page, request }) => {
 
 test("should load next pokemon", async ({ page }) => {
     const pkmnId = 25;
-    await page.goto(`http://localhost:5173?id=${pkmnId}`);
+    await page.goto(`/?id=${pkmnId}`);
 
     await Promise.all([
         page.waitForResponse((resp) =>
@@ -50,7 +50,7 @@ test("should load next pokemon", async ({ page }) => {
 
 test("should load previous pokemon", async ({ page }) => {
     const pkmnId = 25;
-    await page.goto(`http://localhost:5173?id=${pkmnId}`);
+    await page.goto(`/?id=${pkmnId}`);
 
     await Promise.all([
         page.waitForResponse((resp) =>

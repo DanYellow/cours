@@ -1,8 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-    // console.log(`Running ${test.info().title}`);
-    await page.goto("http://localhost:5173");
+    await page.goto("/");
 });
 
 test("should add new Pokedex", async ({ page }) => {
