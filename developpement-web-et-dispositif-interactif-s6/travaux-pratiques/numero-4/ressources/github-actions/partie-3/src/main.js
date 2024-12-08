@@ -20,42 +20,22 @@ const noGenerationBanner = document.querySelector("[data-no-generation-banner]")
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 
-let listActiveHeadersPokedex = [];
 const initialPageTitle = document.title;
 const listPokemon = [];
 
 export { listPokemon };
 
-
-let currentHeader = null;
-// let allStickyHeaders = Array.from(document.querySelectorAll("[data-header-pokedex]"));
-
-const observerCallback = (entries) => {
-// entries[0].target.classList.toggle("is-pinned", entries[0].intersectionRatio < 1)
-        // // if(entries[0].intersectionRatio < 1) {
-
-        // // }
+const generationScrollingObserver = new IntersectionObserver(
+    (entries) => {
         entries.forEach((item) =>  {
-            console.log(item.target, item.isIntersecting)
             item.target.classList.toggle("is-pinned", item.intersectionRatio < 1)
         })
-        // e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
-//         const listStickyHeaders = entries.filter((item) => isElementInViewport(item.target) && item.intersectionRatio < 1);
-      
-//         if (listStickyHeaders.length) {
-//             currentHeader = listStickyHeaders.at(-1).target;
-//         } else {
-//             const currentHeaderIndex = allStickyHeaders.findIndex((item) => item === currentHeader);
-//             currentHeader = allStickyHeaders[currentHeaderIndex - 1] || allStickyHeaders[0];
-//         }
-// console.log(currentHeader.textContent.trim())
-        // const currentGenerationName = currentHeader?.querySelector("h2").textContent.trim();
-        // document.title = `${currentGenerationName} - ${initialPageTitle}`
-}
-
-const observer = new IntersectionObserver(
-    observerCallback,
-    { threshold: [1], rootMargin: '-1px' }
+        const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
+        let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
+        const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
+        document.title = `${currentGenerationName} - ${initialPageTitle}`
+    },
+    { threshold: [1] }
   );
 
 const loadDetailsModal = (e) => {
@@ -143,12 +123,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
         pokedexContainer.append(cloneDex);
 
-        // allStickyHeaders = Array.from(document.querySelectorAll("[data-header-pokedex]"))
-        // allStickyHeaders.forEach((item) => {
-        //     observer.observe(item);
+        generationScrollingObserver.observe(headerPokedex);
 
-        // })
-    
         listLoadGenerationBtns.forEach((item) => item.inert = false);
         if (triggerElement) {
             triggerElement.parentNode.parentNode.removeChild(triggerElement.parentNode)
@@ -193,11 +169,6 @@ window.addEventListener('popstate', async () => {
         modal.close();
     }
 });
-
-const allStickyHeaders = Array.from(document.querySelectorAll("[data-header-pokedex]"));
-allStickyHeaders.forEach((item) => {
-    observer.observe(item);
-})
 
 if (process.env.NODE_ENV === "development") {
     await import("./vite.error-overlay");
