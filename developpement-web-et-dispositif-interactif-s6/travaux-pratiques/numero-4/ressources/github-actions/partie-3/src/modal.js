@@ -430,7 +430,7 @@ displayModal = async (pkmnData) => {
         listSprites.push({ name: key, sprite: value });
     });
     const groupedSprites = Object.groupBy(listSprites, ({ name }) =>
-        name.includes("female") ? "Female ♀" : "Male ♂"
+        name.includes("female") ? "Femelle ♀" : "Mâle ♂"
     );
 
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
@@ -438,14 +438,26 @@ displayModal = async (pkmnData) => {
             listPokemonSpritesTemplateRaw.content,
             true
         );
-        listPokemonSpritesTemplate.querySelector("p").textContent = `${key} ${
-            Object.keys(groupedSprites).length === 1 ? "/ Female ♀" : ""
+        const sexLabel = listPokemonSpritesTemplate.querySelector("p");
+        sexLabel.textContent = `${key} ${
+            Object.keys(groupedSprites).length === 1 ? "/ Femelle ♀" : ""
         }`;
+
+        if (Object.keys(groupedSprites).length === 1) {
+            sexLabel.classList.add("no-dimorphism")
+        } else {
+            if(key === "Femelle ♀") {
+                sexLabel.classList.add("bg-pink-300")
+            } else if (key === "Mâle ♂") {
+                sexLabel.classList.add("bg-sky-300")
+            }
+        }
+
         if (
             pkmnData.sexe?.female === undefined &&
             pkmnData.sexe?.male === undefined
         ) {
-            listPokemonSpritesTemplate.querySelector("p").textContent = "";
+            sexLabel.textContent = "";
         }
 
         const listSpritesUI = listPokemonSpritesTemplate.querySelector(
