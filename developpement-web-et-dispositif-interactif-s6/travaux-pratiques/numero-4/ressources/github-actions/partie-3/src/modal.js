@@ -283,8 +283,7 @@ displayModal = async (pkmnData) => {
     evolutionLine.forEach((evolution) => {
         const li = document.createElement("li")
         const ul = document.createElement("ul");
-        // grid-template-columns: repeat(auto-fill, minmax(0, max-content));
-        ul.classList.add(...["flex", "flex-wrap", "gap-3"])
+        ul.classList.add(...["flex", "flex-wrap", "gap-6"])
         evolution.forEach((item) => {       
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -312,7 +311,33 @@ displayModal = async (pkmnData) => {
         nextArrow.inert = true;
         nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
         modal_DOM.listEvolutions.append(nextArrow);
-    })
+    });
+
+    if(pkmnData.evolution?.mega) {
+        const li = document.createElement("li")
+        const ul = document.createElement("ul");
+        ul.classList.add(...["flex", "flex-wrap", "gap-6"])
+
+        pkmnData.evolution.mega.forEach((item) => {
+            // console.log(item);
+            const clone = document.importNode(
+                pokemonSpriteTemplateRaw.content,
+                true
+            );
+            const img = clone.querySelector("img");
+            img.alt = `Sprite de ${item.name}`;
+            img.classList.replace("w-52", "w-36");
+            replaceImage(img, item.sprites.regular);
+
+            const textContainer = clone.querySelector("p");
+            textContainer.textContent = `avec ${item.orbe}`;
+
+            ul.append(clone);
+        })
+
+        li.append(ul);
+        modal_DOM.listEvolutions.append(li);
+    }
 
     clearTagContent(modal_DOM.listSensibilities);
 
@@ -499,7 +524,6 @@ displayModal = async (pkmnData) => {
     modal.showModal();
     pikachuLoading.classList.add("hidden");
     listPokedexEntries.forEach((item) => { item.inert = false; })
-
 
     document.documentElement.style.setProperty(
         "--header-height-collapsed",

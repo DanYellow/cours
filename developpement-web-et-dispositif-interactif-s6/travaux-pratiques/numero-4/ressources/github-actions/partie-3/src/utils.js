@@ -86,7 +86,6 @@ const getEvolutionChain = (data, evolutionLineRaw) => {
     let res = [];
 
     const evolutionLine = Object.values(evolutionLineRaw).filter(Boolean).flat()
-
     const getPkmnIdFromURL = (url) => {
         return url.split("/").filter(Boolean).at(-1)
     }
