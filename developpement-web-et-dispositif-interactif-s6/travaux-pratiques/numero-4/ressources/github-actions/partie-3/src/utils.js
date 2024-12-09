@@ -135,7 +135,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
             ...(listPokemonComputed.find((item) => Number(item.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en"})
         }))
     })
-    console.log("payload", payload)
+
     return payload;
 }
 

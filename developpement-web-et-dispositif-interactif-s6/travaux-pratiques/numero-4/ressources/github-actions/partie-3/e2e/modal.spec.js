@@ -73,7 +73,7 @@ test("should load previous pokemon", async ({ page }) => {
     await expect(currentUrl.searchParams.get("id")).toEqual(String(previousPokemonData.pokedex_id));
 });
 
-test("should open regional form ", async ({ page }) => {
+test("should open regional form", async ({ page }) => {
     const pkmnId = 19;
     await page.goto(`/?id=${pkmnId}`);
 
@@ -92,3 +92,25 @@ test("should open regional form ", async ({ page }) => {
     const currentUrl = new URL(await page.url());
     await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
 });
+
+test("should keep title tag value after scroll", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
+
+    await Promise.all([
+        page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
+        page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
+    ])
+
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
+
+    const title = await page.title()
+
+    await page.mouse.wheel(0, 550);
+    await page.waitForTimeout(1);
+
+    await expect(page).toHaveTitle(title);
+});
+
