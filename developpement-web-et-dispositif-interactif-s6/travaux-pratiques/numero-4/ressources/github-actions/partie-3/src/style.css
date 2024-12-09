@@ -28,3 +28,9 @@
     background: rgb(233, 233, 233);
     background: linear-gradient(110deg, rgba(125,211,252,1) 0%, rgba(125,211,252,1) 43.5%, rgba(249,168,212,1) 43.5%, rgba(249,168,212,1) 100%);
 }
+
+[inert]:not(li:has(a), dialog, .arrow) {
+    opacity: theme("opacity.20");
+    position: relative;
+    z-index: -10;
+}

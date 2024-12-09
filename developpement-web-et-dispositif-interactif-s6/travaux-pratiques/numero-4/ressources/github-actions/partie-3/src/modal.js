@@ -161,7 +161,7 @@ const createSibling = (template, data, isInert, isPrevious) => {
             aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
             const arrow = document.createElement("p");
             arrow.textContent = isPrevious ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5"])
+            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow"])
             aTag.prepend(arrow);
         } else {
             aTag.classList.replace("inert:opacity-25", "inert:opacity-100")
@@ -309,7 +309,7 @@ displayModal = async (pkmnData) => {
         const nextArrow = document.createElement("li");
         nextArrow.textContent = "▼";
         nextArrow.inert = true;
-        nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
+        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow"])
         modal_DOM.listEvolutions.append(nextArrow);
     });
 
@@ -338,6 +338,10 @@ displayModal = async (pkmnData) => {
         li.append(ul);
         modal_DOM.listEvolutions.append(li);
     }
+
+    modal_DOM.listEvolutions.closest("details").inert =
+    (evolutionLine.flat().length === 1) && (pkmnData.evolution?.mega || []).length === 0;
+
 
     clearTagContent(modal_DOM.listSensibilities);
 
