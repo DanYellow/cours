@@ -37,6 +37,9 @@ const generationScrollingObserver = new IntersectionObserver(
         entries.forEach((item) =>  {
             item.target.classList.toggle("is-pinned", item.intersectionRatio < 1)
         })
+        if(modal.open) {
+            return;
+        }
         setTitleTagForGeneration()
     },
     { threshold: [1] }
