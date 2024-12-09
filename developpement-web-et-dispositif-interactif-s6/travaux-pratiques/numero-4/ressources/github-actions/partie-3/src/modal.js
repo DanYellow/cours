@@ -199,7 +199,11 @@ displayModal = async (pkmnData) => {
                 evolutionReq, 
                 {
                     ...pkmnData.evolution, 
-                    self: { name: pkmnData.name.fr, pokedex_id: pkmnData.pokedex_id, condition: pkmnData.evolution.pre?.map((item) => item.condition).at(-1) }
+                    self: { 
+                        name: pkmnData.name.fr, 
+                        pokedex_id: pkmnData.pokedex_id, 
+                        condition: pkmnData.evolution.pre?.map((item) => item.condition)[0] 
+                    }
                 }, listPokemon);
         } catch (_e) {
             evolutionLine = [];
@@ -295,12 +299,13 @@ displayModal = async (pkmnData) => {
             img.classList.replace("w-52", "w-36");
             replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
 
-            const textContainer = clone.querySelector("p");
-            const evolutionName = document.createElement("p");
-            evolutionName.textContent = idx === 0 ? "" : item.condition;
-            evolutionName.classList.add("text-xs", 'text-center')
-            textContainer.textContent = item.name;
-            textContainer.insertAdjacentElement("afterend", evolutionName);
+            const evolutionName = clone.querySelector("p");
+            evolutionName.textContent = `#${item.pokedex_id} ${item.name}`;
+            
+            const evolutionCondition = document.createElement("p");
+            evolutionCondition.classList.add("text-xs", 'text-center');
+            evolutionCondition.textContent = idx === 0 ? "" : item.condition;
+            clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
 
             ul.append(clone);
         })
@@ -309,7 +314,7 @@ displayModal = async (pkmnData) => {
         const nextArrow = document.createElement("li");
         nextArrow.textContent = "▼";
         nextArrow.inert = true;
-        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow"])
+        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "-mt-4"])
         modal_DOM.listEvolutions.append(nextArrow);
     });
 
@@ -319,7 +324,6 @@ displayModal = async (pkmnData) => {
         ul.classList.add(...["flex", "flex-wrap", "gap-6"])
 
         pkmnData.evolution.mega.forEach((item) => {
-            // console.log(item);
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
                 true
@@ -339,7 +343,7 @@ displayModal = async (pkmnData) => {
         modal_DOM.listEvolutions.append(li);
     }
 
-    const hasNoEvolutions = (evolutionLine.flat().length === 1) && (pkmnData.evolution?.mega || []).length === 0;
+    const hasNoEvolutions = (evolutionLine.flat().length === 0) && (pkmnData.evolution?.mega || []).length === 0;
     modal_DOM.listEvolutions.closest("details").inert = hasNoEvolutions;
     if (hasNoEvolutions) {
         modal_DOM.listEvolutions.closest("details").removeAttribute("open");
@@ -439,7 +443,9 @@ displayModal = async (pkmnData) => {
             pkmnData.sexe?.female === undefined &&
             pkmnData.sexe?.male === undefined
         ) {
-            sexLabel.textContent = "";
+            sexLabel.classList.add("hidden");
+        } else {
+            sexLabel.classList.remove("hidden");
         }
 
         const listSpritesUI = listPokemonSpritesTemplate.querySelector(
