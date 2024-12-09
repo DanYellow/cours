@@ -339,9 +339,11 @@ displayModal = async (pkmnData) => {
         modal_DOM.listEvolutions.append(li);
     }
 
-    modal_DOM.listEvolutions.closest("details").inert =
-    (evolutionLine.flat().length === 1) && (pkmnData.evolution?.mega || []).length === 0;
-
+    const hasNoEvolutions = (evolutionLine.flat().length === 1) && (pkmnData.evolution?.mega || []).length === 0;
+    modal_DOM.listEvolutions.closest("details").inert = hasNoEvolutions;
+    if (hasNoEvolutions) {
+        modal_DOM.listEvolutions.closest("details").removeAttribute("open");
+    }
 
     clearTagContent(modal_DOM.listSensibilities);
 
