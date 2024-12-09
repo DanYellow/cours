@@ -202,7 +202,7 @@ displayModal = async (pkmnData) => {
                     self: { 
                         name: pkmnData.name.fr, 
                         pokedex_id: pkmnData.pokedex_id, 
-                        condition: pkmnData.evolution.pre?.map((item) => item.condition)[0] 
+                        // condition: pkmnData.evolution.pre?.map((item) => item.condition)[0] 
                     }
                 }, listPokemon);
         } catch (_e) {
@@ -285,9 +285,9 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listEvolutions);
 
     evolutionLine.forEach((evolution, idx) => {
-        const li = document.createElement("li")
+        const li = document.createElement("li");
         const ul = document.createElement("ul");
-        ul.classList.add(...["flex", "flex-wrap", "gap-2"])
+        ul.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
         evolution.forEach((item) => {       
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -312,9 +312,9 @@ displayModal = async (pkmnData) => {
         li.append(ul);
         modal_DOM.listEvolutions.append(li);
         const nextArrow = document.createElement("li");
-        nextArrow.textContent = "▼";
+        nextArrow.textContent = evolutionLine.flat().length >= 7 ? "►" : "▼";
         nextArrow.inert = true;
-        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "-mt-4"])
+        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
         modal_DOM.listEvolutions.append(nextArrow);
     });
 
@@ -342,6 +342,9 @@ displayModal = async (pkmnData) => {
         li.append(ul);
         modal_DOM.listEvolutions.append(li);
     }
+
+    modal_DOM.listEvolutions.classList.toggle("horizontal-evolution-layout", evolutionLine.flat().length >= 7)
+    modal_DOM.listEvolutions.classList.toggle("vertical-evolution-layout", evolutionLine.flat().length < 7)
 
     const hasNoEvolutions = (evolutionLine.flat().length === 0) && (pkmnData.evolution?.mega || []).length === 0;
     modal_DOM.listEvolutions.closest("details").inert = hasNoEvolutions;

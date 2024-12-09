@@ -89,7 +89,12 @@ const capitalizeFirstLetter = (val) => {
 const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let res = [];
 
-    const evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
+    let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
+    // evolutionLine = evolutionLine.map((item, idx) => ({
+    //     ...item,
+    //     condition: evolutionLine[idx - 1]?.condition || item.condition,
+    // }))
+
     const getPkmnIdFromURL = (url) => {
         return url.split("/").filter(Boolean).at(-1)
     }
@@ -130,7 +135,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
             ...(listPokemonComputed.find((item) => Number(item.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en"})
         }))
     })
-
+    console.log("payload", payload)
     return payload;
 }
 

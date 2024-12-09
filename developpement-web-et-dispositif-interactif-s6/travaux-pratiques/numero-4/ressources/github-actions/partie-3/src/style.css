@@ -34,3 +34,14 @@
     position: relative;
     z-index: -10;
 }
+
+.horizontal-evolution-layout {
+    display: grid;
+    grid-template-columns: auto min-content auto;
+    align-items: center;
+}
+
+.vertical-evolution-layout {
+    display: flex;
+    flex-direction: column;
+}
