@@ -195,7 +195,12 @@ displayModal = async (pkmnData) => {
 
         try {
             evolutionLine = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
-            evolutionLine = getEvolutionChain(evolutionLine, {...pkmnData.evolution, self: pkmnData});
+            evolutionLine = getEvolutionChain(
+                evolutionLine, 
+                {
+                    ...pkmnData.evolution, 
+                    self: { name: pkmnData.name.fr, pokedex_id: pkmnData.pokedex_id }
+                });
         } catch (_e) {
             evolutionLine = [];
         }
@@ -272,33 +277,40 @@ displayModal = async (pkmnData) => {
         descriptionsContainer.append(dd);
     });
 
-    // clearTagContent(modal_DOM.listEvolutions);
-    // const listEvolutions = [...(pkmnData.evolution?.pre || []), { pokedex_id: pkmnData.pokedex_id, name: pkmnData.name.fr , condition: "" }, ...(pkmnData.evolution?.next || [])]
-    // listEvolutions.forEach((item) => {
-    //     const clone = document.importNode(
-    //         pokemonSpriteTemplateRaw.content,
-    //         true
-    //     );
+    clearTagContent(modal_DOM.listEvolutions);
 
-    //     const img = clone.querySelector("img");
-    //     img.alt = `Sprite de ${item.name}`;
-    //     img.classList.replace("w-52", "w-36");
-    //     replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
+    evolutionLine.forEach((evolution) => {
+        const li = document.createElement("li")
+        const ul = document.createElement("ul");
+        ul.classList.add(...["flex", "flex-col"])
+        evolution.forEach((item) => {       
+            const clone = document.importNode(
+                pokemonSpriteTemplateRaw.content,
+                true
+            );
 
-    //     const textContainer = clone.querySelector("p");
-    //     const evolutionName = document.createElement("p");
-    //     evolutionName.textContent = item.condition;
-    //     evolutionName.classList.add("text-xs", 'text-center')
-    //     textContainer.textContent = item.name;
-    //     textContainer.insertAdjacentElement("afterend", evolutionName);
+            const img = clone.querySelector("img");
+            img.alt = `Sprite de ${item.name}`;
+            img.classList.replace("w-52", "w-36");
+            replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
 
-    //     modal_DOM.listEvolutions.append(clone);
+            const textContainer = clone.querySelector("p");
+            const evolutionName = document.createElement("p");
+            evolutionName.textContent = item.condition;
+            evolutionName.classList.add("text-xs", 'text-center')
+            textContainer.textContent = item.name;
+            textContainer.insertAdjacentElement("afterend", evolutionName);
 
-    //     const nextArrow = document.createElement("li");
-    //     nextArrow.textContent = "►";
-    //     nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
-    //     modal_DOM.listEvolutions.append(nextArrow);
-    // })
+            ul.append(clone);
+        })
+        li.append(ul);
+        modal_DOM.listEvolutions.append(li);
+        const nextArrow = document.createElement("li");
+        nextArrow.textContent = "►";
+        nextArrow.inert = true;
+        nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
+        modal_DOM.listEvolutions.append(nextArrow);
+    })
 
     clearTagContent(modal_DOM.listSensibilities);
 
