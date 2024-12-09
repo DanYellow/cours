@@ -6,6 +6,7 @@ import {
     fetchAllTypes,
     fetchPokemonExtraData,
     fetchPokemon,
+    fetchEvolutionChain,
 } from "./api";
 
 import {
@@ -15,6 +16,7 @@ import {
     convertTailwindRemToPx,
     aRem,
     replaceImage,
+    getEvolutionChain,
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
@@ -183,11 +185,19 @@ displayModal = async (pkmnData) => {
 
     let pkmnExtraData = dataCache[pkmnId]?.extras;
     let listDescriptions = dataCache[pkmnId]?.descriptions;
+    let evolutionLine = dataCache[pkmnId]?.evolutionLine;
     if (!dataCache[pkmnId]) {
         try {
             listDescriptions = await fetchPokemonDescription(pkmnId);
         } catch (_e) {
             listDescriptions = {};
+        }
+
+        try {
+            evolutionLine = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
+            evolutionLine = getEvolutionChain(evolutionLine, {...pkmnData.evolution, self: pkmnData});
+        } catch (_e) {
+            evolutionLine = [];
         }
 
         try {

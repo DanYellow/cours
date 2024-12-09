@@ -18,6 +18,15 @@ const fetchPokemonExtraData = async (pkmnId) => {
     }
 }
 
+const fetchEvolutionChain = async (url) => {
+    try {
+        const req = await axios.get(url);
+        return req.data;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 const fetchPokemon = async (pkmnId, region = null) => {
     try {
         const regionName = region ? `/${region}` : "";
@@ -43,7 +52,7 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon };
+export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon, fetchEvolutionChain };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

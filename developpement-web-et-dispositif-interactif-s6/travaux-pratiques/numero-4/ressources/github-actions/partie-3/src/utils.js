@@ -82,4 +82,43 @@ const isElementInViewport = (el) => {
     );
 }
 
-export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport };
+const getEvolutionChain = (data, evolutionLineRaw) => {
+    let res = [];
+
+    const evolutionLine = Object.values(evolutionLineRaw).filter(Boolean).flat()
+
+    const getPkmnIdFromURL = (url) => {
+        return url.split("/").filter(Boolean).at(-1)
+    }
+
+    const pokedexId = getPkmnIdFromURL(data.chain.species.url);
+    const firstEvolution = {
+        ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
+        sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(data.chain.species.url)}/regular.png`
+    }
+
+    res.push([firstEvolution]);
+
+    const getNextEvolutions = (listEvolutions) => {
+        const evolutionLevel = []
+        listEvolutions.forEach((item) => {
+            const pkmnId = getPkmnIdFromURL(item.species.url)
+            evolutionLevel.push(
+                {
+                    ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
+                    sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`
+                }
+            )
+            res.push(evolutionLevel);
+            if(item.evolves_to.length > 0) {
+                getNextEvolutions(item.evolves_to)
+            }
+        })
+    }
+
+    getNextEvolutions(data.chain.evolves_to);
+
+    return Array.from(new Set(res.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
+}
+
+export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain };
