@@ -82,14 +82,18 @@ const isElementInViewport = (el) => {
     );
 }
 
-const getEvolutionChain = (data, evolutionLineRaw) => {
+const capitalizeFirstLetter = (val) => {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
+const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let res = [];
 
-    const evolutionLine = Object.values(evolutionLineRaw).filter(Boolean).flat()
+    const evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
     const getPkmnIdFromURL = (url) => {
         return url.split("/").filter(Boolean).at(-1)
     }
-
+    const listPokemonComputed = listPokemon.map((item) => ({ name: item.name.fr, pokedex_id: item.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
     const firstEvolution = {
         ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
@@ -104,6 +108,8 @@ const getEvolutionChain = (data, evolutionLineRaw) => {
             const pkmnId = getPkmnIdFromURL(item.species.url)
             evolutionLevel.push(
                 {
+                    name: capitalizeFirstLetter(item.species.name),
+                    pokedex_id: pkmnId,
                     ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
                     sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`
                 }
@@ -117,7 +123,15 @@ const getEvolutionChain = (data, evolutionLineRaw) => {
 
     getNextEvolutions(data.chain.evolves_to);
 
-    return Array.from(new Set(res.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
+    let payload = Array.from(new Set(res.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
+    payload = payload.map((item) => {
+        return item.map((subItem) => ({
+            ...subItem,
+            ...(listPokemonComputed.find((item) => Number(item.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en"})
+        }))
+    })
+
+    return payload;
 }
 
 export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain };

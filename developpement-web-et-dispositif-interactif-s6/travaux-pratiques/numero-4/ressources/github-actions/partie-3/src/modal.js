@@ -194,13 +194,13 @@ displayModal = async (pkmnData) => {
         }
 
         try {
-            evolutionLine = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
+            const evolutionReq = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
-                evolutionLine, 
+                evolutionReq, 
                 {
                     ...pkmnData.evolution, 
-                    self: { name: pkmnData.name.fr, pokedex_id: pkmnData.pokedex_id }
-                });
+                    self: { name: pkmnData.name.fr, pokedex_id: pkmnData.pokedex_id, condition: pkmnData.evolution.pre?.map((item) => item.condition).at(-1) }
+                }, listPokemon);
         } catch (_e) {
             evolutionLine = [];
         }
@@ -280,10 +280,10 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listEvolutions);
 
-    evolutionLine.forEach((evolution) => {
+    evolutionLine.forEach((evolution, idx) => {
         const li = document.createElement("li")
         const ul = document.createElement("ul");
-        ul.classList.add(...["flex", "flex-wrap", "gap-6"])
+        ul.classList.add(...["flex", "flex-wrap", "gap-2"])
         evolution.forEach((item) => {       
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -297,7 +297,7 @@ displayModal = async (pkmnData) => {
 
             const textContainer = clone.querySelector("p");
             const evolutionName = document.createElement("p");
-            evolutionName.textContent = item.condition;
+            evolutionName.textContent = idx === 0 ? "" : item.condition;
             evolutionName.classList.add("text-xs", 'text-center')
             textContainer.textContent = item.name;
             textContainer.insertAdjacentElement("afterend", evolutionName);
