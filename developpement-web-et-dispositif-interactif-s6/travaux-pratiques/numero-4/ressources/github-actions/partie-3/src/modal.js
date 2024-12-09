@@ -283,7 +283,8 @@ displayModal = async (pkmnData) => {
     evolutionLine.forEach((evolution) => {
         const li = document.createElement("li")
         const ul = document.createElement("ul");
-        ul.classList.add(...["flex", "flex-col"])
+        // grid-template-columns: repeat(auto-fill, minmax(0, max-content));
+        ul.classList.add(...["flex", "flex-wrap", "gap-3"])
         evolution.forEach((item) => {       
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -307,7 +308,7 @@ displayModal = async (pkmnData) => {
         li.append(ul);
         modal_DOM.listEvolutions.append(li);
         const nextArrow = document.createElement("li");
-        nextArrow.textContent = "►";
+        nextArrow.textContent = "▼";
         nextArrow.inert = true;
         nextArrow.classList.add(...["flex", "items-center", "last:hidden"])
         modal_DOM.listEvolutions.append(nextArrow);
