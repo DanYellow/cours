@@ -3,7 +3,7 @@ import {
     replaceImage,
 } from "./utils";
 
-import loadDetailsModal from "./modal";
+import { loadDetailsModal } from "./modal";
 
 const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"

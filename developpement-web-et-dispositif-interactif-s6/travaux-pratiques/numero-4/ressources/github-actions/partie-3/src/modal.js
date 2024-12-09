@@ -214,6 +214,7 @@ displayModal = async (pkmnData) => {
         dataCache[pkmnId] = {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
+            evolutionLine,
         };
     }
 
@@ -530,4 +531,5 @@ const pkmnSiblingsObserver = new MutationObserver((e) => {
 
 pkmnSiblingsObserver.observe(modal_DOM.listSiblings, { childList: true, subtree: true });
 
+export { loadDetailsModal }
 export default displayModal;
