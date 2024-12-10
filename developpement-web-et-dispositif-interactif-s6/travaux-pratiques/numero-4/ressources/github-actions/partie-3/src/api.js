@@ -18,7 +18,7 @@ const fetchPokemonExtraData = async (pkmnId) => {
     }
 }
 
-const fetchEvolutionChain = async (url) => {
+const fetchDataFromURL = async (url) => {
     try {
         const req = await axios.get(url);
         return req.data;
@@ -52,7 +52,7 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon, fetchEvolutionChain };
+export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon, fetchDataFromURL };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

@@ -6,7 +6,7 @@ import {
     fetchAllTypes,
     fetchPokemonExtraData,
     fetchPokemon,
-    fetchEvolutionChain,
+    fetchDataFromURL,
 } from "./api";
 
 import {
@@ -77,6 +77,7 @@ const modal_DOM = {
 };
 
 const dataCache = {};
+let listAbilitiesCache = [];
 const initialPageTitle = document.title;
 
 let listTypes = await fetchAllTypes();
@@ -194,7 +195,7 @@ displayModal = async (pkmnData) => {
         }
 
         try {
-            const evolutionReq = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
+            const evolutionReq = await fetchDataFromURL(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
                 evolutionReq, 
                 {
@@ -215,6 +216,34 @@ displayModal = async (pkmnData) => {
             pkmnExtraData = {};
         }
 
+        const listAbilitiesDescriptions = []
+        for (const ability of pkmnExtraData.abilities) {
+            const abilityInCache = listAbilitiesCache.find((item) => item.name.en.toLowerCase() === ability.ability.name.toLowerCase());
+            if (abilityInCache) {
+                listAbilitiesDescriptions.push(abilityInCache);
+            } else {
+                try {
+                    const abilityReq = await fetchDataFromURL(ability.ability.url);
+                    const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
+                    const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
+    
+                    listAbilitiesDescriptions.push({ id: abilityReq.id, description, name: { fr: name, en: abilityReq.name } });
+                } catch (_e) {}
+            }
+        }
+
+        pkmnData.talents = pkmnData.talents.map((item) => ({
+            ...item,
+            ...listAbilitiesDescriptions.find((description) => description.name.fr.toLowerCase() === item.name.toLowerCase())
+        }));
+
+        listAbilitiesCache = [
+            ...listAbilitiesCache,
+            ...listAbilitiesDescriptions,
+        ];
+
+        listAbilitiesCache = Array.from(new Set(listAbilitiesCache.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
+        
         dataCache[pkmnId] = {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
@@ -396,7 +425,12 @@ displayModal = async (pkmnData) => {
     pkmnData.talents.forEach((item) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
-        summary.textContent = item.name;
+        summary.textContent = item.name.fr;
+        // summary.classList.add("");
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = item.description;
+        paragraph.classList.add("ml-4");
 
         if (item.tc) {
             const clone = document.importNode(
@@ -406,6 +440,8 @@ displayModal = async (pkmnData) => {
             summary.append(clone);
         }
         details.append(summary);
+        details.insertAdjacentElement("beforeend", paragraph);
+        details.classList.add("mb-1.5");
 
         modal_DOM.listAbilities.append(details);
     });
