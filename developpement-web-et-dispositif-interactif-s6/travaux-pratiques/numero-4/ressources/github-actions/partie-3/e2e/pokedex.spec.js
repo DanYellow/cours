@@ -76,3 +76,18 @@ test("should change title's value according to current generation displayed", as
     );
 });
 
+test("should listen to query string params", async ({ page }) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
+
+    const firstPkmn = page.getByTestId("pokemon").first();
+    await firstPkmn.waitFor();
+    firstPkmn.click();
+
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
+    
+    await page.goBack();
+    
+    await expect(page.getByTestId("pokemon-modal")).not.toHaveAttribute("open", "");
+});
