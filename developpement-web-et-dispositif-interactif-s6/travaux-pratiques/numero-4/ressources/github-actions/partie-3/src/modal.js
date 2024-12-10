@@ -20,7 +20,7 @@ import {
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
-import { createSensibility, createRegionalForm} from "./modal.utils"
+import { createSensibility, createRegionalForm, createSibling } from "./modal.utils"
 import loadingImage from "/loading.svg";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
@@ -124,53 +124,6 @@ const loadDetailsModal = (e, region = null) => {
 
     history.pushState({}, "", url);
     displayModal(pkmnData);
-};
-
-const createSibling = (template, data, isInert, isPrevious) => {
-    const li = template.querySelector("li");
-
-    li.classList.toggle("shrink-0", isInert);
-    li.classList.toggle("hidden", isInert);
-    li.classList.toggle("md:[display:revert]", isInert);
-    li.classList.toggle("grow", !isInert);
-    li.classList.toggle("basis-0", !isInert);
-
-    if (Object.keys(data || {}).length > 0) {
-        const imgTag = template.querySelector("img");
-        imgTag.src = loadingImage;
-        imgTag.alt = `sprite de ${data.name.fr}`;
-        replaceImage(imgTag, data.sprites.regular);
-        imgTag.classList.toggle("hidden", isInert);
-
-        const name = template.querySelector("[data-name]");
-        name.textContent = data.name.fr;
-
-        const pkmnId = template.querySelector("[data-id]");
-        pkmnId.textContent = `#${data.pokedex_id}`;
-        pkmnId.classList.toggle("!text-center", isInert);
-
-        const siblingUrl = new URL(location);
-        siblingUrl.searchParams.set("id", data.pokedex_id);
-        siblingUrl.searchParams.delete("region");
-        siblingUrl.searchParams.delete("alternate_form_id");
-        const aTag = template.querySelector("a");
-        aTag.href = siblingUrl;
-        aTag.dataset.pokemonData = JSON.stringify(data);
-        aTag.addEventListener("click", (e) => loadDetailsModal(e));
-        
-        if (!isInert) {
-            aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
-            const arrow = document.createElement("p");
-            arrow.textContent = isPrevious ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow"])
-            aTag.prepend(arrow);
-        } else {
-            aTag.classList.replace("inert:opacity-25", "inert:opacity-100")
-        }
-    }
-    li.inert = isInert || Object.keys(data || {}).length === 0;
-
-    return template;
 };
 
 

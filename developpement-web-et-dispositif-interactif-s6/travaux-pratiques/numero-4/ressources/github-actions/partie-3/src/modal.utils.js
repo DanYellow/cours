@@ -4,6 +4,7 @@ import {
 } from "./utils";
 
 import { loadDetailsModal } from "./modal";
+import loadingImage from "/loading.svg";
 
 const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
@@ -85,4 +86,55 @@ const createRegionalForm = (template, data) => {
     return template;
 }
 
-export { createSensibility, createRegionalForm };
+const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
+    const li = template.querySelector("li");
+
+    li.classList.toggle("shrink-0", isCurrentPkmn);
+    li.classList.toggle("hidden", isCurrentPkmn);
+    li.classList.toggle("md:[display:revert]", isCurrentPkmn);
+    li.classList.toggle("grow", !isCurrentPkmn);
+    li.classList.toggle("basis-0", !isCurrentPkmn);
+
+    if (Object.keys(data || {}).length > 0) {
+        const imgTag = template.querySelector("img");
+        imgTag.src = loadingImage;
+        imgTag.alt = `sprite de ${data.name.fr}`;
+        replaceImage(imgTag, data.sprites.regular);
+        imgTag.classList.toggle("hidden", isCurrentPkmn);
+
+        const name = template.querySelector("[data-name]");
+        name.textContent = data.name.fr;
+
+        const pkmnId = template.querySelector("[data-id]");
+        pkmnId.textContent = `#${data.pokedex_id}`;
+        pkmnId.classList.toggle("!text-center", isCurrentPkmn);
+
+        const siblingUrl = new URL(location);
+        siblingUrl.searchParams.set("id", data.pokedex_id);
+        siblingUrl.searchParams.delete("region");
+        siblingUrl.searchParams.delete("alternate_form_id");
+        const aTag = template.querySelector("a");
+        aTag.href = siblingUrl;
+        aTag.dataset.pokemonData = JSON.stringify(data);
+        aTag.addEventListener("click", (e) => loadDetailsModal(e));
+        
+        if (!isCurrentPkmn) {
+            aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
+            const arrow = document.createElement("p");
+            arrow.textContent = isPrevious ? "◄" : "►";
+            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow"])
+            aTag.prepend(arrow);
+        } else {
+            const pTag = document.createElement('p');
+            pTag.innerHTML = aTag.innerHTML;
+            pTag.classList = aTag.classList;
+            pTag.classList.remove("hocus:bg-slate-200");
+            pTag.classList.add("font-bold");
+            aTag.parentNode.replaceChild(pTag, aTag);
+        }
+    }
+
+    return template;
+};
+
+export { createSensibility, createRegionalForm, createSibling };
