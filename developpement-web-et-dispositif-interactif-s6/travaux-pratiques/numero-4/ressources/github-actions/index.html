@@ -16,6 +16,28 @@
   <body>
     <header class="entete-consignes">
       <h1 class="h1">Consignes de la pratique - Github actions</h1>
+      <details class="consignes-conteneur">
+         <summary>
+          <h1 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h1>
+        </summary>
+        <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt</span>
+<span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quelles actions se lance le pipeline</span>
+<span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">my_first_job:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, job_id. Doit commencer par une lettre et ne doit pas contenir d'espace</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">first</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">job</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif, nom du job, remplace le job_id si présent dans la pipeline</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Définit le type de machine à utiliser</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Contient la liste des tâches du job</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Say</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">hello</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">to</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">me</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif, nom de la tâche</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">echo</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"Hello $<span style="color: rgb(138, 190, 183); font-weight: 400;">{{ github.actor }}</span> ! 🥳"</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, tâche à effectuer</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">List</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">files</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">in</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">the</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">|</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Le pipe (|) permet d'écrire du texte multilignes</span>
+          <span style="color: rgb(181, 189, 104); font-weight: 400;">ls</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">${{</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github.workspace</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">}}</span></pre>
+        <ul>
+          <li>
+            <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des clés d'un fichier de configuration - ouveture dans un nouvel onglet</a>
+          </li>
+        </ul>
+      </details>
       <details class="consignes-conteneur" open>
         <summary>
           <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
@@ -38,7 +60,7 @@
             </ul>
           </li>
           <li>
-            Ajoutez une commande linux de votre choix à votre fichier d'Actions
+            Ajoutez une commande Linux de votre choix à votre fichier d'Actions et observez le résultat dans GitHub 
             <p class="note-information">
               N'oubliez pas de commiter et pusher vos modifications, sinon, vous
               ne verrez pas vos mises à jour.
@@ -180,6 +202,17 @@
                         <a href="https://github.com/sdras/awesome-actions?tab=readme-ov-file#official-actions" target="_blank" rel="noopener noreferrer">Voir curation de Github Actions - Ouverture dans un nouvel onglet</a>
                     </li>
                 </ul>
+                <p>Exemple : </p>
+                <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD"</span>
+      <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
               </li>
               <li>
                 Installer des dépendances : <code>npm ci</code> ("ci" fait un
@@ -273,7 +306,7 @@
                 <div class="note-information">
                   <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
                   <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" pour ainsi vous permettre de faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. </p>
-                  <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
+                  <p class="texte-gras">Ajoutez sa clé ssh à un serveur (à faire dans le terminal)</p>
                   <ol>
                     <li><code>ssh-copy-id user@server</code> 
                     <p class="note-attention">ssh-copy-id copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (extension .pub)</p>
@@ -284,11 +317,11 @@
                   <p class="texte-gras">Effectuer un rsync en ssh (à faire dans votre fichier yml)</p>
                   <ol>
                     <li>
-                      <p>Ajouter sa clé privée dans le conteneur Docker</p>
+                      <p>Ajoutez sa clé privée dans le conteneur Docker</p>
                       <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
                     </li>
                     <li>
-                      <p>Déplacer le contenu du dossier vers un serveur</p>
+                      <p>Déplacez le contenu du dossier vers un serveur</p>
                       <code>rsync -Pavz -e "ssh -i __ssh_key_path__  -o StrictHostKeyChecking=no" source/ user@server:destination</code>
                       <div class="note-information">
                         <p><code>rsync</code> permet également de synchroniser un seul fichier ou encore exclure des dossiers.</p>
