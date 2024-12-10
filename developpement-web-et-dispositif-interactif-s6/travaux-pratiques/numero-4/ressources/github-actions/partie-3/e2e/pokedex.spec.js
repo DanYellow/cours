@@ -32,11 +32,11 @@ test("should disable load generation button when there's no generation anymore",
         return node.setAttribute('data-load-generation', fakeGeneration);
     })
 
+    const dexRequest = page.waitForResponse(`https://tyradex.vercel.app/api/v1/gen/${fakeGeneration}`);
+
     await expect(loadGenerationBtn).toHaveAttribute("data-load-generation", fakeGeneration);
     await loadGenerationBtn.click();
-    await page.waitForResponse((resp) =>
-        resp.url().includes(`https://tyradex.vercel.app/api/v1/gen/${fakeGeneration}`)
-    );
+    await dexRequest;
 
     await expect(loadGenerationBtn).toHaveAttribute("inert", "");
 });
@@ -60,9 +60,16 @@ test("should change title's value according to current generation displayed", as
 
     const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
     loadGenerationButton.click();
-    
-    await loadGenerationButton.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(10);
+    const nextGenerationNumber = await loadGenerationButton.getAttribute("data-load-generation");
+
+    await page.waitForResponse((resp) =>
+        resp.url().includes(`https://tyradex.vercel.app/api/v1/gen/${nextGenerationNumber}`)
+    );
+
+    for (let index = 0; index < 5; index++) {
+        await page.mouse.wheel(0, 400);
+        await page.waitForTimeout(0.5);
+    } 
     await expect(page).toHaveTitle(/Génération #2/);
 });
 
