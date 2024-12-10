@@ -175,6 +175,14 @@ const createSibling = (template, data, isInert, isPrevious) => {
 
 
 displayModal = async (pkmnData) => {
+    if (pkmnData.is_incomplete) {
+        const cachedPokemon = listPokemon.find((item) => item.pokedex_id === pkmnData.pokedex_id);
+        if (cachedPokemon) {
+            pkmnData = cachedPokemon;
+        } else {
+            pkmnData = await fetchPokemon(pkmnData.pokedex_id);
+        }
+    }
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
     document.title = `Chargement - ${initialPageTitle}`;
     pikachuLoading.classList.remove("hidden");
@@ -334,11 +342,26 @@ displayModal = async (pkmnData) => {
             const evolutionName = clone.querySelector("p");
             evolutionName.textContent = `#${item.pokedex_id} ${item.name}`;
             
-            const evolutionCondition = document.createElement("p");
-            evolutionCondition.classList.add("text-xs", 'text-center');
-            evolutionCondition.textContent = idx === 0 ? "" : item.condition;
-            clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
+            if (idx > 0) {
+                const evolutionCondition = document.createElement("p");
+                evolutionCondition.classList.add("text-xs", 'text-center');
+                evolutionCondition.textContent = item.condition;
+                clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
+            }
 
+            const divTag = clone.querySelector("div");
+            const evolutionURL = new URL(location);
+            evolutionURL.searchParams.set("id", item.pokedex_id);
+            const aTag = document.createElement('a');
+            aTag.innerHTML = divTag.innerHTML;
+            aTag.href = evolutionURL;
+            aTag.classList = divTag.classList;
+            aTag.classList.add(...["hocus:bg-slate-100", "rounded-md", "p-2"])
+            aTag.dataset.pokemonData = JSON.stringify({ ...item, is_incomplete: true });
+            aTag.addEventListener("click", (e) => loadDetailsModal(e));
+
+            divTag.parentNode.replaceChild(aTag, divTag);
+            
             ul.append(clone);
         })
         li.append(ul);
