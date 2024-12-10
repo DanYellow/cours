@@ -102,10 +102,28 @@ body:has(dialog:modal) {
 }
 
 dialog {
+    --animation-speed: 0.3s;
+    --start-position-y: 50vh;
+    opacity: 0;
+    translate: 0 var(--start-position-y);
+    transition: opacity var(--animation-speed) ease-out, 
+        translate var(--animation-speed) ease-out,
+        overlay var(--animation-speed) ease-out allow-discrete,
+        display var(--animation-speed) ease-out allow-discrete;
+
     &[open] {
-        animation: slide-in-up 0.1s cubic-bezier(0.25, 0, 0.3, 1) both;
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @starting-style {
+        &[open] {
+            opacity: 0;
+            translate: 0 var(--start-position-y);
+        }
     }
 }
+
 
 @keyframes slide-in-up {
     0% {

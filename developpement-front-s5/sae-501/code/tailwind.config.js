@@ -23,9 +23,6 @@ export default {
             containers: {
                 "5.5xl": "69rem",
             },
-            transitionProperty: {
-                "dialog": "background-color box-shadow"
-            },
         },
     },
     plugins: [
