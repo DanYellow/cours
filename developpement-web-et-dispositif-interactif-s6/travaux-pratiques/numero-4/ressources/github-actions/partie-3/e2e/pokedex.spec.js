@@ -69,7 +69,10 @@ test("should change title's value according to current generation displayed", as
     for (let index = 0; index < 5; index++) {
         await page.mouse.wheel(0, 400);
         await page.waitForTimeout(0.5);
-    } 
-    await expect(page).toHaveTitle(/Génération #2/);
+    }
+
+    await expect(page).toHaveTitle(
+        new RegExp(String.raw`Génération #${nextGenerationNumber}`, "g")
+    );
 });
 

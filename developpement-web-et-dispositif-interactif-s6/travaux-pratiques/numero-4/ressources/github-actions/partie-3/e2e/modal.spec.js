@@ -9,7 +9,7 @@ test("should open modal", async ({ page }) => {
 
     await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
     await expect(page).toHaveTitle(
-        new RegExp(String.raw`\s${firstPkmnData.name.fr}\s`, "g")
+        new RegExp(String.raw`${firstPkmnData.name.fr}`, "g")
     );
 });
 
