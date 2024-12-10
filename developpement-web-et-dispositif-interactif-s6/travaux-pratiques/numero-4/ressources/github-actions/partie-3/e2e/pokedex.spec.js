@@ -27,10 +27,9 @@ test("should disable load generation button when there's no generation anymore",
         .getByTestId("load-generation-btn")
         .first();
     const fakeGeneration = "42";
-    await page.evaluate(() => {
+    await loadGenerationBtn.evaluate((node) => {
         const fakeGeneration = "42";
-        const selector = document.querySelector("[data-load-generation]");
-        selector.dataset.loadGeneration = fakeGeneration;
+        return node.setAttribute('data-load-generation', fakeGeneration);
     })
 
     await expect(loadGenerationBtn).toHaveAttribute("data-load-generation", fakeGeneration);
@@ -41,3 +40,29 @@ test("should disable load generation button when there's no generation anymore",
 
     await expect(loadGenerationBtn).toHaveAttribute("inert", "");
 });
+
+test("should not reload the page after select a Pokemon", async ({ page }) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
+
+    const firstPkmn = page.getByTestId("pokemon").first();
+    await firstPkmn.waitFor();
+    firstPkmn.click();
+
+    await expect(page).not.toHaveTitle("Pokédex v1.0.0");
+});
+
+test("should change title's value according to current generation displayed", async ({ page }) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
+
+    const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
+    loadGenerationButton.click();
+    
+    await loadGenerationButton.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(10);
+    await expect(page).toHaveTitle(/Génération #2/);
+});
+

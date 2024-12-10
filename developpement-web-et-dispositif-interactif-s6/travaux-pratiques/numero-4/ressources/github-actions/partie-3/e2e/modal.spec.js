@@ -109,7 +109,7 @@ test("should keep title tag value after scroll", async ({ page }) => {
     const title = await page.title()
 
     await page.mouse.wheel(0, 550);
-    await page.waitForTimeout(5);
+    await page.waitForTimeout(2);
 
     await expect(page).toHaveTitle(title);
 });
