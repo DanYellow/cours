@@ -237,6 +237,9 @@ displayModal = async (pkmnData) => {
             ...listAbilitiesDescriptions.find((description) => description.name.fr.toLowerCase() === item.name.toLowerCase())
         }));
 
+        const currentPkmnIndex = listPokemon.findIndex(item => item.pokedex_id === pkmnData.pokedex_id);
+        listPokemon[currentPkmnIndex] = pkmnData;
+
         listAbilitiesCache = [
             ...listAbilitiesCache,
             ...listAbilitiesDescriptions,
@@ -426,7 +429,6 @@ displayModal = async (pkmnData) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
-        // summary.classList.add("");
 
         const paragraph = document.createElement("p");
         paragraph.textContent = item.description;
