@@ -394,18 +394,20 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listAbilities);
 
     pkmnData.talents.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item.name;
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        summary.textContent = item.name;
 
         if (item.tc) {
             const clone = document.importNode(
                 pkmnHighlightTemplateRaw.content,
                 true
             );
-            li.append(clone);
+            summary.append(clone);
         }
+        details.append(summary);
 
-        modal_DOM.listAbilities.append(li);
+        modal_DOM.listAbilities.append(details);
     });
 
     clearTagContent(modal_DOM.spritesContainer);
