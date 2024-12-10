@@ -26,9 +26,6 @@ export default {
     ],
     theme: {
         extend: {
-            transitionProperty: {
-                dialog: "background-color box-shadow",
-            },
             gridTemplateColumns: {
                 fluid: "repeat(auto-fit, minmax(0, 1fr))",
             },

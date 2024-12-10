@@ -431,7 +431,7 @@ displayModal = async (pkmnData) => {
         summary.textContent = item.name.fr;
 
         const paragraph = document.createElement("p");
-        paragraph.textContent = item.description.replace("\\n", " ");
+        paragraph.textContent = item.description?.replace("\\n", " ");
         paragraph.classList.add("ml-4");
 
         if (item.tc) {

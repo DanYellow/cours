@@ -2,31 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --header-height-collapsed: 6.5rem;
-}
-
-@keyframes adjust-info {
-    to {
-        height: var(--header-height-collapsed);
-    }
-}
-
-@supports (animation-timeline: auto) {
-    .extra-infos {
-        height: 16.75rem;
-        overflow: hidden;
-        animation: adjust-info linear both;
-    }
-    .extra-infos {
-        animation-timeline: scroll();
-        animation-range: 0 200px;
-    }
-}
-
 .no-dimorphism {
     background: rgb(233, 233, 233);
-    background: linear-gradient(110deg, rgba(125,211,252,1) 0%, rgba(125,211,252,1) 43.5%, rgba(249,168,212,1) 43.5%, rgba(249,168,212,1) 100%);
+    background: linear-gradient(
+        110deg,
+        rgba(125, 211, 252, 1) 0%,
+        rgba(125, 211, 252, 1) 43.5%,
+        rgba(249, 168, 212, 1) 43.5%,
+        rgba(249, 168, 212, 1) 100%
+    );
 }
 
 [inert]:not(li:has(a), dialog, .arrow) {
@@ -44,4 +28,26 @@
 .vertical-evolution-layout {
     display: flex;
     flex-direction: column;
+}
+
+dialog {
+    --animation-speed: 0.3s;
+    opacity: 0;
+    translate: 0 90vh;
+    transition: opacity var(--animation-speed) ease-out, 
+        translate var(--animation-speed) ease-out,
+        overlay var(--animation-speed) ease-out allow-discrete,
+        display var(--animation-speed) ease-out allow-discrete;
+
+    &[open] {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @starting-style {
+        &[open] {
+            opacity: 0;
+            translate: 0 90vh;
+        }
+    }
 }

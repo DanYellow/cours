@@ -18,6 +18,8 @@ test("should close modal", async ({ page }) => {
     await page.waitForResponse((resp) =>
         resp.url().includes("https://pokeapi.co/api/v2/pokemon-species/17")
     );
+
+    await page.locator("[data-pokemon-data][open]").waitFor()
     await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
     
     await page.getByTestId("close-modal").first().click();
