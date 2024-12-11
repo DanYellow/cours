@@ -174,3 +174,5 @@ window.addEventListener('popstate', async () => {
 if (process.env.NODE_ENV === "development") {
     await import("./vite.error-overlay");
 }
+
+export { loadPokedexForGeneration };
