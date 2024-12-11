@@ -251,7 +251,7 @@ displayModal = async (pkmnData) => {
         const li = document.createElement("li");
         li.textContent = type.name;
         li.classList.add(
-            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-2", "flex", "items-center"]
+            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center"]
         );
 
         const imgTag = document.createElement("img");
@@ -270,8 +270,15 @@ displayModal = async (pkmnData) => {
         modal_DOM.listTypes.append(li);
     });
 
-    modal.style.borderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
-    modal.querySelector("header").style.borderBottomColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
+    const firstBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
+    const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1]?.name || "")}`] || null;
+
+    modal.style.borderTopColor = firstBorderColor;
+    modal.style.borderLeftColor = firstBorderColor;
+    modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
+    modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
+
+    modal.querySelector("header").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
     const descriptionsContainer = modal.querySelector("dl");
 
     clearTagContent(descriptionsContainer);
