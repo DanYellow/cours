@@ -256,7 +256,8 @@ displayModal = async (pkmnData) => {
         modal_DOM.listTypes.append(li);
     });
 
-    modal.style.borderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
+    modal.style.borderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
+    modal.querySelector("header").style.borderBottomColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
     const descriptionsContainer = modal.querySelector("dl");
 
     clearTagContent(descriptionsContainer);
