@@ -22,6 +22,7 @@ import {
 import { listPokemon, setTitleTagForGeneration } from "./main";
 import { createSensibility, createRegionalForm, createSibling } from "./modal.utils"
 import loadingImage from "/loading.svg";
+import loadingImageRaw from "/loading.svg?raw";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
@@ -250,9 +251,22 @@ displayModal = async (pkmnData) => {
         const li = document.createElement("li");
         li.textContent = type.name;
         li.classList.add(
-            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md"]
+            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-2", "flex", "items-center"]
         );
 
+        const imgTag = document.createElement("img");
+        imgTag.alt = `icône type ${type.name}`;
+        replaceImage(imgTag, type.image);
+
+        const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", "#fff"));
+        imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+
+        imgTag.fetchpriority = "low";
+        imgTag.loading = "lazy";
+        imgTag.classList.add(...["h-5"]);
+
+        li.prepend(imgTag);
+        
         modal_DOM.listTypes.append(li);
     });
 

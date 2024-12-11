@@ -18,7 +18,11 @@ const createSensibility = (template, data, listTypes) => {
         "[data-damage-factor]"
     );
 
-    template.querySelector("img").src = typeData.sprite;
+    const imgTag = template.querySelector("img")
+    imgTag.alt = `icône type ${typeData.name}`;
+    imgTag.src = loadingImage;
+    replaceImage(imgTag, typeData.sprite);
+
     template.querySelector("[data-type]").textContent = data.name;
     damageFactorContainer.textContent = `x${data.multiplier}`;
 

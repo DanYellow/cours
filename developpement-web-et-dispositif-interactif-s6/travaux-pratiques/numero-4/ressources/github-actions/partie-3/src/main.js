@@ -101,7 +101,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             }
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
-            replaceImage(imgTag, item.sprites.regular); 
 
             const encodedData = window.btoa(loadingImage.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
             imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
