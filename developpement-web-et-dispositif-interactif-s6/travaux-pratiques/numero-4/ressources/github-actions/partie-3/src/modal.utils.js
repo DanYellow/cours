@@ -138,6 +138,8 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         }
     }
 
+    li.inert = Object.keys(data || {}).length === 0;
+
     return template;
 };
 
