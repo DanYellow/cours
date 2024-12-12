@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @supports (interpolate-size: allow-keywords) {
+@supports (interpolate-size: allow-keywords) {
     :root {
         interpolate-size: allow-keywords;
     }
 
-    details {
+    details.animated {
         transition: height 0.5s ease;
         height: 2rem;
 
@@ -16,7 +16,7 @@
             overflow: clip;
         }
     }
-} */
+}
 
 .no-dimorphism {
     background: rgb(233, 233, 233);
