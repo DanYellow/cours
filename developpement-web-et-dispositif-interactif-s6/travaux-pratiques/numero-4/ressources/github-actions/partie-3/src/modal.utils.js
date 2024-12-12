@@ -154,6 +154,7 @@ const createStatisticEntry = (template, data) => {
     statName.textContent = data.statistics[data.stat.name].name;
     statName.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
     statName.setAttribute("aria-label", `${data.statistics[data.stat.name].name} de base ${data.base_stat}`);
+    statName.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
 
     statValue.textContent = data.base_stat;
     statValue.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
@@ -161,6 +162,7 @@ const createStatisticEntry = (template, data) => {
     statBar.querySelector("div").style.width = `${data.base_stat}px`;
     statBar.querySelector("div").style.backgroundColor = data.statistics[data.stat.name].color;
     statBar.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statBar.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
 
     return { bar: statBar, value: statValue, name: statName }
 }

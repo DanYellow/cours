@@ -582,6 +582,7 @@ displayModal = async (pkmnData) => {
     statName.style.borderTop = "2px solid black";
     statName.style.marginTop = "1.75rem";
     statName.setAttribute("aria-label", `Total statistique de ${pkmnData.name.fr} : ${statsTotal}`);
+    statName.style.borderLeftWidth = "0";
     
     statValue.textContent = statsTotal;
     statValue.style.borderTop = "2px solid black";
