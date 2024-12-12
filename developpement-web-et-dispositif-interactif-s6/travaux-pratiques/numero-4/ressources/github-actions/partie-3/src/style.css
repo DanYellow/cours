@@ -9,7 +9,7 @@
         }
     }
 
-    details.animated {
+    details {
         &::details-content {
             block-size: 0;
             overflow-y: clip;

@@ -557,6 +557,7 @@ displayModal = async (pkmnData) => {
     // modal_DOM.statistics
     clearTagContent(modal_DOM.statistics);
     
+    let statsTotal = 0;
     pkmnExtraData.stats.forEach((item) => {
         const clone = document.importNode(
             pokemonStatisticTempalteRaw.content,
@@ -568,6 +569,7 @@ displayModal = async (pkmnData) => {
 
         statName.textContent = statistics[item.stat.name].name;
         statName.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
+        statName.setAttribute("aria-label", `${statistics[item.stat.name].name} de base ${item.base_stat}`);
         statValue.textContent = item.base_stat;
         statValue.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
         statBar.querySelector("div").style.width = `${item.base_stat}px`;
@@ -577,7 +579,28 @@ displayModal = async (pkmnData) => {
         modal_DOM.statistics.append(statName);
         modal_DOM.statistics.append(statValue);
         modal_DOM.statistics.append(statBar);
+
+        statsTotal += item.base_stat;
     })
+
+    const cloneStatEntry = document.importNode(
+        pokemonStatisticTempalteRaw.content,
+        true
+    );
+    const statName = cloneStatEntry.querySelector("[data-stat-name]");
+    const statValue = cloneStatEntry.querySelector("[data-stat-value]");
+    statName.textContent = "Total";
+    statName.style.borderTop = "2px solid black";
+    statName.style.marginTop = "1.75rem";
+    statName.setAttribute("aria-label", `Total statistique de ${pkmnData.name} : ${statsTotal}`);
+    
+    statValue.textContent = statsTotal;
+    statValue.style.borderTop = "2px solid black";
+    statValue.style.gridColumnStart = "span 2";
+    statValue.style.marginTop = "1.75rem";
+    
+    modal_DOM.statistics.append(statName);
+    modal_DOM.statistics.append(statValue);
 
     console.log(pkmnData);
     
