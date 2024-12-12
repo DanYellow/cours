@@ -4,16 +4,20 @@
 
 @supports (interpolate-size: allow-keywords) {
     :root {
-        interpolate-size: allow-keywords;
+        @media (prefers-reduced-motion: no-preference) {
+            interpolate-size: allow-keywords;
+        }
     }
 
     details.animated {
-        transition: height 0.5s ease;
-        height: 1.75rem;
+        &::details-content {
+            block-size: 0;
+            overflow-y: clip;
+            transition: content-visibility 0.5s allow-discrete, block-size 0.5s;
+        }
 
-        &[open] {
-            height: auto;
-            overflow: clip;
+        &[open]::details-content {
+            block-size: auto;
         }
     }
 }
@@ -79,11 +83,6 @@ details[open] {
         transform: scaleX(1);
         transition: transform 0.95s;
         transform-origin: left center;
-
-        /* @starting-style {
-            opacity: 0;
-            transform: scaleX(0);
-        } */
     }
 }
 
