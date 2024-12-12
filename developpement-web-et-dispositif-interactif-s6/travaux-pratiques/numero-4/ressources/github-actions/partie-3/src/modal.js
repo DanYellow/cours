@@ -81,6 +81,7 @@ const modal_DOM = {
     topInfos: modal.querySelector("[data-top-infos]"),
     listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
     statistics: modal.querySelector("[data-statistics]"),
+    catchRate: modal.querySelector("[data-catch-rate]"),
 };
 
 const dataCache = {};
@@ -429,6 +430,7 @@ displayModal = async (pkmnData) => {
 
     modal_DOM.height.textContent = pkmnData.height;
     modal_DOM.weight.textContent = pkmnData.weight;
+    modal_DOM.catchRate.textContent = pkmnData.catch_rate;
 
     clearTagContent(modal_DOM.listAbilities);
 

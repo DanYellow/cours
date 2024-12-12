@@ -9,7 +9,7 @@
 
     details.animated {
         transition: height 0.5s ease;
-        height: 2rem;
+        height: 1.75rem;
 
         &[open] {
             height: auto;
@@ -80,10 +80,10 @@ details[open] {
         transition: transform 0.95s;
         transform-origin: left center;
 
-        @starting-style {
+        /* @starting-style {
             opacity: 0;
             transform: scaleX(0);
-        }
+        } */
     }
 }
 

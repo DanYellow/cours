@@ -23,11 +23,15 @@ const createSensibility = (template, data, listTypes) => {
     imgTag.src = loadingImage;
     replaceImage(imgTag, typeData.sprite);
 
-    template.querySelector("[data-type]").textContent = data.name;
+    const typeLabel = template.querySelector("[data-type]");
+    typeLabel.classList.add(cleanString(data.name))
+    typeLabel.textContent = data.name;
+
     damageFactorContainer.textContent = `x${data.multiplier}`;
 
     const effectiveDamageMultiplier = 2;
     const superEffectiveDamageMultiplier = 4;
+    const immuneDamageMultiplier = 0;
     damageFactorContainer.classList.toggle(
         "font-bold",
         data.multiplier === effectiveDamageMultiplier ||
@@ -35,6 +39,7 @@ const createSensibility = (template, data, listTypes) => {
     );
 
     if (
+        data.multiplier === immuneDamageMultiplier ||
         data.multiplier === effectiveDamageMultiplier ||
         data.multiplier === superEffectiveDamageMultiplier
     ) {
@@ -44,10 +49,9 @@ const createSensibility = (template, data, listTypes) => {
         );
         const isTypeEffectiveAgainst =
             data.multiplier === effectiveDamageMultiplier;
-        cloneHighlight.querySelector("span").textContent =
-            isTypeEffectiveAgainst
-                ? "Double faiblesse"
-                : "Quadruple faiblesse";
+        const typeAffinityLabel = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse"
+        console.log(data.multiplier)
+        cloneHighlight.querySelector("span").textContent = immuneDamageMultiplier === data.multiplier ? "Immunisé" : typeAffinityLabel;
 
         damageFactorContainer.append(cloneHighlight);
     }

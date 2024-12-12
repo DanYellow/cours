@@ -85,14 +85,14 @@
                     />
                 </div>
                 <div>
-                    <p data-type>Vol</p>
+                    <p data-type class="-ml-2 py-0.5 px-2 rounded-md gap-1 flex items-center type-name w-fit">Vol</p>
                     <p data-damage-factor>x2</p>
                 </div>
             </li>
         </template>
 
         <template data-tpl-id="pokemon-highlight">
-            <span class="py-0.5 px-1 whitespace-nowrap bg-slate-900 text-white rounded-md text-xs align-super font-normal">Talent caché</span>
+            <span class="py-0.5 px-1.5 whitespace-nowrap bg-slate-900 text-white rounded-md text-xs align-super font-normal">Talent caché</span>
         </template>
 
         <template data-tpl-id="pokemon-sibling">
@@ -109,7 +109,7 @@
 
         <template data-tpl-id="pokemon-list-sprites">
             <div class="flex flex-col items-center">
-                <p class="text-center py-0.5 px-1 w-fit rounded-lg">Male ♂</p>
+                <p class="text-center py-0.5 px-2.5 w-fit rounded-lg">Male ♂</p>
                     <ul
                     class="flex flex-col gap-5 mt-3"
                     data-list-sprites=""
@@ -184,12 +184,17 @@
                         <p>Asexué</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-5 mt-2">
-                    <ul class="shrink-0">
+                <div class="flex flex-col md:flex-row gap-3 mt-2 items-start">
+                    <ul class="shrink-0 bg-slate-100 rounded-md px-2 py-3">
                         <li><span class="font-bold">Poids : </span><span data-weight></span></li>
                         <li><span class="font-bold">Taille : </span><span data-height></span></li>
+                        <li><span class="font-bold">Taux de capture : </span><span data-catch-rate></span></li>
                     </ul>
-                    <div class="grow">
+                    <!-- <div>
+                        <p class="font-bold">Taux de capture</p>
+                        <p data-catch-rate></p>
+                    </div> -->
+                    <div class="grow bg-slate-100 rounded-md px-2 py-3">
                         <p class="font-bold">Talents</p>
                         <div class="flex flex-col gap-1" data-list-abilities></div>
                     </div>
