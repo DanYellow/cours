@@ -219,7 +219,7 @@ displayModal = async (pkmnData) => {
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
-    modal_DOM.pkmnName.textContent = `#${pkmnData.pokedex_id} ${pkmnData.name.fr}`;
+    modal_DOM.pkmnName.textContent = `#${String(pkmnData.pokedex_id).padStart(4, '0')} ${pkmnData.name.fr}`;
     document.title = `${modal_DOM.pkmnName.textContent} - ${initialPageTitle}`;
 
     if (listDescriptions?.is_legendary || listDescriptions?.is_mythical) {
@@ -316,7 +316,7 @@ displayModal = async (pkmnData) => {
             replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
 
             const evolutionName = clone.querySelector("p");
-            evolutionName.textContent = `#${item.pokedex_id} ${item.name}`;
+            evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
             evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
             evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white"])
             

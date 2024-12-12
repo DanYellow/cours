@@ -84,8 +84,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         generationNumber.textContent = `#${generation}`;
         const firstPkmnId = nonRegionalPokedexData[0].pokedex_id;
 
-        generationRange.textContent = `${firstPkmnId} -> ${
-            nonRegionalPokedexData.at(-1).pokedex_id
+        generationRange.textContent = `${String(firstPkmnId).padStart(4, '0')} -> ${
+            String(nonRegionalPokedexData.at(-1).pokedex_id).padStart(4, '0')
         }`;
 
         const fetchPriorityHighThreshold = 20;
@@ -112,7 +112,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
                 index <= fetchPriorityHighThreshold ? "high" : "low";
             clone.querySelector(
                 "figcaption"
-            ).textContent = `#${item.pokedex_id} ${item.name.fr}`;
+            ).textContent = `#${String(item.pokedex_id).padStart(4, '0')}\n${item.name.fr}`;
 
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
