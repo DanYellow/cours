@@ -177,7 +177,11 @@
                 commit commence par "fix:", ceci incrémentera le numéro de patch
                 : X.X.PATCH. Il est bien évidemment possible d'avoir plusieurs
                 commits commençant par "feat:" ou "fix:" au sein de la même
-                version. Même si vous avez plusieurs "feat" ou "fix" dans vos commits, votre numéro de version n'incrémentera qu'une seule fois.
+                version. 
+                </p>
+                <p>    
+                Vous pouvez réaliser votre tâche (fonctionnalité / résolution de bug) en plusieurs commits mais un seul d'entre-deux doit avoir le préfixe "feat:" ou "fix:" pour le même sujet.
+                Même si vous avez plusieurs "feat" ou "fix" dans vos commits, votre numéro de version n'incrémentera qu'une seule fois.
               </p>
               <p>
                 C'est pour cette raison qu'il est important de séparer ses
@@ -211,7 +215,7 @@
       <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
         <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
       <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD"</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">--global</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
       <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
               </li>
               <li>
@@ -376,11 +380,15 @@
           <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
         </summary>
         <ol class="liste-consignes">
-          <li>Ajouter le module release-it (utilisé dans la partie 2) dans la CI/CD du projet de la partie 3. Pour justifier cette incrémentation de numéro de versions, vous pouvez développer les fonctionnalités suivantes :
+          <li>Après avoir réalisé une ou plusieurs des fonctionnalités suivantes. Ajoutez le module release-it (utilisé dans la partie 2) dans la CI/CD du projet de la partie 3. 
             <ul>
                 <li>Charger les données du Pokédex lié au Pokémon affiché</li>
                 <li>Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale</li>
+                <li>Afficher le nom étranger des Pokémon</li>
+                <li>Proposer une barre de recherche</li>
+                <li>Afficher le numéro de dex du Pokémon en fonction des régions</li>
             </ul>
+            <p class="note-information">N'oubliez pas de préfixer un de vos commits avec "feat:" pour que release-it incrémente le numéro de MINOR.</p>
           </li>
       </details>
     </header>
