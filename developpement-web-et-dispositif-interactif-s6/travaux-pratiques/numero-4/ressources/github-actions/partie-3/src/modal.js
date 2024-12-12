@@ -17,6 +17,7 @@ import {
     aRem,
     replaceImage,
     getEvolutionChain,
+    statistics,
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
@@ -48,6 +49,10 @@ const pokemonSiblingTemplateRaw = document.querySelector(
 const btnLoadGenerationTemplateRaw = document.querySelector(
     "[data-tpl-id='load-generation-btn']"
 );
+const pokemonStatisticTempalteRaw = document.querySelector(
+    "[data-tpl-id='pokemon-statistic']"
+);
+
 
 const tailwindConfig = resolveConfig(_tailwindConfig);
 
@@ -75,6 +80,7 @@ const modal_DOM = {
     spritesContainer: modal.querySelector("[data-sprites-container]"),
     topInfos: modal.querySelector("[data-top-infos]"),
     listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
+    statistics: modal.querySelector("[data-statistics]"),
 };
 
 const dataCache = {};
@@ -302,8 +308,8 @@ displayModal = async (pkmnData) => {
 
     evolutionLine.forEach((evolution, idx) => {
         const li = document.createElement("li");
-        const ul = document.createElement("ul");
-        ul.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
+        const ol = document.createElement("ol");
+        ol.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
         evolution.forEach((item) => {       
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -340,9 +346,9 @@ displayModal = async (pkmnData) => {
 
             divTag.parentNode.replaceChild(aTag, divTag);
             
-            ul.append(clone);
+            ol.append(clone);
         })
-        li.append(ul);
+        li.append(ol);
         modal_DOM.listEvolutions.append(li);
         const nextArrow = document.createElement("li");
         nextArrow.textContent = evolutionLine.flat().length >= 7 ? "►" : "▼";
@@ -544,6 +550,32 @@ displayModal = async (pkmnData) => {
     }
     modal_DOM.listVarieties.closest("details").inert =
         (pkmnData?.formes || []).length === 0;
+
+
+    // modal_DOM.statistics
+    clearTagContent(modal_DOM.statistics);
+    
+    pkmnExtraData.stats.forEach((item) => {
+        const clone = document.importNode(
+            pokemonStatisticTempalteRaw.content,
+            true
+        );
+        const statName = clone.querySelector("[data-stat-name]");
+        const statValue = clone.querySelector("[data-stat-value]");
+        const statBar = clone.querySelector("[data-stat-bar]");
+
+        statName.textContent = statistics[item.stat.name].name;
+        statName.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
+        statValue.textContent = item.base_stat;
+        statValue.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
+        statBar.querySelector("div").style.width = `${item.base_stat}px`;
+        statBar.querySelector("div").style.backgroundColor = statistics[item.stat.name].color;
+        statBar.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
+
+        modal_DOM.statistics.append(statName);
+        modal_DOM.statistics.append(statValue);
+        modal_DOM.statistics.append(statBar);
+    })
 
     console.log(pkmnData);
     
