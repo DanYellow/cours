@@ -66,7 +66,6 @@ export default {
                 },
                 ".poison": {
                     backgroundColor: theme("colors.type_poison"),
-                    color: theme("colors.slate.50"),
                 },
                 ".vol": {
                     backgroundColor: theme("colors.type_vol"),
@@ -85,11 +84,9 @@ export default {
                 },
                 ".sol": {
                     backgroundColor: theme("colors.type_sol"),
-                    color: theme("colors.slate.50"),
                 },
                 ".tenebres": {
                     backgroundColor: theme("colors.type_tenebres"),
-                    color: theme("colors.slate.50"),
                 },
                 ".psy": {
                     backgroundColor: theme("colors.type_psy"),
@@ -115,12 +112,9 @@ export default {
                 },
                 ".dragon": {
                     backgroundColor: theme("colors.type_dragon"),
-                    backgroundColor: "#5061e1",
-                    color: theme("colors.slate.50"),
                 },
                 ".spectre": {
                     backgroundColor: theme("colors.type_spectre"),
-                    color: theme("colors.slate.50"),
                 },
             });
         }),

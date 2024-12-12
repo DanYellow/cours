@@ -251,7 +251,7 @@ displayModal = async (pkmnData) => {
         const li = document.createElement("li");
         li.textContent = type.name;
         li.classList.add(
-            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center"]
+            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name"]
         );
 
         const imgTag = document.createElement("img");
