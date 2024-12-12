@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    details {
+        transition: height 0.5s ease;
+        height: 2rem;
+
+        &[open] {
+            height: auto;
+            overflow: clip;
+        }
+    }
+} */
+
 .no-dimorphism {
     background: rgb(233, 233, 233);
     background: linear-gradient(
@@ -56,4 +72,25 @@ dialog {
     font-weight: bold;
     color: theme("colors.slate.50");
     text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
+}
+
+details[open] {
+    .stat-bar {
+        transform: scaleX(1);
+        transition: transform 0.95s;
+        transform-origin: left center;
+
+        @starting-style {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+    }
+}
+
+details {
+    .stat-bar {
+        transform: scaleX(0);
+        transition: transform 0.95s;
+        transform-origin: left center;
+    }
 }
