@@ -50,7 +50,6 @@ const createSensibility = (template, data, listTypes) => {
         const isTypeEffectiveAgainst =
             data.multiplier === effectiveDamageMultiplier;
         const typeAffinityLabel = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse"
-        console.log(data.multiplier)
         cloneHighlight.querySelector("span").textContent = immuneDamageMultiplier === data.multiplier ? "Immunisé" : typeAffinityLabel;
 
         damageFactorContainer.append(cloneHighlight);
@@ -147,4 +146,23 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
     return template;
 };
 
-export { createSensibility, createRegionalForm, createSibling };
+const createStatisticEntry = (template, data) => {
+    const statName = template.querySelector("[data-stat-name]");
+    const statValue = template.querySelector("[data-stat-value]");
+    const statBar = template.querySelector("[data-stat-bar]");
+
+    statName.textContent = data.statistics[data.stat.name].name;
+    statName.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statName.setAttribute("aria-label", `${data.statistics[data.stat.name].name} de base ${data.base_stat}`);
+
+    statValue.textContent = data.base_stat;
+    statValue.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+
+    statBar.querySelector("div").style.width = `${data.base_stat}px`;
+    statBar.querySelector("div").style.backgroundColor = data.statistics[data.stat.name].color;
+    statBar.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+
+    return { bar: statBar, value: statValue, name: statName }
+}
+
+export { createSensibility, createRegionalForm, createSibling, createStatisticEntry };

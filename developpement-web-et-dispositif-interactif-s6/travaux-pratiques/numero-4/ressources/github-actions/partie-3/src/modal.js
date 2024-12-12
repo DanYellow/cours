@@ -21,7 +21,7 @@ import {
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
-import { createSensibility, createRegionalForm, createSibling } from "./modal.utils"
+import { createSensibility, createRegionalForm, createSibling, createStatisticEntry } from "./modal.utils"
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
@@ -254,9 +254,10 @@ displayModal = async (pkmnData) => {
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
 
-    pkmnData.types.forEach((type) => {
+    pkmnData.types.forEach((type, idx) => {
         const li = document.createElement("li");
         li.textContent = type.name;
+        li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
         li.classList.add(
             ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name"]
         );
@@ -553,8 +554,6 @@ displayModal = async (pkmnData) => {
     modal_DOM.listVarieties.closest("details").inert =
         (pkmnData?.formes || []).length === 0;
 
-
-    // modal_DOM.statistics
     clearTagContent(modal_DOM.statistics);
     
     let statsTotal = 0;
@@ -563,22 +562,12 @@ displayModal = async (pkmnData) => {
             pokemonStatisticTempalteRaw.content,
             true
         );
-        const statName = clone.querySelector("[data-stat-name]");
-        const statValue = clone.querySelector("[data-stat-value]");
-        const statBar = clone.querySelector("[data-stat-bar]");
 
-        statName.textContent = statistics[item.stat.name].name;
-        statName.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
-        statName.setAttribute("aria-label", `${statistics[item.stat.name].name} de base ${item.base_stat}`);
-        statValue.textContent = item.base_stat;
-        statValue.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
-        statBar.querySelector("div").style.width = `${item.base_stat}px`;
-        statBar.querySelector("div").style.backgroundColor = statistics[item.stat.name].color;
-        statBar.style.backgroundColor = `rgb(from ${statistics[item.stat.name].color} r g b / 0.4)`;
+        const {bar, name, value} = createStatisticEntry(clone, {...item, statistics})
 
-        modal_DOM.statistics.append(statName);
-        modal_DOM.statistics.append(statValue);
-        modal_DOM.statistics.append(statBar);
+        modal_DOM.statistics.append(name);
+        modal_DOM.statistics.append(value);
+        modal_DOM.statistics.append(bar);
 
         statsTotal += item.base_stat;
     })
@@ -592,7 +581,7 @@ displayModal = async (pkmnData) => {
     statName.textContent = "Total";
     statName.style.borderTop = "2px solid black";
     statName.style.marginTop = "1.75rem";
-    statName.setAttribute("aria-label", `Total statistique de ${pkmnData.name} : ${statsTotal}`);
+    statName.setAttribute("aria-label", `Total statistique de ${pkmnData.name.fr} : ${statsTotal}`);
     
     statValue.textContent = statsTotal;
     statValue.style.borderTop = "2px solid black";
