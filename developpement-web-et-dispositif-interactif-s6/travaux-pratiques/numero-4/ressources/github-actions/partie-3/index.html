@@ -195,25 +195,25 @@
                     </div>
                 </div>
             </header>
-            <details>
+            <details class="animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Descriptions</p>
                 </summary>
                 <dl></dl>
             </details>
-            <details class="mt-3">
+            <details class="mt-3 animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Statistiques de base</p>
                 </summary>
                 <div data-statistics="" class="grid gap-y-1.5 grid-cols-[max-content_max-content_1fr] grid-rows-[max-content] items-center"></div>
             </details>
-            <details class="mt-3">
+            <details class="mt-3 animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Évolutions</p>
                 </summary>
                 <ul data-list-evolutions></ul>
             </details>
-            <details class="mt-3">
+            <details class="mt-3 animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Sensibilités</p>
                 </summary>
@@ -222,14 +222,14 @@
                     data-list-sensibilities=""
                 ></ul>
             </details>
-            <details class="mt-3">
+            <details class="mt-3 animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Sprites</p>
                 </summary>
                 <div class="mt-3 grid grid-cols-1 md:grid-cols-fluid gap-2 grid-flow-col-dense" data-sprites-container>
                 </div>
             </details>
-            <details class="mt-3" data-testid="regional-forms">
+            <details class="mt-3 animated" data-testid="regional-forms">
                 <summary>
                     <p class="inline-block font-bold text-xl">Formes alternatives <span data-nb-varieties></span></p>
                 </summary>
@@ -238,7 +238,7 @@
                     data-list-varieties=""
                 ></ul>
             </details>
-            <details class="mt-3">
+            <details class="mt-3 animated">
                 <summary>
                     <p class="inline-block font-bold text-xl">Apparitions <span data-nb-games></span> </p>
                 </summary>
@@ -247,8 +247,10 @@
                     data-list-games=""
                 ></ul>
             </details>
-            <ul class="my-3 flex flex-col sm:flex-row gap-6 justify-center" data-list-siblings-pokemon>
-            </ul>
+            <nav>
+                <ul class="my-3 flex flex-col sm:flex-row gap-6 justify-center" data-list-siblings-pokemon>
+                </ul>
+            </nav>
             <footer class="bottom-0 bg-white sticky pt-1 pb-4">
                 <button
                     data-close-modal=""
