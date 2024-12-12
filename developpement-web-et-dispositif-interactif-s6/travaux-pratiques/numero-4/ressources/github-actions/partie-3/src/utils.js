@@ -86,6 +86,10 @@ const capitalizeFirstLetter = (val) => {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
+const getPkmnIdFromURL = (url) => {
+    return url.split("/").filter(Boolean).at(-1)
+}
+
 const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let res = [];
 
@@ -95,9 +99,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     //     condition: evolutionLine[idx - 1]?.condition || item.condition,
     // }))
 
-    const getPkmnIdFromURL = (url) => {
-        return url.split("/").filter(Boolean).at(-1)
-    }
+    
     const listPokemonComputed = listPokemon.map((item) => ({ name: item.name.fr, pokedex_id: item.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
     const firstEvolution = {
@@ -166,4 +168,4 @@ const statistics = {
     }
 }
 
-export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics };
+export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics, getPkmnIdFromURL };

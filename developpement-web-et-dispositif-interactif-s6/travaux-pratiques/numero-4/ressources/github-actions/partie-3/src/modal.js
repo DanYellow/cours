@@ -18,6 +18,7 @@ import {
     replaceImage,
     getEvolutionChain,
     statistics,
+    getPkmnIdFromURL,
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
@@ -359,12 +360,23 @@ displayModal = async (pkmnData) => {
         modal_DOM.listEvolutions.append(nextArrow);
     });
 
-    if(pkmnData.evolution?.mega) {
+    let alternateEvolutions = listDescriptions.varieties.filter((item) => !item.is_default && item.pokemon.name.includes("mega"))
+    alternateEvolutions = alternateEvolutions.map((item) => {
+        return {
+            orbe: "",
+            sprites: {
+                regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
+            }
+        }
+    })
+
+    const megaEvolutionLine = (pkmnData.evolution?.mega || alternateEvolutions)
+    if (megaEvolutionLine) {
         const li = document.createElement("li")
         const ul = document.createElement("ul");
         ul.classList.add(...["flex", "flex-wrap", "gap-6"])
 
-        pkmnData.evolution.mega.forEach((item) => {
+        megaEvolutionLine.forEach((item) => {
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
                 true
@@ -375,7 +387,17 @@ displayModal = async (pkmnData) => {
             replaceImage(img, item.sprites.regular);
 
             const textContainer = clone.querySelector("p");
-            textContainer.textContent = `avec ${item.orbe}`;
+            textContainer.textContent = item.orbe ? `avec ${item.orbe}` : "";
+
+            // const evolutionName = clone.querySelector("p");
+            // evolutionName.textContent = `Méga-${pkmnData.name.fr}`;
+
+            // const evolutionCondition = evolutionName.cloneNode();
+
+            // evolutionCondition.classList.add("text-xs", 'text-center');
+            // evolutionCondition.textContent = `avec ${item.orbe}`;
+            // clone.querySelector("li div").insertAdjacentElement("beforeend", evolutionCondition);
+
 
             ul.append(clone);
         })
