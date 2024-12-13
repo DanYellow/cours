@@ -98,7 +98,6 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
     //     ...item,
     //     condition: evolutionLine[idx - 1]?.condition || item.condition,
     // }))
-
     
     const listPokemonComputed = listPokemon.map((item) => ({ name: item?.name.fr, pokedex_id: item?.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
@@ -108,52 +107,6 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
     };
 
     res.push([firstEvolution]);
-
-    const evolutionObjectsDict = {
-        "moon-stone": "Pierre Lune",
-        "leaf-stone": "Pierre Plante",
-        "fire-stone": "Pierre Feu",
-        "water-stone": "Pierre Eau",
-        "kings-rock": "Roche Royale",
-        "thunder-stone": "Pierre Foudre",
-        "metal-coat": "Peau métal",
-        "up-grade": "Améliorator",
-        "dubious-disc": "CD Douteux",
-        "eterna-forest": "Pierre Plante",
-        "sinnoh-route-217": "Pierre Glace",
-    }
-
-    const getEvolutionMethod = (evolutionMethod) => {
-        switch (evolutionMethod.trigger.name) {
-            case "level-up":
-                if (evolutionMethod.min_level) {
-                    return `Niveau ${evolutionMethod.min_level}`;
-                }
-                if (evolutionMethod.known_move_type) {
-                    const moveType = listTypes.find((item) => item.name.en === evolutionMethod.known_move_type.name)
-                    return `Niveau supplémentaire\navec une capacité type ${ moveType.name.fr }`;
-                }
-                if (evolutionMethod.location) {
-                    return evolutionObjectsDict[evolutionMethod.location.name];
-                }
-
-                if (evolutionMethod.time_of_day) {
-                    const isNight = evolutionMethod.time_of_day === "night";
-                    return `Bonheur ${isNight ? "la nuit" : "le jour"}`;
-                }
-
-                return `Bonheur`;
-            case "use-item":
-                return evolutionObjectsDict[evolutionMethod.item.name];
-            case "trade":
-                if (evolutionMethod.held_item) {
-                    return `Échange avec ${evolutionObjectsDict[evolutionMethod.held_item.name]}`
-                }
-                return "Échange";
-            default:
-                return "Inconnu";
-        }
-    }
 
     const getNextEvolutions = (listEvolutions) => {
         const evolutionLevel = []
@@ -165,7 +118,6 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
                     name: capitalizeFirstLetter(item.species.name),
                     pokedex_id: pkmnId,
                     ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
-                    // condition: getEvolutionMethod(Object.fromEntries(Object.entries(item.evolution_details[0]).filter(([k, v]) => v !== null && v !== ""))),
                     sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`
                 }
             )

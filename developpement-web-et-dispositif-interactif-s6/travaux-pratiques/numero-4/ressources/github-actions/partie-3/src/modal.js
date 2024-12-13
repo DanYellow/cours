@@ -619,8 +619,10 @@ displayModal = async (pkmnData) => {
     
     console.log("pkmnData", pkmnData);
     const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
-    const nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || (prevPokemon ? {} : null);
-
+    let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
+    if (!Object.keys(prevPokemon).length && !nextPokemon) {
+        nextPokemon = {}
+    }
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
         .filter(Boolean)
@@ -635,7 +637,7 @@ displayModal = async (pkmnData) => {
             modal_DOM.listSiblings.append(clone);
         });
 
-    if (!prevPokemon) {
+    if (Object.keys(prevPokemon).length && !nextPokemon) {
         const clone = document.importNode(
             btnLoadGenerationTemplateRaw.content,
             true
