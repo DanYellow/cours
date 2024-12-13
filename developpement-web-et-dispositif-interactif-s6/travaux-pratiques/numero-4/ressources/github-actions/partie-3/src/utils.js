@@ -100,7 +100,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
     // }))
 
     
-    const listPokemonComputed = listPokemon.map((item) => ({ name: item.name.fr, pokedex_id: item.pokedex_id }))
+    const listPokemonComputed = listPokemon.map((item) => ({ name: item?.name.fr, pokedex_id: item?.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
     const firstEvolution = {
         ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
@@ -182,7 +182,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
     payload = payload.map((item) => {
         return item.map((subItem) => ({
             ...subItem,
-            ...(listPokemonComputed.find((item) => Number(item.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en"})
+            ...(listPokemonComputed.find((item) => Number(item?.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en" })
         }))
     })
 

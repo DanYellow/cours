@@ -121,7 +121,7 @@ const loadDetailsModal = (e, region = null) => {
     e.preventDefault();
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
-
+ 
     const url = new URL(location);
     if (region) {
         url.searchParams.set("region", region);
@@ -143,7 +143,7 @@ const loadDetailsModal = (e, region = null) => {
 
 displayModal = async (pkmnData) => {
     if (pkmnData.is_incomplete) {
-        const cachedPokemon = listPokemon.find((item) => item.pokedex_id === pkmnData.pokedex_id);
+        const cachedPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id);
         if (cachedPokemon) {
             pkmnData = cachedPokemon;
         } else {
@@ -192,6 +192,7 @@ displayModal = async (pkmnData) => {
         }
 
         const listAbilitiesDescriptions = []
+        
         for (const ability of pkmnExtraData.abilities) {
             const abilityInCache = listAbilitiesCache.find((item) => item.name.en.toLowerCase() === ability.ability.name.toLowerCase());
             if (abilityInCache) {
@@ -212,8 +213,7 @@ displayModal = async (pkmnData) => {
             ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === cleanString(item.name.toLowerCase().replace("-", "")))
         }));
 
-        const currentPkmnIndex = listPokemon.findIndex(item => item.pokedex_id === pkmnData.pokedex_id);
-        listPokemon[currentPkmnIndex] = pkmnData;
+        listPokemon[pkmnData.pokedex_id - 1] = pkmnData;
 
         listAbilitiesCache = [
             ...listAbilitiesCache,
@@ -228,7 +228,7 @@ displayModal = async (pkmnData) => {
             evolutionLine,
         };
     }
-
+  
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
@@ -311,7 +311,6 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listEvolutions);
-
     evolutionLine.forEach((evolution, idx) => {
         const li = document.createElement("li");
         const ol = document.createElement("ol");
@@ -353,9 +352,11 @@ displayModal = async (pkmnData) => {
             divTag.parentNode.replaceChild(aTag, divTag);
             
             ol.append(clone);
-        })
+        });
+
         li.append(ol);
         modal_DOM.listEvolutions.append(li);
+
         const nextArrow = document.createElement("li");
         nextArrow.textContent = evolutionLine.flat().length >= 7 ? "►" : "▼";
         nextArrow.inert = true;
@@ -615,11 +616,10 @@ displayModal = async (pkmnData) => {
     
     modal_DOM.statistics.append(statName);
     modal_DOM.statistics.append(statValue);
-
-    console.log(pkmnData);
     
-    const nextPokemon = listPokemon.at(pkmnData.pokedex_id) || (pkmnData.pokedex_id === listPokemon.length ? null : {});
-    const prevPokemon = listPokemon[pkmnData.pokedex_id - 2] || {};
+    console.log("pkmnData", pkmnData);
+    const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
+    const nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || (prevPokemon ? {} : null);
 
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
@@ -635,7 +635,7 @@ displayModal = async (pkmnData) => {
             modal_DOM.listSiblings.append(clone);
         });
 
-    if (pkmnData.pokedex_id === listPokemon.length) {
+    if (!prevPokemon) {
         const clone = document.importNode(
             btnLoadGenerationTemplateRaw.content,
             true

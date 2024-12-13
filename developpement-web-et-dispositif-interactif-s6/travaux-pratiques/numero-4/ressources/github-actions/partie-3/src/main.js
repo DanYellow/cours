@@ -163,7 +163,7 @@ window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
     if(urlParams.get("id") !== null) {
-        const pkmnData = await fetchPokemon(urlParams.get("id"), urlParams.get("region"));
+        const pkmnData = await fetchPokemon(Number(urlParams.get("id")), urlParams.get("region"));
         pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
         displayPkmnModal(pkmnData);
     } else {
