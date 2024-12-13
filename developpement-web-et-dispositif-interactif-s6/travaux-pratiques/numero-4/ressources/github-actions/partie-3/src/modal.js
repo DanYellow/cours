@@ -371,7 +371,7 @@ displayModal = async (pkmnData) => {
     })
 
     const megaEvolutionLine = (pkmnData.evolution?.mega || alternateEvolutions)
-    if (megaEvolutionLine) {
+    if (megaEvolutionLine.length) {
         const li = document.createElement("li")
         const ul = document.createElement("ul");
         ul.classList.add(...["flex", "flex-wrap", "gap-6"])
@@ -397,7 +397,6 @@ displayModal = async (pkmnData) => {
             // evolutionCondition.classList.add("text-xs", 'text-center');
             // evolutionCondition.textContent = `avec ${item.orbe}`;
             // clone.querySelector("li div").insertAdjacentElement("beforeend", evolutionCondition);
-
 
             ul.append(clone);
         })

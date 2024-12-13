@@ -25,10 +25,10 @@
 .no-dimorphism {
     background: rgb(233, 233, 233);
     background: linear-gradient(
-        110deg,
+        113deg,
         rgba(125, 211, 252, 1) 0%,
-        rgba(125, 211, 252, 1) 43.5%,
-        rgba(249, 168, 212, 1) 43.5%,
+        rgba(125, 211, 252, 1) 44.5%,
+        rgba(249, 168, 212, 1) 44.5%,
         rgba(249, 168, 212, 1) 100%
     );
 }
@@ -70,6 +70,12 @@ dialog {
             translate: 0 90vh;
         }
     }
+
+    .stat-bar {
+        transform: scaleX(0);
+        transition: transform 0.95s var(--animation-speed);
+        transform-origin: left center;
+    }
 }
 
 .type-name {
@@ -81,15 +87,7 @@ dialog {
 details[open] {
     .stat-bar {
         transform: scaleX(1);
-        transition: transform 0.95s;
-        transform-origin: left center;
-    }
-}
-
-details {
-    .stat-bar {
-        transform: scaleX(0);
-        transition: transform 0.95s;
+        transition: transform 0.95s 0.2s;
         transform-origin: left center;
     }
 }
