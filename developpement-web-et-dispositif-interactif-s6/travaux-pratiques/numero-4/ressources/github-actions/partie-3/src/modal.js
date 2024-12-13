@@ -289,6 +289,7 @@ displayModal = async (pkmnData) => {
     modal.style.borderLeftColor = firstBorderColor;
     modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
     modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
+    modal.style.setProperty("--footer-bg", firstBorderColor);
 
     modal.querySelector("header").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
     const descriptionsContainer = modal.querySelector("dl");

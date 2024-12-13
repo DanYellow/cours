@@ -91,3 +91,41 @@ details[open] {
         transform-origin: left center;
     }
 }
+
+.modal-footer {
+    --alpha: 0.55;
+    &::after {
+        content: "";
+        position: absolute;
+
+        background: radial-gradient(
+            ellipse at 50% -50px,
+            rgba(255, 255, 255, 0) 80%,
+            rgb(from var(--footer-bg) r g b / var(--alpha)) 90%,
+            rgb(from var(--footer-bg) r g b / var(--alpha)) 100%
+        );
+
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+        height: 200px;
+        bottom: 0;
+        width: 100%;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+        height: 200px;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        background: linear-gradient(
+            0deg,
+            rgb(from var(--footer-bg) r g b / var(--alpha)) 0%,
+            rgba(239, 65, 121, 0) 21%
+        );
+    }
+}
