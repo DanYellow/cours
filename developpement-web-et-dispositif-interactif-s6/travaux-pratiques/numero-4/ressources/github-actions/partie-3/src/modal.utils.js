@@ -12,7 +12,7 @@ const pkmnHighlightTemplateRaw = document.querySelector(
 
 const createSensibility = (template, data, listTypes) => {
     const typeData = listTypes.find(
-        (type) => cleanString(type.name) === cleanString(data.name)
+        (type) => cleanString(type.name.fr) === cleanString(data.name)
     );
     const damageFactorContainer = template.querySelector(
         "[data-damage-factor]"

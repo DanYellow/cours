@@ -92,8 +92,13 @@ const initialPageTitle = document.title;
 let listTypes = await fetchAllTypes();
 listTypes = listTypes.map((item) => ({
     sprite: item.sprites,
-    name: cleanString(item.name.fr),
+    name: {
+        fr: cleanString(item.name.fr),
+        en: cleanString(item.name.en)
+    },
 }));
+
+export { listTypes }
 
 modal.addEventListener("close", () => {
     modal_DOM.img.src = loadingImage;
@@ -257,7 +262,7 @@ displayModal = async (pkmnData) => {
 
     pkmnData.types.forEach((type, idx) => {
         const li = document.createElement("li");
-        li.textContent = type.name;
+        li.textContent = type.name.fr;
         li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
         li.classList.add(
             ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name"]
