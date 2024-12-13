@@ -90,7 +90,7 @@ const getPkmnIdFromURL = (url) => {
     return url.split("/").filter(Boolean).at(-1)
 }
 
-const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
+const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes) => {
     let res = [];
 
     let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
@@ -105,19 +105,67 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     const firstEvolution = {
         ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
         sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(data.chain.species.url)}/regular.png`
-    }
+    };
 
     res.push([firstEvolution]);
+
+    const evolutionObjectsDict = {
+        "moon-stone": "Pierre Lune",
+        "leaf-stone": "Pierre Plante",
+        "fire-stone": "Pierre Feu",
+        "water-stone": "Pierre Eau",
+        "kings-rock": "Roche Royale",
+        "thunder-stone": "Pierre Foudre",
+        "metal-coat": "Peau métal",
+        "up-grade": "Améliorator",
+        "dubious-disc": "CD Douteux",
+        "eterna-forest": "Pierre Plante",
+        "sinnoh-route-217": "Pierre Glace",
+    }
+
+    const getEvolutionMethod = (evolutionMethod) => {
+        switch (evolutionMethod.trigger.name) {
+            case "level-up":
+                if (evolutionMethod.min_level) {
+                    return `Niveau ${evolutionMethod.min_level}`;
+                }
+                if (evolutionMethod.known_move_type) {
+                    const moveType = listTypes.find((item) => item.name.en === evolutionMethod.known_move_type.name)
+                    return `Niveau supplémentaire\navec une capacité type ${ moveType.name.fr }`;
+                }
+                if (evolutionMethod.location) {
+                    return evolutionObjectsDict[evolutionMethod.location.name];
+                }
+
+                if (evolutionMethod.time_of_day) {
+                    const isNight = evolutionMethod.time_of_day === "night";
+                    return `Bonheur ${isNight ? "la nuit" : "le jour"}`;
+                }
+
+                return `Bonheur`;
+            case "use-item":
+                return evolutionObjectsDict[evolutionMethod.item.name];
+            case "trade":
+                if (evolutionMethod.held_item) {
+                    return `Échange avec ${evolutionObjectsDict[evolutionMethod.held_item.name]}`
+                }
+                return "Échange";
+            default:
+                return "Inconnu";
+        }
+    }
 
     const getNextEvolutions = (listEvolutions) => {
         const evolutionLevel = []
         listEvolutions.forEach((item) => {
             const pkmnId = getPkmnIdFromURL(item.species.url)
+
             evolutionLevel.push(
                 {
                     name: capitalizeFirstLetter(item.species.name),
                     pokedex_id: pkmnId,
                     ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
+                    // condition: getEvolutionMethod(Object.fromEntries(Object.entries(item.evolution_details[0]).filter(([k, v]) => v !== null && v !== ""))),
                     sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`
                 }
             )

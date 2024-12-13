@@ -180,7 +180,7 @@ displayModal = async (pkmnData) => {
                         pokedex_id: pkmnData.pokedex_id, 
                         // condition: pkmnData.evolution.pre?.map((item) => item.condition)[0] 
                     }
-                }, listPokemon);
+                }, listPokemon, listTypes);
         } catch (_e) {
             evolutionLine = [];
         }
@@ -253,16 +253,14 @@ displayModal = async (pkmnData) => {
 
     modal_DOM.category.textContent = pkmnData.category;
 
-    while (modal_DOM.listTypes.firstChild) {
-        modal_DOM.listTypes.removeChild(modal_DOM.listTypes.firstChild);
-    }
+    clearTagContent(modal_DOM.listTypes);
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
 
     pkmnData.types.forEach((type, idx) => {
         const li = document.createElement("li");
-        li.textContent = type.name.fr;
+        li.textContent = type.name;
         li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
         li.classList.add(
             ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name"]
