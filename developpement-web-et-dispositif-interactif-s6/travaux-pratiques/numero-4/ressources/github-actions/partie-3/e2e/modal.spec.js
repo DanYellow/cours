@@ -117,7 +117,7 @@ test("should keep title tag value after scroll", async ({ page }) => {
     await expect(page).toHaveTitle(title);
 });
 
-test.only("should cache dex's data", async ({ page }) => {
+test("should cache dex's data", async ({ page }) => {
     const pkmnId = 25;
     await page.goto(`/?id=${pkmnId}`);
 
@@ -138,5 +138,19 @@ test.only("should cache dex's data", async ({ page }) => {
         await dexRequest;
     } catch {
         expect(true).toBeTruthy()
+    }
+});
+
+test("should have a label for all abilities", async ({ page }) => {
+    const pkmnId = 13;
+    await page.goto(`/?id=${pkmnId}`);
+
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    const listLocators = await page.locator("[data-list-abilities] summary").all();
+
+    for (const element of listLocators) {
+        await expect(element).not.toBeEmpty();
     }
 });

@@ -204,7 +204,7 @@ displayModal = async (pkmnData) => {
 
         pkmnData.talents = pkmnData.talents.map((item) => ({
             ...item,
-            ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === item.name.toLowerCase())
+            ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === cleanString(item.name.toLowerCase().replace("-", "")))
         }));
 
         const currentPkmnIndex = listPokemon.findIndex(item => item.pokedex_id === pkmnData.pokedex_id);
