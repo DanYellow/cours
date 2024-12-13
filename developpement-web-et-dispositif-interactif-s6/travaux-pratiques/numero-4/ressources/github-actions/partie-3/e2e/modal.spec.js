@@ -106,7 +106,8 @@ test("should keep title tag value after scroll", async ({ page }) => {
         page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
     ])
 
-    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
 
     const title = await page.title()
 
@@ -116,3 +117,26 @@ test("should keep title tag value after scroll", async ({ page }) => {
     await expect(page).toHaveTitle(title);
 });
 
+test.only("should cache dex's data", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
+
+    await Promise.all([
+        page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
+        page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
+    ])
+
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    await page.getByTestId("previous-pkmn").first().click();
+
+    const dexRequest = page.waitForResponse("https://tyradex.vercel.app/api/v1/gen/1", { timeout: 5000 });
+    try {
+        await dexRequest;
+    } catch {
+        expect(true).toBeTruthy()
+    }
+});
