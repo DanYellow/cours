@@ -286,6 +286,7 @@ displayModal = async (pkmnData) => {
     const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1]?.name || "")}`] || null;
 
     modal.style.borderTopColor = firstBorderColor;
+    modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;
     modal.style.borderLeftColor = firstBorderColor;
     modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
     modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
