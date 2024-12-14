@@ -130,10 +130,12 @@ details {
         z-index: -1;
         bottom: 0;
         width: 100%;
-        transition: --bg-modal-color var(--animation-speed) ease-out;
+        background: var(--bg-modal-color);
+        transition: --bg-modal-color var(--animation-speed) 0.3s ease-out;
 
         @starting-style {
-            --bg-modal-color: transparent;
+            --bg-modal-color: white;
+            background: var(--bg-modal-color);
         }
     }
 

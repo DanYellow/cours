@@ -149,7 +149,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 };
 
-await loadPokedexForGeneration();
+
 
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
@@ -159,6 +159,8 @@ if (pkmnId !== null) {
     pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
     displayPkmnModal(pkmnData);
 }
+
+await loadPokedexForGeneration();
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
