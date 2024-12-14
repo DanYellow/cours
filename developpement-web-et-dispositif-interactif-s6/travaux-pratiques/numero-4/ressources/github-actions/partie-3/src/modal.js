@@ -661,16 +661,6 @@ displayModal = async (pkmnData) => {
     modal.showModal();
     pikachuLoading.classList.add("hidden");
     listPokedexEntries.forEach((item) => { item.inert = false; })
-
-    document.documentElement.style.setProperty(
-        "--header-height-collapsed",
-        `${
-            (modal_DOM.topInfos.offsetHeight +
-                convertTailwindRemToPx(tailwindConfig.theme.padding["4"]) +
-                convertTailwindRemToPx(tailwindConfig.theme.padding["2"])) /
-            aRem
-        }rem`
-    );
 };
 
 const pkmnSiblingsObserver = new MutationObserver((e) => {

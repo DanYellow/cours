@@ -74,7 +74,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         );
         const headerPokedex = cloneDex.querySelector('[data-header-pokedex]');
 
-        const nonRegionalPokedexData = pokedexData.filter((item) => {
+        let nonRegionalPokedexData = pokedexData.filter((item) => {
             const name = item.name.fr;
             const listNames = (item.formes || []).map((form) => form.name.fr);
 
@@ -91,7 +91,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const fetchPriorityHighThreshold = 20;
         const url = new URL(window.location);
 
-        listPokemon.push(...nonRegionalPokedexData);
+        nonRegionalPokedexData = nonRegionalPokedexData.map((item) => {
+            const pkmnUpdated = {...item, ...(listPokemon.find((pkmn) => pkmn?.pokedex_id === item.pokedex_id) || {})}
+            listPokemon[item.pokedex_id - 1] = pkmnUpdated;
+
+            return pkmnUpdated;
+        })
 
         nonRegionalPokedexData.forEach((item, index) => {
             url.searchParams.set("id", item.pokedex_id)
