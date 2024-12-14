@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 import plugin from "tailwindcss/plugin";
+import containerQueriesPlugin from "@tailwindcss/container-queries";
 
 export default {
     content: ["./index.html", "./src/**/*.js"],
@@ -118,5 +119,6 @@ export default {
                 },
             });
         }),
+        containerQueriesPlugin,
     ],
 };

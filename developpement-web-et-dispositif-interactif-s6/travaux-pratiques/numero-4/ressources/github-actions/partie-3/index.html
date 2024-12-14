@@ -42,11 +42,11 @@
             </button>
         </footer>
         <template data-tpl-id="pokemon">
-            <li>
+            <li class="@container/pokemon">
                 <a data-pokemon-data class="hocus:bg-slate-100 rounded-md p-2 group block inert:opacity-25" data-testid="pokemon">
-                    <figure class="flex flex-col gap-3 items-center">
-                        <img src="/loading.svg" loading="lazy" alt="" />
-                        <figcaption class="text-center whitespace-pre group-hocus:bg-slate-900 w-full group-hocus:text-white rounded-md px-2"></figcaption>
+                    <figure class="flex @md:flex-row flex-col gap-3 items-center ">
+                        <img src="/loading.svg" loading="lazy" alt="" class="@md:max-w-20" />
+                        <figcaption class="@md:text-left text-center whitespace-pre group-hocus:bg-slate-900 w-full group-hocus:text-white rounded-md px-2"></figcaption>
                     </figure>
                 </a>
             </li>
