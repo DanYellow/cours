@@ -64,7 +64,14 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
+        
         const pokedex = cloneDex.querySelector("[data-pokedex]");
+        pokedex.classList.toggle("grid-cols-3", JSON.parse(localStorage.getItem("is_grid_layout")))
+        pokedex.classList.toggle("grid-cols-1", !JSON.parse(localStorage.getItem("is_grid_layout")))
+
+        const layoutSwitch = cloneDex.querySelector("[data-layout-switch]")
+        layoutSwitch.checked = JSON.parse(localStorage.getItem("is_grid_layout"));
+
         const generationNumber = cloneDex.querySelector(
             "[data-generation-number]"
         );
@@ -146,7 +153,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 };
 
-
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
 
@@ -160,6 +166,24 @@ await loadPokedexForGeneration();
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
+});
+
+delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
+    Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
+        item.classList.toggle("grid-cols-3", e.target.checked)
+        item.classList.toggle("grid-cols-1", !e.target.checked)
+    });
+
+    Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
+        item.checked = e.target.checked;
+    })
+
+    localStorage.setItem("is_grid_layout", e.target.checked);
+});
+
+Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
+    item.classList.toggle("grid-cols-3", JSON.parse(localStorage.getItem("is_grid_layout")))
+    item.classList.toggle("grid-cols-1", !JSON.parse(localStorage.getItem("is_grid_layout")))
 });
 
 window.addEventListener('popstate', async () => {
