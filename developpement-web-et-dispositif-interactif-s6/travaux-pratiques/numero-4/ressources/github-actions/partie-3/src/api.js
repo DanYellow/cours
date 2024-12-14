@@ -1,6 +1,47 @@
 import axios from "axios";
 
-const fetchAllTypes = async () => {
+import { debounce } from "./utils";
+
+let numberOfAjaxCallPending = 0;
+const startLoadingEvent = new Event("startloading");
+const endLoadingEvent = new Event("endloading");
+
+const notifyEndRequests = debounce(() => {
+    window.dispatchEvent(endLoadingEvent);
+}, 1000);
+
+const listURLToIntercept = ["https://tyradex.vercel.app/api/v1/gen", "https://pokeapi.co/api/v2/", "https://pokeapi.co/api/v2/pokemon/"]
+
+axios.interceptors.request.use(async (config) => {
+    try {
+        if (listURLToIntercept.some((item) => config.url.startsWith(item))) {
+            numberOfAjaxCallPending++;
+            
+            window.dispatchEvent(startLoadingEvent);
+        }
+
+        return config;
+    } catch (error) {
+        return Promise.reject(error);
+    }
+})
+
+axios.interceptors.response.use(async (response) => {
+    try {
+        return response;
+    } catch (error) {
+        return Promise.reject(error);
+    } finally {
+        if (listURLToIntercept.some((item) => response.config.url.startsWith(item))) {
+            numberOfAjaxCallPending--;
+            if (numberOfAjaxCallPending == 0) {
+                notifyEndRequests();
+            }
+        }
+    }
+});
+
+export const fetchAllTypes = async () => {
     try {
         const req = await axios.get("https://tyradex.app/api/v1/types");
         return req.data;
@@ -9,7 +50,7 @@ const fetchAllTypes = async () => {
     }
 }
 
-const fetchPokemonExtraData = async (pkmnId) => {
+export const fetchPokemonExtraData = async (pkmnId) => {
     try {
         const req = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`);
         return req.data;
@@ -18,7 +59,7 @@ const fetchPokemonExtraData = async (pkmnId) => {
     }
 }
 
-const fetchDataFromURL = async (url) => {
+export const fetchDataFromURL = async (url) => {
     try {
         const req = await axios.get(url);
         return req.data;
@@ -27,7 +68,7 @@ const fetchDataFromURL = async (url) => {
     }
 }
 
-const fetchPokemon = async (pkmnId, region = null) => {
+export const fetchPokemon = async (pkmnId, region = null) => {
     try {
         const regionName = region ? `/${region}` : "";
         const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}${regionName}`);
@@ -38,7 +79,7 @@ const fetchPokemon = async (pkmnId, region = null) => {
     }
 }
 
-const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
+export const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     try {
         const req = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`);
         const res = {
@@ -51,8 +92,6 @@ const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
         throw new Error(error);
     }
 }
-
-export { fetchAllTypes, fetchPokemonDescription, fetchPokemonExtraData, fetchPokemon, fetchDataFromURL };
 
 const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];

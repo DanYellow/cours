@@ -26,7 +26,6 @@ import loadingImageRaw from "/loading.svg?raw";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
-const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 
 const pkmnSensibilityTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-sensibility']"
@@ -138,7 +137,6 @@ const loadDetailsModal = (e, region = null) => {
     displayModal(pkmnData);
 };
 
-
 displayModal = async (pkmnData) => {
     if (pkmnData.is_incomplete) {
         const cachedPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id);
@@ -150,7 +148,6 @@ displayModal = async (pkmnData) => {
     }
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
     document.title = `Chargement - ${initialPageTitle}`;
-    pikachuLoading.classList.remove("hidden");
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
     listPokedexEntries.forEach((item) => { item.inert = true; });
     modal_DOM.img.src = loadingImage;
@@ -657,7 +654,6 @@ displayModal = async (pkmnData) => {
     }
 
     modal.showModal();
-    pikachuLoading.classList.add("hidden");
     listPokedexEntries.forEach((item) => { item.inert = false; })
 };
 

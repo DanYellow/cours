@@ -58,7 +58,6 @@ const loadDetailsModal = (e) => {
 
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
-    pikachuLoading.classList.remove("hidden");
     document.title = `Chargement - ${initialPageTitle}`;
 
     try {
@@ -144,11 +143,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         } else {
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
-    } finally {
-        pikachuLoading.classList.add("hidden");
     }
 };
-
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -176,6 +172,14 @@ window.addEventListener('popstate', async () => {
     } else {
         modal.close();
     }
+});
+
+window.addEventListener("startloading", () => {
+    pikachuLoading.classList.remove("hidden");
+});
+
+window.addEventListener("endloading", () => {
+    pikachuLoading.classList.add("hidden");
 });
 
 if (process.env.NODE_ENV === "development") {

@@ -168,4 +168,14 @@ const statistics = {
     }
 }
 
+export const debounce = (callback, wait) => {
+    let timeoutId = null;
+    return (...args) => {
+        window.clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(() => {
+        callback(...args);
+        }, wait);
+    };
+}
+
 export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics, getPkmnIdFromURL };
