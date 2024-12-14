@@ -154,3 +154,29 @@ test("should have a label for all abilities", async ({ page }) => {
         await expect(element).not.toBeEmpty();
     }
 });
+
+test("should have a label for all abilities after loading Pokémon and its Pokédex", async ({ page }) => {
+    const pkmnId = 171;
+    await page.goto(`/?id=${pkmnId}`);
+
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    const listAbilities = await page.locator("[data-list-abilities] summary").all();
+
+    for (const element of listAbilities) {
+        await expect(element).not.toBeEmpty();
+    }
+
+    await page.getByTestId("close-modal").first().click();
+
+    const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
+    loadGenerationButton.click();
+
+    const foo = await page.getByTestId("pokemon").nth(170).click();
+    await modal.waitFor();
+
+    for (const element of listAbilities) {
+        await expect(element).not.toBeEmpty();
+    }
+});
