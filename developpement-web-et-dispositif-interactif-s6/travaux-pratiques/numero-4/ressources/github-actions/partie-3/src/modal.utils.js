@@ -144,7 +144,13 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
 
         const pkmnId = template.querySelector("[data-id]");
         pkmnId.textContent = `#${data.pokedex_id}`;
-        pkmnId.classList.toggle("!text-center", isCurrentPkmn);
+        pkmnId.classList.add("text-right");
+        if (isCurrentPkmn) {
+            pkmnId.classList.replace("text-right", "text-center");
+        }
+        if (isPrevious) {
+            pkmnId.classList.replace("text-right", "text-left");
+        }
 
         const siblingUrl = new URL(location);
         siblingUrl.searchParams.set("id", data.pokedex_id);
