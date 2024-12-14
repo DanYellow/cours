@@ -1,6 +1,9 @@
 import resolveConfig from "tailwindcss/resolveConfig";
 import _tailwindConfig from "/tailwind.config.js";
 
+
+export let tailwindConfig = null;
+
 import {
     fetchPokemonDescription,
     fetchAllTypes,
@@ -51,10 +54,7 @@ const pokemonStatisticTempalteRaw = document.querySelector(
     "[data-tpl-id='pokemon-statistic']"
 );
 
-
-const tailwindConfig = resolveConfig(_tailwindConfig);
-
-export { tailwindConfig };
+tailwindConfig = resolveConfig(_tailwindConfig)
 
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
@@ -461,6 +461,7 @@ displayModal = async (pkmnData) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
+        summary.classList.add(...["hover:marker:text-[color:--bg-modal-color]"])
 
         const paragraph = document.createElement("p");
         paragraph.textContent = item.description?.replaceAll("\\n", " ");

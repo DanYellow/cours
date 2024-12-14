@@ -3,28 +3,46 @@
 import plugin from "tailwindcss/plugin";
 import containerQueriesPlugin from "@tailwindcss/container-queries";
 
+const listTypes = [
+    "plante",
+    "poison",
+    "feu",
+    "eau",
+    "vol",
+    "insecte",
+    "normal",
+    "sol",
+    "electrik",
+    "tenebres",
+    "glace",
+    "psy",
+    "roche",
+    "combat",
+    "acier",
+    "dragon",
+    "fee",
+    "spectre",
+];
+
+
+const typesClassesPlugin = plugin(({ theme, addComponents }) => {
+    const backgroundTypesComponents = listTypes.map((item) => {
+        return { name: `.${item}`, backgroundColor: theme(`colors.type_${item}`) }
+    });
+
+    const textColorTypesComponents = listTypes.map((item) => {
+        return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
+    });
+    
+    addComponents({
+        ...backgroundTypesComponents.reduce((ac,{["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...textColorTypesComponents.reduce((ac,{["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+    });
+});
+
 export default {
     content: ["./index.html", "./src/**/*.js"],
-    safelist: [
-        "plante",
-        "poison",
-        "feu",
-        "eau",
-        "vol",
-        "insecte",
-        "normal",
-        "sol",
-        "electrik",
-        "tenebres",
-        "glace",
-        "psy",
-        "roche",
-        "combat",
-        "acier",
-        "dragon",
-        "fee",
-        "spectre",
-    ],
+    safelist: [...listTypes],
     theme: {
         extend: {
             gridTemplateColumns: {
@@ -62,63 +80,64 @@ export default {
                 ":merge(.group):focus-visible &",
             ]);
             addComponents({
-                ".plante": {
-                    backgroundColor: theme("colors.type_plante"),
-                },
-                ".poison": {
-                    backgroundColor: theme("colors.type_poison"),
-                },
-                ".vol": {
-                    backgroundColor: theme("colors.type_vol"),
-                },
-                ".eau": {
-                    backgroundColor: theme("colors.type_eau"),
-                },
-                ".feu": {
-                    backgroundColor: theme("colors.type_feu"),
-                },
-                ".normal": {
-                    backgroundColor: theme("colors.type_normal"),
-                },
-                ".insecte": {
-                    backgroundColor: theme("colors.type_insecte"),
-                },
-                ".sol": {
-                    backgroundColor: theme("colors.type_sol"),
-                },
-                ".tenebres": {
-                    backgroundColor: theme("colors.type_tenebres"),
-                },
-                ".psy": {
-                    backgroundColor: theme("colors.type_psy"),
-                },
-                ".electrik": {
-                    backgroundColor: theme("colors.type_electrik"),
-                },
-                ".glace": {
-                    backgroundColor: theme("colors.type_glace"),
-                    backgroundColor: "#3fd8ff",
-                },
-                ".roche": {
-                    backgroundColor: theme("colors.type_roche"),
-                },
-                ".combat": {
-                    backgroundColor: theme("colors.type_combat"),
-                },
-                ".acier": {
-                    backgroundColor: theme("colors.type_acier"),
-                },
-                ".fee": {
-                    backgroundColor: "#ef71ef",
-                },
-                ".dragon": {
-                    backgroundColor: theme("colors.type_dragon"),
-                },
-                ".spectre": {
-                    backgroundColor: theme("colors.type_spectre"),
-                },
+                // ".plante": {
+                //     backgroundColor: theme("colors.type_plante"),
+                // },
+                // ".poison": {
+                //     backgroundColor: theme("colors.type_poison"),
+                // },
+                // ".vol": {
+                //     backgroundColor: theme("colors.type_vol"),
+                // },
+                // ".eau": {
+                //     backgroundColor: theme("colors.type_eau"),
+                // },
+                // ".feu": {
+                //     backgroundColor: theme("colors.type_feu"),
+                // },
+                // ".normal": {
+                //     backgroundColor: theme("colors.type_normal"),
+                // },
+                // ".insecte": {
+                //     backgroundColor: theme("colors.type_insecte"),
+                // },
+                // ".sol": {
+                //     backgroundColor: theme("colors.type_sol"),
+                // },
+                // ".tenebres": {
+                //     backgroundColor: theme("colors.type_tenebres"),
+                // },
+                // ".psy": {
+                //     backgroundColor: theme("colors.type_psy"),
+                // },
+                // ".electrik": {
+                //     backgroundColor: theme("colors.type_electrik"),
+                // },
+                // ".glace": {
+                //     backgroundColor: theme("colors.type_glace"),
+                //     backgroundColor: "#3fd8ff",
+                // },
+                // ".roche": {
+                //     backgroundColor: theme("colors.type_roche"),
+                // },
+                // ".combat": {
+                //     backgroundColor: theme("colors.type_combat"),
+                // },
+                // ".acier": {
+                //     backgroundColor: theme("colors.type_acier"),
+                // },
+                // ".fee": {
+                //     backgroundColor: "#ef71ef",
+                // },
+                // ".dragon": {
+                //     backgroundColor: theme("colors.type_dragon"),
+                // },
+                // ".spectre": {
+                //     backgroundColor: theme("colors.type_spectre"),
+                // },
             });
         }),
         containerQueriesPlugin,
+        typesClassesPlugin,
     ],
 };

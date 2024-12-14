@@ -3,12 +3,34 @@ import {
     replaceImage,
 } from "./utils";
 
-import { loadDetailsModal } from "./modal";
+import { loadDetailsModal, tailwindConfig } from "./modal";
 import loadingImage from "/loading.svg";
+import loadingImageRaw from "/loading.svg?raw";
 
 const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
+
+const typesTextColor = {
+    "plante": "group-hocus:text-plante",
+    "acier": "group-hocus:text-acier",
+    "feu": "group-hocus:text-feu",
+    "psy": "group-hocus:text-psy",
+    "tenebres": "group-hocus:text-tenebres",
+    "eau": "group-hocus:text-eau",
+    "electrik": "group-hocus:text-electrik",
+    "roche": "group-hocus:text-roche",
+    "sol": "group-hocus:text-sol",
+    "combat": "group-hocus:text-combat",
+    "fee": "group-hocus:text-fee",
+    "vol": "group-hocus:text-vol",
+    "poison": "group-hocus:text-poison",
+    "insecte": "group-hocus:text-insecte",
+    "glace": "group-hocus:text-glace",
+    "dragon": "group-hocus:text-dragon",
+    "normal": "group-hocus:text-normal",
+    "spectre": "group-hocus:text-spectre",
+}
 
 const createSensibility = (template, data, listTypes) => {
     const typeData = listTypes.find(
@@ -110,7 +132,9 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
 
     if (Object.keys(data || {}).length > 0) {
         const imgTag = template.querySelector("img");
-        imgTag.src = loadingImage;
+        const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(data.types[0].name)}`]));
+        imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+
         imgTag.alt = `sprite de ${data.name.fr}`;
         replaceImage(imgTag, data.sprites.regular);
         imgTag.classList.toggle("hidden", isCurrentPkmn);
@@ -133,9 +157,11 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         
         if (!isCurrentPkmn) {
             aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
+
             const arrow = document.createElement("p");
             arrow.textContent = isPrevious ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow"])
+            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow", typesTextColor[cleanString(data.types[0].name)]]);
+            
             aTag.prepend(arrow);
         } else {
             const pTag = document.createElement('p');
