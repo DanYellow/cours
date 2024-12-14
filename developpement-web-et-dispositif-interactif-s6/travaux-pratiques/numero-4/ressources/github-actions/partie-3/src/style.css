@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
 @supports (interpolate-size: allow-keywords) {
     :root {
         @media (prefers-reduced-motion: no-preference) {
@@ -64,13 +82,17 @@ dialog {
     border-color: transparent;
     transition: opacity var(--animation-speed) ease-out,
         translate var(--animation-speed) ease-out,
-        color var(--animation-speed) ease-out, 
+        color var(--animation-speed) ease-out,
         border-color var(--animation-speed) ease-out,
         overlay var(--animation-speed) ease-out allow-discrete,
         display var(--animation-speed) ease-out allow-discrete;
     box-shadow: 0px 0px 53px 0px;
 
-    background-image: radial-gradient(var(--bg-modal-color) 0.5px, transparent 0.5px), radial-gradient(var(--bg-modal-color) 0.5px, #ffffff 0.5px);
+    background-image: radial-gradient(
+            var(--bg-modal-color) 0.5px,
+            transparent 0.5px
+        ),
+        radial-gradient(var(--bg-modal-color) 0.5px, #ffffff 0.5px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
 
@@ -117,7 +139,7 @@ details {
         }
 
         summary::marker {
-            color: black!important;
+            color: black !important;
         }
     }
 }
@@ -126,7 +148,8 @@ details {
     --alpha: 0.6;
     --animation-speed: 0.45s;
 
-    &::after, &::before {
+    &::after,
+    &::before {
         content: "";
         position: absolute;
         display: block;
