@@ -620,11 +620,17 @@ displayModal = async (pkmnData) => {
     modal_DOM.statistics.append(statValue);
     
     console.log("pkmnData", pkmnData);
+
+    const loadGenerationBtn = document.querySelector("[data-load-generation]")
     const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
     let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
-    if (!Object.keys(prevPokemon).length && !nextPokemon) {
+    
+    const isLastPokemonOfGen = Number(pkmnData.generation) < Number(loadGenerationBtn.dataset.loadGeneration) && !nextPokemon;
+
+    if (!isLastPokemonOfGen && !nextPokemon) {
         nextPokemon = {}
     }
+
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
         .filter(Boolean)
@@ -639,7 +645,7 @@ displayModal = async (pkmnData) => {
             modal_DOM.listSiblings.append(clone);
         });
 
-    if (Object.keys(prevPokemon).length && !nextPokemon) {
+    if (isLastPokemonOfGen) {
         const clone = document.importNode(
             btnLoadGenerationTemplateRaw.content,
             true
