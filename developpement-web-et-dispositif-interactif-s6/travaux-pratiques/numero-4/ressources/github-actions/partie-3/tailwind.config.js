@@ -24,7 +24,6 @@ const listTypes = [
     "spectre",
 ];
 
-
 const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     const backgroundTypesComponents = listTypes.map((item) => {
         return { name: `.${item}`, backgroundColor: theme(`colors.type_${item}`) }
@@ -72,70 +71,14 @@ export default {
         },
     },
     plugins: [
-        plugin(({ addVariant, addComponents, theme }) => {
+        plugin(({ addVariant }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
             addVariant("group-hocus", [
                 ":merge(.group):hover &",
                 ":merge(.group):focus-visible &",
             ]);
-            addComponents({
-                // ".plante": {
-                //     backgroundColor: theme("colors.type_plante"),
-                // },
-                // ".poison": {
-                //     backgroundColor: theme("colors.type_poison"),
-                // },
-                // ".vol": {
-                //     backgroundColor: theme("colors.type_vol"),
-                // },
-                // ".eau": {
-                //     backgroundColor: theme("colors.type_eau"),
-                // },
-                // ".feu": {
-                //     backgroundColor: theme("colors.type_feu"),
-                // },
-                // ".normal": {
-                //     backgroundColor: theme("colors.type_normal"),
-                // },
-                // ".insecte": {
-                //     backgroundColor: theme("colors.type_insecte"),
-                // },
-                // ".sol": {
-                //     backgroundColor: theme("colors.type_sol"),
-                // },
-                // ".tenebres": {
-                //     backgroundColor: theme("colors.type_tenebres"),
-                // },
-                // ".psy": {
-                //     backgroundColor: theme("colors.type_psy"),
-                // },
-                // ".electrik": {
-                //     backgroundColor: theme("colors.type_electrik"),
-                // },
-                // ".glace": {
-                //     backgroundColor: theme("colors.type_glace"),
-                //     backgroundColor: "#3fd8ff",
-                // },
-                // ".roche": {
-                //     backgroundColor: theme("colors.type_roche"),
-                // },
-                // ".combat": {
-                //     backgroundColor: theme("colors.type_combat"),
-                // },
-                // ".acier": {
-                //     backgroundColor: theme("colors.type_acier"),
-                // },
-                // ".fee": {
-                //     backgroundColor: "#ef71ef",
-                // },
-                // ".dragon": {
-                //     backgroundColor: theme("colors.type_dragon"),
-                // },
-                // ".spectre": {
-                //     backgroundColor: theme("colors.type_spectre"),
-                // },
-            });
+
         }),
         containerQueriesPlugin,
         typesClassesPlugin,

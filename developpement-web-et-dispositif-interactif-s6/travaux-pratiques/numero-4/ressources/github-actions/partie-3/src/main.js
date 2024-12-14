@@ -43,7 +43,27 @@ const generationScrollingObserver = new IntersectionObserver(
         setTitleTagForGeneration()
     },
     { threshold: [1] }
-  );
+);
+
+const updateSwitchIcons = () => {
+    Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
+        item.classList.toggle("opacity-50", JSON.parse(localStorage.getItem("is_grid_layout")))
+    });
+    
+    Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
+        item.classList.toggle("opacity-50", !JSON.parse(localStorage.getItem("is_grid_layout")))
+    });
+}
+
+const updatePokedexLayout = (isGridLayout) => {
+    Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
+        item.classList.toggle("grid-cols-3", isGridLayout);
+        item.classList.toggle("md:grid-cols-5", isGridLayout);
+        item.classList.toggle("lg:grid-cols-6", isGridLayout);
+        item.classList.toggle("px-2", isGridLayout);
+        item.classList.toggle("grid-cols-1", !isGridLayout);
+    });
+}
 
 const loadDetailsModal = (e) => {
     e.preventDefault()
@@ -66,8 +86,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
         
         const pokedex = cloneDex.querySelector("[data-pokedex]");
-        pokedex.classList.toggle("grid-cols-3", JSON.parse(localStorage.getItem("is_grid_layout")))
-        pokedex.classList.toggle("grid-cols-1", !JSON.parse(localStorage.getItem("is_grid_layout")))
+        
 
         const layoutSwitch = cloneDex.querySelector("[data-layout-switch]")
         layoutSwitch.checked = JSON.parse(localStorage.getItem("is_grid_layout"));
@@ -136,6 +155,9 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
         pokedexContainer.append(cloneDex);
 
+        updateSwitchIcons();
+        updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")))
+
         generationScrollingObserver.observe(headerPokedex);
 
         listLoadGenerationBtns.forEach((item) => item.inert = false);
@@ -169,27 +191,23 @@ delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
 });
 
 delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
-    Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
-        item.classList.toggle("grid-cols-3", e.target.checked)
-        item.classList.toggle("grid-cols-1", !e.target.checked)
-    });
-
     Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
         item.checked = e.target.checked;
-    })
+    });
 
     localStorage.setItem("is_grid_layout", e.target.checked);
+    
+    updatePokedexLayout(e.target.checked)
+    updateSwitchIcons();
 });
 
-Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
-    item.classList.toggle("grid-cols-3", JSON.parse(localStorage.getItem("is_grid_layout")))
-    item.classList.toggle("grid-cols-1", !JSON.parse(localStorage.getItem("is_grid_layout")))
-});
+updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")));
+updateSwitchIcons();
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
-    if(urlParams.get("id") !== null) {
+    if (urlParams.get("id") !== null) {
         const pkmnData = await fetchPokemon(Number(urlParams.get("id")), urlParams.get("region"));
         pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
         displayPkmnModal(pkmnData);
