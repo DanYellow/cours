@@ -70,7 +70,7 @@ dialog {
         display var(--animation-speed) ease-out allow-discrete;
     box-shadow: 0px 0px 53px 0px;
 
-    background-image:  radial-gradient(var(--footer-bg) 0.5px, transparent 0.5px), radial-gradient(var(--footer-bg) 0.5px, #ffffff 0.5px);
+    background-image: radial-gradient(var(--bg-modal-color) 0.5px, transparent 0.5px), radial-gradient(var(--bg-modal-color) 0.5px, #ffffff 0.5px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
 
@@ -87,12 +87,6 @@ dialog {
             border-color: transparent;
         }
     }
-
-    .stat-bar {
-        transform: scaleX(0);
-        transition: transform 0.95s var(--animation-speed);
-        transform-origin: left center;
-    }
 }
 
 .type-name {
@@ -101,17 +95,32 @@ dialog {
     text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
 }
 
-details[open] {
+details {
+    --animation-speed: 0.3s;
+
     .stat-bar {
-        transform: scaleX(1);
-        transition: transform 0.95s 0.2s;
+        transform: scaleX(0);
+        transition: transform 0.95s var(--animation-speed);
         transform-origin: left center;
+    }
+    &[open] {
+        .stat-bar {
+            transform: scaleX(1);
+            transition: transform 0.95s;
+            transform-origin: left center;
+        }
+
+        @starting-style {
+            .stat-bar {
+                transform: scaleX(0);
+            }
+        }
     }
 }
 
 .modal-footer {
     --alpha: 0.6;
-    --animation-speed: 0.75s;
+    --animation-speed: 0.45s;
 
     &::after, &::before {
         content: "";
@@ -145,6 +154,7 @@ details[open] {
             rgb(from var(--bg-modal-color) r g b / var(--alpha)) 0%,
             rgba(255, 255, 255, 1) 95%
         );
+        transition-delay: 0.15s;
         background-color: var(--bg-modal-color);
     }
 }
