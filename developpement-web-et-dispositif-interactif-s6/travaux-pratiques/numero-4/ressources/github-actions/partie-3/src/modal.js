@@ -361,7 +361,7 @@ displayModal = async (pkmnData) => {
         modal_DOM.listEvolutions.append(nextArrow);
     });
 
-    let alternateEvolutions = listDescriptions.varieties.filter((item) => !item.is_default && item.pokemon.name.includes("mega"))
+    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && item.pokemon.name.includes("mega")) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
             orbe: "",
