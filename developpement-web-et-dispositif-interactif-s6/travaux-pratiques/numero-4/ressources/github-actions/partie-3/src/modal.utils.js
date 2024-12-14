@@ -49,8 +49,12 @@ const createSensibility = (template, data, listTypes) => {
         );
         const isTypeEffectiveAgainst =
             data.multiplier === effectiveDamageMultiplier;
-        const typeAffinityLabel = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse"
-        cloneHighlight.querySelector("span").textContent = immuneDamageMultiplier === data.multiplier ? "Immunisé" : typeAffinityLabel;
+        const typeAffinityLabel = isTypeEffectiveAgainst ? "Double faiblesse" : "Quadruple faiblesse";
+        const label = cloneHighlight.querySelector("span");
+        label.classList.toggle("bg-red-600", data.multiplier === superEffectiveDamageMultiplier);
+        label.classList.toggle("bg-gray-100", data.multiplier === immuneDamageMultiplier);
+        label.classList.toggle("text-slate-950", data.multiplier === immuneDamageMultiplier);
+        label.textContent = immuneDamageMultiplier === data.multiplier ? "Immunisé" : typeAffinityLabel;
 
         damageFactorContainer.append(cloneHighlight);
     }
