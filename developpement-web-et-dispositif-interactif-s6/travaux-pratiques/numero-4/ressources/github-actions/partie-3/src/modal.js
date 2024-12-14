@@ -13,8 +13,6 @@ import {
     getVersionForName,
     cleanString,
     clearTagContent,
-    convertTailwindRemToPx,
-    aRem,
     replaceImage,
     getEvolutionChain,
     statistics,
