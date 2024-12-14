@@ -93,6 +93,8 @@ const createRegionalForm = (template, data) => {
     return template;
 }
 
+const hocusClassRegex = /\shocus.+\d\s/;
+
 const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
     const li = template.querySelector("li");
 
@@ -135,7 +137,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
             const pTag = document.createElement('p');
             pTag.innerHTML = aTag.innerHTML;
             pTag.classList = aTag.classList;
-            pTag.classList.remove("hocus:bg-slate-200");
+            pTag.className = pTag.className.replace(hocusClassRegex, ' ')
             pTag.classList.add("font-bold");
             aTag.parentNode.replaceChild(pTag, aTag);
         }

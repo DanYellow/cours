@@ -101,7 +101,7 @@ details[open] {
 .pokemon-modal {
     --animation-speed: 0.75s;
     box-shadow: 0px 0px 53px 0px;
-    transition: color var(--animation-speed) ease-out;
+    transition: color var(--animation-speed) ease-out, border-color var(--animation-speed) ease-out 250ms;
 }
 
 .modal-footer {
