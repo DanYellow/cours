@@ -115,6 +115,10 @@ details {
                 transform: scaleX(0);
             }
         }
+
+        summary::marker {
+            color: black!important;
+        }
     }
 }
 
