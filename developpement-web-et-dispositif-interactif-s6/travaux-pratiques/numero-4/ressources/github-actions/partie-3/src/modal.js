@@ -565,6 +565,7 @@ displayModal = async (pkmnData) => {
         modal_DOM.listGames.append(li);
     });
     modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
+    modal_DOM.listGames.closest("details").inert = pkmnExtraData.game_indices.length === 0;
 
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;

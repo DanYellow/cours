@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+import fs from "node:fs"
+
 import plugin from "tailwindcss/plugin";
 import containerQueriesPlugin from "@tailwindcss/container-queries";
 
@@ -32,16 +34,44 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     const textColorTypesComponents = listTypes.map((item) => {
         return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
     });
-    
+
+    const listPossiblesTypeCombinaions = listTypes.flatMap(
+        (v, i) => listTypes.slice(i + 1).map(w => v + '_' + w)
+    );
+
+    fs.writeFile('test.tmp.txt', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `group-hocus:border-${item}`})).reduce((prev, curr) => {
+        Object.assign(prev, curr);
+        return prev;
+      }, {})), err => {
+        if (err) {
+          console.error(err);
+        } else {
+          // file written successfully
+        }
+      })
+
+ 
+
+    const listPossiblesTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
+        return { 
+            name: `.border-${item}`, 
+            borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
+            borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
+            borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
+            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),    
+        }
+    });
+
     addComponents({
-        ...backgroundTypesComponents.reduce((ac,{["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...textColorTypesComponents.reduce((ac,{["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...backgroundTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...textColorTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...listPossiblesTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
     });
 });
 
 export default {
     content: ["./index.html", "./src/**/*.js"],
-    safelist: [...listTypes],
+    safelist: [],
     theme: {
         extend: {
             gridTemplateColumns: {
@@ -71,14 +101,13 @@ export default {
         },
     },
     plugins: [
-        plugin(({ addVariant }) => {
+        plugin(({ addVariant, addComponents }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
             addVariant("group-hocus", [
                 ":merge(.group):hover &",
                 ":merge(.group):focus-visible &",
             ]);
-
         }),
         containerQueriesPlugin,
         typesClassesPlugin,

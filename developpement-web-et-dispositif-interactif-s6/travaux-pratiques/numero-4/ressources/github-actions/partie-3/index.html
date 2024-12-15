@@ -44,9 +44,9 @@
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon">
                 <a data-pokemon-data class="hocus:bg-slate-100 rounded-md p-2 group block inert:opacity-25" data-testid="pokemon">
-                    <figure class="flex @sm:flex-row flex-col gap-3 items-center ">
+                    <figure class="flex @sm:flex-row flex-col gap-3 items-center">
                         <img src="/loading.svg" loading="lazy" alt="" class="@sm:max-w-20" />
-                        <figcaption class="@sm:text-left text-center whitespace-pre group-hocus:bg-slate-900 w-full group-hocus:text-white rounded-md px-2"></figcaption>
+                        <figcaption data-pkmn-name class="group-hocus:pkmn-name @sm:text-left text-center whitespace-pre  w-full rounded-md px-2 border-solid border-transparent border-2"></figcaption>
                     </figure>
                 </a>
             </li>

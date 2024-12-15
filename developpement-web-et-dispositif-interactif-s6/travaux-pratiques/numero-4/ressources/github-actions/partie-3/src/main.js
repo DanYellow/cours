@@ -7,6 +7,7 @@ import {
     cleanString,
     delegateEventHandler,
     isElementInViewport,
+    typesBorderColor,
 } from "./utils";
 
 import loadingImage from "/loading.svg?raw";
@@ -144,9 +145,19 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             imgTag.alt = `sprite de ${item.name.fr}`;
             imgTag.fetchPriority =
                 index <= fetchPriorityHighThreshold ? "high" : "low";
-            clone.querySelector(
-                "figcaption"
-            ).textContent = `#${String(item.pokedex_id).padStart(4, '0')}\n${item.name.fr}`;
+
+            const pkmnNameContainer = clone.querySelector("[data-pkmn-name]")
+            pkmnNameContainer.textContent = `#${String(item.pokedex_id).padStart(4, '0')}\n${item.name.fr}`;
+            
+            const firstBorderColor = tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`];
+            const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(item.types[1]?.name || "")}`] || null;
+
+            // document.documentElement.style.setProperty("--first-type-border-color", firstBorderColor);
+            // document.documentElement.style.setProperty("--second-type-border-color", secondaryBorderColor ? secondaryBorderColor : firstBorderColor);
+
+            pkmnNameContainer.classList.add(...[
+                typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
+            ]);
 
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
