@@ -45,13 +45,17 @@ const generationScrollingObserver = new IntersectionObserver(
     { threshold: [1] }
 );
 
-const updateSwitchIcons = () => {
+const updateSwitchIcons = (isGridLayout) => {
+    Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
+        item.checked = isGridLayout;
+    });
+
     Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
-        item.classList.toggle("opacity-50", JSON.parse(localStorage.getItem("is_grid_layout")))
+        item.classList.toggle("opacity-50", isGridLayout)
     });
     
     Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
-        item.classList.toggle("opacity-50", !JSON.parse(localStorage.getItem("is_grid_layout")))
+        item.classList.toggle("opacity-50", !isGridLayout)
     });
 }
 
@@ -155,8 +159,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
         pokedexContainer.append(cloneDex);
 
-        updateSwitchIcons();
-        updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")))
+        updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout")) ? JSON.parse(localStorage.getItem("is_grid_layout")) : true);
+        updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")) ? JSON.parse(localStorage.getItem("is_grid_layout")) : true)
 
         generationScrollingObserver.observe(headerPokedex);
 
@@ -191,18 +195,11 @@ delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
 });
 
 delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
-    Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
-        item.checked = e.target.checked;
-    });
-
     localStorage.setItem("is_grid_layout", e.target.checked);
     
     updatePokedexLayout(e.target.checked)
-    updateSwitchIcons();
+    updateSwitchIcons(e.target.checked);
 });
-
-updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")));
-updateSwitchIcons();
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
