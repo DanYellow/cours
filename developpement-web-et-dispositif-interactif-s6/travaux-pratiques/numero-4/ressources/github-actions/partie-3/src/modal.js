@@ -23,7 +23,7 @@ import {
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration } from "./main";
-import { createSensibility, createRegionalForm, createSibling, createStatisticEntry } from "./modal.utils"
+import { createSensibility, createAlternateForm, createSibling, createStatisticEntry } from "./modal.utils"
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
@@ -120,6 +120,7 @@ const loadDetailsModal = (e, region = null) => {
     const pkmnData = JSON.parse(pkmnDataRaw);
  
     const url = new URL(location);
+    console.log(pkmnData)
     if (region) {
         url.searchParams.set("region", region);
     } else {
@@ -564,12 +565,28 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
-
+    console.log(!!pkmnData?.alternate_form_id)
     for (const item of pkmnData?.formes || []) {
-        const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
-        const clone = createRegionalForm(
+        let pkmnForm = fetchPokemon(pkmnData.pokedex_id, item.region)
+        if (pkmnData?.alternate_form_id) {
+            pkmnForm = fetchPokemon(pkmnData.pokedex_id)
+        }
+        pkmnForm = await pkmnForm;
+
+        let payload = { ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties }
+        if (pkmnData?.alternate_form_id) {
+            delete payload.alternate_form_id;
+            delete payload.region;
+        } else {
+            payload = {
+                ...item,
+                ...payload,
+            }
+        }
+
+        const clone = createAlternateForm(
             document.importNode(pkmnTemplateRaw.content, true),
-            {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
+            payload,
         );
 
         modal_DOM.listVarieties.append(clone);

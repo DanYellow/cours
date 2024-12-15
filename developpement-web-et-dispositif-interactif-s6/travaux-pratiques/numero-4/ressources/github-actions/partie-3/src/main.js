@@ -188,7 +188,7 @@ if (pkmnId !== null) {
     displayPkmnModal(pkmnData);
 }
 
-await loadPokedexForGeneration();
+await loadPokedexForGeneration(1);
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);

@@ -81,7 +81,7 @@ const createSensibility = (template, data, listTypes) => {
             label.classList.replace("bg-slate-900", "bg-gray-100");
             label.classList.replace("text-white", "text-slate-950");
         }
- 
+
         label.textContent = immuneDamageMultiplier === data.multiplier ? "Immunisé" : typeAffinityLabel;
 
         damageFactorContainer.append(cloneHighlight);
@@ -90,9 +90,10 @@ const createSensibility = (template, data, listTypes) => {
     return template;
 }
 
-const createRegionalForm = (template, data) => {
-    const url = new URL(location);
+const createAlternateForm = (template, data) => {
+    const url = new URL(location.origin);
     url.searchParams.set("id", data.pokedex_id);
+    
     const imgTag = template.querySelector("img");
     replaceImage(imgTag, data.sprite);
     imgTag.alt = `sprite de ${data.name.fr} forme ${data.region}`;
@@ -162,6 +163,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         siblingUrl.searchParams.set("id", data.pokedex_id);
         siblingUrl.searchParams.delete("region");
         siblingUrl.searchParams.delete("alternate_form_id");
+        
         const aTag = template.querySelector("a");
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
@@ -211,4 +213,4 @@ const createStatisticEntry = (template, data) => {
     return { bar: statBar, value: statValue, name: statName }
 }
 
-export { createSensibility, createRegionalForm, createSibling, createStatisticEntry };
+export { createSensibility, createAlternateForm, createSibling, createStatisticEntry };
