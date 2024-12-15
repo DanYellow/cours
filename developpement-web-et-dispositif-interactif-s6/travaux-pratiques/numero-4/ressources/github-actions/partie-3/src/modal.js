@@ -158,6 +158,8 @@ displayModal = async (pkmnData) => {
     let pkmnExtraData = dataCache[pkmnId]?.extras;
     let listDescriptions = dataCache[pkmnId]?.descriptions;
     let evolutionLine = dataCache[pkmnId]?.evolutionLine;
+    let listAbilities = dataCache[pkmnId]?.listAbilities;
+
     if (!dataCache[pkmnId]) {
         try {
             listDescriptions = await fetchPokemonDescription(pkmnId);
@@ -204,7 +206,7 @@ displayModal = async (pkmnData) => {
             }
         }
 
-        pkmnData.talents = pkmnData.talents.map((item) => ({
+        listAbilities = pkmnData.talents.map((item) => ({
             ...item,
             ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === cleanString(item.name.toLowerCase().replace("-", "")))
         }));
@@ -222,6 +224,7 @@ displayModal = async (pkmnData) => {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
             evolutionLine,
+            listAbilities,
         };
     }
   
@@ -458,7 +461,7 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listAbilities);
 
-    pkmnData.talents.forEach((item) => {
+    listAbilities.forEach((item) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
@@ -565,15 +568,18 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listVarieties);
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
-    console.log(!!pkmnData?.alternate_form_id)
+
     for (const item of pkmnData?.formes || []) {
         let pkmnForm = fetchPokemon(pkmnData.pokedex_id, item.region)
         if (pkmnData?.alternate_form_id) {
             pkmnForm = fetchPokemon(pkmnData.pokedex_id)
         }
         pkmnForm = await pkmnForm;
-
-        let payload = { ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties }
+        let payload = { 
+            ...pkmnForm,
+            sprite: pkmnForm.sprites.regular, 
+            varieties: listDescriptions.varieties 
+        }
         if (pkmnData?.alternate_form_id) {
             delete payload.alternate_form_id;
             delete payload.region;
