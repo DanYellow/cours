@@ -93,7 +93,6 @@ const createSensibility = (template, data, listTypes) => {
 const createAlternateForm = (template, data) => {
     const url = new URL(location.origin);
     url.searchParams.set("id", data.pokedex_id);
-    
     const imgTag = template.querySelector("img");
     replaceImage(imgTag, data.sprite);
     imgTag.alt = `sprite de ${data.name.fr} forme ${data.region}`;

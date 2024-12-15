@@ -120,7 +120,7 @@ const loadDetailsModal = (e, region = null) => {
     const pkmnData = JSON.parse(pkmnDataRaw);
  
     const url = new URL(location);
-    console.log(pkmnData)
+
     if (region) {
         url.searchParams.set("region", region);
     } else {
@@ -162,7 +162,7 @@ displayModal = async (pkmnData) => {
 
     if (!dataCache[pkmnId]) {
         try {
-            listDescriptions = await fetchPokemonDescription(pkmnId);
+            listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
         } catch (_e) {
             listDescriptions = {};
         }
@@ -570,35 +570,16 @@ displayModal = async (pkmnData) => {
     modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
 
     for (const item of pkmnData?.formes || []) {
-        let pkmnForm = fetchPokemon(pkmnData.pokedex_id, item.region)
-        if (pkmnData?.alternate_form_id) {
-            pkmnForm = fetchPokemon(pkmnData.pokedex_id)
-        }
-        pkmnForm = await pkmnForm;
-        let payload = { 
-            ...pkmnForm,
-            sprite: pkmnForm.sprites.regular, 
-            varieties: listDescriptions.varieties 
-        }
-        if (pkmnData?.alternate_form_id) {
-            delete payload.alternate_form_id;
-            delete payload.region;
-        } else {
-            payload = {
-                ...item,
-                ...payload,
-            }
-        }
-
+        const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
         const clone = createAlternateForm(
             document.importNode(pkmnTemplateRaw.content, true),
-            payload,
+            {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
         );
 
         modal_DOM.listVarieties.append(clone);
     }
-    modal_DOM.listVarieties.closest("details").inert =
-        (pkmnData?.formes || []).length === 0;
+
+    modal_DOM.listVarieties.closest("details").inert = (pkmnData?.formes || []).length === 0;
 
     clearTagContent(modal_DOM.statistics);
     

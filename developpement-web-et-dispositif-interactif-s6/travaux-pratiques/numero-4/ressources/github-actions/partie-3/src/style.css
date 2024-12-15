@@ -95,7 +95,7 @@ dialog {
         radial-gradient(var(--bg-modal-color) 0.5px, rgba(255,255,255,0) 0.5px),
         linear-gradient(0deg, var(--bg-modal-color) 0%, var(--bg-modal-color) 6.05%, rgba(255,255,255,0) 6.05%);
     background-size: 20px 20px, 20px 20px, 100% 1210px;
-    background-position: 0 0, 10px 10px, center bottom -10px;
+    background-position: 0 0, 10px 10px, center bottom -12px;
     background-repeat: repeat, repeat, no-repeat;
 
     &[open] {
