@@ -173,10 +173,22 @@ test("should have a label for all abilities after loading Pokémon and its Poké
     const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
     loadGenerationButton.click();
 
-    const foo = await page.getByTestId("pokemon").nth(170).click();
+    await page.getByTestId("pokemon").nth(170).click();
     await modal.waitFor();
 
     for (const element of listAbilities) {
         await expect(element).not.toBeEmpty();
     }
+});
+
+test("should not have more than 4 levels of evolutions", async ({ page }) => {
+    const pkmnId = 265;
+    await page.goto(`/?id=${pkmnId}`);
+
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+   const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count()
+
+    expect(nbEvolutionLevels).toBeLessThanOrEqual(4);
 });
