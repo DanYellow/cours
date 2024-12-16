@@ -205,7 +205,7 @@ displayModal = async (pkmnData) => {
                 } catch (_e) {}
             }
         }
-        
+
         const listKnownAbilities = listAbilitiesDescriptions.map((item) => cleanString(item.name.fr.toLowerCase().replace("-", "")))
         listAbilities = pkmnData.talents
             .filter((item) => listKnownAbilities.includes(cleanString(item.name.toLowerCase().replace("-", ""))))
@@ -407,8 +407,20 @@ displayModal = async (pkmnData) => {
             // clone.querySelector("li div").insertAdjacentElement("beforeend", evolutionCondition);
 
             ul.append(clone);
-        })
+        });
 
+        const title = document.createElement("p");
+        title.classList.add(...["text-center", "mt-2"])
+        const cloneHighlight = document.importNode(
+            pkmnHighlightTemplateRaw.content,
+            true
+        );
+        const span = cloneHighlight.querySelector("span");
+        span.textContent = "Méga-évolutions";
+        span.classList.remove("text-xs");
+
+        title.append(cloneHighlight);
+        li.append(title);
         li.append(ul);
         modal_DOM.listEvolutions.append(li);
     }
