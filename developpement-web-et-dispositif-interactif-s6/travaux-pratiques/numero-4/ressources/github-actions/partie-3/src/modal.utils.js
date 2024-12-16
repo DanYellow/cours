@@ -165,12 +165,12 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
             
             aTag.prepend(arrow);
         } else {
-            const pTag = document.createElement('p');
-            pTag.innerHTML = aTag.innerHTML;
-            pTag.classList = aTag.classList;
-            pTag.className = pTag.className.replace(hocusClassRegex, ' ')
-            pTag.classList.add("font-bold");
-            aTag.parentNode.replaceChild(pTag, aTag);
+            const divTag = document.createElement('div');
+            divTag.innerHTML = aTag.innerHTML;
+            divTag.classList = aTag.classList;
+            divTag.className = divTag.className.replace(hocusClassRegex, ' ')
+            divTag.classList.add("font-bold");
+            aTag.parentNode.replaceChild(divTag, aTag);
         }
     }
 
