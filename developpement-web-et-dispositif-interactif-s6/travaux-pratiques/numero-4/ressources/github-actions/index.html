@@ -21,7 +21,7 @@
           <h1 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h1>
         </summary>
         <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt</span>
-<span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quelles actions se lance le pipeline</span>
+<span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quelles actions se lance le pipeline. Il est possible de préciser la branche ou le type de fichier</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">my_first_job:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, job_id. Doit commencer par une lettre et ne doit pas contenir d'espace</span>
     <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">first</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">job</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif, nom du job, remplace le job_id si présent dans la pipeline</span>
@@ -34,7 +34,13 @@
           <span style="color: rgb(181, 189, 104); font-weight: 400;">ls</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">${{</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github.workspace</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">}}</span></pre>
         <ul>
           <li>
-            <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des clés d'un fichier de configuration - ouveture dans un nouvel onglet</a>
+            <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions" target="_blank">Voir l'ensemble des clés d'un fichier de configuration - ouveture dans un nouvel onglet</a>
+          </li>
+          <li>
+            <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des variables accessibles par défaut - ouveture dans un nouvel onglet</a>
+          </li>
+          <li>
+            <a href="https://learnxinyminutes.com/yaml/" target="_blank" rel="noopener noreferrer">Voir cours très rapide sur le YAML - ouveture dans un nouvel onglet</a>
           </li>
         </ul>
       </details>
