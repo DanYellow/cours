@@ -20,11 +20,6 @@ html {
     }
 }
 
-:root {
-    --first-type-border-color: transparent;
-    --second-type-border-color: transparent;
-}
-
 @supports (interpolate-size: allow-keywords) {
     :root {
         @media (prefers-reduced-motion: no-preference) {

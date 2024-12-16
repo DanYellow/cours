@@ -35,22 +35,28 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
         return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
     });
 
-    const listPossiblesTypeCombinaions = listTypes.flatMap(
-        (v, i) => listTypes.slice(i + 1).map(w => v + '_' + w)
+    // const listPossiblesTypeCombinaions = listTypes.flatMap(
+    //     (v, i) => listTypes.slice(i).map(w => v + '_' + w)
+    // );
+
+    const listPossiblesTypeCombinaions = listTypes.flatMap((v) => 
+        listTypes.map(w => `${v}_${w}`) 
     );
 
-    fs.writeFile('test.tmp.txt', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `group-hocus:border-${item}`})).reduce((prev, curr) => {
-        Object.assign(prev, curr);
-        return prev;
-      }, {})), err => {
-        if (err) {
-          console.error(err);
-        } else {
-          // file written successfully
-        }
-      })
+    // const listPossiblesTypeCombinaions = Array.from(new Set(listPossiblesTypeCombinaionsRaw.flat()))
 
- 
+    // To generate classes only
+    // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `group-hocus:border-${item}`})).reduce((prev, curr) => {
+    //     Object.assign(prev, curr);
+    //     return prev;
+    //   }, {})), err => {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //       // file written successfully
+    //     }
+    //   })
+
 
     const listPossiblesTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
         return { 
