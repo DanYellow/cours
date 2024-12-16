@@ -205,11 +205,14 @@ displayModal = async (pkmnData) => {
                 } catch (_e) {}
             }
         }
-
-        listAbilities = pkmnData.talents.map((item) => ({
-            ...item,
-            ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === cleanString(item.name.toLowerCase().replace("-", "")))
-        }));
+        
+        const listKnownAbilities = listAbilitiesDescriptions.map((item) => cleanString(item.name.fr.toLowerCase().replace("-", "")))
+        listAbilities = pkmnData.talents
+            .filter((item) => listKnownAbilities.includes(cleanString(item.name.toLowerCase().replace("-", ""))))
+            .map((item) => ({
+                ...item,
+                ...listAbilitiesDescriptions.find((description) => cleanString(description.name.fr.toLowerCase().replace("-", "")) === cleanString(item.name.toLowerCase().replace("-", "")))
+            }));
 
         listPokemon[pkmnData.pokedex_id - 1] = pkmnData;
 

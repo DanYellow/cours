@@ -35,15 +35,9 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
         return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
     });
 
-    // const listPossiblesTypeCombinaions = listTypes.flatMap(
-    //     (v, i) => listTypes.slice(i).map(w => v + '_' + w)
-    // );
-
-    const listPossiblesTypeCombinaions = listTypes.flatMap((v) => 
-        listTypes.map(w => `${v}_${w}`) 
+    const listPossiblesTypeCombinaions = listTypes.flatMap((type1) => 
+        listTypes.map(type2 => `${type1}_${type2}`) 
     );
-
-    // const listPossiblesTypeCombinaions = Array.from(new Set(listPossiblesTypeCombinaionsRaw.flat()))
 
     // To generate classes only
     // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `group-hocus:border-${item}`})).reduce((prev, curr) => {
