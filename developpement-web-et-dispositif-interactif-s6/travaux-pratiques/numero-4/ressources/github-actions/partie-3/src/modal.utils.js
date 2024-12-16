@@ -5,6 +5,7 @@ import {
 
 import {
     typesTextColor,
+    typesBorderColor,
 } from "./colors";
 
 import { loadDetailsModal, tailwindConfig } from "./modal";
@@ -151,6 +152,9 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
         aTag.addEventListener("click", (e) => loadDetailsModal(e));
+        aTag.classList.add(...[
+            typesBorderColor[`${cleanString(data.types[0].name)}_${cleanString(data.types[1]?.name || data.types?.[0].name)}`]
+        ]);
         
         if (!isCurrentPkmn) {
             aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
