@@ -3,6 +3,10 @@ import {
     replaceImage,
 } from "./utils";
 
+import {
+    typesTextColor,
+} from "./colors";
+
 import { loadDetailsModal, tailwindConfig } from "./modal";
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
@@ -10,27 +14,6 @@ import loadingImageRaw from "/loading.svg?raw";
 const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
-
-const typesTextColor = {
-    "plante": "group-hocus:text-plante",
-    "acier": "group-hocus:text-acier",
-    "feu": "group-hocus:text-feu",
-    "psy": "group-hocus:text-psy",
-    "tenebres": "group-hocus:text-tenebres",
-    "eau": "group-hocus:text-eau",
-    "electrik": "group-hocus:text-electrik",
-    "roche": "group-hocus:text-roche",
-    "sol": "group-hocus:text-sol",
-    "combat": "group-hocus:text-combat",
-    "fee": "group-hocus:text-fee",
-    "vol": "group-hocus:text-vol",
-    "poison": "group-hocus:text-poison",
-    "insecte": "group-hocus:text-insecte",
-    "glace": "group-hocus:text-glace",
-    "dragon": "group-hocus:text-dragon",
-    "normal": "group-hocus:text-normal",
-    "spectre": "group-hocus:text-spectre",
-}
 
 const createSensibility = (template, data, listTypes) => {
     const typeData = listTypes.find(
