@@ -91,37 +91,51 @@ const getPkmnIdFromURL = (url) => {
 }
 
 const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes) => {
-    let res = [];
-
     let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
     // evolutionLine = evolutionLine.map((item, idx) => ({
-    //     ...item,
-    //     condition: evolutionLine[idx - 1]?.condition || item.condition,
-    // }))
-    
+        //     ...item,
+        //     condition: evolutionLine[idx - 1]?.condition || item.condition,
+        // }))
+        
+    let res = [];
     const listPokemonComputed = listPokemon.map((item) => ({ name: item?.name.fr, pokedex_id: item?.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
     const firstEvolution = {
         ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
-        sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(data.chain.species.url)}/regular.png`
+        sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(data.chain.species.url)}/regular.png`,
+        list_evolutions: data.chain.evolves_to.map((evolution) => evolution.species.name)
     };
-
-    res.push([firstEvolution]);
+    res.push([firstEvolution])
 
     const getNextEvolutions = (listEvolutions) => {
         const evolutionLevel = []
         listEvolutions.forEach((item) => {
-            const pkmnId = getPkmnIdFromURL(item.species.url)
+            const pkmnId = getPkmnIdFromURL(item.species.url);
+
+            const idxEvolution = res.findIndex((addedEvolution) => {
+                return addedEvolution.some((obj) => obj.list_evolutions.includes(item.species.name));
+            });
 
             evolutionLevel.push(
                 {
                     name: capitalizeFirstLetter(item.species.name),
                     pokedex_id: pkmnId,
                     ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
-                    sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`
+                    sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`,
+                    list_evolutions: item.evolves_to.map((evolution) => evolution.species.name)
                 }
-            )
-            res.push(evolutionLevel);
+            );
+
+            if(res[idxEvolution + 1]) {
+                evolutionLevel.map((evol) => {
+                    if(!res[idxEvolution + 1].includes(evol)) {
+                        res[idxEvolution + 1].push(evol);
+                    }
+                })
+            } else {
+                res.push(evolutionLevel);
+            }
+
             if(item.evolves_to.length > 0) {
                 getNextEvolutions(item.evolves_to)
             }
@@ -130,8 +144,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes
 
     getNextEvolutions(data.chain.evolves_to);
 
-    let payload = Array.from(new Set(res.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
-    payload = payload.map((item) => {
+    const payload = res.map((item) => {
         return item.map((subItem) => ({
             ...subItem,
             ...(listPokemonComputed.find((item) => Number(item?.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en" })
@@ -177,6 +190,5 @@ export const debounce = (callback, wait) => {
         }, wait);
     };
 }
-
 
 export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics, getPkmnIdFromURL };
