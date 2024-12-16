@@ -46,11 +46,11 @@
         <table class="w-full bg-white border-collapse">
             <thead class="">
                 <tr class="text-slate-800">
-                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b min-w-52">Titre</th>
-                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b lg:hidden xl:[display:revert] @3xl/main:[display:revert]">Contenu</th>
-                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Activé ?</th>
-                    <th class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
-                    <th class="font-bold text-left border-solid border-slate-200 border-b hover:bg-blue-50">
+                    <th scope="col" class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b min-w-52">Titre</th>
+                    <th scope="col" class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b lg:hidden xl:[display:revert] @3xl/main:[display:revert]">Contenu</th>
+                    <th scope="col" class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Activé ?</th>
+                    <th scope="col" class="font-bold px-6 py-3 text-left border-solid border-slate-200 border-b">Auteur</th>
+                    <th scope="col" class="font-bold text-left border-solid border-slate-200 border-b hover:bg-blue-50">
                         <a href="{{ "?sorting=" ~ sort_param }}" class="flex gap-2 px-6 py-3 items-center" aria-sort="{{ "ascending" if using_asc else "descending" }}" title="{{ sort_text }}" data-tooltip-anchor="sort">
                             <span>Dernière mise à jour</span>
                             <div class="shrink-0">
@@ -66,7 +66,7 @@
                             </div>
                         </a>
                     </th>
-                    <th class=" px-6 py-3 border-solid border-slate-200 border-b"></th>
+                    <th scope="col" class=" px-6 py-3 border-solid border-slate-200 border-b"></th>
                 </tr>
             </thead>
             <tbody>
