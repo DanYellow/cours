@@ -362,7 +362,18 @@ displayModal = async (pkmnData) => {
         modal_DOM.listEvolutions.append(li);
 
         const nextArrow = document.createElement("li");
-        nextArrow.textContent = evolutionLine.flat().length >= 7 ? "►" : "▼";
+        if(evolutionLine.flat().length >= 7) {
+            nextArrow.textContent = "►";
+        } else {
+            nextArrow.classList.add("justify-around");
+            (evolutionLine?.[idx + 1] || []).forEach(() => {
+                const span = document.createElement("span");
+                span.textContent = "▼";
+
+                nextArrow.append(span);
+            })
+        }   
+
         nextArrow.inert = true;
         nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
         modal_DOM.listEvolutions.append(nextArrow);
