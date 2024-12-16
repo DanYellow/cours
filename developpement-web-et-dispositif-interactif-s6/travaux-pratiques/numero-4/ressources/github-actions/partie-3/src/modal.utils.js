@@ -46,7 +46,8 @@ const createSensibility = (template, data, listTypes) => {
     replaceImage(imgTag, typeData.sprite);
 
     const typeLabel = template.querySelector("[data-type]");
-    typeLabel.classList.add(cleanString(data.name))
+    typeLabel.setAttribute("aria-label", `Type ${data.name}`);
+    typeLabel.classList.add(cleanString(data.name));
     typeLabel.textContent = data.name;
 
     damageFactorContainer.textContent = `x${data.multiplier}`;
