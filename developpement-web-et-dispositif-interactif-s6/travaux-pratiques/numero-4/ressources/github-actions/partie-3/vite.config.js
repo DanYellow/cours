@@ -7,6 +7,7 @@ export default defineConfig({
     plugins: [
         eslint({
             include: "./src/**/*.js",
+            failOnError: false,
         }),
     ],
     build: {

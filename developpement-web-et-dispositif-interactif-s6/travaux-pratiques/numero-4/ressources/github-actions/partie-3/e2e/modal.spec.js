@@ -188,7 +188,6 @@ test("should not have more than 4 levels of evolutions", async ({ page }) => {
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
     
-   const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count()
-
+    const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count();
     expect(nbEvolutionLevels).toBeLessThanOrEqual(4);
 });

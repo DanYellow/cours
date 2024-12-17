@@ -316,6 +316,7 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listEvolutions);
+    const listEvolutionConditions = [];
     evolutionLine.forEach((evolution, idx) => {
         const li = document.createElement("li");
         const ol = document.createElement("ol");
@@ -340,14 +341,8 @@ displayModal = async (pkmnData) => {
                 const evolutionCondition = document.createElement("p");
                 evolutionCondition.classList.add("text-xs", 'text-center');
                 evolutionCondition.textContent = item.condition;
+                listEvolutionConditions.push(item.condition?.toLowerCase());
                 clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
-
-                const listAcronyms = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]")).map((item) => item.dataset.acronym)
-                
-                modal_DOM.acronymVersions.classList.toggle("hidden", !listAcronyms.some(v => item.condition?.toLowerCase().includes(v)))
-                // if (listAcronyms.some(v => item.condition.toLowerCase().includes(v))) {
-                    
-                // }
             }
 
             const divTag = clone.querySelector("div");
@@ -385,6 +380,19 @@ displayModal = async (pkmnData) => {
         nextArrow.inert = true;
         nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
         modal_DOM.listEvolutions.append(nextArrow);
+    });
+
+    const listAcronymsDOM = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]"));
+    const listAcronyms = listAcronymsDOM.map((item) => item.dataset.acronym)
+    modal_DOM.acronymVersions.classList.toggle("hidden", !listEvolutionConditions.filter(Boolean).some(
+        v => listAcronyms.some(acronym => v.toLowerCase().includes(acronym))
+    ));
+    
+    listAcronyms.forEach((item) => {
+        modal_DOM.acronymVersions.querySelector(`[data-acronym="${item}"]`).classList.toggle(
+            "hidden", 
+            !listEvolutionConditions.filter(Boolean).some(evolutionCondition => evolutionCondition.includes(item.toLowerCase()))
+        );
     });
 
     let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && item.pokemon.name.includes("mega")) || []
