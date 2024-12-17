@@ -321,7 +321,8 @@ displayModal = async (pkmnData) => {
         const li = document.createElement("li");
         const ol = document.createElement("ol");
         ol.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
-        evolution.forEach((item) => {       
+        evolution.forEach((item) => {  
+            console.log(item)     
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
                 true

@@ -95,7 +95,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         
 
         const layoutSwitch = cloneDex.querySelector("[data-layout-switch]")
-        layoutSwitch.checked = JSON.parse(localStorage.getItem("is_grid_layout"));
+        layoutSwitch.checked = JSON.parse(localStorage.getItem("is_grid_layout") === true);
 
         const generationNumber = cloneDex.querySelector(
             "[data-generation-number]"
@@ -164,8 +164,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
         pokedexContainer.append(cloneDex);
 
-        updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout")) ? JSON.parse(localStorage.getItem("is_grid_layout")) : true);
-        updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")) ? JSON.parse(localStorage.getItem("is_grid_layout")) : true)
+        updateSwitchIcons(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
+        updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true)
 
         generationScrollingObserver.observe(headerPokedex);
 
@@ -205,6 +205,9 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     updatePokedexLayout(e.target.checked)
     updateSwitchIcons(e.target.checked);
 });
+
+updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")) === true)
+updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout")) === true);
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
