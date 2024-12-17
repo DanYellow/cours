@@ -80,6 +80,7 @@ const modal_DOM = {
     listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
     statistics: modal.querySelector("[data-statistics]"),
     catchRate: modal.querySelector("[data-catch-rate]"),
+    acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
 };
 
 const dataCache = {};
@@ -340,6 +341,13 @@ displayModal = async (pkmnData) => {
                 evolutionCondition.classList.add("text-xs", 'text-center');
                 evolutionCondition.textContent = item.condition;
                 clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
+
+                const listAcronyms = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]")).map((item) => item.dataset.acronym)
+                
+                modal_DOM.acronymVersions.classList.toggle("hidden", !listAcronyms.some(v => item.condition?.toLowerCase().includes(v)))
+                // if (listAcronyms.some(v => item.condition.toLowerCase().includes(v))) {
+                    
+                // }
             }
 
             const divTag = clone.querySelector("div");
