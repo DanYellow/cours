@@ -33,7 +33,7 @@ const initAccordionSystem = () => {
     const url = new URL(window.location);
     const accordionIndex = Number(url.searchParams?.get("a") || 0)
 
-    document.querySelectorAll("summary").forEach((item, idx) => {
+    document.querySelectorAll(".consignes-conteneur > summary").forEach((item, idx) => {
         item.addEventListener("click", () => {
             if(document.querySelectorAll("summary")[idx].closest("details").open) {
                 url.searchParams.delete("a", idx);
