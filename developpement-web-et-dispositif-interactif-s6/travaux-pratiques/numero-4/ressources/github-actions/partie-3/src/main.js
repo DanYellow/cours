@@ -13,6 +13,7 @@ import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisible
 import { typesBorderColor } from "./colors";
 
 import loadingImage from "/loading.svg?raw";
+import pikachuLoadingImage from "/pikachu-loading.gif"
 import "./style.css";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
@@ -22,8 +23,10 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
+const faviconContainer = document.querySelector("[data-favicon]")
 
 const initialPageTitle = document.title;
+const initialPageFavicon = faviconContainer.getAttribute("href");
 const listPokemon = [];
 
 const setTitleTagForGeneration = () => {
@@ -73,7 +76,8 @@ const loadDetailsModal = (e) => {
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
     document.title = `Chargement - ${initialPageTitle}`;
-
+    faviconContainer.setAttribute("href", pikachuLoadingImage);
+    
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
@@ -216,10 +220,12 @@ window.addEventListener('popstate', async () => {
 
 window.addEventListener("startloading", () => {
     pikachuLoading.classList.remove("hidden");
+    faviconContainer.setAttribute("href", pikachuLoadingImage);
 });
 
 window.addEventListener("endloading", () => {
     pikachuLoading.classList.add("hidden");
+    faviconContainer.setAttribute("href", initialPageFavicon);
 });
 
 if (process.env.NODE_ENV === "development") {

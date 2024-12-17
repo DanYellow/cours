@@ -8,7 +8,7 @@ const endLoadingEvent = new Event("endloading");
 
 const notifyEndRequests = debounce(() => {
     window.dispatchEvent(endLoadingEvent);
-}, 1000);
+}, 850);
 
 const listURLToIntercept = ["https://tyradex.vercel.app/api/v1/gen", "https://pokeapi.co/api/v2/", "https://pokeapi.co/api/v2/pokemon/"]
 
