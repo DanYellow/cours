@@ -8,6 +8,7 @@ import {
     delegateEventHandler,
     isElementInViewport,
 } from "./utils";
+import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
 import { typesBorderColor } from "./colors";
 
@@ -33,19 +34,6 @@ const setTitleTagForGeneration = () => {
 }
 
 export { listPokemon, setTitleTagForGeneration };
-
-const generationScrollingObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((item) =>  {
-            item.target.classList.toggle("is-pinned", item.intersectionRatio < 1)
-        })
-        if(modal.open) {
-            return;
-        }
-        setTitleTagForGeneration()
-    },
-    { threshold: [1] }
-);
 
 const updateSwitchIcons = (isGridLayout) => {
     Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
@@ -92,7 +80,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
         
         const pokedex = cloneDex.querySelector("[data-pokedex]");
-        
 
         const layoutSwitch = cloneDex.querySelector("[data-layout-switch]")
         layoutSwitch.checked = JSON.parse(localStorage.getItem("is_grid_layout") === true);
@@ -153,12 +140,14 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
             aTag.dataset.pokemonData = JSON.stringify(item);
+            aTag.dataset.pokemonId = item.pokedex_id;
             aTag.classList.add(...[
                 typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
             ]);
             aTag.addEventListener("click", loadDetailsModal);
 
             pokedex.append(clone);
+            pokedexItemScrollingObserver.observe(aTag);
         });
         listLoadGenerationBtns.forEach((item) => item.dataset.loadGeneration = Number(generation) + 1);
 
@@ -204,6 +193,10 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     
     updatePokedexLayout(e.target.checked)
     updateSwitchIcons(e.target.checked);
+
+    firstVisiblePkmn.scrollIntoView({
+        behavior: "instant",
+    });
 });
 
 updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")) === true)
