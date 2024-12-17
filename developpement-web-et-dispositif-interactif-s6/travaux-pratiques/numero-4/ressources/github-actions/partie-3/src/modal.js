@@ -395,10 +395,12 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && item.pokemon.name.includes("mega")) || []
+    const alternateEvolutionsPrefix = ["mega", "primal"]
+    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && alternateEvolutionsPrefix.some(el => item.pokemon.name.includes(el))) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
             orbe: "",
+            name: item?.name || item.pokemon?.name,
             sprites: {
                 regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
             }
@@ -416,6 +418,7 @@ displayModal = async (pkmnData) => {
                 pokemonSpriteTemplateRaw.content,
                 true
             );
+
             const img = clone.querySelector("img");
             img.alt = `Sprite de ${item.name}`;
             img.classList.replace("w-52", "w-36");
