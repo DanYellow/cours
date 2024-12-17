@@ -150,13 +150,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const pkmnNameContainer = clone.querySelector("[data-pkmn-name]")
             pkmnNameContainer.textContent = `#${String(item.pokedex_id).padStart(4, '0')}\n${item.name.fr}`;
 
-            pkmnNameContainer.classList.add(...[
-                typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
-            ]);
-
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
             aTag.dataset.pokemonData = JSON.stringify(item);
+            aTag.classList.add(...[
+                typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
+            ]);
             aTag.addEventListener("click", loadDetailsModal);
 
             pokedex.append(clone);
