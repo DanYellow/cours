@@ -329,6 +329,7 @@
                     <li>
                       <p>Ajoutez sa clé privée dans le conteneur Docker</p>
                       <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
+                        <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes "mkdir" et "touch". Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
                     </li>
                     <li>
                       <p>Déplacez le contenu du dossier vers un serveur</p>
@@ -355,7 +356,7 @@
               </li>
             </ul>
             <div class="note-information">
-                <p>Au lieu d'utiliser l'image ubuntu-latest, vous avez également une image de node qui est proposé par GitHub.</p>
+                <p>Au lieu d'utiliser l'image ubuntu-latest, vous avez également une image de node qui est proposée par GitHub.</p>
                 <ul>
                     <li>
                         <a href="https://github.com/actions/setup-node" target="_blank" rel="noopener noreferrer">En savoir plus sur l'image node de GitHub Actions</a>
@@ -371,12 +372,43 @@
                 </ul>
             </div>
             <div class="note-information">
-                <p>Votre CI/CD contient beaucoup d'actions. Rappelez-vous que les jobs de build et de déloiement sont interdépendantes et qu'il faut que les autres jobs doivent être effectuées avant.</p>
+                <p>Votre CI/CD contient beaucoup d'actions. Rappelez-vous que les jobs de build et de déploiement sont interdépendantes et qu'il faut que les autres jobs doivent être effectuées avant.</p>
                 <ul>
                     <li>
                         <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds" target="_blank" rel="noopener noreferrer">Voir documentation sur l'interdépendance des jobs</a>
                     </li>
                 </ul>
+                <p>Parallèlement, il est préférable de faire un job pour le build et un autre pour le déploiement pour faciliter le debbugage. Dans ce contexte, il faudra uploader et télécharger un "artifact". Pour rappel, vous avez les actions "actions/upload-artifact@master" et "actions/download-artifact@master" pour communiquer entre jobs</p>
+                <details>
+                    <summary>
+                        Exemple actions/upload-artifact@master
+                    </summary>
+<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
+    <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Create</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">build</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">npm</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">run</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">build</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Generate</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">artifact</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/upload-artifact@master</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">bundle</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">path:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">./dist</span></pre>
+                </details>
+                <details>
+                    <summary>
+                        Exemple actions/download-artifact@master
+                    </summary>
+<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">needs:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">build</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Related job</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
+    <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Download</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">artifact</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/download-artifact@master</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">bundle</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Name of artifact to download</span></pre>              
+        </details>
             </div>
           </li>
         </ol>
