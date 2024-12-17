@@ -91,7 +91,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             "[data-generation-range]"
         );
         const headerPokedex = cloneDex.querySelector('[data-header-pokedex]');
-
+        
         let nonRegionalPokedexData = pokedexData.filter((item) => {
             const name = item.name.fr;
             const listNames = (item.formes || []).map((form) => form.name.fr);
@@ -115,6 +115,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
             return pkmnUpdated;
         })
+        pokedexContainer.append(cloneDex);
 
         nonRegionalPokedexData.forEach((item, index) => {
             url.searchParams.set("id", item.pokedex_id)
@@ -139,6 +140,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
+            aTag.style.scrollMargin = `${headerPokedex.offsetHeight}px`;
             aTag.dataset.pokemonData = JSON.stringify(item);
             aTag.dataset.pokemonId = item.pokedex_id;
             aTag.classList.add(...[
@@ -150,8 +152,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             pokedexItemScrollingObserver.observe(aTag);
         });
         listLoadGenerationBtns.forEach((item) => item.dataset.loadGeneration = Number(generation) + 1);
-
-        pokedexContainer.append(cloneDex);
 
         updateSwitchIcons(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
         updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true)
