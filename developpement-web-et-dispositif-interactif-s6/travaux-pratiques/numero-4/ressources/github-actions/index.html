@@ -34,14 +34,22 @@
           <span style="color: rgb(181, 189, 104); font-weight: 400;">ls</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">${{</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github.workspace</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">}}</span></pre>
         <ul>
           <li>
-            <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions" target="_blank">Voir l'ensemble des clés d'un fichier de configuration - ouveture dans un nouvel onglet</a>
+            <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions" target="_blank">Voir l'ensemble des clés d'un fichier de configuration - Ouverture dans un nouvel onglet</a>
           </li>
           <li>
-            <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des variables accessibles par défaut - ouveture dans un nouvel onglet</a>
-            <p class="note-information">Vous pouvez également afficher le contenu de variables via la fonction "toJSON" dans un job. Exemple : <code>printf "${{toJSON(github)}}"</code> </p>
+            <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des variables accessibles par défaut - Ouverture dans un nouvel onglet</a>
+            <div class="note-information">
+                <p>Vous pouvez également afficher le contenu de variables via la fonction "toJSON" dans un job. Exemple : <code>printf "${{toJSON(github)}}"</code></p>
+                <p>Github Actions propose également d'autres fonctions que vous pouvez utiliser dans votre pipeline.</p>
+                <ul>
+                    <li>
+                        <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions#functions" target="_blank" rel="noopener noreferrer">Voir liste fonctions Github Actions - Ouverture dans un nouvel onglet </a>
+                    </li>
+                </ul>
+            </div>
           </li>
           <li>
-            <a href="https://learnxinyminutes.com/yaml/" target="_blank" rel="noopener noreferrer">Voir cours très rapide sur le YAML - ouveture dans un nouvel onglet</a>
+            <a href="https://learnxinyminutes.com/yaml/" target="_blank" rel="noopener noreferrer">Voir cours très rapide sur le YAML - Ouverture dans un nouvel onglet</a>
           </li>
         </ul>
       </details>
@@ -310,7 +318,7 @@
               <li>Exécute les tests unitaires</li>
               <li>Exécute les tests e2e
                 <p class="note-information">Il faut exécuter l'outil de e2e en mode CI (headless) surtout pas en mode UI. <a href="https://playwright.dev/docs/ci-intro" target="_blank">Vous trouverez plus d'informations sur le site de playwright</a></p>
-                <p class="note-attention">Les tests e2e peuvent prendre <span class="texte-gras">beaucoup</span> de temps, pour éviter de dépasser votre quota de temps de CI/CD, certains tests ne sont pas exécutés sur en CI/CD grâce à la variable process.env.CI injectée par Github Actions. Toutefois ne faites pas ceci dans un projet professionnel.</p>
+                <p class="note-attention">Les tests e2e peuvent prendre <span class="texte-gras">beaucoup</span> de temps, pour éviter de dépasser votre quota de temps de CI/CD, certains tests ne sont pas exécutés en CI/CD grâce à la variable process.env.CI injectée par Github Actions. Toutefois ne faites pas ceci dans un projet professionnel.</p>
               </li>
               <li>Créez des variables d'environnement affichant les données suivantes sur le site :
                 <ul>
