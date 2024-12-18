@@ -396,7 +396,7 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    const alternateEvolutionsPrefix = ["mega", "primal"]
+    const alternateEvolutionsPrefix = ["mega", "primal", "attack", "defense", "speed"]
     let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && alternateEvolutionsPrefix.some(el => item.pokemon.name.includes(el))) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
@@ -447,7 +447,7 @@ displayModal = async (pkmnData) => {
             true
         );
         const span = cloneHighlight.querySelector("span");
-        span.textContent = "Méga-évolutions";
+        span.textContent = "Méga-évolutions / Formes ";
         span.classList.remove("text-xs");
 
         title.append(cloneHighlight);
