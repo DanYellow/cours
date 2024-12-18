@@ -33,6 +33,7 @@
     "axios": "^1.7.8"
   },
   "imports": {
-    "#src/*.js": "./src/*.js"
+    "#src/*.js": "./src/*.js",
+    "#mocks/*.js": "./__mocks__/*.js"
   }
 }

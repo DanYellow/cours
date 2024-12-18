@@ -1,0 +1,1 @@
+export default {"pre":null,"next":[{"pokedex_id":8,"name":"Carabaffe","condition":"Niveau 16"},{"pokedex_id":9,"name":"Tortank","condition":"Niveau 36"}],"mega":null,"self":{"name":"Carapuce","pokedex_id":7}}
