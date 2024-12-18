@@ -187,8 +187,8 @@
     font-size: 1.15rem;
     background-color: #f6969638;
     margin-bottom: 1rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     margin: 0.5rem 0;
 
     p {
@@ -211,8 +211,8 @@
     font-size: 1.15rem;
     background-color: #96d4f638;
     margin-bottom: 1rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     margin: 0.5rem 0;
 
     p {
@@ -235,8 +235,8 @@
     font-size: 1.15rem;
     background-color: #f6f09638;
     margin-bottom: 1rem;
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     margin: 0.5rem 0;
 
     p {
