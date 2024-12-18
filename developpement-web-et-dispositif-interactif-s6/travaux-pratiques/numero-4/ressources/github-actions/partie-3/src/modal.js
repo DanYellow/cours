@@ -448,7 +448,8 @@ displayModal = async (pkmnData) => {
         );
         const span = cloneHighlight.querySelector("span");
         span.textContent = "Méga-évolutions / Formes ";
-        span.classList.remove("text-xs");
+        span.classList.replace("text-xs", "mega-evolution");
+        span.classList.add("type-name");
 
         title.append(cloneHighlight);
         li.append(title);

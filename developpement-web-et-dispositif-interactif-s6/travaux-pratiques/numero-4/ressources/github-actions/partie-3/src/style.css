@@ -199,3 +199,21 @@ details {
         background-color: var(--bg-modal-color);
     }
 }
+
+.mega-evolution {
+    background: linear-gradient(-45deg, #e98b2d, #80c468, #09b8db, #23d5ab, #e35faa);
+	background-size: 400% 400%;
+	animation: mega-evolution-gradient 15s ease infinite;
+}
+
+@keyframes mega-evolution-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
