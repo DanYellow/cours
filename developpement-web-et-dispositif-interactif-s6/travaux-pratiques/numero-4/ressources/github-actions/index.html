@@ -28,7 +28,7 @@
     <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Définit le type de machine à utiliser</span>
     <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Contient la liste des tâches du job</span>
       <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Say</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">hello</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">to</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">me</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif, nom de la tâche</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">echo</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"Hello $<span style="color: rgb(138, 190, 183); font-weight: 400;">{{ github.actor }}</span> ! 🥳"</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, tâche à effectuer</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">printf</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"Hello $<span style="color: rgb(138, 190, 183); font-weight: 400;">{{ github.actor }}</span> ! 🥳"</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, tâche à effectuer</span>
       <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">List</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">files</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">in</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">the</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span>
         <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">|</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Le pipe (|) permet d'écrire du texte multilignes</span>
           <span style="color: rgb(181, 189, 104); font-weight: 400;">ls</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">${{</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github.workspace</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">}}</span></pre>
@@ -38,6 +38,7 @@
           </li>
           <li>
             <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des variables accessibles par défaut - ouveture dans un nouvel onglet</a>
+            <p class="note-information">Vous pouvez également afficher le contenu de variables via la fonction "toJSON" dans un job. Exemple : <code>printf "${{toJSON(github)}}"</code> </p>
           </li>
           <li>
             <a href="https://learnxinyminutes.com/yaml/" target="_blank" rel="noopener noreferrer">Voir cours très rapide sur le YAML - ouveture dans un nouvel onglet</a>
@@ -310,6 +311,23 @@
               <li>Exécute les tests e2e
                 <p class="note-information">Il faut exécuter l'outil de e2e en mode CI (headless) surtout pas en mode UI. <a href="https://playwright.dev/docs/ci-intro" target="_blank">Vous trouverez plus d'informations sur le site de playwright</a></p>
                 <p class="note-attention">Les tests e2e peuvent prendre <span class="texte-gras">beaucoup</span> de temps, pour éviter de dépasser votre quota de temps de CI/CD, certains tests ne sont pas exécutés sur en CI/CD grâce à la variable process.env.CI injectée par Github Actions. Toutefois ne faites pas ceci dans un projet professionnel.</p>
+              </li>
+              <li>Crée un fichier .env.local et permet d'afficher sur le site, le nom du compte github de la personne qui a initié la dernière pipeline et la date et heure du build
+                <div class="note-information">
+                    <p>
+                        Pour rappel, le nom de la personne qui a exécuté la pipeline est contenu dans "github.actor". N'oubliez pas que vite ne lira pas votre variable si elle ne commence pas par "VITE_".
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/" target="_blank" rel="noopener noreferrer">Voir formattage des dates sous Linux</a>
+                        </li>
+                    </ul>
+                    <p>Pour ajouter / créer du contenu à un fichier depuis la pipeline, il y a la commande "printf". Exemple :</p>
+<pre style="padding: 1rem; border-radius: 0.5rem; font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;"># Note, si vous utilisez "&gt;&gt;" au lieu de "&gt;", ceci ajoutera du contenu au fichier existant. </span>
+<span style="color: rgb(112, 120, 128); font-weight: 400;"># Dans les deux cas ("&gt;" ou "&gt;&gt;"), le fichier sera crée s'il n'existe pas.</span>
+<span style="color: rgb(222, 147, 95); font-weight: 400;">printf</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"Je vais être ajouté à un fichier"</span> &gt; test.tmp.txt</pre>
+                </div>
+                <p class="note-attention">Pensez à tester ceci localement avant d'essayer sur la CI/CD.</p>
             </li>
               <li>Build le projet</li>
               <li>
@@ -328,8 +346,8 @@
                   <p class="texte-gras">Effectuer un rsync en ssh (à faire dans votre fichier yml)</p>
                   <ol>
                     <li>
-                      <p>Ajoutez sa clé privée dans le conteneur Docker</p>
-                      <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
+                      <p>Ajoutez votre clé privée dans un fichier dans le conteneur Docker</p>
+                      <code>printf "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
                         <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes "mkdir" et "touch". Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
                     </li>
                     <li>
