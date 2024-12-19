@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto("/");
 });
 
-test("should add new Pokedex", async ({ page }) => {
+test("should add new Pokedex", { tag: "@smoke" }, async ({ page }) => {
     await page.waitForResponse((resp) =>
         resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
     );
@@ -19,102 +19,100 @@ test("should add new Pokedex", async ({ page }) => {
     );
 });
 
-if (!process.env.CI) {
-    test("should disable load generation button when there's no generation anymore", async ({
-        page,
-    }) => {
-        await page.waitForResponse((resp) =>
-            resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
-        );
-        const loadGenerationBtn = await page
-            .getByTestId("load-generation-btn")
-            .first();
+test("should disable load generation button when there's no generation anymore", async ({
+    page,
+}) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
+    const loadGenerationBtn = await page
+        .getByTestId("load-generation-btn")
+        .first();
+    const fakeGeneration = "42";
+    await loadGenerationBtn.evaluate((node) => {
         const fakeGeneration = "42";
-        await loadGenerationBtn.evaluate((node) => {
-            const fakeGeneration = "42";
-            return node.setAttribute("data-load-generation", fakeGeneration);
-        });
-
-        const dexRequest = page.waitForResponse(
-            `https://tyradex.vercel.app/api/v1/gen/${fakeGeneration}`
-        );
-
-        await expect(loadGenerationBtn).toHaveAttribute(
-            "data-load-generation",
-            fakeGeneration
-        );
-        await loadGenerationBtn.click();
-        await dexRequest;
-
-        await expect(loadGenerationBtn).toHaveAttribute("inert", "");
+        return node.setAttribute("data-load-generation", fakeGeneration);
     });
 
-    test("should not reload the page after select a Pokemon", async ({
-        page,
-    }) => {
-        await page.waitForResponse((resp) =>
-            resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
-        );
+    const dexRequest = page.waitForResponse(
+        `https://tyradex.vercel.app/api/v1/gen/${fakeGeneration}`
+    );
 
-        const firstPkmn = page.getByTestId("pokemon").first();
-        await firstPkmn.waitFor();
-        firstPkmn.click();
+    await expect(loadGenerationBtn).toHaveAttribute(
+        "data-load-generation",
+        fakeGeneration
+    );
+    await loadGenerationBtn.click();
+    await dexRequest;
 
-        await expect(page).not.toHaveTitle("Pokédex v1.0.0");
-    });
+    await expect(loadGenerationBtn).toHaveAttribute("inert", "");
+});
 
-    test("should change title's value according to current generation displayed", async ({
-        page,
-    }) => {
-        await page.waitForResponse((resp) =>
-            resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
-        );
+test("should not reload the page after select a Pokemon", { tag: "@smoke" }, async ({
+    page,
+}) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
 
-        const loadGenerationButton = await page
-            .getByTestId("load-generation-btn")
-            .first();
-        loadGenerationButton.click();
-        const nextGenerationNumber = await loadGenerationButton.getAttribute(
-            "data-load-generation"
-        );
+    const firstPkmn = page.getByTestId("pokemon").first();
+    await firstPkmn.waitFor();
+    await firstPkmn.click();
 
-        await page.waitForResponse((resp) =>
-            resp
-                .url()
-                .includes(
-                    `https://tyradex.vercel.app/api/v1/gen/${nextGenerationNumber}`
-                )
-        );
+    await expect(page).not.toHaveTitle("Pokédex v1.0.0");
+});
 
-        for (let index = 0; index < 5; index++) {
-            await page.mouse.wheel(0, 400);
-            await page.waitForTimeout(0.5);
-        }
+test("should change title's value according to current generation displayed", async ({
+    page,
+}) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
 
-        await expect(page).toHaveTitle(
-            new RegExp(String.raw`Génération #${nextGenerationNumber}`, "g")
-        );
-    });
+    const loadGenerationButton = await page
+        .getByTestId("load-generation-btn")
+        .first();
+    loadGenerationButton.click();
+    const nextGenerationNumber = await loadGenerationButton.getAttribute(
+        "data-load-generation"
+    );
 
-    test("should listen to query string params", async ({ page }) => {
-        await page.waitForResponse((resp) =>
-            resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
-        );
+    await page.waitForResponse((resp) =>
+        resp
+            .url()
+            .includes(
+                `https://tyradex.vercel.app/api/v1/gen/${nextGenerationNumber}`
+            )
+    );
 
-        const firstPkmn = page.getByTestId("pokemon").first();
-        await firstPkmn.waitFor();
-        firstPkmn.click();
+    for (let index = 0; index < 5; index++) {
+        await page.mouse.wheel(0, 400);
+        await page.waitForTimeout(0.5);
+    }
 
-        await expect(page.getByTestId("pokemon-modal")).toHaveAttribute(
-            "open",
-            ""
-        );
+    await expect(page).toHaveTitle(
+        new RegExp(String.raw`Génération #${nextGenerationNumber}`, "g")
+    );
+});
 
-        await page.goBack();
+test("should listen to query string params @smoke", async ({ page }) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
 
-        await expect(page.getByTestId("pokemon-modal")).not.toHaveAttribute(
-            "open",
-            ""
-        );
-    });
-}
+    const firstPkmn = page.getByTestId("pokemon").first();
+    await firstPkmn.waitFor();
+    await firstPkmn.click();
+
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute(
+        "open",
+        ""
+    );
+
+    await page.goBack();
+
+    await expect(page.getByTestId("pokemon-modal")).not.toHaveAttribute(
+        "open",
+        ""
+    );
+});

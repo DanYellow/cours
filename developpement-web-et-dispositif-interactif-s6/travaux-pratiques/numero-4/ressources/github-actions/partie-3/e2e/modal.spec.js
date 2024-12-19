@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("should open modal", async ({ page }) => {
+test("should open modal", { tag: "@smoke" }, async ({ page }) => {
     await page.goto("/");
     const firstPkmn = await page.getByTestId("pokemon").first();
     const firstPkmnDataRaw = await firstPkmn.getAttribute("data-pokemon-data");
@@ -29,167 +29,165 @@ test("should close modal", async ({ page }) => {
     await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(0);
 });
 
-if (!process.env.CI) {
-    test("should load next pokemon", async ({ page }) => {
-        const pkmnId = 25;
-        await page.goto(`/?id=${pkmnId}`);
+test("should load next pokemon", { tag: "@smoke" }, async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
 
-        await Promise.all([
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
-            ),
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
-            )
-        ])
+    await Promise.all([
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
+        ),
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
+        )
+    ])
 
-        await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
 
-        await page.getByTestId("next-pkmn").first().click();
-        const currentUrl = new URL(await page.url());
+    await page.getByTestId("next-pkmn").first().click();
+    const currentUrl = new URL(await page.url());
 
-        const nextPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
-        const nextPokemonData = JSON.parse(nextPokemonDataRaw);
-        
-        await expect(currentUrl.searchParams.get("id")).toEqual(String(nextPokemonData.pokedex_id));
-    });
+    const nextPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
+    const nextPokemonData = JSON.parse(nextPokemonDataRaw);
+    
+    await expect(currentUrl.searchParams.get("id")).toEqual(String(nextPokemonData.pokedex_id));
+});
 
-    test("should load previous pokemon", async ({ page }) => {
-        const pkmnId = 25;
-        await page.goto(`/?id=${pkmnId}`);
+test("should load previous pokemon", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
 
-        await Promise.all([
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
-            ),
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
-            )
-        ])
+    await Promise.all([
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
+        ),
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
+        )
+    ])
 
-        await page.getByTestId("previous-pkmn").first().click();
-        const currentUrl = new URL(await page.url());
+    await page.getByTestId("previous-pkmn").first().click();
+    const currentUrl = new URL(await page.url());
 
-        const previousPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
-        const previousPokemonData = JSON.parse(previousPokemonDataRaw);
-        
-        await expect(currentUrl.searchParams.get("id")).toEqual(String(previousPokemonData.pokedex_id));
-    });
+    const previousPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
+    const previousPokemonData = JSON.parse(previousPokemonDataRaw);
+    
+    await expect(currentUrl.searchParams.get("id")).toEqual(String(previousPokemonData.pokedex_id));
+});
 
-    test("should open regional form", async ({ page }) => {
-        const pkmnId = 19;
-        await page.goto(`/?id=${pkmnId}`);
+test("should open regional form", async ({ page }) => {
+    const pkmnId = 19;
+    await page.goto(`/?id=${pkmnId}`);
 
-        await Promise.all([
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
-            ),
-            page.waitForResponse((resp) =>
-                resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
-            )
-        ])
+    await Promise.all([
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`)
+        ),
+        page.waitForResponse((resp) =>
+            resp.url().includes(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`)
+        )
+    ])
 
-        await page.getByTestId("regional-forms").first().click();
-        await page.getByTestId("regional-forms").getByTestId("pokemon").first().click();
-        
-        const currentUrl = new URL(await page.url());
-        await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
-    });
+    await page.getByTestId("regional-forms").first().click();
+    await page.getByTestId("regional-forms").getByTestId("pokemon").first().click();
+    
+    const currentUrl = new URL(await page.url());
+    await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
+});
 
-    test("should keep title tag value after scroll", async ({ page }) => {
-        const pkmnId = 25;
-        await page.goto(`/?id=${pkmnId}`);
+test("should keep title tag value after scroll", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
 
-        await Promise.all([
-            page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
-            page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
-            page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
-            page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
-        ])
+    await Promise.all([
+        page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
+        page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
+    ])
 
-        const modal = page.locator("[data-testid='pokemon-modal'][open]");
-        await modal.waitFor();
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
 
-        const title = await page.title()
+    const title = await page.title()
 
-        await page.mouse.wheel(0, 550);
-        await page.waitForTimeout(2);
+    await page.mouse.wheel(0, 550);
+    await page.waitForTimeout(2);
 
-        await expect(page).toHaveTitle(title);
-    });
+    await expect(page).toHaveTitle(title);
+});
 
-    test("should cache dex's data", async ({ page }) => {
-        const pkmnId = 25;
-        await page.goto(`/?id=${pkmnId}`);
+test("should cache dex's data", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
 
-        await Promise.all([
-            page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
-            page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
-            page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
-            page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
-        ])
+    await Promise.all([
+        page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
+        page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
+    ])
 
-        const modal = page.locator("[data-testid='pokemon-modal'][open]");
-        await modal.waitFor();
-        
-        await page.getByTestId("previous-pkmn").first().click();
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    await page.getByTestId("previous-pkmn").first().click();
 
-        const dexRequest = page.waitForResponse("https://tyradex.vercel.app/api/v1/gen/1", { timeout: 5000 });
-        try {
-            await dexRequest;
-        } catch {
-            expect(true).toBeTruthy()
-        }
-    });
+    const dexRequest = page.waitForResponse("https://tyradex.vercel.app/api/v1/gen/1", { timeout: 5000 });
+    try {
+        await dexRequest;
+    } catch {
+        expect(true).toBeTruthy()
+    }
+});
 
-    test("should have a label for all abilities", async ({ page }) => {
-        const pkmnId = 13;
-        await page.goto(`/?id=${pkmnId}`);
+test("should have a label for all abilities", async ({ page }) => {
+    const pkmnId = 13;
+    await page.goto(`/?id=${pkmnId}`);
 
-        const modal = page.locator("[data-testid='pokemon-modal'][open]");
-        await modal.waitFor();
-        
-        const listLocators = await page.locator("[data-list-abilities] summary").all();
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    const listLocators = await page.locator("[data-list-abilities] summary").all();
 
-        for (const element of listLocators) {
-            await expect(element).not.toBeEmpty();
-        }
-    });
+    for (const element of listLocators) {
+        await expect(element).not.toBeEmpty();
+    }
+});
 
-    test("should have a label for all abilities after loading Pokémon and its Pokédex", async ({ page }) => {
-        const pkmnId = 171;
-        await page.goto(`/?id=${pkmnId}`);
+test("should have a label for all abilities after loading Pokémon and its Pokédex", async ({ page }) => {
+    const pkmnId = 171;
+    await page.goto(`/?id=${pkmnId}`);
 
-        const modal = page.locator("[data-testid='pokemon-modal'][open]");
-        await modal.waitFor();
-        
-        const listAbilities = await page.locator("[data-list-abilities] summary").all();
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    const listAbilities = await page.locator("[data-list-abilities] summary").all();
 
-        for (const element of listAbilities) {
-            await expect(element).not.toBeEmpty();
-        }
+    for (const element of listAbilities) {
+        await expect(element).not.toBeEmpty();
+    }
 
-        await page.getByTestId("close-modal").first().click();
+    await page.getByTestId("close-modal").first().click();
 
-        const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
-        loadGenerationButton.click();
+    const loadGenerationButton = await page.getByTestId("load-generation-btn").first()
+    loadGenerationButton.click();
 
-        await page.getByTestId("pokemon").nth(170).click();
-        await modal.waitFor();
+    await page.getByTestId("pokemon").nth(170).click();
+    await modal.waitFor();
 
-        for (const element of listAbilities) {
-            await expect(element).not.toBeEmpty();
-        }
-    });
+    for (const element of listAbilities) {
+        await expect(element).not.toBeEmpty();
+    }
+});
 
-    test("should not have more than 4 levels of evolutions", async ({ page }) => {
-        const pkmnId = 265;
-        await page.goto(`/?id=${pkmnId}`);
+test("should not have more than 4 levels of evolutions", async ({ page }) => {
+    const pkmnId = 265;
+    await page.goto(`/?id=${pkmnId}`);
 
-        const modal = page.locator("[data-testid='pokemon-modal'][open]");
-        await modal.waitFor();
-        
-        const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count();
-        expect(nbEvolutionLevels).toBeLessThanOrEqual(4);
-    });
-}
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count();
+    expect(nbEvolutionLevels).toBeLessThanOrEqual(4);
+});
