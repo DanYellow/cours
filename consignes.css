@@ -181,11 +181,12 @@
 }
 
 .note-importante {
+    --color: rgb(218, 1, 1);
     font-family: Helvetica, Arial, sans-serif;
-    border-left: 5px solid rgb(218, 1, 1);
+    border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
-    background-color: #f6969638;
+    background-color: rgb(from var(--color) r g b / 0.1);
     margin-bottom: 1rem;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -205,11 +206,12 @@
 }
 
 .note-information {
+    --color: #0085f2;
     font-family: Helvetica, Arial, sans-serif;
-    border-left: 5px solid rgb(4, 0, 255);
+    border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
-    background-color: #96d4f638;
+    background-color: rgb(from var(--color) r g b / 0.12);
     margin-bottom: 1rem;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -229,11 +231,12 @@
 }
 
 .note-attention {
+    --color: rgb(255, 238, 0);
     font-family: Helvetica, Arial, sans-serif;
-    border-left: 5px solid rgb(255, 238, 0);
+    border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
-    background-color: #f6f09638;
+    background-color: rgb(from var(--color) r g b / 0.06);
     margin-bottom: 1rem;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -297,4 +300,42 @@
 .entete-consignes {
     max-width: 1400px;
     margin: 0 auto;
+}
+
+.inner-note {
+    font-size: 1.2rem;
+    margin: 1.75rem 1.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    overflow: hidden;
+    font-style: italic;
+
+    &::before,
+    &::after{
+        position: absolute;
+    }   
+
+    &::before {
+        /* color: currentColor;
+        content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M9.983 3v7.391C9.983 16.095 6.252 19.961 1 21l-.995-2.151C2.437 17.932 4 15.211 4 13H0V3h9.983zM24 3v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151C16.437 17.932 18 15.211 18 13h-3.983V3H24z'/></svg>");
+        left: 0; */
+
+        background-color: var(--color);
+        content: '';
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        mask-size: cover;
+        mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='currentColor'><path d='M9.983 3v7.391C9.983 16.095 6.252 19.961 1 21l-.995-2.151C2.437 17.932 4 15.211 4 13H0V3h9.983zM24 3v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151C16.437 17.932 18 15.211 18 13h-3.983V3H24z'/></svg>") no-repeat 0 0;
+        left: 0;
+    }   
+
+    &::after {
+        content: "";
+        left: 5px;
+        top: 25px;
+        width: 1px;
+        height: 100%;
+        background-color: var(--color);
+    }    
 }
