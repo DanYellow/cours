@@ -3,6 +3,8 @@ _tmp*
 
 __MACOSX/
 
+.DS_STORE
+
 .~lock.*
 
 *.dist.*
