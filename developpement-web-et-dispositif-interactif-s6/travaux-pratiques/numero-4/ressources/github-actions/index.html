@@ -88,7 +88,7 @@
           https://github.com/votre-pseudo/nom-du-depot/actions
         </p>
         <div class="note-information">
-            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion de vos  fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github)</p>
+            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion de vos  fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github).</p>
             <ul>
                 <li>
                     <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions" target="_blank" rel="noopener noreferrer">Télécharger l'extension GitHub Actions pour VS Code</a>
@@ -317,16 +317,34 @@
               <li>Lint le code javascript</li>
               <li>Exécute les tests unitaires</li>
               <li>Exécute les tests e2e
-                <p class="note-information">Il faut exécuter l'outil de e2e en mode CI (headless) surtout pas en mode UI. <a href="https://playwright.dev/docs/ci-intro" target="_blank">Vous trouverez plus d'informations sur le site de playwright</a></p>
-                
+                <div class="note-information">
+                    <p>Il faut exécuter l'outil de e2e en mode CI (headless) surtout pas en mode UI.</p>
+                    <ul>
+                        <li>
+                            <a href="https://playwright.dev/docs/ci-intro" target="_blank">Voir documentation sur playwright en mode headless - Ouverture dans un nouvel onglet</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="note-attention">
                     <p>
                         Les tests e2e peuvent prendre <span class="texte-gras">beaucoup</span> de temps car toutes les configurations (projects) sont testés pour chaque test (ici trois "projects") et ils ne sont pas parallelisés. Pour éviter de dépasser votre quota de temps de CI/CD, précisez un des "projects" listé dans le fichier "playwright.config.js" (clé "projects") grâce au paramètre "--project=PROJECT_NAME".
                     </p>
                     <p>Certains tests ont été taggués en "@smoke", vous pouvez exécuter des tests par tag grâce au paramètre --grep.</p>
                     <div class="inner-note">
-                        <p>Les smoke tests désignent des tests automatisés (ou non) préliminaires. Représantant des fonctionnalités critiques, s'ils échouent, il est inutile de lancer les autres tests.</p>
+                        <p>Les smoke tests (ou tests de fumée) désignent des tests automatisés (ou non) préliminaires. Testant des fonctionnalités critiques, s'ils échouent, il est inutile de lancer les autres tests.</p>
                     </div>
+
+                    <ul>
+                        <li>
+                            <a href="https://playwright.dev/docs/test-annotations#tag-tests" target="_blank" rel="noopener noreferrer">Voir documentation sur les tests par tag - Ouverture dans un nouvel onglet</a>
+                        </li>
+                        <li>
+                            <a href="https://glossary.istqb.org/en_US/term/smoke-test" target="_blank" rel="noopener noreferrer">Voir définition (anglais) de smoke tests selon International Software Testing Qualifications Board (ISTQB) - Ouverture dans un nouvel onglet</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Glossary/Smoke_Test" target="_blank" rel="noopener noreferrer">Voir définition de smoke tests sur mdn - Ouverture dans un nouvel onglet</a>
+                        </li>
+                    </ul>
                 </div>
             </li>
               <li>Créez des variables d'environnement affichant les données suivantes sur le site :
