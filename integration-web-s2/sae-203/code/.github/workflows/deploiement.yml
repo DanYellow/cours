@@ -2,20 +2,47 @@ name: Déploiement
 
 run-name: Déploiement initié par ${{ github.actor }}
 
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+      inputs:
+        bdd_chemin:
+          type: string
+          required: false
+          description: Chemin du fichier d'export de la base de données
+          default: 'mon-dump.sql'
 
 jobs:
+  migration_bdd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Set github user
+        run: git config --global user.email "test@example.com" && git config --global user.name "CI/CD"
+      - run: |
+          sudo /etc/init.d/mysql start
+        if: ${{ hashFiles(github.event.inputs.bdd_chemin) != '' }}
+      - name: Import db
+        if: ${{ hashFiles(github.event.inputs.bdd_chemin) != '' }}
+        run: |
+          mysql -u ${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -h ${{ secrets.MYSQL_SERVER }} 
+          mysql -u ${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -h ${{ secrets.MYSQL_SERVER }} ${{ secrets.MYSQL_DATABASE }} < ${{ github.event.inputs.bdd_chemin }}
+      - name: Rapport migration bdd
+        if: ${{ hashFiles(github.event.inputs.bdd_chemin) == '' }}
+        run: echo "::notice title=${{ github.job.name }}::Le fichier ${{ github.event.inputs.bdd_chemin }} n'a pas été trouvé. Migration de données ignorée." 
+
   deploiement:
     runs-on: ubuntu-latest
+    needs: [migration_bdd]
     steps:
       - name: Clone dépôt
         uses: actions/checkout@v4
 
-      - name: Set github user
-        run: git config --global user.email "test@example.com" && git config --global user.name "CI/CD"
+      - name: Crée utilisateur git
+        run: git config user.email "test@example.com" && git config user.name "CI/CD"
 
-      - name: Autorise le compte sur le serveur de production
-        run: echo "${{secrets.SSH_KEY}}" > ~/deploy_key && chmod 400 ~/deploy_key
+      - name: Autorise la clé sur le serveur de production
+        run: echo "${{ secrets.SSH_KEY }}" > ~/deploy_key && chmod 400 ~/deploy_key
 
-      - name: Déplace les fichiers
+      - name: Déplace les fichiers modifiés sur le serveur
         run: rsync -Pavz -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ./ ${{ secrets.USER }}@${{ secrets.SERVER }}:~/www
