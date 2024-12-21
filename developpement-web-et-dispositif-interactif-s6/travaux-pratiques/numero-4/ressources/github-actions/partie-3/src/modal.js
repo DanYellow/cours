@@ -396,8 +396,7 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    const alternateEvolutionsPrefix = ["mega", "primal", "attack", "defense", "speed", "origin"]
-    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && alternateEvolutionsPrefix.some(el => item.pokemon.name.includes(el))) || []
+    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
             orbe: "",
