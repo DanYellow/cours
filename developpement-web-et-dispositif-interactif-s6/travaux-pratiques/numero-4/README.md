@@ -10,12 +10,20 @@ Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en ap
 ## Rendus attendus
 - Lien de votre projet sur github
 
+## Notation
+Les critères suivants seront évalués.
+
+- Qualité du code et accessibilité
+- Affichage dans le navigateur
+- Bon fonctionnement des fonctionnalités attendues
+
 ## Votre liste à faire
 - [x] Lire les consignes
 - [ ] Mettre le projet sur github et ajouter vos collaborateurs
+
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
-  - Exemple : Vous chargez le Pokémon 145, par défaut son Pokédex n'est pas chargé ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
+  - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
 - [ ] Afficher le nom étranger des Pokémon
 - [ ] Afficher les numéros du Pokémon en fonction des régions
@@ -26,13 +34,15 @@ Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en ap
   - On doit pouvoir rejouer le cri
 - [ ] Avec l'aide de l'API github, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) : 
-    - Nom, prénom, pseudonyme le tout devant rediriger vers 
+    - Nom, prénom, pseudonyme le tout devant rediriger vers le compte du membre
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
   > - Il est préférable d'utiliser php et envoyer du json au front-end pour réaliser cette tâche, ainsi vous évitez d'exposer votre token d'API. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire. 
   > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité
   > - Pour lire un fichier 
+
+> Le site est reponsive et doit le rester.
 
 ### CI/CD
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
