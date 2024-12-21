@@ -396,7 +396,7 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    const alternateEvolutionsPrefix = ["mega", "primal", "attack", "defense", "speed"]
+    const alternateEvolutionsPrefix = ["mega", "primal", "attack", "defense", "speed", "origin"]
     let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && alternateEvolutionsPrefix.some(el => item.pokemon.name.includes(el))) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
