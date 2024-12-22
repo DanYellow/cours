@@ -56,6 +56,14 @@ Les critères suivants seront évalués.
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] ~~Migre la base de données~~
+  - [ ] Rendre inaccessible les fichiers .env au public
+    - Autrement dit, on ne doit pas pouvoir accéder aux fichiers en écrivant mon.url/.env
+    - Passez par un fichier .htaccess pour bloquer l'accès au fichier .env, ce fichier peut être crée durant la pipeline avec le code suivant, il peut être exécuté directement depuis le fichier yaml ou depuis un fichier .sh :
+    ```sh
+    cat > .htaccess << EOF
+    # Contenu du fichier .htaccess
+    EOF
+    ```
 
 > La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (merge request) doit être testée par la pipeline (évènement "merge_request").
 
