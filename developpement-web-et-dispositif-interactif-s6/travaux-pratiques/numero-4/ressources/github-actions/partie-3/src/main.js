@@ -57,7 +57,6 @@ const updatePokedexLayout = (isGridLayout) => {
         item.classList.toggle("grid-cols-3", isGridLayout);
         item.classList.toggle("md:grid-cols-5", isGridLayout);
         item.classList.toggle("lg:grid-cols-6", isGridLayout);
-        item.classList.toggle("px-2", isGridLayout);
         item.classList.toggle("grid-cols-1", !isGridLayout);
     });
 }
