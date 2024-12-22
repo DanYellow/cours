@@ -20,6 +20,10 @@ Les critères suivants seront évalués.
 ## Votre liste à faire
 - [x] Lire les consignes
 - [ ] Mettre le projet sur github et ajouter vos collaborateurs
+- [ ] Générer un token pour l'API github
+  - [Didacticiel sur la création de token](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+  > Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs
+  > Note 2 : **Ce token est une donnée sensible, elle ne doit pas être dans votre dépôt**
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
@@ -28,28 +32,30 @@ Les critères suivants seront évalués.
 - [ ] Afficher le nom étranger des Pokémon
 - [ ] Afficher les numéros du Pokémon en fonction des régions
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes relatives au Pokémon affiché dans la modale
-  - https://tcgdex.dev/rest/filtering-sorting-pagination
-  - Au clic sur une carte, vous devez afficher les détails de la carte
+  - [Accéder à l'API tcgdex](https://tcgdex.dev)
+  - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée
+  - Optionnel : Au clic sur une carte, vous devez afficher ses détails
 - [ ] Grâce au module wavesurfer.js, afficher le spectre sonore du cri du Pokémon affiché
   - On doit pouvoir rejouer le cri
 - [ ] Avec l'aide de l'API github, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) : 
-    - Nom, prénom, pseudonyme le tout devant rediriger vers le compte du membre
+    - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
-  > - Il est préférable d'utiliser php et envoyer du json au front-end pour réaliser cette tâche, ainsi vous évitez d'exposer votre token d'API. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire. 
-  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité
-  > - Pour lire un fichier 
+  > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables : 
+  >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end
+  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite 
+  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire. 
 
-> Le site est reponsive et doit le rester.
+> Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
 
 ### CI/CD
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
   - [ ] Déploie le projet en production
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
-  - [ ] Migre la base de données
+  - [ ] ~~Migre la base de données~~
 
 > La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (merge request) doit être testée par la pipeline (évènement "merge_request").
 
@@ -58,7 +64,7 @@ Les critères suivants seront évalués.
     - Note : Le dossier doit être crée par la CI/CD. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
-  - [ ] Migre la base de données
+  - [ ] ~~Migre la base de données~~
   - [ ] Affiche la branche déployée sur le site
 
 > Le nom de la branche se trouve dans la variable "github.ref_name". Cette pipeline peut être manuelle ou automatique.
