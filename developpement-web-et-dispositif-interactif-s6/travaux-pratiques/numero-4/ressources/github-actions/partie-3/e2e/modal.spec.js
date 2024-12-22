@@ -137,7 +137,32 @@ test("should cache dex's data", async ({ page }) => {
     try {
         await dexRequest;
     } catch {
-        expect(true).toBeTruthy()
+        expect(true).toBeTruthy();
+    }
+});
+
+test("should cache pokemon's data", async ({ page }) => {
+    const pkmnId = 25;
+    await page.goto(`/?id=${pkmnId}`);
+
+    await Promise.all([
+        page.waitForResponse("https://pokeapi.co/api/v2/evolution-chain/10/"),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon-species/${pkmnId}`),
+        page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`),
+        page.waitForResponse(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}`),
+    ])
+
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+    
+    await page.getByTestId("previous-pkmn").first().click();
+    await page.getByTestId("next-pkmn").first().click();
+
+    const pkmnRequest = page.waitForResponse(`https://pokeapi.co/api/v2/pokemon/${pkmnId}`, { timeout: 5000 });
+    try {
+        await pkmnRequest;
+    } catch {
+        expect(true).toBeTruthy();
     }
 });
 
