@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consignes TP - Pandas et NumPy</title>
+    <title>Pandas et NumPy Consignes - TP</title>
+    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+
   </head>
 
   <body>
@@ -16,22 +19,47 @@
       <h1 class="h1">Consignes de la pratique - Pandas et NumPy</h1>
       <details class="consignes-conteneur" open>
         <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 1 (cliquer pour afficher / cacher)</h2>
         </summary>
-        <ol class="liste-consignes">
-          <li>
-            (Si ce n'est pas déjà fait) Installez Anaconda (contient Jupyter). <a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener noreferrer">Télécharger Anaconda (gratuit - Ouverture dans un nouvel onglet)</a>
-          </li>
-          <li>
-            Ouvrez et consultez le notebook "numpy"
-           </li>
-        </ol>
+        <div class="tab-wrapper">
+            <ul class="list-tabs">
+                <li>
+                    <button data-tab-name="collab">J'utilise Google Collab</button>
+                </li>
+                <li>
+                    <button data-tab-name="no-collab">Je n'utilise pas Google Collab</button>
+                </li>
+            </ul>
+            <ul class="list-tab-content">
+                <li class="tab-content" data-tab-content="collab">
+                    <ol class="liste-consignes">
+                        <li>
+                          Ouvrez et consultez le notebook "numpy"
+                        </li>
+                    </ol>
+                </li>
+                <li class="tab-content" data-tab-content="no-collab">
+                    <ol class="liste-consignes">
+                        <li>
+                            (Si ce n'est pas déjà fait) Installez Anaconda (contient Jupyter).
+                            <ul>
+                                <li>
+                                    <a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener noreferrer">Télécharger Anaconda (gratuit - Ouverture dans un nouvel onglet)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Ouvrez et consultez le notebook "numpy"
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
         <p class="note-information">Si vous avez oublié comment on développe en Python, il y a le notebook "initiation-python".</p>
-        <p class="note-information">Si vous utilisez Google Colab, vous n'avez pas besoin d'effectuer l'étape 1</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 2 (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
           <li>Réalisez les exercices du fichier "initiation-pandas-1.ipynb" </li>
@@ -39,11 +67,16 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 3 (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
             <li>
-                Récupérez le jeu de données des naissances sur le site de l'INSEE. <a href="https://www.insee.fr/fr/statistiques/7633685?sommaire=7635552" target="_blank" rel="noopener noreferrer">Télécharger le jeu de données</a>
+                Récupérez le jeu de données le plus récent des naissances sur le site de l'INSEE.
+                <ul>
+                    <li>
+                        <a href="https://www.insee.fr/fr/recherche/recherche-statistiques?q=prenoms&debut=0&categorie=6" target="_blank" rel="noopener noreferrer">Télécharger le jeu de données</a>
+                    </li>
+                </ul>
                 <p class="note-information">Il faut sélectionner le fichier csv de la partie "Fichiers par département de naissance".</p>
             </li>
             <li>Consultez le notebook "initiation-pandas-2.ipynb"</li>
@@ -52,7 +85,7 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
             <li>

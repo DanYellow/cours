@@ -271,9 +271,10 @@
         display: flex;
         overflow: hidden;
         width: fit-content;
-        column-gap: 0.2rem;
+        column-gap: 0.25rem;
         padding: 0;
         margin-top: 0.7rem;
+        margin-bottom: 0.25rem;
     }
 
     button {
@@ -297,6 +298,7 @@
         border: 1px solid white;
         padding: 0.5rem;
         border-radius: 0.35rem;
+        margin-top: 0;
 
         @media (prefers-color-scheme: light) {
             border: 1px solid black;

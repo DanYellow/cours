@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png"  />
-    <title>Consignes TP - Github actions</title>
+    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
+    <title> Github actions Consignes - TP</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
-    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
       <h1 class="h1">Consignes de la pratique - Github actions</h1>
       <details class="consignes-conteneur">
          <summary>
-          <h1 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h2>
         </summary>
         <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quelles actions se lance le pipeline. Il est possible de préciser la branche ou le type de fichier</span>
@@ -55,7 +55,7 @@
       </details>
       <details class="consignes-conteneur" open>
         <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 1 (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
           <li>Créez un dépôt sur votre compte Github</li>
@@ -75,7 +75,7 @@
             </ul>
           </li>
           <li>
-            Ajoutez une commande Linux de votre choix à votre fichier d'Actions et observez le résultat dans GitHub 
+            Ajoutez une commande Linux de votre choix à votre fichier d'Actions et observez le résultat dans GitHub
             <p class="note-information">
               N'oubliez pas de commiter et pusher vos modifications, sinon, vous
               ne verrez pas vos mises à jour.
@@ -98,7 +98,7 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 2 (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
           <li>
@@ -192,9 +192,9 @@
                 commit commence par "fix:", ceci incrémentera le numéro de patch
                 : X.X.PATCH. Il est bien évidemment possible d'avoir plusieurs
                 commits commençant par "feat:" ou "fix:" au sein de la même
-                version. 
+                version.
                 </p>
-                <p>    
+                <p>
                 Vous pouvez réaliser votre tâche (fonctionnalité / résolution de bug) en plusieurs commits mais un seul d'entre-deux doit avoir le préfixe "feat:" ou "fix:" pour le même sujet.
                 Même si vous avez plusieurs "feat" ou "fix" dans vos commits, votre numéro de version n'incrémentera qu'une seule fois.
               </p>
@@ -279,7 +279,7 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Partie 3 (cliquer pour afficher / cacher)</h2>
         </summary>
         <div class="note-information">
           <p>
@@ -364,7 +364,7 @@
                             <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables" target="_blank" rel="noopener noreferrer">Voir documentation des variables d'environnement - Ouverture dans un nouvel onglet</a>
                         </li>
                     </ul>
-                    
+
                 </div>
                 <p class="note-attention">Pensez à tester ceci localement avant d'essayer sur la CI/CD.</p>
             </li>
@@ -374,13 +374,45 @@
                 <div class="note-information">
                   <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
                   <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" pour ainsi vous permettre de faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. </p>
-                  <p class="texte-gras">Ajoutez sa clé ssh à un serveur (à faire dans le terminal)</p>
+                  <p>Puis vous devrez ajouter votre clé privée parmi les secrets de votre dépôt.</p>
+                  <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
                   <ol>
-                    <li><code>ssh-copy-id user@server</code> 
+                    <li><code>ssh-copy-id user@server</code>
                     <p class="note-attention">ssh-copy-id copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (extension .pub)</p>
                     </li>
                     <li>Entrez le mot de passe ssh du serveur qui doit vous autoriser</li>
                     <li>Et voilà</li>
+                  </ol>
+                  <p class="texte-gras">Ajouter la clé ssh aux secrets du dépôt</p>
+                  <ol>
+                    <li>Copiez votre clé privée
+                        <div class="tab-wrapper">
+                            <ul class="list-tabs">
+                                <li>
+                                    <button data-tab-name="windows">Windows</button>
+                                </li>
+                                <li>
+                                    <button data-tab-name="linux-macos">Linux / macOS</button>
+                                </li>
+                            </ul>
+                            <ul class="list-tab-content">
+                                <li class="tab-content" data-tab-content="windows">
+                                    <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
+<span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key | clip
+<span style="color: rgb(112, 120, 128); font-weight: 400;"># Ou </span>
+<span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key
+<span style="color: rgb(112, 120, 128); font-weight: 400;"># Vous copierez vous-même la clé qui sera affichée dans le terminal</span></pre>
+<p>Note : Il faut impérativement que git bash soit installé sur votre ordinateur Windows, car "cat" est une commande unix.</p>
+                                </li>
+                                <li class="tab-content" data-tab-content="linux-macos">
+<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"># Copie votre clé privée dans le presse-papier</span>
+<span style="color: rgb(222, 147, 95); font-weight: 400;">pbcopy</span> &lt; ~/.ssh/my_private_key</pre>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Sur Github, dans le dépôt, allez dans Settings > Secrets and Variables > Actions. Ajoutez un nouveau "repository secret", appelez-le comme vous le souhaitez et collez comme valeur votre clé privée.</li>
+
                   </ol>
                   <p class="texte-gras">Effectuer un rsync en ssh (à faire dans votre fichier yml)</p>
                   <ol>
@@ -390,7 +422,7 @@
                         <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes "mkdir" et "touch". Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
                     </li>
                     <li>
-                      <p>Déplacez le contenu du dossier vers un serveur</p>
+                      <p>Déplacez le contenu du dossier vers un serveur (commande à adapter)</p>
                       <code>rsync -Pavz -e "ssh -i __ssh_key_path__  -o StrictHostKeyChecking=no" source/ user@server:destination</code>
                       <div class="note-information">
                         <p><code>rsync</code> permet également de synchroniser un seul fichier ou encore exclure des dossiers.</p>
@@ -465,7 +497,7 @@
     <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Download</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">artifact</span>
       <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/download-artifact@master</span>
       <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">bundle</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Name of artifact to download</span></pre>              
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">bundle</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Name of artifact to download</span></pre>
         </details>
             </div>
           </li>
@@ -473,10 +505,10 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+          <h2 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
-          <li>Après avoir réalisé une ou plusieurs des fonctionnalités suivantes. Ajoutez le module release-it (utilisé dans la partie 2) dans la CI/CD du projet de la partie 3. 
+          <li>Après avoir réalisé une ou plusieurs des fonctionnalités suivantes. Ajoutez le module release-it (utilisé dans la partie 2) dans la CI/CD du projet de la partie 3.
             <ul>
                 <li>Charger les données du Pokédex lié au Pokémon affiché</li>
                 <li>Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale</li>
