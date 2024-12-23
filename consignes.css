@@ -129,6 +129,10 @@
         font-weight: bold;
     }
 
+    .texte-italique {
+        font-style: italic;
+    }
+
     code {
         font-family: monospace;
         letter-spacing: 1.2;
