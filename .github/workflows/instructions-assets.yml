@@ -1,0 +1,19 @@
+name: Move instructions' assets
+run-name: ${{ github.actor }} is uploading instructions' assets' latest version
+on:
+  push:
+      paths:
+        - "consignes.css"
+        - "consignes.js"
+  workflow_dispatch:
+
+jobs:
+  deploy_assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Fill ssh key
+        run: echo "${{secrets.SSH_KEY}}" > ~/deploy_key && chmod 600 ~/deploy_key
+      - name: Move files
+        run: rsync -Pavz --exclude='*' --include='consignes.js' --include='consignes.css' -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ${{ github.workspace }} ${{ secrets.SSH_USER }}@${{ secrets.SERVER }}:~/www/cours-mmi
