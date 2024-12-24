@@ -1,3 +1,8 @@
+<link
+    rel="stylesheet"
+    href="https://danyellow.net/cours-mmi/consignes.css"
+/>
+
 # Devoir noté - Développement Web et dispositif interactif
 _Les consignes pourront être modifiées._
 
@@ -21,9 +26,12 @@ Les critères suivants seront évalués.
 - [x] Lire les consignes
 - [ ] Mettre le projet sur github et ajouter vos collaborateurs
 - [ ] Générer un token pour l'API github
-  - [Didacticiel sur la création de token](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-  > Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs
-  > Note 2 : **Ce token est une donnée sensible, elle ne doit pas être dans votre dépôt**
+  - [Didacticiel sur la création de token github](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+  > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs
+  > - Note 2 : **Ce token est une donnée sensible, elle ne doit pas être dans votre dépôt**
+  > <p class="note-importante">Note 3 : Si, le token est commité, github refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention</p>
+
+
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
@@ -38,15 +46,15 @@ Les critères suivants seront évalués.
 - [ ] Grâce au module wavesurfer.js, afficher le spectre sonore du cri du Pokémon affiché
   - On doit pouvoir rejouer le cri
 - [ ] Avec l'aide de l'API github, lister les membres du groupe
-  - Pour chaque contributeur, vous devez afficher (au moins) : 
+  - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
-  > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables : 
+  > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables :
   >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end
-  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite 
-  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire. 
+  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite
+  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire.
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
 
