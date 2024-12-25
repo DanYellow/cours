@@ -33,10 +33,13 @@ const setTitleTagForGeneration = () => {
     const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
     let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
     const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
+
     document.title = `${currentGenerationName} - ${initialPageTitle}`;
 }
 
-export { listPokemon, setTitleTagForGeneration };
+let hasReachPokedexEnd = false;
+
+export { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd };
 
 const updateSwitchIcons = (isGridLayout) => {
     Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
@@ -46,7 +49,7 @@ const updateSwitchIcons = (isGridLayout) => {
     Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
         item.classList.toggle("opacity-50", isGridLayout)
     });
-    
+
     Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
         item.classList.toggle("opacity-50", !isGridLayout)
     });
@@ -76,12 +79,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
     document.title = `Chargement - ${initialPageTitle}`;
     faviconContainer.setAttribute("href", pikachuLoadingImage);
-    
+
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
         const pokedexData = await fetchPokemonForGeneration(generation);
         const cloneDex = document.importNode(pkdexTemplateRaw.content, true);
-        
+
         const pokedex = cloneDex.querySelector("[data-pokedex]");
 
         const layoutSwitch = cloneDex.querySelector("[data-layout-switch]")
@@ -94,7 +97,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             "[data-generation-range]"
         );
         const headerPokedex = cloneDex.querySelector('[data-header-pokedex]');
-        
+
         let nonRegionalPokedexData = pokedexData.filter((item) => {
             const name = item.name.fr;
             const listNames = (item.formes || []).map((form) => form.name.fr);
@@ -169,6 +172,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const errorRessourceNotFound = 404;
         if (error?.cause?.status === errorRessourceNotFound) {
             listLoadGenerationBtns.forEach((item) => item.inert = true);
+            hasReachPokedexEnd = true;
             noGenerationBanner.showPopover();
         } else {
             listLoadGenerationBtns.forEach((item) => item.inert = false);
@@ -193,7 +197,7 @@ delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
 
 delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     localStorage.setItem("is_grid_layout", e.target.checked);
-    
+
     updatePokedexLayout(e.target.checked)
     updateSwitchIcons(e.target.checked);
 

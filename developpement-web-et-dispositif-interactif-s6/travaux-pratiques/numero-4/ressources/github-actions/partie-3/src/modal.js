@@ -1,7 +1,6 @@
 import resolveConfig from "tailwindcss/resolveConfig";
 import _tailwindConfig from "/tailwind.config.js";
 
-
 export let tailwindConfig = null;
 
 import {
@@ -22,7 +21,7 @@ import {
     getPkmnIdFromURL,
 } from "./utils";
 
-import { listPokemon, setTitleTagForGeneration } from "./main";
+import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
 import { createSensibility, createAlternateForm, createSibling, createStatisticEntry } from "./modal.utils"
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
@@ -668,7 +667,8 @@ displayModal = async (pkmnData) => {
 
     console.log("pkmnData", pkmnData);
 
-    const loadGenerationBtn = document.querySelector("[data-load-generation]")
+    const loadGenerationBtn = document.querySelector("[data-load-generation]");
+    loadGenerationBtn.inert = hasReachPokedexEnd;
     const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
     let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
 
