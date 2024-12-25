@@ -10,21 +10,24 @@
         <link data-favicon rel="shortcut icon" href="/favicon.png" type="image/png">
     </head>
     <body>
-        <div role="alert" id="no-generation-banner" popover data-no-generation-banner tabindex="-1" class="bg-amber-400 p-4 mx-auto mt-8 border border-amber-800 rounded-lg">
+        <div role="alert" id="no-generation-banner" popover data-no-generation-banner tabindex="-1" class="bg-amber-400 p-4 mt-8 border border-amber-800 rounded-lg mx-3 sm:mx-auto">
             <div class="flex items-center justify-center gap-3">
                 <p>Impossible d'afficher cette génération, car elle n'existe pas.</p>
                 <button popovertarget="no-generation-banner" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-amber-900 hover:bg-amber-800 hover:text-gray-100 rounded-lg text-sm p-1.5 ">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
-                    <span class="sr-only">Close banner</span>
+                    <span class="sr-only">Cacher bannière</span>
                 </button>
             </div>
         </div>
-        <header class="py-2 px-3 bg-slate-900 text-white">
-            <div class="mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))] max-w-6xl">
-                <h1>Pokédex v%VERSION% - TP CI/CD</h1>
+        <header class="py-2 bg-slate-900 text-white">
+            <div class="mr-[max(env(safe-area-inset-right),_theme(space.3))] ml-[max(env(safe-area-inset-left),_theme(space.3))]">
+                <div class="mx-auto max-w-6xl">
+                    <h1>Pokédex v%VERSION% - TP CI/CD</h1>
+                </div>
             </div>
+
         </header>
         <main class="">
             <div data-list-pokedex></div>
@@ -33,7 +36,7 @@
                 <img src="/pikachu-loading.gif" class="w-20" alt="">
             </div>
         </main>
-        <footer class="px-2">
+        <footer class="pr-[max(env(safe-area-inset-right),_theme(space.2))] pl-[max(env(safe-area-inset-left),_theme(space.2))]">
             <button
                 data-testid="load-generation-btn"
                 data-load-generation
@@ -56,9 +59,9 @@
         <template data-tpl-id="pokedex">
             <header
                 data-header-pokedex
-                class="sticky -top-[1px] border-black border-b-2 bg-slate-50 p-3 z-10"
+                class="sticky -top-[1px] border-black border-b-2 bg-slate-50 p-3 z-10 pr-[max(env(safe-area-inset-right),_theme(space.3))] pl-[max(env(safe-area-inset-left),_theme(space.3))]"
             >
-                <div class="mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))] max-w-6xl flex justify-between">
+                <div class="mx-auto max-w-6xl flex justify-between">
                     <div>
                         <h2 class="text-3xl">
                             Génération <span data-generation-number></span>
@@ -159,7 +162,7 @@
         <template data-tpl-id="pokemon-statistic">
             <div>
                 <p data-stat-name class="px-3 py-2 h-full font-bold sm:top-0 sm:rounded-bl-lg rounded-tl-lg border-l-4 border-solid"></p>
-                <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg sm:rounded-es-none" aria-hidden="true"></p>
+                <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg sm:rounded-tr-none" aria-hidden="true"></p>
                 <div data-stat-bar class="col-span-2 sm:col-auto px-3 py-2 h-full relative -top-[0.39rem] sm:top-0 sm:rounded-tr-lg sm:rounded-es-none rounded-ee-lg rounded-es-lg flex items-center sm:border-l-0 border-l-4 border-r-4  border-solid">
                     <div class="stat-bar h-5 max-w-full bg-blue-300 border border-solid border-slate-900 relative -z-10"></div>
                 </div>
