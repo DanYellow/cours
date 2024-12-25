@@ -31,14 +31,15 @@ Les critères suivants seront évalués.
   > - Note 2 : **Ce token est une donnée sensible, elle ne doit pas être dans votre dépôt**
   > <p class="note-importante">Note 3 : Si, le token est commité, github refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention</p>
 
-
-
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
 - [ ] Afficher le nom étranger des Pokémon
 - [ ] Afficher les numéros du Pokémon en fonction des régions
+  - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro, c'est ces numéros dont on parle
+- [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
+  - Les couleurs liés aux types sont gérées dans la configuration tailwind
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes relatives au Pokémon affiché dans la modale
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée
@@ -73,11 +74,12 @@ Les critères suivants seront évalués.
     EOF
     ```
 
-> La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (merge request) doit être testée par la pipeline (évènement "merge_request").
+> La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 
 - [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
   - [ ] Déploie le projet dans un dossier "develop"
     - Note : Le dossier doit être crée par la CI/CD. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
+    - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] ~~Migre la base de données~~
