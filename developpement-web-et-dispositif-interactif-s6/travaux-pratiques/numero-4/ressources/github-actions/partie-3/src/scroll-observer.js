@@ -5,9 +5,13 @@ import {
 
 const modal = document.querySelector("[data-pokemon-modal]");
 
+const startThemeColor = document.querySelector('meta[name="theme-color"]').getAttribute("content")
+
 const generationScrollingObserver = new IntersectionObserver(
     (entries) => {
+        let headerBGColor = null;
         entries.forEach((item) => {
+            headerBGColor = window.getComputedStyle(item.target).getPropertyValue('background-color');
             item.target.classList.toggle(
                 "is-pinned",
                 item.intersectionRatio < 1
@@ -17,6 +21,13 @@ const generationScrollingObserver = new IntersectionObserver(
         if (modal.open) {
             return;
         }
+
+        if (entries.some((item) => item.target.classList.contains("is-pinned"))) {
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", headerBGColor);
+        } else {
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", startThemeColor);
+        }
+
         setTitleTagForGeneration();
     },
     { threshold: [1] }
