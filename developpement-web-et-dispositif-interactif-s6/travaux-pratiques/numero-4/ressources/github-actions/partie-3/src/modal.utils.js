@@ -147,7 +147,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         siblingUrl.searchParams.set("id", data.pokedex_id);
         siblingUrl.searchParams.delete("region");
         siblingUrl.searchParams.delete("alternate_form_id");
-        
+
         const aTag = template.querySelector("a");
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
@@ -155,14 +155,14 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         aTag.classList.add(...[
             typesBorderColor[`${cleanString(data.types[0].name)}_${cleanString(data.types[1]?.name || data.types?.[0].name)}`]
         ]);
-        
+
         if (!isCurrentPkmn) {
             aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
 
             const arrow = document.createElement("p");
             arrow.textContent = isPrevious ? "◄" : "►";
             arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow", typesTextColor[cleanString(data.types[0].name)]]);
-            
+
             aTag.prepend(arrow);
         } else {
             const divTag = document.createElement('div');
@@ -190,6 +190,7 @@ const createStatisticEntry = (template, data) => {
     statName.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
 
     statValue.textContent = data.base_stat;
+    statValue.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
     statValue.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
 
     statBar.querySelector("div").style.width = `${data.base_stat}px`;

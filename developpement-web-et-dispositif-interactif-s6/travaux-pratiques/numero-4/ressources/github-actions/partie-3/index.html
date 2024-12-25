@@ -44,10 +44,10 @@
         </footer>
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
-                <a data-pokemon-data data-pokemon-id class="hocus:bg-slate-100 rounded-md p-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="hocus:bg-slate-100 rounded-md py-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
                     <figure class="flex @xs:flex-row flex-col gap-3 items-center">
                         <img src="/loading.svg" loading="lazy" alt="" class="@xs:max-w-20" />
-                        <figcaption data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre  w-full rounded-md px-2"></figcaption>
+                        <figcaption data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full rounded-md"></figcaption>
                     </figure>
                 </a>
             </li>
@@ -158,9 +158,9 @@
 
         <template data-tpl-id="pokemon-statistic">
             <div>
-                <p data-stat-name class="px-3 py-2 h-full font-bold rounded-l-lg border-l-4 border-solid"></p>
-                <p data-stat-value class="px-3 py-2 h-full" aria-hidden="true"></p>
-                <div data-stat-bar class="px-3 py-2 h-full rounded-r-lg flex items-center border-r-4 border-solid">
+                <p data-stat-name class="px-3 py-2 h-full font-bold sm:top-0 sm:rounded-bl-lg rounded-tl-lg border-l-4 border-solid"></p>
+                <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg sm:rounded-es-none" aria-hidden="true"></p>
+                <div data-stat-bar class="col-span-2 sm:col-auto px-3 py-2 h-full relative -top-[0.39rem] sm:top-0 sm:rounded-tr-lg sm:rounded-es-none rounded-ee-lg rounded-es-lg flex items-center sm:border-l-0 border-l-4 border-r-4  border-solid">
                     <div class="stat-bar h-5 max-w-full bg-blue-300 border border-solid border-slate-900 relative -z-10"></div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
             class="backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
         >
             <header
-                class="main-infos mx-4 border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:md:sticky top-0"
+                class="main-infos mx-4 border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
             >
                 <div class="flex flex-row gap-3 sticky md:static bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
                     <div class="w-20">
@@ -226,7 +226,7 @@
                     <summary class="hover:marker:text-[color:--bg-modal-color] font-bold text-xl">
                         Statistiques de base
                     </summary>
-                    <div data-statistics="" class="grid gap-y-1.5 grid-cols-[max-content_max-content_1fr] grid-rows-[max-content] items-center pt-3"></div>
+                    <div data-statistics="" class="grid gap-y-1.5 grid-cols-[1fr_max-content] sm:grid-cols-[max-content_max-content_1fr] grid-rows-[max-content] items-center pt-3"></div>
                 </details>
                 <details class="mt-3">
                     <summary class="hover:marker:text-[color:--bg-modal-color] font-bold text-xl">

@@ -660,7 +660,7 @@ displayModal = async (pkmnData) => {
 
     statValue.textContent = statsTotal;
     statValue.style.borderTop = "2px solid black";
-    statValue.style.gridColumnStart = "span 2";
+    statValue.classList.add("sm:col-span-2");
     statValue.style.marginTop = "1.75rem";
 
     modal_DOM.statistics.append(statName);
