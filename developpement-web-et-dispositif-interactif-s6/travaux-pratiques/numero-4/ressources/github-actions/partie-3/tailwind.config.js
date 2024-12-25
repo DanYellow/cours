@@ -35,8 +35,8 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
         return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
     });
 
-    const listPossiblesTypeCombinaions = listTypes.flatMap((type1) => 
-        listTypes.map(type2 => `${type1}_${type2}`) 
+    const listPossiblesTypeCombinaions = listTypes.flatMap((type1) =>
+        listTypes.map(type2 => `${type1}_${type2}`)
     );
 
     // To generate classes only
@@ -53,12 +53,12 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
 
 
     const listPossiblesTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
-        return { 
-            name: `.border-${item}`, 
+        return {
+            name: `.border-${item}`,
             borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
             borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
             borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
-            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),    
+            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
         }
     });
 
@@ -70,7 +70,7 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
 });
 
 export default {
-    content: ["./index.html", "./src/**/*.js"],
+    content: ["./src/**/*.{js,html}"],
     safelist: [],
     theme: {
         extend: {
