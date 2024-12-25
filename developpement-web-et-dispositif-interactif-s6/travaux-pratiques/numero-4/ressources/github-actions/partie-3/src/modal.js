@@ -119,7 +119,7 @@ const loadDetailsModal = (e, region = null) => {
     e.preventDefault();
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
- 
+
     const url = new URL(location);
 
     if (region) {
@@ -171,13 +171,13 @@ displayModal = async (pkmnData) => {
         try {
             const evolutionReq = await fetchDataFromURL(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
-                evolutionReq, 
+                evolutionReq,
                 {
-                    ...pkmnData.evolution, 
-                    self: { 
-                        name: pkmnData.name.fr, 
-                        pokedex_id: pkmnData.pokedex_id, 
-                        // condition: pkmnData.evolution.pre?.map((item) => item.condition)[0] 
+                    ...pkmnData.evolution,
+                    self: {
+                        name: pkmnData.name.fr,
+                        pokedex_id: pkmnData.pokedex_id,
+                        // condition: pkmnData.evolution.pre?.map((item) => item.condition)[0]
                     }
                 }, listPokemon, listTypes);
         } catch (_e) {
@@ -191,7 +191,7 @@ displayModal = async (pkmnData) => {
         }
 
         const listAbilitiesDescriptions = []
-        
+
         for (const ability of pkmnExtraData.abilities) {
             const abilityInCache = listAbilitiesCache.find((item) => item.name.en.toLowerCase() === ability.ability.name.toLowerCase());
             if (abilityInCache) {
@@ -201,7 +201,7 @@ displayModal = async (pkmnData) => {
                     const abilityReq = await fetchDataFromURL(ability.ability.url);
                     const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
                     const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
-    
+
                     listAbilitiesDescriptions.push({ id: abilityReq.id, description, name: { fr: name, en: abilityReq.name } });
                 } catch (_e) {}
             }
@@ -223,7 +223,7 @@ displayModal = async (pkmnData) => {
         ];
 
         listAbilitiesCache = Array.from(new Set(listAbilitiesCache.map((item) => JSON.stringify(item)))).map((item) => JSON.parse(item));
-        
+
         dataCache[pkmnId] = {
             descriptions: listDescriptions,
             extras: pkmnExtraData,
@@ -231,7 +231,7 @@ displayModal = async (pkmnData) => {
             listAbilities,
         };
     }
-  
+
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
@@ -281,7 +281,7 @@ displayModal = async (pkmnData) => {
         imgTag.classList.add(...["h-5"]);
 
         li.prepend(imgTag);
-        
+
         modal_DOM.listTypes.append(li);
     });
 
@@ -295,7 +295,7 @@ displayModal = async (pkmnData) => {
     modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
     modal.style.setProperty("--bg-modal-color", firstBorderColor);
 
-    modal.querySelector("header").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
+    modal.querySelector("[data-top-infos]").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
     const descriptionsContainer = modal.querySelector("dl");
 
     clearTagContent(descriptionsContainer);
@@ -321,7 +321,7 @@ displayModal = async (pkmnData) => {
         const li = document.createElement("li");
         const ol = document.createElement("ol");
         ol.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
-        evolution.forEach((item) => {  
+        evolution.forEach((item) => {
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
                 true
@@ -336,7 +336,7 @@ displayModal = async (pkmnData) => {
             evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
             evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
             evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white"])
-            
+
             if (idx > 0) {
                 const evolutionCondition = document.createElement("p");
                 evolutionCondition.classList.add("text-xs", "text-center");
@@ -358,7 +358,7 @@ displayModal = async (pkmnData) => {
             aTag.addEventListener("click", (e) => loadDetailsModal(e));
 
             divTag.parentNode.replaceChild(aTag, divTag);
-            
+
             ol.append(clone);
         });
 
@@ -376,7 +376,7 @@ displayModal = async (pkmnData) => {
 
                 nextArrow.append(span);
             })
-        }   
+        }
 
         nextArrow.inert = true;
         nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
@@ -388,10 +388,10 @@ displayModal = async (pkmnData) => {
     modal_DOM.acronymVersions.classList.toggle("hidden", !listEvolutionConditions.filter(Boolean).some(
         v => listAcronyms.some(acronym => v.toLowerCase().includes(acronym))
     ));
-    
+
     listAcronyms.forEach((item) => {
         modal_DOM.acronymVersions.querySelector(`[data-acronym="${item}"]`).classList.toggle(
-            "hidden", 
+            "hidden",
             !listEvolutionConditions.filter(Boolean).some(evolutionCondition => evolutionCondition.includes(item.toLowerCase()))
         );
     });
@@ -629,7 +629,7 @@ displayModal = async (pkmnData) => {
     modal_DOM.listVarieties.closest("details").inert = (pkmnData?.formes || []).length === 0;
 
     clearTagContent(modal_DOM.statistics);
-    
+
     let statsTotal = 0;
     pkmnExtraData.stats.forEach((item) => {
         const clone = document.importNode(
@@ -657,21 +657,21 @@ displayModal = async (pkmnData) => {
     statName.style.marginTop = "1.75rem";
     statName.setAttribute("aria-label", `Total statistique de ${pkmnData.name.fr} : ${statsTotal}`);
     statName.style.borderLeftWidth = "0";
-    
+
     statValue.textContent = statsTotal;
     statValue.style.borderTop = "2px solid black";
     statValue.style.gridColumnStart = "span 2";
     statValue.style.marginTop = "1.75rem";
-    
+
     modal_DOM.statistics.append(statName);
     modal_DOM.statistics.append(statValue);
-    
+
     console.log("pkmnData", pkmnData);
 
     const loadGenerationBtn = document.querySelector("[data-load-generation]")
     const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
     let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
-    
+
     const isLastPokemonOfGen = Number(pkmnData.generation) < Number(loadGenerationBtn.dataset.loadGeneration) && !nextPokemon;
 
     if (!isLastPokemonOfGen && !nextPokemon) {

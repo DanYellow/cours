@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="noindex, nofollow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>Pokédex v%VERSION%</title>
         <script type="module" src="/src/main.js"></script>
         <link data-favicon rel="shortcut icon" href="/favicon.png" type="image/png">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <header class="py-2 px-3 bg-slate-900 text-white">
-            <div class="mx-auto max-w-6xl">
+            <div class="mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))] max-w-6xl">
                 <h1>Pokédex v%VERSION% - TP CI/CD</h1>
             </div>
         </header>
@@ -42,7 +42,7 @@
             </button>
         </footer>
         <template data-tpl-id="pokemon">
-            <li class="@container/pokemon">
+            <li class="@container/pokemon mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
                 <a data-pokemon-data data-pokemon-id class="hocus:bg-slate-100 rounded-md p-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
                     <figure class="flex @xs:flex-row flex-col gap-3 items-center">
                         <img src="/loading.svg" loading="lazy" alt="" class="@xs:max-w-20" />
@@ -57,7 +57,7 @@
                 data-header-pokedex
                 class="sticky -top-[1px] border-black border-b-2 bg-slate-50 p-3 z-10"
             >
-                <div class="mx-auto max-w-6xl flex justify-between">
+                <div class="mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))] max-w-6xl flex justify-between">
                     <div>
                         <h2 class="text-3xl">
                             Génération <span data-generation-number></span>
@@ -172,9 +172,9 @@
             class="backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
         >
             <header
-                class="main-infos mx-4 border-b text-black border-black border-solid py-4 mb-3 sticky landscape:static landscape:md:sticky top-0"
+                class="main-infos mx-4 border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:md:sticky top-0"
             >
-                <div class="flex flex-row gap-3" data-top-infos>
+                <div class="flex flex-row gap-3 sticky md:static bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
                     <div class="w-20">
                         <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
                     </div>
