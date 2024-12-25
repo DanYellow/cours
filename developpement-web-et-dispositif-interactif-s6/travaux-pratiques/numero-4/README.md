@@ -40,6 +40,7 @@ Les critères suivants seront évalués.
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro, c'est ces numéros dont on parle
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liés aux types sont gérées dans la configuration tailwind
+  - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes relatives au Pokémon affiché dans la modale
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée
