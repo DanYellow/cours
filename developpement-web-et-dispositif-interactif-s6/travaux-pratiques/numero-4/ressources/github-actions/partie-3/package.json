@@ -27,7 +27,8 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "vite": "^6.0.1",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite-plugin-eslint": "^1.8.1",
+    "vituum": "^1.1.1"
   },
   "dependencies": {
     "axios": "^1.7.8"

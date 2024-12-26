@@ -1,10 +1,15 @@
 import { defineConfig } from "vite";
-
+import vituum from "vituum";
 import eslint from "vite-plugin-eslint";
 
 export default defineConfig({
     base: "",
     plugins: [
+        vituum({
+            pages: {
+                dir: "./src",
+            },
+        }),
         eslint({
             include: "./src/**/*.js",
             failOnError: false,
@@ -13,8 +18,8 @@ export default defineConfig({
     build: {
         target: "esnext",
         rollupOptions: {
-            input: ['src/index.html']
-        }
+            input: ["src/index.html"],
+        },
     },
     define: {
         "import.meta.env.VERSION": JSON.stringify(
@@ -24,6 +29,6 @@ export default defineConfig({
     server: {
         // Expose the server to the network allowing access from ip address
         host: true,
-        open: 'src/index.html',
+        open: true,
     },
 });
