@@ -234,6 +234,8 @@ displayModal = async (pkmnData) => {
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
+    modal.setAttribute("aria-labelledby", `Fiche détail de ${pkmnData.name.fr}`);
+
     modal_DOM.pkmnName.textContent = `#${String(pkmnData.pokedex_id).padStart(4, '0')} ${pkmnData.name.fr}`;
     document.title = `${modal_DOM.pkmnName.textContent} - ${initialPageTitle}`;
 

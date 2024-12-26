@@ -161,7 +161,7 @@
         <template data-tpl-id="pokemon-statistic">
             <div>
                 <p data-stat-name class="px-3 py-2 h-full font-bold sm:top-0 sm:rounded-bl-lg rounded-tl-lg border-l-4 border-solid"></p>
-                <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg sm:rounded-tr-none" aria-hidden="true"></p>
+                <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg text-right sm:rounded-tr-none" aria-hidden="true"></p>
                 <div data-stat-bar class="col-span-2 sm:col-auto px-3 py-2 h-full relative -top-[0.39rem] sm:top-0 sm:rounded-tr-lg sm:rounded-es-none rounded-ee-lg rounded-es-lg flex items-center sm:border-l-0 border-l-4 border-r-4  border-solid">
                     <div class="stat-bar h-5 max-w-full bg-blue-300 border border-solid border-slate-900 relative -z-10"></div>
                 </div>
@@ -171,6 +171,7 @@
         <dialog
             data-pokemon-modal
             data-pokemon-data
+            aria-labelledby="placeholder"
             data-testid="pokemon-modal"
             class="pkmn-details-dialog backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
         >
