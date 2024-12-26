@@ -47,11 +47,11 @@ const updateSwitchIcons = (isGridLayout) => {
     });
 
     Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
-        item.classList.toggle("opacity-50", isGridLayout)
+        item.classList.toggle("opacity-20", isGridLayout)
     });
 
     Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
-        item.classList.toggle("opacity-50", !isGridLayout)
+        item.classList.toggle("opacity-20", !isGridLayout)
     });
 }
 

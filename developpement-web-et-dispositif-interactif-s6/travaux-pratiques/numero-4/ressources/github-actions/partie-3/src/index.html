@@ -172,12 +172,12 @@
             data-pokemon-modal
             data-pokemon-data
             data-testid="pokemon-modal"
-            class="backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
+            class="pkmn-details-dialog backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
         >
             <header
-                class="main-infos mx-4 border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
+                class="main-infos border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
             >
-                <div class="flex flex-row gap-3 sticky md:static bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
+                <div class="sticky-header px-4 flex flex-row gap-3 sticky md:static bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
                     <div class="w-20">
                         <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
                     </div>
@@ -188,7 +188,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden mt-2"
+                    class="flex flex-col lg:flex-row px-4 w-full rounded-lg overflow-hidden mt-2"
                 >
                     <div data-sex="male" class="bg-sky-300 px-2 py-1">
                         <p class="whitespace-nowrap">Mâle ♂</p>
@@ -205,7 +205,7 @@
                         <p>Asexué</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-3 mt-2 items-stretch md:items-start">
+                <div class="flex flex-col md:flex-row gap-3 mt-2 items-stretch md:items-start px-4">
                     <ul class="shrink-0 bg-slate-50 rounded-md px-2 py-3">
                         <li><span class="font-bold">Poids : </span><span data-weight></span></li>
                         <li><span class="font-bold">Taille : </span><span data-height></span></li>
