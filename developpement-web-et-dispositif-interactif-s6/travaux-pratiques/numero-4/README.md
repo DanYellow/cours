@@ -9,8 +9,11 @@ _Les consignes pourront être modifiées._
 ## Contexte du projet
 Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cursus. En effet, le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet dans différents domaines :
 - Front-end
-- Back-end
+- ~~Back-end~~
 - DevOps
+
+Le projet se trouve toujours au même endroit :
+- [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-3/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
 ## Rendus attendus
 - Lien de votre projet sur github
@@ -54,9 +57,11 @@ Les critères suivants seront évalués.
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
   > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables :
-  >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end
-  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite
-  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire.
+  >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end (asynchrone ou non)
+  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) :
+  >         - Grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite
+  >         - ou via un fichier env que vous générez via la CI / CD
+  > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire entre-vous
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
 
