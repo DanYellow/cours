@@ -178,7 +178,7 @@ displayModal = async (pkmnData) => {
                         pokedex_id: pkmnData.pokedex_id,
                         // condition: pkmnData.evolution.pre?.map((item) => item.condition)[0]
                     }
-                }, listPokemon, listTypes);
+                }, listPokemon);
         } catch (_e) {
             evolutionLine = [];
         }

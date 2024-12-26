@@ -54,9 +54,9 @@ const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
 const replaceImage = (img, heavyImagePath) => {
     const newImg = new Image();
     newImg.onload = () => {
-        img.src = newImg.src; 
+        img.src = newImg.src;
     }
-    newImg.src = heavyImagePath;    
+    newImg.src = heavyImagePath;
 }
 
 const delegateEventHandler = (el, evt, sel, handler) => {
@@ -90,13 +90,13 @@ const getPkmnIdFromURL = (url) => {
     return url.split("/").filter(Boolean).at(-1)
 }
 
-const getEvolutionChain = (data, evolutionLineTranslated, listPokemon, listTypes) => {
+const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
     // evolutionLine = evolutionLine.map((item, idx) => ({
         //     ...item,
         //     condition: evolutionLine[idx - 1]?.condition || item.condition,
         // }))
-        
+
     let res = [];
     const listPokemonComputed = listPokemon.map((item) => ({ name: item?.name.fr, pokedex_id: item?.pokedex_id }))
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
