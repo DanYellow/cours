@@ -65,8 +65,10 @@ const modal_DOM = {
     sexMale: modal.querySelector("[data-sex='male']"),
     sexAsexual: modal.querySelector("[data-sex='asexual']"),
     sexFemale: modal.querySelector("[data-sex='female']"),
-    sexRateMale: modal.querySelector("[data-sex-rate='male']"),
-    sexRateFemale: modal.querySelector("[data-sex-rate='female']"),
+    sexRateMale: modal.querySelectorAll("[data-sex-rate='male']"),
+    sexRateFemale: modal.querySelectorAll("[data-sex-rate='female']"),
+    sexLabelFemale: modal.querySelectorAll("[data-sex-label='female']"),
+    sexLabelMale: modal.querySelectorAll("[data-sex-label='male']"),
     height: modal.querySelector("[data-weight]"),
     weight: modal.querySelector("[data-height]"),
     listAbilities: modal.querySelector("[data-list-abilities]"),
@@ -481,14 +483,20 @@ displayModal = async (pkmnData) => {
         modal_DOM.listSensibilities.append(clone);
     });
 
-    modal_DOM.sexMale.classList.toggle(
-        "hidden",
-        pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
-    );
-    modal_DOM.sexFemale.classList.toggle(
-        "hidden",
-        pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined
-    );
+    modal_DOM.sexLabelMale.forEach((item) => {
+        item.classList.toggle(
+            "hidden",
+            pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
+        );
+    });
+
+    modal_DOM.sexLabelFemale.forEach((item) => {
+        item.classList.toggle(
+            "hidden",
+            pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined
+        );
+    });
+
     modal_DOM.sexAsexual.classList.toggle(
         "hidden",
         !(
@@ -498,9 +506,14 @@ displayModal = async (pkmnData) => {
     );
 
     modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
-    modal_DOM.sexRateMale.textContent = `${pkmnData.sexe?.male}%`;
+    modal_DOM.sexRateMale.forEach((item) => {
+        item.textContent = `${pkmnData.sexe?.male}%`;
+    });
+
     modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
-    modal_DOM.sexRateFemale.textContent = `${pkmnData.sexe?.female}%`;
+    modal_DOM.sexRateFemale.forEach((item) => {
+        item.textContent = `${pkmnData.sexe?.female}%`;
+    });
 
     modal_DOM.height.textContent = pkmnData.height;
     modal_DOM.weight.textContent = pkmnData.weight;
@@ -647,12 +660,12 @@ displayModal = async (pkmnData) => {
         statsTotal += item.base_stat;
     })
 
-    const cloneStatEntry = document.importNode(
+    const totalStatEntryRow = document.importNode(
         pokemonStatisticTempalteRaw.content,
         true
     );
-    const statName = cloneStatEntry.querySelector("[data-stat-name]");
-    const statValue = cloneStatEntry.querySelector("[data-stat-value]");
+    const statName = totalStatEntryRow.querySelector("[data-stat-name]");
+    const statValue = totalStatEntryRow.querySelector("[data-stat-value]");
     statName.textContent = "Total";
     statName.style.borderTop = "2px solid black";
     statName.style.marginTop = "1.75rem";
@@ -662,6 +675,7 @@ displayModal = async (pkmnData) => {
     statValue.textContent = statsTotal;
     statValue.style.borderTop = "2px solid black";
     statValue.classList.add("sm:col-span-2");
+    statValue.classList.remove("text-right");
     statValue.style.marginTop = "1.75rem";
     statValue.style.borderRightWidth = "0";
 
