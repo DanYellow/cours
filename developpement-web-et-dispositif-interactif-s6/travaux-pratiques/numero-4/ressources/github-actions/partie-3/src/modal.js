@@ -539,23 +539,28 @@ displayModal = async (pkmnData) => {
         if (value === null) {
             return;
         }
-        listSprites.push({ name: key, sprite: value });
+        let sexLabel = value.includes("female") ? "female" : "male";
+        if (pkmnData.sexe?.male === 100) {
+            sexLabel = "male";
+        } else if (pkmnData.sexe?.female === 100) {
+            sexLabel = "female";
+        }
+
+        listSprites.push({ name: key, sprite: value, key: sexLabel  });
     });
-    const groupedSprites = Object.groupBy(listSprites, ({ name }) =>
-        name.includes("female") ? "Femelle ♀" : "Mâle ♂"
+    const groupedSprites = Object.groupBy(listSprites, ({ key }) =>
+        key === "female" ? "Femelle ♀" : "Mâle ♂"
     );
 
+    const isOneSex = pkmnData.sexe?.female === 100 || pkmnData.sexe?.male === 100;
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
         const listPokemonSpritesTemplate = document.importNode(
             listPokemonSpritesTemplateRaw.content,
             true
         );
         const sexLabel = listPokemonSpritesTemplate.querySelector("p");
-        sexLabel.textContent = `${key} ${
-            Object.keys(groupedSprites).length === 1 ? "/ Femelle ♀" : ""
-        }`;
 
-        if (Object.keys(groupedSprites).length === 1) {
+        if (Object.keys(groupedSprites).length === 1 && !isOneSex) {
             sexLabel.classList.add("no-dimorphism")
         } else {
             if(key === "Femelle ♀") {
@@ -565,19 +570,17 @@ displayModal = async (pkmnData) => {
             }
         }
 
-        if (
-            pkmnData.sexe?.female === undefined &&
-            pkmnData.sexe?.male === undefined
-        ) {
-            sexLabel.classList.add("hidden");
-        } else {
-            sexLabel.classList.remove("hidden");
-        }
+        sexLabel.classList.toggle("hidden", (pkmnData.sexe?.female === undefined && pkmnData.sexe?.male === undefined));
 
         const listSpritesUI = listPokemonSpritesTemplate.querySelector(
             "[data-list-sprites]"
         );
         sprites.forEach((item) => {
+            const label = `${key} ${
+                Object.keys(groupedSprites).length === 1 && !isOneSex ? "/ Femelle ♀" : ""
+            }`
+            sexLabel.textContent = label;
+
             const pokemonSpriteTemplate = document.importNode(
                 pokemonSpriteTemplateRaw.content,
                 true
