@@ -490,11 +490,13 @@ displayModal = async (pkmnData) => {
     );
 
     modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
+    modal_DOM.sexMale.classList.toggle("rounded-md", pkmnData.sexe?.female === 0);
     modal_DOM.sexRateMale.forEach((item) => {
         item.textContent = `${pkmnData.sexe?.male}%`;
     });
 
     modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
+    modal_DOM.sexFemale.classList.toggle("rounded-md", pkmnData.sexe?.male === 0);
     modal_DOM.sexRateFemale.forEach((item) => {
         item.textContent = `${pkmnData.sexe?.female}%`;
     });
