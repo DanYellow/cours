@@ -206,8 +206,8 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     });
 });
 
-updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout")) === true)
-updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout")) === true);
+updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
+updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true);
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
