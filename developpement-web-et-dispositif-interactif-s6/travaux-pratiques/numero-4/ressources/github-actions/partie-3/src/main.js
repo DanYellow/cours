@@ -235,4 +235,16 @@ if (process.env.NODE_ENV === "development") {
     await import("./vite.error-overlay");
 }
 
+
+const scrollDiv = document.createElement("div");
+scrollDiv.classList.add("scrollbar-measure");
+document.body.appendChild(scrollDiv);
+
+// Get the scrollbar width
+const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`)
+
+// Delete the DIV
+document.body.removeChild(scrollDiv);
+
 export { loadPokedexForGeneration };
