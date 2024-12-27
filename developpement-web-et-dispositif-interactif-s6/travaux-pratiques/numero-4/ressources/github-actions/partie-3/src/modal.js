@@ -62,6 +62,7 @@ const modal_DOM = {
     listTypes: modal.querySelector("[data-list-types]"),
     listSensibilities: modal.querySelector("[data-list-sensibilities]"),
     listEvolutions: modal.querySelector("[data-list-evolutions]"),
+    extraEvolutions: modal.querySelector("[data-extra-evolutions]"),
     sexMale: modal.querySelector("[data-sex='male']"),
     sexAsexual: modal.querySelector("[data-sex='asexual']"),
     sexFemale: modal.querySelector("[data-sex='female']"),
@@ -411,11 +412,10 @@ displayModal = async (pkmnData) => {
     })
 
     const megaEvolutionLine = (pkmnData.evolution?.mega || alternateEvolutions)
+    modal_DOM.extraEvolutions.classList.toggle("hidden", !megaEvolutionLine.length)
     if (megaEvolutionLine.length) {
-        const li = document.createElement("li")
-        const ul = document.createElement("ul");
-        ul.classList.add(...["flex", "flex-wrap", "gap-6"])
-
+        const extraEvolutionsContainer = modal_DOM.extraEvolutions.querySelector("ul");
+        clearTagContent(extraEvolutionsContainer);
         megaEvolutionLine.forEach((item) => {
             const clone = document.importNode(
                 pokemonSpriteTemplateRaw.content,
@@ -439,24 +439,8 @@ displayModal = async (pkmnData) => {
             // evolutionCondition.textContent = `avec ${item.orbe}`;
             // clone.querySelector("li div").insertAdjacentElement("beforeend", evolutionCondition);
 
-            ul.append(clone);
+            extraEvolutionsContainer.append(clone);
         });
-
-        const title = document.createElement("p");
-        title.classList.add(...["text-center", "mt-2"])
-        const cloneHighlight = document.importNode(
-            pkmnHighlightTemplateRaw.content,
-            true
-        );
-        const span = cloneHighlight.querySelector("span");
-        span.textContent = "Méga-évolutions / Formes ";
-        span.classList.replace("text-xs", "mega-evolution");
-        span.classList.add("type-name");
-
-        title.append(cloneHighlight);
-        li.append(title);
-        li.append(ul);
-        modal_DOM.listEvolutions.append(li);
     }
 
     modal_DOM.listEvolutions.classList.toggle("horizontal-evolution-layout", evolutionLine.flat().length >= 7)
