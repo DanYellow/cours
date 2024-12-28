@@ -174,4 +174,6 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 
 
 ## Pour aller plus loin
+### Back-office / Administration
 - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
+- Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`

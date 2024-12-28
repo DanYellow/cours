@@ -22,23 +22,23 @@ with open('.gitignore') as my_file:
     list_ignored_files = list(filter(lambda x: not x.startswith("#"), list_ignored_files))
     list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
     list_ignored_files = list(filter(None, list_ignored_files))
-    
+
     list_ignored_files.extend(["odp", "code", "zip", "gestion-ressources"])
     list_ignored_files.extend(["sae"])
     list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
-    list_ignored_files = list(dict.fromkeys(list_ignored_files))    
+    list_ignored_files = list(dict.fromkeys(list_ignored_files))
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "-a",
-    "--all", 
+    "--all",
     help="Crée les archives de tous les dossiers",
     required=False,
     action='store_true',
 )
 parser.add_argument(
     "-lc",
-    "--last-commit", 
+    "--last-commit",
     help="Crée les archives des dossiers du dernier commit",
     required=False,
     action='store_true',
@@ -48,7 +48,7 @@ args = parser.parse_args()
 def get_list_directories_updated():
     command = ['git', 'status']
     if args.last_commit == True:
-        command = ['git', 'log', '--name-status', '-1'] 
+        command = ['git', 'log', '--name-status', '-1']
 
     stdout_git_status = subprocess.run(command, stdout=subprocess.PIPE).stdout
 
@@ -56,25 +56,25 @@ def get_list_directories_updated():
     re_last_commit = r"(?:M|A)([\s\n]+.+)"
 
     git_status_raw = re.search(
-        re_staged, 
-        stdout_git_status.decode("utf-8"), 
+        re_staged,
+        stdout_git_status.decode("utf-8"),
         re.MULTILINE
     )
 
     if args.last_commit == True:
         git_status_raw = re.findall(
-            re_last_commit, 
-            stdout_git_status.decode("utf-8"), 
+            re_last_commit,
+            stdout_git_status.decode("utf-8"),
             re.MULTILINE
         )
 
     list_staged_files = []
-    
-    if args.last_commit == False: 
+
+    if args.last_commit == False:
         if git_status_raw:
             list_staged_files = re.findall(
-                r"(modified|new file|renamed|deleted):([\w\s./-]+)\.\w{2,8}", 
-                git_status_raw.group(), 
+                r"(modified|new file|renamed|deleted):([\w\s./-]+)\.\w{2,8}",
+                git_status_raw.group(),
                 re.MULTILINE
             )
             list_staged_files = list(map(lambda x: x[1], list(list_staged_files)))
@@ -88,21 +88,21 @@ def get_list_directories_updated():
                 .replace(" -", "")
                 .strip()
         )
-        
+
         return cleaned_path
-    
+
     def get_last_commit_path(entry):
         path = ' '.join(entry.split())
 
         return get_cleared_directory(path)
-    
+
     def get_cleared_directory(path):
-        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets)", path)
+        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets|exercice)", path)
 
         return r.group(0) if r else ""
 
     list_cleaned_paths = map(
-        get_last_commit_path if args.last_commit else clean_directory_path, 
+        get_last_commit_path if args.last_commit else clean_directory_path,
         list_staged_files
     )
 
@@ -115,7 +115,7 @@ def get_list_directories_updated():
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
     list_cleared_directories_ressources = list(dict.fromkeys(list_cleared_directories_ressources))
-    
+
     return list_cleared_directories_ressources
 
 def slugify(value, allow_unicode=False):
@@ -138,6 +138,7 @@ def slugify(value, allow_unicode=False):
 
 def get_all_ressources_sae_directories():
     list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
+    list_ressources_folders_raw.extend(["exercice"])
     list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
     list_ressources_folders_to_zip = [path for path in list_ressources_folders if path.count('ressources') == 1]
     list_ressources_folders_to_zip = [path for path in list_ressources_folders_to_zip if path.count('code') == 0]
@@ -156,10 +157,10 @@ def get_all_ressources_sae_directories():
         sae_indexes = [i for i, item in enumerate(arrayed_path) if re.search('sae', item)]
         if len(sae_indexes) == 1 and sae_indexes[0] == 1:
             list_saes_folders_root_ressources.append(folder_path)
-            
+
     # Contains ressources folder and saes folder, you can use that if needed
     # list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
-    
+
     return list_ressources_folders_to_zip
 
 if args.all:
@@ -182,16 +183,18 @@ def generate_zip(list_folders, is_correction_directory = False):
         head, tail = os.path.split(folder_path)
         archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
-        archive_path = f'{head}/{archive_name.replace("_ressources", "")}.ressources.zip'        
-        
+
+        zip_extension = "ressources" if "_ressources" in archive_name else "exercice"
+        archive_path = f'{head}/{archive_name.replace("_ressources", "")}.{zip_extension}.zip'
+
         if is_correction_directory:
             if archive_path not in dict_correction_archive_created:
                 dict_correction_archive_created[archive_path] = True
             else:
                 continue
-        
+
         list_zip_files_generated.append(archive_path)
-        
+
         with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
             abs_src = os.path.abspath(folder_path)
             for dirname, _, files in os.walk(folder_path):
