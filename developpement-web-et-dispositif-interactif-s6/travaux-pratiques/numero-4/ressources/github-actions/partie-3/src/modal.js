@@ -75,8 +75,8 @@ const modal_DOM = {
     listAbilities: modal.querySelector("[data-list-abilities]"),
     listGames: modal.querySelector("[data-list-games]"),
     nbGames: modal.querySelector("[data-nb-games]"),
-    nbVarieties: modal.querySelector("[data-nb-varieties]"),
-    listVarieties: modal.querySelector("[data-list-varieties]"),
+    nbRegionalForms: modal.querySelector("[data-nb-regional-forms]"),
+    listRegionalForms: modal.querySelector("[data-list-regional-forms]"),
     spritesContainer: modal.querySelector("[data-sprites-container]"),
     topInfos: modal.querySelector("[data-top-infos]"),
     listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
@@ -616,8 +616,8 @@ displayModal = async (pkmnData) => {
     modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
     modal_DOM.listGames.closest("details").inert = pkmnExtraData.game_indices.length === 0;
 
-    clearTagContent(modal_DOM.listVarieties);
-    modal_DOM.nbVarieties.textContent = ` (${pkmnData.formes?.length || 0})`;
+    clearTagContent(modal_DOM.listRegionalForms);
+    modal_DOM.nbRegionalForms.textContent = ` (${pkmnData.formes?.length || 0})`;
 
     for (const item of pkmnData?.formes || []) {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
@@ -626,10 +626,10 @@ displayModal = async (pkmnData) => {
             {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
         );
 
-        modal_DOM.listVarieties.append(clone);
+        modal_DOM.listRegionalForms.append(clone);
     }
 
-    modal_DOM.listVarieties.closest("details").inert = (pkmnData?.formes || []).length === 0;
+    modal_DOM.listRegionalForms.closest("details").inert = (pkmnData?.formes || []).length === 0;
 
     clearTagContent(modal_DOM.statistics);
 

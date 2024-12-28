@@ -180,17 +180,16 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 };
 
+await loadPokedexForGeneration(1);
+
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
-
-await loadPokedexForGeneration(1);
 
 if (pkmnId !== null) {
     const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
     pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
     displayPkmnModal(pkmnData);
 }
-
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
