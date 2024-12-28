@@ -612,8 +612,10 @@ displayModal = async (pkmnData) => {
             t.version.name === value.version.name
         ))
     )
+    .map((item) => ({...item, order: Object.keys(getVersionForName).findIndex((game) => item.version.name === game)}))
+    .sort((a, b) => Number(a.order) - Number(b.order));
 
-      listGames.forEach((item) => {
+    listGames.forEach((item) => {
         const li = document.createElement("li");
         const versionName = `Pokémon ${
             getVersionForName[item.version.name] || "Unknown"
