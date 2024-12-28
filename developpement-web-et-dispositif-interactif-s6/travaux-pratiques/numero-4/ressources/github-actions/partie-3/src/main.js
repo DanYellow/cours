@@ -170,13 +170,17 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         }
     } catch (error) {
         const errorRessourceNotFound = 404;
+        const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
         if (error?.cause?.status === errorRessourceNotFound) {
             listLoadGenerationBtns.forEach((item) => item.inert = true);
             hasReachPokedexEnd = true;
-            noGenerationBanner.showPopover();
+
+            errorMessageContainer.textContent = "Impossible d'afficher cette génération, car elle n'existe pas.";
         } else {
+            errorMessageContainer.textContent = "Une erreur est survenue.";
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
+        noGenerationBanner.showPopover();
     }
 };
 
@@ -201,9 +205,11 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     updatePokedexLayout(e.target.checked)
     updateSwitchIcons(e.target.checked);
 
-    firstVisiblePkmn.scrollIntoView({
-        behavior: "instant",
-    });
+    if(window.scrollY !== 0) {
+        firstVisiblePkmn.scrollIntoView({
+            behavior: "instant",
+        });
+    }
 });
 
 updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
