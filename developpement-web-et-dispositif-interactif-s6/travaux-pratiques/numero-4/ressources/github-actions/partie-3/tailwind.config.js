@@ -98,6 +98,11 @@ export default {
                 type_dragon: "#5061e1",
                 type_spectre: "#704170",
             },
+            screens: {
+                retina: {
+                    raw: 'only screen and (min-resolution: 1.1dppx)'
+                }
+            }
         },
     },
     plugins: [

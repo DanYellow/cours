@@ -176,7 +176,7 @@
             class="pkmn-details-dialog backdrop:backdrop-blur-sm backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-3xl border-2 border-solid"
         >
             <header
-                class="main-infos border-b text-black pb-4 pt-1 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
+                class="main-infos border-b text-black pb-4 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
             >
                 <div class="sticky-header px-4 flex flex-row gap-3 sticky md:static bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
                     <div class="w-20">
@@ -259,7 +259,7 @@
                     </div>
                     <div data-pkmn-acronym-versions>
                         <p class="font-bold">Notes</p>
-                        <ul class="list-disc list-inside">
+                        <ul class="list-disc list-outside px-4">
                             <li data-acronym="rse">RSE : (Pokémon) Rubis / Saphir / Émeraude</li>
                             <li data-acronym="nb">NB : (Pokémon) Noir / Blanc</li>
                             <li data-acronym="n2b2">N2B2 : (Pokémon) Noir 2 / Blanc 2</li>
@@ -283,7 +283,7 @@
                     <summary class="hover:marker:text-[color:--bg-modal-color] font-bold text-xl">
                         Sprites
                     </summary>
-                    <div class="mt-3 grid grid-cols-1 md:grid-cols-fluid gap-2 grid-flow-col-dense" data-sprites-container>
+                    <div class="mt-3 grid grid-cols-fluid gap-2 grid-flow-col-dense" data-sprites-container>
                     </div>
                 </details>
                 <details class="mt-3" data-testid="regional-forms">

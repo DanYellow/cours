@@ -108,41 +108,52 @@ dialog {
 }
 
 .pkmn-details-dialog {
-    box-shadow: 0px 0px 53px 0px;
+    --dot-size: 0.55px;
+    --dot-color: var(--bg-modal-color);
 
+    @media (width > theme("screens.md")) {
+        --dot-size: 0.75px;
+    }
+
+    @media (max-resolution: 1.1dppx) {
+        --dot-color: rgb(from var(--bg-modal-color) r g b / 0.2);
+    }
+
+    box-shadow: 0px 0px 53px 0px;
     background-image: radial-gradient(
-            var(--bg-modal-color) 0.5px,
-            transparent 0.5px
+            var(--dot-color) var(--dot-size),
+            transparent var(--dot-size)
         ),
-        radial-gradient(var(--bg-modal-color) 0.5px, rgba(255,255,255,0) 0.5px),
-        linear-gradient(0deg, var(--bg-modal-color) 0%, var(--bg-modal-color) 6.05%, rgba(255,255,255,0) 6.05%);
+        radial-gradient(var(--dot-color) var(--dot-size), transparent var(--dot-size)),
+        linear-gradient(0deg, var(--dot-color) 0%, var(--dot-color) 6.05%, rgba(255,255,255,0) 6.05%);
     background-size: 20px 20px, 20px 20px, 100% 1210px;
     background-position: 0 0, 10px 10px, center bottom -12px;
     background-repeat: repeat, repeat, no-repeat;
-}
 
-.main-infos {
-    background-image: radial-gradient(
-        var(--bg-modal-color) 0.5px,
-        transparent 0.5px
-    ),
-    radial-gradient(var(--bg-modal-color) 0.5px, #fff 0.5px);
-    background-size: 20px 20px, 20px 20px;
-    background-position: -17px 0, 10px 10px;
+    .main-infos {
+        background-image: radial-gradient(
+            var(--dot-color) var(--dot-size),
+            transparent var(--dot-size)
+        ),
+        radial-gradient(var(--dot-color) var(--dot-size), #fff var(--dot-size));
+        background-size: 20px 20px, 20px 20px;
+        background-position: -17px 0, 10px 10px;
 
-    .sticky-header {
-        &::before {
-            content: "";
-            display: block;
-            bottom: 100%;
-            background-color: inherit;
-            height: 500px;
-            position: absolute;
-            left: 0;
-            right: 0;
-        }
+            .sticky-header {
+                &::before {
+                    content: "";
+                    display: block;
+                    bottom: 100%;
+                    background-color: inherit;
+                    height: 500px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+            }
     }
 }
+
 
 .type-name {
     font-weight: bold;
