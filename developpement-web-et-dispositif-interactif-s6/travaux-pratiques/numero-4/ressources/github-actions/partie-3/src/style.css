@@ -116,7 +116,7 @@ dialog {
     }
 
     @media (max-resolution: 1.1dppx) {
-        --dot-color: rgb(from var(--bg-modal-color) r g b / 0.2);
+        --dot-color: rgb(from var(--bg-modal-color) r g b / 0.15);
     }
 
     box-shadow: 0px 0px 53px 0px;

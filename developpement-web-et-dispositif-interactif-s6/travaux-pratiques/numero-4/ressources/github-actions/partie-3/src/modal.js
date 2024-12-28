@@ -171,6 +171,9 @@ displayModal = async (pkmnData) => {
         }
 
         try {
+            // if(pkmnData.evolution === null) {
+            //     throw "No evolution";
+            // }
             const evolutionReq = await fetchDataFromURL(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
                 evolutionReq,
@@ -203,7 +206,6 @@ displayModal = async (pkmnData) => {
                     const abilityReq = await fetchDataFromURL(ability.ability.url);
                     const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
                     const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
-
                     listAbilitiesDescriptions.push({ id: abilityReq.id, description, name: { fr: name, en: abilityReq.name } });
                 } catch (_e) {}
             }
@@ -604,7 +606,14 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listGames);
-    pkmnExtraData.game_indices.forEach((item) => {
+
+    let listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
+        index === self.findIndex((t) => (
+            t.version.name === value.version.name
+        ))
+    )
+
+      listGames.forEach((item) => {
         const li = document.createElement("li");
         const versionName = `Pokémon ${
             getVersionForName[item.version.name] || "Unknown"
@@ -613,8 +622,8 @@ displayModal = async (pkmnData) => {
 
         modal_DOM.listGames.append(li);
     });
-    modal_DOM.nbGames.textContent = ` (${pkmnExtraData.game_indices.length})`;
-    modal_DOM.listGames.closest("details").inert = pkmnExtraData.game_indices.length === 0;
+    modal_DOM.nbGames.textContent = ` (${listGames.length})`;
+    modal_DOM.listGames.closest("details").inert = listGames.length === 0;
 
     clearTagContent(modal_DOM.listRegionalForms);
     modal_DOM.nbRegionalForms.textContent = ` (${pkmnData.formes?.length || 0})`;
