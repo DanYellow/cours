@@ -6,17 +6,31 @@
 # Devoir noté - Développement Web et dispositif interactif
 _Les consignes pourront être modifiées._
 
+- [Devoir noté - Développement Web et dispositif interactif](#devoir-noté---développement-web-et-dispositif-interactif)
+  - [Contexte du projet](#contexte-du-projet)
+  - [Rendus attendus](#rendus-attendus)
+  - [Notation](#notation)
+  - [Votre liste à faire](#votre-liste-à-faire)
+    - [Front-end](#front-end)
+    - [Back-end / Administration](#back-end--administration)
+    - [CI/CD](#cicd)
+  - [Migration base de données (MySQL)](#migration-base-de-données-mysql)
+    - [Exporter base de données](#exporter-base-de-données)
+    - [Importer base de données](#importer-base-de-données)
+  - [Pour aller plus loin](#pour-aller-plus-loin)
+
+
 ## Contexte du projet
-Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cursus. En effet, le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet dans différents domaines :
+Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cours (et le cursus MMI en général). En effet, le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet dans différents domaines :
 - Front-end
-- ~~Back-end~~
+- Back-end
 - DevOps
 
 Le projet se trouve toujours au même endroit :
 - [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-3/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
 ## Rendus attendus
-- Lien de votre projet sur github
+- Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
 ## Notation
 Les critères suivants seront évalués.
@@ -65,12 +79,23 @@ Les critères suivants seront évalués.
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
 
+### Back-end / Administration
+_Le langage de programmation est à votre convenance_
+
+- [ ] Avec une API, mettre en place un système d'upload des jaquettes de jeux (fournies avec l'exercice)
+- [ ] Renvoyer toutes les jaquettes de jeux via une API (sans authentification) qui sera consommée par le front-end pour les afficher dans la modale partie "Apparitions"
+  - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
+    ```json
+    [{"game_index":9,"version":{"name":"red","url":"https://pokeapi.co/api/v2/version/1/"}},{"game_index":9,"version":{"name":"blue","url":"https://pokeapi.co/api/v2/version/2/"}},{"game_index":9,"version":{"name":"yellow","url":"https://pokeapi.co/api/v2/version/3/"}},{"game_index":2,"version":{"name":"gold","url":"https://pokeapi.co/api/v2/version/4/"}}]
+    ```
+    Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette, le plus simple étant d'utiliser une base de données.
+
 ### CI/CD
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
   - [ ] Déploie le projet en production
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
-  - [ ] ~~Migre la base de données~~
+  - [ ] Migre la base de données (si besoin)
   - [ ] Rendre inaccessible les fichiers .env au public
     - Autrement dit, on ne doit pas pouvoir accéder aux fichiers en écrivant mon.url/.env
     - Passez par un fichier .htaccess pour bloquer l'accès au fichier .env, ce fichier peut être crée durant la pipeline avec le code suivant, il peut être exécuté directement depuis le fichier yaml ou depuis un fichier .sh :
@@ -79,7 +104,7 @@ Les critères suivants seront évalués.
     # Contenu du fichier .htaccess
     EOF
     ```
-
+mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 > La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 
 - [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
@@ -88,7 +113,65 @@ Les critères suivants seront évalués.
     - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
-  - [ ] ~~Migre la base de données~~
+  - [ ] Migre la base de données (si besoin)
   - [ ] Affiche la branche déployée sur le site
 
 > Le nom de la branche se trouve dans la variable "github.ref_name". Cette pipeline peut être manuelle ou automatique.
+
+
+## Migration base de données (MySQL)
+La migration de base de données peut également se faire via la pipeline. Si vous utilisez MySQL, il faudra faire un export de la base de données.
+
+### Exporter base de données
+```bash
+# bash
+mysqldump -u USER -pPASSWORD DATABASE > dump-file.sql
+# Note : si vous n'avez pas de mot de passe, omettez la partie "-p PASSWORD"
+```
+Il faudra commiter le fichier.
+
+### Importer base de données
+(On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson())
+```sh
+# bash
+MYSQL_USER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_USER');
+MYSQL_PASSWORD=$(echo $SECRETS_CONTEXT | jq '.MYSQL_PASSWORD');
+MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
+MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
+
+mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_SERVER $MYSQL_DATABASE < dump-file.sql
+```
+Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est pas top niveau sécurité. Dans les détails du job, vous devriez voir :
+> Warning: Using a password on the command line interface can be insecure.
+
+On évite en général de mettre dans la ligne de commandes un mot de passe, on peut être épié. Dans le contexte de GitHub Actions, c'est 100% sécurisé grâce au système de secrets, mais voyons une autre méthode qui vous sera utile dans un autre contexte.
+
+```bash
+# bash
+MYSQL_USER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_USER');
+MYSQL_PASSWORD=$(echo $SECRETS_CONTEXT | jq '.MYSQL_PASSWORD');
+MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
+MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
+
+cat > .my.cnf << EOF
+[client]
+user=$MYSQL_USER
+password=$MYSQL_PASSWORD
+database=$MYSQL_DATABASE
+host=$MYSQL_SERVER
+EOF
+
+# Rend le fichier lisible que par l'utilisateur qui l'a crée
+chmod 400 .my.cnf
+
+mysql --defaults-extra-file=.my.cnf < database.sql
+```
+En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, utilisateur, serveur et base de données à chaque fois. A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
+
+```sh
+mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
+```
+
+
+## Pour aller plus loin
+- Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
