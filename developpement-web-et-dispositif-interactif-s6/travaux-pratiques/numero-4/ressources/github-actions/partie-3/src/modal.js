@@ -402,7 +402,8 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default) || []
+    const listRegions = ["alola", "hisui", "galar"];
+    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && !listRegions.some((region) => item.pokemon.name.includes(region))) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
             orbe: "",
@@ -411,7 +412,7 @@ displayModal = async (pkmnData) => {
                 regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
             }
         }
-    })
+    });
 
     const megaEvolutionLine = (pkmnData.evolution?.mega || alternateEvolutions)
     modal_DOM.extraEvolutions.classList.toggle("hidden", !megaEvolutionLine.length)
