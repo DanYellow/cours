@@ -85,10 +85,14 @@ test("should change title's value according to current generation displayed", as
             )
     );
 
-    for (let index = 0; index < 5; index++) {
-        await page.mouse.wheel(0, 400);
-        await page.waitForTimeout(0.5);
-    }
+    const nextHeader = page.locator(`[data-header-pokedex="${nextGenerationNumber}"]`).first();
+    await nextHeader.waitFor();
+
+    await page.waitForTimeout(1.5);
+
+    await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+    });
 
     await expect(page).toHaveTitle(
         new RegExp(String.raw`Génération #${nextGenerationNumber}`, "g")
