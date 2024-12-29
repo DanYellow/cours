@@ -97,6 +97,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             "[data-generation-range]"
         );
         const headerPokedex = cloneDex.querySelector('[data-header-pokedex]');
+        headerPokedex.dataset.headerPokedex = generation;
 
         let nonRegionalPokedexData = pokedexData.filter((item) => {
             const name = item.name.fr;

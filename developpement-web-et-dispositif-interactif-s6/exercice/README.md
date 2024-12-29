@@ -18,6 +18,7 @@ _Les consignes pourront être modifiées._
     - [Exporter base de données](#exporter-base-de-données)
     - [Importer base de données](#importer-base-de-données)
   - [Pour aller plus loin](#pour-aller-plus-loin)
+    - [Back-office / Administration](#back-office--administration)
 
 
 ## Contexte du projet
@@ -82,13 +83,16 @@ Les critères suivants seront évalués.
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance_
 
+- [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
+  - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
 - [ ] Avec une API, mettre en place un système d'upload des jaquettes de jeux (fournies avec l'exercice)
+  - [Télécharger les jaquettes](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
 - [ ] Renvoyer toutes les jaquettes de jeux via une API (sans authentification) qui sera consommée par le front-end pour les afficher dans la modale partie "Apparitions"
-  - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
-    ```json
-    [{"game_index":9,"version":{"name":"red","url":"https://pokeapi.co/api/v2/version/1/"}},{"game_index":9,"version":{"name":"blue","url":"https://pokeapi.co/api/v2/version/2/"}},{"game_index":9,"version":{"name":"yellow","url":"https://pokeapi.co/api/v2/version/3/"}},{"game_index":2,"version":{"name":"gold","url":"https://pokeapi.co/api/v2/version/4/"}}]
-    ```
-    Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette, le plus simple étant d'utiliser une base de données.
+    - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
+        ```json
+        [{"game_index":9,"version":{"name":"red","url":"https://pokeapi.co/api/v2/version/1/"}},{"game_index":9,"version":{"name":"blue","url":"https://pokeapi.co/api/v2/version/2/"}},{"game_index":9,"version":{"name":"yellow","url":"https://pokeapi.co/api/v2/version/3/"}},{"game_index":2,"version":{"name":"gold","url":"https://pokeapi.co/api/v2/version/4/"}}]
+        ```
+        Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette, le plus simple étant d'utiliser une base de données.
 
 ### CI/CD
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
@@ -118,20 +122,28 @@ mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 
 > Le nom de la branche se trouve dans la variable "github.ref_name". Cette pipeline peut être manuelle ou automatique.
 
+- [ ] Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
+
 
 ## Migration base de données (MySQL)
-La migration de base de données peut également se faire via la pipeline. Si vous utilisez MySQL, il faudra faire un export de la base de données.
+La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données.
 
 ### Exporter base de données
 ```bash
 # bash
-mysqldump -u USER -pPASSWORD DATABASE > dump-file.sql
-# Note : si vous n'avez pas de mot de passe, omettez la partie "-p PASSWORD"
+mysqldump -u {USER} -p{PASSWORD} {DATABASE} > dump-file.sql
+# Note : si vous n'avez pas de mot de passe, omettez la partie "-pPASSWORD"
 ```
 Il faudra commiter le fichier.
 
 ### Importer base de données
-(On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson())
+_On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson()_
+```yml
+[...]
+env:
+    SECRETS_CONTEXT: ${{ toJson(secrets) }}
+```
+
 ```sh
 # bash
 MYSQL_USER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_USER');
@@ -139,8 +151,12 @@ MYSQL_PASSWORD=$(echo $SECRETS_CONTEXT | jq '.MYSQL_PASSWORD');
 MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
 MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
 
-mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_SERVER $MYSQL_DATABASE < dump-file.sql
+mysql -u {$MYSQL_USER} -p{$MYSQL_PASSWORD} -h {$MYSQL_SERVER} {$MYSQL_DATABASE} < dump-file.sql
+# Ajoutez le paramètre "--no-data" si vous souhaitez exporter que le schéma de base de données
 ```
+
+> Note : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
+
 Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est pas top niveau sécurité. Dans les détails du job, vous devriez voir :
 > Warning: Using a password on the command line interface can be insecure.
 
@@ -166,7 +182,7 @@ chmod 400 .my.cnf
 
 mysql --defaults-extra-file=.my.cnf < database.sql
 ```
-En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, utilisateur, serveur et base de données à chaque fois. A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
+En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, utilisateur, serveur et base de données (chacun des paramètres pouvant être omis du fichier de configuration) à chaque fois. A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
 
 ```sh
 mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
@@ -175,5 +191,4 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 
 ## Pour aller plus loin
 ### Back-office / Administration
-- Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
