@@ -34,6 +34,8 @@ Le projet se trouve toujours au même endroit :
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
+<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande "git tag".</p>
+
 ## Notation
 Les critères suivants seront évalués :
 
