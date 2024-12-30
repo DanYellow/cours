@@ -19,22 +19,23 @@ _Les consignes pourront être modifiées._
     - [Importer base de données](#importer-base-de-données)
   - [Pour aller plus loin](#pour-aller-plus-loin)
     - [Back-office / Administration](#back-office--administration)
+    - [CI/CD](#cicd-1)
 
 
 ## Contexte du projet
-Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cours (et le cursus MMI en général). En effet, le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet dans différents domaines :
+Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cours (et le cursus MMI en général). Le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet de la partie 3 du cours de CI/CD dans différents domaines :
 - Front-end
 - Back-end
 - DevOps
 
 Le projet se trouve toujours au même endroit :
-- [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-3/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
+- [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
 ## Notation
-Les critères suivants seront évalués.
+Les critères suivants seront évalués :
 
 - Qualité du code et accessibilité
 - Affichage dans le navigateur
@@ -42,18 +43,19 @@ Les critères suivants seront évalués.
 
 ## Votre liste à faire
 - [x] Lire les consignes
-- [ ] Mettre le projet sur github et ajouter vos collaborateurs
-- [ ] Générer un token pour l'API github
-  - [Didacticiel sur la création de token github](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-  > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs
-  > - Note 2 : **Ce token est une donnée sensible, elle ne doit pas être dans votre dépôt**
-  > <p class="note-importante">Note 3 : Si, le token est commité, github refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention</p>
+- [ ] Mettre le projet sur GitHub et ajouter vos collaborateurs
+  - N'oubliez pas de mettre le fichier .gitignore du projet fourni
+- [ ] Générer un token pour l'API GitHub
+  - [Didacticiel sur la création de token GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+  > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs de production
+  > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement
+  > <p class="note-importante">Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention</p>
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
-- [ ] Afficher le nom étranger des Pokémon
+- [ ] Afficher les noms étrangers des Pokémon
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro, c'est ces numéros dont on parle
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
@@ -61,11 +63,11 @@ Les critères suivants seront évalués.
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
-  - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée
+  - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée. Un système de cache est déjà présent, servez-vous en
   - Optionnel : Au clic sur une carte, vous devez afficher ses détails
-- [ ] Grâce au module wavesurfer.js, afficher le spectre sonore du cri du Pokémon affiché
+- [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
   - On doit pouvoir rejouer le cri
-- [ ] Avec l'aide de l'API github, lister les membres du groupe
+- [ ] Avec l'aide de l'API GitHub, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
@@ -73,15 +75,15 @@ Les critères suivants seront évalués.
   > Notes :
   > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables :
   >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end (asynchrone ou non)
-  >     2. Injecter, via vite, ces données dans votre fichier html (ou autre) :
-  >         - Grâce aux vos requêtes que vous effecturez depuis le fichier de configuration de vite
+  >     2. Injecter, via vite, ces données dans le projet (moteur de template - nunjucks ou autre - ou javascript) :
+  >         - Grâce aux requêtes que vous effecturez depuis le fichier de configuration de vite
   >         - ou via un fichier env que vous générez via la CI / CD
   > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire entre-vous
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
 
 ### Back-end / Administration
-_Le langage de programmation est à votre convenance_
+_Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
 
 - [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
@@ -123,18 +125,22 @@ mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 > Le nom de la branche se trouve dans la variable "github.ref_name". Cette pipeline peut être manuelle ou automatique.
 
 - [ ] Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
+  - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
 
 
 ## Migration base de données (MySQL)
-La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données.
+La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données (appelé aussi "dump") puis l'importer.
 
 ### Exporter base de données
 ```bash
 # bash
 mysqldump -u {USER} -p{PASSWORD} {DATABASE} > dump-file.sql
 # Note : si vous n'avez pas de mot de passe, omettez la partie "-pPASSWORD"
+# Note 2 : -p et {PASSWORD} sont collés, c'est étrange, mais c'est comme ça
 ```
-Il faudra commiter le fichier.
+Il faudra commiter le fichier de dump.
+
+> Note : Si vous ajoutez le paramètre "--no-data", nous n'exporterez que le schéma de base de données
 
 ### Importer base de données
 _On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson()_
@@ -152,7 +158,6 @@ MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
 MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
 
 mysql -u {$MYSQL_USER} -p{$MYSQL_PASSWORD} -h {$MYSQL_SERVER} {$MYSQL_DATABASE} < dump-file.sql
-# Ajoutez le paramètre "--no-data" si vous souhaitez exporter que le schéma de base de données
 ```
 
 > Note : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
@@ -192,3 +197,6 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 ## Pour aller plus loin
 ### Back-office / Administration
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
+
+### CI/CD
+- Afficher le lien de téléchargement de l'artifact du rapport Playwright dans une annotation
