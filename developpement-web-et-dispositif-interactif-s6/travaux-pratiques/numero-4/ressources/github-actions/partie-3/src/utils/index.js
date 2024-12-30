@@ -1,4 +1,4 @@
-const getVersionForName = {
+export const getVersionForName = {
     red: "Rouge",
     blue: "Bleue",
     yellow: "Jaune",
@@ -36,22 +36,22 @@ const getVersionForName = {
     "legends-arceus": "Légendes Pokémon : Arceus",
 };
 
-const cleanString = (string) =>
+export const cleanString = (string) =>
     string
         .toLowerCase()
         .normalize("NFD")
         .replace(/\p{Diacritic}/gu, "");
 
-const clearTagContent = (tag) => {
+export const clearTagContent = (tag) => {
     while (tag.firstChild) {
         tag.removeChild(tag.firstChild);
     }
 };
 
-const aRem = 16;
-const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
+export const aRem = 16;
+export const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
 
-const replaceImage = (img, heavyImagePath) => {
+export const replaceImage = (img, heavyImagePath) => {
     const newImg = new Image();
     newImg.onload = () => {
         img.src = newImg.src;
@@ -59,7 +59,7 @@ const replaceImage = (img, heavyImagePath) => {
     newImg.src = heavyImagePath;
 }
 
-const delegateEventHandler = (el, evt, sel, handler) => {
+export const delegateEventHandler = (el, evt, sel, handler) => {
     el.addEventListener(evt, function (event) {
         let t = event.target;
         while (t && t !== this) {
@@ -71,7 +71,7 @@ const delegateEventHandler = (el, evt, sel, handler) => {
     });
 };
 
-const isElementInViewport = (el) => {
+export const isElementInViewport = (el) => {
     const rect = el.getBoundingClientRect();
 
     return (
@@ -82,15 +82,15 @@ const isElementInViewport = (el) => {
     );
 }
 
-const capitalizeFirstLetter = (val) => {
+export const capitalizeFirstLetter = (val) => {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
-const getPkmnIdFromURL = (url) => {
+export const getPkmnIdFromURL = (url) => {
     return url.split("/").filter(Boolean).at(-1)
 }
 
-const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
+export const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
     // evolutionLine = evolutionLine.map((item, idx) => ({
         //     ...item,
@@ -154,7 +154,7 @@ const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     return payload;
 }
 
-const statistics = {
+export const statistics = {
     "hp": {
         name: "PV",
         color: "rgb(132 204 22)",
@@ -190,8 +190,6 @@ export const debounce = (callback, wait) => {
         }, wait);
     };
 }
-
-export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics, getPkmnIdFromURL };
 
 export * from "./colors";
 export * from "./modal.utils";

@@ -2,12 +2,9 @@ import {
     cleanString,
     replaceImage,
     tailwindConfig,
-} from "./index";
-
-import {
     typesTextColor,
     typesBorderColor,
-} from "./colors";
+} from "./index";
 
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
@@ -75,7 +72,7 @@ const createSensibility = (template, data, listTypes) => {
     return template;
 }
 
-const createAlternateForm = (template, data) => {
+const createAlternateForm = (template, data, event) => {
     const url = new URL(location.origin);
     url.searchParams.set("id", data.pokedex_id);
     const imgTag = template.querySelector("img");
@@ -105,14 +102,14 @@ const createAlternateForm = (template, data) => {
 
     aTag.href = url;
     aTag.dataset.pokemonData = JSON.stringify(data);
-    // aTag.addEventListener("click", (e) => loadDetailsModal(e, data.region));
+    aTag.addEventListener("click", (e) => event(e, data.region));
 
     return template;
 }
 
 const hocusClassRegex = /\shocus.+\d\s/;
 
-const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
+const createSibling = (template, data, isCurrentPkmn, isPrevious, event) => {
     const li = template.querySelector("li");
 
     li.classList.toggle("shrink-0", isCurrentPkmn);
@@ -151,7 +148,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         const aTag = template.querySelector("a");
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
-        // aTag.addEventListener("click", (e) => loadDetailsModal(e));
+        aTag.addEventListener("click", (e) => event(e));
         aTag.classList.add(...[
             typesBorderColor[`${cleanString(data.types[0].name)}_${cleanString(data.types[1]?.name || data.types?.[0].name)}`]
         ]);

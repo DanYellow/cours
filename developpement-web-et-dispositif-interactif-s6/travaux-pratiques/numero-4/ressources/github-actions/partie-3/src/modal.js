@@ -269,7 +269,7 @@ displayModal = async (pkmnData) => {
         li.textContent = type.name;
         li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
         li.classList.add(
-            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name"]
+            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name", "w-fit"]
         );
 
         const imgTag = document.createElement("img");
