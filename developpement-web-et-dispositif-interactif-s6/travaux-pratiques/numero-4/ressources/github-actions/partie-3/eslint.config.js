@@ -24,7 +24,9 @@ export default [
         ignores: [
             "dist/",
             "tests/",
+            "test-results/",
             "e2e/",
+            "playwright-report/",
             "tailwind.config.js",
             "vite.config.js",
             "eslint.config.js",
