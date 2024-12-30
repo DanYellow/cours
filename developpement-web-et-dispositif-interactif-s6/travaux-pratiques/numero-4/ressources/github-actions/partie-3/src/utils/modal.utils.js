@@ -1,14 +1,14 @@
 import {
     cleanString,
     replaceImage,
-} from "./utils";
+    tailwindConfig,
+} from "./index";
 
 import {
     typesTextColor,
     typesBorderColor,
 } from "./colors";
 
-import { loadDetailsModal, tailwindConfig } from "./modal";
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
@@ -105,7 +105,7 @@ const createAlternateForm = (template, data) => {
 
     aTag.href = url;
     aTag.dataset.pokemonData = JSON.stringify(data);
-    aTag.addEventListener("click", (e) => loadDetailsModal(e, data.region));
+    // aTag.addEventListener("click", (e) => loadDetailsModal(e, data.region));
 
     return template;
 }
@@ -151,7 +151,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious) => {
         const aTag = template.querySelector("a");
         aTag.href = siblingUrl;
         aTag.dataset.pokemonData = JSON.stringify(data);
-        aTag.addEventListener("click", (e) => loadDetailsModal(e));
+        // aTag.addEventListener("click", (e) => loadDetailsModal(e));
         aTag.classList.add(...[
             typesBorderColor[`${cleanString(data.types[0].name)}_${cleanString(data.types[1]?.name || data.types?.[0].name)}`]
         ]);

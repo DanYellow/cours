@@ -1,8 +1,3 @@
-import resolveConfig from "tailwindcss/resolveConfig";
-import _tailwindConfig from "/tailwind.config.js";
-
-export let tailwindConfig = null;
-
 import {
     fetchPokemonDescription,
     fetchAllTypes,
@@ -19,10 +14,14 @@ import {
     getEvolutionChain,
     statistics,
     getPkmnIdFromURL,
+    createSensibility,
+    createAlternateForm,
+    createSibling,
+    createStatisticEntry,
+    tailwindConfig,
 } from "./utils";
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
-import { createSensibility, createAlternateForm, createSibling, createStatisticEntry } from "./modal.utils"
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
@@ -52,8 +51,6 @@ const btnLoadGenerationTemplateRaw = document.querySelector(
 const pokemonStatisticTempalteRaw = document.querySelector(
     "[data-tpl-id='pokemon-statistic']"
 );
-
-tailwindConfig = resolveConfig(_tailwindConfig)
 
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
@@ -635,7 +632,8 @@ displayModal = async (pkmnData) => {
         const pkmnForm = await fetchPokemon(pkmnData.pokedex_id, item.region);
         const clone = createAlternateForm(
             document.importNode(pkmnTemplateRaw.content, true),
-            {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties}
+            {...item, ...pkmnData, ...pkmnForm, sprite: pkmnForm.sprites.regular, varieties: listDescriptions.varieties},
+            loadDetailsModal
         );
 
         modal_DOM.listRegionalForms.append(clone);
@@ -704,7 +702,8 @@ displayModal = async (pkmnData) => {
                 document.importNode(pokemonSiblingTemplateRaw.content, true),
                 item,
                 item.pokedex_id === pkmnData.pokedex_id,
-                item.pokedex_id < pkmnData.pokedex_id
+                item.pokedex_id < pkmnData.pokedex_id,
+                loadDetailsModal
             );
 
             modal_DOM.listSiblings.append(clone);

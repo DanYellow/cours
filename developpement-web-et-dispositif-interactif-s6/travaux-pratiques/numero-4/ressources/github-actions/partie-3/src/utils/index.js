@@ -192,3 +192,11 @@ export const debounce = (callback, wait) => {
 }
 
 export { getVersionForName, cleanString, clearTagContent, convertTailwindRemToPx, aRem, replaceImage, delegateEventHandler, isElementInViewport, getEvolutionChain, statistics, getPkmnIdFromURL };
+
+export * from "./colors";
+export * from "./modal.utils";
+
+import resolveConfig from "tailwindcss/resolveConfig";
+import _tailwindConfig from "/tailwind.config.js";
+
+export let tailwindConfig = resolveConfig(_tailwindConfig);

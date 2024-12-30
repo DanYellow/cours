@@ -1,4 +1,4 @@
-import { getVersionForName, cleanString, getEvolutionChain } from "#src/utils.js";
+import { getVersionForName, cleanString, getEvolutionChain } from "#src/utils/index.js";
 
 import { evolutionLine, evolutionLineFr, pokedex } from "#mocks/index.js";
 
@@ -32,7 +32,7 @@ describe("getEvolutionChain", () => {
             evolutionLineFr,
             pokedex
         );
-        
+
         res.forEach((item) => {
             expect(Array.isArray(item)).toBeTruthy();
         });

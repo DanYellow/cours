@@ -1,16 +1,16 @@
 import fetchPokemonForGeneration, {
     fetchPokemon,
 } from "./api";
-import displayPkmnModal, { tailwindConfig } from "./modal";
+import displayPkmnModal from "./modal";
 import {
     replaceImage,
     cleanString,
     delegateEventHandler,
     isElementInViewport,
+    typesBorderColor,
+    tailwindConfig,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
-
-import { typesBorderColor } from "./colors";
 
 import loadingImage from "/loading.svg?raw";
 import pikachuLoadingImage from "/pikachu-loading.gif"
@@ -239,7 +239,7 @@ window.addEventListener("endloading", () => {
 });
 
 if (process.env.NODE_ENV === "development") {
-    await import("./vite.error-overlay");
+    await import("./utils/vite.error-overlay");
 }
 
 const scrollDiv = document.createElement("div");

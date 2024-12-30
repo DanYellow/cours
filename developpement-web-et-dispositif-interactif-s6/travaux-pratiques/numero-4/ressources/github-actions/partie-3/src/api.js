@@ -6,9 +6,10 @@ let numberOfAjaxCallPending = 0;
 const startLoadingEvent = new Event("startloading");
 const endLoadingEvent = new Event("endloading");
 
+const delayBeforeFlagEndRequests = 850;
 const notifyEndRequests = debounce(() => {
     window.dispatchEvent(endLoadingEvent);
-}, 850);
+}, delayBeforeFlagEndRequests);
 
 const listURLToIntercept = ["https://tyradex.vercel.app/api/v1/gen", "https://pokeapi.co/api/v2/", "https://pokeapi.co/api/v2/pokemon/"]
 
@@ -16,7 +17,7 @@ axios.interceptors.request.use(async (config) => {
     try {
         if (listURLToIntercept.some((item) => config.url.startsWith(item))) {
             numberOfAjaxCallPending++;
-            
+
             window.dispatchEvent(startLoadingEvent);
         }
 
@@ -72,7 +73,7 @@ export const fetchPokemon = async (pkmnId, region = null) => {
     try {
         const regionName = region ? `/${region}` : "";
         const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}${regionName}`);
-        
+
         return req.data;
     } catch (error) {
         throw new Error(error);
@@ -86,7 +87,7 @@ export const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
             ...req.data,
             flavor_text_entries: req.data.flavor_text_entries.filter((item) => item.language.name === lang),
         }
-    
+
         return res;
     } catch (error) {
         throw new Error(error);
