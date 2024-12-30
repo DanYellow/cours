@@ -17,7 +17,9 @@ _Les consignes pourront être modifiées._
   - [Migration base de données (MySQL)](#migration-base-de-données-mysql)
     - [Exporter base de données](#exporter-base-de-données)
     - [Importer base de données](#importer-base-de-données)
+  - [Notes](#notes)
   - [Pour aller plus loin](#pour-aller-plus-loin)
+    - [Front-end](#front-end-1)
     - [Back-office / Administration](#back-office--administration)
     - [CI/CD](#cicd-1)
 
@@ -117,8 +119,10 @@ mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 
 - [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
   - [ ] Déploie le projet dans un dossier "develop"
-    - Note : Le dossier doit être crée par la CI/CD. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
-    - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
+      - Note : Le dossier doit être crée par la CI/CD sur le serveur. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
+      - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
+        - [En savoir plus sur les environnements](https://docs.github.com/fr/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment)
+      - Note 3 : Le nom "develop" est un nom exemple, elle n'est pas vraiment une branche intermédiaire, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] Migre la base de données (si besoin)
@@ -195,8 +199,17 @@ En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot
 mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 ```
 
+## Notes
+- Le projet repose sur les API suivantes :
+  - [https://tyradex.vercel.app/](https://tyradex.vercel.app/)
+  - [https://pokeapi.co/docs/v2](https://pokeapi.co/)
+
 
 ## Pour aller plus loin
+
+### Front-end
+- Mettre en place un système de comparaison de fiche entre deux Pokémon
+
 ### Back-office / Administration
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
 
