@@ -79,7 +79,7 @@ const createAlternateForm = (template, data, event) => {
     replaceImage(imgTag, data.sprite);
     imgTag.alt = `sprite de ${data.name.fr} forme ${data.region}`;
     imgTag.fetchPriority = "low";
-    template.querySelector("figcaption").textContent = `${data.name.fr}`;
+    template.querySelector("[data-pkmn-name]").textContent = `${data.name.fr}`;
 
     const aTag = template.querySelector("[data-pokemon-data]");
     const alternateForm = data.varieties
