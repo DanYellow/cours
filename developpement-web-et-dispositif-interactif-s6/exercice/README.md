@@ -60,6 +60,10 @@ Les critères suivants seront évalués :
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
 - [ ] Afficher les noms étrangers des Pokémon
+- [ ] En mode liste uniquement, afficher les types du Pokémon
+  - Pour ce faire, vous devrez utiliser les containers queries
+    - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+    - [Voir documentation plugin tailwind CSS container queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro, c'est ces numéros dont on parle
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
@@ -108,12 +112,14 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - [ ] Migre la base de données (si besoin)
   - [ ] Rendre inaccessible les fichiers .env au public
     - Autrement dit, on ne doit pas pouvoir accéder aux fichiers en écrivant mon.url/.env
-    - Passez par un fichier .htaccess pour bloquer l'accès au fichier .env, ce fichier peut être crée durant la pipeline avec le code suivant, il peut être exécuté directement depuis le fichier yaml ou depuis un fichier .sh :
-    ```sh
-    cat > .htaccess << EOF
-    # Contenu du fichier .htaccess
-    EOF
-    ```
+    - Deux solutions possibles :
+      - Passer par un fichier .htaccess pour bloquer l'accès au fichier .env, ce fichier peut être crée durant la pipeline avec le code suivant, il peut être exécuté directement depuis le fichier yaml ou depuis un fichier .sh :
+      ```sh
+      cat > .htaccess << EOF
+      # Contenu du fichier .htaccess
+      EOF
+      ```
+      - Ne pas mettre les fichier .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
 mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 > La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 
@@ -147,10 +153,12 @@ mysqldump -u {USER} -p{PASSWORD} {DATABASE} > dump-file.sql
 Il faudra commiter le fichier de dump.
 
 > Note : Si vous ajoutez le paramètre "--no-data", nous n'exporterez que le schéma de base de données
+> Note 2 : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
 
 ### Importer base de données
 _On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson()_
 ```yml
+# pipeline.yml
 [...]
 env:
     SECRETS_CONTEXT: ${{ toJson(secrets) }}
@@ -166,9 +174,7 @@ MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
 mysql -u {$MYSQL_USER} -p{$MYSQL_PASSWORD} -h {$MYSQL_SERVER} {$MYSQL_DATABASE} < dump-file.sql
 ```
 
-> Note : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
-
-Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est pas top niveau sécurité. Dans les détails du job, vous devriez voir :
+Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est pas top niveau sécurité, dans les détails du job, vous devriez voir :
 > Warning: Using a password on the command line interface can be insecure.
 
 On évite en général de mettre dans la ligne de commandes un mot de passe, on peut être épié. Dans le contexte de GitHub Actions, c'est 100% sécurisé grâce au système de secrets, mais voyons une autre méthode qui vous sera utile dans un autre contexte.
@@ -193,7 +199,7 @@ chmod 400 .my.cnf
 
 mysql --defaults-extra-file=.my.cnf < database.sql
 ```
-En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, utilisateur, serveur et base de données (chacun des paramètres pouvant être omis du fichier de configuration) à chaque fois. A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
+En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, l'utilisateur, le serveur et et la base de données à chaque fois (chacun des paramètres pouvant être omis du fichier de configuration et mis dans la commande). A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
 
 ```sh
 mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
@@ -202,7 +208,7 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 ## Notes
 - Le projet repose sur les API suivantes :
   - [https://tyradex.vercel.app/](https://tyradex.vercel.app/)
-  - [https://pokeapi.co/docs/v2](https://pokeapi.co/)
+  - [https://pokeapi.co/docs/v2/](https://pokeapi.co/)
 
 
 ## Pour aller plus loin
