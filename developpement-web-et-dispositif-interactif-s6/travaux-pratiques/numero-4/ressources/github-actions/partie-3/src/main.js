@@ -253,4 +253,10 @@ document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidt
 // Delete the DIV
 document.body.removeChild(scrollDiv);
 
+window.addEventListener("offline", () => {
+    const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
+    errorMessageContainer.textContent = "Connexion perdue";
+    noGenerationBanner.showPopover();
+});
+
 export { loadPokedexForGeneration };

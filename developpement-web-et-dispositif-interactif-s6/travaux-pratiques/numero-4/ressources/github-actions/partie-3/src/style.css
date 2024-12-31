@@ -23,6 +23,7 @@ html {
         scroll-behavior: auto !important;
         transition-duration: 0s !important;
         transition-delay: 0s !important;
+        view-transition-name: unset !important;
     }
 }
 
