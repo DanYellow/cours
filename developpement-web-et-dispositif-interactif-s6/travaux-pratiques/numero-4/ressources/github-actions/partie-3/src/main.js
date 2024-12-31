@@ -65,7 +65,6 @@ const updatePokedexLayout = (isGridLayout) => {
 }
 
 updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
-updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true);
 
 const loadDetailsModal = (e) => {
     e.preventDefault()
