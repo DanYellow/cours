@@ -1,10 +1,11 @@
 import {
-    fetchPokemonDescription,
+    fetchPokemonDetails,
     fetchAllTypes,
-    fetchPokemonExtraData,
+    fetchPokemonExternalDataForLang,
     fetchPokemon,
-    fetchDataFromURL,
-} from "./api";
+    fetchEvolutionChain,
+    fetchAbilityDataForLang,
+} from "#api";
 
 import {
     getVersionForName,
@@ -162,7 +163,7 @@ displayModal = async (pkmnData) => {
 
     if (!dataCache[pkmnId]) {
         try {
-            listDescriptions = await fetchPokemonDescription(pkmnData.pokedex_id);
+            listDescriptions = await fetchPokemonExternalDataForLang(pkmnData.pokedex_id);
         } catch (_e) {
             listDescriptions = {};
         }
@@ -171,7 +172,7 @@ displayModal = async (pkmnData) => {
             // if(pkmnData.evolution === null) {
             //     throw "No evolution";
             // }
-            const evolutionReq = await fetchDataFromURL(listDescriptions.evolution_chain.url);
+            const evolutionReq = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
                 evolutionReq,
                 {
@@ -187,7 +188,7 @@ displayModal = async (pkmnData) => {
         }
 
         try {
-            pkmnExtraData = await fetchPokemonExtraData(pkmnId);
+            pkmnExtraData = await fetchPokemonDetails(pkmnId);
         } catch (_e) {
             pkmnExtraData = {};
         }
@@ -200,10 +201,10 @@ displayModal = async (pkmnData) => {
                 listAbilitiesDescriptions.push(abilityInCache);
             } else {
                 try {
-                    const abilityReq = await fetchDataFromURL(ability.ability.url);
-                    const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
-                    const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
-                    listAbilitiesDescriptions.push({ id: abilityReq.id, description, name: { fr: name, en: abilityReq.name } });
+                    const abilityData = await fetchAbilityDataForLang(ability.ability.url);
+                    // const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
+                    // const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
+                    listAbilitiesDescriptions.push(abilityData);
                 } catch (_e) {}
             }
         }

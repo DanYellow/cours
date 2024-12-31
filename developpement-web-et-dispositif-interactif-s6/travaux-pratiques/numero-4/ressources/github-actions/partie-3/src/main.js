@@ -1,6 +1,8 @@
-import fetchPokemonForGeneration, {
+import {
+    fetchPokemonForGeneration,
     fetchPokemon,
-} from "./api";
+} from "#api";
+
 import displayPkmnModal from "./modal";
 import {
     replaceImage,
@@ -27,9 +29,9 @@ const faviconContainer = document.querySelector("[data-favicon]")
 
 const initialPageTitle = document.title;
 const initialPageFavicon = faviconContainer.getAttribute("href");
-const listPokemon = [];
+export const listPokemon = [];
 
-const setTitleTagForGeneration = () => {
+export const setTitleTagForGeneration = () => {
     const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
     let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
     const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
@@ -37,9 +39,7 @@ const setTitleTagForGeneration = () => {
     document.title = `${currentGenerationName} - ${initialPageTitle}`;
 }
 
-let hasReachPokedexEnd = false;
-
-export { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd };
+export let hasReachPokedexEnd = false;
 
 const updateSwitchIcons = (isGridLayout) => {
     Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {

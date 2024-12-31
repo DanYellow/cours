@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { debounce } from "./utils";
+import { debounce } from "#src/utils/index.js";
 
 let numberOfAjaxCallPending = 0;
 const startLoadingEvent = new Event("startloading");

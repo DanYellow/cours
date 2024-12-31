@@ -94,7 +94,7 @@ export const fetchPokemonDescription = async (pkmnId, lang = "fr") => {
     }
 }
 
-const fetchListPokemon = async (generation = 1) => {
+export const fetchListPokemon = async (generation = 1) => {
     let listPokemon = [];
     try {
         const req = await axios.get(`https://tyradex.vercel.app/api/v1/gen/${generation}`);

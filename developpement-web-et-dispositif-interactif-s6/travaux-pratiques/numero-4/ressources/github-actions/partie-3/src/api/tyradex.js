@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchListPokemon = async (generation = 1) => {
+export const fetchPokemonForGeneration = async (generation = 1) => {
     let listPokemon = [];
     try {
         const req = await axios.get(`https://tyradex.vercel.app/api/v1/gen/${generation}`);
@@ -13,6 +13,17 @@ export const fetchListPokemon = async (generation = 1) => {
         return listPokemon;
     } catch (error) {
         throw new Error("", { cause: error.cause });
+    }
+}
+
+export const fetchPokemon = async (pkmnId, region = null) => {
+    try {
+        const regionName = region ? `/${region}` : "";
+        const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}${regionName}`);
+
+        return req.data;
+    } catch (error) {
+        throw new Error(error);
     }
 }
 
