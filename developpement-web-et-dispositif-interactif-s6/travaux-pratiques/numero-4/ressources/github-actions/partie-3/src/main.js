@@ -109,7 +109,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         generationNumber.textContent = `#${generation}`;
         const firstPkmnId = nonRegionalPokedexData[0].pokedex_id;
 
-        generationRange.textContent = `${String(firstPkmnId).padStart(4, '0')} -> ${
+        generationRange.textContent = `${String(firstPkmnId).padStart(4, '0')} ➜ ${
             String(nonRegionalPokedexData.at(-1).pokedex_id).padStart(4, '0')
         }`;
 
