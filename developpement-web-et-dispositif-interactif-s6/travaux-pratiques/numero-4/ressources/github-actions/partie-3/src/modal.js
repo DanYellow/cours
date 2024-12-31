@@ -650,7 +650,7 @@ displayModal = async (pkmnData) => {
             true
         );
 
-        const {bar, name, value} = createStatisticEntry(clone, {...item, statistics})
+        const { bar, name, value } = createStatisticEntry(clone, {...item, statistics})
 
         modal_DOM.statistics.append(name);
         modal_DOM.statistics.append(value);

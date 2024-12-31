@@ -12,7 +12,7 @@ import {
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
-import loadingImage from "/loading.svg?raw";
+import loadingImageRaw from "/loading.svg?raw";
 import pikachuLoadingImage from "/pikachu-loading.gif"
 import "./style.css";
 
@@ -63,6 +63,9 @@ const updatePokedexLayout = (isGridLayout) => {
         item.classList.toggle("grid-cols-1", !isGridLayout);
     });
 }
+
+updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
+updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true);
 
 const loadDetailsModal = (e) => {
     e.preventDefault()
@@ -133,7 +136,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
 
-            const encodedData = window.btoa(loadingImage.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
+            const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
             imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
 
             replaceImage(imgTag, item.sprites.regular);
@@ -213,8 +216,6 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     }
 });
 
-updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
-updateSwitchIcons(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true);
 
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
