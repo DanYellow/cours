@@ -181,19 +181,21 @@ const createStatisticEntry = (template, data) => {
     const statValue = template.querySelector("[data-stat-value]");
     const statBar = template.querySelector("[data-stat-bar]");
 
+    const alpha = 0.45;
+
     statName.textContent = data.statistics[data.stat.name].name;
-    statName.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statName.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
     statName.setAttribute("aria-label", `${data.statistics[data.stat.name].name} de base ${data.base_stat}`);
-    statName.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statName.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
 
     statValue.textContent = data.base_stat;
-    statValue.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
-    statValue.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statValue.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
+    statValue.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
 
     statBar.querySelector("div").style.width = `${data.base_stat}px`;
     statBar.querySelector("div").style.backgroundColor = data.statistics[data.stat.name].color;
-    statBar.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
-    statBar.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / 0.4)`;
+    statBar.style.backgroundColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
+    statBar.style.borderColor = `rgb(from ${data.statistics[data.stat.name].color} r g b / ${alpha})`;
 
     return { bar: statBar, value: statValue, name: statName }
 }
