@@ -20,12 +20,14 @@ import "./style.css";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
+const generationShortcutTemplateRaw = document.querySelector("[data-tpl-id='generation-shortcut-link']");
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
-const faviconContainer = document.querySelector("[data-favicon]")
+const faviconContainer = document.querySelector("[data-favicon]");
+const generationShortcut = document.querySelector("[data-generation-shortcut]");
 
 const initialPageTitle = document.title;
 const initialPageFavicon = faviconContainer.getAttribute("href");
@@ -34,9 +36,20 @@ export const listPokemon = [];
 export const setTitleTagForGeneration = () => {
     const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
     let allStickedVisibleHeaders = allStickedHeaders.filter((item) => isElementInViewport(item));
-    const currentGenerationName = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]") ).querySelector("h2").textContent.trim();
+    const currentHeader = (allStickedVisibleHeaders.at(-1) || document.querySelector("[data-header-pokedex]"));
 
+    const currentHeaderIndex = allStickedVisibleHeaders.findIndex((item) => item === currentHeader);
+    const indicatorId = `pokedex-${currentHeaderIndex === -1 ? 1 : currentHeaderIndex + 1}`
+
+    const currentGenerationName = currentHeader.querySelector("h2").textContent.trim();
     document.title = `${currentGenerationName} - ${initialPageTitle}`;
+    setScrollIndicator(indicatorId)
+}
+
+const setScrollIndicator = (indicatorId) => {
+    generationShortcut.querySelectorAll("button").forEach((item) => {
+        item.classList.toggle("font-bold", item.dataset.dataId.includes(indicatorId))
+    })
 }
 
 export let hasReachPokedexEnd = false;
@@ -132,6 +145,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             if (firstPkmnId > item.pokedex_id) {
                 return;
             }
+
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
 
@@ -156,6 +170,9 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
                 typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
             ]);
             aTag.addEventListener("click", loadDetailsModal);
+            if (index === 0) {
+                aTag.id = `pokedex-${generation}`;
+            }
 
             pokedex.append(clone);
             pokedexItemScrollingObserver.observe(aTag);
@@ -166,6 +183,15 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true)
 
         generationScrollingObserver.observe(headerPokedex);
+
+        const generationShortcutTemplate = document.importNode(generationShortcutTemplateRaw.content, true);
+        const buttonGenerationShorcutTemplate = generationShortcutTemplate.querySelector("button");
+        buttonGenerationShorcutTemplate.textContent = `#${generation}`;
+        buttonGenerationShorcutTemplate.dataset.dataId = `pokedex-${generation}`;
+        buttonGenerationShorcutTemplate.addEventListener("click", () => {
+            document.querySelector(`#pokedex-${generation}`).scrollIntoView();
+        });
+        generationShortcut.append(generationShortcutTemplate);
 
         listLoadGenerationBtns.forEach((item) => item.inert = false);
         if (triggerElement) {
@@ -180,6 +206,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
             errorMessageContainer.textContent = "Impossible d'afficher cette génération, car elle n'existe pas.";
         } else {
+            console.error(error);
             errorMessageContainer.textContent = "Une erreur est survenue.";
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }

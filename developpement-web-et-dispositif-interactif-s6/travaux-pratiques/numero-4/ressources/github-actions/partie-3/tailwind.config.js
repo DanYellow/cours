@@ -106,7 +106,7 @@ export default {
         },
     },
     plugins: [
-        plugin(({ addVariant, addComponents }) => {
+        plugin(({ addVariant }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
             addVariant("group-hocus", [
