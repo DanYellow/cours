@@ -245,7 +245,6 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     }
 });
 
-
 window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
