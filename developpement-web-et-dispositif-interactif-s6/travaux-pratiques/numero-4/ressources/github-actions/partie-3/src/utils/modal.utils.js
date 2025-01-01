@@ -22,7 +22,7 @@ const createSensibility = (template, data, listTypes) => {
     );
 
     const imgTag = template.querySelector("img")
-    imgTag.alt = `icône type ${typeData.name}`;
+    imgTag.alt = `icône type ${typeData.name.fr}`;
     imgTag.src = loadingImage;
     replaceImage(imgTag, typeData.sprite);
 
