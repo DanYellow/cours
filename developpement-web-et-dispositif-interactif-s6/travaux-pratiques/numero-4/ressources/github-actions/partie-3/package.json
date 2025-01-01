@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "test": "jest",
+    "test": "vitest",
     "build": "vite build && rsync -am --include='*.php' --include='**/*.php' --exclude='*' ./ dist/",
     "lint": "npx eslint",
     "preview": "vite preview",
@@ -20,14 +20,13 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^22.10.1",
     "autoprefixer": "^10.4.20",
-    "babel-jest": "^29.7.0",
     "eslint": "^9.16.0",
     "globals": "^15.13.0",
-    "jest": "^29.7.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "vite": "^6.0.1",
     "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^2.1.8",
     "vituum": "^1.1.1"
   },
   "dependencies": {
@@ -35,6 +34,7 @@
   },
   "imports": {
     "#src/*.js": "./src/*.js",
+    "#utils": "./src/utils/index.js",
     "#api": "./src/api/index.js",
     "#mocks/*.js": "./__mocks__/*.js"
   }

@@ -318,7 +318,9 @@
             Définissez une CI/CD permettant les actions suivantes :
             <ul>
               <li>Lint le code javascript</li>
-              <li>Exécute les tests unitaires</li>
+              <li>Exécute les tests unitaires
+                <p class="note-information">Le projet utilise vitest au lieu de jest. Vitest possède l'avantage de s'intégrer plus facilement avec vite que jest. Le fonctionnement reste le même dans l'ensemble notamment au niveau des méthodes de test.</p>
+              </li>
               <li>Exécute les tests e2e
                 <div class="note-information">
                     <p>Il faut exécuter l'outil de e2e en mode CI (headless) surtout pas en mode UI.</p>

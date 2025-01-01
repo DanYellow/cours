@@ -1,3 +1,5 @@
+import { expect, describe, it } from 'vitest';
+
 import { getVersionForName, cleanString, getEvolutionChain } from "#src/utils/index.js";
 
 import { evolutionLine, evolutionLineFr, pokedex } from "#mocks/index.js";
