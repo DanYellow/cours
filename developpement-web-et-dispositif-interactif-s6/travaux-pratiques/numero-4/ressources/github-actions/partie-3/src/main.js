@@ -48,7 +48,7 @@ export const setTitleTagForGeneration = () => {
 
 const setScrollIndicator = (indicatorId) => {
     generationShortcut.querySelectorAll("button").forEach((item) => {
-        item.classList.toggle("font-bold", item.dataset.dataId.includes(indicatorId))
+        item.classList.toggle("font-bold", item.dataset.id.includes(indicatorId))
     })
 }
 
@@ -187,7 +187,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const generationShortcutTemplate = document.importNode(generationShortcutTemplateRaw.content, true);
         const buttonGenerationShorcutTemplate = generationShortcutTemplate.querySelector("button");
         buttonGenerationShorcutTemplate.textContent = `#${generation}`;
-        buttonGenerationShorcutTemplate.dataset.dataId = `pokedex-${generation}`;
+        buttonGenerationShorcutTemplate.dataset.id = `pokedex-${generation}`;
         buttonGenerationShorcutTemplate.setAttribute("aria-label", `Accéder à la génération ${generation}`);
         buttonGenerationShorcutTemplate.addEventListener("click", () => {
             document.querySelector(`#pokedex-${generation}`).scrollIntoView();

@@ -55,12 +55,13 @@ test("should not reload the page after select a Pokemon", { tag: "@smoke" }, asy
         resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
     );
 
-    const firstPkmn = page.getByTestId("pokemon").first();
-    await firstPkmn.waitFor();
-    await firstPkmn.click();
+        const firstPkmn = page.getByTestId("pokemon").first();
+        await firstPkmn.waitFor();
+        await firstPkmn.click();
 
-    await expect(page).not.toHaveTitle("Pokédex v1.0.0");
-});
+        await expect(page).not.toHaveTitle("Pokédex v1.0.0");
+    }
+);
 
 test("should change title's value according to current generation displayed", async ({
     page,
@@ -108,10 +109,7 @@ test("should listen to query string params @smoke", async ({ page }) => {
     await firstPkmn.waitFor();
     await firstPkmn.click();
 
-    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute(
-        "open",
-        ""
-    );
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
 
     await page.goBack();
 
@@ -119,4 +117,38 @@ test("should listen to query string params @smoke", async ({ page }) => {
         "open",
         ""
     );
+});
+
+test("should indicate the right gen in the navigation shortcut", async ({
+    page,
+}) => {
+    await page.waitForResponse((resp) =>
+        resp.url().includes("https://tyradex.vercel.app/api/v1/gen/1")
+    );
+
+    const loadGenerationButton = await page
+        .getByTestId("load-generation-btn")
+        .first();
+    loadGenerationButton.click();
+    const nextGenerationNumber = await loadGenerationButton.getAttribute(
+        "data-load-generation"
+    );
+
+    await page.waitForResponse((resp) =>
+        resp
+            .url()
+            .includes(
+                `https://tyradex.vercel.app/api/v1/gen/${nextGenerationNumber}`
+            )
+    );
+
+    const gen2Shortcut = await page
+        .locator(`[data-id="pokedex-${nextGenerationNumber}"]`)
+        .first();
+    await gen2Shortcut.click();
+
+    await page.waitForTimeout(1.5);
+
+
+    await expect(gen2Shortcut).toHaveClass(/font-bold/);
 });
