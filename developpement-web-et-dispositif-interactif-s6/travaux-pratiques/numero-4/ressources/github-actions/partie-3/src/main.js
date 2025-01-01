@@ -188,10 +188,13 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         const buttonGenerationShorcutTemplate = generationShortcutTemplate.querySelector("button");
         buttonGenerationShorcutTemplate.textContent = `#${generation}`;
         buttonGenerationShorcutTemplate.dataset.dataId = `pokedex-${generation}`;
+        buttonGenerationShorcutTemplate.setAttribute("aria-label", `Accéder à la génération ${generation}`);
         buttonGenerationShorcutTemplate.addEventListener("click", () => {
             document.querySelector(`#pokedex-${generation}`).scrollIntoView();
         });
         generationShortcut.append(generationShortcutTemplate);
+        generationShortcut.classList.replace("opacity-0", "opacity-100");
+        generationShortcut.classList.replace("hidden", "flex");
 
         listLoadGenerationBtns.forEach((item) => item.inert = false);
         if (triggerElement) {

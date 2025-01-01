@@ -4,7 +4,7 @@ import {
     tailwindConfig,
     typesTextColor,
     typesBorderColor,
-} from "./index";
+} from "#utils";
 
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";

@@ -15,12 +15,15 @@ import {
     getEvolutionChain,
     statistics,
     getPkmnIdFromURL,
+    tailwindConfig,
+} from "./utils";
+
+import {
     createSensibility,
     createAlternateForm,
     createSibling,
     createStatisticEntry,
-    tailwindConfig,
-} from "./utils";
+} from "#src/utils/modal.utils.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
 import loadingImage from "/loading.svg";

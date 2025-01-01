@@ -109,12 +109,8 @@ dialog {
 }
 
 .pkmn-details-dialog {
-    --dot-size: 0.55px;
+    --dot-size: 0.75px;
     --dot-color: var(--bg-modal-color);
-
-    @media (width > theme("screens.md")) {
-        --dot-size: 0.75px;
-    }
 
     @media (max-resolution: 1.1dppx) {
         --dot-color: rgb(from var(--bg-modal-color) r g b / 0.15);
@@ -154,7 +150,6 @@ dialog {
             }
     }
 }
-
 
 .type-name {
     font-weight: bold;

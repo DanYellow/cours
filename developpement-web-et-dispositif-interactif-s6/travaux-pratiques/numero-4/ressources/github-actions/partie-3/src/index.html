@@ -29,13 +29,8 @@
             </div>
         </header>
         <main>
-            <div class="fixed right-3 top-1/2 -translate-y-1/2 group flex z-20">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                    </svg>
-                </button>
-                <ul class="text-sm py-3 px-2 bg-slate-50 rounded-3xl border border-red-600 border-solid flex flex-col gap-2" data-generation-shortcut></ul>
+            <div class="fixed right-3 top-1/2 -translate-y-1/2 flex z-20">
+                <ul class="text-sm py-3 px-2 bg-slate-50 rounded-3xl opacity-0 hidden transition-opacity border border-red-600 border-solid flex-col gap-2" data-generation-shortcut></ul>
             </div>
 
             <div data-list-pokedex></div>
@@ -57,7 +52,6 @@
         <template data-tpl-id="generation-shortcut-link">
             <li>
                 <button class="px-1 py-2">
-                    <!-- <span class="hidden group-hocus:inline">Génération</span> -->
                     #1
                 </button>
             </li>
@@ -181,8 +175,8 @@
             <div>
                 <p data-stat-name class="px-3 py-2 h-full font-bold sm:top-0 sm:rounded-bl-lg rounded-tl-lg border-l-4 border-solid"></p>
                 <p data-stat-value class="px-3 py-2 h-full border-r-4 sm:border-r-0 rounded-tr-lg text-right sm:rounded-tr-none" aria-hidden="true"></p>
-                <div data-stat-bar class="col-span-2 sm:col-auto px-3 py-2 h-full relative -top-[0.39rem] sm:top-0 sm:rounded-tr-lg sm:rounded-es-none rounded-ee-lg rounded-es-lg flex items-center sm:border-l-0 border-l-4 border-r-4  border-solid">
-                    <div class="stat-bar h-5 max-w-full bg-blue-300 border border-solid border-slate-900 relative -z-10"></div>
+                <div data-stat-bar class="col-span-2 sm:col-auto px-3 py-2 h-full relative -top-[0.39rem] sm:top-0 sm:rounded-tr-lg sm:rounded-es-none rounded-ee-lg rounded-es-lg flex items-center sm:border-l-0 border-l-4 border-r-4 border-solid">
+                    <div class="stat-bar h-5 max-w-full bg-blue-300 border border-solid border-slate-900 relative"></div>
                 </div>
             </div>
         </template>
