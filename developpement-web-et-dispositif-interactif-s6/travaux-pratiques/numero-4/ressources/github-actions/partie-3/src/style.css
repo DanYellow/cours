@@ -110,7 +110,7 @@ dialog {
 
 .pkmn-details-dialog {
     --dot-size: 0.75px;
-    --dot-color: var(--bg-modal-color);
+    --dot-color: rgb(from var(--bg-modal-color) r g b / 0.65);
 
     @media (max-resolution: 1.1dppx) {
         --dot-color: rgb(from var(--bg-modal-color) r g b / 0.15);
@@ -122,7 +122,7 @@ dialog {
             transparent var(--dot-size)
         ),
         radial-gradient(var(--dot-color) var(--dot-size), transparent var(--dot-size)),
-        linear-gradient(0deg, var(--dot-color) 0%, var(--dot-color) 6.05%, rgba(255,255,255,0) 6.05%);
+        linear-gradient(0deg, rgb(from var(--dot-color) r g b / 1) 0%, rgb(from var(--dot-color) r g b / 1) 6.05%, rgba(255,255,255,0) 6.05%);
     background-size: 20px 20px, 20px 20px, 100% 1210px;
     background-position: 0 0, 10px 10px, center bottom -12px;
     background-repeat: repeat, repeat, no-repeat;
@@ -136,18 +136,18 @@ dialog {
         background-size: 20px 20px, 20px 20px;
         background-position: -17px 0, 10px 10px;
 
-            .sticky-header {
-                &::before {
-                    content: "";
-                    display: block;
-                    bottom: 100%;
-                    background-color: inherit;
-                    height: 500px;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                }
+        .sticky-header {
+            &::before {
+                content: "";
+                display: block;
+                bottom: 100%;
+                background-color: inherit;
+                height: 500px;
+                position: absolute;
+                left: 0;
+                right: 0;
             }
+        }
     }
 }
 

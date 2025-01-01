@@ -101,7 +101,10 @@ export default {
             screens: {
                 retina: {
                     raw: 'only screen and (min-resolution: 1.1dppx)'
-                }
+                },
+                betterhover: {
+                    raw: "(hover: hover)"
+                },
             }
         },
     },
