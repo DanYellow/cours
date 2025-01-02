@@ -40,39 +40,46 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     );
 
     // To generate classes only
-    // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `group-hocus:border-${item}`})).reduce((prev, curr) => {
-    //     Object.assign(prev, curr);
-    //     return prev;
-    //   }, {})), err => {
-    //     if (err) {
-    //       console.error(err);
-    //     } else {
-    //       // file written successfully
-    //     }
-    //   })
+    fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `border-animated-${item}`})).reduce((prev, curr) => {
+        Object.assign(prev, curr);
+        return prev;
+      }, {})), err => {
+        if (err) {
+          console.error(err);
+        } else {
+          // file written successfully
+        }
+      })
 
 
-    const listPossiblesTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
+    const listPossiblesBorderTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
         return {
             name: `.border-${item}`,
+            borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
+            borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
+            borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
+            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
+        }
+    });
+
+    const listPossiblesAnimatedBorderTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
+        return {
+            name: `.border-animated-${item}`,
             backgroundImage: `
-                linear-gradient(to right,rgb(255 255 255 / 1), rgb(255 255 255 / 1)),
+                linear-gradient(to right, rgb(255 255 255 / 1), rgb(255 255 255 / 1)),
                 conic-gradient(
                     from var(--border-type-angle),
                     ${theme(`colors.type_${item.split("_")[0]}`)} 0deg 180deg,
                     ${theme(`colors.type_${item.split("_")[1]}`)} 180deg 360deg
                 )`
-            // borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
-            // borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
-            // borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
-            // borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
         }
     });
 
     addComponents({
         ...backgroundTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
         ...textColorTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...listPossiblesTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...listPossiblesBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...listPossiblesAnimatedBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
     });
 });
 

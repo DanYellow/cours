@@ -9,7 +9,7 @@ import {
     cleanString,
     delegateEventHandler,
     isElementInViewport,
-    typesBorderColor,
+    typesAnimatedBorderColor,
     tailwindConfig,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
@@ -167,7 +167,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             aTag.dataset.pokemonData = JSON.stringify(item);
             aTag.dataset.pokemonId = item.pokedex_id;
             aTag.classList.add(...[
-                typesBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
+                `hocus:${typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]}`
             ]);
             aTag.addEventListener("click", loadDetailsModal);
             if (index === 0) {
