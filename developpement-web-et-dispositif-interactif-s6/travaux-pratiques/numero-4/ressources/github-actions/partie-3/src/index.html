@@ -59,7 +59,7 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
-                <a data-pokemon-data data-pokemon-id class="hocus:bg-slate-100 rounded-md py-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="foo hocus:bg-slate-100 rounded-md py-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center">
                         <img src="/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-110 transition-transform ease-out" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full rounded-md"></p>
@@ -156,7 +156,7 @@
                 <button
                     data-load-generation
                     data-self-delete
-                    class="block rounded-md w-full p-2 border border-black border-solid bg-slate-100 h-full"
+                    class="block rounded-md w-full p-2 border border-black border-solid  h-full hocus:bg-slate-100"
                 >
                 </button>
             </li>
@@ -330,7 +330,7 @@
                     <button
                         data-close-modal=""
                         data-testid="close-modal"
-                        class=" block rounded-md transition-colors hocus:bg-white hocus:text-black w-full mt-2 p-2 border border-black border-solid bg-slate-950 text-white"
+                        class=" block rounded-md transition-colors hocus:bg-white hocus:text-black w-full mt-2 p-2 border border-black border-solid bg-slate-950 text-white ease-out"
                         >
                         Fermer
                     </button>

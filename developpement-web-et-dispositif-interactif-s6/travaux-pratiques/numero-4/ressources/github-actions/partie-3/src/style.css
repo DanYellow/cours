@@ -121,18 +121,29 @@ dialog {
             var(--dot-color) var(--dot-size),
             transparent var(--dot-size)
         ),
-        radial-gradient(var(--dot-color) var(--dot-size), transparent var(--dot-size)),
-        linear-gradient(0deg, rgb(from var(--dot-color) r g b / 1) 0%, rgb(from var(--dot-color) r g b / 1) 6.05%, rgba(255,255,255,0) 6.05%);
+        radial-gradient(
+            var(--dot-color) var(--dot-size),
+            transparent var(--dot-size)
+        ),
+        linear-gradient(
+            0deg,
+            rgb(from var(--dot-color) r g b / 1) 0%,
+            rgb(from var(--dot-color) r g b / 1) 6.05%,
+            rgba(255, 255, 255, 0) 6.05%
+        );
     background-size: 20px 20px, 20px 20px, 100% 1210px;
     background-position: 0 0, 10px 10px, center bottom -12px;
     background-repeat: repeat, repeat, no-repeat;
 
     .main-infos {
         background-image: radial-gradient(
-            var(--dot-color) var(--dot-size),
-            transparent var(--dot-size)
-        ),
-        radial-gradient(var(--dot-color) var(--dot-size), #fff var(--dot-size));
+                var(--dot-color) var(--dot-size),
+                transparent var(--dot-size)
+            ),
+            radial-gradient(
+                var(--dot-color) var(--dot-size),
+                #fff var(--dot-size)
+            );
         background-size: 20px 20px, 20px 20px;
         background-position: -17px 0, 10px 10px;
 
@@ -229,27 +240,77 @@ details {
 }
 
 .mega-evolution {
-    background: linear-gradient(-45deg, #e98b2d, #80c468, #09b8db, #23d5ab, #e35faa);
-	background-size: 400% 400%;
-	animation: mega-evolution-gradient 15s ease infinite;
+    background: linear-gradient(
+        -45deg,
+        #e98b2d,
+        #80c468,
+        #09b8db,
+        #23d5ab,
+        #e35faa
+    );
+    background-size: 400% 400%;
+    animation: mega-evolution-gradient 15s ease infinite;
 }
 
 @keyframes mega-evolution-gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .scrollbar-measure {
-	width: 100px;
-	height: 100px;
-	overflow: scroll;
-	position: absolute;
-	top: -9999px;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 34.6deg;
+    inherits: false;
+}
+
+.foo {
+    --opacity: 1;
+    --border-size: 0.3rem;
+    border-color: transparent !important;
+
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / var(--opacity)),
+        rgb(255 255 255 / var(--opacity))
+    ),
+    conic-gradient(
+        from var(--angle),
+        #d53e33 0deg 180deg,
+        #377af5 180deg 360deg
+    );
+
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+
+    &:hover {
+        --angle: -34.6deg;
+        /* animation-play-state: running; */
+    }
+}
+
+@keyframes type-border {
+    0% {
+        --angle:34.6deg;
+    }
+    50% {
+        --angle:-34.6deg
+    } 100% {
+        --angle:34.6deg;
+    }
 }
