@@ -109,7 +109,7 @@ const createAlternateForm = (template, data, event) => {
 
 const hocusClassRegex = /\shocus.+\d\s/;
 
-const createSibling = (template, data, isCurrentPkmn, isPrevious, event) => {
+const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, event}) => {
     const li = template.querySelector("li");
 
     li.classList.toggle("shrink-0", isCurrentPkmn);
@@ -136,7 +136,7 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious, event) => {
         if (isCurrentPkmn) {
             pkmnId.classList.replace("text-right", "text-center");
         }
-        if (isPrevious) {
+        if (isPreviousPkmn) {
             pkmnId.classList.replace("text-right", "text-left");
         }
 
@@ -154,11 +154,11 @@ const createSibling = (template, data, isCurrentPkmn, isPrevious, event) => {
         ]);
 
         if (!isCurrentPkmn) {
-            aTag.dataset.testid = isPrevious ? "previous-pkmn" : "next-pkmn";
+            aTag.dataset.testid = isPreviousPkmn ? "previous-pkmn" : "next-pkmn";
 
             const arrow = document.createElement("p");
-            arrow.textContent = isPrevious ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", isPrevious ? "-mr-3.5" : "-ml-3.5", "arrow", typesTextColor[cleanString(data.types[0].name)]]);
+            arrow.textContent = isPreviousPkmn ? "◄" : "►";
+            arrow.classList.add(...["font-['serif']", isPreviousPkmn ? "-mr-3.5" : "-ml-3.5", "arrow", typesTextColor[cleanString(data.types[0].name)]]);
 
             aTag.prepend(arrow);
         } else {

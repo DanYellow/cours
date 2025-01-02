@@ -702,13 +702,13 @@ displayModal = async (pkmnData) => {
     [prevPokemon, pkmnData, nextPokemon]
         .filter(Boolean)
         .forEach((item) => {
-            const clone = createSibling(
-                document.importNode(pokemonSiblingTemplateRaw.content, true),
-                item,
-                item.pokedex_id === pkmnData.pokedex_id,
-                item.pokedex_id < pkmnData.pokedex_id,
-                loadDetailsModal
-            );
+            const clone = createSibling({
+                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
+                data: item,
+                isCurrentPkmn: item.pokedex_id === pkmnData.pokedex_id,
+                isPreviousPkmn: item.pokedex_id < pkmnData.pokedex_id,
+                event: loadDetailsModal
+            });
 
             modal_DOM.listSiblings.append(clone);
         });
@@ -737,13 +737,14 @@ const pkmnSiblingsObserver = new MutationObserver((e) => {
             const pkmnId = urlParams.get("id");
             const nextPokemon = listPokemon.at(pkmnId);
 
-            const clone = createSibling(
-                document.importNode(pokemonSiblingTemplateRaw.content, true),
-                nextPokemon,
-                false,
-                false,
-                loadDetailsModal
-            );
+            const clone = createSibling({
+                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
+                data: nextPokemon,
+                isCurrentPkmn: false,
+                isPreviousPkmn: false,
+                event: loadDetailsModal
+            });
+
             modal_DOM.listSiblings.append(clone);
         }
     }
@@ -770,13 +771,13 @@ window.addEventListener("pokedexLoaded", (e) => {
     [prevPokemon, pkmnData, nextPokemon]
         .filter(Boolean)
         .forEach((item) => {
-            const clone = createSibling(
-                document.importNode(pokemonSiblingTemplateRaw.content, true),
-                item,
-                item.pokedex_id === pkmnId,
-                item.pokedex_id < pkmnId,
-                loadDetailsModal
-            );
+            const clone = createSibling({
+                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
+                data: item,
+                isCurrentPkmn: item.pokedex_id === pkmnId,
+                isPreviousPkmn: item.pokedex_id < pkmnId,
+                event: loadDetailsModal
+            });
 
             modal_DOM.listSiblings.append(clone);
         });
