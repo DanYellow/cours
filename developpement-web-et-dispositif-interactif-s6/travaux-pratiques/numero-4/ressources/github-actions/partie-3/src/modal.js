@@ -403,7 +403,7 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    const listRegions = ["alola", "hisui", "galar"];
+    const listRegions = ["alola", "hisui", "galar", "paldea"];
     let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && !listRegions.some((region) => item.pokemon.name.includes(region))) || []
     alternateEvolutions = alternateEvolutions.map((item) => {
         return {
@@ -608,7 +608,6 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listGames);
-
     let listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
         index === self.findIndex((t) => (
             t.version.name === value.version.name
