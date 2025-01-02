@@ -393,7 +393,10 @@ displayModal = async (pkmnData) => {
     const listAcronymsDOM = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]"));
     const listAcronyms = listAcronymsDOM.map((item) => item.dataset.acronym)
     modal_DOM.acronymVersions.classList.toggle("hidden", !listEvolutionConditions.filter(Boolean).some(
-        v => listAcronyms.some(acronym => v.toLowerCase().includes(acronym))
+        v => listAcronyms.some(acronym => {
+            const re = new RegExp(`([(\s]${acronym}[)\s])`, 'gi');
+            return v.toLowerCase().match(re)
+        })
     ));
 
     listAcronyms.forEach((item) => {
@@ -757,7 +760,7 @@ window.addEventListener("pokedexLoaded", (e) => {
     }
     const pkmnData = JSON.parse(modal.dataset.pokemonData);
 
-    if (Number(pkmnData.generation) === 1 || Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
+    if (Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
         return;
     }
 
