@@ -9,11 +9,11 @@ import {
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
-const pkmnHighlightTemplateRaw = document.querySelector(
+export const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
 
-const createSensibility = (template, data, listTypes) => {
+export const createSensibility = (template, data, listTypes) => {
     const typeData = listTypes.find(
         (type) => cleanString(type.name.fr) === cleanString(data.name)
     );
@@ -72,7 +72,7 @@ const createSensibility = (template, data, listTypes) => {
     return template;
 }
 
-const createAlternateForm = (template, data, event) => {
+export const createAlternateForm = (template, data, event) => {
     const url = new URL(location.origin);
     url.searchParams.set("id", data.pokedex_id);
     const imgTag = template.querySelector("img");
@@ -107,9 +107,9 @@ const createAlternateForm = (template, data, event) => {
     return template;
 }
 
-const hocusClassRegex = /\shocus.+\d\s/;
+export const hocusClassRegex = /\shocus.+\d\s/;
 
-const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, event}) => {
+export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, event}) => {
     const li = template.querySelector("li");
 
     li.classList.toggle("shrink-0", isCurrentPkmn);
@@ -176,7 +176,7 @@ const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, event}) =
     return template;
 };
 
-const createStatisticEntry = (template, data) => {
+export const createStatisticEntry = (template, data) => {
     const statName = template.querySelector("[data-stat-name]");
     const statValue = template.querySelector("[data-stat-value]");
     const statBar = template.querySelector("[data-stat-bar]");
@@ -200,4 +200,16 @@ const createStatisticEntry = (template, data) => {
     return { bar: statBar, value: statValue, name: statName }
 }
 
-export { createSensibility, createAlternateForm, createSibling, createStatisticEntry };
+export const getAbilityForLang = (ability, lang = "fr") => {
+    const name = ability.names.filter((item) => item.language.name === lang)[0].name;
+    const description = ability.flavor_text_entries.filter((item) => item.language.name === lang).at(-1).flavor_text;
+
+    return { name: { fr: name, en: ability.name }, description, id: ability.id };
+}
+
+export const getExternalDataForLang = (externalData, lang = "fr") => {
+    return {
+        ...externalData,
+        flavor_text_entries: externalData.flavor_text_entries.filter((item) => item.language.name === lang),
+    };
+}

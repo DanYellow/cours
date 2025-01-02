@@ -1,10 +1,10 @@
 import {
     fetchPokemonDetails,
     fetchAllTypes,
-    fetchPokemonExternalDataForLang,
+    fetchPokemonExternalData,
     fetchPokemon,
     fetchEvolutionChain,
-    fetchAbilityDataForLang,
+    fetchAbilityData,
 } from "#api";
 
 import {
@@ -23,6 +23,8 @@ import {
     createAlternateForm,
     createSibling,
     createStatisticEntry,
+    getAbilityForLang,
+    getExternalDataForLang,
 } from "#src/utils/modal.utils.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
@@ -166,7 +168,10 @@ displayModal = async (pkmnData) => {
 
     if (!dataCache[pkmnId]) {
         try {
-            listDescriptions = await fetchPokemonExternalDataForLang(pkmnData.pokedex_id);
+            listDescriptions = getExternalDataForLang(
+                await fetchPokemonExternalData(pkmnData.pokedex_id),
+                "fr"
+            );
         } catch (_e) {
             listDescriptions = {};
         }
@@ -204,10 +209,8 @@ displayModal = async (pkmnData) => {
                 listAbilitiesDescriptions.push(abilityInCache);
             } else {
                 try {
-                    const abilityData = await fetchAbilityDataForLang(ability.ability.url);
-                    // const name = abilityReq.names.filter((item) => item.language.name === "fr")[0].name;
-                    // const description = abilityReq.flavor_text_entries.filter((item) => item.language.name === "fr").at(-1).flavor_text;
-                    listAbilitiesDescriptions.push(abilityData);
+                    const abilityData = await fetchAbilityData(ability.ability.url);
+                    listAbilitiesDescriptions.push(getAbilityForLang(abilityData));
                 } catch (_e) {}
             }
         }
