@@ -55,10 +55,17 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     const listPossiblesTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
         return {
             name: `.border-${item}`,
-            borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
-            borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
-            borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
-            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
+            backgroundImage: `
+                linear-gradient(to right,rgb(255 255 255 / 1), rgb(255 255 255 / 1)),
+                conic-gradient(
+                    from var(--border-type-angle),
+                    ${theme(`colors.type_${item.split("_")[0]}`)} 0deg 180deg,
+                    ${theme(`colors.type_${item.split("_")[1]}`)} 180deg 360deg
+                )`
+            // borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
+            // borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
+            // borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
+            // borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
         }
     });
 

@@ -272,45 +272,27 @@ details {
     top: -9999px;
 }
 
-@property --angle {
+@property --border-type-angle {
     syntax: "<angle>";
     initial-value: 34.6deg;
     inherits: false;
 }
 
-.foo {
-    --opacity: 1;
-    --border-size: 0.3rem;
-    border-color: transparent !important;
-
-    background-image: linear-gradient(
-        to right,
-        rgb(255 255 255 / var(--opacity)),
-        rgb(255 255 255 / var(--opacity))
-    ),
-    conic-gradient(
-        from var(--angle),
-        #d53e33 0deg 180deg,
-        #377af5 180deg 360deg
-    );
+.border-type-animated {
 
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
+    animation: type-border 1.5s ease-in-out infinite alternate-reverse;
+    animation-play-state: paused;
 
     &:hover {
-        --angle: -34.6deg;
-        /* animation-play-state: running; */
+        animation-play-state: running;
     }
 }
 
 @keyframes type-border {
-    0% {
-        --angle:34.6deg;
-    }
-    50% {
-        --angle:-34.6deg
-    } 100% {
-        --angle:34.6deg;
+    to {
+        --border-type-angle: -34.6deg;
     }
 }
