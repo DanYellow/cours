@@ -750,5 +750,36 @@ const pkmnSiblingsObserver = new MutationObserver((e) => {
 
 pkmnSiblingsObserver.observe(modal_DOM.listSiblings, { childList: true, subtree: true });
 
+window.addEventListener("pokedexLoaded", (e) => {
+    if(!modal.open) {
+        return;
+    }
+    const pkmnData = JSON.parse(modal.dataset.pokemonData);
+
+    if (Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
+        return;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pkmnId = Number(urlParams.get("id"));
+    const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId - 1) || {};
+    let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId + 1) || null;
+
+    clearTagContent(modal_DOM.listSiblings);
+    [prevPokemon, pkmnData, nextPokemon]
+        .filter(Boolean)
+        .forEach((item) => {
+            const clone = createSibling(
+                document.importNode(pokemonSiblingTemplateRaw.content, true),
+                item,
+                item.pokedex_id === pkmnId,
+                item.pokedex_id < pkmnId,
+                loadDetailsModal
+            );
+
+            modal_DOM.listSiblings.append(clone);
+        });
+});
+
 export { loadDetailsModal }
 export default displayModal;

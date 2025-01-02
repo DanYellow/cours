@@ -200,6 +200,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         if (triggerElement) {
             triggerElement.parentNode.parentNode.removeChild(triggerElement.parentNode)
         }
+        const pokedexLoadedEvent = new CustomEvent("pokedexLoaded", {
+            detail: {
+                pokedexId: generation,
+            },
+        });
+        window.dispatchEvent(pokedexLoadedEvent);
     } catch (error) {
         const errorRessourceNotFound = 404;
         const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
@@ -217,7 +223,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 };
 
-await loadPokedexForGeneration(1);
 
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
@@ -227,6 +232,8 @@ if (pkmnId !== null) {
     pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
     displayPkmnModal(pkmnData);
 }
+
+await loadPokedexForGeneration(1);
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
