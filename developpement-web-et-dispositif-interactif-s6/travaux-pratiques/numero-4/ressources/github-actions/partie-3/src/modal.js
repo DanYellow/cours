@@ -741,7 +741,8 @@ const pkmnSiblingsObserver = new MutationObserver((e) => {
                 document.importNode(pokemonSiblingTemplateRaw.content, true),
                 nextPokemon,
                 false,
-                false
+                false,
+                loadDetailsModal
             );
             modal_DOM.listSiblings.append(clone);
         }
@@ -756,7 +757,7 @@ window.addEventListener("pokedexLoaded", (e) => {
     }
     const pkmnData = JSON.parse(modal.dataset.pokemonData);
 
-    if (Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
+    if (Number(pkmnData.generation) === 1 || Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
         return;
     }
 
