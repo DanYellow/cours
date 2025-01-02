@@ -36,7 +36,9 @@ Le projet se trouve toujours au même endroit :
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
-<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande "git tag".</p>
+<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>.</p>
+
+- [Voir documentation git tag](https://git-scm.com/docs/git-tag/fr)
 
 ## Notation
 Les critères suivants seront évalués :
@@ -199,7 +201,7 @@ chmod 400 .my.cnf
 
 mysql --defaults-extra-file=.my.cnf < database.sql
 ```
-En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, l'utilisateur, le serveur et et la base de données à chaque fois (chacun des paramètres pouvant être omis du fichier de configuration et mis dans la commande). A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
+En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, l'utilisateur, le serveur et le nom de base de données à chaque fois (chacun des paramètres pouvant être omis du fichier de configuration et mis dans la commande). A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
 
 ```sh
 mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
@@ -209,6 +211,8 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Le projet repose sur les API suivantes :
   - [https://tyradex.vercel.app/](https://tyradex.vercel.app/)
   - [https://pokeapi.co/docs/v2/](https://pokeapi.co/)
+- Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
+  - [Voir documentation de vitest](https://vitest.dev/guide/)
 
 
 ## Pour aller plus loin
