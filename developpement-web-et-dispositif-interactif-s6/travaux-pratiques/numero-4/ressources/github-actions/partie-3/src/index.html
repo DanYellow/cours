@@ -57,10 +57,19 @@
             </li>
         </template>
 
+        <template data-tpl-id="marquee-type-text">
+            <p aria-hidden="true" class="marquee-text type-name px-1 text-sm">Plante</p>
+        </template>
+
+        <template data-tpl-id="marquee-type-container">
+            <div class="marquee py-0.5"></div>
+        </template>
+
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
                 <a data-pokemon-data data-pokemon-id class="border-type-animated hocus:bg-slate-100 rounded-md py-2 group block inert:opacity-25 border-solid border-transparent border-2 transition-colors" data-testid="pokemon">
-                    <div class="flex @xs:flex-row flex-col gap-3 items-center">
+                    <div class="flex @xs:flex-row flex-col gap-3 items-center relative">
+                        <div class="absolute overflow-hidden inset-0 opacity-0 group-hocus:opacity-100 @xs:hidden" data-marquee></div>
                         <img src="/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-110 transition-transform ease-out" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full rounded-md"></p>
                     </div>
@@ -195,7 +204,7 @@
                     <div class="w-20">
                         <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
                     </div>
-                    <div>
+                    <div class="grow">
                         <h2 class="text-2xl font-bold"></h2>
                         <p data-category class="text-sm -mt-2"></p>
                         <div class="@container">

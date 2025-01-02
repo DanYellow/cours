@@ -21,6 +21,9 @@ import "./style.css";
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
 const generationShortcutTemplateRaw = document.querySelector("[data-tpl-id='generation-shortcut-link']");
+const marqueeTypeTextTemplateRaw = document.querySelector("[data-tpl-id='marquee-type-text']");
+const marqueeTypeContainerTemplateRaw = document.querySelector("[data-tpl-id='marquee-type-container']");
+
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
@@ -173,6 +176,23 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             if (index === 0) {
                 aTag.id = `pokedex-${generation}`;
             }
+
+            const marqueeTypeContainer = clone.querySelector("[data-marquee]");
+            item.types.forEach((type, idx) => {
+                const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
+                const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
+                scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
+
+                for (let index = 0; index < 10; index++) {
+                    const typeText = document.importNode(marqueeTypeTextTemplateRaw.content, true);
+                    typeText.querySelector("p").textContent = type.name;
+                    if (idx === 1) {
+                        typeText.querySelector("p").style.animationDirection = "reverse";
+                    }
+                    scrollTypeContainer.append(typeText);
+                }
+                marqueeTypeContainer.append(scrollTypeContainer);
+            })
 
             pokedex.append(clone);
             pokedexItemScrollingObserver.observe(aTag);
