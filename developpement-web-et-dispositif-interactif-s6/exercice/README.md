@@ -71,9 +71,10 @@ Les critères suivants seront évalués :
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liés aux types sont gérées dans la configuration tailwind
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur
-- [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale
+- [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée. Un système de cache est déjà présent, servez-vous en
+  - Si un Pokémon n'a pas de carte, et que vous utilisez la balise &lt;details>, cette dernière doit être désactivée
   - Optionnel : Au clic sur une carte, vous devez afficher ses détails
 - [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
   - On doit pouvoir rejouer le cri
@@ -213,6 +214,7 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
   - [https://pokeapi.co/docs/v2/](https://pokeapi.co/)
 - Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
   - [Voir documentation de vitest](https://vitest.dev/guide/)
+- Vous devez respecter l'accessibilité et les différentes règles d'ergonomie
 
 
 ## Pour aller plus loin
