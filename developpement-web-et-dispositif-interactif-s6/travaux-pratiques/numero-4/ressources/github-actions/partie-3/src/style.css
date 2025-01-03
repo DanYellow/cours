@@ -167,18 +167,20 @@ dialog {
             );
         background-size: 20px 20px, 20px 20px;
         background-position: -17px 0, 10px 10px;
+    }
 
-        .sticky-header {
-            &::before {
-                content: "";
-                display: block;
-                bottom: 100%;
-                background-color: inherit;
-                height: 500px;
-                position: absolute;
-                left: 0;
-                right: 0;
-            }
+    .infinite-header-bg {
+        height: 0px;
+        position: sticky;
+        &::before {
+            content: "";
+            display: block;
+            bottom: 100%;
+            background-color: inherit;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            right: 0;
         }
     }
 }
