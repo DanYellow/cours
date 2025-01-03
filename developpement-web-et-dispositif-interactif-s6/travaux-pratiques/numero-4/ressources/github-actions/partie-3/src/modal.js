@@ -335,61 +335,63 @@ displayModal = async (pkmnData) => {
                 true
             );
 
-            const img = clone.querySelector("img");
-            img.alt = `Sprite de ${item.name}`;
-            img.classList.replace("w-52", "w-36");
-            replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
+                const img = clone.querySelector("img");
+                img.alt = `Sprite de ${item.name}`;
+                img.classList.replace("w-52", "w-36");
+                replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
 
-            const evolutionName = clone.querySelector("p");
-            evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
-            evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
-            evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white"])
+                const evolutionName = clone.querySelector("p");
+                evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
+                evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
+                evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white"])
 
-            if (idx > 0) {
-                const evolutionCondition = document.createElement("p");
-                evolutionCondition.classList.add("text-xs", "text-center");
-                evolutionCondition.style.maxWidth = "60%";
-                evolutionCondition.textContent = item.condition;
-                listEvolutionConditions.push(item.condition?.toLowerCase());
-                clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
+                if (idx > 0) {
+                    const evolutionCondition = document.createElement("p");
+                    evolutionCondition.classList.add("text-xs", "text-center");
+                    evolutionCondition.style.maxWidth = "60%";
+                    evolutionCondition.textContent = item.condition;
+                    listEvolutionConditions.push(item.condition?.toLowerCase());
+                    clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);
+                }
+
+                const divTag = clone.querySelector("div");
+                const evolutionURL = new URL(location);
+                evolutionURL.searchParams.set("id", item.pokedex_id);
+                const aTag = document.createElement('a');
+                aTag.innerHTML = divTag.innerHTML;
+                aTag.href = evolutionURL;
+                aTag.classList = divTag.classList;
+                aTag.classList.add(...["hocus:bg-slate-100", "rounded-md", "p-2"])
+                aTag.dataset.pokemonData = JSON.stringify({ ...item, is_incomplete: true });
+                aTag.addEventListener("click", (e) => loadDetailsModal(e));
+
+                divTag.parentNode.replaceChild(aTag, divTag);
+
+                ol.append(clone);
+            });
+
+            li.append(ol);
+            modal_DOM.listEvolutions.append(li);
+
+            const nextArrow = document.createElement("li");
+            if(evolutionLine.flat().length >= 7) {
+                nextArrow.textContent = "►";
+            } else {
+                nextArrow.classList.add("justify-around");
+                (evolutionLine?.[idx + 1] || []).forEach(() => {
+                    const span = document.createElement("span");
+                    span.textContent = "▼";
+
+                    nextArrow.append(span);
+                })
             }
 
-            const divTag = clone.querySelector("div");
-            const evolutionURL = new URL(location);
-            evolutionURL.searchParams.set("id", item.pokedex_id);
-            const aTag = document.createElement('a');
-            aTag.innerHTML = divTag.innerHTML;
-            aTag.href = evolutionURL;
-            aTag.classList = divTag.classList;
-            aTag.classList.add(...["hocus:bg-slate-100", "rounded-md", "p-2"])
-            aTag.dataset.pokemonData = JSON.stringify({ ...item, is_incomplete: true });
-            aTag.addEventListener("click", (e) => loadDetailsModal(e));
-
-            divTag.parentNode.replaceChild(aTag, divTag);
-
-            ol.append(clone);
+            nextArrow.inert = true;
+            nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
+            modal_DOM.listEvolutions.append(nextArrow);
         });
+    }
 
-        li.append(ol);
-        modal_DOM.listEvolutions.append(li);
-
-        const nextArrow = document.createElement("li");
-        if(evolutionLine.flat().length >= 7) {
-            nextArrow.textContent = "►";
-        } else {
-            nextArrow.classList.add("justify-around");
-            (evolutionLine?.[idx + 1] || []).forEach(() => {
-                const span = document.createElement("span");
-                span.textContent = "▼";
-
-                nextArrow.append(span);
-            })
-        }
-
-        nextArrow.inert = true;
-        nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
-        modal_DOM.listEvolutions.append(nextArrow);
-    });
 
     const listAcronymsDOM = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]"));
     const listAcronyms = listAcronymsDOM.map((item) => item.dataset.acronym)
