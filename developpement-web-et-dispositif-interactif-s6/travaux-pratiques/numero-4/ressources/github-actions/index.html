@@ -245,6 +245,7 @@
                 <code>git config user.email / user.name</code>.
                 <p>Note : Il n'est pas nécessaire de mettre une vraie adresse
                     e-mail et nom d'utilisateur</p>
+                <p>Note 2 : Cette commande n'est utile que si nous avons besoin de faire des commmandes git. En l'occurence, faire un <code>git tag</code> avec le module release-it.</p>
               </li>
               <li>
                 Mettre à jour la version : <code>npm run release --ci </code>
@@ -378,7 +379,7 @@
                 Déploie le tout sur votre serveur
                 <div class="note-information">
                   <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
-                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" pour ainsi vous permettre de faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. </p>
+                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" avec lequel vous souhaitez établir une connexion. Une fois fait, vous pourrez faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. </p>
                   <p>Puis vous devrez ajouter votre clé privée parmi les secrets de votre dépôt.</p>
                   <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
                   <ol>
