@@ -23,8 +23,7 @@ import {
     createAlternateForm,
     createSibling,
     createStatisticEntry,
-    getAbilityForLang,
-    getExternalDataForLang,
+    getAbilityForLang
 } from "#src/utils/modal.utils.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
@@ -88,6 +87,7 @@ const modal_DOM = {
     statistics: modal.querySelector("[data-statistics]"),
     catchRate: modal.querySelector("[data-catch-rate]"),
     acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
+    noEvolutionsText: modal.querySelector("[data-no-evolutions]"),
 };
 
 const dataCache = {};
@@ -160,6 +160,7 @@ displayModal = async (pkmnData) => {
     const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
     listPokedexEntries.forEach((item) => { item.inert = true; });
     modal_DOM.img.src = loadingImage;
+
 
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
 
@@ -239,6 +240,7 @@ displayModal = async (pkmnData) => {
         };
     }
 
+    modal.style.setProperty("--background-sprite", `url("${pkmnExtraData.sprites.other["official-artwork"].front_default}")`);
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
 
@@ -325,15 +327,23 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listEvolutions);
     const listEvolutionConditions = [];
-    evolutionLine.forEach((evolution, idx) => {
-        const li = document.createElement("li");
-        const ol = document.createElement("ol");
-        ol.classList.add(...["flex", "flex-wrap", "gap-x-2", "gap-y-6"])
-        evolution.forEach((item) => {
-            const clone = document.importNode(
-                pokemonSpriteTemplateRaw.content,
-                true
-            );
+    modal_DOM.noEvolutionsText.classList.toggle("hidden", evolutionLine.length > 1)
+    modal_DOM.noEvolutionsText.textContent = `${pkmnData.name.fr} n'a pas d'évolution et n'est l'évolution d'aucun Pokémon.`;
+    if(evolutionLine.length > 1) {
+        evolutionLine.forEach((evolution, idx) => {
+            const li = document.createElement("li");
+            const ol = document.createElement("ol");
+            if(evolution.length > 3) {
+                ol.classList.add(...["grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-y-6"]);
+            } else {
+                ol.classList.add(...["flex", "flex-wrap"]);
+            }
+            ol.classList.add(...["gap-x-2", "gap-y-6"]);
+            evolution.forEach((item) => {
+                const clone = document.importNode(
+                    pokemonSpriteTemplateRaw.content,
+                    true
+                );
 
                 const img = clone.querySelector("img");
                 img.alt = `Sprite de ${item.name}`;
@@ -409,20 +419,8 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    const listRegions = ["alola", "hisui", "galar", "paldea"];
-    let alternateEvolutions = listDescriptions.varieties?.filter((item) => !item.is_default && !listRegions.some((region) => item.pokemon.name.includes(region))) || []
-    alternateEvolutions = alternateEvolutions.map((item) => {
-        return {
-            orbe: "",
-            name: item?.name || item.pokemon?.name,
-            sprites: {
-                regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
-            }
-        }
-    });
-
-    const megaEvolutionLine = (pkmnData.evolution?.mega || alternateEvolutions)
-    modal_DOM.extraEvolutions.classList.toggle("hidden", !megaEvolutionLine.length)
+    const megaEvolutionLine = pkmnData.evolution?.mega || []; //(pkmnData.evolution?.mega || alternateEvolutions)
+    modal_DOM.extraEvolutions.classList.toggle("hidden", !megaEvolutionLine.length);
     if (megaEvolutionLine.length) {
         const extraEvolutionsContainer = modal_DOM.extraEvolutions.querySelector("ul");
         clearTagContent(extraEvolutionsContainer);
@@ -439,15 +437,6 @@ displayModal = async (pkmnData) => {
 
             const textContainer = clone.querySelector("p");
             textContainer.textContent = item.orbe ? `avec ${item.orbe}` : "";
-
-            // const evolutionName = clone.querySelector("p");
-            // evolutionName.textContent = `Méga-${pkmnData.name.fr}`;
-
-            // const evolutionCondition = evolutionName.cloneNode();
-
-            // evolutionCondition.classList.add("text-xs", 'text-center');
-            // evolutionCondition.textContent = `avec ${item.orbe}`;
-            // clone.querySelector("li div").insertAdjacentElement("beforeend", evolutionCondition);
 
             extraEvolutionsContainer.append(clone);
         });
@@ -614,7 +603,7 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listGames);
-    console.log(listDescriptions)
+
     let listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
         index === self.findIndex((t) => (
             t.version.name === value.version.name

@@ -99,11 +99,17 @@ html {
     display: grid;
     grid-template-columns: auto min-content auto;
     align-items: center;
+    column-gap: theme("spacing.2");
+
+    a:has(img) {
+        width: 100%;
+    }
 }
 
 .vertical-evolution-layout {
     display: flex;
     flex-direction: column;
+    column-gap: theme("spacing.2");
 }
 
 @property --bg-modal-color {
@@ -142,6 +148,7 @@ dialog {
 .pkmn-details-dialog {
     --dot-size: 0.75px;
     --dot-color: rgb(from var(--bg-modal-color) r g b / 0.65);
+    --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png";
 
     @media (max-resolution: 1.1dppx) {
         --dot-color: rgb(from var(--bg-modal-color) r g b / 0.25);
@@ -191,6 +198,11 @@ dialog {
             position: absolute;
             left: 0;
             right: 0;
+            /* background-image: image-set(var(--background-sprite) 1x); */
+            background-image: var(--background-sprite);
+            background-size: contain;
+            background-repeat: repeat;
+            background-size: 15%;
         }
     }
 }
