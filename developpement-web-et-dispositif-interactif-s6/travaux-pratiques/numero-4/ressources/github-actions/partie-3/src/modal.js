@@ -168,10 +168,7 @@ displayModal = async (pkmnData) => {
 
     if (!dataCache[pkmnId]) {
         try {
-            listDescriptions = getExternalDataForLang(
-                await fetchPokemonExternalData(pkmnData.pokedex_id),
-                "fr"
-            );
+            listDescriptions = await fetchPokemonExternalData(pkmnData.pokedex_id);
         } catch (_e) {
             listDescriptions = {};
         }
@@ -309,8 +306,7 @@ displayModal = async (pkmnData) => {
     const descriptionsContainer = modal.querySelector("dl");
 
     clearTagContent(descriptionsContainer);
-
-    listDescriptions.flavor_text_entries?.forEach((description) => {
+    listDescriptions.flavor_text_entries?.filter((item) => item.language.name === "fr").forEach((description) => {
         const dt = document.createElement("dt");
         const versionName = `Pokémon ${
             getVersionForName[description.version.name] || "Unknown"
@@ -614,6 +610,7 @@ displayModal = async (pkmnData) => {
     });
 
     clearTagContent(modal_DOM.listGames);
+    console.log(listDescriptions)
     let listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
         index === self.findIndex((t) => (
             t.version.name === value.version.name
@@ -624,9 +621,7 @@ displayModal = async (pkmnData) => {
 
     listGames.forEach((item) => {
         const li = document.createElement("li");
-        const versionName = `Pokémon ${
-            getVersionForName[item.version.name] || "Unknown"
-        }`;
+        const versionName = getVersionForName[item.version.name] || "Unknown";
         li.textContent = versionName;
 
         modal_DOM.listGames.append(li);
