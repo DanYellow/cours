@@ -93,6 +93,32 @@ const loadDetailsModal = (e) => {
     history.pushState({}, "", url);
 }
 
+const generateMarqueeTypes = (e) => {
+    if (e.currentTarget.dataset.hasMarqueeTypes) {
+        return;
+    }
+    e.currentTarget.dataset.hasMarqueeTypes = true;
+    const nbMarqueeTextToGenerate = 7;
+    const marqueeTypeContainer = e.currentTarget.querySelector("[data-marquee]");
+    const pkmnData = JSON.parse(e.currentTarget.dataset.pokemonData);
+    pkmnData.types.forEach((type, idx) => {
+        const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
+        const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
+        scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
+        scrollTypeContainer.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
+
+        for (let index = 0; index <= nbMarqueeTextToGenerate; index++) {
+            const typeText = document.importNode(marqueeTypeTextTemplateRaw.content, true);
+            typeText.querySelector("p").textContent = type.name;
+            if (idx === 1) {
+                typeText.querySelector("p").style.animationDirection = "reverse";
+            }
+            scrollTypeContainer.append(typeText);
+        }
+        marqueeTypeContainer.append(scrollTypeContainer);
+    })
+}
+
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
     document.title = `Chargement - ${initialPageTitle}`;
@@ -173,26 +199,10 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
                 typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
             ]);
             aTag.addEventListener("click", loadDetailsModal);
+            aTag.addEventListener("mouseover", generateMarqueeTypes);
             if (index === 0) {
                 aTag.id = `pokedex-${generation}`;
             }
-
-            const marqueeTypeContainer = clone.querySelector("[data-marquee]");
-            item.types.forEach((type, idx) => {
-                const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
-                const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
-                scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
-
-                for (let index = 0; index < 10; index++) {
-                    const typeText = document.importNode(marqueeTypeTextTemplateRaw.content, true);
-                    typeText.querySelector("p").textContent = type.name;
-                    if (idx === 1) {
-                        typeText.querySelector("p").style.animationDirection = "reverse";
-                    }
-                    scrollTypeContainer.append(typeText);
-                }
-                marqueeTypeContainer.append(scrollTypeContainer);
-            })
 
             pokedex.append(clone);
             pokedexItemScrollingObserver.observe(aTag);
