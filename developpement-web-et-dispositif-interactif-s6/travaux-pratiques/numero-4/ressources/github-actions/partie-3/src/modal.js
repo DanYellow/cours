@@ -397,8 +397,8 @@ displayModal = async (pkmnData) => {
     const listAcronyms = listAcronymsDOM.map((item) => item.dataset.acronym)
     modal_DOM.acronymVersions.classList.toggle("hidden", !listEvolutionConditions.filter(Boolean).some(
         v => listAcronyms.some(acronym => {
-            const re = new RegExp(`([(\s]${acronym}[)\s])`, 'gi');
-            return v.toLowerCase().match(re)
+            const re = new RegExp(String.raw`[(\s]${acronym}[)\s]`, 'gi');
+            return re.test(v.toLowerCase())
         })
     ));
 
