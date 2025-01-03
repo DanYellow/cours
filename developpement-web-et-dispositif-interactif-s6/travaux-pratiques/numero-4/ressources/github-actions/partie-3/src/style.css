@@ -17,6 +17,16 @@
     font-style: italic;
 }
 
+@layer utilities {
+    .animation-pause {
+        animation-play-state: paused;
+    }
+
+    .animation-play {
+        animation-play-state: running;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     --scrollbar-width: 0px;
@@ -323,16 +333,16 @@ details {
     display: flex;
     white-space: nowrap;
     width: 100%;
-    overflow: hidden;
 }
 
 .marquee-text {
     text-transform: uppercase;
     font-weight: 700;
-    animation: loopText 5s infinite linear;
+    animation: loop-text 5s infinite linear;
+    animation-play-state: paused;
 }
 
-@keyframes loopText {
+@keyframes loop-text {
     from {
         transform: translateX(0);
     }
