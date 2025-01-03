@@ -80,6 +80,8 @@ const modal_DOM = {
     nbGames: modal.querySelector("[data-nb-games]"),
     nbRegionalForms: modal.querySelector("[data-nb-regional-forms]"),
     listRegionalForms: modal.querySelector("[data-list-regional-forms]"),
+    nbForms: modal.querySelector("[data-nb-forms]"),
+    listForms: modal.querySelector("[data-list-forms]"),
     spritesContainer: modal.querySelector("[data-sprites-container]"),
     topInfos: modal.querySelector("[data-top-infos]"),
     listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
@@ -628,6 +630,47 @@ displayModal = async (pkmnData) => {
     });
     modal_DOM.nbGames.textContent = ` (${listGames.length})`;
     modal_DOM.listGames.closest("details").inert = listGames.length === 0;
+
+    const listRegions = ["alola", "hisui", "galar", "paldea"];
+    let listNonRegionalForms = listDescriptions.varieties?.filter((item) => !item.is_default && !listRegions.some((region) => item.pokemon.name.includes(region))) || []
+    listNonRegionalForms = listNonRegionalForms.map((item) => {
+        return {
+            name: item?.name || item.pokemon?.name,
+            sprites: {
+                regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
+            }
+        }
+    });
+    clearTagContent(modal_DOM.listForms);
+    modal_DOM.nbForms.textContent = ` (${listNonRegionalForms?.length || 0})`;
+
+    const formsDict = {
+        "gmax": "Gigamax",
+        "mega": "Méga-Évolution",
+        "y": "Méga-Évolution Y",
+        "x": "Méga-Évolution X",
+        "attack": "Attaque",
+        "defense": "Défense",
+        "speed": "Vitesse",
+    }
+
+    listNonRegionalForms.forEach((item) => {
+        const clone = document.importNode(
+            pokemonSpriteTemplateRaw.content,
+            true
+        );
+
+        const img = clone.querySelector("img");
+        img.alt = `Sprite de ${item.name}`;
+        img.classList.replace("w-52", "w-36");
+        replaceImage(img, item.sprites.regular);
+
+        const textContainer = clone.querySelector("p");
+        textContainer.textContent = formsDict[item.name.split("-").at(-1)] ?? item.name;
+
+        modal_DOM.listForms.append(clone);
+    });
+    modal_DOM.listForms.closest("details").inert = listNonRegionalForms.length === 0;
 
     clearTagContent(modal_DOM.listRegionalForms);
     modal_DOM.nbRegionalForms.textContent = ` (${pkmnData.formes?.length || 0})`;
