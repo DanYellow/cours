@@ -55,12 +55,12 @@ export const replaceImage = (img, heavyImagePath, errorCallback = () => {}) => {
     const newImg = new Image();
     newImg.onload = () => {
         img.src = newImg.src;
-    }
+    };
     newImg.onerror = () => {
         errorCallback();
-    }
+    };
     newImg.src = heavyImagePath;
-}
+};
 
 export const delegateEventHandler = (el, evt, sel, handler) => {
     el.addEventListener(evt, function (event) {
@@ -83,90 +83,106 @@ export const isElementInViewport = (el) => {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-}
+};
 
 export const capitalizeFirstLetter = (val) => {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-}
+};
 
 export const getPkmnIdFromURL = (url) => {
-    return url.split("/").filter(Boolean).at(-1)
-}
+    return url.split("/").filter(Boolean).at(-1);
+};
 
 export const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
     let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
     // evolutionLine = evolutionLine.map((item, idx) => ({
-        //     ...item,
-        //     condition: evolutionLine[idx - 1]?.condition || item.condition,
-        // }))
+    //     ...item,
+    //     condition: evolutionLine[idx - 1]?.condition || item.condition,
+    // }))
 
     let res = [];
-    const listPokemonComputed = listPokemon.map((item) => ({ name: item?.name.fr, pokedex_id: item?.pokedex_id }))
+    const listPokemonComputed = listPokemon.map((item) => ({
+        name: item?.name.fr,
+        pokedex_id: item?.pokedex_id,
+    }));
     const pokedexId = getPkmnIdFromURL(data.chain.species.url);
     const firstEvolution = {
-        ...evolutionLine.find((item) => Number(item.pokedex_id) === Number(pokedexId)),
-        sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(data.chain.species.url)}/regular.png`,
-        list_evolutions: data.chain.evolves_to.map((evolution) => evolution.species.name)
+        ...evolutionLine.find(
+            (item) => Number(item.pokedex_id) === Number(pokedexId)
+        ),
+        sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${getPkmnIdFromURL(
+            data.chain.species.url
+        )}/regular.png`,
+        list_evolutions: data.chain.evolves_to.map(
+            (evolution) => evolution.species.name
+        ),
     };
-    res.push([firstEvolution])
+    res.push([firstEvolution]);
 
     const getNextEvolutions = (listEvolutions) => {
-        const evolutionLevel = []
+        const evolutionLevel = [];
         listEvolutions.forEach((item) => {
             const pkmnId = getPkmnIdFromURL(item.species.url);
 
             const idxEvolution = res.findIndex((addedEvolution) => {
-                return addedEvolution.some((obj) => obj.list_evolutions.includes(item.species.name));
+                return addedEvolution.some((obj) =>
+                    obj.list_evolutions.includes(item.species.name)
+                );
             });
 
-            evolutionLevel.push(
-                {
-                    name: capitalizeFirstLetter(item.species.name),
-                    pokedex_id: pkmnId,
-                    ...evolutionLine.find((item)  => Number(item.pokedex_id) === Number(pkmnId)),
-                    sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`,
-                    list_evolutions: item.evolves_to.map((evolution) => evolution.species.name)
-                }
-            );
+            evolutionLevel.push({
+                name: capitalizeFirstLetter(item.species.name),
+                pokedex_id: pkmnId,
+                ...evolutionLine.find(
+                    (item) => Number(item.pokedex_id) === Number(pkmnId)
+                ),
+                sprite: `https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pkmnId}/regular.png`,
+                list_evolutions: item.evolves_to.map(
+                    (evolution) => evolution.species.name
+                ),
+            });
 
-            if(res[idxEvolution + 1]) {
+            if (res[idxEvolution + 1]) {
                 evolutionLevel.map((evol) => {
-                    if(!res[idxEvolution + 1].includes(evol)) {
+                    if (!res[idxEvolution + 1].includes(evol)) {
                         res[idxEvolution + 1].push(evol);
                     }
-                })
+                });
             } else {
                 res.push(evolutionLevel);
             }
 
-            if(item.evolves_to.length > 0) {
-                getNextEvolutions(item.evolves_to)
+            if (item.evolves_to.length > 0) {
+                getNextEvolutions(item.evolves_to);
             }
-        })
-    }
+        });
+    };
 
     getNextEvolutions(data.chain.evolves_to);
 
     const payload = res.map((item) => {
         return item.map((subItem) => ({
             ...subItem,
-            ...(listPokemonComputed.find((item) => Number(item?.pokedex_id) === Number(subItem.pokedex_id)) || { lang: "en" })
-        }))
-    })
+            ...(listPokemonComputed.find(
+                (item) =>
+                    Number(item?.pokedex_id) === Number(subItem.pokedex_id)
+            ) || { lang: "en" }),
+        }));
+    });
 
     return payload;
-}
+};
 
 export const statistics = {
-    "hp": {
+    hp: {
         name: "PV",
         color: "rgb(132 204 22)",
     },
-    "attack": {
+    attack: {
         name: "Attaque",
         color: "rgb(45 212 191)",
     },
-    "defense": {
+    defense: {
         name: "Défense",
         color: "rgb(96 165 250)",
     },
@@ -178,49 +194,25 @@ export const statistics = {
         name: "Défense Spéciale",
         color: "rgb(250 204 21)",
     },
-    "speed": {
+    speed: {
         name: "Vitesse",
         color: "rgb(192 132 252)",
-    }
-}
+    },
+};
 
 export const debounce = (callback, wait) => {
     let timeoutId = null;
     return (...args) => {
         window.clearTimeout(timeoutId);
         timeoutId = window.setTimeout(() => {
-        callback(...args);
+            callback(...args);
         }, wait);
     };
-}
-
-export const formsNameDict = {
-    "gmax": "Gigamax",
-    "mega": "Méga-Évolution",
-    "mega-y": "Méga-Évolution Y",
-    "mega-x": "Méga-Évolution X",
-    "attack": "Attaque",
-    "defense": "Défense",
-    "speed": "Vitesse",
-    "origin": "Origine",
-    "cosplay": "Star",
-    "libre": "Catcheur",
-    "phd": "Docteur",
-    "belle": "Lady",
-    "rock-star": "Rockeur",
-    "pop-star": "Star",
-    "original-cap": "\n(Casquette Originale)",
-    "hoenn-cap": "\n(Casquette de Hoenn)",
-    "sinnoh-cap": "\n(Casquette de Sinnoh)",
-    "kalos-cap": "\n(Casquette de Kalos)",
-    "unova-cap": "\n(Casquette d'Unys)",
-    "partner-cap": "\n(Casquette Partenaire)",
-    "world-cap": "\n(Casquette Monde)",
-    "starter": "Partenaire",
-}
+};
 
 export * from "./colors";
 export * from "./modal.utils";
+export * from "./formsDictionary";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import _tailwindConfig from "/tailwind.config.js";

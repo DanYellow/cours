@@ -194,16 +194,15 @@ dialog {
             display: block;
             bottom: 100%;
             background-color: inherit;
-            height: 500px;
+            height: 55vh;
             position: absolute;
             left: 0;
             right: 0;
-            /* background-image: image-set(var(--background-sprite) 1x); */
-            background-image: var(--background-sprite);
+            background-image: image-set(var(--background-sprite) 1x);
             background-repeat: repeat;
-            background-size: 15%;
-            background-position: top left;
-            animation: animate-background-sprite 100s infinite;
+            background-size: 10%;
+            background-position: center;
+            /* animation: animate-background-sprite 100s infinite; */
         }
     }
 }
@@ -213,7 +212,7 @@ dialog {
         background-position: 0 0;
     }
     100% {
-        background-position: -100vw -100vh;
+        background-position: 100vw -100vh;
     }
 }
 

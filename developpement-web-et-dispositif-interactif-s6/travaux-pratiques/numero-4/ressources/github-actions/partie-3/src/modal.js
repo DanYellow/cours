@@ -241,6 +241,7 @@ displayModal = async (pkmnData) => {
         };
     }
 
+    // modal.style.setProperty("--background-sprite", pkmnExtraData.sprites.other["official-artwork"].front_default);
     modal.style.setProperty("--background-sprite", `url("${pkmnExtraData.sprites.other["official-artwork"].front_default}")`);
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
@@ -535,14 +536,15 @@ displayModal = async (pkmnData) => {
 
     const listSpritesObj = pkmnExtraData.sprites?.other.home || {};
     const listSprites = [];
+    const maxPercentage = 100;
     Object.entries(listSpritesObj).forEach(([key, value]) => {
         if (value === null) {
             return;
         }
         let sexLabel = value.includes("female") ? "female" : "male";
-        if (pkmnData.sexe?.male === 100) {
+        if (pkmnData.sexe?.male === maxPercentage) {
             sexLabel = "male";
-        } else if (pkmnData.sexe?.female === 100) {
+        } else if (pkmnData.sexe?.female === maxPercentage) {
             sexLabel = "female";
         }
 
@@ -552,7 +554,7 @@ displayModal = async (pkmnData) => {
         key === "female" ? "Femelle ♀" : "Mâle ♂"
     );
 
-    const isOneSex = pkmnData.sexe?.female === 100 || pkmnData.sexe?.male === 100;
+    const isOneSex = pkmnData.sexe?.female === maxPercentage || pkmnData.sexe?.male === maxPercentage;
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
         const listPokemonSpritesTemplate = document.importNode(
             listPokemonSpritesTemplateRaw.content,
@@ -637,7 +639,6 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listForms);
     modal_DOM.nbForms.textContent = ` (${listNonRegionalForms?.length || 0})`;
 
-
     listNonRegionalForms.forEach((item) => {
         const clone = document.importNode(
             pokemonSpriteTemplateRaw.content,
@@ -654,8 +655,8 @@ displayModal = async (pkmnData) => {
         const textContainer = clone.querySelector("p");
         const separator = `${item.name.split(pkmnData.name.en.toLowerCase()).at(-1)}`.substring(1)
         if(formsNameDict[separator]) {
-            const prefix = ["defense", "attack", "speed", "origin"].includes(separator) ? "Forme" : pkmnData.name.fr;
-            textContainer.textContent = `${prefix} ${formsNameDict[separator]}`;
+            const prefix =  formsNameDict[separator].displayPkmnName ? `${pkmnData.name.fr} ` : "";
+            textContainer.textContent = `${prefix}${formsNameDict[separator].name}`;
         } else {
             textContainer.textContent = item.name;
         }
