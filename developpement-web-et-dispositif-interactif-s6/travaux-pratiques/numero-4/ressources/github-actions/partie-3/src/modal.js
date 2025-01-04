@@ -313,9 +313,7 @@ displayModal = async (pkmnData) => {
     clearTagContent(descriptionsContainer);
     listDescriptions.flavor_text_entries?.filter((item) => item.language.name === "fr").forEach((description) => {
         const dt = document.createElement("dt");
-        const versionName = `Pokémon ${
-            getVersionForName[description.version.name] || "Unknown"
-        }`;
+        const versionName = getVersionForName[description.version.name] || "Unknown";
         dt.textContent = versionName;
         dt.classList.add("font-bold");
         descriptionsContainer.append(dt);
