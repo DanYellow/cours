@@ -16,6 +16,7 @@ import {
     statistics,
     getPkmnIdFromURL,
     tailwindConfig,
+    formsNameDict,
 } from "./utils";
 
 import {
@@ -23,7 +24,7 @@ import {
     createAlternateForm,
     createSibling,
     createStatisticEntry,
-    getAbilityForLang
+    getAbilityForLang,
 } from "#src/utils/modal.utils.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
@@ -325,6 +326,8 @@ displayModal = async (pkmnData) => {
         descriptionsContainer.append(dd);
     });
 
+    const thresholdNbTotalEvolutions = 7;
+
     clearTagContent(modal_DOM.listEvolutions);
     const listEvolutionConditions = [];
     modal_DOM.noEvolutionsText.classList.toggle("hidden", evolutionLine.length > 1)
@@ -384,7 +387,7 @@ displayModal = async (pkmnData) => {
             modal_DOM.listEvolutions.append(li);
 
             const nextArrow = document.createElement("li");
-            if(evolutionLine.flat().length >= 7) {
+            if(evolutionLine.flat().length >= thresholdNbTotalEvolutions) {
                 nextArrow.textContent = "►";
             } else {
                 nextArrow.classList.add("justify-around");
@@ -442,8 +445,8 @@ displayModal = async (pkmnData) => {
         });
     }
 
-    modal_DOM.listEvolutions.classList.toggle("horizontal-evolution-layout", evolutionLine.flat().length >= 7)
-    modal_DOM.listEvolutions.classList.toggle("vertical-evolution-layout", evolutionLine.flat().length < 7)
+    modal_DOM.listEvolutions.classList.toggle("horizontal-evolution-layout", evolutionLine.flat().length >= thresholdNbTotalEvolutions)
+    modal_DOM.listEvolutions.classList.toggle("vertical-evolution-layout", evolutionLine.flat().length < thresholdNbTotalEvolutions)
 
     const hasNoEvolutions = (evolutionLine.flat().length === 0) && (pkmnData.evolution?.mega || []).length === 0;
     modal_DOM.listEvolutions.closest("details").inert = hasNoEvolutions;
@@ -628,22 +631,14 @@ displayModal = async (pkmnData) => {
         return {
             name: item?.name || item.pokemon?.name,
             sprites: {
-                regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`
+                regular: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${getPkmnIdFromURL(item.pokemon.url)}.png`,
+                artwork: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getPkmnIdFromURL(item.pokemon.url)}.png`,
             }
         }
     });
     clearTagContent(modal_DOM.listForms);
     modal_DOM.nbForms.textContent = ` (${listNonRegionalForms?.length || 0})`;
 
-    const formsDict = {
-        "gmax": "Gigamax",
-        "mega": "Méga-Évolution",
-        "y": "Méga-Évolution Y",
-        "x": "Méga-Évolution X",
-        "attack": "Attaque",
-        "defense": "Défense",
-        "speed": "Vitesse",
-    }
 
     listNonRegionalForms.forEach((item) => {
         const clone = document.importNode(
@@ -654,10 +649,18 @@ displayModal = async (pkmnData) => {
         const img = clone.querySelector("img");
         img.alt = `Sprite de ${item.name}`;
         img.classList.replace("w-52", "w-36");
-        replaceImage(img, item.sprites.regular);
+        replaceImage(img, item.sprites.regular, () => {
+            replaceImage(img, item.sprites.artwork);
+        });
 
         const textContainer = clone.querySelector("p");
-        textContainer.textContent = formsDict[item.name.split("-").at(-1)] ?? item.name;
+        const separator = `${item.name.split(pkmnData.name.en.toLowerCase()).at(-1)}`.substring(1)
+        if(formsNameDict[separator]) {
+            const prefix = ["defense", "attack", "speed", "origin"].includes(separator) ? "Forme" : pkmnData.name.fr;
+            textContainer.textContent = `${prefix} ${formsNameDict[separator]}`;
+        } else {
+            textContainer.textContent = item.name;
+        }
 
         modal_DOM.listForms.append(clone);
     });

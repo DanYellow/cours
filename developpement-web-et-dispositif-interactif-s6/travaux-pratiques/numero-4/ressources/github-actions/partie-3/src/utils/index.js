@@ -51,10 +51,13 @@ export const clearTagContent = (tag) => {
 export const aRem = 16;
 export const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
 
-export const replaceImage = (img, heavyImagePath) => {
+export const replaceImage = (img, heavyImagePath, errorCallback = () => {}) => {
     const newImg = new Image();
     newImg.onload = () => {
         img.src = newImg.src;
+    }
+    newImg.onerror = () => {
+        errorCallback();
     }
     newImg.src = heavyImagePath;
 }
@@ -189,6 +192,31 @@ export const debounce = (callback, wait) => {
         callback(...args);
         }, wait);
     };
+}
+
+export const formsNameDict = {
+    "gmax": "Gigamax",
+    "mega": "Méga-Évolution",
+    "mega-y": "Méga-Évolution Y",
+    "mega-x": "Méga-Évolution X",
+    "attack": "Attaque",
+    "defense": "Défense",
+    "speed": "Vitesse",
+    "origin": "Origine",
+    "cosplay": "Star",
+    "libre": "Catcheur",
+    "phd": "Docteur",
+    "belle": "Lady",
+    "rock-star": "Rockeur",
+    "pop-star": "Star",
+    "original-cap": "\n(Casquette Originale)",
+    "hoenn-cap": "\n(Casquette de Hoenn)",
+    "sinnoh-cap": "\n(Casquette de Sinnoh)",
+    "kalos-cap": "\n(Casquette de Kalos)",
+    "unova-cap": "\n(Casquette d'Unys)",
+    "partner-cap": "\n(Casquette Partenaire)",
+    "world-cap": "\n(Casquette Monde)",
+    "starter": "Partenaire",
 }
 
 export * from "./colors";
