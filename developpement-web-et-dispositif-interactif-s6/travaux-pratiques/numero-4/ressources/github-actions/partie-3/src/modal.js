@@ -357,7 +357,7 @@ displayModal = async (pkmnData) => {
                 const evolutionName = clone.querySelector("p");
                 evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
                 evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
-                evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white"])
+                evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white", "whitespace-pre-line"])
 
                 if (idx > 0) {
                     const evolutionCondition = document.createElement("p");
