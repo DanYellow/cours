@@ -32,7 +32,7 @@ export const formsNameDict = {
         displayPkmnName: false,
     },
     cosplay: {
-        name: "Star",
+        name: "Détective",
         displayPkmnName: true,
     },
     libre: {
