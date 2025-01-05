@@ -145,6 +145,26 @@ dialog {
     }
 }
 
+.switch-checkbox {
+    --tw-translate-x: 100%;
+    &:checked ~ .switch {
+        background-color: theme("colors.green.600");
+        &::after {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
+        }
+    }
+
+    @starting-style {
+        &:checked ~ .switch {
+            background-color: theme("colors.green.600");
+            &::after {
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
+            }
+        }
+    }
+}
+
+
 .pkmn-details-dialog {
     --dot-size: 0.8px;
     --dot-alpha: 0.45;
