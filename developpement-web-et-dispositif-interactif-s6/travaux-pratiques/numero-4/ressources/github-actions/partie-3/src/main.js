@@ -200,6 +200,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             ]);
             aTag.addEventListener("click", loadDetailsModal);
             aTag.addEventListener("mouseover", generateMarqueeTypes);
+            aTag.addEventListener("focus", generateMarqueeTypes);
             if (index === 0) {
                 aTag.id = `pokedex-${generation}`;
             }
