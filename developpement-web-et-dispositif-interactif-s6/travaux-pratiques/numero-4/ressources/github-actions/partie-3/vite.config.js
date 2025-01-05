@@ -39,5 +39,6 @@ export default defineConfig({
             "**/.{idea,git,cache,output,temp}/**",
             "**/e2e/**",
         ],
+        environment: 'happy-dom',
     },
 });

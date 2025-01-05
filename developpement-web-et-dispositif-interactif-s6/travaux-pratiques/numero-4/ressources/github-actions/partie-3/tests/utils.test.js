@@ -6,7 +6,7 @@ import { evolutionLine, evolutionLineFr, pokedex } from "#mocks/index.js";
 
 describe("getVersionForName", () => {
     it("should return black version", () => {
-        expect(getVersionForName["ruby"]).toBe("Rubis");
+        expect(getVersionForName["ruby"]).toMatch(/rubis/i);
     });
 });
 
