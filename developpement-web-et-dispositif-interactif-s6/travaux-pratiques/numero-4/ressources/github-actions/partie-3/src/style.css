@@ -354,10 +354,6 @@ details {
 
     animation: type-border 40s ease-in-out infinite alternate-reverse;
     animation-play-state: paused;
-
-    &:hover {
-        animation-play-state: running;
-    }
 }
 
 @keyframes type-border {
