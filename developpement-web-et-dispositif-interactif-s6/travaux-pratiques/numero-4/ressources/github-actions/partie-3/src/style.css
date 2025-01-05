@@ -158,11 +158,13 @@ dialog {
 
     box-shadow: 0px 0px 53px 0px;
     background-image: radial-gradient(
-            rgb(from var(--dot-color-1) r g b / var(--dot-alpha)) var(--dot-size),
+            rgb(from var(--dot-color-1) r g b / var(--dot-alpha))
+                var(--dot-size),
             transparent var(--dot-size)
         ),
         radial-gradient(
-            rgb(from var(--dot-color-2) r g b / var(--dot-alpha)) var(--dot-size),
+            rgb(from var(--dot-color-2) r g b / var(--dot-alpha))
+                var(--dot-size),
             transparent var(--dot-size)
         ),
         linear-gradient(
@@ -177,11 +179,13 @@ dialog {
 
     .main-infos {
         background-image: radial-gradient(
-                rgb(from var(--dot-color-1) r g b / var(--dot-alpha)) var(--dot-size),
+                rgb(from var(--dot-color-1) r g b / var(--dot-alpha))
+                    var(--dot-size),
                 transparent var(--dot-size)
             ),
             radial-gradient(
-                rgb(from var(--dot-color-2) r g b / var(--dot-alpha)) var(--dot-size),
+                rgb(from var(--dot-color-2) r g b / var(--dot-alpha))
+                    var(--dot-size),
                 #fff var(--dot-size)
             );
         background-size: 20px 20px, 20px 20px;
@@ -362,5 +366,18 @@ details {
 
     to {
         transform: translateX(-100%);
+    }
+}
+
+.sparkles {
+    animation: sparkles-effect 2s linear infinite alternate both;
+}
+
+@keyframes sparkles-effect {
+    0% {
+        color: #ffd700;
+    }
+    100% {
+        color: #da9100;
     }
 }
