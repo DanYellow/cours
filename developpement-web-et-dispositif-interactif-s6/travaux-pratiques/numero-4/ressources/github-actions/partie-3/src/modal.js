@@ -216,7 +216,7 @@ displayModal = async (pkmnData) => {
             }
         }
 
-        const listKnownAbilities = listAbilitiesDescriptions.map((item) => cleanString(item.name.fr.toLowerCase().replace("-", "")))
+        const listKnownAbilities = listAbilitiesDescriptions.map((item) => cleanString(item.name.fr.toLowerCase().replace("-", "")));
         listAbilities = pkmnData.talents
             .filter((item) => listKnownAbilities.includes(cleanString(item.name.toLowerCase().replace("-", ""))))
             .map((item) => ({

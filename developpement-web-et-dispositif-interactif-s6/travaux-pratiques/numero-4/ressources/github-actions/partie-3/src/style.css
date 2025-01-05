@@ -200,19 +200,9 @@ dialog {
             right: 0;
             background-image: image-set(var(--background-sprite) 1x);
             background-repeat: repeat;
-            background-size: 10%;
+            background-size: 15%;
             background-position: center;
-            /* animation: animate-background-sprite 100s infinite; */
         }
-    }
-}
-
-@keyframes animate-background-sprite {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100vw -100vh;
     }
 }
 

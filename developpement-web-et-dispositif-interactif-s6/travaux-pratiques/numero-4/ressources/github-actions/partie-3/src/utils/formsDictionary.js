@@ -183,10 +183,6 @@ export const formsNameDict = {
         name: "Forme Parfaite",
         displayPkmnName: false,
     },
-    "10-power-construct": {
-        name: "Forme 10%",
-        displayPkmnName: false,
-    },
     midnight: {
         name: "Forme Nocturne",
         displayPkmnName: false,
