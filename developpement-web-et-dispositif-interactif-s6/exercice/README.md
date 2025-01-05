@@ -62,15 +62,16 @@ Les critères suivants seront évalués :
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
 - [ ] Afficher les noms étrangers des Pokémon
+- [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] En mode liste uniquement, afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
     - [Voir documentation plugin tailwind CSS container queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
-  - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro, c'est ces numéros dont on parle
+  - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liés aux types sont gérées dans la configuration tailwind
-  - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur
+  - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée. Un système de cache est déjà présent, servez-vous en
