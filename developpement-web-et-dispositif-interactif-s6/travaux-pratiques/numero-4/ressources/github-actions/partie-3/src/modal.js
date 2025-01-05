@@ -307,6 +307,8 @@ displayModal = async (pkmnData) => {
     modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
     modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
     modal.style.setProperty("--bg-modal-color", firstBorderColor);
+    modal.style.setProperty("--dot-color-1", firstBorderColor);
+    modal.style.setProperty("--dot-color-2", secondaryBorderColor ? secondaryBorderColor : firstBorderColor);
 
     modal.querySelector("[data-top-infos]").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
     const descriptionsContainer = modal.querySelector("dl");
