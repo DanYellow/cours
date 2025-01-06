@@ -69,6 +69,7 @@ Les critères suivants seront évalués :
     - [Voir documentation plugin tailwind CSS container queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
+- [ ] Corriger les tests unitaires
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liés aux types sont gérées dans la configuration tailwind
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
@@ -222,6 +223,8 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 
 ### Front-end
 - Mettre en place un système de comparaison de fiche entre deux Pokémon
+- Grâce à l'API `Navigation`, proposer un historique des fiches détails précemment affichées, permettant à l'utilisateur de les réafficher plus rapidement
+  - Note : A ce jour (01/2025), l'API `Navigation` ne fonctionne pas sur Firefox et Safari
 
 ### Back-office / Administration
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
