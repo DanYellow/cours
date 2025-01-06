@@ -211,7 +211,10 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         listLoadGenerationBtns.forEach((item) => item.dataset.loadGeneration = Number(generation) + 1);
 
         updateSwitchIcons(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
-        updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true)
+        updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
+        setTimeout(() => {
+            layoutSwitch.nextElementSibling.classList.add("after:transition-all")
+        }, 500)
 
         generationScrollingObserver.observe(headerPokedex);
 

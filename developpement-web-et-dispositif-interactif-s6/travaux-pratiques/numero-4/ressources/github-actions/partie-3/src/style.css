@@ -148,7 +148,6 @@ dialog {
 .switch-checkbox {
     --tw-translate-x: 100%;
     &:checked ~ .switch {
-        background-color: theme("colors.green.600");
         &::after {
             transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
         }
@@ -156,14 +155,12 @@ dialog {
 
     @starting-style {
         &:checked ~ .switch {
-            background-color: theme("colors.green.600");
             &::after {
                 transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
             }
         }
     }
 }
-
 
 .pkmn-details-dialog {
     --dot-size: 0.8px;
@@ -225,7 +222,7 @@ dialog {
             left: 0;
             right: 0;
             background-image: image-set(var(--background-sprite) 1x);
-            background-repeat: repeat;
+            background-repeat: space;
             background-size: 15%;
             background-position: center;
         }
@@ -352,8 +349,10 @@ details {
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    animation: type-border 40s ease-in-out infinite alternate-reverse;
-    animation-play-state: paused;
+    animation: type-border 35s ease-in-out infinite alternate-reverse paused;
+    &:hover, &:focus-visible {
+        animation-play-state: running;
+    }
 }
 
 @keyframes type-border {
