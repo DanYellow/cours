@@ -396,3 +396,32 @@ details {
         color: #da9100;
     }
 }
+
+.bar-sex-male::after {
+    content: "";
+    mask: url(/male-icon.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-weight: bold;
+    background-color: currentColor;
+    width: 40px;
+    bottom: 0.15rem;
+    opacity: 0.2;
+}
+
+
+.bar-sex-female::after {
+    content: "";
+    mask: url(/female-icon.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0.15rem;
+    font-weight: bold;
+    background-color: currentColor;
+    width: 40px;
+    bottom: 0.15rem;
+    opacity: 0.2;
+}

@@ -40,5 +40,6 @@ export default defineConfig({
             "**/e2e/**",
         ],
         environment: 'happy-dom',
+        css: false,
     },
 });
