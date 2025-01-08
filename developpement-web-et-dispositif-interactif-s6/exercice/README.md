@@ -80,6 +80,9 @@ Les critères suivants seront évalués :
   - Optionnel : Au clic sur une carte, vous devez afficher ses détails
 - [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
   - On doit pouvoir rejouer le cri
+- [ ] Créditer les api utilisées pour récupérer les données des Pokémon :
+  - https://tyradex.vercel.app/
+  - https://pokeapi.co/
 - [ ] Avec l'aide de l'API GitHub, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
@@ -93,7 +96,8 @@ Les critères suivants seront évalués :
   >         - ou via un fichier env que vous générez via la CI / CD
   > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire entre-vous
 
-> Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss.
+
+> Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss en majorité.
 
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
