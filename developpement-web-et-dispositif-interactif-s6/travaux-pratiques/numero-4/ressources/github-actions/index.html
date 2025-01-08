@@ -226,15 +226,19 @@
                 </ul>
                 <p>Exemple : </p>
                 <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
-  <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
-    <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
-    <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
-    <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
-      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
-      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
-      <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
+            <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/setup-node@v4</span>
+            <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+                <span style="color: rgb(197, 200, 198); font-weight: 400;">node-version:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"&gt;=22"</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
+            <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
+
               </li>
               <li>
                 Installer des dépendances : <code>npm ci</code> ("ci" fait un
@@ -248,14 +252,25 @@
                 <p>Note 2 : Cette commande n'est utile que si nous avons besoin de faire des commmandes git. En l'occurence, faire un <code>git tag</code> avec le module release-it.</p>
               </li>
               <li>
-                Mettre à jour la version : <code>npm run release --ci </code>
+                Définir une version de node supérieure ou égale à la version 20 grâce à l'action "setup-node"
+                <ul>
+                    <li>
+                        <a href="https://github.com/actions/setup-node" target="_blank" rel="noopener noreferrer">Voir documentation de l'action "setup-node"</a>
+                    </li>
+                </ul>
+              </li>
+              <li>
+                Mettre à jour la version : <code>npm run release --ci</code> (c'est à vous d'ajouter cette commande, voir documentation de release-it)
+                <p class="note-information">
+                    Vous pouvez exécuter la commande <code>npm run release -- --no-git --debug --dry-run</code> en local, pour prévisualiser ce que la commande va faire. Evitant ainsi de créer plein de tags inutiles.
+                </p>
               </li>
             </ol>
             <div class="note-information">
               <p>
                 On veut que cette Action se lance manuellement, ainsi
                 l'évènement (clé "on") devra être "workflow_dispatch". Voir
-                image ci-dessous pour lancer manuellement votre Action.
+                image ci-dessous pour lancer manuellement votre Action depuis l'interface de GitHub.
               </p>
               <figure>
                 <img src="actions-1.jpg" alt="" />
@@ -355,7 +370,7 @@
             </li>
               <li>Créez des variables d'environnement affichant les données suivantes sur le site :
                 <ul>
-                    <li>Le nom du compte github de la personne qui a initié la dernière pipeline</li>
+                    <li>Le nom du compte GitHub de la personne qui a initié la dernière pipeline</li>
                     <li>La date et heure du build</li>
                 </ul>
                 <div class="note-information">
@@ -468,7 +483,7 @@
                 </ul>
             </div>
             <div class="note-information">
-                <p>Votre CI/CD contient beaucoup d'actions. Rappelez-vous que les jobs de build et de déploiement sont interdépendants et qu'il faut que les autres jobs soient effectués avant.</p>
+                <p>A ce stade, votre pipeline CI/CD contient beaucoup de tâches. Rappelez-vous que les jobs de build et de déploiement sont interdépendants et qu'il faut que les autres jobs soient effectués avant.</p>
                 <ul>
                     <li>
                         <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds" target="_blank" rel="noopener noreferrer">Voir documentation sur l'interdépendance des jobs</a>
