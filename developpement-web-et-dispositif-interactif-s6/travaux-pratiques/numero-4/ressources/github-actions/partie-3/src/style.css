@@ -205,8 +205,6 @@ dialog {
         transition: backdrop-filter 250ms;
     }
 
-
-
     .main-infos {
         background-image: radial-gradient(
                 rgb(from var(--dot-color-1) r g b / var(--dot-alpha))
@@ -412,13 +410,15 @@ details {
 
 .bar-sex-male::after {
     content: "";
+    @media (width > theme("screens.md")) {
+        content: none!important;
+    }
     mask: url(/male-icon.svg) no-repeat 50% 50%;
     mask-size: contain;
     position: absolute;
     left: 0;
     top: 0.15rem;
     font-weight: bold;
-    background-color: currentColor;
     width: 40px;
     bottom: 0.15rem;
     opacity: 0.2;
@@ -426,13 +426,15 @@ details {
 
 .bar-sex-female::after {
     content: "";
+    @media (width > theme("screens.md")) {
+        content: none!important;
+    }
     mask: url(/female-icon.svg) no-repeat 50% 50%;
     mask-size: contain;
     position: absolute;
     right: 0;
     top: 0.15rem;
     font-weight: bold;
-    background-color: currentColor;
     width: 40px;
     bottom: 0.15rem;
     opacity: 0.2;
