@@ -148,6 +148,7 @@ const loadDetailsModal = (e, region = null) => {
 };
 
 displayModal = async (pkmnData) => {
+    modal.inert = true;
     if (pkmnData.is_incomplete) {
         const cachedPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id);
         if (cachedPokemon) {
@@ -405,7 +406,6 @@ displayModal = async (pkmnData) => {
             modal_DOM.listEvolutions.append(nextArrow);
         });
     }
-
 
     const listAcronymsDOM = Array.from(modal_DOM.acronymVersions.querySelectorAll("[data-acronym]"));
     const listAcronyms = listAcronymsDOM.map((item) => item.dataset.acronym)
@@ -763,7 +763,7 @@ displayModal = async (pkmnData) => {
 
         modal_DOM.listSiblings.append(clone);
     }
-
+    modal.inert = false;
     modal.showModal();
     listPokedexEntries.forEach((item) => { item.inert = false; })
 };
