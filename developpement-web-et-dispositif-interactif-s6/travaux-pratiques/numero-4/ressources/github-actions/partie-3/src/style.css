@@ -187,12 +187,25 @@ dialog {
         linear-gradient(
             0deg,
             rgb(from var(--dot-color-1) r g b / 1) 0%,
-            rgb(from var(--dot-color-2) r g b / 1) 6.05%,
+            rgb(from var(--dot-color-1) r g b / 1) 6.05%,
             rgba(255, 255, 255, 0) 6.05%
         );
     background-size: 20px 20px, 20px 20px, 100% 1210px;
     background-position: 0 0, 10px 10px, center bottom -12px;
     background-repeat: repeat, repeat, no-repeat;
+
+    &[inert] {
+        opacity: 0.85;
+        &::backdrop {
+            backdrop-filter: theme("backdropBlur.3xl");
+        }
+    }
+
+    &::backdrop {
+        transition: backdrop-filter 250ms;
+    }
+
+
 
     .main-infos {
         background-image: radial-gradient(
@@ -410,7 +423,6 @@ details {
     bottom: 0.15rem;
     opacity: 0.2;
 }
-
 
 .bar-sex-female::after {
     content: "";
