@@ -114,7 +114,7 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
 
     li.classList.toggle("shrink-0", isCurrentPkmn);
     li.classList.toggle("hidden", isCurrentPkmn);
-    li.classList.toggle("md:[display:revert]", isCurrentPkmn);
+    li.classList.toggle("sm:[display:revert]", isCurrentPkmn);
     li.classList.toggle("grow", !isCurrentPkmn);
     li.classList.toggle("basis-0", !isCurrentPkmn);
 
