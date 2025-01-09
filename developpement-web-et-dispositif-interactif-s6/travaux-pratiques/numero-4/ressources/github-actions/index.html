@@ -197,17 +197,7 @@
                 commits commençant par "feat:" ou "fix:" au sein de la même
                 version.
                 </p>
-                <p>
-                Vous pouvez réaliser votre tâche (fonctionnalité / résolution de bug) en plusieurs commits mais un seul d'entre-deux doit avoir le préfixe "feat:" ou "fix:" pour le même sujet.
-                Même si vous avez plusieurs "feat" ou "fix" dans vos commits, votre numéro de version n'incrémentera qu'une seule fois.
-              </p>
-              <p>
-                C'est pour cette raison qu'il est important de séparer ses
-                commits par fonctionnalité et les nommer clairement. Grâce à ce système, vous pouvez voir
-                en un coup d'oeil la liste des fonctionnalités / bugs corrigés
-                version par version.
-              </p>
-              <p>A noter qu'en absence de nouveaux commits avec la bonne nomenclature, seul le numéro de PATCH sera incrémenté.</p>
+               <p>Néanmoins, si vous ne souhaitez pas vous casser la tête avec ceci. Vous avez les modules <a href="https://www.npmjs.com/package/commitizen" target="_blank" rel="noopener noreferrer">commitizen</a> et <a href="https://github.com/streamich/git-cz" target="_blank" rel="noopener noreferrer">git-cz</a> (inutile de les installer en global). Une fois installé, vous aurez accès à la commande <code>npx cz</code> qui affichera un prompt vous permettant de préfixer votre commit et donc respecter la nomenclature Angular.</p>
             </div>
           </li>
           <li>
@@ -230,15 +220,19 @@
         <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
         <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
         <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
-        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
-            <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
-        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/setup-node@v4</span>
-            <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
-                <span style="color: rgb(197, 200, 198); font-weight: 400;">node-version:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"&gt;=22"</span>
-        <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
-            <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
-        <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
-
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
+              <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
+                <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+                    <span style="color: rgb(197, 200, 198); font-weight: 400;">fetch-depth:</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/setup-node@v4</span>
+              <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+                  <span style="color: rgb(197, 200, 198); font-weight: 400;">node-version:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"&gt;=22"</span>
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
+              <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
+            <p class="note-attention">
+                L'argument "fetch-depth: 0" de l'action "actions/checkout@v4" permet de récupérer tout l'historique du dépôt, évitant ainsi des pertes si jamais vous faites un pull après vos commits. N'oubliez pas ce paramètre.
+            </p>
               </li>
               <li>
                 Installer des dépendances : <code>npm ci</code> ("ci" fait un
