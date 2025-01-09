@@ -270,17 +270,31 @@
         display: flex;
         overflow: hidden;
         width: fit-content;
-        column-gap: 0.25rem;
         padding: 0;
         margin-top: 0.7rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 0;
+
+            &:first-child {
+                button {
+                    border-top-left-radius: 0.35rem;
+                }
+            }
+
+            &:last-child {
+                button {
+                    border-top-right-radius: 0.35rem;
+                }
+            }
+        }
     }
 
     button {
-        padding: 14px 16px;
+        padding: 0.9rem 1rem;
         appearance: none;
         border: none;
-        border-radius: 0.35rem;
 
         &.active {
             background-color: #53535f;
@@ -296,7 +310,8 @@
     .list-tab-content {
         border: 1px solid white;
         padding: 0.5rem;
-        border-radius: 0.35rem;
+        border-top-left-radius: 0.35rem;
+        border-top-right-radius: 0.35rem;
         margin-top: 0;
 
         @media (prefers-color-scheme: light) {
