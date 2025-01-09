@@ -79,6 +79,7 @@ Les critères suivants seront évalués :
   - Si un Pokémon n'a pas de carte, et que vous utilisez la balise &lt;details>, cette dernière doit être désactivée
   - Optionnel : Au clic sur une carte, vous devez afficher ses détails
 - [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
+  - [Voir documentation de wavesurfer.js](https://www.npmjs.com/package/wavesurfer.js)
   - On doit pouvoir rejouer le cri
 - [ ] Créditer les api utilisées pour récupérer les données des Pokémon :
   - https://tyradex.vercel.app/
@@ -221,7 +222,7 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
   - [Voir documentation de vitest](https://vitest.dev/guide/)
 - Vous devez respecter l'accessibilité et les différentes règles d'ergonomie
-
+- commitizen est installé. Vous avez donc accès à la commande `npx cz` et son alias `npm run commit`
 
 ## Pour aller plus loin
 
