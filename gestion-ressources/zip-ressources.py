@@ -88,11 +88,14 @@ def get_list_directories_updated():
                 .replace(" -", "")
                 .strip()
         )
+        cleaned_path = re.sub('\\s+', '', cleaned_path)
 
         return cleaned_path
 
     def get_last_commit_path(entry):
         path = ' '.join(entry.split())
+        path = path.replace("\"", "")
+        path = re.sub('\\s+', '', path)
 
         return get_cleared_directory(path)
 
@@ -184,7 +187,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
-        zip_extension = "exercice" if "exercice" in archive_name else "ressources"
+        zip_extension = "exercice" if "exercice" in folder_path else "ressources"
         archive_path = f'{head}/{archive_name.replace("_ressources", "")}.{zip_extension}.zip'
 
         if is_correction_directory:
