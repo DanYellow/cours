@@ -134,14 +134,13 @@
     }
 
     code {
-        font-family: monospace;
-        letter-spacing: 1.2;
-        background-color: black;
+        background-color: rgb(29, 31, 33);
         padding: 0 0.35rem;
         color: white;
         border: 1px solid #b4b4b4;
         margin-bottom: 1rem;
         font-family: monospace;
+        border-radius: 0.25rem;
     }
 
     p {
