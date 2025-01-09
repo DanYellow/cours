@@ -462,14 +462,6 @@
               </li>
             </ul>
             <div class="note-information">
-                <p>Au lieu d'utiliser l'image ubuntu-latest, vous avez également une image de node qui est proposée par GitHub.</p>
-                <ul>
-                    <li>
-                        <a href="https://github.com/actions/setup-node" target="_blank" rel="noopener noreferrer">En savoir plus sur l'image node de GitHub Actions</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="note-information">
                 <p>Cette partie contient beaucoup de lignes de commandes, si elles vous sont étrangères, vous avez le site explainshell qui vous explique en détails les commandes.</p>
                 <ul>
                     <li>
@@ -485,7 +477,7 @@
                         <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds" target="_blank" rel="noopener noreferrer">Voir documentation sur l'interdépendance des jobs</a>
                     </li>
                 </ul>
-                <p>Parallèlement, il est préférable de faire un job pour le build et un autre pour le déploiement pour faciliter le debbugage. Dans ce contexte, il faudra uploader et télécharger un "artifact". Pour rappel, vous avez les actions "actions/upload-artifact@master" et "actions/download-artifact@master" pour communiquer entre jobs</p>
+                <p>Parallèlement, il est préférable de faire un job pour le build et un autre pour le déploiement pour faciliter le debbugage. Dans ce contexte, il faudra uploader et télécharger un "artifact". Pour rappel, vous avez les actions <a href="https://github.com/actions/upload-artifact" target="_blank">"actions/upload-artifact@master"</a> et <a href="https://github.com/actions/download-artifact" target="_blank">"actions/download-artifact@master"</a> pour communiquer entre jobs</p>
                 <details>
                     <summary>
                         Exemple actions/upload-artifact@master
