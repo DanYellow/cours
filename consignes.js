@@ -70,23 +70,23 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.style.padding = "0.5rem";
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
+
     copyButton.style.justifyContent = "center";
     item.append(copyButton);
 
-
     const imgButton = document.createElement("img");
+    imgButton.style.transition = "width 350ms"
+    imgButton.style.width = "0";
     imgButton.alt = "";
-    imgButton.style.width = "0.95rem";
     imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
-    imgButton.style.display = "none";
     copyButton.append(imgButton);
 
     copyButton.addEventListener("click", (e) => {
         navigator.clipboard.writeText(item.textContent.replace(regexCopyText, ''))
-        imgButton.style.display = "inline";
+        imgButton.style.width = "0.95rem";
 
         setTimeout(() => {
-            imgButton.style.display = "none";
+            imgButton.style.width = "0";
         }, 1500);
     });
 });
