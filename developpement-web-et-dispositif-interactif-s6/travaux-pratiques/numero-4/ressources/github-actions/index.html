@@ -20,7 +20,7 @@
          <summary>
           <h2 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h2>
         </summary>
-        <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt. En absence, ça sera le nom du fichier qui sera affiché</span>
+        <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt. En absence, ça sera le nom du fichier qui sera affiché</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quel(s) évènement(s) se lance la pipeline. Il est possible de préciser la branche ou le type de fichier</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">my_first_job:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, job_id. Doit commencer par une lettre et ne doit pas contenir d'espace. Comme tout id, il doit être unique</span>
@@ -215,21 +215,21 @@
                     </li>
                 </ul>
                 <p>Exemple : </p>
-                <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
-    <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
-        <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
-            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
-              <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
-              <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
-                  <span style="color: rgb(197, 200, 198); font-weight: 400;">fetch-depth:</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>
-            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/setup-node@v4</span>
-              <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
-                  <span style="color: rgb(197, 200, 198); font-weight: 400;">node-version:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"&gt;=22"</span>
-            <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
-              <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
-            <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
+                <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;" data-code-sample><span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Check</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">out</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">repository</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">code</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/checkout@v4</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+          <span style="color: rgb(197, 200, 198); font-weight: 400;">fetch-depth:</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">uses:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">actions/setup-node@v4</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">with:</span>
+          <span style="color: rgb(197, 200, 198); font-weight: 400;">node-version:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"&gt;=22"</span>
+      <span style="color: rgb(129, 162, 190); font-weight: 400;">-</span> <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Set</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">github</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">run:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.email</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"test@example.com"</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">&amp;&amp;</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">git</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">config</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">user.name</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"CI/CD - MMI"</span>
+      <span style="color: rgb(112, 120, 128); font-weight: 400;"># ...</span></pre>
             <p class="note-attention">
                 L'argument "fetch-depth: 0" de l'action "actions/checkout@v4" permet de récupérer tout l'historique du dépôt, évitant ainsi des pertes si jamais vous faites un pull après vos commits. N'oubliez pas ce paramètre.
             </p>
@@ -413,7 +413,7 @@
                             </ul>
                             <ul class="list-tab-content">
                                 <li class="tab-content" data-tab-content="windows">
-                                    <pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
+                                    <pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key | clip
 <span style="color: rgb(112, 120, 128); font-weight: 400;"># Ou </span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key
@@ -421,7 +421,7 @@
 <p>Note : Il faut impérativement que git bash soit installé sur votre ordinateur Windows, car "cat" est une commande unix.</p>
                                 </li>
                                 <li class="tab-content" data-tab-content="linux-macos">
-<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
+<pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">pbcopy</span> &lt; ~/.ssh/my_private_key</pre>
                                 </li>
                             </ul>
@@ -476,6 +476,7 @@
                         <a href="https://explainshell.com/" target="_blank" rel="noopener noreferrer">Accéder à explainshell</a>
                     </li>
                 </ul>
+                <p>Ou sinon vous avez la commande man suivi de l'instruction ou le site <a href="https://www.man7.org/linux/man-pages/index.html" target="_blank">man</a>.</p>
             </div>
             <div class="note-information">
                 <p>A ce stade, votre pipeline CI/CD contient beaucoup de tâches. Rappelez-vous que les jobs de build et de déploiement sont interdépendants et qu'il faut que les autres jobs soient effectués avant.</p>
@@ -489,7 +490,7 @@
                     <summary>
                         Exemple actions/upload-artifact@master
                     </summary>
-<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
     <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
@@ -505,7 +506,7 @@
                     <summary>
                         Exemple actions/download-artifact@master
                     </summary>
-<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">needs:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">build</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Related job</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
