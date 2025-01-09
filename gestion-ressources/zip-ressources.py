@@ -136,7 +136,7 @@ def slugify(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 
-def get_all_ressources_sae_directories():
+def get_all_directories_to_zip():
     list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
     list_ressources_folders_raw.extend(["exercice"])
     list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
@@ -164,7 +164,7 @@ def get_all_ressources_sae_directories():
     return list_ressources_folders_to_zip
 
 if args.all:
-    list_ressources_folders_to_zip = get_all_ressources_sae_directories()
+    list_ressources_folders_to_zip = get_all_directories_to_zip()
 else:
     list_ressources_folders_to_zip = get_list_directories_updated()
 
