@@ -184,7 +184,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
-        zip_extension = "ressources" if "_ressources" in archive_name else "exercice"
+        zip_extension = "exercice" if "exercice" in archive_name else "ressources"
         archive_path = f'{head}/{archive_name.replace("_ressources", "")}.{zip_extension}.zip'
 
         if is_correction_directory:
@@ -205,7 +205,10 @@ def generate_zip(list_folders, is_correction_directory = False):
                     if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
                         zip_object.write(absname, arcname)
                     if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
-                        generate_zip([os.path.join(folder_path, "correction")], True)
+                        if len(arcname.split('\\correction')) > 1:
+                            generate_zip([os.path.join(folder_path, arcname.split('\\correction')[0], "correction")], True)
+                        else:
+                            generate_zip([os.path.join(folder_path, "correction")], True)
             zip_object.close()
 
 generate_zip(list_ressources_folders_to_zip)
