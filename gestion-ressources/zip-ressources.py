@@ -187,7 +187,12 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
-        zip_extension = "exercice" if "exercice" in folder_path else "ressources"
+        zip_extension = "ressources"
+        if "exercice" in folder_path:
+            zip_extension = "exercice"
+        elif "correction" in folder_path:
+            zip_extension = "correction"
+
         archive_path = f'{head}/{archive_name.replace("_ressources", "")}.{zip_extension}.zip'
 
         if is_correction_directory:
