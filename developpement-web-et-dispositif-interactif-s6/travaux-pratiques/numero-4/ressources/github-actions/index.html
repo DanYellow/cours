@@ -91,7 +91,7 @@
           https://github.com/votre-pseudo/nom-du-depot/actions
         </p>
         <div class="note-information">
-            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion de vos  fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github).</p>
+            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion et la validation de vos fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github).</p>
             <ul>
                 <li>
                     <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions" target="_blank" rel="noopener noreferrer">Télécharger l'extension GitHub Actions pour VS Code</a>
@@ -197,7 +197,7 @@
                 commits commençant par "feat:" ou "fix:" au sein de la même
                 version.
                 </p>
-               <p>Néanmoins, si vous ne souhaitez pas vous casser la tête avec ceci. Vous avez les modules <a href="https://www.npmjs.com/package/commitizen" target="_blank" rel="noopener noreferrer">commitizen</a> et <a href="https://github.com/streamich/git-cz" target="_blank" rel="noopener noreferrer">git-cz</a> (inutile de les installer en global). Une fois installé, vous aurez accès à la commande <code>npx cz</code> qui affichera un prompt vous permettant de préfixer votre commit et donc respecter la nomenclature Angular.</p>
+               <p>Néanmoins, si vous ne souhaitez pas vous casser la tête avec ceci. Vous avez les modules <a href="https://www.npmjs.com/package/commitizen" target="_blank" rel="noopener noreferrer">commitizen</a> et <a href="https://github.com/streamich/git-cz" target="_blank" rel="noopener noreferrer">git-cz</a> (déconseillé de les installer en global). Une fois installés, vous aurez accès à la commande <code>npx cz</code> qui affichera un prompt vous permettant de préfixer votre commit et donc respecter la nomenclature Angular.</p>
             </div>
           </li>
           <li>
@@ -256,7 +256,7 @@
               <li>
                 Mettre à jour la version : <code>npm run release --ci</code> (c'est à vous d'ajouter cette commande, voir documentation de release-it)
                 <p class="note-information">
-                    Vous pouvez exécuter la commande <code>npm run release -- --no-git --debug --dry-run</code> en local, pour prévisualiser ce que la commande va faire. Evitant ainsi de créer plein de tags inutiles.
+                    Vous pouvez, exécuter la commande <code>npm run release -- --no-git --debug --dry-run</code> en local, pour prévisualiser ce que la commande va faire. Évitant ainsi de créer plein de tags inutiles.
                 </p>
               </li>
             </ol>
@@ -348,6 +348,7 @@
                     <div class="inner-note">
                         <p>Les smoke tests (ou tests de fumée) désignent des tests automatisés (ou non) préliminaires. Testant des fonctionnalités critiques, s'ils échouent, il est inutile de lancer les autres tests.</p>
                     </div>
+                    <p>Ainsi, il est préférable de lancer en premier les smoke tests et s'ils passent exécuter le reste. Ce qui permet de diminuer le temps d'exécution du serveur de CI/CD.</p>
 
                     <ul>
                         <li>
@@ -420,7 +421,7 @@
 <p>Note : Il faut impérativement que git bash soit installé sur votre ordinateur Windows, car "cat" est une commande unix.</p>
                                 </li>
                                 <li class="tab-content" data-tab-content="linux-macos">
-<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"># Copie votre clé privée dans le presse-papier</span>
+<pre style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">pbcopy</span> &lt; ~/.ssh/my_private_key</pre>
                                 </li>
                             </ul>
