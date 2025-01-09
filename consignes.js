@@ -77,14 +77,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.append(imgButton);
 
     copyButton.addEventListener("click", (e) => {
-        const copyTextarea = document.createElement('textarea');
-        copyTextarea.value = item.textContent.replace(regexCopyText, '');
-        copyTextarea.style.width = "0";
-        copyTextarea.style.height = "0";
-        document.body.appendChild(copyTextarea);
-        copyTextarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(copyTextarea);
+        navigator.clipboard.writeText(item.textContent.replace(regex, ''))
         imgButton.style.display = "inline";
 
         setTimeout(() => {
