@@ -222,7 +222,7 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
   - [Voir documentation de vitest](https://vitest.dev/guide/)
 - Vous devez respecter l'accessibilité et les différentes règles d'ergonomie
-- commitizen est installé. Vous avez donc accès à la commande `npx cz` et son alias `npm run commit`
+- Vous pouvez installer commitizen pour vous aider à créer des commits correctement labellisés
 
 ## Pour aller plus loin
 
