@@ -52,11 +52,15 @@ initAccordionSystem();
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const allowCopy = JSON.parse(item.dataset?.codeSample || false) === true;
-    console.log(allowCopy)
+
     item.style.border = "1px solid #418862";
     item.style.padding = "1rem";
     item.style.borderRadius = "0.5rem";
     item.style.position = "relative";
+
+    if (!allowCopy) {
+        return;
+    }
 
     const copyButton = document.createElement("button");
     copyButton.textContent = "Copier";
@@ -69,9 +73,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.style.justifyContent = "center";
     item.append(copyButton);
 
-    if (!allowCopy) {
-        return;
-    }
+
     const imgButton = document.createElement("img");
     imgButton.alt = "";
     imgButton.style.width = "0.95rem";
