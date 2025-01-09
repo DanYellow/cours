@@ -17,6 +17,9 @@ start_time = time.time()
 os.chdir("../")
 print("--- Archives generation started. Please wait. ---")
 
+if not os.path.exists('flag.tmp.txt'):
+    with open('flag.tmp.txt', 'w'): pass
+
 with open('.gitignore') as my_file:
     list_ignored_files = my_file.readlines()
     list_ignored_files = list(filter(lambda x: not x.startswith("#"), list_ignored_files))
@@ -193,7 +196,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         elif "correction" in folder_path:
             zip_extension = "correction"
 
-        archive_path = f'{head}/{archive_name.replace("_ressources", "")}.{zip_extension}.zip'
+        archive_path = f'{head}/{archive_name.replace("_ressources", "").replace("-correction", "")}.{zip_extension}.zip'
 
         if is_correction_directory:
             if archive_path not in dict_correction_archive_created:

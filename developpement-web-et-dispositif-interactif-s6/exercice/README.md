@@ -106,7 +106,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
 - [ ] Avec une API, mettre en place un système d'upload des jaquettes de jeux (fournies avec l'exercice)
-  - [Télécharger les jaquettes](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
+  - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
 - [ ] Renvoyer toutes les jaquettes de jeux via une API (sans authentification) qui sera consommée par le front-end pour les afficher dans la modale partie "Apparitions"
     - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
         ```json
