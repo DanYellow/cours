@@ -17,6 +17,7 @@ import {
     getPkmnIdFromURL,
     tailwindConfig,
     formsNameDict,
+    clamp,
 } from "./utils";
 
 import {
@@ -823,16 +824,18 @@ window.addEventListener("pokedexLoaded", (e) => {
 
 
 let isDraggingDown = false;
-    let firstTouchPos = 0;
-    let firstTouchTime = 0;
-const closeModalThreshold = 0.85;
-const modalOriginalAnimationSpeed = modal.style.getPropertyValue("--animation-speed");
-let modalAlpha = 0
-;
+let firstTouchPos = 0;
+let distanceDelta = 0;
+
+const closeModalThreshold = 0.8;
+const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
+const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
+
 modal_DOM.topInfos.addEventListener('touchstart', e => {
     isDraggingDown = true;
     firstTouchPos = e.touches[0].pageY;
-    modal.style.setProperty("--animation-speed", 0);
+    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+
 });
 
 modal_DOM.topInfos.addEventListener('touchmove', e => {
@@ -841,8 +844,15 @@ modal_DOM.topInfos.addEventListener('touchmove', e => {
         const diff = e.touches[0].pageY - firstTouchPos;
         modal.style.translate = `0 ${diff}px`;
 
-        modalAlpha = (diff / window.innerHeight).toFixed(2)
-        modal.style.opacity = 1 - modalAlpha;
+        distanceDelta = (diff / window.innerHeight).toFixed(2)
+        modal.style.opacity = 1 - (distanceDelta / 3);
+
+        const modalBackdropBlur = clamp(
+            modalOriginalBackdropBlur - (distanceDelta * 5),
+            0,
+            modalOriginalBackdropBlur
+        );
+        modal.style.setProperty("--details-modal-blur", `${modalBackdropBlur}px`);
 
         if (diff / window.innerHeight > closeModalThreshold) {
             modal.close();
@@ -854,6 +864,7 @@ modal_DOM.topInfos.addEventListener('touchend', e => {
     modal.style.translate = "0 0";
     modal.style.opacity = 1;
     modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
 })
 
 

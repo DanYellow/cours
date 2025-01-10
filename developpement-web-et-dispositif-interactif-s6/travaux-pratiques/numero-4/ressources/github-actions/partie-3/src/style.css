@@ -79,6 +79,12 @@ html {
     }
 }
 
+@property --bg-modal-color {
+    syntax: "<color>";
+    initial-value: transparent;
+    inherits: true;
+}
+
 .no-dimorphism {
     background: rgb(233, 233, 233);
     background: linear-gradient(
@@ -113,11 +119,6 @@ html {
     column-gap: theme("spacing.2");
 }
 
-@property --bg-modal-color {
-    syntax: "<color>";
-    initial-value: transparent;
-    inherits: true;
-}
 
 dialog {
     --animation-speed: 0.3s;
@@ -175,6 +176,8 @@ dialog {
     --dot-color-1: white;
     --dot-color-2: white;
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png";
+    --details-modal-blur: theme("backdropBlur.md");
+
 
     @media (max-resolution: 1.1dppx) {
         --dot-alpha: 0.25;

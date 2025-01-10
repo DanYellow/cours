@@ -210,6 +210,10 @@ export const debounce = (callback, wait) => {
     };
 };
 
+export const clamp = (value, min, max) => {
+    return Math.min(Math.max(value, min), max);
+};
+
 export * from "./colors";
 export * from "./modal.utils";
 export * from "./formsDictionary";
