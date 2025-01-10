@@ -17,7 +17,6 @@ import {
     getPkmnIdFromURL,
     tailwindConfig,
     formsNameDict,
-    clamp,
 } from "./utils";
 
 import {
@@ -27,6 +26,8 @@ import {
     createStatisticEntry,
     getAbilityForLang,
 } from "#src/utils/modal.utils.js"
+
+import modalSwipeEvents from "#src/modal-swipe.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
 import loadingImage from "/loading.svg";
@@ -96,6 +97,9 @@ const dataCache = {};
 let listAbilitiesCache = [];
 const initialPageTitle = document.title;
 
+const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
+const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
+
 let listTypes = await fetchAllTypes();
 listTypes = listTypes.map((item) => ({
     sprite: item.sprites,
@@ -121,6 +125,8 @@ modal.addEventListener("close", () => {
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
 
+    resetModal();
+
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
     setTitleTagForGeneration();
@@ -129,11 +135,10 @@ modal.addEventListener("close", () => {
 modal.addEventListener("transitionend", (e) => {
     if (e.target.style.translate && e.target.style.translate.split(" ").at(-1).includes("100")) {
         modal.close();
-        setTimeout(() => {
-            resetModal();
-        }, 150)
     }
 });
+
+modalSwipeEvents(modal, modal_DOM.topInfos, resetModal);
 
 closeModalBtn.addEventListener("click", () => {
     modal.close();
@@ -839,61 +844,6 @@ window.addEventListener("pokedexLoaded", (e) => {
         });
 });
 
-
-let isDraggingDown = false;
-let firstTouchPos = 0;
-let firstTouchTime = 0;
-let distanceDelta = 0;
-
-const closeModalThreshold = 0.8;
-const quickCloseModalThreshold = 0.1;
-const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
-const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
-
-modal_DOM.topInfos.addEventListener('touchstart', e => {
-    isDraggingDown = true;
-    firstTouchPos = e.touches[0].pageY;
-    firstTouchTime = new Date().getTime();
-
-
-    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
-});
-
-modal_DOM.topInfos.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (isDraggingDown) {
-        const diff = e.touches[0].pageY - firstTouchPos;
-        modal.style.translate = `0 ${diff}px`;
-
-        distanceDelta = (diff / window.innerHeight).toFixed(2)
-        modal.style.opacity = 1 - (distanceDelta / 3);
-
-        const modalBackdropBlur = clamp(
-            modalOriginalBackdropBlur - (distanceDelta * 5),
-            0,
-            modalOriginalBackdropBlur
-        );
-        modal.style.setProperty("--details-modal-blur", `${modalBackdropBlur}px`);
-
-        if (diff / window.innerHeight > closeModalThreshold) {
-            modal.close();
-        }
-    }
-});
-
-modal_DOM.topInfos.addEventListener('touchend', e => {
-    const timeDiff = new Date().getTime() - firstTouchTime;
-    const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
-
-    if (
-        timeDiff < 500 &&
-        distanceDiff / window.innerHeight > quickCloseModalThreshold
-    ) {
-        modal.style.translate = "0 100vh";
-    } else {
-        resetModal();
-    }
-})
 
 
 export { loadDetailsModal }
