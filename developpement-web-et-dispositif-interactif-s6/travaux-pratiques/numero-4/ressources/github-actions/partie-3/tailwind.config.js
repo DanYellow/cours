@@ -69,8 +69,8 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
                 linear-gradient(to right, rgb(255 255 255 / 1), rgb(255 255 255 / 1)),
                 conic-gradient(
                     from var(--border-type-angle),
-                    ${theme(`colors.type_${item.split("_")[0]}`)} 0deg 180deg,
-                    ${theme(`colors.type_${item.split("_")[1]}`)} 180deg 360deg
+                    ${theme(`colors.type_${item.split("_")[1]}`)} 0deg 180deg,
+                    ${theme(`colors.type_${item.split("_")[0]}`)} 180deg 360deg
                 )`
         }
     });

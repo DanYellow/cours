@@ -360,7 +360,7 @@ details {
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    animation: type-border 35s ease-in-out infinite alternate-reverse paused;
+    animation: type-border 12s ease-in-out infinite alternate paused;
     &:hover, &:focus-visible {
         animation-play-state: running;
     }
