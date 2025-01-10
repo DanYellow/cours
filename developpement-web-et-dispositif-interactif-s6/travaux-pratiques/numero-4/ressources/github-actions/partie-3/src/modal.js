@@ -457,18 +457,18 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listSensibilities);
 
-    pkmnData.resistances.forEach((item) => {
-        const clone = createSensibility(
+    for (const sensibility of pkmnData.resistances) {
+        const clone = await createSensibility(
             document.importNode(
                 pkmnSensibilityTemplateRaw.content,
                 true
             ),
-            item,
+            sensibility,
             listTypes
         );
 
         modal_DOM.listSensibilities.append(clone);
-    });
+    }
 
     modal_DOM.sexLabelMale.forEach((item) => {
         item.classList.toggle(

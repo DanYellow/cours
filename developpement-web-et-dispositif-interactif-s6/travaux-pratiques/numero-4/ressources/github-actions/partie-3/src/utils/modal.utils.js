@@ -13,7 +13,7 @@ export const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
 );
 
-export const createSensibility = (template, data, listTypes) => {
+export const createSensibility = async (template, data, listTypes) => {
     const typeData = listTypes.find(
         (type) => cleanString(type.name.fr) === cleanString(data.name)
     );
@@ -25,7 +25,21 @@ export const createSensibility = (template, data, listTypes) => {
     imgTag.alt = `icône type ${typeData.name.fr}`;
     imgTag.src = loadingImage;
     imgTag.parentNode.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
-    replaceImage(imgTag, `/types-icons/${typeData.name.en}.svg`);
+    const svgTypeIconReq = await fetch(`/types-icons/${typeData.name.en}.svg`);
+
+    const parser = new DOMParser();
+    const svgTypeIcon = parser.parseFromString(
+        await svgTypeIconReq.text(), 
+        "image/svg+xml"
+    );
+    svgTypeIcon.querySelectorAll("[class]").forEach((item) => {
+        if(item.classList.contains("cls-1")) {
+            return;
+        }
+        item.style.fill = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`];
+    })
+    // replaceImage(imgTag, `/types-icons/${typeData.name.en}.svg`);
+    imgTag.parentNode.replaceChild(svgTypeIcon.documentElement, imgTag);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
