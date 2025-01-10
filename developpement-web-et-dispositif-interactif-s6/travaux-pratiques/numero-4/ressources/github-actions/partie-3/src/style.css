@@ -149,14 +149,20 @@ dialog {
     --tw-translate-x: 100%;
     &:checked ~ .switch {
         &::after {
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
+            transform: translate(
+                var(--tw-translate-x),
+                var(--tw-translate-y)
+            ) !important;
         }
     }
 
     @starting-style {
         &:checked ~ .switch {
             &::after {
-                transform: translate(var(--tw-translate-x), var(--tw-translate-y))!important;
+                transform: translate(
+                    var(--tw-translate-x),
+                    var(--tw-translate-y)
+                ) !important;
             }
         }
     }
@@ -361,7 +367,8 @@ details {
     background-clip: padding-box, border-box;
 
     animation: type-border 12s ease-in-out infinite alternate paused;
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         animation-play-state: running;
     }
 }
@@ -411,7 +418,7 @@ details {
 .bar-sex-male::after {
     content: "";
     @media (width > theme("screens.md")) {
-        content: none!important;
+        content: none !important;
     }
     mask: url(/male-icon.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -427,7 +434,7 @@ details {
 .bar-sex-female::after {
     content: "";
     @media (width > theme("screens.md")) {
-        content: none!important;
+        content: none !important;
     }
     mask: url(/female-icon.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -438,4 +445,14 @@ details {
     width: 40px;
     bottom: 0.15rem;
     opacity: 0.2;
+}
+
+.pokedex {
+    li {
+        transition: opacity theme("transitionDuration.300") ease-in-out;
+    }
+
+    &:where(:hover, :focus-within) > li:not(:hover, :focus-within) {
+        opacity: 0.45;
+    }
 }
