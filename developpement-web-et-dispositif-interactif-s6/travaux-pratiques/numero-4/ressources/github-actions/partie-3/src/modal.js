@@ -27,7 +27,7 @@ import {
     getAbilityForLang,
 } from "#src/utils/modal.utils.js"
 
-import modalSwipeEvents from "#src/modal-swipe.js"
+import modalPulldownClose from "#src/modal-pulldown-close.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
 import loadingImage from "/loading.svg";
@@ -138,7 +138,7 @@ modal.addEventListener("transitionend", (e) => {
     }
 });
 
-modalSwipeEvents(modal, modal_DOM.topInfos, resetModal);
+modalPulldownClose(modal, modal_DOM.topInfos, resetModal);
 
 closeModalBtn.addEventListener("click", () => {
     modal.close();
