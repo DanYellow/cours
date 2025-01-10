@@ -107,18 +107,35 @@ listTypes = listTypes.map((item) => ({
 
 export { listTypes }
 
-modal.addEventListener("close", () => {
-    modal_DOM.img.src = loadingImage;
-    modal_DOM.img.alt = "";
-    setTitleTagForGeneration();
-});
+const resetModal = () => {
+    modal.style.translate = "0 0";
+    modal.style.opacity = 1;
+    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+}
 
-closeModalBtn.addEventListener("click", () => {
+modal.addEventListener("close", () => {
     const url = new URL(location);
     url.searchParams.delete("id");
     url.searchParams.delete("region");
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
+
+    modal_DOM.img.src = loadingImage;
+    modal_DOM.img.alt = "";
+    setTitleTagForGeneration();
+});
+
+modal.addEventListener("transitionend", (e) => {
+    if (e.target.style.translate && e.target.style.translate.split(" ").at(-1).includes("100")) {
+        modal.close();
+        setTimeout(() => {
+            resetModal();
+        }, 150)
+    }
+});
+
+closeModalBtn.addEventListener("click", () => {
     modal.close();
 });
 
@@ -825,17 +842,21 @@ window.addEventListener("pokedexLoaded", (e) => {
 
 let isDraggingDown = false;
 let firstTouchPos = 0;
+let firstTouchTime = 0;
 let distanceDelta = 0;
 
 const closeModalThreshold = 0.8;
+const quickCloseModalThreshold = 0.1;
 const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
 const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
 
 modal_DOM.topInfos.addEventListener('touchstart', e => {
     isDraggingDown = true;
     firstTouchPos = e.touches[0].pageY;
-    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+    firstTouchTime = new Date().getTime();
 
+
+    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
 });
 
 modal_DOM.topInfos.addEventListener('touchmove', e => {
@@ -861,10 +882,17 @@ modal_DOM.topInfos.addEventListener('touchmove', e => {
 });
 
 modal_DOM.topInfos.addEventListener('touchend', e => {
-    modal.style.translate = "0 0";
-    modal.style.opacity = 1;
-    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
-    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+    const timeDiff = new Date().getTime() - firstTouchTime;
+    const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
+
+    if (
+        timeDiff < 500 &&
+        distanceDiff / window.innerHeight > quickCloseModalThreshold
+    ) {
+        modal.style.translate = "0 100vh";
+    } else {
+        resetModal();
+    }
 })
 
 
