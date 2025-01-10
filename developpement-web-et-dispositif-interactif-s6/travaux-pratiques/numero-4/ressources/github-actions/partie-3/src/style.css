@@ -448,8 +448,8 @@ details {
 }
 
 .pokedex {
-    li {
-        transition: opacity theme("transitionDuration.300") ease-in-out;
+    > li {
+        transition: opacity theme("transitionDuration.300") ease-in-out theme("transitionDelay.100");
     }
 
     &:where(:hover, :focus-within) > li:not(:hover, :focus-within) {

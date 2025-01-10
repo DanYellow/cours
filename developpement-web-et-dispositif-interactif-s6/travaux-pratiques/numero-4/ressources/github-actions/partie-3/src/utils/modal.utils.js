@@ -21,10 +21,8 @@ export const createSensibility = async (template, data, listTypes) => {
         "[data-damage-factor]"
     );
 
-    const imgTag = template.querySelector("img");
-    imgTag.alt = `icône type ${typeData.name.fr}`;
-    imgTag.src = loadingImage;
-    imgTag.parentNode.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
+    const typeIconContainer = template.querySelector("[data-type-icon]");
+    typeIconContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
     const svgTypeIconReq = await fetch(`/types-icons/${typeData.name.en}.svg`);
 
     const parser = new DOMParser();
@@ -32,14 +30,15 @@ export const createSensibility = async (template, data, listTypes) => {
         await svgTypeIconReq.text(), 
         "image/svg+xml"
     );
-    svgTypeIcon.querySelectorAll("[class]").forEach((item) => {
+    svgTypeIcon.documentElement.setAttribute("role", "img");
+    svgTypeIcon.documentElement.setAttribute("aria-labelledby", `icône type ${typeData.name.fr}`);
+    svgTypeIcon.documentElement.querySelectorAll("[class]").forEach((item) => {
         if(item.classList.contains("cls-1")) {
             return;
         }
         item.style.fill = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`];
     })
-    // replaceImage(imgTag, `/types-icons/${typeData.name.en}.svg`);
-    imgTag.parentNode.replaceChild(svgTypeIcon.documentElement, imgTag);
+    typeIconContainer.append(svgTypeIcon.documentElement);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
