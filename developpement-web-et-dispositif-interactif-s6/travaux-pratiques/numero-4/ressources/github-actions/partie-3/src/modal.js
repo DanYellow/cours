@@ -265,7 +265,6 @@ displayModal = async (pkmnData) => {
         };
     }
 
-    // modal.style.setProperty("--background-sprite", pkmnExtraData.sprites.other["official-artwork"].front_default);
     modal.style.setProperty("--background-sprite", `url("${pkmnExtraData.sprites.other["official-artwork"].front_default}")`);
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
     modal_DOM.img.alt = `sprite de ${pkmnData.name.fr}`;
@@ -791,42 +790,16 @@ displayModal = async (pkmnData) => {
     listPokedexEntries.forEach((item) => { item.inert = false; })
 };
 
-const pkmnSiblingsObserver = new MutationObserver((e) => {
-    if (e[0].removedNodes) {
-        if (Array.from(e[0].removedNodes)[0]?.tagName) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pkmnId = urlParams.get("id");
-            const nextPokemon = listPokemon.at(pkmnId);
-
-            const clone = createSibling({
-                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
-                data: nextPokemon,
-                isCurrentPkmn: false,
-                isPreviousPkmn: false,
-                event: loadDetailsModal
-            });
-
-            modal_DOM.listSiblings.append(clone);
-        }
-    }
-});
-
-pkmnSiblingsObserver.observe(modal_DOM.listSiblings, { childList: true, subtree: true });
-
 window.addEventListener("pokedexLoaded", (e) => {
     if(!modal.open) {
         return;
     }
+
     const pkmnData = JSON.parse(modal.dataset.pokemonData);
-
-    if (Number(pkmnData.generation) !== Number(e.detail.pokedexId)) {
-        return;
-    }
-
     const urlParams = new URLSearchParams(window.location.search);
     const pkmnId = Number(urlParams.get("id"));
     const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId - 1) || {};
-    let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId + 1) || null;
+    const nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId + 1) || null;
 
     clearTagContent(modal_DOM.listSiblings);
     [prevPokemon, pkmnData, nextPokemon]
@@ -843,7 +816,6 @@ window.addEventListener("pokedexLoaded", (e) => {
             modal_DOM.listSiblings.append(clone);
         });
 });
-
 
 export { loadDetailsModal }
 export default displayModal;
