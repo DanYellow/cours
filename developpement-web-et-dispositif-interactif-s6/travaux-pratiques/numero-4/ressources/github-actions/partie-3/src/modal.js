@@ -821,5 +821,41 @@ window.addEventListener("pokedexLoaded", (e) => {
         });
 });
 
+
+let isDraggingDown = false;
+    let firstTouchPos = 0;
+    let firstTouchTime = 0;
+const closeModalThreshold = 0.85;
+const modalOriginalAnimationSpeed = modal.style.getPropertyValue("--animation-speed");
+let modalAlpha = 0
+;
+modal_DOM.topInfos.addEventListener('touchstart', e => {
+    isDraggingDown = true;
+    firstTouchPos = e.touches[0].pageY;
+    modal.style.setProperty("--animation-speed", 0);
+});
+
+modal_DOM.topInfos.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (isDraggingDown) {
+        const diff = e.touches[0].pageY - firstTouchPos;
+        modal.style.translate = `0 ${diff}px`;
+
+        modalAlpha = (diff / window.innerHeight).toFixed(2)
+        modal.style.opacity = 1 - modalAlpha;
+
+        if (diff / window.innerHeight > closeModalThreshold) {
+            modal.close();
+        }
+    }
+});
+
+modal_DOM.topInfos.addEventListener('touchend', e => {
+    modal.style.translate = "0 0";
+    modal.style.opacity = 1;
+    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+})
+
+
 export { loadDetailsModal }
 export default displayModal;

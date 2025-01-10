@@ -6,7 +6,6 @@ import {
     typesBorderColor,
 } from "#utils";
 
-import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
 
 export const pkmnHighlightTemplateRaw = document.querySelector(
@@ -27,7 +26,7 @@ export const createSensibility = async (template, data, listTypes) => {
 
     const parser = new DOMParser();
     const svgTypeIcon = parser.parseFromString(
-        await svgTypeIconReq.text(), 
+        await svgTypeIconReq.text(),
         "image/svg+xml"
     );
     svgTypeIcon.documentElement.setAttribute("role", "img");
