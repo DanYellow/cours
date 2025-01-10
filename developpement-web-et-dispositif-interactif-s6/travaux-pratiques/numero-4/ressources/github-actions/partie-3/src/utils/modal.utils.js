@@ -21,10 +21,11 @@ export const createSensibility = (template, data, listTypes) => {
         "[data-damage-factor]"
     );
 
-    const imgTag = template.querySelector("img")
+    const imgTag = template.querySelector("img");
     imgTag.alt = `icône type ${typeData.name.fr}`;
     imgTag.src = loadingImage;
-    replaceImage(imgTag, typeData.sprite);
+    imgTag.parentNode.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
+    replaceImage(imgTag, `/types-icons/${typeData.name.en}.svg`);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
