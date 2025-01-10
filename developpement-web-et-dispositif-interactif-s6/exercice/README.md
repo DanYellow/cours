@@ -81,9 +81,13 @@ Les critères suivants seront évalués :
 - [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
   - [Voir documentation de wavesurfer.js](https://www.npmjs.com/package/wavesurfer.js)
   - On doit pouvoir rejouer le cri
-- [ ] Créditer les api utilisées pour récupérer les données des Pokémon :
-  - https://tyradex.vercel.app/
-  - https://pokeapi.co/
+- [ ] Créditer les ressources externes utilisées :
+  - **API**
+    - https://tyradex.vercel.app/
+    - https://pokeapi.co/
+  - **Icônes**
+    - https://github.com/partywhale/pokemon-type-icons
+  > Vous prendrez également soin d'afficher le logo de l'université (présent dans le zip des jaquettes) et l'année universitaire
 - [ ] Avec l'aide de l'API GitHub, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
