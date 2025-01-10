@@ -845,6 +845,5 @@ window.addEventListener("pokedexLoaded", (e) => {
 });
 
 
-
 export { loadDetailsModal }
 export default displayModal;

@@ -87,7 +87,8 @@ Les critères suivants seront évalués :
     - https://pokeapi.co/
   - **Icônes**
     - https://github.com/partywhale/pokemon-type-icons
-  > Vous prendrez également soin d'afficher le logo de l'université (présent dans le zip des jaquettes) et l'année universitaire
+  > Vous prendrez également soin d'afficher le logo de l'université et l'année universitaire
+  > - [Accéder aux logos](https://github.com/DanYellow/cours/tree/main/logos)
 - [ ] Avec l'aide de l'API GitHub, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
