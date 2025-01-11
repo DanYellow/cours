@@ -32,6 +32,7 @@ const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 const faviconContainer = document.querySelector("[data-favicon]");
 const generationShortcut = document.querySelector("[data-generation-shortcut]");
 
+let isGridLayout = localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true;
 const initialPageTitle = document.title;
 const initialPageFavicon = faviconContainer.getAttribute("href");
 export const listPokemon = [];
@@ -57,26 +58,26 @@ const setScrollIndicator = (indicatorId) => {
 
 export let hasReachPokedexEnd = false;
 
-const updateSwitchIcons = (isGridLayout) => {
+const updateSwitchIcons = (_isGridLayout) => {
     Array.from(document.querySelectorAll("[data-layout-switch]")).forEach((item) => {
-        item.checked = isGridLayout;
+        item.checked = _isGridLayout;
     });
 
     Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
-        item.classList.toggle("opacity-20", isGridLayout)
+        item.classList.toggle("opacity-20", _isGridLayout)
     });
 
     Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
-        item.classList.toggle("opacity-20", !isGridLayout)
+        item.classList.toggle("opacity-20", !_isGridLayout)
     });
 }
 
-const updatePokedexLayout = (isGridLayout) => {
+const updatePokedexLayout = (_isGridLayout) => {
     Array.from(document.querySelectorAll("[data-pokedex]")).forEach((item) => {
-        item.classList.toggle("grid-cols-3", isGridLayout);
-        item.classList.toggle("md:grid-cols-5", isGridLayout);
-        item.classList.toggle("lg:grid-cols-6", isGridLayout);
-        item.classList.toggle("grid-cols-1", !isGridLayout);
+        item.classList.toggle("grid-cols-3", _isGridLayout);
+        item.classList.toggle("md:grid-cols-5", _isGridLayout);
+        item.classList.toggle("lg:grid-cols-6", _isGridLayout);
+        item.classList.toggle("grid-cols-1", !_isGridLayout);
     });
 }
 
@@ -90,12 +91,14 @@ const loadDetailsModal = async (e) => {
     await displayPkmnModal(pkmnData);
 
     e.target.style.viewTransitionName = 'pkmn-details-dialog';
-    if (document.startViewTransition) {
+    if (document.startViewTransition && isGridLayout) {
+        modal.style.translate = "0 0"
         document.startViewTransition(() => {
             modal.showModal();
             e.target.style.viewTransitionName = '';
         });
     } else {
+        modal.style.removeProperty("translate");
         modal.showModal();
     }
 
@@ -221,8 +224,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         });
         listLoadGenerationBtns.forEach((item) => item.dataset.loadGeneration = Number(generation) + 1);
 
-        updateSwitchIcons(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
-        updatePokedexLayout(localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true);
+        updateSwitchIcons(isGridLayout);
+        updatePokedexLayout(isGridLayout);
         setTimeout(() => {
             layoutSwitch.nextElementSibling.classList.add("after:transition-all")
         }, 500)
@@ -288,8 +291,9 @@ delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
 delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     localStorage.setItem("is_grid_layout", e.target.checked);
 
-    updatePokedexLayout(e.target.checked)
+    updatePokedexLayout(e.target.checked);
     updateSwitchIcons(e.target.checked);
+    isGridLayout = e.target.checked;
 
     if(window.scrollY !== 0) {
         firstVisiblePkmn.scrollIntoView({
