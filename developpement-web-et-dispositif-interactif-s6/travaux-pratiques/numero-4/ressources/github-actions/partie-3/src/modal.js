@@ -786,7 +786,7 @@ displayModal = async (pkmnData) => {
         modal_DOM.listSiblings.append(clone);
     }
     modal.inert = false;
-    modal.showModal();
+
     listPokedexEntries.forEach((item) => { item.inert = false; })
 };
 

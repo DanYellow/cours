@@ -82,11 +82,22 @@ const updatePokedexLayout = (isGridLayout) => {
 
 updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
 
-const loadDetailsModal = (e) => {
-    e.preventDefault()
+const loadDetailsModal = async (e) => {
+    e.preventDefault();
+
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
-    displayPkmnModal(pkmnData);
+    await displayPkmnModal(pkmnData);
+
+    e.target.style.viewTransitionName = 'dialog';
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            modal.showModal();
+            e.target.style.viewTransitionName = '';
+        });
+    } else {
+        modal.showModal();
+    }
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
@@ -257,14 +268,15 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 };
 
-
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
 
 if (pkmnId !== null) {
     const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
     pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
-    displayPkmnModal(pkmnData);
+
+    await displayPkmnModal(pkmnData);
+    modal.showModal();
 }
 
 await loadPokedexForGeneration(1);
