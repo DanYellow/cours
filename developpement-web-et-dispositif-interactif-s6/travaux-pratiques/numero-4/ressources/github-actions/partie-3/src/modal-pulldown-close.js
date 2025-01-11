@@ -20,10 +20,10 @@ export default (modal, drag, resetModal) => {
 
         modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
         modal.style.setProperty("--animation-speed", 0);
+        modal.style.overflow = "hidden";
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
-        e.preventDefault();
         if (isDraggingDown) {
             const diff = e.touches[0].pageY - firstTouchPos;
             modal.style.translate = `0 ${diff}px`;
@@ -48,6 +48,7 @@ export default (modal, drag, resetModal) => {
     drag.addEventListener('touchend', e => {
         const timeDiff = new Date().getTime() - firstTouchTime;
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
+        modal.style.overflow = "revert";
 
         if (
             timeDiff < 500 &&
@@ -55,6 +56,8 @@ export default (modal, drag, resetModal) => {
         ) {
             modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
             modal.style.translate = "0 100vh";
+        } else {
+            resetModal();
         }
     })
 }
