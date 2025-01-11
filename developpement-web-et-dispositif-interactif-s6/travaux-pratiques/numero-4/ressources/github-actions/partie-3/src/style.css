@@ -460,13 +460,3 @@ details {
     opacity: 0.2;
 }
 
-.pokedex {
-    > li {
-        transition: opacity theme("transitionDuration.300") ease-in-out theme("transitionDelay.100");
-    }
-
-    &:where(:hover, :focus-within) > li:not(:hover, :focus-within) {
-        opacity: 0.45;
-    }
-}
-
