@@ -20,7 +20,7 @@ export default (modal, drag, resetModal) => {
 
         modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
         modal.style.setProperty("--animation-speed", 0);
-    });
+    }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
         e.preventDefault();
@@ -43,7 +43,7 @@ export default (modal, drag, resetModal) => {
                 modal.style.translate = "0 100vh";
             }
         }
-    });
+    }, { passive: true });
 
     drag.addEventListener('touchend', e => {
         const timeDiff = new Date().getTime() - firstTouchTime;
