@@ -90,14 +90,12 @@ const loadDetailsModal = async (e) => {
     const pkmnData = JSON.parse(pkmnDataRaw);
     await displayPkmnModal(pkmnData);
 
-    modal.showModal();
-
     e.target.style.viewTransitionName = 'pkmn-details-dialog';
     if (document.startViewTransition && isGridLayout) {
-        modal.style.translate = "0 0"
+        modal.style.translate = "0 0";
         document.startViewTransition(() => {
-            modal.showModal();
             e.target.style.viewTransitionName = '';
+            modal.showModal();
         });
     } else {
         modal.style.removeProperty("translate");

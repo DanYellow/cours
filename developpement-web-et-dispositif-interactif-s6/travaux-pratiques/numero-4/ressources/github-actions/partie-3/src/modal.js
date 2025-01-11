@@ -97,9 +97,6 @@ const dataCache = {};
 let listAbilitiesCache = [];
 const initialPageTitle = document.title;
 
-const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
-const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
-
 let listTypes = await fetchAllTypes();
 listTypes = listTypes.map((item) => ({
     sprite: item.sprites,
@@ -111,11 +108,11 @@ listTypes = listTypes.map((item) => ({
 
 export { listTypes }
 
-const resetModal = () => {
-    modal.style.translate = "0 0";
-    modal.style.opacity = 1;
-    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+const resetModalPosition = () => {
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
     modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+    modal.style.translate = "0px 0px";
+    modal.style.opacity = 1;
 }
 
 modal.addEventListener("close", () => {
@@ -125,7 +122,20 @@ modal.addEventListener("close", () => {
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
 
-    resetModal();
+    const modalOriginalAnimationSpeed = window.getComputedStyle(document.querySelector("dialog")).getPropertyValue("--animation-speed");
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 5;
+
+    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+    modal.style.setProperty("--details-modal-blur", "0px");
+
+    modal.dataset.hasBeenTouched = false;
+
+    setTimeout(() => {
+        modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+
+        modal.style.removeProperty("opacity");
+        modal.style.removeProperty("translate");
+    }, 250);
 
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
@@ -133,15 +143,32 @@ modal.addEventListener("close", () => {
 });
 
 modal.addEventListener("transitionend", (e) => {
-    if (e.target.style.translate && e.target.style.translate.split(" ").at(-1).includes("100")) {
+    const hasBeenTouched = JSON.parse(e.currentTarget.dataset?.hasBeenTouched || false)
+    if (
+        e.currentTarget.style.translate &&
+        e.currentTarget.style.translate.split(" ").at(-1).includes("100") &&
+        hasBeenTouched
+    ) {
         modal.close();
     }
 });
 
-modalPulldownClose(modal, modal_DOM.topInfos, resetModal);
+modalPulldownClose(modal, modal_DOM.topInfos, resetModalPosition);
 
 closeModalBtn.addEventListener("click", () => {
     modal.close();
+
+    // e.target.style.viewTransitionName = 'pkmn-details-dialog';
+    // if (document.startViewTransition) {
+    //     modal.style.translate = "0 0"
+    //     document.startViewTransition(() => {
+    //         modal.close();
+    //         e.target.style.viewTransitionName = '';
+    //     });
+    // } else {
+    //     modal.style.removeProperty("translate");
+    //     modal.close();
+    // }
 });
 
 let displayModal = null;
