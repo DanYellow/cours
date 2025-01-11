@@ -89,7 +89,7 @@ const loadDetailsModal = async (e) => {
     const pkmnData = JSON.parse(pkmnDataRaw);
     await displayPkmnModal(pkmnData);
 
-    e.target.style.viewTransitionName = 'dialog';
+    e.target.style.viewTransitionName = 'pkmn-details-dialog';
     if (document.startViewTransition) {
         document.startViewTransition(() => {
             modal.showModal();

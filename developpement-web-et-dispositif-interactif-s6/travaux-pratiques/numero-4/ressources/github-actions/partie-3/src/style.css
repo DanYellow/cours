@@ -178,7 +178,7 @@ dialog {
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png";
     --details-modal-blur: theme("backdropBlur.md");
 
-    view-transition-name: dialog;
+    view-transition-name: pkmn-details-dialog;
 
     @media (max-resolution: 1.1dppx) {
         --dot-alpha: 0.25;
@@ -251,13 +251,13 @@ dialog {
     }
 }
 
-::view-transition-old(dialog) {
+/* ::view-transition-old(dialog) {
     display: none;
-}
+} */
 
-::view-transition-new(dialog) {
+/* ::view-transition-new(dialog) {
 
-}
+} */
 
 .type-name {
     font-weight: bold;
