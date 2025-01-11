@@ -790,7 +790,7 @@ displayModal = async (pkmnData) => {
     listPokedexEntries.forEach((item) => { item.inert = false; })
 };
 
-window.addEventListener("pokedexLoaded", (e) => {
+window.addEventListener("pokedexLoaded", () => {
     if(!modal.open) {
         return;
     }

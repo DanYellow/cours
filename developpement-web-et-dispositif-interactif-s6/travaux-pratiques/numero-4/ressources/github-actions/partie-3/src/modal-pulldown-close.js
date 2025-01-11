@@ -2,7 +2,7 @@ import {
     clamp,
 } from "./utils";
 
-export default (modal, drag, resetModal) => {
+export default (modal, drag, resetPosition) => {
     let isDraggingDown = false;
     let firstTouchPos = 0;
     let firstTouchTime = 0;
@@ -21,6 +21,7 @@ export default (modal, drag, resetModal) => {
         modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
         modal.style.setProperty("--animation-speed", 0);
         modal.style.overflow = "hidden";
+        modal.dataset.hasBeenTouched = true;
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
@@ -49,15 +50,15 @@ export default (modal, drag, resetModal) => {
         const timeDiff = new Date().getTime() - firstTouchTime;
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
         modal.style.overflow = "revert";
+        modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
 
         if (
-            timeDiff < 500 &&
+            timeDiff < 250 &&
             distanceDiff / window.innerHeight > quickCloseModalThreshold
         ) {
-            modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
             modal.style.translate = "0 100vh";
         } else {
-            resetModal();
+            resetPosition();
         }
-    })
+    });
 }
