@@ -135,6 +135,8 @@ modal.addEventListener("close", () => {
 
         modal.style.removeProperty("opacity");
         modal.style.removeProperty("translate");
+
+        modal.scrollTo(0, 0);
     }, 250);
     modal.dataset.isClosing = false;
     modal_DOM.img.src = loadingImage;

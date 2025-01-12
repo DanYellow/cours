@@ -463,7 +463,7 @@ details {
 }
 
 .pulldown-indicator {
-    transition-property: background-color, width;
+    transition-property: background-color, transform;
 }
 
 .pokemon {

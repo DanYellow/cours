@@ -14,7 +14,7 @@ export default (modal, drag, resetPosition) => {
     const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
     const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
 
-    const pulldownModalIndicator = modal.querySelector("[data-pulldown-indicator]");
+    const listPulldownModalIndicator = modal.querySelectorAll("[data-pulldown-indicator]");
 
     drag.addEventListener('touchstart', e => {
         isDraggingDown = true;
@@ -26,13 +26,17 @@ export default (modal, drag, resetPosition) => {
         modal.style.overflow = "hidden";
         modal.dataset.isClosing = false;
 
-        pulldownModalIndicator.style.backgroundColor = window.getComputedStyle(modal).getPropertyValue("--darken-bg-color");
-        pulldownModalIndicator.classList.add(...["w-14"] );
-        pulldownModalIndicator.classList.remove(...["delay-500"]);
+        listPulldownModalIndicator.forEach(item => {
+            item.style.backgroundColor = window.getComputedStyle(modal).getPropertyValue("--darken-bg-color");
+            item.classList.remove(...["rotate-0"] );
+        });
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
-        pulldownModalIndicator.classList.add(...["delay-500"] );
+        listPulldownModalIndicator.forEach(item => {
+            item.classList.add(...["rotate-0"] );
+        });
+
         if (isDraggingDown) {
             const diff = e.touches[0].pageY - firstTouchPos;
             modal.style.translate = `0 ${diff}px`;
@@ -54,8 +58,10 @@ export default (modal, drag, resetPosition) => {
         const timeDiff = new Date().getTime() - firstTouchTime;
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
 
-        pulldownModalIndicator.style.backgroundColor = "revert-layer";
-        pulldownModalIndicator.classList.remove("w-14");
+        listPulldownModalIndicator.forEach(item => {
+            item.style.backgroundColor = "revert-layer";
+            item.classList.remove(...["rotate-0"] );
+        });
         modal.style.overflow = "revert";
 
         if (
@@ -73,6 +79,8 @@ export default (modal, drag, resetPosition) => {
     });
 
     modal.addEventListener("close", () => {
-        pulldownModalIndicator.classList.remove(...["delay-500"]);
+        listPulldownModalIndicator.forEach(item => {
+            item.classList.remove(...["rotate-0"] );
+        });
     });
 }
