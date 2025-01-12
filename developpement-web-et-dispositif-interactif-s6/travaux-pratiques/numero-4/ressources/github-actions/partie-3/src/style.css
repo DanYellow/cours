@@ -96,10 +96,10 @@ html {
     background: rgb(233, 233, 233);
     background: linear-gradient(
         113deg,
-        rgba(125, 211, 252, 1) 0%,
-        rgba(125, 211, 252, 1) 44.5%,
-        rgba(249, 168, 212, 1) 44.5%,
-        rgba(249, 168, 212, 1) 100%
+        theme("colors.sky.300") 0%,
+        theme("colors.sky.300") 44.5%,
+        theme("colors.pink.300") 44.5%,
+        theme("colors.pink.300") 100%
     );
 }
 

@@ -604,9 +604,9 @@ displayModal = async (pkmnData) => {
             sexLabel.classList.add("no-dimorphism")
         } else {
             if(key === "Femelle ♀") {
-                sexLabel.classList.add("bg-pink-300")
+                sexLabel.classList.add(...["bg-pink-300"])
             } else if (key === "Mâle ♂") {
-                sexLabel.classList.add("bg-sky-300")
+                sexLabel.classList.add(...["bg-sky-300"])
             }
         }
 
