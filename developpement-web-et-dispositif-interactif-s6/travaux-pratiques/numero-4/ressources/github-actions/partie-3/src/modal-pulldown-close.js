@@ -55,11 +55,12 @@ export default (modal, drag, resetPosition) => {
             distanceDiff / window.innerHeight > quickCloseModalThreshold) ||
             distanceDiff / window.innerHeight > closeModalThreshold
         ) {
+            modal.dataset.isClosing = true;
             modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
             modal.style.translate = "0 100vh";
         } else {
             modal.style.overflow = "revert";
-            modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+            modal.style.setProperty("--animation-speed", "0.15s");
 
             resetPosition();
         }

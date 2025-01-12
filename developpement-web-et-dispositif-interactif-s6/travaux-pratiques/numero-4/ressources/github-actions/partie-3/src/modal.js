@@ -136,19 +136,15 @@ modal.addEventListener("close", () => {
         modal.style.removeProperty("opacity");
         modal.style.removeProperty("translate");
     }, 250);
-
+    modal.dataset.isClosing = false;
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
     setTitleTagForGeneration();
 });
 
 modal.addEventListener("transitionend", (e) => {
-    const hasBeenTouched = JSON.parse(e.currentTarget.dataset?.hasBeenTouched || false)
-    if (
-        e.currentTarget.style.translate &&
-        e.currentTarget.style.translate.split(" ").at(-1).includes("100") &&
-        hasBeenTouched
-    ) {
+    const isClosing = JSON.parse(e.currentTarget.dataset?.isClosing || false)
+    if (isClosing) {
         modal.close();
     }
 });
