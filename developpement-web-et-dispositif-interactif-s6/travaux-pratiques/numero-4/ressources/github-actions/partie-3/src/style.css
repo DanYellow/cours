@@ -126,9 +126,8 @@ html {
     column-gap: theme("spacing.2");
 }
 
-
 dialog {
-    --animation-speed: 0.3s;
+    --animation-speed: 0.25s;
     opacity: 0;
     translate: 0 90vh;
     color: transparent;
@@ -461,4 +460,8 @@ details {
     width: 40px;
     bottom: 0.15rem;
     opacity: 0.2;
+}
+
+.pulldown-indicator {
+    transition-property: background-color, width;
 }

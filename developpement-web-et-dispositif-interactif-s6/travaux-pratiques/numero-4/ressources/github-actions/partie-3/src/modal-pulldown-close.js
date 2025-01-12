@@ -27,10 +27,12 @@ export default (modal, drag, resetPosition) => {
         modal.dataset.isClosing = false;
 
         pulldownModalIndicator.style.backgroundColor = window.getComputedStyle(modal).getPropertyValue("--darken-bg-color");
-        pulldownModalIndicator.classList.add("scale-x-150");
+        pulldownModalIndicator.classList.add(...["w-14"] );
+        pulldownModalIndicator.classList.remove(...["delay-500"]);
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
+        pulldownModalIndicator.classList.add(...["delay-500"] );
         if (isDraggingDown) {
             const diff = e.touches[0].pageY - firstTouchPos;
             modal.style.translate = `0 ${diff}px`;
@@ -53,7 +55,7 @@ export default (modal, drag, resetPosition) => {
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
 
         pulldownModalIndicator.style.backgroundColor = "revert-layer";
-        pulldownModalIndicator.classList.remove("scale-x-150");
+        pulldownModalIndicator.classList.remove("w-14");
         modal.style.overflow = "revert";
 
         if (
@@ -65,8 +67,12 @@ export default (modal, drag, resetPosition) => {
             modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
             modal.style.translate = "0 100vh";
         } else {
-            modal.style.setProperty("--animation-speed", "0.15s");
+            modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
             resetPosition();
         }
+    });
+
+    modal.addEventListener("close", () => {
+        pulldownModalIndicator.classList.remove(...["delay-500"]);
     });
 }
