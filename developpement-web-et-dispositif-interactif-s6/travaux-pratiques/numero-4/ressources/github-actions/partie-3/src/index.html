@@ -201,16 +201,21 @@
             <header
                 class="main-infos border-b text-black pb-4 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
             >
-                <div class="infinite-header-bg bg-white"></div>
-                <div class="sticky-header px-4 flex flex-row gap-3 bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
-                    <div class="w-20">
-                        <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
+            <div class="infinite-header-bg bg-white"></div>
+                <div class="sticky-header relative px-4 bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
+                    <div class="flex justify-center mb-2">
+                        <div class="touch:block hidden h-2 bg-gray-800 rounded-xl w-12"></div>
                     </div>
-                    <div class="grow">
-                        <h2 class="text-2xl font-bold"></h2>
-                        <p data-category class="text-sm -mt-1"></p>
-                        <div class="@container">
-                            <ul data-list-types class="flex gap-1 mt-2 flex-col @[10rem]:flex-row"></ul>
+                    <div class="flex flex-row gap-3">
+                        <div class="w-20">
+                            <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
+                        </div>
+                        <div class="grow">
+                            <h2 class="text-2xl font-bold"></h2>
+                            <p data-category class="text-sm -mt-1"></p>
+                            <div class="@container">
+                                <ul data-list-types class="flex gap-1 mt-2 flex-col @[10rem]:flex-row"></ul>
+                            </div>
                         </div>
                     </div>
                 </div>

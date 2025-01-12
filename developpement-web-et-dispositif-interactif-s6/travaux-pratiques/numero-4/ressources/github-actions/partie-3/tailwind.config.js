@@ -126,6 +126,7 @@ export default {
         plugin(({ addVariant }) => {
             addVariant("inert", "&:where([inert], [inert] *)");
             addVariant("hocus", ["&:hover", "&:focus-visible"]);
+            addVariant("touch", "@media (pointer: coarse)");
             addVariant("group-hocus", [
                 ":merge(.group):hover &",
                 ":merge(.group):focus-visible &",
