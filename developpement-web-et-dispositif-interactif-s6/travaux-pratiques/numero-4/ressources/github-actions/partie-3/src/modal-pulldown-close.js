@@ -13,6 +13,8 @@ export default (modal, drag, resetPosition) => {
     const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
     const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
 
+    const pulldownModalIndicator = modal.querySelector("[data-pulldown-indicator]");
+
     drag.addEventListener('touchstart', e => {
         isDraggingDown = true;
         firstTouchPos = e.touches[0].pageY;
@@ -21,7 +23,10 @@ export default (modal, drag, resetPosition) => {
         modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
         modal.style.setProperty("--animation-speed", 0);
         modal.style.overflow = "hidden";
-        modal.dataset.hasBeenTouched = true;
+        modal.dataset.isClosing = false;
+
+        pulldownModalIndicator.style.backgroundColor = window.getComputedStyle(modal).getPropertyValue("--darken-bg-color");
+        pulldownModalIndicator.classList.add("scale-x-150");
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
@@ -38,17 +43,15 @@ export default (modal, drag, resetPosition) => {
                 modalOriginalBackdropBlur
             );
             modal.style.setProperty("--details-modal-blur", `${modalBackdropBlur}px`);
-
-            if (diff / window.innerHeight > closeModalThreshold) {
-                modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
-                modal.style.translate = "0 100vh";
-            }
         }
     }, { passive: true });
 
     drag.addEventListener('touchend', e => {
         const timeDiff = new Date().getTime() - firstTouchTime;
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
+
+        pulldownModalIndicator.style.backgroundColor = "revert-layer";
+        pulldownModalIndicator.classList.remove("scale-x-150");
 
         if (
             (timeDiff < 250 &&

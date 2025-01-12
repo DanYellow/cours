@@ -187,6 +187,7 @@ dialog {
     --dot-color-2: white;
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png";
     --details-modal-blur: theme("backdropBlur.md");
+    --darken-bg-color: lch(from var(--bg-modal-color) calc(l - 20) c h);
 
     @media (max-resolution: 1.1dppx) {
         --dot-alpha: 0.25;
