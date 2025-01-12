@@ -157,18 +157,6 @@ modalPulldownClose(modal, modal_DOM.topInfos, resetModalPosition);
 
 closeModalBtn.addEventListener("click", () => {
     modal.close();
-
-    // e.target.style.viewTransitionName = 'pkmn-details-dialog';
-    // if (document.startViewTransition) {
-    //     modal.style.translate = "0 0"
-    //     document.startViewTransition(() => {
-    //         modal.close();
-    //         e.target.style.viewTransitionName = '';
-    //     });
-    // } else {
-    //     modal.style.removeProperty("translate");
-    //     modal.close();
-    // }
 });
 
 let displayModal = null;

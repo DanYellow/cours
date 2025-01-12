@@ -39,17 +39,17 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
         listTypes.map(type2 => `${type1}_${type2}`)
     );
 
-    // To generate classes only
-    fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `border-animated-${item}`})).reduce((prev, curr) => {
-        Object.assign(prev, curr);
-        return prev;
-      }, {})), err => {
-        if (err) {
-          console.error(err);
-        } else {
-          // file written successfully
-        }
-      })
+    // // To generate classes only
+    // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `border-animated-${item}`})).reduce((prev, curr) => {
+    //     Object.assign(prev, curr);
+    //     return prev;
+    //   }, {})), err => {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //       // file written successfully
+    //     }
+    //   })
 
 
     const listPossiblesBorderTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {

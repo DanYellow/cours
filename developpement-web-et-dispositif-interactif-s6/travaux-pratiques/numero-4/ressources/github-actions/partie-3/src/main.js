@@ -35,6 +35,9 @@ const generationShortcut = document.querySelector("[data-generation-shortcut]");
 let isGridLayout = localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true;
 const initialPageTitle = document.title;
 const initialPageFavicon = faviconContainer.getAttribute("href");
+
+modal.dataset.isGridLayout = isGridLayout;
+
 export const listPokemon = [];
 
 export const setTitleTagForGeneration = () => {
@@ -79,9 +82,9 @@ const updatePokedexLayout = (_isGridLayout) => {
         item.classList.toggle("lg:grid-cols-6", _isGridLayout);
         item.classList.toggle("grid-cols-1", !_isGridLayout);
     });
-}
+};
 
-updatePokedexLayout(JSON.parse(localStorage.getItem("is_grid_layout") ?? true) === true)
+updatePokedexLayout(isGridLayout);
 
 const loadDetailsModal = async (e) => {
     e.preventDefault();
@@ -294,6 +297,7 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
     updatePokedexLayout(e.target.checked);
     updateSwitchIcons(e.target.checked);
     isGridLayout = e.target.checked;
+    modal.dataset.isGridLayout = e.target.checked;
 
     if(window.scrollY !== 0) {
         firstVisiblePkmn.scrollIntoView({
