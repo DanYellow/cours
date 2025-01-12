@@ -93,17 +93,7 @@ const loadDetailsModal = async (e) => {
     const pkmnData = JSON.parse(pkmnDataRaw);
     await displayPkmnModal(pkmnData);
 
-    if (document.startViewTransition && isGridLayout) {
-        e.target.style.viewTransitionName = 'pkmn-details-dialog';
-        modal.style.translate = "0 0";
-        document.startViewTransition(() => {
-            e.target.style.viewTransitionName = '';
-            modal.showModal();
-        });
-    } else {
-        modal.style.removeProperty("translate");
-        modal.showModal();
-    }
+    modal.showModal();
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
