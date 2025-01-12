@@ -8,6 +8,7 @@ export default (modal, drag, resetPosition) => {
     let firstTouchTime = 0;
     let distanceDelta = 0;
 
+    const quickCloseModalTime = 250;
     const closeModalThreshold = 0.7;
     const quickCloseModalThreshold = 0.1;
     const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
@@ -35,13 +36,14 @@ export default (modal, drag, resetPosition) => {
             modal.style.translate = `0 ${diff}px`;
 
             distanceDelta = (diff / window.innerHeight).toFixed(2)
-            modal.style.opacity = 1 - (distanceDelta / 3);
+            modal.style.opacity = 1 - (distanceDelta / 1.5);
 
             const modalBackdropBlur = clamp(
-                modalOriginalBackdropBlur - (distanceDelta * 5),
+                modalOriginalBackdropBlur - (distanceDelta * 4),
                 0,
                 modalOriginalBackdropBlur
             );
+
             modal.style.setProperty("--details-modal-blur", `${modalBackdropBlur}px`);
         }
     }, { passive: true });
@@ -52,9 +54,10 @@ export default (modal, drag, resetPosition) => {
 
         pulldownModalIndicator.style.backgroundColor = "revert-layer";
         pulldownModalIndicator.classList.remove("scale-x-150");
+        modal.style.overflow = "revert";
 
         if (
-            (timeDiff < 250 &&
+            (timeDiff < quickCloseModalTime &&
             distanceDiff / window.innerHeight > quickCloseModalThreshold) ||
             distanceDiff / window.innerHeight > closeModalThreshold
         ) {
@@ -62,9 +65,7 @@ export default (modal, drag, resetPosition) => {
             modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
             modal.style.translate = "0 100vh";
         } else {
-            modal.style.overflow = "revert";
             modal.style.setProperty("--animation-speed", "0.15s");
-
             resetPosition();
         }
     });

@@ -108,8 +108,11 @@ listTypes = listTypes.map((item) => ({
 
 export { listTypes }
 
+const initialModalSpeed = window.getComputedStyle(document.querySelector("dialog")).getPropertyValue("--animation-speed");
+
 const resetModalPosition = () => {
     const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
+
     modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
     modal.style.translate = "0px 0px";
     modal.style.opacity = 1;
@@ -122,12 +125,9 @@ modal.addEventListener("close", () => {
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
 
-    const modalOriginalAnimationSpeed = window.getComputedStyle(document.querySelector("dialog")).getPropertyValue("--animation-speed");
     const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 5;
 
-    modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
     modal.style.setProperty("--details-modal-blur", "0px");
-
     modal.dataset.hasBeenTouched = false;
 
     setTimeout(() => {
@@ -152,6 +152,9 @@ modal.addEventListener("transitionend", (e) => {
 modalPulldownClose(modal, modal_DOM.topInfos, resetModalPosition);
 
 closeModalBtn.addEventListener("click", () => {
+    modal.style.removeProperty('translate');
+    modal.style.removeProperty('opacity');
+    modal.style.setProperty("--animation-speed", initialModalSpeed);
     modal.close();
 });
 
