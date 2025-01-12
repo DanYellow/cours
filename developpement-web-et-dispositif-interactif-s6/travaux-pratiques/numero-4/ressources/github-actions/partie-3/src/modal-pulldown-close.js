@@ -40,7 +40,7 @@ export default (modal, drag, resetPosition) => {
             modal.style.setProperty("--details-modal-blur", `${modalBackdropBlur}px`);
 
             if (diff / window.innerHeight > closeModalThreshold) {
-                modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+                modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
                 modal.style.translate = "0 100vh";
             }
         }
@@ -49,15 +49,18 @@ export default (modal, drag, resetPosition) => {
     drag.addEventListener('touchend', e => {
         const timeDiff = new Date().getTime() - firstTouchTime;
         const distanceDiff = e.changedTouches[0].pageY - firstTouchPos;
-        modal.style.overflow = "revert";
-        modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
 
         if (
-            timeDiff < 250 &&
-            distanceDiff / window.innerHeight > quickCloseModalThreshold
+            (timeDiff < 250 &&
+            distanceDiff / window.innerHeight > quickCloseModalThreshold) ||
+            distanceDiff / window.innerHeight > closeModalThreshold
         ) {
+            modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
             modal.style.translate = "0 100vh";
         } else {
+            modal.style.overflow = "revert";
+            modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
+
             resetPosition();
         }
     });
