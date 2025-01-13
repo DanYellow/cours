@@ -3,7 +3,7 @@ import {
     fetchPokemon,
 } from "#api";
 
-import displayPkmnModal from "./modal";
+import displayPkmnModal from "./pokemon-modal";
 import {
     replaceImage,
     cleanString,
