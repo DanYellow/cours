@@ -394,7 +394,10 @@
                   <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
                   <ol>
                     <li><code>ssh-copy-id user@server</code>
-                    <p class="note-attention">ssh-copy-id copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (extension .pub)</p>
+                        <div class="note-attention">
+                            <p>La commande <code>ssh-copy-id</code> permet de vous "pré-authentifier" auprès d'un serveur, d'enregistrer votre clé privée. Ainsi, une fois fait, vous pouvez exécuter une commande sur le serveur sans entrer votre mot de passe à chaque fois.</p>
+                            <p>Attention la commande copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (fichier avec extension .pub).</p>
+                        </div>
                     </li>
                     <li>Entrez le mot de passe ssh du serveur qui doit vous autoriser</li>
                     <li>Et voilà</li>
