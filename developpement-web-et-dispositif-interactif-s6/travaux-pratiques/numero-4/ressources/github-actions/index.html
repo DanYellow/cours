@@ -296,7 +296,7 @@
         </summary>
         <div class="note-information">
           <p>
-            Pour cette dernière partie, vous allez déployer, grâce aux actions,
+            Pour cette dernière partie, vous allez déployer, grâce à votre pipeline,
             le build du projet contenu dans le dossier "partie-3", c'est un site
             web en html utilisant vite pour tailwind ou encore la gestion des
             modules javascript.
@@ -304,10 +304,10 @@
           <p>
             A noter que pour déployer via la CI/CD, il vous faut un hébergeur
             qui vous permet de vous connecter en SSH. Si
-            vous n'en avez pas, sachez qu'Alwaysdata vous le permet.
+            vous n'en avez pas, sachez qu'Alwaysdata vous le permet. Il faudra penser à définir un mot de passe pour votre compte SSH depuis l'interface d'administration.
           </p>
           <p>
-            Le plus simple est d'utiliser la commande rsync pour copier en ssh, le contenu de votre serveur de CI/CD vers le serveur de production.
+            Pour copier vos données depuis votre pipeline vers votre serveur, le plus simple est d'utiliser la commande <code>rsync</code> en SSH.
           </p>
           <ul>
             <li>
@@ -318,7 +318,7 @@
             N'oubliez pas que sur un serveur, la racine est le dossier www, n'allez pas tout copier n'importe où.
           </p>
         </div>
-        <p class="note-attention">L'utilisation de la commande rsync fonctionne, mais elle n'est pas des plus optimale. Dans une pipeline CI/CD "parfaite", on génèrera plutôt une image Docker qui sera uploadée sur le serveur de production.</p>
+        <p class="note-attention">L'utilisation de la commande <code>rsync</code> fonctionne, mais elle n'est pas des plus optimale. Dans une pipeline CI/CD "parfaite", on générera plutôt une image Docker qui sera uploadée sur le serveur de production.</p>
         <ol class="liste-consignes">
           <li>
             Créez un nouveau dépôt ou remplacez le contenu de votre dépôt
@@ -430,16 +430,16 @@
                     <li>Sur Github, dans le dépôt, allez dans Settings > Secrets and Variables > Actions. Ajoutez un nouveau "repository secret", appelez-le comme vous le souhaitez et collez comme valeur votre clé privée.</li>
 
                   </ol>
-                  <p class="texte-gras">Effectuer un rsync en ssh (à faire dans votre fichier yml)</p>
+                  <p class="texte-gras">Effectuer un <code>rsync</code> en ssh (à faire dans votre fichier yml)</p>
                   <ol>
                     <li>
                       <p>Ajoutez votre clé privée dans un fichier dans le conteneur Docker</p>
                       <code>printf "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
-                        <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes "mkdir" et "touch". Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
+                        <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes <code>mkdir</code> et <code>touch</code>. Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
                     </li>
                     <li>
                       <p>Déplacez le contenu du dossier vers un serveur (commande à adapter)</p>
-                      <code>rsync -Pavz -e "ssh -i __ssh_key_path__  -o StrictHostKeyChecking=no" source/ user@server:destination</code>
+                      <code>rsync -Pav -e "ssh -i __ssh_key_path__  -o StrictHostKeyChecking=no" source/ user@server:destination</code>
                       <div class="note-information">
                         <p><code>rsync</code> permet également de synchroniser un seul fichier ou encore exclure des dossiers.</p>
                         <ul>
@@ -447,6 +447,8 @@
                             <a href="https://doc.ubuntu-fr.org/rsync" target="_blank" rel="noopener noreferrer">Voir documentation de la commande rsync - ouverture dans un nouvel onglet</a>
                           </li>
                         </ul>
+                        <p>Note : La présence de la barre oblique après le dossier source copie le contenu du dossier source dans la destination. En son absence, <code>rsync</code> créera un dossier dans la source. Faites attention.</p>
+                        <p>Note 2 : Par défaut <code>rsync</code> ne supprime pas les fichiers du dossier de destination qui se trouvent dans le dossier source. Néanmoins, vous pouvez changer ce comportement avec le paramètre <code>--delete-after</code>.</p>
                       </div>
                     </li>
                   </ol>
