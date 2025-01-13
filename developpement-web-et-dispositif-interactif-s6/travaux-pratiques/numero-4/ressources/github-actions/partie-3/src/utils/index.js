@@ -215,7 +215,7 @@ export const clamp = (value, min, max) => {
 };
 
 export * from "./colors";
-export * from "./modal.utils";
+export * from "./pokemon-modal.utils";
 export * from "./formsDictionary";
 
 import resolveConfig from "tailwindcss/resolveConfig";
