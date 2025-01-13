@@ -457,7 +457,7 @@ displayModal = async (pkmnData) => {
                 aTag.innerHTML = divTag.innerHTML;
                 aTag.href = evolutionURL;
                 aTag.classList = divTag.classList;
-                aTag.classList.add(...["hocus:bg-slate-100", "rounded-md", "p-2"])
+                aTag.classList.add(...["hocus:bg-slate-100", "rounded-md", "p-2"]);
                 aTag.dataset.pokemonData = JSON.stringify({ ...item, is_incomplete: true });
                 aTag.addEventListener("click", (e) => loadDetailsModal(e));
 
