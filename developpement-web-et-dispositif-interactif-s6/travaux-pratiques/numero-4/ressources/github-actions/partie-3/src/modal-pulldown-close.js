@@ -11,7 +11,11 @@ export default (modal, drag, resetPosition) => {
     const quickCloseModalTime = 250;
     const closeModalThreshold = 0.7;
     const quickCloseModalThreshold = 0.1;
-    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
+    const backdropOpacityFactor = 1.5;
+    const backdropBlurFactor = 4;
+    const animationSpeedFactor = 3;
+
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur"));
     const modalOriginalAnimationSpeed = window.getComputedStyle(modal).getPropertyValue("--animation-speed");
 
     const listPulldownModalIndicator = modal.querySelectorAll("[data-pulldown-indicator]");
@@ -41,11 +45,11 @@ export default (modal, drag, resetPosition) => {
             const diff = e.touches[0].pageY - firstTouchPos;
             modal.style.translate = `0 ${diff}px`;
 
-            distanceDelta = (diff / window.innerHeight).toFixed(2)
-            modal.style.opacity = 1 - (distanceDelta / 1.5);
+            distanceDelta = (diff / window.innerHeight);
+            modal.style.opacity = 1 - (distanceDelta / backdropOpacityFactor);
 
             const modalBackdropBlur = clamp(
-                modalOriginalBackdropBlur - (distanceDelta * 4),
+                modalOriginalBackdropBlur - (distanceDelta * backdropBlurFactor),
                 0,
                 modalOriginalBackdropBlur
             );
@@ -70,7 +74,7 @@ export default (modal, drag, resetPosition) => {
             distanceDiff / window.innerHeight > closeModalThreshold
         ) {
             modal.dataset.isClosing = true;
-            modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / 3}s`);
+            modal.style.setProperty("--animation-speed", `${parseFloat(modalOriginalAnimationSpeed) / animationSpeedFactor}s`);
             modal.style.translate = "0 100vh";
         } else {
             modal.style.setProperty("--animation-speed", modalOriginalAnimationSpeed);
