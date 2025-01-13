@@ -25,7 +25,7 @@ import {
     createSibling,
     createStatisticEntry,
     getAbilityForLang,
-} from "#src/utils/modal.utils.js"
+} from "#src/utils/pokemon-modal.utils.js"
 
 import modalPulldownClose from "#src/modal-pulldown-close.js"
 
@@ -59,6 +59,8 @@ const btnLoadGenerationTemplateRaw = document.querySelector(
 const pokemonStatisticTempalteRaw = document.querySelector(
     "[data-tpl-id='pokemon-statistic']"
 );
+
+const loadGenerationBtn = document.querySelector("[data-load-generation]");
 
 const modal_DOM = {
     pkmnName: modal.querySelector("h2"),
@@ -161,6 +163,44 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 let displayModal = null;
+
+const generatePokemonSiblingsUI = (pkmnData) => {
+    const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
+    let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
+
+    const isLastPokemonOfGen = Number(pkmnData.generation) < Number(loadGenerationBtn.dataset.loadGeneration) && !nextPokemon;
+
+    if (!isLastPokemonOfGen && !nextPokemon) {
+        nextPokemon = {}
+    }
+
+    [prevPokemon, pkmnData, nextPokemon]
+        .filter(Boolean)
+        .forEach((item) => {
+            const clone = createSibling({
+                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
+                data: item,
+                isCurrentPkmn: item.pokedex_id === pkmnData.pokedex_id,
+                isPreviousPkmn: item.pokedex_id < pkmnData.pokedex_id,
+                event: loadDetailsModal
+            });
+
+            modal_DOM.listSiblings.append(clone);
+        });
+
+    if (isLastPokemonOfGen) {
+        const clone = document.importNode(
+            btnLoadGenerationTemplateRaw.content,
+            true
+        );
+
+        const button = clone.querySelector("button");
+        button.textContent = "Charger la génération suivante";
+        button.dataset.loadGeneration = Number(pkmnData.generation) + 1;
+
+        modal_DOM.listSiblings.append(clone);
+    }
+}
 
 const loadDetailsModal = (e, region = null) => {
     e.preventDefault();
@@ -647,7 +687,7 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listGames);
 
-    let listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
+    const listGames = [...listDescriptions.flavor_text_entries, ...pkmnExtraData.game_indices].filter((value, index, self) =>
         index === self.findIndex((t) => (
             t.version.name === value.version.name
         ))
@@ -763,44 +803,11 @@ displayModal = async (pkmnData) => {
 
     console.log("pkmnData", pkmnData);
 
-    const loadGenerationBtn = document.querySelector("[data-load-generation]");
+
     loadGenerationBtn.inert = hasReachPokedexEnd;
-    const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id - 1) || {};
-    let nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id + 1) || null;
-
-    const isLastPokemonOfGen = Number(pkmnData.generation) < Number(loadGenerationBtn.dataset.loadGeneration) && !nextPokemon;
-
-    if (!isLastPokemonOfGen && !nextPokemon) {
-        nextPokemon = {}
-    }
 
     clearTagContent(modal_DOM.listSiblings);
-    [prevPokemon, pkmnData, nextPokemon]
-        .filter(Boolean)
-        .forEach((item) => {
-            const clone = createSibling({
-                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
-                data: item,
-                isCurrentPkmn: item.pokedex_id === pkmnData.pokedex_id,
-                isPreviousPkmn: item.pokedex_id < pkmnData.pokedex_id,
-                event: loadDetailsModal
-            });
-
-            modal_DOM.listSiblings.append(clone);
-        });
-
-    if (isLastPokemonOfGen) {
-        const clone = document.importNode(
-            btnLoadGenerationTemplateRaw.content,
-            true
-        );
-
-        const button = clone.querySelector("button");
-        button.textContent = "Charger la génération suivante";
-        button.dataset.loadGeneration = Number(pkmnData.generation) + 1;
-
-        modal_DOM.listSiblings.append(clone);
-    }
+    generatePokemonSiblingsUI(pkmnData);
     modal.inert = false;
 
     listPokedexEntries.forEach((item) => { item.inert = false; })
@@ -812,25 +819,8 @@ window.addEventListener("pokedexLoaded", () => {
     }
 
     const pkmnData = JSON.parse(modal.dataset.pokemonData);
-    const urlParams = new URLSearchParams(window.location.search);
-    const pkmnId = Number(urlParams.get("id"));
-    const prevPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId - 1) || {};
-    const nextPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnId + 1) || null;
-
     clearTagContent(modal_DOM.listSiblings);
-    [prevPokemon, pkmnData, nextPokemon]
-        .filter(Boolean)
-        .forEach((item) => {
-            const clone = createSibling({
-                template: document.importNode(pokemonSiblingTemplateRaw.content, true),
-                data: item,
-                isCurrentPkmn: item.pokedex_id === pkmnId,
-                isPreviousPkmn: item.pokedex_id < pkmnId,
-                event: loadDetailsModal
-            });
-
-            modal_DOM.listSiblings.append(clone);
-        });
+    generatePokemonSiblingsUI(pkmnData);
 });
 
 export { loadDetailsModal }
