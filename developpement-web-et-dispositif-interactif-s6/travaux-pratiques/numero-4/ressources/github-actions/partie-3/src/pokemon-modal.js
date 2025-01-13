@@ -1,3 +1,5 @@
+import 'core-js/actual/object';
+
 import {
     fetchPokemonDetails,
     fetchAllTypes,
@@ -32,6 +34,7 @@ import modalPulldownClose from "#src/modal-pulldown-close.js"
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd } from "./main";
 import loadingImage from "/loading.svg";
 import loadingImageRaw from "/loading.svg?raw";
+
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
