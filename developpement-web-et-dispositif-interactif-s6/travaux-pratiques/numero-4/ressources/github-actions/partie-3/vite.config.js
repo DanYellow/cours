@@ -3,11 +3,13 @@ import vituum from "vituum";
 import eslint from "vite-plugin-eslint";
 
 export default defineConfig({
-    base: "",
+    base: "./",
     plugins: [
         vituum({
             pages: {
                 dir: "./src",
+                root: "./",
+                normalizeBasePath: true
             },
         }),
         eslint({

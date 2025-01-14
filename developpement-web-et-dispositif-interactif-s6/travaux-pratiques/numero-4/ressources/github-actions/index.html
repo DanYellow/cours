@@ -439,7 +439,7 @@
                   <ol>
                     <li>
                       <p>Ajoutez votre clé privée dans un fichier dans le conteneur Docker</p>
-                      <code>printf "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
+                      <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
                         <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes <code>mkdir</code> et <code>touch</code>. Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
                     </li>
                     <li>
