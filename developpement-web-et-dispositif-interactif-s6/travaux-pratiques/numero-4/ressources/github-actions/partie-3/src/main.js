@@ -309,12 +309,12 @@ window.addEventListener('popstate', async () => {
 });
 
 window.addEventListener("startloading", () => {
-    pikachuLoading.classList.remove("hidden");
+    pikachuLoading.classList.replace("hidden", "flex");
     faviconContainer.setAttribute("href", pikachuLoadingImage);
 });
 
 window.addEventListener("endloading", () => {
-    pikachuLoading.classList.add("hidden");
+    pikachuLoading.classList.replace("flex", "hidden");
     faviconContainer.setAttribute("href", initialPageFavicon);
 });
 
