@@ -39,5 +39,8 @@
         "#utils": "./src/utils/index.js",
         "#api": "./src/api/index.js",
         "#mocks/*.js": "./__mocks__/*.js"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "*"
     }
 }
