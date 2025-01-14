@@ -128,8 +128,12 @@ const generateMarqueeTypes = (e) => {
 
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
-    document.title = `Chargement - ${initialPageTitle}`;
+    if (!modal.open) {
+        document.title = `Chargement - ${initialPageTitle}`;
+    }
+    
     faviconContainer.setAttribute("href", pikachuLoadingImage);
+    pokedexContainer.setAttribute("aria-busy", true);
 
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
@@ -261,6 +265,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
         noGenerationBanner.showPopover();
+    } finally {
+        pokedexContainer.setAttribute("aria-busy", false);
     }
 };
 
