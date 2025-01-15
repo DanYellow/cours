@@ -276,18 +276,6 @@
 
         li {
             margin-bottom: 0;
-
-            &:first-child {
-                button {
-                    border-top-left-radius: 0.35rem;
-                }
-            }
-
-            &:last-child {
-                button {
-                    border-top-right-radius: 0.35rem;
-                }
-            }
         }
     }
 
@@ -295,11 +283,39 @@
         padding: 0.9rem 1rem;
         appearance: none;
         border: none;
+        background-color: transparent;
+        position: relative;
+        color: #333333;
+        font-size: 1rem;
+        opacity: 0.8;
+        transition: opacity 350ms;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: rgb(241, 241, 241);
+        }
 
         &.active {
-            background-color: #53535f;
-            color: white;
             font-weight: bold;
+            opacity: 1;
+
+            &::after {
+                content: "";
+                background-color: white;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 0.25rem;
+                transform: scaleX(1);
+
+                @starting-style {
+                    transform: scaleX(0);
+                }
+            }
         }
     }
 
