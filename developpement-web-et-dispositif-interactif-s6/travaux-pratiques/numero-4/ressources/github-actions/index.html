@@ -15,7 +15,7 @@
 
   <body>
     <header class="entete-consignes">
-      <h1 class="h1">Consignes de la pratique - Github actions</h1>
+      <h1 class="h1">Consignes de la pratique - GitHub actions</h1>
       <details class="consignes-conteneur">
          <summary>
           <h2 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h2>
@@ -61,7 +61,7 @@
           <h2 class="h1">Partie 1 (cliquer pour afficher / cacher)</h2>
         </summary>
         <ol class="liste-consignes">
-          <li>Créez un dépôt sur votre compte Github</li>
+          <li>Créez un dépôt sur votre compte GitHub</li>
           <li>
             A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en
             exemple dans votre projet
@@ -104,7 +104,7 @@
           <h2 class="h1">Partie 2 (cliquer pour afficher / cacher)</h2>
         </summary>
         <div class="note-importante">
-          <p>Il est possible que la tâche de release soit bloquée. Pour régler
+          <p>Pour cette partie, il est possible que le tag de branche soit bloqué. Pour régler
           ce problème, allez dans les "Settings" de votre dépôt puis dans la
           partie Actions > General > Workflow permissions, sélectionnez
           "Read and write permissions" et sauvegardez.</p>
@@ -187,8 +187,8 @@
                 traquer toutes les releases que vous avez fait, version par
                 version en indiquant le détail de commits. Toutefois pour
                 générer correctement ce fichier, il faut respecter un certain
-                formattage qui permettra au module release-it de savoir quel est
-                le prochain numéro de version (major, minor, patch).
+                formattage de vos commits. En le respectant, il permettra au module release-it de savoir quel est
+                le prochain numéro de version (major, minor, patch) du projet.
               </p>
               <ul>
                 <li>
@@ -206,13 +206,13 @@
                 commits commençant par "feat:" ou "fix:" au sein de la même
                 version.
                 </p>
-               <p>Néanmoins, si vous ne souhaitez pas vous casser la tête avec ceci. Vous avez les modules <a href="https://www.npmjs.com/package/commitizen" target="_blank" rel="noopener noreferrer">commitizen</a> et <a href="https://github.com/streamich/git-cz" target="_blank" rel="noopener noreferrer">git-cz</a> (déconseillé de les installer en global). Une fois installés, vous aurez accès à la commande <code>npx cz</code> qui affichera un prompt vous permettant de préfixer votre commit et donc respecter la nomenclature Angular.</p>
+               <p>Néanmoins, si vous ne souhaitez pas vous casser la tête avec ceci. Vous avez les modules <a href="https://www.npmjs.com/package/commitizen" target="_blank" rel="noopener noreferrer">commitizen</a> et <a href="https://github.com/streamich/git-cz" target="_blank" rel="noopener noreferrer">git-cz</a> (déconseillé de les installer en global). Une fois installés, vous aurez accès à la commande <code>npx cz</code> qui affichera un prompt vous permettant de préfixer votre commit et donc respecter la nomenclature Angular à chaque commit.</p>
             </div>
           </li>
           <li>
-            Ajoutez un nouveau job ou un nouveau fichier d'Actions pour
+            Editez le fichier de pipeline crée précédemment ou créez-en un nouveau pour
             effectuer une release de votre projet. Pour ce faire voici les
-            actions que vous devez avoir dans votre fichier YAML :
+            tâches que doit accomplir votre pipeline :
             <ol>
               <li>
                 Cloner le projet : <code>actions/checkout@v4</code>. C'est une
@@ -224,7 +224,9 @@
                     </li>
                 </ul>
                 <p>Exemple : </p>
-                <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;" data-code-sample><span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
+                <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;" data-code-sample>
+<span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+<span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
     <span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Build</span>
     <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
@@ -246,6 +248,7 @@
               <li>
                 Installer des dépendances : <code>npm ci</code> ("ci" fait un
                 "clean install")
+                <p class="note-information">La commande <code>npm ci</code> ne fonctionnera pas s'il n'y a pas de fichier "package-lock.json" dans le projet. Pensez bien à le générer avec la commande <code>npm i(nstall)</code> s'il n'est pas présent.</p>
               </li>
               <li>
                 Définir l'utilisateur git :
@@ -269,9 +272,9 @@
                 </p>
               </li>
             </ol>
-            <div class="note-information">
+            <div class="note-attention">
               <p>
-                On veut que cette Action se lance manuellement, ainsi
+                On veut que cette pipeline se lance manuellement, ainsi
                 l'évènement (clé "on") devra être "workflow_dispatch". Voir
                 image ci-dessous pour lancer manuellement votre Action depuis l'interface de GitHub.
               </p>
@@ -392,7 +395,7 @@
                 Déploie le tout sur votre serveur
                 <div class="note-information">
                   <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
-                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" avec lequel vous souhaitez établir une connexion. Une fois fait, vous pourrez faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. Rappelons que GitHub Actions ne permet pas de saisir des prompts. Toutes les commandes doivent être pré-remplies.</p>
+                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" du serveur avec lequel vous souhaitez établir une connexion. Une fois fait, vous pourrez faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. Rappelons que GitHub Actions ne permet pas de saisir des prompts. Toutes les commandes doivent être pré-remplies.</p>
                   <p>Puis vous devrez ajouter votre clé privée parmi les secrets de votre dépôt.</p>
                   <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
                   <ol>
