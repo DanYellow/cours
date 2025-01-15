@@ -304,13 +304,17 @@
 
             &::after {
                 content: "";
-                background-color: white;
+                background-color: black;
+                @media (prefers-color-scheme: dark) {
+                    background-color: white;
+                }
                 position: absolute;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 height: 0.25rem;
                 transform: scaleX(1);
+                transition: transform 350ms;
 
                 @starting-style {
                     transform: scaleX(0);
@@ -331,7 +335,7 @@
         margin-top: 0;
 
         @media (prefers-color-scheme: light) {
-            border: 1px solid black;
+            border-color: black;
         }
     }
 }
