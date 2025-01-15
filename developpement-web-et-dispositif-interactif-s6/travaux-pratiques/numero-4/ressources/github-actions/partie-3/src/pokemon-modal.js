@@ -231,6 +231,8 @@ const loadDetailsModal = (e, region = null) => {
 
 displayModal = async (pkmnData) => {
     modal.inert = true;
+    loadGenerationBtn.inert = true;
+
     if (pkmnData.is_incomplete) {
         const cachedPokemon = listPokemon.find((item) => item?.pokedex_id === pkmnData.pokedex_id);
         if (cachedPokemon) {
@@ -805,7 +807,6 @@ displayModal = async (pkmnData) => {
     modal_DOM.statistics.append(statValue);
 
     console.log("pkmnData", pkmnData);
-
 
     loadGenerationBtn.inert = hasReachPokedexEnd;
 
