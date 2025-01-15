@@ -394,20 +394,28 @@
               <li>
                 Déploie le tout sur votre serveur
                 <div class="note-information">
-                  <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
-                  <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" du serveur avec lequel vous souhaitez établir une connexion. Une fois fait, vous pourrez faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. Rappelons que GitHub Actions ne permet pas de saisir des prompts. Toutes les commandes doivent être pré-remplies.</p>
-                  <p>Puis vous devrez ajouter votre clé privée parmi les secrets de votre dépôt.</p>
-                  <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans le terminal)</p>
-                  <ol>
-                    <li><code>ssh-copy-id user@server</code>
-                        <div class="note-attention">
-                            <p>Attention la commande copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (fichier avec extension .pub).</p>
-                        </div>
-                    </li>
-                    <li>Entrez le mot de passe ssh du serveur qui doit vous autoriser</li>
-                    <li>Et voilà</li>
-                  </ol>
-                  <p class="texte-gras">Ajouter la clé ssh aux secrets du dépôt</p>
+                    <p>Comme dit plus haut, vous allez devoir utiliser la commande <code>rsync</code>. Elle possède l'avantage de ne transférer que les fichiers qui ont été modifiés ce qui permet d'économiser la bande passante.</p>
+                    <p>Toutefois avant d'utiliser la commande, il faut impérativement que votre accès soit autorisé sur le serveur de production. La méthode la plus aisée est d'autoriser votre clé ssh sur le serveur de production, ceci se fait via la commande <code>ssh-copy-id</code>, elle n'est à faire qu'une seule fois, elle va ajouter vos clefs publiques (extension .pub) dans le registre "authorized_keys" du serveur avec lequel vous souhaitez établir une connexion. Une fois fait, vous pourrez faire un <code>rsync</code> en ssh sans entrer le mot de passe à chaque fois. Rappelons que GitHub Actions ne permet pas de saisir des prompts. Toutes les commandes doivent être pré-remplies.</p>
+                    <p>Puis vous devrez ajouter votre clé privée parmi les secrets de votre dépôt.</p>
+
+                    <p class="texte-gras">Générer une clé SSH (si vous n'en avez pas) (à faire dans votre terminal)</p>
+                    <ul>
+                        <li>
+                            <a href="https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener noreferrer">Voir didacticiel sur la génération de clé SSH</a>
+                        </li>
+                    </ul>
+                    <p class="note-information">Vous pouvez voir le nom de vos clés ssh (indispensable pour la copier) avec la commande <code>ls -al ~/.ssh</code>. Elle commence par "id_"</p>
+                    <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans votre terminal)</p>
+                    <ol>
+                        <li><code>ssh-copy-id user@server</code>
+                            <div class="note-attention">
+                                <p>Attention la commande copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (fichier avec extension .pub).</p>
+                            </div>
+                        </li>
+                        <li>Entrez le mot de passe ssh du serveur qui doit vous autoriser</li>
+                        <li>Et voilà</li>
+                    </ol>
+                  <p class="texte-gras">Ajouter la clé ssh aux secrets du dépôt (à faire dans votre terminal)</p>
                   <ol>
                     <li>Copiez votre clé privée (fichier sans l'extension .pub)
                         <div class="tab-wrapper">
@@ -443,7 +451,10 @@
                     <li>
                       <p>Ajoutez votre clé privée dans un fichier dans le conteneur Docker</p>
                       <code>echo "ssh_key" > __ssh_key_path__ && chmod 400 __ssh_key_path__</code>
+                      <div class="note-information">
                         <p>Note : Si vous souhaitez mettre votre fichier ssh dans un sous-dossier, il faudra le créer en avance avec les commandes <code>mkdir</code> et <code>touch</code>. Exemple <code>mkdir -p ~/.ssh && touch ~/.ssh/deploy_key</code> </p>
+                        <p>Note 2 : Vous devez laisser les guillemets autour de "ssh_key" quand vous remplacerez la valeur par un secret.</p>
+                      </div>
                     </li>
                     <li>
                       <p>Déplacez le contenu du dossier vers un serveur (commande à adapter)</p>
