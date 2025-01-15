@@ -191,6 +191,7 @@ MYSQL_DATABASE=$(echo $SECRETS_CONTEXT | jq '.MYSQL_DATABASE');
 
 mysql -u {$MYSQL_USER} -p{$MYSQL_PASSWORD} -h {$MYSQL_SERVER} {$MYSQL_DATABASE} < dump-file.sql
 ```
+> Note : Le contenu du script bash peut également être mis directement dans la pipeline. A votre convenance.
 
 Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est pas top niveau sécurité, dans les détails du job, vous devriez voir :
 > Warning: Using a password on the command line interface can be insecure.
