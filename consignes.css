@@ -290,7 +290,7 @@
         opacity: 0.8;
         transition: opacity 350ms;
 
-        &:hover {
+        &:hover, &:focus-visible {
             opacity: 1;
 
             &::after {
