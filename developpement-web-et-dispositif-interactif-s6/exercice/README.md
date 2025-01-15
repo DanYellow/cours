@@ -85,6 +85,7 @@ Les critères suivants seront évalués :
   - **API**
     - https://tyradex.vercel.app/
     - https://pokeapi.co/
+    - https://tcgdex.dev/
   - **Icônes**
     - https://github.com/partywhale/pokemon-type-icons
   > Vous prendrez également soin d'afficher le logo de l'université et l'année universitaire
@@ -135,7 +136,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       EOF
       ```
       - Ne pas mettre les fichier .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
-mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
+
 > La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 
 - [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
@@ -153,6 +154,7 @@ mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
 
 - [ ] Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
   - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
+  - [Voir exemple de configuration](https://playwright.dev/docs/ci#on-pushpull_request)
 
 
 ## Migration base de données (MySQL)
@@ -168,6 +170,7 @@ mysqldump -u {USER} -p{PASSWORD} {DATABASE} > dump-file.sql
 Il faudra commiter le fichier de dump.
 
 > Note : Si vous ajoutez le paramètre "--no-data", nous n'exporterez que le schéma de base de données
+>
 > Note 2 : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
 
 ### Importer base de données
