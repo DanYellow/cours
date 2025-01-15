@@ -268,7 +268,6 @@
     .list-tabs {
         list-style: none;
         display: flex;
-        overflow: hidden;
         width: fit-content;
         padding: 0;
         margin-top: 0.7rem;
