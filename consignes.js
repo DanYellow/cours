@@ -1,29 +1,39 @@
 const initTabSystem = () => {
     const openTab = (e) => {
-        document.querySelectorAll("[data-tab-content]").forEach((item) => {
+        const currentTabContainer = e.target.closest('[role="tablist"]')
+        currentTabContainer.querySelectorAll("[data-tab-content]").forEach((item) => {
             item.style.display = "none";
         });
 
-        document.querySelectorAll("[data-tab-name]").forEach((item) => {
+        currentTabContainer.querySelectorAll("[data-tab-name]").forEach((item) => {
             item.classList.remove("active");
+            item.setAttribute("aria-selected", "false");
         });
 
-        document.querySelector(
+        currentTabContainer.querySelector(
             `[data-tab-content="${e.target.dataset.tabName}"]`
         ).style.display = "block";
-        document
+        currentTabContainer
             .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
             .classList.add("active");
+        currentTabContainer
+            .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
+            .setAttribute("aria-selected", "true");
     };
 
-    if (document.querySelectorAll("[data-tab-content]").length) {
-        document.querySelectorAll("[data-tab-content]")[0].style.display =
-            "block";
-        document.querySelectorAll("[data-tab-name]")[0].classList.add("active");
-    }
+    document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
+        tablist.querySelectorAll("[data-tab-name]").forEach((item) => {
+            item.addEventListener("click", openTab);
+            item.setAttribute("role", "tab");
+            item.setAttribute("aria-selected", "false");
+        });
 
-    document.querySelectorAll("[data-tab-name]").forEach((item) => {
-        item.addEventListener("click", openTab);
+        if (tablist.querySelectorAll("[data-tab-content]").length) {
+            tablist.querySelectorAll("[data-tab-content]")[0].style.display =
+                "block";
+            tablist.querySelectorAll("[data-tab-name]")[0].classList.add("active");
+            tablist.querySelectorAll("[data-tab-name]")[0].setAttribute("aria-selected", "true");
+        }
     });
 };
 
