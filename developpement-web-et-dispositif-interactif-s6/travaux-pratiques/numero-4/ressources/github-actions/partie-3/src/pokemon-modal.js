@@ -424,7 +424,7 @@ displayModal = async (pkmnData) => {
             if(evolution.length > 3) {
                 ol.classList.add(...["grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-y-6"]);
             } else {
-                ol.classList.add(...["flex", "flex-wrap"]);
+                ol.classList.add(...["flex"]);
             }
             ol.classList.add(...["gap-x-2", "gap-y-6"]);
             evolution.forEach((item) => {
