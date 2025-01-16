@@ -447,7 +447,7 @@ displayModal = async (pkmnData) => {
                 if (idx > 0) {
                     const evolutionCondition = document.createElement("p");
                     evolutionCondition.classList.add("text-xs", "text-center");
-                    evolutionCondition.style.maxWidth = "60%";
+                    evolutionCondition.style.maxWidth = "75%";
                     evolutionCondition.textContent = item.condition;
                     listEvolutionConditions.push(item.condition?.toLowerCase());
                     clone.querySelector("li div").insertAdjacentElement("afterbegin", evolutionCondition);

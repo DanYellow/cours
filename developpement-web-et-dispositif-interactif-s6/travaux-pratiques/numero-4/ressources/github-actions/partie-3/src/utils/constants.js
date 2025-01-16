@@ -1,1 +1,2 @@
 export const NB_NUMBER_INTEGERS_PKMN_ID = 4;
+export const HTTP_NOT_FOUND_CODE_ERROR = 404;

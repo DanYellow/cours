@@ -12,6 +12,7 @@ import {
     typesAnimatedBorderColor,
     tailwindConfig,
     NB_NUMBER_INTEGERS_PKMN_ID,
+    HTTP_NOT_FOUND_CODE_ERROR,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
@@ -255,9 +256,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         });
         window.dispatchEvent(pokedexLoadedEvent);
     } catch (error) {
-        const errorRessourceNotFound = 404;
         const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
-        if (error?.cause?.status === errorRessourceNotFound) {
+        if (error?.cause?.status === HTTP_NOT_FOUND_CODE_ERROR) {
             listLoadGenerationBtns.forEach((item) => item.inert = true);
             hasReachPokedexEnd = true;
 
