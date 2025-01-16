@@ -1,0 +1,20 @@
+{
+    "git": {
+        "commitMessage": "chore: release ${version}",
+        "requireBranch": "main"
+    },
+    "npm": {
+        "publish": false
+    },
+    "plugins": {
+        "@release-it/conventional-changelog": {
+            "preset": {
+                "name": "angular"
+            },
+            "infile": "CHANGELOG.md"
+        }
+    },
+    "hooks": {
+        "before:init": ["git pull"]
+    }
+}
