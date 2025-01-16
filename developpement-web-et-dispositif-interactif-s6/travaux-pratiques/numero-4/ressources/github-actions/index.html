@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
-    <title> Github actions Consignes - TP</title>
+    <title> GitHub actions Consignes - TP</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -40,10 +40,10 @@
             <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context" target="_blank">Voir l'ensemble des variables accessibles par défaut - Ouverture dans un nouvel onglet</a>
             <div class="note-information">
                 <p>Vous pouvez également afficher le contenu d'objets via la fonction "toJSON" dans un job. Exemple : <code>printf "${{toJSON(github)}}"</code></p>
-                <p>Github Actions propose également d'autres fonctions que vous pouvez utiliser dans votre pipeline.</p>
+                <p>GitHub Actions propose également d'autres fonctions que vous pouvez utiliser dans votre pipeline.</p>
                 <ul>
                     <li>
-                        <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions#functions" target="_blank" rel="noopener noreferrer">Voir liste fonctions Github Actions - Ouverture dans un nouvel onglet </a>
+                        <a href="https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions#functions" target="_blank" rel="noopener noreferrer">Voir liste fonctions GitHub Actions - Ouverture dans un nouvel onglet </a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +63,7 @@
         <ol class="liste-consignes">
           <li>Créez un dépôt sur votre compte GitHub</li>
           <li>
-            A l'aide du didacticiel sur les Github Actions. Ajoutez l'action en
+            A l'aide du didacticiel sur les GitHub Actions. Ajoutez l'action en
             exemple dans votre projet
             <ul>
               <li>
@@ -71,7 +71,7 @@
                   href="https://docs.github.com/fr/actions/writing-workflows/quickstart"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Didacticiel sur les Github Actions - Ouverture dans un nouvel
+                  >Didacticiel sur les GitHub Actions - Ouverture dans un nouvel
                   onglet</a
                 >
               </li>
@@ -91,7 +91,7 @@
           https://github.com/votre-pseudo/nom-du-depot/actions
         </p>
         <div class="note-information">
-            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion et la validation de vos fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte Github).</p>
+            <p>Si vous le souhaitez, vous pouvez installer l'extension gratuite de VS Code : GitHub Actions. En plus de proposer l'autocomplétion et la validation de vos fichiers de workflows, elle vous permet d'avoir une vue d'ensemble sur vos workflows depuis VS Code (à condition de lier votre compte GitHub).</p>
             <ul>
                 <li>
                     <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions" target="_blank" rel="noopener noreferrer">Télécharger l'extension GitHub Actions pour VS Code</a>
@@ -125,14 +125,15 @@
                   href="https://www.npmjs.com/package/release-it"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >release-it - Ouverture dans un nouvel onglet</a
-                >.
-                <p>
-                  Pensez à sélectionner ".release-it.json" lors de
-                  l'installation avec la commande
-                  <code>npm init release-it</code>, sinon créez vous-même le
-                  fichier à la racine.
-                </p>
+                  >release-it - Ouverture dans un nouvel onglet</a>
+                    <ul>
+                        <li>
+                            Pensez à sélectionner ".release-it.json" lors de
+                            l'installation avec la commande
+                            <code>npm init release-it</code>, sinon créez vous-même le
+                            fichier à la racine en <a href="https://github.com/release-it/release-it?tab=readme-ov-file#configuration" target="_blank">vous aidant de la documentation</a>
+                        </li>
+                    </ul>
               </li>
               <li>
                 <a
@@ -220,7 +221,7 @@
                 de "run"
                 <ul>
                     <li>
-                        <a href="https://github.com/sdras/awesome-actions?tab=readme-ov-file#official-actions" target="_blank" rel="noopener noreferrer">Voir curation de Github Actions - Ouverture dans un nouvel onglet</a>
+                        <a href="https://github.com/sdras/awesome-actions?tab=readme-ov-file#official-actions" target="_blank" rel="noopener noreferrer">Voir curation de GitHub Actions - Ouverture dans un nouvel onglet</a>
                     </li>
                 </ul>
                 <p>Exemple : </p>
@@ -367,6 +368,7 @@
                             <a href="https://developer.mozilla.org/fr/docs/Glossary/Smoke_Test" target="_blank" rel="noopener noreferrer">Voir définition de smoke tests sur mdn - Ouverture dans un nouvel onglet</a>
                         </li>
                     </ul>
+                    <p>Cette stratégie de tests est un patron de conception plus communément appelé le <a href="https://en.wikipedia.org/wiki/Fail-fast_system" target="_blank">"fail fast"</a>, l'idée étant de lever le plus rapidement une erreur pour éviter de perdre trop de temps avec l'exécution d'autres fonctions.</p>
                 </div>
             </li>
               <li>Créez des variables d'environnement affichant les données suivantes sur le site :
@@ -404,7 +406,7 @@
                             <a href="https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener noreferrer">Voir didacticiel sur la génération de clé SSH</a>
                         </li>
                     </ul>
-                    <p class="note-information">Vous pouvez voir le nom de vos clés ssh (indispensable pour la copier) avec la commande <code>ls -al ~/.ssh</code>. Elle commence par "id_"</p>
+                    <p class="note-information">Vous pouvez voir le nom de vos clés ssh (indispensable pour la copier) avec la commande <code>ls -al ~/.ssh</code>. Elles commencent par "id_"</p>
                     <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans votre terminal)</p>
                     <ol>
                         <li><code>ssh-copy-id user@server</code>
@@ -443,7 +445,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>Sur Github, dans le dépôt, allez dans Settings > Secrets and Variables > Actions. Ajoutez un nouveau "repository secret", appelez-le comme vous le souhaitez et collez comme valeur votre clé privée.</li>
+                    <li>Sur GitHub, dans le dépôt, allez dans Settings > Secrets and Variables > Actions. Ajoutez un nouveau "repository secret", appelez-le comme vous le souhaitez et collez comme valeur votre clé privée</li>
 
                   </ol>
                   <p class="texte-gras">Effectuer un <code>rsync</code> en ssh (à faire dans votre fichier yml)</p>
@@ -472,7 +474,7 @@
                     </li>
                   </ol>
                   <div class="note-attention">
-                    <p>Pour des questions de sécurité, les paramètres suivants doivent être mis en secret. Menu Settings > Secrets and variables > Actions > Repository secrets sur Github</p>
+                    <p>Pour des questions de sécurité, les paramètres suivants doivent être mis en secret. Menu Settings > Secrets and variables > Actions > Repository secrets sur GitHub</p>
                     <ul>
                       <li>user</li>
                       <li>server</li>
