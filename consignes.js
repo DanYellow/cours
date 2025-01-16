@@ -13,26 +13,39 @@ const initTabSystem = () => {
         currentTabContainer.querySelector(
             `[data-tab-content="${e.target.dataset.tabName}"]`
         ).style.display = "block";
-        currentTabContainer
-            .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
-            .classList.add("active");
-        currentTabContainer
-            .querySelector(`[data-tab-name="${e.target.dataset.tabName}"]`)
-            .setAttribute("aria-selected", "true");
+
+        const currentTag = currentTabContainer.querySelector(
+            `[data-tab-name="${e.target.dataset.tabName}"]`
+        )
+        currentTag.style.display = "block";
+        currentTag.classList.add("active");
+        currentTag.setAttribute("aria-selected", "true");
+        currentTag.removeAttribute("tabIndex");
     };
 
-    document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
-        tablist.querySelectorAll("[data-tab-name]").forEach((item) => {
+    document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
+        tablist.querySelectorAll("[data-tab-name]").forEach((item, idx) => {
             item.addEventListener("click", openTab);
             item.setAttribute("role", "tab");
             item.setAttribute("aria-selected", "false");
+            item.setAttribute("aria-controls", `tab-system-${tabSystemIdx}-tab-${idx}`);
+
+            item.id = `tab-system-${tabSystemIdx}-tab-${idx}`;
         });
 
+        const firstTab = tablist.querySelectorAll("[data-tab-name]")[0];
+        firstTab.classList.add("active");
+        firstTab.setAttribute("aria-selected", "true");
+        firstTab.removeAttribute("tabIndex");
+
         if (tablist.querySelectorAll("[data-tab-content]").length) {
-            tablist.querySelectorAll("[data-tab-content]")[0].style.display =
-                "block";
-            tablist.querySelectorAll("[data-tab-name]")[0].classList.add("active");
-            tablist.querySelectorAll("[data-tab-name]")[0].setAttribute("aria-selected", "true");
+            tablist.querySelectorAll("[data-tab-content]")[0].style.display = "block";
+            tablist.querySelectorAll("[data-tab-content]").forEach((tabContent, idx) => {
+                tabContent.setAttribute("role", "tabpanel");
+                tabContent.setAttribute("tabindex", "0");
+                tabContent.setAttribute("id", `tab-system-${tabSystemIdx}-tab-${idx}`);
+                tabContent.setAttribute("aria-labelledby", `tab-system-${tabSystemIdx}-tab-${idx}`);
+            });
         }
     });
 };
