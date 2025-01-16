@@ -36,7 +36,7 @@ Le projet se trouve toujours au même endroit :
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
-<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>.</p>
+<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>. Par ailleurs, n'oubliez pas le paramètre <code>fetch-depth: 0</code> à l'action "actions/checkout@v4", si vous souhaitez générer proprement un CHANGELOG.md (voir les instructions du TP sur la CICD).</p>
 
 - [Voir documentation git tag](https://git-scm.com/docs/git-tag/fr)
 
