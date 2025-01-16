@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Set github user
         run: git config user.email "test@example.com" && git config user.name "CI/CD"
       - name: Install the dependencies
@@ -28,6 +31,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Set github user
         run: git config --global user.email "test@example.com" && git config --global user.name "CI/CD"
       - name: Install the dependencies
@@ -41,6 +47,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Set github user
         run: git config --global user.email "test@example.com" && git config --global user.name "CI/CD"
       - name: Install the dependencies

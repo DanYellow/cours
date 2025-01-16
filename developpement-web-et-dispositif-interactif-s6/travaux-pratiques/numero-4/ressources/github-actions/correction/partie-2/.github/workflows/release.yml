@@ -9,10 +9,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Important
       - uses: actions/setup-node@v4
         with:
-            node-version: 22.11.0
+            node-version: lts/*
       - name: Set github user
         run: git config user.email "test@example.com" && git config user.name "CI/CD - MMI"
       - run: npm ci
