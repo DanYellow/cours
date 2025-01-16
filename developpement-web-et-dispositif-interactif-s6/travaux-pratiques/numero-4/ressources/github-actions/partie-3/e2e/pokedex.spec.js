@@ -89,7 +89,7 @@ test("should change title's value according to current generation displayed", as
     const nextHeader = page.locator(`[data-header-pokedex="${nextGenerationNumber}"]`).first();
     await nextHeader.waitFor();
 
-    await page.waitForTimeout(1.5);
+    await page.waitForTimeout(2);
 
     await page.evaluate(() => {
         window.scrollTo(0, document.body.scrollHeight);
@@ -129,7 +129,7 @@ test("should indicate the right gen in the navigation shortcut", async ({
     const loadGenerationButton = await page
         .getByTestId("load-generation-btn")
         .first();
-    loadGenerationButton.click();
+    await loadGenerationButton.click();
     const nextGenerationNumber = await loadGenerationButton.getAttribute(
         "data-load-generation"
     );
@@ -148,7 +148,6 @@ test("should indicate the right gen in the navigation shortcut", async ({
     await gen2Shortcut.click();
 
     await page.waitForTimeout(1.5);
-
 
     await expect(gen2Shortcut).toHaveClass(/font-bold/);
 });

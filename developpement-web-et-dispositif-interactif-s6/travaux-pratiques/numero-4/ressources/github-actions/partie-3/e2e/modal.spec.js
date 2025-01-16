@@ -7,7 +7,9 @@ test("should open modal", { tag: "@smoke" }, async ({ page }) => {
     const firstPkmnData = JSON.parse(firstPkmnDataRaw);
     firstPkmn.click();
 
-    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
+    const modal = page.locator("[data-testid='pokemon-modal'][open]");
+    await modal.waitFor();
+
     await expect(page).toHaveTitle(
         new RegExp(String.raw`${firstPkmnData.name.fr}`, "g")
     );
@@ -21,7 +23,7 @@ test("should close modal", async ({ page }) => {
 
     await page.locator("[data-pokemon-data][open]").waitFor()
     await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
-    
+
     await page.getByTestId("close-modal").first().click();
     await expect(page.getByTestId("pokemon-modal")).not.toHaveAttribute("open", "");
 
@@ -49,7 +51,7 @@ test("should load next pokemon", { tag: "@smoke" }, async ({ page }) => {
 
     const nextPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
     const nextPokemonData = JSON.parse(nextPokemonDataRaw);
-    
+
     await expect(currentUrl.searchParams.get("id")).toEqual(String(nextPokemonData.pokedex_id));
 });
 
@@ -71,7 +73,7 @@ test("should load previous pokemon", async ({ page }) => {
 
     const previousPokemonDataRaw = await page.getByTestId("pokemon-modal").getAttribute("data-pokemon-data");
     const previousPokemonData = JSON.parse(previousPokemonDataRaw);
-    
+
     await expect(currentUrl.searchParams.get("id")).toEqual(String(previousPokemonData.pokedex_id));
 });
 
@@ -90,7 +92,7 @@ test("should open regional form", async ({ page }) => {
 
     await page.getByTestId("regional-forms").first().click();
     await page.getByTestId("regional-forms").getByTestId("pokemon").first().click();
-    
+
     const currentUrl = new URL(await page.url());
     await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
 });
@@ -130,7 +132,7 @@ test("should cache dex's data", async ({ page }) => {
 
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
-    
+
     await page.getByTestId("previous-pkmn").first().click();
 
     const dexRequest = page.waitForResponse("https://tyradex.vercel.app/api/v1/gen/1", { timeout: 5000 });
@@ -154,7 +156,7 @@ test("should cache pokemon's data", async ({ page }) => {
 
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
-    
+
     await page.getByTestId("previous-pkmn").first().click();
     await page.getByTestId("next-pkmn").first().click();
 
@@ -172,7 +174,7 @@ test("should have a label for all abilities", async ({ page }) => {
 
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
-    
+
     const listLocators = await page.locator("[data-list-abilities] summary").all();
 
     for (const element of listLocators) {
@@ -186,7 +188,7 @@ test("should have a label for all abilities after loading Pokémon and its Poké
 
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
-    
+
     const listAbilities = await page.locator("[data-list-abilities] summary").all();
 
     for (const element of listAbilities) {
@@ -212,7 +214,7 @@ test("should not have more than 4 levels of evolutions", async ({ page }) => {
 
     const modal = page.locator("[data-testid='pokemon-modal'][open]");
     await modal.waitFor();
-    
+
     const nbEvolutionLevels = await page.locator("[data-list-evolutions] > li:not([inert])").count();
     expect(nbEvolutionLevels).toBeLessThanOrEqual(4);
 });
