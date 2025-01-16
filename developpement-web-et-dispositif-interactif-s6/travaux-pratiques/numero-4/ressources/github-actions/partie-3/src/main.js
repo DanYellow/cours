@@ -11,11 +11,12 @@ import {
     isElementInViewport,
     typesAnimatedBorderColor,
     tailwindConfig,
+    NB_NUMBER_INTEGERS_PKMN_ID,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
 import loadingImageRaw from "/loading.svg?raw";
-import pikachuLoadingImage from "/pikachu-loading.gif"
+import pikachuLoadingImage from "/pikachu-loading.gif";
 import "./style.css";
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
@@ -39,6 +40,8 @@ const initialPageFavicon = faviconContainer.getAttribute("href");
 modal.dataset.isGridLayout = isGridLayout;
 
 export const listPokemon = [];
+
+const switchAnimationDuration = 500;
 
 export const setTitleTagForGeneration = () => {
     const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
@@ -67,11 +70,11 @@ const updateSwitchIcons = (_isGridLayout) => {
     });
 
     Array.from(document.querySelectorAll("[data-icon='list']")).forEach((item) => {
-        item.classList.toggle("opacity-20", _isGridLayout)
+        item.classList.toggle("opacity-20", _isGridLayout);
     });
 
     Array.from(document.querySelectorAll("[data-icon='grid']")).forEach((item) => {
-        item.classList.toggle("opacity-20", !_isGridLayout)
+        item.classList.toggle("opacity-20", !_isGridLayout);
     });
 }
 
@@ -131,7 +134,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     if (!modal.open) {
         document.title = `Chargement - ${initialPageTitle}`;
     }
-    
+
     faviconContainer.setAttribute("href", pikachuLoadingImage);
     pokedexContainer.setAttribute("aria-busy", true);
 
@@ -164,8 +167,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         generationNumber.textContent = `#${generation}`;
         const firstPkmnId = nonRegionalPokedexData[0].pokedex_id;
 
-        generationRange.textContent = `${String(firstPkmnId).padStart(4, '0')} ➜ ${
-            String(nonRegionalPokedexData.at(-1).pokedex_id).padStart(4, '0')
+        generationRange.textContent = `${String(firstPkmnId).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')} ➜ ${
+            String(nonRegionalPokedexData.at(-1).pokedex_id).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')
         }`;
 
         const fetchPriorityHighThreshold = 20;
@@ -199,7 +202,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
                 index <= fetchPriorityHighThreshold ? "high" : "low";
 
             const pkmnNameContainer = clone.querySelector("[data-pkmn-name]")
-            pkmnNameContainer.textContent = `#${String(item.pokedex_id).padStart(4, '0')}\n${item.name.fr}`;
+            pkmnNameContainer.textContent = `#${String(item.pokedex_id).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')}\n${item.name.fr}`;
 
             const aTag = clone.querySelector("[data-pokemon-data]");
             aTag.href = url;
@@ -225,7 +228,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         updatePokedexLayout(isGridLayout);
         setTimeout(() => {
             layoutSwitch.nextElementSibling.classList.add("after:transition-all")
-        }, 500)
+        }, switchAnimationDuration);
 
         generationScrollingObserver.observe(headerPokedex);
 

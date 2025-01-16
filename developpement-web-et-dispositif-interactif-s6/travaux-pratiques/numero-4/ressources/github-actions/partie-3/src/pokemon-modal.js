@@ -19,6 +19,7 @@ import {
     getPkmnIdFromURL,
     tailwindConfig,
     formsNameDict,
+    NB_NUMBER_INTEGERS_PKMN_ID
 } from "./utils";
 
 import {
@@ -116,7 +117,7 @@ export { listTypes }
 const initialModalSpeed = window.getComputedStyle(document.querySelector("dialog")).getPropertyValue("--animation-speed");
 
 const resetModalPosition = () => {
-    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 4;
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur") || tailwindConfig.theme.backdropBlur.md);
 
     modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
     modal.style.translate = "0px 0px";
@@ -130,7 +131,7 @@ modal.addEventListener("close", () => {
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
 
-    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur")) || 5;
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur") || tailwindConfig.theme.backdropBlur.md);
 
     modal.style.setProperty("--details-modal-blur", "0px");
     modal.dataset.hasBeenTouched = false;
@@ -332,7 +333,7 @@ displayModal = async (pkmnData) => {
 
     modal.setAttribute("aria-labelledby", `Fiche détail de ${pkmnData.name.fr}`);
 
-    modal_DOM.pkmnName.textContent = `#${String(pkmnData.pokedex_id).padStart(4, '0')} ${pkmnData.name.fr}`;
+    modal_DOM.pkmnName.textContent = `#${String(pkmnData.pokedex_id).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')} ${pkmnData.name.fr}`;
     document.title = `${modal_DOM.pkmnName.textContent} - ${initialPageTitle}`;
 
     if (listDescriptions?.is_legendary || listDescriptions?.is_mythical) {
@@ -439,7 +440,7 @@ displayModal = async (pkmnData) => {
                 replaceImage(img, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${item.pokedex_id}.png`);
 
                 const evolutionName = clone.querySelector("p");
-                evolutionName.textContent = `#${String(item.pokedex_id).padStart(4, '0')} ${item.name}`;
+                evolutionName.textContent = `#${String(item.pokedex_id).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')} ${item.name}`;
                 evolutionName.classList.toggle("font-bold", item.pokedex_id === pkmnData.pokedex_id);
                 evolutionName.classList.add(...["group-hocus:bg-slate-900", "group-hocus:text-white", "whitespace-pre-line"])
 

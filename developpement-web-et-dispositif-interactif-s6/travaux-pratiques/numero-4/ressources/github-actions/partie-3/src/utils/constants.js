@@ -1,0 +1,1 @@
+export const NB_NUMBER_INTEGERS_PKMN_ID = 4;
