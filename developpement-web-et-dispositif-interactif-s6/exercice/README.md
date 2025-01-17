@@ -46,6 +46,7 @@ Les critères suivants seront évalués :
 - Qualité du code et accessibilité
 - Affichage dans le navigateur
 - Bon fonctionnement des fonctionnalités attendues
+  - Chaque partie sera notée indépendamment, vous aurez donc trois notes
 
 ## Votre liste à faire
 - [x] Lire les consignes
@@ -71,7 +72,7 @@ Les critères suivants seront évalués :
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
 - [ ] Corriger les tests unitaires
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
-  - Les couleurs liés aux types sont gérées dans la configuration tailwind
+  - Les couleurs liées aux types sont gérées dans la configuration tailwind
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
@@ -126,7 +127,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] Migre la base de données (si besoin)
-  - [ ] Rendre inaccessible les fichiers .env au public
+  - [ ] Rendre inaccessible les fichiers .env au public (si applicable)
     - Autrement dit, on ne doit pas pouvoir accéder aux fichiers en écrivant mon.url/.env
     - Deux solutions possibles :
       - Passer par un fichier .htaccess pour bloquer l'accès au fichier .env, ce fichier peut être crée durant la pipeline avec le code suivant, il peut être exécuté directement depuis le fichier yaml ou depuis un fichier .sh :
@@ -137,25 +138,32 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       ```
       - Ne pas mettre les fichier .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
 
-> La pipeline de la branche main doit être automatique et se lancer quand on fusionne la branche (évènement "push"). Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
+> La pipeline de la branche main doit être automatique et se lancer quand on effectue une pull_request dessus. Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
+> - [En savoir plus sur l'évènement pull_request](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
 
 - [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
   - [ ] Déploie le projet dans un dossier "develop"
       - Note : Le dossier doit être crée par la CI/CD sur le serveur. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
       - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
         - [En savoir plus sur les environnements](https://docs.github.com/fr/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment)
-      - Note 3 : Le nom "develop" est un nom exemple, elle n'est pas vraiment une branche intermédiaire, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
+      - Note 3 : Le nom "develop" est un nom exemple, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] Migre la base de données (si besoin)
   - [ ] Affiche la branche déployée sur le site
+    - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
 
-> Le nom de la branche se trouve dans la variable "github.ref_name". Cette pipeline peut être manuelle ou automatique.
+> Cette pipeline peut être manuelle ou automatique.
 
 - [ ] Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
   - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
   - [Voir exemple de configuration](https://playwright.dev/docs/ci#on-pushpull_request)
+- [ ] Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
+  - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
+    - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
 
+Pour la pipeline, vous pouvez utiliser la correction de la partie 3 et adapter en fonction des besoins du devoir.
+  - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
 
 ## Migration base de données (MySQL)
 La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données (appelé aussi "dump") puis l'importer.
@@ -244,4 +252,4 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
 
 ### CI/CD
-- Afficher le lien de téléchargement de l'artifact du rapport Playwright dans une annotation
+- Bloquer la fusion de branche, si sa pipeline n'a pas été validée
