@@ -248,7 +248,6 @@ displayModal = async (pkmnData) => {
     listPokedexEntries.forEach((item) => { item.inert = true; });
     modal_DOM.img.src = loadingImage;
 
-
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
 
     let pkmnExtraData = dataCache[pkmnId]?.extras;
@@ -290,7 +289,7 @@ displayModal = async (pkmnData) => {
 
         const listAbilitiesDescriptions = []
 
-        for (const ability of pkmnExtraData.abilities) {
+        for (const ability of (pkmnExtraData?.abilities || [])) {
             const abilityInCache = listAbilitiesCache.find((item) => item.name.en.toLowerCase() === ability.ability.name.toLowerCase());
             if (abilityInCache) {
                 listAbilitiesDescriptions.push(abilityInCache);
@@ -303,7 +302,7 @@ displayModal = async (pkmnData) => {
         }
 
         const listKnownAbilities = listAbilitiesDescriptions.map((item) => cleanString(item.name.fr.toLowerCase().replace("-", "")));
-        listAbilities = pkmnData.talents
+        listAbilities = (pkmnData?.talents || [])
             .filter((item) => listKnownAbilities.includes(cleanString(item.name.toLowerCase().replace("-", ""))))
             .map((item) => ({
                 ...item,

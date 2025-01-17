@@ -28,7 +28,9 @@ const marqueeTypeContainerTemplateRaw = document.querySelector("[data-tpl-id='ma
 
 const pokedexContainer = document.querySelector("[data-list-pokedex]");
 
-const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
+const errorPopover = document.querySelector("[data-error-popover]");
+const errorMessageContainer = errorPopover.querySelector("[data-error-message]");
+
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
 pikachuLoading.hidden = true;
@@ -258,7 +260,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         });
         window.dispatchEvent(pokedexLoadedEvent);
     } catch (error) {
-        const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
         if (error?.cause?.status === HTTP_NOT_FOUND_CODE_ERROR) {
             listLoadGenerationBtns.forEach((item) => item.inert = true);
             hasReachPokedexEnd = true;
@@ -269,7 +270,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             errorMessageContainer.textContent = "Une erreur est survenue.";
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
-        noGenerationBanner.showPopover();
+        errorPopover.showPopover();
     } finally {
         pokedexContainer.setAttribute("aria-busy", false);
     }
@@ -278,14 +279,23 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
 
-if (pkmnId !== null) {
-    const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
-    pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
+const observeURL = async () => {
+    if (pkmnId !== null) {
+        try {
+            const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
+            pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
 
-    await displayPkmnModal(pkmnData);
-    modal.showModal();
+            await displayPkmnModal(pkmnData);
+            modal.showModal();
+        } catch (e) {
+            modal.close();
+            errorMessageContainer.textContent = `Le Pokémon avec l'id "${pkmnId}" n'existe pas`;
+            errorPopover.showPopover();
+        }
+    }
 }
 
+await observeURL();
 await loadPokedexForGeneration(1);
 
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
@@ -311,9 +321,7 @@ window.addEventListener('popstate', async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
     if (urlParams.get("id") !== null) {
-        const pkmnData = await fetchPokemon(Number(urlParams.get("id")), urlParams.get("region"));
-        pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
-        displayPkmnModal(pkmnData);
+        await observeURL();
     } else {
         modal.close();
     }
@@ -345,9 +353,8 @@ document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidt
 document.body.removeChild(scrollDiv);
 
 window.addEventListener("offline", () => {
-    const errorMessageContainer = noGenerationBanner.querySelector("[data-error-message]");
     errorMessageContainer.textContent = "Connexion perdue";
-    noGenerationBanner.showPopover();
+    errorPopover.showPopover();
 });
 
 export { loadPokedexForGeneration };
