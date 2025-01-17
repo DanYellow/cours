@@ -471,3 +471,19 @@ details {
 .pokemon {
     transition-property: background-color, transform;
 }
+
+.pikachu-loading {
+    transition: opacity .5s ease-in,
+        display .5s ease-in;
+    transition-behavior: allow-discrete;
+
+    @starting-style {
+        opacity: 0;
+    }
+
+    &[hidden] {
+        opacity: 0;
+        display: none !important;
+        transition-duration: .4s;
+    }
+}

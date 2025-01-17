@@ -31,6 +31,8 @@ const pokedexContainer = document.querySelector("[data-list-pokedex]");
 const noGenerationBanner = document.querySelector("[data-no-generation-banner]");
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
+pikachuLoading.hidden = true;
+
 const faviconContainer = document.querySelector("[data-favicon]");
 const generationShortcut = document.querySelector("[data-generation-shortcut]");
 
@@ -318,12 +320,12 @@ window.addEventListener('popstate', async () => {
 });
 
 window.addEventListener("startloading", () => {
-    pikachuLoading.classList.replace("hidden", "flex");
+    pikachuLoading.hidden = false;
     faviconContainer.setAttribute("href", pikachuLoadingImage);
 });
 
 window.addEventListener("endloading", () => {
-    pikachuLoading.classList.replace("flex", "hidden");
+    pikachuLoading.hidden = true;
     faviconContainer.setAttribute("href", initialPageFavicon);
 });
 
