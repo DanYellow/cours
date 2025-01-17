@@ -33,6 +33,8 @@ Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en ap
 Le projet se trouve toujours au même endroit :
 - [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
+> Même si vous avez récupéré le projet durant le TP, il est préférable de récupérer la dernière version, des modifications ont pu avoir lieu entre-temps.
+
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
@@ -161,6 +163,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
   - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
     - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
+> Le report HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
