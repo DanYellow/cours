@@ -470,7 +470,7 @@ details {
 
 .pikachu-loading, .error-banner {
     transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
-    display theme("transitionDuration.500") ease-in theme("transitionDelay.75");
+    display theme("transitionDuration.500") ease-in;
         transition-behavior: allow-discrete;
 }
 

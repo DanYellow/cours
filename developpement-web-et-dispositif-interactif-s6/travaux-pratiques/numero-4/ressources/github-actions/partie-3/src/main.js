@@ -142,7 +142,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     }
 
     faviconContainer.setAttribute("href", pikachuLoadingImage);
-    pokedexContainer.setAttribute("aria-busy", true);
 
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
@@ -273,8 +272,6 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         }
         errorPopover.dataset.error = POPOVER_ERRORS.unknown;
         errorPopover.showPopover();
-    } finally {
-        pokedexContainer.setAttribute("aria-busy", false);
     }
 };
 
@@ -332,11 +329,13 @@ window.addEventListener('popstate', async () => {
 
 window.addEventListener("startloading", () => {
     pikachuLoading.hidden = false;
+    pokedexContainer.setAttribute("aria-busy", true);
     faviconContainer.setAttribute("href", pikachuLoadingImage);
 });
 
 window.addEventListener("endloading", () => {
     pikachuLoading.hidden = true;
+    pokedexContainer.setAttribute("aria-busy", false);
     faviconContainer.setAttribute("href", initialPageFavicon);
 });
 
