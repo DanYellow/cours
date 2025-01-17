@@ -6,9 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  ## Possibilité de fusionner les deux tâches suivantes, mais déconseillé
+  ## Two next jobs can be merged, but not a good idea
   e2e_tests:
+    name: Run end-to-end tests
     runs-on: ubuntu-latest
+    timeout-minutes: 45 # Stop job after 45 minutes of inactivity
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -27,7 +29,9 @@ jobs:
         run: npx playwright test --project=chromium --grep-invert @smoke
 
   unit_tests:
+    name: Run unit tests
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -42,6 +46,8 @@ jobs:
         run: npm run test --if-present
 
   build:
+    name: Generate build
+    timeout-minutes: 10
     needs: [e2e_tests, unit_tests]
     runs-on: ubuntu-latest
     steps:
@@ -63,17 +69,19 @@ jobs:
       - name: Generate artifact
         uses: actions/upload-artifact@master
         with:
-          name: bundle
+          name: front-end-build
           path: ./dist
 
   deploy:
+    name: Deploy build to production
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@master
         with:
-          name: bundle
+          name: front-end-build
       - name: Fill ssh key
         run: echo "${{ secrets.SSH_KEY }}" > ~/deploy_key && chmod 400 ~/deploy_key
       - name: Move files
