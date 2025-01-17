@@ -19,7 +19,7 @@
 
 ## Contexte de la SAÉ
 CY Cergy Paris Université vous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI).
-L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants : 
+L'objectif primaire du site sera de présenter de façon détaillée les aspects de la formation du parcours MMI aux lycéens qui sont potentiellement intéressés à poursuivre dans le parcours BUT MMI de l’IUT CYU. Le site doit aussi donner la possibilité de contacter l'administration via un formulaire. De ce fait, ce projet sera l'occasion de mettre en application les notions vues dans les cours de Développement Web et d'Intégration Web pour ainsi valider les apprentissages critiques suivants :
 
 **R1.11 – Intégration**
 - AC14.01 : Exploiter de manière autonome un environnement de développement efficace et productif
@@ -61,12 +61,12 @@ La page contact possède trois états :
     </ol>
 
     Le bandeau (succès ou erreur) ne doit être visible **qu’après avoir soumis le formulaire.** Ainsi, le traitement du formulaire doit être fait sur la même page. L’utilisation du PHP est **indispensable** pour récupérer les valeurs des champs du formulaire. Quant aux conditions qui vont afficher le bandeau rouge, c'est à vous de les définir (quels champs sont obligatoires, etc.). Pour "forcer" l'affichage du bandeau rouge, vous pouvez vous baser sur l'adresse e-mail envoyée si elle est égale à une valeur bien spécifique alors on l'affiche
-- **Sur les médias :** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants : 
+- **Sur les médias :** Cette page contient une grille de boîtes qui affichent les vidéos YouTube qui traitent différents sujets : le BUT, parcours MMI et IUT. Les liens des vidéos sont les suivants :
   - https://www.youtube.com/watch?v=oiEbQF7qfBU
   - https://www.youtube.com/watch?v=SyjF4h2Zb7Q
   - https://www.youtube.com/watch?v=t72pdxpNjyc
   - https://www.youtube.com/watch?v=xD4wshE0hEg
-  
+
   A vous de trouver comment on intègre une vidéo Youtube sur un site web. **Les vidéos ne doivent en aucun cas être téléchargées**, c'est le lecteur de Youtube qui doit s'afficher
 - **Lieux de vie :** Une page qui liste différents lieux de l'IUT. La maquette ne contient pas de réelles photos, vous pouvez utiliser des placeholders pour images comme le site [https://placehold.co/](https://placehold.co/). Libre à vous de mettre de vraies photos des lieux
 - **Nouvelle page à votre discretion.** Une sixième page doit être développée, vous déciderez le contenu et les éléments. Toutefois, elle devra impérativement respecter le design, la mise en page des autres pages du site (navigation et pied de page) et contenir au minimum une image et un paragraphe. **Cette nouvelle page devra être joignable par un lien présent dans la navigation en haut de page.** Vous pouvez également rajouter des pages supplémentaires tout en respectant les règles précédemment citées. **A noter que cette SAÉ n'est pas un exercice rédactionnel, vous pouvez récupérer les textes sur le web.**
@@ -75,8 +75,8 @@ La page contact possède trois états :
 
 Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appétences pour produire le meilleur site possible. Si certains sont moins à l’aise avec le code, ils peuvent s’assurer de la qualité du site en vérifiant que tout fonctionne correctement. Si d’autres sont plus à l’aise avec le design, ils peuvent imaginer la sixième page.
 
-> Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider. 
-> 
+> Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider.
+>
 > [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
 
 ## Police d'écriture
@@ -113,9 +113,9 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
   - [Accéder au jeu flexboxfroggy](https://flexboxfroggy.com/#fr)
   - Et bien évidemment la documentation : [Accéder à la documentation de flexbox](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
-  
+
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
-- Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css" 
+- Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css"
 - **Votre projet doit impérativement avoir un fichier "index.php".** Il y en a déjà un, n'allez pas le renommer
 - Par défaut, VS Code ne permet pas l'auto-complétion de balises HTML dans un fichier PHP. Il faut l'activer, pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
@@ -207,11 +207,11 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
   Ce ne sont pas des animations mais des transitions. Ceci se fait en CSS, nous verrons ceci à l'occasion du deuxième semestre, mais si le sujet vous intéresse déjà, il y a la documentaion des CSS transitions sur mdn
     - [Accéder à la documentation de CSS Transition](https://developer.mozilla.org/fr/docs/Web/CSS/transition)
 - **C'est compliqué de travailler en groupe, il y a parfois des fichiers dupliqués, est-ce grave ?**
-    
+
     Vous n'avez pas vu comment développer de façon collaborative, c'est normal que vous ayez des duplications, notamment au niveau des sélecteurs CSS. Comme dit dans la partie [Astuces](#astuces), pour limiter les problèmes lors de la fusion, pour chaque page faites un CSS dédié quitte à avoir des doublons dans les sélecteurs.
 
 - **Le raccourci `html:5` ne fonctionne pas dans mes fichiers PHP, pourquoi ?**
-    
+
     Il faut activer l'outil d'emmet sur les fichiers PHP, c'est lui qui permet notamment d'utiliser le raccourci `html:5`. Pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
     1. Recherchez "emmet" dans la barre de recherche
@@ -232,7 +232,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
         - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
         - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
         - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
-    > Normalement, lorsque la console est ouverte, le cache est désactivé.
+    > Normalement, lorsque la console est ouverte, le cache est désactivé si vous avez coché l'option "Disable cache" dans l'onglet "Network" de la console du navigateur (F12 / Clic droit > Inspecter).
 
 ## Pour aller plus loin
 - [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)

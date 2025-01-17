@@ -12,7 +12,7 @@ _Les consignes pourront être modifiées._
 - [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 
 ## Contexte de la SAÉ
-CY Cergy Paris Université vous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants : 
+CY Cergy Paris Université vous confie la réalisation d'un site web dédié au BUT Métiers du Multimédia et de l'Internet (MMI). Et pas n'importe lequel puisqu'il s'agit du site sur lequel vous avez travaillé durant la SAÉ 105 dans le but de valider les Apprentissages Critiques (AC) suivants :
 
 **R212 – Intégration**
 - AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
@@ -25,9 +25,9 @@ CY Cergy Paris Université vous confie la réalisation d'un site web dédié au 
 - AC4104 : Mettre en ligne une application Web en utilisant une solution d’hébergement standard
 
 **R214 – Système d’information**
-- AC4105 : Modéliser les données et les traitements d’une application Web 
+- AC4105 : Modéliser les données et les traitements d’une application Web
 
-Comme la SAÉ 105, ceci est un projet de groupe, groupe de 3 à 6 personnes **au sein du même TP/TD.** Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT. 
+Comme la SAÉ 105, ceci est un projet de groupe, groupe de 3 à 6 personnes **au sein du même TP/TD.** Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT.
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
 
@@ -41,11 +41,11 @@ Notez également qu'il y a deux dossiers `ressources/`, un à la racine du proje
 
 
 Nous vous remettons le lien vers la maquette Adobe XD, **toutefois vous n'en aurez pas vraiment besoin,** en effet, votre travail sur cette SAÉ sera de développer de nouvelles pages, dont le contenu textuel et les chemins des images (les cas échéants) seront chargés depuis une base de données.
-Les deux pages à réaliser sont : 
+Les deux pages à réaliser sont :
 
-- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.** 
+- article : lorsqu'on clique sur un article sur la **page d'accueil**, on doit accéder à son contenu. Il y a déjà un fichier `article.php`, **il doit être complété.**
 
-    Un article doit contenir : 
+    Un article doit contenir :
     - Son titre
     - Son chapô + contenu (dans cet ordre)
     - Son image
@@ -62,7 +62,7 @@ Les deux pages à réaliser sont :
   > Note : Cette page possède un bug concernant le chargement du bon article, à vous de le corriger
 - La liste des auteurs du site ("équipe de rédaction")
   - Le lien pour y accéder est déjà dans la navigation mais le fichier php n'existe pas
-  - Afficher pour chaque auteur : 
+  - Afficher pour chaque auteur :
     - Image
     - Prénom
     - Nom
@@ -142,8 +142,8 @@ Leur utilisation est indiqué dans la maquette Adobe XD.
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changeront en fonction de l'environnement. Voici une description des différentes variables de ces fichiers .env.
 ```bash
 # Contient le dossier qui contient votre projet. Par exemple si votre projet (le contenu du dossier code) est dans un dossier nommé "toto", il faudra mettre comme valeur "toto/".
-# Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du serveur. Mais si c'est dans un autre dossier, il faudra mettre une valeur. Pensez bien à mettre la barre oblique à la fin (/) ceci est très important. 
-CHEMIN_BASE= 
+# Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du serveur. Mais si c'est dans un autre dossier, il faudra mettre une valeur. Pensez bien à mettre la barre oblique à la fin (/) ceci est très important.
+CHEMIN_BASE=
 
 # Nom de la base de données. Normalement, cette valeur ne change pas
 NOM_BDD=sae_203_db
@@ -184,7 +184,7 @@ Comme pour le front-office, nous avons mis à disposition un squelette de fichie
 
 ### Redirection après soumission (Administration)
 
-Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires du point de vue visuel. C'est normal, il manque le comportement du navigateur après la soumission (car les données ont bien été enregistrées - sauf erreur -). Deux choix s'offrent à vous : 
+Lors de vos tests, vous remarquerez qu'il ne se passe rien lorsque vous soumettrez vos formulaires du point de vue visuel. C'est normal, il manque le comportement du navigateur après la soumission (car les données ont bien été enregistrées - sauf erreur -). Deux choix s'offrent à vous :
 - Rester sur la page avec les données mises à jour
 - Rediriger l'utilisateur vers une autre page
 
@@ -193,12 +193,12 @@ Voici le code pour les deux cas. Ce code est à mettre **après que** les donné
 ```php
 // L'utilisateur reste sur la même page
 $pageRedirection = $_SERVER['HTTP_REFERER'];
-header("Location: $pageRedirection"); 
+header("Location: $pageRedirection");
 ```
 
 ```php
 // L'utilisateur retourne à la liste des éléments.
-// Par exemple : 
+// Par exemple :
 // Je crée un article. Je soumets le formulaire. Je suis redirigé vers la liste d'articles grâce au code suivant.
 $racineURL = pathinfo($_SERVER['REQUEST_URI']);
 $pageRedirection = $racineURL['dirname'];
@@ -223,7 +223,7 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 - Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de classes pour vous éviter d'en créer de nouvelles.
 
 # Rendus attendus
-Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons deux façons de rendre votre projet sur l'ENT : 
+Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons deux façons de rendre votre projet sur l'ENT :
   - Une archive avec le nom-prénom du chef de projet
   - Un fichier texte contenant le lien vers le dépôt git **public**
     - **Note : Il faut faire un seul et unique dépôt git par groupe. Il ne faut pas en faire plusieurs par membre du groupe.**
@@ -236,7 +236,7 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - URL vers le site
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
-  
+
 > Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
@@ -277,7 +277,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests pour mieux comprendre le code
 - [ ] Mettre des CSS transitions
-- [ ] Compléter l'administration 
+- [ ] Compléter l'administration
     - [ ] Je peux ajouter / éditer :
       - [ ] Un article / auteur
     - [ ] Je peux lister :
@@ -302,10 +302,10 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
     - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
     - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
-    - Note 3 : Ceci ne fonctionnera pas sur votre ordinateur, il faudra impérativement mettre le site en ligne pour pouvoir tester 
-- [ ] Rendre le projet 
+    - Note 3 : Ceci ne fonctionnera pas sur votre ordinateur, il faudra impérativement mettre le site en ligne pour pouvoir tester
+- [ ] Rendre le projet
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
-  
+
 
 # FAQ - Foire Aux Questions
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
@@ -334,14 +334,16 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - **Mon site affiche "Erreur : SQLSTATE[HY000] [1049] Base 'sae_203_db' inconnue" (ou semblable)**
 
     Ceci signifie que vous n'avez pas importé la base de données. Regardez le fichier [LISEZ-MOI-IMPORT-SQL](LISEZ-MOI-IMPORT-SQL.md) pour voir comment importer la base.
-  
+
 - **Après avoir uploadé mes modifications, je ne vois aucune modifications dans mon navigateur**
 
-  Si vous êtes sûr(e) à 100 % d'avoir uploadé les bons fichiers, c'est certainement lié au cache navigateur. Autrement dit, le navigateur garde l'ancienne version de vos fichiers pour économiser la bande passante. Pour y remédier, vous avez les solutions suivantes :
-    - Ouvrir votre site en navigation privée
-    - Supprimer le cache navigateur. Vous pourrez trouver comment faire en ligne selon le navigateur utilisé
-    - Cocher la case "désactiver le cache" dans la console du navigateur
-    - Ajouter un paramètre dans l'URL. Par exemple, localhost:4242?faux=parametre
+    Deux possibilités :
 
+    - Vous ne modifiez pas les bons fichiers. Vous avez, par exemple, le projet copié ailleurs sur votre ordinateur ou une clé usb et vous modifiez cette version, version qui n'est pas affichée dans le navigateur
+    -  Votre serveur affiche la version en cache de votre site. Pour vider le cache plusieurs solutions :
+        - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
+        - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
+        - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
+    > Normalement, lorsque la console est ouverte, le cache est désactivé si vous avez coché l'option "Disable cache" dans l'onglet "Network" de la console du navigateur (F12 / Clic droit > Inspecter).
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
