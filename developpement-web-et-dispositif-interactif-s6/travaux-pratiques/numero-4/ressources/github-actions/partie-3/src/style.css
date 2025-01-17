@@ -490,4 +490,11 @@ details {
     @starting-style {
         translate: 0 -10vh;
     }
+
+    &[popover]:not(:popover-open) {
+        translate: 0 -10vh;
+        display: none !important;
+        transition-duration: .4s;
+        transition-timing-function: ease-out;
+    }
 }
