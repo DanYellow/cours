@@ -214,6 +214,12 @@ export const clamp = (value, min, max) => {
     return Math.min(Math.max(value, min), max);
 };
 
+export const onTransitionsEnded = (node) => {
+    return Promise.allSettled(
+        node.getAnimations().map(animation => animation.finished)
+    );
+}
+
 export * from "./colors";
 export * from "./pokemon-modal.utils";
 export * from "./formsDictionary";

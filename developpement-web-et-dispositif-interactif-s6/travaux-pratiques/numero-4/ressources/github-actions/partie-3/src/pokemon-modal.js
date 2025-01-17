@@ -19,6 +19,7 @@ import {
     getPkmnIdFromURL,
     tailwindConfig,
     formsNameDict,
+    onTransitionsEnded,
     NB_NUMBER_INTEGERS_PKMN_ID
 } from "./utils";
 
@@ -124,7 +125,7 @@ const resetModalPosition = () => {
     modal.style.opacity = 1;
 }
 
-modal.addEventListener("close", () => {
+modal.addEventListener("close", async (e) => {
     const url = new URL(location);
     url.searchParams.delete("id");
     url.searchParams.delete("region");
@@ -136,14 +137,15 @@ modal.addEventListener("close", () => {
     modal.style.setProperty("--details-modal-blur", "0px");
     modal.dataset.hasBeenTouched = false;
 
-    setTimeout(() => {
-        modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
+    await onTransitionsEnded(e.target);
 
-        modal.style.removeProperty("opacity");
-        modal.style.removeProperty("translate");
+    modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
 
-        modal.scrollTo(0, 0);
-    }, 250);
+    modal.style.removeProperty("opacity");
+    modal.style.removeProperty("translate");
+
+    modal.scrollTo(0, 0);
+
     modal.dataset.isClosing = false;
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
