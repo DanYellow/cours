@@ -13,6 +13,7 @@ import {
     tailwindConfig,
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
+    POPOVER_ERRORS,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
@@ -270,6 +271,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             errorMessageContainer.textContent = "Une erreur est survenue.";
             listLoadGenerationBtns.forEach((item) => item.inert = false);
         }
+        errorPopover.dataset.error = POPOVER_ERRORS.unknown;
         errorPopover.showPopover();
     } finally {
         pokedexContainer.setAttribute("aria-busy", false);
@@ -290,6 +292,7 @@ const observeURL = async () => {
         } catch (_e) {
             modal.close();
             errorMessageContainer.textContent = `Le Pokémon avec l'id "${pkmnId}" n'existe pas`;
+            errorPopover.dataset.error = POPOVER_ERRORS.unknown_pkmn;
             errorPopover.showPopover();
         }
     }
@@ -338,7 +341,7 @@ window.addEventListener("endloading", () => {
 });
 
 errorPopover.addEventListener("beforetoggle", (e) => {
-    if (e.newState !== "open") {
+    if (e.newState !== "open" && e.target.dataset.error === POPOVER_ERRORS.unknown_pkmn) {
         const url = new URL(location);
         url.searchParams.delete("id");
         url.searchParams.delete("region");
@@ -364,6 +367,7 @@ document.body.removeChild(scrollDiv);
 
 window.addEventListener("offline", () => {
     errorMessageContainer.textContent = "Connexion perdue";
+    errorPopover.dataset.error = POPOVER_ERRORS.lost_connection;
     errorPopover.showPopover();
 });
 
