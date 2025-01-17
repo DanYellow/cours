@@ -598,7 +598,7 @@ displayModal = async (pkmnData) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
-        summary.classList.add(...["hover:marker:text-[color:--bg-modal-color]"])
+        summary.classList.add(...["hocus:marker:text-[color:--bg-modal-color]"])
 
         const paragraph = document.createElement("p");
         paragraph.textContent = item.description?.replaceAll("\\n", " ");

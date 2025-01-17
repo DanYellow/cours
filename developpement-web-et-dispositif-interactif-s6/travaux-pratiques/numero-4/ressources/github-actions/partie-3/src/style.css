@@ -289,10 +289,6 @@ details {
                 transform: scaleX(0);
             }
         }
-
-        summary::marker {
-            color: black !important;
-        }
     }
 }
 
@@ -437,7 +433,7 @@ details {
     @media (width > theme("screens.md")) {
         content: none !important;
     }
-    mask: url(/male-icon.svg) no-repeat 50% 50%;
+    mask: url("/male-icon.svg") no-repeat 50% 50%;
     mask-size: contain;
     position: absolute;
     left: 0;
@@ -453,7 +449,7 @@ details {
     @media (width > theme("screens.md")) {
         content: none !important;
     }
-    mask: url(/female-icon.svg) no-repeat 50% 50%;
+    mask: url("/female-icon.svg") no-repeat 50% 50%;
     mask-size: contain;
     position: absolute;
     right: 0;
@@ -473,17 +469,17 @@ details {
 }
 
 .pikachu-loading {
-    transition: opacity .5s ease-in,
-        display .5s ease-in;
+    transition: translate theme("transitionDuration.500") ease-in,
+        display theme("transitionDuration.500") ease-in;
     transition-behavior: allow-discrete;
 
     @starting-style {
-        opacity: 0;
+        translate: 0 100vh;
     }
 
     &[hidden] {
-        opacity: 0;
+        translate: 0 100vh;
         display: none !important;
-        transition-duration: .4s;
+        transition-duration: theme("transitionDuration.300");
     }
 }
