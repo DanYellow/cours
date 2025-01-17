@@ -468,18 +468,26 @@ details {
     transition-property: background-color, transform;
 }
 
-.pikachu-loading {
+.pikachu-loading, .error-banner {
     transition: translate theme("transitionDuration.500") ease-in,
-        display theme("transitionDuration.500") ease-in;
-    transition-behavior: allow-discrete;
+    display theme("transitionDuration.500") ease-in;
+        transition-behavior: allow-discrete;
+}
 
+.pikachu-loading {
     @starting-style {
-        translate: 0 100vh;
+        translate: 0 110vh;
     }
 
     &[hidden] {
-        translate: 0 100vh;
+        translate: 0 110vh;
         display: none !important;
         transition-duration: theme("transitionDuration.300");
+    }
+}
+
+.error-banner {
+    @starting-style {
+        translate: 0 -10vh;
     }
 }

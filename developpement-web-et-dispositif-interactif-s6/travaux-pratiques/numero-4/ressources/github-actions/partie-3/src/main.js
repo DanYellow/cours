@@ -287,7 +287,7 @@ const observeURL = async () => {
 
             await displayPkmnModal(pkmnData);
             modal.showModal();
-        } catch (e) {
+        } catch (_e) {
             modal.close();
             errorMessageContainer.textContent = `Le Pokémon avec l'id "${pkmnId}" n'existe pas`;
             errorPopover.showPopover();
@@ -335,6 +335,16 @@ window.addEventListener("startloading", () => {
 window.addEventListener("endloading", () => {
     pikachuLoading.hidden = true;
     faviconContainer.setAttribute("href", initialPageFavicon);
+});
+
+errorPopover.addEventListener("beforetoggle", (e) => {
+    if (e.newState !== "open") {
+        const url = new URL(location);
+        url.searchParams.delete("id");
+        url.searchParams.delete("region");
+        url.searchParams.delete("alternate_form_id");
+        history.pushState({}, "", url);
+    }
 });
 
 if (process.env.NODE_ENV === "development") {
