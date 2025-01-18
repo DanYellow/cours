@@ -601,9 +601,9 @@ displayModal = async (pkmnData) => {
         summary.textContent = item.name.fr;
         summary.classList.add(...["hocus:marker:text-[color:--bg-modal-color]"])
 
-        const paragraph = document.createElement("p");
-        paragraph.textContent = item.description?.replaceAll("\\n", " ");
-        paragraph.classList.add("ml-4");
+        const abilityDescription = document.createElement("p");
+        abilityDescription.textContent = item.description?.replaceAll("\\n", " ");
+        abilityDescription.classList.add("ml-4");
 
         if (item.tc) {
             const clone = document.importNode(
@@ -613,7 +613,7 @@ displayModal = async (pkmnData) => {
             summary.append(clone);
         }
         details.append(summary);
-        details.insertAdjacentElement("beforeend", paragraph);
+        details.insertAdjacentElement("beforeend", abilityDescription);
         details.classList.add("mb-1.5");
 
         modal_DOM.listAbilities.append(details);

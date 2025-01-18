@@ -501,6 +501,7 @@ details {
 
 @keyframes animate-in {
 	0% { opacity: 0; transform: translateY(100%); }
+	50% { opacity: 0; transform: translateY(100%); }
 	100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -509,12 +510,16 @@ details {
 	100% { opacity: 0; transform: translateY(-100%); }
 }
 
-.pokedex > li {
-    @supports (animation-timeline: view()) {
-        will-change: transform, opacity;
-        animation: animate-in linear forwards,
-        animate-out linear forwards;
-        animation-timeline: view();
-        animation-range: entry, exit;
+.pokedex {
+    a {
+        @supports (animation-timeline: view()) {
+            @container pokemon (width >= theme("containers.xs")) {
+                will-change: transform, opacity;
+                animation: animate-in linear forwards,
+                animate-out linear forwards;
+                animation-timeline: view();
+                animation-range: entry, exit;
+            }
+        }
     }
 }
