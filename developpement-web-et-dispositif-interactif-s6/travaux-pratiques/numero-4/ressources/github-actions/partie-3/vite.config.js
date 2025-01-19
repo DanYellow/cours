@@ -38,6 +38,7 @@ export default defineConfig({
             "**/node_modules/**",
             "**/dist/**",
             "**/cypress/**",
+            "**/worklets/**",
             "**/.{idea,git,cache,output,temp}/**",
             "**/e2e/**",
         ],
