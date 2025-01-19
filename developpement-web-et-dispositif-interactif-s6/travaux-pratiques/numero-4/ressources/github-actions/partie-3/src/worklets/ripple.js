@@ -21,11 +21,13 @@ if (typeof registerPaint !== "undefined") {
         class {
             static get inputProperties() {
                 return [
-                    "--ripple-color",
                     "--animation-tick",
+                    "--ripple-color",
+                    "--ripple-speed",
                     "--ripple-x",
                     "--ripple-y",
-                    "--ripple-speed",
+                    "--ripple-stroke-color",
+                    "--ripple-stroke-width",
                 ];
             }
             paint(ctx, geom, properties) {
@@ -37,6 +39,10 @@ if (typeof registerPaint !== "undefined") {
                 const rippleColor = properties.get("--ripple-color").toString();
                 const x = parseFloat(properties.get("--ripple-x").toString());
                 const y = parseFloat(properties.get("--ripple-y").toString());
+
+                const rippleStrokeColor = properties.get("--ripple-stroke-color").toString();
+                const rippleStrokeWidth = properties.get("--ripple-stroke-width").toString();
+
                 let tick = parseFloat(
                     properties.get("--animation-tick").toString()
                 );
@@ -50,6 +56,7 @@ if (typeof registerPaint !== "undefined") {
                 let t = tick / speed;
 
                 ctx.globalAlpha = 1 - (t * t);
+                ctx.beginPath();
                 ctx.arc(
                     x,
                     y,
@@ -59,6 +66,10 @@ if (typeof registerPaint !== "undefined") {
                 );
 
                 ctx.fill();
+
+                ctx.strokeStyle = rippleStrokeColor;
+                ctx.lineWidth = rippleStrokeWidth;
+                ctx.stroke();
             }
         }
     );

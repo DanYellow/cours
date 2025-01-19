@@ -99,6 +99,18 @@ html {
     initial-value: transparent;
 }
 
+@property --ripple-stroke-width {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: transparent;
+}
+
+@property --ripple-stroke-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+}
+
 @property --animation-tick {
     syntax: "<number>";
     inherits: true;
