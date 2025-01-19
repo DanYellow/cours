@@ -90,10 +90,20 @@ test("should open regional form", async ({ page }) => {
         )
     ])
 
+    await expect(page.getByTestId("pokemon-modal")).toHaveAttribute("open", "");
     await page.getByTestId("regional-forms").first().click();
-    await page.getByTestId("regional-forms").getByTestId("pokemon").first().click();
+    const firstRegionalPokemon = await page.getByTestId("regional-forms").getByTestId("pokemon").first();
+    const firstRegionalPokemonURL = new URL(await firstRegionalPokemon.getAttribute("href"));
+    const firstRegionalPokemonRegion = firstRegionalPokemonURL.searchParams.get("region");
+
+    await firstRegionalPokemon.click();
+
+    await page.waitForResponse((resp) =>
+        resp.url().includes(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}/${firstRegionalPokemonRegion}`)
+    );
 
     const currentUrl = new URL(await page.url());
+
     await expect(Array.from(currentUrl.searchParams.values())).toHaveLength(3);
 });
 
