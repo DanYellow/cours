@@ -539,6 +539,7 @@ details {
 }
 
 .pikachu-loading {
+    z-index: 99;
     @starting-style {
         translate: 0 110vh;
     }
