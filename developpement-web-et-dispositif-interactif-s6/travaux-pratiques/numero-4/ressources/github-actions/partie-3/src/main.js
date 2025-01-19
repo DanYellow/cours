@@ -101,7 +101,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
-const rippleEffect = (e, color = "#fff") => {
+export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
         if ("paintWorklet" in CSS === false) {
             resolve();
@@ -117,7 +117,7 @@ const rippleEffect = (e, color = "#fff") => {
             const count = Math.floor(now - start);
             $el.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count}; --ripple-color: ${color}`;
 
-            if (count > 500) {
+            if (count > 350) {
                 resolve();
             }
             if(count > 1000) {

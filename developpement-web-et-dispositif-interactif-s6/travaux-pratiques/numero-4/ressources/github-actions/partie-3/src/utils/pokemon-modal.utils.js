@@ -120,7 +120,7 @@ export const createAlternateForm = (template, data, event) => {
     return template;
 }
 
-export const hocusClassRegex = /\shocus.+\d\s/;
+export const hocusClassRegex = /\shocus.+/;
 
 export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, event}) => {
     const li = template.querySelector("li");
@@ -179,6 +179,7 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
             divTag.innerHTML = aTag.innerHTML;
             divTag.classList = aTag.classList;
             divTag.className = divTag.className.replace(hocusClassRegex, ' ')
+            divTag.classList.remove("ripple-effect");
             divTag.classList.add("font-bold");
             aTag.parentNode.replaceChild(divTag, aTag);
         }

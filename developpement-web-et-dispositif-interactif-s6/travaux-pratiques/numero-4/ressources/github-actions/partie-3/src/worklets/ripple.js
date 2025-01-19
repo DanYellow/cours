@@ -48,7 +48,7 @@ if (typeof registerPaint !== "undefined") {
                 ctx.globalAlpha = 1 - tick / speed;
                 ctx.arc(
                     x,
-                    y, // center
+                    y,
                     (geom.width * tick) / speed, // radius
                     0, // startAngle
                     2 * Math.PI // endAngle
