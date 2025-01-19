@@ -467,24 +467,36 @@ details {
 .pokemon {
     --ripple-x: 0;
     --ripple-y: 0;
-    --ripple-color: rgb(75, 75, 75);
+    --ripple-color: transparent;
+    --ripple-speed: 350;
     --animation-tick: 0;
 
-    transition-property: background-color, transform;
+    transition-property: transform;
     position: relative;
 
     &::after {
         content: "";
         position: absolute;
         inset: 0;
+        background-color: theme("colors.slate.100");
         z-index: -1;
         box-sizing: content-box;
         overflow: hidden;
         border-radius: inherit;
+        opacity: 0;
+        transition-property: background-color;
+        transition-duration: theme("transitionDuration.150");
+    }
+
+    &:hover, &:focus {
+        &::after {
+            opacity: 1;
+        }
     }
 
     &.animating {
         &::after {
+            opacity: 1;
             background-image: paint(ripple);
         }
     }

@@ -25,9 +25,12 @@ if (typeof registerPaint !== "undefined") {
                     "--animation-tick",
                     "--ripple-x",
                     "--ripple-y",
+                    "--ripple-speed",
                 ];
             }
             paint(ctx, geom, properties) {
+                const defaultSpeed = 1000;
+                const speed = parseInt(properties.get("--ripple-speed")?.toString() || defaultSpeed);
                 const bgColor = properties.get("background-color").toString();
                 const rippleColor = properties.get("--ripple-color").toString();
                 const x = parseFloat(properties.get("--ripple-x").toString());
@@ -36,19 +39,19 @@ if (typeof registerPaint !== "undefined") {
                     properties.get("--animation-tick").toString()
                 );
                 if (tick < 0) tick = 0;
-                if (tick > 1000) tick = 1000;
+                if (tick > speed) tick = speed;
 
                 ctx.fillStyle = bgColor;
                 ctx.fillRect(0, 0, geom.width, geom.height);
                 ctx.fillRect(0, 0, geom.width, geom.height);
                 ctx.fillStyle = rippleColor;
-                ctx.globalAlpha = 1 - tick / 1000;
+                ctx.globalAlpha = 1 - tick / speed;
                 ctx.arc(
                     x,
                     y, // center
-                    (geom.width * tick) / 1000, // radius
+                    (geom.width * tick) / speed, // radius
                     0, // startAngle
-                    2 * Math.PI //endAngle
+                    2 * Math.PI // endAngle
                 );
 
                 ctx.fill();
