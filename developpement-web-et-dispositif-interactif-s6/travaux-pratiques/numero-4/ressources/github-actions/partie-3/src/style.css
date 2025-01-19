@@ -464,7 +464,8 @@ details {
     transition-property: background-color, transform;
 }
 
-.pokemon {
+
+.ripple-effect {
     --ripple-x: 0;
     --ripple-y: 0;
     --ripple-color: transparent;
@@ -484,7 +485,7 @@ details {
         overflow: hidden;
         border-radius: inherit;
         opacity: 0;
-        transition-property: background-color;
+        transition-property: opacity;
         transition-duration: theme("transitionDuration.150");
     }
 
@@ -544,7 +545,7 @@ details {
 	100% { opacity: 0; transform: translateY(-100%); }
 }
 
-.pokedex a {
+.pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
         @container pokemon (width >= theme("containers.xs")) {
             will-change: transform, opacity;
