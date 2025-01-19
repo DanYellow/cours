@@ -14,13 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Example : https://houdini.glitch.me/paint
 if (typeof registerPaint !== "undefined") {
     registerPaint(
         "ripple",
         class {
             static get inputProperties() {
                 return [
-                    "background-color",
                     "--ripple-color",
                     "--animation-tick",
                     "--ripple-x",
@@ -30,22 +30,26 @@ if (typeof registerPaint !== "undefined") {
             }
             paint(ctx, geom, properties) {
                 const defaultSpeed = 1000;
-                const speed = parseInt(properties.get("--ripple-speed")?.toString() || defaultSpeed);
-                const bgColor = properties.get("background-color").toString();
+                const speed = parseInt(
+                    properties.get("--ripple-speed")?.toString() || defaultSpeed
+                );
+
                 const rippleColor = properties.get("--ripple-color").toString();
                 const x = parseFloat(properties.get("--ripple-x").toString());
                 const y = parseFloat(properties.get("--ripple-y").toString());
                 let tick = parseFloat(
                     properties.get("--animation-tick").toString()
                 );
-                if (tick < 0) tick = 0;
-                if (tick > speed) tick = speed;
+                if (tick < 0) {
+                    tick = 0;
+                } else if (tick > speed) {
+                    tick = speed;
+                }
 
-                ctx.fillStyle = bgColor;
-                ctx.fillRect(0, 0, geom.width, geom.height);
-                ctx.fillRect(0, 0, geom.width, geom.height);
                 ctx.fillStyle = rippleColor;
-                ctx.globalAlpha = 1 - tick / speed;
+                let t = tick / speed;
+
+                ctx.globalAlpha = 1 - (t * t);
                 ctx.arc(
                     x,
                     y,
