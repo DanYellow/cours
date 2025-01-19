@@ -3,7 +3,7 @@ import {
     fetchPokemon,
 } from "#api";
 
-import displayPkmnModal from "./pokemon-modal";
+import loadPokemonData from "./pokemon-modal";
 import {
     replaceImage,
     cleanString,
@@ -17,9 +17,43 @@ import {
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
+import ripple from './worklets/ripple.js?url';
+
 import loadingImageRaw from "/loading.svg?raw";
 import pikachuLoadingImage from "/pikachu-loading.gif";
 import "./style.css";
+
+CSS.registerProperty({
+    name: '--ripple-color',
+    syntax: '<color>',
+    inherits: true,
+    initialValue: 'purple',
+});
+
+CSS.registerProperty({
+    name: '--ripple-y',
+    syntax: '<number>',
+    inherits: true,
+    initialValue: 0,
+});
+
+CSS.registerProperty({
+    name: '--ripple-x',
+    syntax: '<number>',
+    inherits: true,
+    initialValue: 0,
+});
+
+CSS.registerProperty({
+    name: '--animation-tick',
+    syntax: '<number>',
+    inherits: true,
+    initialValue: 0,
+});
+
+if ('paintWorklet' in CSS) {
+    CSS.paintWorklet.addModule(ripple);
+}
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");
 const pkdexTemplateRaw = document.querySelector("[data-tpl-id='pokedex']");
@@ -95,18 +129,42 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
+const rippleEffect = (e, color = "#fff") => {
+    const $el = e.currentTarget;
+    $el.classList.add('animating');
+
+    const rect = $el.getBoundingClientRect();
+    const [x, y] = [parseInt(e.clientX - rect.left), parseInt(e.clientY - rect.top)];
+    const start = performance.now();
+
+    requestAnimationFrame(function raf(now) {
+        const count = Math.floor(now - start);
+        $el.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count}; --ripple-color: ${color}`;
+        if(count > 1000) {
+            $el.classList.remove('animating');
+            $el.style.cssText = `--animation-tick: 0`;
+            return;
+        }
+        requestAnimationFrame(raf);
+    });
+}
+
 const loadDetailsModal = async (e) => {
     e.preventDefault();
 
     const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
-    await displayPkmnModal(pkmnData);
 
-    modal.showModal();
+    const rippleColor = tailwindConfig.theme.colors[`type_${pkmnData.types[0].name.toLowerCase()}`]
+    rippleEffect(e, rippleColor);
 
-    const url = new URL(location);
-    url.searchParams.set("id", pkmnData.pokedex_id);
-    history.pushState({}, "", url);
+    // await loadPokemonData(pkmnData);
+
+    // modal.showModal();
+
+    // const url = new URL(location);
+    // url.searchParams.set("id", pkmnData.pokedex_id);
+    // history.pushState({}, "", url);
 }
 
 const generateMarqueeTypes = (e) => {
@@ -210,7 +268,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             pkmnNameContainer.textContent = `#${String(item.pokedex_id).padStart(NB_NUMBER_INTEGERS_PKMN_ID, '0')}\n${item.name.fr}`;
 
             const aTag = clone.querySelector("[data-pokemon-data]");
-            aTag.href = url;
+            // aTag.href = url;
             aTag.style.scrollMargin = `${headerPokedex.offsetHeight}px`;
             aTag.dataset.pokemonData = JSON.stringify(item);
             aTag.dataset.pokemonId = item.pokedex_id;
@@ -284,7 +342,7 @@ const observeURL = async () => {
             const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
             pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
 
-            await displayPkmnModal(pkmnData);
+            await loadPokemonData(pkmnData);
             modal.showModal();
         } catch (_e) {
             modal.close();

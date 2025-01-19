@@ -465,7 +465,29 @@ details {
 }
 
 .pokemon {
+    --ripple-x: 0;
+    --ripple-y: 0;
+    --ripple-color: rgb(75, 75, 75);
+    --animation-tick: 0;
+
     transition-property: background-color, transform;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        box-sizing: content-box;
+        overflow: hidden;
+        border-radius: inherit;
+    }
+
+    &.animating {
+        &::after {
+            background-image: paint(ripple);
+        }
+    }
 }
 
 .pikachu-loading, .error-banner {
@@ -510,16 +532,14 @@ details {
 	100% { opacity: 0; transform: translateY(-100%); }
 }
 
-.pokedex {
-    a {
-        @supports (animation-timeline: view()) {
-            @container pokemon (width >= theme("containers.xs")) {
-                will-change: transform, opacity;
-                animation: animate-in linear forwards,
-                animate-out linear forwards;
-                animation-timeline: view();
-                animation-range: entry, exit;
-            }
+.pokedex a {
+    @supports (animation-timeline: view()) {
+        @container pokemon (width >= theme("containers.xs")) {
+            will-change: transform, opacity;
+            animation: animate-in linear forwards,
+            animate-out linear forwards;
+            animation-timeline: view();
+            animation-range: entry, exit;
         }
     }
 }
