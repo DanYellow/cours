@@ -93,6 +93,36 @@ html {
     inherits: true;
 }
 
+@property --ripple-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+}
+
+@property --animation-tick {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --ripple-speed {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --ripple-x {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --ripple-y {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
 .no-dimorphism {
     background: rgb(233, 233, 233);
     background: linear-gradient(
@@ -463,7 +493,6 @@ details {
 .pulldown-indicator {
     transition-property: background-color, transform;
 }
-
 
 .ripple-effect {
     --ripple-x: 0;

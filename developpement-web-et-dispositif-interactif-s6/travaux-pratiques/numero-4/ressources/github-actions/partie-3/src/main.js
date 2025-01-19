@@ -118,12 +118,10 @@ export const rippleEffect = (e, color = "#fff") => {
             $el.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count}; --ripple-color: ${color}`;
 
             if (count > 350) {
-                resolve();
-            }
-            if(count > 1000) {
                 $el.classList.remove('animating');
                 $el.style.cssText = `--animation-tick: 0`;
 
+                resolve();
                 return;
             }
             requestAnimationFrame(raf);
