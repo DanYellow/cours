@@ -152,7 +152,12 @@ const rippleEffect = (e, color = "#fff") => {
 const loadDetailsModal = async (e) => {
     e.preventDefault();
 
-    const pkmnDataRaw = e.currentTarget.dataset.pokemonData;
+    const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
+    listPokedexEntries.forEach((item) => { item.inert = true; });
+
+    const $el = e.currentTarget;
+
+    const pkmnDataRaw = $el.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
     const rippleColor = tailwindConfig.theme.colors[`type_${pkmnData.types[0].name.toLowerCase()}`]
@@ -162,9 +167,11 @@ const loadDetailsModal = async (e) => {
 
     // modal.showModal();
 
-    // const url = new URL(location);
-    // url.searchParams.set("id", pkmnData.pokedex_id);
-    // history.pushState({}, "", url);
+    const url = new URL(location);
+    url.searchParams.set("id", pkmnData.pokedex_id);
+    history.pushState({}, "", url);
+
+    listPokedexEntries.forEach((item) => { item.inert = false; });
 }
 
 const generateMarqueeTypes = (e) => {

@@ -234,6 +234,7 @@ const loadDetailsModal = (e, region = null) => {
 
 displayModal = async (pkmnData) => {
     modal.inert = true;
+    modal.setAttribute("aria-busy", true);
     loadGenerationBtn.inert = true;
 
     if (pkmnData.is_incomplete) {
@@ -246,8 +247,7 @@ displayModal = async (pkmnData) => {
     }
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
     document.title = `Chargement - ${initialPageTitle}`;
-    const listPokedexEntries = document.querySelectorAll("[data-pokemon-data]")
-    listPokedexEntries.forEach((item) => { item.inert = true; });
+
     modal_DOM.img.src = loadingImage;
 
     const pkmnId = pkmnData?.alternate_form_id || pkmnData.pokedex_id;
@@ -815,8 +815,7 @@ displayModal = async (pkmnData) => {
     clearTagContent(modal_DOM.listSiblings);
     generatePokemonSiblingsUI(pkmnData);
     modal.inert = false;
-
-    listPokedexEntries.forEach((item) => { item.inert = false; })
+    modal.setAttribute("aria-busy", false);
 };
 
 window.addEventListener("pokedexLoaded", () => {
