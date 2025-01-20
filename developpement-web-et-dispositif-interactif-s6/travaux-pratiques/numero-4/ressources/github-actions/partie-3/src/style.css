@@ -146,7 +146,7 @@ html {
     );
 }
 
-[inert]:not(li:has(a), dialog, .arrow) {
+[inert]:not(li:has(a), dialog, .arrow, .pokemon) {
     opacity: theme("opacity.20");
     position: relative;
     z-index: -10;
