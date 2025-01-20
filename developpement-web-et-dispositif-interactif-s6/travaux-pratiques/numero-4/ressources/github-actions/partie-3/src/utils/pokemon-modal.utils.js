@@ -171,7 +171,12 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
 
             const arrow = document.createElement("p");
             arrow.textContent = isPreviousPkmn ? "◄" : "►";
-            arrow.classList.add(...["font-['serif']", isPreviousPkmn ? "-mr-3.5" : "-ml-3.5", "arrow", typesTextColor[cleanString(data.types[0].name)]]);
+            arrow.classList.add(...[
+                "font-['serif']",
+                isPreviousPkmn ? "-mr-3.5" : "-ml-3.5",
+                "arrow",
+                typesTextColor[cleanString(data.types[0].name)],
+            ]);
 
             aTag.prepend(arrow);
         } else {
