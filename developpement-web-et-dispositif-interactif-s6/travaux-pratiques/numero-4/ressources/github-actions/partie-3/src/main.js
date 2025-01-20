@@ -100,7 +100,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
-export const rippleEffect = (e, color = "#fff") => {
+export const rippleEffect = (e, listColors = ["#fff"]) => {
     return new Promise((resolve) => {
         if ("paintWorklet" in CSS === false) {
             resolve();
@@ -109,58 +109,26 @@ export const rippleEffect = (e, color = "#fff") => {
         $el.classList.add('animating');
 
         const rect = $el.getBoundingClientRect();
-        const bottomLeftPoint = { x: 0, y: 0 }
-        const topRightPoint = { x: rect.width, y: rect.height }
+        const bottomLeftPoint = { x: 0, y:rect.height }
+        const topRightPoint = { x: rect.width, y: 0 }
 
         const [x, y] = [parseInt(e.clientX - rect.left), parseInt(e.clientY - rect.top)];
 
-        // const computedBottomLeftPoint = {x: bottomLeftPoint.x - topRightPoint.x, y: bottomLeftPoint.y - topRightPoint.y}
-        // const computeMousePoint = { x: x - topRightPoint.x, y: y - topRightPoint.y }
+        let px = x;
+        let py = y;
 
-        // var cross = computedBottomLeftPoint.x * computeMousePoint.y - computedBottomLeftPoint.y * computeMousePoint.x;
-
-        // const coefficient = (topRightPoint.y - bottomLeftPoint.y) / (topRightPoint.x - bottomLeftPoint.x);
-
-        // const isLeft = (y > (coefficient * x));
-
-        var px = x;
-        var py = y;
-
-        // the line
-        var lx1 = 0;
-        var ly1 = rect.height;
-        var lx2 = rect.width;
-        var ly2 = 0;
-
-        // move line end and point so that line start is at 0,0
-        lx2 -= lx1;
-        ly2 -= ly1;
-        px -= lx1;
-        py -= ly1;
+        topRightPoint.x -= bottomLeftPoint.x;
+        topRightPoint.y -= bottomLeftPoint.y;
+        px -= bottomLeftPoint.x;
+        py -= bottomLeftPoint.y;
 
         // get cross product
-        var cross = lx2 * py - ly2 * px;
+        const crossProduct = topRightPoint.x * py - topRightPoint.y * px;
+        let color = listColors[0];
+        if (crossProduct > 0 && listColors[1]) { // point is below line
+            color = listColors[1]
+        }
 
-        const va = document.createElement("canvas");
-        va.width = rect.width
-        va.height = rect.height;
-        va.classList.add(...["absolute", "inset-0", "z-50"])
-
-        $el.classList.add("relative")
-
-        const ctx = va.getContext("2d");
-
-        ctx.beginPath();
-        ctx.moveTo(0, rect.height);
-        ctx.lineTo(rect.width, 0);
-        ctx.stroke();
-
-        $el.append(va)
-
-        console.log(cross)
-        console.log(rect)
-        // console.log(rect, coefficient)
-        // console.log(isLeft, topRightPoint, [x, y])
         const start = performance.now();
 
         requestAnimationFrame(function raf(now) {
@@ -197,7 +165,10 @@ const loadDetailsModal = async (e) => {
     if (Math.random() > 0.5 && pkmnData.types[1]) {
         rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
     }
-    await rippleEffect(e, rippleColor);
+    await rippleEffect(e, [
+        tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`],
+        pkmnData.types[1] ? tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`] : null
+    ]);
     $el.href = href;
 
     // await loadPokemonData(pkmnData);
