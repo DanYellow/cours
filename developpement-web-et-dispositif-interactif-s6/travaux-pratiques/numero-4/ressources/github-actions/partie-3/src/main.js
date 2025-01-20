@@ -14,6 +14,7 @@ import {
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
     POPOVER_ERRORS,
+    onTransitionsEnded,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
@@ -52,8 +53,6 @@ const initialPageFavicon = faviconContainer.getAttribute("href");
 modal.dataset.isGridLayout = isGridLayout;
 
 export const listPokemon = [];
-
-const switchAnimationDuration = 500;
 
 export const setTitleTagForGeneration = () => {
     const allStickedHeaders = Array.from(document.querySelectorAll(".is-pinned"));
@@ -283,9 +282,9 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
         updateSwitchIcons(isGridLayout);
         updatePokedexLayout(isGridLayout);
-        setTimeout(() => {
-            layoutSwitch.nextElementSibling.classList.add("after:transition-all")
-        }, switchAnimationDuration);
+
+        await onTransitionsEnded(layoutSwitch)
+        layoutSwitch.nextElementSibling.classList.add("after:transition-all")
 
         generationScrollingObserver.observe(headerPokedex);
 

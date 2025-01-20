@@ -8,16 +8,23 @@ export default [
     {
         rules: {
             "no-undef": "error",
-            "no-unused-vars": ["warn", {
-                argsIgnorePattern: "^_",
-                varsIgnorePattern: "^_",
-                caughtErrorsIgnorePattern: "^_",
-            }],
+            "no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                    caughtErrorsIgnorePattern: "^_",
+                },
+            ],
             "no-magic-numbers": [
                 "warn",
-                { ignoreArrayIndexes: true, ignoreDefaultValues: true, ignore: [0, -1, 1] },
+                {
+                    ignoreArrayIndexes: true,
+                    ignoreDefaultValues: true,
+                    ignore: [0, -1, 1],
+                },
             ],
-            "no-empty": ["error", { "allowEmptyCatch": true }],
+            "no-empty": ["error", { allowEmptyCatch: true }],
         },
     },
     {
@@ -38,7 +45,8 @@ export default [
         languageOptions: {
             globals: {
                 process: "readonly",
-            }
-        }
-    }
+                registerPaint: "readonly",
+            },
+        },
+    },
 ];
