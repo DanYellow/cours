@@ -109,7 +109,58 @@ export const rippleEffect = (e, color = "#fff") => {
         $el.classList.add('animating');
 
         const rect = $el.getBoundingClientRect();
+        const bottomLeftPoint = { x: 0, y: 0 }
+        const topRightPoint = { x: rect.width, y: rect.height }
+
         const [x, y] = [parseInt(e.clientX - rect.left), parseInt(e.clientY - rect.top)];
+
+        // const computedBottomLeftPoint = {x: bottomLeftPoint.x - topRightPoint.x, y: bottomLeftPoint.y - topRightPoint.y}
+        // const computeMousePoint = { x: x - topRightPoint.x, y: y - topRightPoint.y }
+
+        // var cross = computedBottomLeftPoint.x * computeMousePoint.y - computedBottomLeftPoint.y * computeMousePoint.x;
+
+        // const coefficient = (topRightPoint.y - bottomLeftPoint.y) / (topRightPoint.x - bottomLeftPoint.x);
+
+        // const isLeft = (y > (coefficient * x));
+
+        var px = x;
+        var py = y;
+
+        // the line
+        var lx1 = 0;
+        var ly1 = rect.height;
+        var lx2 = rect.width;
+        var ly2 = 0;
+
+        // move line end and point so that line start is at 0,0
+        lx2 -= lx1;
+        ly2 -= ly1;
+        px -= lx1;
+        py -= ly1;
+
+        // get cross product
+        var cross = lx2 * py - ly2 * px;
+
+        const va = document.createElement("canvas");
+        va.width = rect.width
+        va.height = rect.height;
+        va.classList.add(...["absolute", "inset-0", "z-50"])
+
+        $el.classList.add("relative")
+
+        const ctx = va.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(0, rect.height);
+        ctx.lineTo(rect.width, 0);
+        ctx.stroke();
+
+        $el.append(va)
+
+        console.log(cross)
+        console.log(rect)
+        // console.log(rect, coefficient)
+        // console.log(isLeft, topRightPoint, [x, y])
         const start = performance.now();
 
         requestAnimationFrame(function raf(now) {
@@ -149,13 +200,13 @@ const loadDetailsModal = async (e) => {
     await rippleEffect(e, rippleColor);
     $el.href = href;
 
-    await loadPokemonData(pkmnData);
+    // await loadPokemonData(pkmnData);
 
-    modal.showModal();
+    // modal.showModal();
 
-    const url = new URL(location);
-    url.searchParams.set("id", pkmnData.pokedex_id);
-    history.pushState({}, "", url);
+    // const url = new URL(location);
+    // url.searchParams.set("id", pkmnData.pokedex_id);
+    // history.pushState({}, "", url);
 
     listPokedexEntries.forEach((item) => { item.inert = false; });
 }
