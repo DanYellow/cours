@@ -260,7 +260,7 @@ dialog {
     scrollbar-width: thin;
 
     &[inert] {
-        opacity: 0.85;
+        opacity: 0.7;
         &::backdrop {
             backdrop-filter: theme("backdropBlur.3xl");
         }
@@ -475,26 +475,27 @@ details {
 
     &::after {
         content: "";
-        @media (width > theme("screens.md")) {
+        @media (width >= theme("screens.md")) {
             content: none !important;
         }
         mask-size: contain;
         position: absolute;
-        right: 0;
         top: 0.15rem;
         font-weight: bold;
         width: 40px;
         bottom: 0.15rem;
-        opacity: 0.2;
+        opacity: 0.25;
     }
 }
 
 .bar-sex-male::after {
     mask: url("/male-icon.svg") no-repeat 50% 50%;
+    left: 0;
 }
 
 .bar-sex-female::after {
     mask: url("/female-icon.svg") no-repeat 50% 50%;
+    right: 0;
 }
 
 .pulldown-indicator {
