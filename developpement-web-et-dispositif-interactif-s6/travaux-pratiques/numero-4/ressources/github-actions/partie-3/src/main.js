@@ -213,6 +213,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         );
         const headerPokedex = cloneDex.querySelector('[data-header-pokedex]');
         headerPokedex.dataset.headerPokedex = generation;
+        headerPokedex.style.scrollMargin = `${headerPokedex.offsetHeight}px`;
 
         let nonRegionalPokedexData = pokedexData.filter((item) => {
             const name = item.name.fr;
