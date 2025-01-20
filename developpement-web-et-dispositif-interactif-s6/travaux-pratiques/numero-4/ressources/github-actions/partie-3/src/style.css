@@ -470,36 +470,31 @@ details {
     }
 }
 
-.bar-sex-male::after {
-    content: "";
-    @media (width > theme("screens.md")) {
-        content: none !important;
+.bar-sex-male, .bar-sex-female {
+    transition: width theme("transitionDuration.300");
+
+    &::after {
+        content: "";
+        @media (width > theme("screens.md")) {
+            content: none !important;
+        }
+        mask-size: contain;
+        position: absolute;
+        right: 0;
+        top: 0.15rem;
+        font-weight: bold;
+        width: 40px;
+        bottom: 0.15rem;
+        opacity: 0.2;
     }
+}
+
+.bar-sex-male::after {
     mask: url("/male-icon.svg") no-repeat 50% 50%;
-    mask-size: contain;
-    position: absolute;
-    left: 0;
-    top: 0.15rem;
-    font-weight: bold;
-    width: 40px;
-    bottom: 0.15rem;
-    opacity: 0.2;
 }
 
 .bar-sex-female::after {
-    content: "";
-    @media (width > theme("screens.md")) {
-        content: none !important;
-    }
     mask: url("/female-icon.svg") no-repeat 50% 50%;
-    mask-size: contain;
-    position: absolute;
-    right: 0;
-    top: 0.15rem;
-    font-weight: bold;
-    width: 40px;
-    bottom: 0.15rem;
-    opacity: 0.2;
 }
 
 .pulldown-indicator {
