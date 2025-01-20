@@ -100,7 +100,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
-export const rippleEffect = (e, listColors = ["#fff"]) => {
+export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
         if ("paintWorklet" in CSS === false) {
             resolve();
@@ -109,26 +109,8 @@ export const rippleEffect = (e, listColors = ["#fff"]) => {
         $el.classList.add('animating');
 
         const rect = $el.getBoundingClientRect();
-        const bottomLeftPoint = { x: 0, y:rect.height }
-        const topRightPoint = { x: rect.width, y: 0 }
 
         const [x, y] = [parseInt(e.clientX - rect.left), parseInt(e.clientY - rect.top)];
-
-        let px = x;
-        let py = y;
-
-        topRightPoint.x -= bottomLeftPoint.x;
-        topRightPoint.y -= bottomLeftPoint.y;
-        px -= bottomLeftPoint.x;
-        py -= bottomLeftPoint.y;
-
-        // get cross product
-        const crossProduct = topRightPoint.x * py - topRightPoint.y * px;
-        let color = listColors[0];
-        if (crossProduct > 0 && listColors[1]) { // point is below line
-            color = listColors[1]
-        }
-
         const start = performance.now();
 
         requestAnimationFrame(function raf(now) {
@@ -165,19 +147,16 @@ const loadDetailsModal = async (e) => {
     if (Math.random() > 0.5 && pkmnData.types[1]) {
         rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
     }
-    await rippleEffect(e, [
-        tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`],
-        pkmnData.types[1] ? tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`] : null
-    ]);
+    await rippleEffect(e, rippleColor);
     $el.href = href;
 
-    // await loadPokemonData(pkmnData);
+    await loadPokemonData(pkmnData);
 
-    // modal.showModal();
+    modal.showModal();
 
-    // const url = new URL(location);
-    // url.searchParams.set("id", pkmnData.pokedex_id);
-    // history.pushState({}, "", url);
+    const url = new URL(location);
+    url.searchParams.set("id", pkmnData.pokedex_id);
+    history.pushState({}, "", url);
 
     listPokedexEntries.forEach((item) => { item.inert = false; });
 }
