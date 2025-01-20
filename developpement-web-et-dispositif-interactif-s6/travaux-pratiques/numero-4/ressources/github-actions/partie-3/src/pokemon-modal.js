@@ -570,14 +570,14 @@ displayModal = async (pkmnData) => {
 
     modal_DOM.sexLabelMale.forEach((item) => {
         item.classList.toggle(
-            "hidden",
+            "w-0",
             pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
         );
     });
 
     modal_DOM.sexLabelFemale.forEach((item) => {
         item.classList.toggle(
-            "hidden",
+            "w-0",
             pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined
         );
     });
@@ -592,12 +592,24 @@ displayModal = async (pkmnData) => {
 
     modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
     modal_DOM.sexMale.classList.toggle("rounded-md", pkmnData.sexe?.female === 0);
+    ["px-2", "py-1"].forEach((className) => {
+        modal_DOM.sexMale.classList.toggle(
+            className,
+            pkmnData.sexe?.male > 0 && pkmnData.sexe?.male !== undefined
+        );
+    });
     modal_DOM.sexRateMale.forEach((item) => {
         item.textContent = `${pkmnData.sexe?.male}%`;
     });
 
     modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
     modal_DOM.sexFemale.classList.toggle("rounded-md", pkmnData.sexe?.male === 0);
+    ["px-2", "py-1"].forEach((className) => {
+        modal_DOM.sexFemale.classList.toggle(
+            className,
+            pkmnData.sexe?.female > 0 && pkmnData.sexe?.female !== undefined
+        );
+    });
     modal_DOM.sexRateFemale.forEach((item) => {
         item.textContent = `${pkmnData.sexe?.female}%`;
     });
