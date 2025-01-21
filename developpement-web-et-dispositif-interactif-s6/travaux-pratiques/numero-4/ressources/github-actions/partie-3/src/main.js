@@ -14,15 +14,15 @@ import {
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
     POPOVER_ERRORS,
-    CUSTOM_EVENTS,
     onTransitionsEnded,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
-import ripple from './worklets/ripple.js?url';
-
+import ripple from '#src/worklets/ripple.js?url';
 import loadingImageRaw from "/loading.svg?raw";
-import pikachuLoadingImage from "/pikachu-loading.gif";
+
+import "#src/window-events.js";
+
 import "./style.css";
 
 if ('paintWorklet' in CSS) {
@@ -41,14 +41,10 @@ const errorPopover = document.querySelector("[data-error-popover]");
 const errorMessageContainer = errorPopover.querySelector("[data-error-message]");
 
 const modal = document.querySelector("[data-pokemon-modal]");
-const pikachuLoading = document.querySelector("[data-pikachu-loading]");
-
-const faviconContainer = document.querySelector("[data-favicon]");
 const generationShortcut = document.querySelector("[data-generation-shortcut]");
 
 let isGridLayout = localStorage.getItem("is_grid_layout") ? JSON.parse(localStorage.getItem("is_grid_layout")) === true : true;
 const initialPageTitle = document.title;
-const initialPageFavicon = faviconContainer.getAttribute("href");
 
 modal.dataset.isGridLayout = isGridLayout;
 
@@ -99,6 +95,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 };
 
 updatePokedexLayout(isGridLayout);
+
 
 export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
@@ -326,7 +323,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 const urlParams = new URLSearchParams(window.location.search);
 const pkmnId = urlParams.get("id");
 
-const observeURL = async () => {
+export const observeURL = async () => {
     if (pkmnId !== null) {
         try {
             const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
@@ -363,31 +360,6 @@ delegateEventHandler(document, "change", "[data-layout-switch]", (e) => {
             behavior: "instant",
         });
     }
-});
-
-window.addEventListener('popstate', async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.get("id") !== null) {
-        await observeURL();
-    } else {
-        modal.close();
-    }
-});
-
-window.addEventListener(CUSTOM_EVENTS.startLoading, () => {
-    if (!modal.open) {
-        document.title = `Chargement - ${initialPageTitle}`;
-    }
-    pikachuLoading.showPopover();
-    pokedexContainer.setAttribute("aria-busy", true);
-    faviconContainer.setAttribute("href", pikachuLoadingImage);
-});
-
-window.addEventListener(CUSTOM_EVENTS.endLoading, () => {
-    pikachuLoading.hidePopover()
-    pokedexContainer.setAttribute("aria-busy", false);
-    faviconContainer.setAttribute("href", initialPageFavicon);
 });
 
 errorPopover.addEventListener("beforetoggle", (e) => {

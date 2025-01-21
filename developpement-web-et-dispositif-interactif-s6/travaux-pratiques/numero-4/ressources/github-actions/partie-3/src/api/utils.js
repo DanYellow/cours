@@ -18,7 +18,6 @@ axios.interceptors.request.use(async (config) => {
     try {
         if (listURLToIntercept.some((item) => config.url.startsWith(item))) {
             numberOfAjaxCallPending++;
-
             window.dispatchEvent(startLoadingEvent);
         }
 

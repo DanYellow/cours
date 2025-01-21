@@ -540,22 +540,28 @@ details {
     }
 }
 
-.error-banner {
+.pikachu-loading, .error-banner {
     transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
-    display theme("transitionDuration.500") ease-in;
-        transition-behavior: allow-discrete;
+    display theme("transitionDuration.500") ease-in, opacity theme("transitionDuration.300");
+    transition-behavior: allow-discrete;
 }
 
 .pikachu-loading {
-    /* @starting-style {
-        translate: 0 110vh;
+    translate: 0 110vh;
+    opacity: 0;
+
+
+    &:popover-open {
+        opacity: 1;
+        translate: 0 0;
     }
 
-    &[hidden] {
-        translate: 0 110vh;
-        display: none !important;
-        transition-duration: theme("transitionDuration.300");
-    } */
+    @starting-style {
+        &:popover-open {
+            opacity: 0;
+            translate: 0 110vh;
+        }
+    }
 }
 
 .error-banner {
