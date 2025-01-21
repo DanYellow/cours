@@ -207,6 +207,10 @@ export const formsNameDict = {
         name: "Forme Dominante Démasquée",
         displayPkmnName: false,
     },
+    "totem": {
+        name: "Forme Dominante",
+        displayPkmnName: false,
+    },
     dawn: {
         name: "Forme Ailes de l'Aurore",
         displayPkmnName: false,
