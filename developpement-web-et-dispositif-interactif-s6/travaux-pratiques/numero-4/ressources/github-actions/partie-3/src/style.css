@@ -471,7 +471,7 @@ details {
 }
 
 .bar-sex-male, .bar-sex-female {
-    transition: width theme("transitionDuration.300");
+    transition: width theme("transitionDuration.300"), border-radius theme("transitionDuration.300") theme("transitionDelay.150");
 
     &::after {
         content: "";
