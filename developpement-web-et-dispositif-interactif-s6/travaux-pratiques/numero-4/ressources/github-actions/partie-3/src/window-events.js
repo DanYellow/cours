@@ -29,10 +29,12 @@ window.addEventListener(CUSTOM_EVENTS.startLoading, () => {
     pikachuLoading.showPopover();
     pokedexContainer.setAttribute("aria-busy", true);
     faviconContainer.setAttribute("href", pikachuLoadingImage);
+    document.documentElement.classList.add("cursor-progress");
 });
 
 window.addEventListener(CUSTOM_EVENTS.endLoading, () => {
     pikachuLoading.hidePopover();
     pokedexContainer.setAttribute("aria-busy", false);
     faviconContainer.setAttribute("href", initialPageFavicon);
+    document.documentElement.classList.remove("cursor-progress");
 });
