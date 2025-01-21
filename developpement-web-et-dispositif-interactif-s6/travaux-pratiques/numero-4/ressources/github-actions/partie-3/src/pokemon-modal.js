@@ -568,17 +568,11 @@ displayModal = async (pkmnData) => {
     }
 
     modal_DOM.sexLabelMale.forEach((item) => {
-        item.classList.toggle(
-            "w-0",
-            pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined
-        );
+        item.hidden = pkmnData.sexe?.male === 0 || pkmnData.sexe?.male === undefined;
     });
 
     modal_DOM.sexLabelFemale.forEach((item) => {
-        item.classList.toggle(
-            "w-0",
-            pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined
-        );
+        item.hidden = pkmnData.sexe?.female === 0 || pkmnData.sexe?.female === undefined;
     });
 
     modal_DOM.sexAsexualBarContainer.classList.toggle(
