@@ -37,7 +37,7 @@
         </main>
         <div class="bg-transparent pikachu-loading mb-3" popover="manual" data-pikachu-loading>
             <div class="flex flex-col gap-3 items-center ">
-                <img src="/pikachu-loading.gif" class="w-16" alt="Pikachu image chargement">
+                <img src="/images/pikachu-loading.gif" class="w-16" alt="Pikachu image chargement">
                 <p class="text-xs py-0.5 px-1.5 bg-slate-900 text-white rounded-md">Chargement en cours</p>
             </div>
         </div>
@@ -69,10 +69,10 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon">
-                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-4" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
                         <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden" data-marquee></div>
-                        <img src="/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-90 transition-transform" />
+                        <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-90 transition-transform" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full rounded-md"></p>
                     </div>
                 </a>
@@ -171,7 +171,7 @@
         <template data-tpl-id="pokemon-sprite">
             <li class="flex justify-center basis-1/2 md:basis-1/4 grow">
                 <div class="flex flex-col items-center group">
-                    <img class="w-52" src="/loading.svg" alt="" fetchpriority="low" />
+                    <img class="w-52" src="/images/loading.svg" alt="" fetchpriority="low" />
                     <p class="text-center px-2 rounded-md">Chromatique
                         <span class="align-super sparkles">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 inline">
@@ -211,7 +211,7 @@
                     </div>
                     <div class="flex flex-row gap-3">
                         <div class="w-20">
-                            <img data-sprite src="/loading.svg" alt="" fetchpriority="high" />
+                            <img data-sprite src="/images/loading.svg" alt="" fetchpriority="high" />
                         </div>
                         <div class="grow">
                             <h2 class="text-2xl font-bold"></h2>

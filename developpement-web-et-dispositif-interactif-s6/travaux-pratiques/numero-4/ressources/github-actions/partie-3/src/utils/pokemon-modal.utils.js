@@ -6,7 +6,7 @@ import {
     typesBorderColor,
 } from "#utils";
 
-import loadingImageRaw from "/loading.svg?raw";
+import loadingImageRaw from "/images/loading.svg?raw";
 
 export const pkmnHighlightTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-highlight']"
@@ -22,7 +22,7 @@ export const createSensibility = async (template, data, listTypes) => {
 
     const typeIconContainer = template.querySelector("[data-type-icon]");
     typeIconContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
-    const svgTypeIconReq = await fetch(`/types-icons/${typeData.name.en}.svg`);
+    const svgTypeIconReq = await fetch(`/images/types-icons/${typeData.name.en}.svg`);
 
     const parser = new DOMParser();
     const svgTypeIcon = parser.parseFromString(

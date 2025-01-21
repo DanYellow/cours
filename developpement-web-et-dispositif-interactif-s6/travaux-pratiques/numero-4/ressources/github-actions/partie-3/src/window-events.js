@@ -2,7 +2,7 @@ import { observeURL } from "#src/main.js";
 
 import { CUSTOM_EVENTS } from "./utils";
 
-import pikachuLoadingImage from "/pikachu-loading.gif";
+import pikachuLoadingImage from "/images/pikachu-loading.gif";
 
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");

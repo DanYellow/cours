@@ -19,7 +19,7 @@ import {
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
 import ripple from '#src/worklets/ripple.js?url';
-import loadingImageRaw from "/loading.svg?raw";
+import loadingImageRaw from "/images/loading.svg?raw";
 
 import "#src/window-events.js";
 

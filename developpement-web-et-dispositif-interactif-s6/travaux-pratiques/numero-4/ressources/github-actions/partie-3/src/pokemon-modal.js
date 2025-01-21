@@ -34,8 +34,8 @@ import {
 import modalPulldownClose from "#src/modal-pulldown-close.js"
 
 import { listPokemon, setTitleTagForGeneration, hasReachPokedexEnd, rippleEffect } from "./main";
-import loadingImage from "/loading.svg";
-import loadingImageRaw from "/loading.svg?raw";
+import loadingImage from "/images/loading.svg";
+import loadingImageRaw from "/images/loading.svg?raw";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-pokemon-modal]");
