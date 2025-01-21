@@ -23,7 +23,7 @@ import loadingImageRaw from "/images/loading.svg?raw";
 
 import "#src/window-events.js";
 
-import "./style.css";
+import "#src/styles/main.css";
 
 if ('paintWorklet' in CSS) {
     CSS.paintWorklet.addModule(ripple);

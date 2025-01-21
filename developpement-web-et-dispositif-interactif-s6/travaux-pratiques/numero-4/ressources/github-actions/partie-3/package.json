@@ -36,6 +36,7 @@
     },
     "imports": {
         "#src/*.js": "./src/*.js",
+        "#src/*.css": "./src/*.css",
         "#utils": "./src/utils/index.js",
         "#api": "./src/api/index.js",
         "#mocks/*.js": "./__mocks__/*.js"

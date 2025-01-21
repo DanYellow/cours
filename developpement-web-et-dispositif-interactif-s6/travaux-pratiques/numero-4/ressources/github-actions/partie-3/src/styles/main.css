@@ -1,3 +1,5 @@
+@import "./properties.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -85,54 +87,6 @@ html {
             block-size: auto;
         }
     }
-}
-
-@property --bg-modal-color {
-    syntax: "<color>";
-    initial-value: transparent;
-    inherits: true;
-}
-
-@property --ripple-color {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: transparent;
-}
-
-@property --ripple-stroke-width {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: transparent;
-}
-
-@property --ripple-stroke-color {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: transparent;
-}
-
-@property --animation-tick {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
-}
-
-@property --ripple-speed {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
-}
-
-@property --ripple-x {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
-}
-
-@property --ripple-y {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
 }
 
 .no-dimorphism {
