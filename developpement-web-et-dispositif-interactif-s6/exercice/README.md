@@ -63,6 +63,7 @@ Les critères suivants seront évalués :
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
+  - **Le nom du dex doit être affiché en français**
 - [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
 - [ ] Afficher les noms étrangers des Pokémon
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
@@ -84,6 +85,7 @@ Les critères suivants seront évalués :
 - [ ] Grâce au module wavesurfer.js, laissez paraître le spectre sonore du cri du Pokémon sélectionné
   - [Voir documentation de wavesurfer.js](https://www.npmjs.com/package/wavesurfer.js)
   - On doit pouvoir rejouer le cri
+  - Le cri du Pokémon est retourné par l'API pokeapi
 - [ ] Créditer les ressources externes utilisées :
   - **API**
     - https://tyradex.vercel.app/
