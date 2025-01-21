@@ -540,15 +540,14 @@ details {
     }
 }
 
-.pikachu-loading, .error-banner {
+.error-banner {
     transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
     display theme("transitionDuration.500") ease-in;
         transition-behavior: allow-discrete;
 }
 
 .pikachu-loading {
-    z-index: 99;
-    @starting-style {
+    /* @starting-style {
         translate: 0 110vh;
     }
 
@@ -556,7 +555,7 @@ details {
         translate: 0 110vh;
         display: none !important;
         transition-duration: theme("transitionDuration.300");
-    }
+    } */
 }
 
 .error-banner {

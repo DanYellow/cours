@@ -14,6 +14,7 @@ import {
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
     POPOVER_ERRORS,
+    CUSTOM_EVENTS,
     onTransitionsEnded,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
@@ -41,7 +42,6 @@ const errorMessageContainer = errorPopover.querySelector("[data-error-message]")
 
 const modal = document.querySelector("[data-pokemon-modal]");
 const pikachuLoading = document.querySelector("[data-pikachu-loading]");
-pikachuLoading.hidden = true;
 
 const faviconContainer = document.querySelector("[data-favicon]");
 const generationShortcut = document.querySelector("[data-generation-shortcut]");
@@ -189,11 +189,6 @@ const generateMarqueeTypes = (e) => {
 
 const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
     const listLoadGenerationBtns = document.querySelectorAll("[data-load-generation]");
-    if (!modal.open) {
-        document.title = `Chargement - ${initialPageTitle}`;
-    }
-
-    faviconContainer.setAttribute("href", pikachuLoadingImage);
 
     try {
         listLoadGenerationBtns.forEach((item) => item.inert = true);
@@ -380,14 +375,17 @@ window.addEventListener('popstate', async () => {
     }
 });
 
-window.addEventListener("startloading", () => {
-    pikachuLoading.hidden = false;
+window.addEventListener(CUSTOM_EVENTS.startLoading, () => {
+    if (!modal.open) {
+        document.title = `Chargement - ${initialPageTitle}`;
+    }
+    pikachuLoading.showPopover();
     pokedexContainer.setAttribute("aria-busy", true);
     faviconContainer.setAttribute("href", pikachuLoadingImage);
 });
 
-window.addEventListener("endloading", () => {
-    pikachuLoading.hidden = true;
+window.addEventListener(CUSTOM_EVENTS.endLoading, () => {
+    pikachuLoading.hidePopover()
     pokedexContainer.setAttribute("aria-busy", false);
     faviconContainer.setAttribute("href", initialPageFavicon);
 });

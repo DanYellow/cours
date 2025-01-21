@@ -1,10 +1,11 @@
 import axios from "axios";
 
-import { debounce } from "#src/utils/index.js";
+import { debounce, CUSTOM_EVENTS } from "#src/utils/index.js";
 
 let numberOfAjaxCallPending = 0;
-const startLoadingEvent = new Event("startloading");
-const endLoadingEvent = new Event("endloading");
+
+const startLoadingEvent = new Event(CUSTOM_EVENTS.startLoading);
+const endLoadingEvent = new Event(CUSTOM_EVENTS.endLoading);
 
 const delayBeforeFlagEndRequests = 850;
 const notifyEndRequests = debounce(() => {

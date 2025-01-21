@@ -34,12 +34,13 @@
             </div>
 
             <div data-list-pokedex aria-busy="true" aria-live="polite"></div>
-
-            <div class="fixed -translate-x-1/2 left-1/2 bottom-3 flex flex-col gap-3 items-center z-20 pikachu-loading" data-pikachu-loading>
+        </main>
+        <div class="bg-transparent pikachu-loading mb-3" popover="manual" data-pikachu-loading>
+            <div class="flex flex-col gap-3 items-center ">
                 <img src="/pikachu-loading.gif" class="w-16" alt="Pikachu image chargement">
                 <p class="text-xs py-0.5 px-1.5 bg-slate-900 text-white rounded-md">Chargement en cours</p>
             </div>
-        </main>
+        </div>
         <footer class="pr-[max(env(safe-area-inset-right),_theme(space.2))] pl-[max(env(safe-area-inset-left),_theme(space.2))]">
             <button
                 data-testid="load-generation-btn"

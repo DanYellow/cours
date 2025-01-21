@@ -5,3 +5,8 @@ export const POPOVER_ERRORS = {
     lost_connection: "lost_connection",
     unknown: "unknown",
 }
+
+export const CUSTOM_EVENTS = {
+    startLoading: "startloading",
+    endLoading: "endloading",
+}
