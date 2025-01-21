@@ -67,7 +67,7 @@ Les critères suivants seront évalués :
 - [ ] Afficher les noms étrangers des Pokémon
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] En mode liste uniquement, afficher les types du Pokémon
-  - Pour ce faire, vous devrez utiliser les containers queries
+  - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
     - [Voir documentation plugin tailwind CSS container queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
