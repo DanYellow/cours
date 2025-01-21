@@ -74,9 +74,9 @@ const modal_DOM = {
     listSensibilities: modal.querySelector("[data-list-sensibilities]"),
     listEvolutions: modal.querySelector("[data-list-evolutions]"),
     extraEvolutions: modal.querySelector("[data-extra-evolutions]"),
-    sexMale: modal.querySelector("[data-sex='male']"),
-    sexAsexual: modal.querySelector("[data-sex='asexual']"),
-    sexFemale: modal.querySelector("[data-sex='female']"),
+    sexMaleBarContainer: modal.querySelector("[data-sex='male']"),
+    sexAsexualBarContainer: modal.querySelector("[data-sex='asexual']"),
+    sexFemaleBarContainer: modal.querySelector("[data-sex='female']"),
     sexRateMale: modal.querySelectorAll("[data-sex-rate='male']"),
     sexRateFemale: modal.querySelectorAll("[data-sex-rate='female']"),
     sexLabelFemale: modal.querySelectorAll("[data-sex-label='female']"),
@@ -581,7 +581,7 @@ displayModal = async (pkmnData) => {
         );
     });
 
-    modal_DOM.sexAsexual.classList.toggle(
+    modal_DOM.sexAsexualBarContainer.classList.toggle(
         "hidden",
         !(
             pkmnData.sexe?.female === undefined &&
@@ -589,11 +589,11 @@ displayModal = async (pkmnData) => {
         )
     );
 
-    modal_DOM.sexMale.style.width = `${pkmnData.sexe?.male}%`;
-    modal_DOM.sexMale.classList.toggle("rounded-md", pkmnData.sexe?.female === 0);
-    modal_DOM.sexMale.classList.toggle("hidden", pkmnData.sexe?.male === undefined);
+    modal_DOM.sexMaleBarContainer.style.width = `${pkmnData.sexe?.male}%`;
+    modal_DOM.sexMaleBarContainer.classList.toggle("rounded-md", pkmnData.sexe?.female === 0);
+    modal_DOM.sexMaleBarContainer.classList.toggle("hidden", pkmnData.sexe?.male === undefined);
     ["px-2", "py-1"].forEach((className) => {
-        modal_DOM.sexMale.classList.toggle(
+        modal_DOM.sexMaleBarContainer.classList.toggle(
             className,
             pkmnData.sexe?.male > 0 && pkmnData.sexe?.male !== undefined
         );
@@ -602,11 +602,11 @@ displayModal = async (pkmnData) => {
         item.textContent = `${pkmnData.sexe?.male}%`;
     });
 
-    modal_DOM.sexFemale.style.width = `${pkmnData.sexe?.female}%`;
-    modal_DOM.sexFemale.classList.toggle("rounded-md", pkmnData.sexe?.male === 0);
-    modal_DOM.sexFemale.classList.toggle("hidden", pkmnData.sexe?.female === undefined);
+    modal_DOM.sexFemaleBarContainer.style.width = `${pkmnData.sexe?.female}%`;
+    modal_DOM.sexFemaleBarContainer.classList.toggle("rounded-md", pkmnData.sexe?.male === 0);
+    modal_DOM.sexFemaleBarContainer.classList.toggle("hidden", pkmnData.sexe?.female === undefined);
     ["px-2", "py-1"].forEach((className) => {
-        modal_DOM.sexFemale.classList.toggle(
+        modal_DOM.sexFemaleBarContainer.classList.toggle(
             className,
             pkmnData.sexe?.female > 0 && pkmnData.sexe?.female !== undefined
         );
