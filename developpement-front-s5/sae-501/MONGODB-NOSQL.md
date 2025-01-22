@@ -24,6 +24,11 @@ Ces avantages ne se font pas sans concessions, premièrement en NoSQL, il n'y a 
 Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très utilisé dans le monde professionnel et open source), l'outil n'étant pas natif, il faudra l'installer **(regardez bien les notes plus bas avant de télécharger).**
 - [Télécharger MongoDB](https://www.mongodb.com/try/download/community)
 
+> **Note : si vous utilisez les ordinateurs de l'IUT, vous ne pourrez pas utiliser MongoDB. Il faudra impérativement passer par MongoDB Atlas.** Cloud freemium de MongoDB. 
+> - Accéder à la page de [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+> 
+> Une fois le compte crée (vous pouvez laisser tout par défaut), le site génèrera une URL de serveur, il faudra donc utiliser celle-ci pour la variable d'environnement `MONGODB_URL`
+
 <details>
   <summary>Notes pour les utilisateurs de Windows</summary>
 
@@ -33,7 +38,7 @@ Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très
 </details>
 
 <details>
-  <summary>Notes pour les utilisateurs de MacOS</summary>
+  <summary>Notes pour les utilisateurs de macOS</summary>
 
   - Certaines commandes listées dans le fichier README ne sont plus pertinentes depuis macOS Catalina (10.15). De ce fait, nous vous conseillons de créer un dossier `data/db/` dans le même dossier que vous avez dezippé MongoDB. Et d'ajouter le paramètre `--dbpath=data/db` à la commande qui permet de lancer le serveur MongoDB. Ce qui donne de la commande `mongod --dbpath=data/db`
   - Installez MongoDB en passant par brew au lieu de télécharger l'archive avec les fichiers binaires. [Vous trouverez les instructions sur le site officiel](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Ceci va rendre les commandes de mongodb globales au système et vous pourrer lancer votre serveur depuis n'importe où avec la commande `mongod --dbpath=chemin/vers/bdd`. Faites juste attention à ne pas commiter votre base de données. Pour éviter ceci, exécutez la commande de lancement du serveur à **l'extérieur du projet**
