@@ -43,7 +43,7 @@ html {
 
     &:has(dialog[open]) {
         overflow: hidden;
-        padding-right: var(--scrollbar-width, 17px);
+        /* padding-right: var(--scrollbar-width, 17px); */
     }
 }
 
@@ -269,6 +269,7 @@ details {
     --animation-speed: 0.3s;
 
     .stat-bar {
+        border-radius: theme("borderRadius.DEFAULT");
         transform: scaleX(0);
         transition: transform 0.95s var(--animation-speed);
         transform-origin: left center;
