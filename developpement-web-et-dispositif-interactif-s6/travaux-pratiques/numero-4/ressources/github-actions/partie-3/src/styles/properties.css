@@ -46,3 +46,9 @@
     inherits: true;
     initial-value: 0;
 }
+
+@property --border-type-angle {
+    syntax: "<angle>";
+    initial-value: 34.6deg;
+    inherits: true;
+}

@@ -30,8 +30,6 @@
 
 html {
     scroll-behavior: smooth;
-    --scrollbar-width: 0px;
-
     font-family: "Open Sans", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -41,7 +39,6 @@ html {
 
     &:has(dialog[open]) {
         overflow: hidden;
-        /* padding-right: var(--scrollbar-width, 17px); */
     }
 }
 
@@ -354,20 +351,6 @@ details {
     100% {
         background-position: 0% 50%;
     }
-}
-
-.scrollbar-measure {
-    width: 100px;
-    height: 100px;
-    overflow: scroll;
-    position: absolute;
-    top: -9999px;
-}
-
-@property --border-type-angle {
-    syntax: "<angle>";
-    initial-value: 34.6deg;
-    inherits: true;
 }
 
 .border-type-animated {

@@ -376,17 +376,6 @@ if (process.env.NODE_ENV === "development") {
     await import("./utils/vite.error-overlay");
 }
 
-const scrollDiv = document.createElement("div");
-scrollDiv.classList.add("scrollbar-measure");
-document.body.appendChild(scrollDiv);
-
-// Get the scrollbar width
-const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`)
-
-// Delete the DIV
-document.body.removeChild(scrollDiv);
-
 window.addEventListener("offline", () => {
     errorMessageContainer.textContent = "Connexion perdue";
     errorPopover.dataset.error = POPOVER_ERRORS.lost_connection;
