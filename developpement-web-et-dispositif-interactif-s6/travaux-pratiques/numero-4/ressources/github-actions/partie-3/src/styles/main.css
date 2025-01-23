@@ -6,16 +6,14 @@
 
 @font-face {
     font-family: "Open Sans";
-    src: local("Open Sans"),
-        url("/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    src: url("/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
     font-weight: 300 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: local("Open Sans"),
-        url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    src: url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
     font-style: italic;
     font-weight: 300 800;
 }
@@ -181,7 +179,7 @@ dialog {
     --dot-alpha: 0.45;
     --dot-color-1: white;
     --dot-color-2: white;
-    --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png";
+    --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png";
     --details-modal-blur: theme("backdropBlur.md");
     --darken-bg-color: lch(from var(--bg-modal-color) calc(l - 20) c h);
     --lighter-bg-color: lch(from var(--bg-modal-color) calc(l + 20) c h);
