@@ -215,14 +215,17 @@ const loadDetailsModal = async (e, region = null) => {
     const pkmnDataRaw = $el.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
-    let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
     const href = $el.href;
+    if(pkmnData.types) {
+        let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
 
-    $el.removeAttribute("href");
-    if (Math.random() > 0.5 && pkmnData.types[1]) {
-        rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
+        $el.removeAttribute("href");
+        if (Math.random() > 0.5 && pkmnData.types[1]) {
+            rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
+        }
+        await rippleEffect(e, rippleColor);
     }
-    await rippleEffect(e, rippleColor);
+    
     $el.href = href;
 
     const url = new URL(location);
