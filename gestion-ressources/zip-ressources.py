@@ -26,7 +26,7 @@ with open('.gitignore') as my_file:
     list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
     list_ignored_files = list(filter(None, list_ignored_files))
 
-    list_ignored_files.extend(["odp", "code", "zip", "gestion-ressources"])
+    list_ignored_files.extend(["odp", "code", "gestion-ressources"]) # "zip",
     list_ignored_files.extend(["sae"])
     list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
     list_ignored_files = list(dict.fromkeys(list_ignored_files))
