@@ -214,7 +214,7 @@ def generate_zip(list_folders, is_correction_directory = False):
                     absname = os.path.abspath(os.path.join(dirname, filename))
                     arcname = absname[len(abs_src) + 1:]
 
-                    if "package-lock.json" in arcname:
+                    if "package-lock.json" in arcname or "prenoms.csv.zip" in arcname:
                         zip_object.write(absname, arcname)
                     if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
                         zip_object.write(absname, arcname)
