@@ -191,6 +191,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
         zip_extension = "ressources"
+        print(folder_path)
         if "exercice" in folder_path:
             zip_extension = "exercice"
         elif "correction" in folder_path:
