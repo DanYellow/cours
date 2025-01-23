@@ -477,6 +477,7 @@ details {
 }
 
 .pikachu-loading, .error-banner {
+    z-index: 9999;
     transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
     display theme("transitionDuration.500") ease-in, opacity theme("transitionDuration.300");
     transition-behavior: allow-discrete;
@@ -485,7 +486,6 @@ details {
 .pikachu-loading {
     translate: 0 110vh;
     opacity: 0;
-
 
     &:popover-open {
         opacity: 1;
