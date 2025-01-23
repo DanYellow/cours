@@ -26,7 +26,7 @@ with open('.gitignore') as my_file:
     list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
     list_ignored_files = list(filter(None, list_ignored_files))
 
-    list_ignored_files.extend(["odp", "code", "gestion-ressources"]) # zip
+    list_ignored_files.extend(["odp", "code", "zip", "gestion-ressources"])
     list_ignored_files.extend(["sae"])
     list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
     list_ignored_files = list(dict.fromkeys(list_ignored_files))
@@ -191,7 +191,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
         zip_extension = "ressources"
-        print(folder_path)
+
         if "exercice" in folder_path:
             zip_extension = "exercice"
         elif "correction" in folder_path:
