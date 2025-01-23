@@ -425,12 +425,12 @@ details {
 }
 
 .bar-sex-male::after {
-    mask: url("/male-icon.svg") no-repeat 50% 50%;
+    mask: url("/images/male-icon.svg") no-repeat 50% 50%;
     left: 0;
 }
 
 .bar-sex-female::after {
-    mask: url("/female-icon.svg") no-repeat 50% 50%;
+    mask: url("/images/female-icon.svg") no-repeat 50% 50%;
     right: 0;
 }
 
