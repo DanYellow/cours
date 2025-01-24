@@ -131,6 +131,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
   - [ ] Déploie le projet en production
   - [ ] Exécute les tests e2e de façon optimale
+  - [ ] Lint le code
   - [ ] Exécute les tests unitaires
   - [ ] Migre la base de données (si besoin)
   - [ ] Rendre inaccessible les fichiers .env au public (si applicable)
@@ -155,6 +156,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       - Note 3 : Le nom "develop" est un nom exemple, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
+  - [ ] Lint le code
   - [ ] Migre la base de données (si besoin)
   - [ ] Affiche la branche déployée sur le site
     - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
