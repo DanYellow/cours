@@ -28,6 +28,7 @@
             Cherchez un ou plusieurs modules front-end sur le site <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">jsdelivr.com - ouverture dans un nouvel onglet</a> ou <a href="https://www.skypack.dev/" target="_blank" rel="noopener noreferrer">skypack.dev - ouverture dans un nouvel onglet</a>
             Définissez un importmap et importez-le dans votre fichier html.
             <p class="note-information">Il n'est pas utile d'aller chercher des modules "compliqués" à mettre en place, lodash ou encore luxon feront largement l'affaire.</p>
+            <p class="note-information">Sur le site jsdelivr, il faut utiliser la version esm.</p>
             <ul>
                 <li>
                     <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/script/type/importmap" target="_blank" rel="noopener noreferrer">Voir documentation d'importmap - Ouverture dans un nouvel onglet</a>
@@ -55,13 +56,28 @@
           <h2 class="h1">Partie 2 (cliquer pour afficher / cacher)</h2>
         </summary>
         <p>L'importmap fonctionne également avec des modules locaux, il est possible de définir un module en local pour ensuite le définir dans l'importmap. Le fonctionnement reste le même. Quand le module est local, vous pouvez utiliser un chemin relatif ou absolu entre le fichier HTML et les modules. A l'avenir, il sera possible d'externaliser l'importmap dans un fichier json.</p>
-        <!-- <p>L'importmap fonctionne également avec l'import dynamique de modules. En effet, pour des questions de temps de chargement, il est possible de charger un module à la volée grâce à une fonction asynchrone (async / await).</p> -->
         <ol class="liste-consignes">
           <li>Créez un module local et ajoutez-le à votre importmap
             <p class="note-information">Ce module peut contenir une variable ou une fonction qui effectue une addition. Inutile de faire quelque chose d'élaboré.</p>
           </li>
           <li>Utilisez ce module fraîchement crée dans votre script</li>
         </ol>
+        <div class="note-importante">
+            <p>Pour rappel, vous ne pouvez pas charger un module local sans serveur. Vous devez impérativement en lancer un.</p>
+            <p>Vous pouvez lancer un serveur d'une des façons suivantes : </p>
+            <ul>
+                <li>
+                    <code>python3 -m http.server {PORT}</code> dans le dossier de travail, si python est installé (par défaut sur macOS)
+                </li>
+                <li>
+                    <code>php -S 0.0.0.0:{PORT}</code> dans le dossier de travail, si php est installé
+                </li>
+                <li>
+                    Lancer le serveur express qui est dans la ressource via la commande <code>npm start</code>
+                    <p>Note : Le serveur a été organisé de façon à ce que les dossiers "node_modules" et "public" soient reconnus par défaut par express, ainsi, vous n'avez pas besoin de les mettre dans les chemins de ressources.</p>
+                </li>
+            </ul>
+        </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -86,7 +102,7 @@
                     </ul>
                 </div>
                 <div class="note-attention">
-                    <p>La barre oblique à la fin des chemins (ou de la clé) est obligatoire dans l'importmap</p>
+                    <p>La barre oblique à la fin des chemins (ou de la clé) est obligatoire dans l'importmap lorsque c'est local</p>
                 </div>
             </li>
         </ol>
