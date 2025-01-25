@@ -131,7 +131,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
   - [ ] Déploie le projet en production
   - [ ] Exécute les tests e2e de façon optimale
-  - [ ] Lint le code
+  - [ ] Lint le code avec eslint
   - [ ] Exécute les tests unitaires
   - [ ] Migre la base de données (si besoin)
   - [ ] Rendre inaccessible les fichiers .env au public (si applicable)
@@ -143,7 +143,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       # Contenu du fichier .htaccess
       EOF
       ```
-      - Ne pas mettre les fichier .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
+      - Ne pas mettre les fichiers .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
 
 > La pipeline de la branche main doit être automatique et se lancer quand on effectue une pull_request dessus. Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 > - [En savoir plus sur l'évènement pull_request](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
@@ -156,7 +156,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       - Note 3 : Le nom "develop" est un nom exemple, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
-  - [ ] Lint le code
+  - [ ] Lint le code avec eslint
   - [ ] Migre la base de données (si besoin)
   - [ ] Affiche la branche déployée sur le site
     - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
@@ -169,7 +169,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
   - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
     - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
-> Le report HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
+> Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
