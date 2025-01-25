@@ -74,7 +74,7 @@
                 </li>
                 <li>
                     Lancer le serveur express qui est dans la ressource via la commande <code>npm start</code>
-                    <p>Note : Le serveur a été organisé de façon à ce que les dossiers "node_modules" et "public" soient reconnus par défaut par express, ainsi, vous n'avez pas besoin de les mettre dans les chemins de ressources.</p>
+                    <p>Note : Le serveur a été organisé de façon à ce que les dossiers "node_modules" et "public" soient reconnus par défaut par express, ainsi, vous n'avez pas besoin de les mettre dans les chemins de ressources. Néanmoins, si vous essayez de charger une ressource depuis ces dossiers, il faudra que le chemin commence par une barre oblique (/).</p>
                 </li>
             </ul>
         </div>
@@ -102,7 +102,7 @@
                     </ul>
                 </div>
                 <div class="note-attention">
-                    <p>La barre oblique à la fin des chemins (ou de la clé) est obligatoire dans l'importmap lorsque c'est local</p>
+                    <p>Lorsque vous définissez une portée (clé "scopes"), le chemin doit commencer et terminer par une barre oblique (/).</p>
                 </div>
             </li>
         </ol>
