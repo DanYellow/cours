@@ -1,7 +1,7 @@
 import {
     cleanString,
     replaceImage,
-    tailwindConfig,
+    // tailwindConfig,
     typesTextColor,
     typesBorderColor,
 } from "#utils";
@@ -21,7 +21,7 @@ export const createSensibility = async (template, data, listTypes) => {
     );
 
     const typeIconContainer = template.querySelector("[data-type-icon]");
-    typeIconContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
+    // typeIconContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
     const svgTypeIconReq = await fetch(`/images/types-icons/${typeData.name.en}.svg`);
 
     const parser = new DOMParser();
@@ -35,7 +35,7 @@ export const createSensibility = async (template, data, listTypes) => {
         if(item.classList.contains("cls-1")) {
             return;
         }
-        item.style.fill = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`];
+        // item.style.fill = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`];
     })
     typeIconContainer.append(svgTypeIcon.documentElement);
 
@@ -133,8 +133,8 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
 
     if (Object.keys(data || {}).length > 0) {
         const imgTag = template.querySelector("img");
-        const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(data.types[0].name)}`]));
-        imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+        // const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(data.types[0].name)}`]));
+        // imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
 
         imgTag.alt = `sprite de ${data.name.fr}`;
         replaceImage(imgTag, data.sprites.regular);

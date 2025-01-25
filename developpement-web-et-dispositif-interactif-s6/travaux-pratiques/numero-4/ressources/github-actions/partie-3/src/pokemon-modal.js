@@ -17,7 +17,7 @@ import {
     getEvolutionChain,
     statistics,
     getPkmnIdFromURL,
-    tailwindConfig,
+    // tailwindConfig,
     formsNameDict,
     onTransitionsEnded,
     NB_NUMBER_INTEGERS_PKMN_ID
@@ -217,15 +217,15 @@ const loadDetailsModal = async (e, region = null) => {
 
     const href = $el.href;
     if(pkmnData.types) {
-        let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
+        // let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
 
         $el.removeAttribute("href");
         if (Math.random() > 0.5 && pkmnData.types[1]) {
-            rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
+            // rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
         }
-        await rippleEffect(e, rippleColor);
+        // await rippleEffect(e, rippleColor);
     }
-    
+
     $el.href = href;
 
     const url = new URL(location);
@@ -399,17 +399,17 @@ displayModal = async (pkmnData) => {
         modal_DOM.listTypes.append(li);
     });
 
-    const firstBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
-    const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1]?.name || "")}`] || null;
+    // const firstBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
+    // const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1]?.name || "")}`] || null;
 
-    modal.style.borderTopColor = firstBorderColor;
-    modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;
-    modal.style.borderLeftColor = firstBorderColor;
-    modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
-    modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
-    modal.style.setProperty("--bg-modal-color", firstBorderColor);
-    modal.style.setProperty("--dot-color-1", firstBorderColor);
-    modal.style.setProperty("--dot-color-2", secondaryBorderColor ? secondaryBorderColor : firstBorderColor);
+    // modal.style.borderTopColor = firstBorderColor;
+    // modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;
+    // modal.style.borderLeftColor = firstBorderColor;
+    // modal.style.borderRightColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
+    // modal.style.borderBottomColor = secondaryBorderColor ? secondaryBorderColor : firstBorderColor;
+    // modal.style.setProperty("--bg-modal-color", firstBorderColor);
+    // modal.style.setProperty("--dot-color-1", firstBorderColor);
+    // modal.style.setProperty("--dot-color-2", secondaryBorderColor ? secondaryBorderColor : firstBorderColor);
 
     modal.querySelector("[data-top-infos]").style.borderImage = `linear-gradient(to right, ${firstBorderColor} 0%, ${firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 50%, ${secondaryBorderColor ? secondaryBorderColor : firstBorderColor} 100%) 1`;
     const descriptionsContainer = modal.querySelector("dl");

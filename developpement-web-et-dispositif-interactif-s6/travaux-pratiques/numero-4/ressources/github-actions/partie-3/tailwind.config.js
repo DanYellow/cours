@@ -3,7 +3,6 @@
 import fs from "node:fs"
 
 import plugin from "tailwindcss/plugin";
-import containerQueriesPlugin from "@tailwindcss/container-queries";
 
 const listTypes = [
     "plante",
@@ -111,6 +110,7 @@ export default {
                 type_fee: "#ef71ef",
                 type_dragon: "#5061e1",
                 type_spectre: "#704170",
+                "--type-blue": "blue"
             },
             screens: {
                 retina: {
@@ -132,7 +132,6 @@ export default {
                 ":merge(.group):focus-visible &",
             ]);
         }),
-        containerQueriesPlugin,
         typesClassesPlugin,
     ],
 };

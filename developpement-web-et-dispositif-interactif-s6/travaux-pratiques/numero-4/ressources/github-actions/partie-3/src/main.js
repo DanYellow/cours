@@ -3,14 +3,14 @@ import {
     fetchPokemon,
 } from "#api";
 
-import loadPokemonData from "./pokemon-modal";
+// import loadPokemonData from "./pokemon-modal";
 import {
     replaceImage,
     cleanString,
     delegateEventHandler,
     isElementInViewport,
     typesAnimatedBorderColor,
-    tailwindConfig,
+    // tailwindConfig,
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
     POPOVER_ERRORS,
@@ -137,17 +137,17 @@ const loadDetailsModal = async (e) => {
     const pkmnDataRaw = $el.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
-    let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
-    const href = $el.href;
+    // let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
+    // const href = $el.href;
 
-    $el.removeAttribute("href");
-    if (Math.random() > 0.5 && pkmnData.types[1]) {
-        rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
-    }
+    // $el.removeAttribute("href");
+    // if (Math.random() > 0.5 && pkmnData.types[1]) {
+    //     rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
+    // }
     await rippleEffect(e, rippleColor);
     $el.href = href;
 
-    await loadPokemonData(pkmnData);
+    // await loadPokemonData(pkmnData);
 
     modal.showModal();
 
@@ -169,7 +169,7 @@ const generateMarqueeTypes = (e) => {
     pkmnData.types.forEach((type, idx) => {
         const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
         const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
-        scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
+        // scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
         scrollTypeContainer.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
 
         for (let index = 0; index <= nbMarqueeTextToGenerate; index++) {
@@ -242,8 +242,8 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
 
-            const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
-            imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+            // const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
+            // imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
 
             replaceImage(imgTag, item.sprites.regular);
 
@@ -329,8 +329,8 @@ export const observeURL = async () => {
             const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
             pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
 
-            await loadPokemonData(pkmnData);
-            modal.showModal();
+            // await loadPokemonData(pkmnData);
+            // modal.showModal();
         } catch (_e) {
             modal.close();
             errorMessageContainer.textContent = `Le Pokémon avec l'id "${pkmnId}" n'existe pas`;
