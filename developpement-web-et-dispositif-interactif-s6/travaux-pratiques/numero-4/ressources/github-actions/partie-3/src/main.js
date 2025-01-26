@@ -3,7 +3,7 @@ import {
     fetchPokemon,
 } from "#api";
 
-// import loadPokemonData from "./pokemon-modal";
+import loadPokemonData from "./pokemon-modal";
 import {
     replaceImage,
     cleanString,
@@ -146,9 +146,8 @@ const loadDetailsModal = async (e) => {
     await rippleEffect(e, rippleColor);
     $el.href = href;
 
-    // await loadPokemonData(pkmnData);
-
-    // modal.showModal();
+    await loadPokemonData(pkmnData);
+    modal.showModal();
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
@@ -332,8 +331,8 @@ export const observeURL = async () => {
             const pkmnData = await fetchPokemon(pkmnId, urlParams.get("region"));
             pkmnData.alternate_form_id = urlParams.get("alternate_form_id");
 
-            // await loadPokemonData(pkmnData);
-            // modal.showModal();
+            await loadPokemonData(pkmnData);
+            modal.showModal();
         } catch (_e) {
             modal.close();
             errorMessageContainer.textContent = `Le Pokémon avec l'id "${pkmnId}" n'existe pas`;

@@ -133,8 +133,13 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
 
     if (Object.keys(data || {}).length > 0) {
         const imgTag = template.querySelector("img");
-        // const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(data.types[0].name)}`]));
-        // imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+        const encodedData = window.btoa(
+            loadingImageRaw.replaceAll(
+                "#037ef3",
+                window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(data.types[0].name)}`)
+            )
+        );
+        imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
 
         imgTag.alt = `sprite de ${data.name.fr}`;
         replaceImage(imgTag, data.sprites.regular);

@@ -15,7 +15,7 @@
         <div role="alert" id="no-generation-banner" popover data-error-popover tabindex="-1" class="bg-amber-400 p-4 mt-11 border border-amber-800 rounded-lg mx-auto error-banner">
             <div class="flex items-center justify-center gap-3">
                 <p data-error-message></p>
-                <button popovertarget="no-generation-banner" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-amber-900 hocus:bg-amber-800 hocus:text-gray-100 rounded-lg text-sm p-1.5 ">
+                <button popovertarget="no-generation-banner" type="button" class="shrink-0 inline-flex justify-center w-7 h-7 items-center text-amber-900 hocus:bg-amber-800 hocus:text-gray-100 rounded-lg text-sm p-1.5">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -71,7 +71,7 @@
         </template>
 
         <template data-tpl-id="marquee-type-text">
-            <p aria-hidden="true" class="marquee-text type-name px-1 text-sm group-hocus:animation-play"></p>
+            <p aria-hidden="true" class="marquee-text type-name px-1 text-sm group-hocus:animation-play animation-pause"></p>
         </template>
 
         <template data-tpl-id="marquee-type-container">
@@ -80,10 +80,10 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container">
-                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
                         <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden" data-marquee></div>
-                        <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-90 transition-transform" />
+                        <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-85 transition-transform" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full rounded-md"></p>
                     </div>
                 </a>
@@ -209,7 +209,7 @@
             data-pokemon-data
             aria-labelledby="placeholder"
             data-testid="pokemon-modal"
-            class="pkmn-details-dialog backdrop:backdrop-blur-[--details-modal-blur] backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-4xl border-2 border-solid"
+            class="pkmn-details-dialog backdrop:backdrop-blur-(--details-modal-blur) backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-4xl border-2 border-solid mx-auto"
         >
             <header
                 class="main-infos border-b text-black pb-4 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"
@@ -217,8 +217,8 @@
             <div class="infinite-header-bg bg-white"></div>
                 <div class="sticky-header relative px-4 bg-white top-0 pt-2 pb-3 border-black border-solid border-b" data-top-infos>
                     <div class="touch:flex hidden justify-center mb-2">
-                        <div class="h-2 rounded-xl w-7 bg-[--bg-modal-color] duration-150 pulldown-indicator rotate-12" data-pulldown-indicator=""></div>
-                        <div class="h-2 rounded-xl w-7 bg-[--bg-modal-color] duration-150 pulldown-indicator -ml-2 -rotate-12" data-pulldown-indicator=""></div>
+                        <div class="h-2 rounded-xl w-7 bg-(--bg-modal-color) duration-150 pulldown-indicator rotate-12" data-pulldown-indicator=""></div>
+                        <div class="h-2 rounded-xl w-7 bg-(--bg-modal-color) duration-150 pulldown-indicator -ml-2 -rotate-12" data-pulldown-indicator=""></div>
                     </div>
                     <div class="flex flex-row gap-3">
                         <div class="w-20">
@@ -279,19 +279,19 @@
             </header>
             <div class="px-4 text-black">
                 <details>
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Descriptions
                     </summary>
                     <dl></dl>
                 </details>
                 <details class="mt-3">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Statistiques de base
                     </summary>
                     <div data-statistics="" class="grid gap-y-1.5 grid-cols-[1fr_max-content] sm:grid-cols-[max-content_max-content_1fr] grid-rows-[max-content] items-center pt-3 relative -z-10"></div>
                 </details>
                 <details class="mt-3">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Évolution
                     </summary>
                     <p class="hidden" data-no-evolutions>Ce Pokémon n'a pas d'évolutions</p>
@@ -319,7 +319,7 @@
                     </div>
                 </details>
                 <details class="mt-3 max-w @container">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Sensibilités
                     </summary>
                     <ul
@@ -328,14 +328,14 @@
                     ></ul>
                 </details>
                 <details class="mt-3">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Sprites
                     </summary>
                     <div class="mt-3 grid gap-2 grid-flow-col-dense" data-sprites-container>
                     </div>
                 </details>
                 <details class="mt-3" data-testid="forms">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Formes <span data-nb-forms></span>
                     </summary>
                     <ul
@@ -344,7 +344,7 @@
                     ></ul>
                 </details>
                 <details class="mt-3" data-testid="regional-forms">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Formes régionales <span data-nb-regional-forms></span>
                     </summary>
                     <ul
@@ -353,7 +353,7 @@
                     ></ul>
                 </details>
                 <details class="mt-3">
-                    <summary class="hocus:marker:text-[color:--bg-modal-color] font-bold text-xl">
+                    <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Apparitions <span data-nb-games></span>
                     </summary>
                     <ul
