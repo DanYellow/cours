@@ -652,7 +652,7 @@ export const typesAnimatedBorderColor = {
     spectre_spectre: "hocus:border-animated-spectre_spectre",
 };
 
-export const typesTextColor = {
+export const typesTextColorGroupHocus = {
     plante: "group-hocus:text-plante",
     acier: "group-hocus:text-acier",
     feu: "group-hocus:text-feu",

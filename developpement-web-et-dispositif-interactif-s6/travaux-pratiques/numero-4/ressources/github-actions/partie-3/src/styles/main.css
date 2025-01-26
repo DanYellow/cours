@@ -602,3 +602,10 @@ details {
         }
     }
 }
+
+.arrow {
+    font-family: serif;
+    transition-property: scale, color;
+    transition-duration: var(--duration-150);
+    transform-origin: center;
+}

@@ -1,7 +1,7 @@
 import {
     cleanString,
     replaceImage,
-    typesTextColor,
+    typesTextColorGroupHocus,
     typesBorderColor,
 } from "#utils";
 
@@ -135,7 +135,7 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
         const imgTag = template.querySelector("img");
         const encodedData = window.btoa(
             loadingImageRaw.replaceAll(
-                "#037ef3", 
+                "#037ef3",
                 window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(data.types[0].name)}`)
             )
         );
@@ -176,10 +176,10 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
             const arrow = document.createElement("p");
             arrow.textContent = isPreviousPkmn ? "◄" : "►";
             arrow.classList.add(...[
-                "font-['serif']",
                 isPreviousPkmn ? "-mr-3.5" : "-ml-3.5",
                 "arrow",
-                typesTextColor[cleanString(data.types[0].name)],
+                "group-hocus:scale-120",
+                typesTextColorGroupHocus[cleanString(data.types[0].name)],
             ]);
 
             aTag.prepend(arrow);
