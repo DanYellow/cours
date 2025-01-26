@@ -378,8 +378,9 @@ displayModal = async (pkmnData) => {
         li.textContent = type.name;
         li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
         li.classList.add(
-            ...[cleanString(type.name), "py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name", "w-fit"]
+            ...["py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name", "w-fit"]
         );
+        li.style.backgroundColor = `var(--type-${cleanString(type.name)})`;
 
         const imgTag = document.createElement("img");
         imgTag.alt = `icône type ${type.name}`;
@@ -489,6 +490,7 @@ displayModal = async (pkmnData) => {
             const nextArrow = document.createElement("li");
             if(evolutionLine.flat().length >= thresholdNbTotalEvolutions) {
                 nextArrow.textContent = "►";
+                nextArrow.classList.add("justify-center");
             } else {
                 nextArrow.classList.add("justify-around");
                 (evolutionLine?.[idx + 1] || []).forEach(() => {
@@ -500,7 +502,7 @@ displayModal = async (pkmnData) => {
             }
 
             nextArrow.inert = true;
-            nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
+            nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "font-['serif']"])
             modal_DOM.listEvolutions.append(nextArrow);
         });
     }

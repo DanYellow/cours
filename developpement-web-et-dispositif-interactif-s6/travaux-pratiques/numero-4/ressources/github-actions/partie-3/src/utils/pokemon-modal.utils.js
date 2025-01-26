@@ -34,13 +34,14 @@ export const createSensibility = async (template, data, listTypes) => {
         if(item.classList.contains("cls-1")) {
             return;
         }
-        item.style.fill =  window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
+        item.style.fill = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
     })
     typeIconContainer.append(svgTypeIcon.documentElement);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
     typeLabel.classList.add(cleanString(data.name));
+    typeLabel.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
     typeLabel.textContent = data.name;
 
     damageFactorContainer.textContent = `x${data.multiplier}`;

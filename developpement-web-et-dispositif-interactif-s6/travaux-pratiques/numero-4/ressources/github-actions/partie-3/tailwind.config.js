@@ -79,10 +79,10 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
         });
 
     addComponents({
-        ...backgroundTypesComponents.reduce(
-            (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
-            {}
-        ),
+        // ...backgroundTypesComponents.reduce(
+        //     (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
+        //     {}
+        // ),
         ...textColorTypesComponents.reduce(
             (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
             {}
