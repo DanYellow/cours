@@ -1,5 +1,7 @@
 @config "../../tailwind.config.js";
 
+@layer theme, base, components, utilities;
+
 @import "./properties.css";
 @import "tailwindcss";
 
@@ -8,7 +10,42 @@
   } */
 
 @theme {
-    --color-mint: red;
+    --duration-75: 75ms;
+    --duration-150: 150ms;
+    --duration-300: 300ms;
+    --duration-500: 500ms;
+
+    --type-plante: #3fa129;
+    --type-poison: #8f41cb;
+    --type-vol: #81b9ef;
+    --type-eau: #2980ef;
+    --type-feu: #e62829;
+    --type-normal: #9fa19f;
+    --type-insecte: #91a119;
+    --type-sol: #915121;
+    --type-tenebres: #50413f;
+    --type-sol: #915121;
+    --type-psy: #ef4179;
+    --type-electrik: #fac000;
+    --type-glace: #3fd8ff;
+    --type-combat: #ff8000;
+    --type-roche: #afa981;
+    --type-acier: #60a1b8;
+    --type-fee: #ef71ef;
+    --type-dragon: #5061e1;
+    --type-spectre: #704170;
+
+    --grid-fluid: repeat(auto-fit, minmax(0, 1fr));
+}
+
+@layer base {
+    [popover] {
+        position: fixed;
+        inset: 0;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+    }
 }
 
 @font-face {
@@ -25,13 +62,29 @@
     font-weight: 300 800;
 }
 
-@layer utilities {
-    .animation-pause {
-        animation-play-state: paused;
-    }
+@utility animation-play {
+    animation-play-state: running;
+}
 
-    .animation-play {
-        animation-play-state: running;
+@utility animation-pause {
+    animation-play-state: paused;
+}
+
+@custom-variant hocus {
+    &:is(:hover, :focus-visible) {
+        @slot;
+    }
+}
+
+@custom-variant group-hocus {
+    &:is(:where(.group):hover *, :where(.group):focus-visible *) {
+        @slot;
+    }
+}
+
+@custom-variant touch {
+    @media (pointer: coarse) {
+        @slot;
     }
 }
 
@@ -95,15 +148,15 @@ html {
     background: rgb(233, 233, 233);
     background: linear-gradient(
         113deg,
-        theme("colors.sky.300") 0%,
-        theme("colors.sky.300") 44.5%,
-        theme("colors.pink.300") 44.5%,
-        theme("colors.pink.300") 100%
+        var(--color-sky-300) 0%,
+        var(--color-sky-300) 44.5%,
+        var(--color-pink-300) 44.5%,
+        var(--color-pink-300) 100%
     );
 }
 
 [inert]:not(li:has(a), dialog, .arrow, .pokemon) {
-    opacity: theme("opacity.20");
+    opacity: theme(opacity.20);
     position: relative;
     z-index: -10;
 }
@@ -112,7 +165,7 @@ html {
     display: grid;
     grid-template-columns: auto min-content auto;
     align-items: center;
-    column-gap: theme("spacing.2");
+    column-gap: --spacing(2);
 
     a:has(img) {
         width: 100%;
@@ -122,7 +175,7 @@ html {
 .vertical-evolution-layout {
     display: flex;
     flex-direction: column;
-    column-gap: theme("spacing.2");
+    column-gap: --spacing(2);
 }
 
 dialog {
@@ -184,7 +237,7 @@ dialog {
     --dot-color-1: white;
     --dot-color-2: white;
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png";
-    --details-modal-blur: theme("backdropBlur.md");
+    --details-modal-blur: blur(var(--blur-md));
     --darken-bg-color: lch(from var(--bg-modal-color) calc(l - 20) c h);
     --lighter-bg-color: lch(from var(--bg-modal-color) calc(l + 20) c h);
 
@@ -218,7 +271,7 @@ dialog {
     &[inert] {
         opacity: 0.7;
         &::backdrop {
-            backdrop-filter: theme("backdropBlur.3xl");
+            backdrop-filter: blur(var(--blur-3xl));
         }
     }
 
@@ -263,7 +316,7 @@ dialog {
 
 .type-name {
     font-weight: bold;
-    color: theme("colors.slate.50");
+    color: var(--color-slate-50);
     text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
 }
 
@@ -271,7 +324,7 @@ details {
     --animation-speed: 0.3s;
 
     .stat-bar {
-        border-radius: theme("borderRadius.DEFAULT");
+        border-radius: var(--radius-sm);
         transform: scaleX(0);
         transition: transform 0.95s var(--animation-speed);
         transform-origin: left center;
@@ -387,7 +440,6 @@ details {
     text-transform: uppercase;
     font-weight: 700;
     animation: loop-text 5s infinite linear;
-    animation-play-state: paused;
 }
 
 @keyframes loop-text {
@@ -414,11 +466,11 @@ details {
 }
 
 .bar-sex-male, .bar-sex-female {
-    transition: width theme("transitionDuration.300"), border-radius theme("transitionDuration.300") theme("transitionDelay.150");
+    transition: width var(--duration-300), border-radius var(--duration-300) var(--duration-150);
 
     &::after {
         content: "";
-        @media (width >= theme("screens.md")) {
+        @media (width >= theme(--breakpoint-md)) {
             content: none !important;
         }
         mask-size: contain;
@@ -452,21 +504,21 @@ details {
     --ripple-speed: 350;
     --animation-tick: 0;
 
-    transition-property: transform;
+    /* transition-property: transform; */
     position: relative;
 
     &::after {
         content: "";
         position: absolute;
         inset: 0;
-        background-color: theme("colors.slate.100");
+        background-color: var(--color-slate-100);
         z-index: -1;
         box-sizing: content-box;
         overflow: hidden;
         border-radius: inherit;
         opacity: 0;
         transition-property: opacity;
-        transition-duration: theme("transitionDuration.150");
+        transition-duration: var(--duration-150);
     }
 
     &:hover, &:focus {
@@ -485,8 +537,8 @@ details {
 
 .pikachu-loading, .error-banner {
     z-index: 9999;
-    transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
-    display theme("transitionDuration.500") ease-in, opacity theme("transitionDuration.300");
+    transition: translate var(--duration-500) ease-in var(--duration-75),
+    display var(--duration-500) ease-in, opacity var(--duration-300);
     transition-behavior: allow-discrete;
 }
 
@@ -533,12 +585,12 @@ details {
 
 .pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
-        /* @container pokemon (width >= theme()) {
+        @container pokemon (width >= theme(--container-xs)) {
             will-change: transform, opacity;
             animation: animate-in linear forwards,
             animate-out linear forwards;
             animation-timeline: view();
             animation-range: entry, exit;
-        } */
+        }
     }
 }
