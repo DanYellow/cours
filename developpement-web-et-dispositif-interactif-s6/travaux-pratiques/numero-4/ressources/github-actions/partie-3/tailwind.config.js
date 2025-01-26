@@ -26,14 +26,6 @@ const listTypes = [
 ];
 
 const typesClassesPlugin = plugin(({ theme, addComponents }) => {
-    const backgroundTypesComponents = listTypes.map((item) => {
-        return { name: `.${item}`, backgroundColor: theme(`colors.type_${item}`) }
-    });
-
-    const textColorTypesComponents = listTypes.map((item) => {
-        return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
-    });
-
     const listPossiblesTypeCombinaions = listTypes.flatMap((type1) =>
         listTypes.map(type2 => `${type1}_${type2}`)
     );
@@ -75,8 +67,6 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     });
 
     addComponents({
-        ...backgroundTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...textColorTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
         ...listPossiblesBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
         ...listPossiblesAnimatedBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
     });
@@ -84,12 +74,8 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
 
 export default {
     content: ["./src/**/*.{js,html}"],
-    safelist: [],
     theme: {
         extend: {
-            gridTemplateColumns: {
-                fluid: "repeat(auto-fit, minmax(0, 1fr))",
-            },
             colors: {
                 type_plante: "#3fa129",
                 type_poison: "#8f41cb",

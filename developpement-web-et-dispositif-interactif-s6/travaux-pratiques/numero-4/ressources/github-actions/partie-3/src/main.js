@@ -95,7 +95,6 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
-
 export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
         if ("paintWorklet" in CSS === false) {

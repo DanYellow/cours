@@ -35,13 +35,13 @@ export const createSensibility = async (template, data, listTypes) => {
         if(item.classList.contains("cls-1")) {
             return;
         }
-        // item.style.fill = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`];
+        item.style.fill = `var(--type-${cleanString(data.name)})`
     })
     typeIconContainer.append(svgTypeIcon.documentElement);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
-    typeLabel.classList.add(cleanString(data.name));
+    typeLabel.style.backgroundColor = `var(--type-${cleanString(data.name)})`
     typeLabel.textContent = data.name;
 
     damageFactorContainer.textContent = `x${data.multiplier}`;
