@@ -362,8 +362,8 @@ displayModal = async (pkmnData) => {
             ? "Pokémon Légendaire"
             : "Pokémon Fabuleux";
         span.classList.add(
-            listDescriptions.is_legendary ? "!bg-amber-400" : "!bg-slate-400",
-            "!text-black"
+            listDescriptions.is_legendary ? "bg-amber-400!" : "bg-slate-400!",
+            "text-black!"
         );
         modal_DOM.pkmnName.append(cloneHighlight);
     }
@@ -622,7 +622,7 @@ displayModal = async (pkmnData) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
-        summary.classList.add(...["hocus:marker:text-[color:--bg-modal-color]"])
+        summary.classList.add(...["hocus:marker:text-(color:--bg-modal-color)"])
 
         const abilityDescription = document.createElement("p");
         abilityDescription.textContent = item.description?.replaceAll("\\n", " ");

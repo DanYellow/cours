@@ -32,13 +32,13 @@ export default (modal, drag, resetPosition) => {
 
         listPulldownModalIndicator.forEach(item => {
             item.style.backgroundColor = window.getComputedStyle(modal).getPropertyValue("--darken-bg-color");
-            item.classList.remove(...["!rotate-0"] );
+            item.classList.remove(...["rotate-0!"] );
         });
     }, { passive: true });
 
     drag.addEventListener('touchmove', e => {
         listPulldownModalIndicator.forEach(item => {
-            item.classList.add(...["!rotate-0"] );
+            item.classList.add(...["rotate-0!"] );
         });
 
         if (isDraggingDown) {
@@ -64,7 +64,7 @@ export default (modal, drag, resetPosition) => {
 
         listPulldownModalIndicator.forEach(item => {
             item.style.backgroundColor = "revert-layer";
-            item.classList.remove(...["!rotate-0"] );
+            item.classList.remove(...["rotate-0!"] );
         });
         modal.style.overflow = "revert";
 
@@ -84,7 +84,7 @@ export default (modal, drag, resetPosition) => {
 
     modal.addEventListener("close", () => {
         listPulldownModalIndicator.forEach(item => {
-            item.classList.remove(...["!rotate-0"] );
+            item.classList.remove(...["rotate-0!"] );
         });
     });
 }

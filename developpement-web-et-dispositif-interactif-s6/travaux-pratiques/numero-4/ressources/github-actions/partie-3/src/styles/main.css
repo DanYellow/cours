@@ -1,31 +1,49 @@
-@import "./properties.css";
+@import './properties.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@font-face {
-    font-family: "Open Sans";
-    src: url("/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
-    font-weight: 300 800;
-    font-style: normal;
+@config '../../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-@font-face {
-    font-family: "Open Sans";
-    src: url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-    font-style: italic;
-    font-weight: 300 800;
+@utility animation-pause {
+  animation-play-state: paused;
+}
+
+@utility animation-play {
+  animation-play-state: running;
 }
 
 @layer utilities {
-    .animation-pause {
-        animation-play-state: paused;
-    }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 300 800;
+    font-style: normal;
+  }
 
-    .animation-play {
-        animation-play-state: running;
-    }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 300 800;
+  }
 }
 
 html {
@@ -88,10 +106,10 @@ html {
     background: rgb(233, 233, 233);
     background: linear-gradient(
         113deg,
-        theme("colors.sky.300") 0%,
-        theme("colors.sky.300") 44.5%,
-        theme("colors.pink.300") 44.5%,
-        theme("colors.pink.300") 100%
+        var(--color-sky-300) 0%,
+        var(--color-sky-300) 44.5%,
+        var(--color-pink-300) 44.5%,
+        var(--color-pink-300) 100%
     );
 }
 
@@ -105,7 +123,7 @@ html {
     display: grid;
     grid-template-columns: auto min-content auto;
     align-items: center;
-    column-gap: theme("spacing.2");
+    column-gap: --spacing(2);
 
     a:has(img) {
         width: 100%;
@@ -115,7 +133,7 @@ html {
 .vertical-evolution-layout {
     display: flex;
     flex-direction: column;
-    column-gap: theme("spacing.2");
+    column-gap: --spacing(2);
 }
 
 dialog {
@@ -256,7 +274,7 @@ dialog {
 
 .type-name {
     font-weight: bold;
-    color: theme("colors.slate.50");
+    color: var(--color-slate-50);
     text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
 }
 
@@ -264,7 +282,7 @@ details {
     --animation-speed: 0.3s;
 
     .stat-bar {
-        border-radius: theme("borderRadius.DEFAULT");
+        border-radius: var(--radius);
         transform: scaleX(0);
         transition: transform 0.95s var(--animation-speed);
         transform-origin: left center;
@@ -411,7 +429,7 @@ details {
 
     &::after {
         content: "";
-        @media (width >= theme("screens.md")) {
+        @media (width >= --theme(--breakpoint-md)) {
             content: none !important;
         }
         mask-size: contain;
@@ -452,7 +470,7 @@ details {
         content: "";
         position: absolute;
         inset: 0;
-        background-color: theme("colors.slate.100");
+        background-color: var(--color-slate-100);
         z-index: -1;
         box-sizing: content-box;
         overflow: hidden;
@@ -526,7 +544,7 @@ details {
 
 .pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
-        @container pokemon (width >= theme("containers.xs")) {
+        @container pokemon (width >= --theme(--containers-xs)) {
             will-change: transform, opacity;
             animation: animate-in linear forwards,
             animate-out linear forwards;
