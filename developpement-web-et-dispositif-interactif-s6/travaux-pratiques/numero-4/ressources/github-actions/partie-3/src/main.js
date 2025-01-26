@@ -10,11 +10,10 @@ import {
     delegateEventHandler,
     isElementInViewport,
     typesAnimatedBorderColor,
-    // tailwindConfig,
+    onTransitionsEnded,
     NB_NUMBER_INTEGERS_PKMN_ID,
     HTTP_NOT_FOUND_CODE_ERROR,
     POPOVER_ERRORS,
-    onTransitionsEnded,
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
@@ -137,19 +136,19 @@ const loadDetailsModal = async (e) => {
     const pkmnDataRaw = $el.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
-    // let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
-    // const href = $el.href;
+    let rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[0].name)}`);
+    const href = $el.href;
 
-    // $el.removeAttribute("href");
-    // if (Math.random() > 0.5 && pkmnData.types[1]) {
-    //     rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
-    // }
+    $el.removeAttribute("href");
+    if (Math.random() > 0.5 && pkmnData.types[1]) {
+        rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[1].name)}`);
+    }
     await rippleEffect(e, rippleColor);
     $el.href = href;
 
     // await loadPokemonData(pkmnData);
 
-    modal.showModal();
+    // modal.showModal();
 
     const url = new URL(location);
     url.searchParams.set("id", pkmnData.pokedex_id);
@@ -169,7 +168,7 @@ const generateMarqueeTypes = (e) => {
     pkmnData.types.forEach((type, idx) => {
         const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
         const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
-        // scrollTypeContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(type.name)}`];
+        scrollTypeContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(type.name)}`);
         scrollTypeContainer.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
 
         for (let index = 0; index <= nbMarqueeTextToGenerate; index++) {
@@ -242,8 +241,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
 
-            // const encodedData = window.btoa(loadingImageRaw.replaceAll("#037ef3", tailwindConfig.theme.colors[`type_${cleanString(item.types[0].name)}`]));
-            // imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
+            const encodedData = window.btoa(loadingImageRaw.replaceAll(
+                    "#037ef3",
+                    window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(item.types[0].name)}`)
+                )
+            );
+            imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
 
             replaceImage(imgTag, item.sprites.regular);
 
