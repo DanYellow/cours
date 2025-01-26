@@ -1,10 +1,68 @@
-@import "tailwindcss";
+@import './properties.css' layer(base);
 
-/* @config "../../tailwind.config.js"; */
+@import 'tailwindcss';
 
-@layer theme, base, components, utilities;
+@config '../../tailwind.config.js';
 
-@import "./properties.css";
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility animation-pause {
+  animation-play-state: paused;
+}
+
+@utility animation-play {
+  animation-play-state: running;
+}
+
+@custom-variant hocus {
+    &:is(:hover, :focus-visible) {
+        @slot;
+    }
+}
+
+@custom-variant group-hocus {
+    &:is(:where(.group):hover *, :where(.group):focus-visible *) {
+        @slot;
+    }
+}
+
+@custom-variant touch {
+    @media (pointer: coarse) {
+        @slot;
+    }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 300 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 300 800;
+  }
+}
 
 @theme {
     --duration-75: 75ms;
@@ -42,46 +100,6 @@
         width: fit-content;
         height: fit-content;
         margin: auto;
-    }
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
-    font-weight: 300 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Open Sans";
-    /* src: url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype"); */
-    font-style: italic;
-    font-weight: 300 800;
-}
-
-@utility animation-play {
-    animation-play-state: running;
-}
-
-@utility animation-pause {
-    animation-play-state: paused;
-}
-
-@custom-variant hocus {
-    &:is(:hover, :focus-visible) {
-        @slot;
-    }
-}
-
-@custom-variant group-hocus {
-    &:is(:where(.group):hover *, :where(.group):focus-visible *) {
-        @slot;
-    }
-}
-
-@custom-variant touch {
-    @media (pointer: coarse) {
-        @slot;
     }
 }
 
@@ -153,7 +171,7 @@ html {
 }
 
 [inert]:not(li:has(a), dialog, .arrow, .pokemon) {
-    opacity: theme(opacity.20);
+    opacity: theme("opacity.20");
     position: relative;
     z-index: -10;
 }
@@ -211,7 +229,7 @@ dialog {
     --dot-color-1: white;
     --dot-color-2: white;
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png";
-    --details-modal-blur: var(--blur-md);
+    --details-modal-blur: theme("backdropBlur.md");
     --darken-bg-color: lch(from var(--bg-modal-color) calc(l - 20) c h);
     --lighter-bg-color: lch(from var(--bg-modal-color) calc(l + 20) c h);
 
@@ -245,7 +263,7 @@ dialog {
     &[inert] {
         opacity: 0.7;
         &::backdrop {
-            backdrop-filter: blur(var(--blur-3xl));
+            backdrop-filter: theme("backdropBlur.3xl");
         }
     }
 
@@ -280,7 +298,7 @@ dialog {
             position: absolute;
             left: 0;
             right: 0;
-            /* background-image: image-set(var(--background-sprite) 1x); */
+            background-image: image-set(var(--background-sprite) 1x);
             background-repeat: space;
             background-size: 15%;
             background-position: center;
@@ -298,7 +316,7 @@ details {
     --animation-speed: 0.3s;
 
     .stat-bar {
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius);
         transform: scaleX(0);
         transition: transform 0.95s var(--animation-speed);
         transform-origin: left center;
@@ -439,14 +457,12 @@ details {
     }
 }
 
-.bar-sex-male,
-.bar-sex-female {
-    transition: width var(--duration-300),
-        border-radius var(--duration-300) var(--duration-150);
+.bar-sex-male, .bar-sex-female {
+    transition: width theme("transitionDuration.300"), border-radius theme("transitionDuration.300") theme("transitionDelay.150");
 
     &::after {
         content: "";
-        @media (width >= theme(--breakpoint-md)) {
+        @media (width >= --theme(--breakpoint-md)) {
             content: none !important;
         }
         mask-size: contain;
@@ -460,12 +476,12 @@ details {
 }
 
 .bar-sex-male::after {
-    /* mask: url("/images/male-icon.svg") no-repeat 50% 50%; */
+    mask: url("/images/male-icon.svg") no-repeat 50% 50%;
     left: 0;
 }
 
 .bar-sex-female::after {
-    /* mask: url("/images/female-icon.svg") no-repeat 50% 50%; */
+    mask: url("/images/female-icon.svg") no-repeat 50% 50%;
     right: 0;
 }
 
@@ -480,7 +496,6 @@ details {
     --ripple-speed: 350;
     --animation-tick: 0;
 
-    /* transition-property: transform; */
     position: relative;
 
     &::after {
@@ -494,11 +509,10 @@ details {
         border-radius: inherit;
         opacity: 0;
         transition-property: opacity;
-        transition-duration: var(--duration-150);
+        transition-duration: theme("transitionDuration.150");
     }
 
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
         &::after {
             opacity: 1;
         }
@@ -512,11 +526,10 @@ details {
     }
 }
 
-.pikachu-loading,
-.error-banner {
+.pikachu-loading, .error-banner {
     z-index: 9999;
-    transition: translate var(--duration-500) ease-in var(--duration-75),
-        display var(--duration-500) ease-in, opacity var(--duration-300);
+    transition: translate theme("transitionDuration.500") ease-in theme("transitionDelay.75"),
+    display theme("transitionDuration.500") ease-in, opacity theme("transitionDuration.300");
     transition-behavior: allow-discrete;
 }
 
@@ -545,42 +558,28 @@ details {
     &[popover]:not(:popover-open) {
         translate: 0 -10vh;
         display: none !important;
-        transition-duration: 0.4s;
+        transition-duration: .4s;
         transition-timing-function: ease-out;
     }
 }
 
 @keyframes animate-in {
-    0% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    50% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	0% { opacity: 0; transform: translateY(100%); }
+	50% { opacity: 0; transform: translateY(100%); }
+	100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes animate-out {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
+	0% { opacity: 1; transform: translateY(0); }
+	100% { opacity: 0; transform: translateY(-100%); }
 }
 
 .pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
-        @container pokemon (width >= theme(--container-xs)) {
+        @container pokemon (width >= var(--containers-xs)) { /* theme(--containers-xs) */
             will-change: transform, opacity;
-            animation: animate-in linear forwards, animate-out linear forwards;
+            animation: animate-in linear forwards,
+            animate-out linear forwards;
             animation-timeline: view();
             animation-range: entry, exit;
         }

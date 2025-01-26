@@ -19,7 +19,7 @@ import {
     getPkmnIdFromURL,
     formsNameDict,
     onTransitionsEnded,
-    NB_NUMBER_INTEGERS_PKMN_ID,
+    NB_NUMBER_INTEGERS_PKMN_ID
 } from "./utils";
 
 import {
@@ -216,15 +216,14 @@ const loadDetailsModal = async (e, region = null) => {
 
     const href = $el.href;
     if(pkmnData.types) {
-        let rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[0].name)}`);
-
+        let rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`)
         $el.removeAttribute("href");
         if (Math.random() > 0.5 && pkmnData.types[1]) {
-            rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[1].name)}`);
+            rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1].name)}`)
         }
         await rippleEffect(e, rippleColor);
     }
-
+    
     $el.href = href;
 
     const url = new URL(location);
@@ -361,8 +360,8 @@ displayModal = async (pkmnData) => {
             ? "Pokémon Légendaire"
             : "Pokémon Fabuleux";
         span.classList.add(
-            listDescriptions.is_legendary ? "!bg-amber-400" : "!bg-slate-400",
-            "!text-black"
+            listDescriptions.is_legendary ? "bg-amber-400!" : "bg-slate-400!",
+            "text-black!"
         );
         modal_DOM.pkmnName.append(cloneHighlight);
     }
@@ -399,8 +398,8 @@ displayModal = async (pkmnData) => {
         modal_DOM.listTypes.append(li);
     });
 
-    const firstBorderColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[0].name)}`);
-    const secondaryBorderColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[0].name)}`) || null;
+    const firstBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`);
+    const secondaryBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1]?.name || "")}`);
 
     modal.style.borderTopColor = firstBorderColor;
     modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;
@@ -491,6 +490,7 @@ displayModal = async (pkmnData) => {
             const nextArrow = document.createElement("li");
             if(evolutionLine.flat().length >= thresholdNbTotalEvolutions) {
                 nextArrow.textContent = "►";
+                nextArrow.classList.add("justify-center");
             } else {
                 nextArrow.classList.add("justify-around");
                 (evolutionLine?.[idx + 1] || []).forEach(() => {
@@ -502,7 +502,7 @@ displayModal = async (pkmnData) => {
             }
 
             nextArrow.inert = true;
-            nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "justify-center", "font-['serif']"])
+            nextArrow.classList.add(...["flex", "items-center", "last:hidden", "arrow", "font-['serif']"])
             modal_DOM.listEvolutions.append(nextArrow);
         });
     }
@@ -622,7 +622,7 @@ displayModal = async (pkmnData) => {
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         summary.textContent = item.name.fr;
-        summary.classList.add(...["hocus:marker:text-[color:--bg-modal-color]"])
+        summary.classList.add(...["hocus:marker:text-(color:--bg-modal-color)"])
 
         const abilityDescription = document.createElement("p");
         abilityDescription.textContent = item.description?.replaceAll("\\n", " ");

@@ -11,11 +11,11 @@
         <script type="module" src="/src/main.js"></script>
         <link data-favicon rel="shortcut icon" href="/favicon.png" type="image/png">
     </head>
-    <body class="bg-type.eau">
+    <body>
         <div role="alert" id="no-generation-banner" popover data-error-popover tabindex="-1" class="bg-amber-400 p-4 mt-11 border border-amber-800 rounded-lg mx-auto error-banner">
             <div class="flex items-center justify-center gap-3">
                 <p data-error-message></p>
-                <button popovertarget="no-generation-banner" type="button" class="shrink-0 inline-flex justify-center w-7 h-7 items-center text-amber-900 hocus:bg-amber-800 hocus:text-gray-100 rounded-lg text-sm p-1.5">
+                <button popovertarget="no-generation-banner" type="button" class="shrink-0 inline-flex justify-center w-7 h-7 items-center text-amber-900 hocus:bg-amber-800 hocus:text-gray-100 rounded-lg text-sm p-1.5 ">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -79,7 +79,7 @@
         </template>
 
         <template data-tpl-id="pokemon">
-            <li class="@container">
+            <li class="@container/pokemon">
                 <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
                         <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden" data-marquee></div>
@@ -111,7 +111,7 @@
                         </svg>
 
                         <label class="inline-flex items-center cursor-pointer col-span-2" data-testid="switch-layout">
-                            <input type="checkbox" value="" class="sr-only peer" data-layout-switch>
+                            <input type="checkbox" value="" class="sr-only peer switch-checkbox" data-layout-switch>
                             <div class="switch relative w-14 h-8 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 peer-checked:after:start-[-2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 peer-checked:bg-blue-600"></div>
                         </label>
 
@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </header>
-            <div class="px-3 mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
+            <div class="px-3  mr-[max(env(safe-area-inset-right),_theme(space.0))] ml-[max(env(safe-area-inset-left),_theme(space.0))]">
                 <ul
                     class="pokedex grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 mb-4 mx-auto max-w-6xl mt-2"
                     data-pokedex
@@ -310,7 +310,7 @@
                             <li data-acronym="nb">NB : (Pokémon) Noir / Blanc</li>
                             <li data-acronym="n2b2">N2B2 : (Pokémon) Noir 2 / Blanc 2</li>
                             <li data-acronym="rosa">ROSA : (Pokémon) Rubis Oméga / Saphir Alpha</li>
-                            <li data-acronym="sl">SL : (Pokémon) Soleil / Lune</li>
+                            <li data-acronym="rosa">SL : (Pokémon) Soleil / Lune</li>
                             <li data-acronym="usul">USUL : (Pokémon) Ultra-Soleil / Ultra-Lune</li>
                             <li data-acronym="deps">DEPS : (Pokémon) Diamant Écarlate / Perle Scintillante</li>
                             <li data-acronym="eb">EB : (Pokémon) Épée / Bouclier</li>
@@ -318,12 +318,12 @@
                         </ul>
                     </div>
                 </details>
-                <details class="mt-3 max-w @container">
+                <details class="mt-3 max-w @container/sensibilities">
                     <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
                         Sensibilités
                     </summary>
                     <ul
-                        class="grid grid-cols-1 @sm:grid-cols-2 @xl:grid-cols-3 gap-3 mt-3"
+                        class="grid grid-cols-1 @sm/sensibilities:grid-cols-2 @xl/sensibilities:grid-cols-3 gap-3 mt-3"
                         data-list-sensibilities=""
                     ></ul>
                 </details>

@@ -1,7 +1,6 @@
 import {
     cleanString,
     replaceImage,
-    // tailwindConfig,
     typesTextColor,
     typesBorderColor,
 } from "#utils";
@@ -21,7 +20,7 @@ export const createSensibility = async (template, data, listTypes) => {
     );
 
     const typeIconContainer = template.querySelector("[data-type-icon]");
-    // typeIconContainer.style.backgroundColor = tailwindConfig.theme.colors[`type_${cleanString(typeData.name.fr)}`]
+    typeIconContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
     const svgTypeIconReq = await fetch(`/images/types-icons/${typeData.name.en}.svg`);
 
     const parser = new DOMParser();
@@ -35,13 +34,14 @@ export const createSensibility = async (template, data, listTypes) => {
         if(item.classList.contains("cls-1")) {
             return;
         }
-        item.style.fill = `var(--type-${cleanString(data.name)})`
+        item.style.fill = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
     })
     typeIconContainer.append(svgTypeIcon.documentElement);
 
     const typeLabel = template.querySelector("[data-type]");
     typeLabel.setAttribute("aria-label", `Type ${data.name}`);
-    typeLabel.style.backgroundColor = `var(--type-${cleanString(data.name)})`
+    typeLabel.classList.add(cleanString(data.name));
+    typeLabel.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(typeData.name.fr)}`);
     typeLabel.textContent = data.name;
 
     damageFactorContainer.textContent = `x${data.multiplier}`;
@@ -135,15 +135,14 @@ export const createSibling = ({template, data, isCurrentPkmn, isPreviousPkmn, ev
         const imgTag = template.querySelector("img");
         const encodedData = window.btoa(
             loadingImageRaw.replaceAll(
-                "#037ef3",
-                window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(data.types[0].name)}`)
+                "#037ef3", 
+                window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(data.types[0].name)}`)
             )
         );
         imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
-
         imgTag.alt = `sprite de ${data.name.fr}`;
-        replaceImage(imgTag, data.sprites.regular);
         imgTag.classList.toggle("hidden", isCurrentPkmn);
+        replaceImage(imgTag, data.sprites.regular);
 
         const name = template.querySelector("[data-name]");
         name.textContent = data.name.fr;

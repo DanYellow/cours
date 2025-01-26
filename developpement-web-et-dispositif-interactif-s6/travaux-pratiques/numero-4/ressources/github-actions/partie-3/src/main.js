@@ -95,6 +95,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
+
 export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
         if ("paintWorklet" in CSS === false) {
@@ -135,17 +136,18 @@ const loadDetailsModal = async (e) => {
     const pkmnDataRaw = $el.dataset.pokemonData;
     const pkmnData = JSON.parse(pkmnDataRaw);
 
-    let rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[0].name)}`);
+    let rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`);
     const href = $el.href;
 
     $el.removeAttribute("href");
     if (Math.random() > 0.5 && pkmnData.types[1]) {
-        rippleColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(pkmnData.types[1].name)}`);
+        rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1].name)}`);
     }
     await rippleEffect(e, rippleColor);
     $el.href = href;
 
     await loadPokemonData(pkmnData);
+
     modal.showModal();
 
     const url = new URL(location);
@@ -166,7 +168,7 @@ const generateMarqueeTypes = (e) => {
     pkmnData.types.forEach((type, idx) => {
         const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
         const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
-        // scrollTypeContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(type.name)}`);
+        scrollTypeContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(type.name)}`);
         scrollTypeContainer.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
 
         for (let index = 0; index <= nbMarqueeTextToGenerate; index++) {
@@ -239,9 +241,10 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             const clone = document.importNode(pkmnTemplateRaw.content, true);
             const imgTag = clone.querySelector("img");
 
-            const encodedData = window.btoa(loadingImageRaw.replaceAll(
-                    "#037ef3",
-                    window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(item.types[0].name)}`)
+            const encodedData = window.btoa(
+                loadingImageRaw.replaceAll(
+                    "#037ef3", 
+                    window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(item.types[0].name)}`)
                 )
             );
             imgTag.src = `data:image/svg+xml;base64,${encodedData}`;
