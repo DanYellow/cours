@@ -110,7 +110,6 @@ export default {
                 type_fee: "#ef71ef",
                 type_dragon: "#5061e1",
                 type_spectre: "#704170",
-                "--type-blue": "blue"
             },
             screens: {
                 retina: {
@@ -123,15 +122,6 @@ export default {
         },
     },
     plugins: [
-        plugin(({ addVariant }) => {
-            addVariant("inert", "&:where([inert], [inert] *)");
-            addVariant("hocus", ["&:hover", "&:focus-visible"]);
-            addVariant("touch", "@media (pointer: coarse)");
-            addVariant("group-hocus", [
-                ":merge(.group):hover &",
-                ":merge(.group):focus-visible &",
-            ]);
-        }),
         typesClassesPlugin,
     ],
 };
