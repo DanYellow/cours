@@ -398,11 +398,7 @@ displayModal = async (pkmnData) => {
     });
 
     const firstBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`);
-    const secondaryBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1]?.name)}`) || null;
-
-    // const firstBorderColor = "";
-    // const secondaryBorderColor = "";
-
+    const secondaryBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1]?.name || "")}`);
 
     modal.style.borderTopColor = firstBorderColor;
     modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;

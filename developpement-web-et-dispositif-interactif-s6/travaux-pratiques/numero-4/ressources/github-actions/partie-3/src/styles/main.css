@@ -46,6 +46,45 @@
   }
 }
 
+@theme {
+    --duration-75: 75ms;
+    --duration-150: 150ms;
+    --duration-300: 300ms;
+    --duration-500: 500ms;
+
+    --type-plante: #3fa129;
+    --type-poison: #8f41cb;
+    --type-vol: #81b9ef;
+    --type-eau: #2980ef;
+    --type-feu: #e62829;
+    --type-normal: #9fa19f;
+    --type-insecte: #91a119;
+    --type-sol: #915121;
+    --type-tenebres: #50413f;
+    --type-sol: #915121;
+    --type-psy: #ef4179;
+    --type-electrik: #fac000;
+    --type-glace: #3fd8ff;
+    --type-combat: #ff8000;
+    --type-roche: #afa981;
+    --type-acier: #60a1b8;
+    --type-fee: #ef71ef;
+    --type-dragon: #5061e1;
+    --type-spectre: #704170;
+
+    --grid-fluid: repeat(auto-fit, minmax(0, 1fr));
+}
+
+@layer base {
+    [popover] {
+        position: fixed;
+        inset: 0;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     font-family: "Open Sans", serif;
@@ -162,29 +201,6 @@ dialog {
             translate: 0 90vh;
             color: transparent;
             border-color: transparent;
-        }
-    }
-}
-
-.switch-checkbox {
-    --tw-translate-x: 100%;
-    &:checked ~ .switch {
-        &::after {
-            transform: translate(
-                var(--tw-translate-x),
-                var(--tw-translate-y)
-            ) !important;
-        }
-    }
-
-    @starting-style {
-        &:checked ~ .switch {
-            &::after {
-                transform: translate(
-                    var(--tw-translate-x),
-                    var(--tw-translate-y)
-                ) !important;
-            }
         }
     }
 }
