@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import vituum from "vituum";
 import eslint from "vite-plugin-eslint";
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     base: "./",
@@ -17,7 +16,6 @@ export default defineConfig({
             include: "./src/**/*.js",
             failOnError: false,
         }),
-        tailwindcss(),
     ],
     build: {
         target: "esnext",
