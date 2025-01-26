@@ -17,7 +17,6 @@ import {
     getEvolutionChain,
     statistics,
     getPkmnIdFromURL,
-    tailwindConfig,
     formsNameDict,
     onTransitionsEnded,
     NB_NUMBER_INTEGERS_PKMN_ID
@@ -117,7 +116,7 @@ export { listTypes }
 const initialModalSpeed = window.getComputedStyle(document.querySelector("dialog")).getPropertyValue("--animation-speed");
 
 const resetModalPosition = () => {
-    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur") || tailwindConfig.theme.backdropBlur.md);
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur"));
 
     modal.style.setProperty("--details-modal-blur", `${modalOriginalBackdropBlur}px`);
     modal.style.translate = "0px 0px";
@@ -131,7 +130,7 @@ modal.addEventListener("close", async (e) => {
     url.searchParams.delete("alternate_form_id");
     history.pushState({}, "", url);
 
-    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur") || tailwindConfig.theme.backdropBlur.md);
+    const modalOriginalBackdropBlur = parseInt(window.getComputedStyle(modal).getPropertyValue("--details-modal-blur"));
 
     modal.style.setProperty("--details-modal-blur", "0px");
     modal.dataset.hasBeenTouched = false;
@@ -217,11 +216,10 @@ const loadDetailsModal = async (e, region = null) => {
 
     const href = $el.href;
     if(pkmnData.types) {
-        let rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`]
-
+        let rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`)
         $el.removeAttribute("href");
         if (Math.random() > 0.5 && pkmnData.types[1]) {
-            rippleColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1].name)}`]
+            rippleColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1].name)}`)
         }
         await rippleEffect(e, rippleColor);
     }
@@ -399,8 +397,12 @@ displayModal = async (pkmnData) => {
         modal_DOM.listTypes.append(li);
     });
 
-    const firstBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[0].name)}`];
-    const secondaryBorderColor = tailwindConfig.theme.colors[`type_${cleanString(pkmnData.types[1]?.name || "")}`] || null;
+    const firstBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[0].name)}`);
+    const secondaryBorderColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(pkmnData.types[1]?.name)}`) || null;
+
+    // const firstBorderColor = "";
+    // const secondaryBorderColor = "";
+
 
     modal.style.borderTopColor = firstBorderColor;
     modal.style.color = `rgb(from ${firstBorderColor} r g b / 0.4)`;

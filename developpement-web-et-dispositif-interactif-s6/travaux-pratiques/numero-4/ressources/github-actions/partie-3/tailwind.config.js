@@ -3,7 +3,6 @@
 import fs from "node:fs"
 
 import plugin from "tailwindcss/plugin";
-import containerQueriesPlugin from "@tailwindcss/container-queries";
 
 const listTypes = [
     "plante",
@@ -132,7 +131,6 @@ export default {
                 ":merge(.group):focus-visible &",
             ]);
         }),
-        containerQueriesPlugin,
         typesClassesPlugin,
     ],
 };

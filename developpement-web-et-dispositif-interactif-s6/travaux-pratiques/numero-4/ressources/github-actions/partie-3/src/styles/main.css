@@ -544,7 +544,7 @@ details {
 
 .pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
-        @container pokemon (width >= --theme(--containers-xs)) {
+        @container pokemon (width >= var(--containers-xs)) { /* theme(--containers-xs) */
             will-change: transform, opacity;
             animation: animate-in linear forwards,
             animate-out linear forwards;
