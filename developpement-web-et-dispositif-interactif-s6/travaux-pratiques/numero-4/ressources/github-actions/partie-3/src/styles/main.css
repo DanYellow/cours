@@ -30,6 +30,24 @@
   animation-play-state: running;
 }
 
+@custom-variant hocus {
+    &:is(:hover, :focus-visible) {
+        @slot;
+    }
+}
+
+@custom-variant group-hocus {
+    &:is(:where(.group):hover *, :where(.group):focus-visible *) {
+        @slot;
+    }
+}
+
+@custom-variant touch {
+    @media (pointer: coarse) {
+        @slot;
+    }
+}
+
 @layer utilities {
   @font-face {
     font-family: 'Open Sans';
@@ -414,7 +432,6 @@ details {
     text-transform: uppercase;
     font-weight: 700;
     animation: loop-text 5s infinite linear;
-    animation-play-state: paused;
 }
 
 @keyframes loop-text {
@@ -479,7 +496,6 @@ details {
     --ripple-speed: 350;
     --animation-tick: 0;
 
-    transition-property: transform;
     position: relative;
 
     &::after {

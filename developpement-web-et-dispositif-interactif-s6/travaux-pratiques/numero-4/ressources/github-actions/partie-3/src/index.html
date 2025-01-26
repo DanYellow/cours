@@ -71,7 +71,7 @@
         </template>
 
         <template data-tpl-id="marquee-type-text">
-            <p aria-hidden="true" class="marquee-text type-name px-1 text-sm group-hocus:animation-play"></p>
+            <p aria-hidden="true" class="marquee-text type-name px-1 text-sm group-hocus:animation-play animation-pause"></p>
         </template>
 
         <template data-tpl-id="marquee-type-container">
@@ -80,7 +80,7 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon">
-                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
                         <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden" data-marquee></div>
                         <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-90 transition-transform" />

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import fs from "node:fs"
+import fs from "node:fs";
 
 import plugin from "tailwindcss/plugin";
 
@@ -27,15 +27,18 @@ const listTypes = [
 
 const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     const backgroundTypesComponents = listTypes.map((item) => {
-        return { name: `.${item}`, backgroundColor: theme(`colors.type_${item}`) }
+        return {
+            name: `.${item}`,
+            backgroundColor: theme(`colors.type_${item}`),
+        };
     });
 
     const textColorTypesComponents = listTypes.map((item) => {
-        return { name: `.text-${item}`, color: theme(`colors.type_${item}`) }
+        return { name: `.text-${item}`, color: theme(`colors.type_${item}`) };
     });
 
     const listPossiblesTypeCombinaions = listTypes.flatMap((type1) =>
-        listTypes.map(type2 => `${type1}_${type2}`)
+        listTypes.map((type2) => `${type1}_${type2}`)
     );
 
     // // To generate classes only
@@ -50,35 +53,48 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     //     }
     //   })
 
+    const listPossiblesBorderTypeCombinaionsComponents =
+        listPossiblesTypeCombinaions.map((item) => {
+            return {
+                name: `.border-${item}`,
+                borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
+                borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
+                borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
+                borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
+            };
+        });
 
-    const listPossiblesBorderTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
-        return {
-            name: `.border-${item}`,
-            borderLeftColor: theme(`colors.type_${item.split("_")[0]}`),
-            borderTopColor: theme(`colors.type_${item.split("_")[0]}`),
-            borderBottomColor: theme(`colors.type_${item.split("_")[1]}`),
-            borderRightColor: theme(`colors.type_${item.split("_")[1]}`),
-        }
-    });
-
-    const listPossiblesAnimatedBorderTypeCombinaionsComponents = listPossiblesTypeCombinaions.map((item) => {
-        return {
-            name: `.border-animated-${item}`,
-            backgroundImage: `
+    const listPossiblesAnimatedBorderTypeCombinaionsComponents =
+        listPossiblesTypeCombinaions.map((item) => {
+            return {
+                name: `.border-animated-${item}`,
+                backgroundImage: `
                 linear-gradient(to right, rgb(255 255 255 / 1), rgb(255 255 255 / 1)),
                 conic-gradient(
                     from var(--border-type-angle),
                     ${theme(`colors.type_${item.split("_")[1]}`)} 0deg 180deg,
                     ${theme(`colors.type_${item.split("_")[0]}`)} 180deg 360deg
-                )`
-        }
-    });
+                )`,
+            };
+        });
 
     addComponents({
-        ...backgroundTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...textColorTypesComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...listPossiblesBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
-        ...listPossiblesAnimatedBorderTypeCombinaionsComponents.reduce((ac, {["name"]: x, ...rest}) => (ac[x] = rest, ac), {}),
+        ...backgroundTypesComponents.reduce(
+            (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
+            {}
+        ),
+        ...textColorTypesComponents.reduce(
+            (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
+            {}
+        ),
+        ...listPossiblesBorderTypeCombinaionsComponents.reduce(
+            (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
+            {}
+        ),
+        ...listPossiblesAnimatedBorderTypeCombinaionsComponents.reduce(
+            (ac, { ["name"]: x, ...rest }) => ((ac[x] = rest), ac),
+            {}
+        ),
     });
 });
 
@@ -111,26 +127,7 @@ export default {
                 type_dragon: "#5061e1",
                 type_spectre: "#704170",
             },
-            screens: {
-                retina: {
-                    raw: 'only screen and (min-resolution: 1.1dppx)'
-                },
-                betterhover: {
-                    raw: "(hover: hover)"
-                },
-            }
         },
     },
-    plugins: [
-        plugin(({ addVariant }) => {
-            addVariant("inert", "&:where([inert], [inert] *)");
-            addVariant("hocus", ["&:hover", "&:focus-visible"]);
-            addVariant("touch", "@media (pointer: coarse)");
-            addVariant("group-hocus", [
-                ":merge(.group):hover &",
-                ":merge(.group):focus-visible &",
-            ]);
-        }),
-        typesClassesPlugin,
-    ],
+    plugins: [typesClassesPlugin],
 };
