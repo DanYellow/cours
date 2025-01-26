@@ -1,13 +1,10 @@
-@config "../../tailwind.config.js";
+@import "tailwindcss";
+
+/* @config "../../tailwind.config.js"; */
 
 @layer theme, base, components, utilities;
 
 @import "./properties.css";
-@import "tailwindcss";
-
-/* @utility hocus {
-    &:hover
-  } */
 
 @theme {
     --duration-75: 75ms;
@@ -57,7 +54,7 @@
 
 @font-face {
     font-family: "Open Sans";
-    src: url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    /* src: url("/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype"); */
     font-style: italic;
     font-weight: 300 800;
 }
@@ -283,7 +280,7 @@ dialog {
             position: absolute;
             left: 0;
             right: 0;
-            background-image: image-set(var(--background-sprite) 1x);
+            /* background-image: image-set(var(--background-sprite) 1x); */
             background-repeat: space;
             background-size: 15%;
             background-position: center;
@@ -442,8 +439,10 @@ details {
     }
 }
 
-.bar-sex-male, .bar-sex-female {
-    transition: width var(--duration-300), border-radius var(--duration-300) var(--duration-150);
+.bar-sex-male,
+.bar-sex-female {
+    transition: width var(--duration-300),
+        border-radius var(--duration-300) var(--duration-150);
 
     &::after {
         content: "";
@@ -461,12 +460,12 @@ details {
 }
 
 .bar-sex-male::after {
-    mask: url("/images/male-icon.svg") no-repeat 50% 50%;
+    /* mask: url("/images/male-icon.svg") no-repeat 50% 50%; */
     left: 0;
 }
 
 .bar-sex-female::after {
-    mask: url("/images/female-icon.svg") no-repeat 50% 50%;
+    /* mask: url("/images/female-icon.svg") no-repeat 50% 50%; */
     right: 0;
 }
 
@@ -498,7 +497,8 @@ details {
         transition-duration: var(--duration-150);
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         &::after {
             opacity: 1;
         }
@@ -512,10 +512,11 @@ details {
     }
 }
 
-.pikachu-loading, .error-banner {
+.pikachu-loading,
+.error-banner {
     z-index: 9999;
     transition: translate var(--duration-500) ease-in var(--duration-75),
-    display var(--duration-500) ease-in, opacity var(--duration-300);
+        display var(--duration-500) ease-in, opacity var(--duration-300);
     transition-behavior: allow-discrete;
 }
 
@@ -544,28 +545,42 @@ details {
     &[popover]:not(:popover-open) {
         translate: 0 -10vh;
         display: none !important;
-        transition-duration: .4s;
+        transition-duration: 0.4s;
         transition-timing-function: ease-out;
     }
 }
 
 @keyframes animate-in {
-	0% { opacity: 0; transform: translateY(100%); }
-	50% { opacity: 0; transform: translateY(100%); }
-	100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes animate-out {
-	0% { opacity: 1; transform: translateY(0); }
-	100% { opacity: 0; transform: translateY(-100%); }
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }
 
 .pokedex a:not([inert]) {
     @supports (animation-timeline: view()) {
         @container pokemon (width >= theme(--container-xs)) {
             will-change: transform, opacity;
-            animation: animate-in linear forwards,
-            animate-out linear forwards;
+            animation: animate-in linear forwards, animate-out linear forwards;
             animation-timeline: view();
             animation-range: entry, exit;
         }

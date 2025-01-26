@@ -166,7 +166,7 @@ const generateMarqueeTypes = (e) => {
     pkmnData.types.forEach((type, idx) => {
         const scrollTypeContainerTemplate = document.importNode(marqueeTypeContainerTemplateRaw.content, true);
         const scrollTypeContainer = scrollTypeContainerTemplate.querySelector("div");
-        scrollTypeContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue( `--type-${cleanString(type.name)}`);
+        // scrollTypeContainer.style.backgroundColor = window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(type.name)}`);
         scrollTypeContainer.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
 
         for (let index = 0; index <= nbMarqueeTextToGenerate; index++) {
