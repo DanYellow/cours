@@ -7,7 +7,6 @@
     <title>TP Tailwindcss</title>
 
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -15,7 +14,7 @@
     <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
   </head>
   <body>
-    <header>
+    <header class="entete-consignes">
       <h1 class="h1">Consignes de la pratique</h1>
       <details class="consignes-conteneur" open>
         <summary>
@@ -40,13 +39,13 @@
                     Une image avec du texte sur le côté. Texte à gauche ou à droite de l'image, c'est à votre convenance.
                     <ul>
                         <li>Il faudra impérativement utiliser flexbox</li>
-                        <li>Pensez bien à espacer les éléments</li>
+                        <li>Pensez bien à espacer les éléments grâce à la propriété CSS gap</li>
                     </ul>
                 </li>
             </ul>
             <section class="note-information">
               <ul>
-                <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Voir documentation de tailwind (ouverture dans un nouvel onglet)</a></li>
+                <li><a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank">Voir documentation de tailwind (ouverture dans un nouvel onglet)</a></li>
                 <li>N'hésitez pas à utiliser la barre de recherche (recherche en anglais). Vous pouvez rechercher par propriétés CSS. Par exemple, pour la première tâche, vous pouvez rechercher "font-size" pour savoir comment gérer la taille du texte avec tailwindcss.</li>
               </ul>
             </section>
@@ -72,6 +71,7 @@
         <section class="note-information">
             <p>Les images n'ont pas à être celles de la maquette tout comme le texte (les images sont dans le dossier "/img"). Vous pouvez prendre des libertés (couleurs, tailles) à partir du moment où la mise en page est respectée.</p>
             <p>Parallèlement, pour avoir les éléments côté-à-côte, il faudra utiliser flexbox. <a href="https://tailwindcss.com/docs/flex" target="_blank" rel="noopener noreferrer">En savoir plus sur Flexbox dans tailwind.</a></p>
+            <p>Pour l'arrière-plan (le background), c'est un dégradé. Vous pouvez le générer en ligne avec <a href="https://www.creative-tim.com/twcomponents/gradient-generator" target="_blank" rel="noopener noreferrer">https://www.creative-tim.com/twcomponents/gradient-generator - Ouverture dans un nouvel onglet</a></p>
         </section>
       </details>
       <details class="consignes-conteneur">
