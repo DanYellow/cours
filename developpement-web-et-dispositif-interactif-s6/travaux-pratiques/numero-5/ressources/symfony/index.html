@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
+        <title>Symfony - TP</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script
+            src="https://danyellow.net/cours-mmi/consignes.js"
+            defer
+        ></script>
+    </head>
+
+    <body>
+        <header class="entete-consignes">
+            <h1 class="h1">Consignes de la pratique - Symfony</h1>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        En vous aidant de la documentation de Symfony, créez
+                        votre premier projet Symfony
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://symfony.com/download"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation pour installer Symfony -
+                                    Ouverture dans un nouvel onglet</a
+                                >
+                            </li>
+                        </ul>
+                        <div class="note-information">
+                            <p>
+                                Lors de l'installation, Symfony met en place
+                                également git dans le projet (avec le fichier
+                                .gitignore qui va avec). Ainsi, pour ajouter
+                                votre projet à un dépôt git
+                                <span class="texte-gras">existant</span>, suivez
+                                les commandes suivantes (dans le dossier du
+                                projet) :
+                            </p>
+                            <pre
+                                data-code-sample="true"
+                                style="
+                                    font-family: monospace;
+                                    color: rgb(197, 200, 198);
+                                    background-color: rgb(29, 31, 33);
+                                    font-weight: 400;
+                                "
+                            >git remote add origin https://github.com/{USER}/{REPO}.git
+<span style="color: rgb(112, 120, 128); font-weight: 400;"># ou </span>
+git remote add origin git@github.com:{USER}/{REPO}.git</pre>
+                        </div>
+                    </li>
+                </ol>
+                <div class="note-information">
+                    <p>Lors de la création du projet, Symfony va créer plein de dossiers. Mais ceux qui nous vont nous intéresser pour le moment sont les suivantes :</p>
+                    <ul>
+                        <li><span class="texte-gras">src/Entity/ :</span>Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
+                        <li><span class="texte-gras">src/Controller/ :</span>Contient les contrôleurs - C de l'architecture MVC</li>
+                        <li><span class="texte-gras">templates/ :</span>Contient les vues twig du projet - V de l'architecture MVC</li>
+                        <li><span class="texte-gras">assets/ :</span>Contient les différents assets du projet (images, javascript, css...)</li>
+                    </ul>
+                    <p class="note-importante">Vous ne pouvez pas renommer les dossiers crées par symfony. En revanche, vous avez le droit de créer des sous-dossiers dedans pour mieux vous organiser.</p>
+                </div>
+                <ol start="2">
+                    <li>
+                        Lancez le projet avec la commande
+                        <code>symfony server:start</code>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://symfony.com/doc/current/setup.html#running-symfony-applications"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >En savoir plus sur la commande
+                                    <code>symfony server:start</code> -
+                                    Ouverture dans un nouvel onglet</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Accédez à votre site via l'URL
+                        <a
+                            href="http://localhost:8000"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >http://localhost:8000</a
+                        >
+                    </li>
+                    <li>
+                        Suivez les instructions sur la page d'accueil pour créer
+                        votre première page et le contrôleur qui l'accompagne
+                    </li>
+                </ol>
+            </details>
+        </header>
+    </body>
+</html>
