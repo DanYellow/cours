@@ -223,7 +223,7 @@ const loadDetailsModal = async (e, region = null) => {
         }
         await rippleEffect(e, rippleColor);
     }
-    
+
     $el.href = href;
 
     const url = new URL(location);
@@ -431,8 +431,6 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listEvolutions);
     const listEvolutionConditions = [];
-    modal_DOM.noEvolutionsText.classList.toggle("hidden", evolutionLine.length > 1)
-    modal_DOM.noEvolutionsText.textContent = `${pkmnData.name.fr} n'a pas d'évolution et n'est l'évolution d'aucun Pokémon.`;
     if(evolutionLine.length > 1) {
         evolutionLine.forEach((evolution, idx) => {
             const li = document.createElement("li");
@@ -545,6 +543,9 @@ displayModal = async (pkmnData) => {
             extraEvolutionsContainer.append(clone);
         });
     }
+
+    modal_DOM.noEvolutionsText.classList.toggle("hidden", (evolutionLine.length > 1 || megaEvolutionLine.length > 0))
+    modal_DOM.noEvolutionsText.textContent = `${pkmnData.name.fr} n'a pas d'évolution et n'est l'évolution d'aucun Pokémon.`;
 
     modal_DOM.listEvolutions.classList.toggle("horizontal-evolution-layout", evolutionLine.flat().length >= thresholdNbTotalEvolutions)
     modal_DOM.listEvolutions.classList.toggle("vertical-evolution-layout", evolutionLine.flat().length < thresholdNbTotalEvolutions)
@@ -831,7 +832,7 @@ displayModal = async (pkmnData) => {
     modal_DOM.statistics.append(statName);
     modal_DOM.statistics.append(statValue);
 
-    console.log("pkmnData", pkmnData);
+    console.log("Current Pokemon's data", pkmnData);
 
     loadGenerationBtn.inert = hasReachPokedexEnd;
 
