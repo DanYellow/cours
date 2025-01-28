@@ -130,6 +130,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>Affichez vos paramètres dans le navigateur</li>
                     <li>Omettez un des paramètres. Que se passe-t-il ?</li>
                 </ol>
+                <p class="note-attention">
+                    La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner quelque chose.
+                </p>
                 <ul>
                     <li>
                         <a href="https://symfony.com/doc/current/routing.html" target="_blank" rel="noopener noreferrer">Voir documentation du routing - Ouverture dans un nouvel onglet</a>
@@ -149,15 +152,15 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <p class="note-attention">N'oubliez pas de faire hériter votre contrôleur de la classe AbstractController, sinon, ça ne fonctionnera pas.</p>
                     </li>
                     <li>
-                        En utilisant la fonction Twig <code>path()</code>, passez des paramètres au même contrôleur et affichez-les
+                        En utilisant la fonction Twig <code>path()</code>, passez des paramètres au même contrôleur et affichez-les dans votre template
                         <div class="note-information">
                             <p>La fonction <code>path()</code> génère une url, une url qu'on peut utiliser pour l'attribut href d'une balise &lt;a>. Elle prend en paramètre, les arguments suivants (liste non exhaustive) :</p>
                             <ul>
                                 <li>
-                                    Le nom de la route <span class="texte-gras">(obligatoire)</span>
+                                    Le nom de la route <span class="texte-gras">(obligatoire)</span>. Défini dans le contrôleur
                                 </li>
                                 <li>
-                                    Les paramètres d'URL sous forme d'objet, les clés reconnues dans la définition de route seront remplacés dans l'URL, les autres seront passés en query string.
+                                    Les paramètres d'URL sous forme d'objet, les clés reconnues dans la définition de route deviendront des paramètres d'URL, les autres seront passés en query string.
                                     A noter que ce paramètre est obligatoire dépendamment de votre route
                                 </li>
                             </ul>
@@ -193,7 +196,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <pre data-code-sample="true" style="font-family:monospace; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">php bin/console importmap:require {NOM_DU_MODULE}</pre>
                         <p>Si vous ne savez pas quoi installer, vous pouvez installer lodash.</p>
                         <div class="note-information">
-                            <p>Vous n'avez pas besoin d'importer vous même le javascript dans le template Twig, l'importation est faite dans le fichier base.html.twig avec le code suivant :</p>
+                            <p>Vous n'avez pas besoin d'importer vous-même le javascript dans le template Twig, l'importation est faite dans le fichier base.html.twig avec le code suivant :</p>
 <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">block</span> importmap <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
     </span><span style="color: rgb(138, 190, 183); font-weight: 400;">{{ importmap(<span style="color: rgb(181, 189, 104); font-weight: 400;">'app'</span>) }}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
 </span><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">endblock</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span></pre>
@@ -222,12 +225,18 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <ul>
                             <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
                             <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
+                            <li>Si toutes les propriétés d'une entité sont privés et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée. Ex : entity.name.</li>
+                            <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
                         </ul>
-                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier, pour générer les tables, il faut lancer la commande <code>php bin/console make:migration</code></p>
-                        <p>Chaque création de table génère un fichier de migration, il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Si vous passez en production ou changez d'ordinateur, vous pouvez lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
+                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier dans le dossier Entity/, pour générer les tables, il faut lancer les commandes <code>php bin/console make:migration</code> puis <code>php bin/console doctrine:migrations:migrate</code>. Elles vont générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Ensuite appliquer ces modifications sur votre base de données, respectivement.</p> 
+                        <p>Si vous passez en production ou changez d'ordinateur, pensez toujours à lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
                     </div>
-                    <p class="note-attention">Même si nous créeons nos tables via la ligne de commandes, rien ne vous empêche d'éditer les fichiers à la main ou de relancer la commande <code>php bin/console make:entity</code> sur une entité existante </p>
                 </ol>
+                <ul>
+                    <li>
+                        <a href="https://symfony.com/doc/current/doctrine.html" target="_blank" rel="noopener noreferrer">Voir documentation de Doctrine dans l'environnement Symfony - Ouverture dans un nouvel onglet</a>
+                    </li>
+                </ul>
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -237,23 +246,119 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 </summary>
                 <ol>
                     <li>
-                        Copiez et renommez le fichier .env en .env.local et éditez la configuration de la base de données mysql (c'est au niveau de la clé "DATABASE_URL") pour vos besoins
-                        <p class="note-information">Dans l'url d'exemple dans le fichier .env "app" représente le nom de votre base de données. A vous de le changer ou non.</p>
+                        Créez un nouveau contrôleur manuellement ou via la commande <code>php bin/console make:controller {NOM_DU_CONTROLEUR}</code> 
                     </li>
-                    <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
-                        <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
+                    <li>
+                        Donnez la possibilité de créer l'entité depuis une méthode du contrôleur
+                        <details>
+                            <summary>
+                                Exemple de code (à adapter)
+                            </summary>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+
+<span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+
+<span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+<span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Gallery</span>;
+<span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+
+<span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+</span>{
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/gallery/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span> = <span style="color: rgb(181, 189, 104); font-weight: 400;">"Festival MMI"</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+    </span>{
+        <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Gallery</span>();
+        <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setName</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span>);
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+        <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>);
+        <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    }
+}
+</pre>
+                        </details>
                     </li>
-                    <li>Réflechissons et créons des tables répondant aux besoins suivants : Nous souhaitons créer un blog photos permettant aux utilisateurs de créer leurs propres galeries. Chaque galerie contient un ou plusieurs photos et ne peut appartenir qu'à un seul utilisateur.</li>
-                    <div class="note-information">
-                        <p>Pour créer une entité, on utilise la commande <code>php bin/console make:entity</code>, et on suit le prompt. A noter les points suivants : </p>
+                    <li>En vous aidant de la <a href="https://symfony.com/doc/current/doctrine.html" target="_blank" rel="noopener noreferrer">documentation</a>, créez une page permettant d'afficher le contenu d'une entité précédemment crée grâce aux paramètres d'URL</li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 7 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Générez un formulaire permettant de créer un utilisateur
                         <ul>
-                            <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
-                            <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
-                            <li>Si toutes les propriétés d'une entité sont privés et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée. Ex : entity.name.</li>
-                            <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
+                            <li>
+                                <a href="https://symfony.com/doc/current/forms.html" target="_blank" rel="noopener noreferrer">Voir documentation sur les formulaires</a>
+                            </li>
+                            <li>
+                                <a href="https://symfony.com/doc/current/reference/forms/types.html#text-fields" target="_blank" rel="noopener noreferrer">Voir documentation sur les champs de formulaire</a>
+                            </li>
                         </ul>
-                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier, pour générer les tables, il faut lancer la commande <code>php bin/console make:migration</code>. Elle va générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Si vous passez en production ou changez d'ordinateur, vous pouvez lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
-                    </div>
+                        <p class="note-information">Pour garder le code propre, Symfony encourage l'utilisation de classes dédiées pour les formulaires. Ainsi le formulaire est réutilisable. Essayez d'appliquer cette solution. <a href="https://symfony.com/doc/current/forms.html#creating-form-classes" target="_blank" rel="noopener noreferrer">Vous obtiendrez plus d'information dans la documentation</a>.</p>
+                    </li>
+                    <li>
+                        A partir du code fourni, affichez un flash message et son contenu côté template 
+                        <details>
+                            <summary>
+                                Exemple de code (à adapter)
+                            </summary>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">HttpFoundation</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">HttpFoundation</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Request</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Routing</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Attribute</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Route</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Form</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Extension</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Core</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Type</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">SubmitType</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Form</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Extension</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Core</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Type</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">TextType</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    </span>{
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/gallery/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, Request <span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+        </span>{
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>();
+    
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createFormBuilder</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>)
+                -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">add</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'save'</span>, <span style="color: rgb(240, 198, 116); font-weight: 400;">SubmitType</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>, [<span style="color: rgb(181, 189, 104); font-weight: 400;">'label'</span> =&gt; <span style="color: rgb(181, 189, 104); font-weight: 400;">'Créer'</span>])
+                -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getForm</span>();
+    
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">handleRequest</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span>);
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">if</span> (<span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">isSubmitted</span>() &amp;&amp; <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">isValid</span>()) {
+                <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getData</span>();
+    
+                <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>);
+                <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+    
+                <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">redirectToRoute</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'route_name'</span>);
+            }
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">render</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'template.html.twig'</span>, [
+                <span style="color: rgb(181, 189, 104); font-weight: 400;">'form'</span> =&gt; <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>,
+            ]);
+        }
+    }
+    </pre>
+</details>
+                        <p class="note-attention">
+                            Attention, tant qu'un flash message n'est pas affiché, il reste dans une pile de flash messages.
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="https://symfony.com/doc/current/session.html#flash-messages" target="_blank" rel="noopener noreferrer">Voir documentation sur flash message - Ouverture dans un nouvel onglet</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ol>
             </details>
         </header>
