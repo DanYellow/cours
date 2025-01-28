@@ -71,12 +71,17 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 <div class="note-information">
                     <p>Lors de la création du projet, Symfony va créer plein de dossiers. Mais ceux qui nous vont nous intéresser pour le moment sont les suivantes :</p>
                     <ul>
-                        <li><span class="texte-gras">src/Entity/ :</span>Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
-                        <li><span class="texte-gras">src/Controller/ :</span>Contient les contrôleurs - C de l'architecture MVC</li>
-                        <li><span class="texte-gras">templates/ :</span>Contient les vues twig du projet - V de l'architecture MVC</li>
-                        <li><span class="texte-gras">assets/ :</span>Contient les différents assets du projet (images, javascript, css...)</li>
+                        <li><span class="texte-gras">src/Entity/ :</span> Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
+                        <li><span class="texte-gras">src/Controller/ :</span> Contient les contrôleurs - C de l'architecture MVC</li>
+                        <li><span class="texte-gras">templates/ :</span> Contient les vues twig du projet - V de l'architecture MVC</li>
+                        <li><span class="texte-gras">assets/ :</span> Contient les différents assets du projet (images, javascript, css...)</li>
                     </ul>
                     <p class="note-importante">Vous ne pouvez pas renommer les dossiers crées par symfony. En revanche, vous avez le droit de créer des sous-dossiers dedans pour mieux vous organiser.</p>
+                    <ul>
+                        <li>
+                            <a href="https://symfony.com/doc/current/page_creation.html#checking-out-the-project-structure" target="_blank" rel="noopener noreferrer">Voir détails de la structure des dossiers</a>
+                        </li>
+                    </ul>
                 </div>
                 <ol start="2">
                     <li>
@@ -85,7 +90,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <ul>
                             <li>
                                 <a
-                                    href="https://symfony.com/doc/current/setup.html#running-symfony-applications"
+                                    href="https://symfony.com/doc/current/setup/symfony_server.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >En savoir plus sur la commande
@@ -94,6 +99,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 >
                             </li>
                         </ul>
+                        <p class="note-information">Par défaut, le serveur se lance sur le port 8000, vous pouvez le changer avec le paramètre <code>--port</code></p>
                     </li>
                     <li>
                         Accédez à votre site via l'URL
@@ -101,7 +107,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             href="http://localhost:8000"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >http://localhost:8000</a
+                            >http://localhost:8000 - Ouverture dans un nouvel onglet</a
                         >
                     </li>
                     <li>
@@ -109,6 +115,23 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         votre première page et le contrôleur qui l'accompagne
                     </li>
                 </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>Modifiez votre contrôleur pour lui permettre d'accepter des paramètres d'URL</li>
+                    <li>Affichez vos paramètres dans le navigateur</li>
+                    <li>Omettez un des paramètres. Que se passe-t-il ?</li>
+                </ol>
+                <ul>
+                    <li>
+                        <a href="https://symfony.com/doc/current/routing.html" target="_blank" rel="noopener noreferrer">Voir documentation du routing - Ouverture dans un nouvel onglet</a>
+                    </li>
+                </ul>
             </details>
         </header>
     </body>
