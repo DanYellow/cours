@@ -74,7 +74,10 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <li><span class="texte-gras">src/Entity/ :</span> Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
                         <li><span class="texte-gras">src/Controller/ :</span> Contient les contrôleurs - C de l'architecture MVC</li>
                         <li><span class="texte-gras">templates/ :</span> Contient les vues twig du projet - V de l'architecture MVC</li>
-                        <li><span class="texte-gras">assets/ :</span> Contient les différents assets du projet (images, javascript, css...)</li>
+                        <li><span class="texte-gras">public/ :</span> Contient les différents assets du projet (images, javascript, css...). Tout le contenu est accessible au public</li>
+                        <li><span class="texte-gras">assets/ :</span> Fonctionne comme le dossier public/ mais avec une petite subtilité, le contenu est caché. Autrement dit, les assets sont versionnées pour éviter qu'ils soient mis en cache. Tout le contenu est accessible au public
+                            <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. Anoter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
+                        </li>
                     </ul>
                     <p class="note-importante">Vous ne pouvez pas renommer les dossiers crées par symfony. En revanche, vous avez le droit de créer des sous-dossiers dedans pour mieux vous organiser.</p>
                     <ul>
@@ -132,6 +135,72 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <a href="https://symfony.com/doc/current/routing.html" target="_blank" rel="noopener noreferrer">Voir documentation du routing - Ouverture dans un nouvel onglet</a>
                     </li>
                 </ul>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>Créez un template Twig</li>
+                    <li>Injectez, depuis votre contrôleur, des données dans le template Twig crée à l'étape précédente
+                        <p class="note-information">Ce paramètre peut venir de n'importe où (url et/ou en "dur").</p>
+                        <p class="note-attention">N'oubliez pas de faire hériter votre contrôleur de la classe AbstractController, sinon, ça ne fonctionnera pas.</p>
+                    </li>
+                    <li>
+                        En utilisant la fonction Twig <code>path()</code>, passez des paramètres au même contrôleur et affichez-les
+                        <div class="note-information">
+                            <p>La fonction <code>path()</code> génère une url, une url qu'on peut utiliser pour l'attribut href d'une balise &lt;a>. Elle prend en paramètre, les arguments suivants (liste non exhaustive) :</p>
+                            <ul>
+                                <li>
+                                    Le nom de la route <span class="texte-gras">(obligatoire)</span>
+                                </li>
+                                <li>
+                                    Les paramètres d'URL sous forme d'objet, les clés reconnues dans la définition de route seront remplacés dans l'URL, les autres seront passés en query string.
+                                    A noter que ce paramètre est obligatoire dépendamment de votre route
+                                </li>
+                            </ul>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">&lt;<span style="color: rgb(240, 198, 116); font-weight: 400;">a</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">href</span>=<span style="color: rgb(181, 189, 104); font-weight: 400;">"</span></span></span><span style="color: rgb(138, 190, 183); font-weight: 400;">{{ <span style="color: rgb(240, 198, 116); font-weight: 400;">path</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'my_city_details'</span>, { region: <span style="color: rgb(181, 189, 104); font-weight: 400;">"bretagne"</span>, city: <span style="color: rgb(181, 189, 104); font-weight: 400;">"brest"</span> }) }}</span><span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;"><span style="color: rgb(181, 189, 104); font-weight: 400;">"</span>&gt;</span>
+    Voir détails sur la ville de Brest
+<span style="color: rgb(129, 162, 190); font-weight: 400;">&lt;/<span style="color: rgb(240, 198, 116); font-weight: 400;">a</span>&gt;</span></span></pre>
+                        </div>
+                    </li>
+                </ol>
+                <ul>
+                    <li>
+                        <a href="https://symfony.com/doc/current/templates.html" target="_blank" rel="noopener noreferrer">Voir documentation des templates - Ouverture dans un nouvel onglet</a>
+                    </li>
+                    <li>
+                        <a href="https://twig.symfony.com/doc/3.x/" target="_blank" rel="noopener noreferrer">Voir documentation de Twig</a>
+                    </li>
+                    <li>
+                        <a href="https://symfony.com/doc/current/reference/twig_reference.html#path" target="_blank" rel="noopener noreferrer">Voir documentation de la fonction Twig <code>path()</code></a>
+                    </li>
+                </ul>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 4 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        En utilisant la fonction Twig <code>asset()</code>, affichez une image ou chargez un fichier CSS. L'asset peut être dans le dossier public/ ou asset/
+                    </li>
+                    <li>Grâce à la commande suivante, installez un node_module et utilisez-le depuis le dossier "assets/"
+                        <pre data-code-sample="true" style="font-family:monospace; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">php bin/console importmap:require {NOM_DU_MODULE}</pre>
+                        <p>Si vous ne savez pas quoi installer, vous pouvez installer lodash.</p>
+                        <div class="note-information">
+                            <p>Vous n'avez pas besoin d'importer vous même le javascript dans le template Twig, l'importation est faite dans le fichier base.html.twig avec le code suivant :</p>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">block</span> importmap <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
+    </span><span style="color: rgb(138, 190, 183); font-weight: 400;">{{ importmap(<span style="color: rgb(181, 189, 104); font-weight: 400;">'app'</span>) }}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
+</span><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">endblock</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span></pre>
+                            <p>Libre à vous de réutiliser ce template, ou d'en créer un autre en important le code ci-dessus</p>
+                        </div>
+                    </li>
+                </ol>
             </details>
         </header>
     </body>
