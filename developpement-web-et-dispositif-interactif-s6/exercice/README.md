@@ -70,12 +70,11 @@ Les critères suivants seront évalués :
 - [ ] En mode liste uniquement, afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-    - [Voir documentation plugin tailwind CSS container queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
 - [ ] Corriger les tests unitaires
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
-  - Les couleurs liées aux types sont gérées dans la configuration tailwind
+  - Les couleurs liées aux types sont gérées dans le fichier main.css
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
   - [Accéder à l'API tcgdex](https://tcgdex.dev)
@@ -110,6 +109,7 @@ Les critères suivants seront évalués :
 
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss en majorité.
+> **C'est la version 4 de tailwind qui est utilisée.** Faites attention quand vous regarderez la documentation.
 
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
@@ -133,7 +133,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Lint le code avec eslint
   - [ ] Exécute les tests unitaires
-  - [ ] Migre la base de données (si besoin)
+  - [ ] Migre la base de données (si applicable)
   - [ ] Rendre inaccessible les fichiers .env au public (si applicable)
     - Autrement dit, on ne doit pas pouvoir accéder aux fichiers en écrivant mon.url/.env
     - Deux solutions possibles :
@@ -157,7 +157,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - [ ] Exécute les tests e2e de façon optimale
   - [ ] Exécute les tests unitaires
   - [ ] Lint le code avec eslint
-  - [ ] Migre la base de données (si besoin)
+  - [ ] Migre la base de données (si applicable)
   - [ ] Affiche la branche déployée sur le site
     - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
 
