@@ -202,6 +202,60 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     </li>
                 </ol>
             </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 5 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Copiez et renommez le fichier .env en .env.local et éditez la configuration de la base de données mysql (c'est au niveau de la clé "DATABASE_URL") pour vos besoins
+                        <p class="note-information">Dans l'url d'exemple dans le fichier .env "app" représente le nom de votre base de données. A vous de le changer ou non.</p>
+                    </li>
+                    <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
+                        <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
+                    </li>
+                    <li>Réflechissons et créons des tables répondant aux besoins suivants : Nous souhaitons créer un blog photos permettant aux utilisateurs de créer leurs propres galeries. Chaque galerie contient un ou plusieurs photos et ne peut appartenir qu'à un seul utilisateur.</li>
+                    <div class="note-information">
+                        <p>Pour créer une entité, on utilise la commande <code>php bin/console make:entity</code>, et on suit le prompt. A noter les points suivants : </p>
+                        <ul>
+                            <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
+                            <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
+                        </ul>
+                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier, pour générer les tables, il faut lancer la commande <code>php bin/console make:migration</code></p>
+                        <p>Chaque création de table génère un fichier de migration, il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Si vous passez en production ou changez d'ordinateur, vous pouvez lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
+                    </div>
+                    <p class="note-attention">Même si nous créeons nos tables via la ligne de commandes, rien ne vous empêche d'éditer les fichiers à la main ou de relancer la commande <code>php bin/console make:entity</code> sur une entité existante </p>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 6 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Copiez et renommez le fichier .env en .env.local et éditez la configuration de la base de données mysql (c'est au niveau de la clé "DATABASE_URL") pour vos besoins
+                        <p class="note-information">Dans l'url d'exemple dans le fichier .env "app" représente le nom de votre base de données. A vous de le changer ou non.</p>
+                    </li>
+                    <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
+                        <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
+                    </li>
+                    <li>Réflechissons et créons des tables répondant aux besoins suivants : Nous souhaitons créer un blog photos permettant aux utilisateurs de créer leurs propres galeries. Chaque galerie contient un ou plusieurs photos et ne peut appartenir qu'à un seul utilisateur.</li>
+                    <div class="note-information">
+                        <p>Pour créer une entité, on utilise la commande <code>php bin/console make:entity</code>, et on suit le prompt. A noter les points suivants : </p>
+                        <ul>
+                            <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
+                            <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
+                            <li>Si toutes les propriétés d'une entité sont privés et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée. Ex : entity.name.</li>
+                            <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
+                        </ul>
+                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier, pour générer les tables, il faut lancer la commande <code>php bin/console make:migration</code>. Elle va générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Si vous passez en production ou changez d'ordinateur, vous pouvez lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
+                    </div>
+                </ol>
+            </details>
         </header>
     </body>
 </html>
