@@ -4,16 +4,16 @@ require_once('../../ressources/includes/connexion-bdd.php');
 $requete_brute = '
     SELECT
         ar.id,
-        ar.titre AS titre_article, 
+        ar.titre AS titre_article,
         ar.titre AS chapo_article,
         ar.contenu AS contenu_article,
         ar.image AS image_article,
         ar.lien_yt AS lien_yt_article,
         ar.date_creation AS date_creation_article,
-        ar.auteur_id AS article_auteur_id, 
+        ar.auteur_id AS article_auteur_id,
         CONCAT(auteur.nom, " ", auteur.prenom) AS auteur
-    FROM article AS ar 
-    LEFT JOIN auteur 
+    FROM article AS ar
+    LEFT JOIN auteur
     ON ar.auteur_id = auteur.id;
 ';
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
@@ -78,7 +78,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                                     <?php echo $auteur_article; ?>
                                 </td>
                                 <td class="pl-8 p-4">
-                                    <a href='<?php echo $lien_edition; ?>' class='font-bold text-blue-600'>Éditer</a>
+                                    <a href='<?php echo $lien_edition; ?>' class='font-bold text-blue-600 hover:text-blue-900 focus:text-blue-900'>Éditer</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -87,7 +87,7 @@ $URL_creation = "{$racine_URL}/creation.php";
             </div>
         </div>
     </main>
-    <?php 
+    <?php
         require_once("../ressources/includes/global-footer.php");
     ?>
 </body>

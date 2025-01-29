@@ -52,13 +52,13 @@ $URL_creation = "{$racine_URL}/creation.php";
                                 ]; ?></td>
                                 <td class="pl-8 p-4">
                                     <div class="w-16 h-16">
-                                        <img 
+                                        <img
                                             class="rounded-full w-full h-full"
-                                            src='<?php echo $element['lien_avatar']; ?>' 
+                                            src='<?php echo $element['lien_avatar']; ?>'
                                             loading="lazy"
-                                            width='80' 
-                                            height='80' 
-                                            alt='<?php echo "Portrait {$element['prenom']}"; ?>' 
+                                            width='80'
+                                            height='80'
+                                            alt='<?php echo "Portrait {$element['prenom']}"; ?>'
                                         />
                                     </div>
                                 </td>
@@ -66,7 +66,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                                 <td class="pl-8 p-4"><?php echo $element['nom']; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element['lien_twitter']; ?></td>
                                 <td class="pl-8 p-4">
-                                    <a href="<?php echo $lien_edition; ?>" class='font-bold text-blue-600'>Éditer</a>
+                                    <a href="<?php echo $lien_edition; ?>" class='font-bold text-blue-600 hover:text-blue-900 focus:text-blue-900'>Éditer</a>
                                 </td>
                             </tr>
                         <?php } ?>
