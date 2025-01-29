@@ -1,3 +1,12 @@
+:root {
+    --black: #080808;
+    --white: rgb(241, 241, 241);
+    --light-gray: #d1d1e5;
+    --yellow-attention: rgb(255, 238, 0);
+    --blue-information: #0085f2;
+    --red-alert: rgb(218, 1, 1);
+}
+
 .consignes-en-tete {
     max-width: 1280px;
     margin: 0 auto;
@@ -68,7 +77,7 @@
             height: 2px;
             width: 42%;
             margin: 30px auto 0;
-            background-color: black;
+            background-color: var(--black);
         }
     }
 
@@ -94,7 +103,7 @@
         padding: 0.5rem;
         background-color: rgb(255, 161, 94);
         border-bottom: chocolate 2px solid;
-        color: black;
+        color: var(--black);
         font-size: 1.25rem;
 
         .conteneur {
@@ -184,7 +193,7 @@
 }
 
 .note-importante {
-    --color: rgb(218, 1, 1);
+    --color: var(--red-alert);
     font-family: Helvetica, Arial, sans-serif;
     border-left: 5px solid var(--color);
     padding: 1rem;
@@ -209,7 +218,7 @@
 }
 
 .note-information {
-    --color: #0085f2;
+    --color: var(--blue-attention);
     font-family: Helvetica, Arial, sans-serif;
     border-left: 5px solid var(--color);
     padding: 1rem;
@@ -234,7 +243,7 @@
 }
 
 .note-attention {
-    --color: rgb(255, 238, 0);
+    --color: var(--yellow-attention);
     font-family: Helvetica, Arial, sans-serif;
     border-left: 5px solid var(--color);
     padding: 1rem;
@@ -284,7 +293,7 @@
         border: none;
         background-color: transparent;
         position: relative;
-        color: #333333;
+        color: var(--black);
         font-size: 1rem;
         opacity: 0.8;
         transition: opacity 350ms;
@@ -303,7 +312,7 @@
 
         &::after {
             content: "";
-            background-color: black;
+            background-color: var(--black);
             @media (prefers-color-scheme: dark) {
                 background-color: white;
             }
@@ -342,7 +351,7 @@
         margin-top: 0;
 
         @media (prefers-color-scheme: light) {
-            border-color: black;
+            border-color: var(--black);
         }
     }
 }
