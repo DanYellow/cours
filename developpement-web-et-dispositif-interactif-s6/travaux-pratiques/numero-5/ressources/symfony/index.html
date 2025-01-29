@@ -65,6 +65,7 @@
                             >git remote add origin https://github.com/{USER}/{REPO}.git
 <span style="color: rgb(112, 120, 128); font-weight: 400;"># ou </span>
 git remote add origin git@github.com:{USER}/{REPO}.git</pre>
+                            <p>Pensez à le faire et commiter régulièrement votre projet.</p>
                         </div>
                     </li>
                 </ol>
@@ -116,6 +117,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>
                         Suivez les instructions sur la page d'accueil pour créer
                         votre première page et le contrôleur qui l'accompagne
+                    </li>
+                    <li>Définissez le français comme valeur pour la clé "default_locale" en éditant le fichier "config/packages/translation.yaml"
+                        <p class="note-information">Changer le "default_locale" a pour conséquence de traduire le projet et notamment les messages d'erreur des formulaires</p>
                     </li>
                 </ol>
             </details>
@@ -194,7 +198,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     </li>
                     <li>Grâce à la commande suivante, installez un node_module et utilisez-le depuis le dossier "assets/"
                         <pre data-code-sample="true" style="font-family:monospace; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">php bin/console importmap:require {NOM_DU_MODULE}</pre>
-                        <p>Si vous ne savez pas quoi installer, vous pouvez installer lodash.</p>
+                        <p>Si vous ne savez pas quoi installer, vous pouvez installer lodash. Mais il faut impérativement que le node_module soit utilisable côté front-end.</p>
                         <div class="note-information">
                             <p>Vous n'avez pas besoin d'importer vous-même le javascript dans le template Twig, l'importation est faite dans le fichier base.html.twig avec le code suivant :</p>
 <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">block</span> importmap <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
@@ -249,37 +253,143 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         Créez un nouveau contrôleur manuellement ou via la commande <code>php bin/console make:controller {NOM_DU_CONTROLEUR}</code> 
                     </li>
                     <li>
-                        Donnez la possibilité de créer l'entité depuis une méthode du contrôleur
-                        <details>
-                            <summary>
-                                Exemple de code (à adapter)
-                            </summary>
+                        Donnez la possibilité de <span class="texte-gras">créer un utilisateur</span> depuis le contrôleur en vous aidant du code ci-dessous (code à adapter)
+                        <div class="tab-wrapper" role="tablist">
+                            <ul class="list-tabs">
+                                <li>
+                                    <button class="select-tab" data-tab-name="create">Créer entité</button>
+                                </li>
+                                <li>
+                                    <button class="select-tab" data-tab-name="update">Mise à jour entité</button>
+                                </li>
+                                <li>
+                                    <button class="select-tab" data-tab-name="delete">Supprimer entité</button>
+                                </li>
+                                <li>
+                                    <button class="select-tab" data-tab-name="all">Récupérer toutes les entités</button>
+                                </li>
+                            </ul>
+                            <ul class="list-tab-content">
+                                <li class="tab-content" data-tab-content="create">
 <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
-
-<span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
-
-<span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
-<span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Gallery</span>;
-<span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
-
-<span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
-</span>{
-    <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/gallery/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span> = <span style="color: rgb(181, 189, 104); font-weight: 400;">"Festival MMI"</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Gallery</span>();
-        <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setName</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span>);
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
-        <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>);
-        <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
-
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_entity'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span> = <span style="color: rgb(181, 189, 104); font-weight: 400;">"Festival MMI"</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+        </span>{
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>();
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setName</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span>);
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>);
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+    
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+        }
     }
-}
-</pre>
-                        </details>
+    </pre>
+                                </li>
+                                <li class="tab-content" data-tab-content="update">
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    </span>{
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'update_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">int</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+        </span>{
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// Il est possible de chercher (find) par d'autres propriétés d'une entité.</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// -&gt;findOneBy(['property' =&gt; 'value'])</span>
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getRepository</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>)-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">find</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span>);
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">if</span> (!<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>) {
+                <span style="color: rgb(129, 162, 190); font-weight: 400;">throw</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createNotFoundException</span>(
+                    <span style="color: rgb(181, 189, 104); font-weight: 400;">"Aucune entité trouvée avec l'<span style="color: rgb(138, 190, 183); font-weight: 400;">{$id}</span>"</span>
+                );
+            }
+    
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setName</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'Nouveau nom'</span>);
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+            
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+        }
+    }</pre>
+                                </li>
+                                <li class="tab-content" data-tab-content="delete">
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">HttpFoundation</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">JsonResponse</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    </span>{
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'delete_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">int</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">JsonResponse</span>
+        </span>{
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getRepository</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>)-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">find</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span>);
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">if</span> (!<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>) {
+                <span style="color: rgb(129, 162, 190); font-weight: 400;">throw</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createNotFoundException</span>(
+                    <span style="color: rgb(181, 189, 104); font-weight: 400;">"Aucune entité trouvée avec l'<span style="color: rgb(138, 190, 183); font-weight: 400;">{$id}</span>"</span>
+                );
+            }
+    
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">remove</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>);
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">JsonResponse</span>([<span style="color: rgb(181, 189, 104); font-weight: 400;">"message"</span> =&gt; <span style="color: rgb(181, 189, 104); font-weight: 400;">"Entité supprimée"</span>]);
+        }
+    }</pre>
+                                </li>
+                                <li class="tab-content" data-tab-content="all">
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">HttpFoundation</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    </span>{
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'list_entites'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
+        </span>{
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$allEntities</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getRepository</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>)-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">findAll</span>();
+    
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">render</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'base.html.twig'</span>, [
+                <span style="color: rgb(181, 189, 104); font-weight: 400;">"list_entities"</span> =&gt; <span style="color: rgb(138, 190, 183); font-weight: 400;">$allEntities</span>,
+            ]);
+        }
+    }</pre>
+                                </li>
+                        </div>
                     </li>
-                    <li>En vous aidant de la <a href="https://symfony.com/doc/current/doctrine.html" target="_blank" rel="noopener noreferrer">documentation</a>, créez une page permettant d'afficher le contenu d'une entité précédemment crée grâce aux paramètres d'URL</li>
+                    <li>
+                        Créez une nouvelle route permettant d'afficher un utilisateur grâce à son id dans l'URL
+                    </li>
                 </ol>
             </details>
             <details class="consignes-conteneur">
@@ -358,6 +468,47 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 <a href="https://symfony.com/doc/current/session.html#flash-messages" target="_blank" rel="noopener noreferrer">Voir documentation sur flash message - Ouverture dans un nouvel onglet</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        Créez un formulaire permettant d'éditer un utilisateur existant
+                        <ul>
+                            <li>
+                                <a href="https://symfony.com/doc/current/forms.html" target="_blank" rel="noopener noreferrer">Voir documentation sur les formulaires</a>
+                            </li>
+                            <li>
+                                <a href="https://symfony.com/doc/current/reference/forms/types.html#text-fields" target="_blank" rel="noopener noreferrer">Voir documentation sur les champs de formulaire</a>
+                            </li>
+                        </ul>
+                        <p class="note-information">Pour garder le code propre, Symfony encourage l'utilisation de classes dédiées pour les formulaires. Ainsi le formulaire est réutilisable. Essayez d'appliquer cette solution. <a href="https://symfony.com/doc/current/forms.html#creating-form-classes" target="_blank" rel="noopener noreferrer">Vous obtiendrez plus d'information dans la documentation</a>.</p>
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 8 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Appliquez des règles de validation au choix sur le formulaire de création d'un utilisateur
+                        <p class="note-information">Symfony rend les champs requis (attribut "required") par défaut, de ce fait, vous ne verrez pas les messages en provenance du contrôleur sauf si vous jouea avec la console. Toutefois, vous pouvez retirer l'attribut avec la propriété "required" du champ dans le contrôleur, au même niveau que la clé "constraint" ou au global au niveau du widget "form".</p>
+                    </li>
+                    <li>En suivant la documentation de tailwind, mettez en place tailwind dans le projet et améliorez l'affichage du formulaire
+                        <ul>
+                            <li>
+                                <a href="https://tailwindcss.com/docs/installation/framework-guides/symfony" target="_blank" rel="noopener noreferrer">Voir les étapes pour installer tailwind dans Symfony - Ouverture dans un nouvel onglet</a>
+                            </li>
+                            <li>
+                                <a href="https://symfony.com/doc/current/form/tailwindcss.html" target="_blank" rel="noopener noreferrer">Voir documentation de Symfony dans tailwind - Ouverture dans un nouvel onglet</a>
+                            </li>
+                            <li>
+                                <a href="https://symfony.com/doc/current/form/form_customization.html" target="_blank" rel="noopener noreferrer">Voir documentation de la personnalisation d'un formulaire</a>
+                            </li>
+                        </ul>
+                        <p class="note-attention">
+                            Il est possible que vous ayez besoin de redémarrer le serveur. De plus, vous aurez besoin d'installer le plugin <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noopener noreferrer">"tailwindcss-forms"</a> pour que tailwind applique par défaut un style sur les éléments de formulaire.
+                        </p>
                     </li>
                 </ol>
             </details>
