@@ -1,4 +1,4 @@
-const initTabSystem = () => {
+(() => {
     const openTab = (e) => {
         const currentTabContainer = e.target.closest('[role="tablist"]')
         currentTabContainer.querySelectorAll("[data-tab-content]").forEach((item) => {
@@ -14,13 +14,13 @@ const initTabSystem = () => {
             `[data-tab-content="${e.target.dataset.tabName}"]`
         ).style.display = "block";
 
-        const currentTag = currentTabContainer.querySelector(
+        const currentTab = currentTabContainer.querySelector(
             `[data-tab-name="${e.target.dataset.tabName}"]`
         )
-        currentTag.style.display = "block";
-        currentTag.classList.add("active");
-        currentTag.setAttribute("aria-selected", "true");
-        currentTag.removeAttribute("tabIndex");
+        currentTab.style.display = "block";
+        currentTab.classList.add("active");
+        currentTab.setAttribute("aria-selected", "true");
+        currentTab.removeAttribute("tabIndex");
     };
 
     document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
@@ -48,11 +48,9 @@ const initTabSystem = () => {
             });
         }
     });
-};
+})();
 
-initTabSystem();
-
-const initAccordionSystem = () => {
+(() => {
     const url = new URL(window.location);
     const accordionIndex = Number(url.searchParams?.get("a") || 0);
     const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
@@ -69,9 +67,7 @@ const initAccordionSystem = () => {
 
         document.querySelectorAll("summary")[idx].closest("details").open = accordionIndex === idx;
     });
-};
-
-initAccordionSystem();
+})();
 
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {

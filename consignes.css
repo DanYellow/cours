@@ -278,7 +278,7 @@
         }
     }
 
-    button {
+    .select-tab {
         padding: 0.9rem 1rem;
         appearance: none;
         border: none;
