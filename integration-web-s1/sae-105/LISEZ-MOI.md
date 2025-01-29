@@ -181,6 +181,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
     - Je ne peux pas être iso maquette, c'est impossible
   - [ ] Mettre le site en ligne
+  - [ ] La page courante est indiquée dans la navigation
   - [ ] Réaliser la sixième page
   - [ ] Afficher un favicon
     - [Accèder au générateur de favicon](https://www.favicon-generator.org/). Vous pouvez sélectionner l'option "Generate only 16x16 favicon.ico" pour générer moins de fichiers
