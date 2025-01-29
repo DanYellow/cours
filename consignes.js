@@ -54,11 +54,12 @@ initTabSystem();
 
 const initAccordionSystem = () => {
     const url = new URL(window.location);
-    const accordionIndex = Number(url.searchParams?.get("a") || 0)
+    const accordionIndex = Number(url.searchParams?.get("a") || 0);
+    const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
 
-    document.querySelectorAll(".consignes-conteneur > summary").forEach((item, idx) => {
+    listInstructionSummary.forEach((item, idx) => {
         item.addEventListener("click", () => {
-            if(document.querySelectorAll("summary")[idx].closest("details").open) {
+            if(listInstructionSummary[idx].closest("details").open) {
                 url.searchParams.delete("a", idx);
             } else {
                 url.searchParams.set("a", idx);
