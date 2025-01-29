@@ -36,7 +36,7 @@ On définit sous forme d'une chaîne de caractères notre requête. Ici nous sou
 
 ##### Deuxième étape : exécution de notre requête + récupération des données
 
-Ensuite, il nous faut exécuter la requête avec la fonction `mysqli_query()`. Elle prend deux paramètres au minimum (dans l'ordre), la connexion à la base de données et la requête sous forme de chaîne de caractères (on en a une déjà, la variable `$requete_brute`). Pour la connexion à la base de données, il s'agit de la réponse de la fonction `mysqli_connect()`. Si on exécute notre fonction `mysqli_query()`, nous aurons le code suivant : 
+Ensuite, il nous faut exécuter la requête avec la fonction `mysqli_query()`. Elle prend deux paramètres au minimum (dans l'ordre), la connexion à la base de données et la requête sous forme de chaîne de caractères (on en a une déjà, la variable `$requete_brute`). Pour la connexion à la base de données, il s'agit de la réponse de la fonction `mysqli_connect()`. Si on exécute notre fonction `mysqli_query()`, nous aurons le code suivant :
 
 ```php
 $resultat_brut = mysqli_query($mysqli_connexion, $requete_brute);
@@ -102,13 +102,13 @@ $resultat_brut = mysqli_query($mysqli_connexion, $requete_brute);
 $article = mysqli_fetch_array($resultat_brut);
 ```
 
-Ensuite, nous exécutons notre requête, récupérons le résultat brute et le transformons grâce à la fonction `mysqli_fetch_array()`, vu que la requête ne retourne qu'un résultat, la variable `$article` ne contiendra qu'un tableau associatif (appelé aussi dictionnaire). 
+Ensuite, nous exécutons notre requête, récupérons le résultat brute et le transformons grâce à la fonction `mysqli_fetch_array()`, vu que la requête ne retourne qu'un résultat, la variable `$article` ne contiendra qu'un tableau associatif (appelé aussi dictionnaire).
 
 > Note : Si la requête ne retourne rien, `mysqli_fetch_array()` retournera "NULL". Il faut donc prévenir ce cas dans votre code, un exemple est déjà présent dans les fichiers `administration/auteurs/edition.php` et `administration/squelette/edition.php`
 
 La requête `SELECT * FROM article WHERE id = :id` nous sera utile pour afficher le détail d'un article ou encore pré-remplir le formulaire nous permettant d'éditer un article avec les données existantes.
 
-Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `AND`, par exemple : 
+Notez également que si vous souhaitez sélectionner sur plusieurs champs, il faudra utiliser le mot-clé `AND`, par exemple :
 ```sql
 SELECT * FROM article WHERE id = :id AND titre = :titre
 ```
@@ -139,7 +139,7 @@ Analysons tout ça :
 ```php
 // Code php pour ajouter un message dans la table "message" :
   $insertion_requete_brute = "
-    INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+    INSERT INTO message(nom, prenom, contenu, email, type, date_creation)
     VALUES ('$nom', '$prenom', '$message', '$email', '$type', '$date')
   ";
 
@@ -153,7 +153,7 @@ Le code ci-dessus est déjà présent et fonctionnel dans le fichier `contact.ph
 
 ## Éditez vos données
 
-Parfois (souvent même), vous devrez mettre à un jour un élément déjà présent dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`. 
+Parfois (souvent même), vous devrez mettre à un jour un élément déjà présent dans la base de données, c'est là qu'entre en jeu le mot-clé `UPDATE`.
 Il est toujours préférable de l'utiliser avec le mot-clé `WHERE`, en absence de ce dernier, vous mettrez à jour toute la table sélectionnée et ce n'est pas forcément ce que vous souhaitez faire.
 
 ```sql
@@ -202,10 +202,9 @@ La jointure `LEFT JOIN` permet de récupérer tous les résultats de la table de
 ```php
 $jointure_requete_brute = "
     SELECT * FROM article
-    LEFT JOIN auteur 
+    LEFT JOIN auteur
     ON article.auteur_id = auteur.id;
 ";
-
 ```
 Dans la requête ci-dessus, nous recherchons tous les éléments de la table `article` et associons à chacun des résultat son auteur (table `auteur`) grâce à la colonne `auteur_id` pour la table `article` et la colonne `id` pour la table `auteur`. De ce fait, nous aurons comme résultat, pour chaque entrée du tableau, le résultat suivant (en ayant bien évidemment exécuté la requête avant) :
 ```php
@@ -227,7 +226,7 @@ Il est possible de remplacer `LEFT JOIN` par de multiples requêtes. Toutefois l
 Pour terminer, notez qu'il est possible d'utiliser le mot-clé `WHERE` dans une jointure. Exemple :
 ```sql
 SELECT * FROM article
-LEFT JOIN auteur 
+LEFT JOIN auteur
 ON article.auteur_id = auteur.id
 WHERE article.id = :id
 ```
@@ -244,4 +243,4 @@ WHERE article.id = :id
 - `LEFT JOIN` : Association de plusieurs tables
 
 
-Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes SQL que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour vos autres projets. 
+Voilà, c'est terminé, nous avons vu dans les grandes lignes les requêtes SQL que vous devez utiliser pour réaliser la SAÉ, ces connaissances vous servirons également pour vos autres projets.

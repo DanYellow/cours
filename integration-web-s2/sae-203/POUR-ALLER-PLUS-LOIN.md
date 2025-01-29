@@ -11,19 +11,15 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
   - Limiter le nombre d'entrées par requêtes SQL avec le mot-clé `LIMIT`
   - Définir le décalage dans la requêtes avec le mot-clé `OFFSET`
   - Bien évidemment, il y a des didactiels en ligne concernant cette fonctionnalité
-- (Ré)Écrire **votre CSS** en SCSS ou SASS
-  - Cette partie de ce tutoriel sera amplement suffisant 
-    - [Tutoriel SASS/SCSS](https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596483-decouvrez-sass-et-sa-syntaxe)
-  - [La documentation en anglais](https://sass-lang.com/guide)
-  - Il vous faudra un outil pour compiler le SCSS/SASS en CSS
-    - [En ligne (déconseillé)](https://jsonformatter.org/scss-to-css)
-    - [Avec un plugin VS Code (préférable)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
+- (Ré)Écrire **votre CSS** avec le CSS nesting
+  - [Voir documentation du CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur :
   - Ceci peut être géré via une combinaison de PHP et d'ancres de lien
-- Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse e-mail est valide respectant bien le format `nom@domaine.ext`
+- Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse du compte twitter est valide respectant bien le format `https://www.twitter.com/nom_du_compte`
 - Permettre, à partir d'un article, d'accéder à la page de l'auteur de l'article
   - Cette page auteur contiendra également la liste de tous les articles écrits par l'auteur et il vous faudra faire le design
 - Notifier l'utilisateur après création ou édition d'un élément dans le backoffice
+  - Afficher un message indiquant que tout s'est bien passé
 - Donner la possibilité de supprimer un message ou article
   - Il faudra utiliser la requête `DELETE FROM ... WHERE`
   - Note : En terme d'ergonomie, il est très mauvais de valider automatiquement une action dite "destructive", il faudra demander à l'utilisateur de valider son action
