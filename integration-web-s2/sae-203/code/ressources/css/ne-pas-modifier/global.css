@@ -1,85 +1,80 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #fafafa;
-  font-family: "Open Sans", sans-serif;
+    background-color: #fafafa;
+    font-family: "Open Sans", sans-serif;
 }
 
-/* 
-  Le code ci-dessous permet de retirer 
-  les animations pour les personnes qui ont décidé de les désactiver 
+/*
+  Le code ci-dessous permet de retirer
+  les animations pour les personnes qui ont décidé de les désactiver
 */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-  }
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .conteneur-1280 {
-  max-width: 1280px;
-  padding: 0 0.8rem;
-  margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 0.8rem;
+    margin: 0 auto;
 }
 
 .navigation-principale ul {
-  display: flex;
-  justify-content: flex-end;
-  column-gap: 2.625rem;
-  font-size: 1.05rem;
-  font-weight: 400;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2.625rem;
+    font-size: 1.05rem;
+    font-weight: 400;
 }
 
 .titre {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.066666666666667rem;
-  max-width: 800px;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1.066666666666667rem;
+    max-width: 800px;
 }
 
 .pied-de-page-principal {
-  color: #707070;
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
-  margin-top: 8.125rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  background: transparent;
-  border: none;
+    color: #707070;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    margin-top: 8.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navigation-principale .lien-admin {
-  background-color: black;
-  padding: 0 0.5rem 0.5rem;
+    background-color: black;
+    padding: 0 0.5rem 0.5rem;
 }
 
 .navigation-principale .lien-admin a {
-  color: aliceblue;
+    color: aliceblue;
 }
 
 .pied-de-page-principal .lien-admin {
-  color: black;
+    color: black;
 }
 
 .texte-gras {
-  font-weight: bold;
+    font-weight: bold;
 }

@@ -20,8 +20,8 @@ if ($formulaire_soumis) {
     $prenom = htmlentities($_POST["prenom"]);
 
     $requete_brute = "
-        UPDATE A-REMPLACER 
-        SET 
+        UPDATE A-REMPLACER
+        SET
             nom = '$nom',
             prenom = '$prenom',
             A-COMPLETER
@@ -67,17 +67,17 @@ if ($formulaire_soumis) {
                                 <label for="nom" class="block text-lg font-medium text-gray-700">Nom</label>
                                 <input type="text" value="<?php echo $entite[
                                     'nom'
-                                ]; ?>" name="nom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="nom">
+                                ]; ?>" name="nom" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="nom">
                             </div>
                             <div class="col-span-12">
                                 <label for="prenom" class="block text-lg font-medium text-gray-700">Prénom</label>
                                 <input type="text" value="<?php echo $entite[
                                     'prenom'
-                                ]; ?>" name="prenom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
+                                ]; ?>" name="prenom" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="prenom">
                             </div>
                             <div class="col-span-12">
                                 <label for="avatar" class="block text-lg font-medium text-gray-700">Lien avatar</label>
-                                <input type="url" value="<?php echo $entite['lien_avatar']; ?>" name="lien_avatar" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="avatar">
+                                <input type="url" value="<?php echo $entite['lien_avatar']; ?>" name="lien_avatar" class="block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="avatar">
                                 <p class="text-sm text-gray-500">
                                     Mettre l'URL de l'avatar (chemin absolu)
                                 </p>
@@ -86,7 +86,7 @@ if ($formulaire_soumis) {
                                 <label for="lien_twitter" class="block text-lg font-medium text-gray-700">Lien twitter</label>
                                 <input type="url" value="<?php echo $entite[
                                     'lien_twitter'
-                                ]; ?>" name="lien_twitter" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="lien_twitter">
+                                ]; ?>" name="lien_twitter" class="block w-full rounded-md border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-indigo-500" id="lien_twitter">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus-within:bg-indigo-700">Éditer</button>
