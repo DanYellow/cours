@@ -65,7 +65,7 @@
             history.replaceState(null, "", url);
         });
 
-        document.querySelectorAll("summary")[idx].closest("details").open = accordionIndex === idx;
+        listInstructionSummary[idx].closest("details").open = accordionIndex === idx;
     });
 })();
 
