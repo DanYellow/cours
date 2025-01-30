@@ -1,6 +1,6 @@
 # Installation Unity
 
-Unity est un logiciel "gratuit" permettant de développer des jeux vidéo aussi bien 2D que 3D. VOus pouvez le télécharger sur le site officiel. Il vous faudra créer un compte, créez un compte personnel.
+Unity est un logiciel "gratuit" permettant de développer des jeux vidéo aussi bien 2D que 3D. Vous pouvez le télécharger sur le site officiel. Il vous faudra créer un compte, créez un compte personnel.
 
 - [Télécharger Unity Hub](https://unity.com/fr/download)
 > Note : Sur le site, vous ne pouvez pas télécharger Unity directement, il faut técharger Unity Hub qui téléchargera Unity pour vous. Dans le cadre du cours, nous utiliserons une version supérieure ou égale à la version 6.
