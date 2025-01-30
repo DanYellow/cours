@@ -20,7 +20,7 @@ const print = (path, layer) => {
         url.split(",").forEach((item, idx, array) => {
             let computedPath = item;
             const method = path.includes("*") ? "ANY" : layer.method.toUpperCase();
-           
+
             if (array.length > 1 && idx > 0) {
                 const prefix = path.find((el) => el !== "");
                 computedPath = prefix + computedPath;
@@ -93,7 +93,7 @@ const generateListRoutes = (app) => {
         throw new Error("app object is missing");
     }
     app._router.stack.forEach(print.bind(null, []));
-    
+
     const listRoutesComputed = listRoutes
         .map((item) => {
             if (item.PATH[0] === "/") {
@@ -102,10 +102,10 @@ const generateListRoutes = (app) => {
 
             return {
                 ...item,
-                PATH: `/${item.PATH}`,
+                PATH: (item.PATH.length === 1 && item.PATH === "*") ? "*" : `/${item.PATH}`,
             };
         })
-        
+
     const response = []
     let indexRoute = -1;
     listRoutesComputed.forEach((route) => {
@@ -115,7 +115,7 @@ const generateListRoutes = (app) => {
                 response[indexRoute] = route;
             }
             return;
-        } 
+        }
 
         response.push(route);
     })
@@ -211,8 +211,8 @@ const getNameForRoute = (app, pattern) => {
     })
 
     return {
-        ...(_route || { NAME: null }), 
-        // QUERY_STRING: Object.fromEntries(new URLSearchParams(queryString)) 
+        ...(_route || { NAME: null }),
+        // QUERY_STRING: Object.fromEntries(new URLSearchParams(queryString))
     };
 }
 
