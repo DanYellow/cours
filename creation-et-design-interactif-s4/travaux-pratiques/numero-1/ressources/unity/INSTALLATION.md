@@ -1,6 +1,6 @@
 # Installation Unity
 
-Unity est un logiciel "gratuit" permettant de développer des jeux vidéo aussi bien 2D que 3D. VOus pouvez le télécharger sur le site officiel. Il vous faudra créer un compte, créez un compte personnel.
+Unity est un logiciel "gratuit" permettant de développer des jeux vidéo aussi bien 2D que 3D. Vous pouvez le télécharger sur le site officiel. Il vous faudra créer un compte, créez un compte personnel.
 
 - [Télécharger Unity Hub](https://unity.com/fr/download)
 > Note : Sur le site, vous ne pouvez pas télécharger Unity directement, il faut técharger Unity Hub qui téléchargera Unity pour vous. Dans le cadre du cours, nous utiliserons une version supérieure ou égale à la version 6.
@@ -15,7 +15,7 @@ Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" de la der
 
 ...et une autre fenêtre va s'ouvrir. Elle demande ce que vous souhaitez installer en plus de la version d'Unity sélectionnée à l'étape précédente.
 
-| ![](printscreens/installation-3.jpg) |
+| ![](printscreens/installation-3.png) |
 |:--:|
 | *Pour gagner du temps au niveau du téléchargement, décochez le téléchargement de "Microsoft Visual Studio". Nous n'en aurons pas besoin pour le cours. Nous utiliserons VS Code à la place.* |
 
@@ -72,9 +72,17 @@ Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity
 |:--:|
 | *Ici, VS Code me propose des méthodes quand je commence à écrire. Ceci signifie que le SDK .NET s'est bien installé* |
 
+Il faudra également installer des extensions pour VS Code gratuites :
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+- [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+
 # Utilisation de git
 Pour entretenir vos connaissances de git, vous **devrez mettre l'avancée des cours sur github,** et ce, dès le premier cours. L'avancement de chaque TP devra être enregistré sur GitHub. Par conséquent, créez dès maintenant un nouveau projet sur github en public. Et après avoir cloné ce dépôt sur votre ordinateur, vous créerez votre projet Unity dedans.
 
 Une note sera donnée à la fin des TP concernant votre gestion de git.
 
 Pensez à commiter régulièrement, c'est gratuit. Un commit vous permet d'avoir un point de sauvegarde, vous permettant ainsi de revenir en arrière aisément en cas de problème. Faites-le à chaque étape clé : ajout de ressource / script / changement de structure de niveau...
+
+N'oubliez pas de mettre à la racine de votre projet Unity, un fichier .gitignore, ceci vous évitera de mettre sur git des fichiers de dépendences qui n'ont rien à faire sur votre dépôt. Vous pouvez le récupérer sur le dépôt git [gitignore](https://github.com/github/gitignore).
+
+Prenez celui dédié à Unity (Unity.gitignore) et **pensez bien à renommer le fichier en ".gitignore"**

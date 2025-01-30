@@ -225,7 +225,7 @@ Avant d'écrire vos premières lignes de C#, pensez bien à installer toutes les
     - [Documentation Unity de la liste des touches accessibles - anglais](https://docs.unity3d.com/ScriptReference/KeyCode.html)
 
 > N'oubliez pas de lier votre script à un GameObject. **Sinon, votre code ne sera jamais exécuté.**
-> N'oubliez pas qu'une fonctione ne peut pas être appelée en dehors d'une autre fonction.
+> N'oubliez pas qu'une fonction ne peut pas être appelée en dehors d'une autre fonction.
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
