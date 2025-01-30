@@ -77,7 +77,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <li><span class="texte-gras">templates/ :</span> Contient les vues twig du projet - V de l'architecture MVC</li>
                         <li><span class="texte-gras">public/ :</span> Contient les différents assets du projet (images, javascript, css...). Tout le contenu est accessible au public</li>
                         <li><span class="texte-gras">assets/ :</span> Fonctionne comme le dossier public/ mais avec une petite subtilité, le contenu est caché. Autrement dit, les assets sont versionnées pour éviter qu'ils soient mis en cache. Tout le contenu est accessible au public
-                            <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. Anoter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
+                            <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. A noter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
                         </li>
                     </ul>
                     <p class="note-importante">Vous ne pouvez pas renommer les dossiers crées par symfony. En revanche, vous avez le droit de créer des sous-dossiers dedans pour mieux vous organiser.</p>
@@ -373,9 +373,14 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'list_entites'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'list_entities'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
         </span>{
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// Il est également possible de chercher (find) toutes les entités par plusieurs prédicats.</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// -&gt;findBy(</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">//    ['property_1' =&gt; 'value', 'property_2' =&gt; 'value'],</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">//    $orderBy, $limit, $offset</span>
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// )</span>
             <span style="color: rgb(138, 190, 183); font-weight: 400;">$allEntities</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getRepository</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>)-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">findAll</span>();
     
     
@@ -492,7 +497,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 <ol>
                     <li>
                         Appliquez des règles de validation au choix sur le formulaire de création d'un utilisateur
-                        <p class="note-information">Symfony rend les champs requis (attribut "required") par défaut, de ce fait, vous ne verrez pas les messages en provenance du contrôleur sauf si vous jouea avec la console. Toutefois, vous pouvez retirer l'attribut avec la propriété "required" du champ dans le contrôleur, au même niveau que la clé "constraint" ou au global au niveau du widget "form".</p>
+                        <p class="note-information">Symfony rend les champs requis (attribut "required") par défaut, de ce fait, vous ne verrez pas les messages en provenance du contrôleur sauf si vous jouez avec la console du navigateur. Toutefois, vous pouvez retirer l'attribut avec la propriété "required" du champ dans le contrôleur, au même niveau que la clé "constraint" ou au global au niveau du widget "form" et l'attribut "novalidate".</p>
                     </li>
                     <li>En suivant la documentation de tailwind, mettez en place tailwind dans le projet et améliorez l'affichage du formulaire
                         <ul>
@@ -511,6 +516,31 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         </p>
                     </li>
                 </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Trucs et astuces (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ul>
+                    <li>
+                        <a href="https://laconsole.dev/cheatsheets/symfony/" target="_blank" rel="noopener noreferrer">Cheatsheet des commandes Symfony - Ouverture dans un nouvel onglet</a>
+                        <p class="texte-gras">Commandes supplémentaires </p>
+                        <ul>
+                            <li>
+                                <a href="https://symfony.com/doc/current/security.html#the-user" target="_blank" rel="noopener noreferrer">Créer un utilisateur avec gestion de mot de passe :</a> <code>php bin/console make:user</code>
+                                <p class="note-information">Durant le prompt, il vous est demandé si vous souhaitez utiliser une base de données. Si vous répondez "non", les accès seront stockés dans la mémoire, dans un fichier YAML. Cette solution peut être intéressante si vous avez un nombre très limité d'utilisateurs.</p>
+                            </li>
+                            <li>
+                                Vider le cache : <code>bin/console cache:clear --env=prod|dev</code>
+                            </li>
+                            <li>
+                                Compiler les assets : <code>php bin/console asset-map:compile</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </details>
         </header>
     </body>
