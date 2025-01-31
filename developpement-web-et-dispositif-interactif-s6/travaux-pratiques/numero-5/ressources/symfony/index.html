@@ -23,6 +23,9 @@
     <body>
         <header class="entete-consignes">
             <h1 class="h1">Consignes de la pratique - Symfony</h1>
+            <p class="note-information">
+                Dans les consignes, il est régulièrement mentionné <code>php bin/console</code>, cette commande peut être remplacée (et raccourcie) par <code>symfony console</code>
+            </p>
             <details class="consignes-conteneur">
                 <summary>
                     <h2 class="h1">
@@ -118,7 +121,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         Suivez les instructions sur la page d'accueil pour créer
                         votre première page et le contrôleur qui l'accompagne
                     </li>
-                    <li>Définissez le français comme valeur pour la clé "default_locale" en éditant le fichier "config/packages/translation.yaml"
+                    <li>Définissez le français comme valeur pour la clé "default_locale" en éditant le fichier "config/packages/translation.yaml". La valeur attendue doit respecter la norme ISO 639 - Set 1
                         <p class="note-information">Changer le "default_locale" a pour conséquence de traduire le projet et notamment les messages d'erreur des formulaires</p>
                     </li>
                 </ol>
@@ -439,10 +442,10 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/gallery/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, Request <span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
         </span>{
-            <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>();
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>();
     
             <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createFormBuilder</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>)
                 -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">add</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'save'</span>, <span style="color: rgb(240, 198, 116); font-weight: 400;">SubmitType</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>, [<span style="color: rgb(181, 189, 104); font-weight: 400;">'label'</span> =&gt; <span style="color: rgb(181, 189, 104); font-weight: 400;">'Créer'</span>])
@@ -450,9 +453,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     
             <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">handleRequest</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span>);
             <span style="color: rgb(129, 162, 190); font-weight: 400;">if</span> (<span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">isSubmitted</span>() &amp;&amp; <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">isValid</span>()) {
-                <span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getData</span>();
+                <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getData</span>();
     
-                <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>);
+                <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>);
                 <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
     
                 <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">redirectToRoute</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'route_name'</span>);
@@ -520,6 +523,142 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
             <details class="consignes-conteneur">
                 <summary>
                     <h2 class="h1">
+                        Partie 9 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Mettez en place la gestion d'utilisateurs grâce aux commandes suivantes :
+                        <ul>
+                            <li>Créer la gestion d'utilisateur : <code>php bin/console make:user</code>
+                            <p class="note-attention">Si vous choisissiez Doctrine, n'oubliez pas de lancer la migration après.</p>
+                            </li>
+                            <li>Générer formulaire de connexion : <code>php bin/console make:security:form-login</code>
+                                <div class="note-attention">
+                                    <p>
+                                        Si vous essayez d'accéder à n'importe quelle route, il est possible que vous ayez un message d'erreur :
+                                    </p>
+                                    <div class="inner-note">
+                                        <p>Because you have multiple authenticators in firewall "main", you need to set the "entry_point" key to one of your authenticators ("App\Security\AppCustomAuthenticator", "form_login") [...]</p>
+                                    </div>
+                                    <p>C'est normal, Symfony "perd la tête" car il y a plusieurs authentificateurs dans l'application, il nous demande de choisir. Pour se faire, allez dans le fichier "config/packages/security.yaml", ajoutez une clé "entry_point" dans "firewall.main". Par exemple (à adapter) : </p>
+<pre data-code-sample="false" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(197, 200, 198); font-weight: 400;">security:</span>
+  <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+  <span style="color: rgb(197, 200, 198); font-weight: 400;">firewalls:</span>
+      <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">main:</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">entry_point:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">App\Security\AppCustomAuthenticator</span></pre>
+                                </div>
+                            </li>
+                            <li>Générer formulaire d'inscription : <code>php bin/console make:registration-form</code> (Ne fonctionne pas si vous n'avez pas utilisé Doctrine)</li>
+                            <li>Générer formulaire de récupération de mot de passe : <code>php bin/console make:reset-password</code> (N'a aucun intérêt si vous n'avez pas utilisé Doctrine)
+                                <p class="note-information">Si la commande ne fonctionne pas, c'est parce qu'il manque un bundle. Vous pouvez l'installer avec la commande <code>composer require symfonycasts/reset-password-bundle</code></p>
+                            </li>
+                        </ul>
+                        <div class="note-information">
+                            <p>
+                                Dans le fichier "config/packages/security.yaml", il y a une clé "access_control", elle vous permet de définir quelles zones du sites sont accessibles en fonction du rôle de l'utilisateur. Il est également possible de créer de nouveau rôles si vous en avez besoin.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="https://symfony.com/doc/current/security.html#hierarchical-roles" target="_blank" rel="noopener noreferrer">Voir documentation sur la création de rôles</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Définissez l'URL de redirection après connexion, lors de la création du formulaire de connexion un fichier nommé "AppCustomAuthenticator" a été crée, il y a une méthode "onAuthenticationSuccess()" à compléter, vous devez définir une route.</li>
+                    <li>Générez un mot de passe. Pour aller au plus vite, vous allez utiliser la commande <code>php bin/console security:hash-password</code>. Ceci va générer un prompt qui va vous demander d'entrer un mot de passe, ce mot de passe sera haché puis affiché dans la console de la façon suivante :
+<pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(222, 147, 95); font-weight: 400;">Symfony Password Hash Utility
+=============================</span>
+
+<span style="color: rgb(129, 162, 190); font-weight: 400;">--------------- </span>-----------------------------------------------------------------
+<span style="color: rgb(178, 148, 187); font-weight: 400;"> Hasher used     Symfony\Component\PasswordHasher\Hasher\MigratingPasswordHasher</span>
+<span style="color: rgb(178, 148, 187); font-weight: 400;"> Password hash   $2y$13$FCa7Oc6bxir8S.[...]EdzTFtktZ64yQTO92</span>
+<span style="color: rgb(129, 162, 190); font-weight: 400;">--------------- </span>-----------------------------------------------------------------
+</pre>
+<p>Copiez la valeur de "Password hash"</p>
+<div class="tab-wrapper" role="tablist">
+    <ul class="list-tabs">
+        <li>
+            <button class="select-tab" data-tab-name="not-doctrine">J'ai choisi d'utiliser un fichier de configuration</button>
+        </li>
+        <li>
+            <button class="select-tab" data-tab-name="doctrine">J'ai choisi d'utiliser Doctrine</button>
+        </li>
+    </ul>
+    <ul class="list-tab-content">
+        <li class="tab-content" data-tab-content="not-doctrine">
+            <ol>
+                <li>Allez dans le fichier "config/packages/security.yaml"</li>
+                <li>Et mettez-le à jour de la façon suivante 
+<pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(197, 200, 198); font-weight: 400;">security:</span>
+    <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">providers:</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">app_user_provider:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># !!! On a retiré la clé "id" et son contenu</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">memory:</span>
+          <span style="color: rgb(197, 200, 198); font-weight: 400;">users:</span>
+            <span style="color: rgb(181, 189, 104); font-weight: 400;">mon-adresse-mail-de-connexion@yopmail.com:</span> { <span style="color: rgb(197, 200, 198); font-weight: 400;">password:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">'password hash'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">roles:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">'ROLE_ADMIN'</span>] }
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">firewalls:</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">dev:</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">pattern:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">^/(_(profiler|wdt)|css|images|js)/</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">security:</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">false</span>
+      <span style="color: rgb(197, 200, 198); font-weight: 400;">main:</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">lazy:</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">true</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">provider:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">app_user_provider</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
+    <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span></pre>
+                </li>
+            </ol>
+        </li>
+        <li class="tab-content" data-tab-content="doctrine">
+            <div class="tab-wrapper" role="tablist">
+                <ul class="list-tabs">
+                    <li>
+                        <button class="select-tab" data-tab-name="form">Je passe par le formulaire de création</button>
+                    </li>
+                    <li>
+                        <button class="select-tab" data-tab-name="manual">Je passe par MySQL directement</button>
+                    </li>
+                </ul>
+                <ul class="list-tab-content">
+                    <li class="tab-content" data-tab-content="form">
+                        <p>Créez votre compte depuis la page de création de compte, vous trouverez la route dans le fichier "RegistrationController.php"</p>
+                    </li>
+                    <li class="tab-content" data-tab-content="manual">
+                        <ul>
+                            <li>Ouvrez phpMyAdmin, et ajoutez une nouvelle entrée dans la table "user" :
+                                <ul>
+                                    <li>
+                                        email : votre e-mail d'identification
+                                    </li>
+                                    <li>
+                                        role : Mettez un tableau vide ou "["ROLE_ADMIN"]" pour que votre compte soit admin
+                                    </li>
+                                    <li>
+                                        password : La valeur que vous avez copié dans "Password hash" 
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Sinon, vous pouvez exécuter un INSERT INTO pour ajouter votre utilisateur :
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(129, 162, 190); font-weight: 400;">INSERT</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">INTO</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">user</span> (email, roles, password)<span style="color: rgb(129, 162, 190); font-weight: 400;"> VALUES</span> (<span style="color: rgb(181, 189, 104); font-weight: 400;">'hello@yopmail.com'</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">'["ROLE_ADMIN"]'</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">'password.hash'</span>);</pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
+    </ul>
+</div>
+                    </li>
+                    <li>Allez sur la page de connexion et entrez vos identifiants. Si tout est bon. Vous devriez voir l'adresse e-mail de connexion dans la barre de debug de Symfony</li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
                         Trucs et astuces (cliquer pour afficher / cacher)
                     </h2>
                 </summary>
@@ -529,14 +668,27 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <p class="texte-gras">Commandes supplémentaires </p>
                         <ul>
                             <li>
+                                Lister toutes les commandes : <code>php bin/console list</code>, il est possible d'ajouter un namespace pour afficher toutes les commandes du namespace. Exemple : <code>php bin/console list make</code>
+                            </li>
+                            <li>
                                 <a href="https://symfony.com/doc/current/security.html#the-user" target="_blank" rel="noopener noreferrer">Créer un utilisateur avec gestion de mot de passe :</a> <code>php bin/console make:user</code>
                                 <p class="note-information">Durant le prompt, il vous est demandé si vous souhaitez utiliser une base de données. Si vous répondez "non", les accès seront stockés dans la mémoire, dans un fichier YAML. Cette solution peut être intéressante si vous avez un nombre très limité d'utilisateurs.</p>
                             </li>
                             <li>
-                                Vider le cache : <code>bin/console cache:clear --env=prod|dev</code>
+                                Vider le cache : <code>php bin/console cache:clear --env=prod|dev</code>
                             </li>
                             <li>
                                 Compiler les assets : <code>php bin/console asset-map:compile</code>
+                            </li>
+                            <li>
+                                <p class="texte-gras">Générer gestion d'utilisateurs</p>
+                                <ul>
+                                    <li>Créer la gestion d'utilisateur : <code>php bin/console make:user</code></li>
+                                    <li>Générer formulaire de connexion : <code>php bin/console make:security:form-login</code></li>
+                                    <li>Générer formulaire d'inscription : <code>php bin/console make:registration-form</code> (Ne fonctionne pas si vous n'avez pas utilisé Doctrine)</li>
+                                    <li>Générer formulaire de récupération de mot de passe : <code>php bin/console make:reset-password</code></li>
+                                    <li>Générer un mot de passe chiffré : <code>php bin/console security:hash-password</code></li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
