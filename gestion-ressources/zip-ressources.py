@@ -221,8 +221,8 @@ def generate_zip(list_folders, is_correction_directory = False):
                     if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
                         if len(arcname.split('\\correction')) > 1:
                             generate_zip([os.path.join(folder_path, arcname.split('\\correction')[0], "correction")], True)
-                        else:
-                            generate_zip([os.path.join(folder_path, "correction")], True)
+                        # else:
+                        #     generate_zip([os.path.join(folder_path, "correction")], True)
             zip_object.close()
 
 generate_zip(list_ressources_folders_to_zip)

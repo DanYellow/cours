@@ -43,7 +43,6 @@
             tablist.querySelectorAll("[data-tab-content]").forEach((tabContent, idx) => {
                 tabContent.setAttribute("role", "tabpanel");
                 tabContent.setAttribute("tabindex", "0");
-                tabContent.setAttribute("id", `tab-system-${tabSystemIdx}-tab-${idx}`);
                 tabContent.setAttribute("aria-labelledby", `tab-system-${tabSystemIdx}-tab-${idx}`);
             });
         }
