@@ -80,6 +80,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.overflowX = "auto";
 
     if (!allowCopy) {
+        item.style.borderRadius = "0.5rem";
         return;
     }
 
