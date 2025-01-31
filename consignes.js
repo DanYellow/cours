@@ -71,11 +71,14 @@
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const allowCopy = JSON.parse(item.dataset?.codeSample || false) === true;
+    const greenColor = "oklch(56.99% 0.0936 158.06)";
 
-    item.style.border = "1px solid #418862";
+
+    item.style.border = `1px solid ${greenColor}`;
     item.style.padding = "1rem";
-    item.style.borderRadius = "0.5rem";
-    item.style.position = "relative";
+    item.style["border-bottom-left-radius"] = "0.5rem";
+    item.style["border-bottom-right-radius"] = "0.5rem";
+    item.style.overflowX = "auto";
 
     if (!allowCopy) {
         return;
@@ -83,15 +86,24 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     const copyButton = document.createElement("button");
     copyButton.textContent = "Copier";
-    copyButton.style.position = "absolute";
-    copyButton.style.top = "0.75rem";
-    copyButton.style.right = "0.75rem";
+    // copyButton.style.top = "0.75rem";
+    // copyButton.style.right = "0.75rem";
     copyButton.style.padding = "0.5rem";
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
 
     copyButton.style.justifyContent = "center";
-    item.append(copyButton);
+
+    const copyButtonHeader = document.createElement("header");
+    copyButtonHeader.style.backgroundColor = greenColor;
+    copyButtonHeader.style["border-top-left-radius"] = "0.5rem";
+    copyButtonHeader.style["border-top-right-radius"] = "0.5rem";
+    copyButtonHeader.style.display = "flex";
+    copyButtonHeader.style.justifyContent = "right";
+    copyButtonHeader.append(copyButton);
+
+    const parentNodeCode = item.parentNode;
+    parentNodeCode.insertBefore(copyButtonHeader, parentNodeCode);
 
     const imgButton = document.createElement("img");
     imgButton.style.transition = "width 350ms"
