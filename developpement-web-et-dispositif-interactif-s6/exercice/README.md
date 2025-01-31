@@ -109,7 +109,7 @@ Les critères suivants seront évalués :
 
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss en majorité.
-> **C'est la version 4 de tailwind qui est utilisée.** Faites attention quand vous regarderez la documentation.
+> **C'est la version 4 de tailwind qui est utilisée.** Si vous souhaitez savoir les nouveautés, [ça se passe ici - vidéo en français moins de 20 minutes](https://grafikart.fr/tutoriels/tailwindcss-v4-2265)
 
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
