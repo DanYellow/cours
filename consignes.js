@@ -73,7 +73,6 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const allowCopy = JSON.parse(item.dataset?.codeSample || false) === true;
     const greenColor = "oklch(56.99% 0.0936 158.06)";
 
-
     item.style.border = `1px solid ${greenColor}`;
     item.style.padding = "1rem";
     item.style["border-bottom-left-radius"] = "0.5rem";
@@ -103,7 +102,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButtonHeader.append(copyButton);
 
     const parentNodeCode = item.parentNode;
-    parentNodeCode.insertBefore(copyButtonHeader, parentNodeCode);
+    parentNodeCode.insertBefore(copyButtonHeader, item);
 
     const imgButton = document.createElement("img");
     imgButton.style.transition = "width 350ms"
@@ -112,7 +111,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
     copyButton.append(imgButton);
 
-    copyButton.addEventListener("click", (e) => {
+    copyButton.addEventListener("click", () => {
         navigator.clipboard.writeText(item.textContent.replace(regexCopyText, ''))
         imgButton.style.width = "0.95rem";
 
