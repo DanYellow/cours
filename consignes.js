@@ -85,12 +85,9 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     const copyButton = document.createElement("button");
     copyButton.textContent = "Copier";
-    // copyButton.style.top = "0.75rem";
-    // copyButton.style.right = "0.75rem";
     copyButton.style.padding = "0.5rem";
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
-
     copyButton.style.justifyContent = "center";
 
     const copyButtonHeader = document.createElement("header");
@@ -98,6 +95,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButtonHeader.style["border-top-left-radius"] = "0.5rem";
     copyButtonHeader.style["border-top-right-radius"] = "0.5rem";
     copyButtonHeader.style.display = "flex";
+    copyButtonHeader.style.padding = "0.35rem 0.75rem";
     copyButtonHeader.style.justifyContent = "right";
     copyButtonHeader.append(copyButton);
 
