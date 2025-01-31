@@ -517,6 +517,79 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <p class="note-attention">
                             Il est possible que vous ayez besoin de redémarrer le serveur. De plus, vous aurez besoin d'installer le plugin <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noopener noreferrer">"tailwindcss-forms"</a> pour que tailwind applique par défaut un style sur les éléments de formulaire.
                         </p>
+                        <details>
+                            <summary>Code de base des éléments de formulaire</summary>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'text'</span>]</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">input</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:where</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">:not</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">[type]</span>)),
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'email'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'url'</span>]</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'password'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'number'</span>]</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'date'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'datetime-local'</span>]</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'month'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'search'</span>]</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'tel'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'time'</span>]</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'week'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[multiple]</span>,
+<span style="color: rgb(129, 162, 190); font-weight: 400;">textarea</span>, select {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--color-gray-<span style="color: rgb(204, 102, 102); font-weight: 400;">500</span>);
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">@apply</span> border text-base p-<span style="color: rgb(204, 102, 102); font-weight: 400;">2.5</span> bg-white appearance-none leading-<span style="color: rgb(204, 102, 102); font-weight: 400;">6</span>;
+
+    &amp;<span style="color: rgb(181, 189, 104); font-weight: 400;">:focus</span> {
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">@apply</span> ring-<span style="color: rgb(204, 102, 102); font-weight: 400;">2</span> ring-blue-<span style="color: rgb(204, 102, 102); font-weight: 400;">500</span>/<span style="color: rgb(204, 102, 102); font-weight: 400;">50</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--color-blue-<span style="color: rgb(204, 102, 102); font-weight: 400;">600</span>);
+    }
+}
+
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'checkbox'</span>]</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:hover</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'checkbox'</span>]</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:focus</span>,
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'radio'</span>]</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:hover</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'radio'</span>]</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:focus</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: transparent;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-color</span>: currentColor;
+}
+
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'checkbox'</span>]</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:indeterminate</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-image</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">url</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e"</span>);
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: transparent;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-color</span>: currentColor;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-size</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">100%</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">100%</span>;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-position</span>: center;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">background-repeat</span>: no-repeat;
+}
+
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'checkbox'</span>]</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-radius</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0px</span>;
+    &amp;<span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span> {
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-image</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">url</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e"</span>);
+    }
+}
+
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'radio'</span>]</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-radius</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">100%</span>;
+    &amp;<span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span> {
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-image</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">url</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e"</span>);
+    }
+}
+
+<span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'checkbox'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'radio'</span>]</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--color-gray-<span style="color: rgb(204, 102, 102); font-weight: 400;">500</span>);
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">@apply</span> border appearance-none text-blue-<span style="color: rgb(204, 102, 102); font-weight: 400;">600</span> bg-white inline-block w-<span style="color: rgb(204, 102, 102); font-weight: 400;">4</span> h-<span style="color: rgb(204, 102, 102); font-weight: 400;">4</span>;
+
+    &amp;<span style="color: rgb(181, 189, 104); font-weight: 400;">:checked</span> {
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">border-color</span>: transparent;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-color</span>: currentColor;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-size</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">100%</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">100%</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-position</span>: center;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-repeat</span>: no-repeat;
+    }
+
+    &amp;<span style="color: rgb(181, 189, 104); font-weight: 400;">:focus</span> {
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">outline</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">2px</span> solid transparent;
+        <span style="color: rgb(129, 162, 190); font-weight: 400;">@apply</span> outline-offset-<span style="color: rgb(204, 102, 102); font-weight: 400;">2</span>;
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-inset</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-empty,<span style="color: rgb(112, 120, 128); font-weight: 400;">/*!*/</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">/*!*/</span>);
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-offset-width</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">2px</span>;
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-offset-color</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">#fff</span>;
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-color</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">#2563eb</span>;
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-offset-shadow</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-inset) <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-offset-width) <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-offset-color);
+        <span style="color: rgb(197, 200, 198); font-weight: 400;">--tw-ring-shadow</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-inset) <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span> <span style="color: rgb(222, 147, 95); font-weight: 400;">calc</span>(<span style="color: rgb(204, 102, 102); font-weight: 400;">2px</span> + <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-offset-width)) <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-color);
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">box-shadow</span>: <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-offset-shadow), <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-ring-shadow), <span style="color: rgb(222, 147, 95); font-weight: 400;">var</span>(--tw-shadow);
+    }
+}</pre>
+                        </details>
                     </li>
                 </ol>
             </details>
@@ -531,7 +604,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         Mettez en place la gestion d'utilisateurs grâce aux commandes suivantes :
                         <ul>
                             <li>Créer la gestion d'utilisateur : <code>php bin/console make:user</code>
-                            <p class="note-attention">Si vous choisissiez Doctrine, n'oubliez pas de lancer la migration après.</p>
+                            <p class="note-attention">Si vous choisissiez Doctrine, n'oubliez pas de lancer la migration après. Par ailleurs, vous pouvez rajouter de nouvelles propriétés à votre entité avec la commande <code>php bin/console make:entity</code> </p>
                             </li>
                             <li>Générer formulaire de connexion : <code>php bin/console make:security:form-login</code>
                                 <div class="note-attention">
@@ -691,6 +764,14 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 </ul>
                             </li>
                         </ul>
+                    </li>
+                    <li>Le site grafikart propose un ensemble de didacticiels sur Symfony 7 en français et gratuit :
+                        <ul>
+                            <li>
+                                <a href="https://grafikart.fr/tutoriels?technology=symfony" target="_blank" rel="noopener noreferrer">Accès </a>
+                            </li>
+                        </ul>
+                        
                     </li>
                 </ul>
             </details>
