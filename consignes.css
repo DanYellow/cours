@@ -1,10 +1,10 @@
 :root {
-    --black: #080808;
-    --white: rgb(241, 241, 241);
-    --light-gray: #d1d1e5;
-    --yellow-attention: rgb(255, 238, 0);
-    --blue-information: #0085f2;
-    --red-alert: rgb(218, 1, 1);
+    --black: oklch(13.44% 0 0);
+    --white: oklch(95.81% 0 0);
+    --light-gray: oklch(86.68% 0.0274 285.81);
+    --yellow-attention: oklch(93.3% 0.1972 104.32);
+    --blue-information: oklch(61.67% 0.1891 252.84);
+    --red-alert: oklch(55.81% 0.2287 29.2);
 }
 
 .consignes-en-tete {
