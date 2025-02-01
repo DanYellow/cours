@@ -24,7 +24,8 @@
         <header class="entete-consignes">
             <h1 class="h1">Consignes de la pratique - Symfony</h1>
             <p class="note-information">
-                Dans les consignes, il est régulièrement mentionné <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">php bin/console</code>, cette commande peut être remplacée (et raccourcie) par <code>symfony console</code>
+                Dans les consignes, il est régulièrement mentionné <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">php bin/console</code>, cette commande peut être remplacée (et raccourcie) par <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">symfony console</code><br>
+                Exemple : <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">php bin/console doctrine:database:create</code> → <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">symfony console doctrine:database:create</code>
             </p>
             <details class="consignes-conteneur">
                 <summary>
@@ -153,7 +154,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     </h2>
                 </summary>
                 <ol>
-                    <li>Créez un template Twig</li>
+                    <li>Créez un template Twig
+                        <p class="note-importante">Pour rappel, tous les templates Twig doivent être dans le dossier templates/</p>
+                    </li>
                     <li>Injectez, depuis votre contrôleur, des données dans le template Twig crée à l'étape précédente
                         <p class="note-information">Ce paramètre peut venir de n'importe où (url et/ou en "dur").</p>
                         <p class="note-attention">N'oubliez pas de faire hériter votre contrôleur de la classe AbstractController, sinon, ça ne fonctionnera pas.</p>
@@ -629,6 +632,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 <p class="note-information">Si la commande ne fonctionne pas, c'est parce qu'il manque un bundle. Vous pouvez l'installer avec la commande <code>composer require symfonycasts/reset-password-bundle</code></p>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        Rendez des routes accessibles uniquement à certains rôles grâce au fichier "config/packages/security.yaml"
                         <div class="note-information">
                             <p>
                                 Dans le fichier "config/packages/security.yaml", il y a une clé "access_control", elle vous permet de définir quelles zones du sites sont accessibles en fonction du rôle de l'utilisateur. Il est également possible de créer de nouveau rôles si vous en avez besoin.
@@ -640,7 +646,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             </ul>
                         </div>
                     </li>
-                    <li>Définissez l'URL de redirection après connexion, lors de la création du formulaire de connexion un fichier nommé "AppCustomAuthenticator" a été crée, il y a une méthode "onAuthenticationSuccess()" à compléter, vous devez définir une route.</li>
+                    <li>Définissez l'URL de redirection après connexion, lors de la création du formulaire de connexion un fichier nommé "AppCustomAuthenticator" a été crée, il y a une méthode "onAuthenticationSuccess()" à compléter, vous devez définir une route nommée.</li>
                     <li>Générez un mot de passe. Pour aller au plus vite, vous allez utiliser la commande <code>php bin/console security:hash-password</code>. Ceci va générer un prompt qui va vous demander d'entrer un mot de passe, ce mot de passe sera haché puis affiché dans la console de la façon suivante :
 <pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(222, 147, 95); font-weight: 400;">Symfony Password Hash Utility
 =============================</span>
