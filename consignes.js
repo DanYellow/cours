@@ -1,6 +1,6 @@
 (() => {
     const getFirstTabName = (tabList) => {
-        const firstTab = tablist.querySelectorAll("[data-tab-name]")[0];
+        const firstTab = tabList.querySelectorAll("[data-tab-name]")[0];
         firstTab.classList.add("active");
         firstTab.setAttribute("aria-selected", "true");
         firstTab.removeAttribute("tabIndex");
