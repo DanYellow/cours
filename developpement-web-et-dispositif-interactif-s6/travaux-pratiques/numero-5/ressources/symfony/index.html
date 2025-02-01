@@ -647,7 +647,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         </div>
                     </li>
                     <li>Définissez l'URL de redirection après connexion, lors de la création du formulaire de connexion un fichier nommé "AppCustomAuthenticator" a été crée, il y a une méthode "onAuthenticationSuccess()" à compléter, vous devez définir une route nommée.</li>
-                    <li>Générez un mot de passe. Pour aller au plus vite, vous allez utiliser la commande <code>php bin/console security:hash-password</code>. Ceci va générer un prompt qui va vous demander d'entrer un mot de passe, ce mot de passe sera haché puis affiché dans la console de la façon suivante :
+                    <li>Générez un mot de passe. Pour aller au plus vite, vous allez utiliser la commande <code>php bin/console security:hash-password</code>. Ceci va générer un prompt qui va vous demander d'entrer un mot de passe, ce mot de passe sera chiffré (avec un sel) puis affiché dans la console. Exemple :
 <pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(222, 147, 95); font-weight: 400;">Symfony Password Hash Utility
 =============================</span>
 
@@ -660,10 +660,10 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
 <div class="tab-wrapper" role="tablist">
     <ul class="list-tabs">
         <li>
-            <button class="select-tab" data-tab-name="not-doctrine">J'ai choisi d'utiliser un fichier de configuration</button>
+            <button class="select-tab" data-tab-name="not-doctrine">J'utilise un fichier de configuration</button>
         </li>
         <li>
-            <button class="select-tab" data-tab-name="doctrine">J'ai choisi d'utiliser Doctrine</button>
+            <button class="select-tab" data-tab-name="doctrine">J'utilise Doctrine</button>
         </li>
     </ul>
     <ul class="list-tab-content">
@@ -747,7 +747,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <p class="texte-gras">Commandes supplémentaires </p>
                         <ul>
                             <li>
-                                Lister toutes les commandes : <code>php bin/console list</code>, il est possible d'ajouter un namespace pour afficher toutes les commandes du namespace. Exemple : <code>php bin/console list make</code>
+                                Lister toutes les commandes : <code>php bin/console list</code>, il est possible d'ajouter un namespace pour afficher toutes les commandes associées. Exemple : <code>php bin/console list make</code>. Cette commande affichera toutes les commandes associées à "make"
                             </li>
                             <li>
                                 <a href="https://symfony.com/doc/current/security.html#the-user" target="_blank" rel="noopener noreferrer">Créer un utilisateur avec gestion de mot de passe :</a> <code>php bin/console make:user</code>
@@ -760,7 +760,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 Compiler les assets : <code>php bin/console asset-map:compile</code>
                             </li>
                             <li>
-                                <p class="texte-gras">Générer gestion d'utilisateurs</p>
+                                <p class="texte-gras">Gérer la gestion d'utilisateurs</p>
                                 <ul>
                                     <li>Créer la gestion d'utilisateur : <code>php bin/console make:user</code></li>
                                     <li>Générer formulaire de connexion : <code>php bin/console make:security:form-login</code></li>
@@ -774,7 +774,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>Le site grafikart propose un ensemble de didacticiels sur Symfony 7 en français et gratuit :
                         <ul>
                             <li>
-                                <a href="https://grafikart.fr/tutoriels?technology=symfony" target="_blank" rel="noopener noreferrer">Accès </a>
+                                <a href="https://grafikart.fr/tutoriels?technology=symfony" target="_blank" rel="noopener noreferrer">Accéder aux didacticiels de grafikart</a>
                             </li>
                         </ul>
                         
