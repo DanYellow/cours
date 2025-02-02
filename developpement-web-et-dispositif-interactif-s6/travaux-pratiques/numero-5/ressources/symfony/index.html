@@ -74,13 +74,13 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     </li>
                 </ol>
                 <div class="note-information">
-                    <p>Lors de la création du projet, Symfony va créer plein de dossiers. Mais ceux qui nous vont nous intéresser pour le moment sont les suivantes :</p>
+                    <p>Lors de la création du projet, Symfony va créer plein de dossiers. Mais ceux qui nous vont nous intéresser pour le moment sont les suivants :</p>
                     <ul>
                         <li><span class="texte-gras">src/Entity/ :</span> Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
                         <li><span class="texte-gras">src/Controller/ :</span> Contient les contrôleurs - C de l'architecture MVC</li>
                         <li><span class="texte-gras">templates/ :</span> Contient les vues twig du projet - V de l'architecture MVC</li>
                         <li><span class="texte-gras">public/ :</span> Contient les différents assets du projet (images, javascript, css...). Tout le contenu est accessible au public</li>
-                        <li><span class="texte-gras">assets/ :</span> Fonctionne comme le dossier public/ mais avec une petite subtilité, le contenu est caché. Autrement dit, les assets sont versionnées pour éviter qu'ils soient mis en cache. Tout le contenu est accessible au public
+                        <li><span class="texte-gras">assets/ :</span> Fonctionne comme le dossier public/ mais avec une petite subtilité, le contenu est caché. Autrement dit, les assets sont versionnés pour éviter qu'ils soient mis en cache. Tout le contenu est accessible au public
                             <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. A noter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
                         </li>
                     </ul>
@@ -182,7 +182,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 </ol>
                 <ul>
                     <li>
-                        <a href="https://symfony.com/doc/current/templates.html" target="_blank" rel="noopener noreferrer">Voir documentation des templates - Ouverture dans un nouvel onglet</a>
+                        <a href="https://symfony.com/doc/current/templates.html" target="_blank" rel="noopener noreferrer">Voir documentation des templates dans Symfony - Ouverture dans un nouvel onglet</a>
                     </li>
                     <li>
                         <a href="https://twig.symfony.com/doc/3.x/" target="_blank" rel="noopener noreferrer">Voir documentation de Twig</a>
@@ -206,7 +206,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <pre data-code-sample="true" style="font-family:monospace; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">php bin/console importmap:require {NOM_DU_MODULE}</pre>
                         <p>Si vous ne savez pas quoi installer, vous pouvez installer lodash. Mais il faut impérativement que le node_module soit utilisable côté front-end.</p>
                         <div class="note-information">
-                            <p>Vous n'avez pas besoin d'importer vous-même le javascript dans le template Twig, l'importation est faite dans le fichier base.html.twig avec le code suivant :</p>
+                            <p>Vous n'avez pas besoin d'importer vous-même le javascript dans le template Twig, l'importation est faite dans le fichier templates/base.html.twig avec le code suivant :</p>
 <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">block</span> importmap <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
     </span><span style="color: rgb(138, 190, 183); font-weight: 400;">{{ importmap(<span style="color: rgb(181, 189, 104); font-weight: 400;">'app'</span>) }}</span><span style="color: rgb(197, 200, 198); font-weight: 400;">
 </span><span style="color: rgb(138, 190, 183); font-weight: 400;">{%</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">endblock</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">%}</span></pre>
@@ -229,7 +229,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
                         <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
                     </li>
-                    <li>Réflechissons et créons des tables répondant aux besoins suivants : Nous souhaitons créer un blog photos permettant aux utilisateurs de créer leurs propres galeries. Chaque galerie contient un ou plusieurs photos et ne peut appartenir qu'à un seul utilisateur.</li>
+                    <li>Réflechissons et créons ensemble la structure d'une base de données répondant aux besoins suivants : Nous souhaitons un système où les utilisateurs peuvent prendre part à des tests. Chaque test possède une date limite et est constitué de plusieurs questions, questions qui ne peuvent avoir qu'une seule réponse. Pour rendre les choses plus simples, une question n'est pas réutilisable.</li>
                     <div class="note-information">
                         <p>Pour créer une entité, on utilise la commande <code>php bin/console make:entity</code>, et on suit le prompt. A noter les points suivants : </p>
                         <ul>
@@ -238,9 +238,10 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             <li>Si toutes les propriétés d'une entité sont privés et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée. Ex : entity.name.</li>
                             <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
                         </ul>
-                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier dans le dossier Entity/, pour générer les tables, il faut lancer les commandes <code>php bin/console make:migration</code> puis <code>php bin/console doctrine:migrations:migrate</code>. Elles vont générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Ensuite appliquer ces modifications sur votre base de données, respectivement.</p> 
+                        <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier dans le dossier src/Entity/, pour générer les tables, il faut lancer les commandes <code>php bin/console make:migration</code> puis <code>php bin/console doctrine:migrations:migrate</code>. Elles vont générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Ensuite appliquer ces modifications sur votre base de données respectivement.</p> 
                         <p>Si vous passez en production ou changez d'ordinateur, pensez toujours à lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
                     </div>
+                    <p class="note-importante">Nous créerons l'entité "User" plus tard. Ne le faites pas maintenant.</p>
                 </ol>
                 <ul>
                     <li>
@@ -259,7 +260,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         Créez un nouveau contrôleur manuellement ou via la commande <code>php bin/console make:controller {NOM_DU_CONTROLEUR}</code> 
                     </li>
                     <li>
-                        Donnez la possibilité de <span class="texte-gras">créer un utilisateur</span> depuis le contrôleur en vous aidant du code ci-dessous (code à adapter)
+                        Donnez la possibilité de <span class="texte-gras">créer un test</span> depuis le contrôleur en vous aidant du code ci-dessous (code à adapter)
                         <div class="tab-wrapper" role="tablist">
                             <ul class="list-tabs">
                                 <li>
@@ -285,7 +286,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
     
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
         <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_entity'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(138, 190, 183); font-weight: 400;">$name</span> = <span style="color: rgb(181, 189, 104); font-weight: 400;">"Festival MMI"</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
@@ -310,9 +311,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
     
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'update_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'update_entity'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">int</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
         </span>{
             <span style="color: rgb(112, 120, 128); font-weight: 400;">// Il est possible de chercher (find) par d'autres propriétés d'une entité.</span>
@@ -344,9 +345,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
     
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'delete_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{id}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'delete_entity'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">int</span> <span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">JsonResponse</span>
         </span>{
             <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getRepository</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>)-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">find</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$id</span>);
@@ -377,7 +378,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>;
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
     
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
         <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'list_entities'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">update</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
@@ -443,7 +444,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
     
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">GalleryController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
         <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, Request <span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
@@ -777,7 +778,19 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 <a href="https://grafikart.fr/tutoriels?technology=symfony" target="_blank" rel="noopener noreferrer">Accéder aux didacticiels de grafikart</a>
                             </li>
                         </ul>
-                        
+                    </li>
+                    <li>
+                        <p class="texte-gras">Gérer les erreurs</p>
+                        <p>Vous avez dû le remarquer, quand vous avez une erreur, Symfony affiche une page dédiée expliquant l'erreur courante. Pour des questions de sécurité ces erreurs ne sont pas aussi détaillées en production, une version minimaliste étant affichée.</p>
+                        <p>Toutefois, il est possible de personnaliser les erreurs via des templates Twig généraux (toutes les erreurs) ou dédiés (un template par erreur)</p>
+                        <ul>
+                            <li>
+                                <a href="https://symfony.com/doc/current/controller/error_pages.html" target="_blank" rel="noopener noreferrer">Voir documentation des templates d'erreur</a>
+                            </li>
+                            <li>
+                                <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP" target="_blank" rel="noopener noreferrer">Voir liste des codes HTTP</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </details>
