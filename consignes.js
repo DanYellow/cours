@@ -106,7 +106,6 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
     copyButton.style.justifyContent = "center";
-    copyButton.style.borderRadius = "0.5rem";
 
     const copyButtonHeader = document.createElement("header");
     copyButtonHeader.style.backgroundColor = greenColor;

@@ -698,12 +698,44 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <button class="select-tab" data-tab-name="form">Je passe par le formulaire de création</button>
                     </li>
                     <li>
+                        <button class="select-tab" data-tab-name="controller">Je passe par le contrôleur</button>
+                    </li>
+                    <li>
                         <button class="select-tab" data-tab-name="manual">Je passe par MySQL directement</button>
                     </li>
                 </ul>
                 <ul class="list-tab-content">
                     <li class="tab-content" data-tab-content="form">
                         <p>Créez votre compte depuis la page de création de compte, vous trouverez la route dans le fichier "RegistrationController.php"</p>
+                    </li>
+                    <li class="tab-content" data-tab-content="controller">
+                        <p>Créez une nouvelle route où vous mettrez dans le contrôleur le code suivant (à adapter)</p>
+<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">User</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">PasswordHasher</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Hasher</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">UserPasswordHasherInterface</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Component</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">HttpFoundation</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">RedirectResponse</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Doctrine</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">ORM</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">EntityManagerInterface</span>;
+    
+    <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span> </span>{
+    
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">// [...]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/create_user'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">example</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">UserPasswordHasherInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$passwordHasher</span>, EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$em</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span> </span>{
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$user</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">User</span>();
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$user</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setEmail</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"hello@yopmail.com"</span>)
+                -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setPassword</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$passwordHasher</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">hashPassword</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$user</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">"userPassword"</span>))
+                -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">setRoles</span>([<span style="color: rgb(181, 189, 104); font-weight: 400;">"ROLE_USER"</span>]);
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// Prépare la requête de création</span>
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$em</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">persist</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$user</span>);
+            <span style="color: rgb(112, 120, 128); font-weight: 400;">// Exécute la requête</span>
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$em</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">flush</span>();
+    
+            <span style="color: rgb(129, 162, 190); font-weight: 400;">return</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">RedirectResponse</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/'</span>);
+        }
+    }
+    </pre>
                     </li>
                     <li class="tab-content" data-tab-content="manual">
                         <ul>
@@ -791,6 +823,19 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP" target="_blank" rel="noopener noreferrer">Voir liste des codes HTTP</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <p class="texte-gras">Envoyer des e-mails en local</p>
+                        <p>Tester l'envoi d'e-mails peut être compliqué en local. Pour pallier à ce problème, voici deux services qui peuvent être exécutés localement :</p>
+                        <ul>
+                            <li>
+                                <a href="https://mailpit.axllent.org/" target="_blank" rel="noopener noreferrer">mailpit - Tourne via un exécutable</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/maildev/maildev" target="_blank" rel="noopener noreferrer">maildev - Tourne via Docker ou NodeJS</a>
+                            </li>
+                        </ul>
+                        <p>Ensuite, il vous suffira d'utiliser la classe Email du bundle "symfony/mailer" pour envoyer votre e-mail. Pensez également à éditer la variable "MAILER_DSN" dans le fichier .env.</p>
                     </li>
                 </ul>
             </details>
