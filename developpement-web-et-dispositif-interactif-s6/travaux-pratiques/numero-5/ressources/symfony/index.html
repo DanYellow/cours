@@ -139,7 +139,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>Omettez un des paramètres. Que se passe-t-il ?</li>
                 </ol>
                 <p class="note-attention">
-                    La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner quelque chose.
+                    La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner une instance de la classe "Response".
                 </p>
                 <ul>
                     <li>
@@ -400,7 +400,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         </div>
                     </li>
                     <li>
-                        Créez une nouvelle route permettant d'afficher un utilisateur grâce à son id dans l'URL
+                        Créez une nouvelle route permettant d'afficher un test grâce à son id dans l'URL
                     </li>
                 </ol>
             </details>
@@ -412,7 +412,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 </summary>
                 <ol>
                     <li>
-                        Générez un formulaire permettant de créer un utilisateur
+                        Générez un formulaire permettant de créer un test
                         <ul>
                             <li>
                                 <a href="https://symfony.com/doc/current/forms.html" target="_blank" rel="noopener noreferrer">Voir documentation sur les formulaires</a>
@@ -446,12 +446,12 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">final</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">class</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">EntityController</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">extends</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>
     </span>{
-        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_gallery'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
+        <span style="color: rgb(112, 120, 128); font-weight: 400;">#[Route</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'/entity/{name}'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">'create_entity'</span>)<span style="color: rgb(112, 120, 128); font-weight: 400;">]</span>
         <span style="color: rgb(129, 162, 190); font-weight: 400;">public</span> <span style="color: rgb(197, 200, 198); font-weight: 400;"><span style="color: rgb(129, 162, 190); font-weight: 400;">function</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">create</span>(<span style="color: rgb(197, 200, 198); font-weight: 400;">EntityManagerInterface <span style="color: rgb(138, 190, 183); font-weight: 400;">$entityManager</span>, Request <span style="color: rgb(138, 190, 183); font-weight: 400;">$request</span></span>): <span style="color: rgb(240, 198, 116); font-weight: 400;">Response</span>
         </span>{
             <span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span> = <span style="color: rgb(129, 162, 190); font-weight: 400;">new</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Entity</span>();
     
-            <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createFormBuilder</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$gallery</span>)
+            <span style="color: rgb(138, 190, 183); font-weight: 400;">$form</span> = <span style="color: rgb(138, 190, 183); font-weight: 400;">$this</span>-&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">createFormBuilder</span>(<span style="color: rgb(138, 190, 183); font-weight: 400;">$entity</span>)
                 -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">add</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'save'</span>, <span style="color: rgb(240, 198, 116); font-weight: 400;">SubmitType</span>::<span style="color: rgb(138, 190, 183); font-weight: 400;">class</span>, [<span style="color: rgb(181, 189, 104); font-weight: 400;">'label'</span> =&gt; <span style="color: rgb(181, 189, 104); font-weight: 400;">'Créer'</span>])
                 -&gt;<span style="color: rgb(240, 198, 116); font-weight: 400;">getForm</span>();
     
@@ -482,7 +482,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         </ul>
                     </li>
                     <li>
-                        Créez un formulaire permettant d'éditer un utilisateur existant
+                        Créez un formulaire permettant d'éditer un test existant
                         <ul>
                             <li>
                                 <a href="https://symfony.com/doc/current/forms.html" target="_blank" rel="noopener noreferrer">Voir documentation sur les formulaires</a>
@@ -522,7 +522,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             Il est possible que vous ayez besoin de redémarrer le serveur. De plus, vous aurez besoin d'installer le plugin <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noopener noreferrer">"tailwindcss-forms"</a> pour que tailwind applique par défaut un style sur les éléments de formulaire.
                         </p>
                         <details>
-                            <summary>Code de base des éléments de formulaire</summary>
+                            <summary>Style CSS de base des éléments de formulaire</summary>
 <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'text'</span>]</span>, <span style="color: rgb(129, 162, 190); font-weight: 400;">input</span><span style="color: rgb(181, 189, 104); font-weight: 400;">:where</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">:not</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">[type]</span>)),
 <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'email'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'url'</span>]</span>,
 <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'password'</span>]</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">[type=<span style="color: rgb(181, 189, 104); font-weight: 400;">'number'</span>]</span>,

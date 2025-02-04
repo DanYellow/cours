@@ -3,7 +3,7 @@
 Unity est un logiciel "gratuit" permettant de développer des jeux vidéo aussi bien 2D que 3D. Vous pouvez le télécharger sur le site officiel. Il vous faudra créer un compte, créez un compte personnel.
 
 - [Télécharger Unity Hub](https://unity.com/fr/download)
-> Note : Sur le site, vous ne pouvez pas télécharger Unity directement, il faut técharger Unity Hub qui téléchargera Unity pour vous. Dans le cadre du cours, nous utiliserons une version supérieure ou égale à la version 6.
+> Note : Sur le site, vous ne pouvez pas télécharger Unity directement, il faut técharger Unity Hub qui téléchargera Unity pour vous. Dans le cadre du cours, nous utiliserons laa dernière version disponible.
 
 Une fois Unity Hub installé et lancé. Allez dans la rubrique "Installs" et cliquez sur le bouton "Install Editor".
 | ![](printscreens/installation-1.jpg) |
@@ -29,7 +29,7 @@ Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs 
 
 | ![](printscreens/locate-unity-2.png) |
 |:--:|
-| *Allez dans le dossier "Programmes" et sélectionnez le dossier de la version d'Unity souhaitée. Puis choississez le fichier "Unity.exe" situé dans `Unity 6.X.XX > Editor`* |
+| *Allez dans le dossier "Programmes" et sélectionnez le dossier de la dernière version d'Unity. Puis choississez le fichier "Unity.exe" situé dans `Unity 6.X.XX > Editor`* |
 
 Après avoir effectué ces étapes, vous pourrez utiliser la version d'Unity que vous venez d'ajouter soit pour créer un projet soit pour ouvrir un projet existant.
 
