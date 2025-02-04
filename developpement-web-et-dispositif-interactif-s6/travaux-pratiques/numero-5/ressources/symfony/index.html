@@ -793,7 +793,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 Compiler les assets : <code>php bin/console asset-map:compile</code>
                             </li>
                             <li>
-                                <p class="texte-gras">Gérer la gestion d'utilisateurs</p>
+                                <p class="texte-gras">Gestion des utilisateurs</p>
                                 <ul>
                                     <li>Créer la gestion d'utilisateur : <code>php bin/console make:user</code></li>
                                     <li>Générer formulaire de connexion : <code>php bin/console make:security:form-login</code></li>
@@ -835,7 +835,17 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                 <a href="https://github.com/maildev/maildev" target="_blank" rel="noopener noreferrer">maildev - Tourne via Docker ou NodeJS</a>
                             </li>
                         </ul>
-                        <p>Ensuite, il vous suffira d'utiliser la classe Email du bundle <a href="https://symfony.com/doc/current/mailer.html" target="_blank">"symfony/mailer"</a> pour envoyer votre e-mail. Pensez également à éditer la variable "MAILER_DSN" dans le fichier .env.</p>
+                        <p>Ensuite, il vous suffira d'utiliser la classe Email du bundle <a href="https://symfony.com/doc/current/mailer.html" target="_blank">"symfony/mailer"</a> pour envoyer votre e-mail. Pensez également à éditer la variable "MAILER_DSN" dans le fichier .env. Exemple avec mailpit : <code>MAILER_DSN=smtp://localhost:1025</code> et vos e-mails sont accessibles sur le port 8025.</p>
+                        <div class="note-information">
+                            <p>Par défaut, les e-mails sont envoyés de façon asynchrone, autrement dit, Symfony crée une queue d'évènements à effectuer plus tard. Ainsi on évite de bloquer l'utilisateur si ça prend trop de temps.</p>
+                            <p>Pour consommer ces messages, il faut lancer la commande <code>php bin/console messenger:consume async -vv</code>. Ainsi en arrière-plan Symfony consommera chaque nouveau message. </p>
+                            <p>En production, Symfony recommande <a href="https://symfony.com/doc/current/messenger.html#supervisor-configuration" target="_blank">l’installation de Supervisor,</a> outil qui permet de lancer des services en assurant qu'ils tournent tout le temps, et ce, quelque soit le problème rencontré. Si vous ne pouvez pas utiliser le système d'évènements, il est possible de rendre ces actions synchrone ce qui aura pour conséquence de créer des ralentissements.</p>
+                            <p>Pour ce faire, il faudra éditer le fichier "config/packages/messenger.yaml" et effectuer les actions suivantes : </p>
+                            <ul>
+                                <li>Décommenter "sync: 'sync://'"</li>
+                                <li>Dans la clé "routing", changer "async" en "sync"</li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </details>
