@@ -87,7 +87,7 @@
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const allowCopy = JSON.parse(item.dataset?.codeSample || false) === true;
-    const greenColor = "oklch(56.99% 0.0936 158.06)";
+    const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
     item.style.padding = "1rem";
@@ -106,6 +106,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
     copyButton.style.justifyContent = "center";
+    copyButton.style.borderRadius = "0.5rem";
 
     const copyButtonHeader = document.createElement("header");
     copyButtonHeader.style.backgroundColor = greenColor;

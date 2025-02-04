@@ -5,6 +5,7 @@
     --yellow-attention: oklch(93.3% 0.1972 104.32);
     --blue-information: oklch(61.67% 0.1891 252.84);
     --red-alert: oklch(55.81% 0.2287 29.2);
+    --green-code: oklch(0.57 0.16 155.16);
 }
 
 .consignes-en-tete {
