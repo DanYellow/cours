@@ -860,13 +860,21 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         </ul>
                         <p>Ensuite, il vous suffira d'utiliser la classe Email du bundle <a href="https://symfony.com/doc/current/mailer.html" target="_blank">"symfony/mailer"</a> pour envoyer votre e-mail. Pensez également à éditer la variable "MAILER_DSN" dans le fichier .env. Exemple avec mailpit : <code>MAILER_DSN=smtp://localhost:1025</code> et vos e-mails sont accessibles sur le port 8025.</p>
                         <div class="note-information">
-                            <p>Par défaut, les e-mails sont envoyés de façon asynchrone, autrement dit, Symfony crée une queue d'évènements à effectuer plus tard. Ainsi on évite de bloquer l'utilisateur si ça prend trop de temps.</p>
-                            <p>Pour consommer ces messages, il faut lancer la commande <code>php bin/console messenger:consume async -vv</code>. Ainsi en arrière-plan Symfony consommera chaque nouveau message. </p>
+                            <p>Par défaut, les e-mails sont envoyés de façon asynchrone, autrement dit, Symfony crée une queue d'évènements (appelés "messages") à effectuer plus tard. Ainsi on évite de bloquer l'utilisateur si ça prend trop de temps.</p>
+                            <p>Pour consommer ces messages, il faut lancer la commande <code>php bin/console messenger:consume async -vv</code>. Ainsi en arrière-plan Symfony consommera chaque nouveau message.</p>
                             <p>En production, Symfony recommande <a href="https://symfony.com/doc/current/messenger.html#supervisor-configuration" target="_blank">l’installation de Supervisor,</a> outil qui permet de lancer des services en assurant qu'ils tournent tout le temps, et ce, quelque soit le problème rencontré. Si vous ne pouvez pas utiliser le système d'évènements, il est possible de rendre ces actions synchrone ce qui aura pour conséquence de créer des ralentissements.</p>
                             <p>Pour ce faire, il faudra éditer le fichier "config/packages/messenger.yaml" et effectuer les actions suivantes : </p>
                             <ul>
                                 <li>Décommenter "sync: 'sync://'"</li>
                                 <li>Dans la clé "routing", changer "async" en "sync"</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="https://rherault.fr/blog/10min-symfony-messenger" target="_blank" rel="noopener noreferrer">Explications sur les messages</a>
+                                </li>
+                                <li>
+                                    <a href="https://symfony.com/doc/current/messenger.html" target="_blank" rel="noopener noreferrer">Documentation sur les messages</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
