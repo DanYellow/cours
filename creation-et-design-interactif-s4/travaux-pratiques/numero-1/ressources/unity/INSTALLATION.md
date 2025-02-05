@@ -66,15 +66,21 @@ Par défaut, VS Code ne connaît pas les méthodes propres à Unity. Unity propo
 
 > **IMPORTANT** : Vous devez effectuer l'installation avec le logiciel VS Code **fermé**. Sinon l'installation échouera de façon silencieuse et vous devrez recommencer en n'oubliant pas de désinstaller le SDK .NET avant.
 
+
+Il faudra également installer des extensions pour VS Code gratuites :
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+- [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+- [Unity](https://marketplace.visualstudio.com/items?itemName=VisualStudioToolsForUnity.vstuc)
+- [Unity Code Snippets](https://marketplace.visualstudio.com/items?itemName=kleber-swf.unity-code-snippets)
+<br>
+
 Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter".
 
 | ![](printscreens/installation-4.png) |
 |:--:|
 | *Ici, VS Code me propose des méthodes quand je commence à écrire. Ceci signifie que le SDK .NET s'est bien installé* |
 
-Il faudra également installer des extensions pour VS Code gratuites :
-- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+- [En savoir plus - vidéo en anglais moins de 5 minutes](https://www.youtube.com/watch?v=Du0UMIw_EE8)
 
 # Utilisation de git
 Pour entretenir vos connaissances de git, vous **devrez mettre l'avancée des cours sur github,** et ce, dès le premier cours. L'avancement de chaque TP devra être enregistré sur GitHub. Par conséquent, créez dès maintenant un nouveau projet sur github en public. Et après avoir cloné ce dépôt sur votre ordinateur, vous créerez votre projet Unity dedans.
