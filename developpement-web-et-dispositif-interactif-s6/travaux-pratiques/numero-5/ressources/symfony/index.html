@@ -18,15 +18,35 @@
             src="https://danyellow.net/cours-mmi/consignes.js"
             defer
         ></script>
+
+        <style>
+            code {
+                background-color: rgb(29, 31, 33); 
+                padding: 0 0.35rem; color: white; 
+                border: 1px solid #b4b4b4; 
+                border-radius: 0.25rem;
+            }
+        </style>
     </head>
 
     <body>
         <header class="entete-consignes">
             <h1 class="h1">Consignes de la pratique - Symfony</h1>
-            <p class="note-information">
-                Dans les consignes, il est régulièrement mentionné <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">php bin/console</code>, cette commande peut être remplacée (et raccourcie) par <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">symfony console</code><br>
-                Exemple : <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">php bin/console doctrine:database:create</code> → <code style="background-color: rgb(29, 31, 33); padding: 0 0.35rem; color: white; border: 1px solid #b4b4b4; border-radius: 0.25rem;">symfony console doctrine:database:create</code>
+            <p class="note-importante" style="font-weight: bold;">
+                IMPORTANT : Si ce n'est pas fait, installez l'extension <a href="https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client" target="_blank">VS Code gratuite PHP Intelephense,</a> elle vous permettra d'avoir l'auto-complétion de vos classes PHP et d'importer automatiquement les namespaces que vous utilisez.
             </p>
+            <p class="note-information">
+                Dans les consignes, il est régulièrement mentionné <code>php bin/console</code>, cette commande peut être remplacée (et raccourcie) par <code>symfony console</code><br>
+                Exemple : <code>php bin/console doctrine:database:create</code> → <code>symfony console doctrine:database:create</code>
+            </p>
+            <div class="note-attention">
+                <p>Si vous récupérez un projet symfony existant sur un ordinateur, il faudra installer les dépendances du projet. Pour ce faire, il faudra passer par composer.</p>
+                <ul>
+                    <li><a href="https://formulae.brew.sh/formula/composer#default" target="_blank" rel="noopener noreferrer">Installer composer avec brew (macOS)</a></li>
+                    <li><a href="https://scoop.sh/#/apps?q=composer&id=9ce50f006acbb8649de41c1a38794e190a8c4453" target="_blank" rel="noopener noreferrer">Installer composer avec scoop (windows)</a></li>
+                </ul>
+                <p>Une fois installé, il vous suffira d'exécuter la commande <code>composer install</code> dans le dossier du projet </p>
+            </div>
             <details class="consignes-conteneur">
                 <summary>
                     <h2 class="h1">
@@ -255,6 +275,9 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         Partie 6 (cliquer pour afficher / cacher)
                     </h2>
                 </summary>
+                <p class="note-attention">
+                    Il faudra impérativement avoir mysql pour cette partie. Vous pouvez soit passer par scoop (Windows) ou brew (macOS).
+                </p>
                 <ol>
                     <li>
                         Créez un nouveau contrôleur manuellement ou via la commande <code>php bin/console make:controller {NOM_DU_CONTROLEUR}</code> 
