@@ -878,6 +878,14 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             </ul>
                         </div>
                     </li>
+                    <li>
+                        <p class="texte-gras">Afficher en détails le contenu d'un objet</p>
+                        <p>
+                            La fonction <code>print_r()</code> est bien mais montre très rapidement ses limites, elle n'est pas capable d'afficher tout le contenu d'un objet profond notamment les instances de classes dans Symfony. 
+                            Pour pallier à ce problème, Symfony propose la fonction <code>dd()</code>.
+                        </p>
+                        <p>Attention tout de même, car tout code après la fonction ne sera pas exécuté.</p>
+                    </li>
                 </ul>
             </details>
         </header>
