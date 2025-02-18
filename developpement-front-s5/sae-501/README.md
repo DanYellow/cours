@@ -34,9 +34,9 @@ _Les consignes pourront être modifiées._
 
 
 ## Contexte de la SAÉ
-Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Certaines technologies n'ont pas été vues en cours, toutefois, elles sont soient accompagnées d'un mémo, d'une pratique qui sera effectuée en cours pour vous aider à démarrer ou assez simples à prendre en main pour avoir les ressources nécessaires en ligne. 
+Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Certaines technologies n'ont pas été vues en cours, toutefois, elles sont soient accompagnées d'un mémo, d'une pratique qui sera effectuée en cours pour vous aider à démarrer ou assez simples à prendre en main pour avoir les ressources nécessaires en ligne.
 
-Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants : 
+Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants :
 
 **R5.DWeb-DI.06 | Développement back avancé**
 - AC34.02 | Développer à l’aide d’un framework de développement côté serveur
@@ -52,7 +52,7 @@ Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis s
 
 > Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée.
 
-Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser. 
+Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser.
 
 > - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 >
@@ -115,7 +115,7 @@ router.get(["/hello", "/mon-blog.html"], async (req, res) => {
   res.render("pages/index.njk", { title: "hello" });
 });
 ```
-Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide. 
+Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide.
 
 > Note : les chemins des templates partent de la racine du projet. Il est donc inutile de mettre '../' dans vos chemins.
 
@@ -163,7 +163,7 @@ Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonct
 - U - Update : Mise à jour d'une ressource. Représenté par la méthode HTTP `PUT`
 - D - Delete : Suppression d'une ressource. Représenté par la méthode HTTP `DELETE`
 
-Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées. 
+Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées.
 - [Accéder à la présentation de Postman](./POSTMAN.md)
 
 ### Dossier src/
@@ -173,7 +173,7 @@ C'est dans ce dossier où se trouve toute la partie front-end, la structure ress
 Il contient vos composants nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos composants dans le bon dossier (front ou back-end).
 
 #### src/data/
-Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end. 
+Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end.
 
 Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : /pages/contact.njk -> /pages/contact.njk.json.
 
@@ -193,7 +193,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 
 > Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">CSS Nesting</a>. Ceci permet d'utiliser l'imbrication de sélecteurs CSS. Toutefois SCSS est installé, vous pouvez l'utiliser si vous souhaitez.
 
-> Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique. 
+> Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique.
 
 ## Mise en place
 
@@ -234,11 +234,11 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
    npm prod
    ```
 Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez le faire, vous avez les solutions suivantes :
-- [localtunnel](https://localtunnel.github.io/www/) : Outil gratuit permettant d'exposer sur le web votre serveur local temporairement 
+- [localtunnel](https://localtunnel.github.io/www/) : Outil gratuit permettant d'exposer sur le web votre serveur local temporairement
 - Glitch : Outil freemium permettant de déployer un site node à partir de github. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
   - [Accéder au didactiel pour déployer avec Glitch - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
   - [Accéder au didactiel pour MongoDB Atlas - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#setting_up_the_mongodb_database)
-  - Alwaysdata : Parmi les serveurs proposés, l'hébergeur propose également nodejs. **Toutefois, seule la partie serveur est proposée.** Pour la partie Mongo, le plus simple est de passer par MongoDB Atlas (freemium) (voir plus haut). Néanmoins, il est possible d'installer soi-même MongoDB en SSH à condition d'avoir de la place sur votre espace disque   
+  - Alwaysdata : Parmi les serveurs proposés, l'hébergeur propose également nodejs. **Toutefois, seule la partie serveur est proposée.** Pour la partie Mongo, le plus simple est de passer par MongoDB Atlas (freemium) (voir plus haut). Néanmoins, il est possible d'installer soi-même MongoDB en SSH à condition d'avoir de la place sur votre espace disque
     - [Accéder au didacticiel pour installer MongoDB sur AlwaysData](https://help.alwaysdata.com/fr/guides/mongodb/)
     >   - Note : Si vous utilisez la version gratuite d'Alwaysdata, l'espace disque sera trop petit pour héberger votre projet. Les dépendances de node seront trop lourdes. Ainsi, il est préférable d'utiliser la commande `npm install --omit=dev` pour installer uniquement les dépendances dont vous avez besoin en production. Cette astuce s'applique pour n'importe quel serveur node en production.
     >   - Note 2 : Contrairement à ce que laisse penser l'adminstration d'alwaysdata, selectionner une version de node, ne l'applique pas quand vous effectuez des commandes en ssh (vous devrez faire npm install, vous-même). Si vous souhaitez utiliser une version spécifique de node, il faudrait la préfixer avec la variable d'environnement `NODEJS_VERSION`. Par exemple `NODEJS_VERSION=21 npm install` pour utiliser la version 21.X.X de nodejs.
@@ -250,11 +250,11 @@ Pour améliorer l'expérience du site un système de flash message a été mis e
 
 Ils sont déjà implémentés lors de la création, l'édition et la suppression d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
-## Utilisation de git 
+## Utilisation de git
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Un membre du groupe crée le projet sur github
-1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) 
+1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche))
    - Ceci peut se faire plus tard
 2. Clonez votre dépôt sur votre ordinateur (ssh ou https)
 3. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
@@ -274,7 +274,7 @@ Dans une volonté de produire une code de qualité et constant, le projet intèg
 
 eslint permet, via le paramètre "fix", de corriger **certaines** erreurs de code après chaque sauvegarde de votre projet, si et seulement si, le projet est lancé.
 
-> Si vous souhaitez activer l'auto-correction des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`. 
+> Si vous souhaitez activer l'auto-correction des fichiers via eslint, il est possible de le faire via le fichier .env et la variable `IS_ESLINT_AUTO_FIX_ENABLED`.
 
 Pour exécuter uniquement le linter, il y a la commande `npm run lint`. La commande `npm run lint:fix`. Vous permet de corriger certaines erreurs.
 
@@ -290,7 +290,7 @@ const _myIgnoredVar = 42;
 const myIgnoredVar = 42;
 ```
 
-Notez qu'eslint possède trois niveaux de contrôle : 
+Notez qu'eslint possède trois niveaux de contrôle :
 - error / 2 : lève une erreur en cas de problème. Dans certaines configurations, on peut même bloquer la commande `git push` ou la compilation du code
 - warn / 1 : lève une alerte en cas de problème
 - off / 0 : désactive la règle
@@ -300,10 +300,10 @@ La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint
 > Il existe l'extension gratuite eslint pour VS Code pour avoir des indications dans le code.
 > - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-Enfin dans la partie debug de l'administration, il y a une partie eslint affichant un rapport des problèmes trouvés par l'outil. Ce rapport est partagé en deux parties : 
+Enfin dans la partie debug de l'administration, il y a une partie eslint affichant un rapport des problèmes trouvés par l'outil. Ce rapport est partagé en deux parties :
 - Server : Représente la partie serveur (api et gestion de mongodb inclus)
 - Front-end : Représente la partie front-office
-  
+
 D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volontairement dans le code. A vous de les corriger.
 
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
@@ -335,7 +335,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
 - [ ] Chaque page à une valeur de &lt;title> unique
   - Si la valeur n'est pas présente, il est indiqué "TITRE MANQUANT" dans le navigateur
-  - Il y a un bloc nunjucks ```{% title %}{% endblock %}``` dédié dans les gabarits de base du dossier `layouts/`. Utilisez-le
+  - Il y a un bloc nunjucks ```{% block title %}{% endblock %}``` dédié dans les gabarits de base du dossier `layouts/`. Utilisez-le
 
 ### Site BUT
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
@@ -366,7 +366,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Afficher la liste des articles **actifs** sur la page d'accueil
     - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
-- [ ] **Sans javascript**, afficher une barre de progression sur les articles au fur et à mesure de la lecture grâce à la propriété CSS[animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
+- [ ] **Sans javascript**, afficher une barre de progression sur les articles au fur et à mesure de la lecture grâce à la propriété CSS [animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
   - Google propose un exemple sur son site. [Voir exemple](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
   - [Vous avez un autre exemple sur le site scroll-driven-animations.style](https://scroll-driven-animations.style/demos/progress-bar/css/)
     - Ce site contient plein d'exemples concernant cette nouvelle API très pratique
@@ -393,7 +393,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Il n'y a pas de schéma pour les messages, nous le réaliserons ensemble
         - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
     - Vous devez créer les api pour (POST et GET)
-    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `./server/back-end-router/` 
+    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `./server/back-end-router/`
 - [ ] Permettre de créer, éditer un article
     - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
     - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
@@ -412,8 +412,6 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
     - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 - [ ] Afficher le détail d'un message dans une page dédiée
-- [ ] Permettre de changer le logo de l'université dans le footer
-  - **Vous ne devez pas utiliser de base de données**
 - [ ] Terminer les fonctionnalités implicites. Exemple : corriger les liens qui vont vers des 404, etc.
 - [ ] Mettre les membres du groupe dans le pied de page (fichier `src/layouts/back-end/base.njk`)
 - [ ] Permettre l'activation / désactivation d'un article depuis la liste des articles
@@ -429,7 +427,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 
 ## FAQ - Foire Aux Questions
 - **Est-ce que les dépendences du projet sont à jour ?**
-    
+
     Pas forcément, ce projet est mis à jour chaque année mais pas forcément juste avant le début de cette SAÉ. Si vous souhaitez avoir vos dépendences à jour, vous pouvez utiliser la commande `npm update --save`. Elle se chargera de mettre toutes les dépendances dans leur dernière version mineure. Vous pouvez également lister les dépendences qui ne sont pas à jour avec la commande `npm outdated`.
 
     Cette tâche peut également se faire dépendence par dépendence en précisant la version dans la commande `npm install`, exemple `npm install module@X.X.X` ou `npm install module@latest`, si on souhaite installer la dernière version.
@@ -437,23 +435,23 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     En revanche, rien ne garantit que tout fonctionnera correctement après la mise à jour des dépendances. Une mise à jour majeure, par exemple, 1.X.X vers 2.X.X peut apporter des changements majeurs et donc apporter des dysfonctionnements.
 
 - **Est-il possible d'utiliser tailwindcss également sur le front-office ?**
-    
+
     Oui, vous avez tout à fait le droit. Il est déjà utilisé d'ailleurs.
 
 - **Puis-je mettre sur github ce projet ?**
-    
+
     Oui. De toute façon, c'est **obligatoire** car vous devrez rendre le lien du dépôt git.
 
 - **Où puis-je trouver de l'inspiration pour le design de mes pages ?**
-    
+
     Vous pouvez utiliser votre expérience. Si vous utilisez tailwind, vous avez le site [tailwindtoolbox](https://www.tailwindtoolbox.com/starter-components). Si vous avez besoin d'icônes, tailwind propose également [heroicons](https://heroicons.com/) qui est déjà utilisé sur le site.
 
 - **Comment je peux tester la version mobile ?**
-    
+
     Vous pouvez utiliser le mode responsive de votre navigateur ou votre propre smartphone. Il faut que votre ordinateur et votre smartphone soient sur le même réseau. Ensuite, il faut accéder à l'adresse ip de votre serveur (ça doit commencer par 192.168...) suivi du port. En tous les cas, votre adresse ip sur le réseau s'affiche dans la console node. Si vous avez un Mac, vous pouvez installer gratuitement Xcode (via le Mac AppStore) et utiliser le simulateur iOS.
 
 - **Après l'ajout des API pour requêter les commentaires, est-ce que je dois mettre à jour le swagger ou Postman ?**
-    
+
     Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. Par ailleurs, si vos points d'accès (endpoints) n'apparaissent pas dans swagger, c'est qu'il y a une erreur dans vos annotations swagger.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
@@ -476,10 +474,10 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     - [En savoir plus - anglais](https://developer.apple.com/forums/thread/682332)
 
 - **Le navigateur affiche l'erreur `Error: Failed to lookup view "" in views directory "undefined"`**
-    
+
     C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
-    
-    A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant. 
+
+    A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant.
 
 - **Le navigateur affiche une erreur 404, je ne comprends pas**
 
@@ -488,11 +486,11 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     Il y a la route `/debug/router` pour lister toutes les routes de votre projet ainsi que la méthode associée dans votre navigateur. Cette route est également accessible depuis le menu de l'administration.
 
 - **Est-il possible d'utiliser le framework CSS bootstrap ?**
-    
+
     Nous vous le déconseillons. Bootstrap va entrer en conflit avec tailwindcss. Et ce n'est pas vraiment utile dans ce projet.
 
 - **Est-il possible d'utiliser une bibliothèque JS comme React ou Angular ?**
-    
+
     Vous pouvez si vous estimez que c'est nécessaire. Aucun de ces outils n'a été installé en revanche, à vous de le faire. En règle générale, si vous avez besoin d'un plugin ou node_module supplémentaire, n'hésitez pas à l'installer.
 
 - **Que sont les "@" dans les noms de classe, notamment les fichiers "layouts/back-end/base.njk" et "components/back-end/input-file.njk" ?**
@@ -504,7 +502,7 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
     - [Les Container Queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
     > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
-    > 
+    >
     > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
 
 ## Documentation

@@ -1,4 +1,4 @@
-# Pour aller plus loin - tâches optionnelles 
+# Pour aller plus loin - tâches optionnelles
 ### A faire après avoir effectué toutes les tâches obligatoires du fichier [README.md](./README.md#tâches-à-effectuer)
 
 - [ ] Modifier le modèle "Article" de façon à en permettre le "like"/"dislike"
@@ -13,7 +13,7 @@
 - [ ] Ajouter un système de connexion à l'administration
   - N'allez pas faire un système de cookies avec un l'un d'entre-eux qui est un simple booléen. C'est très mauvais niveau sécurité, il faudra utiliser un token d'authentification. Le jwt est un très bon système de token sécurisé. Il existe pléthore de node_modules gérant le jwt. Pensez à prendre le module le plus populaire, pas un avec presque aucun téléchargement hebdomadaire
 - [ ] Permettre d'activer / désactiver une SAE
-  -  Il faudra mettre à jour 
+  -  Il faudra mettre à jour
      - L'API des SAE pour afficher que les SAE activées sur le site
      - Le modèle de la SAE pour gérer l'activation / désactivation
 - [ ] Système de recherche (administration et/ou site but)
@@ -38,3 +38,5 @@
   - [En savoir plus sur le modifier tailwind "dark:"](https://tailwindcss.com/docs/dark-mode)
 - [ ] Mettre en place un linter de CSS. Stylint est le plus utilisé
   - [Accéder à la documentation de Stylint](https://github.com/stylelint/stylelint/tree/main)
+- [ ] Permettre de changer le logo de l'université dans le footer
+  - **Vous ne devez pas utiliser de base de données**
