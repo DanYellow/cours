@@ -14,7 +14,7 @@ router.use(ArticleCommentRouter);
 router.all("*", (req, res) => {
     res.status(404).json({
         errors: [
-            `Erreur 404 - La route <b>"${req.path}"</b> n'existe pas. Veuillez vérifier vos routes`,
+            `Erreur 404 : La route <b>"${req.path}"</b> ne fait pas partie de l'API du projet. Veuillez vérifier vos routes`,
         ],
     });
 });
