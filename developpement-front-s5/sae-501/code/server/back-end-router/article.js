@@ -3,6 +3,8 @@ import axios from "axios";
 import mongoose from "mongoose";
 import querystring from "querystring";
 
+import { ressourceNameInApi } from "./utils.js";
+
 import upload from "#server/uploader.js";
 
 const base = "articles";
@@ -13,7 +15,7 @@ router.get(`/${base}`, async (req, res) => {
     const queryParams = querystring.stringify(req.query);
     const options = {
         method: "GET",
-        url: `${res.locals.base_url}/api/${base}?${queryParams}`,
+        url: `${res.locals.base_url}/api/${ressourceNameInApi.articles}?${queryParams}`,
     };
     let result = {};
     let listErrors = [];
@@ -41,7 +43,7 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
         if (isEdit) {
             const options = {
                 method: "GET",
-                url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+                url: `${res.locals.base_url}/api/${ressourceNameInApi.articles}/${req.params.id}`,
             };
             result = await axios(options);
         }
@@ -79,13 +81,13 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         options = {
             ...options,
             method: "PUT",
-            url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+            url: `${res.locals.base_url}/api/${ressourceNameInApi.articles}/${req.params.id}`,
         };
     } else {
         options = {
             ...options,
             method: "POST",
-            url: `${res.locals.base_url}/api/${base}`,
+            url: `${res.locals.base_url}/api/${ressourceNameInApi.articles}`,
         };
     }
 
@@ -95,7 +97,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
 
         listAuthors = await axios({
             method: "GET",
-            url: `${res.locals.base_url}/api/authors`,
+            url: `${res.locals.base_url}/api/${ressourceNameInApi.authors}`,
         });
         listAuthors = listAuthors.data.data;
     } catch (e) {

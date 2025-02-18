@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 import axios from "axios";
 import querystring from "querystring";
 import routeName from "#server/utils/name-route.middleware.js";
-
 import upload from "#server/uploader.js";
+
+import { ressourceNameInApi } from "./utils.js";
 
 const base = "saes";
 const router = express.Router();
@@ -15,7 +16,7 @@ router.get(`/${base}`, routeName("sae_list"), async (req, res) => {
 
     let options = {
         method: "GET",
-        url: `${res.locals.base_url}/api/${base}?${queryParams}`,
+        url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}?${queryParams}`,
     };
 
     let result = {};
@@ -44,7 +45,7 @@ router
         if (isEdit) {
             const options = {
                 method: "GET",
-                url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
             };
             try {
                 result = await axios(options);
@@ -78,13 +79,13 @@ router
             options = {
                 ...options,
                 method: "PUT",
-                url: `${res.locals.base_url}/api/${base}/${req.params.id}`,
+                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
             };
         } else {
             options = {
                 ...options,
                 method: "POST",
-                url: `${res.locals.base_url}/api/${base}`,
+                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}`,
             };
         }
 
