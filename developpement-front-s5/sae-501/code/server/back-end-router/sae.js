@@ -17,13 +17,19 @@ router.get(`/${base}`, routeName("sae_list"), async (req, res) => {
         method: "GET",
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
+
     let result = {};
+    let listErrors = [];
+
     try {
         result = await axios(options);
-    } catch (_error) {}
+    } catch (error) {
+        listErrors = error.response.data.errors;
+    }
 
     res.render("pages/back-end/saes/list.njk", {
         list_saes: result.data,
+        list_errors: listErrors,
     });
 });
 

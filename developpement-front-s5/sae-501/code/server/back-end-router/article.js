@@ -16,12 +16,17 @@ router.get(`/${base}`, async (req, res) => {
         url: `${res.locals.base_url}/api/${base}?${queryParams}`,
     };
     let result = {};
+    let listErrors = [];
+
     try {
         result = await axios(options);
-    } catch {}
+    } catch (error) {
+        listErrors = error.response.data.errors;
+    }
 
     res.render("pages/back-end/articles/list.njk", {
         list_articles: result.data,
+        list_errors: listErrors,
     });
 });
 
