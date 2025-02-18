@@ -62,7 +62,7 @@
                 <span class="opacity-25">/</span>
                 {% endif %}
             </p>
-            <a href="{{ "debug_router" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hocus:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hocus:bg-blue-700 dark:focus:ring-blue-800">
+            <a href="{{ path("debug_router") }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hocus:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hocus:bg-blue-700 dark:focus:ring-blue-800">
                 See&nbsp;all&nbsp;routes
                 <span>
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -81,7 +81,7 @@
             <div class="py-2 px-4 {{ border_classes }} flex flex-col gap-1">
                 <p class="text-xs font-bold">Eslint</p>
                 <p class="text-lg font-normal -mt-1">{{ profiler.eslint_report.errorCount }}&nbsp;error(s), {{ profiler.eslint_report.warningCount }}&nbsp;warning(s)</p>
-                <a href="{{ "eslint" | routeName }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hocus:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hocus:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="{{ path("eslint") }}" target="_blank" class="flex gap-1 justify-center items-center text-center px-5 py-2 text-xs text-white bg-blue-700 rounded-lg hocus:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hocus:bg-blue-700 dark:focus:ring-blue-800">
                     See&nbsp;details
                     <span>
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

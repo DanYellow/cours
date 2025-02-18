@@ -163,8 +163,8 @@ app.use(responseTimeMiddleware, function (req, res, next) {
         ...jsonFilesContent,
         ...context,
         ...envVars.parsed,
-    };   
-    
+    };
+
     const originalRender = res.render;
     res.render = async function (view, local, callback) {
         let tplContent = {};
@@ -195,13 +195,13 @@ app.use(responseTimeMiddleware, function (req, res, next) {
 
         res.type(".html");
         const args = [
-            view, 
-            { 
-                ...local, 
-                ...tplContent, 
-                response_time: duration, 
-                is_admin: ["admin", "debug"].some((item) => req.originalUrl.includes(item)), 
-            }, 
+            view,
+            {
+                ...local,
+                ...tplContent,
+                response_time: duration,
+                is_admin: ["admin", "debug"].some((item) => req.originalUrl.includes(item)),
+            },
             callback,
         ];
 
@@ -236,23 +236,23 @@ if (process.env.NODE_ENV === "development") {
     const options = {
         customSiteTitle: "Swagger SAE 501",
     };
-    
+
     app.use(function (req, res, next) {
         res.on("finish", async function () {
             if (req.route !== undefined) {
                 const useEslintAutoFix = (envVars.parsed?.IS_ESLINT_AUTO_FIX_ENABLED === "true");
                 const { ESLint } = await import("eslint");
                 const eslint = new ESLint({ fix: useEslintAutoFix });
-                
+
                 const results = await eslint.lintFiles([
                     "./server/**/*.js",
                     "./database/**/*.js",
                     "./src/**/*.js",
                 ]);
-        
+
                 if (useEslintAutoFix) {
                     await ESLint.outputFixes(results);
-                }        
+                }
             }
         });
         next();
@@ -316,7 +316,7 @@ if (process.env.NODE_ENV === "development") {
     ;(async () => {
         const { ESLint } = await import("eslint");
         const eslint = new ESLint();
-        
+
         const results = await eslint.lintFiles([
             "./server/**/*.js",
             "./database/**/*.js",
@@ -398,6 +398,12 @@ nunjucksEnv.addGlobal("context", function () {
 });
 
 nunjucksEnv.addFilter("routeName", function (name, params = {}) {
+    const finalURL = generateUrl(app, name, params);
+
+    return `/${finalURL}`;
+});
+
+nunjucksEnv.addGlobal("path", function (name, params = {}) {
     const finalURL = generateUrl(app, name, params);
 
     return `/${finalURL}`;
