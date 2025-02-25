@@ -225,7 +225,7 @@ dialog {
 
 .pkmn-details-dialog {
     --dot-size: 0.8px;
-    --dot-alpha: 0.45;
+    --dot-alpha: 0.3;
     --dot-color-1: white;
     --dot-color-2: white;
     --background-sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png";

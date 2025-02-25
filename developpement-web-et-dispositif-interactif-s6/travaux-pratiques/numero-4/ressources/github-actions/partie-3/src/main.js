@@ -243,7 +243,7 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
 
             const encodedData = window.btoa(
                 loadingImageRaw.replaceAll(
-                    "#037ef3", 
+                    "#037ef3",
                     window.getComputedStyle(document.body).getPropertyValue(`--type-${cleanString(item.types[0].name)}`)
                 )
             );
