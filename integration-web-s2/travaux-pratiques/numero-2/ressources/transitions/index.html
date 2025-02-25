@@ -8,16 +8,13 @@
     <title>TP Transition</title>
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
 
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
-
-    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1 class="titre-consignes">Consignes de la pratique</h1>
+    <header class="entete-consignes">
+        <h1 class="titre-consignes">Consignes de la pratique - Transition CSS</h1>
 
         <details class="consignes-conteneur" open>
             <summary>
@@ -59,6 +56,23 @@
                     </ul>
                 </li>
             </ol>
+            <div class="note-attention">
+                <p>Pour des questions d'accessibilité, il faut toujours permettre aux utilisateurs, qui le souhaitent, de désactiver les animations, notamment les transitions CSS. Pour ce faire, il vous suffit d'ajouter le code suivant :</p>
+                <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(129, 162, 190); font-weight: 400;">@media</span> (<span style="color: rgb(178, 148, 187); font-weight: 400;">prefers-reduced-motion</span>: reduce) {
+    *,
+    <span style="color: rgb(181, 189, 104); font-weight: 400;">::before</span>,
+    <span style="color: rgb(181, 189, 104); font-weight: 400;">::after</span> {
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">animation-delay</span>: -<span style="color: rgb(204, 102, 102); font-weight: 400;">1ms</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">animation-duration</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">1ms</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">animation-iteration-count</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">1</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">background-attachment</span>: initial <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">scroll-behavior</span>: auto <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">transition-duration</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0s</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">transition-delay</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0s</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+        <span style="color: rgb(178, 148, 187); font-weight: 400;">view-transition-name</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">unset</span> <span style="color: rgb(112, 120, 128); font-weight: 400;">!important</span>;
+    }
+}</pre>
+            </div>
         </details>
         <details class="consignes-conteneur">
             <summary>
