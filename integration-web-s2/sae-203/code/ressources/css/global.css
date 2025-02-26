@@ -1,29 +1,35 @@
-/* 
-    Le code ci-dessous permet d'effectuer une transition lors clic 
+/*
+    Le code ci-dessous permet d'effectuer une transition lors clic
     mais ceci n'est pas optimal pour l'accessibilité...
 */
 html {
   scroll-behavior: smooth;
 }
 
-/* 
-    ...alors on utilise les lignes de code suivantes pour désactiver 
+/*
+    ...alors on utilise les lignes de code suivantes pour désactiver
     les animations pour les utilisateurs
-    qui n'en souhaitent pas, 
-    leur désactivation est faite au niveau du système d'exploitation 
+    qui n'en souhaitent pas, leur désactivation est faite au niveau du système d'exploitation
 */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-  }
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        view-transition-name: unset !important;
+    }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }
 
 .navigation-principale a {
