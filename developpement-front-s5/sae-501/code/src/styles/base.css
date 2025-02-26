@@ -21,6 +21,12 @@ html {
         transition-delay: 0s !important;
         view-transition-name: unset !important;
     }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }
 
 body {
