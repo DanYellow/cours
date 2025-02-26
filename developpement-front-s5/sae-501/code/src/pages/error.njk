@@ -15,6 +15,10 @@
         {% if NODE_ENV == "development" %}
             <script type="module" src="/src/scripts/main.debug.js" defer></script>
         {% endif %}
+
+        {% if NODE_ENV != "development" %}
+            <link rel="stylesheet" href="/{{ manifest['style.css'].file }}"/>
+        {% endif %}
     </head>
     <body>
         {% include "components/profiler.njk" %}

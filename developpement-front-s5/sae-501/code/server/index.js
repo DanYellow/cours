@@ -265,14 +265,42 @@ if (process.env.NODE_ENV === "development") {
 
     const debugRouter = await import("./debug-router.js");
     app.use("/debug", breadcrumb, debugRouter.default);
-    app.use(async (err, req, res, _next) => {
-        res.status(500);
-        const response = {
+
+    ;(async () => {
+        const { ESLint } = await import("eslint");
+        const eslint = new ESLint();
+
+        const results = await eslint.lintFiles([
+            "./server/**/*.js",
+            "./database/**/*.js",
+            "./src/**/*.js",
+        ]);
+
+        const formatter = await eslint.loadFormatter("stylish");
+        const resultText = formatter.format(results);
+
+        if (resultText.length) {
+            console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
+            console.log(resultText);
+            console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
+        }
+    })().catch((error) => {
+        process.exitCode = 1;
+        console.error(error);
+    });
+}
+
+app.use(async (err, req, res, _next) => {
+    res.status(500);
+    const response = {
+        ...(process.env.NODE_ENV === "development" ? {
             error: err,
             statusCode: res.statusCode,
             sourceCode: null,
-        };
+        } : {})
+    };
 
+    if (process.env.NODE_ENV === "development") {
         try {
             const regexErrorLineAndFile
                 = /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
@@ -309,33 +337,10 @@ if (process.env.NODE_ENV === "development") {
         } catch (err) {
             console.error(err);
         }
+    }
 
-        res.render("pages/error.njk", response);
-    });
-
-    ;(async () => {
-        const { ESLint } = await import("eslint");
-        const eslint = new ESLint();
-
-        const results = await eslint.lintFiles([
-            "./server/**/*.js",
-            "./database/**/*.js",
-            "./src/**/*.js",
-        ]);
-
-        const formatter = await eslint.loadFormatter("stylish");
-        const resultText = formatter.format(results);
-
-        if (resultText.length) {
-            console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
-            console.log(resultText);
-            console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
-        }
-    })().catch((error) => {
-        process.exitCode = 1;
-        console.error(error);
-    });
-}
+    res.render("pages/error.njk", response);
+});
 
 const nunjucksEnv = nunjucks.configure(app.get("views"), {
     autoescape: true,
