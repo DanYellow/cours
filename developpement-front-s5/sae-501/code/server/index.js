@@ -50,18 +50,18 @@ if (process.env.NODE_ENV === "development") {
 }
 
 if (process.env.NODE_ENV === "production") {
-    const { rateLimit } = await import("express-rate-limit");
-    // Authorize X requests / minutes / client
-    const nbMaxRequests = 42;
-    const limiter = rateLimit({
-        windowMs: 1 * 60 * 1000, // 1 minute
-        max: nbMaxRequests,
-        headers: true,
-        message: async () => {
-            return { message: `La limite de ${nbMaxRequests} requêtes par minute a été dépassée.` };
-        },
-    });
-    app.use(limiter);
+    // const { rateLimit } = await import("express-rate-limit");
+    // // Authorize X requests / minutes / client
+    // const nbMaxRequests = 100;
+    // const limiter = rateLimit({
+    //     windowMs: 1 * 60 * 1000, // 1 minute
+    //     max: nbMaxRequests,
+    //     headers: true,
+    //     message: async () => {
+    //         return { message: `La limite de ${nbMaxRequests} requêtes par minute a été dépassée.` };
+    //     },
+    // });
+    // app.use(limiter);
 }
 
 // To improve security

@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     ::before,
