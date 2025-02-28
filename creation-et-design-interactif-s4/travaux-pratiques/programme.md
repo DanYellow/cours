@@ -61,14 +61,15 @@
 - Sprite
 - Tilemap : Rotation avec [ et ] - https://docs.unity3d.com/Manual/Tilemap-Painting.html
 - Animations
-    - has exit time : permet de définir le pourcentage de progression d'une animation
-    - transition duration : permet de passer d'une anim à l'autre à partir de quel pourcentage
+    - has exit time : Désactivé permet de passer d'une animation à l'autre instantanément
+    - transition duration : permet de passer d'une anim à l'autre à partir de quel pourcentage. Metre à 0 en 2D
     - From Any State -> other state :
         - laisser has exit time
         - exit time = 1
         - transition duration = 0
         - laisser fixed duration
     - Ne pas animer dans le canvas
+    - Solo : Utile pour le débug, permet de lancer solo une animation omettant les autres
 - Ecran de crédits
 - Player Prefs
 - Sound design
