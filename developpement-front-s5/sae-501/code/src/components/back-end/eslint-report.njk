@@ -37,8 +37,7 @@
     {% for report in data.report_details %}
         {% set summary_bg_color = "" %}
         {% set first_classes = "rounded-t-2xl open:rounded-b-none open:rounded-t-2xl" if loop.first else "" %}
-        {% set first_classes = "rounded-2xl" if data.report_details | length == 1 else 
-            first_classes %}
+        {% set first_classes = "rounded-2xl" if data.report_details | length == 1 else first_classes %}
         {% set last_classes = "rounded-b-2xl" if loop.last else "" %}
         {# {% set summary_bg_color = "bg-red-100" if report.messages | length > 0 else "" %} #}
         <details class="border border-solid border-stone-500 py-2 [&_svg]:open:-rotate-180 overflow-hidden {{ first_classes ~ " " ~ last_classes }}">
@@ -63,7 +62,7 @@
                             {% set border_color = "border-slate-200" if error.severity == 1 else "border-red-200" %}
                             <tr class="group hover:bg-neutral-50 {{ "bg-amber-50" if error.severity == 1 else "bg-rose-100" }}">
                                 <td class="bg-transparent border-solid {{ border_color }} border-b {{ row_padding }} align-middle @3xl/main:w-40" data-label="Line/column">
-                                    <button class="py-2 rounded text-start {{ hover_text_color }} leading-none" data-file="{{ "open_editor" | routeName({ file: report.filePath, line: error.line, column: error.column }) }}">
+                                    <button class="py-2 rounded text-start {{ hover_text_color }} leading-none" data-file="{{ path("open_editor", { file: report.filePath, line: error.line, column: error.column }) }}">
                                         <span class="text-sm">Line: {{ error.line }}</span><br>
                                         <span class="text-sm">Column: {{ error.column }}</span><br>
                                         <span class="text-xs">Open in Code</span>

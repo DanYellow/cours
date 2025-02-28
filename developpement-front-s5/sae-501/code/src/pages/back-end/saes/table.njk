@@ -19,8 +19,8 @@
                     </td>
                     <td class="py-4 px-6 bg-transparent border-solid border-slate-200 border-b-2 @3xl/main:!border-b shadow-transparent lg:text-right align-middle">
                         <div class="inline-flex gap-6 w-full justify-around">
-                            {{ list_actions.edit("sae_form" | routeName({ id: item._id })) }}
-                            {{ list_actions.delete("sae_api" | routeName({ id: item._id }), item.title) }}
+                            {{ list_actions.edit(path("sae_form", { id: item._id })) }}
+                            {{ list_actions.delete(path("sae_api", { id: item._id }), item.title) }}
                         </div>
                     </td>
                 </tr>

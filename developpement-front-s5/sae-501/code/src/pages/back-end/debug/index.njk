@@ -8,17 +8,17 @@
 
 {% set menu_entries = [
     {
-        link: "debug_router" | routeName,
+        link: path("debug_router"),
         name: "Liste des routes",
         icon: "/images/server-icon.svg"
     },
     {
-        link: "swagger" | routeName,
+        link: path("swagger"),
         name: "Swagger",
         icon: "/images/code-icon.svg"
     },
     {
-        link: "eslint" | routeName,
+        link: path("eslint"),
         name: "eslint",
         icon: "/images/code-icon.svg"
     }
@@ -40,12 +40,12 @@
             @6xl/main:grid-cols-3
             gap-4
         ">
-            {% for item in menu_entries | sort(false, false, 'name') %}        
+            {% for item in menu_entries | sort(false, false, 'name') %}
                 <li class="border-t-2 aspect-auto">
-                    <a 
-                        href="{{ item.link }}" 
+                    <a
+                        href="{{ item.link }}"
                         class="
-                            flex w-full h-full items-center 
+                            flex w-full h-full items-center
                             px-2 py-3 rounded-lg gap-3 text-base hocus:bg-blue-100
                         "
                     >
