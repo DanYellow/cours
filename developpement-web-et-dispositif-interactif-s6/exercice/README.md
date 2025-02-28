@@ -25,7 +25,7 @@ _Les consignes pourront être modifiées._
 
 
 ## Contexte du projet
-Suite au projet abordé durant le cours de CI/CD, vous allez devoir mettre en application les nombreux acquis obtenus durant ce cours (et le cursus MMI en général). Le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet de la partie 3 du cours de CI/CD dans différents domaines :
+Suite au projet abordé durant le cours de CI/CD (Continous Integration / Continuous Delivery), vous allez devoir mettre en application les nombreux acquis obtenus durant ce cours (et le cursus MMI en général). Le but de ce travail en groupe (3-4 membres / groupe) est d'améliorer le projet de la partie 3 du cours de CI/CD dans différents domaines :
 - Front-end
 - Back-end
 - DevOps
@@ -58,14 +58,13 @@ Les critères suivants seront évalués :
   - [Didacticiel sur la création de token GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
   > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs de production
   > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement
-  > <p class="note-importante">Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention</p>
+  > - **Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention**
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
   - **Le nom du dex doit être affiché en français**
-- [ ] Faire défiler la page jusqu'au Pokémon présentement affiché dans la modale
-- [ ] Afficher les noms étrangers des Pokémon
+- [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent)
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] En mode liste uniquement, afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
@@ -117,7 +116,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 - [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
   - Les images doivent être renommées de façon "sanitized". Les accents et autres espaces doivent être remplacés tout comme la casse doit passer en minuscules
-    - Ex : Let's_Go Évoli.jpg -> let-s-go-evoli.jpg (vous pouvez nommer le fichier d'une autre façon, mais le nom doit être sanitized)
+    - Ex : Let's_Go Évoli.jpg -> let-s-go-evoli.jpg (vous pouvez nommer le fichier d'une autre façon, mais le nom doit être _sanitized_)
 - [ ] Avec une API, mettre en place un système d'upload des jaquettes de jeux (fournies avec l'exercice)
   - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
 - [ ] Renvoyer toutes les jaquettes de jeux via une API (sans authentification) qui sera consommée par le front-end pour les afficher dans la modale partie "Apparitions"
@@ -171,7 +170,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
     - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
 > Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
 
-Pour la pipeline, vous pouvez utiliser la correction de la partie 3 et adapter en fonction des besoins du devoir.
+Pour la pipeline, vous pouvez utiliser la correction de la partie 3 du TP de CI/CD et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
 
 ## Migration base de données (MySQL)
@@ -191,7 +190,7 @@ Il faudra commiter le fichier de dump.
 > Note 2 : Par défaut, la commande "mysqldump" ajoute dans le fichier de dump la commande MySQL "CREATE DATABASE [...]", dépendamment de votre hébergeur de base de données, cette commande sera refusée (car vous ne pouvez pas créer une autre base de données). Pour éviter ceci, ajoutez le paramètre "--no-create-db".
 
 ### Importer base de données
-_On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson()_
+_On part du principe que vous avez injecté les secrets via la clé ENV sous forme de json depuis votre pipeline grâce à la fonction toJson() comme ci-dessous_
 ```yml
 # pipeline.yml
 [...]
@@ -200,7 +199,7 @@ env:
 ```
 
 ```sh
-# bash
+# (fichier) bash
 MYSQL_USER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_USER');
 MYSQL_PASSWORD=$(echo $SECRETS_CONTEXT | jq '.MYSQL_PASSWORD');
 MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
@@ -216,7 +215,7 @@ Si la méthode ci-dessus fonctionne (tout comme celle du mysqldump), elle n'est 
 On évite en général de mettre dans la ligne de commandes un mot de passe, on peut être épié. Dans le contexte de GitHub Actions, c'est 100% sécurisé grâce au système de secrets, mais voyons une autre méthode qui vous sera utile dans un autre contexte.
 
 ```bash
-# bash
+# (fichier) bash
 MYSQL_USER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_USER');
 MYSQL_PASSWORD=$(echo $SECRETS_CONTEXT | jq '.MYSQL_PASSWORD');
 MYSQL_SERVER=$(echo $SECRETS_CONTEXT | jq '.MYSQL_SERVER');
@@ -235,7 +234,7 @@ chmod 400 .my.cnf
 
 mysql --defaults-extra-file=.my.cnf < database.sql
 ```
-En plus d'augmenter la sécurité, cette méthode vous dispense de mettre le mot de passe, l'utilisateur, le serveur et le nom de base de données à chaque fois (chacun des paramètres pouvant être omis du fichier de configuration et mis dans la commande). A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
+En plus d'augmenter la sécurité, l'utilisation d'un fichier .cnf vous dispense de mettre le mot de passe, l'utilisateur, le serveur et le nom de base de données à chaque fois, chacun des paramètres pouvant être omis du fichier de configuration (.cnf) et mis dans la commande. A noter également que vous pouvez exécuter des commandes comme un `INSERT` en ligne de commandes de la façon suivante :
 
 ```sh
 mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
@@ -248,17 +247,17 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
   - [Voir documentation de vitest](https://vitest.dev/guide/)
 - Vous devez respecter l'accessibilité et les différentes règles d'ergonomie
-- Vous pouvez installer commitizen pour vous aider à créer des commits correctement labellisés
+- Vous pouvez utiliser [commitizen](https://commitizen-tools.github.io/commitizen/) pour vous aider à créer des commits correctement labellisés
 
 ## Pour aller plus loin
 
 ### Front-end
 - Mettre en place un système de comparaison de fiche entre deux Pokémon
-- Grâce à l'API `Navigation`, proposer un historique des fiches détails précemment affichées, permettant à l'utilisateur de les réafficher plus rapidement
-  - Note : A ce jour (01/2025), l'API `Navigation` ne fonctionne pas sur Firefox et Safari
+- Grâce à [l'API `Navigation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigation), proposer un historique des fiches détails précemment affichées, permettant à l'utilisateur de les réafficher plus rapidement
+  - Note : A ce jour (01/2025), [l'API `Navigation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigation) ne fonctionne pas sur Firefox et Safari
 
 ### Back-office / Administration
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
 
 ### CI/CD
-- Bloquer la fusion de branche, si sa pipeline n'a pas été validée
+- Bloquer la fusion de branche, si sa pipeline n'a pas été exécutée avec succès
