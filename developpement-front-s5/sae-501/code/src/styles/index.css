@@ -1,27 +1,31 @@
+@import 'tailwindcss';
+
 .jpo-banniere {
-    height: 45.625rem;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
     background: url("/images/montage-cyu.jpg") no-repeat;
-    background-position: center center;
-    @media (max-width: theme('screens.lg')) {
-        background-position: top center;
-        background-size: 110%;
-        height: 20rem;
-    }
     text-decoration: none;
     overflow: hidden;
     transition: background-size 0.5s;
-    background-size: 160%;
+    background-position: top center;
+    background-size: 110%;
+    height: 20rem;
+
+    @media (width >= theme(--breakpoint-lg)) {
+        height: 45.625rem;
+        background-position: center center;
+        background-size: 160%;
+    }
 
     &:hover, &:focus-within {
-        background-size: 190%;
-        @media (max-width: theme('screens.lg')) {
-            background-size: 140%;
+        background-size: 140%;
+        @media (width >= theme(--breakpoint-lg)) {
+            background-size: 190%;
         }
+
         &::before {
             opacity: 1;
             inset: 8px;
@@ -37,7 +41,7 @@
         inset: -10px;
         opacity: 0;
         transition: inset 0.2s, opacity 0.1s;
-        border-radius: theme("borderRadius.lg");
+        border-radius: var(--radius-lg);
     }
 
     &::after {
@@ -65,6 +69,7 @@
         z-index: 1;
         color: white;
         text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.62);
+        /* --alpha(var(--color-black) / 60%) */
     }
 
     .textes .en-savoir-plus {

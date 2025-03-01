@@ -114,3 +114,15 @@
         @slot;
     }
 }
+
+@custom-variant no-touch {
+    @media (pointer: fine) {
+        @slot;
+    }
+}
+
+@custom-variant touch {
+    @media (pointer: coarse) {
+        @slot;
+    }
+}

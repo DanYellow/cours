@@ -1,8 +1,14 @@
+@import "tailwindcss";
+
+@view-transition {
+    navigation: auto;
+}
+
 body:has(dialog:modal) {
     overflow: hidden;
 }
 
-@container main (width <= theme('containers.3xl')) {
+@container main (width <= theme(--container-3xl)) {
     table {
         border: 0;
 
@@ -18,7 +24,7 @@ body:has(dialog:modal) {
         }
 
         tr {
-            border-bottom: 1px solid theme("colors.slate.200");
+            border-bottom: 1px solid var(--color-slate-200);
             display: block;
 
             &:last-child {
@@ -40,8 +46,8 @@ body:has(dialog:modal) {
 }
 
 ::backdrop {
-    backdrop-filter: blur(5px);
-    background-color: rgba(107, 114, 128, 0.35); /* theme("colors.gray.500"); */
+    backdrop-filter: blur(var(--blur-xs));
+    background-color: --alpha(var(--color-gray-500) / 35%);
     pointer-events: fill;
 }
 
@@ -55,15 +61,15 @@ body:has(dialog:modal) {
     &::after {
         content: "";
         position: absolute;
-        border: theme("borderWidth.2") dashed #fff;
+        border: 2px dashed #fff;
         background: linear-gradient(#fff 0 0) padding-box,
             linear-gradient(
                 to bottom,
-                theme("colors.sky.700"),
-                theme("colors.blue.700")
+                var(--color-sky-700),
+                var(--color-blue-700)
             );
         animation: clippath var(--animation-speed) infinite ease-in;
-        border-radius: theme("borderRadius.lg");
+        border-radius: var(--radius-lg);
         inset: 0;
         z-index: 0;
     }
@@ -137,14 +143,14 @@ dialog {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    @container main (width <= theme('containers.3xl')) {
+    @container main (width <= theme(--container-3xl)) {
         grid-template-columns: none;
     }
 }
 
 .eslint-report-problems {
     grid-column: 1 / span 2;
-    @container main (width <= theme('containers.3xl')) {
+    @container main (width <= theme(--container-3xl)) {
         grid-column: auto / auto;
     }
 }
@@ -159,10 +165,10 @@ details summary::-webkit-details-marker {
     &::before {
         content: "";
         position: absolute;
-        height: theme("borderWidth.2");
-        border-top: theme("borderWidth.2") theme("borderColor.blue.500") solid;
+        height: calc(var(--spacing) * 0.5);
+        border-top: calc(var(--spacing) * 0.5) var(--color-blue-500) solid;
         left: 0;
-        top: calc(-1 * theme("borderWidth.2"));
+        top: calc(-0.5 * var(--spacing));
         right: 0;
         transform: scaleX(1);
         transition: transform 0.1s ease-in;
@@ -180,8 +186,8 @@ details summary::-webkit-details-marker {
     margin: 0 0 5px 0;
     position-try-fallbacks: --compact-target, flip-block;
 
-    border: theme("borderWidth.DEFAULT") theme("colors.gray.200") solid;
-    border-radius: theme("borderRadius.2xl");
+    border: var(--spacing-4) var(--color-gray-200) solid;
+    border-radius: var(--radius-2xl);
     z-index: 99;
 
     transform: scale(1);
@@ -242,6 +248,6 @@ details summary::-webkit-details-marker {
     }
 }
 
-@view-transition {
-    navigation: auto;
+.active-tab {
+    background-color: var(--color-slate-100);
 }
