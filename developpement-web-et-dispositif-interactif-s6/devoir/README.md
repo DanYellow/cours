@@ -1,8 +1,3 @@
-<link
-    rel="stylesheet"
-    href="https://danyellow.net/cours-mmi/consignes.css"
-/>
-
 # Devoir noté - Développement Web et dispositif interactif
 _Les consignes pourront être modifiées._
 
@@ -31,16 +26,19 @@ Suite au projet abordé durant le cours de CI/CD (Continous Integration / Contin
 - DevOps
 
 Le projet se trouve toujours au même endroit :
-- [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
+- [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
 > Même si vous avez récupéré le projet durant le TP, il est préférable de récupérer la dernière version, des modifications ont pu avoir lieu entre-temps.
 
 ## Rendus attendus
 - Lien de votre projet sur GitHub - Un seul rendu attendu par groupe
 
-<p class="note-attention">Note : La version finale de votre projet doit être tagguée. Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>. Par ailleurs, n'oubliez pas le paramètre <code>fetch-depth: 0</code> à l'action "actions/checkout@v4", si vous souhaitez générer proprement un CHANGELOG.md (voir les instructions du TP sur la CICD).</p>
+> Note : **La version finale de votre projet doit être tagguée.** Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>. Par ailleurs, n'oubliez pas le paramètre <code>fetch-depth: 0</code> à l'action "actions/checkout@v4", si vous souhaitez générer proprement un CHANGELOG.md (voir les instructions du TP sur la CI/CD).
+>
+> **C'est la version la plus haute de votre projet qui sera testée, pas une branche.**
 
 - [Voir documentation git tag](https://git-scm.com/docs/git-tag/fr)
+- [Voir node module release-it](https://www.npmjs.com/package/release-it)
 
 ## Notation
 Les critères suivants seront évalués :
@@ -241,7 +239,7 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 ```
 
 ## Notes
-- Le projet repose sur les API suivantes :
+- Le code existant repose sur les API suivantes :
   - [https://tyradex.vercel.app/](https://tyradex.vercel.app/)
   - [https://pokeapi.co/docs/v2/](https://pokeapi.co/)
 - Bien que vous allez devoir rajouter une nouvelle page pour gérér les jaquettes, il n'est pas obligatoire de gérer les tests e2e et unitaires, c'est à votre convenance de les réaliser. Pour rappel, les tests unitaires utilisent vitest et non jest
