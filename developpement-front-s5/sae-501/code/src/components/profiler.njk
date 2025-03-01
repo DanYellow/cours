@@ -5,8 +5,16 @@
             transition-timing-function: ease-in;
             transition-duration: 0.25s;
 
+            @starting-style {
+                transition-duration: 0s;
+            }
+
             &.hide {
-                translate: -50% 200%;
+                translate: 0% 200%;
+
+                @media (width >= 40rem) {
+                    translate: -50% 200%;
+                }
             }
         }
 

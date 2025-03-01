@@ -166,15 +166,44 @@ details summary::-webkit-details-marker {
         content: "";
         position: absolute;
         height: calc(var(--spacing) * 0.5);
-        border-top: calc(var(--spacing) * 0.5) var(--color-blue-500) solid;
+        background-color: var(--color-blue-500);
         left: 0;
-        top: calc(-0.5 * var(--spacing));
         right: 0;
+        top: calc(-0.75 * var(--spacing));
         transform: scaleX(1);
-        transition: transform 0.1s ease-in;
+        transition-property: transform;
+        transition-timing-function: ease-in;
+        @apply duration-150;
 
         @starting-style {
             transform: scaleX(0);
+        }
+    }
+}
+
+.pagination-link {
+    position: relative;
+    &::after {
+        content: "";
+        background-color: var(--color-blue-200);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(-0.5 * var(--spacing));
+        height: calc(var(--spacing) * 0.5);
+        transform: scaleX(0);
+        transition-property: transform;
+        transition-timing-function: ease-in;
+        @apply duration-150;
+
+        @starting-style {
+            transform: scaleX(0);
+        }
+    }
+
+    &:hover, &:focus-visible {
+        &::after {
+            transform: scaleX(1);
         }
     }
 }
