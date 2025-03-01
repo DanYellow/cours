@@ -39,12 +39,12 @@ Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet 
 Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants :
 
 **R5.DWeb-DI.06 | Développement back avancé**
-- AC34.02 | Développer à l’aide d’un framework de développement côté serveur
+- AC34.02 - Développer à l’aide d’un framework de développement côté serveur
 
 **R5.DWeb-DI.05 | Développement front avancé**
-- AC34.02 | Développer à l’aide d’un framework de développement côté client
-- AC34.03 : Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
-- AC35.02 : Maîtriser la qualité en projet Web ou multimédia
+- AC34.01 - Développer à l’aide d’un framework de développement côté client
+- AC34.03 - Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
+- AC35.02 - Maîtriser la qualité en projet Web ou multimédia
 
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
