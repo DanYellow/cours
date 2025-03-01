@@ -17,14 +17,14 @@ listPaginationShortcutButtons.forEach((item) => {
             clearAnchors();
             e.currentTarget.textContent = "✖";
             e.currentTarget.style["anchor-name"] = "--paginationShortcutAnchor";
-            paginationShortcut.classList.remove("!hidden");
+            paginationShortcut.classList.remove("hidden!");
         } else {
             e.currentTarget.textContent = "…";
             paginationShortcut.classList.add("fade-out");
             paginationShortcut.addEventListener("transitionend", (e) => {
                 if (e.target.matches(".fade-out")) {
                     paginationShortcut.classList.remove("fade-out");
-                    paginationShortcut.classList.add("!hidden");
+                    paginationShortcut.classList.add("hidden!");
                     e.currentTarget.style["anchor-name"] = "none";
                 }
             });

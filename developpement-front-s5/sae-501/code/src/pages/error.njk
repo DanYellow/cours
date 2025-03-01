@@ -31,7 +31,7 @@
                 <div class="dark:bg-slate-900 bg-yellow-50 rounded-md border-2 border-solid border-red-700">
                     <header class="bg-red-700 p-2 flex justify-between items-center text-white">
                         <b>{{ fileType }}</b>
-                        <button class="py-1 px-3 hocus:bg-red-900 hocus:text-white rounded" data-file="{{ path("open_editor", { file: details.file_path, line: details.line, column: details.column })}}">Open file</button>
+                        <button class="py-1 px-3 hocus:bg-red-900 hocus:text-white rounded-sm" data-file="{{ path("open_editor", { file: details.file_path, line: details.line, column: details.column })}}">Open file</button>
                     </header>
                     <div class="p-3">
                         <code class="whitespace-break-spaces">{{ sourceCode }}</code>

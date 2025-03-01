@@ -27,7 +27,7 @@ listTooltipAnchors.forEach((item) => {
     item.addEventListener("mouseenter", showTooltip);
     item.addEventListener("focus", showTooltip);
     item.addEventListener("mouseleave", hideTooltip);
-    item.addEventListener("blur", hideTooltip);
+    item.addEventListener("blur-sm", hideTooltip);
 });
 
 listTooltips.forEach((item) => {

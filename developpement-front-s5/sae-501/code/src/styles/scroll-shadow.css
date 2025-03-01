@@ -1,7 +1,7 @@
 /* Source : https://scroll-driven-animations.style/demos/scroll-shadows/css/ */
 
 @supports (animation-timeline: scroll()) {
-    @media (width < theme("screens.md")) {
+    /* @media (width < theme("screens.md")) {
         .horizontal-scroll-shadow {
             position: relative;
             scroll-timeline: --scroll-timeline x;
@@ -69,5 +69,5 @@
                 translate: 0 0;
             }
         }
-    }
+    } */
 }

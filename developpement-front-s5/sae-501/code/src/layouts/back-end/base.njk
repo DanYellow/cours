@@ -11,7 +11,6 @@
         <meta name="theme-color" content="#bfdbfe"/>
         <meta name="robots" content="noindex, nofollow">
 
-        <link rel="stylesheet" href="/styles/reset.css">
         <link rel="stylesheet" href="/styles/fonts.css">
         {% if NODE_ENV != "development" %}
             <link rel="stylesheet" href="/{{ manifest['style.css'].file }}"/>
@@ -30,14 +29,14 @@
     </head>
     <body class="min-h-screen">
         {% include "components/profiler.njk" %}
-        <div class="absolute w-full min-h-[40vh] z-[-1] bg-gradient-to-b from-blue-200 to-neutral-100"></div>
+        <div class="absolute w-full min-h-[40vh] z-[-1] bg-linear-to-b from-blue-200 to-neutral-100"></div>
         <div class="mr-[max(env(safe-area-inset-right),_theme(space.6))] ml-[max(env(safe-area-inset-left),_theme(space.6))] py-5 flex gap-6 flex-col md:flex-row">
             {% include "components/back-end/navigation.njk" %}
             <main class="basis-full @container/main">
                 {% block main %}{% endblock %}
 
-                <footer class="border-y border-gray-400 text-center mx-6 my-3">
-                    <p class="font-bold">SAE 501 - Projet réalisé par : </p> 
+                <footer class="border-y border-gray-200 text-center mx-6 my-3 py-1.5">
+                    <p class="font-bold">SAE 501 - Projet réalisé par : </p>
                     <ul class="flex flex-col sm:flex-row justify-center">
                         <li class="px-1">A compléter</li>
                         <li class="px-1">A compléter</li>
@@ -83,7 +82,7 @@
                         </div>
                     </div>
                     <div class="sm:flex sm:flex-row mt-4 gap-3 justify-end">
-                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm sm:mt-0 sm:w-auto bg-blue-700 hocus:bg-blue-950 text-white" data-close-modal autofocus>Fermer</button>
+                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl px-4 py-2 text-sm font-semibold shadow-xs sm:mt-0 sm:w-auto bg-blue-700 hocus:bg-blue-950 text-white" data-close-modal autofocus>Fermer</button>
                     </div>
                 </div>
             </div>
@@ -101,11 +100,11 @@
                         </div>
                     </div>
                     <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 justify-end">
-                        <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hocus:bg-red-800 sm:w-auto" data-delete-item>
+                        <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hocus:bg-red-800 sm:w-auto" data-delete-item>
                             {% include "components/icons/delete-icon.njk" %}
                             Supprimer
                         </button>
-                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hocus:bg-gray-100 sm:mt-0 sm:w-auto" data-close-modal autofocus>Annuler</button>
+                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-inset ring-gray-300 hocus:bg-gray-100 sm:mt-0 sm:w-auto" data-close-modal autofocus>Annuler</button>
                     </div>
                 </div>
             </div>
@@ -119,7 +118,7 @@
                         <ol data-content-list class="list-disc list-inside"></ol>
                     </div>
                     <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 justify-end">
-                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm sm:mt-0 sm:w-auto bg-blue-700 hocus:bg-blue-950 text-white" data-close-modal autofocus>Fermer</button>
+                        <button type="button" class="disabled:opacity-50 mt-3 items-center inline-flex w-full justify-center rounded-2xl px-4 py-2 text-sm font-semibold shadow-xs sm:mt-0 sm:w-auto bg-blue-700 hocus:bg-blue-950 text-white" data-close-modal autofocus>Fermer</button>
                     </div>
                 </div>
             </div>
@@ -135,11 +134,11 @@
                         <p class="text-sm font-bold text-red-700" role="alert">Cette action est irréversible</p>
                     </div>
                     <div class="bg-gray-50 p-4 sm:flex sm:flex-row gap-3 justify-end">
-                        <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 hocus:bg-red-800 px-4 py-2 text-sm font-semibold text-white shadow-sm sm:w-auto" data-delete-item>
+                        <button type="button" class="disabled:opacity-50 inline-flex w-full justify-center gap-1 items-center rounded-2xl bg-red-600 hocus:bg-red-800 px-4 py-2 text-sm font-semibold text-white shadow-xs sm:w-auto" data-delete-item>
                             {% include "components/icons/delete-icon.njk" %}
                             Supprimer
                         </button>
-                        <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hocus:bg-gray-100 sm:mt-0 sm:w-auto items-center" data-close-modal autofocus>Annuler</button>
+                        <button type="button" class="disabled:opacity-50 mt-3 inline-flex w-full justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-inset ring-gray-300 hocus:bg-gray-100 sm:mt-0 sm:w-auto items-center" data-close-modal autofocus>Annuler</button>
                     </div>
                 </div>
             </div>

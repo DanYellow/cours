@@ -1,5 +1,4 @@
 // Used to create production build
-import tailwindcss from "@vituum/vite-plugin-tailwindcss";
 import path from "path";
 import fs from "fs";
 import { build } from "vite";
@@ -50,7 +49,6 @@ const __dirname = path.dirname(__filename);
                     },
                 },
             },
-            plugins: [tailwindcss()],
         });
     });
 })();

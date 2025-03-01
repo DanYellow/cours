@@ -11,15 +11,14 @@
             {% block title %}TITRE MANQUANT !{% endblock %} - SAÉ 501
         </title>
 
-        <link rel="stylesheet" href="/styles/reset.css">
         <link rel="stylesheet" href="/styles/fonts.css">
         {% if NODE_ENV != "development" %}
             <link rel="stylesheet" href="/{{ manifest['style.css'].file }}"/>
         {% endif %}
 
         {% block head_tags %}
-            <meta 
-                name="description" 
+            <meta
+                name="description"
                 content="Bienvenue sur le site de présentation du Bachelor Universitaire de Technologie spécialité Métiers du Multimédia et de l'Internet, appellé également MMI."
             >
         {% endblock %}
@@ -35,7 +34,7 @@
     </head>
     <body class="mr-[max(env(safe-area-inset-right),_theme(space.4))] ml-[max(env(safe-area-inset-left),_theme(space.4))]">
         {% include "components/profiler.njk" %}
-        
+
         {% include "components/front-end/navigation.njk" %}
         {% include "components/front-end/hero.njk" %}
 

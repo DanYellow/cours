@@ -45,7 +45,7 @@ const getImageInfos = async (img) => {
 };
 
 const toggleBigImage = () => {
-    ["!bg-transparent", "!shadow-none", "!h-screen", "md:my-8", "!max-w-full"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    ["bg-transparent!", "shadow-none!", "h-screen!", "md:my-8", "max-w-full!"].forEach((cssClass) => modal.classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
     ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
 };
@@ -63,17 +63,17 @@ modal.addEventListener("transitionend", (e) => {
     if (bgColor === "rgba(0, 0, 0, 0)") {
         modal.querySelector("[data-reduce-image-btn]").inert = false;
         modal.querySelector("[data-enlarge-image-btn]").inert = true;
-        modal.querySelector("[data-main-content]").classList.add("!hidden");
+        modal.querySelector("[data-main-content]").classList.add("hidden!");
     } else {
         modal.querySelector("[data-reduce-image-btn]").inert = true;
         modal.querySelector("[data-enlarge-image-btn]").inert = false;
-        modal.querySelector("[data-main-content]").classList.remove("!hidden");
+        modal.querySelector("[data-main-content]").classList.remove("hidden!");
     }
 });
 
 delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
     toggleBigImage();
-    modal.querySelector("[data-main-content]").classList.toggle("!hidden");
+    modal.querySelector("[data-main-content]").classList.toggle("hidden!");
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
@@ -112,7 +112,7 @@ modal.addEventListener("close", (e) => {
         return;
     }
 
-    modal.classList.remove(...["!bg-transparent", "!shadow-none", "!h-screen", "!max-w-full"]);
+    modal.classList.remove(...["bg-transparent!", "shadow-none!", "h-screen!", "max-w-full!"]);
     modal.classList.add("md:my-8");
 
     modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
