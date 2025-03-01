@@ -20,6 +20,9 @@ const displayDeleteItemModal = (e) => {
 };
 
 delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
+    if (!modal.open || e.currentTarget.dataset.modal !== tplId) {
+        return;
+    }
     e.target.inert = true;
     modal.querySelector("[data-close-modal]").inert = true;
 
@@ -31,7 +34,7 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
             window.location.reload();
         })
         .catch((error) => {
-            errorMessageModal.textContent = error.response.data.error || "Erreur"; // error.response.data.error || 
+            errorMessageModal.textContent = error.response.data.error || "Erreur";
             errorMessageModal.classList.remove("hidden");
             e.target.inert = false;
             modal.querySelector("[data-close-modal]").inert = false;

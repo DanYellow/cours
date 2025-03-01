@@ -41,13 +41,14 @@ listDeleteCurrentImageBtn.forEach((item) => {
         while (modal.firstChild) {
             modal.removeChild(modal.firstChild);
         }
+        modal.dataset.modal = tplId;
         modal.append(modalTemplateContent.cloneNode(true));
         modal.showModal();
     });
 });
 
 delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
-    if (!modal.open && e.currentTarget.dataset.modal !== tplId) {
+    if (!modal.open || e.currentTarget.dataset.modal !== tplId) {
         return;
     }
 
@@ -55,6 +56,12 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     const input = document.querySelector(
         `[data-current-image-checkbox="${dataAttr}"]`
     );
+
+    if (!input) {
+        console.error("Missing checkbox to delete image")
+        return;
+    }
+
     input.checked = true;
 
     const img = document.querySelector(`[data-current-image="${dataAttr}"]`);
@@ -68,8 +75,8 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     imageObserver.observe(img, {
         attributes: true,
     });
-
-    e.target.closest("dialog").close();
     document.querySelector(`[data-delete-current-image-button="${dataAttr}"]`).classList.add("hidden");
     document.querySelector(`[data-preview-current-image-button="${dataAttr}"]`).classList.add("hidden");
+
+    e.target.closest("dialog").close();
 });

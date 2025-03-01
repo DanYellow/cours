@@ -49,6 +49,7 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
+- **C'est la branche master, main ou develop qui sera évaluée.** Pensez à bien à fusionner toutes vos branches.
 
 > Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée.
 
