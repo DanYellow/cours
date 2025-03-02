@@ -288,23 +288,19 @@ details summary::-webkit-details-marker {
 
 :root:has(.enlarge-image-tooltip-target:where(:hover, :focus-within)) .enlarge-image-tooltip {
     opacity: 1;
-    transform: scale(1);
 }
 
 .enlarge-image-tooltip {
     position-anchor: --enlarge-image-tooltip;
     z-index: 999;
-    font-size: 0.85rem;
-    background-color: white;
+    font-size: var(--text-xs);
+    background-color: var(--color-white);
     position: fixed;
     bottom: anchor(top);
     justify-self: anchor-center;
     margin: 0 0 5px 0;
-    padding: 0 0.35rem;
-    border-radius: 0.35rem;
-
-    /* opacity: 1; */
-
-    transform: scale(0);
+    padding-block: calc(var(--spacing)* 1);
+    padding-inline: calc(var(--spacing)* 2);
+    border-radius: var(--radius-2xl);
     opacity: 0;
 }
