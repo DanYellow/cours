@@ -104,13 +104,13 @@
 }
 
 @custom-variant hocus {
-    &:is(:hover, :focus-visible) {
+    &:is(:hover, :focus-within) {
         @slot;
     }
 }
 
 @custom-variant group-hocus {
-    &:is(:where(.group):hover *, :where(.group):focus-visible *) {
+    &:is(:where(.group):hover *, :where(.group):focus-within *) {
         @slot;
     }
 }
