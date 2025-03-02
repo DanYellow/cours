@@ -45,35 +45,23 @@ const getImageInfos = async (img) => {
 };
 
 const toggleBigImage = () => {
-    ["bg-transparent!", "shadow-none!", "h-screen!", "md:my-8", "max-w-full!"].forEach((cssClass) => modal.classList.toggle(cssClass));
+    ["bg-transparent!", "shadow-none", "shadow-xl", "h-screen!", "md:my-8", "max-w-full!"].forEach((cssClass) => modal.classList.toggle(cssClass));
     modal.querySelector("[data-main-content]").classList.toggle("opacity-0");
-    ["opacity-0", "pointer-events-none", "h-0"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
+    ["opacity-0", "pointer-events-none", "h-0", "h-fit"].forEach((cssClass) => modal.querySelector("[data-reduce-image-btn]").classList.toggle(cssClass));
 };
 
 delegateEventHandler(modal, "click", "[data-enlarge-image-btn]", () => {
-    toggleBigImage(true);
-});
-
-modal.addEventListener("transitionend", (e) => {
-    if (e.propertyName !== "background-color") {
-        return;
-    }
-
-    const bgColor = window.getComputedStyle(e.target).getPropertyValue("background-color");
-    if (bgColor === "rgba(0, 0, 0, 0)") {
-        modal.querySelector("[data-reduce-image-btn]").inert = false;
-        modal.querySelector("[data-enlarge-image-btn]").inert = true;
-        modal.querySelector("[data-main-content]").classList.add("hidden!");
-    } else {
-        modal.querySelector("[data-reduce-image-btn]").inert = true;
-        modal.querySelector("[data-enlarge-image-btn]").inert = false;
-        modal.querySelector("[data-main-content]").classList.remove("hidden!");
-    }
+    modal.querySelector("[data-enlarge-image-btn]").setAttribute("inert", "");
+    modal.querySelector("[data-reduce-image-btn]").removeAttribute("inert");
+    modal.querySelector("[data-close-modal]").setAttribute("inert", "");
+    toggleBigImage();
 });
 
 delegateEventHandler(modal, "click", "[data-reduce-image-btn]", () => {
+    modal.querySelector("[data-enlarge-image-btn]").removeAttribute("inert");
+    modal.querySelector("[data-reduce-image-btn]").setAttribute("inert", "");
+    modal.querySelector("[data-close-modal]").removeAttribute("inert");
     toggleBigImage();
-    modal.querySelector("[data-main-content]").classList.toggle("hidden!");
 });
 
 listPreviewCurrentImageBtn.forEach((item) => {
@@ -81,9 +69,9 @@ listPreviewCurrentImageBtn.forEach((item) => {
         modal.dataset.modal = tplId;
         const dataAttr = e.currentTarget.dataset.previewCurrentImageButton;
         const previewType = e.currentTarget.dataset.previewType;
-        
+
         let img = document.querySelector(`[data-current-image="${dataAttr}"]`);
-        
+
         if (previewType === "blob") {
             img = document.querySelector(`[data-preview-upload="${dataAttr}"]`);
         }
@@ -97,7 +85,7 @@ listPreviewCurrentImageBtn.forEach((item) => {
         imageDimensions.textContent = `${imgData.width} × ${imgData.height}`;
         imageSize.textContent = `${formatBytes(imgData.size)}`;
         imageMime.textContent = imgData.mime;
-        
+
         while (modal.firstChild) {
             modal.removeChild(modal.firstChild);
         }
@@ -117,6 +105,7 @@ modal.addEventListener("close", (e) => {
 
     modal.querySelector("[data-reduce-image-btn]").classList.add(...["opacity-0", "pointer-events-none", "h-0"]);
     modal.querySelector("[data-main-content]").classList.remove("opacity-0");
-    modal.querySelector("[data-reduce-image-btn]").inert = true;
-    modal.querySelector("[data-enlarge-image-btn]").inert = false;
+    modal.querySelector("[data-reduce-image-btn]").setAttribute("inert", "");
+    modal.querySelector("[data-enlarge-image-btn]").removeAttribute("inert");
+    modal.querySelector("[data-close-modal]").removeAttribute("inert");
 });
