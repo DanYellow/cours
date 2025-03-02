@@ -215,7 +215,7 @@ details summary::-webkit-details-marker {
     margin: 0 0 5px 0;
     position-try-fallbacks: --compact-target, flip-block;
 
-    border: var(--spacing-4) var(--color-gray-200) solid;
+    border: calc(0.5 * var(--spacing)) var(--color-gray-200) solid;
     border-radius: var(--radius-2xl);
     z-index: 99;
 

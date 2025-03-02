@@ -33,14 +33,6 @@
         @media (width >= theme(--breakpoint-sm)) {
             text-align: right;
         }
-
-        @media (width <= theme(--breakpoint-sm)) {
-            width: 100%;
-        }
-
-        /* @media (max-width: theme('screens.sm')) {
-            width: 100%;
-        } */
     }
 
     .txt-grand {
@@ -85,7 +77,6 @@
         right: 283px;
         top: -46px;
         transform: scale(1);
-        opacity: 0;
     }
 
     &.rose {
@@ -111,20 +102,20 @@
 
 .bulle-icone-bordure {
     position: absolute;
+    transform: scale(0.7);
     top: -101px;
     right: 0;
     z-index: -1;
     width: 484px;
     height: 360px;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
-    transform: scale(0.7);
+    transition: transform 0.3s, translate 0.3s;
 
-    /* @media (screen(sm)) {
-        transition: transform 0.3s, translate 0.3s;
+    @media (width >= theme(--breakpoint-sm)) {
         right: 241px;
         top: -60px;
         transform: scale(1);
-    } */
+    }
 
     &.rose {
         background-color: #a50253;
