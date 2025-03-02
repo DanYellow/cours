@@ -201,7 +201,8 @@ details summary::-webkit-details-marker {
         }
     }
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         &::after {
             transform: scaleX(1);
         }
@@ -279,4 +280,31 @@ details summary::-webkit-details-marker {
 
 .active-tab {
     background-color: var(--color-slate-100);
+}
+
+.enlarge-image-tooltip-target:where(:hover, :focus-within) {
+    anchor-name: attr(data-anchor type(<custom-ident>), none);
+}
+
+:root:has(.enlarge-image-tooltip-target:where(:hover, :focus-within)) .enlarge-image-tooltip {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.enlarge-image-tooltip {
+    position-anchor: --enlarge-image-tooltip;
+    z-index: 999;
+    font-size: 0.85rem;
+    background-color: white;
+    position: fixed;
+    bottom: anchor(top);
+    justify-self: anchor-center;
+    margin: 0 0 5px 0;
+    padding: 0 0.35rem;
+    border-radius: 0.35rem;
+
+    /* opacity: 1; */
+
+    transform: scale(0);
+    opacity: 0;
 }

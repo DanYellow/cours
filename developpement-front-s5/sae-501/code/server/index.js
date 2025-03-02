@@ -282,7 +282,7 @@ app.use(async (err, req, res, _next) => {
             error: err,
             statusCode: res.statusCode,
             sourceCode: null,
-        } : {})
+        } : {}),
     };
 
     if (process.env.NODE_ENV === "development") {
