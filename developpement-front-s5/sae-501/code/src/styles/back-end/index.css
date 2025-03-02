@@ -108,7 +108,7 @@ body:has(dialog:modal) {
 }
 
 dialog {
-    --animation-speed: 0.3s;
+    --animation-speed: 0.15s;
     --start-position-y: 50vh;
     opacity: 0;
     translate: 0 var(--start-position-y);

@@ -2,17 +2,10 @@ const listDragNDropArea = document.querySelectorAll("[data-drag-n-drop-area]");
 const listDragNDropError = document.querySelectorAll("[data-incorrect-upload]");
 
 const toggleDragAndDropIndicator = (element, show = true) => {
-    const hoverClass = Array.from(element.querySelector("label").classList)
-        .filter(item => item.includes("hover"))
-        .map(item => item.replace("hover:", "!"));
-
     if (show) {
         element.classList.remove("paused");
     } else {
         element.classList.add("paused");
-        if (hoverClass) {
-            element.querySelector("label").classList.remove(...hoverClass);
-        }
     }
 };
 
@@ -30,15 +23,6 @@ listDragNDropError.forEach((item) => {
 listDragNDropArea.forEach((item) => {
     item.addEventListener("dragover", (e) => {
         e.preventDefault();
-
-        const hoverClass = Array.from(item.querySelector("label").classList)
-            .filter(item => item.includes("hover"))
-            .map(item => item.replace("hover:", "!"));
-
-        if (hoverClass) {
-            item.querySelector("label").classList.add(...hoverClass);
-        }
-
         toggleDragAndDropIndicator(item, true);
     });
 });
@@ -47,7 +31,6 @@ listDragNDropArea.forEach((item) => {
     listDragNDropArea.forEach((item) => {
         item.addEventListener(event, (e) => {
             e.preventDefault();
-
             toggleDragAndDropIndicator(item, false);
         });
     });
