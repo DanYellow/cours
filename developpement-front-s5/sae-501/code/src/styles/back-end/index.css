@@ -198,7 +198,7 @@ details summary::-webkit-details-marker {
     &:hover,
     &:focus-visible {
         &::after {
-            transform: scaleX(1);
+            transform: scaleX(0.75);
         }
     }
 }

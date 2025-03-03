@@ -249,19 +249,20 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
                         <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
                     </li>
-                    <li>Réflechissons et créons ensemble la structure d'une base de données répondant aux besoins suivants : Nous souhaitons un système où les utilisateurs peuvent prendre part à des tests. Chaque test possède une date limite et est constitué de plusieurs questions, questions qui ne peuvent avoir qu'une seule réponse. Pour rendre les choses plus simples, une question n'est pas réutilisable.</li>
+                    <li>Réflechissons et créons ensemble la structure d'une base de données répondant aux besoins suivants : Nous souhaitons un site où les utilisateurs peuvent créer des albums photos avec d'autres utilisateurs. Chaque album peut contenir plusieurs photos, et ces photos ne sont pas réutilisables entre albums. Enfin chaque album peut se voir accompagner de messages écrits par d'autres utilisateurs.</li>
                     <div class="note-information">
                         <p>Pour créer une entité, on utilise la commande <code>php bin/console make:entity</code>, et on suit le prompt. A noter les points suivants : </p>
                         <ul>
                             <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
                             <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
-                            <li>Si toutes les propriétés d'une entité sont privés et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée. Ex : entity.name.</li>
+                            <li>Si toutes les propriétés d'une entité sont privées et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée dans les templates. Ex : {{ entity.name }}.</li>
                             <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
+                            <li>En cas de relation entre entités, il faut impérativement que les entités existent avant de faire la relation</li>
                         </ul>
                         <p>La commande <code>php bin/console make:entity</code> ne fait que créer un fichier dans le dossier src/Entity/, pour générer les tables, il faut lancer les commandes <code>php bin/console make:migration</code> puis <code>php bin/console doctrine:migrations:migrate</code>. Elles vont générer un fichier de migration (dans le dossier migrations/), il représente l'ensemble des commandes à exécuter pour avoir la base de données au stade actuel. Ensuite appliquer ces modifications sur votre base de données respectivement.</p> 
                         <p>Si vous passez en production ou changez d'ordinateur, pensez toujours à lancer la commande <code>php bin/console doctrine:migrations:migrate</code> pour mettre à jour la base de données.</p>
                     </div>
-                    <p class="note-importante">Nous créerons l'entité "User" plus tard. Ne le faites pas maintenant.</p>
+                    <p class="note-importante">Nous créerons l'entité correspondant aux utilisateurs plus tard. Ne le faites pas maintenant.</p>
                 </ol>
                 <ul>
                     <li>
