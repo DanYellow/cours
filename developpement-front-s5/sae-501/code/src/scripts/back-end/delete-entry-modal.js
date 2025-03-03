@@ -23,10 +23,10 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     if (!modal.open || e.currentTarget.dataset.modal !== tplId) {
         return;
     }
-    e.target.inert = true;
-    modal.querySelector("[data-close-modal]").inert = true;
 
-    const errorMessageModal = modalTemplateContent.querySelector("[data-error-modal]");
+    modal.setAttribute("inert", "");
+
+    const errorMessageModal = modal.querySelector("[data-error-modal]");
 
     await axios
         .delete(e.target.dataset.deleteItem)
@@ -34,10 +34,9 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
             window.location.reload();
         })
         .catch((error) => {
-            errorMessageModal.textContent = error.response.data.error || "Erreur";
+            errorMessageModal.textContent = error.response?.data?.error || "Erreur";
             errorMessageModal.classList.remove("hidden");
-            e.target.inert = false;
-            modal.querySelector("[data-close-modal]").inert = false;
+            modal.removeAttribute("inert");
         });
 });
 
