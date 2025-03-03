@@ -246,6 +246,8 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
   - [Voir documentation de vitest](https://vitest.dev/guide/)
 - Vous devez respecter l'accessibilité et les différentes règles d'ergonomie
 - Vous pouvez utiliser [commitizen](https://commitizen-tools.github.io/commitizen/) pour vous aider à créer des commits correctement labellisés
+- **L'accès SSH à votre serveur, le token GitHub ou les accès MySQL sont des données sensibles, elles doivent être gérées par un secret**
+  - [Didacticiel sur les GitHub Secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
 ## Pour aller plus loin
 
