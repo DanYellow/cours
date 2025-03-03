@@ -35,7 +35,7 @@
                 <p class="rounded-lg p-3 bg-red-100 text-red-800 border-solid border-x border-y border-red-700 mb-3">{{ item }}</p>
             {% endfor %}
             {% if messages.success %}
-                <p class="rounded-lg p-3 bg-green-100 text-green-800 border-solid border-x border-y border-green-700 mb-3">{{ messages.success }}</p>
+                <p class="rounded-lg p-3 bg-green-100 text-green-800 border-solid border-x border-y border-green-700 mb-3" data-flash-message>{{ messages.success }}</p>
             {% endif %}
             <form action="" data-form method="post" enctype="multipart/form-data">
                 <label class="block mb-4">
