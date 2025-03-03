@@ -173,10 +173,6 @@ details summary::-webkit-details-marker {
         transition-timing-function: ease-in;
 
         @apply duration-150;
-
-        @starting-style {
-            transform: scaleX(0);
-        }
     }
 }
 
@@ -185,6 +181,10 @@ details summary::-webkit-details-marker {
         border-top-color: var(--color-blue-500);
         transform: scaleX(1);
         top: calc(-0.75 * var(--spacing));
+
+        @starting-style {
+            transform: scaleX(0);
+        }
     }
 }
 
