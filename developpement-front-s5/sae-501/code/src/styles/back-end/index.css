@@ -89,6 +89,7 @@ body:has(dialog:modal) {
 
 :root {
     --percentage: 98%;
+    scrollbar-gutter: stable;
 }
 
 @keyframes clippath {
