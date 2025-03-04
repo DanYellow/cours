@@ -111,6 +111,8 @@ Les critères suivants seront évalués :
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
 
+> Pensez à expliquer comment la mise en place de l'administration, outils à installer, schéma de base de données, etc.
+
 - [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
   - Les images doivent être renommées de façon "sanitized". Les accents et autres espaces doivent être remplacés tout comme la casse doit passer en minuscules
