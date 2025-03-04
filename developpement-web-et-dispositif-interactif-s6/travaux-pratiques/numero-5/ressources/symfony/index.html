@@ -248,6 +248,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                     </li>
                     <li>Lancez la création de la base de données avec la commande <code>php bin/console doctrine:database:create</code>
                         <p class="note-information">La commande peut être exécutée pendant que le serveur tourne. Si vous faites attention, vous remarquerez parmi les logs que la commande <code>CREATE DATABASE `nom-bdd`</code> a été exécutée</p>
+                        <p class="note-attention">Si vous utilisez un service comme alwaysdata, il est possible que la commande <code>php bin/console doctrine:database:create</code> génère une erreur, car la commande n'est pas exécutée sur le même serveur. Si vous souhaitez utiliser une bdd distante, contentez-vous de configurer correctement la clé "DATABASE_URL" puis passez à l'étape suivante.</p>
                     </li>
                     <li>Réflechissons et créons ensemble la structure d'une base de données répondant aux besoins suivants : Nous souhaitons un site où les utilisateurs peuvent créer des albums photos avec d'autres utilisateurs. Chaque album peut contenir plusieurs photos, et ces photos ne sont pas réutilisables entre albums. Enfin chaque album peut se voir accompagner de messages écrits par d'autres utilisateurs.</li>
                     <div class="note-information">
