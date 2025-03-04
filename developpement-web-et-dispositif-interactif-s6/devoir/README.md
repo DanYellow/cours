@@ -125,6 +125,9 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
         Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette, le plus simple étant d'utiliser une base de données.
 
 ### CI/CD
+
+> **Pour rappel, vos actions doivent être dans un dossier ".github/workflows". Sans ça, votre pipeline ne sera jamais détectée par GitHub.**
+
 - [ ] Mettre en place **pour la branche "main"**, une pipeline qui
   - [ ] Déploie le projet en production
   - [ ] Exécute les tests e2e de façon optimale
@@ -159,14 +162,6 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
     - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
 
 > Cette pipeline peut être manuelle ou automatique.
-
-- [ ] Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
-  - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
-  - [Voir exemple de configuration](https://playwright.dev/docs/ci#on-pushpull_request)
-- [ ] Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
-  - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
-    - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
-> Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 du TP de CI/CD et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
@@ -261,3 +256,11 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 
 ### CI/CD
 - Bloquer la fusion de branche, si sa pipeline n'a pas été exécutée avec succès
+- Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
+  - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
+  - [Voir exemple de configuration](https://playwright.dev/docs/ci#on-pushpull_request)
+- Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
+  - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
+    - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
+> Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
+
