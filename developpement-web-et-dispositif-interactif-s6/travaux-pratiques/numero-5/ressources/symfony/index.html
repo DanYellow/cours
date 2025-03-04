@@ -256,7 +256,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                         <ul>
                             <li>Par convention, le nom d'une entité commence toujours par une majuscule et est au singulier</li>
                             <li>Doctrine ajoute automatiquement le champ id en auto-increment, ce n'est pas à vous le faire</li>
-                            <li>Si toutes les propriétés d'une entité sont privées et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée dans les templates. Ex : {{ entity.name }}.</li>
+                            <li>Si toutes les propriétés d'une entité sont privées et accessibles via des getters (méthode get...) et setters (méthode set...). La "magie" de Twig fait qu'on peut accéder à ces valeurs via la notion pointée dans les templates. Ex : {{ entity.name }}</li>
                             <li>Il est possible d'éditer une entité existante en relançant la commande <code>php bin/console make:entity</code> sur l'entité existante ou manuellement directement dans le fichier de l'entité</li>
                             <li>En cas de relation entre entités, il faut impérativement que les entités existent avant de faire la relation</li>
                         </ul>
