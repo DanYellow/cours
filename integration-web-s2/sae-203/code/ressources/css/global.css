@@ -6,6 +6,10 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --active-page-color: #ef509f;
+}
+
 /*
     ...alors on utilise les lignes de code suivantes pour désactiver
     les animations pour les utilisateurs
@@ -36,18 +40,41 @@ html {
   text-decoration: none;
   color: black;
   padding-top: 2.25rem;
-  border-top: 3px solid transparent;
   display: block;
 }
 
-.navigation-principale a:hover,
-.navigation-principale a:focus-visible {
-  color: #ef509f;
+.navigation-principale a { 
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    border-top: transparent 3px solid;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transition-property: transform;
+    transition-timing-function: ease-in;
+    transition-duration: 150ms;
+
+  }
 }
 
 .navigation-principale .active a {
-  color: #ef509f;
-  border-color: #ef509f;
+  color: var(--active-page-color);
+  &::after {
+    border-top-color: var(--active-page-color);
+    transform: scaleX(1);
+  }
+}
+
+.navigation-principale li:not(:where(.lien-admin, .active)) a:where(:hover, :focus) {
+  color: var(--active-page-color);
+  &::after {
+    border-top-color: var(--active-page-color);
+    transform: scaleX(0.8);
+  }
 }
 
 .pied-de-page-principal .liste-liens {

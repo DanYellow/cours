@@ -63,12 +63,17 @@ img {
 }
 
 .navigation-principale .lien-admin {
+    position: relative;
     background-color: black;
     padding: 0 0.5rem 0.5rem;
 }
 
 .navigation-principale .lien-admin a {
     color: aliceblue;
+    &:where(:hover, :focus)::after {
+        transform: scaleX(1);
+        border-top-color: aliceblue;
+    }
 }
 
 .pied-de-page-principal .lien-admin {
