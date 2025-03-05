@@ -70,9 +70,11 @@ img {
 
 .navigation-principale .lien-admin a {
     color: aliceblue;
+    &::after {
+        border-top-color: aliceblue;
+    }
     &:where(:hover, :focus)::after {
         transform: scaleX(1);
-        border-top-color: aliceblue;
     }
 }
 

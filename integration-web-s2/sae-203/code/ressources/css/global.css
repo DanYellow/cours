@@ -56,8 +56,7 @@ html {
     transform: scaleX(0);
     transition-property: transform;
     transition-timing-function: ease-in;
-    transition-duration: 150ms;
-
+    transition-duration: 200ms;
   }
 }
 
@@ -69,11 +68,15 @@ html {
   }
 }
 
-.navigation-principale li:not(:where(.lien-admin, .active)) a:where(:hover, :focus) {
-  color: var(--active-page-color);
+.navigation-principale li:not(:where(.lien-admin, .active)) a {
   &::after {
     border-top-color: var(--active-page-color);
-    transform: scaleX(0.8);
+  }
+  &:where(:hover, :focus) {
+      color: var(--active-page-color);
+      &::after {
+        transform: scaleX(0.8);
+      }
   }
 }
 
