@@ -89,12 +89,10 @@ Les deux pages à réaliser sont :
     - Nom
     - Lien vers le compte Twitter
       - **Facultatif à l'affichage**
-      - Mettez le lien vers le compte Twitter de l'université :
-        - https://twitter.com/UniversiteCergy
 
 > **Sur ces deux pages, le contenu doit provenir de la base de données.** Vous ne devez pas lister manuellement la liste des auteurs (page équipe de rédaction) ou faire autant de pages qu'il y a d'articles.
 
-Pour ces deux pages, c'est à vous de réaliser le design. Il faudra prendre soin à ce qu'elles contiennent au moins :
+Parallèlement, ça sera à vous de réaliser le design de ces pages. Il faudra prendre soin à ce qu'elles contiennent au moins :
 - Le haut de page (header) (`<?php require_once('./ressources/includes/header.php'); ?>`)
 - Le pied de page (footer) (`<?php require_once('./ressources/includes/footer.php'); ?>`)
 
@@ -104,7 +102,7 @@ Pour vous aider à créer de nouvelles pages pour le front-office, il y a un fic
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
 
-Nous vous demandons aussi d'apporter des améliorations aux pages existantes. Dans l'accueil, nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
+Nous vous demandons aussi d'apporter des améliorations aux pages existantes. Dans l'accueil, nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) et focus clavier (:focus) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
@@ -241,6 +239,7 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
     - [Travailler à plusieurs sur le même serveur php](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/PARTAGE-SERVEUR.md)
     - [Travailler avec l'extension VS Code liveshare](https://github.com/DanYellow/cours/blob/main/didacticiels-generaux/LIVESHARE.md)
 - Vous avez appris à utiliser git, n'hésitez pas à l'utiliser pour travailler en équipe et garder un historique de votre travail. Pour vous aider, il y a [un mémo sur git qui résume les commandes de base](LISEZ-MOI-GIT.md)
+  - Il est préférable de mettre tout le contenu du dossier code/ à la racine du dépôt
 - Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de classes pour vous éviter d'en créer de nouvelles.
 
 # Rendus attendus
