@@ -6,7 +6,7 @@ const isProfilerBarCollapsed = localStorage.getItem("is-profiler-bar-collapsed")
 if (JSON.parse(isProfilerBarCollapsed) === true) {
     const profilerBarTransitionSpeed = window.getComputedStyle(profilerBar).getPropertyValue("transition-duration");
     const openProfilerBarBtnTransitionSpeed = window.getComputedStyle(profilerBarOpenBtn).getPropertyValue("transition-duration");
-   
+
     profilerBar.style["transition-duration"] = "0s";
     profilerBarOpenBtn.style["transition-duration"] = "0s";
 
