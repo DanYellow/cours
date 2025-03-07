@@ -17,13 +17,14 @@
   background-size: 105% 105%;
 }
 
-.jpo-banniere:before {
+.jpo-banniere::before {
   content: "";
   display: block;
   position: absolute;
   width: 100%;
   height: 100%;
   border: 3px solid white;
+  border-radius: 0.5rem;
   z-index: 1;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.1, 1.1);
@@ -32,7 +33,7 @@
   transition: transform 0.2s, opacity 0.1s;
 }
 
-.jpo-banniere:hover:before {
+.jpo-banniere:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%) scale(0.96, 0.98);
 }

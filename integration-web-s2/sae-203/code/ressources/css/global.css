@@ -45,6 +45,10 @@ html {
 
 .navigation-principale a { 
   position: relative;
+  transition-property: color;
+  transition-timing-function: ease-in;
+  transition-duration: 200ms;
+
   &::after {
     content: "";
     position: absolute;
