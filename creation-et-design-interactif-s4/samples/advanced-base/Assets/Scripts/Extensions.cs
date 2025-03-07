@@ -14,8 +14,8 @@ public static class Extensions
     {
         Vector3 initialPosition = transform.localPosition;
 
-        yield return Move(transform, initialPosition, endPosition);
-        yield return Move(transform, endPosition, initialPosition);
+        yield return Move(transform, initialPosition, endPosition, duration);
+        yield return Move(transform, endPosition, initialPosition, duration);
     }
 
     /// <summary>
