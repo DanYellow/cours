@@ -4,17 +4,17 @@ Pour permettre à des tiers de jouer à votre jeu, il va falloir créer un build
 
 # Créer un build
 
-Pour ce faire, il faut aller dans le menu `File > Build Settings`, ceci va ouvrir une fenêtre au premier plan. 
-![Alt text](build-1-framed.jpg)
+Pour ce faire, il faut aller dans le menu `File > Build Profiles`, ceci va ouvrir une fenêtre au premier plan.
+![Alt text](build-1.jpg)
 
 On peut décomposer cette fenêtre en quatre grandes parties que nous allons détailler :
-- Scenes In Build - en rouge
-- Platform - en jaune
-- Build settings (Ici nommé "Windows, Mac, Linux) - en vert
+- Scene List - en rouge
+- Platforms - en jaune
+- Platform Settings - en vert
 - Build (Les trois boutons en bas) - en bleu
 
-## Scenes In Build
-Cette partie désigne les scènes (ou niveaux) qui seront présents dans votre build. Ainsi, il est possible de créer des scènes à titre de test et ne jamais les mettre dans votre build. Cette partie peut être vide, il faut donc indiquer à Unity quelles scènes nous souhaitons avoir dans notre build.
+## Scene List
+Cette partie désigne les scènes (ou niveaux) qui seront présents dans votre build. Ainsi, il est possible de créer des scènes à titre de test et ne jamais les mettre dans votre build. Si la partie est vite, Unity ne pourra pas créer de build. Pour modifier la liste, il vous suffit de cliquer sur le bouton "Open Scene List".
 
 Pour les rajouter, deux choix s'offrent à nous :
 - Cliquer sur le bouton "Add Open Scenes" qui ajoutera toutes les scènes ouvertes présentement
@@ -22,21 +22,21 @@ Pour les rajouter, deux choix s'offrent à nous :
 
 Une fois les scènes ajoutées, vous devriez avoir quelque chose comme ceci :
 | ![](build-2.jpg) |
-|:--:| 
+|:--:|
 | *En mettant la scène "SampleScene" en premier, c'est cette scène qu'Unity chargera après avoir affiché les logos d'introduction* |
 
 Deux choses à noter dans cette interface :
 - A gauche, les cases à cocher, elles indiquent quelles scènes seront présentent dans le Build. La case cochée indiquant sa présence.
-- A droite, un nombre, il indique l'ordre de chargement des scènes, plus le chiffre est petit, plus tôt sera chargée la scène. Assurez-vous donc d'avoir votre scène de menu de jeu en premier position (valeur 0), car charger en premier le dernier niveau, ce n'est pas la meilleure des choses à faire. 
+- A droite, un nombre, il indique l'ordre de chargement des scènes, plus le chiffre est petit, plus tôt sera chargée la scène. Assurez-vous donc d'avoir votre scène de menu de jeu en premier position (valeur 0), car charger en premier le dernier niveau, ce n'est pas la meilleure des choses à faire.
 Vous pouvez réordonner l'ordre des scènes à votre discrétion en effectuant un glisser-déposer.
 
-## Platform et Build settings
-Ces deux parties sont liées, en changeant la partie "Platform", la partie "Build settings" changera en fonction. Certes options étant propres à une plateforme en particulier d'autres non. 
+## Platforms et Platform Settings
+Ces deux parties sont liées, en changeant la partie "Platforms", la partie "Platform Settings" changera en fonction. Certaines options étant propres à une plateforme.
 
 Par ailleurs, dépendamment de la plateforme choisie, il se peut que nous n'ayez pas le module associé (la plateforme est grisée), vous devrez donc l'installer en passant par Unity Hub. En sélectionnant la plateforme en défaut un bouton "Install with Unity Hub" s'affichera, cliquez dessus.
 
 | ![](build-3.jpg) |
-|:--:| 
+|:--:|
 | *En absence du module "Android", nous devons l'installer grâce à l'Unity Hub.* |
 
 Parmi les plateformes, nous trouvons (liste non exhaustive) :
@@ -55,7 +55,7 @@ Dernière partie : le build. Il y a trois options dans cette zone :
 - Build and run : Fait un build du jeu puis le lance directement
 
 ### Build / Clean build
-L'option "Build" est une liste déroulante qui contient également l'option "Clean build". Dans les deux cas, cliquer sur cette option affichera l'explorateur de votre système d'exploitation pour savoir où compiler le build. 
+L'option "Build" est une liste déroulante qui contient également l'option "Clean build". Dans les deux cas, cliquer sur cette option affichera l'explorateur de votre système d'exploitation pour savoir où compiler le build.
 
 Nous vous conseillons très fortement de mettre vos builds dans un dossier nommé "Builds" et contenu dans votre projet Unity, donc au même niveau que le dossier "Assets". Pour la simple et bonne raison que par défaut, le fichier `.gitignore` d'Unity exclut le dossier "Builds" (et son contenu) car vous n'avez aucun intérêt à versionner vos builds vu que le code source l'est déjà.
 
@@ -69,7 +69,7 @@ Sachez qu'à chaque changement de plateforme, le bouton "Build" sera remplacé p
 
 Une fois le build effectué, Unity ouvrira son emplacement dans l'explorateur de votre navigateur.
 | ![](build-4.jpg) |
-|:--:| 
+|:--:|
 | *Si je souhaite lancer mon jeu il faudra cliquer sur "fps-project-1.exe", "fps-project-1" est le nom de mon jeu, il a été définit dans le menu Player Settings".* |
 
 #### Windows - Créer un exécutable

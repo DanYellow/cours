@@ -30,7 +30,7 @@
 
 ![](./screenshot.jpg)
 
-Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants : 
+Dans le cadre du cours de création et design interatif, nous avons pu découvrir le logiciel Unity, il permet de réaliser des jeux vidéo de toutes sortes en 2D ou 3D. Le but de cette SAE sera donc de renforcer vos connaissances et d'en découvrir de nouvelles. Le tout dans le but de valider les Apprentissages Critiques (AC) suivants :
 
 - AC 23.02 | Définir une iconographie (illustrations, photographies, vidéos)
 - AC 23.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
@@ -40,8 +40,8 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
 > [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
 
-> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet. 
-> 
+> Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet.
+>
 | ![](unity-hub.jpg) |
 |:--:|
 | L'import de projets se fait depuis l'Unity Hub, et non depuis le logiciel Unity. |
@@ -102,7 +102,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Compléter le niveau du projet en permettant au joueur de passer au niveau suivant
     - Il y a déjà des trophées (prefab) qui servent de fin de niveau, il faudra juste les compléter
 - Compléter l'écran d'accueil (écran qui permet de commencer le jeu)
-    - L'écran doit contenir : 
+    - L'écran doit contenir :
         - Le logo de l'université
             - Plusieurs versions sont déjà présentes dans le projet dans le dossier `Assets/Imports/Logos` à vous de choisir
         - Le nom du jeu
@@ -131,7 +131,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEvent`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
     - Le menu Pause doit **au minimum** contenir un bouton pour relancer le jeu et revenir au menu principal
-    > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.  
+    > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
     - Note : Vous pouvez également décider qu'au moindre dégât le joueur meurt immédiatement
@@ -151,7 +151,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - N'oubliez pas qu'il y déjà des scripts décrivant des comportants appliquables à un ennemi : Patrouille (EnemyPatrol), Tir (EnemyShooting + ObjectPooling), Santé (Enemy)... à vous de les réutiliser, au besoin, pour votre nouvel ennemi
         - Voir [gestion des ennemis](#gestion-des-ennemis) pour en savoir plus
 - Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
-    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
+    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`)
 
 ## <span id="list-extras">Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)</span>
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
@@ -167,14 +167,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
     - Il faudra utiliser la méthode [Physics2D.OverlapAreaAll() (ou Physics2D.OverlapCircleAll())](https://docs.unity3d.com/ScriptReference/Physics2D.OverlapAreaAll.html) pour savoir qui a été touché dans une zone spécifique
     - Le joueur descend déjà plus vite si on appuie sur la flèche bas ou la touche S durant un saut
 - Animer les checkpoints (Les carrés bleus dans le niveau)
-    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`) 
+    - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`)
 - **Créer un** prop de votre choix (ennemi, bonus, panneau...) et l'intégrer dans le jeu
     - Pas besoin que votre props colle avec la direction artistique (DA) du jeu
     - Ce n'est pas du grand art qui est attendu. Si nous n'êtes pas à l'aise avec le dessin, un simple panneau est suffisant
     - Vous pouvez utiliser le logiciel gratuit [LibreSprite](https://libresprite.github.io/#!/) pour réaliser votre création en pixelart. Sinon, il y a Photoshop
 - Expliquer comment le jeu fonctionne (les contrôles, mécaniques...)
     - Vous pouvez réaliser cette tâche via un niveau de didacticiel, un menu dédié ou tout simplement du texte affiché directement dans la scène
-        - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)  
+        - Il y a un sprite avec les différents contrôles et boutons dans les Assets que vous avez téléchargé. Si le sprite ne vous convient pas, vous pouvez également en télécharger un sur le site [thoseawesomeguys](https://thoseawesomeguys.com/prompts/), néanmoins les images sont séparées, il est préférable de tout fusionner en un sprite. Il est possible de générer des sprites avec un site comme [images-sprite-sheet-generator](https://codeshack.io/images-sprite-sheet-generator/)
 - Proposer une traduction de votre jeu en anglais (ou une autre langue)
     - Il existe le package gratuit "Localization" qui vous permet de gérer ceci. Voici un tutorial (en anglais) expliquant comment intégrer et utiliser le package.
         - Voir le tutoriel sur le [package Localization](https://www.youtube.com/watch?v=qcXuvd7qSxg)
@@ -182,7 +182,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Ajouter une secousse de la caméra pour les actions suivantes :
     - Mort du joueur
     - Blessure du joueur
-    
+
     Cette fonctionnalité est déjà présente notamment dans le fichier `Assets/Scripts/RockHead.cs` avec le ScriptableObject évènementiel de type `CameraShakeEventChannel`.
 - Téléporter le joueur au dernier endroit où il a eu pied quand il tombe au lieu de le téléporter au dernier checkpoint le cas échéant
 - Afficher, lorsqu'un niveau est terminé, le temps mis par le joueur pour terminer le niveau et d'autres statistiques (nombre d'ennemis éliminés, nombre de sauts...)
@@ -208,7 +208,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 > N'oubliez pas : **c'est votre jeu**. N'hésitez pas à ajouter d'autres fonctionnalités, les possibilités sont infinies : score, chronomètre, boss, objets à récupérer... Faites preuve d'imagination, ce projet peut être un très beau moyen de valoriser vos CV. Ne vous limitez pas parce que c'est un devoir. Tentez des choses, l'école est l'occasion de tenter des trucs en sécurité mais surtout apprendre de nouvelles choses.
 
 ## Fonctionnalités que nous développerons ensemble
-Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants. 
+Pour vous permettre de commencer sur de bonnes bases, nous travaillerons (et réfléchirons) ensemble sur les fonctionnalités suivantes. Ceci vous permettra d'avoir plus d'assurance dans l'utilisation d'Unity et de découvrir de nouveaux composants.
 
 Etant donné que le projet est en groupe ET que nous allons tous développer ces fonctionnalités, certains développerons ces fonctionnalités "pour rien".
 
@@ -222,12 +222,12 @@ Nous rajouterons une _prop_ qui permettra au joueur de s'élever dans le ciel. L
 ### Blocs
 Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des `GameObject` ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
 
-## Contenu de l'écran des crédits 
+## Contenu de l'écran des crédits
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
 - https://pixelfrog-assets.itch.io/pixel-adventure-2
 - https://pixelfrog-assets.itch.io/pixel-adventure-1
 - https://opengameart.org/content/8bit-style-music
-- Et vous bien évidemment 
+- Et vous bien évidemment
     - Pensez également à mettre le logo de l'université (déjà importé dans le dossier `Assets/Imports/Logos`) + l'année + le nom de la formation
 
 ### Ressources graphiques / musicales gratuites utilisables, source non exhaustive
@@ -260,7 +260,7 @@ Note 2 : Vu que vous avez cloné le projet via ssh, il faudra impérativement g�
 > Pensez bien à sélectionner l'onglet concernant votre système d'exploitation dans le lien ci-dessus.
 Une fois la clef générée, il faut l'ajouter à votre compte github. [Voir didacticiel pour ajouter clé ssh à github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs : 
+Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs :
 - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
     - Il est possible d'imbriquer des prefabs
 - Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
@@ -272,7 +272,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
     > Unity propose également son propre outil de gestion de version (Unity Version Control) qui propose une version gratuite limitée en terme d'utilisateurs. [En savoir plus - anglais](https://unity.com/solutions/git)
 
 ## Astuces et conseils
-- C'est bien d'avoir des superbes idées, mais il faut penser à les développer à la fin. Ne perdez pas votre temps à poser vos idées de game / level design sans développer. Assurez-vous d'avoir les connaissances / compétences techniques, pensez à faire des prototypes 
+- C'est bien d'avoir des superbes idées, mais il faut penser à les développer à la fin. Ne perdez pas votre temps à poser vos idées de game / level design sans développer. Assurez-vous d'avoir les connaissances / compétences techniques, pensez à faire des prototypes
 - Le code fournit essaye le plus possible d'éviter un couplage trop fort entre les composants notamment en créeant des scripts dédiés pour chaque fonctionnalité et en utilisant les Scriptable Objects. Essayez de continuer sur cette voie !
 - Un GameObject est réutilisé à plusieurs reprises ? Pensez aux Prefabs
 - Variables, classes, commentaires sont écrits en anglais. Continuez ainsi. En programmation, on écrit plutôt en anglais, et ce, quelque soit le pays où vous développerez
@@ -288,7 +288,7 @@ Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](htt
 - Le projet utilise déjà TextMeshPro. N'oubliez pas qu'il est possible d'utiliser du code proche du HTML pour personnaliser votre texte (couleur, taille...).
     - [Voir liste non exhaustive des balises TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichText.html)
     - Si vous avez oublié les bases de TextMeshPro, [vous avez cette vidéo en anglais.](https://www.youtube.com/watch?v=gVialGm65Yw)
-- N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes in build" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
+- N'oubliez pas d'ajouter les niveaux supplémentaires que vous avez ajouté dans la partie "Scenes List" dans la fenêtre "Build Settings". [Voir document sur le BUILD](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
 - **Testez bien votre jeu avant le rendre, nous ne debugerons pas votre jeu.**
 
 ## Ressources et outils utiles
@@ -308,7 +308,7 @@ Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous
 - Ajouter un nouvel ennemi au choix (avec comportements)
 - Réaliser deux fonctionnalités (au lieu d'une) dans la partie ["Liste des choses à faire au choix"](#list-extras)
 
-Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet. 
+Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet.
 
 ## Votre liste à faire
 - [x] Lire les consignes
@@ -322,6 +322,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
         - Pensez à tester le build final de votre jeu. Il faut faire un build de production, **l'option "Développement Build" ne doit pas être cochée**
             - [Voir didacticiel sur la génération d'un build](https://github.com/DanYellow/cours/blob/main/creation-et-design-interactif-s4/travaux-pratiques/numero-1/ressources/unity/BUILD.md)
         - Un fichier texte avec le lien du projet git + les fonctionnalités supplémentaires que vous avez ajouté ([partie "Liste des choses à faire au choix"](#liste-des-choses-à-faire-au-choix-vous-devez-au-moins-en-faire-une-deux-si-vous-êtes-plus-de-trois-dans-votre-groupe))
+    > Note : Pour vous aider, un menu "Debug" a été ajouté dans le menu d'Unity avec une option "Create build". Pour rappel, un build ne se commite pas. Le .gitignore du projet crée ignore tout le contenu du dossier "Builds"
 
 ## FAQ - Foire Aux Questions
 
@@ -341,7 +342,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
     **Il est possible réaliser cette SAE en solitaire.** Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
-    
+
     **Ce n'est pas demandé, mais vous pouvez le faire.** Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).
 
     - Note : l'utilisation du system nécessitera également une réécriture de certains bouts de code
@@ -353,7 +354,7 @@ Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement su
 
     En recliquant dessus, vous le désactiverez.
 - **J'ai trouvé un super design / son / bruitage, mais je n'ai pas les droits, est-ce possible quand même de l'utiliser ?**
-    
+
     Vous pouvez, toutefois, si possible, évitez, d'autant plus qu'un site comme itch.io propose des milliers d'assets libres de droits de qualité et gratuits. Ainsi que d'autres sites listés plus haut.
 - **Est-ce que j'ai le droit de modifier le code existant (ajout de propriétés, méthodes...) ?**
 
