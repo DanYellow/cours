@@ -152,6 +152,9 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - Voir [gestion des ennemis](#gestion-des-ennemis) pour en savoir plus
 - Remplacer les carrés bleus qui font office de checkpoints par un sprite plus approprié
     - Il y a un sprite dédié dans le projet (`Assets/Imports/Scripts/Misc/Checkpoint*`)
+- Ajouter un état "désactivé" quand un bloc n'est plus interagissable
+  - **Vous devez faire vous-même le sprite**
+
 
 ## <span id="list-extras">Liste des choses à faire au choix. Vous devez au moins en faire une (**deux si vous êtes plus de trois dans votre groupe**)</span>
 - Ajouter une musique. Vous pourrez en trouver sur ces sites :
