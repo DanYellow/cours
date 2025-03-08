@@ -243,11 +243,11 @@ Petit conseil : si vous avez mis localhost pour la valeur de `SERVEUR_BDD`, vous
 - Pour le backoffice (administration), n'allez pas réinventer la roue, tailwindcss propose suffisament de classes pour vous éviter d'en créer de nouvelles.
 
 # Rendus attendus
-Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons deux façons de rendre votre projet sur l'ENT :
+Etant donné que l'outil git a été abordé durant le semestre, nous vous proposons **deux** façons de rendre votre projet sur l'ENT :
   - Une archive avec le nom-prénom du chef de projet
   - Un fichier texte contenant le lien vers le dépôt git **public**
-    - **Note : Il faut faire un seul et unique dépôt git par groupe. Il ne faut pas en faire plusieurs par membre du groupe.**
-    - **Note 2 : Il ne faut pas mettre vos mots de passe dans le fichier ".env.prod", Sinon vous exposez à tout le monde votre mot de passe, c'est une faille critique de sécurité**
+    - **Note : Il faut faire un seul et unique dépôt git par groupe**
+    - **Note 2 : Il ne faut pas mettre vos mots de passe dans le fichier ".env.prod" (ou ".env.dev"), Sinon vous exposez à tout le monde votre mot de passe, c'est une faille critique de sécurité**
 
 Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - Le code source du projet
