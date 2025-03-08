@@ -10,9 +10,9 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
 - Mettre un système de pagination pour les articles de la page d'accueil. Il vous faudra :
   - Limiter le nombre d'entrées par requêtes SQL avec le mot-clé `LIMIT`
   - Définir le décalage dans la requêtes avec le mot-clé `OFFSET`
-  - Bien évidemment, il y a des didactiels en ligne concernant cette fonctionnalité
+  - Il y a des didactiels en ligne concernant cette fonctionnalité
 - (Ré)Écrire **votre CSS** avec le CSS nesting
-  - [Voir documentation du CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+  - [Voir documentation du CSS nesting - anglais](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur :
   - Ceci peut être géré via une combinaison de PHP et d'ancres de lien
 - Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse du compte twitter est valide respectant bien le format `https://www.twitter.com/nom_du_compte`
@@ -31,6 +31,10 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
     - Il faudra utiliser du javascript
 - Améliorer le code de l'administration de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 - Afficher des pictogrammes dans l'administration. Par exemple, dans le bouton de soumission du formulaire
-    - tailwindcss propose un liste d'icônes sur le [site heroicons](https://heroicons.com/). Nous vous conseillons, pour éviter de polluer le code, de mettre le code de chaque icône dans un fichiers PHP pour ensuite les inclure avec la fonction PHP `include()`
+    - tailwindcss propose un liste d'icônes sur le [site heroicons](https://heroicons.com/). Nous vous conseillons, pour éviter de polluer le code, de mettre le code de chaque icône dans un fichier PHP pour ensuite les inclure avec la fonction PHP `include()`
+- Ajouter des meta tags, ces tags permettent d'enrichir l'affichage d'un lien sur les réseaux sociaux (Discord, Facebook...)
+  - Il existe des générateurs [https://metatags.io/](https://metatags.io/)
+  - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
+  - A noter que ceci ne peut être testé que si le site est en ligne
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
