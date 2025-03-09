@@ -68,13 +68,13 @@ $URL_creation = "{$racine_URL}/creation.php";
                             }
                         ?>
                             <tr class="odd:bg-neutral-50  border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                <td class="pl-8 p-4 font-bold">
+                                <td class="pl-8 p-4 font-bold" data-label="Id">
                                     <?php echo $element["id"]; ?>
                                 </td>
-                                <td class="pl-8 p-4"><?php echo $element["titre_article"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $element["chapo_article"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
-                                <td class="pl-8 p-4">
+                                <td class="pl-8 p-4" data-label="Titre"><?php echo $element["titre_article"]; ?></td>
+                                <td class="pl-8 p-4" data-label="Chapô"><?php echo $element["chapo_article"]; ?></td>
+                                <td class="pl-8 p-4" data-label="Date"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
+                                <td class="pl-8 p-4" data-label="Auteur">
                                     <?php echo $auteur_article; ?>
                                 </td>
                                 <td class="pl-8 p-4">

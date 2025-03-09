@@ -41,9 +41,9 @@ $page_courante = "messages";
                     <tbody>
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) { ?>
                             <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                <td class="pl-8 p-4 font-bold"><?php echo $element["id"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $element["nom"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $element["prenom"]; ?></td>
+                                <td class="pl-8 p-4 font-bold" data-label="Id"><?php echo $element["id"]; ?></td>
+                                <td class="pl-8 p-4" data-label="Nom"><?php echo $element["nom"]; ?></td>
+                                <td class="pl-8 p-4" data-label="Prénom"><?php echo $element["prenom"]; ?></td>
                                 <td class="pl-8 p-4"></td>
                                 <td class="pl-8 p-4"></td>
                                 <td class="pl-8 p-4"></td>
