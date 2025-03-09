@@ -82,4 +82,41 @@
             box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
         }
     }
+
+    @media screen and (width <= theme(--container-3xl))  {
+        table {
+            border: 0;
+
+            thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            tr {
+                border-bottom: 1px solid var(--color-slate-200);
+                display: block;
+
+                &:last-child {
+                    border-bottom-color: transparent;
+                }
+            }
+
+            td {
+                display: block;
+                text-align: left;
+
+                &::before {
+                    content: attr(data-label);
+                    font-weight: bold;
+                    display: block;
+                }
+            }
+        }
+    }
 </style>
