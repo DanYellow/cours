@@ -39,7 +39,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                             <th class="font-bold pl-8 py-5 text-left">Avatar</th>
                             <th class="font-bold pl-8 py-5 text-left">Nom</th>
                             <th class="font-bold pl-8 py-5 text-left">Prénom</th>
-                            <th class="font-bold pl-8 py-5 text-left">Twitter</th>
+                            <th class="font-bold pl-8 py-5 text-left">Compte twitter</th>
                             <th class="pl-8 py-5"></th>
                         </tr>
                     </thead>

@@ -83,7 +83,7 @@
         }
     }
 
-    @media screen and (width <= theme(--container-3xl))  {
+    @media screen and (width <= theme(--container-4xl))  {
         table {
             border: 0;
 

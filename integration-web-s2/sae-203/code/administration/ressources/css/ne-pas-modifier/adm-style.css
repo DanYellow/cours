@@ -22,3 +22,7 @@ body {
         animation: none !important;
     }
 }
+
+@view-transition {
+    navigation: auto;
+}
