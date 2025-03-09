@@ -32,7 +32,7 @@ $liste_entrees_menu = [
                     <a href="./administration/articles">Administration SAE 203</a>
                 </p>
             </div>
-            <nav class="flex items-baseline space-x-4 grow">
+            <nav class="flex items-baseline md:space-x-4 grow">
                 <?php
                     foreach ($liste_entrees_menu as $key => $entree_menu) {
                         $liste_classes = 'text-white';

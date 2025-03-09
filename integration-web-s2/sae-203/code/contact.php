@@ -20,14 +20,14 @@ if ($formulaire_soumis) {
 
         // La date est formattée en chaîne de caractères
         // au format Année-mois-jour Heure:minutes:secondes
-        // Sinon, elle ne pourra pas être 
+        // Sinon, elle ne pourra pas être
         // insérée dans la base de données
         $date_formatte = $date->format('Y-m-d H:i:s');
 
 
         // Requête pour écrire le message dans la base :
         $requete_brute = "
-            INSERT INTO message(nom, prenom, contenu, email, type, date_creation) 
+            INSERT INTO message(nom, prenom, contenu, email, type, date_creation)
             VALUES ('$nom', '$prenom', '$message', '$email', '$type', '$date_formatte')
         ";
 
