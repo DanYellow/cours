@@ -13,6 +13,7 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
   - Il y a des didactiels en ligne concernant cette fonctionnalité
 - (Ré)Écrire **votre CSS** avec le CSS nesting
   - [Voir documentation du CSS nesting - anglais](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+  - Une partie du code utilise déjà le CSS nesting
 - Ajouter une interaction sur la bannière erreur lors de la soumission du message, pour permettre, au clic sur la bannière, d'atteindre le premier champ en erreur :
   - Ceci peut être géré via une combinaison de PHP et d'ancres de lien
 - Utiliser une Regex ou filtre (côté PHP) pour s'assurer que l'adresse du compte twitter est valide respectant bien le format `https://www.twitter.com/nom_du_compte`
@@ -36,5 +37,7 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
   - Il existe des générateurs [https://metatags.io/](https://metatags.io/)
   - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
   - A noter que ceci ne peut être testé que si le site est en ligne
+- Via les modifiers de tailwindcss, rendez l'administration responsive
+  - [Accéder à la documentation du responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités

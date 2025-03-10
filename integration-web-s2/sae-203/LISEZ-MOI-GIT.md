@@ -1,5 +1,5 @@
 # Mémo GIT
-Pour certaines commandes, il vous sera proposé une alternative avec VS Code.
+Pour certaines commandes, il vous sera proposé une alternative à la ligne de commandes avec VS Code.
 
 - [Mémo GIT](#mémo-git)
   - [git ou github ?](#git-ou-github-)
@@ -17,14 +17,13 @@ Pour certaines commandes, il vous sera proposé une alternative avec VS Code.
     - [Changer le terminal de VS Code (Windows uniquement)](#changer-le-terminal-de-vs-code-windows-uniquement)
     - [Liens utiles](#liens-utiles)
 
-
 > **Important : Si vous souhaitez utiliser git pour la SAE, il faut impérativement éditer les fichier .env.local.dev et .env.local.prod et non .env.dev et .env.prod. Ne pas le faire vous expose à des failles de sécurité critiques.**
 >
 > **Si ça arrive, changez immédiatement le mot de passe de votre base de données chez votre hébergeur.**
 
-Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web. 
+Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web.
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash. 
+Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash.
 - [Télécharger git bash](https://gitforwindows.org/)
 
 ## git ou github ?
@@ -34,7 +33,7 @@ Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès m
 
 ## Commandes
 > git possède de nombreuses commandes, ce document ne listera que les commandes principales, celles dont vous aurez le plus besoin. Les autres, vous aurez l'occasion de les découvrir durant vos périgrignations avec git.
-> 
+>
 > A noter qu'il existe des variantes concernant certaines commandes qui font plus ou moins la même chose, ne soyez pas étonné(e) si vous y faites face.
 
 ### Initialisation du projet
@@ -58,22 +57,22 @@ Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur s
 ```bash
 git clone URL-du-depot.git
 ```
-> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide. : 
+> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide. :
 > - Créez un dossier vide sur votre ordinateur
 > - Glisser ce dossier dans VS Code
 > - Ouvrez la console et clonez le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important)
-> 
+>
 > Et voilà, vous avez cloné votre dépôt.
 
-Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur. 
+Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre projet sur votre ordinateur.
 
 > **N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.**
 
 Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
 
-![](./captures-ecran/git-14.png) 
+![](./captures-ecran/git-14.png)
 
-### Ajouter des fichiers à l'historique - git add 
+### Ajouter des fichiers à l'historique - git add
 Une fois le projet cloné glissez-déposez tout le contenu du dossier de la SAE dans le dossier récemment où vous avez cloné le projet via la commande `git clone`.
 
 Git permet de garder un historique des fichiers au sens d'un dépôt (ajout, suppression, modification). Toutefois, git crée un registre uniquement des fichiers qu'il connait. Après avoir déplacé tous les fichiers de la SAE 203 dans le dossier, vous avez du remarquer sur la gauche de VS Code une pastille avec un nombre, ce nombre représente le nombre de fichiers ajoutés/modifiés dans votre dépôt. Cliquez dessus.
@@ -88,7 +87,7 @@ La partie "Source control" garde une trace actuelle de votre dernière modificat
 |:--:|
 |*Ici notre fichier `index.html` bien que dans le dossier de notre dépôt, il est marqué comme **U**nstagged. Il faut y remédier.*|
 
-<details open> 
+<details open>
     <summary>Ligne de commande</summary> <br/>
 Pour ajouter nos fichiers à l'historique, il faut utiliser la commande suivante dans le terminal :
 
@@ -97,7 +96,7 @@ git add .
 ```
 </details>
 
-<details> 
+<details>
     <summary>VS Code</summary> <br/>
 Pour ajouter nos fichiers à l'historique, il vous suffit de cliquer sur le signe "+" qui groupe tous les fichiers modifiés
 
@@ -134,7 +133,7 @@ gitGraph
 
 Chaque point indique un "point de sauvegarde". Main est le nom de la branche de base de git, elle est également parfois appelée "Master".
 
-<details open> 
+<details open>
     <summary>Ligne de commande</summary> <br/>
 Cette action s'effectue via la commande :
 
@@ -146,7 +145,7 @@ git commit -am "Contenu du commit"
 Et on valide le commit en appuyant sur entrée.
 </details>
 
-<details> 
+<details>
     <summary>VS Code</summary> <br/>
 Dans VS Code, il vous suffit d'écrire le contenu de votre commit dans l'onglet "Source Control" <img alt="" src="captures-ecran/source-control-vs-code-icon.png" /> et de valider son contenu en cliquant sur "Commit".
 
@@ -158,14 +157,14 @@ Il est préférable d'avoir un contenu de message clair, ceci vous permettra de 
 
 > Pour un message de commit clair, nous vous conseillons d'écrire un message qui répond à la phrase suivante "This commit will..." ou en français "Ce commit (fera)...". Dans le cas de nos exemples, l'ajout de notre fichier "index.html", le message du commit peut être "Ajout de la page d'accueil".
 
-Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter régulièrement. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités... 
+Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez pas à commiter régulièrement. Notamment quand vous accomplissez une grande avancée sur votre projet : ajout de fichiers, fonctionnalités...
 
 Commiter souvent, ça vous permet de plus facilement "retourner" dans le temps en cas d'erreur.
 
 ### Mettre à jour le dépôt distant - git push
 Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git.
 
-<details open> 
+<details open>
     <summary>Ligne de commande</summary> <br/>
 Cette action s'effectue via la commande :
 
@@ -176,7 +175,7 @@ git push origin
 Et on n'oublie pas de valider l'action en appuyant sur entrée.
 </details>
 
-<details> 
+<details>
     <summary>VS Code</summary> <br/>
 Dans VS Code, survolez "Source control", cliquez sur les trois points (...) et cliquez sur "Push" comme dans la capture ci-dessous.
 
@@ -184,7 +183,7 @@ Dans VS Code, survolez "Source control", cliquez sur les trois points (...) et c
 
 </details>
 
-L'action de "Push" va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés. 
+L'action de "Push" va envoyer sur le serveur distant tous les commits effectués qui n'ont pas encore été envoyés.
 
 > Important : git refusera un push si votre historique local n'est pas à jour, il faudra impérativement effectuer un tirage de branch avant. Voir chapitre [récupérer l'historique distant](#git-pull).
 
@@ -194,7 +193,7 @@ Lors de votre premier push, il n'est pas improbable que github vous demande des 
 ## <a name="git-pull"></a>Récupérer l'historique distant - git pull
 Si vous changez d'ordinateur ou travaillez d'avec d'autres, votre historique local ne sera certainement pas à jour s'il y a eu des modifications entre-temps. Pour les récupérer, rien de plus simple :
 
-<details open> 
+<details open>
     <summary>Ligne de commande</summary> <br/>
 Cette action s'effectue via la commande :
 
@@ -205,7 +204,7 @@ git pull origin
 Et on n'oublie pas de valider l'action en appuyant sur entrée.
 </details>
 
-<details> 
+<details>
     <summary>VS Code</summary> <br/>
 Dans VS Code, survolez "Source control", cliquez sur les trois points (...) et cliquez sur "Pull" comme dans la capture ci-dessous.
 
