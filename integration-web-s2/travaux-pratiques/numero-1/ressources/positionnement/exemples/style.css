@@ -1,58 +1,53 @@
-.posStatic
-{
-    display: inline;
-    margin:5px;
-    padding:5px;
-    border: 1px solid black;
-    top:10px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 160rem;
 }
 
-
-.posRelative
-{
-    display: inline;
-    position:relative;
-    margin:5px;
-    padding:5px;
+.position-static {
+    margin: 5px;
+    padding: 5px;
     border: 1px solid black;
-    top:10px;
-  
+    top: 10px;
+    width: fit-content;
 }
 
-.posAbsolute
-{
-    display: inline;
-    position:absolute;
-    margin:5px;
-    padding:5px;
+.position-relative {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
     border: 1px solid black;
-    top:10px;
-   
+    top: 10px;
+    width: fit-content;
 }
 
+.position-absolute {
+    position: absolute;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    top: 10px;
+    width: fit-content;
+    background-color: aliceblue;
+}
 
-.posFixed
-{
-    display: inline;
-    position:fixed;
-    margin:5px;
-    padding:5px;
+.position-fixed {
+    position: fixed;
+    margin: 5px;
+    padding: 5px;
     border: 1px solid black;
     background-color: rgb(36, 141, 15);
     color: white;
     z-index: 1;
-
+    width: fit-content;
 }
 
-.posSticky
-{
-    display: inline;
+.position-sticky {
     position: sticky;
-    top:10px;
-    margin:5px;
-    padding:5px;
+    top: 10px;
+    margin: 5px;
+    padding: 5px;
     border: 1px solid black;
     background-color: rgb(255, 0, 0);
     color: white;
-
+    width: fit-content;
 }
