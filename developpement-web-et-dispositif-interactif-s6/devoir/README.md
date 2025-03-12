@@ -70,6 +70,7 @@ Les critères suivants seront évalués :
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
 - [ ] Corriger les tests unitaires
+  - Note : Supprimer les tests problématiques, ce n'est pas corriger les tests
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liées aux types sont gérées dans le fichier main.css
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
