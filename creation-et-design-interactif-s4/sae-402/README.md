@@ -16,6 +16,7 @@
     - [Recommencer au dernier checkpoint](#recommencer-au-dernier-checkpoint)
     - [Système de ventilateurs](#système-de-ventilateurs)
     - [Blocs](#blocs)
+    - [Particle Culling](#particle-culling)
   - [Contenu de l'écran des crédits](#contenu-de-lécran-des-crédits)
     - [Ressources graphiques / musicales gratuites utilisables, source non exhaustive](#ressources-graphiques--musicales-gratuites-utilisables-source-non-exhaustive)
   - [Gestion des ennemis](#gestion-des-ennemis)
@@ -224,6 +225,9 @@ Nous rajouterons une _prop_ qui permettra au joueur de s'élever dans le ciel. L
 
 ### Blocs
 Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des `GameObject` ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
+
+### Particle Culling
+Des particles sont utilisées pour les plateformes et les ventilateurs (développés ensemble), grâce au composant Particle System. Pour des questions de performances, il est préférable de ne pas les afficher quand la caméra n'est pas présente. Pour se faire, nous utiliserons la technique de "l'occlusion culling", souvent utilisée, ceci consiste à n'afficher que ce qui est présentement à l'écran.
 
 ## Contenu de l'écran des crédits
 > Mettez juste le pseudo de la personne + le site où vous avez trouvé la ressource.
