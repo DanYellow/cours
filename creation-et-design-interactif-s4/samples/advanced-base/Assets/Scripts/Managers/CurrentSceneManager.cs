@@ -15,6 +15,15 @@ public class CurrentSceneManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void Update() {
+        #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartLevel();
+            }
+        #endif
+    }
+
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;
