@@ -88,7 +88,6 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
-- Touche M : Relance le dernier checkpoint (cette méthode est juste appelée, elle ne fait rien. Nous la ferons ensemble)
 - Touche K : Change le mode d'affichage de l'onglet "Game" entre fenêtré et plein écran d'ans l'éditeur
 - Touche L : Arrête le mode "Play"
 - Touche 0 (pas celle du pavé numérique) : Permet d'accéder à la salle "Debug" pour s'assurer que les données sont correctement passées entre les scènes
@@ -225,6 +224,7 @@ Nous rajouterons une _prop_ qui permettra au joueur de s'élever dans le ciel. L
 
 ### Blocs
 Comme dans les jeux vidéo Super Mario, nous essayerons (si le temps nous le permet) de mettre en place des blocs qui peuvent être touchés par le joueur quand il les atteint avec sa tête en sautant. Ces blocs, selon, pourront contenir des `GameObject` ou même être invisibles. Cette fonctionnalité sera l'occasion de découvrir le _GameObject Brush_ de la fenêtre Tile Palette.
+> Note, vous devrez rajouter le statut "désactivé" sur ces blocs, ceci fait partie des rendus attendus
 
 ### Particle Culling
 Des particles sont utilisées pour les plateformes et les ventilateurs (développés ensemble), grâce au composant Particle System. Pour des questions de performances, il est préférable de ne pas les afficher quand la caméra n'est pas présente. Pour se faire, nous utiliserons la technique de "l'occlusion culling", souvent utilisée, ceci consiste à n'afficher que ce qui est présentement à l'écran.
@@ -247,7 +247,7 @@ Des particles sont utilisées pour les plateformes et les ventilateurs (dévelop
 La gestion des ennemis s'articule autour de deux scripts `Assets/Scripts/Enemy` et `Assets/Scripts/EnemyDamageManager`, ces deux scripts sont **indispensables** pour que vos ennemis puissent réagir aux dégâts pris. De plus, ils devront avoir le layer "Enemies", sinon, ils ne prendront pas de dégâts quand le joueur leur sautera dessus. Le script `Assets/Scripts/Enemy` peut accepter un ScriptableObject de type `FloatVariable` représantant le nombre de points de vie.
 
 ## Console de debug
-Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichage en écrivant la commande "help".
+Pour vous aider dans votre productivité, une console de débuggage a été rajoutée dans le jeu. Placée dans la Prefab `DebugConsole`, elle s'affiche/cache via la touche `F12`. Elle permet notamment de charger un niveau spécifique via son nom ou encore de soigner le joueur. La liste des commandes est affichée en écrivant la commande "help".
 
 ## Utilisation de git
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **obligatoire** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
