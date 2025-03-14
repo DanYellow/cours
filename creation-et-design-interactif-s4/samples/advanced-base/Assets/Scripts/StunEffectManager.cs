@@ -34,7 +34,7 @@ public class StunEffectManager : MonoBehaviour
             transform.position.y,
             transform.position.z
         );
-        List<StunEffectItem> listObj = new List<StunEffectItem>();
+        List<StunEffectItem> listStunEffectData = new List<StunEffectItem>();
         int nbItemsPerSide = (int)Mathf.Ceil((float) nbIconsToDisplay / 2);
 
         for (int i = 0; i < 2; i++)
@@ -42,7 +42,7 @@ public class StunEffectManager : MonoBehaviour
             for (var j = 0; j < nbItemsPerSide; j++)
             {
                 int offset = i % 2 == 0 ? 1 : -1;
-                listObj.Add(
+                listStunEffectData.Add(
                     new StunEffectItem
                     {
                         offset = offset,
@@ -55,7 +55,7 @@ public class StunEffectManager : MonoBehaviour
 
         for (int i = 0; i < nbIconsToDisplay; i++)
         {
-            StunEffectItem stunEffectItem = listObj[i];
+            StunEffectItem stunEffectItem = listStunEffectData[i];
 
             Vector3 pos = new Vector3(
                 distanceWithPivot * stunEffectItem.offset,
