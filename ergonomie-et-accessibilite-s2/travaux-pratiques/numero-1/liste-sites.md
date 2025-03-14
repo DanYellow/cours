@@ -22,6 +22,7 @@ Partie 2 :
 Partie 3 :
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
 - https://www.radiofrance.fr/franceinter/podcasts/affaires-sensibles
+- https://france.publicisgroupe.com/
 
 Partie 4 (accéder en navigation privée) :
 - https://web.archive.org/web/20180825013901/http://www.coachcyborg.com/
@@ -45,3 +46,7 @@ Partie 7 :
 - https://web.archive.org/web/20120528084846/http://resto.phivan.free.fr/
 - https://candy-douceur.myshopify.com/collections/epicerie-asiatique
 - https://www.canon.fr/video-cameras/eos-c70/
+
+Extras :
+- https://www.testapic.com/informations-pratiques/actualites/best-practices/39-statistiques-chiffres-ux-parlent-elles-memes
+- https://10ideesrecuesenuxdesign.castoretpollux.com/fr/
