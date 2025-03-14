@@ -281,6 +281,7 @@ public class PlayerMovement : MonoBehaviour
     private void LandingImpact()
     {
         isLandingFast = false;
+        GetComponent<Knockback>().Apply(Vector2.zero, 0);
         onLandingFastSO.Raise(landingFastShakeInfo);
     }
 

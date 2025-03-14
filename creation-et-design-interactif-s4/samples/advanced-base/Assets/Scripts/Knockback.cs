@@ -10,20 +10,20 @@ public class Knockback : MonoBehaviour
         ToggleEffect(false);
     }
 
-    public void Apply(Vector3 direction, float strength)
+    public void Apply(Vector3 direction, float strength, float duration = 0.95f)
     {
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * strength * rb.mass, ForceMode2D.Impulse);
-        StartCoroutine(DisableControls());
+        StartCoroutine(DisableControls(duration));
     }
 
-    IEnumerator DisableControls()
+    private IEnumerator DisableControls(float duration = 0.95f)
     {
-        if (TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
+        if (TryGetComponent(out PlayerMovement playerMovement))
         {
             playerMovement.isStunned = true;
             ToggleEffect(true);
-            yield return new WaitForSeconds(0.95f);
+            yield return new WaitForSeconds(duration);
             ToggleEffect(false);
             playerMovement.isStunned = false;
         }
