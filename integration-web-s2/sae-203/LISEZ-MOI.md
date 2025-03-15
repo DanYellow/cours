@@ -102,7 +102,7 @@ Pour vous aider à créer de nouvelles pages pour le front-office, il y a un fic
 
 Notez qu'il y a été mis une classe "conteneur-1280" pour avoir un conteneur possédant une largeur de 1280px. Ainsi, si vous ajoutez une balise à l'extérieur d'une balise ayant la classe "conteneur-1280", elle occupera toute la largeur de la fenêtre. Idéal pour afficher des images en plein écran.
 
-Nous vous demandons aussi d'apporter des améliorations aux pages existantes. Dans l'accueil, nous souhaitons que vous appliquiez des transitions CSS lors du survol des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) et focus clavier (:focus) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
+Nous vous demandons aussi d'apporter des améliorations aux pages existantes. Dans l'accueil, nous souhaitons que vous appliquiez des transitions CSS lors du survol/focus clavier des articles (carré composé : image + texte). Vous avez la liberté de choisir un état de survol (:hover) et focus clavier (:focus) qui vous semble adapté. Par exemple : transformation de l'échelle de l'image, application du fond au texte, ajout d'un élément graphique...
 
 N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semestre :
 - Positionnement CSS
