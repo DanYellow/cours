@@ -1,15 +1,15 @@
 {% if NODE_ENV == "development" %}
     <style>
         .profiler-bar {
-            transition-property: translate;
+            transition-property: transform;
             transition-timing-function: ease-in;
             transition-duration: 0.25s;
 
             &.hide {
-                translate: 0% 200%;
+                transform: translateY(200%);
 
                 @media (width >= 40rem) {
-                    translate: -50% 200%;
+                    transform: translateY(200%);
                 }
             }
         }
@@ -54,7 +54,7 @@
         lang="en"
         data-profiler-bar
         tabindex="-1"
-        class="profiler-bar overflow-hidden w-fit
+        class="profiler-bar
             lg:left-1/2 lg:-translate-x-1/2
             left-[max(env(safe-area-inset-right),_theme(space.6))]
             bottom-6 z-50 fixed flex flex-col lg:flex-row justify-between bg-gray-100
