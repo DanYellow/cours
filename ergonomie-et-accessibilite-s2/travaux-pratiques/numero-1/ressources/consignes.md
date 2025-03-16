@@ -5,7 +5,7 @@ Partie 0 (consultez l'un des sites ou tous) :
 - https://how-i-experience-web-today.com/
 - https://www.termsandconditions.game/
 
-> Consignes : Pour chaque partie, vous allez devoir trouver la mauvaise pratique ergonomique **commune** aux sites. Il n'y a qu'une mauvaise pratique à trouver par partie.
+> Consignes : Pour chaque partie, vous allez devoir trouver la mauvaise pratique ergonomique **commune** aux sites. Il n'y a qu'une mauvaise pratique commune à trouver par partie.
 > A noter que certains problèmes peuvent se révéler via une action ou encore en redimensionnant la fenêtre. N'hésitez pas à l'interagir avec les sites.
 
 Partie 1 :
@@ -17,7 +17,7 @@ Partie 1 :
 
 Partie 2 :
 - https://web.archive.org/web/20220129095313/https://www.vovardimmobilier.fr/
-- https://www.tiktok.com/@ayaxbader/video/7343721406544252192
+- https://www.tiktok.com/@leparisien/video/7478032908301700384
 
 Partie 3 :
 - https://web.archive.org/web/20210611181810/https://www.beyonce.com/
