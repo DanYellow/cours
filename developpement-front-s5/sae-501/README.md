@@ -144,7 +144,7 @@ router.post("/user/:id/:gallery?", async (req, res) => {
 });
 ```
 > Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string). Les chaînes de requêtes (query string) ne se mettent pas dans la route, il suffit juste qu'ils soient dans l'url pour ensuite être récupéré dans l'objet `req.query`. Si vous souhaitez savoir les informations contenus dans les paramètres "req" et "res", vous avez la documentation d'express.
-> - [Accéder à la documentation d'express](https://expressjs.com/en/5x/api.html#req.app)
+> - [Accéder à la documentation d'express](https://expressjs.com/en/4x/api.html#req)
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
