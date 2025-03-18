@@ -1,4 +1,5 @@
 import _ from "lodash";
+import path from "path";
 
 const listRoutes = [];
 const listNamedRoutes = {};
@@ -6,15 +7,23 @@ const regexRouteParams = /((:[A-z])\w+\??)/g;
 const regexOptionalURLFileExt = /(\(\.([A-z])*\)\??)/g;
 
 const print = (path, layer) => {
+
     if (layer.route) {
         layer.route.stack.forEach(
             print.bind(null, path.concat(split(layer.route.path)))
         );
-    } else if (layer.name === "router" && layer.handle.stack) {
-        layer.handle.stack.forEach(
-            print.bind(null, path.concat(split(layer.regexp)))
-        );
-    } else if (layer.method || path.includes("*")) {
+    }
+    else if (layer.name === "router" && layer.handle.stack) {
+        layer.handle.stack.forEach((item) => {
+            // print.bind(null, path.concat(split(item.route.path)))
+            // console.log("layer.route.path", layer.handle.stack)
+            console.log("layer.route.path", item)
+        })
+        // layer.handle.stack.forEach(
+        //     print.bind(null, path.concat(split(layer)))
+        // );
+    }
+    else if (layer.method || path.includes("*")) {
         const url = path.concat(split(layer.regexp)).filter(Boolean).join("/");
 
         url.split(",").forEach((item, idx, array) => {
@@ -71,7 +80,7 @@ const print = (path, layer) => {
 const split = (thing) => {
     if (typeof thing === "string") {
         return thing.split("/");
-    } else if (thing.fast_slash) {
+    } else if (thing.slash) {
         return "";
     } else {
         const match = thing
@@ -89,10 +98,12 @@ const split = (thing) => {
 };
 
 const generateListRoutes = (app) => {
+    return [];
     if (!app) {
         throw new Error("app object is missing");
     }
-    app._router.stack.forEach(print.bind(null, []));
+
+    app.router.stack.forEach(print.bind(null, []));
 
     const listRoutesComputed = listRoutes
         .map((item) => {
@@ -127,14 +138,107 @@ const generateNamedRoutes = (app) => {
     if (!app) {
         throw new Error("app object is missing");
     }
-    app._router.stack.forEach(print.bind(null, []));
+    app.router.stack.forEach(print.bind(null, []));
 
     return listNamedRoutes;
 };
 
-const generateUrl = (app, name, params) => {
-    generateNamedRoutes(app);
+import fs from "fs";
 
+
+function combineExpress5Stacks(acc, stack) {
+    if (stack.handle?.stack) {
+        const routerPath = stack.path ?? null;
+        return [...acc, ...stack.handle.stack.map((nestedStack) => {
+            return { routerPath, ...nestedStack }
+        })];
+    }
+    return [...acc, stack];
+  }
+
+const generateUrl = (app, name, params) => {
+    const res = app.router.stack.reduce(combineExpress5Stacks, []).filter((item) => item.route) || []
+    const paths = [];
+    //  fs.appendFile("test.tmp.txt", JSON.stringify(res), function(err) {
+    //     if(err) {
+    //         return console.log(err);
+    //     }
+    // });
+    const regexOptionalParam = /{(.?\w+)}/;
+    const regexOptionalParam2 = /{.?\w+}/;
+    for (const stack of res) {
+        if (stack.route) {
+            // if(stack.routerPath) {
+            //     console.log("stack", stack.routerPath, (stack.route?.stack || []))
+
+            // }
+            const routeLogged = {};
+            // if(stack.routerPath) {
+            //     console.log("stack.route", stack.route.methods._all)
+            // }
+            for (const route of (stack.route?.stack || [])) {
+                let method = route.method ? route.method.toUpperCase() : null;
+                if(stack.route.methods._all) {
+                    method = "ALL";
+                }
+
+                if (!routeLogged[method] && method) {
+                    let routeName = "";
+                    if (route.name === "namedRoute") {
+                        routeName = route.handle();
+                    }
+                    const url = (
+                        [stack.routerPath, stack.route.path, route.path].filter((s) => !!s).join('')
+                        .trim()
+                    );
+
+                    url.split(",").forEach((item) => {
+                        const ext = item.match(regexOptionalParam);
+                        if(ext) {
+                            paths.push({
+                                method,
+                                path: `${item.replace(regexOptionalParam, "")}${ext[1]}`,
+                                name: routeName
+                            });
+                            paths.push({
+                                method,
+                                path: item.replace(regexOptionalParam2, ""),
+                                name: routeName
+                            });
+                        } else {
+                            paths.push({ method, path: item, name: routeName });
+                        }
+                        routeLogged[method] = true;
+                    })
+                }
+            }
+        }
+    }
+        console.log(paths)
+
+    //     const response = []
+    // let indexRoute = -1;
+    // paths.forEach((route) => {
+    //     indexRoute = response.findIndex((_item) => _item.PATH === route.PATH && _item.METHOD === route.METHOD)
+    //     if(indexRoute > -1) {
+    //         if (response[indexRoute].NAME === "") {
+    //             response[indexRoute] = route;
+    //         }
+    //         return;
+    //     }
+
+    //     response.push(route);
+    // })
+
+    // console.log(response)
+    // console.log(
+    //     res.filter((item) => item.method).map((item) => item.route.stack)
+    // );
+    // app.router.stack.forEach(print2.bind(null, []))
+
+
+    return {}
+    generateNamedRoutes(app);
     if (!listNamedRoutes[name]) {
         throw new Error(
             `Route named "${name}" is unknown. Please verify your routes.`
