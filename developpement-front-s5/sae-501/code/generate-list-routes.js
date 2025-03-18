@@ -158,14 +158,15 @@ function combineExpress5Stacks(acc, stack) {
 
 const generateUrl = (app, name, params) => {
     const res = app.router.stack.reduce(combineExpress5Stacks, []).filter((item) => item.route) || []
-    const paths = [];
-    //  fs.appendFile("test.tmp.txt", JSON.stringify(res), function(err) {
+    // fs.appendFile("test.tmp.txt", JSON.stringify(app.router.stack), function(err) {
     //     if(err) {
     //         return console.log(err);
     //     }
     // });
-    const regexOptionalParam = /{(.?\w+)}/;
-    const regexOptionalParam2 = /{.?\w+}/;
+
+    const paths = [];
+    const regexOptionalParam = /{([\w-]{0,}.?\w+)}/;
+    const regexOptionalParam2 = /{[\w-]{0,}.?\w+}/;
     for (const stack of res) {
         if (stack.route) {
             // if(stack.routerPath) {
@@ -176,6 +177,7 @@ const generateUrl = (app, name, params) => {
             // if(stack.routerPath) {
             //     console.log("stack.route", stack.route.methods._all)
             // }
+
             for (const route of (stack.route?.stack || [])) {
                 let method = route.method ? route.method.toUpperCase() : null;
                 if(stack.route.methods._all) {
@@ -194,19 +196,35 @@ const generateUrl = (app, name, params) => {
 
                     url.split(",").forEach((item) => {
                         const ext = item.match(regexOptionalParam);
+                        const urlParams = Array.from(
+                            item.matchAll(regexRouteParams)
+                        )
+                            .map((_item) => _item[0])
+                            .map((_item) =>
+                                _item.replace(":", "").replace("?", "")
+                            )
                         if(ext) {
+                            const urlWithOptionalsParams = `${item.replace(regexOptionalParam, "")}${ext[1]}`;
+                            const urlWithoutOptionalsParams = item.replace(regexOptionalParam2, "");
                             paths.push({
                                 method,
-                                path: `${item.replace(regexOptionalParam, "")}${ext[1]}`,
-                                name: routeName
+                                path: urlWithOptionalsParams,
+                                name: routeName,
+                                listParams: urlParams,
                             });
                             paths.push({
                                 method,
-                                path: item.replace(regexOptionalParam2, ""),
-                                name: routeName
+                                path: urlWithoutOptionalsParams,
+                                name: routeName,
+                                listParams: urlParams,
                             });
                         } else {
-                            paths.push({ method, path: item, name: routeName });
+                            paths.push({
+                                method,
+                                path: item,
+                                name: routeName,
+                                listParams: urlParams,
+                            });
                         }
                         routeLogged[method] = true;
                     })
@@ -215,26 +233,7 @@ const generateUrl = (app, name, params) => {
         }
     }
         console.log(paths)
-
-    //     const response = []
-    // let indexRoute = -1;
-    // paths.forEach((route) => {
-    //     indexRoute = response.findIndex((_item) => _item.PATH === route.PATH && _item.METHOD === route.METHOD)
-    //     if(indexRoute > -1) {
-    //         if (response[indexRoute].NAME === "") {
-    //             response[indexRoute] = route;
-    //         }
-    //         return;
-    //     }
-
-    //     response.push(route);
-    // })
-
-    // console.log(response)
-    // console.log(
-    //     res.filter((item) => item.method).map((item) => item.route.stack)
-    // );
-    // app.router.stack.forEach(print2.bind(null, []))
+        // console.log(Object.groupBy(paths, ({ name }) => name))
 
 
     return {}
