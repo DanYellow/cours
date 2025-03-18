@@ -35,7 +35,7 @@ router.get(`/${base}`, routeName("sae_list"), async (req, res) => {
 });
 
 router
-    .route([`/${base}/:id([a-f0-9]{24})`, `/${base}/add`])
+    .route([`/${base}/:id`, `/${base}/add`]) // ([a-f0-9]{24})
     .get(routeName("sae_form"), async (req, res) => {
         // Get or create SAE
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
@@ -59,59 +59,60 @@ router
             list_errors: listErrors,
             is_edit: isEdit,
         });
-    })
-    .post(routeName("sae_form"), upload.single("image"), async (req, res) => {
-        // Create or update SAE
-        let ressource = null;
-        const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
-        let listErrors = [];
-        let options = {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-            data: {
-                ...req.body,
-                file: req.file,
-            },
-        };
+    }//)
+    // .post(routeName("sae_form"), upload.single("image"), async (req, res) => {
+    //     // Create or update SAE
+    //     let ressource = null;
+    //     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
+    //     let listErrors = [];
+    //     let options = {
+    //         headers: {
+    //             "Content-Type": "multipart/form-data",
+    //         },
+    //         data: {
+    //             ...req.body,
+    //             file: req.file,
+    //         },
+    //     };
 
-        if (isEdit) {
-            options = {
-                ...options,
-                method: "PUT",
-                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
-            };
-        } else {
-            options = {
-                ...options,
-                method: "POST",
-                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}`,
-            };
-        }
+    //     if (isEdit) {
+    //         options = {
+    //             ...options,
+    //             method: "PUT",
+    //             url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
+    //         };
+    //     } else {
+    //         options = {
+    //             ...options,
+    //             method: "POST",
+    //             url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}`,
+    //         };
+    //     }
 
-        try {
-            const result = await axios(options);
-            ressource = result.data;
-        } catch (error) {
-            listErrors = error.response.data.errors;
-            ressource = error.response.data.ressource || {};
-        } finally {
-            if (!listErrors.length) {
-                req.flash(
-                    "success",
-                    isEdit ? "Element mis à jour" : "Element crée"
-                );
-            }
-            if (isEdit || listErrors.length) {
-                res.render("pages/back-end/saes/add-edit.njk", {
-                    sae: ressource,
-                    list_errors: listErrors,
-                    is_edit: isEdit,
-                });
-            } else {
-                res.redirect(`${res.locals.admin_url}/${base}`);
-            }
-        }
-    });
+    //     try {
+    //         const result = await axios(options);
+    //         ressource = result.data;
+    //     } catch (error) {
+    //         listErrors = error.response.data.errors;
+    //         ressource = error.response.data.ressource || {};
+    //     } finally {
+    //         if (!listErrors.length) {
+    //             req.flash(
+    //                 "success",
+    //                 isEdit ? "Element mis à jour" : "Element crée"
+    //             );
+    //         }
+    //         if (isEdit || listErrors.length) {
+    //             res.render("pages/back-end/saes/add-edit.njk", {
+    //                 sae: ressource,
+    //                 list_errors: listErrors,
+    //                 is_edit: isEdit,
+    //             });
+    //         } else {
+    //             res.redirect(`${res.locals.admin_url}/${base}`);
+    //         }
+    //     }
+    // }
+);
 
 export default router;

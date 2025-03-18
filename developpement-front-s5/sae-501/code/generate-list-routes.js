@@ -154,10 +154,10 @@ function combineExpress5Stacks(acc, stack) {
         })];
     }
     return [...acc, stack];
-  }
+}
 
 const generateUrl = (app, name, params) => {
-    const res = app.router.stack.reduce(combineExpress5Stacks, []).filter((item) => item.route) || []
+    const res = app.router.stack.reduce(combineExpress5Stacks, []).filter((item) => item.route) || [];
     // fs.appendFile("test.tmp.txt", JSON.stringify(app.router.stack), function(err) {
     //     if(err) {
     //         return console.log(err);
@@ -169,15 +169,7 @@ const generateUrl = (app, name, params) => {
     const regexOptionalParam2 = /{[\w-]{0,}.?\w+}/;
     for (const stack of res) {
         if (stack.route) {
-            // if(stack.routerPath) {
-            //     console.log("stack", stack.routerPath, (stack.route?.stack || []))
-
-            // }
             const routeLogged = {};
-            // if(stack.routerPath) {
-            //     console.log("stack.route", stack.route.methods._all)
-            // }
-
             for (const route of (stack.route?.stack || [])) {
                 let method = route.method ? route.method.toUpperCase() : null;
                 if(stack.route.methods._all) {

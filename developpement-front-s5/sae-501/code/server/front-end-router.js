@@ -20,7 +20,7 @@ router.use(async (_req, res, next) => {
     next();
 });
 
-router.get("/", routeName("homepage"), async (req, res) => {
+router.get("/{index.html}", routeName("homepage"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     const options = {
         method: "GET",

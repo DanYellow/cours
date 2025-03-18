@@ -7,30 +7,30 @@ import parseManifest from "#server/utils/parse-manifest.js";
 
 // Routers
 import SAERouter from "./sae.js";
-import articleRouter from "./article.js";
-import authorsRouter from "./author.js";
+// import articleRouter from "./article.js";
+// import authorsRouter from "./author.js";
 
 const router = express.Router();
 
-router.use(async (_req, res, next) => {
-    const originalRender = res.render;
-    res.render = async function (view, local, callback) {
-        const manifest = {
-            manifest: await parseManifest("backend.manifest.json"),
-        };
+// router.use(async (_req, res, next) => {
+//     const originalRender = res.render;
+//     res.render = async function (view, local, callback) {
+//         const manifest = {
+//             manifest: await parseManifest("backend.manifest.json"),
+//         };
 
-        const args = [view, { ...local, ...manifest }, callback];
-        originalRender.apply(this, args);
-    };
+//         const args = [view, { ...local, ...manifest }, callback];
+//         originalRender.apply(this, args);
+//     };
 
-    next();
-});
+//     next();
+// });
 
 router.use(SAERouter);
-router.use(articleRouter);
-router.use(authorsRouter);
+// router.use(articleRouter);
+// router.use(authorsRouter);
 
-router.get("/", routeName("admin"), async (req, res) => {
+router.get("/:id/test/:foo", routeName("admin"), async (req, res) => {
     const queryParamsSAEs = querystring.stringify({ per_page: 5 });
     const optionsSAEs = {
         method: "GET",
@@ -38,13 +38,12 @@ router.get("/", routeName("admin"), async (req, res) => {
     };
 
     const listSAEs = await axios(optionsSAEs);
-
-    const queryParamsArticles = querystring.stringify({ per_page: 5 });
-    const optionsArticles = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/articles?${queryParamsArticles}`,
-    };
-    const listArticles = await axios(optionsArticles);
+    // const queryParamsArticles = querystring.stringify({ per_page: 5 });
+    // const optionsArticles = {
+    //     method: "GET",
+    //     url: `${res.locals.base_url}/api/articles?${queryParamsArticles}`,
+    // };
+    // const listArticles = await axios(optionsArticles);
 
     res.render("pages/back-end/index.njk", {
         list_saes: {
@@ -52,8 +51,8 @@ router.get("/", routeName("admin"), async (req, res) => {
             count: listSAEs.data.count,
         },
         list_articles: {
-            data: listArticles.data.data,
-            count: listArticles.data.count,
+            data: [], //listArticles.data.data,
+            count: 0 // listArticles.data.count,
         },
     });
 });

@@ -23,7 +23,7 @@ import apiRouter from "./api-router/index.js";
 import breadcrumb from "./utils/breadcrumb.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
 import profilerFakeMiddleware from "./utils/profiler.middleware.js";
-
+import routeName from "#server/utils/name-route.middleware.js";
 import { generateUrl, getNameForRoute } from "#generate-list-routes.js";
 // import packageJSON from "../package.json" with { "type": "json" };
 
@@ -56,6 +56,7 @@ app.use(
         crossOriginResourcePolicy: false,
     })
 );
+
 app.use(cookieParser());
 app.use(expressFlash());
 app.use(cors());
@@ -164,7 +165,7 @@ app.use(responseTimeMiddleware, function (req, res, next) {
             tplContent = JSON.parse(fs.readFileSync(tplTmpContentPath).toString());
         }
 
-        if (process.env.NODE_ENV === "development" && getNameForRoute(app, req.baseUrl + req.route?.path).NAME !== "eslint") {
+        if (process.env.NODE_ENV === "development") { //  && getNameForRoute(app, req.baseUrl + req.route?.path).NAME !== "eslint"
             const { getReport: getEslintReport } = await import("./utils/eslint.middleware.js");
             req.app.locals.eslint_report = await getEslintReport("short");
         }
@@ -213,8 +214,9 @@ if (!hasEnvFile) {
     }
 }
 
-app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
-app.use("/api", apiRouter);
+app.use(`/admin`, breadcrumb, backendRouter);
+// app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
+app.use("/api11", apiRouter);
 app.use(frontendRouter);
 
 if (process.env.NODE_ENV === "development") {
@@ -246,29 +248,29 @@ if (process.env.NODE_ENV === "development") {
     const swaggerUi = await import("swagger-ui-express");
     const swaggerSpec = await import("./swagger.js");
 
-    app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec.default, options));
+    // app.use(["/swagger", "/api-docs"], swaggerUi.serve, swaggerUi.setup(swaggerSpec.default, options));
 
-    const debugRouter = await import("./debug-router.js");
-    app.use("/debug", breadcrumb, debugRouter.default);
+    // const debugRouter = await import("./debug-router.js");
+    // app.use("/debug", breadcrumb, debugRouter.default);
 
     ;(async () => {
-        const { ESLint } = await import("eslint");
-        const eslint = new ESLint();
+        // const { ESLint } = await import("eslint");
+        // const eslint = new ESLint();
 
-        const results = await eslint.lintFiles([
-            "./server/**/*.js",
-            "./database/**/*.js",
-            "./src/**/*.js",
-        ]);
+        // const results = await eslint.lintFiles([
+        //     "./server/**/*.js",
+        //     "./database/**/*.js",
+        //     "./src/**/*.js",
+        // ]);
 
-        const formatter = await eslint.loadFormatter("stylish");
-        const resultText = formatter.format(results);
+        // const formatter = await eslint.loadFormatter("stylish");
+        // const resultText = formatter.format(results);
 
-        if (resultText.length) {
-            console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
-            console.log(resultText);
-            console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
-        }
+        // if (resultText.length) {
+        //     console.log("\x1b[30m\x1b[33m\x1b[4m---------- ESLint ---------\x1b[0m");
+        //     console.log(resultText);
+        //     console.log("\x1b[30m\x1b[33m\x1b[4m---------------------------\x1b[0m");
+        // }
     })().catch((error) => {
         process.exitCode = 1;
         console.error(error);
@@ -287,38 +289,38 @@ app.use(async (err, req, res, _next) => {
 
     if (process.env.NODE_ENV === "development") {
         try {
-            const regexErrorLineAndFile
-                = /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
-            const results = [
-                ...err.toString().matchAll(regexErrorLineAndFile),
-            ].flat();
-            const filePath = results[1];
-            const lineError = Number(results[3] || 1);
-            const columnError = Number(results[4] || 1);
+            // const regexErrorLineAndFile
+            //     = /\((([A-z]:)?.*)\).*\[Line\s*(\d+).*Column\s*(\d+)/gs;
+            // const results = [
+            //     ...err.toString().matchAll(regexErrorLineAndFile),
+            // ].flat();
+            // const filePath = results[1];
+            // const lineError = Number(results[3] || 1);
+            // const columnError = Number(results[4] || 1);
 
-            const data = fs.readFileSync(filePath, "utf8");
-            const location = {
-                start: { line: lineError, column: columnError },
-            };
+            // const data = fs.readFileSync(filePath, "utf8");
+            // const location = {
+            //     start: { line: lineError, column: columnError },
+            // };
 
-            const { codeFrameColumns } = await import("@babel/code-frame");
+            // const { codeFrameColumns } = await import("@babel/code-frame");
 
-            const result = codeFrameColumns(data, location, {
-                linesAbove: 5,
-                linesBelow: 5,
-            });
-            response.sourceCode = result;
-            const listFileName = {
-                njk: "nunjucks",
-                js: "javascript",
-            };
-            response.fileType
-                = listFileName?.[filePath.split(".").at(-1)] || "";
-            response.details = {
-                file_path: filePath,
-                line: lineError,
-                column: columnError,
-            };
+            // const result = codeFrameColumns(data, location, {
+            //     linesAbove: 5,
+            //     linesBelow: 5,
+            // });
+            // response.sourceCode = result;
+            // const listFileName = {
+            //     njk: "nunjucks",
+            //     js: "javascript",
+            // };
+            // response.fileType
+            //     = listFileName?.[filePath.split(".").at(-1)] || "";
+            // response.details = {
+            //     file_path: filePath,
+            //     line: lineError,
+            //     column: columnError,
+            // };
         } catch (err) {
             console.error(err);
         }
@@ -388,15 +390,18 @@ nunjucksEnv.addGlobal("context", function () {
 });
 
 nunjucksEnv.addFilter("routeName", function (name, params = {}) {
-    const finalURL = generateUrl(app, name, params);
+    // const finalURL = generateUrl(app, name, params);
 
+    return `hello`;
     return `/${finalURL}`;
 });
 
 nunjucksEnv.addGlobal("path", function (name, params = {}) {
     const finalURL = generateUrl(app, name, params);
+    // console.log("finalURL", finalURL);
+    return `hello`;
 
-    return `/${finalURL}`;
+    // return `/${finalURL}`;
 });
 
 nunjucksEnv.addFilter("getEslintLink", function (rule) {
