@@ -34,9 +34,6 @@ Partie 5 :
 - https://www.youtube.com/results?search_query=Cergy
 
 Partie 6 :
--  https://jsbin.com/zedimafaja/edit?output
-
-Partie 7 :
 - https://www.beyonce.com/
 - https://www.francetvpub.fr/data/
 - https://cestmeilleurquandcestbon.com/c/a-la-maison/
