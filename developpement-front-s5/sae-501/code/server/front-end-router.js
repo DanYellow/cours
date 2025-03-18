@@ -36,8 +36,8 @@ router.get("/", routeName("homepage"), async (req, res) => {
     });
 });
 
-// "(.html)?" makes ".html" optional in the url
-router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
+// "{.html}" makes ".html" optional in the url
+router.get("/a-propos{.html}", routeName("about"), async (_req, res) => {
     const options = {
         method: "GET",
         url: `${res.locals.base_url}/api/saes?per_page=9`,
