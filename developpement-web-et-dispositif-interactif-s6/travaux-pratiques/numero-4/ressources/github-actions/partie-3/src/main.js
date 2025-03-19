@@ -4,6 +4,7 @@ import {
 } from "#api";
 
 import loadPokemonData from "./pokemon-modal";
+import "./picture-in-picture";
 import {
     replaceImage,
     cleanString,
