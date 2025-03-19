@@ -55,7 +55,7 @@
 }
 
 @custom-variant group-picture-in-picture {
-    &:is(:where(.group[data-picture-in-picture]) *) {
+    &:is(:where([data-picture-in-picture]) *) {
         @slot;
     }
 }
