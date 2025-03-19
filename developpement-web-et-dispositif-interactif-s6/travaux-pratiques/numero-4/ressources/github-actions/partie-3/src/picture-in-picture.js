@@ -24,7 +24,9 @@ if ("documentPictureInPicture" in window) {
 
             [...document.styleSheets].forEach((styleSheet) => {
                 try {
-                    const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
+                    const cssRules = [...styleSheet.cssRules]
+                        .map((rule) => rule.cssText)
+                        .join("");
                     const style = document.createElement("style");
 
                     style.textContent = cssRules;
@@ -37,7 +39,7 @@ if ("documentPictureInPicture" in window) {
                     link.href = styleSheet.href;
                     pipWindow.document.head.appendChild(link);
                 }
-            })
+            });
 
             pipWindow.document.body.append(modal);
             modal.close();
@@ -58,7 +60,7 @@ if ("documentPictureInPicture" in window) {
         item.addEventListener("click", () => {
             togglePictureInPicture();
         });
-    })
+    });
 
     documentPictureInPicture.addEventListener("enter", (event) => {
         const pipWindow = event.window;
@@ -81,5 +83,7 @@ if ("documentPictureInPicture" in window) {
         pipObserver.observe(pipWindow.document.body, config);
     });
 } else {
-    modal_DOM.togglePip.remove();
+    modal_DOM.listTogglePip.forEach((item) => {
+        item.remove();
+    });
 }

@@ -388,7 +388,7 @@ details {
             rgba(255, 255, 255, 1) 95%
         );
         transition-delay: 0.15s;
-        background-color: var(--bg-modal-color);
+        /* background-color: var(--bg-modal-color); */
     }
 }
 
