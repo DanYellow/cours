@@ -42,7 +42,9 @@ const typesClassesPlugin = plugin(({ theme, addComponents }) => {
     );
 
     // // To generate classes only
-    // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => ({[item]: `border-animated-${item}`})).reduce((prev, curr) => {
+    // fs.writeFile('test.tmp.json', JSON.stringify(listPossiblesTypeCombinaions.map((item) => (
+    //     { [item]: `hocus:border-animated-${item}, [.selected]:border-animated-${item}` }
+    // )).reduce((prev, curr) => {
     //     Object.assign(prev, curr);
     //     return prev;
     //   }, {})), err => {

@@ -264,9 +264,9 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             aTag.style.scrollMargin = `${headerPokedex.offsetHeight}px`;
             aTag.dataset.pokemonData = JSON.stringify(item);
             aTag.dataset.pokemonId = item.pokedex_id;
-            aTag.classList.add(...[
-                typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
-            ]);
+            aTag.classList.add(
+                ...typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`].split(",").map((item) => item.trim())
+            );
             aTag.addEventListener("click", loadDetailsModal);
             aTag.addEventListener("mouseover", generateMarqueeTypes);
             aTag.addEventListener("focus", generateMarqueeTypes);
