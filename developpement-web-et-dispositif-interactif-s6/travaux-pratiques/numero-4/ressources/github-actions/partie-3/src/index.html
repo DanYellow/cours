@@ -80,9 +80,9 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon">
-                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated @xs:[.selected]:scale-100 [.selected]:scale-105 hocus:scale-105 @xs:hocus:scale-100 [.selected]:relative hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
-                        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden h-fit" data-marquee></div>
+                        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-[.selected]:opacity-100 group-hocus:opacity-100 @xs:hidden h-fit" data-marquee></div>
                         <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-85 transition-transform" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full"></p>
                     </div>
@@ -220,7 +220,7 @@
                         <div class="h-2 rounded-xl w-7 bg-(--bg-modal-color) duration-150 pulldown-indicator rotate-12" data-pulldown-indicator=""></div>
                         <div class="h-2 rounded-xl w-7 bg-(--bg-modal-color) duration-150 pulldown-indicator -ml-2 -rotate-12" data-pulldown-indicator=""></div>
                     </div>
-                    <div class="flex flex-row gap-3">
+                    <div class="flex flex-row gap-3 relative">
                         <div class="w-20">
                             <img data-sprite src="/images/loading.svg" alt="" fetchpriority="high" />
                         </div>
@@ -231,6 +231,16 @@
                                 <ul data-list-types class="flex gap-1 mt-2 flex-col @[10rem]:flex-row"></ul>
                             </div>
                         </div>
+                        <button
+                            type="button"
+                            class="rounded-sm absolute px-1.5 bg-white right-0 top-0 hocus:text-(color:--bg-modal-color) toggle-pip-btn grid overflow-x-clip whitespace-nowrap group-picture-in-picture:hidden"
+                            data-toggle-picture-in-picture
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
+                            </svg>
+                            <p class="text-black">Ouvrir dans une fenêtre</p>
+                        </button>
                     </div>
                 </div>
                 <div
@@ -292,7 +302,7 @@
                 </details>
                 <details class="mt-3">
                     <summary class="hocus:marker:text-(color:--bg-modal-color) font-bold text-xl">
-                        Évolution
+                        Famille d'évolution
                     </summary>
                     <p class="hidden" data-no-evolutions>Ce Pokémon n'a pas d'évolutions</p>
                     <ul data-list-evolutions></ul>
@@ -372,7 +382,14 @@
                     <button
                         data-close-modal=""
                         data-testid="close-modal"
-                        class="block rounded-md transition-colors hocus:bg-white hocus:text-black w-full mt-2 p-2 border border-black border-solid bg-slate-950 text-white ease-out"
+                        class="group-picture-in-picture:hidden block rounded-md transition-colors hocus:bg-white hocus:text-black w-full mt-2 p-2 border border-black border-solid bg-slate-950 text-white ease-out"
+                        >
+                        Fermer
+                    </button>
+                    <button
+                        data-toggle-picture-in-picture
+                        data-testid="close-pip"
+                        class="group-picture-in-picture:block hidden rounded-md transition-colors hocus:bg-white hocus:text-black w-full mt-2 p-2 border border-black border-solid bg-slate-950 text-white ease-out"
                         >
                         Fermer
                     </button>

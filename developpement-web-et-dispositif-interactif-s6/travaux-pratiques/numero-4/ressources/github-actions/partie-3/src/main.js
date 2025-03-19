@@ -4,6 +4,7 @@ import {
 } from "#api";
 
 import loadPokemonData from "./pokemon-modal";
+import "./picture-in-picture";
 import {
     replaceImage,
     cleanString,
@@ -263,9 +264,9 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
             aTag.style.scrollMargin = `${headerPokedex.offsetHeight}px`;
             aTag.dataset.pokemonData = JSON.stringify(item);
             aTag.dataset.pokemonId = item.pokedex_id;
-            aTag.classList.add(...[
-                typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`]
-            ]);
+            aTag.classList.add(
+                ...typesAnimatedBorderColor[`${cleanString(item.types[0].name)}_${cleanString(item.types[1]?.name || item.types?.[0].name)}`].split(",").map((item) => item.trim())
+            );
             aTag.addEventListener("click", loadDetailsModal);
             aTag.addEventListener("mouseover", generateMarqueeTypes);
             aTag.addEventListener("focus", generateMarqueeTypes);
@@ -344,9 +345,6 @@ export const observeURL = async () => {
     }
 }
 
-await observeURL();
-await loadPokedexForGeneration(1);
-
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
 });
@@ -387,3 +385,13 @@ window.addEventListener("offline", () => {
 });
 
 export { loadPokedexForGeneration };
+
+await observeURL();
+await loadPokedexForGeneration(1);
+
+if (pkmnId !== null) {
+    const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnId}"]`);
+    if ($itemInList) {
+        $itemInList.classList.add("selected");
+    }
+}

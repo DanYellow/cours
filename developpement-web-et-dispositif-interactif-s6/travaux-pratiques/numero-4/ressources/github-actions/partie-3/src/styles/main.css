@@ -48,6 +48,18 @@
     }
 }
 
+@custom-variant picture-in-picture {
+    &:is([data-picture-in-picture]) {
+        @slot;
+    }
+}
+
+@custom-variant group-picture-in-picture {
+    &:is(:where([data-picture-in-picture]) *) {
+        @slot;
+    }
+}
+
 @layer utilities {
     @font-face {
         font-family: "Open Sans";
@@ -376,7 +388,7 @@ details {
             rgba(255, 255, 255, 1) 95%
         );
         transition-delay: 0.15s;
-        background-color: var(--bg-modal-color);
+        /* background-color: var(--bg-modal-color); */
     }
 }
 
@@ -608,4 +620,16 @@ details {
     transition-property: scale, color;
     transition-duration: var(--duration-150);
     transform-origin: center;
+}
+
+.toggle-pip-btn {
+    --width: 2rem;
+    width: var(--width);
+    overflow-x: clip;
+	transition: width var(--duration-150) ease;
+    grid-template-columns: var(--width) auto;
+
+    &:is(:hover, :focus-visible) {
+        width: max-content;
+    }
 }

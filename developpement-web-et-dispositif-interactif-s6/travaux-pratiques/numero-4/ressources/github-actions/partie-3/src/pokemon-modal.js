@@ -19,7 +19,8 @@ import {
     getPkmnIdFromURL,
     formsNameDict,
     onTransitionsEnded,
-    NB_NUMBER_INTEGERS_PKMN_ID
+    NB_NUMBER_INTEGERS_PKMN_ID,
+    modal_DOM, modal
 } from "./utils";
 
 import {
@@ -37,7 +38,6 @@ import loadingImage from "/images/loading.svg";
 import loadingImageRaw from "/images/loading.svg?raw";
 
 const closeModalBtn = document.querySelector("[data-close-modal]");
-const modal = document.querySelector("[data-pokemon-modal]");
 
 const pkmnSensibilityTemplateRaw = document.querySelector(
     "[data-tpl-id='pokemon-sensibility']"
@@ -64,39 +64,6 @@ const pokemonStatisticTempalteRaw = document.querySelector(
 );
 
 const loadGenerationBtn = document.querySelector("[data-load-generation]");
-
-const modal_DOM = {
-    pkmnName: modal.querySelector("h2"),
-    img: modal.querySelector("img"),
-    category: modal.querySelector("[data-category]"),
-    listTypes: modal.querySelector("[data-list-types]"),
-    listSensibilities: modal.querySelector("[data-list-sensibilities]"),
-    listEvolutions: modal.querySelector("[data-list-evolutions]"),
-    extraEvolutions: modal.querySelector("[data-extra-evolutions]"),
-    sexMaleBarContainer: modal.querySelector("[data-sex='male']"),
-    sexAsexualBarContainer: modal.querySelector("[data-sex='asexual']"),
-    sexFemaleBarContainer: modal.querySelector("[data-sex='female']"),
-    sexRateMale: modal.querySelectorAll("[data-sex-rate='male']"),
-    sexRateFemale: modal.querySelectorAll("[data-sex-rate='female']"),
-    sexLabelFemale: modal.querySelectorAll("[data-sex-label='female']"),
-    sexLabelMale: modal.querySelectorAll("[data-sex-label='male']"),
-    height: modal.querySelector("[data-weight]"),
-    weight: modal.querySelector("[data-height]"),
-    listAbilities: modal.querySelector("[data-list-abilities]"),
-    listGames: modal.querySelector("[data-list-games]"),
-    nbGames: modal.querySelector("[data-nb-games]"),
-    nbRegionalForms: modal.querySelector("[data-nb-regional-forms]"),
-    listRegionalForms: modal.querySelector("[data-list-regional-forms]"),
-    nbForms: modal.querySelector("[data-nb-forms]"),
-    listForms: modal.querySelector("[data-list-forms]"),
-    spritesContainer: modal.querySelector("[data-sprites-container]"),
-    topInfos: modal.querySelector("[data-top-infos]"),
-    listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
-    statistics: modal.querySelector("[data-statistics]"),
-    catchRate: modal.querySelector("[data-catch-rate]"),
-    acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
-    noEvolutionsText: modal.querySelector("[data-no-evolutions]"),
-};
 
 const dataCache = {};
 let listAbilitiesCache = [];
@@ -125,6 +92,11 @@ const resetModalPosition = () => {
 
 modal.addEventListener("close", async (e) => {
     const url = new URL(location);
+    if (
+        "documentPictureInPicture" in window && window.documentPictureInPicture.window
+    ) {
+        return;
+    }
     url.searchParams.delete("id");
     url.searchParams.delete("region");
     url.searchParams.delete("alternate_form_id");
@@ -148,6 +120,10 @@ modal.addEventListener("close", async (e) => {
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
     setTitleTagForGeneration();
+
+    document.querySelectorAll(".selected").forEach((item) => {
+        item.classList.remove("selected");
+    });
 });
 
 modal.addEventListener("transitionend", (e) => {
@@ -260,6 +236,15 @@ displayModal = async (pkmnData) => {
     }
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
     document.title = `Chargement - ${initialPageTitle}`;
+
+    document.querySelectorAll(".selected").forEach((item) => {
+        item.classList.remove("selected");
+    });
+
+    const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnData.pokedex_id}"]`);
+    if ($itemInList) {
+        $itemInList.classList.add("selected");
+    }
 
     modal_DOM.img.src = loadingImage;
 
@@ -851,6 +836,93 @@ window.addEventListener("pokedexLoaded", () => {
     clearTagContent(modal_DOM.listSiblings);
     generatePokemonSiblingsUI(pkmnData);
 });
+
+// modal_DOM.togglePip.addEventListener("click", () => {
+//     togglePictureInPicture();
+// });
+
+
+// // https://medium.com/@abhishek_guy/guide-to-use-the-document-picture-in-picture-api-51ecfac058f7
+// async function togglePictureInPicture() {
+
+//     if (document.pictureInPictureElement) {
+//         document.exitPictureInPicture();
+//         return;
+//     } else if (document.pictureInPictureEnabled) {
+//         alert('"okkk')
+//         const options = {
+//             initialAspectRatio: modal.clientWidth / modal.clientHeight,
+//             lockAspectRatio: true,
+// 			copyStyleSheets: true,
+//         };
+//         const pipWindow = await documentPictureInPicture.requestWindow(options);
+//         Array.from( document.scripts).forEach((item) => {
+//             const style = document.createElement("script");
+//             style.src = item.src;
+//             style.type = "module";
+//             pipWindow.document.head.append(style);
+//         });
+
+//         pipWindow.addEventListener("pagehide", (event) => {
+//             const timer = pipWindow.document.querySelector("dialog");
+//             timer.close();
+//             document.body.append(timer);
+//             timer.showModal();
+//         }, {
+// 			once: true,
+// 		});
+
+//         [...document.styleSheets].forEach((styleSheet) => {
+            // try {
+            //     const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
+            //     const style = document.createElement("style");
+
+            //     style.textContent = cssRules;
+            //     pipWindow.document.head.appendChild(style);
+            // } catch (e) {
+            //     const link = document.createElement("link");
+            //     link.rel = "stylesheet";
+            //     link.type = styleSheet.type;
+            //     link.media = styleSheet.media;
+            //     link.href = styleSheet.href;
+            //     pipWindow.document.head.appendChild(link);
+            // }
+//         });
+
+//         pipWindow.document.body.append(modal);
+
+//         // pipWindow.document.body.append(modal.innerHTML);
+//         modal.close();
+//     }
+//   }
+
+// documentPictureInPicture.addEventListener("enter", (event) => {
+//     const pipWindow = event.window;
+//     // pipWindow.document.querySelector("dialog").showModal()
+//     // console.log("pipWindow", pipWindow)
+//     // const timer = pipWindow.document.querySelector("dialog");
+//     // timer.showModal()
+
+//     var config = { attributes: true, childList: true };
+
+//     // Fonction callback à éxécuter quand une mutation est observée
+//     var callback = function (mutationsList) {
+    // for (var mutation of mutationsList) {
+    //     if (mutation.type == "childList") {
+    //         if (pipWindow.document.querySelector("dialog")) {
+    //             pipWindow.document.querySelector("dialog").showModal()
+    //         }
+    //     }
+    // }
+//     };
+
+
+//     var observer = new MutationObserver(callback);
+
+//     // Commence à observer le noeud cible pour les mutations précédemment configurées
+//     observer.observe(pipWindow.document.body, config);
+// })
+
 
 export { loadDetailsModal }
 export default displayModal;
