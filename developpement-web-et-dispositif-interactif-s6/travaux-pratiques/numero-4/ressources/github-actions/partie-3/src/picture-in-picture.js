@@ -3,6 +3,8 @@ import { modal_DOM, modal } from "./utils";
 if ("documentPictureInPicture" in window) {
     const togglePictureInPicture = async () => {
         if (window.documentPictureInPicture.window) {
+            window.documentPictureInPicture.window.close();
+            return;
         } else {
             const pipOptions = {
                 initialAspectRatio: modal.clientWidth / modal.clientHeight,
@@ -42,23 +44,25 @@ if ("documentPictureInPicture" in window) {
 
             pipWindow.addEventListener("pagehide", () => {
                 const dialog = pipWindow.document.querySelector("dialog");
-                dialog.close();
+                if (dialog) {
+                    dialog.close();
+                }
                 document.body.append(dialog);
-                dialog.showModal();
+                modal.showModal();
             });
         }
     };
-    modal_DOM.togglePip.addEventListener("click", () => {
-        togglePictureInPicture();
-    });
+    // modal_DOM.togglePip.addEventListener("click", () => {
+    //     togglePictureInPicture();
+    // });
 
     documentPictureInPicture.addEventListener("enter", (event) => {
         const pipWindow = event.window;
 
         const config = { attributes: false, childList: true };
 
-        const callback = function (mutationsList) {
-            for (var mutation of mutationsList) {
+        const pipObserverCallback = (mutationsList) => {
+            for (const mutation of mutationsList) {
                 if (mutation.type == "childList") {
                     const pipModal = pipWindow.document.querySelector("dialog");
                     if (pipModal) {
@@ -68,8 +72,8 @@ if ("documentPictureInPicture" in window) {
             }
         };
 
-        const observer = new MutationObserver(callback);
-        observer.observe(pipWindow.document.body, config);
+        const pipObserver = new MutationObserver(pipObserverCallback);
+        pipObserver.observe(pipWindow.document.body, config);
     });
 } else {
     modal_DOM.togglePip.remove();
