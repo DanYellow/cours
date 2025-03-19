@@ -345,9 +345,6 @@ export const observeURL = async () => {
     }
 }
 
-await observeURL();
-await loadPokedexForGeneration(1);
-
 delegateEventHandler(document, "click", "[data-load-generation]", (e) => {
     loadPokedexForGeneration(e.target.dataset.loadGeneration, e.target.dataset.selfDelete === "" ? e.target : null);
 });
@@ -388,3 +385,13 @@ window.addEventListener("offline", () => {
 });
 
 export { loadPokedexForGeneration };
+
+await observeURL();
+await loadPokedexForGeneration(1);
+
+if (pkmnId !== null) {
+    const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnId}"]`);
+    if ($itemInList) {
+        $itemInList.classList.add("selected");
+    }
+}
