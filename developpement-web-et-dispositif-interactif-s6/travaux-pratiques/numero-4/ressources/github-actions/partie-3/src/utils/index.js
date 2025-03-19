@@ -220,6 +220,42 @@ export const onTransitionsEnded = (node) => {
     );
 }
 
+export const modal = document.querySelector("[data-pokemon-modal]");
+
+export const modal_DOM = {
+    pkmnName: modal.querySelector("h2"),
+    img: modal.querySelector("img"),
+    category: modal.querySelector("[data-category]"),
+    listTypes: modal.querySelector("[data-list-types]"),
+    listSensibilities: modal.querySelector("[data-list-sensibilities]"),
+    listEvolutions: modal.querySelector("[data-list-evolutions]"),
+    extraEvolutions: modal.querySelector("[data-extra-evolutions]"),
+    sexMaleBarContainer: modal.querySelector("[data-sex='male']"),
+    sexAsexualBarContainer: modal.querySelector("[data-sex='asexual']"),
+    sexFemaleBarContainer: modal.querySelector("[data-sex='female']"),
+    sexRateMale: modal.querySelectorAll("[data-sex-rate='male']"),
+    sexRateFemale: modal.querySelectorAll("[data-sex-rate='female']"),
+    sexLabelFemale: modal.querySelectorAll("[data-sex-label='female']"),
+    sexLabelMale: modal.querySelectorAll("[data-sex-label='male']"),
+    height: modal.querySelector("[data-weight]"),
+    weight: modal.querySelector("[data-height]"),
+    listAbilities: modal.querySelector("[data-list-abilities]"),
+    listGames: modal.querySelector("[data-list-games]"),
+    nbGames: modal.querySelector("[data-nb-games]"),
+    nbRegionalForms: modal.querySelector("[data-nb-regional-forms]"),
+    listRegionalForms: modal.querySelector("[data-list-regional-forms]"),
+    nbForms: modal.querySelector("[data-nb-forms]"),
+    listForms: modal.querySelector("[data-list-forms]"),
+    spritesContainer: modal.querySelector("[data-sprites-container]"),
+    topInfos: modal.querySelector("[data-top-infos]"),
+    listSiblings: modal.querySelector("[data-list-siblings-pokemon]"),
+    statistics: modal.querySelector("[data-statistics]"),
+    catchRate: modal.querySelector("[data-catch-rate]"),
+    acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
+    noEvolutionsText: modal.querySelector("[data-no-evolutions]"),
+    togglePip: modal.querySelector("[data-picture-in-picture]"),
+};
+
 export * from "./colors";
 export * from "./pokemon-modal.utils";
 export * from "./formsDictionary";

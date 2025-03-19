@@ -853,91 +853,91 @@ window.addEventListener("pokedexLoaded", () => {
     generatePokemonSiblingsUI(pkmnData);
 });
 
-modal_DOM.togglePip.addEventListener("click", () => {
-    togglePictureInPicture();
-});
+// modal_DOM.togglePip.addEventListener("click", () => {
+//     togglePictureInPicture();
+// });
 
 
-// https://medium.com/@abhishek_guy/guide-to-use-the-document-picture-in-picture-api-51ecfac058f7
-async function togglePictureInPicture() {
-    if (document.pictureInPictureElement) {
+// // https://medium.com/@abhishek_guy/guide-to-use-the-document-picture-in-picture-api-51ecfac058f7
+// async function togglePictureInPicture() {
 
-        document.exitPictureInPicture();
-    } else if (document.pictureInPictureEnabled) {
-        const options = {
-            initialAspectRatio: modal.clientWidth / modal.clientHeight,
-            lockAspectRatio: true,
-			copyStyleSheets: true,
-        };
-        const pipWindow = await documentPictureInPicture.requestWindow(options);
-        Array.from( document.scripts).forEach((item) => {
-            const style = document.createElement("script");
-            style.src = item.src;
-            style.type = "module";
-            pipWindow.document.head.append(style);
-        });
+//     if (document.pictureInPictureElement) {
+//         document.exitPictureInPicture();
+//         return;
+//     } else if (document.pictureInPictureEnabled) {
+//         alert('"okkk')
+//         const options = {
+//             initialAspectRatio: modal.clientWidth / modal.clientHeight,
+//             lockAspectRatio: true,
+// 			copyStyleSheets: true,
+//         };
+//         const pipWindow = await documentPictureInPicture.requestWindow(options);
+//         Array.from( document.scripts).forEach((item) => {
+//             const style = document.createElement("script");
+//             style.src = item.src;
+//             style.type = "module";
+//             pipWindow.document.head.append(style);
+//         });
 
-        pipWindow.addEventListener("pagehide", (event) => {
-            const timer = pipWindow.document.querySelector("dialog");
-            timer.close();
-            document.body.append(timer);
-            timer.showModal();
-        }, {
-			once: true,
-		});
+//         pipWindow.addEventListener("pagehide", (event) => {
+//             const timer = pipWindow.document.querySelector("dialog");
+//             timer.close();
+//             document.body.append(timer);
+//             timer.showModal();
+//         }, {
+// 			once: true,
+// 		});
 
-        [...document.styleSheets].forEach((styleSheet) => {
-            try {
-                const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
-                const style = document.createElement("style");
+//         [...document.styleSheets].forEach((styleSheet) => {
+            // try {
+            //     const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
+            //     const style = document.createElement("style");
 
-                style.textContent = cssRules;
-                pipWindow.document.head.appendChild(style);
-            } catch (e) {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = styleSheet.type;
-                link.media = styleSheet.media;
-                link.href = styleSheet.href;
-                pipWindow.document.head.appendChild(link);
-            }
-        });
+            //     style.textContent = cssRules;
+            //     pipWindow.document.head.appendChild(style);
+            // } catch (e) {
+            //     const link = document.createElement("link");
+            //     link.rel = "stylesheet";
+            //     link.type = styleSheet.type;
+            //     link.media = styleSheet.media;
+            //     link.href = styleSheet.href;
+            //     pipWindow.document.head.appendChild(link);
+            // }
+//         });
 
-        pipWindow.document.body.append(modal);
+//         pipWindow.document.body.append(modal);
 
-        // pipWindow.document.body.append(modal.innerHTML);
-        modal.close();
-    }
-  }
+//         // pipWindow.document.body.append(modal.innerHTML);
+//         modal.close();
+//     }
+//   }
 
-documentPictureInPicture.addEventListener("enter", (event) => {
-    const pipWindow = event.window;
-    // pipWindow.document.querySelector("dialog").showModal()
-    // console.log("pipWindow", pipWindow)
-    // const timer = pipWindow.document.querySelector("dialog");
-    // timer.showModal()
+// documentPictureInPicture.addEventListener("enter", (event) => {
+//     const pipWindow = event.window;
+//     // pipWindow.document.querySelector("dialog").showModal()
+//     // console.log("pipWindow", pipWindow)
+//     // const timer = pipWindow.document.querySelector("dialog");
+//     // timer.showModal()
 
-    var config = { attributes: true, childList: true };
+//     var config = { attributes: true, childList: true };
 
-    // Fonction callback à éxécuter quand une mutation est observée
-    var callback = function (mutationsList) {
-    for (var mutation of mutationsList) {
-        if (mutation.type == "childList") {
-            if (pipWindow.document.querySelector("dialog")) {
-                pipWindow.document.querySelector("dialog").showModal()
-            }
-        }
-    }
-    };
-
-
-    var observer = new MutationObserver(callback);
-
-    // Commence à observer le noeud cible pour les mutations précédemment configurées
-    observer.observe(pipWindow.document.body, config);
-})
+//     // Fonction callback à éxécuter quand une mutation est observée
+//     var callback = function (mutationsList) {
+    // for (var mutation of mutationsList) {
+    //     if (mutation.type == "childList") {
+    //         if (pipWindow.document.querySelector("dialog")) {
+    //             pipWindow.document.querySelector("dialog").showModal()
+    //         }
+    //     }
+    // }
+//     };
 
 
+//     var observer = new MutationObserver(callback);
+
+//     // Commence à observer le noeud cible pour les mutations précédemment configurées
+//     observer.observe(pipWindow.document.body, config);
+// })
 
 
 export { loadDetailsModal }
