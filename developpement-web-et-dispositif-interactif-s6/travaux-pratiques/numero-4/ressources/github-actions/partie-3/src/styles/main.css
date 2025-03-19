@@ -48,6 +48,18 @@
     }
 }
 
+@custom-variant picture-in-picture {
+    &:is([data-picture-in-picture]) {
+        @slot;
+    }
+}
+
+@custom-variant group-picture-in-picture {
+    &:is(:where(.group[data-picture-in-picture]) *) {
+        @slot;
+    }
+}
+
 @layer utilities {
     @font-face {
         font-family: "Open Sans";
@@ -112,9 +124,9 @@ html {
     font-variation-settings: "wdth" 100;
     scrollbar-gutter: stable;
 
-    /* &:has(dialog[open]) {
+    &:has(dialog[open]) {
         overflow: hidden;
-    } */
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
