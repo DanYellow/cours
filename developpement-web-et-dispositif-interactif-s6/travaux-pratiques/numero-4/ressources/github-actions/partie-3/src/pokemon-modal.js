@@ -96,6 +96,7 @@ const modal_DOM = {
     catchRate: modal.querySelector("[data-catch-rate]"),
     acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
     noEvolutionsText: modal.querySelector("[data-no-evolutions]"),
+    togglePip: modal.querySelector("[data-picture-in-picture]"),
 };
 
 const dataCache = {};
@@ -852,9 +853,15 @@ window.addEventListener("pokedexLoaded", () => {
     generatePokemonSiblingsUI(pkmnData);
 });
 
+modal_DOM.togglePip.addEventListener("click", () => {
+    togglePictureInPicture();
+});
+
+
 // https://medium.com/@abhishek_guy/guide-to-use-the-document-picture-in-picture-api-51ecfac058f7
-window.togglePictureInPicture = async function togglePictureInPicture() {
+async function togglePictureInPicture() {
     if (document.pictureInPictureElement) {
+
         document.exitPictureInPicture();
     } else if (document.pictureInPictureEnabled) {
         const options = {
@@ -866,8 +873,18 @@ window.togglePictureInPicture = async function togglePictureInPicture() {
         Array.from( document.scripts).forEach((item) => {
             const style = document.createElement("script");
             style.src = item.src;
+            style.type = "module";
             pipWindow.document.head.append(style);
         });
+
+        pipWindow.addEventListener("pagehide", (event) => {
+            const timer = pipWindow.document.querySelector("dialog");
+            timer.close();
+            document.body.append(timer);
+            timer.showModal();
+        }, {
+			once: true,
+		});
 
         [...document.styleSheets].forEach((styleSheet) => {
             try {
@@ -878,7 +895,6 @@ window.togglePictureInPicture = async function togglePictureInPicture() {
                 pipWindow.document.head.appendChild(style);
             } catch (e) {
                 const link = document.createElement("link");
-
                 link.rel = "stylesheet";
                 link.type = styleSheet.type;
                 link.media = styleSheet.media;
@@ -888,8 +904,41 @@ window.togglePictureInPicture = async function togglePictureInPicture() {
         });
 
         pipWindow.document.body.append(modal);
+
+        // pipWindow.document.body.append(modal.innerHTML);
+        modal.close();
     }
   }
+
+documentPictureInPicture.addEventListener("enter", (event) => {
+    const pipWindow = event.window;
+    // pipWindow.document.querySelector("dialog").showModal()
+    // console.log("pipWindow", pipWindow)
+    // const timer = pipWindow.document.querySelector("dialog");
+    // timer.showModal()
+
+    var config = { attributes: true, childList: true };
+
+    // Fonction callback à éxécuter quand une mutation est observée
+    var callback = function (mutationsList) {
+    for (var mutation of mutationsList) {
+        if (mutation.type == "childList") {
+            if (pipWindow.document.querySelector("dialog")) {
+                pipWindow.document.querySelector("dialog").showModal()
+            }
+        }
+    }
+    };
+
+
+    var observer = new MutationObserver(callback);
+
+    // Commence à observer le noeud cible pour les mutations précédemment configurées
+    observer.observe(pipWindow.document.body, config);
+})
+
+
+
 
 export { loadDetailsModal }
 export default displayModal;
