@@ -44,6 +44,7 @@ if ("documentPictureInPicture" in window) {
 
             pipWindow.addEventListener("pagehide", () => {
                 const dialog = pipWindow.document.querySelector("dialog");
+                dialog.removeAttribute("data-picture-in-picture");
                 if (dialog) {
                     dialog.close();
                 }
@@ -52,9 +53,12 @@ if ("documentPictureInPicture" in window) {
             });
         }
     };
-    // modal_DOM.togglePip.addEventListener("click", () => {
-    //     togglePictureInPicture();
-    // });
+
+    modal_DOM.listTogglePip.forEach((item) => {
+        item.addEventListener("click", () => {
+            togglePictureInPicture();
+        });
+    })
 
     documentPictureInPicture.addEventListener("enter", (event) => {
         const pipWindow = event.window;
@@ -66,6 +70,7 @@ if ("documentPictureInPicture" in window) {
                 if (mutation.type == "childList") {
                     const pipModal = pipWindow.document.querySelector("dialog");
                     if (pipModal) {
+                        pipModal.dataset.pictureInPicture = "";
                         pipModal.showModal();
                     }
                 }

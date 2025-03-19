@@ -253,7 +253,7 @@ export const modal_DOM = {
     catchRate: modal.querySelector("[data-catch-rate]"),
     acronymVersions: modal.querySelector("[data-pkmn-acronym-versions]"),
     noEvolutionsText: modal.querySelector("[data-no-evolutions]"),
-    togglePip: modal.querySelector("[data-picture-in-picture]"),
+    listTogglePip: modal.querySelectorAll("[data-toggle-picture-in-picture]"),
 };
 
 export * from "./colors";

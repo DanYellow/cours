@@ -92,6 +92,11 @@ const resetModalPosition = () => {
 
 modal.addEventListener("close", async (e) => {
     const url = new URL(location);
+    if (
+        "documentPictureInPicture" in window && window.documentPictureInPicture.window
+    ) {
+        return;
+    }
     url.searchParams.delete("id");
     url.searchParams.delete("region");
     url.searchParams.delete("alternate_form_id");
