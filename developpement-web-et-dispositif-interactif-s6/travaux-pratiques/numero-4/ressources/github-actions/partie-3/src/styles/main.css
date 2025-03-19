@@ -112,9 +112,9 @@ html {
     font-variation-settings: "wdth" 100;
     scrollbar-gutter: stable;
 
-    &:has(dialog[open]) {
+    /* &:has(dialog[open]) {
         overflow: hidden;
-    }
+    } */
 }
 
 @media (prefers-reduced-motion: reduce) {

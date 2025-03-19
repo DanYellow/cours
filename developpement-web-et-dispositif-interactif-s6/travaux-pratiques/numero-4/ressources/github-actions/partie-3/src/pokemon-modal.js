@@ -852,5 +852,44 @@ window.addEventListener("pokedexLoaded", () => {
     generatePokemonSiblingsUI(pkmnData);
 });
 
+// https://medium.com/@abhishek_guy/guide-to-use-the-document-picture-in-picture-api-51ecfac058f7
+window.togglePictureInPicture = async function togglePictureInPicture() {
+    if (document.pictureInPictureElement) {
+        document.exitPictureInPicture();
+    } else if (document.pictureInPictureEnabled) {
+        const options = {
+            initialAspectRatio: modal.clientWidth / modal.clientHeight,
+            lockAspectRatio: true,
+			copyStyleSheets: true,
+        };
+        const pipWindow = await documentPictureInPicture.requestWindow(options);
+        Array.from( document.scripts).forEach((item) => {
+            const style = document.createElement("script");
+            style.src = item.src;
+            pipWindow.document.head.append(style);
+        });
+
+        [...document.styleSheets].forEach((styleSheet) => {
+            try {
+                const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
+                const style = document.createElement("style");
+
+                style.textContent = cssRules;
+                pipWindow.document.head.appendChild(style);
+            } catch (e) {
+                const link = document.createElement("link");
+
+                link.rel = "stylesheet";
+                link.type = styleSheet.type;
+                link.media = styleSheet.media;
+                link.href = styleSheet.href;
+                pipWindow.document.head.appendChild(link);
+            }
+        });
+
+        pipWindow.document.body.append(modal);
+    }
+  }
+
 export { loadDetailsModal }
 export default displayModal;
