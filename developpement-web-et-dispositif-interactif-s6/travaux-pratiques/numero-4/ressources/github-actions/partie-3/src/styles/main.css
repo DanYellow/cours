@@ -621,3 +621,15 @@ details {
     transition-duration: var(--duration-150);
     transform-origin: center;
 }
+
+.toggle-pip-btn {
+    --width: 2rem;
+    width: var(--width);
+    overflow-x: clip;
+	transition: width var(--duration-150) ease;
+    grid-template-columns: var(--width) auto;
+
+    &:is(:hover, :focus-visible) {
+        width: max-content;
+    }
+}
