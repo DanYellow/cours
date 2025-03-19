@@ -120,6 +120,10 @@ modal.addEventListener("close", async (e) => {
     modal_DOM.img.src = loadingImage;
     modal_DOM.img.alt = "";
     setTitleTagForGeneration();
+
+    document.querySelectorAll(".selected").forEach((item) => {
+        item.classList.remove("selected");
+    });
 });
 
 modal.addEventListener("transitionend", (e) => {
@@ -232,6 +236,13 @@ displayModal = async (pkmnData) => {
     }
     modal.dataset.pokemonData = JSON.stringify(pkmnData);
     document.title = `Chargement - ${initialPageTitle}`;
+
+    document.querySelectorAll(".selected").forEach((item) => {
+        item.classList.remove("selected");
+    });
+
+    const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnData.pokedex_id}"]`);
+    $itemInList.classList.add("selected");
 
     modal_DOM.img.src = loadingImage;
 

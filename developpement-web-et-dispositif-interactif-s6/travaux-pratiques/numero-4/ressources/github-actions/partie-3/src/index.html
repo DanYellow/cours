@@ -80,9 +80,9 @@
 
         <template data-tpl-id="pokemon">
             <li class="@container/pokemon">
-                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated hocus:scale-105 @xs:hocus:scale-100 hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
+                <a data-pokemon-data data-pokemon-id class="pokemon ripple-effect duration-150 border-type-animated @xs:[.selected]:scale-100 [.selected]:scale-105 hocus:scale-105 @xs:hocus:scale-100 [.selected]:relative hocus:relative ease-out rounded-md py-2 group block border-solid border-transparent border-2 outline-offset-2 transition-transform" data-testid="pokemon">
                     <div class="flex @xs:flex-row flex-col gap-3 items-center relative inert:opacity-50">
-                        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-hocus:opacity-100 @xs:hidden h-fit" data-marquee></div>
+                        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity group-[.selected]:opacity-100 group-hocus:opacity-100 @xs:hidden h-fit" data-marquee></div>
                         <img src="/images/loading.svg" loading="lazy" alt="" class="@xs:max-w-20 group-hocus:scale-85 transition-transform" />
                         <p data-pkmn-name class="group-hocus:pkmn-name @xs:text-left text-center whitespace-pre w-full"></p>
                     </div>
