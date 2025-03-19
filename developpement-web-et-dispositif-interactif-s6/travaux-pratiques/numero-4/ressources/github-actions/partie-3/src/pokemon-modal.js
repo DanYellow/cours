@@ -242,7 +242,9 @@ displayModal = async (pkmnData) => {
     });
 
     const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnData.pokedex_id}"]`);
-    $itemInList.classList.add("selected");
+    if ($itemInList) {
+        $itemInList.classList.add("selected");
+    }
 
     modal_DOM.img.src = loadingImage;
 
