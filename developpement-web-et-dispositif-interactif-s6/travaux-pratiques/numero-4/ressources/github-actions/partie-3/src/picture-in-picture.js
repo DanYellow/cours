@@ -42,15 +42,18 @@ if ("documentPictureInPicture" in window) {
             });
 
             pipWindow.document.body.append(modal);
+            const dialog = pipWindow.document.querySelector("dialog");
+            dialog.classList.add("center-dialog");
             modal.close();
 
             pipWindow.addEventListener("pagehide", () => {
                 const dialog = pipWindow.document.querySelector("dialog");
-                dialog.removeAttribute("data-picture-in-picture");
                 if (dialog) {
+                    dialog.removeAttribute("data-picture-in-picture");
+                    dialog.classList.remove("center-dialog");
                     dialog.close();
+                    document.body.append(dialog);
                 }
-                document.body.append(dialog);
                 modal.showModal();
             });
         }

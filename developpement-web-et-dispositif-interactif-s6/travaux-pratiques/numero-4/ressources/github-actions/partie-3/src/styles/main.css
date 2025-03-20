@@ -49,7 +49,7 @@
 }
 
 @custom-variant picture-in-picture {
-    &:is([data-picture-in-picture]) {
+    &[data-picture-in-picture] {
         @slot;
     }
 }
@@ -236,7 +236,7 @@ dialog {
 }
 
 .pkmn-details-dialog {
-    --dot-size: 0.8px;
+    --dot-size: 0.85px;
     --dot-alpha: 0.3;
     --dot-color-1: white;
     --dot-color-2: white;
@@ -632,4 +632,11 @@ details {
     &:is(:hover, :focus-visible) {
         width: max-content;
     }
+}
+
+.center-dialog {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
 }
