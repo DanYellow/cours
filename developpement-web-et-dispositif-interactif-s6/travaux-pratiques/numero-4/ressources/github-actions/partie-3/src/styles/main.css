@@ -403,6 +403,18 @@ details {
     );
     background-size: 400% 400%;
     animation: mega-evolution-gradient 15s ease infinite;
+    position: relative;
+
+    &::before {
+        --vibrance: 50%;
+        content: "";
+        position: absolute;
+        inset: 5px 5px -10px;
+        background: linear-gradient(to right in oklch longer hue, oklch(95% var(--vibrance) 0) 0 100%);
+        filter: blur(20px);
+        border-radius: inherit;
+        z-index: -1;
+      }
 }
 
 @keyframes mega-evolution-gradient {
