@@ -29,7 +29,7 @@ $liste_entrees_menu = [
         <div class="flex items-center gap-y-4 gap-x-8 md:flex-row flex-col">
             <div class="flex-shrink-0">
                 <p>
-                    <a href="./administration/articles" class="text-white font-bold hover:text-sky-200 focus:text-sky-200">Administration SAE 203</a>
+                    <a href="<?php echo $liste_entrees_menu[0]; ?>" class="text-white font-bold hover:text-sky-200 focus:text-sky-200">Administration SAE 203</a>
                 </p>
             </div>
             <nav class="flex items-baseline gap-x-4 grow">
@@ -50,7 +50,8 @@ $liste_entrees_menu = [
                                 {$entree_menu["nom"]}
                             </a>
                         ";
-                } ?>
+                    }
+                ?>
             </nav>
         </div>
     </div>
