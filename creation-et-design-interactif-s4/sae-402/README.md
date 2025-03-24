@@ -127,7 +127,7 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
 - Afficher dans la splash page de jeu le logo de l'université (voir menu `Project Settings > Player > Logo`)
     - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Compléter le menu Pause
-    - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap"
+    - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap". Grâce au composant "PauseManager" dans le projet, complétez-le
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEvent`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
     - Le menu Pause doit **au minimum** contenir un bouton pour relancer le jeu et revenir au menu principal
