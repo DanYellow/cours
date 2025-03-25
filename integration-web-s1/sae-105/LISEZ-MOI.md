@@ -179,7 +179,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
   - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
     - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
-    - Je ne peux pas être iso maquette, c'est impossible
+    - Rappel : Vous ne pouvez pas être iso maquette à 100%, c'est impossible
   - [ ] Mettre le site en ligne
   - [ ] La page courante est indiquée dans la navigation
   - [ ] Réaliser la sixième page
@@ -197,7 +197,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
 ## FAQ - Foire Aux Questions
 - **J'ai uploadé mon site sur un serveur et j'ai une erreur "Access forbidden" ou un explorateur de fichiers qui s'affiche. Pourquoi ?**
 
-  Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut impérativement un fichier `index.php` sinon, c'est comme construire une maison sans porte d'entrée.
+  Vous n'avez pas de fichier `index.php` à la racine de votre dossier. Il faut **impérativement** un fichier `index.php` sinon, c'est comme construire une maison sans porte d'entrée.
 
 - **Les images ne me plaisent pas, est-il possible de les changer ?**
 
@@ -213,7 +213,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
 
 - **Le raccourci `html:5` ne fonctionne pas dans mes fichiers PHP, pourquoi ?**
 
-    Il faut activer l'outil d'emmet sur les fichiers PHP, c'est lui qui permet notamment d'utiliser le raccourci `html:5`. Pour ce faire :
+    Il faut activer l'outil d'emmet sur les fichiers PHP, c'est lui qui permet notamment d'utiliser le raccourci `html:5`. Pour ce faire, dans VS Code :
     1. Allez dans le menu File > Preferences > Settings
     1. Recherchez "emmet" dans la barre de recherche
     1. Dans la zone "Emmet: Includes languages", cliquez sur "Add Item" et ajoutez "php" dans la zone "key" et "html" dans la zone "value"
