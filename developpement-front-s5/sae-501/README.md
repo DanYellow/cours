@@ -53,7 +53,7 @@ Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis s
 
 > Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée.
 
-Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des choses à réaliser.
+Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des tâches à réaliser.
 
 > - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 >
@@ -95,12 +95,14 @@ code/
 
 La structure est un peu plus complexe que celle avec laquelle vous avez travaillé en S1/S2. Le projet se base principalement sur les outils vitejs et express. Regardons en détails tout ça.
 
+> Note : Si la version 5 d'express est disponible, le projet utilise encore la version 4. Vous prendrez soin de vérifier la version de la documentation avant de vous en inspirer.
+
 ### Dossier database/
-Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus de détails sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux sont gratuits.
+Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus d'informations sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux outils sont gratuits.
 
 ### Dossier public/
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier CSS que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
-> Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/)
+> Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/).
 
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
@@ -118,7 +120,7 @@ router.get(["/hello", "/mon-blog.html"], async (req, res) => {
 ```
 Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide.
 
-> Note : les chemins des templates partent de la racine du projet. Il est donc inutile de mettre '../' dans vos chemins.
+> Note : les chemins des templates partent du dossier "src/" du projet. Il est donc inutile de mettre '../' dans vos chemins de template.
 
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
 ```js
@@ -192,7 +194,7 @@ Contient le CSS du projet. Le projet importe déjà [tailwindcss](https://tailwi
 
 Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le fichier tailwind.config.js, ils permettent notamment de cibler des écrans tactiles / non-tactiles.
 
-> Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">CSS Nesting</a>. Ceci permet d'utiliser l'imbrication de sélecteurs CSS. Toutefois SCSS est installé, vous pouvez l'utiliser si vous souhaitez.
+> Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting). Ceci permet d'utiliser l'imbrication de sélecteurs CSS. Toutefois SCSS est installé, vous pouvez l'utiliser si vous souhaitez.
 
 > Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique.
 
@@ -203,6 +205,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
   - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
     - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
+  - Note : Il est fort probable que vous ne puissiez pas utiliser MongoDB sur les ordinateurs de l'IUT. Pour pallier à ce problème, il faudra passer par MongoDB Atlas, un outil freemium permettant d'héberger la base de données
 
 ### Installation
 1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
@@ -225,6 +228,8 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
 ### Utilisation - Mode production
+
+> **Le projet sera testé en mode production. Veillez bien à tester que tout fonctionne dans ce mode avant de rendre le projet.**
 1. Compiler les assets gérés par vite
    ```sh
    # La commande va compiler les assets vite dans le dossier dist/
@@ -236,7 +241,7 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
    ```
 Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez le faire, vous avez les solutions suivantes :
 - [localtunnel](https://localtunnel.github.io/www/) : Outil gratuit permettant d'exposer sur le web votre serveur local temporairement
-- Glitch : Outil freemium permettant de déployer un site node à partir de github. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
+- Glitch : Outil freemium permettant de déployer un site node à partir de GitHub. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
   - [Accéder au didactiel pour déployer avec Glitch - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
   - [Accéder au didactiel pour MongoDB Atlas - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#setting_up_the_mongodb_database)
   - Alwaysdata : Parmi les serveurs proposés, l'hébergeur propose également nodejs. **Toutefois, seule la partie serveur est proposée.** Pour la partie Mongo, le plus simple est de passer par MongoDB Atlas (freemium) (voir plus haut). Néanmoins, il est possible d'installer soi-même MongoDB en SSH à condition d'avoir de la place sur votre espace disque
