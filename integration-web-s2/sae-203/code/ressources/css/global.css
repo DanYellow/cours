@@ -69,6 +69,11 @@ html {
     &::after {
         border-top-color: var(--active-page-color);
         transform: scaleX(1);
+        transition-duration: 100ms;
+
+        @starting-style {
+            transform: scaleX(0.8);
+        }
     }
 }
 
