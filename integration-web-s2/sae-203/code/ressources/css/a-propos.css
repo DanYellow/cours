@@ -1,9 +1,9 @@
 .liste-ancres {
-    border: 1px solid #03886D;
+    border: 1px solid #03886d;
     padding: 1rem 3rem 1rem 1rem;
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
 }
 
@@ -17,7 +17,7 @@
 
 .liste-ancres a {
     text-decoration: none;
-    color: #03886D;
+    color: #03886d;
 }
 
 .liste-ancres a:hover {
@@ -57,7 +57,7 @@
 }
 .projet .description {
     color: #363636;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 }
 
 .liste-axes {
@@ -65,4 +65,11 @@
     list-style-position: inside;
     font-size: 1.25rem;
     margin-top: -1.25rem;
+}
+
+.titre:target::before {
+    font: 70% sans-serif;
+    content: "►";
+    color: #03886d;
+    margin-right: 0.25em;
 }
