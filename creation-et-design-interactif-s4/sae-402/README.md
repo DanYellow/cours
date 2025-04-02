@@ -124,13 +124,14 @@ Pour faciliter le développement, des raccouris (qui ne seront pas présents dan
         - [https://pixelfrog-assets.itch.io/pixel-adventure-1](https://pixelfrog-assets.itch.io/pixel-adventure-1)
         - [https://pixelfrog-assets.itch.io/pixel-adventure-2](https://pixelfrog-assets.itch.io/pixel-adventure-2)
 - Ajouter un écran des crédits [(voir contenu attendu)](#contenu-de-lécran-des-crédits)
+  - Ces crédits doivent être accessible depuis l'écran d'accueil, au minimum
 - Afficher dans la splash page de jeu le logo de l'université (voir menu `Project Settings > Player > Logo`)
     - [Didacticiel en anglais sur la personnalisation de la splash page](https://www.youtube.com/watch?v=BY40xbA5qYQ)
 - Compléter le menu Pause
     - Il est déjà possible de mettre le jeu en pause en appuyant sur la touche "Echap". Grâce au composant "PauseManager" dans le projet, complétez-le
     - La gestion du menu pause est faite grâce à un ScriptableObject (`Assets/ScriptableObjects/Events/Events/OnTogglePauseEvent`)
     - Libre à vous d'ajouter d'autres options dans le menu de pause comme relancer le niveau ou encore retourner au menu principal via un bouton
-    - Le menu Pause doit **au minimum** contenir un bouton pour relancer le jeu et revenir au menu principal
+    - Le menu Pause doit **au minimum** contenir un bouton pour relancer le niveau et revenir au menu principal
     > Le menu Pause contient du texte. Toutefois, il est possible qu'il ne s'affiche pas. C'est lié à des packages Unity manquants. Pour ce faire, allez dans le menu d'Unity : `Window > TextMeshPro > Import TMP Essential Ressources.` Ceci va afficher une fenêtre, cliquez sur le bouton "Import" en bas à droite.
 - Afficher un indicateur du nombre de points de vie
     - Optionnel : possibilité de proposer le regain de vie
