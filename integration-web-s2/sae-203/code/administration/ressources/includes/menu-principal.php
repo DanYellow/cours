@@ -20,7 +20,7 @@ $liste_entrees_menu = [
         "lien" => "./",
         "nom" => "Accéder au site",
         "clef" => "site"
-    ]
+    ],
 ];
 ?>
 

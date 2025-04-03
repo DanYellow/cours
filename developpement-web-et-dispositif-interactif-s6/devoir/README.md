@@ -55,7 +55,9 @@ Les critères suivants seront évalués :
 - [ ] Générer un token pour l'API GitHub
   - [Didacticiel sur la création de token GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
   > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs de production
-  > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement
+  > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement. Pour rappel, vite importe automatiquement le contenu de vos fichiers env, si les deux conditions suivantes sont respectées :
+  >   - Chaque variable doit commencer par "VITE_"
+  >   - Le nom du fichier d'environnement doit s'appeler ".env" ou contenir le nom de l'environnement dans son nom. Ex : ".env.development". A noter qu'il est possible de rajouter l'extension ".local" pour ne pas commiter le fichier
   > - **Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention**
 
 ### Front-end
