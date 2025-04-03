@@ -52,6 +52,7 @@ Les critères suivants seront évalués :
 - [x] Lire les consignes
 - [ ] Mettre le projet sur GitHub et ajouter vos collaborateurs
   - N'oubliez pas de mettre le fichier .gitignore du projet fourni
+  - [Accéder documentation collaborators de GitHub](https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28)
 - [ ] Générer un token pour l'API GitHub
   - [Didacticiel sur la création de token GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
   > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs de production
@@ -63,10 +64,10 @@ Les critères suivants seront évalués :
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
-  - **Le nom du dex doit être affiché en français**
-- [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent)
+  - Optionel : Afficher le nom du dex doit être affiché en français. Par exemple la région d'Unys est appelée "Unova" en anglais
+- [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent) dans la modale
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
-- [ ] En mode liste uniquement, afficher les types du Pokémon
+- [ ] **En mode liste uniquement,** afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
