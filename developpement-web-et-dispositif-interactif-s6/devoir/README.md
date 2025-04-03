@@ -64,7 +64,7 @@ Les critères suivants seront évalués :
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
-  - Optionel : Afficher le nom du dex doit être affiché en français. Par exemple la région d'Unys est appelée "Unova" en anglais
+  - Optionel : Afficher le nom du dex en français. Par exemple la région d'Unys est appelée "Unova" en anglais
 - [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent) dans la modale
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] **En mode liste uniquement,** afficher les types du Pokémon
