@@ -76,7 +76,7 @@ Les critères suivants seront évalués :
   - Les couleurs liées aux types sont gérées dans le fichier main.css
   - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
-  - [Accéder à l'API tcgdex](https://tcgdex.dev)
+  - [Accéder à l'API tcgdex](https://tcgdex.dev/rest/filtering-sorting-pagination)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée. Un système de cache est déjà présent, servez-vous en
   - Si un Pokémon n'a pas de carte, et que vous utilisez la balise &lt;details>, cette dernière doit être désactivée
   - Optionnel : Au clic sur une carte, vous devez afficher ses détails
@@ -267,4 +267,3 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
   - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
     - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
 > Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
-
