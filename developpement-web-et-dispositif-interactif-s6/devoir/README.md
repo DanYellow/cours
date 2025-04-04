@@ -56,13 +56,15 @@ Les critères suivants seront évalués :
 - [ ] Générer un token pour l'API GitHub
   - [Didacticiel sur la création de token GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
   > - Note : Chaque membre peut créer son propre token et l'utiliser en local, toutefois un seul d'entre-eux sera utilisé sur les serveurs de production
-  > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement
+  > - Note 2 : **Ce token est une donnée sensible, il ne doit pas être dans votre dépôt.** Passez par les secrets et variables d'environnement. Pour rappel, vite importe automatiquement le contenu de vos fichiers env, si les deux conditions suivantes sont respectées :
+  >   - Chaque variable doit commencer par "VITE_"
+  >   - Le nom du fichier d'environnement doit s'appeler ".env" ou contenir le nom de l'environnement dans son nom. Ex : ".env.development". A noter qu'il est possible de rajouter l'extension ".local" pour ne pas commiter le fichier
   > - **Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention**
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
   - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
-  - Optionel : Afficher le nom du dex doit être affiché en français. Par exemple la région d'Unys est appelée "Unova" en anglais
+  - Optionel : Afficher le nom du dex en français. Par exemple la région d'Unys est appelée "Unova" en anglais
 - [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent) dans la modale
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] **En mode liste uniquement,** afficher les types du Pokémon
@@ -99,13 +101,12 @@ Les critères suivants seront évalués :
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
-  > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables :
+  > - Pour éviter d'exposer votre token d'API GitHub. Deux solutions sont envisageables :
   >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end (asynchrone ou non)
   >     2. Injecter, via vite, ces données dans le projet (moteur de template - nunjucks ou autre - ou javascript) :
   >         - Grâce aux requêtes que vous effecturez depuis le fichier de configuration de vite
   >         - ou via un fichier env que vous générez via la CI / CD
   > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire entre-vous
-
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss en majorité.
 > **C'est la version 4 de tailwind qui est utilisée.** Si vous souhaitez savoir les nouveautés, [ça se passe ici - vidéo en français moins de 20 minutes](https://grafikart.fr/tutoriels/tailwindcss-v4-2265)

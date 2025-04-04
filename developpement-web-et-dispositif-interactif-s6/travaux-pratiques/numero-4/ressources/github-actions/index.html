@@ -410,14 +410,18 @@
                     <p class="texte-gras">Ajouter sa clé ssh à un serveur (à faire dans votre terminal)</p>
                     <ol>
                         <li><code>ssh-copy-id user@server</code>
+                            <p>Exemple : <code>ssh-copy-id root@ssh-root.domain.ext</code></p>
                             <div class="note-attention">
                                 <p>Attention la commande copie <span class="texte-gras">toutes</span> vos clefs publiques, si vous souhaitez préciser quelles clés vous souhaitez copier, il faut passer le paramètre -i suivi du nom de la clé publique (fichier avec extension .pub).</p>
+                            </div>
+                            <div class="note-attention">
+                                <p>Si vous utilisez Alwaysdata, assurez-vous d'utiliser le compte ssh par défaut, si vous utilisez un autre compte, il risque de ne pas avoir de droits en écriture sur le serveur et vous serez bloqué(e) pour la modification de fichiers.</p>
                             </div>
                         </li>
                         <li>Entrez le mot de passe ssh du serveur qui doit vous autoriser</li>
                         <li>Et voilà</li>
                     </ol>
-                  <p class="texte-gras">Ajouter la clé ssh aux secrets du dépôt (à faire dans votre terminal)</p>
+                  <p class="texte-gras">Ajouter la clé ssh aux secrets du dépôt (à faire dans le terminal de votre ordinateur)</p>
                   <ol>
                     <li>Copiez votre clé privée (fichier sans l'extension .pub)
                         <div class="tab-wrapper" role="tablist">

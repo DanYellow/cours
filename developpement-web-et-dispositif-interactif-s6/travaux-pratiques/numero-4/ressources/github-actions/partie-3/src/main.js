@@ -386,8 +386,8 @@ window.addEventListener("offline", () => {
 
 export { loadPokedexForGeneration };
 
-await observeURL();
 await loadPokedexForGeneration(1);
+await observeURL();
 
 if (pkmnId !== null) {
     const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnId}"]`);
