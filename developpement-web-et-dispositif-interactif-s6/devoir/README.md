@@ -101,13 +101,12 @@ Les critères suivants seront évalués :
   - [Documentation de l'API "Collaborators"](https://docs.github.com/fr/rest/collaborators/collaborators?apiVersion=2022-11-28#list-repository-collaborators)
   - [Documentation de l'API "Users"](https://docs.github.com/fr/rest/users/users?apiVersion=2022-11-28#get-a-user)
   > Notes :
-  > - Pour éviter d'exposer votre token d'API Github. Deux solutions sont envisageables :
+  > - Pour éviter d'exposer votre token d'API GitHub. Deux solutions sont envisageables :
   >     1. Passer par un langage serveur (PHP, Python...) pour effectuer la requête et renvoyer le résultat au front-end (asynchrone ou non)
   >     2. Injecter, via vite, ces données dans le projet (moteur de template - nunjucks ou autre - ou javascript) :
   >         - Grâce aux requêtes que vous effecturez depuis le fichier de configuration de vite
   >         - ou via un fichier env que vous générez via la CI / CD
   > - Pensez à utiliser des fichiers d'env pour stocker votre token d'API, token qui ne doit pas être commité. Pour rappel, vous avez le site [singleuse.link](https://singleuse.link/create) pour envoyer des données de façon sécurisée et temporaire entre-vous
-
 
 > Le site est reponsive et doit le rester. Les styles sont gérés via tailwindcss en majorité.
 > **C'est la version 4 de tailwind qui est utilisée.** Si vous souhaitez savoir les nouveautés, [ça se passe ici - vidéo en français moins de 20 minutes](https://grafikart.fr/tutoriels/tailwindcss-v4-2265)

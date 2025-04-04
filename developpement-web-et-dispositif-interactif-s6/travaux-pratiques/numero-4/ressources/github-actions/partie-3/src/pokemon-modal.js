@@ -263,9 +263,6 @@ displayModal = async (pkmnData) => {
         }
 
         try {
-            // if(pkmnData.evolution === null) {
-            //     throw "No evolution";
-            // }
             const evolutionReq = await fetchEvolutionChain(listDescriptions.evolution_chain.url);
             evolutionLine = getEvolutionChain(
                 evolutionReq,
@@ -325,6 +322,7 @@ displayModal = async (pkmnData) => {
             listAbilities,
         };
     }
+    console.log(listDescriptions);
 
     modal.style.setProperty("--background-sprite", `url("${pkmnExtraData.sprites.other["official-artwork"].front_default}")`);
     replaceImage(modal_DOM.img, pkmnData.sprites.regular);
