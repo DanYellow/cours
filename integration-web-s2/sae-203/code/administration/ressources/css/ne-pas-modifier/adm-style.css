@@ -2,6 +2,19 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+/*
+    Le code ci-dessous permet d'effectuer une transition lors clic
+    mais ceci n'est pas optimal pour l'accessibilité...
+*/
+@view-transition {
+    navigation: auto;
+}
+
+/*
+    ...alors on utilise les lignes de code suivantes pour désactiver
+    les animations pour les utilisateurs
+    qui n'en souhaitent pas, leur désactivation est faite au niveau du système d'exploitation
+*/
 @media (prefers-reduced-motion: reduce) {
     *,
     ::before,
@@ -21,8 +34,4 @@ body {
     ::view-transition-new(*) {
         animation: none !important;
     }
-}
-
-@view-transition {
-    navigation: auto;
 }

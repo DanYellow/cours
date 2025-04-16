@@ -1,20 +1,13 @@
-/*
-    Le code ci-dessous permet d'effectuer une transition lors clic
-    mais ceci n'est pas optimal pour l'accessibilité...
-*/
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
     --active-page-color: #ef509f;
+    --black: #222222;
 }
 
-/*
-    ...alors on utilise les lignes de code suivantes pour désactiver
-    les animations pour les utilisateurs
-    qui n'en souhaitent pas, leur désactivation est faite au niveau du système d'exploitation
-*/
+html {
+    scroll-behavior: smooth;
+    color: var(--black);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     ::before,
@@ -38,7 +31,7 @@ html {
 
 .navigation-principale a {
     text-decoration: none;
-    color: black;
+    color: var(--black);
     padding-top: 2.25rem;
     display: block;
 }
