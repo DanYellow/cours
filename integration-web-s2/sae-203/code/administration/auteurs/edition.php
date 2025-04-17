@@ -50,7 +50,7 @@ if ($formulaire_soumis) {
 <body>
     <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 px-4">
+        <div class="mx-auto max-w-7xl py-3 px-4">
             <p class="text-3xl font-bold text-gray-900">Editer</p>
         </div>
     </header>

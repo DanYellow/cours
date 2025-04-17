@@ -8,7 +8,7 @@ $formulaire_soumis = !empty($_POST);
 if ($formulaire_soumis) {
     // On prépare notre requête pour créer une nouvelle entité
     $requete_brute = 'INSERT INTO A-REMPLACER(...) VALUES (...)';
-    
+
     // On crée une nouvelle entrée
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
@@ -32,7 +32,7 @@ if ($formulaire_soumis) {
 <body>
     <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 px-4">
+        <div class="mx-auto max-w-7xl py-3 px-4">
             <p class="text-3xl font-bold text-gray-900">Créer</p>
         </div>
     </header>
