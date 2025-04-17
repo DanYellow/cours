@@ -1,4 +1,4 @@
-# SAÉ 203 - Site web et Base de données (BDD)
+# SAÉ 203 - Concevoir un site web avec une source de données
 _Les consignes pourront être modifiées._
 
 > **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
@@ -6,7 +6,7 @@ _Les consignes pourront être modifiées._
 > **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celle où il vous est demandé de réaliser un site WordPress.
 
 
-- [SAÉ 203 - Site web et Base de données (BDD)](#saé-203---site-web-et-base-de-données-bdd)
+- [SAÉ 203 - Concevoir un site web avec une source de données](#saé-203---concevoir-un-site-web-avec-une-source-de-données)
   - [Didacticiels](#didacticiels)
   - [Contexte de la SAÉ](#contexte-de-la-saé)
 - [Base de données](#base-de-données)
@@ -89,6 +89,7 @@ Les deux pages à réaliser sont :
     - Nom
     - Lien vers le compte Twitter
       - **Facultatif à l'affichage**
+    - Optionnel : Le nombre d'articles écrits
 
 > **Sur ces deux pages, le contenu doit provenir de la base de données.** Vous ne devez pas lister manuellement la liste des auteurs (page équipe de rédaction) ou faire autant de pages qu'il y a d'articles.
 
@@ -108,6 +109,7 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - Positionnement CSS
 - CSS Transform
 - CSS Transition
+- tailwindcss
 - Pseudo-éléments ::before / ::after
 - ~~Langage de programmation javascript~~
 - MySQL
@@ -136,7 +138,7 @@ Par ailleurs, il faudra également importer le contenu du fichier `base-de-donne
 > Si l'utilisation du script dans l'onglet ne fonctionne pas sous phpmyadmin. Pensez à décocher "Activer la vérification des clés étrangères".
 
 Si vous utilisez alwaysdata, il y a un didacticiel expliquant comme créer une base de données et exploiter les donées. Ce didacticiel est polyvalent, il peut être utilisé avec un autre projet.
-- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
+- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
 
 # Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront **être gérées par des liens, vous n'avez pas à gérer un système d'upload de fichiers.** Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
