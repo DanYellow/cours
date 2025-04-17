@@ -251,13 +251,13 @@ Etant donné que l'outil git a été abordé durant le semestre, nous vous propo
 
 Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - Le code source du projet
-  - La base de données
+  - La base de données (si vous avez modifié la structure : nouvelles tables, champs)
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - URL vers le site
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
 
-> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
+> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont rendu leur site avec des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
@@ -319,10 +319,6 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
-- [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
-    - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
-    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
-    - Note 3 : Ceci ne fonctionnera pas sur votre ordinateur, il faudra impérativement mettre le site en ligne pour pouvoir tester
 - [ ] Rendre le projet
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
 

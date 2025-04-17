@@ -33,10 +33,11 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
 - Améliorer le code de l'administration de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 - Afficher des pictogrammes dans l'administration. Par exemple, dans le bouton de soumission du formulaire
     - tailwindcss propose un liste d'icônes sur le [site heroicons](https://heroicons.com/). Nous vous conseillons, pour éviter de polluer le code, de mettre le code de chaque icône dans un fichier PHP pour ensuite les inclure avec la fonction PHP `include()`
-- Ajouter des meta tags, ces tags permettent d'enrichir l'affichage d'un lien sur les réseaux sociaux (Discord, Facebook...)
-  - Il existe des générateurs [https://metatags.io/](https://metatags.io/)
-  - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
-  - A noter que ceci ne peut être testé que si le site est en ligne
+- Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
+    - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
+    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
+    - Note 3 : Ceci ne fonctionnera pas en local, il faudra impérativement mettre le site en ligne pour pouvoir tester en partageant votre lien sur Discord ou le site [https://metatags.io/](https://metatags.io/)
+    - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
 - Via les modifiers de tailwindcss, rendez l'administration responsive
   - [Accéder à la documentation du responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
 
