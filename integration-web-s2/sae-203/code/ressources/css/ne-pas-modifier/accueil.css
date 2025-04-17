@@ -84,6 +84,7 @@
 .colonne {
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .article:focus-visible {
@@ -118,7 +119,10 @@
 }
 
 .article {
-  width: 750px;
   box-shadow: 0px 3px 6px #00000029;
   margin-bottom: 2.15rem;
+
+  img {
+    width: 100%;
+  }
 }
