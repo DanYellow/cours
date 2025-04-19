@@ -58,29 +58,29 @@ $URL_creation = "{$racine_URL}/creation.php";
                     </thead>
                     <tbody>
                         <?php
-                        while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
-                            $lien_edition = "{$racine_URL}/edition.php?id={$element["id"]}";
+                            while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
+                                $lien_edition = "{$racine_URL}/edition.php?id={$element["id"]}";
 
-                            $date_creation = new DateTime($element["date_creation_article"]);
-                            $auteur_article = $element["auteur"];
-                            if (is_null($auteur_article)) {
-                                $auteur_article = "/";
-                            }
+                                $date_creation = new DateTime($element["date_creation_article"]);
+                                $auteur_article = $element["auteur"];
+                                if (is_null($auteur_article)) {
+                                    $auteur_article = "/";
+                                }
                         ?>
-                            <tr class="odd:bg-neutral-50  border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                <td class="pl-8 p-4 font-bold" data-label="Id">
-                                    <?php echo $element["id"]; ?>
-                                </td>
-                                <td class="pl-8 p-4" data-label="Titre"><?php echo $element["titre_article"]; ?></td>
-                                <td class="pl-8 p-4" data-label="Chapô"><?php echo $element["chapo_article"]; ?></td>
-                                <td class="pl-8 p-4" data-label="Date"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
-                                <td class="pl-8 p-4" data-label="Auteur">
-                                    <?php echo $auteur_article; ?>
-                                </td>
-                                <td class="pl-8 p-4">
-                                    <a href='<?php echo $lien_edition; ?>' class='font-bold text-blue-600 hover:text-blue-900 focus:text-blue-900'>Éditer</a>
-                                </td>
-                            </tr>
+                                <tr class="odd:bg-neutral-50  border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                                    <td class="pl-8 p-4 font-bold" data-label="Id">
+                                        <?php echo $element["id"]; ?>
+                                    </td>
+                                    <td class="pl-8 p-4" data-label="Titre"><?php echo $element["titre_article"]; ?></td>
+                                    <td class="pl-8 p-4" data-label="Chapô"><?php echo $element["chapo_article"]; ?></td>
+                                    <td class="pl-8 p-4" data-label="Date"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
+                                    <td class="pl-8 p-4" data-label="Auteur">
+                                        <?php echo $auteur_article; ?>
+                                    </td>
+                                    <td class="pl-8 p-4">
+                                        <a href='<?php echo $lien_edition; ?>' class='font-bold text-blue-600 hover:text-blue-900 focus:text-blue-900'>Éditer</a>
+                                    </td>
+                                </tr>
                         <?php } ?>
                     </tbody>
                 </table>

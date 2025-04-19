@@ -4,10 +4,10 @@ require_once("../../ressources/includes/connexion-bdd.php");
 $page_courante = "REMPLACER";
 
 $formulaire_soumis = !empty($_POST);
-$entree_mise_a_jour = array_key_exists("id", $_GET);
+$id_present_url = array_key_exists("id", $_GET);
 
 $entite = null;
-if ($entree_mise_a_jour) {
+if ($id_present_url) {
     $id = $_GET["id"];
     $requete_brute = "SELECT * FROM TABLE WHERE id = $id";
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
