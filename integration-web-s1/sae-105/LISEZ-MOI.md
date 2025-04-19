@@ -47,6 +47,7 @@ Dans le site sont prévues six pages qui partagent une structure commune compos�
   - Indiquer la page active dans la navigation
     - Ceci ne se fait pas avec la pseudo-classe ":active". Aidez-vous de la gestion de la couleur des bulles pour réaliser la fonctionnalité
 - Un footer (pied-de-page), **que vous devrez compléter**, qui contient les liens vers les pages des réseaux sociaux du BUT MMI et le logo de l’Université. Ces liens sont disponibles dans la partie commentaires sur Adobe XD (voir le didacticiel sur Adobe XD pour plus d’informations)
+  - [Pour les logos de l'université, vous pouvez les télécharger ici](https://github.com/DanYellow/cours/tree/main/logos)
 > Sur l'ENT, vous avez une section qui explique comment Adobe XD fonctionne
 
 Les pages web du site à réaliser sont donc :
@@ -77,7 +78,7 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 
 > Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider.
 >
-> [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode).
+> [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
 
 ## Police d'écriture
 La maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
@@ -89,10 +90,7 @@ Quoiqu'il en soit sachez que la police "Open Sans" est nommée "Open Sans" dans 
     font-family: "Open Sans", sans-serif;
   }
 ```
-Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoir besoin d'écrire le code ci-dessus. En revanche, pour gérer les différentes graisses, il faudra jouer sur la propriété CSS "font-weight" et les valeurs suivantes :
-- pas de gras : normal/400
-- semi-gras : 600
-- gras : bold
+Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoir besoin d'écrire le code ci-dessus. En revanche, pour gérer les différentes graisses, il faudra jouer sur la propriété CSS "font-weight" avec une valeur oscillant entre 300 (light) et 800 (extrabold). En sachant que la valeur 400 représente la police avec la graisse de base.
 
 Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
@@ -103,11 +101,11 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 - Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichiers CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
-- Evitez de copier tout le code CSS fourni par Adobe XD, ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Néanmoins, vous pouvez récupérer les propriétés CSS suivantes depuis Adobe XD :
+- **Évitez de copier tout le code CSS fourni par Adobe XD,** ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Néanmoins, vous pouvez récupérer les propriétés CSS suivantes depuis Adobe XD :
   - font-size. **N'oubliez pas de faire la conversion px -> rem**
   - width (dans une moindre mesure)
   - height (dans une moindre mesure)
-  - les couleurs
+  - les couleurs ("color", "background-color"...)
   - font-weight
 - Pensez bien à lire les notes présentes sur la maquette Adobe, elles peuvent apporter des éclaircissements. Par ailleurs, assurez-vous bien que le commentaire est bien associé à la page en question
 - flexbox sera votre meilleur ami pour réaliser la mise en page. Si vous avez un trou de mémoire sur le sujet, vous avez le jeu flexboxfroggy
@@ -115,7 +113,7 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
   - Et bien évidemment la documentation : [Accéder à la documentation de flexbox](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox)
 
   En tous les cas, n'allez pas faire la mise en page du site avec float ou pire &lt;table>
-- Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page html ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css"
+- Si vous décidez de travailler en groupe de la façon suivante : une page par personne. Assurez-vous de donner un nom unique par page HTML ET fichier CSS, ceci limitera les conflits lorsque vous metterez vos pages en commun. Par exemple, si un membre travaille sur la page "contact", il créera la page "contact.php" et le fichier "contact.css". Le fichier php étant mis au même niveau que le fichier "index.php" déjà présent et le fichier css dans le dossier "ressources/css"
 - **Votre projet doit impérativement avoir un fichier "index.php".** Il y en a déjà un, n'allez pas le renommer
 - Par défaut, VS Code ne permet pas l'auto-complétion de balises HTML dans un fichier PHP. Il faut l'activer, pour ce faire :
     1. Allez dans le menu File > Preferences > Settings
