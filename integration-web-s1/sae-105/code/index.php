@@ -31,9 +31,8 @@
                 <section class="liste-articles">
                     <p>METTEZ VOS ARTICLES A L'INTERIEUR DE LA BALISE ".liste-articles" tout en supprimant cette balise &lt;p></p>
                 </section>
-                <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" href="https://www.cyu.fr/salons-journee-portes-ouvertes">
+                <a class="jpo-banniere" title="Ouverture dans un nouvel onglet" href="https://www.cyu.fr/salons-journee-portes-ouvertes" target="_blank">
                     <img src="ressources/images/logo-cyu-blanc.png" width="200" class="logo" alt="">
-                    
                     <section class="textes">
                         <p class="txt-petit">Journée portes ouvertes</p>
                         <p class="txt-grand">
@@ -45,8 +44,6 @@
                 </a>
             </section>
         </main>
-
     </section>
 </body>
-
 </html>
