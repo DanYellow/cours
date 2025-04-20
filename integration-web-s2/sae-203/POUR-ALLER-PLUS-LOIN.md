@@ -40,5 +40,8 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
     - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
 - Via les modifiers de tailwindcss, rendez l'administration responsive
   - [Accéder à la documentation du responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
+- Utiliser un &lt;select> personnalisé pour l'affichage des auteurs dans la création / édition d'articles
+  - [Voir didacticiel du &lt;select> personnalisé](https://grafikart.fr/tutoriels/select-css-appearance-2284)
+  > Note : A l'heure actuelle (04/2025), cette fonctionnalité n'est pas gérée par Safari et Firefox
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
