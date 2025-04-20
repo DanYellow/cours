@@ -6,7 +6,8 @@
 }
 
 .liste-videos .video-conteneur {
-    width: 48%;
+    flex-basis: 48%;
+    flex-grow: 1;
 }
 
 .liste-videos .video-yt {
