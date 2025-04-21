@@ -50,7 +50,9 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                                 <img src='ressources/images/image-article.png' alt=''>
                             </div>
                             <section class='textes'>
-                                <h2 class='titre' style="view-transition-name: titre-article-<?php echo $article["id"]; ?>"><?php echo $article["titre"]; ?></h2>
+                                <h2 class='titre'>
+                                    <?php echo $article["titre"]; ?>
+                                </h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
                                 </p>
