@@ -2,6 +2,12 @@
 
 Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter, **vous n'aurez pas plus de points pour autant,** mais vous acquerrez de nouvelles connaissances, elles vous permettront de valoriser votre CV pour vos stages, alternances et emplois futurs :
 
+- Implémenter [l'API view-transition](https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition) entre les articles sur la page d'accueil et leur détails. Pou vous aider, voici une liste de didacticiels sur le sujet (certains sont en anglais) :
+  - [https://daverupert.com/2023/05/getting-started-view-transitions/](https://daverupert.com/2023/05/getting-started-view-transitions/)
+  - [https://www.julienpradet.fr/tutoriels/view-transitions/](https://www.julienpradet.fr/tutoriels/view-transitions/)
+  - [https://css-tricks.com/toe-dipping-into-view-transitions/](https://css-tricks.com/toe-dipping-into-view-transitions/)
+  - [https://developer.chrome.com/docs/web-platform/view-transitions/cross-document?hl=fr](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document?hl=fr)
+  > Note : view-transition est déjà utilisé dans l'administration
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
   - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter/éditer ces SAÉ

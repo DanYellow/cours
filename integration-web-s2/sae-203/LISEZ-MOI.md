@@ -183,6 +183,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
     - On doit pouvoir associer un auteur à un article
   - Édition d'article
   - Liste d'articles
+    - Afficher le nombre total d'articles
 - Auteur
   - Création d'auteur
   - Édition d'auteur
