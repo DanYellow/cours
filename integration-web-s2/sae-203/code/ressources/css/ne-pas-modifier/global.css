@@ -84,3 +84,8 @@ img {
 .texte-gras {
     font-weight: bold;
 }
+
+@view-transition {
+    navigation: auto;
+}
+

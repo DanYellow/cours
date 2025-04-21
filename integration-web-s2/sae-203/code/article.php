@@ -54,7 +54,7 @@ $entite = mysqli_fetch_array($resultat_brut);
 
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
-        <h1 class="titre"><?php echo $entite["titre"]; ?></h1>
+        <h1 class="titre" style="view-transition-name: titre-article-<?php echo $id; ?>"><?php echo $entite["titre"]; ?></h1>
         <p class="no-design">A vous de faire le design de l'article</p>
     </main>
     <?php require_once('./ressources/includes/footer.php'); ?>

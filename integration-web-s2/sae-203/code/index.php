@@ -38,19 +38,19 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
         <section class="colonne">
             <section class="liste-articles">
                 <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
-                    <!-- 
+                    <!--
                         @hint
                         Nous avons passé un paramètre d'URL GET nommé "id".
                         Ainsi quand l'utilisateur va arriver sur la page "article.php",
-                        elle va recevoir la valeur envoyée dans l'URL. 
+                        elle va recevoir la valeur envoyée dans l'URL.
                         Vous pourrez récupérer la valeur en php grâce à $_GET["id"]
                      -->
-                        <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
+                        <a href="article.php?id=<?php echo $article["id"]; ?>" class='article' id="<?php echo $article["id"]; ?>">
                             <div>
                                 <img src='ressources/images/image-article.png' alt=''>
                             </div>
                             <section class='textes'>
-                                <h2 class='titre'><?php echo $article["titre"]; ?></h2>
+                                <h2 class='titre' style="view-transition-name: titre-article-<?php echo $article["id"]; ?>"><?php echo $article["titre"]; ?></h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
                                 </p>
@@ -64,7 +64,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                 <section class="textes">
                     <p class="txt-petit">Journée portes ouvertes</p>
                     <p class="txt-grand">
-                        27/01/<?php echo date('Y') ?>,<br /> 
+                        27/01/<?php echo date('Y') ?>,<br />
                         de 10h à 17h
                     </p>
                     <p class="en-savoir-plus">EN SAVOIR PLUS</p>
@@ -72,7 +72,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
             </a>
         </section>
     </main>
-    <?php 
+    <?php
         require_once('./ressources/includes/footer.php');
         // mysqli_free_result($resultat_brut);
         // mysqli_close($mysqli_link);
