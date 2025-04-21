@@ -31,56 +31,58 @@ img {
     max-width: 100%;
 }
 
-.conteneur-1280 {
-    max-width: 1280px;
-    padding: 0 0.8rem;
-    margin: 0 auto;
-}
-
-.navigation-principale ul {
-    display: flex;
-    justify-content: flex-end;
-    column-gap: 2.625rem;
-    font-size: 1.05rem;
-    font-weight: 400;
-}
-
-.titre {
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin-bottom: 1.066666666666667rem;
-    max-width: 800px;
-}
-
-.pied-de-page-principal {
-    color: #707070;
-    margin-bottom: 2rem;
-    margin-top: 8.125rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navigation-principale .lien-admin {
-    position: relative;
-    background-color: black;
-    padding: 0 0.5rem 0.5rem;
-}
-
-.navigation-principale .lien-admin a {
-    color: aliceblue;
-    &::after {
-        border-top-color: aliceblue;
-    }
-    &:where(:hover, :focus)::after {
-        transform: scaleX(1);
-    }
-}
-
-.pied-de-page-principal .lien-admin {
-    color: black;
-}
-
 .texte-gras {
     font-weight: bold;
+}
+
+@layer base {
+    .conteneur-1280 {
+        max-width: 1280px;
+        padding: 0 0.8rem;
+        margin: 0 auto;
+    }
+
+    .navigation-principale ul {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 2.625rem;
+        font-size: 1.05rem;
+        font-weight: 400;
+    }
+
+    .titre {
+        font-size: 2.25rem;
+        font-weight: bold;
+        margin-bottom: 1.066666666666667rem;
+        max-width: 800px;
+    }
+
+    .pied-de-page-principal {
+        color: #707070;
+        margin-bottom: 2rem;
+        margin-top: 8.125rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation-principale .lien-admin {
+        position: relative;
+        background-color: black;
+        padding: 0 0.5rem 0.5rem;
+    }
+
+    .navigation-principale .lien-admin a {
+        color: aliceblue;
+        &::after {
+            border-top-color: aliceblue;
+        }
+        &:where(:hover, :focus)::after {
+            transform: scaleX(1);
+        }
+    }
+
+    .pied-de-page-principal .lien-admin {
+        color: black;
+    }
 }

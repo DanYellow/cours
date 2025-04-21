@@ -55,7 +55,10 @@ $entite = mysqli_fetch_array($resultat_brut);
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
         <h1 class="titre"><?php echo $entite["titre"]; ?></h1>
-        <p class="no-design">A vous de faire le design de l'article</p>
+        <div class="no-design">
+            <p>A vous de faire le design de l'article</p>
+            <p>Pour rappel, le contenu d'un article est détaillé dans les consignes.</p>
+        </div>
     </main>
     <?php require_once('./ressources/includes/footer.php'); ?>
 </body>
