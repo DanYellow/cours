@@ -70,6 +70,8 @@
     border-radius: 5px;
     margin-top: 2.3rem;
     transition: background-color 350ms;
+    border: none;
+    outline-offset: 0.2rem;
 
     &:where(:hover, :focus) {
         background-color: #0133bb;
@@ -83,8 +85,8 @@
     text-align: center;
     margin: 0.95rem;
     font-size: 1.25rem;
-    transform: scaleY(1);
-    transition: transform 500ms;
+    transform: translateY(0);
+    transition: transform 300ms;
 
     @starting-style {
         transform: translateY(-300%);
