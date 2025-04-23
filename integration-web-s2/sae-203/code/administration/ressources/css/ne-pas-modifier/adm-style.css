@@ -35,3 +35,7 @@ body {
         animation: none !important;
     }
 }
+
+body {
+    font-family: "DMSans", sans-serif;
+}
