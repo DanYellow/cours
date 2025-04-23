@@ -46,7 +46,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                     <tbody>
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
                             $lien_edition = "{$racine_URL}/edition.php?id={$element['id']}"; ?>
-                            <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                            <tr style="view-transition-name: auteur-<?php echo $element['id']; ?>" class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold" data-label="Id"><?php echo $element[
                                     'id'
                                 ]; ?></td>

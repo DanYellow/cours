@@ -43,9 +43,9 @@ if ($formulaire_soumis) {
 
 <body>
 <?php include_once '../ressources/includes/menu-principal.php'; ?>
-    <header class="bg-white shadow">
+    <header style="view-transition-name: article-<?php echo $id; ?>" class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-3 px-4">
-            <p class="text-3xl font-bold text-gray-900">Editer</p>
+            <p class="text-3xl font-bold text-gray-900">Editer "<?php echo $entite['titre']; ?>"</p>
         </div>
     </header>
     <main>
