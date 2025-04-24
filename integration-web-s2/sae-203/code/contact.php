@@ -57,7 +57,6 @@ if ($formulaire_soumis) {
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
 
-    <link rel="stylesheet" href="./ressources/css/global.css">
     <link rel="stylesheet" href="./ressources/css/contact.css">
 </head>
 
@@ -66,17 +65,17 @@ if ($formulaire_soumis) {
     <?php
     if ($formulaire_soumis && !$formulaire_a_erreurs) {
         echo "
-                <section class='banniere-alerte succes' role='alert' aria-live='polite'>
-                    <p>Message envoyé !</p>
-                </section>
-            ";
+            <section class='banniere-alerte succes' role='alert' aria-live='polite'>
+                <p>Message envoyé !</p>
+            </section>
+        ";
     }
     if ($formulaire_soumis && $formulaire_a_erreurs) {
         echo "
-                <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
-                    <p>Votre message possède une erreur !</p>
-                </section>
-            ";
+            <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
+                <p>Votre message possède une erreur !</p>
+            </section>
+        ";
     }
     ?>
     <?php require_once('./ressources/includes/bulle.php'); ?>

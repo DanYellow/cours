@@ -24,7 +24,6 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/accueil.css">
 
-    <link rel="stylesheet" href="./ressources/css/global.css">
     <link rel="stylesheet" href="./ressources/css/accueil.css">
 </head>
 

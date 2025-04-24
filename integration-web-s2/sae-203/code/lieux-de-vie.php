@@ -23,7 +23,6 @@ require_once('./ressources/includes/connexion-bdd.php');
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
 
     <link rel="stylesheet" href="./ressources/css/lieux.css">
-    <link rel="stylesheet" href="./ressources/css/global.css">
 </head>
 
 <body>
