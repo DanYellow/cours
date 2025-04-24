@@ -73,7 +73,11 @@ $URL_creation = "{$racine_URL}/creation.php";
                                     </td>
                                     <td class="pl-8 p-4" data-label="Titre"><?php echo $element["titre_article"]; ?></td>
                                     <td class="pl-8 p-4" data-label="Chapô"><?php echo $element["chapo_article"]; ?></td>
-                                    <td class="pl-8 p-4" data-label="Date"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
+                                    <td class="pl-8 p-4" data-label="Date">
+                                        <time datetime="<?php echo $date_creation->format('d/m/Y H:i:s'); ?>">
+                                            <?php echo $date_creation->format('d/m/Y H:i:s'); ?>
+                                        </time>
+                                    </td>
                                     <td class="pl-8 p-4" data-label="Auteur">
                                         <?php echo $auteur_article; ?>
                                     </td>
