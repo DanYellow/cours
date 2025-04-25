@@ -94,20 +94,24 @@ if ($formulaire_soumis) {
         <form action="" method="POST" class="formulaire-contact">
             <article class="champ-conteneur">
                 <label for="prenom" class="label-champ texte-gras">Prénom</label>
-                <input type="text" class="champ" name="prenom" id="prenom">
+                <input type="text" class="champ" name="prenom" id="prenom" value="<?php echo $formulaire_a_erreurs ? $_POST["prenom"] : null; ?>">
             </article>
+
             <article class="champ-conteneur">
                 <label for="nom" class="label-champ texte-gras">Nom de famille</label>
-                <input type="text" class="champ" name="nom" id="nom">
+                <input type="text" class="champ" name="nom" id="nom" value="<?php echo $formulaire_a_erreurs ? $_POST["nom"] : null; ?>">
             </article>
+
             <article class="champ-conteneur">
                 <label for="email" class="label-champ texte-gras">Adresse e-mail</label>
-                <input type="email" class="champ" name="email" id="email">
+                <input type="email" class="champ" name="email" id="email" value="<?php echo $formulaire_a_erreurs ? $_POST["email"] : null; ?>">
             </article>
 
             <article class="champ-conteneur">
                 <label for="message" class="label-champ texte-gras">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" class="champ"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10" class="champ">
+                    <?php echo $formulaire_a_erreurs ? $_POST["message"] : null; ?>
+                </textarea>
             </article>
 
             <article class="champ-conteneur">
