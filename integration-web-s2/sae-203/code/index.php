@@ -36,7 +36,9 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
         <h1 class="titre">Articles sur le BUT MMI</h1>
         <section class="colonne">
             <section class="liste-articles">
-                <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
+                <?php while ($article = mysqli_fetch_array($resultat_brut)) {
+                    $date_creation = new DateTime($article["date_creation"]);
+                ?>
                     <!--
                         @hint
                         Nous avons passé un paramètre d'URL GET nommé "id".
@@ -54,6 +56,10 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                                 </h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
+                                </p>
+                                <p class="date">Publié le <time datetime="<?php echo $date_creation->format('d/m/Y H:i:s'); ?>">
+                                            <?php echo $date_creation->format('d/m/Y à H:i:s'); ?>
+                                        </time>
                                 </p>
                             </section>
                         </a>
