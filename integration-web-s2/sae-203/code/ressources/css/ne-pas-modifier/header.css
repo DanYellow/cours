@@ -63,7 +63,7 @@
     opacity: 1;
 
     @starting-style {
-        opacity: 0;
+        opacity: 0.1;
         transform: translate(5px, -6px);
     }
 }
@@ -77,14 +77,13 @@
     height: 510px;
     transition: opacity 0.2s, transform 0.3s;
     mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
-    -webkit-mask: url("../../images/bulle-bordure.svg") no-repeat center /
-        contain;
+    -webkit-mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
     mix-blend-mode: normal;
     transform: translate(0, 0);
     opacity: 1;
 
     @starting-style {
-        opacity: 0;
+        opacity: 0.1;
         transform: translate(-30px, 4px);
     }
 }
