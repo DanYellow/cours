@@ -129,6 +129,7 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
     - Vous pouvez aussi lister les membres du groupe dans le fichier "bareme-notation.ods"
   - Un document expliquant qui a fait quoi dans le groupe, **il doit être à la racine de votre archive**. On ne cherchera pas le document pour vous
     - Plus d'explications dans la partie [gestion d'équipe](#gestion-déquipe)
+  - Le barème de notation (contenu dans l'archive que vous avez récupéré) dûment rempli, il faut que vous mettiez les noms et prénoms des membres du groupe
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
 **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
@@ -166,16 +167,16 @@ Cette partie (page "contact") sera évaluée par vos enseignants en Développeme
   - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
 #### Gestion d'équipe
-Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à trouver, quelque chose qui vous a apporté de la fierté quand vous l'avez développé.
+Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à réaliser, quelque chose qui vous a apporté de la satisfaction quand vous l'avez développé.
 
-Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de texte, une page par membre de groupe est largement suffisant.
+Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de textes, une page par membre du groupe est largement suffisant.
 
 > Cette partie pourra être notée individuellement.
 
 ## Votre liste à faire
   - [x] Lire les consignes
   - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests
-    - [ ] Je copie et renomme le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
+    - [ ] Copier et renommer le fichier `squelette.php` pour chaque nouvelle page pour éviter de me créer des problèmes
   - [ ] Réaliser l'intégration de la maquette et la rendre le plus fidèle possible à la maquette
     - Rappel : Vous ne pouvez pas être iso maquette à 100%, c'est impossible
   - [ ] Mettre le site en ligne
