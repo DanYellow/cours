@@ -36,6 +36,9 @@
 }
 
 .formulaire-contact .liste-choix input[type="radio"] {
+    --active-color: #1453ff;
+    --border-color: #999;
+
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -45,20 +48,38 @@
     border-radius: 50%;
     margin: 0;
     flex: 1 0 auto;
-    border: 2px solid #999;
+    border: 2px solid var(--border-color);
     transition: 150ms border ease-in 0.15s, 0.2s background ease-in;
     background: transparent;
     position: relative;
     background-color: #fff;
 
+    &:hover {
+        border-color: oklch(from var(--border-color) calc(l * 0.7) c h);
+
+        &:checked {
+            background: oklch(from var(--active-color) calc(l * .7) c h);
+            outline-color: oklch(from var(--active-color) calc(l * .7) c h);
+        }
+    }
+
     &:checked {
         border: 4px solid #fff;
-        background-color: #1453ff;
-        outline: 2px solid #999;
+        background-color: var(--active-color);
+        outline: 2px solid var(--border-color);
     }
 
     &:focus {
-        outline: 2px solid #1453ff;
+        outline: 2px solid var(--active-color);
+    }
+
+    &:focus-visible::before {
+        content: "";
+        display: block;
+        position: absolute;
+        inset: -0.55rem;
+        border-radius: 0.2rem;
+        border: 2px solid black;
     }
 }
 
