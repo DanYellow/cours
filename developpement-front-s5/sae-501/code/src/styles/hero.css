@@ -70,13 +70,23 @@
     height: 350px;
     mask: url("/images/bulle.svg") no-repeat center / contain;
     transform: scale(0.7);
+    translate: 0 0;
     top: -87px;
-    transition: transform 0.3s, translate 0.3s;
+    /* transition: translate 0.3s, opacity 20s; */
+    transition: transform 0.3s, translate 0.3s, opacity 0.2s;
+    opacity: 1;
 
     @media (width >= theme(--breakpoint-sm)) {
         right: 283px;
         top: -46px;
         transform: scale(1);
+    }
+
+    .bulle & {
+        @starting-style {
+            opacity: 0.1;
+            translate: 5px -6px;
+        }
     }
 
     &.rose {
@@ -109,7 +119,16 @@
     width: 484px;
     height: 360px;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
-    transition: transform 0.3s, translate 0.3s;
+    transition: transform 0.3s, translate 0.3s, opacity 0.2s;
+    opacity: 1;
+    translate: 0 0;
+
+    .bulle & {
+        @starting-style {
+            translate: -30px 4px;
+            opacity: 0.1;
+        }
+    }
 
     @media (width >= theme(--breakpoint-sm)) {
         right: 241px;
