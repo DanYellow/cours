@@ -29,10 +29,6 @@
     font-size: 3.125rem;
 }
 
-.bulle-icone.rose {
-    background-color: #ef509f;
-}
-
 .bulle-icone {
     position: absolute;
     top: -46px;
@@ -40,7 +36,7 @@
     z-index: -1;
     width: 634px;
     height: 500px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.2s;
     mask: url("../../images/bulle.svg") no-repeat center / contain;
     -webkit-mask: url("../../images/bulle.svg") no-repeat center / contain;
 }
@@ -52,15 +48,23 @@
     z-index: -1;
     width: 634px;
     height: 510px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.2s;
     mask: url("../../images/bulle-bordure.svg") no-repeat center / contain;
     -webkit-mask: url("../../images/bulle-bordure.svg") no-repeat center /
         contain;
     mix-blend-mode: normal;
 }
 
-.bulle-icone-bordure.rose {
-    background-color: #a50253;
+@starting-style {
+    .bulle-icone {
+        opacity: 0.1;
+        transform: translate(15px, -20px);
+    }
+
+    .bulle-icone-bordure {
+        opacity: 0.1;
+        transform: translate(-30px, 4px);
+    }
 }
 
 .bulle:hover .bulle-icone-bordure {
@@ -69,4 +73,12 @@
 
 .bulle:hover .bulle-icone {
     transform: translate(22px, 6px);
+}
+
+.bulle-icone-bordure.rose {
+    background-color: #a50253;
+}
+
+.bulle-icone.rose {
+    background-color: #ef509f;
 }
