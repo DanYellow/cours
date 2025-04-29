@@ -295,7 +295,12 @@ const loadPokedexForGeneration = async (generation = 1, triggerElement) => {
         buttonGenerationShorcutTemplate.addEventListener("click", () => {
             document.querySelector(`#pokedex-${generation}`).scrollIntoView();
         });
-        generationShortcut.append(generationShortcutTemplate);
+
+        if(generation === 1) {
+            generationShortcut.prepend(generationShortcutTemplate);
+        } else {
+            generationShortcut.append(generationShortcutTemplate);
+        }
         generationShortcut.classList.replace("opacity-0", "opacity-100");
         generationShortcut.classList.replace("hidden", "flex");
 
@@ -386,8 +391,8 @@ window.addEventListener("offline", () => {
 
 export { loadPokedexForGeneration };
 
-await loadPokedexForGeneration(1);
 await observeURL();
+await loadPokedexForGeneration(1);
 
 if (pkmnId !== null) {
     const $itemInList = document.querySelector(`[data-pokemon-id="${pkmnId}"]`);
