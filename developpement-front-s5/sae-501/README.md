@@ -327,6 +327,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
     - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de votre fichier, sinon, celles qui suivront ne seront jamais appelées
+    - [Liste inspiration pages 404](https://www.designspells.com/?tag=404)
 - [ ] Rendre le site responsive (tailwind est là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
     - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)

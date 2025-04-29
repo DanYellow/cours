@@ -4,10 +4,10 @@ require_once('../../ressources/includes/connexion-bdd.php');
 $page_courante = "articles";
 
 $formulaire_soumis = !empty($_POST);
-$entree_mise_a_jour = array_key_exists("id", $_GET);
+$id_present_url = array_key_exists("id", $_GET);
 
 $entite = null;
-if ($entree_mise_a_jour) {
+if ($id_present_url) {
     $id = $_GET["id"];
     // On cherche l'article à éditer
     $requete_brute = "SELECT * FROM article WHERE id = $id";
@@ -21,7 +21,7 @@ if ($formulaire_soumis) {
     // On crée notre requête pour éditer une entité
     $requete_brute = "
         UPDATE A-REMPLACER
-        SET 
+        SET
             titre = '$titre',
             chapo = 'A-REMPLACER',
             contenu = 'A-REMPLACER'
@@ -43,9 +43,9 @@ if ($formulaire_soumis) {
 
 <body>
 <?php include_once '../ressources/includes/menu-principal.php'; ?>
-    <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 px-4">
-            <p class="text-3xl font-bold text-gray-900">Editer</p>
+    <header style="view-transition-name: article-<?php echo $id; ?>" class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-3 px-4">
+            <p class="text-3xl font-bold text-gray-900">Editer "<?php echo $entite['titre']; ?>"</p>
         </div>
     </header>
     <main>

@@ -4,6 +4,7 @@ run-name: ${{ github.actor }} is deploying 🚀
 
 on:
   workflow_dispatch:
+  # push:
 
 jobs:
   ## Two next jobs can be merged, but not a good idea

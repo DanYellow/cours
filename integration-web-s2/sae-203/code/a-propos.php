@@ -19,7 +19,6 @@ require_once('./ressources/includes/connexion-bdd.php');
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
 
-    <link rel="stylesheet" href="./ressources/css/global.css">
     <link rel="stylesheet" href="./ressources/css/a-propos.css">
 </head>
 

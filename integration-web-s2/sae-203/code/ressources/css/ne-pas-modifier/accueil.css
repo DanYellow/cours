@@ -1,124 +1,135 @@
 .jpo-banniere {
-  width: 37.375%;
-  height: 45.625rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
-  background: url("../../images/montage-cyu.jpg") no-repeat center center;
-  text-decoration: none;
-  overflow: hidden;
-  transition: background-size 0.5s;
-  background-size: 100% 100%;
+    width: 35.375%;
+    height: 45.625rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: url("../../images/montage-cyu.jpg") no-repeat center center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: background-size 0.5s;
+    background-size: 100% 100%;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
 }
 
 .jpo-banniere:hover {
-  background-size: 105% 105%;
+    background-size: 105% 105%;
 }
 
 .jpo-banniere::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid white;
-  border-radius: 0.5rem;
-  z-index: 1;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.1, 1.1);
-  top: 50%;
-  opacity: 0;
-  transition: transform 0.2s, opacity 0.1s;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid white;
+    border-radius: 0.5rem;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1, 1.1);
+    top: 50%;
+    opacity: 0;
+    transition: transform 0.2s, opacity 0.1s;
 }
 
 .jpo-banniere:hover::before {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(0.96, 0.98);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.96, 0.98);
 }
 
 .jpo-banniere:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0.72;
-  background-image: linear-gradient(to top, #ef509f 0%, #a50253 100%);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.72;
+    background-image: linear-gradient(to top, #ef509f 0%, #a50253 100%);
 }
 
 .jpo-banniere .logo {
-  position: relative;
-  z-index: 1;
-  align-self: center;
+    position: relative;
+    z-index: 1;
+    align-self: center;
 }
 
 .jpo-banniere .textes {
-  font-weight: bold;
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.62);
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.62);
 }
 
 .jpo-banniere .textes .txt-petit {
-  font-size: 1.5rem;
-  width: 90%;
-  margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    width: 90%;
+    margin-bottom: 0.75rem;
 }
 
 .jpo-banniere .textes .txt-grand {
-  font-size: 2.25rem;
-  margin-bottom: 2.25rem;
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
 }
 
 .jpo-banniere .textes .en-savoir-plus {
-  text-align: center;
-  font-weight: 600;
+    text-align: center;
+    font-weight: 600;
 }
 
 .colonne {
-  display: flex;
-  justify-content: space-between;
-}
-
-.article:focus-visible {
-  outline: dotted 1px black;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 .article {
-  display: block;
-  color: black;
-  text-decoration: none;
-}
-
-.article .titre {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.article figure {
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 2.15rem;
+    display: block;
+    color: black;
+    text-decoration: none;
+    border-radius: 0.5rem;
     overflow: hidden;
-}
 
-.article .textes {
-  padding: 34px 100px 80px 60px;
-}
+    img {
+        width: 100%;
+        max-height: 28rem;
+        display: block;
+        object-fit: cover;
+    }
 
-.article .description {
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  display: -webkit-box;
-}
+    figure {
+        overflow: hidden;
+    }
 
-.article {
-  width: 750px;
-  box-shadow: 0px 3px 6px #00000029;
-  margin-bottom: 2.15rem;
+    .date {
+        font-style: italic;
+        margin-top: 2.25rem;
+        color: #676767;
+        font-size: 0.9rem;
+    }
+
+    .titre {
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .textes {
+        padding: 34px 100px calc(80px - 2.25rem) 60px;
+    }
+
+    .description {
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        display: -webkit-box;
+    }
 }

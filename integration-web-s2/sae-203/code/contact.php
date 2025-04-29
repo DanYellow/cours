@@ -57,7 +57,6 @@ if ($formulaire_soumis) {
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
 
-    <link rel="stylesheet" href="./ressources/css/global.css">
     <link rel="stylesheet" href="./ressources/css/contact.css">
 </head>
 
@@ -66,17 +65,17 @@ if ($formulaire_soumis) {
     <?php
     if ($formulaire_soumis && !$formulaire_a_erreurs) {
         echo "
-                <section class='banniere-alerte succes' role='alert' aria-live='polite'>
-                    <p>Message envoyé !</p>
-                </section>
-            ";
+            <section class='banniere-alerte succes' role='alert' aria-live='polite'>
+                <p>Message envoyé !</p>
+            </section>
+        ";
     }
     if ($formulaire_soumis && $formulaire_a_erreurs) {
         echo "
-                <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
-                    <p>Votre message possède une erreur !</p>
-                </section>
-            ";
+            <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
+                <p>Votre message possède une erreur !</p>
+            </section>
+        ";
     }
     ?>
     <?php require_once('./ressources/includes/bulle.php'); ?>
@@ -95,20 +94,24 @@ if ($formulaire_soumis) {
         <form action="" method="POST" class="formulaire-contact">
             <article class="champ-conteneur">
                 <label for="prenom" class="label-champ texte-gras">Prénom</label>
-                <input type="text" class="champ" name="prenom" id="prenom">
+                <input type="text" class="champ" name="prenom" id="prenom" value="<?php echo $formulaire_a_erreurs ? $_POST["prenom"] : null; ?>">
             </article>
+
             <article class="champ-conteneur">
                 <label for="nom" class="label-champ texte-gras">Nom de famille</label>
-                <input type="text" class="champ" name="nom" id="nom">
+                <input type="text" class="champ" name="nom" id="nom" value="<?php echo $formulaire_a_erreurs ? $_POST["nom"] : null; ?>">
             </article>
+
             <article class="champ-conteneur">
                 <label for="email" class="label-champ texte-gras">Adresse e-mail</label>
-                <input type="email" class="champ" name="email" id="email">
+                <input type="email" class="champ" name="email" id="email" value="<?php echo $formulaire_a_erreurs ? $_POST["email"] : null; ?>">
             </article>
 
             <article class="champ-conteneur">
                 <label for="message" class="label-champ texte-gras">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" class="champ"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10" class="champ">
+                    <?php echo $formulaire_a_erreurs ? $_POST["message"] : null; ?>
+                </textarea>
             </article>
 
             <article class="champ-conteneur">

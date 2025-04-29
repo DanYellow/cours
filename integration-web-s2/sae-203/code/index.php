@@ -24,7 +24,6 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/accueil.css">
 
-    <link rel="stylesheet" href="./ressources/css/global.css">
     <link rel="stylesheet" href="./ressources/css/accueil.css">
 </head>
 
@@ -37,22 +36,30 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
         <h1 class="titre">Articles sur le BUT MMI</h1>
         <section class="colonne">
             <section class="liste-articles">
-                <?php while ($article = mysqli_fetch_array($resultat_brut)) { ?>
-                    <!-- 
+                <?php while ($article = mysqli_fetch_array($resultat_brut)) {
+                    $date_creation = new DateTime($article["date_creation"]);
+                ?>
+                    <!--
                         @hint
                         Nous avons passé un paramètre d'URL GET nommé "id".
                         Ainsi quand l'utilisateur va arriver sur la page "article.php",
-                        elle va recevoir la valeur envoyée dans l'URL. 
+                        elle va recevoir la valeur envoyée dans l'URL.
                         Vous pourrez récupérer la valeur en php grâce à $_GET["id"]
                      -->
-                        <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
+                        <a href="article.php?id=<?php echo $article["id"]; ?>" class='article' id="<?php echo $article["id"]; ?>">
                             <div>
                                 <img src='ressources/images/image-article.png' alt=''>
                             </div>
                             <section class='textes'>
-                                <h2 class='titre'><?php echo $article["titre"]; ?></h2>
+                                <h2 class='titre'>
+                                    <?php echo $article["titre"]; ?>
+                                </h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
+                                </p>
+                                <p class="date">Publié le <time datetime="<?php echo $date_creation->format('d/m/Y H:i:s'); ?>">
+                                            <?php echo $date_creation->format('d/m/Y à H:i:s'); ?>
+                                        </time>
                                 </p>
                             </section>
                         </a>
@@ -64,7 +71,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                 <section class="textes">
                     <p class="txt-petit">Journée portes ouvertes</p>
                     <p class="txt-grand">
-                        27/01/<?php echo date('Y') ?>,<br /> 
+                        27/01/<?php echo date('Y') ?>,<br />
                         de 10h à 17h
                     </p>
                     <p class="en-savoir-plus">EN SAVOIR PLUS</p>
@@ -72,7 +79,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
             </a>
         </section>
     </main>
-    <?php 
+    <?php
         require_once('./ressources/includes/footer.php');
         // mysqli_free_result($resultat_brut);
         // mysqli_close($mysqli_link);

@@ -22,15 +22,13 @@ require_once('./ressources/includes/connexion-bdd.php');
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/header.css">
     <link rel="stylesheet" href="./ressources/css/ne-pas-modifier/accueil.css">
-
-    <link rel="stylesheet" href="./ressources/css/global.css">
 </head>
 
 <body>
     <?php require_once('./ressources/includes/top-navigation.php'); ?>
     <?php
     // facultatif
-    // require_once('./ressources/includes/bulle.php'); 
+    // require_once('./ressources/includes/bulle.php');
     ?>
 
     <main class="conteneur-principal conteneur-1280">

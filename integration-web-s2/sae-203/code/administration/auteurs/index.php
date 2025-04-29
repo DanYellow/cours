@@ -21,12 +21,12 @@ $URL_creation = "{$racine_URL}/creation.php";
 <body>
     <?php include_once '../ressources/includes/menu-principal.php'; ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl justify-between flex py-6 px-4">
+        <div class="mx-auto max-w-7xl justify-between flex py-3 px-4">
             <div>
                 <p class="text-3xl font-bold text-gray-900">Liste auteurs</p>
-                <p class="text-gray-500">Nombre d'auteurs : <?php echo mysqli_num_rows($resultat_brut); ?></p>
+                <p class="text-gray-500 text-sm">Nombre d'auteurs : <?php echo mysqli_num_rows($resultat_brut); ?></p>
             </div>
-            <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base text-white shadow-sm bg-slate-700 hover:bg-slate-900">Ajouter un nouvel auteur</a>
+            <a href="<?php echo $URL_creation ?>" class="self-start block rounded-md py-2 px-4 text-base text-white shadow-sm bg-slate-700 hover:bg-slate-900 focus:bg-slate-900">Ajouter un nouvel auteur</a>
         </div>
     </header>
     <main>
@@ -46,7 +46,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                     <tbody>
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
                             $lien_edition = "{$racine_URL}/edition.php?id={$element['id']}"; ?>
-                            <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
+                            <tr style="view-transition-name: auteur-<?php echo $element['id']; ?>" class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                 <td class="pl-8 p-4 font-bold" data-label="Id"><?php echo $element[
                                     'id'
                                 ]; ?></td>

@@ -4,10 +4,10 @@ require_once("../../ressources/includes/connexion-bdd.php");
 $page_courante = "REMPLACER";
 
 $formulaire_soumis = !empty($_POST);
-$entree_mise_a_jour = array_key_exists("id", $_GET);
+$id_present_url = array_key_exists("id", $_GET);
 
 $entite = null;
-if ($entree_mise_a_jour) {
+if ($id_present_url) {
     $id = $_GET["id"];
     $requete_brute = "SELECT * FROM TABLE WHERE id = $id";
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
@@ -22,8 +22,8 @@ if ($formulaire_soumis) {
 
     // On met à jour l'entrée
     $requete_brute = "
-        UPDATE A-REMPLACER 
-        SET 
+        UPDATE A-REMPLACER
+        SET
             champ_1 = '$champ_1',
             champ_2 = '$champ_2',
         WHERE id = '$id'
@@ -46,7 +46,7 @@ if ($formulaire_soumis) {
 <body>
     <?php include_once "../ressources/includes/menu-principal.php"; ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 px-4">
+        <div class="mx-auto max-w-7xl py-3 px-4">
             <p class="text-3xl font-bold text-gray-900">Editer</p>
         </div>
     </header>

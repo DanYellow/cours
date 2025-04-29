@@ -4,10 +4,10 @@ require_once '../../ressources/includes/connexion-bdd.php';
 $page_courante = 'auteurs';
 
 $formulaire_soumis = !empty($_POST);
-$entree_mise_a_jour = array_key_exists('id', $_GET);
+$id_present_url = array_key_exists('id', $_GET);
 
 $entite = null;
-if ($entree_mise_a_jour) {
+if ($id_present_url) {
     $id = $_GET["id"];
     $requete_brute = "SELECT * FROM auteur WHERE id = $id";
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
@@ -49,15 +49,17 @@ if ($formulaire_soumis) {
 
 <body>
     <?php include_once '../ressources/includes/menu-principal.php'; ?>
-    <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-6 px-4">
-            <p class="text-3xl font-bold text-gray-900">Editer</p>
+    <header style="view-transition-name: auteur-<?php echo $id; ?>"  class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-3 px-4">
+            <p class="text-3xl font-bold text-gray-900">Editer
+                "<?php echo $entite['nom']; ?> <?php echo $entite['prenom']; ?>"
+            </p>
         </div>
     </header>
     <main>
         <div class="mx-auto max-w-7xl py-6 px-4">
             <div class="py-6">
-            <?php if ($entite) { ?>
+                <?php if ($entite) { ?>
                     <form method="POST" action="" class="rounded-lg bg-white p-4 shadow border-gray-300 border-1">
                         <section class="grid gap-6">
                             <input type="hidden" value="<?php echo $entite[
@@ -67,7 +69,7 @@ if ($formulaire_soumis) {
                                 <label for="nom" class="block text-lg font-medium text-gray-700">Nom</label>
                                 <input type="text" value="<?php echo $entite[
                                     'nom'
-                                ]; ?>" name="nom" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="nom">
+                                ]; ?>"  name="nom" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="nom">
                             </div>
                             <div class="col-span-12">
                                 <label for="prenom" class="block text-lg font-medium text-gray-700">Prénom</label>

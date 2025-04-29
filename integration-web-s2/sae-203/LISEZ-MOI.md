@@ -1,4 +1,4 @@
-# SAÉ 203 - Site web et Base de données (BDD)
+# SAÉ 203 - Concevoir un site web avec une source de données
 _Les consignes pourront être modifiées._
 
 > **IMPORTANT :** Votre version de PHP doit être supérieure ou égale à la version 7.0.0. **Si ce n'est pas le site ne fonctionnera pas.** Vous aurez une page blanche avec un message d'erreur. Assurez-vous d'avoir une version supérieure ou égale à la version 7.0.0.
@@ -6,7 +6,7 @@ _Les consignes pourront être modifiées._
 > **IMPORTANT :** Cette SAE n'a aucun rapport avec la SAE 202, celle où il vous est demandé de réaliser un site WordPress.
 
 
-- [SAÉ 203 - Site web et Base de données (BDD)](#saé-203---site-web-et-base-de-données-bdd)
+- [SAÉ 203 - Concevoir un site web avec une source de données](#saé-203---concevoir-un-site-web-avec-une-source-de-données)
   - [Didacticiels](#didacticiels)
   - [Contexte de la SAÉ](#contexte-de-la-saé)
 - [Base de données](#base-de-données)
@@ -50,7 +50,7 @@ CY Cergy Paris Université vous confie la réalisation d'un site web dédié au 
 
 Comme la SAÉ 105, ceci est un projet de groupe, groupe de 3 à 6 personnes **au sein du même TP/TD.** Un chef devra encore une fois être désigné, car un seul rendu de projet est attendu sur l'ENT.
 
-Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale.
+Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale. N'hésitez pas à regarder le code.
 
 - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s2%2Fsae-203)
 
@@ -89,6 +89,7 @@ Les deux pages à réaliser sont :
     - Nom
     - Lien vers le compte Twitter
       - **Facultatif à l'affichage**
+    - Optionnel : Le nombre d'articles écrits
 
 > **Sur ces deux pages, le contenu doit provenir de la base de données.** Vous ne devez pas lister manuellement la liste des auteurs (page équipe de rédaction) ou faire autant de pages qu'il y a d'articles.
 
@@ -108,6 +109,7 @@ N'hésitez pas à appliquer ce que nous avons vu, et allons voir durant ce semes
 - Positionnement CSS
 - CSS Transform
 - CSS Transition
+- tailwindcss
 - Pseudo-éléments ::before / ::after
 - ~~Langage de programmation javascript~~
 - MySQL
@@ -136,7 +138,7 @@ Par ailleurs, il faudra également importer le contenu du fichier `base-de-donne
 > Si l'utilisation du script dans l'onglet ne fonctionne pas sous phpmyadmin. Pensez à décocher "Activer la vérification des clés étrangères".
 
 Si vous utilisez alwaysdata, il y a un didacticiel expliquant comme créer une base de données et exploiter les donées. Ce didacticiel est polyvalent, il peut être utilisé avec un autre projet.
-- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
+- [Accéder au didacticiel sur les bases de données dans l'interface alwaysdata](LISEZ-MOI-CREATION-BDD-ALWAYS-DATA.md)
 
 # Images et base de données
 Dans les tables "article" et "auteur" sont gérés des images, ces dernières devront **être gérées par des liens, vous n'avez pas à gérer un système d'upload de fichiers.** Vous devrez proposer à l'utilisateur de mettre un lien (absolu) vers l'image.
@@ -181,6 +183,7 @@ Grosse partie de cette SAE, elle sera l'occasion de mettre en application les co
     - On doit pouvoir associer un auteur à un article
   - Édition d'article
   - Liste d'articles
+    - Afficher le nombre total d'articles
 - Auteur
   - Création d'auteur
   - Édition d'auteur
@@ -251,13 +254,13 @@ Etant donné que l'outil git a été abordé durant le semestre, nous vous propo
 
 Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - Le code source du projet
-  - La base de données
+  - La base de données (si vous avez modifié la structure : nouvelles tables, champs)
     - [Voir comment exporter une base de données depuis phpmyadmin](https://kb.planethoster.com/guide/astuces-techniques/exporter-une-base-de-donnees-avec-phpmyadmin/)
   - URL vers le site
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
 
-> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont délivré des bugs facilement repérables avec des simples tests.
+> Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont rendu leur site avec des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
 
@@ -319,10 +322,6 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
-- [ ] Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
-    - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
-    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
-    - Note 3 : Ceci ne fonctionnera pas sur votre ordinateur, il faudra impérativement mettre le site en ligne pour pouvoir tester
 - [ ] Rendre le projet
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
 

@@ -2,6 +2,12 @@
 
 Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordonnée) de fonctionnalités que vous pouvez rajouter, **vous n'aurez pas plus de points pour autant,** mais vous acquerrez de nouvelles connaissances, elles vous permettront de valoriser votre CV pour vos stages, alternances et emplois futurs :
 
+- Implémenter [l'API view-transition](https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition) entre les articles sur la page d'accueil et leur détails. Pou vous aider, voici une liste de didacticiels sur le sujet (certains sont en anglais) :
+  - [https://daverupert.com/2023/05/getting-started-view-transitions/](https://daverupert.com/2023/05/getting-started-view-transitions/)
+  - [https://www.julienpradet.fr/tutoriels/view-transitions/](https://www.julienpradet.fr/tutoriels/view-transitions/)
+  - [https://css-tricks.com/toe-dipping-into-view-transitions/](https://css-tricks.com/toe-dipping-into-view-transitions/)
+  - [https://developer.chrome.com/docs/web-platform/view-transitions/cross-document?hl=fr](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document?hl=fr)
+  > Note : view-transition est déjà utilisé dans l'administration
 - Gérer via la base de données, la liste des SAÉ, celles affichées sur la page "a propos". Pour ce faire, il faudra :
   - Ajouter une nouvelle table et ses champs
   - Ajouter la maintenance de cette nouvelle table dans l'administration pour pouvoir ajouter/éditer ces SAÉ
@@ -33,11 +39,15 @@ Pour aller plus loin sur cette SAE, voici une liste (non-exhaustive et non-ordon
 - Améliorer le code de l'administration de façon à ce que l'édition et la création d'une entité soient faits sur la même page. Le contenu de la page doit donc s'adapter dépendamment qu'on fasse une édition ou une création d'entité
 - Afficher des pictogrammes dans l'administration. Par exemple, dans le bouton de soumission du formulaire
     - tailwindcss propose un liste d'icônes sur le [site heroicons](https://heroicons.com/). Nous vous conseillons, pour éviter de polluer le code, de mettre le code de chaque icône dans un fichier PHP pour ensuite les inclure avec la fonction PHP `include()`
-- Ajouter des meta tags, ces tags permettent d'enrichir l'affichage d'un lien sur les réseaux sociaux (Discord, Facebook...)
-  - Il existe des générateurs [https://metatags.io/](https://metatags.io/)
-  - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
-  - A noter que ceci ne peut être testé que si le site est en ligne
+- Toutes les pages qui ne sont pas dans l'administration possèdent des balises meta opengraph. Elles permettent d'afficher de façon enrichie le site lorsqu'il est partagé. [Il existe des générateurs pour ce type de balises](https://webcode.tools/open-graph-generator/website)
+    - Note : Le chemin de l'image doit être un chemin absolu, pas un chemin relatif. Pour récupérer la base du chemin absolu, vous pouvez utiliser le code PHP suivant `"https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']`
+    - Note 2 : Ce sont des balises &lt;meta>, elles doivent donc être dans la balise &lt;head>
+    - Note 3 : Ceci ne fonctionnera pas en local, il faudra impérativement mettre le site en ligne pour pouvoir tester en partageant votre lien sur Discord ou le site [https://metatags.io/](https://metatags.io/)
+    - [Accéder à la documentation des meta og - anglais](https://ogp.me/)
 - Via les modifiers de tailwindcss, rendez l'administration responsive
   - [Accéder à la documentation du responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
+- Utiliser un &lt;select> personnalisé pour l'affichage des auteurs dans la création / édition d'articles
+  - [Voir didacticiel du &lt;select> personnalisé](https://grafikart.fr/tutoriels/select-css-appearance-2284)
+  > Note : A l'heure actuelle (04/2025), cette fonctionnalité n'est pas gérée par Safari et Firefox
 
 > C'est votre projet, n'hésitez pas à vous concerter pour penser, ajouter de nouvelles fonctionnalités
