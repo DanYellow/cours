@@ -333,7 +333,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
 
-  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas.
+  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas. Cependant, vous prendrez soin d'exporter votre base de données lors du rendu de votre travail.
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
 
@@ -361,8 +361,18 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
     - Vous ne modifiez pas les bons fichiers. Vous avez, par exemple, le projet copié ailleurs sur votre ordinateur ou une clé usb et vous modifiez cette version, version qui n'est pas affichée dans le navigateur
     -  Votre serveur affiche la version en cache de votre site. Pour vider le cache plusieurs solutions :
         - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
-        - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
+        - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome.**
         - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
     > Normalement, lorsque la console est ouverte, le cache est désactivé si vous avez coché l'option "Disable cache" dans l'onglet "Network" de la console du navigateur (F12 / Clic droit > Inspecter).
+
+- **Dans l'administration, certains éléments se déplacent d'une page à l'autre. Pourquoi ?**
+
+    C'est dû à l'utilisation de l'API CSS @view-transition, elle permet d'effectuer des transitions entre deux pages web. Ainsi, au lieu d'avoir un changement "brut" de contenu entre deux pages, il est désormais possible une expérience de navigation plus fluide.
+
+    D'ailleurs, l'utilisation de cette nouvelle API est une tâche **optionnelle** listée dans le fichier [POUR-ALLER-PLUS-LOIN.md](POUR-ALLER-PLUS-LOIN.md).
+
+    > Note : @view-transition ne fonctionne pas sous Firefox à l'heure actuelle (04/2025).
+
+
 # Pour aller plus loin
 [Voir la liste des ajouts possibles au projet pour aller plus loin](POUR-ALLER-PLUS-LOIN.md)
