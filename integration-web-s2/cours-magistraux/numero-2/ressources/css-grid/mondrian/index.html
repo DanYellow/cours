@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS grid - Mondrian</title>
 
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
+
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+
+    <script
+        src="https://danyellow.net/cours-mmi/consignes.js"
+        defer
+    ></script>
   </head>
   <body>
     <header class="header">
@@ -30,19 +45,14 @@
         début et de fin. Exemple :
       </p>
       <div class="code">
-        <pre
-          style="
-            font-family: monospace;
-            color: rgb(248, 248, 242);
-            background-color: rgb(43, 43, 43);
-            font-weight: 400;
-            padding: 0.5rem;
-            font-size: 1rem;
-          "
+        <div>
+          <pre
+          data-code-sample="true" style="font-size: 1.15rem; font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "
         ><span style="color: rgb(255, 160, 122); font-weight: 400;">.mon-selecteur</span> {
     <span style="color: rgb(255, 215, 0); font-weight: 400;">grid-column-start</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">2</span>;
     <span style="color: rgb(255, 215, 0); font-weight: 400;">grid-column-end</span>: span <span style="color: rgb(245, 171, 53); font-weight: 400;">3</span>;
 }</pre>
+        </div>
         <p>
           Dans l'exemple ci-dessus, on définit que notre élément commence à la
           colonne 2 et s'étendra de trois colonnes. L'avantage, c'est que si on change la valeur de "grid-column-start", l'élément occupera toujours trois colonnes.
