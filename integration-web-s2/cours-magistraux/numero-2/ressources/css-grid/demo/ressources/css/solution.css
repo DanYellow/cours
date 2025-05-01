@@ -55,10 +55,11 @@ img {
 }
 
 .pkmn-card .pkmn-element {
-    aspect-ratio: 50/30;
+    aspect-ratio: 5 / 3;
     overflow: hidden;
     border: #1d1d1d 3px solid;
     position: relative;
+    background-color: white;
 }
 
 .pkmn-card .pkmn-element .image-centre {
