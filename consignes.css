@@ -51,10 +51,19 @@
     }
 
     &[open] {
+        @supports not selector(::details-content) {
+            summary {
+                padding-inline: 0;
+            }
+
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
         &::details-content {
             opacity: 1;
             block-size: auto;
-            padding: 0.75rem;
+            padding: 1.5rem;
             padding-top: 0;
         }
 
