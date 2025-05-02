@@ -23,6 +23,8 @@
 
 .consignes-conteneur {
     --_duration: 0.2s;
+    --padding-details-content: 1.15rem;
+    --size-arrow-icon: 24px;
 
     inline-size: 100%;
     box-sizing: border-box;
@@ -74,20 +76,19 @@
                 padding-inline: 0;
             }
 
-            padding: 1.5rem;
-            padding-top: 0;
+            padding: 0px var(--padding-details-content) var(--padding-details-content);
         }
 
         &::details-content {
             opacity: 1;
             block-size: auto;
-            padding: 1.5rem;
+            padding: var(--padding-details-content);
             padding-top: 0;
         }
 
         > summary {
             &:not(:hover, :focus-visible) {
-                translate: -24px 0;
+                translate: calc(var(--size-arrow-icon) * -1) 0;
                 &::before {
                     translate: -10px 0;
                     opacity: 0;
@@ -105,6 +106,7 @@
         display: flex;
         align-items: center;
         gap: 0.25rem;
+        width: calc(var(--size-arrow-icon) + 100%);
 
         &::-webkit-details-marker {
             display: none;
@@ -112,8 +114,8 @@
 
         &::before {
             display: block;
-            width: 24px;
-            height: 24px;
+            width: var(--size-arrow-icon);
+            height: var(--size-arrow-icon);
             aspect-ratio: 1;
             scale: 0.7;
             content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTcuMzMgMjRsLTIuODMtMi44MjkgOS4zMzktOS4xNzUtOS4zMzktOS4xNjcgMi44My0yLjgyOSAxMi4xNyAxMS45OTZ6Ii8+PC9zdmc+);
@@ -121,6 +123,10 @@
             @media (prefers-color-scheme: light) {
                 content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNy4zMyAyNGwtMi44My0yLjgyOSA5LjMzOS05LjE3NS05LjMzOS05LjE2NyAyLjgzLTIuODI5IDEyLjE3IDExLjk5NnoiLz48L3N2Zz4=);
             }
+        }
+
+        ~ * {
+            margin-top: 0;
         }
     }
 }
@@ -178,8 +184,7 @@
     }
 
     summary {
-        font-size: 1.5rem;
-        padding: 0.75rem;
+        margin: 0.75rem;
     }
 
     .description {
