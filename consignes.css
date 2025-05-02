@@ -54,6 +54,8 @@
         &::details-content {
             opacity: 1;
             block-size: auto;
+            padding: 0.75rem;
+            padding-top: 0;
         }
 
         > summary {
