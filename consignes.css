@@ -44,7 +44,7 @@
         }
 
         > summary {
-            transition: translate var(--_duration) allow-discrete .25s;
+            transition: translate var(--_duration) allow-discrete .25s, gap var(--_duration) .125s;
 
             &::before {
                 transition:
@@ -56,10 +56,16 @@
     }
 
     &:is(:hover, :focus-within):not([open]) {
-        background-color: oklch(from rgb(51, 51, 51) calc(l * 1.25) c h);
+        background-color: oklch(from rgb(51, 51, 51) calc(l * 0.75) c h);
 
         @media (prefers-color-scheme: light) {
-            background-color: oklch(from white calc(l * .85) c h);;
+            background-color: oklch(from white calc(l * .9) c h);
+        }
+    }
+
+    &:not([open]) {
+        summary {
+            gap: 0.25rem;
         }
     }
 
@@ -93,6 +99,10 @@
                 }
             }
 
+            &:is(:hover, :focus-visible) {
+                gap: 0.25rem;
+            }
+
             &::before {
                 rotate: .25turn;
             }
@@ -103,8 +113,10 @@
         cursor: default;
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        width: calc(var(--size-arrow-icon) + 100%);
+        @supports selector(::details-content) {
+            gap: 0.25rem;
+        }
+        width: calc(100% - var(--size-arrow-icon));
 
         &::-webkit-details-marker {
             display: none;
