@@ -40,17 +40,16 @@
 
         &::details-content {
             transition: content-visibility var(--_duration) allow-discrete,
-                opacity var(--_duration), block-size var(--_duration),
-                scale var(--_duration);
+                opacity var(--_duration), block-size var(--_duration);
         }
 
         > summary {
-            transition: translate var(--_duration) allow-discrete;
+            transition: translate var(--_duration) allow-discrete .25s;
 
             &::before {
                 transition:
-                    opacity .1s var(--ease-2) .027s,
-                    translate .1s var(--ease-4) .027s,
+                    opacity .1s var(--ease-2) .2s,
+                    translate .1s var(--ease-4) .2s,
                     rotate .75s var(--ease-spring-4);
             }
         }
@@ -68,12 +67,13 @@
         opacity: 0;
         block-size: 0;
         overflow-y: clip;
+        padding: 0px var(--padding-details-content) 0 var(--padding-details-content);
     }
 
     &[open] {
         @supports not selector(::details-content) {
             summary {
-                padding-inline: 0;
+                margin-inline: 0;
             }
 
             padding: 0px var(--padding-details-content) var(--padding-details-content);
@@ -82,8 +82,6 @@
         &::details-content {
             opacity: 1;
             block-size: auto;
-            padding: var(--padding-details-content);
-            padding-top: 0;
         }
 
         > summary {
@@ -125,7 +123,7 @@
             }
         }
 
-        ~ * {
+        + * {
             margin-top: 0;
         }
     }
