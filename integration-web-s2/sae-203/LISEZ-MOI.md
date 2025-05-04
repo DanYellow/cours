@@ -280,7 +280,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
   - Fichier(s) javascript sont chargés avant la fermeture de la balise &lt;body>
-  - Unité des police d'écriture en rem
+  - Unité des polices d'écriture en rem
     - **Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem**
       - Conversion px -> rem : Diviser la valeur en pixels par 16 pour obtenir la valeur en rem
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/)
@@ -299,7 +299,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - [x] Lire les consignes
 - [ ] Importer et connecter la base de données
 - [ ] S'approprier le code, bien le regarder (HTML et CSS), faire des tests pour mieux comprendre le code
-- [ ] Mettre des CSS transitions
+- [ ] Mettre des transitions CSS
 - [ ] Compléter l'administration
     - [ ] Je peux ajouter / éditer :
       - [ ] Un article / auteur
@@ -315,7 +315,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - [ ] Complétion de la page "article"
   - [ ] Chaque article (sur la page d'accueil) doit charger un contenu différent
 - [ ] Respecter les normes d'accessibilité web (liste non exhaustive)
-  - [ ] Mes images possèdent un attribut "alt"
+  - [ ] Mes images possèdent un attribut "alt" (même vide)
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
   - [ ] Les éléments de formulaire ont bien un libellé qui leur est rattaché avec les bons attributs ("for" et "id")

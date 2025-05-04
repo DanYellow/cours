@@ -40,7 +40,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                     $date_creation = new DateTime($article["date_creation"]);
                 ?>
                     <!--
-                        @hint
+                        @note
                         Nous avons passé un paramètre d'URL GET nommé "id".
                         Ainsi quand l'utilisateur va arriver sur la page "article.php",
                         elle va recevoir la valeur envoyée dans l'URL.
