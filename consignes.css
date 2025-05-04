@@ -36,7 +36,7 @@
 
     @media (prefers-reduced-motion: no-preference) {
         interpolate-size: allow-keywords;
-        transition: background-color var(--_duration);
+        transition: background-color var(--_duration) var(--ease-2);
 
         &::details-content {
             transition: content-visibility var(--_duration) allow-discrete,
@@ -165,7 +165,6 @@
     .h1 {
         font-size: 1.75rem;
         font-weight: bold;
-        display: inline-block;
         margin: 0.5rem 0;
     }
 
