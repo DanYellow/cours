@@ -18,7 +18,7 @@ Dans un monde où la data se fait de plus en plus présente, l'internaute sollic
 
 Ces supports peuvent s'exprimer sous la forme d'une infographie ou encore d'un outil interactif, redoutable outil viral. Ainsi, cette SAE est l'occasion de _données_ vie (et envie) à un jeu de données que vous aurez choisi, parmi ceux triés par nos soins [(voir plus bas)](#datasets).
 
-Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants : 
+Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants :
 
 - AC21.03 | Traiter des données avec des outils statistiques pour faciliter leur analyse et leur exploitation
 - AC23.02 | Définir une iconographie (illustrations, photographies, vidéos)
@@ -27,7 +27,7 @@ Cette SAÉ sera l'occasion de valider les apprentissages critiques (AC) suivants
 - AC24.01 | Produire des pages et applications Web responsives
 - AC24.03 | Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
 
-Et de mettre en application les connaissances vues dans les ressources suivantes : 
+Et de mettre en application les connaissances vues dans les ressources suivantes :
 - R3.09 | Création et design interactif (UI)
 - R3.10 | Culture artistique
 - R3.12 | Développement Front et intégration
@@ -47,7 +47,7 @@ Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffic
   - <a href="datasets.zip">Télécharger tous les jeux de données (cliquez sur "view raw" ou la flèche qui va vers le bas à droite)</a>
 > Vous devrez impérativement mettre vos sources dans vos réalisations, **si cette règle n'est pas respectée votre note sera diminuée d'un tiers**
 
-Les jeux de données sont été partagés en deux dossiers : "infographie" et "développement". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "infographie" et "développement" si vous souhaitez faire le sujet développement. La différence entre les deux types de jeux de données et que les jeux de données orientés "infographie" sont moins denses donc plus faciles à mettre en page.
+Les jeux de données sont été partagés en deux dossiers : "crea" et "dev". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "crea" et "dev" si vous souhaitez développer un outil autour de la data. La différence entre les deux types de jeux de données résident dans la quantité de données. Les jeux de données "créa", possédant moins de contenu, sont donc plus faciles à mettre en page.
 
 > Note : Vous pouvez tout à fait ajouter des jeux de données externes (et **sourcés**) pour appuyer votre création. N'hésitez pas !
 
@@ -60,7 +60,7 @@ Les jeux de données sont été partagés en deux dossiers : "infographie" et "d
 ## Infographie
 Si vous faites le choix de l'infographie pour cette SAE, rappelez-vous bien que vous travaillez sur un outil visuel, la mise en page, les couleurs, les images ou encore l'iconographie seront des points cruciaux pour donner envie aux gens de la lire. Souvenez-vous de vos cours liés à ces domaines, n'hésitez pas à trouver de l'inspiration en ligne, nous vous avons mis un ensemble de sites où vous pouvez trouver l'inspiration.
 
-> Si vous le souhaitez vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design.
+> Si vous le souhaitez, vous pouvez réaliser une vidéo en motion design à la place de l'infographie. Toutefois, il faudra prendre également en compte le sound design.
 
 Infographie ou motion design, vous prendrez soin à **préférer** du contenu libre de droits.
 
@@ -75,7 +75,7 @@ Ne négligez pas la présence de textes servant de présentation et/ou de commen
 
 > **Souvenez-vous également qu'un graphique sans légendes n'a aucun intérêt et peut plus semer la confusion qu'autre chose, faites également attention au choix des graphiques.**
 
-Votre infographie devra être présentée sur un site web, une seule page suffit. Cette page devra contenir : 
+Votre infographie devra être présentée sur un site web, une seule page suffit. Cette page devra contenir :
 - Un paragraphe présentant de votre réalisation
 - La réalisation (instagram ou print ou vidéo)
   - La vidéo peut être hébergée sur Youtube en privé ou autre
@@ -88,7 +88,7 @@ Votre infographie devra être présentée sur un site web, une seule page suffit
 N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/). Vous n'avez pas besoin d'utiliser Wordpress, ça rendra votre développement plus complexe pour un gain très faible, seuls les langages HTML et CSS vous serviront.
 
 L'infographie devra respecter les règles suivantes :
-- La présence des sources 
+- La présence des sources
   - Carton final si en vidéo motion design (possible à chaque "plan" de la vidéo)
 - Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
 - Formats print et instagram :
@@ -109,7 +109,7 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - [Voir curation d'infographies](http://visdata.mit.edu/explore.html)
 
 
-## Application interactive en javascript 
+## Application interactive en javascript
 
 Autre proposition de rendu : l'application interactive en javascript, elle sera l'occasion d'approfondir vos connaissances dans ce langage. Une application interactive utilisant de la donnée peut être un outil redoutable pour communiquer, engager l'internaute. L'engagement a tendance à encore plus fonctionner avec une carte, car tous les utilisateurs peuvent s'y trouver géographiquement (dépendamment du jeu de données).
 
@@ -150,17 +150,15 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
 ## <a name="#logos"></a>Logos
 Comme annoncé dans la consigne, vous devez afficher les logos de l'université (IUT et Université) dans vos réalisations, et ce, quelque soit le thème utilisé.
-- [Télécharger le logo couleur de l'université - format png](/CY_Cergy_Paris_Universite_-_Logo.png)
-- [Télécharger le logo couleur de l'IUT - format png](/CY-IUT_coul240.png)
-- [Télécharger le logo blanc de l'IUT - format png](/CY-IUT_Blanc-mini.png)
-- [Télécharger le logo noir de l'IUT - format png](/CY-IUT_noir.png)
+- [Accéder aux logos de l'université](../../logos/)
+
 
 ## Votre liste à faire
   - [x] Lire les consignes
-  - [ ] Trouver votre jeu de données et votre axe de travail (développement ou design)
+  - [ ] Trouver votre jeu de données et votre axe de travail (développement ou création numérique)
     - [ ] **Lisez bien le nom du document ainsi que les fichiers d'aides (s'il y en a), une confusion est si vite arrivée**
   - [ ] Respecter les attentes
-  - [ ] **Mettre vos sources dans le résultat final** 
+  - [ ] **Mettre vos sources dans le résultat final**
       - **La note finale se verra ôtée d'un tiers si ce n'est pas fait**
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
   - [ ] Générer une archive contenant :
@@ -169,49 +167,49 @@ Comme annoncé dans la consigne, vous devez afficher les logos de l'université 
 
 ## FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
-  
+
   A la racine du dossier des jeux de données, il y a un fichier [_liste-sources.ods](./datasets/_liste-sources.ods) qui liste les sources associées à chaque jeu de données. Tous les jeux de données ont une source.
   > Attention : Il y a deux onglets (crea et dev) dans le fichier. **Et en cas d'absence de sources, un tiers de la note finale sera retiré.**
 - **Est-ce que je peux utiliser des jeux de données additionnels ?**
-  
+
   Oui, vous pouvez. Toutefois **pensez bien à sourcer ces jeux additionnels.**
 
 - **Est-ce que je peux limiter le jeu de données ?**
-  
+
   Il est possible d'omettre des données (colonnes et lignes). Néanmoins faites attention à ne pas dénaturer le message que vous réalisez en supprimant des données.
 - **Lors d'autres cours, nous avons eu des devoirs en rapport avec la donnée. Ces devoirs entrent-ils dans la notation de cette SAE ?**
-  
+
   Non. Les devoirs que vous avez faits dans d'autres matières concernant la donnée ne sont pas associés à la notation de la SAE. **Ces cours ainsi que ces devoirs sont là pour vous aider à réaliser cette SAE.**
 - **Est-il possible de réaliser ce travail seul(e) ?**
-  
+
   Il est possible réaliser cette SAE en solitaire. Cependant, nous vous déconseillons de le faire car en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter. A l'inverse être trop nombreux dans un groupe risque de créer trop de flottements dans les tâches à réaliser. Car vous risquez de penser qu'une tierce personne va réaliser une tâche, et à la fin, il n'y aura pas grand-chose.
 - **Dans le sujet de graphisme, il est demandé un format A3 et un autre pour instagram. Doivent-ils être les mêmes images mais de tailles différentes ?**
-  
+
   Pas forcément. Si vous devez bel et bien fournir plusieurs formats, vous avez le droit de proposer des contenus différents pour chacun de ces médias, mais pensez bien à respecter la même Direction Artistique (DA) entre ces médias
 - **Puis-je effectuer plusieurs images pour Instagram ?**
-  
+
   Oui, vous pouvez. Pensez bien à indiquer l'ordre des images. Vous pouvez le faire dans le nom de l'image, par exemple : image_1, image_2...
 
 - **Est-ce que le choix de l'axe (créa ou dev) est conditionné par notre parcours ?**
-  
+
   Non. Vous pouvez être en parcours Créa et réaliser une application en javascript si vous le souhaitez.
 
 - **Dois-je impérativement utiliser git pour le projet ?**
 
-  Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet. 
+  Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet.
 
 - **Mon site web doit-il être responsive ?**
 
   Ce n'est pas obligatoire, néanmoins, ça reste préférable de rendre votre site web responsive.
 
 - **Est-il possible d'utiliser [tailwindcss](https://tailwindcss.com/) ?**
-  
+
   Oui, vous avez tout à fait le droit.
 
 - **Devons-nous apporter une analyse sur nos réalisations ?**
 
     Non. Le but de cette SAE est de réaliser un rendu créatif ou de développement définit par les consignes plus haut. Après, si vous le souhaitez, pourquoi pas.
 
-- **Est-il obligatorie d'utiliser du contenu libre de droits ?**
+- **Est-il obligatoire d'utiliser du contenu libre de droits ?**
 
-    Non. Toutefois, ça reste préférable. Ne serait-ce que pour prendre une bonne habitude en prévision de votre entrée dans le monde du travail. 
+    Non. Toutefois, ça reste préférable. Ne serait-ce que pour prendre une bonne habitude en prévision de votre entrée dans le monde du travail.
