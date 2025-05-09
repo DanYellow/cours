@@ -258,15 +258,6 @@
         font-style: italic;
     }
 
-    code {
-        background-color: rgb(29, 31, 33);
-        padding: 0 0.35rem;
-        color: white;
-        border: 1px solid #b4b4b4;
-        border-radius: 0.25rem;
-        white-space: nowrap;
-    }
-
     p {
         margin: 0.8rem 0;
     }
@@ -571,4 +562,14 @@ pre {
             }
         }
     }
+}
+
+code {
+    background-color: rgb(13, 17, 23);
+    padding: 0 0.35rem;
+    color: white;
+    border: 1px solid var(--green-code);
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    font-size: 92%;
 }
