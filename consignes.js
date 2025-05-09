@@ -44,6 +44,7 @@
     document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
         tablist.querySelectorAll("[data-tab-name]").forEach((item, idx) => {
             item.addEventListener("click", openTab);
+            item.classList.add("select-tab");
             item.setAttribute("role", "tab");
             item.setAttribute("aria-selected", "false");
             item.setAttribute("aria-controls", `tab-system-${tabSystemIdx}-tab-${idx}`);
