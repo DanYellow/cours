@@ -94,7 +94,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.padding = "1rem";
     item.style.fontSize = "1.25rem";
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
-    item.style.marginBlock = "1.25rem";
+    item.style.marginBottom = "1.25rem";
 
     if (item.querySelector(":scope > ol")) {
         item.querySelector(":scope > ol").style.marginBlock = "0";
@@ -104,6 +104,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.overflowX = "auto";
 
     if (!allowCopy) {
+        item.style.marginTop = "1.25rem";
         item.style.borderRadius = "0.5rem";
         return;
     }
@@ -121,6 +122,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButtonHeader.style["border-top-right-radius"] = "0.5rem";
     copyButtonHeader.style.display = "flex";
     copyButtonHeader.style.padding = "0.35rem 0.75rem";
+    copyButtonHeader.style.marginTop = "1.25rem";
     copyButtonHeader.style.justifyContent = "right";
     copyButtonHeader.append(copyButton);
 
