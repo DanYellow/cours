@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+.fira-code, pre {
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
 :root {
     --black: oklch(13.44% 0 0);
     --white: oklch(95.81% 0 0);
