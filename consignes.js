@@ -92,7 +92,10 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     item.style.border = `1px solid ${greenColor}`;
     item.style.padding = "1rem";
+    item.style.fontSize = "1.5rem";
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
+
+    item.querySelector(":scope > ol").style.marginBlock = "0";
     // item.style["border-bottom-left-radius"] = "0.5rem";
     // item.style["border-bottom-right-radius"] = "0.5rem";
     item.style.overflowX = "auto";
