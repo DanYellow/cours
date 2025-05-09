@@ -118,21 +118,30 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.style.gap = "0.2rem";
     copyButton.style.justifyContent = "center";
 
-    const copyButtonHeader = document.createElement("header");
-    copyButtonHeader.style.backgroundColor = greenColor;
-    copyButtonHeader.style["border-top-left-radius"] = "0.5rem";
-    copyButtonHeader.style["border-top-right-radius"] = "0.5rem";
-    copyButtonHeader.style.display = "flex";
-    copyButtonHeader.style.padding = "0.35rem 0.75rem";
-    copyButtonHeader.style.marginTop = "1.25rem";
-    copyButtonHeader.style.justifyContent = "right";
-    copyButtonHeader.append(copyButton);
+    const codeHeader = document.createElement("header");
+    codeHeader.style.backgroundColor = greenColor;
+    codeHeader.classList.add("header-code-sample");
+    // codeHeader.style["border-top-left-radius"] = "0.5rem";
+    // codeHeader.style["border-top-right-radius"] = "0.5rem";
+    // codeHeader.style.display = "flex";
+    // codeHeader.style.padding = "0.35rem 0.75rem";
+    // codeHeader.style.marginTop = "1.25rem";
+    // codeHeader.style.justifyContent = "right";
+    codeHeader.append(copyButton);
 
     const parentNodeCode = item.parentNode;
-    parentNodeCode.insertBefore(copyButtonHeader, item);
+    parentNodeCode.insertBefore(codeHeader, item);
+
+    if (item.hasAttribute("data-code-title")) {
+        const codeTitle = document.createElement("button");
+        codeTitle.textContent = item.dataset.codeTitle;
+        codeTitle.classList.add("title", "fire-code");
+
+        codeHeader.append(codeTitle);
+    }
 
     const imgButton = document.createElement("img");
-    imgButton.style.transition = "width 350ms"
+    imgButton.style.transition = "width 350ms";
     imgButton.style.width = "0";
     imgButton.alt = "";
     imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
@@ -151,8 +160,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     });
 
     item.addEventListener("transitionend", (e) => {
-        console.log(item.classList)
-        if(item.classList.contains("fin-copie")) {
+        if (item.classList.contains("fin-copie")) {
             item.classList.remove("fin-copie");
         }
     });

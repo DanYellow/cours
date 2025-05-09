@@ -510,6 +510,26 @@
     }
 }
 
+.header-code-sample {
+    display: flex;
+    justify-content: right;
+    padding: 0.35rem 0.75rem;
+    margin-top: 1.25rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+
+    .title {
+        margin-right: auto;
+        align-content: center;
+        margin-block: 0;
+        color: #2fa873;
+        background-color: rgb(13, 17, 23);
+        padding: 0.1rem 0.75rem;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
 pre {
     &.copie, &.fin-copie {
         position: relative;
