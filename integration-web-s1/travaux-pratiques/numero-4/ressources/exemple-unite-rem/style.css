@@ -1,10 +1,11 @@
 html {
-  /* 
-    Mauvaise pratique : C'est pour l'exemple, 
-    il est préférable de laisser le navigateur gérer la valeur 
+  /*
+    Mauvaise pratique : C'est pour l'exemple,
+    il est préférable de laisser le navigateur gérer la valeur
     */
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
+  scrollbar-gutter: stable;
 }
 
 .titre {
@@ -18,7 +19,7 @@ html {
 
 .titre-section {
   /*
-    Bien que parent de ".titre", la valeur de la propriété "font-size" n'aura aucune influence sur 
+    Bien que parent de ".titre", la valeur de la propriété "font-size" n'aura aucune influence sur
     la valeur de la propriété "font-size" de ".titre"
     car c'est l'unité rem qui est utilisée pour "font-size" de ".titre".
 
@@ -32,13 +33,17 @@ html {
 .note-importante,
 .note-information,
 .slider-container {
-  /* 
+  /*
     La taille de texte des classes "description" et "slider-container"
     ne changera pas avec le slider de la page car nous avons fixé la taille de la font-size.
     Il ne faut donc pas utiliser l'unité px, c'est très mauvais pour l'accessibilité.
     Le choix a été fait ici pour éviter d'affecter toute la page lors de la modification du slider.
 */
   font-size: 20px;
+}
+
+a:where(:hover, :focus) {
+    text-decoration: none;
 }
 
 .slider-container {

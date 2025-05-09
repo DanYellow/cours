@@ -4,7 +4,6 @@ const rootFontSizeText = document.querySelectorAll("[data-root-font-size]");
 const sliderValueText = document.querySelector("[data-slider-value]");
 const htmlDoc = document.querySelector("html");
 
-console.dir(sliderValueText)
 const updateValues = (val) => {
     fontSizeText.innerHTML = val.value * 1.5;
     sliderValueText.innerHTML = val.value;
