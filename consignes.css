@@ -510,23 +510,42 @@
 }
 
 pre {
-    &.copie {
+    &.copie, &.fin-copie {
         position: relative;
 
-        &::after {
+        &::before {
             content: "Code copié !";
             position: absolute;
             left: 50%;
-            transform: translateX(-50%) translateY(0);
-            transition: transform 0.35s;
+            transition: transform 0.35s, opacity 0.35s;
             background-color: green;
             padding: 0.45rem 0.75rem;
             border-radius: 1rem;
             font-size: 1rem;
+        }
+    }
 
-            @starting-style {
-                transform: translateX(-50%) translateY(135%);
-            }
+    &.copie {
+        &::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @starting-style {
+            transform: translateX(-50%) translateY(135%);
+            opacity: 0;
+        }
+    }
+
+    &.fin-copie {
+        &::before {
+            opacity: 0;
+            transform: translateX(-50%) translateY(135%);
+        }
+
+        @starting-style {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
     }
 }

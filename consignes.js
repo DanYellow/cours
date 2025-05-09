@@ -144,6 +144,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         imgButton.style.width = "0.95rem";
 
         setTimeout(() => {
+            item.classList.add("fin-copie");
             item.classList.remove("copie");
             imgButton.style.width = "0";
         }, 1500);
