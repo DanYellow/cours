@@ -121,24 +121,19 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeHeader = document.createElement("header");
     codeHeader.style.backgroundColor = greenColor;
     codeHeader.classList.add("header-code-sample");
-    // codeHeader.style["border-top-left-radius"] = "0.5rem";
-    // codeHeader.style["border-top-right-radius"] = "0.5rem";
-    // codeHeader.style.display = "flex";
-    // codeHeader.style.padding = "0.35rem 0.75rem";
-    // codeHeader.style.marginTop = "1.25rem";
-    // codeHeader.style.justifyContent = "right";
-    codeHeader.append(copyButton);
 
     const parentNodeCode = item.parentNode;
     parentNodeCode.insertBefore(codeHeader, item);
 
-    if (item.hasAttribute("data-code-title")) {
-        const codeTitle = document.createElement("button");
+    if (item.hasAttribute("data-code-title") && item.dataset.codeTitle.trim() !== "") {
+        const codeTitle = document.createElement("p");
         codeTitle.textContent = item.dataset.codeTitle;
         codeTitle.classList.add("title", "fire-code");
 
         codeHeader.append(codeTitle);
     }
+
+    codeHeader.append(copyButton);
 
     const imgButton = document.createElement("img");
     imgButton.style.transition = "width 350ms";
