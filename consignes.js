@@ -139,10 +139,12 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     copyButton.append(imgButton);
 
     copyButton.addEventListener("click", () => {
+        item.classList.add("copie");
         navigator.clipboard.writeText(item.textContent.replace(regexCopyText, ''))
         imgButton.style.width = "0.95rem";
 
         setTimeout(() => {
+            item.classList.remove("copie");
             imgButton.style.width = "0";
         }, 1500);
     });

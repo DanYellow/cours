@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-.fira-code, pre {
+.fira-code, pre, code {
     font-family: "Fira Code", "Courier New", Courier, monospace;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -262,8 +262,8 @@
         padding: 0 0.35rem;
         color: white;
         border: 1px solid #b4b4b4;
-        font-family: monospace;
         border-radius: 0.25rem;
+        white-space: nowrap;
     }
 
     p {
@@ -506,5 +506,27 @@
         width: 1px;
         height: 100%;
         background-color: var(--color);
+    }
+}
+
+pre {
+    &.copie {
+        position: relative;
+
+        &::after {
+            content: "Code copié !";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            transition: transform 0.35s;
+            background-color: green;
+            padding: 0.45rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 1rem;
+
+            @starting-style {
+                transform: translateX(-50%) translateY(135%);
+            }
+        }
     }
 }
