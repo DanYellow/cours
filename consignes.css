@@ -247,6 +247,7 @@
 
     pre {
         margin: 0;
+        overflow-y: hidden;
     }
 
     .texte-gras {
@@ -522,18 +523,19 @@ pre {
             padding: 0.45rem 0.75rem;
             border-radius: 1rem;
             font-size: 1rem;
+            top: 50%;
         }
     }
 
     &.copie {
         &::before {
             opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+            transform: translateX(-50%) translateY(-50%);
 
-        @starting-style {
-            transform: translateX(-50%) translateY(135%);
-            opacity: 0;
+            @starting-style {
+                transform: translateX(-50%) translateY(135%);
+                opacity: 0;
+            }
         }
     }
 
@@ -541,11 +543,11 @@ pre {
         &::before {
             opacity: 0;
             transform: translateX(-50%) translateY(135%);
-        }
 
-        @starting-style {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+            @starting-style {
+                transform: translateX(-50%) translateY(-50%);
+                opacity: 1;
+            }
         }
     }
 }

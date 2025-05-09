@@ -149,4 +149,11 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
             imgButton.style.width = "0";
         }, 1500);
     });
+
+    item.addEventListener("transitionend", (e) => {
+        console.log(item.classList)
+        if(item.classList.contains("fin-copie")) {
+            item.classList.remove("fin-copie");
+        }
+    });
 });
