@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
     <link rel="stylesheet" href="css/style.css" />
 
-    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
 </head>
 
 <body>
@@ -87,9 +87,8 @@
                 <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Complétez le sélecteur ".conteneur::after" de façon à rajouter un arrière-plan (aplat de couleur ou
-                    dégradé) permettant de faire
-                    ressortir le texte non-visible
+                <li>Complétez le sélecteur ".conteneur::after", du fichier CSS fourni, de façon à rajouter un arrière-plan (aplat de couleur ou
+                    dégradé) permettant de faire ressortir le texte au faible contraste
                     <ul>
                         <li>
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::after" rel="noopener noreferrer"
@@ -119,37 +118,21 @@
                         </li>
                     </ul>
                     <ul>
-                        <li>Rappel : Pour étirer une balise en position absolute (ou relative), aidez-vous du code
-                            ci-dessous.
-                            <pre>
-                                <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">mon-sélecteur {
-    <span style="color:rgb(156, 220, 254); font-weight:400;">position</span>: absolute;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">left</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">right</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(156, 220, 254); font-weight:400;">bottom</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-    <span style="color:rgb(87, 166, 74); font-weight:400;">/* propriétés CSS */</span>
-}</code></pre>
+                        <li>Rappel : Pour étirer une balise en position absolute (ou fixed), aidez-vous du code
+                            ci-dessous :
+                            <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(222, 147, 95); font-weight: 400;">.mon-sélecteur</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">position</span>: absolute;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">top</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">left</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">right</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>;
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">bottom</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>;
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">/* [...] */</span>
+}</pre>
                         </li>
                     </ul>
                 </li>
-                <li>Utilisez la pseudo-classe "hover" pour afficher le background au survol l'arrière-plan précédemment
+                <li>Utilisez la pseudo-classe "hover" pour changer la couleur de la propriété CSS "background" du pseudo-element ajouté précédemment
                     affiché
-                    <ul>
-                        <li>Au lieu d'utiliser la propriété CSS "transform" vous pouvez utiliser la propriété CSS
-                            "opacity"
-                            <ul>
-                                <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity"
-                                        rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément
-                                        "opacity"
-                                        (ouverture dans un
-                                        nouvel onglet)</a>
-                                </li>
-                            </ul>
-                            Bien évidemment, il faudra penser à cacher par défaut l'arrière-plan pour l'afficher ensuite
-                        </li>
-                    </ul>
                 </li>
             </ol>
         </details>
@@ -158,11 +141,10 @@
                 <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
             </summary>
             <ol class="liste-consignes">
-                <li>Utilisez la propriété CSS transform et la fonction translate() (translateX() ou translateY() ) pour
-                    déplacer les textes présents sur l'image lors du survol de la base .conteneur.
+                <li>Utilisez la propriété CSS transform et la fonction translate() (translateX() ou translateY()) pour
+                    déplacer les textes présents sur l'image lors du survol de la balise ".conteneur".
                     <ul>
                         <li>Vous pouvez déplacer les deux textes ensemble ou un seul à la fois à vous de voir</li>
-                        <li>Utilisez la console du navigateur pour trouver les sélecteurs</li>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform" rel="noopener noreferrer"
                                 target="_blank">Voir documentation de la propriété
@@ -178,18 +160,18 @@
             <summary>
                 <h1 class="h1">Partie 4 (cliquer pour afficher / cacher)</h1>
             </summary>
-            <p>Maintenant que vous avez expérimenté de façon guidée les transitions et transformation à vous de
+            <p>Maintenant que vous avez expérimenté de façon guidée les transitions CSS à vous de
                 jouer.</p>
             <ol class="liste-consignes">
                 <li>Au choix :
                     <ul>
                         <li>
-                            Copiez la balise "conteneur-principal" et son contenu et collez-la après la première balise "conteneur-principal"
+                            Réutilisez la balise "conteneur-principal" et son contenu
                         </li>
                         <li>Ajoutez votre propre balise avec quelques éléments enfants (images, liens, textes...)</li>
                     </ul>
                 </li>
-                <li> Appliquez une ou plusieurs transitions de votre choix au survol
+                <li> Appliquez une ou plusieurs transitions de votre choix au survol (et au focus clavier si éligible)
                 </li>
             </ol>
         </details>
