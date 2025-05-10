@@ -8,9 +8,13 @@
     - Thème : hybrid en sombre (il faut parfois changer puis remettre le thème "hybrid")
   - [pinetools.com](https://pinetools.com/syntax-highlighter)
     - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
-  - [codebeautify.org](https://codebeautify.org/)
+  - [codebeautify.org](https://codebeautify.org/code-highlighter)
     - Thème : VS 2015 - Utilisé pour le HTML et assimilés
-  - Une fois le code html généré récupéré et mis dans les consignes, il faudra rajouter le data-attribute "data-code-sample" pour rajouter du CSS permettant d'embellir le snippet de code
-    - data-code-sample="true" : Ajoute un bouton "copier" qui copie le code dans le presse-papier (par défaut)
-    - data-code-sample="false" : Embellit juste le snippet de code
+  - Une fois le code html généré récupéré et mis dans les consignes, il faudra rajouter le data-attribute "data-code-allow-copy" pour rajouter du CSS permettant d'embellir le snippet de code
+    - data-code-allow-copy="true" : Ajoute un bouton "copier" qui copie le code dans le presse-papier (par défaut)
+    - data-code-allow-copy="false" : Embellit juste le snippet de code
     - data-code-title="str" : Affiche un titre pour le snippet de code (optionnel)
+
+## Exemple code surligné
+
+<pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">&lt;pre <span style="color:rgb(86, 156, 214); font-weight:400;">data</span>-code-title=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;Mon titre&quot;</span> <span style="color:rgb(86, 156, 214); font-weight:400;">data</span>-code-allow-copy=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span> style=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[...]&quot;</span>&gt;[...]&lt;/pre&gt;</code></pre>

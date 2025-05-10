@@ -87,7 +87,7 @@
 
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
-    const allowCopy = JSON.parse(item.dataset?.codeSample || false) === true;
+    const allowCopy = JSON.parse(item.dataset?.codeSample || item.dataset?.allowCopy || false) === true;
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
