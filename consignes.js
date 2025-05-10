@@ -85,11 +85,41 @@
     });
 })();
 
+const generateCopyCodeButton = ($el) => {
+    const copyButton = document.createElement("button");
+    copyButton.textContent = "Copier";
+    copyButton.style.padding = "0.5rem";
+    copyButton.style.display = "flex";
+    copyButton.style.gap = "0.2rem";
+    copyButton.style.justifyContent = "center";
+
+    const imgButton = document.createElement("img");
+    imgButton.style.transition = "width 350ms";
+    imgButton.style.width = "0";
+    imgButton.alt = "";
+    imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
+    copyButton.append(imgButton);
+
+    copyButton.addEventListener("click", () => {
+        $el.classList.add("copie");
+        navigator.clipboard.writeText($el.textContent.replace(regexCopyText, ''))
+        imgButton.style.width = "0.95rem";
+
+        setTimeout(() => {
+            $el.classList.add("fin-copie");
+            $el.classList.remove("copie");
+            imgButton.style.width = "0";
+        }, 1500);
+    });
+
+    return copyButton;
+}
+
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = codeSampleData?.title || "";
-    const allowCopy = codeSampleData?.allowCopy || true;
+    const allowCopy = codeSampleData?.allowCopy || false;
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
@@ -105,19 +135,13 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     }
 
     item.style.overflowX = "auto";
-
-    if (!allowCopy) {
+    console.log(!allowCopy && codeTitle.trim() === "")
+    if (!allowCopy && codeTitle.trim() === "") {
         item.style.marginTop = "1.25rem";
         item.style.borderRadius = "0.5rem";
+
         return;
     }
-
-    const copyButton = document.createElement("button");
-    copyButton.textContent = "Copier";
-    copyButton.style.padding = "0.5rem";
-    copyButton.style.display = "flex";
-    copyButton.style.gap = "0.2rem";
-    copyButton.style.justifyContent = "center";
 
     const codeHeader = document.createElement("header");
     codeHeader.style.backgroundColor = greenColor;
@@ -134,26 +158,9 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         codeHeader.append(codeTitleTag);
     }
 
-    codeHeader.append(copyButton);
-
-    const imgButton = document.createElement("img");
-    imgButton.style.transition = "width 350ms";
-    imgButton.style.width = "0";
-    imgButton.alt = "";
-    imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
-    copyButton.append(imgButton);
-
-    copyButton.addEventListener("click", () => {
-        item.classList.add("copie");
-        navigator.clipboard.writeText(item.textContent.replace(regexCopyText, ''))
-        imgButton.style.width = "0.95rem";
-
-        setTimeout(() => {
-            item.classList.add("fin-copie");
-            item.classList.remove("copie");
-            imgButton.style.width = "0";
-        }, 1500);
-    });
+    if (allowCopy) {
+        codeHeader.append(generateCopyCodeButton(item));
+    }
 
     item.addEventListener("transitionend", (e) => {
         if (item.classList.contains("fin-copie")) {
