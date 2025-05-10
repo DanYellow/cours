@@ -79,6 +79,7 @@ body {
 }
 
 .conteneur::after {
+  /* Indispensable, sinon rien ne s'affichera */
   content: "";
   display: block;
   /* Ceci va nous assurer que l'arrière-plan sera derrière le texte */
