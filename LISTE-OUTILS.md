@@ -8,9 +8,17 @@
     - Thème : hybrid en sombre (il faut parfois changer puis remettre le thème "hybrid")
   - [pinetools.com](https://pinetools.com/syntax-highlighter)
     - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
-  - [codebeautify.org](https://codebeautify.org/)
+  - [codebeautify.org](https://codebeautify.org/code-highlighter)
     - Thème : VS 2015 - Utilisé pour le HTML et assimilés
-  - Une fois le code html généré récupéré et mis dans les consignes, il faudra rajouter le data-attribute "data-code-sample" pour rajouter du CSS permettant d'embellir le snippet de code
-    - data-code-sample="true" : Ajoute un bouton "copier" qui copie le code dans le presse-papier (par défaut)
-    - data-code-sample="false" : Embellit juste le snippet de code
-    - data-code-title="str" : Affiche un titre pour le snippet de code (optionnel)
+  - Une fois le code html généré récupéré et mis dans les consignes, il faudra rajouter le data-attribute "data-code-allow-copy" pour rajouter du CSS permettant d'embellir le snippet de code
+
+## Exemple insertion code surligné
+
+<pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;">&lt;</span>pre data<span style="color:rgb(220, 220, 220); font-weight:400;">-</span>code<span style="color:rgb(220, 220, 220); font-weight:400;">-</span>sample<span style="color:rgb(220, 220, 220); font-weight:400;">=</span>&#x27;{<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;title&quot;</span>: <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;Mon titre&quot;</span>, <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;allowCopy&quot;</span>: <span style="color:rgb(86, 156, 214); font-weight:400;">true</span>}&#x27; style<span style="color:rgb(220, 220, 220); font-weight:400;">=</span><span style="color:rgb(214, 157, 133); font-weight:400;">&quot;[...]&quot;</span><span style="color:rgb(220, 220, 220); font-weight:400;">&gt;</span>[<span style="color:rgb(220, 220, 220); font-weight:400;">...</span>]<span style="color:rgb(220, 220, 220); font-weight:400;">&lt;/</span>pre<span style="color:rgb(220, 220, 220); font-weight:400;">&gt;</span></code></pre>
+
+La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en paramètre le data-attribute "data-code-sample" qui attend un objet contenant deux clés :
+- title : Affiche un titre pour le snippet de code (optionnel)
+- allowCopy : Ajoute un bouton "copier" qui copie le code dans le presse-papier. false par défaut
+
+> Note : Si vous n'avez pas besoin de permettre la copie du snippet de code ou d'afficher de titre, vous pouvez mettre juste le data-attribute "data-code-sample".
+
