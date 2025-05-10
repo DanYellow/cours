@@ -87,7 +87,9 @@
 
 const regexCopyText = /copier$/i;
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
-    const allowCopy = JSON.parse(item.dataset?.codeSample || item.dataset?.allowCopy || false) === true;
+    const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
+    const codeTitle = codeSampleData?.title || "";
+    const allowCopy = codeSampleData?.allowCopy || true;
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
@@ -101,8 +103,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     if (item.querySelector(":scope > ol")) {
         item.querySelector(":scope > ol").style.marginBlock = "0";
     }
-    // item.style["border-bottom-left-radius"] = "0.5rem";
-    // item.style["border-bottom-right-radius"] = "0.5rem";
+
     item.style.overflowX = "auto";
 
     if (!allowCopy) {
@@ -125,12 +126,12 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const parentNodeCode = item.parentNode;
     parentNodeCode.insertBefore(codeHeader, item);
 
-    if (item.hasAttribute("data-code-title") && item.dataset.codeTitle.trim() !== "") {
-        const codeTitle = document.createElement("p");
-        codeTitle.textContent = item.dataset.codeTitle;
-        codeTitle.classList.add("title", "fire-code");
+    if (codeTitle.trim() !== "") {
+        const codeTitleTag = document.createElement("p");
+        codeTitleTag.textContent = codeTitle;
+        codeTitleTag.classList.add("title", "fire-code");
 
-        codeHeader.append(codeTitle);
+        codeHeader.append(codeTitleTag);
     }
 
     codeHeader.append(copyButton);
