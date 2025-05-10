@@ -92,6 +92,7 @@ const generateCopyCodeButton = ($el) => {
     copyButton.style.display = "flex";
     copyButton.style.gap = "0.2rem";
     copyButton.style.justifyContent = "center";
+    copyButton.style.alignSelf = "start";
 
     const imgButton = document.createElement("img");
     imgButton.style.transition = "width 350ms";

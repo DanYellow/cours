@@ -509,6 +509,7 @@
     margin-top: 1.25rem;
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
+    gap: 0.5rem;
 
     .title {
         margin-right: auto;
