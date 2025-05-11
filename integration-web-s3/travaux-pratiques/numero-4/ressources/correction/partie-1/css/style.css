@@ -2,18 +2,17 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light only;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 1rem;
 }
 
-hr {
-    color: #333;
-    margin: 1rem 0;
-}
-
 .titre {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 img {
@@ -39,7 +38,7 @@ img {
     grid-row-end: 3;
     border-radius: 0.85rem;
     background-image: url("../images/flan.jpg");
-    
+
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -50,7 +49,6 @@ img {
     border-radius: 0.85rem;
 
     background-image: url("../images/lunettes.jpg");
-    
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -63,9 +61,9 @@ img {
     border-radius: 0.85rem;
 
     background-image: url("../images/tarte-aux-pommes.jpg");
-    
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .patisserie-4 {
@@ -74,8 +72,8 @@ img {
     border-radius: 0.85rem;
     grid-column-start: 2;
     grid-column-end: 4;
+
     background-image: url("../images/carolines.jpg");
-    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -87,8 +85,8 @@ img {
     grid-row-end: 4;
     grid-column-start: 4;
     grid-column-end: 5;
+
     background-image: url("../images/macarons.jpg");
-    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -98,9 +96,15 @@ img {
     border-radius: 0.85rem;
     grid-row-start: 4;
     grid-row-end: 6;
+    object-position: bottom;
+
     background-image: url("../images/cookies.jpg");
-    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
+}
+
+.en-tete {
+    max-width: 1200px;
+    margin: 1rem auto;
 }
