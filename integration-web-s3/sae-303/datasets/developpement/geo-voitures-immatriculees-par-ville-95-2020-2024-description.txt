@@ -1,9 +1,0 @@
-- nom : Libellé de la commune
-- code_insee : Code Insee de la commune. Le code Insee d'une commune est différent du code postal
-- code_postal : Code postal de la commune. Plusieurs villes peuvent avoir le même
-- annees[] :
-    - annee : Année du comptage
-    - date_arrete : Date « photo » du parc automobile
-    - nb_vp_rechargeables_el: Nombre de voitures immatriculées dans la commune nécessitant une borne de recharge électrique
-    - nb_vp_rechargeables_gaz : Nombre de voitures immatriculées dans la commune nécessitant une borne de recharge gaz
-    - nb_vp : Nombre de voitures immatriculées dans la commune 
