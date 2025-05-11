@@ -38,6 +38,9 @@
     inline-size: 100%;
     box-sizing: border-box;
     overflow: hidden;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.75em 0.75em;
 
     *, *::before, *::after {
         box-sizing: border-box;
@@ -281,6 +284,9 @@
     font-size: 2.25rem;
     font-weight: bold;
     display: inline-block;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.75em 0.75em;
 }
 
 .titre-principal {
@@ -448,6 +454,10 @@
 
     .tab-content {
         display: none;
+
+        & > :first-child {
+            margin-top: 0 !important;
+        }
     }
 
     .list-tab-content {
