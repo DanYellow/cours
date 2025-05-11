@@ -39,8 +39,6 @@
     box-sizing: border-box;
     overflow: hidden;
     max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 0.75em 0.75em;
 
     *, *::before, *::after {
         box-sizing: border-box;
