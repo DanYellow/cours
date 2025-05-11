@@ -68,6 +68,7 @@
 
 (() => {
     const url = new URL(window.location);
+
     const accordionIndex = Number(url.searchParams?.get("a") || 0);
     const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
 
@@ -136,7 +137,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     }
 
     item.style.overflowX = "auto";
-    console.log(!allowCopy && codeTitle.trim() === "")
+
     if (!allowCopy && codeTitle.trim() === "") {
         item.style.marginTop = "1.25rem";
         item.style.borderRadius = "0.5rem";
