@@ -15,6 +15,8 @@
     --blue-information: oklch(61.67% 0.1891 252.84);
     --red-alert: oklch(55.81% 0.2287 29.2);
     --green-code: oklch(0.57 0.16 155.16);
+
+    color-scheme: light dark;
 }
 
 .consignes-en-tete {
@@ -404,7 +406,7 @@
         border: none;
         background-color: transparent;
         position: relative;
-        color: var(--black);
+        color: light-dark(var(--black), rgb(241, 241, 241));
         font-size: 1rem;
         opacity: 0.8;
         transition: opacity 350ms;
@@ -417,16 +419,10 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            color: rgb(241, 241, 241);
-        }
-
         &::after {
             content: "";
-            background-color: var(--black);
-            @media (prefers-color-scheme: dark) {
-                background-color: white;
-            }
+            background-color: currentColor;
+
             position: absolute;
             left: 0;
             right: 0;
@@ -459,15 +455,11 @@
     }
 
     .list-tab-content {
-        border: 1px solid white;
+        border: 1px solid light-dark(var(--black), rgb(241, 241, 241));;
         padding: 0.5rem;
         border-bottom-left-radius: 0.35rem;
         border-bottom-right-radius: 0.35rem;
         margin-top: 0;
-
-        @media (prefers-color-scheme: light) {
-            border-color: var(--black);
-        }
     }
 }
 
