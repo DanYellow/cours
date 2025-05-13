@@ -240,5 +240,6 @@ with open("output.tmp.txt", "w") as txt_file:
         print(f"• {line}")
         if os.path.isfile(line):
             txt_file.write(line + "\n")
-
+    else:
+        print("\033[91mNo archives generated\033[0m")
 print("\033[96m--- in %.2f seconds ---\033[0m" % (time.time() - start_time))
