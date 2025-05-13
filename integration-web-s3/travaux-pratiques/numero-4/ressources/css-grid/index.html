@@ -1,249 +1,362 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP - CSS Grid</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Grid TP</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
 
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/reset.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script
+            src="https://danyellow.net/cours-mmi/consignes.js"
+            defer
+        ></script>
 
-    <style>
-      body {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 1.1rem;
-      }
-    </style>
-  </head>
+        <style>
+            body {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 1.1rem;
+            }
+        </style>
+    </head>
 
-  <body>
-    <header>
-      <h1 class="titre-consignes">Consignes de la pratique</h1>
+    <body>
+        <header>
+            <h1 class="titre-consignes">Consignes de la pratique</h1>
 
-      <details class="consignes-conteneur" open>
-        <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Prenez en main le jeu Grid Garden (gratuit) pour prendre en main CSS
-            Grid. Il est inutile de faire tous les niveaux, les 15 premiers
-            suffisent. Une fois fait, vous pouvez passer à la partie suivante.
-            <ul>
-              <li>
-                <a
-                  href="https://cssgridgarden.com/#fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Accéder au jeu CSS Grid Garden</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            <p>
-              Réalisez la mise en page suivante grâce à CSS Grid. Cette grille possède les caractérisques suivantes :
-            </p>
-            <ul>
-                <li>4 colonnes et 5 lignes</li>
-                <li>Hauteur de 900px avec un aspect-ratio de 203 / 150
-                    <ul>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/aspect-ratio" target="_blank" rel="noopener noreferrer">Voir documentation d'aspect-ratio - ouverture dans un nouvel onglet</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <p>
-                Vous n'avez pas à être
-              iso à 100 %, l'idée est avant tout de prendre en main CSS Grid.
-              Toutes les images se trouvent dans le dossier
-              <code>images-partie-1/</code>
-            </p>
-            <figure style="margin: 1rem 0">
-              <img src="exemple-partie-1.jpg" alt="" />
-              <figcaption>Image cible</figcaption>
-            </figure>
-            <p class="note-attention">
-              N'oubliez pas d'ajouter la déclaration CSS
-              <code>display: grid</code> sur le conteneur.
-            </p>
-            <section class="note-information">
-              <p>
-                Ici le plus simple n'est pas d'utiliser la balise &lt;img> mais
-                plutôt la propriété CSS background-image et pour la taille du
-                background, on utilisera background-size. Enfin pour déplacer le background-image, vous pouvez utiliser la propriété background-position.
-              </p>
-              <ul>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/background-image"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Accéder à la documentation de background-image - ouverture dans un nouvel onglet</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/background-size"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Accéder à la documentation de background-size - ouverture dans un nouvel onglet</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/background-position"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Accéder à la documentation de background-position - ouverture dans un nouvel onglet</a
-                  >
-                </li>
-              </ul>
-              <p>Si vous souhaitez utiliser la balise &lt;img>, il faut <span class="texte-gras">impérativement</span> appliquer les déclarations suivantes sur vos images. Sinon, elles déformeront vos grilles.</p>
-              <pre style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; padding: 0.5rem; border-radius: 10px;"><span style="color: rgb(220, 198, 224); font-weight: 400;">img</span> {
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <p class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Prenez en main le jeu Grid Garden (gratuit) pour prendre
+                        en main CSS Grid. Il est inutile de faire tous les
+                        niveaux, les 15 premiers suffisent. Une fois fait, vous
+                        pouvez passer à la partie suivante.
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://cssgridgarden.com/#fr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Accéder au jeu CSS Grid Garden</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        <p>
+                            Réalisez la mise en page suivante grâce à CSS Grid.
+                            Cette grille possède les caractérisques suivantes :
+                        </p>
+                        <ul>
+                            <li>4 colonnes et 5 lignes</li>
+                            <li>
+                                Hauteur de 900px avec un aspect-ratio de 203 /
+                                150
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/aspect-ratio"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Voir documentation d'aspect-ratio -
+                                            ouverture dans un nouvel onglet</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>
+                            Vous n'avez pas à être iso à 100 %, l'idée est avant
+                            tout de prendre en main CSS Grid. Toutes les images
+                            se trouvent dans le dossier
+                            <code>images-partie-1/</code>
+                        </p>
+                        <figure style="margin: 1rem 0">
+                            <img src="exemple-partie-1.jpg" alt="" />
+                            <figcaption>Image cible</figcaption>
+                        </figure>
+                        <p class="note-attention">
+                            N'oubliez pas d'ajouter la déclaration CSS
+                            <code>display: grid</code> sur le conteneur.
+                        </p>
+                        <section class="note-information">
+                            <p>
+                                Ici le plus simple n'est pas d'utiliser la
+                                balise &lt;img> mais plutôt la propriété CSS
+                                background-image et pour la taille du
+                                background, on utilisera background-size. Enfin
+                                pour déplacer le background-image, vous pouvez
+                                utiliser la propriété background-position.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/background-image"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Accéder à la documentation de
+                                        background-image - ouverture dans un
+                                        nouvel onglet</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/background-size"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Accéder à la documentation de
+                                        background-size - ouverture dans un
+                                        nouvel onglet</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/background-position"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Accéder à la documentation de
+                                        background-position - ouverture dans un
+                                        nouvel onglet</a
+                                    >
+                                </li>
+                            </ul>
+                            <p>
+                                Si vous souhaitez utiliser la balise &lt;img>,
+                                il faut
+                                <span class="texte-gras">impérativement</span>
+                                appliquer les déclarations suivantes sur vos
+                                images. Sinon, elles déformeront vos grilles.
+                            </p>
+                            <pre
+                                data-code-sample='{"allowCopy": true}'
+                                style="
+                                    font-family: monospace;
+                                    color: rgb(248, 248, 242);
+                                    background-color: rgb(43, 43, 43);
+                                    font-weight: 400;
+                                    padding: 0.5rem;
+                                    border-radius: 10px;
+                                "
+                            ><span style="color: rgb(220, 198, 224); font-weight: 400;">img</span> {
     <span style="color: rgb(255, 215, 0); font-weight: 400;">max-width</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
     <span style="color: rgb(255, 215, 0); font-weight: 400;">min-width</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
     <span style="color: rgb(255, 215, 0); font-weight: 400;">max-height</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
     <span style="color: rgb(255, 215, 0); font-weight: 400;">min-height</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">100%</span>;
     <span style="color: rgb(255, 215, 0); font-weight: 400;">object-fit</span>: cover;
 }</pre>
-              <p>Pour la partie CSS Grid, vous avez les liens suivants :</p>
-              <ul>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-start"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Voir documentation de grid-column-start - ouverture dans un nouvel onglet
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-end"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Voir documentation de grid-column-end - ouverture dans un nouvel onglet
-                  </a>
-                </li>
+                            <p>
+                                Pour la partie CSS Grid, vous avez les liens
+                                suivants :
+                            </p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-start"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Voir documentation de grid-column-start
+                                        - ouverture dans un nouvel onglet
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-end"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Voir documentation de grid-column-end -
+                                        ouverture dans un nouvel onglet
+                                    </a>
+                                </li>
 
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-start"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Voir documentation de grid-row-start - ouverture dans un nouvel onglet
-                  </a>
-                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-start"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Voir documentation de grid-row-start -
+                                        ouverture dans un nouvel onglet
+                                    </a>
+                                </li>
 
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-end"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Voir documentation de grid-row-end - ouverture dans un nouvel onglet
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/fr/docs/Web/CSS/gap"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Voir documentation de gap - ouverture dans un nouvel onglet
-                  </a>
-                </li>
-                <li>
-                    Voir les aides de navigateur pour CSS Grid
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-end"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Voir documentation de grid-row-end -
+                                        ouverture dans un nouvel onglet
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.mozilla.org/fr/docs/Web/CSS/gap"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Voir documentation de gap - ouverture
+                                        dans un nouvel onglet
+                                    </a>
+                                </li>
+                                <li>
+                                    Voir les aides de navigateur pour CSS Grid
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="https://developer.chrome.com/docs/devtools/css/grid?hl=fr"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Aides de Chrome - ouverture dans
+                                                un nouvel onglet
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Aides de Firefox - ouverture
+                                                dans un nouvel onglet
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </section>
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <p>
+                    Réalisez la mise en page suivante grâce à CSS Grid. Cette
+                    grille est constituée de 2 colonnes et 2 lignes. La colonne
+                    de gauche fait 290px de largeur, celle de droite 1100px de
+                    largeur. Vous n'avez pas à être iso à 100 %, l'idée est
+                    avant tout de prendre en main CSS Grid. Il est inutile de
+                    vous attarder sur le tableau dans la colonne de droite.
+                </p>
+                <figure style="margin: 1rem 0">
+                    <img src="exemple-partie-2.jpg" alt="" />
+                </figure>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">Pour aller plus loin</p>
+                </summary>
+                <p>
+                    Réalisez la mise en page de l'image ci-dessous grâce à CSS
+                    Grid. Cette grille est plus complexe que ce que nous avons
+                    vu jusqu'à présent. Par ailleurs, il faudra utiliser flexbox
+                    (ou grid) pour réaliser la mise en page au sein des
+                    cellules. Toutes les images se trouvent dans le dossier
+                    <code>images-pour-aller-plus-loin/</code>.
+                </p>
+
+                <div class="note-information">
+                    <p>
+                        Pour réaliser cette grille, il faudra utiliser des
+                        valeurs décimales avec l'unité fr. Et cette grille
+                        possède 4 lignes.
+                    </p>
                     <ul>
                         <li>
                             <a
-                                href="https://developer.chrome.com/docs/devtools/css/grid?hl=fr"
+                                href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#lunit%C3%A9_fr"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                >Explications sur l'unité fr - ouverture dans un
+                                nouvel onglet</a
                             >
-                            Aides de Chrome - ouverture dans un nouvel onglet
-                            </a>
-                        </li>
-                        <li>
+                            ou
                             <a
-                                href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html"
+                                href="https://www.gregoirenoyelle.com/unite-de-mesure-fr-css-grid-layout/"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                >ce lien</a
                             >
-                            Aides de Firefox - ouverture dans un nouvel onglet
-                            </a>
                         </li>
                     </ul>
-                    
-                  </li>
-                
-              </ul>
-            </section>
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <p>
-          Réalisez la mise en page suivante grâce à CSS Grid. Cette grille est
-          constituée de 2 colonnes et 2 lignes. La colonne de gauche fait 290px
-          de largeur, celle de droite 1100px de largeur. Vous n'avez pas à être
-          iso à 100 %, l'idée est avant tout de prendre en main CSS Grid. Il est inutile de vous attarder sur le tableau dans la colonne de droite.
-        </p>
-        <figure style="margin: 1rem 0">
-          <img src="exemple-partie-2.jpg" alt="" />
-        </figure>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">Pour aller plus loin</h1>
-        </summary>
-        <p>
-          Réalisez la mise en page de l'image ci-dessous grâce à CSS Grid. Cette grille est
-          plus complexe que ce que nous avons vu jusqu'à présent. Par ailleurs, il faudra utiliser flexbox (ou grid) pour réaliser la mise en page au sein des cellules. Toutes les images se trouvent dans le dossier
-          <code>images-pour-aller-plus-loin/</code>.
-        </p>
-
-        <div class="note-information">
-            <p>Pour réaliser cette grille, il faudra utiliser des valeurs décimales avec l'unité fr. Et cette grille possède 4 lignes.</p>
-            <ul>
-                <li>
-                    <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#lunit%C3%A9_fr" target="_blank" rel="noopener noreferrer">Explications sur l'unité fr - ouverture dans un nouvel onglet</a> ou <a href="https://www.gregoirenoyelle.com/unite-de-mesure-fr-css-grid-layout/" target="_blank" rel="noopener noreferrer">ce lien</a>
-                </li>
-            </ul>
-        </div>
-        <figure style="margin: 1rem 0">
-          <img src="exemple-partie-pour-aller-plus-loin.jpg" alt="" />
-        </figure>
-        <ul>
-            <li>
-                Le motif affiché derrière le logo d'Adobe After Effects a été généré grâce au site
-                <a href="https://10015.io/tools/css-background-pattern-generator" target="_blank" rel="noopener noreferrer">css background pattern generator</a>
-            </li>
-        </ul>
-        <div class="note-information">
-            <p><a href="https://github.com/DanYellow/cours/raw/refs/heads/main/integration-web-s3/travaux-pratiques/numero-5/ressources/integration-web-s3_travaux-pratiques_numero-5-correction.ressources.zip" target="_blank" rel="noopener noreferrer">La correction se trouve ici - ouverture dans un nouvel onglet</a></p>
-            <p>La correction utilise le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank" rel="noopener noreferrer">CSS Nesting - anglais</a>, il y a également le <a href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf" target="_blank" rel="noopener noreferrer">CM#1</a> qui traite de ce sujet.</p>
-        </div>
-      </details>
-    </header>
-  </body>
+                </div>
+                <figure style="margin: 1rem 0">
+                    <img src="exemple-partie-pour-aller-plus-loin.jpg" alt="" />
+                </figure>
+                <ul>
+                    <li>
+                        Le motif affiché derrière le logo d'Adobe After Effects
+                        a été généré grâce au site
+                        <a
+                            href="https://10015.io/tools/css-background-pattern-generator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >css background pattern generator</a
+                        >
+                    </li>
+                </ul>
+                <div class="note-information">
+                    <p>
+                        <a
+                            href="https://github.com/DanYellow/cours/raw/refs/heads/main/integration-web-s3/travaux-pratiques/numero-4/ressources/integration-web-s3_travaux-pratiques_numero-4.correction.zip"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >La correction se trouve ici - ouverture dans un
+                            nouvel onglet</a
+                        >
+                    </p>
+                    <p>
+                        La correction utilise le
+                        <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >CSS Nesting - anglais</a
+                        >, il y a également le
+                        <a
+                            href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >CM#1</a
+                        >
+                        qui traite de ce sujet.
+                    </p>
+                </div>
+            </details>
+        </header>
+    </body>
 </html>
