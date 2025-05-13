@@ -5,6 +5,7 @@ import os
 import time
 import subprocess
 import argparse
+import pathlib
 from zipfile import ZipFile, ZIP_DEFLATED
 
 start_time = time.time()
@@ -45,6 +46,13 @@ parser.add_argument(
     help="Crée les archives des dossiers du dernier commit",
     required=False,
     action='store_true',
+)
+parser.add_argument(
+    "-f",
+    "--folder",
+    help="Dossier specifique à zipper",
+    required=False,
+    type=str
 )
 args = parser.parse_args()
 
@@ -141,7 +149,6 @@ def slugify(value, allow_unicode=False):
 
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
-
 def get_all_directories_to_zip():
     list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
     list_ressources_folders_raw.extend(["exercice"])
@@ -169,10 +176,18 @@ def get_all_directories_to_zip():
 
     return list_ressources_folders_to_zip
 
-if args.all:
-    list_ressources_folders_to_zip = get_all_directories_to_zip()
+if args.folder is None:
+    if args.all:
+        list_ressources_folders_to_zip = get_all_directories_to_zip()
+    else:
+        list_ressources_folders_to_zip = get_list_directories_updated()
 else:
-    list_ressources_folders_to_zip = get_list_directories_updated()
+    def transform_str_to_path(string):
+        return pathlib.Path(string)
+    
+    list_paths = list(map(transform_str_to_path, args.folder.split(',')))
+    list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
+    list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
 
 # Debug purpose
 # list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
