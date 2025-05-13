@@ -121,7 +121,7 @@ def get_list_directories_updated():
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
     list_cleared_directories_ressources = list(dict.fromkeys(list_cleared_directories_ressources))
-    print(list_cleared_directories_ressources)
+
     return list_cleared_directories_ressources
 
 def slugify(value, allow_unicode=False):
@@ -191,18 +191,16 @@ def generate_zip(list_folders, is_correction_directory = False):
         archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
         zip_extension = "ressources"
-        # print(folder_path)
-        # print(list_folders)
+
         if "exercice" in folder_path:
             zip_extension = "exercice"
         elif "correction" in folder_path:
             zip_extension = "correction"
-        # elif "datasets" in folder_path:
-        #     zip_extension = "datasets"
+        elif "datasets" in folder_path:
+            zip_extension = "datasets"
+        elif "devoir" in folder_path:
+            zip_extension = "devoir"
 
-        # if "datasets" in folder_path:
-        #     archive_path = f'{head}/datasets.zip'
-        # else:
         archive_path = f'{head}/{archive_name.replace("_ressources", "").replace("-correction", "")}.{zip_extension}.zip'
 
         if is_correction_directory:
@@ -236,9 +234,11 @@ def generate_zip(list_folders, is_correction_directory = False):
 
 generate_zip(list_ressources_folders_to_zip)
 
+print("\033[96m--- Archives generated ---\033[0m")
 with open("output.tmp.txt", "w") as txt_file:
     for line in list_zip_files_generated:
+        print(f"• {line}")
         if os.path.isfile(line):
             txt_file.write(line + "\n")
 
-print("--- Archives generated in %.2f seconds ---" % (time.time() - start_time))
+print("\033[96m--- in %.2f seconds ---\033[0m" % (time.time() - start_time))

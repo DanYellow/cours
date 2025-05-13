@@ -3,34 +3,52 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Partie 1 - Correction - CSS Grid</title>
+        <title>Partie 1 - CSS Grid correction</title>
 
         <link rel="stylesheet" href="css/reset.css" />
+
+        <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+        <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <header>
-            <h1 class="titre">Partie 1 - Correction - CSS Grid</h1>
+        <header class="en-tete">
+            <h1 class="titre">Correction partie 1 - CSS Grid</h1>
             <p>Deux versions sont proposées pour la correction, la version background-image est plus simple à mettre en place.</p>
         </header>
-        <h2>Version background-image</h2>
-        <div class="conteneur">
-            <div class="patisserie-1"></div>
-            <div class="patisserie-2"></div>
-            <div class="patisserie-3"></div>
-            <div class="patisserie-4"></div>
-            <div class="patisserie-5"></div>
-            <div class="patisserie-6"></div>
-        </div>
-        <hr>
-        <h2>Version balise &lt;img></h2>
-        <div class="conteneur">
-            <img alt="Flan à la pâte sablée au cacao" class="patisserie-1" src="images/flan.jpg" />
-            <img alt="Lunettes de Romans-sur-Isère" class="patisserie-2" src="images/lunettes.jpg" />
-            <img alt="Tarte aux pommes" class="patisserie-3" src="images/tarte-aux-pommes.jpg" />
-            <img alt="Caroline au café" class="patisserie-4" src="images/carolines.jpg" />
-            <img alt="Macaron" class="patisserie-5" src="images/macarons.jpg" />
-            <img alt="Cookies au chocolat" class="patisserie-6" src="images/cookies.jpg" />
+
+        <div class="tab-wrapper" role="tablist">
+            <ul class="list-tabs">
+                <li>
+                    <button class="select-tab" data-tab-name="bg-image">Version background-image</button>
+                </li>
+                <li>
+                    <button class="select-tab" data-tab-name="image">Version balise &lt;img></button>
+                </li>
+            </ul>
+            <ul class="list-tab-content">
+                <li class="tab-content" data-tab-content="bg-image">
+                    <div class="conteneur">
+                        <div class="patisserie-1"></div>
+                        <div class="patisserie-2"></div>
+                        <div class="patisserie-3"></div>
+                        <div class="patisserie-4"></div>
+                        <div class="patisserie-5"></div>
+                        <div class="patisserie-6"></div>
+                    </div>
+                </li>
+                <li class="tab-content" data-tab-content="image">
+                    <div class="conteneur">
+                        <img alt="Flan à la pâte sablée au cacao" class="patisserie-1" src="images/flan.jpg" />
+                        <img alt="Lunettes de Romans-sur-Isère" class="patisserie-2" src="images/lunettes.jpg" />
+                        <img alt="Tarte aux pommes" class="patisserie-3" src="images/tarte-aux-pommes.jpg" />
+                        <img alt="Caroline au café" class="patisserie-4" src="images/carolines.jpg" />
+                        <img alt="Macaron" class="patisserie-5" src="images/macarons.jpg" />
+                        <img alt="Cookies au chocolat" class="patisserie-6" src="images/cookies.jpg" />
+                    </div>
+                </li>
+            </ul>
         </div>
     </body>
 </html>
