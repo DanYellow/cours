@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-    <script defer src="https://danyellow.net/cours-mmi/scripts.js"></script>
+    <script defer src="https://danyellow.net/cours-mmi/consignes.js"></script>
 </head>
 
 <body>
@@ -39,8 +39,7 @@
                 <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML dans la balise
                     &lt;head>. Exemple de code pour importer un fichier
                     javascript (adapter le chemin et le nom de fichier en fonction).
-                    <pre>
-                        <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></code></pre>
+                    <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></pre>
                     <p class="note-information">L'attribut 'defer' permet de charger notre fichier javascript après que
                         la partie HTML a été chargée.</p>
 
@@ -78,11 +77,10 @@
                 mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
                 Exemple :
             </p>
-            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(86, 156, 214); font-weight:400;">function</span> <span style="color:rgb(220, 220, 220); font-weight:400;">maPremiereFonction</span>(<span style="color:rgb(220, 220, 220); font-weight:400;">param1, param2</span>) </span>{
-    <span style="color:rgb(86, 156, 214); font-weight:400;">return</span> param1 + param2;
+            <pre data-code-sample='{"allowCopy": false}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maPremiereFonction</span>(<span style="color: rgb(231, 140, 69);">param1</span>, <span style="color: rgb(231, 140, 69);">param2</span>) </span>{
+    <span style="color: rgb(195, 151, 216);">return</span> param1 + param2;
 }
-maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</span>, <span style="color:rgb(184, 215, 163); font-weight:400;">20</span>);
-               </code></pre>
+maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span class="hljs-number" style="color: rgb(231, 140, 69);">20</span>);</pre>
             <p>Dans le code ci-dessus, on définit une variable nommée "maPremiereFonction" prenant deux paramètres et
                 retourne leur addition. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
                 donc dire que, dans la fonction "maPremiereFonction", les variables "param1" et "param2" ont pour valeur
@@ -139,7 +137,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                                     </li>
                                 </ul>
                             </section>
-                            
+
                         </li>
                         <li>Prend en paramètres deux entiers, les multiplie et retourne <span
                                 class="texte-gras">toujours</span> un <span class="texte-gras">produit strictement
@@ -156,20 +154,19 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                 </p>
 
                 <p>Exemple :</p>
-                <!-- https://highlight.hohli.com/?numbers=&theme=github-dark -->
-                <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Définition de la fonction</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">function</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;"></span>) {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"hello"</span>;
+                <pre data-code-sample style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(150, 152, 150);">// Définition de la fonction</span>
+<span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maFonction</span>(<span style="color: rgb(231, 140, 69);"></span>) </span>{
+    <span style="color: rgb(195, 151, 216);">return</span> <span class="hljs-string" style="color: rgb(185, 202, 74);">"hello"</span>;
 }
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// indispensables pour appeler la fonction</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(
-    <span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>();
+<span style="color: rgb(150, 152, 150);">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
+<span style="color: rgb(150, 152, 150);">// indispensables pour appeler la fonction</span>
+<span style="color: rgb(231, 140, 69);">console</span>.log(
+    maFonction();
 )</pre>
             </section>
-            <p class="note-information">N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites tout comme les paramètres de vos questions.</p>
+            <p class="note-information">N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites tout comme les paramètres de vos fonctions.</p>
         </details>
-        <section class="note-attention liste-consignes">
+        <section class="note-attention">
             <p>Si votre code ne se comporte pas de la façon attendue. N'oubliez pas d'utiliser la console du navigateur, onglet "Console". Le navigateur vous indiquera le type d'erreur ET la ligne où se trouve l'erreur, vous pouvez même cliquer dessus pour l'afficher.</p>
             <ul class="liste-consignes">
                 <li>
@@ -207,17 +204,7 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé"return")</span> et doivent voir leur résultat être affiché dans un
                     <code>console.log()</code>.
                 </p>
-                <p>Exemple :</p>
-                <!-- https://highlight.hohli.com/?numbers=&theme=github-dark -->
-                <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Définition de la fonction</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">function</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;"></span>) {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"hello"</span>;
-}
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// indispensables pour appeler la fonction</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(
-    <span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>();
-)</pre>
+                <p>Réferrez-vous à la partie précédente pour voir un exemple.</p>
             </section>
         </details>
         <details class="consignes-conteneur">
@@ -243,12 +230,13 @@ maPremiereFonction(<span style="color:rgb(184, 215, 163); font-weight:400;">45</
                     </ul>
                     <section class="note-information">
                     <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
-                    <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"selecteur"</span>);
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// Sur cet élément on lie un évènement "click"</span>
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// grâce à la méthode "addEventListener"</span>
-cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListener</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">'click'</span>, <span style="color: rgb(201, 209, 217); font-weight: 400;">() =&gt;</span> {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(<span style="color: rgb(210, 168, 255); font-weight: 400;">maFonction</span>());
+                    <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
+<span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> cible = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"selecteur"</span>);
+
+<span style="color: rgb(112, 120, 128); font-weight: 400;">// Sur cet élément on lie un évènement "click"</span>
+<span style="color: rgb(112, 120, 128); font-weight: 400;">// grâce à la méthode "addEventListener"</span>
+cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'click'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">() =&gt;</span> {
+    <span style="color: rgb(138, 190, 183); font-weight: 400;">console</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">log</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">maFonction</span>());
 });</pre>
                 </section>
                 </li>
@@ -263,15 +251,15 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                     <section class="note-information"><p>Etant donné que vous devez modifier plusieurs éléments en même temps, il faudra
                         impérativement utiliser une boucle pour modifier la propriété <code>.textContent</code> sur
                         chaque élément. Par exemple : </p>
-                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> listeElementsMaClasse = <span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelectorAll</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">".ma-classe"</span>);
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// On parcourt notre liste d'éléments</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">for</span> (<span style="color: rgb(255, 123, 114); font-weight: 400;">let</span> i = <span style="color: rgb(121, 192, 255); font-weight: 400;">0</span>; i &lt; listeElementsMaClasse.<span style="color: rgb(201, 209, 217); font-weight: 400;">length</span>; i++) {
-    <span style="color: rgb(139, 148, 158); font-weight: 400;">// listeElementsMaClasse[i] représente un élément ayant la classe "ma-classe"</span>
-    listeElementsMaClasse[i].<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListener</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">'click'</span>, maFonction) 
+<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
+<span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> listeElementsMaClasse = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelectorAll</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">".ma-classe"</span>);
+
+<span style="color: rgb(112, 120, 128); font-weight: 400;">// On parcourt notre liste d'éléments</span>
+<span style="color: rgb(129, 162, 190); font-weight: 400;">for</span> (<span style="color: rgb(129, 162, 190); font-weight: 400;">let</span> i = <span style="color: rgb(204, 102, 102); font-weight: 400;">0</span>; i &lt; listeElementsMaClasse.<span style="color: rgb(197, 200, 198); font-weight: 400;">length</span>; i++) {
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// listeElementsMaClasse[i] représente un élément ayant la classe "ma-classe"</span>
+    listeElementsMaClasse[i].<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'click'</span>, maFonction)
 }</pre>
 </section>
-                    
                 </li>
             </ol>
         </details>
@@ -286,16 +274,16 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Contient le premier élément qui a le data-attribute</span>
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// "data-attribut-personnalise"</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"[data-attribut-personnalise]"</span>)</pre>
-                        <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
+<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément qui a le data-attribute "data-attribut-personnalise"</span>
+<span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise]"</span>)</pre>
+<p class="note-information">A noter que le ciblage par "crochets" permet cibler n'importe quel élément par la valeur de son attribut HTML.</p>
+<p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
                             le data-attribute "data-attribut-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
                         <p>Si vous souhaitez cibler un data-attribut avec une valeur spécifique, il faut procéder de la façon suivante : </p>
-                        <pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; padding: 0.5rem; border: 1px solid #b4b4b4;"><span style="color: rgb(139, 148, 158); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">document</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">querySelector</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
+<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
+<span style="color: rgb(112, 120, 128); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
+<span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
                     </article>
                     <p class="note-information">
                         Cette classe CSS, à ajouter/retirer, devra être rajoutée dans un fichier CSS.
@@ -325,16 +313,16 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                 <li>Ciblez le champ via un data-attribute et ajoutez l'évènement "input". Cet évènement permet d'écouter tout changement sur un champ "en temps réel"</li>
                 <li>Affichez le contenu de la balise &lt;input /> dans une balise &lt;p> qui aura été elle-même ciblée avec un data-attribute
                     <article class="note-information">
-                        <p>Pour récupérer le texte écrit, il faudra récupérer l'argument de notre notion d'évènement. Par exemple :</p>
-                        <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">cible.<span class="hljs-title function_">addEventListener</span>(<span style="color:rgb(214, 157, 133); font-weight:400;">&#x27;input&#x27;</span>, <span style="color:rgb(220, 220, 220); font-weight:400;">(<span style="color:rgb(220, 220, 220); font-weight:400;">evt</span>) =&gt;</span> {
-    <span style="color:rgb(87, 166, 74); font-weight:400;">// texteChamp contient le texte actuellement dans le champ de texte</span>
-    <span style="color:rgb(86, 156, 214); font-weight:400;">const</span> texteChamp = evt.<span style="color:rgb(220, 220, 220); font-weight:400;">target</span>.<span style="color:rgb(220, 220, 220); font-weight:400;">value</span>;
-})</code></pre>
+                        <p>Pour récupérer le contenu textuel de notre &lt;input> (ou &lt;textarea>), il faudra récupérer l'élément ciblé par notre fonction <code>addEventListener</code> contenu dans l'objet "evt". Par exemple :</p>
+<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'input'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">(<span style="color: rgb(197, 200, 198); font-weight: 400;">evt</span>) =&gt;</span> {
+    <span style="color: rgb(112, 120, 128); font-weight: 400;">// texteChamp contient le texte actuellement dans le champ de texte</span>
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> texteChamp = evt.<span style="color: rgb(197, 200, 198); font-weight: 400;">target</span>.<span style="color: rgb(197, 200, 198); font-weight: 400;">value</span>;
+})</pre>
                     </article>
                     <ul>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/input_event"
-                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement "input"
+                                rel="noopener noreferrer" target="_blank">Voir documentation l'évènement "input"
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
@@ -376,10 +364,12 @@ cible.<span style="color: rgb(210, 168, 255); font-weight: 400;">addEventListene
                         des valeurs différentes.</span>
                     Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton
                     (propriété "textContent") change pour la valeur du data-attribute.
-                    <p class="note-information">Il faudra impérativement utiliser la propriété "target" de l'objet e, e
-                        est un paramètre de la fonction de la méthode
-                        <code>addEventListener("nom-evenement", fonction)</code>
-                    </p>
+                    <div class="note-information">
+                        <p>Il faudra impérativement utiliser la propriété "target" de l'objet e, e
+                            est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code>
+                        </p>
+                        <p>Où "e" représente l'élément ciblé par la méthode "addEventListener".</p>
+                    </div>
 
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
