@@ -251,10 +251,11 @@ generate_zip(list_ressources_folders_to_zip)
 
 print("\033[96m--- Archives generated ---\033[0m")
 with open("output.tmp.txt", "w") as txt_file:
-    for line in list_zip_files_generated:
-        print(f"• {line}")
-        if os.path.isfile(line):
-            txt_file.write(line + "\n")
+    if len(list_zip_files_generated) > 0:
+        for line in list_zip_files_generated:
+            print(f"• {line}")
+            if os.path.isfile(line):
+                txt_file.write(line + "\n")
     else:
         print("\033[91mNo archives generated\033[0m")
 print("\033[96m--- in %.2f seconds ---\033[0m" % (time.time() - start_time))
