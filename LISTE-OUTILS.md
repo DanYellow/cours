@@ -13,7 +13,7 @@
     - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
   - [codebeautify.org](https://codebeautify.org/code-highlighter)
     - Thème : VS 2015 - Utilisé pour le HTML et assimilés
-  
+
   Une fois le code html généré récupéré et mis dans le fichier html des consignes de la ressource, il faudra rajouter le data-attribute "data-code-allow-copy" pour rajouter du CSS permettant d'embellir le snippet de code.
 
 ### Exemple utilisation
@@ -45,7 +45,7 @@ Pour fonctionner, il faut **impérativement** importer les ressources suivantes 
 ```
 > Note : Les fichiers originaux sont à la racine de ce dépôt
 > - Certaines ressources utilisent encore scripts.js au lieu de consignes.js, vous pouvez faire le remplacement si nécessaire
-> 
+>
 > Note 2 : A chaque modification, ces fichiers sont déployés automatiquement via la CI/CD de GitHub
 > Note 3 : Le CSS du système gère aussi bien le dark et que light mode
 

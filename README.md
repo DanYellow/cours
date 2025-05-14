@@ -1,4 +1,8 @@
+- [Gestion des ressources](./LISTE-OUTILS.md)
+
 ## Générer les archives pour chaque dossier ressources contenu dans chaque sous-dossier
+
+Ce script est exécuté à chaque commit et chaque archive généré est ajouté au dernier commit.
 
 #### Dépendences
 - Python 3
@@ -6,7 +10,7 @@
 
 #### Uniquement les dossiers staged - Comportement par défaut
 ```python
-# Zippe toutes les ressources 
+# Zippe toutes les ressources
 python zip-ressources.py
 ```
 
@@ -21,6 +25,13 @@ python zip-ressources.py --all / -a
 ```
 
 Note : Les archives sont générées au même niveau que le dossier zippé
+
+#### Un dossier (ou plusieurs) en particulier
+```python
+python zip-ressources.py --folder / -f chemin-depuis-la-racine-1, chemin-depuis-la-racine-2...
+```
+
+Note : Si les dossiers n'existent pas, ils seront ignorés
 
 ### Exemple de structure
 ```
