@@ -54,6 +54,13 @@ parser.add_argument(
     required=False,
     type=str
 )
+parser.add_argument(
+    "--debug",
+    help="Force la génération d'archive du dossier \"integration-web-s3/travaux-pratiques/numero-5/ressources\"",
+    required=False,
+    action='store_true',
+)
+
 args = parser.parse_args()
 
 def get_list_directories_updated():
@@ -176,21 +183,21 @@ def get_all_directories_to_zip():
 
     return list_ressources_folders_to_zip
 
-if args.folder is None:
-    if args.all:
-        list_ressources_folders_to_zip = get_all_directories_to_zip()
-    else:
-        list_ressources_folders_to_zip = get_list_directories_updated()
+if args.debug is True:
+    list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
 else:
-    def transform_str_to_path(string):
-        return pathlib.Path(string)
-    
-    list_paths = list(map(transform_str_to_path, args.folder.split(',')))
-    list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
-    list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
-
-# Debug purpose
-# list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
+    if args.folder is None:
+        if args.all:
+            list_ressources_folders_to_zip = get_all_directories_to_zip()
+        else:
+            list_ressources_folders_to_zip = get_list_directories_updated()
+    else:
+        def transform_str_to_path(string):
+            return pathlib.Path(string)
+        
+        list_paths = list(map(transform_str_to_path, args.folder.split(',')))
+        list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
+        list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
 
 dict_correction_archive_created = {}
 
@@ -248,8 +255,8 @@ def generate_zip(list_folders, is_correction_directory = False):
                 os.remove(archive_path)
 
 generate_zip(list_ressources_folders_to_zip)
-
-print("\033[96m--- Archives generated ---\033[0m")
+print("    ")
+print(f"\033[96m--- {len(list_zip_files_generated)} archives generated ---\033[0m")
 with open("output.tmp.txt", "w") as txt_file:
     if len(list_zip_files_generated) > 0:
         for line in list_zip_files_generated:
