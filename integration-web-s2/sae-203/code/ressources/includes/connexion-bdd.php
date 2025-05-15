@@ -35,7 +35,7 @@ foreach ($url_list_parts as $url_part) {
 
 $racine_dossier = "/" . join("/", $racine_dossier_raw);
 
-require_once("{$racine_server_chemin}{$racine_dossier}/classes/DotEnv.php");
+require_once(urldecode("{$racine_server_chemin}{$racine_dossier}/classes/DotEnv.php"));
 
 $fichier_env_chemin = "{$racine_server_chemin}{$racine_dossier}/.env.prod";
 
@@ -46,22 +46,22 @@ $liste_domaines_locaux = array(
 
 $REMOTE_ADDR = $_SERVER['REMOTE_ADDR'];
 
-$est_env_local = in_array($REMOTE_ADDR, $liste_domaines_locaux) || 
+$est_env_local = in_array($REMOTE_ADDR, $liste_domaines_locaux) ||
     !filter_var($REMOTE_ADDR, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
 
 if ($est_env_local) {
-    $fichier_env_chemin = "{$racine_server_chemin}{$racine_dossier}/.env.dev";
+    $fichier_env_chemin = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.dev");
 
-    // Permet de gérer un fichier env.local.dev 
-    // pour la configuration s'il existe 
-    $chemin_dist = "{$racine_server_chemin}{$racine_dossier}/.env.local.dev";
+    // Permet de gérer un fichier env.local.dev
+    // pour la configuration s'il existe
+    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.local.dev");
     if (file_exists($chemin_dist)) {
         $fichier_env_chemin = $chemin_dist;
     }
 } else {
-    // Permet de gérer un fichier env.local.prod 
-    // pour la configuration s'il existe 
-    $chemin_dist = "{$racine_server_chemin}{$racine_dossier}/.env.local.prod";
+    // Permet de gérer un fichier env.local.prod
+    // pour la configuration s'il existe
+    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.local.prod");
     if (file_exists($chemin_dist)) {
         $fichier_env_chemin = $chemin_dist;
     }
