@@ -176,6 +176,20 @@ UTILISATEUR_BDD=
 MDP_BDD=
 ```
 
+> **Si vous utilisez git, vous ne devez en aucun cas (aucun), éditer les fichiers .env.prod et .env.dev pour mettre de réelles données, c'est une faille de sécurité très grave. Faites bien attention. Editez le fichier .env.local.dev (ou .env.local.prod) en fonction du contexte.**
+
+Voici un exemple de fichier .env, on partira du principe que votre base de données est hébergée sur alwaysdata et que votre site est déployé dans le dossier : mmi/2020-2022/sae-203 sur le serveur.
+
+```bash
+CHEMIN_BASE=mmi/2020-2022/sae-203/
+
+# Les informations suivantes se trouvent dans la partie "MySQL" de votre administration alwaysdata
+SERVEUR_BDD=mysql-xxxxx.alwaysdata.net
+
+UTILISATEUR_BDD=user_123
+MDP_BDD=m2psar_mmi
+```
+
 # Administration (appelé également backoffice)
 
 Grosse partie de cette SAE, elle sera l'occasion de mettre en application les connaissances vues sur tailwindcss et en base de données. Dans le dossier `administration/`, vous trouverez une base de site sous tailwindcss, il faudra compléter le tout de façon à avoir les pages et les fonctionnalités suivantes :
