@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-/* 
-  Le code ci-dessous permet de retirer 
-  les animations pour les personnes qui ont décidé de les désactiver 
+/*
+  Le code ci-dessous permet de retirer
+  les animations pour les personnes qui ont décidé de les désactiver
 */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -37,17 +37,11 @@ body {
 .title {
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
 .main {
   padding: 0 0.75em 0.75em;
-}
-
-.conteneur-principal {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .conteneur {
