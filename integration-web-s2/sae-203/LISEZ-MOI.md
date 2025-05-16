@@ -187,6 +187,7 @@ CHEMIN_BASE=mmi/2020-2022/sae-203/
 SERVEUR_BDD=mysql-xxxxx.alwaysdata.net
 
 UTILISATEUR_BDD=user_123
+# Mot de passe de phpmyadmin
 MDP_BDD=m2psar_mmi
 ```
 
