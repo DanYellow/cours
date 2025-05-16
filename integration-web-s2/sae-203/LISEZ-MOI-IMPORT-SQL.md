@@ -20,6 +20,10 @@ Parfois, comme dans le cadre de cette SAÉ, il vous arrivera de travailler avec 
 3. Cliquez sur "Exécuter"
    - Le bouton peut ne pas être visible de prime à bord si la fenêtre est trop petite. Défilez la page pour le trouver (souvent en bas de page) 
 
+> Si jamais phpmyadmin vous indique que la table "sae_203_db" n'existe pas. Ceci signifie que vous avez exécuté votre requête dans une base de données avec un nom différent. Deux solutions :
+> - Supprimer la ligne `USE 'sae_203_db';` dans le fichier base-de-donnees.sql
+> - Renommer la base de donnée en "sae_203_db"
+
 Normalement, vous devriez avoir importé votre base de données. Les tables et la bdd nouvellement ajoutées seront visibles à gauche de l'interface.
 
 > Note : Si phpmyadmin vous indique qu'il n'a pas le droit de créer une base de données. Vous devrez retirer les deux premières lignes du fichier `base-de-donnees.sql`. Celles commençant par "CREATE DATABASE" et "USE".
