@@ -184,9 +184,10 @@ Voici un exemple de fichier .env, on partira du principe que votre base de donn√
 CHEMIN_BASE=mmi/2020-2022/sae-203/
 
 # Les informations suivantes se trouvent dans la partie "MySQL" de votre administration alwaysdata
+NOM_BDD=sae_203_db
 SERVEUR_BDD=mysql-xxxxx.alwaysdata.net
 
-UTILISATEUR_BDD=user_123
+UTILISATEUR_BDD=utilisateur_mmi
 # Mot de passe de phpmyadmin
 MDP_BDD=m2psar_mmi
 ```
