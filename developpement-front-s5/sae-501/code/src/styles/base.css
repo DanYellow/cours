@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    interpolate-size: allow-keywords;
+}
+
 html {
     scroll-behavior: smooth;
 }
