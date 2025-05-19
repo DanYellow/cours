@@ -69,6 +69,8 @@ if ($est_env_local) {
 
 (new DotEnv($fichier_env_chemin))->load();
 
+$_ENV['CHEMIN_BASE'] = ltrim($_ENV['CHEMIN_BASE'], '/');
+
 try {
     $nom_BDD = $_ENV['NOM_BDD'];
     $serveur_BDD = $_ENV['SERVEUR_BDD'];
