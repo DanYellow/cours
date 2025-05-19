@@ -158,7 +158,9 @@ Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoi
 - semi-gras : 600
 - gras : bold
 
-Leur utilisation est indiqué dans la maquette Adobe XD.
+Leur utilisation est indiqué dans la maquette Adobe XD. Néanmoins, la police étant d'une graisse variable, vous pouvez mettre une valeur entre 300 et 800 inclus.
+
+Dans la partie "administration", c'est la police "DMSans" qui est utilisée. Importée en global, la propriété "font-size" étant héritée, vous n'avez rien à faire de votre côté. Tout comme Open Sans, la police "DMSans" possède une graisse variable, vous pouvez mettre une valeur entre 100 et 900 pour la propriété CSS "font-weight".
 
 # Fichiers .env
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changeront en fonction de l'environnement. Voici une description des différentes variables de ces fichiers .env.
