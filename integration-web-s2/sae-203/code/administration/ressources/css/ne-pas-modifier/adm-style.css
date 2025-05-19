@@ -1,5 +1,10 @@
+:root {
+    interpolate-size: allow-keywords;
+}
+
 body {
     background-color: rgba(0, 0, 0, 0.1);
+    font-family: "DMSans", sans-serif;
 }
 
 /*
@@ -34,8 +39,4 @@ body {
     ::view-transition-new(*) {
         animation: none !important;
     }
-}
-
-body {
-    font-family: "DMSans", sans-serif;
 }
