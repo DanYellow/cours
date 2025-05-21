@@ -1,0 +1,31 @@
+:root {
+    --start-opacity: 0.5;
+    --start-scale: 0.98;
+}
+
+li {
+    animation: apparition;
+    animation-timeline: view(x);
+}
+
+@keyframes apparition {
+    0% {
+        opacity: var(--start-opacity);
+        scale: var(--start-scale) var(--start-scale);
+    }
+
+    25% {
+        opacity: 1;
+        scale: 1 1;
+    }
+
+    75% {
+        opacity: 1;
+        scale: 1 1;
+    }
+
+    100% {
+        opacity: var(--start-opacity);
+        scale: var(--start-scale) var(--start-scale);
+    }
+}
