@@ -3,9 +3,13 @@
     --start-scale: 0.98;
 }
 
-li {
-    animation: apparition;
-    animation-timeline: view(x);
+.patisseries  {
+    touch-action: pan-x;
+
+    li {
+        animation: apparition;
+        animation-timeline: view(x);
+    }
 }
 
 @keyframes apparition {
