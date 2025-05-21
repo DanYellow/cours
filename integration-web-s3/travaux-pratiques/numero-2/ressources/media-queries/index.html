@@ -1,182 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Media queries - TP2</title>
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Media queries - Consignes TP</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <details class="consignes-conteneur">
-        <summary>
-          <h1 class="h1">
-            Pré-consignes de la pratique - facultatives (cliquer pour afficher /
-            cacher)
-          </h1>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Créez un nouveau fichier html (avec la structure de base d'un site
-            web. Rappel, vous avez le raccourci "html:5")
-          </li>
-          <li>
-            Copiez la balise &lt;main> (et son contenu) de ce fichier dans le fichier HTML que
-            vous venez de créer (si elle existe)
-          </li>
-          <li>
-            Copiez les balises &lt;link> présentes dans le &lt;head> de ce fichier  dans le
-            fichier HTML que vous venez de créer
-          </li>
-          <li>Sauvegardez-le et commencez votre TP dedans</li>
-        </ol>
-      </details>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
 
-      <h1 class="titre-consignes">Consignes de la pratique</h1>
+        <style>
+            body {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 1.1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 class="titre-consignes">Consignes de la pratique</h1>
 
-      <details class="consignes-conteneur" open data-instructions-container>
-        <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
-        </summary>
-        <p>
-          Les règles @media à éditer sont déjà présentes à la fin du fichier
-          "assets/css/style.css".
-        </p>
-        <ol class="liste-consignes">
-          <li>
-            Utilisez le mode responsive de votre navigateur (ou redimensionnez la fenêtre) pour voir comment le site s'adapte en fonction de la taille.
-            <ul>
-            <li><a href="https://developer.chrome.com/docs/devtools/device-mode/" target="_blank">Accéder au mode responsive de Chrome/Opéra/Edge  (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/" target="_blank">Accéder au mode responsive de Firefox  (ouverture dans un nouvel onglet)</a></li>
-            <li><a href="https://www.lifewire.com/using-responsive-design-mode-in-safari-446569" target="_blank">Accéder au mode responsive de Safari  (ouverture dans un nouvel onglet)</a></li>
-            </ul>
-          </li>
-          <li>
-            Éditer la règle @media de façon à ce que le titre "Ma galerie
-            d'images" soit plus gros sur un appareil dont la largeur d'écran est
-            inférieure ou égale à 380px.
-            <p class="note-information">
-              Note : La règle @media est déjà présente vers la fin du fichier <code>assets/css/style.css</code>
-            </p>
-            <ul>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/@media"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Voir documentation de la règle at-media (ouverture dans un nouvel onglet)</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries/Using_media_queries"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Voir documentation sur les media queries (ouverture dans un nouvel onglet)</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            Ajouter une règle @media pour gérer un écran dont la taille est
-            supérieure ou égale à 400px et appliquer des déclarations CSS sur
-            n'importe quel sélecteur CSS
-          </li>
-          <li>
-            Éditer une règle @media pour gérer un écran ayant l'orientation
-            paysage (landscape en anglais) et appliquer des déclarations CSS sur
-            n'importe quel sélecteur CSS
-          </li>
-          <li>
-            Ajouter / Editer le site pour le rendre responsive. Autrement dit
-            rendre l'expérience agréable aussi bien sur PC, tablette et mobile.
-          </li>
-        </ol>
-      </details>
-      <hr />
-    </header>
-
-    <main class="main">
-      <nav class="nav-principale">
-        <ul>
-          <li><a href="#pratique-1">Accueil</a></li>
-          <li><a href="#pratique-2">Galerie</a></li>
-          <li><a href="#pratique-3">Vidéos</a></li>
-          <li><a href="#pratique-4">A propos</a></li>
-        </ul>
-      </nav>
-
-      <h1 class="titre">Ma galerie d'images</h1>
-
-      <ul class="slide-images">
-        <li>
-          <figure>
-            <img src="assets/images/slide-1.jpg" alt="" />
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="assets/images/slide-2.jpg" alt="" />
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="assets/images/slide-3.jpg" alt="" />
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="assets/images/slide-4.jpg" alt="" />
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img
-              src="assets/images/panorama.jpg"
-              alt="Photo d'un paysage de Gaspésie, Québec"
-            />
-          </figure>
-        </li>
-        <li>
-          <img src="assets/images/chien-banque.jpg" alt="" />
-        </li>
-      </ul>
-
-      <div class="video-responsive">
-        <iframe
-          src="https://player.vimeo.com/video/343406069"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <section class="textes">
-        <p>
-          Tous les jours, une demi-heure de reportage sans commentaire. Inspirés
-          par la célébrissime émission de radio américaine This American Life,
-          "Les Pieds sur Terre" s’organisent désormais autour de récits,
-          d’histoires vraies, une, deux ou trois par émission, qui tournent
-          autour d’un même thème. Ces histoires sont racontées à la première
-          personne et nourries d’éléments de reportage.
-        </p>
-
-        <p>
-          Si deux valeurs grid-line sont utilisées pour la propriété, la valeur
-          de grid-column-start sera définie avec la première valeur avant la
-          barre oblique et la valeur de grid-column-end sera définie avec celle
-          qui est située après la barre oblique. <br />
-          Un mot-clé qui indique que la propriété ne contribue pas au placement
-          de l'élément sur la grille. Cela indique un placement automatique, une
-          taille de fragment (span) automatique ou une taille par défaut de 1.
-        </p>
-      </section>
-    </main>
-  </body>
+            <details
+                class="consignes-conteneur"
+                open
+            >
+                <summary>
+                    <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+                </summary>
+                <p>
+                    Les règles @media à éditer sont déjà présentes à la fin du
+                    fichier "assets/css/style.css".
+                </p>
+                <ol class="liste-consignes">
+                    <li>Ouvrez le site contenu dans le dossier "exercice" (récupéré avec la ressource)</li>
+                    <li>
+                        Utilisez le mode responsive de votre navigateur (ou
+                        redimensionnez la fenêtre) pour voir comment le site
+                        s'adapte en fonction de la taille de l'écran (ou la fenêtre).
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.chrome.com/docs/devtools/device-mode/"
+                                    target="_blank"
+                                    >Accéder au mode responsive de
+                                    Chrome/Opéra/Edge (ouverture dans un nouvel
+                                    onglet)</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/"
+                                    target="_blank"
+                                    >Accéder au mode responsive de Firefox
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.lifewire.com/using-responsive-design-mode-in-safari-446569"
+                                    target="_blank"
+                                    >Accéder au mode responsive de Safari
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Éditer la règle @media de façon à ce que le titre "Ma
+                        galerie d'images" soit plus gros sur un appareil dont la
+                        largeur d'écran est inférieure ou égale à 380px.
+                        <p class="note-information">
+                            Note : La règle @media est déjà présente vers la fin
+                            du fichier <code>assets/css/style.css</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/CSS/@media"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la règle at-media
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries/Using_media_queries"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation sur les media queries
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                        <div class="note-information">
+                            <p>Pour rappel, si vous avez un Mac et un iPhone / iPad, vous pouvez consulter le site depuis votre terminal mobile en branchant votre appareil. Ceci fonctionne également avec le simulateur iOS. A condition que le site tourne sur un serveur.</p>
+                            <ul>
+                                <li>
+                                    <a href="https://www.wikihow.com/Inspect-Element-on-iPhone">Didacticiel pour inspecter un terminal réel sur macOS - Méthode 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        Ajouter une règle @media pour gérer un écran dont la
+                        taille est supérieure ou égale à 400px et appliquer des
+                        déclarations CSS sur n'importe quel sélecteur CSS
+                    </li>
+                    <li>
+                        Éditer une règle @media pour gérer un écran ayant
+                        l'orientation paysage (landscape en anglais) et
+                        appliquer des déclarations CSS sur n'importe quel
+                        sélecteur CSS
+                    </li>
+                    <li>
+                        Ajouter / Editer le site pour le rendre responsive.
+                        Autrement dit rendre l'expérience agréable aussi bien
+                        sur PC, tablette et mobile
+                    </li>
+                </ol>
+            </details>
+        </header>
+    </body>
 </html>
