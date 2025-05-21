@@ -4,8 +4,6 @@
 }
 
 .patisseries  {
-    touch-action: pan-x;
-
     li {
         animation: apparition;
         animation-timeline: view(x);
