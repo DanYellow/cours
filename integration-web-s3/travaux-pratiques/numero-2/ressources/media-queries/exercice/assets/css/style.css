@@ -1,143 +1,145 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0 auto;
-  max-width: 1000px;
-  padding: 0 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 h2 {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
+}
+
+ul {
+    list-style: none;
 }
 
 .nav-principale ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  overflow: auto;
-  white-space: nowrap;
-  background-color: #333;
+    display: flex;
+    padding: 0;
+    overflow: auto;
+    white-space: nowrap;
+    background-color: #333;
 }
 
 .nav-principale li {
-  position: relative;
+    position: relative;
 }
 
 .nav-principale li:after {
-  /* Même si on ne compte pas écrire quelque chose, 
+    /* Même si on ne compte pas écrire quelque chose,
   on est obligé de mettre au moins une chaîne de caractères vide */
-  content: "";
-  display: block;
-  /* Va coller mon élément à droite
+    content: "";
+    display: block;
+    /* Va coller mon élément à droite
   de son parent relative le plus proche*/
-  right: 0;
-  width: 1px;
-  background-color: white;
-  position: absolute;
-  /* Va éloigner mon élément de 10px du haut et du bas
+    right: 0;
+    width: 1px;
+    background-color: white;
+    position: absolute;
+    /* Va éloigner mon élément de 10px du haut et du bas
   de son parent relative le plus proche */
-  top: 10px;
-  bottom: 10px;
+    top: 10px;
+    bottom: 10px;
 }
 
-/* Va cibler tout écran dont la largeur est inférieure ou égale à 767px */
-@media only screen and (max-width: 767px) {
-  .nav-principale li {
-    flex: 0 0 30%;
-  }
+/* Va cibler tout écran dont la largeur est inférieure ou égale à 768px */
+@media only screen and (max-width: 768px) {
+    .nav-principale li {
+        flex: 0 0 30%;
+    }
 }
 
 .nav-principale a {
-  padding: 14px;
-  text-decoration: none;
-  display: block;
-  padding: 10px 15px;
-  color: white;
-  text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-align: center;
 }
 
 .nav-principale ul a:hover {
-  background-color: #777;
+    background-color: #777;
 }
 
 .liste-images {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  list-style: none;
-  flex-wrap: wrap;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
 }
 
 .liste-images li {
-  flex: 0 0 48%;
+    flex: 0 0 48%;
 }
 
 .textes {
-  display: flex;
+    display: flex;
 }
 
 .textes > * {
-  flex: 0 0 50%;
+    flex: 0 0 50%;
 }
 
 .video-responsive {
-  position: relative;
-  /* Astuce permettant de conserver le ration d'un élément quoi qu'il arrive. 
+    position: relative;
+    /* Astuce permettant de conserver le ration d'un élément quoi qu'il arrive.
   56.25 correspond au rapport 16:9. Cette valeur a été obtenue en faisant ((9/16)*100)*/
-  padding-bottom: 56.25%;
-  height: 0;
+    padding-bottom: 56.25%;
+    height: 0;
 }
 .video-responsive iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .slide-images {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .slide-images li {
-  flex: 0 0 49%;
+    flex: 0 0 49%;
 }
 
 .slide-images figure {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
-@media only screen and (max-width: 767px) {
-  .slide-images {
-    overflow: auto;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    column-gap: 10px;
-  }
+@media only screen and (max-width: 768px) {
+    .slide-images {
+        overflow: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        column-gap: 10px;
+    }
 
-  .slide-images li {
-    flex: 0 0 100%;
-  }
+    .slide-images li {
+        flex: 0 0 100%;
+    }
 }
 
-@media screen and (max-width: 380px) {
-
+@media screen and (max-width: 640px) {
 }
 
 @media only screen and (orientation: landscape) {
