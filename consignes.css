@@ -26,6 +26,8 @@
 }
 
 :root {
+    --font-family: Helvetica, Arial, sans-serif;
+
     --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
     --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
     --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
@@ -154,7 +156,7 @@
 }
 
 .consignes-conteneur {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--font-family);
     border: 0.125rem solid #d1d1e5;
     margin: 1rem 0;
     border-radius: 1rem;
@@ -283,10 +285,8 @@
 .titre-consignes {
     font-size: 2.25rem;
     font-weight: bold;
-    display: inline-block;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 0.75em 0.75em;
+    margin: 0.25rem 0 0.75rem;
+    font-family: var(--font-family);
 }
 
 .titre-principal {
@@ -307,7 +307,7 @@
 
 .note-importante {
     --color: var(--red-alert);
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--font-family);
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
@@ -332,7 +332,7 @@
 
 .note-information {
     --color: var(--blue-information);
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--font-family);
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
@@ -357,7 +357,7 @@
 
 .note-attention {
     --color: var(--yellow-attention);
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--font-family);
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;

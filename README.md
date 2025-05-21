@@ -62,7 +62,7 @@ nom-cours/
         ├── style.css
         ├── scripts.js
         ├── correction/
-        ├── **nom-cours-correction.ressources.zip**
+        ├── **nom-cours.correction.zip**
         └── ressources/
             └── images/
                 └── ...
