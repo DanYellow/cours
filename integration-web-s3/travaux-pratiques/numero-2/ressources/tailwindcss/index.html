@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tailwindcss responsive - TP2</title>
+    <title>Tailwindcss responsive - TP</title>
     <link rel="stylesheet" href="assets/css/normalize.css" />
     <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
+        rel="stylesheet"
+        href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
     />
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header style="max-width: 1280px; margin: 0 auto;">
+    <header class="consignes-en-tete">
       <h1 class="titre-consignes">Consignes de la pratique</h1>
 
       <details class="consignes-conteneur" open>
@@ -22,7 +28,7 @@
         </summary>
         <ol class="liste-consignes">
           <li>
-            Proposez une version responsive du site contenu dans le <a href="site/tailwindcss.html" target="_blank" rel="noopener noreferrer">dossier site/</a> . La mise en page est actuellement pensée pour mobile (portrait et paysage). Adaptez-la pour proposer une expérience convenable sur tablette et ordinateur de bureau/portable. Vous pouvez ajouter des balises html si cela est nécessaire.
+            Proposez une version responsive du site contenu dans le dossier exercice/ (récupéré avec la source) en utilisant tailwindcss. La mise en page est actuellement pensée pour mobile (portrait et paysage). Adaptez-la pour proposer une expérience convenable sur tablette et ordinateur de bureau/portable. Vous pouvez ajouter des balises html si cela est nécessaire
             <ul>
                 <li>
                   <a
@@ -49,6 +55,14 @@
                     >
                 </li>
               </ul>
+              <!-- <div class="note-information">
+                <p>Créant des classes "d'utilities" tailwindcss. Affichez la barre de défilement pour les pâtisseries, uniquement sur terminal non tactile (largeur écran > ~1280px). Les classes "d'utilities"</p>
+                <ul>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width" target="_blank" rel="noopener noreferrer">Voir documentation de la propriété "scrollbar-width" (ouverture dans un nouvel onglet)</a>
+                    </li>
+                </ul>
+            </div> -->
           </li>
         </ol>
       </details>
@@ -98,14 +112,14 @@
                 </ul>
             </li>
             <li>
-                Utilisez les containers queries (le plugin tailwindcss a déjà été installé) pour proposer une des pâtisseries en plus grand s'il y a plus d'espace
+                Utilisez les containers queries pour proposer une des pâtisseries en plus grand s'il y a plus d'espace
                 <ul>
                     <li>
                       <a
-                        href="https://www.premieroctet.com/blog/css-container-queries-avec-tailwind"
+                        href="https://tailwindcss.com/blog/tailwindcss-v3-2#container-queries"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Voir exemples d'utilisation des container queries avec tailwindcss (ouverture dans un nouvel onglet)</a
+                        >Voir documentation des container queries avec tailwindcss (ouverture dans un nouvel onglet)</a
                       >
                     </li>
                 </ul>
