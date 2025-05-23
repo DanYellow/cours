@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exemple longueur texte - TP Formattage texte</title>
+
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
+
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -19,6 +27,10 @@
       .titre {
         margin-bottom: 1.5rem;
         font-size: 2.5rem;
+      }
+
+      a:where(:focus, :hover) {
+        text-decoration: none;
       }
     </style>
   </head>
@@ -47,7 +59,7 @@
       <p>
         La résolution représente la densité de pixels. Autrement dit le nombre
         pixels par pouce (1 pouce ≃ 2,54cm). Plus la densité est élevée, plus
-        l'image de l'écran sera détaillée. Retina est le terme utilisé par Apple
+        l'image de l'écran sera détaillée / fine. Retina est le terme utilisé par Apple
         pour désigner les écrans haute résolution. Ces écrans ayant fait leur
         apparition avec l'iPhone 4 en 2010.
       </p>
@@ -77,7 +89,7 @@
       </li>
     </ul>
     <p>En CSS, ça donnerait quelque chose comme le code suivant : </p>
-    <pre style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; font-size: 1.25rem; border-radius: 0.75rem;"><ol style="padding-left: 3em; padding-top: 0.75rem; padding-bottom: 0.75rem;"><li><span style="color: rgb(255, 160, 122); font-weight: 400;">.mon-selecteur</span> {</li><li>    <span style="color: rgb(255, 215, 0); font-weight: 400;">max-width</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">70rem</span>; <span style="color: rgb(212, 208, 171); font-weight: 400;">/* 1120px */</span></li><li>}</li></ol></pre>
+    <pre data-code-sample="false" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><ol style="padding-left: 3em;"><li><span style="color: rgb(222, 147, 95); font-weight: 400;">.mon-selecteur</span> {</li><li>    <span style="color: rgb(178, 148, 187); font-weight: 400;">max-width</span>: <span style="color: rgb(204, 102, 102); font-weight: 400;">70rem</span>; <span style="color: rgb(112, 120, 128); font-weight: 400;">/* 1120px */</span></li><li>}</li></ol></pre>
     <div class="note-information">
       <p>
         VS Code permet de respecter la règle des 80 caractères via la
