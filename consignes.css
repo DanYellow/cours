@@ -319,6 +319,7 @@
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     margin: 0.5rem 0;
+    position: relative;
 
     p {
         margin-bottom: 0.75rem;
@@ -403,6 +404,7 @@
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     margin: 0.5rem 0;
+    position: relative;
 
     p {
         margin-bottom: 0.75rem;
