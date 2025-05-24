@@ -115,6 +115,10 @@
     }
 }
 
+:root {
+    interpolate-size: allow-keywords;
+}
+
 html {
     scroll-behavior: smooth;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
