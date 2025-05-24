@@ -11,10 +11,12 @@
     --black: oklch(13.44% 0 0);
     --white: oklch(95.81% 0 0);
     --light-gray: oklch(86.68% 0.0274 285.81);
-    --yellow-attention: oklch(93.3% 0.1972 104.32);
+    --yellow-attention: oklch(73.65% 0.18399 54.2589);
     --blue-information: oklch(61.67% 0.1891 252.84);
     --red-alert: oklch(55.81% 0.2287 29.2);
     --green-code: oklch(0.57 0.16 155.16);
+
+    --opacity-border: 0.25;
 
     color-scheme: light dark;
 }
@@ -37,7 +39,7 @@
 .consignes-conteneur {
     --_duration: 0.2s;
     --padding-details-content: 1.15rem;
-    --size-arrow-icon: 24px;
+    --size-arrow-icon: 1.5rem;
 
     inline-size: 100%;
     box-sizing: border-box;
@@ -308,6 +310,7 @@
 .note-importante {
     --color: var(--red-alert);
     font-family: var(--font-family);
+    border: 1px solid rgb(from var(--color) r g b / var(--opacity-border));
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
@@ -333,6 +336,7 @@
 .note-information {
     --color: var(--blue-information);
     font-family: var(--font-family);
+    border: 1px solid rgb(from var(--color) r g b / var(--opacity-border));
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
@@ -358,6 +362,7 @@
 .note-attention {
     --color: var(--yellow-attention);
     font-family: var(--font-family);
+    border: 1px solid rgb(from var(--color) r g b / var(--opacity-border));
     border-left: 5px solid var(--color);
     padding: 1rem;
     font-size: 1.15rem;
