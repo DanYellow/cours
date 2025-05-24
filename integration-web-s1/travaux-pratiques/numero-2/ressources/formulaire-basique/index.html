@@ -4,17 +4,18 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>TP2 — Formulaire basique</title>
+        <title>Formulaire basique TP</title>
+        <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
 
         <link
             rel="stylesheet"
             href="https://danyellow.net/cours-mmi/consignes.css"
         />
-        <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+        <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
     </head>
 
     <body>
-        <header>
+        <header style="max-width: 1280px; margin: 0 auto; padding: 0 0.75em 0.75em;">
             <div class="note-information">
                 <p>
                     Le but de cette pratique est de construire notre premier
@@ -30,15 +31,18 @@
                 </p>
                 <p>
                     A noter que la gestion des formulaires va de pair avec le
-                    cours "développement web" où vous apprendrez à gérer les
+                    cours "R1.12 - Développement Web" où vous apprendrez à gérer les
                     données en provenance d'un formulaire.
                 </p>
             </div>
-            <p class="note-importante">
-                Tous vos éléments de formulaire doivent être dans un seul et
-                unique formulaire. Nous ne devez avoir qu'une seule et unique
-                balise &lt;form> sur votre page
+
+            <p class="note-attention">
+                Quand vous travaillez avec VSCode. Pensez toujours à
+                glisser-déposer votre dossier de travail dans VS Code. Ceci vous
+                permettra d'accéder très facilement à tous les fichiers de votre
+                projet.
             </p>
+
             <h1 class="h1">Consignes de la pratique</h1>
 
             <details class="consignes-conteneur" open>
@@ -47,103 +51,85 @@
                         Partie 1 (cliquer pour afficher / cacher)
                     </h1>
                 </summary>
+                <p class="note-information">
+                    Sauf indication contraire, l'ensemble du TP doit être contenu dans un seul et unique formulaire (balise &lt;form>).
+                </p>
                 <ol class="liste-consignes">
                     <li>
                         Créez une nouvelle page html avec un formulaire (balise
                         &lt;form>)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Form"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;form>
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         Ajoutez l'attribut "action" avec la valeur "" pour la
                         balise &lt;form>
                     </li>
                     <li>
-                        Ajoutez une balise &lt;input>
+                        Ajoutez une balise &lt;input> de type "text"
                         <ul>
                             <li>
-                                Ne pas oublier de rendre le champ accessible.
-                                N'oubliez pas :
+                                Ne pas oublier de rendre le champ accessible
                                 <ul>
-                                    <li>La balise &lt;label></li>
+                                    <li>Mettre une balise &lt;label>
+                                        <ul>
+                                            <li>
+                                                <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    >Voir documentation de la balise &lt;label>
+                                                    (ouverture dans un nouvel onglet)</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li>
-                                        Les attributs associés aux balises et
-                                        leurs valeurs ("name", "id", "type")
+                                        Associer le champ à sa balise label grâce aux attributs "for" et "id"
                                     </li>
                                 </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;input
+                                    type="text"> (ouverture dans un nouvel onglet)</a
+                                >
                             </li>
                         </ul>
                     </li>
                     <li>
                         Ajoutez dans le même formulaire une autre balise
                         &lt;input> d'un type different de "text", vous pourrez
-                        trouver la liste des types dans la documentation (voir
-                        lien dans la liste plus bas).
+                        trouver la liste des types dans la documentation. Tout en prenant soin de rendre le champ accessible
                         <ul>
                             <li>
-                                Ne pas oublier de rendre le champ accessible.
-                                N'oubliez pas :
-                                <ul>
-                                    <li>La balise &lt;label></li>
-                                    <li>
-                                        Les attributs associés aux balises et
-                                        leurs valeurs ("name", "id", "type")
-                                    </li>
-                                </ul>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation des types possibles pour la
+                                    balise &lt;input> (ouverture dans un nouvel
+                                    onglet)</a
+                                >
                             </li>
                         </ul>
                     </li>
                 </ol>
-                <p class="note-information">
-                    Le tout doit être dans le même formulaire, pas besoin de
-                    créer un formulaire pour chaque champ. Il en est de même
-                    pour le reste du TP.
-                </p>
-                <ul class="liste-consignes">
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Voir documentation de la balise &lt;label>
-                            (ouverture dans un nouvel onglet)</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Voir documentation de la balise &lt;input
-                            type="text"> (ouverture dans un nouvel onglet)</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Voir documentation des types possibles pour la
-                            balise &lt;input> (ouverture dans un nouvel
-                            onglet)</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Form"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Voir documentation de la balise &lt;form>
-                            (ouverture dans un nouvel onglet)</a
-                        >
-                    </li>
-                </ul>
             </details>
-
-            <p class="note-attention">
-                Quand vous travaillez avec VSCode. Pensez toujours à
-                glisser-déposer votre dossier de travail dans VS Code. Ceci vous
-                permettra d'accéder très facilement à tous les fichiers de votre
-                projet.
-            </p>
 
             <details class="consignes-conteneur">
                 <summary>
