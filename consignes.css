@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-.fira-code, pre, code {
-    font-family: "Fira Code", "Courier New", Courier, monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
 :root {
     --black: oklch(13.44% 0 0);
     --white: oklch(95.81% 0 0);
@@ -17,24 +10,29 @@
     --green-code: oklch(0.57 0.16 155.16);
 
     --opacity-border: 0.25;
-    --note-left-border: 16px;
+    --note-left-border: 8px;
 
-    color-scheme: light dark;
-}
-
-.consignes-en-tete {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 0.55rem;
-}
-
-:root {
     --font-family: Helvetica, Arial, sans-serif;
 
     --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
     --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
     --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
     --ease-spring-4: linear(0, 0.009, 0.037 1.7%, 0.153 3.6%, 0.776 10.3%, 1.001, 1.142 16%, 1.185, 1.209 19%, 1.215 19.9% 20.8%, 1.199, 1.165 25%, 1.056 30.3%, 1.008 33%, 0.973, 0.955 39.2%, 0.953 41.1%, 0.957 43.3%, 0.998 53.3%, 1.009 59.1% 63.7%, 0.998 78.9%, 1);
+
+    color-scheme: light dark;
+}
+
+.fira-code, pre, code {
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.consignes-en-tete {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.55rem;
 }
 
 .consignes-conteneur {
