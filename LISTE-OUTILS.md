@@ -1,4 +1,30 @@
-# Liste des outils utilisés pour gérer les ressources
+# Gestion des pratiques des travaux pratiques
+
+Voici la liste des différents outils utilisés pour gérer l'apparence / fonctionnalités les pages html des pratiques de TP ainsi que les slides des cours.
+
+- [Gestion des pratiques des travaux pratiques](#gestion-des-pratiques-des-travaux-pratiques)
+  - [Style de base](#style-de-base)
+  - [Captures d'écran](#captures-décran)
+  - [Mise en page de code](#mise-en-page-de-code)
+    - [Exemple utilisation](#exemple-utilisation)
+  - [Système d'onglets](#système-donglets)
+    - [Exemple d'utilisation](#exemple-dutilisation)
+
+
+## Style de base
+```html
+<link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
+<link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+```
+Il est possible d'ajouter du javascript (voir partie [mise en page de code](#mise-en-page-de-code)) pour ajouter quelques fonctionnalités additionnelles concernant les balises &lt;detail>.
+
+Les fichiers originaux sont à la racine de ce dépôt.
+
+> Note : La CI/CD de GitHub est utilisée, ainsi si vous mettez à jour les fichiers consignes.js et consignes.css, ils seront automatiquement déployés sur le serveur. Il en est de même pour le favicon (favicon.png).
+>
+> Note 2 : Le CSS du système gère aussi bien le dark et que light mode
+
+Pour la structure des ressources, voir n'importe quelle pratique de TP.
 
 ## Captures d'écran
 - [Cadre pour captures d'écran - screely.com](https://screely.com/editor)
@@ -7,7 +33,7 @@
 
 ## Mise en page de code
 - Surlignement du code :
-  - [Surlignement de code - https://highlight.hohli.com/?theme=hybrid](https://highlight.hohli.com/)
+  - [highlight.hohli.com](https://highlight.hohli.com/?theme=hybrid)
     - Thème : hybrid en sombre (il faut parfois changer puis remettre le thème "hybrid")
   - [pinetools.com](https://pinetools.com/syntax-highlighter)
     - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
@@ -20,7 +46,7 @@
 
 ```html
 <pre data-code-sample='{"allowCopy": true, "title": "Exemple"}' style="[...]">
-  <!-- [...] -->
+    <!-- [...] -->
 </pre>
 ```
 
@@ -30,48 +56,38 @@ La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en
 
 > Note : Si vous n'avez pas besoin de permettre la copie du snippet de code ou d'afficher de titre, vous pouvez mettre juste le data-attribute "data-code-sample".
 
-### Système d'onglets
+## Système d'onglets
 
-Pour permettre l'organisation plus souple des ressources des TP, il est possible d'organiser une partie avec des onglets.
+Pour permettre l'organisation plus ordonnée des ressources des TP, il est possible d'utiliser des onglets.
 
 Pour fonctionner, il faut **impérativement** importer les ressources suivantes dans le fichier html :
 
 ```html
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+<link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+<script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
 ```
-> Note : Les fichiers originaux sont à la racine de ce dépôt
-> - Certaines ressources utilisent encore scripts.js au lieu de consignes.js, vous pouvez faire le remplacement si nécessaire
->
-> Note 2 : A chaque modification, ces fichiers sont déployés automatiquement via la CI/CD de GitHub
-> Note 3 : Le CSS du système gère aussi bien le dark et que light mode
 
+Certaines ressources utilisent encore scripts.js au lieu de consignes.js, vous pouvez faire le remplacement si nécessaire.
 
 ### Exemple d'utilisation
 
 ```html
 <div class="tab-wrapper" role="tablist">
-  <ul class="list-tabs">
-    <li>
-      <button class="select-tab" data-tab-name="onglet-a">Onglet 1</button>
-    </li>
-    <li>
-      <button class="select-tab" data-tab-name="onglet-b">
-        Onglet 2
-      </button>
-    </li>
-  </ul>
-  <ul class="list-tab-content">
-    <li class="tab-content" data-tab-content="onglet-a">
-      <!-- [...] -->
-    </li>
-    <li class="tab-content" data-tab-content="onglet-b">
-      <!-- [...] -->
-    </li>
-  </ul>
+    <ul class="list-tabs">
+        <li>
+            <button class="select-tab" data-tab-name="onglet-a">Onglet 1</button>
+        </li>
+        <li>
+            <button class="select-tab" data-tab-name="onglet-b">Onglet 2</button>
+        </li>
+    </ul>
+    <ul class="list-tab-content">
+        <li class="tab-content" data-tab-content="onglet-a">
+            <!-- [...] -->
+        </li>
+        <li class="tab-content" data-tab-content="onglet-b">
+            <!-- [...] -->
+        </li>
+    </ul>
 </div>
-
 ```

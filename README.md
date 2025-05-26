@@ -1,4 +1,4 @@
-- [Gestion des ressources](./LISTE-OUTILS.md)
+- [Gestion des pratiques des travaux pratiques](./LISTE-OUTILS.md)
 
 ## Générer les archives pour chaque dossier ressources contenu dans chaque sous-dossier
 
