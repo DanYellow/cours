@@ -4,9 +4,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Formulaire basique TP</title>
-        <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
-
+        <title>Formulaire basique - Consignes TP</title>
+        <link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
         <link
             rel="stylesheet"
             href="https://danyellow.net/cours-mmi/consignes.css"
@@ -20,7 +19,7 @@
                 <p>
                     Le but de cette pratique est de construire notre premier
                     formulaire en y ajoutant au fur et à mesure des éléments
-                    tels que la balise &lt;input /> ou encore &lt;select>. Les
+                    tels que la balise &lt;label /> ou encore &lt;select>. Les
                     formulaires sont des éléments clés du web 2.0 et 3.0, grâce
                     à eux, et aux serveurs, l'utilisateur peut communiquer avec
                     le site ou même d'autres internautes. Ainsi, il est
@@ -47,12 +46,12 @@
 
             <details class="consignes-conteneur" open>
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 1 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <p class="note-information">
-                    Sauf indication contraire, l'ensemble du TP doit être contenu dans un seul et unique formulaire (balise &lt;form>).
+                    Sauf indication contraire, l'ensemble des champs crées doivent être dans un seul et unique formulaire (balise &lt;form>).
                 </p>
                 <ol class="liste-consignes">
                     <li>
@@ -98,8 +97,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
-                        <ul>
+
                             <li>
                                 <a
                                     href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text"
@@ -111,6 +109,7 @@
                             </li>
                         </ul>
                     </li>
+                    <li>Ajoutez une autre balise &lt;input> de type "text" avec une valeur par défaut en utilisant l'attribut "value"</li>
                     <li>
                         Ajoutez dans le même formulaire une autre balise
                         &lt;input> d'un type different de "text", vous pourrez
@@ -133,14 +132,16 @@
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 2 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
-                        Rajoutez l'attribut "method" avec la valeur "GET" pour
-                        le formulaire
+                        Rajoutez l'attribut "method" avec la valeur "GET" au formulaire
+                        <p class="note-information">
+                            Même si la valeur "GET" est la valeur par défaut de l'attribut "method", il est préférable de toujours préciser la valeur de l'attribut "GET".
+                        </p>
                     </li>
                     <li>
                         Rajoutez un élément de formulaire permettant sa
@@ -181,9 +182,9 @@
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 3 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -230,22 +231,18 @@
                     <li>
                         Soumettez le formulaire et observez l'url de la page
                         dans votre navigateur
-                        <ul>
-                            <li>
-                                Note : Si l'url devient trop longue, n'hésitez
+                        <p class="note-information">Note : Si l'url devient trop longue, n'hésitez
                                 pas à la copier et la coller dans VS Code pour
-                                l'observer aussi facilement
-                            </li>
-                        </ul>
+                                l'observer plus facilement.</p>
                     </li>
                 </ol>
             </details>
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 4 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -276,43 +273,190 @@
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 5 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
                         Rajoutez l'attribut "required" sur l'un des champs
                         ajouté précédemment (plusieurs si vous le souhaitez)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/required"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    >Voir documentation de l'attribut "required"
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         Soumettez le formulaire sans remplir les champs que vous
                         avez défini comme requis
                     </li>
                 </ol>
-                <ul>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/required"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            >Voir documentation de l'attribut "required"
-                            (ouverture dans un nouvel onglet)</a
-                        >
-                    </li>
-                </ul>
+
             </details>
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Pour aller plus loin (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ul class="liste-consignes">
                     <li>
                         Appliquez ce que vous venez d’apprendre en ajoutant de
                         nouveaux champs à votre formulaire
+                    </li>
+                    <li>
+                        Créer un &lt;select> personnalisé en affichant des images
+                        <ul>
+                            <li>
+                                <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select" target="_blank" rel="noopener noreferrer">
+                                    Voir documentation du &lt;select> personnalisé - anglais
+                                    (ouverture dans un nouvel onglet)
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="note-attention">
+                            Les &lt;select> personnalisés ne sont gérés que par Chrome et Edge présentement
+                        </p>
+                        <div class="note-attention">
+                            <p>
+                                Les &lt;select> personnalisés nécessitent du CSS, notion que nous verrons dans le prochain TP, néanmoins, vous aider du code suivant.
+                            </p>
+                            <div class="tab-wrapper" role="tablist">
+                                <ul class="list-tabs">
+                                    <li>
+                                        <button class="select-tab" data-tab-name="html">HTML</button>
+                                    </li>
+                                    <li>
+                                        <button class="select-tab" data-tab-name="css">CSS</button>
+                                    </li>
+                                </ul>
+                                <ul class="list-tab-content">
+                                    <li class="tab-content" data-tab-content="html">
+
+                                    </li>
+                                    <li class="tab-content" data-tab-content="css">
+                                        <p>Le code CSS est à copier dans une balise &lt;style> que vous mettrez dans la balise &lt;head>.</p>
+<pre data-code-sample='{"allowCopy": true, "title": "Code CSS"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">
+select,
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  appearance: base-select;
+}
+
+<span style="color:rgb(215, 186, 125); font-weight:400;">label</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">width</span>: fit-content;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">align-self</span>: center;
+}
+
+select {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">flex</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+}
+
+select {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span>;
+}
+
+select<span style="color:rgb(215, 186, 125); font-weight:400;">:hover</span>,
+select<span style="color:rgb(215, 186, 125); font-weight:400;">:focus</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+}
+
+select::picker-icon {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">color</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#999</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span> rotate;
+}
+
+select:open::picker-icon {
+  rotate: <span style="color:rgb(184, 215, 163); font-weight:400;">180deg</span>;
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: none;
+}
+
+option {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">display</span>: flex;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">justify-content</span>: flex-start;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">gap</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">20px</span>;
+
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:first</span>-of-type {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-radius</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-radius</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:not</span>(option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</span>) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-bottom</span>: none;
+}
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:nth-of-type</span>(odd) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#fff</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:hover</span>,
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:focus</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: plum;
+}
+
+option <span style="color:rgb(215, 186, 125); font-weight:400;">.icon</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">font-size</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1.6rem</span>;
+  text-box: trim-both cap alphabetic;
+}
+
+selectedcontent <span style="color:rgb(215, 186, 125); font-weight:400;">.icon</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">display</span>: none;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:checked</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">font-weight</span>: bold;
+}
+
+option::checkmark {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">order</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">margin-left</span>: auto;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">content</span>: <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;☑️&quot;</span>;
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: all <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span> allow-discrete;
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select):popover-open {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+}
+
+<span style="color:rgb(86, 156, 214); font-weight:400;">@starting-style</span> {
+  ::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select):popover-open {
+    <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+  }
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">calc</span>(<span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(bottom) + <span style="color:rgb(184, 215, 163); font-weight:400;">1px</span>);
+  <span style="color:rgb(156, 220, 254); font-weight:400;">left</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(<span style="color:rgb(184, 215, 163); font-weight:400;">10%</span>);
+}</pre>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </details>
