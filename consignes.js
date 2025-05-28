@@ -133,6 +133,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.fontSize = "1.25rem";
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
     item.style.marginBottom = "1.25rem";
+    item.style.marginTop = "0";
     item.style.backgroundColor = "rgb(13, 17, 23)";
     item.style.removeProperty("font-family");
 

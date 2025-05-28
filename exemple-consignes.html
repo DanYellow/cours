@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exemple design system - Consignes TP</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://danyellow.net/cours-mmi/favicon.png"
+        />
+
+        <link rel="stylesheet" href="consignes.css" />
+        <script src="consignes.js" defer></script>
+    </head>
+    <body>
+        <header class="consignes-en-tete">
+            <h1 class="titre-consignes">Exemple design system - Consignes TP</h1>
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Etape 1
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Etape 1
+                    </li>
+                </ol>
+            </details>
+
+            <p class="note-information">Message à caractère informatif</p>
+            <p class="note-attention">Message à caractère informatif</p>
+            <p class="note-importante">Message à caractère informatif</p>
+
+            <div class="tab-wrapper" role="tablist">
+                <ul class="list-tabs">
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-a">
+                            Onglet 1
+                        </button>
+                    </li>
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-b">
+                            Onglet 2
+                        </button>
+                    </li>
+                </ul>
+                <ul class="list-tab-content">
+                    <li class="tab-content" data-tab-content="onglet-a">
+                        Onglet A
+                    </li>
+                    <li class="tab-content" data-tab-content="onglet-b">
+                        Onglet B
+                    </li>
+                </ul>
+            </div>
+            <pre data-code-sample='{"allowCopy": true}'  style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">*, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::before</span>, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::after</span> {
+    <span style="color: rgb(178, 148, 187); font-weight: 400;">box-sizing</span>: border-box;
+}</pre>
+        </header>
+    </body>
+</html>

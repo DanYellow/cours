@@ -432,6 +432,8 @@
 }
 
 .tab-wrapper {
+    font-family: var(--font-family);
+
     .list-tabs {
         list-style: none;
         display: flex;
