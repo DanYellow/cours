@@ -163,11 +163,9 @@
     border-radius: 1rem;
     font-size: 1.15rem;
     position: relative;
+    background-color: light-dark(inherit, #333);
 
     @media (prefers-color-scheme: dark) {
-        background-color: #333;
-        color: white;
-
         a:visited {
             color: yellow;
         }
@@ -279,7 +277,7 @@
     }
 }
 
-.consignes-conteneur a:hover {
+:where(.consignes-conteneur, .note-attention, .note-information, .note-importante) a:hover {
     text-decoration: none;
 }
 
