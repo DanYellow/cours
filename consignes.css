@@ -572,11 +572,14 @@
 }
 
 pre {
+    user-select: all;
+
     &.copie, &.fin-copie {
         position: relative;
 
         &::before {
             content: "Code copié !";
+            user-select: none;
             position: absolute;
             left: 50%;
             transition: transform 0.35s, opacity 0.35s;
