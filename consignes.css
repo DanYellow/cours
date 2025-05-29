@@ -593,7 +593,7 @@ pre {
             transform: translateX(-50%) translateY(-50%);
 
             @starting-style {
-                transform: translateX(-50%) translateY(135%);
+                transform: translateX(-50%) translateY(-135%);
                 opacity: 0;
             }
         }
@@ -602,7 +602,7 @@ pre {
     &.fin-copie {
         &::before {
             opacity: 0;
-            transform: translateX(-50%) translateY(135%);
+            transform: translateX(-50%) translateY(-135%);
 
             @starting-style {
                 transform: translateX(-50%) translateY(-50%);
