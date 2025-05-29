@@ -8,6 +8,7 @@
     --blue-information: oklch(61.67% 0.1891 252.84);
     --red-alert: oklch(55.81% 0.2287 29.2);
     --green-code: oklch(0.57 0.16 155.16);
+    --background-color-code: oklch(0.1763 0.014 258.36);
 
     --note-opacity-border: 0.25;
     --note-left-border: 4px;
@@ -166,9 +167,6 @@
     background-color: light-dark(inherit, #333);
 
     @media (prefers-color-scheme: dark) {
-        a:visited {
-            color: yellow;
-        }
 
         a:link {
             color: white;
@@ -563,8 +561,8 @@
         margin-right: auto;
         align-content: center;
         margin-block: 0;
-        color: #2fa873;
-        background-color: rgb(13, 17, 23);
+        color: var(--green-code);
+        background-color: var(--background-color-code);
         padding: 0.5rem 0.75rem;
         border-radius: 0.75rem;
         font-size: 1rem;
@@ -573,6 +571,10 @@
 
 pre {
     user-select: all;
+    @media (prefers-color-scheme: light) {
+        filter: invert(1);
+        border-color: rgb(from oklch(0.57 0.16 155.16) calc(255 - r) calc(255 - g) calc(255 - b))!important;
+    }
 
     &.copie, &.fin-copie {
         position: relative;
@@ -583,11 +585,16 @@ pre {
             position: absolute;
             left: 50%;
             transition: transform 0.35s, opacity 0.35s;
-            background-color: green;
+            background-color: var(--green-code);
             padding: 0.45rem 0.75rem;
             border-radius: 1rem;
             font-size: 1rem;
             top: 50%;
+            color: #f0f2f1;
+
+            @media (prefers-color-scheme: light) {
+                filter: invert(1);
+            }
         }
     }
 
@@ -617,7 +624,7 @@ pre {
 }
 
 code {
-    background-color: rgb(13, 17, 23);
+    background-color: var(--background-color-code);
     padding: 0 0.35rem;
     color: white;
     border: 1px solid var(--green-code);
