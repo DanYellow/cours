@@ -25,6 +25,7 @@
   - [Astuces et conseils](#astuces-et-conseils)
   - [Ressources et outils utiles](#ressources-et-outils-utiles)
   - [Travail en groupe](#travail-en-groupe)
+  - [Contenu de l'archive](#contenu-de-larchive)
   - [Votre liste à faire](#votre-liste-à-faire)
   - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
 
@@ -312,11 +313,19 @@ Voici une liste non-exhaustive d'outils et ressources qui pourront vous être ut
 
 ## Travail en groupe
 Nous vous conseillons de ne pas faire un groupe excédent trois membres. Si vous souhaitez être plus **(cinq maximum).** Vous devrez effectuer quelques tâches supplémentaires en plus de celles déjà demandées :
-- Ajouter un niveau supplémentaire (portant le total de niveaux à trois dans le jeu final)
 - Ajouter un nouvel ennemi au choix (avec comportements)
 - Réaliser deux fonctionnalités (au lieu d'une) dans la partie ["Liste des choses à faire au choix"](#list-extras)
 
 Ces ajouts sont là pour s'assurer que tout le monde travaille équitablement sur le projet.
+
+## Contenu de l'archive
+Lorsque vous générerez l'archive, pensez bien à mettre tous les fichiers dans le build. Notamment si vous êtes sous Windows car plusieurs fichiers et dossiers sont générés.
+
+| ![](build-genere.jpg) |
+|:--:|
+| Exemple de ce que génère Unity quand vous faites un build pour Windows. **L'ensemble des fichiers doivent être dans l'archive** |
+
+> Si votre archive fait moins de 20 Mo, c'est qu'il y a un problème.
 
 ## Votre liste à faire
 - [x] Lire les consignes
