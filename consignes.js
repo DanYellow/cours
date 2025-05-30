@@ -123,6 +123,8 @@ const generateCopyCodeButton = ($el) => {
 }
 
 const regexCopyText = /copier$/i;
+const rootElement = document.querySelector(':root');
+const rootElementStyle = getComputedStyle(rootElement);
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = codeSampleData?.title || "";
@@ -135,7 +137,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
     item.style.marginBottom = "1.25rem";
     item.style.marginTop = "0";
-    item.style.backgroundColor = "rgb(13, 17, 23)";
+    item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
     item.style.removeProperty("font-family");
 
     if (item.querySelector(":scope > ol")) {
@@ -158,6 +160,8 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const parentNodeCode = item.parentNode;
     parentNodeCode.insertBefore(codeHeader, item);
 
+    item.style.userSelect = "all";
+
     if (codeTitle.trim() !== "") {
         const codeTitleTag = document.createElement("p");
         codeTitleTag.textContent = codeTitle;
@@ -170,7 +174,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         codeHeader.append(generateCopyCodeButton(item));
     }
 
-    item.addEventListener("transitionend", (e) => {
+    item.addEventListener("transitionend", () => {
         if (item.classList.contains("fin-copie")) {
             item.classList.remove("fin-copie");
         }

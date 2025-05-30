@@ -570,7 +570,6 @@
 }
 
 pre {
-    user-select: all;
     @media (prefers-color-scheme: light) {
         filter: invert(1);
         border-color: rgb(from oklch(0.57 0.16 155.16) calc(255 - r) calc(255 - g) calc(255 - b))!important;
