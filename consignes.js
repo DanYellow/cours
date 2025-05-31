@@ -104,6 +104,7 @@ const generateCopyCodeButton = ($el) => {
 
     copyButton.addEventListener("click", () => {
         $el.classList.add("copie");
+        copyButton.inert = true;
         navigator.clipboard.writeText($el.textContent.replace(regexCopyText, ''))
         imgButton.style.width = "0.95rem";
 
@@ -116,6 +117,7 @@ const generateCopyCodeButton = ($el) => {
             $el.classList.add("fin-copie");
             $el.classList.remove("copie");
             imgButton.style.width = "0";
+            copyButton.inert = false;
         }, 1500);
     });
 
