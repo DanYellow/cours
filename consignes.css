@@ -307,7 +307,7 @@
     font-family: var(--font-family);
     border: 1px solid rgb(from var(--color) r g b / var(--note-opacity-border));
     border-left: var(--note-left-border-width) solid var(--color);
-    padding: 1rem;
+    padding: 1rem 2.25rem 1rem 1rem;
     font-size: 1.15rem;
     background-color: rgb(from var(--color) r g b / 0.1);
     border-top-right-radius: 0.5rem;
@@ -362,7 +362,7 @@
     font-family: var(--font-family);
     border: 1px solid rgb(from var(--color) r g b / var(--note-opacity-border));
     border-left: var(--note-left-border-width) solid var(--color);
-    padding: 1rem;
+    padding: 1rem 2.25rem 1rem 1rem;
     font-size: 1.15rem;
     background-color: rgb(from var(--color) r g b / 0.12);
     border-top-right-radius: 0.5rem;
@@ -417,7 +417,7 @@
     font-family: var(--font-family);
     border: 1px solid rgb(from var(--color) r g b / var(--note-opacity-border));
     border-left: var(--note-left-border-width) solid var(--color);
-    padding: 1rem;
+    padding: 1rem 2.25rem 1rem 1rem;
     font-size: 1.15rem;
     background-color: rgb(from var(--color) r g b / 0.06);
     border-top-right-radius: 0.5rem;
