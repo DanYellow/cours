@@ -45,7 +45,7 @@ Pour avoir une vue d'ensemble de tous les éléments de design, il y a le fichie
 ### Exemple utilisation
 
 ```html
-<pre data-code-sample='{"allowCopy": true, "title": "Exemple", "displayLineCode": true}' style="[...]">
+<pre data-code-sample='{"allowCopy": true, "title": "Exemple", "displayLineCode": true, "linesHighlighted": "1, 3"}' style="[...]">
     <!-- [...] -->
 </pre>
 ```
@@ -54,6 +54,8 @@ La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en
 - title : Affiche un titre pour le snippet de code. Optionnel
 - allowCopy : Ajoute un bouton "copier" qui copie le code dans le presse-papier. false par défaut
 - displayLineCode: Affiche le numéro de ligne. false par défaut
+- linesHighlighted: Met en en avant les lignes de code. Accepte un tableau d'entier ou chaîne d'entiers séparés par une virgule
+  - Note : Les valeurs non valides seront ignorées tout comme les numéros de lignes supérieurs au tombre total de ligne de l'extrait de code
 
 > Note : Si vous n'avez pas besoin de permettre la copie du snippet de code ou d'afficher de titre, vous pouvez mettre juste le data-attribute "data-code-sample".
 
