@@ -676,3 +676,13 @@ code {
     white-space: nowrap;
     font-size: 92%;
 }
+
+.code-line {
+    text-align: right;
+    display: inline-block;
+    width: 2ch;
+    opacity: 0.5;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-right: 0.35rem;
+    user-select: none;
+}
