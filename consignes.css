@@ -716,3 +716,14 @@ code {
         right: -1px;
     }
 }
+
+.code-line-highlighted {
+    position: absolute;
+    /* height: 26px; */
+    background-color: yellow; /* #00dbff */
+    left: 0;
+    right: 0;
+    top: 38px;
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+}
