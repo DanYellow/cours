@@ -154,6 +154,7 @@ const regexBeginningSpace = /^ /gm;
 
 const rootElement = document.querySelector(':root');
 const rootElementStyle = getComputedStyle(rootElement);
+
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = codeSampleData?.title || "";
@@ -184,7 +185,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     setTimeout(() => {
         generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item)
-    }, 500);
+    }, 1000);
 
 
     if (displayLineCode) {
@@ -224,8 +225,6 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     if (allowCopy) {
         codeHeader.append(generateCopyCodeButton(item));
     }
-
-
 
     item.addEventListener("transitionend", () => {
         if (item.classList.contains("fin-copie")) {

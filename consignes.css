@@ -726,8 +726,12 @@ code {
     opacity: 0.5;
     transition: opacity 350ms ease-in-out;
 
+    @starting-style {
+        opacity: 0.25;
+    }
+
     &:hover {
-        opacity: 1;
+        opacity: 0.75;
     }
 }
 
