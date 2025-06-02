@@ -124,15 +124,25 @@ const generateCopyCodeButton = ($el) => {
     return copyButton;
 }
 
-const generateHighlightedLines = (lines, lineHeight, codeSample) => {
+const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
+    if (!linesToHighlight.length) {
+        return;
+    }
+
     lineHeight = Math.ceil(lineHeight);
 
-    lines.forEach((lineNumber) => {
+    const totalNumberOfLines = codeSample.textContent.split('\n').length;
+
+    linesToHighlight.forEach((lineNumber) => {
+        if (lineNumber > totalNumberOfLines) {
+            return;
+        }
+
         const highlighter = document.createElement("div");
         highlighter.classList.add("code-line-highlighted");
 
         highlighter.style.height = `${lineHeight}px`;
-        highlighter.style.top = `${lineHeight * lineNumber - parseInt(getComputedStyle(codeSample).paddingTop, 10) }px`;
+        highlighter.style.top = `${lineHeight * lineNumber - 1 - parseInt(getComputedStyle(codeSample).paddingTop, 10) }px`;
 
         codeSample.append(highlighter);
     })
@@ -149,18 +159,21 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeTitle = codeSampleData?.title || "";
     const allowCopy = codeSampleData?.allowCopy || false;
     const displayLineCode = codeSampleData?.displayLineCode || false;
-    const linesHighlighted = codeSampleData?.linesHighlighted || [];
+    const linesHighlighted = (
+        Array.isArray(codeSampleData?.linesHighlighted) ?
+            codeSampleData?.linesHighlighted.filter(Number.isInteger) :
+            (String(codeSampleData?.linesHighlighted || ""))
+                .split(",")
+                .map((item) => item.trim())
+                .filter((item) => item.length)
+                .map((item) => Number(item))
+                .filter(Number.isInteger)
+    );
+
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
-    item.style.border = `1px solid ${greenColor}`;
-    item.style.paddingInline = "1rem";
-    item.style.paddingBlock = "0.75rem";
-    item.style.fontSize = "1.25rem";
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
-    item.style.marginBottom = "1.25rem";
-    item.style.marginTop = "0";
-    item.style.position = "relative";
-    item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
+    item.classList.add("code-snippet");
     item.style.removeProperty("font-family");
 
     if (item.querySelector(":scope > ol")) {
@@ -170,9 +183,8 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     item.style.overflowX = "auto";
 
     setTimeout(() => {
-        generateHighlightedLines([3, 5], item.firstElementChild.offsetHeight, item)
-    }, 300);
-
+        generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item)
+    }, 500);
 
 
     if (displayLineCode) {
