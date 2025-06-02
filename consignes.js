@@ -105,7 +105,7 @@ const generateCopyCodeButton = ($el) => {
     copyButton.addEventListener("click", () => {
         $el.classList.add("copie");
         copyButton.inert = true;
-        navigator.clipboard.writeText($el.textContent.replace(regexCopyText, ''))
+        navigator.clipboard.writeText($el.textContent.replaceAll(regexLineCode, '').replace(regexBeginningSpace, ''))
         imgButton.style.width = "0.95rem";
 
         imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
@@ -125,12 +125,16 @@ const generateCopyCodeButton = ($el) => {
 }
 
 const regexCopyText = /copier$/i;
+const regexLineCode = /^\d+/gim;
+const regexBeginningSpace = /^ /gm;
+
 const rootElement = document.querySelector(':root');
 const rootElementStyle = getComputedStyle(rootElement);
 document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = codeSampleData?.title || "";
     const allowCopy = codeSampleData?.allowCopy || false;
+    const displayLineCode = codeSampleData?.displayLineCode || false;
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
@@ -147,6 +151,16 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     }
 
     item.style.overflowX = "auto";
+
+    if (displayLineCode) {
+        // Display line code
+        item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="code-line">${index + 1}</span> ${line}`).join('\n')
+        item.addEventListener("copy", (e) => {
+            const selection = document.getSelection();
+            e.clipboardData.setData("text/plain", selection.toString().replace(regexBeginningSpace, ''));
+            e.preventDefault();
+        });
+    }
 
     if (!allowCopy && codeTitle.trim() === "") {
         item.style.marginTop = "1.25rem";

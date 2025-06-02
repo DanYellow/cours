@@ -38,14 +38,14 @@ Pour avoir une vue d'ensemble de tous les éléments de design, il y a le fichie
   - [pinetools.com](https://pinetools.com/syntax-highlighter)
     - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
   - [codebeautify.org](https://codebeautify.org/code-highlighter)
-    - Thème : VS 2015 - Utilisé pour le HTML et assimilés
+    - Thème : VS 2015 - Utilisé pour le HTML et CSS
 
   Une fois le code html généré récupéré et mis dans le fichier html des consignes de la ressource, il faudra rajouter le data-attribute "data-code-allow-copy" pour rajouter du CSS permettant d'embellir le snippet de code.
 
 ### Exemple utilisation
 
 ```html
-<pre data-code-sample='{"allowCopy": true, "title": "Exemple"}' style="[...]">
+<pre data-code-sample='{"allowCopy": true, "title": "Exemple", "displayLineCode": true}' style="[...]">
     <!-- [...] -->
 </pre>
 ```
@@ -53,6 +53,7 @@ Pour avoir une vue d'ensemble de tous les éléments de design, il y a le fichie
 La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en paramètre le data-attribute "data-code-sample" qui attend un objet contenant deux clés :
 - title : Affiche un titre pour le snippet de code. Optionnel
 - allowCopy : Ajoute un bouton "copier" qui copie le code dans le presse-papier. false par défaut
+- displayLineCode: Affiche le numéro de ligne. false par défaut
 
 > Note : Si vous n'avez pas besoin de permettre la copie du snippet de code ou d'afficher de titre, vous pouvez mettre juste le data-attribute "data-code-sample".
 

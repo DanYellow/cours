@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 
 :root {
     --black: oklch(13.44% 0 0);
@@ -61,13 +61,13 @@
         }
 
         > summary {
-            transition: translate var(--_duration) allow-discrete .25s, gap var(--_duration) .125s;
+            transition: translate var(--_duration) allow-discrete 0.25s,
+                gap var(--_duration) 0.125s;
 
             &::before {
-                transition:
-                    opacity .1s var(--ease-2) .2s,
-                    translate .1s var(--ease-4) .2s,
-                    rotate .75s var(--ease-spring-4);
+                transition: opacity 0.1s var(--ease-2) 0.2s,
+                    translate 0.1s var(--ease-4) 0.2s,
+                    rotate 0.75s var(--ease-spring-4);
             }
         }
     }
@@ -76,7 +76,7 @@
         background-color: oklch(from rgb(51, 51, 51) calc(l * 0.75) c h);
 
         @media (prefers-color-scheme: light) {
-            background-color: oklch(from white calc(l * .9) c h);
+            background-color: oklch(from white calc(l * 0.9) c h);
         }
     }
 
@@ -90,7 +90,8 @@
         opacity: 0;
         block-size: 0;
         overflow-y: clip;
-        padding: 0px var(--padding-details-content) 0 var(--padding-details-content);
+        padding: 0px var(--padding-details-content) 0
+            var(--padding-details-content);
     }
 
     &[open] {
@@ -99,7 +100,8 @@
                 margin-inline: 0;
             }
 
-            padding: 0px var(--padding-details-content) var(--padding-details-content);
+            padding: 0px var(--padding-details-content)
+                var(--padding-details-content);
         }
 
         &::details-content {
@@ -121,7 +123,7 @@
             }
 
             &::before {
-                rotate: .25turn;
+                rotate: 0.25turn;
             }
         }
     }
@@ -168,7 +170,6 @@
     background-color: light-dark(inherit, #333);
 
     @media (prefers-color-scheme: dark) {
-
         a:link {
             color: white;
         }
@@ -573,7 +574,7 @@
     }
 
     &::before {
-        content: '';
+        content: "";
         background-color: var(--color, light-dark(var(--black), rgb(241, 241, 241)));
         width: 15px;
         height: 15px;
@@ -682,8 +683,35 @@ code {
     text-align: right;
     display: inline-block;
     width: 2ch;
-    opacity: 0.5;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
     padding-right: 0.35rem;
     user-select: none;
+    position: relative;
+    opacity: 0.5;
+    color: oklch(from currentColor calc(l * .75) c h);
+
+    &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        position: absolute;
+        right: -1px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:last-child::before {
+        top: 0;
+        bottom: -60%;
+    }
+
+    &:not(:first-child):not(:last-child)::before {
+        top: 0;
+        bottom: 0;
+        right: -1px;
+    }
+
+    &:first-child::before {
+        top: -100%;
+        bottom: 0;
+        right: -1px;
+    }
 }
