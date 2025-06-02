@@ -688,6 +688,7 @@ code {
     position: relative;
     opacity: 0.5;
     color: oklch(from currentColor calc(l * .75) c h);
+    margin-right: 1ch;
 
     &::before {
         content: "";
@@ -700,7 +701,7 @@ code {
 
     &:last-child::before {
         top: 0;
-        bottom: -60%;
+        bottom: -45%;
     }
 
     &:not(:first-child):not(:last-child)::before {

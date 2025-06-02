@@ -138,7 +138,8 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
     item.style.border = `1px solid ${greenColor}`;
-    item.style.padding = "1rem";
+    item.style.paddingInline = "1rem";
+    item.style.paddingBlock = "0.75rem";
     item.style.fontSize = "1.25rem";
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
     item.style.marginBottom = "1.25rem";
@@ -154,7 +155,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     if (displayLineCode) {
         // Display line code
-        item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="code-line">${index + 1}</span> ${line}`).join('\n')
+        item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="code-line">${index + 1}</span>${line}`).join('\n')
         item.addEventListener("copy", (e) => {
             const selection = document.getSelection();
             e.clipboardData.setData("text/plain", selection.toString().replace(regexBeginningSpace, ''));
