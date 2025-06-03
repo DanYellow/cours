@@ -105,7 +105,9 @@ const generateCopyCodeButton = ($el) => {
     copyButton.addEventListener("click", () => {
         $el.classList.add("copie");
         copyButton.inert = true;
-        navigator.clipboard.writeText($el.textContent.replaceAll(regexLineCode, ''))
+        navigator.clipboard.writeText(
+            $el.textContent.replaceAll(regexLineCode, "").replace($el.querySelector(".language")?.textContent, "")
+        )
         imgButton.style.width = "0.95rem";
 
         imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
@@ -131,30 +133,13 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
 
     lineHeight = Math.ceil(lineHeight);
 
-    const totalNumberOfLines = codeSample.textContent.split('\n').length;
     var output = "";
     codeSample.getHTML().split("\n").forEach((line, lineNumber) => {
-        console.log(line)
         const nextLine = linesToHighlight.includes(lineNumber + 1) ? `<div class="code-line-highlighted">${line}</div>` : `${line}\n`;
         output += nextLine;
     });
 
     codeSample.innerHTML = output;
-
-    linesToHighlight.forEach((lineNumber) => {
-        if (lineNumber > totalNumberOfLines) {
-            return;
-        }
-
-        // const highlighter = document.createElement("div");
-        // highlighter.classList.add("code-line-highlighted");
-        // highlighter.dataset.lineCode = lineNumber;
-
-        // highlighter.style.height = `${lineHeight}px`;
-        // highlighter.style.top = `${lineHeight * lineNumber - 1 - parseInt(getComputedStyle(codeSample).paddingTop, 10) }px`;
-
-        // codeSample.append(highlighter);
-    })
 }
 
 const regexCopyText = /copier$/i;
@@ -179,6 +164,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
                 .map((item) => Number(item))
                 .filter(Number.isInteger)
     );
+    const language = codeSampleData?.language;
 
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
@@ -206,6 +192,10 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
     }
 
     generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item);
+
+    if (language && !("language" in item.dataset) ) {
+        item.dataset.language = language;
+    }
 
     if (!allowCopy && codeTitle.trim() === "") {
         item.style.marginTop = "1.25rem";
