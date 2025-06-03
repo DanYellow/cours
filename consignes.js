@@ -132,19 +132,28 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
     lineHeight = Math.ceil(lineHeight);
 
     const totalNumberOfLines = codeSample.textContent.split('\n').length;
+    console.log(linesToHighlight)
+    var output = "";
+    codeSample.getHTML().split("\n").forEach((line, lineNumber) => {
+        const nextLine = linesToHighlight.includes(lineNumber + 1) ? `<div class="code-line-highlighted">${line}</div>` : `${line}\n`;
+        output = output + nextLine;
+    });
+
+    codeSample.innerHTML = output;
 
     linesToHighlight.forEach((lineNumber) => {
         if (lineNumber > totalNumberOfLines) {
             return;
         }
 
-        const highlighter = document.createElement("div");
-        highlighter.classList.add("code-line-highlighted");
+        // const highlighter = document.createElement("div");
+        // highlighter.classList.add("code-line-highlighted");
+        // highlighter.dataset.lineCode = lineNumber;
 
-        highlighter.style.height = `${lineHeight}px`;
-        highlighter.style.top = `${lineHeight * lineNumber - 1 - parseInt(getComputedStyle(codeSample).paddingTop, 10) }px`;
+        // highlighter.style.height = `${lineHeight}px`;
+        // highlighter.style.top = `${lineHeight * lineNumber - 1 - parseInt(getComputedStyle(codeSample).paddingTop, 10) }px`;
 
-        codeSample.append(highlighter);
+        // codeSample.append(highlighter);
     })
 }
 
@@ -181,22 +190,34 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         item.querySelector(":scope > ol").style.marginBlock = "0";
     }
 
-    item.style.overflowX = "auto";
 
     setTimeout(() => {
-        generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item)
+        // item.addEventListener("mousedown", (e) => {
+        //     item.querySelectorAll(".code-line-highlighted").forEach((codeHighlighter) => {
+        //         codeHighlighter.style.pointerEvents = "none";
+        //     })
+        //     // e.currentTarget.style.pointerEvents = "none";
+        // })
+
+        // item.addEventListener("mouseup", (e) => {
+        //     item.querySelectorAll(".code-line-highlighted").forEach((codeHighlighter) => {
+        //         codeHighlighter.style.pointerEvents = "auto";
+        //     })
+        // })
     }, 1000);
 
 
     if (displayLineCode) {
         // Display line code
-        item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="code-line">${index + 1}</span>${line}`).join('\n')
+        item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="line-number">${index + 1}</span>${line}`).join('\n')
         item.addEventListener("copy", (e) => {
             const selection = document.getSelection();
             e.clipboardData.setData("text/plain", selection.toString());
             e.preventDefault();
         });
     }
+
+    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item);
 
     if (!allowCopy && codeTitle.trim() === "") {
         item.style.marginTop = "1.25rem";

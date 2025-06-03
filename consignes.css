@@ -679,10 +679,10 @@ code {
     font-size: 92%;
 }
 
-.code-line {
+.line-number {
     text-align: right;
     display: inline-block;
-    width: 2ch;
+    width: 3ch;
     padding-right: 0.35rem;
     user-select: none;
     position: relative;
@@ -696,7 +696,7 @@ code {
         width: 1px;
         position: absolute;
         right: -1px;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 1);
     }
 
     &:last-of-type::before {
@@ -718,20 +718,76 @@ code {
 }
 
 .code-line-highlighted {
-    position: absolute;
-    background-color: rgb(248, 255, 255);
-    left: 0;
-    right: 0;
-    mix-blend-mode: soft-light;
-    opacity: 0.5;
-    transition: opacity 350ms ease-in-out;
+    &:last-of-type {
+        .line-number::before {
+            top: 0;
+            bottom: -45%;
+        }
+    }
+
+    &:not(:first-of-type):not(:last-of-type) {
+        .line-number::before {
+            top: 0;
+            bottom: 0;
+            right: -1px;
+        }
+    }
+
+    &:first-of-type {
+        .line-number::before {
+            top: -100%;
+            bottom: 0;
+            right: -1px;
+        }
+    }
+}
+
+.code-line-highlighted {
+    --end-opacity: 0.25;
+    background-color: rgba(0, 255, 255, 0.1);
+
+    transition: background-color 350ms ease-in-out;
+    /* pointer-events: none; */
+    position: relative;
+    background-blend-mode: screen;
+    width: fit-content;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    padding-right: 0.5rem;
 
     @starting-style {
-        opacity: 0.25;
+        background-color: rgba(0, 255, 255, var(--end-opacity));
     }
 
     &:hover {
-        opacity: 0.85;
+        background-color: rgba(0, 255, 255, var(--end-opacity));
+
+        &::after, &::before {
+            background-color: rgba(0, 255, 255, var(--end-opacity));
+        }
+    }
+
+    &::after, &::before {
+        content: "";
+        display: block;
+        background-color: rgba(0, 255, 255, 0.1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        transition: background-color 350ms ease-in-out;
+    }
+
+    &::after {
+        left: -550px;
+        right: 100%;
+    }
+
+    &::before {
+
+        content: none;
+        right: -16px;
+        left: 100%;
     }
 }
 
@@ -744,4 +800,39 @@ code {
     margin-top: 0;
     position: relative;
     background-color: var(--background-color-code);
+    overflow-x: auto;
+
+    .language {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        background-color: white;
+        color: black;
+        padding-inline: 0.35rem 0.75rem;
+        font-size: 1rem;
+        border-top-left-radius: 0.5rem;
+    }
+}
+
+.foo {
+    display: flex;
+    background-color: whitesmoke;
+    color: #000;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    margin-top: -1.5rem;
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+
+    .code-line {
+        width: 5ch;
+        text-align: right;
+        /* font-size: 20px; */
+    }
+
+    p {
+        margin: 0;
+    }
 }
