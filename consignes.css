@@ -773,7 +773,7 @@ code {
 }
 
 .code-snippet {
-    border: 1px solid var(--green-code);
+    /* border: 1px solid var(--green-code);
     padding-inline: 1rem;
     padding-block: 0.75rem;
     font-size: 1.25rem;
@@ -781,7 +781,7 @@ code {
     margin-top: 0;
     position: relative;
     background-color: var(--background-color-code);
-    overflow-x: auto;
+    overflow-x: auto; */
 
     &[data-language]:not([data-language=""]):after {
         content: attr(data-language);

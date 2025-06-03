@@ -168,8 +168,19 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
 
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
 
-    item.style.borderRadius = "0 0 0.5rem 0.5rem";
     item.classList.add("code-snippet");
+    item.style.borderRadius = "0 0 0.5rem 0.5rem";
+
+    item.style.border = `1px solid ${greenColor}`;
+    item.style.paddingInline = "1rem";
+    item.style.paddingBlock = "0.75rem";
+    item.style.fontSize = "1.25rem";
+    item.style.marginBottom = "1.25rem";
+    item.style.marginTop = "0";
+    item.style.position = "relative";
+    item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
+    item.style.overflowX = "auto";
+
     item.style.removeProperty("font-family");
 
     if (item.querySelector(":scope > ol")) {
