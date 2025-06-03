@@ -5,41 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP - Initiation javascript</title>
+    <title>Initiation javascript — Consignes TP</title>
 
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
     <script defer src="https://danyellow.net/cours-mmi/consignes.js"></script>
 </head>
 
 <body>
-    <header style="max-width: 1280px; margin: 0 auto;">
-        <details class="consignes-conteneur">
-            <summary>
-                <p class="h1">
-                    Pré-consignes de la pratique - facultatives (cliquer pour afficher /
-                    cacher)
-                </p>
-            </summary>
-            <ol class="liste-consignes">
-                <li>
-                    Créez un nouveau fichier html (avec la structure de base d'un site
-                    web. Rappel, vous avez le raccourci "html:5")
-                </li>
-                <li>Sauvegardez-le et commencez votre TP dedans</li>
-            </ol>
-        </details>
-
-        <p class="titre-consignes">Consignes de la pratique</p>
+    <header class="consignes-en-tete">
+        <h1 class="titre-consignes">Initiation javascript — Consignes TP</h1>
         <details class="consignes-conteneur" open>
             <summary>
                 <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
             </summary>
             <ol class="liste-consignes">
-                <li>Créez un fichier javascript (extension ".js") et liez ce fichier à votre fichier HTML dans la balise
-                    &lt;head>. Exemple de code pour importer un fichier
-                    javascript (adapter le chemin et le nom de fichier en fonction).
-                    <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></pre>
+                <li>Créez un fichier javascript (extension ".js") et liez ce fichier à un fichier HTML dans la balise
+                    &lt;head>
+                    <pre data-code-sample='{"title": "Exemple d&#39;importation de fichier javascript", "allowCopy": true, "language": "HTML"}' style="font-family:monospace;color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></pre>
                     <p class="note-information">L'attribut 'defer' permet de charger notre fichier javascript après que
                         la partie HTML a été chargée.</p>
 
@@ -53,6 +40,9 @@
                                 nouvel onglet)</a>
                         </li>
                     </ul>
+                    <p class="note-attention">
+                        Le point-virgule n'est pas obligatoire en javascript pour délimiter une instruction.
+                    </p>
                 </li>
                 <li>
                     Affichez leur contenu dans la méthode <code>console.log()</code>
@@ -66,6 +56,7 @@
                         </li>
                     </ul>
                 </li>
+                <li>Constatez la bonne réussite en ouvrant la console du navigateur, onglet "Console"</li>
             </ol>
         </details>
         <details class="consignes-conteneur">
@@ -77,12 +68,45 @@
                 mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
                 Exemple :
             </p>
-            <pre data-code-sample='{"allowCopy": false}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maPremiereFonction</span>(<span style="color: rgb(231, 140, 69);">param1</span>, <span style="color: rgb(231, 140, 69);">param2</span>) </span>{
+
+            <div class="tab-wrapper" role="tablist">
+                <ul class="list-tabs">
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-a">
+                            Syntaxe moderne
+                        </button>
+                    </li>
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-b">
+                            Ancienne syntaxe
+                        </button>
+                    </li>
+                </ul>
+                <ul class="list-tab-content">
+                    <li class="tab-content" data-tab-content="onglet-a">
+                                    <pre data-code-sample='{"allowCopy": false, "language": "javascript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">maPremiereFonction</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;">param1, param2</span>) =&gt; {
+    <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> param1 + param2;
+}
+
+<span style="color: rgb(0, 224, 224); font-weight: 400;">maPremiereFonction</span>(<span style="color: rgb(245, 171, 53); font-weight: 400;">45</span>, <span style="color: rgb(245, 171, 53); font-weight: 400;">20</span>);</pre>
+
+                    </li>
+                    <li class="tab-content" data-tab-content="onglet-b">
+                        <p>
+                            Cette syntaxe est l'ancienne façon de définir des fonctions en javascript, il est possible que vous la voyez encore en ligne. Elle est et sera toujours gérée par les navigateurs. Toutefois, il est préférable d'utiliser la syntaxe moderne.
+                        </p>
+                       <pre data-code-sample='{"allowCopy": false, "language": "javascript"}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maPremiereFonction</span>(<span style="color: rgb(231, 140, 69);">param1</span>, <span style="color: rgb(231, 140, 69);">param2</span>) </span>{
     <span style="color: rgb(195, 151, 216);">return</span> param1 + param2;
 }
 maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span class="hljs-number" style="color: rgb(231, 140, 69);">20</span>);</pre>
-            <p>Dans le code ci-dessus, on définit une variable nommée "maPremiereFonction" prenant deux paramètres et
-                retourne leur addition. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
+
+                    </li>
+                </ul>
+            </div>
+
+
+            <p>Dans le code ci-dessus, on définit une fonction nommée "maPremiereFonction" prenant deux paramètres et
+                retourne leur somme. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
                 donc dire que, dans la fonction "maPremiereFonction", les variables "param1" et "param2" ont pour valeur
                 45 et 20 respectivement.
                 C'est très simple mais c'est très bien pour commencer. A noter que les opérateurs mathématiques de base
@@ -95,9 +119,13 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 </ul>
             <p>
                 Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code>.
-                Cette ligne ne sera pas interprétée. Attention : Comme le HTML et le CSS, les commentaires en javascript
+                Cette ligne ne sera pas interprétée.
+            </p>
+            <p class="note-attention">
+                Comme le HTML et le CSS, les commentaires en javascript
                 sont accessibles à l'utilisateur final. Par conséquent : ne mettez pas de données sensibles dedans.
             </p>
+
             <ol class="liste-consignes">
                 <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
                     <code>console.log()</code>
@@ -120,7 +148,7 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 </li>
                 <li>Créez les fonctions suivantes :
                     <ul>
-                        <li>Prend en paramètre un entier et le multiplie par lui-même</li>
+                        <li>Prend en paramètre un nombre et le multiplie par lui-même</li>
                         <li>Prend en paramètres deux chaînes de caractères et souhaite bonjour à cette
                             personne
                             <section class="note-information">
@@ -139,10 +167,10 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                             </section>
 
                         </li>
-                        <li>Prend en paramètres deux entiers, les multiplie et retourne <span
+                        <li>Prend en paramètres deux nombres, les multiplie et retourne <span
                                 class="texte-gras">toujours</span> un <span class="texte-gras">produit strictement
                                 positif</span> </li>
-                        <li>Prend en paramètres deux entiers qui les multiplie <span
+                        <li>Prend en paramètres deux nombres qui les multiplie <span
                                 class="texte-gras">sans utiliser</span> l'opérateur de multiplication</span></li>
                     </ul>
                 </li>
@@ -154,15 +182,13 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 </p>
 
                 <p>Exemple :</p>
-                <pre data-code-sample style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(150, 152, 150);">// Définition de la fonction</span>
-<span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maFonction</span>(<span style="color: rgb(231, 140, 69);"></span>) </span>{
-    <span style="color: rgb(195, 151, 216);">return</span> <span class="hljs-string" style="color: rgb(185, 202, 74);">"hello"</span>;
+                <pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "7", "language": "javascript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(212, 208, 171); font-weight: 400;">// Définition de la fonction</span>
+<span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;"></span>) =&gt; {
+    <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"hello"</span>;
 }
-<span style="color: rgb(150, 152, 150);">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
-<span style="color: rgb(150, 152, 150);">// indispensables pour appeler la fonction</span>
-<span style="color: rgb(231, 140, 69);">console</span>.log(
-    maFonction();
-)</pre>
+<span style="color: rgb(212, 208, 171); font-weight: 400;">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
+<span style="color: rgb(212, 208, 171); font-weight: 400;">// indispensables pour appeler la fonction</span>
+<span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>( <span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span>() );</pre>
             </section>
             <p class="note-information">N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites tout comme les paramètres de vos fonctions.</p>
         </details>
@@ -187,7 +213,7 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                             de Sarcelles"</li>
                         <li>Prend en paramètre un nombre entier et qui retourne une chaîne de
                             caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
-                            besoins) :
+                            préférences) :
                             <ul>
                                 <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
                                 <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
@@ -197,6 +223,9 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                                     n'est pas une valeur correcte
                                 </li>
                             </ul>
+                </li>
+                <li>
+                    Retourne true, si une chaîne de caractères est en minuscules dans sa totalité
                 </li>
             </ol>
             <section class="note-information">
@@ -230,7 +259,7 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                     </ul>
                     <section class="note-information">
                     <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
-                    <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
+                    <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
 <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> cible = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"selecteur"</span>);
 
 <span style="color: rgb(112, 120, 128); font-weight: 400;">// Sur cet élément on lie un évènement "click"</span>
@@ -251,7 +280,7 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                     <section class="note-information"><p>Etant donné que vous devez modifier plusieurs éléments en même temps, il faudra
                         impérativement utiliser une boucle pour modifier la propriété <code>.textContent</code> sur
                         chaque élément. Par exemple : </p>
-<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
+<pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
 <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> listeElementsMaClasse = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelectorAll</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">".ma-classe"</span>);
 
 <span style="color: rgb(112, 120, 128); font-weight: 400;">// On parcourt notre liste d'éléments</span>
@@ -274,14 +303,14 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                     <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
-<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément qui a le data-attribute "data-attribut-personnalise"</span>
+<pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément qui a le data-attribute "data-attribut-personnalise"</span>
 <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise]"</span>)</pre>
 <p class="note-information">A noter que le ciblage par "crochets" permet cibler n'importe quel élément par la valeur de son attribut HTML.</p>
 <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
                             le data-attribute "data-attribut-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
                         <p>Si vous souhaitez cibler un data-attribut avec une valeur spécifique, il faut procéder de la façon suivante : </p>
-<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
+<pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
 <span style="color: rgb(112, 120, 128); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
 <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
                     </article>
@@ -314,7 +343,7 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                 <li>Affichez le contenu de la balise &lt;input /> dans une balise &lt;p> qui aura été elle-même ciblée avec un data-attribute
                     <article class="note-information">
                         <p>Pour récupérer le contenu textuel de notre &lt;input> (ou &lt;textarea>), il faudra récupérer l'élément ciblé par notre fonction <code>addEventListener</code> contenu dans l'objet "evt". Par exemple :</p>
-<pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'input'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">(<span style="color: rgb(197, 200, 198); font-weight: 400;">evt</span>) =&gt;</span> {
+<pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'input'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">(<span style="color: rgb(197, 200, 198); font-weight: 400;">evt</span>) =&gt;</span> {
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// texteChamp contient le texte actuellement dans le champ de texte</span>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> texteChamp = evt.<span style="color: rgb(197, 200, 198); font-weight: 400;">target</span>.<span style="color: rgb(197, 200, 198); font-weight: 400;">value</span>;
 })</pre>
@@ -344,31 +373,31 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                 <li>Ajoutez une balise &lt;select> (pas besoin de la mettre dans un formulaire) avec une liste de choix
                     que vous aurez choisi (n'oubliez pas la
                     valeur de l'attribut "value" pour chaque "option"). Et une balise &lt;img>. Lors de la sélection
-                    d'un élément dans le &lt;select> l'image doit changer.
+                    d'un élément dans le &lt;select> l'image doit changer
                     <p class="note-information">N'oubliez pas de rajouter un data-attribute sur les balises &lt;select>
-                        &lt;img> pour pouvoir y accéder dans le javascript</p>
-                    <p class="note-information">Il faudra télécharger des images (celles que vous voulez) et mettre le
-                        nom des images comme valeur de l'attribut "value". Quant à l'accès à l'attribut "src" de la
-                        balise &lt;img> dans le javascript, il faut tout simplement accéder à la propriété "src" de la
-                        balise &lt;img> dans le javascript (donc grâce à document.querySelector()).</p>
+                        et &lt;img> pour pouvoir y accéder dans le javascript</p>
+                    <p class="note-information">Les images peuvent être locales et/ou distantes. L'idée étant que la valeur de chaque &lt;option> ait comme valeur le chemin vers l'image. Ensuite, il faudra accéder à l'attribut "src" de la
+                        balise &lt;img> dans le javascript, et changer sa valeur.</p>
                     <ul>
                         <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>. <a
                                 href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
-                                rel="noopener noreferrer" target="_blank">Voir documentation l"évènement change
+                                rel="noopener noreferrer" target="_blank">Voir documentation l'évènement change
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
                     </ul>
+                    Si vous le souhaitez, vous pouvez même afficher les images directement dans la balise &lt;select>. N'oubliez pas que c'est désormais possible (Chrome et Edge seulement)
+
                 </li>
                 <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais
                         des valeurs différentes.</span>
                     Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton
-                    (propriété "textContent") change pour la valeur du data-attribute.
+                    (propriété "textContent") change pour la valeur du data-attribute
                     <div class="note-information">
                         <p>Il faudra impérativement utiliser la propriété "target" de l'objet e, e
-                            est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code>
+                            est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code>.
                         </p>
-                        <p>Où "e" représente l'élément ciblé par la méthode "addEventListener".</p>
+                        <p>Où "e" représente l'élément qui va recevoir l'évènement définit. Par convention, on l'appelle "e" ou "evt", mais vous pouvez le nommer comme vous le souhaitez.</p>
                     </div>
 
                     <ul>
@@ -378,7 +407,7 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                                 nouvel onglet)</a>
                         </li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Event/target"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (evt.)target
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (e.)target
                                 (ouverture dans un
                                 nouvel onglet)</a>
                         </li>
@@ -394,7 +423,7 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                     </ul>
                 </li>
                 <li>
-                    Faites une fonction qui retourne true ou false si une chaîne de caractères est en minuscules dans sa totalité.
+                    Créez une fonction qui prend un nombre entier n en paramètre et <span class="texte-gras">retourne une chaine de caractères</span> avec tous les nombres de 1 jusqu'au n
                 </li>
             </ul>
         </details>
