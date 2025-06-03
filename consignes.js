@@ -132,11 +132,11 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
     lineHeight = Math.ceil(lineHeight);
 
     const totalNumberOfLines = codeSample.textContent.split('\n').length;
-    console.log(linesToHighlight)
     var output = "";
     codeSample.getHTML().split("\n").forEach((line, lineNumber) => {
+        console.log(line)
         const nextLine = linesToHighlight.includes(lineNumber + 1) ? `<div class="code-line-highlighted">${line}</div>` : `${line}\n`;
-        output = output + nextLine;
+        output += nextLine;
     });
 
     codeSample.innerHTML = output;
@@ -190,23 +190,6 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         item.querySelector(":scope > ol").style.marginBlock = "0";
     }
 
-
-    setTimeout(() => {
-        // item.addEventListener("mousedown", (e) => {
-        //     item.querySelectorAll(".code-line-highlighted").forEach((codeHighlighter) => {
-        //         codeHighlighter.style.pointerEvents = "none";
-        //     })
-        //     // e.currentTarget.style.pointerEvents = "none";
-        // })
-
-        // item.addEventListener("mouseup", (e) => {
-        //     item.querySelectorAll(".code-line-highlighted").forEach((codeHighlighter) => {
-        //         codeHighlighter.style.pointerEvents = "auto";
-        //     })
-        // })
-    }, 1000);
-
-
     if (displayLineCode) {
         // Display line code
         item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="line-number">${index + 1}</span>${line}`).join('\n')
@@ -215,6 +198,11 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
             e.clipboardData.setData("text/plain", selection.toString());
             e.preventDefault();
         });
+
+        const listLineNumbers = Array.from(item.querySelectorAll(".line-number"))
+
+        listLineNumbers.at(0).classList.add("first");
+        listLineNumbers.at(-1).classList.add("last");
     }
 
     generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item);
