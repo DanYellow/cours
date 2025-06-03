@@ -34,9 +34,7 @@ Pour avoir une vue d'ensemble de tous les éléments de design, il y a le fichie
 ## Mise en page de code
 - Surlignement du code :
   - [highlight.hohli.com](https://highlight.hohli.com/?theme=hybrid)
-    - Thème : hybrid en sombre (il faut parfois changer puis remettre le thème "hybrid")
-  - [pinetools.com](https://pinetools.com/syntax-highlighter)
-    - Thème : Tomorrow Night Bright - Utilisé pour le javascript et le CSS
+    - Thème : hybrid en sombre (il faut parfois changer puis remettre le thème "hybrid") ou a11y dark
   - [codebeautify.org](https://codebeautify.org/code-highlighter)
     - Thème : VS 2015 - Utilisé pour le HTML et CSS
 

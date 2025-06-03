@@ -724,7 +724,6 @@ code {
     background-color: var(--start-color);
     transition: background-color 150ms ease-in-out;
     position: relative;
-    background-blend-mode: screen;
     width: fit-content;
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
@@ -746,7 +745,7 @@ code {
         }
     }
 
-    &::after, &::before {
+    &::after {
         content: "";
         display: block;
         background-color: var(--start-color);
@@ -754,19 +753,11 @@ code {
         top: 0;
         bottom: 0;
         pointer-events: none;
+        left: -550px;
+        right: 100%;
         transition: background-color 150ms ease-in-out;
     }
 
-    &::after {
-        left: -550px;
-        right: 100%;
-    }
-
-    &::before {
-        content: none;
-        right: -16px;
-        left: 100%;
-    }
 }
 
 .code-snippet {
