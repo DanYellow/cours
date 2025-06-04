@@ -133,7 +133,7 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
 
     lineHeight = Math.ceil(lineHeight);
 
-    var output = "";
+    let output = "";
     codeSample.getHTML().split("\n").forEach((line, lineNumber) => {
         const nextLine = linesToHighlight.includes(lineNumber + 1) ? `<div class="code-line-highlighted">${line}</div>` : `${line}\n`;
         output += nextLine;
@@ -196,15 +196,14 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
             e.preventDefault();
         });
 
-        const listLineNumbers = Array.from(item.querySelectorAll(".line-number"))
-
+        const listLineNumbers = Array.from(item.querySelectorAll(".line-number"));
         listLineNumbers.at(0).classList.add("first");
         listLineNumbers.at(-1).classList.add("last");
     }
 
     generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item);
 
-    if (language && !("language" in item.dataset) ) {
+    if (language && !("language" in item.dataset)) {
         item.dataset.language = language;
     }
 
@@ -232,7 +231,7 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         codeHeader.append(codeTitleTag);
     }
 
-    if (allowCopy) {
+    if(allowCopy) {
         codeHeader.append(generateCopyCodeButton(item));
     }
 

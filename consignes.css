@@ -567,6 +567,7 @@
     position: relative;
     overflow: hidden;
     font-style: italic;
+    text-wrap: balance;
 
     &::before,
     &::after{
