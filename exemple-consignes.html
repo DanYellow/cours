@@ -20,6 +20,8 @@
                 Design system — Consignes TP
             </h1>
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
+            <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
+            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Pour plus d'informations sur leur fonctionne, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
             <details class="consignes-conteneur" open>
                 <summary>
@@ -52,7 +54,7 @@
                 <p>— onisep.fr</p>
             </div>
 
-
+            <h2>Systeme d'onglets</h2>
             <div class="tab-wrapper" role="tablist">
                 <ul class="list-tabs">
                     <li>
@@ -83,6 +85,10 @@
                     </li>
                 </ul>
             </div>
+
+            <h2>Mise en page de code</h2>
+
+            <p>Copie + Titre</p>
             <pre
                 data-code-sample='{"title": "Exemple de code - CSS", "allowCopy": true}'
                 style="
@@ -95,6 +101,7 @@
     <span style="color: rgb(178, 148, 187); font-weight: 400;">box-sizing</span>: border-box;
 }</pre>
 
+            <p>Code simple</p>
             <pre data-code-sample style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;!DOCTYPE <span style="color:rgb(86, 156, 214); font-weight:400;">html</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">html</span> <span style="color:rgb(156, 220, 254); font-weight:400;">lang</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;fr&quot;</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">head</span>&gt;</span>
@@ -107,7 +114,8 @@
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">html</span>&gt;</span></pre>
 
-<pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "4, 11, 5", "linesLinked": [[4, 11]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
+<p>Lignes de code + Surlignement de lignes</p>
+<pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "4, 11, 5"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
 
 <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> form = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-form]"</span>);
 form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"submit"</span>, <span style="color: rgb(220, 198, 224); font-weight: 400;">async</span> (e) =&gt; {
@@ -119,6 +127,7 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
     <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">JSON</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">stringify</span>(formValues));
 });</pre>
 
+<p>Indication du langage</p>
 <pre data-code-sample='{"language": "C-sharp"}' style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// Un entier</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">int</span> nbYearsBUT = <span style="color: rgb(121, 192, 255); font-weight: 400;">3</span>;
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// Une chaîne de caractères</span>
@@ -126,6 +135,14 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// Un tableau de chaînes de caractères</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">string</span>[] listFormations = {<span style="color: rgb(165, 214, 255); font-weight: 400;">"MMI"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"TC"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"GE2I"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"MT2E"</span>};</pre>
 
-</header>
+<p>Indication du langage + Lignes de code + Surlignement de lignes + Lien entre lignes + Copie + titre</p>
+<pre data-language="Python" data-code-sample='{"title": "Nettoyage DataFrame", "allowCopy": true,"displayLineCode": true, "linesHighlighted": "4, 5", "linesLinked": [[4, 5]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; ">df_clean = df.copy()
+
+df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>].replace(<span style="color: rgb(171, 227, 56); font-weight: 400;">','</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">''</span>, inplace=<span style="color: rgb(245, 171, 53); font-weight: 400;">True</span>, regex=<span style="color: rgb(245, 171, 53); font-weight: 400;">True</span>)
+df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>].astype(<span style="color: rgb(171, 227, 56); font-weight: 400;">"int"</span>)
+df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"GEO"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"GEO"</span>].astype(<span style="color: rgb(171, 227, 56); font-weight: 400;">"string"</span>)
+df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>].<span style="color: rgb(245, 171, 53); font-weight: 400;">str</span>.replace(<span style="color: rgb(171, 227, 56); font-weight: 400;">'_\d+'</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">''</span>)
+</pre>
+
     </body>
 </html>
