@@ -692,7 +692,6 @@ code {
         position: absolute;
         right: -1px;
         background-color: oklch(from currentColor calc(l * .75) c h / 50%);
-        right: -1px;
     }
 
     &:not(.first):not(.last)::before {

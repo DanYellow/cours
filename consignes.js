@@ -164,7 +164,10 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 
     linesLinked.forEach((item, idx) => {
         item.forEach((line) => {
-            document.querySelector(`.code-line-highlighted[data-number="${line}"]`).dataset.lineGroup = idx;
+            const lineHighlighted = document.querySelector(`.code-line-highlighted[data-number="${line}"]`);
+            if (lineHighlighted) {
+                lineHighlighted.dataset.lineGroup = idx;
+            }
         })
     })
 }
@@ -191,7 +194,9 @@ DOM.listCodeSamples.forEach((item) => {
                 .map((item) => Number(item))
                 .filter(Number.isInteger)
     );
-    const linesLinked = Array.isArray(codeSampleData?.linesLinked) ?
+
+    const isNestedArray = Array.isArray(codeSampleData?.linesLinked) && codeSampleData?.linesLinked.flat().length != codeSampleData?.linesLinked.length;
+    const linesLinked = isNestedArray ?
         codeSampleData?.linesLinked.map(a => a.filter(Number.isInteger)) :
         [];
 
