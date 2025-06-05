@@ -107,7 +107,7 @@ const generateCopyCodeButton = ($el) => {
         $el.classList.add("copie");
         copyButton.inert = true;
         navigator.clipboard.writeText(
-            $el.textContent.replaceAll(regexLineCode, "").replace($el.querySelector(".language")?.textContent, "")
+            $el.innerText.replaceAll(regexLineCode, "")
         )
         imgButton.style.width = "0.95rem";
 
