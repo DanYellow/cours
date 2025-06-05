@@ -107,9 +107,17 @@
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">html</span>&gt;</span></pre>
 
-<pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "1, 3"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">displayFormation</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;">formation = <span style="color: rgb(171, 227, 56); font-weight: 400;">"MMI"</span></span>) =&gt; {
-    <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">`Bonjour <span style="color: rgb(171, 227, 56); font-weight: 400;">${formation}</span>`</span>;
-}</pre>
+<pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "4, 11, 5", "linesLinked": [[4, 11]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
+
+<span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> form = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-form]"</span>);
+form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"submit"</span>, <span style="color: rgb(220, 198, 224); font-weight: 400;">async</span> (e) =&gt; {
+    e.<span style="color: rgb(0, 224, 224); font-weight: 400;">preventDefault</span>();
+
+    <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> formData = <span style="color: rgb(220, 198, 224); font-weight: 400;">new</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">FormData</span>(e.<span style="color: rgb(248, 248, 242); font-weight: 400;">target</span>);
+    <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> formValues = <span style="color: rgb(0, 224, 224); font-weight: 400;">Object</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">fromEntries</span>(formData.<span style="color: rgb(0, 224, 224); font-weight: 400;">entries</span>());
+
+    <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">JSON</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">stringify</span>(formValues));
+});</pre>
 
 <pre data-code-sample='{"language": "C-sharp"}' style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// Un entier</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">int</span> nbYearsBUT = <span style="color: rgb(121, 192, 255); font-weight: 400;">3</span>;

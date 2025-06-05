@@ -127,7 +127,7 @@ const generateCopyCodeButton = ($el) => {
     return copyButton;
 }
 
-const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
+const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, codeSample) => {
     if (!linesToHighlight.length) {
         return;
     }
@@ -145,6 +145,28 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
     });
 
     codeSample.innerHTML = output;
+
+    codeSample.querySelectorAll(".code-line-highlighted").forEach((item) => {
+        item.addEventListener('mouseover', e => {
+            const lineGroup = e.currentTarget.dataset.lineGroup;
+            document.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
+                line.classList.add("hover");
+            });
+        })
+
+        item.addEventListener('mouseout', e => {
+            const lineGroup = e.currentTarget.dataset.lineGroup;
+            document.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
+                line.classList.remove("hover");
+            });
+        })
+    })
+
+    linesLinked.forEach((item, idx) => {
+        item.forEach((line) => {
+            document.querySelector(`.code-line-highlighted[data-number="${line}"]`).dataset.lineGroup = idx;
+        })
+    })
 }
 
 const regexCopyText = /copier$/i;
@@ -169,6 +191,10 @@ DOM.listCodeSamples.forEach((item) => {
                 .map((item) => Number(item))
                 .filter(Number.isInteger)
     );
+    const linesLinked = Array.isArray(codeSampleData?.linesLinked) ?
+        codeSampleData?.linesLinked.map(a => a.filter(Number.isInteger)) :
+        [];
+
     const language = codeSampleData?.language;
 
     const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
@@ -206,7 +232,7 @@ DOM.listCodeSamples.forEach((item) => {
         listLineNumbers.at(-1).classList.add("last");
     }
 
-    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, item);
+    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item);
 
     if (language && !("language" in item.dataset)) {
         item.dataset.language = language;

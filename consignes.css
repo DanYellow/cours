@@ -729,7 +729,7 @@ code {
         background: var(--end-color);
     }
 
-    &:hover {
+    &:hover, &.hover {
         background: var(--end-color);
 
         &::after, &::before {
