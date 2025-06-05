@@ -1,90 +1,91 @@
-(() => {
-    const getFirstTabName = (tabList) => {
-        const firstTab = tabList.querySelectorAll("[data-tab-name]")[0];
-        firstTab.classList.add("active");
-        firstTab.setAttribute("aria-selected", "true");
-        firstTab.removeAttribute("tabIndex");
+const DOM = {
+    listCodeSamples: document.querySelectorAll("[data-code-sample]"),
+}
 
-        return firstTab.dataset.tabName;
-    }
+const getFirstTabName = (tabList) => {
+    const firstTab = tabList.querySelectorAll("[data-tab-name]")[0];
+    firstTab.classList.add("active");
+    firstTab.setAttribute("aria-selected", "true");
+    firstTab.removeAttribute("tabIndex");
 
-    const openTab = (e) => {
-        const currentTabContainer = e.target.closest('[role="tablist"]')
-        currentTabContainer.querySelectorAll("[data-tab-content]").forEach((item) => {
-            item.style.display = "none";
-            item.setAttribute("role", "tabpanel");
-        });
+    return firstTab.dataset.tabName;
+}
 
-        currentTabContainer.querySelectorAll("[data-tab-name]").forEach((item) => {
-            item.classList.remove("active");
-            item.setAttribute("aria-selected", "false");
-        });
+const openTab = (e) => {
+    const currentTabContainer = e.target.closest('[role="tablist"]')
+    currentTabContainer.querySelectorAll("[data-tab-content]").forEach((item) => {
+        item.style.display = "none";
+        item.setAttribute("role", "tabpanel");
+    });
 
-        currentTabContainer.querySelector(
-            `[data-tab-content="${e.target.dataset.tabName}"]`
-        ).style.display = "block";
+    currentTabContainer.querySelectorAll("[data-tab-name]").forEach((item) => {
+        item.classList.remove("active");
+        item.setAttribute("aria-selected", "false");
+    });
 
-        const currentTab = currentTabContainer.querySelector(
-            `[data-tab-name="${e.target.dataset.tabName}"]`
-        )
-        currentTab.style.display = "block";
-        currentTab.classList.add("active");
-        currentTab.setAttribute("aria-selected", "true");
-        currentTab.removeAttribute("tabIndex");
+    currentTabContainer.querySelector(
+        `[data-tab-content="${e.target.dataset.tabName}"]`
+    ).style.display = "block";
 
-        currentTabContainer.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
-            const firstTabName = getFirstTabName(tablist);
+    const currentTab = currentTabContainer.querySelector(
+        `[data-tab-name="${e.target.dataset.tabName}"]`
+    )
+    currentTab.style.display = "block";
+    currentTab.classList.add("active");
+    currentTab.setAttribute("aria-selected", "true");
+    currentTab.removeAttribute("tabIndex");
 
-            if (tablist.querySelectorAll("[data-tab-content]").length) {
-                tablist.querySelector(`[data-tab-content="${firstTabName}"]`).style.display = "block";
-            }
-        })
-    };
-
-    document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
-        tablist.querySelectorAll("[data-tab-name]").forEach((item, idx) => {
-            item.addEventListener("click", openTab);
-            item.classList.add("select-tab");
-            item.setAttribute("role", "tab");
-            item.setAttribute("aria-selected", "false");
-            item.setAttribute("aria-controls", `tab-system-${tabSystemIdx}-tab-${idx}`);
-
-            item.id = `tab-${tabSystemIdx}-tab-${idx}`;
-        });
-
+    currentTabContainer.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
         const firstTabName = getFirstTabName(tablist);
 
         if (tablist.querySelectorAll("[data-tab-content]").length) {
             tablist.querySelector(`[data-tab-content="${firstTabName}"]`).style.display = "block";
-            tablist.querySelectorAll("[data-tab-content]").forEach((tabContent, idx) => {
-                tabContent.setAttribute("role", "tabpanel");
-                tabContent.setAttribute("tabindex", "0");
-                tabContent.setAttribute("aria-labelledby", `tab-${tabSystemIdx}-tab-${idx}`);
-                tabContent.setAttribute("id", `tab-system-${tabSystemIdx}-tab-${idx}`);
-            });
         }
+    })
+};
+
+document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) => {
+    tablist.querySelectorAll("[data-tab-name]").forEach((item, idx) => {
+        item.addEventListener("click", openTab);
+        item.classList.add("select-tab");
+        item.setAttribute("role", "tab");
+        item.setAttribute("aria-selected", "false");
+        item.setAttribute("aria-controls", `tab-system-${tabSystemIdx}-tab-${idx}`);
+
+        item.id = `tab-${tabSystemIdx}-tab-${idx}`;
     });
-})();
 
-(() => {
-    const url = new URL(window.location);
+    const firstTabName = getFirstTabName(tablist);
 
-    const accordionIndex = Number(url.searchParams?.get("a") || 0);
-    const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
-
-    listInstructionSummary.forEach((item, idx) => {
-        item.addEventListener("click", () => {
-            if(listInstructionSummary[idx].closest("details").open) {
-                url.searchParams.delete("a", idx);
-            } else {
-                url.searchParams.set("a", idx);
-            }
-            history.replaceState(null, "", url);
+    if (tablist.querySelectorAll("[data-tab-content]").length) {
+        tablist.querySelector(`[data-tab-content="${firstTabName}"]`).style.display = "block";
+        tablist.querySelectorAll("[data-tab-content]").forEach((tabContent, idx) => {
+            tabContent.setAttribute("role", "tabpanel");
+            tabContent.setAttribute("tabindex", "0");
+            tabContent.setAttribute("aria-labelledby", `tab-${tabSystemIdx}-tab-${idx}`);
+            tabContent.setAttribute("id", `tab-system-${tabSystemIdx}-tab-${idx}`);
         });
+    }
+});
 
-        listInstructionSummary[idx].closest("details").open = accordionIndex === idx;
+const url = new URL(window.location);
+
+const accordionIndex = Number(url.searchParams?.get("a") || 0);
+const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
+
+listInstructionSummary.forEach((item, idx) => {
+    item.addEventListener("click", () => {
+        if(listInstructionSummary[idx].closest("details").open) {
+            url.searchParams.delete("a", idx);
+        } else {
+            url.searchParams.set("a", idx);
+        }
+        history.replaceState(null, "", url);
     });
-})();
+
+    listInstructionSummary[idx].closest("details").open = accordionIndex === idx;
+});
+
 
 const generateCopyCodeButton = ($el) => {
     const copyButton = document.createElement("button");
@@ -149,7 +150,7 @@ const regexBeginningSpace = /^ /gm;
 const rootElement = document.querySelector(':root');
 const rootElementStyle = getComputedStyle(rootElement);
 
-document.querySelectorAll("[data-code-sample]").forEach((item) => {
+DOM.listCodeSamples.forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = codeSampleData?.title || "";
     const allowCopy = codeSampleData?.allowCopy || false;
@@ -259,14 +260,13 @@ const getChildren = ($el) => {
     return listChildren;
 }
 
-window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', ({ matches }) => {
-    document.querySelectorAll("[data-code-sample]").forEach((item) => {
+const invertCodeSampleColors = () => {
+    DOM.listCodeSamples.forEach((item) => {
         item.style.color = `rgb(from ${item.style.color} calc(255 - r) calc(255 - g) calc(255 - b))`;
 
         const listChildren = getChildren(item);
         listChildren.forEach((child) => {
-            const currentColor = child?.style?.color //|| window.getComputedStyle(child).getPropertyValue('color');
+            const currentColor = child?.style?.color;
             if (currentColor) {
                 child.style.color = `rgb(from ${currentColor} calc(255 - r) calc(255 - g) calc(255 - b))`;
             }
@@ -278,7 +278,14 @@ window.matchMedia('(prefers-color-scheme: dark)')
                     `rgb(from ${currentBGColor} calc(255 - r) calc(255 - g) calc(255 - b))`
                 );
             }
-        })
-    })
+        });
+    });
+}
 
-})
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    invertCodeSampleColors();
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    invertCodeSampleColors();
+});
