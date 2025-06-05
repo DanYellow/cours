@@ -619,8 +619,9 @@
 
 pre {
     @media (prefers-color-scheme: light) {
-        filter: invert(1);
-        border-color: rgb(from oklch(0.57 0.16 155.16) calc(255 - r) calc(255 - g) calc(255 - b))!important;
+        /* filter: invert(1); */
+        background-color: rgb(from var(--background-color-code) calc(255 - r) calc(255 - g) calc(255 - b))!important;
+        /* border-color: rgb(from oklch(0.57 0.16 155.16) calc(255 - r) calc(255 - g) calc(255 - b))!important; */
     }
 
     &.copie, &.fin-copie {
@@ -640,7 +641,7 @@ pre {
             color: #f0f2f1;
 
             @media (prefers-color-scheme: light) {
-                filter: invert(1);
+                /* filter: invert(1); */
             }
         }
     }
@@ -720,9 +721,10 @@ code {
 .code-line-highlighted {
     --end-opacity: 0.25;
     --start-color: rgba(255, 255, 255, 0.07);
-    --end-color: rgba(255, 255, 255, 0.15);
+    --end-color: rgb(from var(--start-color) r g b / calc(alpha * 2));
+    /* --end-color: rgba(255, 255, 255, 0.15); */
 
-    background-color: var(--start-color);
+    background: var(--start-color);
     transition: background-color 150ms ease-in-out;
     position: relative;
     width: fit-content;
@@ -731,14 +733,14 @@ code {
     padding-right: 0.75rem;
 
     @starting-style {
-        background-color: var(--end-color);
+        background: var(--end-color);
     }
 
     &:hover {
-        background-color: var(--end-color);
+        background: var(--end-color);
 
         &::after, &::before {
-            background-color: var(--end-color);
+            background: var(--end-color);
         }
 
         .line-number {

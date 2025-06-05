@@ -241,3 +241,44 @@ document.querySelectorAll("[data-code-sample]").forEach((item) => {
         }
     });
 });
+
+const getChildren = ($el) => {
+    const listChildren = [];
+    const recursor = ($el) => {
+        if($el.childNodes.length) {
+            $el.childNodes.forEach((child) => {
+                if (child.childNodes.length) {
+                    listChildren.push(child);
+                    recursor(child);
+                }
+            });
+        }
+    }
+
+    recursor($el);
+    return listChildren;
+}
+
+window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', ({ matches }) => {
+    document.querySelectorAll("[data-code-sample]").forEach((item) => {
+        item.style.color = `rgb(from ${item.style.color} calc(255 - r) calc(255 - g) calc(255 - b))`;
+
+        const listChildren = getChildren(item);
+        listChildren.forEach((child) => {
+            const currentColor = child?.style?.color //|| window.getComputedStyle(child).getPropertyValue('color');
+            if (currentColor) {
+                child.style.color = `rgb(from ${currentColor} calc(255 - r) calc(255 - g) calc(255 - b))`;
+            }
+
+            const currentBGColor = window.getComputedStyle(child).getPropertyValue('--start-color')
+            if (currentBGColor) {
+                child.style.setProperty(
+                    '--start-color',
+                    `rgb(from ${currentBGColor} calc(255 - r) calc(255 - g) calc(255 - b))`
+                );
+            }
+        })
+    })
+
+})
