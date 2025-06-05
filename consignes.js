@@ -149,14 +149,14 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     codeSample.querySelectorAll(".code-line-highlighted").forEach((item) => {
         item.addEventListener('mouseover', e => {
             const lineGroup = e.currentTarget.dataset.lineGroup;
-            document.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
+            codeSample.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
                 line.classList.add("hover");
             });
         })
 
         item.addEventListener('mouseout', e => {
             const lineGroup = e.currentTarget.dataset.lineGroup;
-            document.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
+            codeSample.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
                 line.classList.remove("hover");
             });
         })
@@ -164,7 +164,7 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 
     linesLinked.forEach((item, idx) => {
         item.forEach((line) => {
-            const lineHighlighted = document.querySelector(`.code-line-highlighted[data-number="${line}"]`);
+            const lineHighlighted = codeSample.querySelector(`.code-line-highlighted[data-number="${line}"]`);
             if (lineHighlighted) {
                 lineHighlighted.dataset.lineGroup = idx;
             }
@@ -216,6 +216,7 @@ DOM.listCodeSamples.forEach((item) => {
     item.style.position = "relative";
     item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
     item.style.overflowX = "auto";
+    item.style.tabSize = 4;
 
     item.style.removeProperty("font-family");
 

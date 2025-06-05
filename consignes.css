@@ -637,6 +637,7 @@ pre {
             font-size: 1rem;
             top: 50%;
             color: #f0f2f1;
+            z-index: 9999;
         }
     }
 
@@ -764,6 +765,10 @@ code {
         padding-inline: 0.35rem 0.75rem;
         background-color: white;
         border-top-left-radius: 0.5rem;
-        color: black;
+        color: var(--background-color-code);
+        max-width: 150px;
+        text-overflow: clip;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }
