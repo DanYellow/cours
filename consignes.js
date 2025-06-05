@@ -135,8 +135,12 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, codeSample) => {
     lineHeight = Math.ceil(lineHeight);
 
     let output = "";
-    codeSample.getHTML().split("\n").forEach((line, lineNumber) => {
-        const nextLine = linesToHighlight.includes(lineNumber + 1) ? `<div class="code-line-highlighted">${line}</div>` : `${line}\n`;
+    codeSample.getHTML().split("\n").forEach((line, idx) => {
+        const lineNumber = idx + 1;
+        const nextLine = linesToHighlight.includes(lineNumber) ?
+            `<div data-number="${lineNumber}" class="code-line-highlighted">${line}</div>` :
+            `${line}\n`
+        ;
         output += nextLine;
     });
 
