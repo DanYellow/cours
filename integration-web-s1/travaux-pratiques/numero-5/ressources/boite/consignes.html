@@ -3,21 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modèle de boite et background TP</title>
+    <title>Modèle de boite et background - Consignes TP</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
     />
+    <link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
 
     <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
-    <!-- Début: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Fin: Code à copier dans un fichier externe. Si vous ne souhaitez pas travailler directement dans ce fichier -->
   </head>
 
   <body>
-    <header>
-      <h1 class="h1">Consignes de la pratique</h1>
+    <header class="consignes-en-tete">
+      <h1 class="titre-consignes">Modèle de boite et background — Consignes TP</h1>
       <details class="consignes-conteneur" open>
         <summary>
           <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
@@ -59,13 +57,7 @@
             </ul>
             <p class="note-information">
               N'oubliez pas de valider votre contraste avec la console du
-              navigateur ou le site
-              <a
-                href="https://webaim.org/resources/contrastchecker/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >contrastchecker (ouverture dans un nouvel onglet)</a
-              >
+              navigateur ou le site <a href="https://contrast.report/" target="_blank" rel="noopener noreferrer">contrast.report (ouverture dans un nouvel onglet)</a>.
             </p>
           </li>
         </ol>
@@ -78,6 +70,7 @@
         <ol class="liste-consignes">
             <li>Créez un paragraphe (balise &lt;p>) avec dedans une balise &lt;span></li>
             <li>Ajoutez sur ces deux balises la même classe CSS</li>
+            <li>Via une classe, rajoutez un background-color différent pour la balise &lt;p> et &lt;span></li>
             <li>
                 Dans le fichier CSS crée précedemment, ajoutez une nouvelle classe avec dedans les propriétés CSS "height" et "width"
                 <ul class="liste-consignes">
@@ -136,7 +129,7 @@
         </summary>
         <ol class="liste-consignes">
             <li>
-                Créez une nouvelle balise de type bloc (&lt;div>, &lt;p>, &lt;section>...) avec une nouvelle classe qui possède la propriété CSS margin. Les marges doivent être différentes pour chaque côté
+                Créez une nouvelle balise de type bloc (&lt;div>, &lt;p>, &lt;section>, ...) avec une nouvelle classe qui possède la propriété CSS margin. Les marges doivent être différentes pour chaque côté
                 <ul class="liste-consignes">
                     <li>
                         <a
@@ -203,28 +196,28 @@
             Créez une nouvelle balise (de type bloc) avec une nouvelle classe. Cette classe doit répondre aux conditions suivantes :
             <ul class="liste-consignes">
               <li>
-                Avoir une largeur fixe. Exemple : <code>width: 420px</code>.
+                Avoir une largeur fixe. Exemple : <code>width: 420px</code>
               </li>
               <li>
-                Avoir une bordure avec une épaisseur assez importante identique (au moins à gauche et à droite). Exemple : <code>border: 6px solid #45BAFE</code>.
+                Avoir une bordure avec une épaisseur assez importante identique (au moins à gauche et à droite). Exemple : <code>border: 6px solid #45BAFE</code>
               </li>
               <li>
-                Avoir une marge intérieure (padding) fixe et identique (au moins à gauche et à droite). Exemple : <code>padding: 20px</code>.
+                Avoir une marge intérieure (padding) fixe et identique (au moins à gauche et à droite). Exemple : <code>padding: 20px</code>
               </li>
             </ul>
           </li>
           <li>
             Récupérez la largeur de cette nouvelle balise grâce à la console du navigateur. Quelle valeur pour la largeur de la balise obtenez-vous ?
-            <section class="note-importante">
+            <section class="note-information">
                 <p>La largeur doit être récupérée en survolant la balise dans l'onglet "Elements/Inspector" ou en utilisant l'outil "flèche" (premier outil à gauche dans la console)</p>
                 <figure>
                     <img src="capture.jpg" alt="">
                     <figcaption>En survolant une balise dans l'onglet "Elements/Inspector", on affiche la dimension de la balise</figcaption>
                 </figure>
+                <p>
+                    Pour rappel, on affiche la console du navigateur grâce à la touche <kbd>F12</kbd> ou <code>clic droit > Inspecter / Examiner l'élément</code>.
+                </p>
             </section>
-            <p class="note-information">
-                Pour rappel, on affiche la console du navigateur grâce à la touche <kbd>F12</kbd> ou <code>clic droit > Inspecter / Examiner l'élément</code>.
-            </p>
           </li>
         </ol>
       </details>
@@ -235,7 +228,7 @@
         <ol class="liste-consignes">
           <li>
             Ajoutez le sélecteur suivant dans votre fichier CSS (de préférence au début du fichier)
-            <pre data-code-sample='{"allowCopy": true}'  style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">*, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::before</span>, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::after</span> {
+            <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">*, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::before</span>, *<span style="color: rgb(181, 189, 104); font-weight: 400;">::after</span> {
     <span style="color: rgb(178, 148, 187); font-weight: 400;">box-sizing</span>: border-box;
 }</pre>
           </li>
