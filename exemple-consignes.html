@@ -12,6 +12,54 @@
 
         <link rel="stylesheet" href="consignes.css" />
         <script src="consignes.js" defer></script>
+
+        <style>
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            p {
+                margin-block: 3rem 0;
+                font-size: 1.25rem;
+            }
+
+            .code-exemple {
+                display: block;
+                white-space: pre-wrap;
+                padding: 15px;
+                background: #f2f2f2;
+                border: 1px solid #dadada;
+                color: black;
+                overflow-x: auto;
+                user-select: all;
+                tab-size: 4;
+            }
+
+            .source-title {
+                position: relative;
+                margin-top: 1.75rem;
+
+                &::before {
+                    content: "";
+                    height: 1.75rem;
+                    background-color: rgb(12, 139, 0);
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 2px;
+                    bottom: 100%;
+                    z-index: -1;
+                }
+            }
+
+            [data-generate-source-code] {
+                display: contents;
+            }
+        </style>
     </head>
 
     <body>
@@ -19,10 +67,24 @@
             <h1 class="titre-consignes">
                 Design system — Consignes TP
             </h1>
+            <div>
+                <input checked type="checkbox" name="" id="source_code" data-display-source-code="">
+                <label for="source_code">Afficher code source</label>
+            </div>
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
             <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
-            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Pour plus d'informations sur leur fonctionne, voir fichier "LISTE-OUTILS.md".</p>
+            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
+
+            <pre data-code-sample='{"title": "Ressources de base", "allowCopy": true}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;stylesheet&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.css&quot;</span> /&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;image/png&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png&quot;</span> /&gt;</span></pre>
+
+            <div data-generate-source-code="">
+                <p class="titre-consignes">
+                    Titre — Consignes TP
+                </p>
+            </div>
             <details class="consignes-conteneur" open>
                 <summary>
                     <p class="h1">Liste non-ordonnée (cliquer pour afficher / cacher)</p>
@@ -43,47 +105,59 @@
                 </ol>
             </details>
 
-            <p class="note-information">Message à caractère informatif</p>
-            <p class="note-attention">Message à caractère informatif</p>
-            <p class="note-importante">Message à caractère informatif</p>
+            <div data-generate-source-code="">
+                <p class="note-information">Message à caractère informatif</p>
+            </div>
+            <div data-generate-source-code="">
+                <p class="note-attention">Message à caractère informatif</p>
+            </div>
+            <div data-generate-source-code="">
+                <div class="note-importante">
+                    <p>Message à caractère informatif</p>
+                </div>
+            </div>
 
-            <div class="inner-note">
-                <blockquote>
-                    Diplôme professionnel de niveau 6 (bac + 3), le BUT MMI (métiers du multimédia et de l’Internet) forme à des activités relevant de domaines variés, allant de la conception de sites Internet à la gestion de communautés sur les réseaux sociaux, en passant par la production de produits multimédias (jeux vidéo, applications mobiles, etc.) ou le développement de services Web.
-                </blockquote>
-                <p>— onisep.fr</p>
+            <div data-generate-source-code="">
+                <div class="inner-note">
+                    <blockquote>
+                        Diplôme professionnel de niveau 6 (bac + 3), le BUT MMI (métiers du multimédia et de l’Internet) forme à des activités relevant de domaines variés, allant de la conception de sites Internet à la gestion de communautés sur les réseaux sociaux, en passant par la production de produits multimédias (jeux vidéo, applications mobiles, etc.) ou le développement de services Web.
+                    </blockquote>
+                    <p>— onisep.fr</p>
+                </div>
             </div>
 
             <h2>Systeme d'onglets</h2>
-            <div class="tab-wrapper" role="tablist">
-                <ul class="list-tabs">
-                    <li>
-                        <button class="select-tab" data-tab-name="onglet-a">
+            <div data-generate-source-code="">
+                <div class="tab-wrapper" role="tablist">
+                    <ul class="list-tabs">
+                        <li>
+                            <button class="select-tab" data-tab-name="onglet-a">
+                                Onglet A
+                            </button>
+                        </li>
+                        <li>
+                            <button class="select-tab" data-tab-name="onglet-b">
+                                Onglet B
+                            </button>
+                        </li>
+                        <li>
+                            <button class="select-tab" data-tab-name="onglet-c">
+                                Onglet C
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="list-tab-content">
+                        <li class="tab-content" data-tab-content="onglet-a">
                             Onglet A
-                        </button>
-                    </li>
-                    <li>
-                        <button class="select-tab" data-tab-name="onglet-b">
+                        </li>
+                        <li class="tab-content" data-tab-content="onglet-b">
                             Onglet B
-                        </button>
-                    </li>
-                    <li>
-                        <button class="select-tab" data-tab-name="onglet-c">
+                        </li>
+                        <li class="tab-content" data-tab-content="onglet-c">
                             Onglet C
-                        </button>
-                    </li>
-                </ul>
-                <ul class="list-tab-content">
-                    <li class="tab-content" data-tab-content="onglet-a">
-                        Onglet A
-                    </li>
-                    <li class="tab-content" data-tab-content="onglet-b">
-                        Onglet B
-                    </li>
-                    <li class="tab-content" data-tab-content="onglet-c">
-                        Onglet C
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <h2>Mise en page de code</h2>
@@ -128,21 +202,49 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
 });</pre>
 
 <p>Indication du langage</p>
-<pre data-code-sample='{"language": "C-sharp"}' style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// Un entier</span>
+<div data-generate-source-code="">
+    <pre data-code-sample='{"language": "C-sharp"}' style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// Un entier</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">int</span> nbYearsBUT = <span style="color: rgb(121, 192, 255); font-weight: 400;">3</span>;
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// Une chaîne de caractères</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">string</span> playerName = <span style="color: rgb(165, 214, 255); font-weight: 400;">"player1"</span>;
 <span style="color: rgb(139, 148, 158); font-weight: 400;">// Un tableau de chaînes de caractères</span>
 <span style="color: rgb(255, 166, 87); font-weight: 400;">string</span>[] listFormations = {<span style="color: rgb(165, 214, 255); font-weight: 400;">"MMI"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"TC"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"GE2I"</span>, <span style="color: rgb(165, 214, 255); font-weight: 400;">"MT2E"</span>};</pre>
+</div>
 
 <p>Indication du langage + Lignes de code + Surlignement de lignes + Lien entre lignes + Copie + titre</p>
+<div data-generate-source-code="">
 <pre data-language="Python" data-code-sample='{"title": "Nettoyage DataFrame", "allowCopy": true,"displayLineCode": true, "linesHighlighted": "4, 5", "linesLinked": [[4, 5]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; ">df_clean = df.copy()
 
 df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>].replace(<span style="color: rgb(171, 227, 56); font-weight: 400;">','</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">''</span>, inplace=<span style="color: rgb(245, 171, 53); font-weight: 400;">True</span>, regex=<span style="color: rgb(245, 171, 53); font-weight: 400;">True</span>)
 df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"OBS_VALUE"</span>].astype(<span style="color: rgb(171, 227, 56); font-weight: 400;">"int"</span>)
 df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"GEO"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"GEO"</span>].astype(<span style="color: rgb(171, 227, 56); font-weight: 400;">"string"</span>)
-df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>].<span style="color: rgb(245, 171, 53); font-weight: 400;">str</span>.replace(<span style="color: rgb(171, 227, 56); font-weight: 400;">'_\d+'</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">''</span>)
-</pre>
+df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>] = df_clean[<span style="color: rgb(171, 227, 56); font-weight: 400;">"PRENOM"</span>].<span style="color: rgb(245, 171, 53); font-weight: 400;">str</span>.replace(<span style="color: rgb(171, 227, 56); font-weight: 400;">'_\d+'</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">''</span>)</pre>
+</div>
 
+<template data-tpl-id="source-code">
+    <div data-source-code="">
+        <p class="source-title">Code source</p>
+        <code class="code-exemple">...</code>
+    </div>
+</template>
+
+<script>
+    document.querySelectorAll("[data-generate-source-code]").forEach((e) => {
+        const template = document.querySelector('[data-tpl-id="source-code"]');
+
+        const target = document.importNode(template.content, true);
+
+        let sourceCode = e.innerHTML;
+        sourceCode = sourceCode.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        sourceCode = sourceCode.trim();
+        target.querySelector("code").innerHTML = sourceCode;
+
+        e.after(target);
+    });
+
+    document.querySelector("[data-display-source-code]").addEventListener("change", (e) => {
+        document.querySelectorAll("[data-source-code]").forEach(($el) => $el.style.display = (e.currentTarget.checked) ? "block" : "none")
+    });
+</script>
     </body>
 </html>
