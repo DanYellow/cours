@@ -179,15 +179,22 @@ const regexBeginningSpace = /^ /gm;
 const rootElement = document.querySelector(':root');
 const rootElementStyle = getComputedStyle(rootElement);
 
+const trycatch = (func, fail) => {
+    try { return func() }
+    catch(e) { return fail }
+}
+
 DOM.listCodeSamples.forEach((item) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
-    const codeTitle = codeSampleData?.title || "";
-    const allowCopy = codeSampleData?.allowCopy || false;
-    const displayLineCode = codeSampleData?.displayLineCode || false;
+    const codeTitle = item.dataset?.title || codeSampleData?.title || "";
+    const allowCopy = ("allowCopy" in item.dataset) || codeSampleData?.allowCopy || false;
+    const displayLineCode = ("displayLineCode" in item.dataset) || codeSampleData?.displayLineCode || false;
+
+    const linesHighlightedRaw = (item.dataset?.linesHighlighted || codeSampleData?.linesHighlighted)
     const linesHighlighted = (
-        Array.isArray(codeSampleData?.linesHighlighted) ?
-            codeSampleData?.linesHighlighted.filter(Number.isInteger) :
-            (String(codeSampleData?.linesHighlighted || ""))
+        Array.isArray(linesHighlightedRaw) ?
+            linesHighlightedRaw.filter(Number.isInteger) :
+            (String(linesHighlightedRaw || ""))
                 .split(",")
                 .map((item) => item.trim())
                 .filter((item) => item.length)
@@ -195,9 +202,10 @@ DOM.listCodeSamples.forEach((item) => {
                 .filter(Number.isInteger)
     );
 
-    const isNestedArray = Array.isArray(codeSampleData?.linesLinked) && codeSampleData?.linesLinked.flat().length != codeSampleData?.linesLinked.length;
+    const linesLinkedRaw = trycatch(() => JSON.parse(item.dataset?.linesLinked), null) || codeSampleData?.linesLinked
+    const isNestedArray = Array.isArray(linesLinkedRaw) && linesLinkedRaw.flat().length != linesLinkedRaw.length;
     const linesLinked = isNestedArray ?
-        codeSampleData?.linesLinked.map(a => a.filter(Number.isInteger)) :
+        linesLinkedRaw.map(a => a.filter(Number.isInteger)) :
         [];
 
     const language = codeSampleData?.language;
