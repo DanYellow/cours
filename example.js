@@ -57,8 +57,8 @@ const dictFunctions = {
     },
     "displayLineCode": (isEnabled, $el) => {
         $el.querySelectorAll(".line-number").forEach((line) => {
-            if (isEnabled) {
-            line.attributeStyleMap?.delete("display");
+        if (isEnabled) {
+            line.style.removeProperty("display")
         } else {
             line.style.display = "none";
         }
@@ -80,7 +80,7 @@ const dictFunctions = {
         const copyButton = prev($el, ".header-code-sample").querySelector(".copy-button");
         copyButton.hidden = !isEnabled;
         if (isEnabled) {
-            copyButton.attributeStyleMap?.delete("display");
+            copyButton.style.removeProperty("display");
         } else {
             copyButton.style.display = "none";
         }
@@ -93,7 +93,6 @@ const dictFunctions = {
             if(isEnabled) {
                 line.dataset.lineGroup = line.dataset.lineGroupCopy;
             } else {
-                line.dataset.lineGroupCopy = line.dataset.lineGroup;
                 delete line.dataset.lineGroup;
             }
         })
