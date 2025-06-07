@@ -49,7 +49,6 @@ const dictOptions = {
     "language": "JavaScript",
 }
 
-
 const dictFunctions = {
     "title": (isEnabled, $el) => {
         const title = prev($el, ".header-code-sample").querySelector(".title");
@@ -57,11 +56,11 @@ const dictFunctions = {
     },
     "displayLineCode": (isEnabled, $el) => {
         $el.querySelectorAll(".line-number").forEach((line) => {
-        if (isEnabled) {
-            line.style.removeProperty("display")
-        } else {
-            line.style.display = "none";
-        }
+            if (isEnabled) {
+                line.style.removeProperty("display")
+            } else {
+                line.style.display = "none";
+            }
         })
     },
     "linesHighlighted": (isEnabled, $el) => {

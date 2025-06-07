@@ -53,6 +53,19 @@
                     bottom: 100%;
                     z-index: -1;
                 }
+
+                &::after {
+                    content: "";
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    background-color: rgb(12, 139, 0);
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 0;
+                    border-radius: 50%;
+                }
             }
 
             [data-generate-source-code] {
@@ -79,7 +92,7 @@
             </div>
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
             <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
-            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
+            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
 
             <h2>Ressources de base</h2>
@@ -186,7 +199,7 @@
                     </div>
                     <div>
                         <input checked type="checkbox" name="" id="copy" data-modify-sample-code="allowCopy">
-                        <label for="copy">Permettre copie</label>
+                        <label for="copy">Afficher copie bouton</label>
                     </div>
                     <div>
                         <input checked type="checkbox" name="" id="lang" data-modify-sample-code="language">
