@@ -128,7 +128,6 @@ listInputs.forEach((input) => {
             delete codeSampleExampleOptions[optionSelected];
         }
 
-
         dictFunctions[optionSelected](e.currentTarget.checked, codeSampleExample);
         codeSampleExample.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
         codeSampleExampleClone.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);

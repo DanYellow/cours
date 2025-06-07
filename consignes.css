@@ -630,6 +630,10 @@
 
     &:has(.title[hidden]):has(.copy-button[hidden]) {
         display: none;
+
+        + .code-snippet {
+            border-radius: 0.5rem!important;
+        }
     }
 }
 
