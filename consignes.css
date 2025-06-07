@@ -627,6 +627,10 @@
         appearance: button;
         align-self: center;
     }
+
+    &:has(.title[hidden]):has(.copy-button[hidden]) {
+        display: none;
+    }
 }
 
 pre {

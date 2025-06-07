@@ -53,11 +53,7 @@ const dictOptions = {
 const dictFunctions = {
     "title": (isEnabled, $el) => {
         const title = prev($el, ".header-code-sample").querySelector(".title");
-        if (isEnabled) {
-            title.hidden = false;
-        } else {
-            title.hidden = true;
-        }
+        title.hidden = !isEnabled;
     },
     "displayLineCode": (isEnabled, $el) => {
         $el.querySelectorAll(".line-number").forEach((line) => {
@@ -80,6 +76,7 @@ const dictFunctions = {
     },
     "allowCopy": (isEnabled, $el) => {
         const copyButton = prev($el, ".header-code-sample").querySelector(".copy-button");
+        copyButton.hidden = !isEnabled;
         if (isEnabled) {
             copyButton.attributeStyleMap?.delete("display");
         } else {
