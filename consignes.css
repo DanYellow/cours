@@ -167,11 +167,11 @@
     border-radius: 1rem;
     font-size: 1.15rem;
     position: relative;
-    background-color: light-dark(inherit, #333);
+    background-color: Background;
 
     @media (prefers-color-scheme: dark) {
         a:link {
-            color: white;
+            color: var(--white);
         }
     }
 
@@ -497,7 +497,7 @@
         border: none;
         background-color: transparent;
         position: relative;
-        color: light-dark(var(--black), rgb(241, 241, 241));
+        color: light-dark(var(--black), var(--white));
         font-size: 1rem;
         opacity: 0.8;
         transition: opacity 350ms;
@@ -546,7 +546,7 @@
     }
 
     .list-tab-content {
-        border: 1px solid light-dark(var(--black), rgb(241, 241, 241));
+        border: 1px solid light-dark(var(--black), var(--white));
         padding: 0.5rem;
         border-bottom-left-radius: 0.35rem;
         border-bottom-right-radius: 0.35rem;
@@ -576,7 +576,7 @@
 
     &::before {
         content: "";
-        background-color: var(--color, light-dark(var(--black), rgb(241, 241, 241)));
+        background-color: var(--color, light-dark(var(--black), var(--white)));
         width: 15px;
         height: 15px;
         display: inline-block;
@@ -591,7 +591,7 @@
         top: 25px;
         width: 1px;
         height: 100%;
-        background-color: var(--color, light-dark(var(--black), rgb(241, 241, 241)));
+        background-color: var(--color, light-dark(var(--black), var(--white)));
     }
 }
 
@@ -614,6 +614,15 @@
         padding: 0.5rem 0.75rem;
         border-radius: 0.75rem;
         font-size: 1rem;
+    }
+
+    .copy-button {
+        padding: 0.5rem;
+        display: flex;
+        gap: 0.2rem;
+        justify-content: center;
+        align-self: start;
+        appearance: button;
     }
 }
 
