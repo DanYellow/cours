@@ -87,6 +87,9 @@ const dictFunctions = {
     },
     "linesLinked": (isEnabled, $el) => {
         $el.querySelectorAll(".code-line-highlighted").forEach((line) => {
+            if(line.dataset.lineGroup) {
+                line.dataset.lineGroupCopy = line.dataset.lineGroup;
+            }
             if(isEnabled) {
                 line.dataset.lineGroup = line.dataset.lineGroupCopy;
             } else {
