@@ -49,12 +49,65 @@ const dictOptions = {
     "language": "JavaScript",
 }
 
+
+const dictFunctions = {
+    "title": (isEnabled, $el) => {
+        const title = prev($el, ".header-code-sample").querySelector(".title");
+        if (isEnabled) {
+            title.hidden = false;
+        } else {
+            title.hidden = true;
+        }
+    },
+    "displayLineCode": (isEnabled, $el) => {
+        $el.querySelectorAll(".line-number").forEach((line) => {
+            if (isEnabled) {
+            line.attributeStyleMap?.delete("display");
+        } else {
+            line.style.display = "none";
+        }
+        })
+    },
+    "linesHighlighted": (isEnabled, $el) => {
+        const lineHighlightedStartColor = window.getComputedStyle(document.querySelector('.code-line-highlighted')).getPropertyValue('--line-highlighted-start-color')
+
+        $el.querySelectorAll(".code-line-highlighted").forEach((line) => {
+            line.style.setProperty(
+                '--line-highlighted-start-color',
+                isEnabled ? lineHighlightedStartColor : "transparent"
+            );
+        })
+    },
+    "allowCopy": (isEnabled, $el) => {
+        const copyButton = prev($el, ".header-code-sample").querySelector(".copy-button");
+        if (isEnabled) {
+            copyButton.attributeStyleMap?.delete("display");
+        } else {
+            copyButton.style.display = "none";
+        }
+    },
+    "linesLinked": (isEnabled, $el) => {
+
+    },
+    "language": (isEnabled, $el) => {
+        $el.dataset.language = isEnabled ? dictOptions["language"] : "";
+    },
+}
+
 function next(el, selector) {
-  const nextEl = el.nextElementSibling;
-  if (!selector || (nextEl && nextEl.matches(selector))) {
-    return nextEl;
-  }
-  return null;
+    const nextEl = el.nextElementSibling;
+    if (!selector || (nextEl && nextEl.matches(selector))) {
+        return nextEl;
+    }
+    return null;
+}
+
+function prev(el, selector) {
+    const prevEl = el.previousElementSibling;
+    if (!selector || (prevEl && prevEl.matches(selector))) {
+        return prevEl;
+    }
+    return null;
 }
 
 listInputs.forEach((input) => {
@@ -67,6 +120,8 @@ listInputs.forEach((input) => {
         } else {
             delete codeSampleExampleOptions[optionSelected];
         }
+
+        dictFunctions[optionSelected](e.currentTarget.checked, codeSampleExample);
         codeSampleExample.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
         codeSampleExampleClone.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
 
