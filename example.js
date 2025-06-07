@@ -65,10 +65,14 @@ const dictFunctions = {
         })
     },
     "linesHighlighted": (isEnabled, $el) => {
-        const lineHighlightedStartColor = window.getComputedStyle(document.querySelector('.code-line-highlighted')).getPropertyValue('--line-highlighted-start-color')
-
+        const baseColor = "rgba(255, 255, 255, 0.07)";
+        const color = window.matchMedia('(prefers-color-scheme: dark)').matches ?
+                baseColor :
+                `rgb(from ${baseColor} calc(255 - r) calc(255 - g) calc(255 - b))`
         $el.querySelectorAll(".code-line-highlighted").forEach((line) => {
             line.style.setProperty(
+                '--line-highlighted-start-color',
+                isEnabled ? color : "transparent"
                 '--line-highlighted-start-color',
                 isEnabled ? lineHighlightedStartColor : "transparent"
             );
