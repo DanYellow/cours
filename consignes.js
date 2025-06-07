@@ -90,11 +90,7 @@ listInstructionSummary.forEach((item, idx) => {
 const generateCopyCodeButton = ($el) => {
     const copyButton = document.createElement("button");
     copyButton.textContent = "Copier";
-    copyButton.style.padding = "0.5rem";
-    copyButton.style.display = "flex";
-    copyButton.style.gap = "0.2rem";
-    copyButton.style.justifyContent = "center";
-    copyButton.style.alignSelf = "start";
+    copyButton.classList.add("copy-button")
 
     const imgButton = document.createElement("img");
     imgButton.style.transition = "width 350ms";
