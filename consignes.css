@@ -16,6 +16,9 @@
 
     --font-family: system-ui;
 
+    /* --line-highlighted-start-color: rgba(255, 255, 255, 0.7);
+    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2)); */
+
     --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
     --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
     --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
@@ -621,8 +624,8 @@
         display: flex;
         gap: 0.2rem;
         justify-content: center;
-        align-self: start;
         appearance: button;
+        align-self: center;
     }
 }
 
@@ -722,11 +725,10 @@ code {
 }
 
 .code-line-highlighted {
-    --end-opacity: 0.25;
-    --start-color: rgba(255, 255, 255, 0.07);
-    --end-color: rgb(from var(--start-color) r g b / calc(alpha * 2));
+    --line-highlighted-start-color: rgba(255, 255, 255, 0.07);
+    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2));
 
-    background: var(--start-color);
+    background: var(--line-highlighted-start-color);
     transition: background-color 150ms ease-in-out;
     position: relative;
     width: fit-content;
@@ -735,14 +737,14 @@ code {
     padding-right: 0.75rem;
 
     @starting-style {
-        background: var(--end-color);
+        background: var(--line-highlighted-end-color);
     }
 
     &:hover, &.hover {
-        background: var(--end-color);
+        background: var(--line-highlighted-end-color);
 
         &::after, &::before {
-            background: var(--end-color);
+            background: var(--line-highlighted-end-color);
         }
 
         .line-number {
@@ -753,7 +755,7 @@ code {
     &::after {
         content: "";
         display: block;
-        background-color: var(--start-color);
+        background-color: var(--line-highlighted-start-color);
         position: absolute;
         top: 0;
         bottom: 0;
