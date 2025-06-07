@@ -73,8 +73,6 @@ const dictFunctions = {
             line.style.setProperty(
                 '--line-highlighted-start-color',
                 isEnabled ? color : "transparent"
-                '--line-highlighted-start-color',
-                isEnabled ? lineHighlightedStartColor : "transparent"
             );
         })
     },
@@ -88,7 +86,14 @@ const dictFunctions = {
         }
     },
     "linesLinked": (isEnabled, $el) => {
-
+        $el.querySelectorAll(".code-line-highlighted").forEach((line) => {
+            if(isEnabled) {
+                line.dataset.lineGroup = line.dataset.lineGroupCopy;
+            } else {
+                line.dataset.lineGroupCopy = line.dataset.lineGroup;
+                delete line.dataset.lineGroup;
+            }
+        })
     },
     "language": (isEnabled, $el) => {
         $el.dataset.language = isEnabled ? dictOptions["language"] : "";
@@ -121,6 +126,7 @@ listInputs.forEach((input) => {
         } else {
             delete codeSampleExampleOptions[optionSelected];
         }
+
 
         dictFunctions[optionSelected](e.currentTarget.checked, codeSampleExample);
         codeSampleExample.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
