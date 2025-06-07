@@ -11,6 +11,7 @@
         />
 
         <link rel="stylesheet" href="consignes.css" />
+        <script src="example.js" defer></script>
         <script src="consignes.js" defer></script>
 
         <style>
@@ -60,8 +61,9 @@
 
             .options-code-sample-list {
                 display: grid;
-                grid-auto-columns: 1fr;
+                grid-auto-columns: fit-content(1fr);
                 grid-auto-flow: column dense;
+                column-gap: 0.5rem;
             }
         </style>
     </head>
@@ -169,30 +171,34 @@
 
             <div class="options-code-sample-list">
                 <div>
-                    <input checked type="checkbox" name="" id="title" data-modify-sample-code="">
+                    <input checked type="checkbox" name="" id="title" data-modify-sample-code="title">
                     <label for="title">Afficher titre</label>
                 </div>
                 <div>
-                    <input checked type="checkbox" name="" id="lines_code" data-modify-sample-code="">
+                    <input checked type="checkbox" name="" id="lines_code" data-modify-sample-code="displayLineCode">
                     <label for="lines_code">Afficher lignes</label>
                 </div>
                 <div>
-                    <input checked type="checkbox" name="" id="copy" data-modify-sample-code="">
+                    <input checked type="checkbox" name="" id="lines_highlighted" data-modify-sample-code="linesHighlighted">
+                    <label for="lines_highlighted">Mettre en avant des lignes</label>
+                </div>
+                <div>
+                    <input checked type="checkbox" name="" id="copy" data-modify-sample-code="allowCopy">
                     <label for="copy">Permettre copie</label>
                 </div>
                 <div>
-                    <input checked type="checkbox" name="" id="lang" data-modify-sample-code="">
+                    <input checked type="checkbox" name="" id="lang" data-modify-sample-code="language">
                     <label for="lang">Afficher langage</label>
                 </div>
                 <div>
-                    <input checked type="checkbox" name="" id="copy" data-modify-sample-code="">
-                    <label for="copy">Lier des lignes</label>
+                    <input checked type="checkbox" name="" id="lines_linked" data-modify-sample-code="linesLinked">
+                    <label for="lines_linked">Lier des lignes</label>
                 </div>
             </div>
 
 <!-- data-language="Python" data-code-sample='{"title": "Nettoyage DataFrame", "allowCopy": true,"displayLineCode": true, "linesHighlighted": "4, 5", "linesLinked": [[4, 5]]}'  -->
-<div data-generate-source-code="">
-<pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "4, 11, 5"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
+<div data-generate-source-code="code-example">
+<pre data-code-sample='{"title": "Exemple de code", "displayLineCode": true, "linesHighlighted": "4, 11, 5", "allowCopy": true, "linesLinked": [[4, 11]], "language": "JavaScript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
 
 <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> form = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-form]"</span>);
 form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"submit"</span>, <span style="color: rgb(220, 198, 224); font-weight: 400;">async</span> (e) =&gt; {
@@ -211,24 +217,5 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
         <code class="code-exemple">...</code>
     </div>
 </template>
-
-<script>
-    const quotesJSON = /(")({.+})(")/g;
-    document.querySelectorAll("[data-generate-source-code]").forEach((e) => {
-        const template = document.querySelector('[data-tpl-id="source-code"]');
-        const target = document.importNode(template.content, true);
-
-        let sourceCode = e.innerHTML;
-        sourceCode = sourceCode.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        sourceCode = sourceCode.trim();
-        target.querySelector("code").innerHTML = sourceCode.replace(quotesJSON, "'$2'");
-
-        e.after(target);
-    });
-
-    document.querySelector("[data-display-source-code]").addEventListener("change", (e) => {
-        document.querySelectorAll("[data-source-code]").forEach(($el) => $el.style.display = (e.currentTarget.checked) ? "block" : "none")
-    });
-</script>
     </body>
 </html>
