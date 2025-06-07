@@ -74,9 +74,11 @@
 
             .options-code-sample-list {
                 display: grid;
-                grid-auto-columns: fit-content(1fr);
-                grid-auto-flow: column dense;
                 column-gap: 0.5rem;
+
+                @media (width >= 1024px) {
+                    grid-auto-flow: column dense;
+                }
             }
         </style>
     </head>
@@ -210,10 +212,12 @@
                         <label for="lines_linked">Lier des lignes</label>
                     </div>
                 </div>
+                <h3>data-code-sample</h3>
+                <code class="code-exemple" style="max-width: 100%; margin-top: 1.25rem;" data-code-sample-options></code>
             </fieldset>
 
         <div data-generate-source-code="code-example">
-            <pre data-code-sample='{"title": "Exemple de code", "displayLineCode": true, "linesHighlighted": "4, 11, 5", "allowCopy": true, "linesLinked": [[4, 11]], "language": "JavaScript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
+            <pre data-code-sample='{"title": "Exemple de code", "displayLineCode": true, "linesHighlighted": "4, 11, 5", "allowCopy": true, "linesLinked": [[4, 11]], "language": "JavaScript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400;"><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
 
 <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> form = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-form]"</span>);
 form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"submit"</span>, <span style="color: rgb(220, 198, 224); font-weight: 400;">async</span> (e) =&gt; {

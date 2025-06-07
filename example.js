@@ -31,6 +31,7 @@ document
             );
     });
 
+const codeSampleExampleJSONOptions = document.querySelector('[data-code-sample-options]')
 const codeSampleExample = document.querySelector('[data-generate-source-code="code-example"] [data-code-sample]')
 
 const codeSampleExampleClone = codeSampleExample.cloneNode(true);
@@ -117,6 +118,8 @@ function prev(el, selector) {
     return null;
 }
 
+codeSampleExampleJSONOptions.innerHTML =  JSON.stringify(JSON.parse(codeSampleExample.dataset.codeSample), null, 4);
+
 listInputs.forEach((input) => {
     input.addEventListener("change", (e) => {
         const optionSelected = e.currentTarget.dataset.modifySampleCode;
@@ -131,6 +134,8 @@ listInputs.forEach((input) => {
         dictFunctions[optionSelected](e.currentTarget.checked, codeSampleExample);
         codeSampleExample.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
         codeSampleExampleClone.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
+
+        codeSampleExampleJSONOptions.innerHTML =  JSON.stringify(codeSampleExampleOptions, null, 4);
 
         codeSampleExampleClone.removeAttribute("hidden");
         next(document.querySelector('[data-generate-source-code="code-example"]'), "[data-source-code]")
