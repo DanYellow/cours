@@ -604,6 +604,20 @@
     }
 }
 
+.math-formula-container {
+    border-color: var(--color, light-dark(var(--black), var(--white)));
+    padding: 0.5rem 1rem;
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0.75rem 0;
+
+    legend {
+        padding-inline: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}
+
 .header-code-sample {
     display: flex;
     justify-content: right;
