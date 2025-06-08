@@ -598,6 +598,10 @@
         height: 100%;
         background-color: var(--color, light-dark(var(--black), var(--white)));
     }
+
+    .author, p {
+        margin-block: 1.25rem 0.75rem;
+    }
 }
 
 .header-code-sample {
