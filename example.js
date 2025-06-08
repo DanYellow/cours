@@ -119,7 +119,7 @@ function prev(el, selector) {
     return null;
 }
 
-codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExample.dataset.codeSample), null, 4)}`
+codeSampleExampleJSONOptions.innerHTML = `data-code-sample='${JSON.stringify(JSON.parse(codeSampleExample.dataset.codeSample), null, 4)}'`
 codeSampleExampleJSONOptions.dataset.codeSampleOptions = codeSampleExample.dataset.codeSample
 
 listInputs.forEach((input) => {
@@ -139,9 +139,9 @@ listInputs.forEach((input) => {
         codeSampleExampleClone.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
 
         codeSampleExampleJSONOptions.dataset.codeSampleOptions = JSON.stringify(codeSampleExampleOptions);
-        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${
+        codeSampleExampleJSONOptions.innerHTML = `data-code-sample='${
             JSON.stringify(codeSampleExampleOptions, null, buttonFormatJSON.dataset.formatCode === "one-line" ? 0 : 4)
-        }`;
+        }'`;
 
         codeSampleExampleClone.removeAttribute("hidden");
         next(document.querySelector('[data-generate-source-code="code-example"]'), "[data-source-code]")
@@ -152,13 +152,14 @@ listInputs.forEach((input) => {
 
 document.querySelector("[data-format-code]").addEventListener("click", (e) => {
     const da = e.currentTarget.dataset.formatCode;
+    let identation = 0;
     if(da === "one-line") {
         e.currentTarget.textContent = "Afficher sur une ligne"
         e.currentTarget.dataset.formatCode = "beautiful";
-        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, 4)}`;
+        identation = 4;
     } else {
         e.currentTarget.textContent = "Formatter JSON"
         e.currentTarget.dataset.formatCode = "one-line";
-        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, 0)}`;
     }
+    codeSampleExampleJSONOptions.innerHTML = `data-code-sample='${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, identation)}'`;
 });

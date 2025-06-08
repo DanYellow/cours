@@ -16,9 +16,6 @@
 
     --font-family: system-ui;
 
-    /* --line-highlighted-start-color: rgba(255, 255, 255, 0.7);
-    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2)); */
-
     --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
     --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
     --ease-4: cubic-bezier(0.25, 0, 0.2, 1);

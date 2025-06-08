@@ -32,7 +32,6 @@
                 display: block;
                 white-space: pre-wrap;
                 padding: 1rem;
-                padding-right: 9rem;
                 background: #f2f2f2;
                 border: 1px solid #dadada;
                 color: rgb(14, 13, 13);
@@ -79,6 +78,15 @@
 
                 @media (width >= 1024px) {
                     grid-auto-flow: column dense;
+                }
+            }
+
+            .line-number {
+                transition: opacity .3s ease, display .3s ease allow-discrete;
+                opacity: 1;
+
+                @starting-style {
+                    opacity: 0;
                 }
             }
         </style>
@@ -234,7 +242,7 @@
                 <h3>Data-attribute de la balise &lt;pre></h3>
                 <div style="position: relative;">
                     <button type="button" data-format-code="beautiful" style="position: absolute;right: 0.5rem;top: 0.5rem;">Afficher sur une ligne</button>
-                    <code class="code-exemple" style="max-width: 100%; margin-top: 1.25rem;" data-code-sample-options></code>
+                    <code class="code-exemple" style="max-width: 100%; margin-top: 1.25rem; padding-right: 9rem;" data-code-sample-options></code>
                 </div>
             </fieldset>
 
