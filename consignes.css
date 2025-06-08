@@ -602,7 +602,7 @@
 }
 
 .math-formula-container {
-    border-color: var(--color, light-dark(var(--black), var(--white)));
+    border-color: rgb(from var(--color, light-dark(var(--black), var(--white))) r g b / var(--note-opacity-border));
     padding: 0.5rem 1rem;
     font-size: 1.75rem;
     text-align: center;
