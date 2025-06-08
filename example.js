@@ -31,6 +31,7 @@ document
             );
     });
 
+
 const codeSampleExampleJSONOptions = document.querySelector('[data-code-sample-options]')
 const codeSampleExample = document.querySelector('[data-generate-source-code="code-example"] [data-code-sample]')
 
@@ -118,12 +119,14 @@ function prev(el, selector) {
     return null;
 }
 
-codeSampleExampleJSONOptions.innerHTML =  JSON.stringify(JSON.parse(codeSampleExample.dataset.codeSample), null, 4);
+codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExample.dataset.codeSample), null, 4)}`
+codeSampleExampleJSONOptions.dataset.codeSampleOptions = codeSampleExample.dataset.codeSample
 
 listInputs.forEach((input) => {
     input.addEventListener("change", (e) => {
         const optionSelected = e.currentTarget.dataset.modifySampleCode;
         const codeSampleExampleOptions = JSON.parse(codeSampleExample.dataset.codeSample);
+        const buttonFormatJSON = document.querySelector("[data-format-code]");
 
         if (e.currentTarget.checked) {
             codeSampleExampleOptions[optionSelected] = dictOptions[optionSelected];
@@ -135,11 +138,27 @@ listInputs.forEach((input) => {
         codeSampleExample.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
         codeSampleExampleClone.dataset.codeSample = JSON.stringify(codeSampleExampleOptions);
 
-        codeSampleExampleJSONOptions.innerHTML =  JSON.stringify(codeSampleExampleOptions, null, 4);
+        codeSampleExampleJSONOptions.dataset.codeSampleOptions = JSON.stringify(codeSampleExampleOptions);
+        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${
+            JSON.stringify(codeSampleExampleOptions, null, buttonFormatJSON.dataset.formatCode === "one-line" ? 0 : 4)
+        }`;
 
         codeSampleExampleClone.removeAttribute("hidden");
         next(document.querySelector('[data-generate-source-code="code-example"]'), "[data-source-code]")
             .querySelector(".code-exemple").innerHTML = generateSourceCode(codeSampleExampleClone, false);
         codeSampleExampleClone.hidden = true;
-    })
-})
+    });
+});
+
+document.querySelector("[data-format-code]").addEventListener("click", (e) => {
+    const da = e.currentTarget.dataset.formatCode;
+    if(da === "one-line") {
+        e.currentTarget.textContent = "Afficher sur une ligne"
+        e.currentTarget.dataset.formatCode = "beautiful";
+        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, 4)}`;
+    } else {
+        e.currentTarget.textContent = "Formatter JSON"
+        e.currentTarget.dataset.formatCode = "one-line";
+        codeSampleExampleJSONOptions.innerHTML = `data-code-sample=${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, 0)}`;
+    }
+});
