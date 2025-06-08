@@ -515,7 +515,6 @@
         &::after {
             content: "";
             background-color: currentColor;
-
             position: absolute;
             left: 0;
             right: 0;
@@ -799,6 +798,7 @@ code {
         bottom: 0;
         right: 0;
         padding-inline: 0.35rem 0.75rem;
+        padding-top: 0.15rem;
         background-color: white;
         border-top-left-radius: 0.5rem;
         color: var(--background-color-code);

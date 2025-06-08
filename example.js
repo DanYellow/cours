@@ -81,8 +81,10 @@ const dictFunctions = {
         const copyButton = prev($el, ".header-code-sample").querySelector(".copy-button");
         copyButton.hidden = !isEnabled;
         if (isEnabled) {
+            $el.style.userSelect = "all";
             copyButton.style.removeProperty("display");
         } else {
+            $el.style.userSelect = "auto";
             copyButton.style.display = "none";
         }
     },
