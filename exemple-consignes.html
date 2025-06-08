@@ -89,10 +89,54 @@
                     opacity: 0;
                 }
             }
+
+            .navigation {
+                position: fixed;
+                left: 0;
+                background-color: Background;
+                z-index: 9999;
+                padding: 0.5rem 1rem 0.5rem 0;
+                display: none;
+                @media (width >= 1700px) {
+                    display: revert;
+                }
+            }
+
+            .active {
+                background-color: rgb(193, 225, 253);
+            }
         </style>
     </head>
 
     <body>
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="#ressources">Ressources de base</a>
+                </li>
+                <li>
+                    <a href="#titre">Titre</a>
+                </li>
+                <li>
+                    <a href="#accordeon">Accordéon</a>
+                </li>
+                <li>
+                    <a href="#notes">Notes</a>
+                </li>
+                <li>
+                    <a href="#citation">Citation</a>
+                </li>
+                <li>
+                    <a href="#onglets">Système d'onglets</a>
+                </li>
+                <li>
+                    <a href="#maths">Formule mathématique</a>
+                </li>
+                <li>
+                    <a href="#code">Mise en page de code</a>
+                </li>
+            </ul>
+        </nav>
         <header class="consignes-en-tete">
             <h1 class="titre-consignes">
                 Design system — Consignes TP
@@ -106,16 +150,18 @@
             <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
 
-            <h2>Ressources de base</h2>
+            <h2 id="ressources">Ressources de base</h2>
             <pre data-code-sample='{"allowCopy": true}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;stylesheet&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.css&quot;</span> /&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;image/png&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png&quot;</span> /&gt;</span></pre>
 
+            <h2 id="titre">Titre</h2>
             <div data-generate-source-code="">
                 <p class="titre-consignes">
                     Titre — Consignes TP
                 </p>
             </div>
+            <h2 id="accordeon">Accordéon</h2>
             <details class="consignes-conteneur" open>
                 <summary>
                     <p class="h1">Liste non-ordonnée (cliquer pour afficher / cacher)</p>
@@ -136,6 +182,7 @@
                 </ol>
             </details>
 
+            <h2 id="notes">Notes</h2>
             <div data-generate-source-code="">
                 <p class="note-information">Message à caractère informatif</p>
             </div>
@@ -148,6 +195,7 @@
                 </div>
             </div>
 
+            <h2 id="citation">Citation</h2>
             <div data-generate-source-code="">
                 <div class="inner-note">
                     <blockquote>
@@ -157,7 +205,7 @@
                 </div>
             </div>
 
-            <h2>Systeme d'onglets</h2>
+            <h2 id="onglets">Systeme d'onglets</h2>
             <div data-generate-source-code="">
                 <div class="tab-wrapper" role="tablist">
                     <ul class="list-tabs">
@@ -191,7 +239,7 @@
                 </div>
             </div>
 
-            <h2>Formule mathématique</h2>
+            <h2 id="maths">Formule mathématique</h2>
             <fieldset class="math-formula-container">
                 <legend>Conversion px → rem</legend>
                 <math display="inline-block">
@@ -209,7 +257,7 @@
                     </mrow>
                 </math>
             </fieldset>
-            <h2>Mise en page de code</h2>
+            <h2 id="code">Mise en page de code</h2>
 
             <fieldset style="margin-bottom: 1.25rem;">
                 <legend>Liste options</legend>
