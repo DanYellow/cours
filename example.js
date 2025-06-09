@@ -75,6 +75,11 @@ const dictFunctions = {
                 '--line-highlighted-start-color',
                 isEnabled ? color : "transparent"
             );
+            if(isEnabled) {
+                line.style.pointerEvents = "auto";
+            } else {
+                line.style.pointerEvents = "nones";
+            }
         })
     },
     "allowCopy": (isEnabled, $el) => {
