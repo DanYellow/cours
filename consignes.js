@@ -102,11 +102,17 @@ const generateCopyCodeButton = ($el) => {
     copyButton.addEventListener("click", () => {
         $el.classList.add("copie");
         copyButton.inert = true;
-        navigator.clipboard.writeText(
-            $el.innerText.replaceAll(regexLineCode, "")
-        )
-        imgButton.style.width = "0.95rem";
 
+        const copyEl = document.createElement('div');
+        copyEl.innerHTML = $el.innerHTML;
+        for (const div of copyEl.querySelectorAll(".code-line-highlighted")) {
+            div.replaceWith(...[...div.childNodes, "\n"]);
+        }
+        navigator.clipboard.writeText(
+            copyEl.innerText.replaceAll(regexLineCode, "")
+        );
+
+        imgButton.style.width = "0.95rem";
         imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ic2l6ZS01Ij4NCiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYuNzA0IDQuMTUzYS43NS43NSAwIDAgMSAuMTQzIDEuMDUybC04IDEwLjVhLjc1Ljc1IDAgMCAxLTEuMTI3LjA3NWwtNC41LTQuNWEuNzUuNzUgMCAwIDEgMS4wNi0xLjA2bDMuODk0IDMuODkzIDcuNDgtOS44MTdhLjc1Ljc1IDAgMCAxIDEuMDUtLjE0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg0K";
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             imgButton.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0id2hpdGUiIGNsYXNzPSJzaXplLTUiPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNi43MDQgNC4xNTNhLjc1Ljc1IDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgY2xpcC1ydWxlPSJldmVub2RkIiAvPg0KPC9zdmc+DQo=";
@@ -220,7 +226,6 @@ DOM.listCodeSamples.forEach((item) => {
     item.style.position = "relative";
     item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
     item.style.overflowX = "auto";
-    item.style.tabSize = 4;
 
     item.style.removeProperty("font-family");
 
@@ -229,7 +234,6 @@ DOM.listCodeSamples.forEach((item) => {
     }
 
     if (displayLineCode) {
-        // Display line code
         item.innerHTML = item.getHTML().split('\n').map((line, index) => `<span class="line-number">${index + 1}</span>${line}`).join('\n')
         item.addEventListener("copy", (e) => {
             const selection = document.getSelection();
