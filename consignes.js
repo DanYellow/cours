@@ -174,16 +174,14 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     })
 }
 
-const regexCopyText = /copier$/i;
 const regexLineCode = /^\d+/gim;
-const regexBeginningSpace = /^ /gm;
 
 const rootElement = document.querySelector(':root');
 const rootElementStyle = getComputedStyle(rootElement);
 
 const trycatch = (func, fail) => {
-    try { return func() }
-    catch(e) { return fail }
+    try { return func(); }
+    catch(e) { return fail; }
 }
 
 DOM.listCodeSamples.forEach((item) => {

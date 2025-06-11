@@ -159,14 +159,14 @@ listInputs.forEach((input) => {
 
 document.querySelector("[data-format-code]").addEventListener("click", (e) => {
     const da = e.currentTarget.dataset.formatCode;
-    let identation = 0;
+    let indentation = 0;
     if(da === "one-line") {
         e.currentTarget.textContent = "Afficher sur une ligne"
         e.currentTarget.dataset.formatCode = "beautiful";
-        identation = 4;
+        indentation = 4;
     } else {
         e.currentTarget.textContent = "Formatter JSON"
         e.currentTarget.dataset.formatCode = "one-line";
     }
-    codeSampleExampleJSONOptions.innerHTML = `data-code-sample='${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, identation)}'`;
+    codeSampleExampleJSONOptions.innerHTML = `data-code-sample='${JSON.stringify(JSON.parse(codeSampleExampleJSONOptions.dataset.codeSampleOptions), null, indentation)}'`;
 });
