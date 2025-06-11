@@ -58,7 +58,7 @@ La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en
 - language: Affiche le langage de programmation de l'extrait de code. La valeur peut également être mise dans le data-attribute "data-language", néanmoins, la valeur dans le data-attribute "data-code-sample" possède la priorité. Vide par défaut
 - linesLinked: Permet de surligner plusieurs lignes en même temps. Accepte un tableau de tableau. Fonctionne de pair avec le paramètre "linesHighlighted"
 
-> Note : Si vous avez besoin de juste , vous pouvez mettre juste le data-attribute "data-code-sample".
+> Note : Si vous avez besoin de juste d'afficher le code, vous pouvez mettre juste le data-attribute "data-code-sample".
 
 ## Système d'onglets
 

@@ -15,6 +15,10 @@
         <script src="consignes.js" defer></script>
 
         <style>
+            html {
+                scroll-behavior: smooth;
+            }
+
             body {
                 font-family: Helvetica, Arial, sans-serif;
             }
@@ -148,7 +152,11 @@
             </div>
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
             <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
-            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
+            <div class="note-importante">
+                <p>Les ressources étant destinées à être consultées sans serveur, vous ne pouvez pas utiliser <code>fetch()</code> pour charger un fichier local. Passez plutôt par un import dynamique. Exemple : </p>
+                <pre data-code-sample style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"./data.json"</span>, { <span style="color: rgb(248, 248, 242); font-weight: 400;">with</span>: { <span style="color: rgb(248, 248, 242); font-weight: 400;">type</span>: <span style="color: rgb(171, 227, 56); font-weight: 400;">"json"</span> } });</pre>
+            </div>
+            <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair, et est responsive. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
 
             <h2 id="ressources">Ressources de base</h2>
@@ -259,6 +267,7 @@
                 </math>
             </fieldset>
             <p>La gestion des formules est faite par <a href="https://developer.mozilla.org/en-US/docs/Web/MathML" target="_blank" rel="noopener noreferrer">MathML</a>.</p>
+
             <h2 id="code">Mise en page de code</h2>
 
             <fieldset style="margin-bottom: 1.25rem; margin-inline: 0;">
