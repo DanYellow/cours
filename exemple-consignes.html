@@ -153,8 +153,7 @@
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
             <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
             <div class="note-importante">
-                <p>Les ressources étant destinées à être consultées sans serveur, vous ne pouvez pas utiliser <code>fetch()</code> pour charger un fichier local. Passez plutôt par un import dynamique. Exemple : </p>
-                <pre data-code-sample style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"./data.json"</span>, { <span style="color: rgb(248, 248, 242); font-weight: 400;">with</span>: { <span style="color: rgb(248, 248, 242); font-weight: 400;">type</span>: <span style="color: rgb(171, 227, 56); font-weight: 400;">"json"</span> } });</pre>
+                <p>Les ressources étant destinées à être consultées sans serveur, vous ne pouvez pas utiliser <code>fetch()</code> pour charger un fichier local.</p>
             </div>
             <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair, et est responsive. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
@@ -306,7 +305,7 @@
             </fieldset>
 
         <div data-generate-source-code="code-example">
-            <pre data-code-sample='{"title": "Exemple de code", "displayLineCode": true, "linesHighlighted": "4, 11, 5", "allowCopy": true, "linesLinked": [[4, 11]], "language": "JavaScript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400;"><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
+            <pre data-code-sample='{"title": "Exemple de code", "displayLineCode": true, "linesHighlighted": "4, 11, 5", "allowCopy": true, "linesLinked": [[4, 11]], "language": "JavaScript", "file": "example.json"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400;"><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { myFunction } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"./my-module.js"</span>;
 
 <span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> form = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-form]"</span>);
 form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"submit"</span>, <span style="color: rgb(220, 198, 224); font-weight: 400;">async</span> (e) =&gt; {
