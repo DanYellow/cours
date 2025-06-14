@@ -197,7 +197,7 @@ const generateCodeExplanation = ($el, jsonData) => {
                 firstLine: Number(key.split("-").at(0)),
                 content: `
                     <tr data-highlighted-lines="${key.split("-").join(",")}">
-                        <td>${key.split("-").join(" - ")}</td>
+                        <th scope="row">${key.split("-").join(" - ")}</th>
                         <td>${value}</td>
                     </tr>
                 `
@@ -217,7 +217,7 @@ const generateCodeExplanation = ($el, jsonData) => {
         <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code</caption>
             <thead>
                 <tr>
-                    <th>Lignes</th>
+                    <th>Ligne(s)</th>
                     <th></th>
                 </tr>
             </thead>

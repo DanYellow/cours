@@ -844,4 +844,8 @@ code {
             background-color: rgba(246, 231, 195, 0.15);
         }
     }
+
+    td[scope="row"] {
+        white-space: nowrap;
+    }
 }
