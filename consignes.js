@@ -175,6 +175,21 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 }
 
 const generateCodeExplaination = ($el, jsonData) => {
+    const getCodeLines = (listLines) => {
+        let res = "";
+        listLines.forEach((line) => {
+            res += `
+                <code>${document.querySelector(`[data-line-number="${line}"]`).textContent.replaceAll(regexLineCode, "")}</code>
+            `
+        })
+
+        return res;
+    }
+
+    if(!Object.keys(jsonData).length) {
+        return;
+    }
+
     const generateRows = (lines) => {
         let res = [];
         Object.entries(lines).forEach(([key, value]) => {
@@ -202,7 +217,7 @@ const generateCodeExplaination = ($el, jsonData) => {
         <table class="code-explaination">
             <thead>
                 <tr>
-                    <th>Détails du code</th>
+                    <th>Explication du code</th>
                     <th></th>
                 </tr>
             </thead>
@@ -232,10 +247,6 @@ DOM.listCodeSamples.forEach((item) => {
     const displayLineCode = ("displayLineCode" in item.dataset) || codeSampleData?.displayLineCode || false;
     const jsonId = ("jsonId" in item.dataset) || codeSampleData?.jsonId || null;
 
-    if (jsonId) {
-        const jsonData = JSON.parse(document.querySelector(`[data-json-id='${jsonId}']`).textContent.trim())
-        generateCodeExplaination(item, jsonData);
-    }
     const linesHighlightedRaw = (item.dataset?.linesHighlighted || codeSampleData?.linesHighlighted)
     const linesHighlighted = (
         Array.isArray(linesHighlightedRaw) ?
@@ -291,6 +302,11 @@ DOM.listCodeSamples.forEach((item) => {
     }
 
     generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item);
+
+    if (jsonId) {
+        const jsonData = JSON.parse((document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent || "{}").trim())
+        generateCodeExplaination(item, jsonData);
+    }
 
     if (language && !("language" in item.dataset)) {
         item.dataset.language = language;
