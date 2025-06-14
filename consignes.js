@@ -175,25 +175,29 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 }
 
 const generateCodeExplaination = ($el, jsonData) => {
-    const title = document.createElement('h3');
-    title.innerHTML = $el.innerHTML;
-
     const generateRows = (lines) => {
-        let res = "";
-        Object.entries(jsonData).forEach(([key, value]) => {
-            res += `
-                <tr data-highlighted-lines="${key.split("-").join(",")}">
-                    <td>Ligne ${key}</td>
-                    <td>${value}</td>
-                </tr>
-            `
+        let res = [];
+        Object.entries(lines).forEach(([key, value]) => {
+            const hasMultipleLines = key.split("-").length > 1;
+            res.push({
+                firstLine: Number(key.split("-").at(0)),
+                content: `
+                    <tr data-highlighted-lines="${key.split("-").join(",")}">
+                        <td>Ligne${hasMultipleLines ? "s" : ""} ${key.split("-").join(" - ")}</td>
+                        <td>${value}</td>
+                    </tr>
+                `
+            });
         });
 
         return res;
     }
 
-    const rows = generateRows(jsonData)
-    console.log("row", rows)
+    let rowsRaw = generateRows(jsonData);
+    rowsRaw = rowsRaw.sort(({firstLine:a}, {firstLine:b}) => a-b);
+
+    const rows = rowsRaw.map((item) => item.content);
+
     const tpl = `
         <table class="code-explaination">
             <thead>
@@ -203,14 +207,10 @@ const generateCodeExplaination = ($el, jsonData) => {
                 </tr>
             </thead>
             <tbody>
-                <tr data-highlighted-lines="4, 11">
-                    <td>Ligne 4 - 11</td>
-                    <td><code>let i = 0</code></td>
-                </tr>
-                ${rows}
+                ${rows.join("")}
             </tbody>
         </table>
-    `
+    `;
 
     $el.insertAdjacentHTML('afterend', tpl);
 }
