@@ -787,6 +787,10 @@ code {
         left: -550px;
         right: 100%;
         transition: background-color 150ms ease-in-out;
+
+        @starting-style {
+            background-color: var(--line-highlighted-end-color);
+        }
     }
 }
 

@@ -326,8 +326,6 @@ DOM.listCodeSamples.forEach((item) => {
     const parentNodeCode = item.parentNode;
     parentNodeCode.insertBefore(codeHeader, item);
 
-    item.style.userSelect = "all";
-
     if (codeTitle.trim() !== "") {
         const codeTitleTag = document.createElement("p");
         codeTitleTag.textContent = codeTitle;
@@ -337,6 +335,7 @@ DOM.listCodeSamples.forEach((item) => {
     }
 
     if(allowCopy) {
+        item.style.userSelect = "all";
         codeHeader.append(generateCopyCodeButton(item));
     }
 
