@@ -812,14 +812,12 @@ code {
 .code-explanation {
     width: 100%;
     border-collapse: collapse;
-    margin-top: -1.5rem;
+    margin-top: -1rem;
     table-layout: auto;
 
     thead th {
         border-bottom: 3px solid var(--green-code);
-        text-align: start;
         font-size: 1rem;
-        padding: 0.75rem;
         padding-bottom: 0.25rem;
     }
 
@@ -845,7 +843,13 @@ code {
         }
     }
 
-    td[scope="row"] {
+    th {
+        text-align: start;
+        padding: 0.75rem;
+    }
+
+    [scope="row"] {
         white-space: nowrap;
+        font-weight: normal;
     }
 }
