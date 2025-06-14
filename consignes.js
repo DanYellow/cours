@@ -259,7 +259,7 @@ DOM.listCodeSamples.forEach((item) => {
                 .filter(Number.isInteger)
     );
 
-    const linesLinkedRaw = trycatch(() => JSON.parse(item.dataset?.linesLinked), null) || codeSampleData?.linesLinked
+    const linesLinkedRaw = trycatch(() => JSON.parse(item.dataset?.linesLinked), null) || codeSampleData?.linesLinked;
     const isNestedArray = Array.isArray(linesLinkedRaw) && linesLinkedRaw.flat().length != linesLinkedRaw.length;
     const linesLinked = isNestedArray ?
         linesLinkedRaw.map(a => a.filter(Number.isInteger)) :
@@ -304,7 +304,7 @@ DOM.listCodeSamples.forEach((item) => {
     generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item);
 
     if (jsonId) {
-        const jsonData = JSON.parse((document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent || "{}").trim())
+        const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent.trim()), {})
         generateCodeExplanation(item, jsonData);
     }
 
