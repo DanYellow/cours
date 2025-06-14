@@ -831,4 +831,10 @@ code {
             background-color: light-dark(#b4b4b45b, #0000005b);
         }
     }
+
+    tbody tr {
+        &:hover {
+            background-color: rgba(246, 231, 195, 0.15);
+        }
+    }
 }
