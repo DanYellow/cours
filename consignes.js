@@ -174,7 +174,7 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     })
 }
 
-const generateCodeExplaination = ($el, jsonData) => {
+const generateCodeExplanation = ($el, jsonData) => {
     const getCodeLines = (listLines) => {
         let res = "";
         listLines.forEach((line) => {
@@ -213,7 +213,7 @@ const generateCodeExplaination = ($el, jsonData) => {
     const rows = rowsRaw.map((item) => item.content);
 
     const tpl = `
-        <table class="code-explaination">
+        <table class="code-explanation">
         <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code</caption>
             <thead>
                 <tr>
@@ -305,7 +305,7 @@ DOM.listCodeSamples.forEach((item) => {
 
     if (jsonId) {
         const jsonData = JSON.parse((document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent || "{}").trim())
-        generateCodeExplaination(item, jsonData);
+        generateCodeExplanation(item, jsonData);
     }
 
     if (language && !("language" in item.dataset)) {
