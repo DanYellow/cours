@@ -749,8 +749,8 @@ code {
 }
 
 .code-line-highlighted {
-    --line-highlighted-start-color: rgba(255, 255, 255, 0.07);
-    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2));
+    --line-highlighted-start-color: rgba(255, 255, 255, 0.07); /* 246 231 195 */
+    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2.5));
 
     background: var(--line-highlighted-start-color);
     transition: background-color 150ms ease-in-out;
@@ -806,5 +806,29 @@ code {
         text-overflow: clip;
         overflow: hidden;
         white-space: nowrap;
+    }
+}
+
+.code-explaination {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead th {
+        border-bottom: 3px solid oklch(0.57 0.16 155.16);
+        text-align: start;
+        font-size: 1.15rem;
+        padding: 0.75rem;
+    }
+
+    td {
+       padding: 0.75rem;
+    }
+
+    tr {
+        border-bottom: 1px solid oklch(0.57 0.16 155.16);
+
+        &:nth-child(even) {
+            background-color: light-dark(#b4b4b45b, #0000005b);
+        }
     }
 }

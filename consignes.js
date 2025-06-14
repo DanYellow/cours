@@ -174,6 +174,47 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     })
 }
 
+const generateCodeExplaination = ($el, jsonData) => {
+    const title = document.createElement('h3');
+    title.innerHTML = $el.innerHTML;
+
+    const generateRows = (lines) => {
+        let res = "";
+        Object.entries(jsonData).forEach(([key, value]) => {
+            res += `
+                <tr data-highlighted-lines="${key.split("-").join(",")}">
+                    <td>Ligne ${key}</td>
+                    <td>${value}</td>
+                </tr>
+            `
+        });
+
+        return res;
+    }
+
+    const rows = generateRows(jsonData)
+    console.log("row", rows)
+    const tpl = `
+        <table class="code-explaination">
+            <thead>
+                <tr>
+                    <th>Détails du code</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-highlighted-lines="4, 11">
+                    <td>Ligne 4 - 11</td>
+                    <td><code>let i = 0</code></td>
+                </tr>
+                ${rows}
+            </tbody>
+        </table>
+    `
+
+    $el.insertAdjacentHTML('afterend', tpl);
+}
+
 const regexLineCode = /^\d+/gim;
 
 const rootElement = document.querySelector(':root');
@@ -189,7 +230,12 @@ DOM.listCodeSamples.forEach((item) => {
     const codeTitle = item.dataset?.title || codeSampleData?.title || "";
     const allowCopy = ("allowCopy" in item.dataset) || codeSampleData?.allowCopy || false;
     const displayLineCode = ("displayLineCode" in item.dataset) || codeSampleData?.displayLineCode || false;
+    const jsonId = ("jsonId" in item.dataset) || codeSampleData?.jsonId || null;
 
+    if (jsonId) {
+        const jsonData = JSON.parse(document.querySelector(`[data-json-id='${jsonId}']`).textContent.trim())
+        generateCodeExplaination(item, jsonData);
+    }
     const linesHighlightedRaw = (item.dataset?.linesHighlighted || codeSampleData?.linesHighlighted)
     const linesHighlighted = (
         Array.isArray(linesHighlightedRaw) ?
