@@ -812,16 +812,18 @@ code {
 .code-explaination {
     width: 100%;
     border-collapse: collapse;
+    margin-top: -1.5rem;
+    table-layout: auto;
 
     thead th {
         border-bottom: 3px solid oklch(0.57 0.16 155.16);
         text-align: start;
-        font-size: 1.15rem;
+        font-size: 1.05rem;
         padding: 0.75rem;
     }
 
     td {
-       padding: 0.75rem;
+        padding: 0.75rem;
     }
 
     tr {

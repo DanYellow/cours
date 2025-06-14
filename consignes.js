@@ -193,12 +193,11 @@ const generateCodeExplaination = ($el, jsonData) => {
     const generateRows = (lines) => {
         let res = [];
         Object.entries(lines).forEach(([key, value]) => {
-            const hasMultipleLines = key.split("-").length > 1;
             res.push({
                 firstLine: Number(key.split("-").at(0)),
                 content: `
                     <tr data-highlighted-lines="${key.split("-").join(",")}">
-                        <td>Ligne${hasMultipleLines ? "s" : ""} ${key.split("-").join(" - ")}</td>
+                        <td>${key.split("-").join(" - ")}</td>
                         <td>${value}</td>
                     </tr>
                 `
@@ -215,9 +214,10 @@ const generateCodeExplaination = ($el, jsonData) => {
 
     const tpl = `
         <table class="code-explaination">
+        <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code</caption>
             <thead>
                 <tr>
-                    <th>Explication du code</th>
+                    <th>Lignes</th>
                     <th></th>
                 </tr>
             </thead>
