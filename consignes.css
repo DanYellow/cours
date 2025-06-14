@@ -816,9 +816,9 @@ code {
     table-layout: auto;
 
     thead th {
-        border-bottom: 3px solid oklch(0.57 0.16 155.16);
+        border-bottom: 3px solid var(--green-code);
         text-align: start;
-        font-size: 1.05rem;
+        font-size: 1rem;
         padding: 0.75rem;
     }
 
@@ -827,10 +827,14 @@ code {
     }
 
     tr {
-        border-bottom: 1px solid oklch(0.57 0.16 155.16);
+        border-bottom: 1px solid var(--green-code);
 
         &:nth-child(even) {
             background-color: light-dark(#b4b4b45b, #0000005b);
+        }
+
+        &:last-child {
+            border-bottom-width: 3px;
         }
     }
 
