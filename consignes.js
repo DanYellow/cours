@@ -140,7 +140,7 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     codeSample.getHTML().split("\n").forEach((line, idx) => {
         const lineNumber = idx + 1;
         const nextLine = linesToHighlight.includes(lineNumber) ?
-            `<div data-number="${lineNumber}" class="code-line-highlighted">${line}</div>` :
+            `<div data-line-number="${lineNumber}" class="code-line-highlighted">${line}</div>` :
             `${line}\n`
         ;
         output += nextLine;
@@ -166,7 +166,7 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 
     linesLinked.forEach((item, idx) => {
         item.forEach((line) => {
-            const lineHighlighted = codeSample.querySelector(`.code-line-highlighted[data-number="${line}"]`);
+            const lineHighlighted = codeSample.querySelector(`.code-line-highlighted[data-line-number="${line}"]`);
             if (lineHighlighted) {
                 lineHighlighted.dataset.lineGroup = idx;
             }
@@ -330,6 +330,22 @@ DOM.listCodeSamples.forEach((item) => {
         }
     });
 });
+
+document.querySelectorAll('[data-highlighted-lines]').forEach((line) => {
+    line.addEventListener("mouseover", (e) => {
+        const listHighlightedLines = e.currentTarget.dataset.highlightedLines.split(",");
+        listHighlightedLines.map((item) => item.trim()).forEach((lineNumber) => {
+            document.querySelector(`[data-line-number="${lineNumber}"]`).classList.add("hover");
+        });
+    })
+
+    line.addEventListener('mouseout', e => {
+        const listHighlightedLines = e.currentTarget.dataset.highlightedLines.split(",");
+        listHighlightedLines.map((item) => item.trim()).forEach((lineNumber) => {
+            document.querySelector(`[data-line-number="${lineNumber}"]`).classList.remove("hover");
+        });
+    })
+})
 
 const getChildren = ($el) => {
     const listChildren = [];
