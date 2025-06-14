@@ -43,7 +43,7 @@ Pour avoir une vue d'ensemble interactive de tous les éléments de design, il y
 ### Exemple utilisation
 
 ```html
-<pre data-code-sample='{"allowCopy": true, "title": "Exemple", "displayLineCode": true, "linesHighlighted": "1, 3", "language": "HTML", "linesLinked": [[4, 11]]}' style="[...]">
+<pre data-code-sample='{"allowCopy": true, "title": "Exemple", "displayLineCode": true, "linesHighlighted": "1, 3", "language": "HTML", "linesLinked": [[4, 11]], "jsonId": "monJSON"}' style="[...]">
     <!-- [...] -->
 </pre>
 ```
@@ -53,12 +53,24 @@ La balise `<pre>` utilisée pour afficher proprement un snippet de code prend en
 - allowCopy : Ajoute un bouton "copier" qui copie le code dans le presse-papier. false par défaut
 - displayLineCode: Affiche le numéro de ligne. false par défaut
 - linesHighlighted: Met en en avant des lignes de code. Accepte un tableau d'entier ou chaîne d'entiers séparés par une virgule
-  - Note : Les valeurs non valides seront ignorées tout comme les numéros de lignes supérieurs au tombre total de ligne de l'extrait de code
+  - Note : Les valeurs non valides seront ignorées tout comme les numéros de lignes supérieurs au tombre total de lignes de l'extrait de code
   - Note 2 : Il n'est pas obligatoire que le tableau ou la chaîne de nombre soit dans l'ordre croissant
 - language: Affiche le langage de programmation de l'extrait de code. La valeur peut également être mise dans le data-attribute "data-language", néanmoins, la valeur dans le data-attribute "data-code-sample" possède la priorité. Vide par défaut
 - linesLinked: Permet de surligner plusieurs lignes en même temps. Accepte un tableau de tableau. Fonctionne de pair avec le paramètre "linesHighlighted"
+- jsonId: Affiche, sous forme de tableau, les explications du code ligne par ligne, à partir d'un fichier JSON stocké dans une balise &lt;script> ayant le type "text/json" pour éviter son exécution par le navigateur. Par exemple :
+  ```html
+    <script type="text/json" data-json-id="monJSON">
+    {
+        "4-11": "Ensemble de lignes",
+        "5": "Ligne à expliquer"
+    }
+    </script>
+  ```
+  La valeur de clé "jsonId" doit correspondre à la valeur du data-json-id.
+    - Note 1 : Le tableau généré sera ordonné en fonction de la première ligne listée en clé
+    - Note 2 : Pour définir une liste de ligne, il suffit de les séparer par un tiret
 
-> Note : Si vous avez besoin de juste d'afficher le code, vous pouvez mettre juste le data-attribute "data-code-sample".
+> Note : Si vous avez besoin de juste d'afficher le code avec le design de base, vous pouvez mettre juste le data-attribute "data-code-sample".
 
 ## Système d'onglets
 
