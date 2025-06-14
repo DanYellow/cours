@@ -104,8 +104,8 @@
                 }
             }
 
-            .active {
-                background-color: rgb(193, 225, 253);
+            :target {
+                background-color: light-dark(rgb(193, 225, 253, 0.5), rgba(2, 0, 143, 0.678));
             }
         </style>
     </head>
@@ -151,7 +151,7 @@
             <p class="note-attention">Merci de bien vouloir modifier cette page, si vous ajoutez / modifiez des éléments.</p>
             <p class="note-attention">Si possible, évitez d'implémenter des plugins extérieurs pour ne pas trop augmenter le temps de chargement des pages.</p>
             <div class="note-importante">
-                <p>Les ressources étant destinées à être consultées sans serveur, vous ne pouvez pas utiliser <code>fetch()</code> pour charger un fichier local.</p>
+                <p>Les ressources étant destinées à être consultées sans serveur, vous ne pouvez pas utiliser <code>fetch()</code> pour charger un fichier local. Néanmoins, vous pouvez stocker le JSON dans une balise <code>&lt;script type="text/json">&lt;/script></code> puis le charger dans le javascript.</p>
             </div>
             <p>Vue d'ensemble des différents blocs de design des ressources de cours. Chacun de ces éléments gèrent les modes sombre et clair, et est responsive. Pour plus d'informations sur leur fonctionnenement, voir fichier "LISTE-OUTILS.md".</p>
             <hr>
@@ -296,10 +296,8 @@
                     </div>
                     <div>
                         <input checked type="checkbox" name="" id="json_id" data-modify-sample-code="jsonId">
-                        <label for="json_id">Afficher explications lignes surlignées</label>
+                        <label for="json_id">Afficher explications lignes surlignées <a href="#json-example">(voir plus bas pour exemple de données)</a></label>
                     </div>
-
-
                 </div>
                 <h3>Data-attribute de la balise &lt;pre></h3>
                 <div style="position: relative;">
@@ -320,9 +318,24 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
 
     <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">JSON</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">stringify</span>(formValues));
 });</pre>
-
         </div>
+        <h3 id="json-example">Exemple JSON pour extrait de code</h3>
+        <code class="code-exemple">&lt;script type="text/json" data-json-id="test">
+    {
+        "4-11": "Définition de la fonction",
+        "5": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission"
+    }
+&lt;/script>
+</code>
     </header>
+
+    <script type="text/json" data-json-id="test">
+    {
+        "4-11": "Définition de la fonction",
+        "5": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission",
+        "50": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission"
+    }
+</script>
 
         <template data-tpl-id="source-code">
             <div data-source-code="">
@@ -331,11 +344,6 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
             </div>
         </template>
 
-        <script type="text/json" data-json-id="test">
-            {
-                "4-11": "Définition de la fonction",
-                "5": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission"
-            }
-        </script>
+
     </body>
 </html>

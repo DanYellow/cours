@@ -351,14 +351,14 @@ document.querySelectorAll('[data-highlighted-lines]').forEach((line) => {
     line.addEventListener("mouseover", (e) => {
         const listHighlightedLines = e.currentTarget.dataset.highlightedLines.split(",");
         listHighlightedLines.map((item) => item.trim()).forEach((lineNumber) => {
-            document.querySelector(`[data-line-number="${lineNumber}"]`).classList.add("hover");
+            document.querySelector(`[data-line-number="${lineNumber}"]`)?.classList.add("hover");
         });
     })
 
     line.addEventListener('mouseout', e => {
         const listHighlightedLines = e.currentTarget.dataset.highlightedLines.split(",");
         listHighlightedLines.map((item) => item.trim()).forEach((lineNumber) => {
-            document.querySelector(`[data-line-number="${lineNumber}"]`).classList.remove("hover");
+            document.querySelector(`[data-line-number="${lineNumber}"]`)?.classList.remove("hover");
         });
     })
 })
