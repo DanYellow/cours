@@ -852,6 +852,6 @@ code {
         white-space: nowrap;
         font-weight: normal;
         vertical-align: top;
-        font-size: 85%;
+        font-size: max(85%, 0.95rem);
     }
 }
