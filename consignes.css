@@ -16,6 +16,9 @@
 
     --font-family: system-ui;
 
+    --line-highlighted-start-color: light-dark(rgba(28, 201, 231, 0.08), rgba(255, 255, 255, 0.08)); /* 246, 231, 195 */
+    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2.5));
+
     --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
     --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
     --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
@@ -31,7 +34,7 @@
     font-style: normal;
 }
 
-.consignes-en-tete {
+.consignes-en-tete, .entete-consignes {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 0.55rem;
@@ -744,9 +747,6 @@ code {
 }
 
 .code-line-highlighted {
-    --line-highlighted-start-color: rgba(255, 255, 255, 0.07); /* 246 231 195 */
-    --line-highlighted-end-color: rgb(from var(--line-highlighted-start-color) r g b / calc(alpha * 2.5));
-
     background: var(--line-highlighted-start-color);
     transition: background-color 150ms ease-in-out;
     position: relative;

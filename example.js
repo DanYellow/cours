@@ -1,5 +1,7 @@
 const quotesJSON = /(")({.+})(")/g;
 
+const lineHighlightedStartColor = window.getComputedStyle(document.body).getPropertyValue('--line-highlighted-start-color');
+
 const generateSourceCode = ($el, inner = true) => {
     let sourceCode = $el[inner ? "innerHTML" : "outerHTML"];
     sourceCode = sourceCode.replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -67,19 +69,15 @@ const dictFunctions = {
         })
     },
     "linesHighlighted": (isEnabled, $el) => {
-        const baseColor = "rgba(255, 255, 255, 0.07)";
-        const color = window.matchMedia('(prefers-color-scheme: dark)').matches ?
-                baseColor :
-                `rgb(from ${baseColor} calc(255 - r) calc(255 - g) calc(255 - b))`
         $el.querySelectorAll(".code-line-highlighted").forEach((line) => {
             line.style.setProperty(
                 '--line-highlighted-start-color',
-                isEnabled ? color : "transparent"
+                isEnabled ? lineHighlightedStartColor : "transparent"
             );
             if(isEnabled) {
                 line.style.pointerEvents = "auto";
             } else {
-                line.style.pointerEvents = "nones";
+                line.style.pointerEvents = "none";
             }
         })
     },

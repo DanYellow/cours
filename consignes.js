@@ -389,14 +389,6 @@ const invertCodeSampleColors = () => {
             if (currentColor) {
                 child.style.color = `rgb(from ${currentColor} calc(255 - r) calc(255 - g) calc(255 - b))`;
             }
-
-            const currentBGColor = window.getComputedStyle(child).getPropertyValue('--line-highlighted-start-color')
-            if (currentBGColor) {
-                child.style.setProperty(
-                    '--line-highlighted-start-color',
-                    `rgb(from ${currentBGColor} calc(255 - r) calc(255 - g) calc(255 - b))`
-                );
-            }
         });
     });
 }
