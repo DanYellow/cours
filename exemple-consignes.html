@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Exemple design system — Consignes TP</title>
+        <title>Consignes TP Design system —</title>
         <link
             rel="icon"
             type="image/png"
@@ -25,6 +25,7 @@
 
             h2 {
                 font-size: 1.75rem;
+                scroll-margin: 0.75rem;
             }
 
             p {
@@ -117,6 +118,9 @@
                     <a href="#ressources">Ressources de base</a>
                 </li>
                 <li>
+                    <a href="#conteneur">Conteneur TP</a>
+                </li>
+                <li>
                     <a href="#titre">Titre</a>
                 </li>
                 <li>
@@ -142,7 +146,7 @@
 
         <header class="consignes-en-tete">
             <h1 class="titre-consignes">
-                Design system — Consignes TP
+                Consignes TP Design system —
             </h1>
             <div>
                 <input checked type="checkbox" name="" id="source_code" data-display-source-code="">
@@ -160,7 +164,12 @@
             <pre data-code-sample='{"allowCopy": true}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;stylesheet&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.css&quot;</span> /&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://danyellow.net/cours-mmi/consignes.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span>
 <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">link</span> <span style="color:rgb(156, 220, 254); font-weight:400;">rel</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;image/png&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">href</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png&quot;</span> /&gt;</span></pre>
-
+            <h2 id="conteneur">Conteneur TP</h2>
+            <div data-generate-source-code="">
+                <header class="consignes-en-tete">
+                    <p>Contenu de la consigne centré</p>
+                </header>
+            </div>
             <h2 id="titre">Titre</h2>
             <div data-generate-source-code="">
                 <p class="titre-consignes">
@@ -203,7 +212,7 @@
 
             <h2 id="citation">Citation</h2>
             <div data-generate-source-code="">
-                <div class="inner-note">
+                <div class="quote">
                     <blockquote>
                         Diplôme professionnel de niveau 6 (bac + 3), le BUT MMI (métiers du multimédia et de l’Internet) forme à des activités relevant de domaines variés, allant de la conception de sites Internet à la gestion de communautés sur les réseaux sociaux, en passant par la production de produits multimédias (jeux vidéo, applications mobiles, etc.) ou le développement de services Web.
                     </blockquote>
@@ -284,7 +293,7 @@
                     </div>
                     <div>
                         <input checked type="checkbox" name="" id="copy" data-modify-sample-code="allowCopy">
-                        <label for="copy">Afficher copie bouton</label>
+                        <label for="copy">Afficher bouton "Copier"</label>
                     </div>
                     <div>
                         <input checked type="checkbox" name="" id="lang" data-modify-sample-code="language">
@@ -334,7 +343,7 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
         {
             "4-11": "Ensemble de lignes",
             "5": "Ligne à expliquer",
-            "50": "Ligne inexistante, ne sera pas surligné dans l'extrait de code"
+            "50": "Ligne inexistante, ne sera pas surlignée dans l'extrait de code"
         }
         </script>
 
