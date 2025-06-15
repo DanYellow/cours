@@ -555,12 +555,7 @@
     }
 }
 
-.entete-consignes {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.inner-note {
+.quote {
     font-family: var(--font-family);
     font-size: 1.2rem;
     margin: 1.5rem 1rem 1.5rem 2.5rem;
