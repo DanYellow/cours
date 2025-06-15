@@ -755,6 +755,7 @@ code {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     padding-right: 0.75rem;
+    line-height: normal;
 
     @starting-style {
         background: var(--line-highlighted-end-color);
@@ -813,6 +814,7 @@ code {
     width: 100%;
     border-collapse: collapse;
     margin-top: -1rem;
+    margin-bottom: 1.75rem;
     table-layout: auto;
 
     thead th {
