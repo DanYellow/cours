@@ -719,6 +719,7 @@ code {
     position: relative;
     color: oklch(from currentColor calc(l * .75) c h / 30%);
     margin-right: 1ch;
+    line-height: normal;
 
     &::before {
         content: "";

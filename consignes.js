@@ -279,7 +279,7 @@ DOM.listCodeSamples.forEach((item) => {
     item.style.marginBottom = "1.25rem";
     item.style.marginTop = "0";
     item.style.position = "relative";
-    item.style.backgroundColor = rootElementStyle.getPropertyValue('--background-color-code');
+    item.style.backgroundColor = "var(--background-color-code)";
     item.style.overflowX = "auto";
 
     item.style.removeProperty("font-family");
