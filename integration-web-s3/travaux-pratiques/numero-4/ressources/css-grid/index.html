@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CSS Grid TP</title>
+        <title>CSS Grid — Consignes TP</title>
         <link
             rel="icon"
             type="image/png"
@@ -23,19 +23,11 @@
             src="https://danyellow.net/cours-mmi/consignes.js"
             defer
         ></script>
-
-        <style>
-            body {
-                max-width: 1280px;
-                margin: 0 auto;
-                padding: 1.1rem;
-            }
-        </style>
     </head>
 
     <body>
-        <header>
-            <h1 class="titre-consignes">Consignes de la pratique</h1>
+        <header class="consignes-en-tete">
+            <h1 class="titre-consignes">CSS Grid — Consignes TP</h1>
 
             <details class="consignes-conteneur" open>
                 <summary>
@@ -48,7 +40,7 @@
                         Prenez en main le jeu Grid Garden (gratuit) pour prendre
                         en main CSS Grid. Il est inutile de faire tous les
                         niveaux, les 15 premiers suffisent. Une fois fait, vous
-                        pouvez passer à la partie suivante.
+                        pouvez passer à la partie suivante
                         <ul>
                             <li>
                                 <a
@@ -61,6 +53,19 @@
                         </ul>
                     </li>
                 </ol>
+                <p>Autres liens utiles sur CSS Grid</p>
+                <ul>
+                    <li>
+                        <a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/" target="_blank" rel="noopener noreferrer">
+                            Le site de joshwcomeau - anglais
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://mozilladevelopers.github.io/playground/css-grid" target="_blank" rel="noopener noreferrer">
+                            Introduction to CSS Grid Layout by Firefox - anglais
+                        </a>
+                    </li>
+                </ul>
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -91,20 +96,21 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>La gouttière entre colonnes et lignes est à votre convenance</li>
                         </ul>
                         <p>
                             Vous n'avez pas à être iso à 100 %, l'idée est avant
                             tout de prendre en main CSS Grid. Toutes les images
                             se trouvent dans le dossier
-                            <code>images-partie-1/</code>
+                            <code>images-partie-1/</code>.
                         </p>
                         <figure style="margin: 1rem 0">
                             <img src="exemple-partie-1.jpg" alt="" />
-                            <figcaption>Image cible</figcaption>
+                            <figcaption>Maquette à réaliser</figcaption>
                         </figure>
                         <p class="note-attention">
                             N'oubliez pas d'ajouter la déclaration CSS
-                            <code>display: grid</code> sur le conteneur.
+                            <code>display: grid</code> sur le conteneur. Et d'importer un <a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank">CSS reset comme celui d'Eric Meyer</a> pour réinitialiser vos styles.
                         </p>
                         <section class="note-information">
                             <p>
@@ -155,7 +161,7 @@
                                 images. Sinon, elles déformeront vos grilles.
                             </p>
                             <pre
-                                data-code-sample='{"allowCopy": true}'
+                                data-code-sample='{"allowCopy": true, "language": "CSS"}'
                                 style="
                                     font-family: monospace;
                                     color: rgb(248, 248, 242);
@@ -269,9 +275,14 @@
                     grille est constituée de 2 colonnes et 2 lignes. La colonne
                     de gauche fait 290px de largeur, celle de droite 1100px de
                     largeur. Vous n'avez pas à être iso à 100 %, l'idée est
-                    avant tout de prendre en main CSS Grid. Il est inutile de
-                    vous attarder sur le tableau dans la colonne de droite.
+                    avant tout de prendre en main CSS Grid.
                 </p>
+                <div class="note-information">
+                    <p>Il est inutile de
+                    vous attarder sur le tableau dans la colonne de droite. Néanmoins, si vous souhaitez le réaliser, il existe le site <a href="https://www.tablesgenerator.com/html_tables" target="_blank" rel="noopener noreferrer">tablesgenerator.com</a> qui génèrera le code pour vous.</p>
+
+                </div>
+
                 <figure style="margin: 1rem 0">
                     <img src="exemple-partie-2.jpg" alt="" />
                 </figure>
