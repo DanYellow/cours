@@ -267,7 +267,7 @@ DOM.listCodeSamples.forEach((item) => {
 
     const language = codeSampleData?.language;
 
-    const greenColor = getComputedStyle(document.documentElement).getPropertyValue("--green-code");
+    const greenColor = "var(--green-code)";
 
     item.classList.add("code-snippet");
     item.style.borderRadius = "0 0 0.5rem 0.5rem";
