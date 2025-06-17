@@ -857,3 +857,16 @@ code {
         font-size: max(85%, 0.95rem);
     }
 }
+
+
+.footer {
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    * {
+        font-size: 0.75rem;
+    }
+}

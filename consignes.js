@@ -174,8 +174,20 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     })
 }
 
+const generateFooterCredits = () => {
+    const tpl = `
+        <footer class="footer">
+            <img width="30" src="https://danyellow.net/cours-mmi/favicon.png" alt="logo CYU" />
+            <p>${document?.title || ""}</p>
+        </footer>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', tpl);
+}
+generateFooterCredits();
+
 const generateCodeExplanation = ($el, jsonData) => {
-    const getCodeLines = (listLines) => {
+    const getContentLines = (listLines) => {
         let res = "";
         listLines.forEach((line) => {
             res += `
