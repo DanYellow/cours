@@ -24,7 +24,7 @@ Les fichiers originaux sont à la racine de ce dépôt.
 >
 > Note 2 : Le CSS du système gère aussi bien le dark et que light mode
 
-Pour avoir une vue d'ensemble interactive de tous les éléments de design, il y a le fichier `exemple-consignes.html` à la racine du dépôt. A noter que tous les ressources css et js sont chargés en local contrairement aux consignes où les ressources sont distantes.
+Pour avoir une vue d'ensemble interactive de tous les éléments de design, il y a le fichier `exemple-consignes.html` ([également accessible en ligne](https://danyellow.net/cours-mmi/exemple-consignes.html)) à la racine du dépôt. A noter que tous les ressources css et js sont chargés en local contrairement aux consignes où les ressources sont distantes.
 
 ## Captures d'écran
 - [Cadre pour captures d'écran - screely.com](https://screely.com/editor)
