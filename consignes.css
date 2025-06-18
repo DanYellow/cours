@@ -866,6 +866,7 @@ code {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+    margin-bottom: 0.75rem;
 
     * {
         font-size: 0.75rem;
