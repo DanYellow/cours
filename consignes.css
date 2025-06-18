@@ -859,7 +859,6 @@ code {
     }
 }
 
-
 .footer {
     margin-top: 3.5rem;
     display: flex;
@@ -867,6 +866,7 @@ code {
     justify-content: center;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
+    font-family: var(--font-family);
 
     * {
         font-size: 0.75rem;
