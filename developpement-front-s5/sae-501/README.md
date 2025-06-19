@@ -201,7 +201,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 ## Mise en place
 
 ### Pré-requis
-- node >= 18.11 (utilisez la commande `node -v` pour voir votre version)
+- node >= 20.10 (utilisez la commande `node -v` pour voir votre version)
   - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
     - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
