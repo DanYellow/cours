@@ -841,7 +841,8 @@ code {
     }
 
     tbody tr {
-        &:hover {
+        transition: background-color 150ms;
+        &:hover, &.hover {
             background-color: rgba(246, 231, 195, 0.15);
         }
     }

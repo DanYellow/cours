@@ -129,7 +129,7 @@ const generateCopyCodeButton = ($el) => {
     return copyButton;
 }
 
-const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, codeSample) => {
+const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, codeSample, number) => {
     if (!linesToHighlight.length) {
         return;
     }
@@ -148,18 +148,32 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
 
     codeSample.innerHTML = output;
 
-    codeSample.querySelectorAll(".code-line-highlighted").forEach((item) => {
+    codeSample.querySelectorAll("[data-line-number]").forEach((item) => {
         item.addEventListener('mouseover', e => {
             const lineGroup = e.currentTarget.dataset.lineGroup;
+            const lineNumber = e.currentTarget.dataset.lineNumber;
             codeSample.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
                 line.classList.add("hover");
+            });
+
+            document.querySelectorAll(`[data-code-explanation-table="${number}"] [data-highlighted-lines]`).forEach((row) => {
+                if(row.dataset.highlightedLines.split(",").includes(lineNumber)) {
+                    row.classList.add("hover");
+                }
             });
         })
 
         item.addEventListener('mouseout', e => {
             const lineGroup = e.currentTarget.dataset.lineGroup;
+            const lineNumber = e.currentTarget.dataset.lineNumber;
             codeSample.querySelectorAll(`.code-line-highlighted[data-line-group="${lineGroup}"]`).forEach((line) => {
                 line.classList.remove("hover");
+            });
+
+            document.querySelectorAll(`[data-code-explanation-table="${number}"] [data-highlighted-lines]`).forEach((row) => {
+                if(row.dataset.highlightedLines.split(",").includes(lineNumber)) {
+                    row.classList.remove("hover");
+                }
             });
         })
     })
@@ -186,7 +200,7 @@ const generateFooterCredits = () => {
 }
 generateFooterCredits();
 
-const generateCodeExplanation = ($el, jsonData) => {
+const generateCodeExplanation = ($el, jsonData, idx) => {
     const getContentLines = (listLines) => {
         let res = "";
         listLines.forEach((line) => {
@@ -225,7 +239,7 @@ const generateCodeExplanation = ($el, jsonData) => {
     const rows = rowsRaw.map((item) => item.content);
 
     const tpl = `
-        <table class="code-explanation">
+        <table class="code-explanation" data-code-explanation-table="${idx}">
         <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code</caption>
             <thead>
                 <tr>
@@ -252,7 +266,7 @@ const trycatch = (func, fail) => {
     catch(e) { return fail; }
 }
 
-DOM.listCodeSamples.forEach((item) => {
+DOM.listCodeSamples.forEach((item, idx) => {
     const codeSampleData = JSON.parse(item.dataset?.codeSample || "{}");
     const codeTitle = item.dataset?.title || codeSampleData?.title || "";
     const allowCopy = ("allowCopy" in item.dataset) || codeSampleData?.allowCopy || false;
@@ -313,12 +327,12 @@ DOM.listCodeSamples.forEach((item) => {
         listLineNumbers.at(-1).classList.add("last");
     }
 
-    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item);
-
     if (jsonId) {
         const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent.trim()), {})
-        generateCodeExplanation(item, jsonData);
+        generateCodeExplanation(item, jsonData, idx);
     }
+
+    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item, idx);
 
     if (language && !("language" in item.dataset)) {
         item.dataset.language = language;
