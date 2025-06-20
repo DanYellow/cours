@@ -134,6 +134,8 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement par e-mail.**
 **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
 
+> N'oubliez pas qu'une date butoir est plus proche qu'on le croit. N'attendez pas le dernier moment pour vous y mettre.
+
 ### Notation
 Les critères suivants seront évalués. Une ou les deux parties **peuvent** être amenées à être évaluée via un oral.
 

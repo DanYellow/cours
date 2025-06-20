@@ -278,10 +278,13 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - URL vers le site
     - **Attention :** la mise en ligne du site nécessite également la mise en ligne de la base de données, il faudra penser à l'exporter et la réimporter ensuite dans le phpmyadmin de votre hébergeur
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
+    - **Si vous ne remettez pas l'url du site, cinq points seront retirés de votre note finale**
 
 > Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont rendu leur site avec des bugs facilement repérables avec des simples tests.
 
-Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est nécessaire par groupe, celui du chef d'équipe. Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.
+Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe, celui du chef d'équipe. **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
+
+> N'oubliez pas qu'une date butoir est plus proche qu'on le croit. N'attendez pas le dernier moment pour vous y mettre.
 
 # Notation
 Les critères suivants seront évalués. Une ou les deux parties (intégration et développement web) peuvent être amenées à être évaluées lors d'un oral dans lequel vous sera demandé de justifier vos choix techniques notamment.
@@ -340,6 +343,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - [ ] Les éléments de formulaire ont bien un libellé qui leur est rattaché avec les bons attributs ("for" et "id")
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
 - [ ] Rajouter un favicon (image au choix)
+- [ ] Déployer votre site et sa base de données
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
 - [ ] Rendre le projet
   - Voir section [Rendus Attendus](#rendus-attendus) pour plus d'informations
