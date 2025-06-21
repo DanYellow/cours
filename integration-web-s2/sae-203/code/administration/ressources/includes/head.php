@@ -21,7 +21,7 @@
     [type='week'], [multiple],
     textarea, select {
         border-color: var(--color-gray-500);
-        @apply border text-base p-2.5 bg-white appearance-none leading-6;
+        @apply border text-base p-2.5 bg-white leading-6;
 
         &:focus {
             @apply ring-2 ring-blue-500/50;
