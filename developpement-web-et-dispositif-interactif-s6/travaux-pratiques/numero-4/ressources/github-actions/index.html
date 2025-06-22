@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
-    <title> GitHub actions Consignes - TP</title>
+<link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
+<title>GitHub actions - Consignes TP</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -15,12 +15,12 @@
 
   <body>
     <header class="entete-consignes">
-      <h1 class="h1">Consignes de la pratique - GitHub actions</h1>
+      <h1 class="h1">GitHub actions - Consignes TP</h1>
       <details class="consignes-conteneur">
          <summary>
           <h2 class="h1">Structure d'un fichier de configuration (cliquer pour afficher / cacher)</h2>
         </summary>
-        <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt. En absence, ça sera le nom du fichier qui sera affiché</span>
+        <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">name:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">My</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">workflow</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Facultatif. Affiché dans l'onglet "Actions" du dépôt. En absence, ça sera le nom du fichier qui sera affiché</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">on:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">push</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, permet de définir pour quel(s) évènement(s) se lance la pipeline. Il est possible de préciser la branche ou le type de fichier</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">my_first_job:</span> <span style="color: rgb(112, 120, 128); font-weight: 400;"># Obligatoire, job_id. Doit commencer par une lettre et ne doit pas contenir d'espace. Comme tout id, il doit être unique</span>
@@ -225,7 +225,7 @@
                     </li>
                 </ul>
                 <p>Exemple : </p>
-                <pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;" data-code-sample>
+                <pre data-code-sample='{"allowCopy": true}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;" data-code-sample>
 <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
 <span style="color: rgb(197, 200, 198); font-weight: 400;">jobs:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
@@ -435,7 +435,7 @@
                             </ul>
                             <ul class="list-tab-content">
                                 <li class="tab-content" data-tab-content="windows">
-                                    <pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
+<pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(112, 120, 128); font-weight: 400;"># Copie votre clé privée dans le presse-papier</span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key | clip
 <span style="color: rgb(112, 120, 128); font-weight: 400;"># Ou </span>
 <span style="color: rgb(222, 147, 95); font-weight: 400;">cat</span> ~/.ssh/my_private_key
@@ -504,12 +504,12 @@
                         <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds" target="_blank" rel="noopener noreferrer">Voir documentation sur l'interdépendance des jobs</a>
                     </li>
                 </ul>
-                <p>Parallèlement, il est préférable de faire un job pour le build et un autre pour le déploiement pour faciliter le debbugage. Dans ce contexte, il faudra uploader et télécharger un "artifact". Pour rappel, vous avez les actions <a href="https://github.com/actions/upload-artifact" target="_blank">"actions/upload-artifact@master"</a> et <a href="https://github.com/actions/download-artifact" target="_blank">"actions/download-artifact@master"</a> pour communiquer entre jobs</p>
+                <p>Parallèlement, il est préférable de faire un job pour le build et un autre pour le déploiement pour faciliter le debbugage. Dans ce contexte, il faudra uploader et télécharger un "artifact". Pour rappel, vous avez les actions <a href="https://github.com/actions/upload-artifact" target="_blank">"actions/upload-artifact@master"</a> et <a href="https://github.com/actions/download-artifact" target="_blank">"actions/download-artifact@master"</a> pour communiquer entre jobs.</p>
                 <details>
                     <summary>
                         Exemple actions/upload-artifact@master
                     </summary>
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+<pre data-code-sample='{"title": "Générer un artéfact"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
     <span style="color: rgb(112, 120, 128); font-weight: 400;"># [...]</span>
@@ -525,7 +525,7 @@
                     <summary>
                         Exemple actions/download-artifact@master
                     </summary>
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
+<pre data-code-sample='{"title": "Télécharger un artéfact"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; padding: 1rem; border-radius: 0.5rem;"><span style="color: rgb(197, 200, 198); font-weight: 400;">build:</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">runs-on:</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">ubuntu-latest</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">needs:</span> [<span style="color: rgb(181, 189, 104); font-weight: 400;">build</span>] <span style="color: rgb(112, 120, 128); font-weight: 400;"># Related job</span>
   <span style="color: rgb(197, 200, 198); font-weight: 400;">steps:</span>
