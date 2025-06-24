@@ -155,7 +155,7 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
   - Toutes les pages ont une valeur unique et pertinente pour la balise &lt;title>
   - Unité des police d'écriture en rem
     - Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem
-      - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : $rem = {24px \over 16px} = 1.5rem$
+      - Pour rappel, il faut diviser la valeur de la maquette par 16 pour obtenir la font-size en rem. Exemple : $1.5rem = {24px \over 16px}$
   - Les champs de formulaire sont liés à un label (attributs "for" et "id")
   - [Voir plus de normes d'accessibilité](https://www.accede-web.com/notices/html-et-css/) (vous n'avez pas à toutes les respecter)
   - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
@@ -166,7 +166,7 @@ Cette partie (page "contact") sera évaluée par vos enseignants en Développeme
 - Qualité du code
   - Utilisation de la fonction `require_once()`
 - Bon fonctionnement du formulaire avec envoi d'e-mail
-  - **Nécessite d'héberger votre site** via un logiciel comme Filezilla (gratuit) ou autre. Et un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
+  - **Cette fonctionnalité ne peut pas être testée en local.** Il faudra uploader votre site sur un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
 #### Gestion d'équipe
 Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à réaliser, quelque chose qui vous a apporté de la satisfaction quand vous l'avez développé.
