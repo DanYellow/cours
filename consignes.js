@@ -216,6 +216,10 @@ const generateCodeExplanation = ($el, jsonData, idx) => {
         return;
     }
 
+    const codeSampleData = JSON.parse($el.dataset?.codeSample || "{}");
+    let codeTitle = $el.dataset?.title || codeSampleData?.title || "";
+    codeTitle = codeTitle.trim().length ? `"${codeTitle}"` : "";
+
     const generateRows = (lines) => {
         let res = [];
         Object.entries(lines).forEach(([key, value]) => {
@@ -240,7 +244,7 @@ const generateCodeExplanation = ($el, jsonData, idx) => {
 
     const tpl = `
         <table class="code-explanation" data-code-explanation-table="${idx}">
-        <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code</caption>
+        <caption style="text-align: start;font-size: 1.25rem;font-weight: bold;margin-top: 1rem;">Explication du code ${codeTitle}</caption>
             <thead>
                 <tr>
                     <th>Ligne(s)</th>

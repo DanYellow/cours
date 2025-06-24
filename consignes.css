@@ -832,7 +832,7 @@ code {
         border-bottom: 1px solid var(--green-code);
 
         &:nth-child(even) {
-            background-color: light-dark(#b4b4b45b, #0000005b);
+            background-color: light-dark(#b4b4b436, #0000005b);
         }
 
         &:last-child {
