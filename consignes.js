@@ -218,7 +218,7 @@ const generateCodeExplanation = ($el, jsonData, idx) => {
 
     const codeSampleData = JSON.parse($el.dataset?.codeSample || "{}");
     let codeTitle = $el.dataset?.title || codeSampleData?.title || "";
-    codeTitle = codeTitle.trim().length ? `"${codeTitle}"` : "";
+    codeTitle = codeTitle.trim().length ? `<a href="#code-sample-${idx}">"${codeTitle}"</a>` : "";
 
     const generateRows = (lines) => {
         let res = [];
@@ -300,8 +300,8 @@ DOM.listCodeSamples.forEach((item, idx) => {
     const greenColor = "var(--green-code)";
 
     item.classList.add("code-snippet");
-    item.style.borderRadius = "0 0 0.5rem 0.5rem";
 
+    item.style.borderRadius = "0 0 0.5rem 0.5rem";
     item.style.border = `1px solid ${greenColor}`;
     item.style.paddingInline = "1rem";
     item.style.paddingBlock = "0.75rem";
@@ -311,6 +311,8 @@ DOM.listCodeSamples.forEach((item, idx) => {
     item.style.position = "relative";
     item.style.backgroundColor = "var(--background-color-code)";
     item.style.overflowX = "auto";
+    
+    item.id = `code-sample-${idx}`;
 
     item.style.removeProperty("font-family");
 
