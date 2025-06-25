@@ -3,19 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CM - JavaScript asynchrone - API Fetch</title>
-        <link
-            rel="stylesheet"
-            href="https://danyellow.net/cours-mmi/consignes.css"
-        />
+        <title>JavaScript asynchrone - API Fetch — CM</title>
+        <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+        <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
         <link rel="stylesheet" href="ressources/reset.css" />
         <link rel="stylesheet" href="ressources/style.css" />
+
+        <link
+        rel="icon"
+        type="image/png"
+        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
 
         <script src="ressources/pokedex.js" defer></script>
     </head>
     <body>
         <main>
-            <h1 class="titre">CM - JavaScript asynchrone - API Fetch</h1>
+            <h1 class="titre">JavaScript asynchrone - API Fetch — CM</h1>
             <p class="paragraphe">
                 L'API fetch de javascript permet le chargement d'une ressource
                 sur le réseau (local ou distante) et retourne une promesse
@@ -78,21 +82,22 @@
                 informations sur l'origine de votre erreur.
             </p>
 
-            <div class="tab-wrap">
-                <input
-                    type="radio"
-                    id="tab1"
-                    name="tabGroup1"
-                    class="tab"
-                    checked
-                />
-                <label for="tab1">Pokédex simple</label>
-
-                <input type="radio" id="tab2" name="tabGroup1" class="tab" />
-                <label for="tab2">Pokédex avancé</label>
-
-                <div class="tab-content">
-                    <section>
+            <div class="tab-wrapper" role="tablist">
+                <ul class="list-tabs">
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-a">
+                            Pokédex simple
+                        </button>
+                    </li>
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-b">
+                            Pokédex avancé
+                        </button>
+                    </li>
+                </ul>
+                <ul class="list-tab-content">
+                    <li class="tab-content" data-tab-content="onglet-a">
+                        <section>
                         <form action="" data-form-pkmn>
                             <div class="form-el">
                                 <label for="nb_pkmn">Numéro du Pokémon</label>
@@ -136,7 +141,7 @@
                         <ul>
                             <li>Afficher par défaut la première entrée du Pokédex
                                 <ul>
-                                    <li>Mettre à jour l'URL de la page grâce à l'API 
+                                    <li>Mettre à jour l'URL de la page grâce à l'API
                                         <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams" target="_blank">URL.searchParams</a> quand on change d'entrée
                                     </li>
                                 </ul>
@@ -153,12 +158,12 @@
                                 (nom + conditions à atteindre)
                             </li>
                             <li>Améliorer le design</li>
-                            <li>Utiliser SCSS ou CSS Nesting (<a target="_blank" href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf">voir CM#1</a>)</li>
+                            <li>Utiliser CSS Nesting (<a target="_blank" href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf">voir CM#1</a>)</li>
                         </ul>
                     </details>
-                </div>
-                <div class="tab-content">
-                    <iframe
+                    </li>
+                    <li class="tab-content" data-tab-content="onglet-b">
+                        <iframe
                         src="index-avance.html"
                         frameborder="0"
                         class="pokedex-avance"
@@ -196,11 +201,13 @@
                                 appels d'API à chaque fois.
                             </li>
                             <li>Améliorer le design</li>
-                            <li>Utiliser SCSS ou CSS Nesting (<a target="_blank" href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf">voir CM#1</a>)</li>
+                            <li>Utiliser CSS Nesting (<a target="_blank" href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-1/presentation.pdf">voir CM#1</a>)</li>
                         </ul>
                     </details>
-                </div>
+                    </li>
+                </ul>
             </div>
+
             <div class="note-information">
                 <p>Sources</p>
                 <ul style="list-style: revert; padding: revert">
