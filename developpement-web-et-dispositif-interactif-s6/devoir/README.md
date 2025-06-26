@@ -60,6 +60,11 @@ Les critères suivants seront évalués :
   >   - Chaque variable doit commencer par "VITE_"
   >   - Le nom du fichier d'environnement doit s'appeler ".env" ou contenir le nom de l'environnement dans son nom. Ex : ".env.development". A noter qu'il est possible de rajouter l'extension ".local" pour ne pas commiter le fichier
   > - **Note 3 : Si, le token est commité, GitHub refusera votre push. Et vous devrez modifier votre commit, ou l'annuler. Faites très attention**
+- [ ] Remettre un fichier texte contenant :
+  - L'URL du projet sur GitHub
+  - L'URL du site déployé
+
+> Pensez à expliquer comment la mise en place de votre projet : outils à installer, schéma de base de données, template de fichiers d'env, etc. **Via un fichier README.md à la racine du projet.**
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
@@ -76,7 +81,7 @@ Les critères suivants seront évalués :
   - Note : Supprimer les tests problématiques, ce n'est pas corriger les tests
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liées aux types sont gérées dans le fichier main.css
-  - Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur
+  - **Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur**
 - [ ] En utilisant l'API "tcgdex.net", affichez les cartes **françaises** relatives au Pokémon affiché dans la modale. L'affichage devra se faire de la façon la plus adaptée possible, en sachant que le site est responsive
   - [Accéder à l'API tcgdex](https://tcgdex.dev/rest/filtering-sorting-pagination)
   - **La réponse d'API doit être mise en cache**. Si on réaffiche le Pokémon, la requête vers tcgdex ne doit pas être réeffectuée. Un système de cache est déjà présent, servez-vous en
@@ -114,8 +119,6 @@ Les critères suivants seront évalués :
 ### Back-end / Administration
 _Le langage de programmation est à votre convenance et ce n'est pas obligatoire de mettre en place un système d'authentification_
 
-> Pensez à expliquer comment la mise en place de l'administration, outils à installer, schéma de base de données, etc.
-
 - [ ] Créer un formulaire permettant d'uploader les jaquettes de jeux
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
   - Les images doivent être renommées de façon "sanitized". Les accents et autres espaces doivent être remplacés tout comme la casse doit passer en minuscules
@@ -149,24 +152,13 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
       EOF
       ```
       - Ne pas mettre les fichiers .env à la racine du projet, ils sont ainsi plus compliqués à trouver (il faudra penser à modifier votre config vite)
+  - [ ] Affiche le nom de la dernière personne qui a déployé avec l'heure et la date
+    - Le nom de l'auteur se trouve dans l'objet "github"
+      -  [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
+
 
 > La pipeline de la branche main doit être automatique et se lancer quand on effectue une pull_request dessus. Et toute branche qui va être fusionnée (évènement "merge_request") doit être testée par la pipeline.
 > - [En savoir plus sur l'évènement pull_request](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
-
-- [ ] Mettre en place **pour la branche "develop"**, une pipeline qui
-  - [ ] Déploie le projet dans un dossier "develop"
-      - Note : Le dossier doit être crée par la CI/CD sur le serveur. Ainsi, vous pouvez créer des dossiers de "stage" à la volée en fonction de la branche
-      - Note 2 : Si vous souhaitez utiliser un serveur chacun pour la phase de dev, vous pouvez utiliser des inputs de type "environnement" et ainsi configurer vos accès SSH et autres en fonction. Comme tout _input_, ça ne fonctionne qu'avec des pipelines manuelles
-        - [En savoir plus sur les environnements](https://docs.github.com/fr/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment)
-      - Note 3 : Le nom "develop" est un nom exemple, c'est plutôt une branche que vous créez à la volée pour ensuite être fusionnée avec la branche main
-  - [ ] Exécute les tests e2e de façon optimale
-  - [ ] Exécute les tests unitaires
-  - [ ] Lint le code avec eslint
-  - [ ] Migre la base de données (si applicable)
-  - [ ] Affiche la branche déployée sur le site
-    - Le nom de la branche se trouve dans l'objet "github". [Accéder à la documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)
-
-> Cette pipeline peut être manuelle ou automatique.
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 du TP de CI/CD et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
