@@ -22,7 +22,7 @@ if ("documentPictureInPicture" in window) {
                 pipWindow.document.head.append(scriptTag);
             });
 
-            [...document.styleSheets].forEach((styleSheet) => {
+            ;[...document.styleSheets].forEach((styleSheet) => {
                 try {
                     const cssRules = [...styleSheet.cssRules]
                         .map((rule) => rule.cssText)
@@ -42,6 +42,9 @@ if ("documentPictureInPicture" in window) {
             });
 
             pipWindow.document.body.append(modal);
+
+            // pipWindow.document.body.style.backgroundImage = pipWindow.document.querySelector("[data-pokemon-modal]").style.getPropertyValue("--background-sprite");
+
             const dialog = pipWindow.document.querySelector("dialog");
             dialog.classList.add("center-dialog");
             modal.close();
