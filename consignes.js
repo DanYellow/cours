@@ -444,7 +444,7 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
 
     const listItems = [];
     listVariablesExplanation.forEach((formulaEl) => {
-        listItems.push(`<li>${formulaEl.textContent} : ${formulaEl.dataset.varExplanation}</li>`)
+        listItems.push(`<li><span class="texte-gras">${formulaEl.textContent}</span> : ${formulaEl.dataset.varExplanation}</li>`)
     });
     item.insertAdjacentHTML('afterend', tpl.replace("__replace__", listItems.join("")));
 })

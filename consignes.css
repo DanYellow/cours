@@ -257,14 +257,6 @@
         overflow-y: hidden;
     }
 
-    .texte-gras {
-        font-weight: bold;
-    }
-
-    .texte-italique {
-        font-style: italic;
-    }
-
     p {
         margin: 0.8rem 0;
     }
@@ -877,4 +869,12 @@ code {
 .formula-explanation {
     font-size: 0.95rem;
     text-align: start;
+}
+
+.texte-gras {
+    font-weight: bold;
+}
+
+.texte-italique {
+    font-style: italic;
 }
