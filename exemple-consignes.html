@@ -248,36 +248,38 @@
                     </ul>
                     <ul class="list-tab-content">
                         <li class="tab-content" data-tab-content="onglet-a">
-                            Onglet A
+                            Contenu onglet A
                         </li>
                         <li class="tab-content" data-tab-content="onglet-b">
-                            Onglet B
+                            Contenu onglet B
                         </li>
                         <li class="tab-content" data-tab-content="onglet-c">
-                            Onglet C
+                            Contenu onglet C
                         </li>
                     </ul>
                 </div>
             </div>
 
             <h2 id="maths">Formule mathématique</h2>
-            <fieldset class="math-formula-container">
-                <legend>Conversion px → rem</legend>
-                <math display="inline-block">
-                    <mrow>
-                        <mi>rem</mi>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mrow>
-                                <mo>Taille en pixels</mo>
-                            </mrow>
-                            <mrow>
-                                <mo>16</mo>
-                            </mrow>
-                        </mfrac>
-                    </mrow>
-                </math>
-            </fieldset>
+            <div data-generate-source-code>
+                <fieldset class="math-formula-container">
+                    <legend>Conversion px → rem</legend>
+                    <math display="inline-block" data-formula>
+                        <mrow>
+                            <mi>rem</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mo>Taille en pixels</mo>
+                                </mrow>
+                                <mrow>
+                                    <mo data-var-explanation="Valeur de base de la font-size">16</mo>
+                                </mrow>
+                            </mfrac>
+                        </mrow>
+                    </math>
+                </fieldset>
+            </div>
             <p>La gestion des formules est faite par <a href="https://developer.mozilla.org/en-US/docs/Web/MathML" target="_blank" rel="noopener noreferrer">MathML</a>.</p>
 
             <h2 id="code">Mise en page de code</h2>
