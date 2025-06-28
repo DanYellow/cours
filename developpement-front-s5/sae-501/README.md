@@ -257,9 +257,9 @@ Pour améliorer l'expérience du site un système de flash message a été mis e
 Ils sont déjà implémentés lors de la création, l'édition et la suppression d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
 ## Utilisation de git
-Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **indispensable** de créer un dépôt **public** pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
+Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il est donc **indispensable** de créer un dépôt **public** pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
-1. Un membre du groupe crée le projet sur github
+1. Un membre du groupe crée le projet sur GitHub
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche))
    - Ceci peut se faire plus tard
 2. Clonez votre dépôt sur votre ordinateur (ssh ou https)
@@ -321,7 +321,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
 - [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages...
-- [ ] Initialiser le projet sur github [(voir partie "utilisation de git")](#utilisation-de-git)
+- [ ] Initialiser le projet sur GitHub [(voir partie "utilisation de git")](#utilisation-de-git)
 - [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 
 ### Site BUT et administration
@@ -445,7 +445,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 
     Oui, vous avez tout à fait le droit. Il est déjà utilisé d'ailleurs.
 
-- **Puis-je mettre sur github ce projet ?**
+- **Puis-je mettre sur GitHub ce projet ?**
 
     Oui. De toute façon, c'est **obligatoire** car vous devrez rendre le lien du dépôt git.
 

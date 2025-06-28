@@ -1,7 +1,7 @@
 {
   "name": "sae-501",
   "private": true,
-  "version": "2024.0.0",
+  "version": "2025.0.0",
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development node --watch-path=./database --watch-path=./server --watch-path=./env server/index.js",
