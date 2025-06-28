@@ -311,7 +311,7 @@ DOM.listCodeSamples.forEach((item, idx) => {
     item.style.position = "relative";
     item.style.backgroundColor = "var(--background-color-code)";
     item.style.overflowX = "auto";
-    
+
     item.id = `code-sample-${idx}`;
 
     item.style.removeProperty("font-family");
@@ -432,3 +432,19 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     invertCodeSampleColors();
 });
+
+document.querySelectorAll("[data-formula]").forEach((item) => {
+    const listVariablesExplanation = item.querySelectorAll("[data-var-explanation]")
+
+    const tpl = `
+        <ul class="formula-explanation">
+            __replace__
+        </ul>
+    `;
+
+    const listItems = [];
+    listVariablesExplanation.forEach((formulaEl) => {
+        listItems.push(`<li>${formulaEl.textContent} : ${formulaEl.dataset.varExplanation}</li>`)
+    });
+    item.insertAdjacentHTML('afterend', tpl.replace("__replace__", listItems.join("")));
+})

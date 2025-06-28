@@ -873,3 +873,8 @@ code {
         font-size: 0.75rem;
     }
 }
+
+.formula-explanation {
+    font-size: 0.95rem;
+    text-align: start;
+}
