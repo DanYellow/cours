@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CM - Synchrone vs asynchrone</title>
+        <title>Synchrone vs asynchrone — CM</title>
 
         <link
-            rel="stylesheet"
-            href="https://danyellow.net/cours-mmi/consignes.css"
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
         />
+
+        <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <script defer src="https://danyellow.net/cours-mmi/consignes.js"></script>
 
         <script src="./synchrone.js" defer></script>
 
@@ -36,66 +40,68 @@
 
             <p class="note-information">Il existe une petite différence de comportement au niveau des deux onglets. L'onglet "synchrone" calcule N nombres premiers aléatoires tandis que l'onglet "asynchrone" calcule les n premiers nombres premiers.</p>
 
-            <div class="tab-wrap">
-                <input
-                    type="radio"
-                    id="tab1"
-                    name="tabGroup1"
-                    class="tab"
-                    checked
-                />
-                <label for="tab1">Code synchrone</label>
-
-                <input type="radio" id="tab2" name="tabGroup1" class="tab" />
-                <label for="tab2">Code asynchrone</label>
-
-                <div class="tab-content">
-                    <p class="note-information">
-                        Le code synchrone se trouve dans le fichier
-                        "synchrone.js".
-                    </p>
-                    <section>
-                        <h1>Exemple code synchrone</h1>
-                        <div class="form-el">
-                            <label for="quota"
-                                >Quantité de nombres premiers :</label
-                            >
-                            <input
-                                type="number"
-                                min="0"
-                                id="quota"
-                                name="quota-sync"
-                                value="10000000"
-                            />
-                        </div>
-
-                        <button data-sync-btn-generer type="button">
-                            Générer des nombres premiers
+            <div class="tab-wrapper" role="tablist">
+                <ul class="list-tabs">
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-a">
+                            Code synchrone
                         </button>
-                        <button data-sync-btn-recharger type="button">
-                            Recharger
+                    </li>
+                    <li>
+                        <button class="select-tab" data-tab-name="onglet-b">
+                            Code asynchrone
                         </button>
+                    </li>
+                </ul>
+                <ul class="list-tab-content">
+                    <li class="tab-content" data-tab-content="onglet-a">
+                        <p class="note-information">
+                            Le code synchrone se trouve dans le fichier
+                            "synchrone.js".
+                        </p>
+                        <section>
+                            <h1>Exemple code synchrone</h1>
+                            <div class="form-el">
+                                <label for="quota"
+                                    >Quantité de nombres premiers :</label
+                                >
+                                <input
+                                    type="number"
+                                    min="0"
+                                    id="quota"
+                                    name="quota-sync"
+                                    value="10000000"
+                                />
+                            </div>
 
-                        <p data-sync-resultat></p>
-                        <div class="form-el">
-                            <label for="text">Texte utilisateur :</label>
-                            <textarea id="text" rows="5" cols="62">
-        Essayez de m'éditer après avoir cliqué sur le bouton "Générer des nombres premiers"</textarea
-                            >
-                        </div>
-                    </section>
-                </div>
-                <div class="tab-content">
-                    <p class="note-information">
-                        Le code asynchrone se trouve dans le fichier
-                        "asynchrone.js".
-                    </p>
-                    <iframe
-                        src="index-asynchrone.html"
-                        frameborder="0"
-                        class="iframe"
-                    ></iframe>
-                </div>
+                            <button data-sync-btn-generer type="button">
+                                Générer des nombres premiers
+                            </button>
+                            <button data-sync-btn-recharger type="button">
+                                Recharger
+                            </button>
+
+                            <p data-sync-resultat></p>
+                            <div class="form-el">
+                                <label for="text">Texte utilisateur :</label>
+                                <textarea id="text" rows="5" cols="62">
+            Essayez de m'éditer après avoir cliqué sur le bouton "Générer des nombres premiers"</textarea
+                                >
+                            </div>
+                        </section>
+                    </li>
+                    <li class="tab-content" data-tab-content="onglet-b">
+                        <p class="note-information">
+                            Le code asynchrone se trouve dans le fichier
+                            "asynchrone.js".
+                        </p>
+                        <iframe
+                            src="index-asynchrone.html"
+                            frameborder="0"
+                            class="iframe"
+                        ></iframe>
+                    </li>
+                </ul>
             </div>
 
             <div class="note-information">
