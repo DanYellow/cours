@@ -4,7 +4,7 @@ if [ -e output.tmp.txt ]; then
     rm output.tmp.txt
 else
     echo "----- pre-commit -----"
-	cd "gestion-ressources/"
+	cd "generation-archives/"
 
     if ! command -v python &> /dev/null; then
         # For linux env
