@@ -11,24 +11,24 @@ Ce script est exécuté à chaque commit et chaque archive généré est ajouté
 #### Uniquement les dossiers staged - Comportement par défaut
 ```python
 # Zippe toutes les ressources
-python zip-ressources.py
+python generation-archives/zip-ressources.py
 ```
 
 #### Uniquement les dossiers du dernier commit
 ```python
-python zip-ressources.py --last-commit / -lc
+python generation-archives/zip-ressources.py --last-commit / -lc
 ```
 
 #### Tous les dossiers
 ```python
-python zip-ressources.py --all / -a
+python generation-archives/zip-ressources.py --all / -a
 ```
 
 Note : Les archives sont générées au même niveau que le dossier zippé
 
 #### Un dossier (ou plusieurs) en particulier
 ```python
-python zip-ressources.py --folder / -f chemin-depuis-la-racine-1, chemin-depuis-la-racine-2...
+python generation-archives/zip-ressources.py --folder / -f chemin-depuis-la-racine-1, chemin-depuis-la-racine-2...
 ```
 
 Note : Si les dossiers n'existent pas, ils seront ignorés
