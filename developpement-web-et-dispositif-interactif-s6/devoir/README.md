@@ -72,13 +72,15 @@ Les critères suivants seront évalués :
   - Optionel : Afficher le nom du dex en français. Par exemple la région d'Unys est appelée "Unova" en anglais
 - [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent) dans la modale
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
+- [ ] Changer le favicon pour le sprite du Pokémon affiché
+  - Ne pas oublier de réinitaliser le favicon
 - [ ] **En mode liste uniquement,** afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
-  - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, c'est ces numéros dont on parle
+  - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, ce sont ces numéros dont on parle
 - [ ] Corriger les tests unitaires
-  - Note : Supprimer les tests problématiques, ce n'est pas corriger les tests
+  - Note : Supprimer les tests qui échouent, ce n'est pas corriger les tests
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
   - Les couleurs liées aux types sont gérées dans le fichier main.css
   - **Note : Ceci ne peut se voir que sur un smartphone ou un simulateur de smartphone, pas le mode responsive du navigateur**
