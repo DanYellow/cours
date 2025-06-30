@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>importmap Consignes - TP</title>
+    <title>importmap — Consignes TP</title>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -15,7 +15,7 @@
 
   <body>
     <header class="entete-consignes">
-      <h1 class="h1">Consignes de la pratique - importmap</h1>
+      <h1 class="titre-consignes">importmap — Consignes TP</h1>
       <details class="consignes-conteneur" open>
         <summary>
           <h2 class="h1">Partie 1 (cliquer pour afficher / cacher)</h2>
@@ -25,7 +25,7 @@
             Créez un fichier html
           </li>
           <li>
-            Cherchez un ou plusieurs modules front-end sur le site <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">jsdelivr.com - ouverture dans un nouvel onglet</a> ou <a href="https://www.skypack.dev/" target="_blank" rel="noopener noreferrer">skypack.dev - ouverture dans un nouvel onglet</a>
+            Cherchez un ou plusieurs modules front-end sur le site <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">jsdelivr.com - ouverture dans un nouvel onglet</a> ou <a href="https://www.skypack.dev/" target="_blank" rel="noopener noreferrer">skypack.dev - ouverture dans un nouvel onglet</a>.
             Définissez un importmap et importez-le dans votre fichier html.
             <p class="note-information">Il n'est pas utile d'aller chercher des modules "compliqués" à mettre en place, lodash ou encore luxon feront largement l'affaire.</p>
             <p class="note-information">Sur le site jsdelivr, il faut utiliser la version esm.</p>
@@ -58,6 +58,11 @@
         <p>L'importmap fonctionne également avec des modules locaux, il est possible de définir un module en local pour ensuite le définir dans l'importmap. Le fonctionnement reste le même. Quand le module est local, vous pouvez utiliser un chemin relatif ou absolu entre le fichier HTML et les modules. A l'avenir, il sera possible d'externaliser l'importmap dans un fichier json.</p>
         <ol class="liste-consignes">
           <li>Créez un module local et ajoutez-le à votre importmap
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener noreferrer">Voir documentation des modules javascript</a>
+                </li>
+            </ul>
             <p class="note-information">Ce module peut contenir une variable ou une fonction qui effectue une addition. Inutile de faire quelque chose d'élaboré.</p>
           </li>
           <li>Utilisez ce module fraîchement crée dans votre script</li>
