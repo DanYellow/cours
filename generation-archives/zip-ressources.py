@@ -15,7 +15,8 @@ start_time = time.time()
 # Note 2 : SAE's folder are excluded from the operation since the students, most of them, will download the code at home, there's almost no chance we have
 # a token error from https://download-directory.github.io/
 
-os.chdir("../")
+if "generation-archives" in os.getcwd():
+    os.chdir("../")
 print("--- Archives generation started. Please wait. ---")
 
 if not os.path.exists('flag.tmp.txt'):
@@ -194,7 +195,7 @@ else:
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
-        
+
         list_paths = list(map(transform_str_to_path, args.folder.split(',')))
         list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
         list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
@@ -256,9 +257,9 @@ def generate_zip(list_folders, is_correction_directory = False):
 
 generate_zip(list_ressources_folders_to_zip)
 print("    ")
-print(f"\033[96m--- {len(list_zip_files_generated)} archives generated ---\033[0m")
 with open("output.tmp.txt", "w") as txt_file:
     if len(list_zip_files_generated) > 0:
+        print(f"\033[96m--- {len(list_zip_files_generated)} archives generated ---\033[0m")
         for line in list_zip_files_generated:
             print(f"• {line}")
             if os.path.isfile(line):
