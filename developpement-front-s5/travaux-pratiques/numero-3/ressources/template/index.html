@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Balise &lt;template> — Consignes TP</title>
-    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
     <link
       rel="stylesheet"
       href="https://danyellow.net/cours-mmi/consignes.css"
@@ -15,11 +15,11 @@
   </head>
 
   <body>
-    <header>
+    <header class="consignes-en-tete">
       <h1 class="titre-consignes">Balise &lt;template> — Consignes TP</h1>
       <details class="consignes-conteneur" open>
         <summary>
-          <h1 class="h1">Partie 1 (cliquer pour afficher / cacher)</h1>
+          <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
         </summary>
         <ol class="liste-consignes">
           <li>
@@ -36,13 +36,13 @@
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 2 (cliquer pour afficher / cacher)</h1>
+          <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
         </summary>
         <ol class="liste-consignes">
           <li>
             Arrangez-vous pour modifier le contenu d'une ou plusieurs balises de votre template depuis le javascript.
             <ul>
-              <li>Cette modification peut être de différent ordre : texte, lien d'image... Petit rappel sur les propriétés JS pour modifier un élément HTML : 
+              <li>Cette modification peut être de différent ordre : texte, lien d'image... Petit rappel sur les propriétés JS pour modifier un élément HTML :
                 <ul>
                     <li>
                         <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent" target="_blank" rel="noopener noreferrer">textContent - Texte</a>
@@ -55,14 +55,14 @@
                     </li>
                 </ul>
               </li>
-            </ul> 
+            </ul>
           </li>
         </ol>
         <p class="note-information">S'il est préférable d'utiliser un data-attribute pour cibler un élément. Vous pouvez aussi cibler directement la balise si la structure est simple.</p>
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Partie 3 (cliquer pour afficher / cacher)</h1>
+          <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
         </summary>
         <ol class="liste-consignes">
             <li>Ajoutez un bouton qui, au clic, effectue les actions suivantes :
@@ -72,11 +72,23 @@
                 </ul>
             </li>
         </ol>
-        <p class="note-information">L'API retourne une liste d'objets ayant la structure : {name, value}</p>
+        <div class="note-information">
+            <p>
+                L'API retourne un JSON ayant la forme suivante :
+            </p>
+            <pre data-language="JSON" data-code-sample style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(248, 248, 242); font-weight: 400;">{</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-01-01"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"1er janvier"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-04-22"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"Lundi de Pâques"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-05-01"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"1er mai"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-05-08"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"8 mai"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-05-30"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"Ascension"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
+  <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-06-10"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"Lundi de Pentecôte"</span>
+<span style="color: rgb(248, 248, 242); font-weight: 400;">}</span></pre>
+        </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
-          <h1 class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</h1>
+          <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
         </summary>
         <ol class="liste-consignes">
           <li>
