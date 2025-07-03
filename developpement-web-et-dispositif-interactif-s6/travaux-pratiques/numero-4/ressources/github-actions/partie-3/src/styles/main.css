@@ -48,18 +48,6 @@
     }
 }
 
-@custom-variant picture-in-picture {
-    &[data-picture-in-picture] {
-        @slot;
-    }
-}
-
-@custom-variant group-picture-in-picture {
-    &:is(:where([data-picture-in-picture]) *) {
-        @slot;
-    }
-}
-
 @layer utilities {
     @font-face {
         font-family: "DMSans";
@@ -73,6 +61,20 @@
         src: url("/DMSans-Italic-VariableFont_opsz,wght.ttf") format("truetype");
         font-style: italic;
         font-weight: 100 900;
+    }
+}
+
+@custom-variant picture-in-picture {
+    @media all and (display-mode: picture-in-picture) {
+        @slot;
+    }
+}
+
+@custom-variant group-picture-in-picture {
+    @media all and (display-mode: picture-in-picture) {
+        * {
+            @slot;
+        }
     }
 }
 
@@ -655,5 +657,4 @@ details {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin-top: 0;
 }

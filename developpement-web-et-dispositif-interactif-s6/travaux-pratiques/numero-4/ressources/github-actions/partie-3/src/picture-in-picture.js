@@ -52,7 +52,6 @@ if ("documentPictureInPicture" in window) {
             pipWindow.addEventListener("pagehide", () => {
                 const dialog = pipWindow.document.querySelector("dialog");
                 if (dialog) {
-                    dialog.removeAttribute("data-picture-in-picture");
                     dialog.classList.remove("center-dialog");
                     dialog.close();
                     document.body.append(dialog);
@@ -78,7 +77,6 @@ if ("documentPictureInPicture" in window) {
                 if (mutation.type == "childList") {
                     const pipModal = pipWindow.document.querySelector("dialog");
                     if (pipModal) {
-                        pipModal.dataset.pictureInPicture = "";
                         pipModal.showModal();
                     }
                 }
