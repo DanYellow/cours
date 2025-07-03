@@ -46,8 +46,9 @@ Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffic
 - <a id="datasets" href="datasets/">Accéder aux jeux de données proposés</a>
   - <a href="integration-web-s3_sae-303.datasets.zip">Télécharger tous les jeux de données (cliquez sur "view raw" ou la flèche qui va vers le bas à droite)</a>
 > Vous devrez impérativement mettre vos sources dans vos réalisations, **si cette règle n'est pas respectée votre note sera diminuée d'un tiers**
+>   - Au-delà du lien vers la source du document, il peut également être bon d'indiquer la date/année de fin de comptage du jeu de données
 
-Les jeux de données sont été partagés en deux dossiers : "crea" et "dev". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "crea" et "dev" si vous souhaitez développer un outil autour de la data. La différence entre les deux types de jeux de données résident dans la quantité de données. Les jeux de données "créa", possédant moins de contenu, sont donc plus faciles à mettre en page.
+Les jeux de données sont été partagés en deux dossiers : "crea" et "dev". Ainsi, si vous vous orientez vers le sujet graphique, nous vous invitons fortement à prendre un jeu de données dans le dossier "crea" et "dev" si vous souhaitez développer un outil autour de la data. La différence entre les deux types de jeux de données réside dans la quantité de données. Les jeux de données "créa", possédant moins de contenus, sont donc plus faciles à mettre en page.
 
 > Note : Vous pouvez tout à fait ajouter des jeux de données externes (et **sourcés**) pour appuyer votre création. N'hésitez pas !
 
@@ -83,9 +84,9 @@ Votre infographie devra être présentée sur un site web, une seule page suffit
   - [Accéder aux logos](#logos)
 - Année universitaire + promotion
 - Membres du groupe
-- Sources (en plus de celles présentent sur l'infographie / vidéo)
+- Sources (les mêmes que celles utilisées dans l'infographie / vidéo)
 
-N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/). Vous n'avez pas besoin d'utiliser Wordpress, ça rendra votre développement plus complexe pour un gain très faible, seuls les langages HTML et CSS vous serviront.
+N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HTML. Vous pouvez utiliser [tailwindcss](https://tailwindcss.com/docs/installation/play-cdn). Vous n'avez pas besoin d'utiliser Wordpress, ça rendra votre développement plus complexe pour un gain très faible, seuls les langages HTML et CSS vous serviront.
 
 L'infographie devra respecter les règles suivantes :
 - La présence des sources
@@ -116,7 +117,7 @@ Autre proposition de rendu : l'application interactive en javascript, elle sera 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
   - Pensez bien à sélectionner l'onglet "Javascript" pour le code
-- [Voir cours sur Leaflet](https://github.com/DanYellow/cours/blob/main/integration-web-s3/cours-magistraux/numero-3/presentation.pdf)
+- [Voir cours sur Leaflet](../cours-magistraux/numero-3/presentation.pdf)
 
 **Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent via un message ou une icône.
 
