@@ -15,6 +15,10 @@ if ("documentPictureInPicture" in window) {
                 pipOptions
             );
 
+            const handlePipClose = () => {
+                window.documentPictureInPicture.window.close();
+            }
+
             Array.from(document.scripts).forEach((item) => {
                 const scriptTag = document.createElement("script");
                 scriptTag.src = item.src;
@@ -49,9 +53,14 @@ if ("documentPictureInPicture" in window) {
             dialog.classList.add("center-dialog");
             modal.close();
 
+            const closeModalBtn = pipWindow.document.querySelector("[data-close-modal]");
+            closeModalBtn.addEventListener("click", handlePipClose);
+
             pipWindow.addEventListener("pagehide", () => {
                 const dialog = pipWindow.document.querySelector("dialog");
                 if (dialog) {
+                    pipIndicator.setAttribute("hidden", "");
+                    closeModalBtn.removeEventListener("click", handlePipClose)
                     dialog.classList.remove("center-dialog");
                     dialog.close();
                     document.body.append(dialog);
