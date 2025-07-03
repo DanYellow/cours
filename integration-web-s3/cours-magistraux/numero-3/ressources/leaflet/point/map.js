@@ -28,7 +28,7 @@ const carte2 = L.map(document.querySelector("[data-map='etape-2']")).setView(
     13
 );
 
-L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
+L.tileLayer("https://tile.osm.ch/switzerland/{z}/{x}/{y}.png", {
     maxZoom: 24,
     minZoom: 10,
     attribution:

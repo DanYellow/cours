@@ -3,13 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CM - Leaflet - Points</title>
+        <title>Leaflet - Points — CM</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://danyellow.net/cours-mmi/favicon.png"
+        />
 
         <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
         <link rel="stylesheet" href="../style.css" />
         <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
 
-        <script defer src="https://danyellow.net/cours-mmi/scripts.js"></script>
+        <script defer src="https://danyellow.net/cours-mmi/consignes.js"></script>
 
         <!-- code CSS et JS de leaflet -->
         <link
@@ -29,13 +34,13 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js'></script>
         <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css' rel='stylesheet' />
         <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css' rel='stylesheet' />
-        
+
 
         <script src="map.js" defer></script>
     </head>
     <body>
-        <main>
-            <h1 class="titre-consignes">CM - Leaflet - Points</h1>
+        <main class="consignes-en-tete">
+            <h1 class="titre-consignes">Leaflet - Points — CM</h1>
             <p class="paragraphe">
                 Le but de cet exemple est de voir les bases de la cartographie avec Leaflet et plus particulièrement la mise en place de points et de clusters sur une carte OpenStreetMap.
             </p>
@@ -46,7 +51,7 @@
             </ul>
 
             <p class="note-information">
-                Le code associé à ces exemples affichés est commenté.
+                Le code source associé à ces exemples affichés est commenté.
             </p>
 
             <details class="consignes-conteneur">
@@ -64,9 +69,29 @@
                     </p>
                     <p>Attention tout de même si OpenStreetMap est gratuit et open source, certaines cartes ne le sont pas et nécessitent une clé d'authentification.</p>
                 </div>
- 
+
                 <div data-map="etape-1" class="carte"></div>
-            </details>
+
+                <pre data-code-sample='{"title": "Carte de base", "jsonId": "carte", "displayLineCode":true, "linesLinked":[[1,4]],"linesHighlighted":"1, 4, 6, 11"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> carte1 = L.<span style="color: rgb(0, 224, 224); font-weight: 400;">map</span>(<span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"[data-map='etape-1']"</span>)).<span style="color: rgb(0, 224, 224); font-weight: 400;">setView</span>(
+    [<span style="color: rgb(245, 171, 53); font-weight: 400;">48.974628</span>, <span style="color: rgb(245, 171, 53); font-weight: 400;">2.376788</span>],
+    <span style="color: rgb(245, 171, 53); font-weight: 400;">13</span>
+);
+
+L.<span style="color: rgb(0, 224, 224); font-weight: 400;">tileLayer</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"https://tile.openstreetmap.org/{z}/{x}/{y}.png"</span>, {
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">maxZoom</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">19</span>,
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">minZoom</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">10</span>,
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">attribution</span>:
+        <span style="color: rgb(171, 227, 56); font-weight: 400;">'&amp;copy; &lt;a href="http://www.openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt;'</span>,
+}).<span style="color: rgb(0, 224, 224); font-weight: 400;">addTo</span>(carte1);</pre>
+
+    <script type="text/json" data-json-id="carte">
+        {
+            "1-4": "Définition de la carte avec une position par défaut et un zoom sur un élément de la page. Ici, l'élément ayant le data-attribute <code>[data-map='etape-1']</code>",
+            "6": "Choix des tuiles. Autrement dit, le design de la carte. Il existe d'autres designs de tuiles, certains sont payants",
+            "11": "Application des options sur la carte définie plus haut"
+        }
+    </script>
+</details>
             <details class="consignes-conteneur">
                 <summary>
                     <p class="h1">
@@ -111,7 +136,7 @@
                     <ul>
                         <li>
                             <a href="https://leafletjs.com/plugins.html" target="_blank" rel="noopener noreferrer">
-                                Voir la liste des plugins de leaflet.</a> Certains plugins sont très vieux et ne sont pas forcément à jour ou compatibles, faites attention.
+                                Voir la liste des plugins de leaflet.</a> Certains plugins sont très vieux et ne sont pas forcément à jour ou compatibles, faites attention
                         </li>
                     </ul>
                 </section>
