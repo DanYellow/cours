@@ -31,7 +31,7 @@ if ("documentPictureInPicture" in window) {
 
                     style.textContent = cssRules;
                     pipWindow.document.head.appendChild(style);
-                } catch (e) {
+                } catch (_e) {
                     const link = document.createElement("link");
                     link.rel = "stylesheet";
                     link.type = styleSheet.type;
