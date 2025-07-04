@@ -592,7 +592,11 @@
 
 .math-formula-container {
     border-color: rgb(from var(--color, light-dark(var(--black), var(--white))) r g b / var(--note-opacity-border));
-    padding: 0.5rem 1rem;
+    padding: 1.25rem 1rem;
+
+    @media screen and (width > 768px) {
+        padding: 0.5rem 1rem;
+    }
     font-size: 1.75rem;
     text-align: center;
     margin: 0.75rem 0;
