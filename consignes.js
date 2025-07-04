@@ -338,7 +338,9 @@ DOM.listCodeSamples.forEach((item, idx) => {
         generateCodeExplanation(item, jsonData, idx);
     }
 
-    generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item, idx);
+    if (item.firstElementChild) {
+        generateHighlightedLines(linesHighlighted, item.firstElementChild.offsetHeight, linesLinked, item, idx);
+    }
 
     if (language && !("language" in item.dataset)) {
         item.dataset.language = language;
