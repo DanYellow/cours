@@ -356,13 +356,18 @@ displayModal = async (pkmnData) => {
     url.searchParams.set("id", pkmnData.pokedex_id);
 
     pkmnData.types.forEach((type, idx) => {
-        const li = document.createElement("li");
-        li.textContent = type.name;
-        li.setAttribute("aria-label", `Type ${idx + 1} ${type.name}`);
-        li.classList.add(
-            ...["py-0.5", "px-2", "rounded-md", "gap-1", "flex", "items-center", "type-name", "w-fit"]
-        );
-        li.style.backgroundColor = `var(--type-${cleanString(type.name)})`;
+        const parser = new DOMParser();
+
+        const liString = `
+            <li 
+                class="py-0.5 px-2 rounded-md gap-1 flex items-center type-name w-fit"
+                aria-label="Type ${idx + 1} ${type.name}"
+                style="background-color: var(--type-${cleanString(type.name)})"
+            >
+                    ${type.name}
+            </li>
+        `
+        const li = parser.parseFromString(liString, "text/html").body.firstChild;
 
         const imgTag = document.createElement("img");
         imgTag.alt = `icône type ${type.name}`;
