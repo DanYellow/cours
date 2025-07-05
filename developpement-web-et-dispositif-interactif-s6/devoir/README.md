@@ -242,6 +242,22 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Vous pouvez utiliser [commitizen](https://commitizen-tools.github.io/commitizen/) pour vous aider à créer des commits correctement labellisés
 - **L'accès SSH à votre serveur, le token GitHub ou les accès MySQL sont des données sensibles, elles doivent être gérées par un secret**
   - [Didacticiel sur les GitHub Secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+- Si vous souhaitez charger des fichiers .env en PHP, vous pouvez utiliser le code suivant (à adapter) :
+    ```php
+    // Source : https://stackoverflow.com/questions/67963371/load-a-env-file-with-php#answer-77305725
+    $env = file_get_contents("/path/.env");
+    $lines = explode("\n", $env);
+
+    foreach ($lines as $line) {
+        preg_match("/([^#]+)\=(.*)/", $line, $matches);
+        if (isset($matches[2])) {
+            putenv(trim($line));
+        }
+    }
+
+    // Exemple d'utilisation
+    echo getenv('MY_KEY');
+    ```
 
 ## Pour aller plus loin
 
@@ -249,16 +265,16 @@ mysql --defaults-extra-file=.my.cnf --execute="SHOW TABLES;"
 - Mettre en place un système de comparaison de fiche entre deux Pokémon
 - Grâce à [l'API `Navigation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigation), proposer un historique des fiches détails précemment affichées, permettant à l'utilisateur de les réafficher plus rapidement
   - Note : A ce jour (01/2025), [l'API `Navigation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigation) ne fonctionne pas sur Firefox et Safari
+- Ajouter un mode sombre
 
 ### Back-office / Administration
 - Générer une image non-retina d'une image uploadée et afficher l'image en fonction de sa résolution grâce à l'attribut `srcset` de la balise `img`
 
 ### CI/CD
-- Bloquer la fusion de branche, si sa pipeline n'a pas été exécutée avec succès
-- Génèrer un artifact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
+- Génèrer un artefact contenant uniquement le rapport HTML de playwright si et seulement si les tests échouent
   - A l'heure actuelle, playwright est configuré pour générer un rapport en annotations en mode CI/CD et en html en local
   - [Voir exemple de configuration](https://playwright.dev/docs/ci#on-pushpull_request)
-- Générer un artifiact contenant uniquement le rapport HTML de vitest (si erreur ou non)
+- Générer un artefact contenant uniquement le rapport HTML de vitest (si erreur ou non)
   - Vous devrez modifier la configuration de vitest (fichier vite.config.js - clé "test") en vous aidant de la documentation
     - [Voir documentation du html reporter pour vitest](https://vitest.dev/guide/reporters#html-reporter)
 > Le rapport HTML ne doit pas être commité, pensez bien à l'ajouter au fichier .gitignore
