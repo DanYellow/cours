@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vitejs — Consignes TP</title>
-    
+
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
     <link
       rel="stylesheet"
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="consignes-en-tete">
       <h1 class="titre-consignes">Vitejs — Consignes TP</h1>
       <details class="consignes-conteneur" open>
         <summary>
@@ -45,12 +45,12 @@
         </li>
         </ol>
         <section class="note-information">
-            <p>Il y a trois commandes dans le fichier package.json</p>
-            <ol>
-                <li>dev : lance un serveur qui permet d'accéder au projet + recompile tous les fichiers (sauf ceux dans le dossier public/) à chaque modification </li>
-                <li>build : compile le projet pour la production</li>
-                <li>preview : lance un serveur de production à partir d'un build (nécessite d'avoir lancé la commande <code>npm run build</code> avant)</li>
-            </ol>
+            <p>Il y a trois commandes dans le fichier package.json :</p>
+            <ul>
+                <li><code>(npm run) dev</code> : lance un serveur qui permet d'accéder au projet + recompile tous les fichiers (sauf ceux dans le dossier public/) à chaque modification </li>
+                <li><code>(npm run) build</code> : compile le projet pour la production</li>
+                <li><code>(npm run) preview</code> : lance un serveur de production à partir d'un build (nécessite d'avoir lancé la commande <code>npm run build</code> avant)</li>
+            </ul>
             <p>
                 <a href="https://vitejs.dev/guide/cli.html" target="_blank">En savoir plus sur les commandes vite - ouverture dans un nouvel onglet</a>
             </p>
@@ -126,8 +126,8 @@
           </li>
           <li>Réécrivez le CSS du projet avec le <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">CSS Nesting</a> et rendez le site responsive grâce aux media queries
             <div class="note-information">
-              <p>Sachez qu'il est également possible de faire du CSS Nesting avec les media queries, ainsi, vous n'avez plus besoin de dupliquer votre sélecteur. Exemple</p>
-              
+              <p>Sachez qu'il est également possible de faire du CSS Nesting avec les media queries, ainsi, vous n'avez plus besoin de dupliquer votre sélecteur. Exemple :</p>
+
               <div class="tab-wrapper" role="tablist">
                 <ul class="list-tabs">
                     <li>
@@ -192,7 +192,7 @@
                 </li>
             </ul>
             <p class="note-information">
-              Rappelez-vous que nous souhaitons afficher une liste, l'ensemble des articles doit être contenu dans un tableau d'objets
+              Rappelez-vous que nous souhaitons afficher une liste, l'ensemble des articles doit être contenu dans un tableau d'objets.
             </p>
           </li>
           <li>Si vous n'êtes pas à l'aise avec la gestion des modules en javascript : Ajoutez une interaction en javascript grâce à un module que vous aurez crée. N'oubliez pas de l'exporter ainsi que l'importer dans votre point d'entrée, le fichier javascript chargé dans votre fichier html</li>
@@ -208,17 +208,17 @@
           </li>
           <li>Avec une variable d'environnement, gérez le port du serveur de développement (clé "server.port" dans le fichier vite.config.js)
             <div class="note-information">
-              <ul>
-                <li>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu
-                  <ul>
-                    <li>
-                      <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation pour en savoir plus - ouverture dans un nouvel onglet</a>.
+                <ul>
+                    <li>La configuration actuelle du fichier vite.config.js ne permet pas de gérer ce cas, il faudra donc la modifier un peu
+                    <ul>
+                        <li>
+                        <a href="https://vitejs.dev/config/#using-environment-variables-in-config" target="_blank" rel="noopener noreferrer">Accéder à la documentation pour en savoir plus - ouverture dans un nouvel onglet</a>.
+                        </li>
+                    </ul>
                     </li>
-                  </ul>
-                </li>
-                <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif</li>
-                <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
-            </ul>
+                    <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif</li>
+                    <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
+                </ul>
             </div>
         </li>
         </ol>
