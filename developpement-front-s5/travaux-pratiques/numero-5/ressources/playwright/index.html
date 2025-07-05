@@ -4,25 +4,26 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Consignes TP - Tests end-to-end</title>
+        <title>Tests end-to-end — Consignes TP</title>
         <link
             rel="stylesheet"
             href="https://danyellow.net/cours-mmi/consignes.css"
         />
 
-        <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+        <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+        <link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
     </head>
 
     <body>
-        <header>
-            <h1 class="h1">
-                Consignes de la pratique - TP - Tests end-to-end
+        <header class="consignes-en-tete">
+            <h1 class="titre-consignes">
+                Tests end-to-end — Consignes TP
             </h1>
             <details class="consignes-conteneur" open>
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 1 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -48,9 +49,9 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 2 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -101,15 +102,15 @@
                                 </li>
                             </ul>
                         </section>
-                        
+
                     </li>
                 </ol>
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 3 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ul class="liste-consignes">
                     <li>
@@ -150,9 +151,9 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 4 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <!-- <li>
@@ -205,9 +206,9 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 5 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -221,7 +222,7 @@
                 <section class="note-information">
                     <p>
                         Pour soumettre un formulaire, vous pouvez cliquer sur le
-                        bouton dédié ou appuyer sur la touche "Enter" dans un champ de texte grâce à la méthode press().
+                        bouton dédié ou appuyer sur la touche <kbd>Entrée</kbd> dans un champ de texte grâce à la méthode press().
                     </p>
                     <ul>
                         <li>
@@ -237,9 +238,9 @@
 
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 6 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -267,9 +268,9 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 7 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -282,9 +283,9 @@
                         Créez un test e2e permettant de vérifier le bon affichage de votre liste de jours féries
                         <ul>
                             <li>
-                                Vous devez mocker la réponse d'API.
+                                Vous devez mocker/simuler la réponse d'API
                                 <section class="note-information">
-                                    <p>L'API est lente. Il faudra penser à utiliser la méthode waitForResponse</p>
+                                    <p>L'API est lente. Il faudra penser à utiliser la méthode waitForResponse.</p>
                                     <ul>
                                         <li><a href="https://playwright.dev/docs/api/class-page#page-wait-for-response" target="_blank">Accéder à la documentation de waitForResponse - ouverture dans un nouvel onglet</a></li>
                                     </ul>
@@ -296,9 +297,9 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 8 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -382,19 +383,16 @@
                         <code>evaluate()</code>. Par exemple :
                     </p>
                     <pre>
-<code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(226, 137, 100); font-weight:400;">await</span> page
-    .<span class="hljs-title function_">locator</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;input&quot;</span>)
-    .<span class="hljs-title function_">nth</span>(<span style="color:rgb(51, 135, 204); font-weight:400;">0</span>)
-    .evaluate(<span style="color:rgb(248, 248, 248); font-weight:400;">(<span style="color:rgb(62, 135, 227); font-weight:400;">item</span>) =&gt;</span> {
+<code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(226, 137, 100); font-weight:400;">await</span> page.<span class="hljs-title function_">locator</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;input&quot;</span>).<span class="hljs-title function_">nth</span>(<span style="color:rgb(51, 135, 204); font-weight:400;">0</span>).evaluate(<span style="color:rgb(248, 248, 248); font-weight:400;">(<span style="color:rgb(62, 135, 227); font-weight:400;">item</span>) =&gt;</span> {
         item.<span style="color:rgb(248, 248, 248); font-weight:400;">style</span>.<span style="color:rgb(248, 248, 248); font-weight:400;">display</span> = <span style="color:rgb(101, 176, 66); font-weight:400;">&quot;none&quot;</span>;
     });</code></pre>
                 </section>
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Partie 9 (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <ol class="liste-consignes">
                     <li>
@@ -430,13 +428,13 @@
             </details>
             <details class="consignes-conteneur">
                 <summary>
-                    <h1 class="h1">
+                    <p class="h1">
                         Pour aller plus loin (cliquer pour afficher / cacher)
-                    </h1>
+                    </p>
                 </summary>
                 <div>
                     <ul>
-                        <li>Générez un fichier JSON à partir des résultats (plusieurs pages) du site www.boulanger.com. Chaque entrée du fichier JSON doit contenir :
+                        <li>Générez un fichier JSON à partir des résultats (plusieurs pages) du site <a href="www.boulanger.com" target="_blank" rel="noopener noreferrer">www.boulanger.com</a>. Chaque entrée du fichier JSON doit contenir :
                             <ul>
                                 <li>Nom</li>
                                 <li>Prix</li>
@@ -444,7 +442,7 @@
                                 <li>Nombre de notes</li>
                                 <li>Note sur 5</li>
                             </ul>
-                            <div class="note-information">
+                            <div class="note-attention">
                                 <p>Vous pouvez utiliser un autre site si vous le souhaitez. A noter que pour éviter d'être banni du site, il est conseillé de temporiser ses actions. Effectuer un délai entre chaque changement de page.</p>
                             </div>
                         </li>
