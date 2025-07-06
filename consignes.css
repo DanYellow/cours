@@ -897,7 +897,6 @@ code {
     background-color: Background;
     font-size: 0.95rem;
     position-area: start span-all;
-    bottom: -10px;
     position: absolute;
     border: solid light-dark(var(--black), var(--white)) 1px;
     border-radius: 0.25rem;

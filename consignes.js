@@ -452,18 +452,25 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
 })
 
 
-const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
+;(() => {
+    const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
 
-Object.entries(tooltipJsonData).forEach(([key, value]) => {
-    const anchor = document.querySelector(`[data-anchor="${key}"]`)
-    anchor.style.anchorName = `--${key}`;
-    anchor.classList.add("anchor");
+    if (!window.CSS.supports('position-area', 'start')) {
+        return;
+    }
 
-    const anchorTarget = `
-        <p class="tooltip" style="position-anchor: --${key};">
-            ${value}
-        </p>
-    `;
+    Object.entries(tooltipJsonData).forEach(([key, value]) => {
+        const anchor = document.querySelector(`[data-anchor="${key}"]`)
+        anchor.style.anchorName = `--${key}`;
+        anchor.classList.add("anchor");
 
-    anchor.insertAdjacentHTML('beforeend', anchorTarget);
-});
+        const anchorTarget = `
+            <div class="tooltip" style="position-anchor: --${key};">
+                ${value}
+            </div>
+        `;
+
+        anchor.insertAdjacentHTML('beforeend', anchorTarget);
+    });
+})();
+
