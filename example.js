@@ -51,7 +51,7 @@ const dictOptions = {
     "allowCopy": true,
     "linesLinked": [[4, 11]],
     "language": "JavaScript",
-    "jsonId": "test",
+    "id": "test",
 }
 
 const dictFunctions = {
@@ -107,7 +107,7 @@ const dictFunctions = {
     "language": (isEnabled, $el) => {
         $el.dataset.language = isEnabled ? dictOptions["language"] : "";
     },
-    "jsonId": (isEnabled, $el) => {
+    "id": (isEnabled) => {
         if (isEnabled) {
             document.querySelector('[data-generate-source-code="code-example"] table').style.removeProperty("display");
         } else {

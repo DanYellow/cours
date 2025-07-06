@@ -450,3 +450,20 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
     });
     item.insertAdjacentHTML('afterend', tpl.replace("__replace__", listItems.join("")));
 })
+
+
+const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
+
+Object.entries(tooltipJsonData).forEach(([key, value]) => {
+    const anchor = document.querySelector(`[data-anchor="${key}"]`)
+    anchor.style.anchorName = `--${key}`;
+    anchor.classList.add("anchor");
+
+    const anchorTarget = `
+        <p class="tooltip" style="position-anchor: --${key};">
+            ${value}
+        </p>
+    `;
+
+    anchor.insertAdjacentHTML('beforeend', anchorTarget);
+});

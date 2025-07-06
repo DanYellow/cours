@@ -282,6 +282,9 @@
             </div>
             <p>La gestion des formules est faite par <a href="https://developer.mozilla.org/en-US/docs/Web/MathML" target="_blank" rel="noopener noreferrer">MathML</a>.</p>
 
+            <h2 id="code">Tooltip (Edge et Chrome uniquement)</h2>
+            <p>Je suis un <span data-anchor="example">texte</span></p>
+
             <h2 id="code">Mise en page de code</h2>
 
             <fieldset style="margin-bottom: 1.25rem; margin-inline: 0;">
@@ -312,7 +315,7 @@
                         <label for="lines_linked">Lier des lignes</label>
                     </div>
                     <div>
-                        <input checked type="checkbox" name="" id="json_id" data-modify-sample-code="jsonId">
+                        <input checked type="checkbox" name="" id="json_id" data-modify-sample-code="id">
                         <label for="json_id">Afficher explications <a href="#json-example">(voir plus bas pour exemple de données)</a></label>
                     </div>
                 </div>
@@ -352,6 +355,12 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
             "4-11": "Ensemble de lignes",
             "5": "Ligne à expliquer",
             "50": "Ligne inexistante, ne sera pas surlignée dans l'extrait de code"
+        }
+        </script>
+
+        <script type="text/json" data-anchor-json>
+        {
+            "example": "Paramètres de la fonction"
         }
         </script>
 

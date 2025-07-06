@@ -882,3 +882,26 @@ code {
 .texte-italique {
     font-style: italic;
 }
+
+.anchor {
+    @supports (position-area: start) {
+        text-decoration: underline dotted currentColor;
+    }
+
+    &:hover .tooltip {
+        opacity: 1;
+    }
+}
+
+.tooltip {
+    background-color: Background;
+    font-size: 0.95rem;
+    position-area: start span-all;
+    bottom: -10px;
+    position: absolute;
+    border: solid light-dark(var(--black), var(--white)) 1px;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    opacity: 0.05;
+    transition: opacity ease-in 150ms;
+}
