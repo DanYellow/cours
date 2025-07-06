@@ -64,11 +64,13 @@
                 <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
             </summary>
             <p>
-                Comme tout langage de programmation, il est également possible en javascript d'écrire des fonctions, le
-                mot-clé est <code>function</code>. Ensuite il faut nommer sa fonction, et définir ses paramètres.
-                Exemple :
+                Il est également possible en javascript de définir des fonctions. Pour rappel, une fonction permet de définir un ensemble d'instructions réutilisables. Il est possible de définir des valeurs d'entrées, appelées paramètres, qui peuvent être modifiées à l'envie lors de l'appel de la fonction.
             </p>
-
+            <p>En javascript, il existe deux syntaxes pour écrire une fonction, une syntaxe dite "moderne" (appelée aussi ES2015) et l'autre "ancienne". Les deux sont valables, il y a quelques différences entre les deux. Libre à vous d'utiliser l'une ou l'autre, toutefois, dans le cadre du cours, nous utiliserons la syntaxe moderne.</p>
+            <p>Pour que vous puissez observer la différence, voici deux extraits de code qui font la même chose mais avec deux syntaxes différentes.</p>
+            <p class="note-information">
+                Le code dans les deux onglets font la même chose.
+            </p>
             <div class="tab-wrapper" role="tablist">
                 <ul class="list-tabs">
                     <li>
@@ -93,8 +95,9 @@
                     </li>
                     <li class="tab-content" data-tab-content="onglet-b">
                         <p>
-                            Cette syntaxe est l'ancienne façon de définir des fonctions en javascript, il est possible que vous la voyez encore en ligne. Elle est et sera toujours gérée par les navigateurs. Toutefois, il est préférable d'utiliser la syntaxe moderne.
+                            Cette syntaxe est l'ancienne façon de définir des fonctions en javascript, il est possible que vous la voyez encore en ligne. <span class="texte-gras">Elle est et sera toujours gérée par les navigateurs.</span>
                         </p>
+
                        <pre data-code-sample='{"allowCopy": false, "language": "javascript"}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span><span style="color: rgb(195, 151, 216);">function</span> <span class="hljs-title" style="color: rgb(122, 166, 218);">maPremiereFonction</span>(<span style="color: rgb(231, 140, 69);">param1</span>, <span style="color: rgb(231, 140, 69);">param2</span>) </span>{
     <span style="color: rgb(195, 151, 216);">return</span> param1 + param2;
 }
@@ -106,8 +109,8 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
 
 
             <p>Dans le code ci-dessus, on définit une fonction nommée "maPremiereFonction" prenant deux paramètres et
-                retourne leur somme. Puis on appelle notre fonction avec comme valeurs les nombres 45 et 20. Ca veut
-                donc dire que, dans la fonction "maPremiereFonction", les variables "param1" et "param2" ont pour valeur
+                retourne leur somme. Puis on appelle notre fonction avec comme arguments les nombres 45 et 20. Ceci veut
+                donc dire que, dans la fonction "maPremiereFonction", les paramètres "param1" et "param2" ont pour valeur
                 45 et 20 respectivement.
                 C'est très simple mais c'est très bien pour commencer. A noter que les opérateurs mathématiques de base
                 sont les mêmes qu'en PHP :</p>
@@ -118,8 +121,8 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                     <li>/ : division</li>
                 </ul>
             <p>
-                Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code>.
-                Cette ligne ne sera pas interprétée.
+                Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code> ou utiliser le raccourci <kbd>Ctrl / Cmd</kbd> + <kbd>⇧ Maj</kbd> (macOS) + <kbd>/</kbd> en plaçant le curseur sur une ligne ou ensemble de lignes sur VS Code.
+                Cette ligne ne sera pas interprétée mais accessible à tous via le code source, <span class="texte-gras">ne mettez pas de données sensibles en commentaires.</span>
             </p>
             <p class="note-attention">
                 Comme le HTML et le CSS, les commentaires en javascript
@@ -130,7 +133,7 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 <li>Réutilisez la fonction ci-dessus et affichez le résultat grâce à la méthode
                     <code>console.log()</code>
                     <ul>
-                        <li>Vous pouvez stocker le retour de la fonction dans une variable ou appeler directement la fonction dans la méthode <code>console.log()</code>.</li>
+                        <li>Vous pouvez stocker le retour de la fonction dans une variable ou appeler directement la fonction dans la méthode <code>console.log()</code></li>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/API/Console/log"
                                 rel="noopener noreferrer" target="_blank">Voir documentation de la méthode
@@ -190,13 +193,27 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
 <span style="color: rgb(212, 208, 171); font-weight: 400;">// indispensables pour appeler la fonction</span>
 <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>( <span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span>() );</pre>
             </section>
-            <p class="note-information">N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites tout comme les paramètres de vos fonctions.</p>
+            <div class="note-information">
+                <p>N'oubliez pas de nommer vos fonctions avec des noms clairs et explicites tout comme les paramètres de vos fonctions. A noter deux choses : </p>
+                <ul>
+                    <li>
+                        Une fonction ne peut pas commencer par un nombre (comme les variables)
+                    </li>
+                    <li>Une fonction peut contenir des lettres accentuées, mais évitez de le faire</li>
+                </ul>
+            </div>
         </details>
         <section class="note-attention">
             <p>Si votre code ne se comporte pas de la façon attendue. N'oubliez pas d'utiliser la console du navigateur, onglet "Console". Le navigateur vous indiquera le type d'erreur ET la ligne où se trouve l'erreur, vous pouvez même cliquer dessus pour l'afficher.</p>
             <ul class="liste-consignes">
                 <li>
                     <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_went_wrong" target="_blank" rel="noopener noreferrer">En savoir plus sur le déboguage avec la console du navigateur - en savoir plus</a>
+                </li>
+            </ul>
+            <p>Les messages d'erreur, étant en anglais, voici une liste des erreurs (non exhaustive) avec leur explication en français pour vous aider : </p>
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Errors" target="_blank" rel="noopener noreferrer">Voir référence des erreurs JavaScript - Ouverture dans un nouvel onglet</a>
                 </li>
             </ul>
             <p>Notez bien que le navigateur n'affiche <span class="texte-gras">que</span> les erreurs de syntaxe, pas les erreurs de logique. Ce type d'erreur, c'est à vous de les déboguer avec des <code>console.log()</code> ou une relecture de code.</p>
@@ -259,14 +276,18 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                     </ul>
                     <section class="note-information">
                     <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
-                    <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère le premier élément qui a la balise &lt;selecteur&gt;</span>
-<span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> cible = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"selecteur"</span>);
+                    <pre data-code-sample='{"displayLineCode": true, "allowCopy": true, "language": "javascript", "jsonId": "querySelector", "linesHighlighted": "1, 3, 5", "allowCopy": true, "linesLinked": [[3, 5]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"selecteur"</span>);
 
-<span style="color: rgb(112, 120, 128); font-weight: 400;">// Sur cet élément on lie un évènement "click"</span>
-<span style="color: rgb(112, 120, 128); font-weight: 400;">// grâce à la méthode "addEventListener"</span>
-cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'click'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">() =&gt;</span> {
-    <span style="color: rgb(138, 190, 183); font-weight: 400;">console</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">log</span>(<span style="color: rgb(240, 198, 116); font-weight: 400;">maFonction</span>());
+cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">'click'</span>, <span style="color: rgb(248, 248, 242); font-weight: 400;">() =&gt;</span> {
+    <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span>());
 });</pre>
+<script type="text/json" data-json-id="querySelector">
+    {
+        "1": "Récupération du premier élément qui a la balise &lt;selecteur> (n'importe quel sélecteur CSS fonctionne)",
+        "3-5": "Mise en place d'un écouteur d'évènement. Ici, on écoute l'évènement 'click'"
+    }
+</script>
+
                 </section>
                 </li>
                 <li>Créez plusieurs balises &lt;p> avec du texte et la même classe CSS. Puis, grâce à la propriété "textContent", faites changer le contenu textuel de ces balises lorsqu'on clique sur un bouton (vous pouvez réutiliser le même ou un créer un nouveau)
@@ -300,7 +321,6 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                 <li>Toujours au clic sur le même bouton, ajoutez une classe CSS <span class="texte-gras">sur un seul
                         élément</span>. Il faudra
                     utiliser un data-attribute sur l'élément que l'on souhaite cibler.
-                    <article class="note-information">
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément qui a le data-attribute "data-attribut-personnalise"</span>
@@ -313,7 +333,6 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
 <span style="color: rgb(112, 120, 128); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
 <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
-                    </article>
                     <p class="note-information">
                         Cette classe CSS, à ajouter/retirer, devra être rajoutée dans un fichier CSS.
                             Pensez à mettre des propriétés CSS dans la classe pour voir des modifications ainsi que lier votre fichier html à votre fichier CSS.
@@ -369,7 +388,7 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
             <summary>
                 <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
             </summary>
-            <ul>
+            <ul class="liste-consignes">
                 <li>Ajoutez une balise &lt;select> (pas besoin de la mettre dans un formulaire) avec une liste de choix
                     que vous aurez choisi (n'oubliez pas la
                     valeur de l'attribut "value" pour chaque "option"). Et une balise &lt;img>. Lors de la sélection
@@ -379,15 +398,22 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                     <p class="note-information">Les images peuvent être locales et/ou distantes. L'idée étant que la valeur de chaque &lt;option> ait comme valeur le chemin vers l'image. Ensuite, il faudra accéder à l'attribut "src" de la
                         balise &lt;img> dans le javascript, et changer sa valeur.</p>
                     <ul>
-                        <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>. <a
+                        <li>Il faudra utiliser l'évènement "change" sur la balise &lt;select>
+                            <ul>
+                                <li><a
                                 href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event"
                                 rel="noopener noreferrer" target="_blank">Voir documentation l'évènement change
                                 (ouverture dans un
-                                nouvel onglet)</a>
+                                nouvel onglet)</a></li>
+                            </ul>
                         </li>
                     </ul>
                     Si vous le souhaitez, vous pouvez même afficher les images directement dans la balise &lt;select>. N'oubliez pas que c'est désormais possible (Chrome et Edge seulement)
-
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select" target="_blank" rel="noopener noreferrer">Documentation &lt;select> personnalisé (ouverture dans un nouvel onglet)</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>Ajouter plusieurs boutons de type "button" <span class="texte-gras">avec le même data-attribute mais
                         des valeurs différentes.</span>
@@ -424,6 +450,9 @@ cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListene
                 </li>
                 <li>
                     Créez une fonction qui prend un nombre entier n en paramètre et <span class="texte-gras">retourne une chaine de caractères</span> avec tous les nombres de 1 jusqu'au n
+                    <p class="note-information">
+                        Compte-tenu du fait qu'un nombre entier est attendu, il est préférable de tronquer la valeur pour s'assurer que c'est bel et bien un entier.
+                    </p>
                 </li>
             </ul>
         </details>
