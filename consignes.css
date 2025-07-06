@@ -897,11 +897,13 @@ code {
     border: solid light-dark(var(--black), var(--white)) 1px;
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
-    opacity: 0.05;
+    opacity: 0.025;
     transition: opacity var(--ease-2) 150ms;
     font-family: var(--font-family);
+    max-width: 350px;
 
     &:hover, &.visible {
         opacity: 1;
+        z-index: 9999;
     }
 }
