@@ -465,12 +465,20 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
         anchor.classList.add("anchor");
 
         const anchorTarget = `
-            <div class="tooltip" style="position-anchor: --${key};">
+            <div class="tooltip" data-anchor-target="${key}" style="position-anchor: --${key};">
                 ${value}
             </div>
         `;
 
-        anchor.insertAdjacentHTML('beforeend', anchorTarget);
+        document.body.insertAdjacentHTML('beforeend', anchorTarget);
+
+        anchor.addEventListener('mouseover', e => {
+            document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.add("visible");
+        });
+
+        anchor.addEventListener('mouseout', e => {
+            document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.remove("visible");
+        });
     });
 })();
 
