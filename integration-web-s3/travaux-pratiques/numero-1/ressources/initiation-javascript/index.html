@@ -64,8 +64,15 @@
                 <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
             </summary>
             <p>
-                Il est également possible en javascript de définir des fonctions. Pour rappel, une fonction permet de définir un ensemble d'instructions réutilisables. Il est possible de définir des valeurs d'entrées, appelées paramètres, qui peuvent être modifiées à l'envie lors de l'appel de la fonction.
+                Il est également possible en javascript de définir des fonctions. Pour rappel, une fonction permet de définir un ensemble d'instructions réutilisables. Il est possible de définir des valeurs d'entrées, appelées paramètres, qui peuvent être modifiées à l'envie lors de l'appel de la fonction en passant des arguments.
             </p>
+
+            <pre data-code-sample="" style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span data-anchor="name" style="color: rgb(0, 224, 224); font-weight: 400;">example</span> = (<span data-anchor="parameters" style="color: rgb(245, 171, 53); font-weight: 400;">nom, prenom</span>) =&gt; {
+    <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">`Bonjour <span style="color: rgb(171, 227, 56); font-weight: 400;">${prenom}</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">${nom}</span>`</span>;
+}
+
+<span style="color: rgb(0, 224, 224); font-weight: 400;">example</span>(<span data-anchor="arguments"><span style="color: rgb(171, 227, 56); font-weight: 400;">"Helena"</span>, <span style="color: rgb(171, 227, 56); font-weight: 400;">"Despoux"</span></span>);</pre>
+
             <p>En javascript, il existe deux syntaxes pour écrire une fonction, une syntaxe dite "moderne" (appelée aussi ES2015) et l'autre "ancienne". Les deux sont valables, il y a quelques différences entre les deux. Libre à vous d'utiliser l'une ou l'autre, toutefois, dans le cadre du cours, nous utiliserons la syntaxe moderne.</p>
             <p>Pour que vous puissez observer la différence, voici deux extraits de code qui font la même chose mais avec deux syntaxes différentes.</p>
             <p class="note-information">
@@ -122,11 +129,10 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 </ul>
             <p>
                 Pour les commentaires, pour rappel, il vous suffit de préfixer la ligne de code avec <code>//</code> ou utiliser le raccourci <kbd>Ctrl / Cmd</kbd> + <kbd>⇧ Maj</kbd> (macOS) + <kbd>/</kbd> en plaçant le curseur sur une ligne ou ensemble de lignes sur VS Code.
-                Cette ligne ne sera pas interprétée mais accessible à tous via le code source, <span class="texte-gras">ne mettez pas de données sensibles en commentaires.</span>
             </p>
             <p class="note-attention">
                 Comme le HTML et le CSS, les commentaires en javascript
-                sont accessibles à l'utilisateur final. Par conséquent : ne mettez pas de données sensibles dedans.
+                sont accessibles à l'utilisateur final. Par conséquent : <span class="texte-gras">ne mettez pas de données sensibles dedans.</span>
             </p>
 
             <ol class="liste-consignes">
@@ -261,8 +267,8 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                 <li>Ajoutez un bouton (balise &lt;button type="button">) et au clic appelez une des fonctions que vous avez crée
                     précédemment (ou une nouvelle)
                     <ul>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Récupérer un élément dans la page HTML (document.querySelector)</a></li>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">Ajouter un évènement sur un élément</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode querySelector</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode addEventListener</a></li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
                                 rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button>
                                 (ouverture dans un
@@ -276,7 +282,7 @@ maPremiereFonction(<span  style="color: rgb(231, 140, 69);">45</span>, <span cla
                     </ul>
                     <section class="note-information">
                     <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
-                    <pre data-code-sample='{"displayLineCode": true, "allowCopy": true, "language": "javascript", "jsonId": "querySelector", "linesHighlighted": "1, 3, 5", "allowCopy": true, "linesLinked": [[3, 5]]}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"selecteur"</span>);
+                    <pre data-code-sample='{"displayLineCode": true, "allowCopy": true, "language": "javascript", "jsonId": "querySelector", "linesHighlighted": "1, 3, 5", "allowCopy": true, "linesLinked": [[3, 5]], "id": "event_click"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"selecteur"</span>);
 
 cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">'click'</span>, <span style="color: rgb(248, 248, 242); font-weight: 400;">() =&gt;</span> {
     <span style="color: rgb(255, 160, 122); font-weight: 400;">console</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">log</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span>());
@@ -457,4 +463,19 @@ cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener<
             </ul>
         </details>
     </header>
+    <script type="text/json" data-anchor-json>
+        {
+            "parameters": "Paramètres. Il n'y a pas de limite au nombre de paramètres.",
+            "name": "Nom de la fonction préférez un nom clair",
+            "arguments": "Arguments. Ils remplacent les paramètres de la fonction quand elle est appelée."
+        }
+    </script>
+
+    <script type="text/json" data-code-sample-id="event_click">
+        {
+            "1": "Récupération du premier élément trouvé dans la page qui correspond au selecteur",
+            "3-5": "Applique un évènement sur un élément. Ici l'évènement \"click\""
+        }
+        </script>
+
 </body>
