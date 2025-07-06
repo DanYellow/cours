@@ -52,6 +52,9 @@
                 <p class="text-xs py-0.5 px-1.5 bg-slate-900 text-white rounded-md">Chargement en cours</p>
             </div>
         </div>
+        <div data-pip-enabled hidden class="picture-in-picture:opacity-0 fixed bottom-3 left-1/2 -translate-x-1/2 bg-gray-800 text-white py-0.5 px-1.5 rounded-md text-sm">
+            <p>Mode picture-in-picture activé</p>
+        </div>
         <footer class="pr-[max(env(safe-area-inset-right),_theme(space.2))] pl-[max(env(safe-area-inset-left),_theme(space.2))]">
             <button
                 data-testid="load-generation-btn"
@@ -209,7 +212,7 @@
             data-pokemon-data
             aria-labelledby="placeholder"
             data-testid="pokemon-modal"
-            class="pkmn-details-dialog backdrop:backdrop-blur-(--details-modal-blur) backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg md:my-8 w-11/12 sm:max-w-4xl border-2 border-solid mx-auto"
+            class="picture-in-picture:mt-0 group-foo:opacity-0 pkmn-details-dialog backdrop:backdrop-blur-(--details-modal-blur) backdrop:bg-slate-400/50 overscroll-y-contain bg-white rounded-lg my-4 md:my-8 w-11/12 sm:max-w-4xl border-2 border-solid mx-auto"
         >
             <header
                 class="main-infos border-b text-black pb-4 mb-3 md:sticky landscape:static landscape:lg:sticky top-0"

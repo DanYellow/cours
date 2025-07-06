@@ -6,6 +6,9 @@ if ("documentPictureInPicture" in window) {
             window.documentPictureInPicture.window.close();
             return;
         } else {
+            const pipIndicator = document.querySelector("[data-pip-enabled]");
+            pipIndicator.removeAttribute("hidden");
+
             const pipOptions = {
                 initialAspectRatio: modal.clientWidth / modal.clientHeight,
                 lockAspectRatio: true,
