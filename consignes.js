@@ -275,7 +275,7 @@ DOM.listCodeSamples.forEach((item, idx) => {
     const codeTitle = item.dataset?.title || codeSampleData?.title || "";
     const allowCopy = ("allowCopy" in item.dataset) || codeSampleData?.allowCopy || false;
     const displayLineCode = ("displayLineCode" in item.dataset) || codeSampleData?.displayLineCode || false;
-    const jsonId = ("jsonId" in item.dataset) || codeSampleData?.jsonId || null;
+    const jsonId = ("id" in item.dataset) || codeSampleData?.id || null;
 
     const linesHighlightedRaw = (item.dataset?.linesHighlighted || codeSampleData?.linesHighlighted)
     const linesHighlighted = (
@@ -334,7 +334,7 @@ DOM.listCodeSamples.forEach((item, idx) => {
     }
 
     if (jsonId) {
-        const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-json-id='${jsonId}']`)?.textContent.trim()), {})
+        const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-code-sample-id='${jsonId}']`)?.textContent.trim()), {})
         generateCodeExplanation(item, jsonData, idx);
     }
 
