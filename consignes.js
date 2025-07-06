@@ -453,30 +453,31 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
 
 
 ;(() => {
-    const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
-
     if (!window.CSS.supports('position-area', 'start')) {
         return;
     }
+
+    const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
 
     Object.entries(tooltipJsonData).forEach(([key, value]) => {
         const anchor = document.querySelector(`[data-anchor="${key}"]`)
         anchor.style.anchorName = `--${key}`;
         anchor.classList.add("anchor");
+        anchor.ariaDescribedBy = `anchor-${key}`;
 
         const anchorTarget = `
-            <div class="tooltip" data-anchor-target="${key}" style="position-anchor: --${key};">
+            <div class="tooltip" role="tooltip" id="anchor-${key}" data-anchor-target="${key}" style="position-anchor: --${key};">
                 ${value}
             </div>
         `;
 
         document.body.insertAdjacentHTML('beforeend', anchorTarget);
 
-        anchor.addEventListener('mouseover', e => {
+        anchor.addEventListener('mouseover', () => {
             document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.add("visible");
         });
 
-        anchor.addEventListener('mouseout', e => {
+        anchor.addEventListener('mouseout', () => {
             document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.remove("visible");
         });
     });
