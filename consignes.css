@@ -828,7 +828,7 @@ code {
         border-bottom: 1px solid var(--green-code);
 
         &:nth-child(even) {
-            background-color: light-dark(#b4b4b436, #00000096);
+            background-color: light-dark(#b4b4b436, #0087ff17);
         }
 
         &:last-child {
@@ -839,7 +839,7 @@ code {
     tbody tr {
         transition: background-color 150ms;
         &:hover, &.hover {
-            background-color: light-dark(rgba(246, 231, 195, 0.45), black);
+            background-color: light-dark(rgba(246, 231, 195, 0.45), #00000096);
         }
     }
 
