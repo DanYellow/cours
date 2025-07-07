@@ -458,6 +458,14 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
     }
 
     const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
+    const regex = /{{\s?template:(\w+)\s?}}/;
+
+    const getTemplate = (value) => {
+        const tplId = value.match(regex)[1];
+        const tpl = document.querySelector(`[data-template-id="${tplId}"]`)
+
+        return tpl.innerHTML;
+    }
 
     Object.entries(tooltipJsonData).forEach(([key, value]) => {
         const anchor = document.querySelector(`[data-anchor="${key}"]`)
@@ -465,9 +473,11 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
         anchor.classList.add("anchor");
         anchor.ariaDescribedBy = `anchor-${key}`;
 
+        const content = regex.test(value) ? getTemplate(value) : value;
+
         const anchorTarget = `
             <div class="tooltip" role="tooltip" id="anchor-${key}" data-anchor-target="${key}" style="position-anchor: --${key};">
-                ${value}
+                ${content}
             </div>
         `;
 
