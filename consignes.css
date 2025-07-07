@@ -894,7 +894,6 @@ code {
     font-size: 0.95rem;
     position-area: start span-all;
     position-visibility: no-overflow;
-    position-try: flip-block;
     position: absolute;
     border: solid light-dark(var(--black), var(--white)) 1px;
     border-radius: 0.25rem;
