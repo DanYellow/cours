@@ -334,7 +334,7 @@ DOM.listCodeSamples.forEach((item, idx) => {
     }
 
     if (jsonId) {
-        const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-code-sample-id='${jsonId}'], [data-data-json-id='${jsonId}']`)?.textContent.trim()), {})
+        const jsonData = trycatch(() => JSON.parse(document.querySelector?.(`[data-code-sample-id='${jsonId}'], [data-json-id='${jsonId}']`)?.textContent.trim()), {})
         generateCodeExplanation(item, jsonData, idx);
     }
 
