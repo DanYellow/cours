@@ -63,7 +63,7 @@
                 Il est également possible en javascript de définir des fonctions. Pour rappel, une fonction permet de définir un ensemble d'instructions réutilisables. Il est possible de définir des valeurs d'entrées, appelées paramètres, qui peuvent être modifiées à l'envie lors de l'appel de la fonction en passant des arguments.
             </p>
 
-            <pre data-code-sample="" style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span data-anchor="name" style="color: rgb(0, 224, 224); font-weight: 400;">example</span> = (<span data-anchor="parameters" style="color: rgb(245, 171, 53); font-weight: 400;">nom, prenom</span>) =&gt; {
+            <pre data-code-sample='{"language": "javascript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span data-anchor="name" style="color: rgb(0, 224, 224); font-weight: 400;">example</span> = (<span data-anchor="parameters" style="color: rgb(245, 171, 53); font-weight: 400;">prenom, nom</span>) =&gt; {
     <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">`Bonjour <span style="color: rgb(171, 227, 56); font-weight: 400;">${prenom}</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">${nom}</span>`</span>;
 }
 
@@ -181,8 +181,7 @@
                 </p>
 
                 <p>Exemple :</p>
-                <pre data-code-sample='{"displayLineCode": true, "linesHighlighted": "7", "language": "javascript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(212, 208, 171); font-weight: 400;">// Définition de la fonction</span>
-<span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;"></span>) =&gt; {
+                <pre data-code-sample='{"displayLineCode": true, "language": "javascript"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">maFonction</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;"></span>) =&gt; {
     <span style="color: rgb(220, 198, 224); font-weight: 400;">return</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"hello"</span>;
 }
 <span style="color: rgb(212, 208, 171); font-weight: 400;">// Appel de la fonction. N'oubliez pas les parenthèses, </span>
@@ -223,7 +222,13 @@
                         <li>Prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
                             du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
                             Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
-                            de Sarcelles"</li>
+                            de Sarcelles"
+                            <ul>
+                                <li>
+                                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener noreferrer">Voir documentation des littéraux de gabarits - Ouverture dans un nouvel onglet</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>Prend en paramètre un nombre entier et qui retourne une chaîne de
                             caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
                             préférences) :
@@ -257,8 +262,8 @@
                 <li>Ajoutez un bouton (balise &lt;button type="button">) et au clic appelez une des fonctions que vous avez crée
                     précédemment (ou une nouvelle)
                     <ul>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode querySelector</a></li>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode addEventListener</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode querySelector - Ouverture dans un nouvel onglet</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">Voir documentation de la méthode addEventListener - Ouverture dans un nouvel onglet</a></li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button"
                                 rel="noopener noreferrer" target="_blank">Voir documentation de la balise &lt;button> - Ouverture dans un nouvel onglet</a>
                         </li>
@@ -267,7 +272,7 @@
                     </li>
                     </ul>
                     <section class="note-information">
-                    <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est un pointeur de fonction. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
+                    <p>Note : Rappelez-vous que le deuxième paramètre de "addEventListener" est une référence à la fonction que l'on souhaite appeler. Si vous avez besoin d'afficher un console.log() lors de l'appel, il faudra faire une fonction qui appelle une autre fonction. Par exemple : </p>
                     <pre data-code-sample='{"displayLineCode": true, "allowCopy": true, "language": "javascript", "jsonId": "querySelector", "linesHighlighted": "1, 3, 5", "allowCopy": true, "linesLinked": [[3, 5]], "id": "event_click"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> cible = <span style="color: rgb(255, 160, 122); font-weight: 400;">document</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">querySelector</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">"selecteur"</span>);
 
 cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</span>(<span style="color: rgb(171, 227, 56); font-weight: 400;">'click'</span>, <span style="color: rgb(248, 248, 242); font-weight: 400;">() =&gt;</span> {
@@ -408,21 +413,20 @@ cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener<
 
                     <ul>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent - ouverture dans un
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété textContent - Ouverture dans un
                                 nouvel onglet</a>
                         </li>
                         <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Event/target"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (e.)target - ouverture dans un
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété (e.)target - Ouverture dans un
                                 nouvel onglet</a>
                         </li>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
                                 target="_blank" rel="noopener noreferrer">
-                                Voir documentation des data-attributes - ouverture dans un
+                                Voir documentation des data-attributes - Ouverture dans un
                                 nouvel onglet
                             </a>
                         </li>
-
                     </ul>
                 </li>
                 <li>
@@ -436,9 +440,9 @@ cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener<
     </header>
     <script type="text/json" data-anchor-json>
         {
-            "parameters": "Paramètres. Il n'y a pas de limite au nombre de paramètres. On préfèrera nommer avec des noms clairs les paramètres",
-            "name": "Nom de la fonction préférez un nom clair",
-            "arguments": "Arguments. Ils remplacent les paramètres de la fonction quand elle est appelée."
+            "parameters": "<span class='texte-gras'>Paramètres.</span> Il n'y a pas de limite au nombre de paramètres d'une fonction. On préfèrera nommer avec des noms clairs les paramètres.<br><span class='texte-gras'>Les paramètres ne se sont accessibles qu'au sein de la fonction.</span>",
+            "name": "<span class='texte-gras'>Nom de la fonction.</span> Préférez un nom clair.",
+            "arguments": "<span class='texte-gras'>Arguments.</span> Ils remplacent les paramètres de la fonction quand elle est appelée."
         }
     </script>
 
@@ -447,6 +451,5 @@ cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener<
             "1": "Récupération du premier élément trouvé dans la page qui correspond au selecteur",
             "3-5": "Applique un évènement sur un élément. Ici l'évènement \"click\""
         }
-        </script>
-
+    </script>
 </body>
