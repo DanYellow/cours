@@ -283,13 +283,13 @@
             </div>
             <p>La gestion des formules est faite par <a href="https://developer.mozilla.org/en-US/docs/Web/MathML" target="_blank" rel="noopener noreferrer">MathML</a>.</p>
 
-            <h2 id="code">Tooltip / Ancre (Edge et Chrome uniquement)</h2>
+            <h2 id="anchor">Tooltip / Ancre (Edge et Chrome uniquement)</h2>
             <div data-generate-source-code>
                 <p>Je suis un <span data-anchor="example">texte</span></p>
             </div>
             <h3 id="json-example">Exemple JSON pour tooltip / ancre</h3>
-            <p>Une seule balise JSON est nécessaire, l'idée étant que chaque id soit unique. Le JSON peut contenir des balises HTML.</p>
-            <code class="code-exemple">&lt;script type="text/json" data-code-sample-id="example">
+            <p>Une seule balise JSON est nécessaire, l'idée étant que chaque id soit unique et associé à la valeur d'un attribut "data-anchor". Le JSON peut contenir des balises HTML.</p>
+            <code class="code-exemple">&lt;script type="text/json" data-anchor-json>
     {
         "id": "Contenu"
     }
