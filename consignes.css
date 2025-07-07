@@ -828,7 +828,7 @@ code {
         border-bottom: 1px solid var(--green-code);
 
         &:nth-child(even) {
-            background-color: light-dark(#b4b4b436, #0000005b);
+            background-color: light-dark(#b4b4b436, #00000096);
         }
 
         &:last-child {
@@ -839,7 +839,7 @@ code {
     tbody tr {
         transition: background-color 150ms;
         &:hover, &.hover {
-            background-color: rgba(246, 231, 195, 0.15);
+            background-color: light-dark(rgba(246, 231, 195, 0.45), black);
         }
     }
 
@@ -893,7 +893,7 @@ code {
     background-color: Background;
     font-size: 0.95rem;
     position-area: start span-all;
-    position-visibility: no-overflow;
+    position-visibility: anchors-visible;
     position: absolute;
     border: solid light-dark(var(--black), var(--white)) 1px;
     border-radius: 0.25rem;
