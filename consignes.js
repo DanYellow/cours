@@ -2,6 +2,15 @@ const DOM = {
     listCodeSamples: document.querySelectorAll("[data-code-sample]"),
 }
 
+const regex = /{{\s?template:(\w+)\s?}}/;
+
+const getTemplate = (value) => {
+    const tplId = value.match(regex)[1];
+    const tpl = document.querySelector(`template[data-template-id="${tplId}"]`)
+
+    return tpl ? tpl.innerHTML : "";
+}
+
 const getFirstTabName = (tabList) => {
     const firstTab = tabList.querySelectorAll("[data-tab-name]")[0];
     firstTab.classList.add("active");
