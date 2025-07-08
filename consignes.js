@@ -232,12 +232,13 @@ const generateCodeExplanation = ($el, jsonData, idx) => {
     const generateRows = (lines) => {
         let res = [];
         Object.entries(lines).forEach(([key, value]) => {
+            const content = regex.test(value) ? getTemplate(value) : value;
             res.push({
                 firstLine: Number(key.split("-").at(0)),
                 content: `
                     <tr data-highlighted-lines="${key.split("-").join(",")}">
                         <th scope="row">${key.split("-").join(" - ")}</th>
-                        <td>${value}</td>
+                        <td>${content}</td>
                     </tr>
                 `
             });
@@ -467,14 +468,6 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
     }
 
     const tooltipJsonData = trycatch(() => JSON.parse(document.querySelector?.('[data-anchor-json]')?.textContent.trim()), {})
-    const regex = /{{\s?template:(\w+)\s?}}/;
-
-    const getTemplate = (value) => {
-        const tplId = value.match(regex)[1];
-        const tpl = document.querySelector(`[data-template-id="${tplId}"]`)
-
-        return tpl.innerHTML;
-    }
 
     Object.entries(tooltipJsonData).forEach(([key, value]) => {
         const anchor = document.querySelector(`[data-anchor="${key}"]`)
