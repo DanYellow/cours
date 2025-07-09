@@ -294,6 +294,7 @@
         "id": "Contenu"
     }
 &lt;/script></code>
+<p>Il est également possible de récupérer le contenu d'une balise &lt;template>, si et seulement si, la valeur de la clé du JSON est égale à {{template:__nom_template__}}. "__nom_template__" étant la valeur du data-attribute "data-template-id". Idem pour la mise en page de code.</p>
 
             <h2 id="code">Mise en page de code</h2>
 
@@ -353,7 +354,8 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
         <code class="code-exemple">&lt;script type="text/json" data-code-sample-id="test">
     {
         "4-11": "Définition de la fonction",
-        "5": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission"
+        "5": "Supression du comportement naturel de l'élément, ici, le rechargement de page lors de la soumission",
+        "50": "{{template:exampleLineCode}}"
     }
 &lt;/script>
 </code>
@@ -364,15 +366,19 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
         {
             "4-11": "Ensemble de lignes",
             "5": "Ligne à expliquer",
-            "50": "Ligne inexistante, ne sera pas surlignée dans l'extrait de code"
+            "50": "{{template:exampleLineCode}}"
         }
         </script>
 
         <script type="text/json" data-anchor-json>
         {
-            "example": "Paramètres de la fonction"
+            "example": "Je suis le contenu d'une ancre de position"
         }
         </script>
+
+        <template data-template-id="exampleLineCode">
+            Ligne inexistante, ne sera pas surlignée dans l'extrait de code (issu d'une balise &lt;template>)
+        </template>
 
         <template data-tpl-id="source-code">
             <div data-source-code="">
@@ -380,7 +386,5 @@ form.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener</
                 <code class="code-exemple">[...]</code>
             </div>
         </template>
-
-
     </body>
 </html>
