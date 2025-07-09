@@ -906,7 +906,7 @@ code {
     max-width: 350px;
     user-select: none;
     margin-inline: 0.5rem;
-    box-shadow: 0px 0px 60px -9px rgba(0,0,0,0.45);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
     img {
         max-width: 100%;
