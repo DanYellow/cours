@@ -10,10 +10,9 @@ html {
 }
 
 body {
-    --bg-c: rgba(255, 255, 255, 0.75);
     max-width: 1280px;
     margin: 0 auto;
-    background-color: var(--bg-c);
+    background-color: Background;
     padding: 1.1rem;
 }
 
