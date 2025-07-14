@@ -459,8 +459,7 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
         listItems.push(`<li><span class="texte-gras">${formulaEl.textContent}</span> : ${formulaEl.dataset.varExplanation}</li>`)
     });
     item.insertAdjacentHTML('afterend', tpl.replace("__replace__", listItems.join("")));
-})
-
+});
 
 ;(() => {
     if (!window.CSS.supports('position-area', 'start')) {
