@@ -781,7 +781,7 @@ code {
         left: -16px;
         right: 100%;
         transition: background-color 150ms ease-in-out;
-        border-left: 2px solid light-dark(#000, #ffffff);
+        border-left: 1px solid light-dark(#000, #ffffff);
 
         @starting-style {
             background-color: var(--line-highlighted-end-color);
