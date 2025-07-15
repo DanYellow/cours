@@ -96,6 +96,7 @@ const updatePokedexLayout = (_isGridLayout) => {
 
 updatePokedexLayout(isGridLayout);
 
+const rippleEffectDuration = 350;
 
 export const rippleEffect = (e, color = "#fff") => {
     return new Promise((resolve) => {
@@ -114,7 +115,7 @@ export const rippleEffect = (e, color = "#fff") => {
             const count = Math.floor(now - start);
             $el.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count}; --ripple-color: ${color}`;
 
-            if (count > 350) {
+            if (count > rippleEffectDuration) {
                 $el.classList.remove('animating');
                 $el.style.cssText = `--animation-tick: 0`;
 
