@@ -5,38 +5,44 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TP2 - Exercice sur les sélecteurs CSS</title>
+  <title>TP2 — Exercice sur les sélecteurs CSS</title>
   <link
     rel="icon"
     type="image/png"
     href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
   />
+
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
   <style type="text/css">
+    *, *::after, *::before {
+        box-sizing: border-box;
+    }
+
     .tg {
       border-collapse: collapse;
       border-spacing: 0;
+      width: 100%;
     }
 
     .tg td {
-      border-color: black;
+      border-color: light-dark(black, white);
       border-style: solid;
       border-width: 1px;
       font-family: Arial, sans-serif;
-      font-size: 0.875rem;
       overflow: hidden;
-      padding: 10px 5px;
+      padding: 0.5rem 0.75rem;
       word-break: normal;
     }
 
     .tg th {
-      border-color: black;
+      border-color: light-dark(black, white);
       border-style: solid;
       border-width: 1px;
       font-family: Arial, sans-serif;
       font-size: 1.25rem;
       font-weight: normal;
       overflow: hidden;
-      padding: 10px 5px;
+      padding: 0.5rem 0.75rem;
       word-break: normal;
       font-weight: bold;
     }
@@ -56,22 +62,23 @@
       text-align: left;
       vertical-align: top;
     }
-  </style>
 
-  <style>
     textarea {
-      width: 98%;
+      width: 100%;
       font-size: 1.2rem;
     }
 
-    code {
+    td pre {
       font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .reset-button {
+        margin-block: 1rem;
+        width: 100%;
+        padding-block: 0.5rem;
     }
   </style>
-
-  <title>TP2 - Sélecteurs</title>
-
-  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
 </head>
 
 <body class="consignes-en-tete">
@@ -101,7 +108,7 @@
   </header>
 
   <main>
-  <button data-clear-answers type="button">Vider les réponses</button>
+  <button data-clear-answers class="reset-button" type="button">Vider les réponses</button>
   <table class="tg">
     <thead>
       <tr>
@@ -112,46 +119,35 @@
     <tbody>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">p</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">p</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
-          <pre>
-            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span></code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span></code></pre>
         </td>
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">.ma-classe</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">.ma-classe</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
-          <pre>
-            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">div</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span>&gt;</span>[...]<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">div</span>&gt;</span>
-<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">img</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span>&gt;</span> </code></pre>        </td>
-      </tr>
+            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em; font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">div</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span>&gt;</span>[...]<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">div</span>&gt;</span> <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">img</span> <span style="color:rgb(156, 220, 254); font-weight:400;">alt</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span>&gt;</span> </code></pre>      </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang]</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang]</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
-          <pre>
-            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">lang</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;en&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span></code></pre>        </td>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">lang</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;en&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span></code></pre>        </td>
       </tr>
       <tr>
         <td class="tg-0lax">
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>        </td>
         <td class="tg-0lax">
-          <pre>
-            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span></code></pre>
-
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span></code></pre>
         </td>
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">.mon-selecteur</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">.mon-selecteur</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
@@ -159,8 +155,7 @@
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">#un-id</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">#un-id</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
@@ -168,18 +163,7 @@
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">span.ma_classe.info</span> { }</code></pre>
-        </td>
-        </td>
-        <td class="tg-0lax">
-          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
-        </td>
-      </tr>
-      <tr>
-        <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">div .ma-classe</span> { }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">span.ma_classe.info</span> { }</code></pre>
         </td>
         </td>
         <td class="tg-0lax">
@@ -188,8 +172,7 @@
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">section.ma-classe</span>,  <span style="color:rgb(215, 186, 125); font-weight:400;">ul</span>{ }</code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">div .ma-classe</span> { }</code></pre>
         </td>
         </td>
         <td class="tg-0lax">
@@ -198,8 +181,16 @@
       </tr>
       <tr>
         <td class="tg-0lax">
-          <pre>
-            <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang=<span class="hljs-string">&quot;es&quot;</span>]</span> {}</span></code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">section.ma-classe</span>,  <span style="color:rgb(215, 186, 125); font-weight:400;">ul </span>{ }</code></pre>
+        </td>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang=<span class="hljs-string">&quot;es&quot;</span>]</span> { }</span></code></pre>
         </td>
         <td class="tg-0lax">
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea></td>
@@ -209,14 +200,11 @@
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
         </td>
         <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">input</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;champ-txt&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">name</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;nom&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;text&quot;</span>&gt;</span></code></pre>
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">input</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;champ-txt&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">name</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;nom&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;text&quot;</span>&gt;</span></code></pre>
         </td>
       </tr>
       <tr>
-        <td class="tg-0lax">
-          <pre>
-              <code id="htmlViewer-9" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em; font-size: 1.2rem;"><span style="color:rgb(215, 186, 125); font-weight:400;">*</span> {}</code></pre>
+        <td class="tg-0lax"><pre><code id="htmlViewer-9" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">*</span> { }</code></pre>
         </td>
         <td class="tg-0lax">
           <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
@@ -224,7 +212,7 @@
       </tr>
     </tbody>
   </table>
-  <button data-clear-answers type="button">Vider les réponses</button>
+  <button data-clear-answers class="reset-button" type="button">Vider les réponses</button>
 </main>
 
 
@@ -255,11 +243,13 @@
         element.addEventListener("change", (e) => saveUserData(e, idx));
       });
 
-      document.querySelector("[data-clear-answers]").addEventListener('click', () => {
-        listTextarea.forEach(function (item) {
-          item.value = ""
+      document.querySelectorAll("[data-clear-answers]").forEach((button) => {
+        button.addEventListener('click', () => {
+            listTextarea.forEach(function (item) {
+                item.value = ""
+            })
+            localStorage.setItem("listAnswers", "[]");
         })
-        localStorage.setItem("listAnswers", "[]");
       })
     })();
   </script>
