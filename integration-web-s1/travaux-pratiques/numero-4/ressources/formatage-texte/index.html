@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" /> -->
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
-
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
     <link rel="stylesheet" href="css/style.css" />
 
@@ -43,7 +43,7 @@
 
         <li>
           Changez la police d'écriture (font-family) d'une partie du texte
-          <p class="note-attention">Ne pas oublier les polices de secours.</p>
+          <p class="note-attention">Ne pas oublier les <a href="https://developer.mozilla.org/fr/docs/Web/CSS/font-family#generic-name" target="_blank">polices de secours  (ouverture dans un nouvel onglet).</a></p>
           <ul>
             <li>
               <a href="https://developer.mozilla.org/fr/docs/Web/CSS/font-family" target="_blank">Voir documentation
@@ -63,9 +63,8 @@
             </li>
           </ul>
         </li>
-        <li>Au sein d'un même paragraphe : Augmentez la taille d'une partie du texte et pour une autre partie du texte :
-          Diminuez la taille
-          du texte
+        <li>Au sein d'un même paragraphe : Augmentez la taille d'une partie du texte et diminuez la taille
+          du texte pour une autre partie
           <ul>
             <li>
               <a href="https://developer.mozilla.org/fr/docs/Web/CSS/font-size" target="_blank">Voir documentation
@@ -74,7 +73,7 @@
             </li>
           </ul>
           <section class="note-information">
-            <p>N'oubliez pas d'utiliser l'unité rem et non px.</p>
+            <p>N'oubliez pas d'utiliser l'unité rem et non px pour l'accessibilité.</p>
             <ul>
                 <li>
                     <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Values_and_units#ems_et_rems" target="_blank" rel="noopener noreferrer">
@@ -84,16 +83,16 @@
             </ul>
             <fieldset class="math-formula-container">
                 <legend>Conversion px → rem</legend>
-                <math display="inline-block">
+                <math display="inline-block" data-formula>
                     <mrow>
                         <mi>rem</mi>
                         <mo>=</mo>
                         <mfrac>
                             <mrow>
-                                <mo>Taille en pixels</mo>
+                                <mo data-var-explanation="En pixels">Taille de l'élément</mo>
                             </mrow>
                             <mrow>
-                                <mo>16</mo>
+                                <mo data-var-explanation="Valeur de base de la font-size du navigateur">16</mo>
                             </mrow>
                         </mfrac>
                     </mrow>
