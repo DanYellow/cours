@@ -626,7 +626,6 @@ details {
 .pokedex a:not([inert]) {
     @supports (animation-range: entry, exit) {
         @container pokemon (width >= theme(--container-xs)) {
-            will-change: transform, opacity;
             animation: animate-in linear forwards, animate-out linear forwards;
             animation-timeline: view();
             animation-range: entry, exit;
