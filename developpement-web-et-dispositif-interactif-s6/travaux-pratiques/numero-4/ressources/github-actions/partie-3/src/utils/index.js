@@ -22,11 +22,11 @@ export const getVersionForName = {
     x: "Pokémon X",
     y: "Pokémon Y",
     "omega-ruby": "Pokémon Rubis Oméga",
-    "ultra-sun": "Pokémon Ultra-Soleil",
+    "alpha-sapphire": "Pokémon Saphir Alpha",
     sun: "Pokémon Soleil",
     moon: "Pokémon Lune",
     "ultra-moon": "Pokémon Ultra-Lune",
-    "alpha-sapphire": "Pokémon Saphir Alpha",
+    "ultra-sun": "Pokémon Ultra-Soleil",
     sword: "Pokémon Épée",
     shield: "Pokémon Bouclier",
     violet: "Pokémon Violet",
@@ -49,7 +49,8 @@ export const clearTagContent = (tag) => {
 };
 
 export const aRem = 16;
-export const convertTailwindRemToPx = (val) => Number(val.replace("rem", "")) * aRem;
+export const convertTailwindRemToPx = (val) =>
+    Number(val.replace("rem", "")) * aRem;
 
 export const replaceImage = (img, heavyImagePath, errorCallback = () => {}) => {
     const newImg = new Image();
@@ -80,8 +81,10 @@ export const isElementInViewport = (el) => {
     return (
         rect.top >= -1 &&
         rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
     );
 };
 
@@ -93,8 +96,14 @@ export const getPkmnIdFromURL = (url) => {
     return url.split("/").filter(Boolean).at(-1);
 };
 
-export const getEvolutionChain = (data, evolutionLineTranslated, listPokemon) => {
-    let evolutionLine = Object.values(evolutionLineTranslated).filter(Boolean).flat()
+export const getEvolutionChain = (
+    data,
+    evolutionLineTranslated,
+    listPokemon
+) => {
+    let evolutionLine = Object.values(evolutionLineTranslated)
+        .filter(Boolean)
+        .flat();
     // evolutionLine = evolutionLine.map((item, idx) => ({
     //     ...item,
     //     condition: evolutionLine[idx - 1]?.condition || item.condition,
@@ -216,9 +225,9 @@ export const clamp = (value, min, max) => {
 
 export const onTransitionsEnded = (node) => {
     return Promise.allSettled(
-        node.getAnimations().map(animation => animation.finished)
+        node.getAnimations().map((animation) => animation.finished)
     );
-}
+};
 
 export const modal = document.querySelector("[data-pokemon-modal]");
 
