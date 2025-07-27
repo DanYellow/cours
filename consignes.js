@@ -484,7 +484,16 @@ document.querySelectorAll("[data-formula]").forEach((item) => {
 
         document.body.insertAdjacentHTML('beforeend', anchorTarget);
 
+        const isVisible = anchor.checkVisibility({
+            visibilityProperty: true,
+        });
+
+        if (!isVisible) {
+            document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.add("hidden");
+        }
+
         anchor.addEventListener('mouseover', () => {
+            document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.remove("hidden");
             document.body.querySelector(`[data-anchor-target="${key}"]`)?.classList.add("visible");
         });
 

@@ -781,7 +781,6 @@ code {
         left: -16px;
         right: 100%;
         transition: background-color 150ms ease-in-out;
-        border-left: 1px solid light-dark(#000, #ffffff);
 
         @starting-style {
             background-color: var(--line-highlighted-end-color);
@@ -917,5 +916,9 @@ code {
         opacity: 1;
         z-index: 9999;
         user-select: auto;
+    }
+
+    &.hidden {
+        display: none;
     }
 }
