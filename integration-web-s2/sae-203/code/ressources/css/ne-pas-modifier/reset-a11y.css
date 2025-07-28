@@ -1,0 +1,61 @@
+/* Reset CSS accessible */
+
+/* Hauteur de ligne minimale pour les contenus */
+body {
+    line-height: 1.5;
+}
+
+/* Hauteur de ligne réduite pour les éléments interactifs */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Améliore la lisibilité des liens */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Supprime les styles de liste uniquement si role="list" est explicite */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Masquage du contenu visuellement tout en le gardant accessible aux technologies d'assistance. */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    clip-path: inset(50%) !important;
+}
+
+/* Désactivation des animations pour les utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        view-transition-name: unset !important;
+    }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}

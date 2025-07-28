@@ -10,6 +10,7 @@
 <script src="https://unpkg.com/@tailwindcss/browser@4?plugins=forms"></script>
 
 <link rel="stylesheet" href="./administration/ressources/css/ne-pas-modifier/adm-style.css">
+<link rel="stylesheet" href="./ressources/css/ne-pas-modifier/reset-a11y.css">
 
 <style type="text/tailwindcss">
     [type='text'], input:where(:not([type])),
