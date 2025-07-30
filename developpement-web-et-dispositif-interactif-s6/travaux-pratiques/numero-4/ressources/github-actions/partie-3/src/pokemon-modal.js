@@ -10,14 +10,14 @@ import {
 } from "#api";
 
 import {
-    getVersionForName,
+    FRENCH_GAMES_NAME,
     cleanString,
     clearTagContent,
     replaceImage,
     getEvolutionChain,
     statistics,
     getPkmnIdFromURL,
-    formsNameDict,
+    FORMS,
     onTransitionsEnded,
     NB_NUMBER_INTEGERS_PKMN_ID,
     modal_DOM, modal
@@ -359,7 +359,7 @@ displayModal = async (pkmnData) => {
         const parser = new DOMParser();
 
         const liString = `
-            <li 
+            <li
                 class="py-0.5 px-2 rounded-md gap-1 flex items-center type-name w-fit"
                 aria-label="Type ${idx + 1} ${type.name}"
                 style="background-color: var(--type-${cleanString(type.name)})"
@@ -403,7 +403,7 @@ displayModal = async (pkmnData) => {
     clearTagContent(descriptionsContainer);
     listDescriptions.flavor_text_entries?.filter((item) => item.language.name === "fr").forEach((description) => {
         const dt = document.createElement("dt");
-        const versionName = getVersionForName[description.version.name] || "Unknown";
+        const versionName = FRENCH_GAMES_NAME[description.version.name] || "Unknown";
         dt.textContent = versionName;
         dt.classList.add("font-bold");
         descriptionsContainer.append(dt);
@@ -652,7 +652,7 @@ displayModal = async (pkmnData) => {
         key === "female" ? "Femelle ♀" : "Mâle ♂"
     );
 
-    const isOneSex = pkmnData.sexe?.female === maxPercentage || pkmnData.sexe?.male === maxPercentage;
+    const isOnlyOneSex = pkmnData.sexe?.female === maxPercentage || pkmnData.sexe?.male === maxPercentage;
     Object.entries(groupedSprites).forEach(([key, sprites]) => {
         const listPokemonSpritesTemplate = document.importNode(
             listPokemonSpritesTemplateRaw.content,
@@ -660,7 +660,7 @@ displayModal = async (pkmnData) => {
         );
         const sexLabel = listPokemonSpritesTemplate.querySelector("p");
 
-        if (Object.keys(groupedSprites).length === 1 && !isOneSex) {
+        if (Object.keys(groupedSprites).length === 1 && !isOnlyOneSex) {
             sexLabel.classList.add("no-dimorphism")
         } else {
             if(key === "Femelle ♀") {
@@ -677,7 +677,7 @@ displayModal = async (pkmnData) => {
         );
         sprites.forEach((item) => {
             const label = `${key} ${
-                Object.keys(groupedSprites).length === 1 && !isOneSex ? "/ Femelle ♀" : ""
+                Object.keys(groupedSprites).length === 1 && !isOnlyOneSex ? "/ Femelle ♀" : ""
             }`
             sexLabel.textContent = label;
 
@@ -710,12 +710,12 @@ displayModal = async (pkmnData) => {
             t.version.name === value.version.name
         ))
     )
-    .map((item) => ({...item, order: Object.keys(getVersionForName).findIndex((game) => item.version.name === game)}))
+    .map((item) => ({...item, order: Object.keys(FRENCH_GAMES_NAME).findIndex((game) => item.version.name === game)}))
     .sort((a, b) => Number(a.order) - Number(b.order));
 
     listGames.forEach((item) => {
         const li = document.createElement("li");
-        const versionName = getVersionForName[item.version.name] || "Unknown";
+        const versionName = FRENCH_GAMES_NAME[item.version.name] || "Unknown";
         li.textContent = versionName;
 
         modal_DOM.listGames.append(li);
@@ -752,9 +752,9 @@ displayModal = async (pkmnData) => {
 
         const textContainer = clone.querySelector("p");
         const separator = `${item.name.split(pkmnData.name.en.toLowerCase()).at(-1)}`.substring(1)
-        if(formsNameDict[separator]) {
-            const prefix =  formsNameDict[separator].displayPkmnName ? `${pkmnData.name.fr} ` : "";
-            textContainer.textContent = `${prefix}${formsNameDict[separator].name}`;
+        if(FORMS[separator]) {
+            const prefix =  FORMS[separator].displayPkmnName ? `${pkmnData.name.fr} ` : "";
+            textContainer.textContent = `${prefix}${FORMS[separator].name}`;
         } else {
             textContainer.textContent = item.name;
         }

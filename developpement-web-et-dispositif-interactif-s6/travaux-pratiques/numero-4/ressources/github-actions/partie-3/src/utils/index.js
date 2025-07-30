@@ -1,41 +1,3 @@
-export const getVersionForName = {
-    red: "Pokémon Rouge",
-    blue: "Pokémon Bleue",
-    yellow: "Pokémon Jaune",
-    gold: "Pokémon Or",
-    silver: "Pokémon Argent",
-    crystal: "Pokémon Crystal",
-    sapphire: "Pokémon Saphir",
-    ruby: "Pokémon Rubis",
-    emerald: "Pokémon Émeraude",
-    firered: "Pokémon Rouge feu",
-    leafgreen: "Pokémon Vert feuille",
-    diamond: "Pokémon Diamant",
-    pearl: "Pokémon Perle",
-    platinum: "Pokémon Platine",
-    heartgold: "Pokémon Or HeartGold",
-    soulsilver: "Pokémon Argent SoulSilver",
-    white: "Pokémon Blanche",
-    black: "Pokémon Noire",
-    "black-2": "Pokémon Noire 2",
-    "white-2": "Pokémon Blanche 2",
-    x: "Pokémon X",
-    y: "Pokémon Y",
-    "omega-ruby": "Pokémon Rubis Oméga",
-    "alpha-sapphire": "Pokémon Saphir Alpha",
-    sun: "Pokémon Soleil",
-    moon: "Pokémon Lune",
-    "ultra-moon": "Pokémon Ultra-Lune",
-    "ultra-sun": "Pokémon Ultra-Soleil",
-    sword: "Pokémon Épée",
-    shield: "Pokémon Bouclier",
-    violet: "Pokémon Violet",
-    scarlet: "Pokémon Écarlate",
-    "lets-go-eevee": "Pokémon Let's Go, Évoli",
-    "lets-go-pikachu": "Pokémon Let's Go, Pikachu",
-    "legends-arceus": "Légendes Pokémon : Arceus",
-};
-
 export const cleanString = (string) =>
     string
         .toLowerCase()
@@ -267,5 +229,5 @@ export const modal_DOM = {
 
 export * from "./colors";
 export * from "./pokemon-modal.utils";
-export * from "./formsDictionary";
+export * from "./dataDictionaries";
 export * from "./constants";
