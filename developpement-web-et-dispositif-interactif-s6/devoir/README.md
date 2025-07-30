@@ -68,17 +68,18 @@ Les critères suivants seront évalués :
 
 ### Front-end
 - [ ] Charger les données du Pokédex lié au Pokémon affiché
-  - Exemple : Vous chargez le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
-  - Optionel : Afficher le nom du dex en français. Par exemple la région d'Unys est appelée "Unova" en anglais
+  - Exemple : Vous chargez directement le Pokémon 245, par défaut sa génération n'est pas chargée ce qui fait qu'on ne peut pas voir le Pokémon suivant et précédent
+  - Optionnel : Afficher le nom du dex en français. Par exemple la région d'Unys est appelée "Unova" en anglais
 - [ ] Afficher les noms étrangers des Pokémon (anglais et japonais suffisent) dans la modale
 - [ ] Proposer un lien vers la fiche du Pokémon sur le site poképedia.fr depuis la modale
 - [ ] Changer le favicon pour le sprite du Pokémon affiché
-  - Ne pas oublier de réinitaliser le favicon
+  - Ne pas oublier de réinitaliser le favicon quand on revient sur le Pokédex
 - [ ] **En mode liste uniquement,** afficher les types du Pokémon
   - Pour ce faire, vous devrez utiliser les containers queries (**pas de javascript**)
     - [Voir documentation CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
 - [ ] Afficher les numéros du Pokémon en fonction des régions
   - En fonction des jeux, les Pokémon n'ont pas forcément le même numéro dans le Pokédex, ce sont ces numéros dont on parle
+  - L'API Pokeapi retournant le nom des régions en anglais, il y a une constante "POKEDEX" qui contient un dictionnaire faisant la relation entre l'API et les noms en français
 - [ ] Corriger les tests unitaires
   - Note : Supprimer les tests qui échouent, ce n'est pas corriger les tests
 - [ ] Changer la couleur de la balise meta "theme-color" en fonction du premier type du Pokémon affiché dans la modale
@@ -101,7 +102,7 @@ Les critères suivants seront évalués :
   - **Icônes**
     - https://github.com/partywhale/pokemon-type-icons
   > Vous prendrez également soin d'afficher le logo de l'université et l'année universitaire
-  > - [Accéder aux logos](https://github.com/DanYellow/cours/tree/main/logos)
+  > - [Accéder aux logos de l'université](https://github.com/DanYellow/cours/tree/main/logos)
 - [ ] Avec l'aide de l'API GitHub, lister les membres du groupe
   - Pour chaque contributeur, vous devez afficher (au moins) :
     - Nom + prénom (pas forcément présents), pseudonyme le tout devant rediriger vers le compte du membre au clic
@@ -125,14 +126,14 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
   - Les images doivent être renommées de façon "sanitized". Les accents et autres espaces doivent être remplacés tout comme la casse doit passer en minuscules
     - Ex : Let's_Go Évoli.jpg -> let-s-go-evoli.jpg (vous pouvez nommer le fichier d'une autre façon, mais le nom doit être _sanitized_)
-- [ ] Avec une API, mettre en place un système d'upload des jaquettes de jeux (fournies avec l'exercice)
-  - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
-- [ ] Renvoyer toutes les jaquettes de jeux via une API (sans authentification) qui sera consommée par le front-end pour les afficher dans la modale partie "Apparitions"
+    - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
+- [ ] Afficher toutes les jaquettes de jeux dans la modale partie "Apparitions"
     - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
         ```json
         [{"game_index":9,"version":{"name":"red","url":"https://pokeapi.co/api/v2/version/1/"}},{"game_index":9,"version":{"name":"blue","url":"https://pokeapi.co/api/v2/version/2/"}},{"game_index":9,"version":{"name":"yellow","url":"https://pokeapi.co/api/v2/version/3/"}},{"game_index":2,"version":{"name":"gold","url":"https://pokeapi.co/api/v2/version/4/"}}]
         ```
-        Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette, le plus simple étant d'utiliser une base de données.
+        Le mieux est donc d'associer l'image à la même valeur que la clé "name" que pokeapi pour afficher plus facilement la bonne jaquette.
+        Vous pouvez faire ça via une base de données où tout simplement en lisant le contenu du dossier où se trouve les jaquettes uploadées
 
 ### CI/CD
 
