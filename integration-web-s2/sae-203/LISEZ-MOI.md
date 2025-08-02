@@ -269,7 +269,7 @@ Etant donné que l'outil git a été abordé durant le semestre, nous vous propo
   - Une archive avec le nom-prénom du chef de projet
   - Un fichier texte contenant le lien vers le dépôt git **public**
     - **Note : Il faut faire un seul et unique dépôt git par groupe**
-    - **Note 2 : Il ne faut pas mettre vos mots de passe dans le fichier ".env.prod" (ou ".env.dev"), Sinon vous exposez à tout le monde votre mot de passe, c'est une faille critique de sécurité**
+    - **Note 2 : Il ne faut pas mettre vos mots de passe dans le fichier ".env.prod" (ou ".env.dev"). Sinon vous exposez à tout le monde votre mot de passe, c'est une faille critique de sécurité**
 
 Dans les deux cas, archive ou dépôt git, ceci devra contenir :
   - Le code source du projet
@@ -301,7 +301,6 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - Accessibilité
   - &lt;img> avec attribut "alt" même vide
   - Valeur de la balise &lt;title> qui change pour chaque page avec la valeur appropriée
-  - Fichier(s) javascript sont chargés avant la fermeture de la balise &lt;body>
   - Unité des polices d'écriture en rem
     - **Toute utilisation de l'unité px pour la propriété font-size sera sanctionnée, il faut utiliser l'unité rem**
       - Conversion px -> rem : Diviser la valeur en pixels par 16 pour obtenir la valeur en rem
@@ -327,6 +326,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
       - [ ] Un article / auteur
     - [ ] Je peux lister :
       - [ ] Tous les articles / auteurs
+    - [ ] J'indique le nombre total d'articles / auteurs / messages sur leur page de liste respective
     - [ ] Mettre à jour la liste des entrées du menu dans l'administration avec les membres de mon équipe
     - Edition à réaliser dans le fichier `administration/ressources/includes/global-footer.php`
     - Je vérifie que toutes les données requises (à vous de les définir) sont présentes
@@ -341,7 +341,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
   - [ ] L'unité de la propriété "font-size" est rem
   - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
   - [ ] Les éléments de formulaire ont bien un libellé qui leur est rattaché avec les bons attributs ("for" et "id")
-  - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
+> Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne.
 - [ ] Rajouter un favicon (image au choix)
 - [ ] Déployer votre site et sa base de données
 - [ ] Toutes mes pages sont accessibles, je n'ai pas d'erreur 404 (page non trouvée) quand je clique sur un lien
