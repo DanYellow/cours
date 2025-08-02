@@ -9,7 +9,7 @@
             type="image/png"
             href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
         />
-        <title>Symfony - TP</title>
+        <title>Symfony — Consignes TP</title>
         <link
             rel="stylesheet"
             href="https://danyellow.net/cours-mmi/consignes.css"
@@ -95,15 +95,23 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                 </ol>
                 <div class="note-information">
                     <p>Lors de la création du projet, Symfony va créer plein de dossiers. Mais ceux qui nous vont nous intéresser pour le moment sont les suivants :</p>
+
+                    <pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(181, 189, 104); font-weight: 400;">.</span>
+<span style="color: rgb(181, 189, 104); font-weight: 400;">├──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">src/</span> 
+<span style="color: rgb(181, 189, 104); font-weight: 400;">│</span>   <span style="color: rgb(181, 189, 104); font-weight: 400;">├──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Entity/</span>
+<span style="color: rgb(181, 189, 104); font-weight: 400;">│</span>   <span style="color: rgb(181, 189, 104); font-weight: 400;">└──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">Controller/</span>
+<span style="color: rgb(181, 189, 104); font-weight: 400;">├──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">templates/</span>
+<span style="color: rgb(181, 189, 104); font-weight: 400;">├──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">public/</span>
+<span style="color: rgb(181, 189, 104); font-weight: 400;">└──</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">assets/</span></pre>
                     <ul>
                         <li><span class="texte-gras">src/Entity/ :</span> Contient les modèles générés par Doctrine - M de l'architecture MVC</li>
                         <li><span class="texte-gras">src/Controller/ :</span> Contient les contrôleurs - C de l'architecture MVC</li>
                         <li><span class="texte-gras">templates/ :</span> Contient les vues twig du projet - V de l'architecture MVC</li>
                         <li><span class="texte-gras">public/ :</span> Contient les différents assets du projet (images, javascript, css...). Tout le contenu est accessible au public</li>
                         <li><span class="texte-gras">assets/ :</span> Fonctionne comme le dossier public/ mais avec une petite subtilité, le contenu est caché. Autrement dit, les assets sont versionnés pour éviter qu'ils soient mis en cache. Tout le contenu est accessible au public
-                            <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. A noter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
                         </li>
                     </ul>
+                    <p class="note-information">Le contenu du dossier est accessible via la commande <code>php bin/console debug:asset-map</code>. A noter que pour la mise en production, il faudra exécuter la commande <code>php bin/console asset-map:compile</code> pour déplacer le contenu vers le dossier public/assets/ </p>
                     <p class="note-importante">Vous ne pouvez pas renommer les dossiers crées par symfony. En revanche, vous avez le droit de créer des sous-dossiers dedans pour mieux vous organiser.</p>
                     <ul>
                         <li>
@@ -303,7 +311,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                             </ul>
                             <ul class="list-tab-content">
                                 <li class="tab-content" data-tab-content="create">
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+<pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
@@ -328,7 +336,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     </pre>
                                 </li>
                                 <li class="tab-content" data-tab-content="update">
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+<pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
@@ -359,7 +367,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     }</pre>
                                 </li>
                                 <li class="tab-content" data-tab-content="delete">
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+<pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
@@ -392,7 +400,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
     }</pre>
                                 </li>
                                 <li class="tab-content" data-tab-content="all">
-<pre data-code-sample="true" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
+<pre data-code-sample="false" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">&lt;?php</span>
     <span style="color: rgb(129, 162, 190); font-weight: 400;">namespace</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">App</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>;
     
     <span style="color: rgb(129, 162, 190); font-weight: 400;">use</span> <span style="color: rgb(240, 198, 116); font-weight: 400;">Symfony</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Bundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">FrameworkBundle</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">Controller</span>\<span style="color: rgb(240, 198, 116); font-weight: 400;">AbstractController</span>;
@@ -640,7 +648,7 @@ git remote add origin git@github.com:{USER}/{REPO}.git</pre>
                                     <p>
                                         Si vous essayez d'accéder à n'importe quelle route, il est possible que vous ayez un message d'erreur :
                                     </p>
-                                    <div class="inner-note">
+                                    <div class="quote">
                                         <p>Because you have multiple authenticators in firewall "main", you need to set the "entry_point" key to one of your authenticators ("App\Security\AppCustomAuthenticator", "form_login") [...]</p>
                                     </div>
                                     <p>C'est normal, Symfony "perd la tête" car il y a plusieurs authentificateurs dans l'application, il nous demande de choisir. Pour se faire, allez dans le fichier "config/packages/security.yaml", ajoutez une clé "entry_point" dans "firewall.main". Par exemple (à adapter) : </p>
