@@ -174,6 +174,9 @@
                     </ul>
                 </li>
             </ol>
+            <div class="note-attention">
+                <p>Quelque soit le langage de programmation. Pensez toujours à anticiper les données non-conformes. Par exemple, si votre fonction consiste à faire une addition, assurez-vous que vos paramètres sont bien des nombres avec la méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN" target="_blank" rel="noopener noreferrer">Number.isNaN() - Ouverture dans un nouvel onglet.</a></p>
+            </div>
             <section class="note-information">
                 <p>
                     <span class="texte-gras">Ces fonctions doivent impérativement retourner un résultat (mot-clé"return")</span> et doivent voir leur résultat être affiché dans un
@@ -219,31 +222,37 @@
             </summary>
             <p>Créez les fonctions suivantes : </p>
             <ol class="liste-consignes">
-                        <li>Prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
-                            du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
-                            Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
-                            de Sarcelles"
-                            <ul>
-                                <li>
-                                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener noreferrer">Voir documentation des littéraux de gabarits - Ouverture dans un nouvel onglet</a>
-                                </li>
-                            </ul>
+                <li>Prend en paramètre une chaîne de caractères et retourne "Bonjour " + le nom
+                    du département dispensé à l'IUT de Sarcelles. Si le département n'est pas proposé à l'IUT de
+                    Sarcelles, la fonction doit retourner "Bonjour mais ce département n'est pas proposé à l'IUT
+                    de Sarcelles". <span class="texte-gras">Et si le paramètre du département n'est pas passé, la fonction doit retourner "Bonjour MMI"</span>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener noreferrer">Voir documentation des littéraux de gabarits - Ouverture dans un nouvel onglet</a>
                         </li>
-                        <li>Prend en paramètre un nombre entier et qui retourne une chaîne de
-                            caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
-                            préférences) :
-                            <ul>
-                                <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
-                                <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
-                                <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
-                                <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
-                                <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou
-                                    n'est pas une valeur correcte
-                                </li>
-                            </ul>
+                    </ul>
+                </li>
+                <li>Prend en paramètre un nombre entier et qui retourne une chaîne de
+                    caractères (ces chaînes sont là à titre indicatif, vous pouvez adapter en fonction de vos
+                    préférences) :
+                    <ul>
+                        <li>"Vous êtes un nourrisson" si la valeur est inférieure à 1</li>
+                        <li>"Vous êtes un enfant" si la valeur est comprise entre 2 et 12</li>
+                        <li>"Vous êtes un adolescent" si la valeur est comprise entre 13 et 17</li>
+                        <li>"Vous êtes un adulte" si la valeur est comprise entre 18 et 60</li>
+                        <li>"Vous êtes une personne agée" si la valeur n'est dans aucune des bornes suscitées ou
+                            n'est pas une valeur correcte
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     Retourne true, si une chaîne de caractères est en minuscules dans sa totalité
+                </li>
+                <li>
+                    Prend un nombre entier n en paramètre et <span class="texte-gras">retourne une chaine de caractères</span> avec tous les nombres de 1 jusqu'au n <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for" target="_blank">en vous aidant d'une boucle</a>
+                    <p class="note-information">
+                        Compte-tenu du fait qu'un nombre entier est attendu, il est préférable de tronquer la valeur pour s'assurer que c'est bel et bien un entier.
+                    </p>
                 </li>
             </ol>
             <section class="note-information">
@@ -428,12 +437,6 @@ cible.<span style="color: rgb(0, 224, 224); font-weight: 400;">addEventListener<
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    Créez une fonction qui prend un nombre entier n en paramètre et <span class="texte-gras">retourne une chaine de caractères</span> avec tous les nombres de 1 jusqu'au n
-                    <p class="note-information">
-                        Compte-tenu du fait qu'un nombre entier est attendu, il est préférable de tronquer la valeur pour s'assurer que c'est bel et bien un entier.
-                    </p>
                 </li>
             </ul>
         </details>
