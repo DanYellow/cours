@@ -356,19 +356,19 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 
 - **Est-il possible d'ajouter de nouvelles tables à la base de données ?**
 
-  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas. Cependant, vous prendrez soin d'exporter votre base de données lors du rendu de votre travail.
+  Si vous estimez que de nouvelles tables ou même colonnes sont nécéssaires, n'hésitez pas. Cependant, vous prendrez soin d'exporter votre base de données lors du rendu de votre travail
 
 - **Devons-nous changer le contenu des balises &lt;title> ?**
 
-  Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise.
+  Oui, pour rappel, la balise &lt;title> est très importante pour le référencement et l'accessibilité. Assurez-vous d'avoir des valeurs claires et uniques pour cette balise
 
 - **Pouvons-nous nous passer de tailwindcss pour l'administration (back-office) ?**
 
-  Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres de l'utiliser pour les nouvelles pages que vous devez rajouter.
+  Vous pouvez, mais nous vous le déconseillons très fortement car vous allez perdre la cohérence visuelle avec le reste du site. Quant au front-office (partie SAE 105), vous êtes libres de l'utiliser pour les nouvelles pages que vous devez rajouter
 
 - **Mon site ne charge pas le CSS. Pourquoi ?**
 
-  Vous n'avez pas modifié la clé `CHEMIN_BASE` du fichier `.env.dev` (ou `.env.prod`). Pour rappel, sa valeur doit être égale au chemin dans lequel est contenu votre projet. Par exemple, si pour accéder à votre projet (sur localhost ou en ligne), il faut aller sur `localhost/monprojet/sae203`, il faudra écrire dans le fichier `.env.dev` la chose suivante.
+  Vous n'avez pas modifié la clé `CHEMIN_BASE` du fichier `.env.dev` (ou `.env.prod`). Pour rappel, sa valeur doit être égale au chemin dans lequel est contenu votre projet. Par exemple, si pour accéder à votre projet (sur localhost ou en ligne), il faut aller sur `localhost/monprojet/sae203`, il faudra écrire dans le fichier `.env.dev` la chose suivante :
   ```bash
   CHEMIN_BASE=monprojet/sae203/
   # [...] Reste du fichier
@@ -384,13 +384,15 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
     - Vous ne modifiez pas les bons fichiers. Vous avez, par exemple, le projet copié ailleurs sur votre ordinateur ou une clé usb et vous modifiez cette version, version qui n'est pas affichée dans le navigateur
     -  Votre serveur affiche la version en cache de votre site. Pour vider le cache plusieurs solutions :
         - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
-        - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome.**
+        - **En ayant la console du navigateur ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ceci va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome.**
         - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
     > Normalement, lorsque la console est ouverte, le cache est désactivé si vous avez coché l'option "Disable cache" dans l'onglet "Network" de la console du navigateur (F12 / Clic droit > Inspecter).
 
 - **Dans l'administration, certains éléments se déplacent d'une page à l'autre. Pourquoi ?**
 
     C'est dû à l'utilisation de l'API CSS @view-transition, elle permet d'effectuer des transitions entre deux pages web. Ainsi, au lieu d'avoir un changement "brut" de contenu entre deux pages, il est désormais possible une expérience de navigation plus fluide.
+      
+    - [Voir documentation de l'API CSS @view-transition - anglais](https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition)
 
     D'ailleurs, l'utilisation de cette nouvelle API est une tâche **optionnelle** listée dans le fichier [POUR-ALLER-PLUS-LOIN.md](POUR-ALLER-PLUS-LOIN.md).
 
