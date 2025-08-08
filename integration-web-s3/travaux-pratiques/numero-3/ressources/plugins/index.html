@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP Plugin javascript</title>
+    <title>Plugin javascript — Consignes TP</title>
     <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
     <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
 
@@ -17,6 +17,9 @@
 
   <body>
     <header class="consignes-en-tete">
+        <h1 class="titre-consignes">
+            Plugin javascript — Consignes TP
+        </h1>
       <details class="consignes-conteneur" open>
         <summary>
           <p class="h1">
@@ -31,10 +34,15 @@
                 web. Rappel, vous avez le raccourci "html:5")
               </li>
           <li>
-            <a target="_blank" rel="noopener" href="https://www.chartjs.org/docs/latest/getting-started/">
-              Suivez le didacticiel de chartjs (ouveture dans un nouvel onglet)</a>
+            Suivez le didacticiel de chartjs
             et affichez quelques graphiques. Une fois suffisamment à
-            l'aise avec la bibliothèque passez à la partie suivante.
+            l'aise avec la bibliothèque passez à la partie suivante
+            <ul>
+                <li>
+                <a target="_blank" rel="noopener" href="https://www.chartjs.org/docs/latest/getting-started/">
+              Accéder au didacticiel de chartjs (ouveture dans un nouvel onglet)</a>
+                </li>
+            </ul>
           </li>
         </ol>
         <p class="note-information">
@@ -62,9 +70,13 @@
                   Voir documentation du graphique en courbe de chartjs
                   (ouverture dans un nouvel onglet)
                 </a>
-                <pre data-code-sample='{"title": "Formattage des données pour courbe", "allowCopy": true}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(195, 151, 216);">let</span> nombrePauline = prenomPauline.<span style="color: rgb(195, 151, 216);">map</span>((<span style="color: rgb(231, 140, 69);">item</span>) =&gt; <span style="color: rgb(231, 140, 69);">item</span>.nombre); // Donnée, propriété data
-<span style="color: rgb(195, 151, 216);">let</span> anneesPauline = prenomPauline.<span style="color: rgb(195, 151, 216);">map</span>((<span style="color: rgb(231, 140, 69);">item</span>) =&gt; <span style="color: rgb(231, 140, 69);">item</span>.annais); // Libellé, propriété labels</pre>
-
+                <pre data-code-sample='{"title": "Formattage des données pour courbe", "allowCopy": true, "linesHighlighted": 1, "jsonId": "array_map"}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(195, 151, 216);">let</span> nombrePauline = prenomPauline.<span style="color: rgb(195, 151, 216);">map</span>((<span style="color: rgb(231, 140, 69);">item</span>) =&gt; <span style="color: rgb(231, 140, 69);">item</span>.nombre); // Données, propriété data
+<span style="color: rgb(195, 151, 216);">let</span> anneesPauline = prenomPauline.<span style="color: rgb(195, 151, 216);">map</span>((<span style="color: rgb(231, 140, 69);">item</span>) =&gt; <span style="color: rgb(231, 140, 69);">item</span>.annais); // Libellés, propriété labels</pre>
+                <script type="text/json" data-json-id="array_map">
+                    {
+                        "1": "La fonction javascript \"map\" permet de retourner un tableau tout en y appliquant une fonction sur chacun des éléments du tableau. Ici, nous retournons que la clé \"nombre\" de chaque objet contenu dans le tableau<ul><li><a target='_blank' href='https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map'>Voir documentation de la fonction map() (ouverture dans un nouvel onglet)</a></li></ul>"
+                    }
+                </script>
                 Ensuite, il faudra les utiliser pour les bons paramètres pour
                 afficher le graphique.
               </li>
@@ -111,16 +123,17 @@
             <ul>
                 <li>
                   <p>
-                    <a href="https://raw.githubusercontent.com/lodash/lodash/4.17.15-npm/lodash.js" target="_blank">Télécharger lodash (ouverture dans un nouvel onglet)</a>
+                    <a href="https://cdnjs.com/libraries/lodash.js" target="_blank">Télécharger lodash (ouverture dans un nouvel onglet)</a>
                   </p>
                   <p class="note-attention">
-                  Pensez bien à sauvegarder le contenu du lien dans un fichier, il ne faut pas le charger depuis l'url mais depuis le fichier que vous avez téléchargé.</li>
-                  </p>
+                    Il faut que vous ouvririez le lien "lodash.min.js" de la dernière version, puis sauvegardez le contenu dans un fichier que vous chargerez ensuite.
+                </p>
+            </li>
                 <li><a href="https://lodash.com/docs/4.17.15" target="_blank">Voir documentation de lodash (ouverture dans un nouvel onglet)</a></li>
             </ul>
           </li>
           <li>
-            Réalisez les tâches suivantes avec le contenu du fichier "lodash-data.js" grâce à lodashjs. Le contenu est accessible via une variable nommée "data". Pensez bien à afficher le résultat grâce à "console.log()"
+            Réalisez les tâches suivantes avec le contenu du fichier "lodash-data.js" grâce à lodashjs. Le contenu est accessible via une variable nommée "data". Pensez bien à afficher le résultat grâce à <code>console.log()</code>
             <p class="note-information">
                 La variable data contient les 10 prénoms les plus donnés en 1996, 2006 et 2016 pour les filles et les garçons en France.
             </p>
@@ -132,7 +145,7 @@
                     </ul>
                 </li>
                 <li>
-                    Retournez toutes les naissances dont le nombre de naissances est supérieur à 3 200
+                    Retournez toutes les naissances dont le nombre de naissances est strictement supérieur à 3 200
                     <ul>
                         <li><a href="https://lodash.com/docs/4.17.15#filter" target="_blank">Voir documentation de la fonction filter de lodash</a></li>
                     </ul>
