@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwindcss TP — Consignes TP</title>
+
+    <link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+    <script src="https://danyellow.net/cours-mmi/scripts.js" defer></script>
+  </head>
+  <body>
+    <header class="consignes-en-tete">
+      <h1 class="titre-consignes">Tailwindcss TP — Consignes TP</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+        </summary>
+        <section class="note-information">
+            <p>Sauf indications contraires, les tailles, teintes et couleurs pour les classes sont à votre discrétion.</p>
+        </section>
+        <ol class="liste-consignes">
+            <li>Créez un fichier html et mettez en place tailwindcss en vous aidant de la documentation (ne faites que l'étape 1)
+                <ul>
+                    <li><a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank" rel="noopener noreferrer">Accéder à la documentation de tailwindcss (ouverture dans un nouvel onglet)</a></li>
+                </ul>
+            </li>
+          <li>
+            Prenez en main le framework tailwindcss en effectuant les tâches
+            suivantes :
+            <ul class="liste-consignes">
+                <li>Un <span class="texte-gras">texte large et de couleur rouge</span></li>
+                <li>Deux paragraphes de textes espacés par une <span class="texte-gras">marge basse</span> (margin-bottom) pour les deux. Un des deux paragraphes doit contenir un <span class="texte-gras">lien en gras et de couleur verte</span></li>
+                <li>Une image contenue dans une balise. Cette balise doit avoir une <span class="texte-gras">marge intérieure (padding)</span> et une <span class="texte-gras">bordure épaisse</span></li>
+                <li>Une balise d'une certaine <span class="texte-gras">taille (hauteur et largeur)</span> avec une <span class="texte-gras">couleur d'arrière-plan (background-color)</span></li>
+                <li>Un paragraphe qui change de <span class="texte-gras">couleur de texte et de couleur d'arrière-plan au survol (:hover)</span>
+                  <ul>
+                    <li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#appendix" target="_blank" rel="noopener noreferrer">Accéder à la liste des modifiers (ouverture dans un nouvel onglet)</a></li>
+                  </ul>
+                </li>
+                <li>
+                    Une image avec du texte sur le côté. Texte à gauche ou à droite de l'image, c'est à votre convenance
+                    <ul>
+                        <li>Il faudra impérativement utiliser flexbox</li>
+                        <li>Pensez bien à espacer les éléments grâce à la propriété CSS gap</li>
+                    </ul>
+                </li>
+            </ul>
+            <section class="note-information">
+              <ul>
+                <li><a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank">Voir documentation de tailwind (ouverture dans un nouvel onglet)</a></li>
+                <li>N'hésitez pas à utiliser la barre de recherche (recherche en anglais). Vous pouvez rechercher par propriétés CSS. Par exemple, pour la première tâche, vous pouvez rechercher "font-size" pour savoir comment gérer la taille du texte avec tailwindcss.</li>
+              </ul>
+            </section>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
+        </summary>
+        <ol class="liste-consignes">
+            <li>Créez un nouveau fichier html et mettez en place tailwindcss (voir partie 1)</li>
+            <li>Réalisez <span class="texte-gras">au plus proche</span> l'intégration de la maquette suivante :
+                <article>
+                    <img src="maquette.jpg" alt="">
+                </article>
+                <p>Vous trouverez également la maquette photoshop dans le dossier "img/" si ça peut vous aider. Mais encore une fois le but est d'être le plus proche et non d'être iso à 100% avec la maquette. Néanmoins, notez les points suivants : </p>
+                <ul>
+                    <li>
+                        Le corps du site a une largeur de 560px
+                    </li>
+                    <li>
+                        Les tags en bas de page sont des liens, il faudra penser à ajouter des effets au survol et au focus clavier avec transition
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <section class="note-information">
+            <p>Les images n'ont pas à être celles de la maquette tout comme le texte (les images sont dans le dossier "/img"). Vous pouvez prendre des libertés (couleurs, tailles) à partir du moment où la mise en page est respectée.</p>
+            <p>Parallèlement, pour avoir les éléments côté-à-côte, il faudra utiliser flexbox.</p>
+            <ul>
+                <li><a href="https://tailwindcss.com/docs/flex" target="_blank" rel="noopener noreferrer">En savoir plus sur Flexbox dans tailwind</a></li>
+            </ul>
+            <p>Pour l'arrière-plan (le background), c'est un dégradé. Vous pouvez le générer en ligne avec <a href="https://www.creative-tim.com/twcomponents/gradient-generator" target="_blank" rel="noopener noreferrer">https://www.creative-tim.com/twcomponents/gradient-generator - Ouverture dans un nouvel onglet</a></p>
+        </section>
+      </details>
+      <!-- <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
+        </summary>
+        <ol class="liste-consignes">
+            <li>Créez un nouveau fichier html et mettez en place tailwindcss (voir partie 1)</li>
+            <li>Installez daisyUI et affichez quelques composants issus de cette bibliothèque</li>
+        </ol>
+      </details> -->
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
+        </summary>
+        <ul class="liste-consignes">
+            <li>Reprenez la partie précédente mais cette fois-ci ajoutez-y des conditions permettant le responsive design. Autrement dit, adaptez la mise en page en fonction de la taille de la fenêtre
+                <ul>
+                    <li><a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Voir plus d'informations sur la gestion du responsive design</a></li>
+                </ul>
+                <p>Vous pouvez, par exemple, afficher les logos en colonne sur des petites fenêtres</p>
+            </li>
+        </ul>
+      </details>
+    </header>
+  </body>
+</html>

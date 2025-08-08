@@ -1,0 +1,97 @@
+body {
+    max-width: 900px;
+    margin: 0.75rem auto;
+    padding: 0 0.75rem;
+    aspect-ratio: 1;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --couleur-arriere-plan: aliceblue;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.header .h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.pkmn-card {
+    aspect-ratio: 245 / 158;
+    border: #1d1d1d 2px solid;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.pkmn-card .header {
+    background-color: var(--couleur-arriere-plan);
+    margin: 0.75rem;
+    border-radius: 1rem;
+    text-align: end;
+    margin-top: 2rem;
+    padding: 0.75rem 1rem;
+}
+
+.pkmn-card .header .titre {
+    font-size: 1.85rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.pkmn-card .pkmn-equipe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    gap: 0.5rem;
+    margin-left: 0.75rem;
+}
+
+.pkmn-card .pkmn-element {
+    aspect-ratio: 5 / 3;
+    overflow: hidden;
+    border: #1d1d1d 3px solid;
+    position: relative;
+    background-color: white;
+}
+
+.pkmn-card .pkmn-element .image-centre {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer {
+    padding: 0.75rem 1rem;
+    margin: 0.75rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: var(--couleur-arriere-plan);
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer .titre {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.footer .liste-badges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    gap: 0.95rem;
+}
+
+.footer .liste-badges img {
+    width: 40px;
+}

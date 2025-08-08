@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS grid - Mondrian</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+
+    <script
+        src="https://danyellow.net/cours-mmi/consignes.js"
+        defer
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="h1">CSS grid - Mondrian</h1>
+      <p class="paragraphe">
+        Reproduire (plus ou moins) le tableau de Pete Mondrian
+        <a
+          href="https://fr.wikipedia.org/wiki/Composition_avec_grand_plan_rouge,_jaune,_noir,_gris_et_bleu"
+          target="_blank"
+          rel="noopener noreferrer"
+          >"Composition avec grand plan rouge, jaune, noir, gris et bleu"</a
+        >
+        est possible grâce à CSS grid. ça demande beaucoup de balises, mais
+        l'utilisation reste simple.
+      </p>
+      <p class="paragraphe">
+        Cet exemple est également l'occasion d'ouvrir la valeur "span" pour les
+        propriétés CSS
+        grid-column-start/grid-column-end/grid-row-start/grid-row-end. Cette
+        valeur permet d'étendre un élément au lieu de définir une valeur de
+        début et de fin. Exemple :
+      </p>
+      <div class="code">
+        <div>
+          <pre
+          data-code-sample="true" style="font-size: 1.15rem; font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "
+        ><span style="color: rgb(255, 160, 122); font-weight: 400;">.mon-selecteur</span> {
+    <span style="color: rgb(255, 215, 0); font-weight: 400;">grid-column-start</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">2</span>;
+    <span style="color: rgb(255, 215, 0); font-weight: 400;">grid-column-end</span>: span <span style="color: rgb(245, 171, 53); font-weight: 400;">3</span>;
+}</pre>
+        </div>
+        <p>
+          Dans l'exemple ci-dessus, on définit que notre élément commence à la
+          colonne 2 et s'étendra de trois colonnes. L'avantage, c'est que si on change la valeur de "grid-column-start", l'élément occupera toujours trois colonnes.
+        </p>
+        <p>Ce code équivaut à mettre la valeur "5" pour la propriété "grid-column-end".</p>
+      </div>
+
+      <ul class="liste">
+        <li>
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir documentation de grid-column-start (ouverture dans un nouvel
+            onglet)
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-column-end"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir documentation de grid-column-end (ouverture dans un nouvel
+            onglet)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir documentation de grid-row-start (ouverture dans un nouvel
+            onglet)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/grid-row-end"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir documentation de grid-row-end (ouverture dans un nouvel onglet)
+          </a>
+        </li>
+      </ul>
+    </header>
+    <main class="conteneur">
+      <div class="blanc premier"></div>
+      <div class="blanc deux"></div>
+      <div class="jaune troisieme"></div>
+      <div class="blanc quatrieme"></div>
+      <div class="blanc cinquieme"></div>
+      <div class="rouge sixieme"></div>
+      <div class="jaune septieme"></div>
+      <div class="blanc huitieme"></div>
+      <div class="noir neuvieme"></div>
+      <div class="blanc dixieme"></div>
+      <div class="blanc onzieme"></div>
+      <div class="blanc douzieme"></div>
+      <div class="blanc treizieme"></div>
+      <div class="jaune quatorzieme"></div>
+      <div class="blanc quinzieme"></div>
+      <div class="blanc seizieme"></div>
+      <div class="bleu dixseptieme"></div>
+      <div class="rouge dixhuitieme"></div>
+      <div class="blanc dixneuvieme"></div>
+    </main>
+  </body>
+</html>

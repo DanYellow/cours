@@ -1,0 +1,38 @@
+Cours assurés par M. Linardi et M. Jean-Louis
+Découpage du cours (un groupe de TD et des groupes de TP seront assignés à un enseignant) :
+
+
+Apprentissages critiques :
+- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage
+sémantique efficace
+- AC4103 : Générer des pages Web ou vues à partir de données
+structurées incluant des interactions simples
+- AC4104 : Mettre en ligne une application Web en utilisant une solution
+d’hébergement standard
+- AC4105 : Modéliser les données et les traitements d’une application Web
+- AC4106 : Utiliser et adapter un modèle d’accès aux données
+
+Apprentissage du cours :
+- CSS Transition
+- CSS Transform
+- Iconfonts
+- Bootstrap
+- Introduction javascript
+- Positionnement (position absolute, relative...)
+- Approfondissement pseudo-classe et découverte pseudo-élément
+
+- Sensibilisation au web : design et programmation
+	- Accessibilité
+	- Bonnes pratiques / sémantique web
+	- Ergonomie
+
+But du cours :
+- Renforcer les connaissances acquises en S1
+- Initiation au langage de programmation javascript
+- Réaliser avec succès la SAÉ 203 - Site web et base de données
+- Découvrir l'importation de polices d'écriture personnalisée
+
+Mode d'évaluation (changements possibles) :
+- SAÉ 203 - Site Web et Base de données
+- Préparation à la SAÉ 203 - Site Web et Base de données
+- Quiz sur les notions vues en S1 et S2

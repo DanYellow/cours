@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform — Consignes TP</title>
+
+    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+</head>
+
+<body>
+    <header class="consignes-en-tete">
+        <h1 class="titre-consignes">CSS Transform — Consignes TP</h1>
+
+        <details class="consignes-conteneur" open>
+            <summary>
+                <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Ouvrez le site <a href="exercice/" target="_blank" rel="noopener noreferrer">"exercice/"</a> (récupéré avec la ressource)</li>
+                <li>Appliquez une transformation de votre choix sur l'élément ayant la classe "conteneur". Cet élément est présent dans le site précédemment ouvert
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"
+                                rel="noopener noreferrer" target="_blank">Voir documentation de la propriété
+                                transform
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform-function"
+                                rel="noopener noreferrer" target="_blank">Voir listes des fonctions de la propriété "transform"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Utilisez la propriété CSS "transition" pour appliquer la transformation effectuée à l'étape précédente
+                    au survol ou en utilisant la règle-at @starting-style
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transition" rel="noopener noreferrer"
+                                target="_blank">Voir documentation de la propriété
+                                transition
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                    <p class="note-information">Pour rappel, la propriété CSS "transition" doit être mise sur l'état de départ, pas dans la pseudo-classe.</p>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Complétez le sélecteur ".conteneur::after", du fichier CSS fourni, de façon à rajouter un arrière-plan (aplat de couleur,
+                    dégradé ou même image) permettant de faire ressortir le texte au faible contraste en effectuant une transition
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::after" rel="noopener noreferrer"
+                                target="_blank">Voir documentation du pseudo-élément "after"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément "before"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color"
+                                rel="noopener noreferrer" target="_blank">Voir documentation du pseudo-élément
+                                "background-color"
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                        <li>
+                            <a href="https://cssgradient.io/" rel="noopener noreferrer" target="_blank">Générateur de
+                                dégradé
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                    <div class="note-information">
+                        <p>Pour rappel, pour étirer une balise en position absolute (ou fixed), aidez-vous du code
+                            ci-dessous :</p>
+                            <div class="tab-wrapper" role="tablist">
+                                <ul class="list-tabs">
+                                    <li>
+                                        <button class="select-tab" data-tab-name="version-a">Version A</button>
+                                    </li>
+                                    <li>
+                                        <button class="select-tab" data-tab-name="version-b">Version B</button>
+                                    </li>
+                                </ul>
+                            <ul class="list-tab-content">
+                                <li class="tab-content" data-tab-content="version-a">
+<pre data-code-sample='{"allowCopy": true, "title": "Étirer une balise - Version A"}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(213, 78, 83);">.mon-sélecteur</span> {
+    <span style="color: rgb(231, 197, 71);">position</span>: absolute;
+    <span style="color: rgb(231, 197, 71);">top</span>: <span style="color: rgb(231, 140, 69);">0</span>;
+    <span style="color: rgb(231, 197, 71);">left</span>: <span style="color: rgb(231, 140, 69);">0</span>;
+    <span style="color: rgb(231, 197, 71);">right</span>: <span style="color: rgb(231, 140, 69);">0</span>;
+    <span style="color: rgb(231, 197, 71);">bottom</span>: <span style="color: rgb(231, 140, 69);">0</span>;
+    <span style="color: rgb(150, 152, 150);">/* [...] */</span>
+}</pre>
+                                </li>
+                                <li class="tab-content" data-tab-content="version-b">
+<pre data-code-sample='{"allowCopy": true, "title": "Étirer une balise - Version B"}' style="display: block; overflow-x: auto; background: rgb(0, 0, 0); color: rgb(234, 234, 234); padding: 0.5em;"><span style="color: rgb(213, 78, 83);">.mon-sélecteur</span> {
+    <span style="color: rgb(231, 197, 71);">position</span>: absolute;
+    <span style="color: rgb(231, 197, 71);">inset</span>: <span style="color: rgb(231, 140, 69);">0</span>;
+    <span style="color: rgb(150, 152, 150);">/* [...] */</span>
+}</pre>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Les deux codes ci-dessus font la même chose.</p>
+                    </div>
+                </li>
+                <li>Utilisez la pseudo-classe "hover" pour changer la couleur de la propriété "background" du pseudo-element ajouté précédemment via une transition CSS
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" rel="noopener noreferrer">Voir documentation de la propriété CSS "transition" (ouverture dans un nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Utilisez la propriété CSS transform et la fonction translate() (translateX() ou translateY()) pour
+                    déplacer les textes présents sur l'image lors du survol de la balise ".conteneur" en effectuant une transition CSS
+                    <ul>
+                        <li>Vous pouvez déplacer les deux textes ensemble ou un seul à la fois, à vous de voir</li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform" rel="noopener noreferrer"
+                                target="_blank">Voir documentation de la propriété
+                                transform
+                                (ouverture dans un
+                                nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
+            </summary>
+            <p>Maintenant que vous avez expérimenté de façon guidée les transitions CSS à vous de
+                jouer.</p>
+            <ol class="liste-consignes">
+                <li>Au choix :
+                    <ul>
+                        <li>
+                            Réutilisez la balise "conteneur-principal" et son contenu
+                        </li>
+                        <li>Ajoutez votre propre balise avec quelques éléments enfants (images, liens, textes...)</li>
+                    </ul>
+                </li>
+                <li> Appliquez une ou plusieurs transitions de votre choix au survol (et au focus clavier si éligible)
+                </li>
+            </ol>
+        </details>
+    </header>
+</body>
