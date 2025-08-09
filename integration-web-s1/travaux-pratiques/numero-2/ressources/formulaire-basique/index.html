@@ -14,7 +14,7 @@
     </head>
 
     <body>
-        <header style="max-width: 1280px; margin: 0 auto; padding: 0 0.75em 0.75em;">
+        <header class="consignes-en-tete">
             <div class="note-information">
                 <p>
                     Le but de cette pratique est de construire notre premier
@@ -42,7 +42,7 @@
                 projet.
             </p>
 
-            <h1 class="h1">Consignes de la pratique</h1>
+            <h1 class="titre-consignes">Formulaire basique — Consignes TP</h1>
 
             <details class="consignes-conteneur" open>
                 <summary>
@@ -313,7 +313,7 @@
                         nouveaux champs à votre formulaire
                     </li>
                     <li>
-                        Créer un &lt;select> personnalisé en affichant des images
+                        Créez un &lt;select> personnalisé permettant d'afficher des images
                         <ul>
                             <li>
                                 <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select" target="_blank" rel="noopener noreferrer">
@@ -327,7 +327,7 @@
                         </p>
                         <div class="note-attention">
                             <p>
-                                Les &lt;select> personnalisés nécessitent du CSS, notion que nous verrons dans le prochain TP, néanmoins, vous aider du code suivant.
+                                Les &lt;select> personnalisés nécessitent du CSS, notion que nous verrons dans le prochain TP, néanmoins, vous pouvez vous aider du code suivant et effectuer quelques modifications au niveau du code HTML.
                             </p>
                             <div class="tab-wrapper" role="tablist">
                                 <ul class="list-tabs">
@@ -340,30 +340,53 @@
                                 </ul>
                                 <ul class="list-tab-content">
                                     <li class="tab-content" data-tab-content="html">
+                                        <pre data-code-sample='{"allowCopy": true, "title": "Structure HTML <select> personnalisé"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">form</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">label</span> <span style="color:rgb(156, 220, 254); font-weight:400;">for</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;pet-select&quot;</span>&gt;</span>Select pet:<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">label</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">select</span> <span style="color:rgb(156, 220, 254); font-weight:400;">id</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;pet-select&quot;</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">button</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">selectedcontent</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">selectedcontent</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">button</span>&gt;</span>
 
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span>&gt;</span>Please select a pet<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;cat&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐱&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Cat<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;dog&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐶&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Dog<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hamster&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐹&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Hamster<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;chicken&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐔&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Chicken<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;fish&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐟&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Fish<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;snake&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐍&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Snake<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">select</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">form</span>&gt;</span></pre>
                                     </li>
                                     <li class="tab-content" data-tab-content="css">
                                         <p>Le code CSS est à copier dans une balise &lt;style> que vous mettrez dans la balise &lt;head>.</p>
-<pre data-code-sample='{"allowCopy": true, "title": "Code CSS"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">
-select,
+<pre data-code-sample='{"allowCopy": true, "title": "Code CSS"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">select,
 ::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
   appearance: base-select;
-}
-
-<span style="color:rgb(215, 186, 125); font-weight:400;">label</span> {
-  <span style="color:rgb(156, 220, 254); font-weight:400;">width</span>: fit-content;
-  <span style="color:rgb(156, 220, 254); font-weight:400;">align-self</span>: center;
-}
-
-select {
-  <span style="color:rgb(156, 220, 254); font-weight:400;">flex</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
 }
 
 select {
   <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
   <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
   <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
-  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">flex</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
 }
 
 select<span style="color:rgb(215, 186, 125); font-weight:400;">:hover</span>,
@@ -382,17 +405,16 @@ select:open::picker-icon {
 
 ::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
   <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: none;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">calc</span>(<span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(bottom) + <span style="color:rgb(184, 215, 163); font-weight:400;">1px</span>);
 }
 
 option {
   <span style="color:rgb(156, 220, 254); font-weight:400;">display</span>: flex;
   <span style="color:rgb(156, 220, 254); font-weight:400;">justify-content</span>: flex-start;
   <span style="color:rgb(156, 220, 254); font-weight:400;">gap</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">20px</span>;
-
   <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
   <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
   <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
-  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span>;
 }
 
 option<span style="color:rgb(215, 186, 125); font-weight:400;">:first</span>-of-type {
@@ -406,6 +428,7 @@ option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</sp
 option<span style="color:rgb(215, 186, 125); font-weight:400;">:not</span>(option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</span>) {
   <span style="color:rgb(156, 220, 254); font-weight:400;">border-bottom</span>: none;
 }
+
 option<span style="color:rgb(215, 186, 125); font-weight:400;">:nth-of-type</span>(odd) {
   <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#fff</span>;
 }
@@ -434,26 +457,10 @@ option::checkmark {
   <span style="color:rgb(156, 220, 254); font-weight:400;">content</span>: <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;☑️&quot;</span>;
 }
 
-::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
-  <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: all <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span> allow-discrete;
-}
-
 ::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select):popover-open {
   <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
 }
-
-<span style="color:rgb(86, 156, 214); font-weight:400;">@starting-style</span> {
-  ::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select):popover-open {
-    <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
-  }
-}
-
-::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
-  <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">calc</span>(<span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(bottom) + <span style="color:rgb(184, 215, 163); font-weight:400;">1px</span>);
-  <span style="color:rgb(156, 220, 254); font-weight:400;">left</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(<span style="color:rgb(184, 215, 163); font-weight:400;">10%</span>);
-}</pre>
-                                    </li>
+</pre>                                    </li>
                                 </ul>
                             </div>
                         </div>

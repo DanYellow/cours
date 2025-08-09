@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liens TP</title>
+  <title>Liens TP — Consignes TP</title>
 
   <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
   <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
@@ -18,7 +18,7 @@
 
 <body>
   <header class="consignes-en-tete">
-    <h1 class="h1">Consignes de la pratique</h1>
+    <h1 class="titre-consignes">Liens TP — Consignes TP</h1>
     <details class="consignes-conteneur" open>
       <summary>
         <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
@@ -47,15 +47,15 @@
         <li>
           Rajoutez une balise (de votre choix) et mettez-lui l'attribut id
           dont la valeur sera égale à la valeur de l'attribut "href" de la
-          balise &lt;a> que vous avez précédemment définie.
+          balise &lt;a> que vous avez précédemment définie
           <p class="note-information">
-            Note : le défilement ne peut se voir que si votre page est assez
-          haute. Mettez entre votre lien et l'élément que vous ciblez un élément suffisamment haut (attribut height).
+            Note : le défilement ne peut se voir que si votre page est suffisamment
+          haute. Essayez d'appliquer la propriété CSS "height" sur la balise &lt;body> pour afficher une barre de défilement sur la page.
           </p>
         </li>
         <li>
           Cliquez sur votre lien. Vous devriez atteindre la cible de votre
-          ancre (la balise que vous venez de définir).
+          ancre (la balise que vous venez de définir) et l'url de la navigateur changera
         </li>
       </ol>
     </details>
@@ -71,15 +71,19 @@
                 <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:active" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":active"</a></li>
                 <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/:focus-within" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe ":focus-within"</a></li>
             </ul>
-            <section class="note-information">
-                <p>Si vous utilisez plusieurs pseudo-classes, attention à leur ordre dans votre CSS pour la balise &lt;a>. Citation de la documentation mdn.</p>
-                <blockquote>
-                    Afin que la mise en forme s'applique au mieux, la règle :link doit être placée avant les autres : :link — :visited — :hover — :active. La pseudo-classe :focus-within est habituellement placée juste avant ou juste après :hover, en fonction de l'effet désiré.
-                </blockquote>
+            <section class="note-attention">
+                <p>Si vous utilisez plusieurs pseudo-classes, attention à leur ordre dans votre CSS pour la balise &lt;a>.</p>
+
+                <div class="quote">
+                    <blockquote>
+                        Afin que la mise en forme s'applique au mieux, la règle :link doit être placée avant les autres : :link — :visited — :hover — :active. La pseudo-classe :focus-within est habituellement placée juste avant ou juste après :hover, en fonction de l'effet désiré.
+                    </blockquote>
+                    <p>— <a href="https://developer.mozilla.org/fr/docs/Web/CSS/:link" target="_blank">Documentation de la pseudo-classe "link"</a></p>
+                </div>
             </section>
           </li>
           <li>
-            Appliquez une pseudo-classe :hover sur un autre type de balise.
+            Appliquez une pseudo-classe :hover sur un autre type de balise
           </li>
         </ol>
       </details>
