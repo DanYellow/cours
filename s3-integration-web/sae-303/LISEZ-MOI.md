@@ -44,7 +44,7 @@ Par groupe de 3-4, au sein du même TP (pour des questions logistique), vous dev
 Ces jeux de données sont facilement explorables avec Excel ou encore LibreOffice Calc (gratuit).
 
 - <a id="datasets" href="datasets/">Accéder aux jeux de données proposés</a>
-  - <a href="integration-web-s3_sae-303.datasets.zip">Télécharger tous les jeux de données (cliquez sur "view raw" ou la flèche qui va vers le bas à droite)</a>
+  - <a href="s3-integration-web_sae-303.datasets.zip">Télécharger tous les jeux de données (cliquez sur "view raw" ou la flèche qui va vers le bas à droite)</a>
 > Vous devrez impérativement mettre vos sources dans vos réalisations, **si cette règle n'est pas respectée votre note sera diminuée d'un tiers**
 >   - Au-delà du lien vers la source du document, il peut également être bon d'indiquer la date/année de fin de comptage du jeu de données
 
@@ -151,7 +151,7 @@ L'application peut prendre également la forme d'un jeu, par exemple, comparer d
 
 ## <a name="#logos"></a>Logos
 Comme annoncé dans la consigne, vous devez afficher les logos de l'université (IUT et Université) dans vos réalisations, et ce, quelque soit le thème utilisé.
-- [Accéder aux logos de l'université](../../logos/)
+- [Accéder aux logos de l'université](https://github.com/DanYellow/cours/tree/main/logos)
 
 
 ## Votre liste à faire
