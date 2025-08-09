@@ -185,7 +185,7 @@ def get_all_directories_to_zip():
     return list_ressources_folders_to_zip
 
 if args.debug is True:
-    list_ressources_folders_to_zip = [r"integration-web-s3/travaux-pratiques/numero-5/ressources"]
+    list_ressources_folders_to_zip = [r"s3-integration-web/travaux-pratiques/numero-5/ressources"]
 else:
     if args.folder is None:
         if args.all:
