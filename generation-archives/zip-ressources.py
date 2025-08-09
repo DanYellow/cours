@@ -234,26 +234,29 @@ def generate_zip(list_folders, is_correction_directory = False):
 
         list_zip_files_generated.append(archive_path)
 
-        with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
-            abs_src = os.path.abspath(folder_path)
-            for dirname, _, files in os.walk(folder_path):
-                for filename in files:
-                    absname = os.path.abspath(os.path.join(dirname, filename))
-                    arcname = absname[len(abs_src) + 1:]
+        try:
+            with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
+                abs_src = os.path.abspath(folder_path)
+                for dirname, _, files in os.walk(folder_path):
+                    for filename in files:
+                        absname = os.path.abspath(os.path.join(dirname, filename))
+                        arcname = absname[len(abs_src) + 1:]
 
-                    if "package-lock.json" in arcname or "prenoms.csv.zip" in arcname:
-                        zip_object.write(absname, arcname)
-                    if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
-                        zip_object.write(absname, arcname)
-                    if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
-                        if len(arcname.split('\\correction')) > 1:
-                            generate_zip([os.path.join(folder_path, arcname.split('\\correction')[0], "correction")], True)
-                        else:
-                            generate_zip([os.path.join(folder_path, "correction")], True)
-            zip_object.close()
+                        if "package-lock.json" in arcname or "prenoms.csv.zip" in arcname:
+                            zip_object.write(absname, arcname)
+                        if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
+                            zip_object.write(absname, arcname)
+                        if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
+                            if len(arcname.split('\\correction')) > 1:
+                                generate_zip([os.path.join(folder_path, arcname.split('\\correction')[0], "correction")], True)
+                            else:
+                                generate_zip([os.path.join(folder_path, "correction")], True)
+                zip_object.close()
 
-            if len(zip_object.infolist()) == 0:
-                os.remove(archive_path)
+                if len(zip_object.infolist()) == 0:
+                    os.remove(archive_path)
+        except:
+            print(f"Error with {archive_path} archive")
 
 generate_zip(list_ressources_folders_to_zip)
 print("    ")
