@@ -57,7 +57,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--debug",
-    help="Force la génération d'archive du dossier \"integration-web-s3/travaux-pratiques/numero-5/ressources\"",
+    help="Force la génération d'archive du dossier \"s3-integration-web/travaux-pratiques/numero-5/ressources\"",
     required=False,
     action='store_true',
 )
