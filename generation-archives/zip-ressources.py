@@ -228,6 +228,9 @@ def get_archive_name(folder_path, is_correction_directory = False):
     return archive_path
 
 def generate_zip(list_folders, is_correction_directory = False):
+    if len(list_folders) == 0:
+        return
+
     my_file = pathlib.Path(f"{list_folders[0]}/.gitignore")
     if my_file.exists():
         archive_path = get_archive_name(list_folders[0])
