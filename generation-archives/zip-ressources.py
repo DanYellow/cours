@@ -207,24 +207,38 @@ list_ignored_files_to_generate_zip.append("correction")
 
 list_zip_files_generated = []
 
+def get_archive_name(folder_path, is_correction_directory = False):
+    head, tail = os.path.split(folder_path)
+    archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
+    archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
+
+    zip_extension = "ressources"
+
+    if "exercice" in folder_path:
+        zip_extension = "exercice"
+    elif "correction" in folder_path:
+        zip_extension = "correction"
+    elif "datasets" in folder_path:
+        zip_extension = "datasets"
+    elif "devoir" in folder_path:
+        zip_extension = "devoir"
+
+    archive_path = f'{head}/{archive_name.replace("_ressources", "").replace("-correction", "")}.{zip_extension}.zip'
+    
+    return archive_path
+
 def generate_zip(list_folders, is_correction_directory = False):
+    my_file = pathlib.Path(f"{list_folders[0]}/.gitignore")
+    if my_file.exists():
+        archive_path = get_archive_name(list_folders[0])
+        list_zip_files_generated.append(archive_path)
+        command = ['git', 'archive', '-o', archive_path, f"HEAD:{list_folders[0]}"]
+        subprocess.run(command, stdout=subprocess.PIPE).stdout
+
+        return
+
     for folder_path in list_folders:
-        head, tail = os.path.split(folder_path)
-        archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
-        archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
-
-        zip_extension = "ressources"
-
-        if "exercice" in folder_path:
-            zip_extension = "exercice"
-        elif "correction" in folder_path:
-            zip_extension = "correction"
-        elif "datasets" in folder_path:
-            zip_extension = "datasets"
-        elif "devoir" in folder_path:
-            zip_extension = "devoir"
-
-        archive_path = f'{head}/{archive_name.replace("_ressources", "").replace("-correction", "")}.{zip_extension}.zip'
+        archive_path = get_archive_name(list_folders[0])
 
         if is_correction_directory:
             if archive_path not in dict_correction_archive_created:
