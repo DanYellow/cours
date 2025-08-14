@@ -40,7 +40,7 @@ Dans le cadre du cours de création et design interatif, nous avons pu découvri
 - AC 23.06 | Élaborer et produire des animations, des designs sonores, des effets spéciaux, de la visualisation de données ou de la 3D
 
 Vous ne partirez pas d'un nouveau projet mais d'un jeu de plate-formes existant.
-> [Télécharger le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Fsamples%2Fadvanced-base)
+> [Télécharger le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/s4-creation-et-design-interactif/samples/s4-creation-et-design-interactif_samples.ressources.zip)
 
 > Pour ouvrir le projet, il faudra passer par Unity Hub. Ensuite, cliquer sur le bouton `Open` et sélectionner `Add Project From Disk` puis **le dossier** contenant le projet.
 >
@@ -85,7 +85,7 @@ Pensez donc bien à observer le code / le projet fournit pour travailler dans de
 - Une scène de debug pour tester des fonctionnalités rapidement (Debug)
     - Inutile de la mettre dans le build final (à enlever dans le menu `File > Build Settings`)
 
-> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser, si vous le souhaitez. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fcreation-et-design-interactif-s4%2Ftravaux-pratiques%2Fnumero-1%2Fressources%2Funity)
+> Le projet contient quelques Assets (`Assets/Imports`) qui n'ont pas forcément été utilisés, vous pouvez les utiliser, si vous le souhaitez. Les autres assets de cet univers, vous les avez récupérés lors du premier TP, mais si vous ne les avez plus, ils se trouvent ici : [Télécharger les assets](https://github.com/DanYellow/cours/raw/refs/heads/main/s4-creation-et-design-interactif/travaux-pratiques/numero-1/s4-creation-et-design-interactif_travaux-pratiques_numero-1.ressources.zip)
 
 Pour faciliter le développement, des raccouris (qui ne seront pas présents dans la version de build) ont été mis en place :
 - Touche R : Relance le niveau actuel
