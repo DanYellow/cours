@@ -1,0 +1,2 @@
+Proposez un prototype papier d'une fiche d'une recette culinaire, la recette devra être accessible sur PC et terminaux mobiles. Mais vous ne travaillerez que sur un seul terminal (PC / tablette / smartphone).
+A vous de voir quels sont éléments importants qui devront être présents sur la fiche (image, vidéo, textes...) ainsi que les potentielles fonctionnalités.
