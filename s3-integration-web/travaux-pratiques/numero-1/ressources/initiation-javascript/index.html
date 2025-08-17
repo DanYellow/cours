@@ -295,7 +295,7 @@
     {
         "1": "Récupération du premier élément qui a la balise &lt;selecteur> (n'importe <a href='https://developer.mozilla.org/fr/docs/Web/CSS/CSS_selectors' target='_blank'>quel sélecteur CSS</a> fonctionne)",
         "3-7": "Facultatif : On vérifie si l'élément recherché existe, car si ce n'est pas le cas, javascript lèvera une erreur. Si vous êtes sûr(e) que cet élément existe, il est inutile d'effectuer cette vérification",
-        "4-6": "Mise en place d'un écouteur d'évènement. Ici, on écoute l'évènement 'click'"
+        "4-6": "Mise en place d'un écouteur d'évènement. Ici, on écoute l'évènement 'click'. A noter que l'évènement ne s'applique sur les éléments existants, si vos éléments apparaissent plus tard, il faudra leur appliquer l'évènement"
     }
 </script>
 
@@ -309,7 +309,13 @@
                     </ul>
                     <section class="note-information"><p>Etant donné que vous devez modifier plusieurs éléments en même temps, il faudra
                         impérativement utiliser une boucle pour modifier la propriété <code>.textContent</code> sur
-                        chaque élément. Par exemple : </p>
+                        chaque élément, <code>.textContent</code> représentant le contenu textuel d'un élément.</p>
+                        <ul>
+                            <li>
+                                <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent" target="_blank" rel="noopener noreferrer">Voir documentation de la propriété "textContent".</a>
+                            </li>
+                        </ul>
+                        <p>Ici un exemple avec l'ajout d'un évènement "click" sur les éléments trouvés : </p>
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// On récupère tous les éléments ayant la classe "ma-classe"</span>
 <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> listeElementsMaClasse = <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelectorAll</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">".ma-classe"</span>);
 
@@ -330,11 +336,17 @@
                 <li>Toujours au clic sur le même bouton, ajoutez une classe CSS <span class="texte-gras">sur un seul
                         élément</span>. Il faudra
                     utiliser un data-attribute sur l'élément que l'on souhaite cibler.
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
+                            rel="noopener noreferrer" target="_blank">Voir documentation des data-attributes - Ouverture dans un nouvel onglet</a>
+                        </li>
+                    </ul>
                         <p>Pour cibler par data-attribute, il faut mettre le nom du data-attribute entre crochets.
                             Exemple :</p>
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément qui a le data-attribute "data-attribut-personnalise"</span>
 <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise]"</span>)</pre>
-<p class="note-information">A noter que le ciblage par "crochets" permet cibler n'importe quel élément par la valeur de son attribut HTML.</p>
+<p class="note-information">A noter que le ciblage par "crochets" permet cibler n'importe quel élément par la valeur de son attribut HTML. Si vous souhaitez cibler un élément en sélectionnant plusieurs attributs, il faudra mettre chaque attribut entre crochets.</p>
 <p>Le code ci-dessus cible donc le <span class="texte-gras">premier élément trouvé</span> ayant
                             le data-attribute "data-attribut-personnalise". A noter que cette syntaxe est aussi valable dans un fichier
                             CSS.</p>
@@ -342,18 +354,15 @@
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(112, 120, 128); font-weight: 400;">// Contient le premier élément ayant le data-attribute </span>
 <span style="color: rgb(112, 120, 128); font-weight: 400;">// "data-attribut-personnalise" avec la valeur "ma-valeur"</span>
 <span style="color: rgb(138, 190, 183); font-weight: 400;">document</span>.<span style="color: rgb(240, 198, 116); font-weight: 400;">querySelector</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">"[data-attribut-personnalise='ma valeur']"</span>);</pre>
-                    <p class="note-information">
-                        Cette classe CSS, à ajouter/retirer, devra être rajoutée dans un fichier CSS.
-                            Pensez à mettre des propriétés CSS dans la classe pour voir des modifications ainsi que lier votre fichier html à votre fichier CSS.
-                    </p>
-                    <ul>
-                        <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
-                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList - Ouverture dans un nouvel onglet</a></li>
-                        <li>
-                            <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes"
-                            rel="noopener noreferrer" target="_blank">Voir documentation des data-attributes - Ouverture dans un nouvel onglet</a>
-                        </li>
-                    </ul>
+                    <div class="note-information">
+                        <p>Cette classe CSS, à ajouter, devra être également être dans un fichier CSS (avec ses déclarations) pour que vous puissiez voir son application. Pour manipuler les classes CSS d'un élément, il faut utiliser la propriété "classList".</p>
+                        <ul>
+                            <li>
+                                <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList"
+                                rel="noopener noreferrer" target="_blank">Voir documentation la propriété classList - Ouverture dans un nouvel onglet</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ol>
         </details>
@@ -362,16 +371,16 @@
                 <p class="h1">Partie 6 (cliquer pour afficher / cacher)</p>
             </summary>
             <ol class="liste-consignes">
-                <li>Ajoutez un champ de texte de type "text" (pas besoin de le mettre dans un formulaire)</li>
+                <li>Ajoutez une balise &lt;input> de type "text" (pas besoin de la mettre dans un formulaire)</li>
                 <li>Ciblez le champ via un data-attribute et ajoutez l'évènement "input". Cet évènement permet d'écouter tout changement sur un champ "en temps réel"</li>
                 <li>Affichez le contenu de la balise &lt;input /> dans une balise &lt;p> qui aura été elle-même ciblée avec un data-attribute
-                    <article class="note-information">
+                    <div class="note-information">
                         <p>Pour récupérer le contenu textuel de notre &lt;input> (ou &lt;textarea>), il faudra récupérer l'élément ciblé par notre fonction <code>addEventListener</code> contenu dans l'objet "evt". Par exemple :</p>
 <pre data-code-sample='{"allowCopy": true, "language": "javascript"}' style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; ">cible.<span style="color: rgb(240, 198, 116); font-weight: 400;">addEventListener</span>(<span style="color: rgb(181, 189, 104); font-weight: 400;">'input'</span>, <span style="color: rgb(197, 200, 198); font-weight: 400;">(<span style="color: rgb(197, 200, 198); font-weight: 400;">evt</span>) =&gt;</span> {
     <span style="color: rgb(112, 120, 128); font-weight: 400;">// texteChamp contient le texte actuellement dans le champ de texte</span>
-    <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> texteChamp = evt.<span style="color: rgb(197, 200, 198); font-weight: 400;">target</span>.<span style="color: rgb(197, 200, 198); font-weight: 400;">value</span>;
+    <span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> texteChamp = evt.<span style="color: rgb(197, 200, 198); font-weight: 400;">currentTarget</span>.<span style="color: rgb(197, 200, 198); font-weight: 400;">value</span>;
 })</pre>
-                    </article>
+                    </div>
                     <ul>
                         <li>
                             <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/input_event"
@@ -384,6 +393,9 @@
                     </ul>
                 </li>
             </ol>
+            <div class="note-information">
+                <p></p>
+            </div>
         </details>
         <details class="consignes-conteneur">
             <summary>
@@ -419,7 +431,7 @@
                     Arrangez-vous pour qu'au clic sur un des boutons (que vous avez ajouté), le libellé du bouton
                     (propriété "textContent") change pour la valeur du data-attribute
                     <div class="note-information">
-                        <p>Il faudra impérativement utiliser la propriété "target" de l'objet e, e
+                        <p>Il faudra impérativement utiliser la propriété "currentTarget" de l'objet e, e
                             est un paramètre de la fonction de la méthode <code>addEventListener("nom-evenement", fonction)</code>.
                         </p>
                         <p>Où "e" représente l'élément qui va recevoir l'évènement définit. Par convention, on l'appelle "e" ou "evt", mais vous pouvez le nommer comme vous le souhaitez.</p>
