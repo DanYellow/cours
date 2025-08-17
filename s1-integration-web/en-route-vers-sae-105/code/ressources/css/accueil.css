@@ -1,0 +1,9 @@
+html {
+    background-color: #ECF2FF;
+}
+
+main {
+    max-width: 1150px;
+    margin: 0 auto;
+    border-top: 5px solid #0039AB;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
+
+    <title>Bases - Notre première page web - Consignes TP1</title>
+
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+  </head>
+  <body>
+    <header class="consignes-en-tete">
+      <h1 class="titre-consignes">Bases - Notre première page web — Consignes TP1</h1>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <p class="h1">
+            Partie 1 (cliquer pour afficher / cacher)
+          </p>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            <p><a href="https://code.visualstudio.com/Download" target="_blank"
+              >Téléchargez et installez le logiciel VS Code (gratuit) - ouverture dans un nouvel onglet</a
+            ></p>
+            <section class="note-attention">
+              <p>Si vous êtes sous Windows 7, vous ne pourrez pas installer la dernière version de VS Code, il vous faudra installer la version 1.70. C'est la dernière version à gérer Windows 7.</p>
+              <ul>
+                <li>
+                  <a href="https://code.visualstudio.com/updates/v1_70" target="_blank">Télécharger la version 1.70 (Cliquez sur "User") - ouverture dans un nouvel onglet</a>
+                </li>
+              </ul>
+            </section>
+            <p class="note-information">
+                Si vous utilisez un ordinateur de l'IUT, VS Code est déjà installé.
+            </p>
+          </li>
+          <li>Créez un dossier de travail sur votre ordinateur (nom au choix)</li>
+          <li>Glissez-déposez ce dossier dans VS Code</li>
+          <li>
+            Créez un fichier nommé "index.html" avec VS Code (File > New Text File ou <kbd>Ctrl / command (⌘)</kbd> + <kbd>N</kbd>)
+          </li>
+          <li>
+            <span class="texte-gras">Écrivez</span> "html:5" puis appuyez sur la touche <kbd>Entrée</kbd>. Vous devriez obtenir quelque chose comme ceci :
+            <pre data-code-sample='{"title": "Squelette page HTML", "displayLineCode": true, "linesHighlighted": "6, 1, 8, 10, 2, 11", "linesLinked": [[8, 10], [2, 11]], "jsonId": "htmlBase"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;!DOCTYPE <span style="color:rgb(86, 156, 214); font-weight:400;">html</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">html</span> <span style="color:rgb(156, 220, 254); font-weight:400;">lang</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;en&quot;</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">head</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">meta</span> <span style="color:rgb(156, 220, 254); font-weight:400;">charset</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;UTF-8&quot;</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">meta</span> <span style="color:rgb(156, 220, 254); font-weight:400;">name</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;viewport&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">content</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">title</span>&gt;</span>Document<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">title</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">head</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span>
+
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">html</span>&gt;</span></pre>
+<p class="note-attention">Le code ci-dessus représente le squelette de base d'une page web. Sans la base ci-dessus, votre page ne sera pas considérée comme étant valide.</p>
+</li>
+          <li>Modifiez le contenu de la balise &lt;title></li>
+          <li>
+            Sauvegardez le fichier (<kbd>Ctrl / command (⌘)</kbd> + <kbd>S</kbd>)
+          </li>
+          <li>
+            Ouvrez le fichier dans votre navigateur préféré (pas Internet
+            Explorer). Au choix :
+            <ul>
+              <li>
+                Glissez-déposez votre fichier index.html avec votre navigateur
+                préféré (pas Internet Explorer)
+              </li>
+              <li>
+                Clic droit sur votre fichier index.html dans l'explorateur Windows / Finder > Ouvrir avec > votre
+                navigateur préféré (pas Internet Explorer)
+              </li>
+            </ul>
+            <p class="note-importante">
+                <span class="texte-gras">Vous ne devez utiliser en aucun cas Internet Explorer.</span> Ce navigateur est déprécié et abandonné par Microsoft. Il n'est plus à jour au niveau des standards du web, ce qui rendra, à coup sûr, un affichage étrange des consignes et autres sites web. Utilisez Chrome, Edge, Opera GX, Firefox ou encore Safari, mais en aucun cas Internet Explorer. Cette note s'applique à l'ensemble des cours que nous aurons tout au long de la formation.
+            </p>
+          </li>
+          <li>Vous devriez obtenir une page blanche</li>
+        </ol>
+        <p class="note-information">
+            Quand vous travaillez avec VS Code. Pensez toujours à glisser-déposer votre dossier de travail dans VS Code. Ceci vous permettra d'accéder très facilement à tous les fichiers de votre projet.
+        </p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">
+            Partie 2 (cliquer pour afficher / cacher)
+          </p>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Rajouter une balise &lt;p&gt; avec le texte de votre choix au bon
+            endroit dans le fichier index.html crée précédemment
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/p" target="_blank" rel="noopener noreferrer">Documentation de la balise &lt;p> - Ouverture dans un nouvel onglet</a></li>
+            </ul>
+            <section class="note-information">
+                <p>Il n'est pas utile d'écrire toute la structure d'une balise. VSCode comporte des raccourcis pour créer des balises, il vous suffit juste d'écrire son nom. Exemple : Ecrire juste "span" puis touche <kbd>Entrée</kbd> affichera la structure &lt;span>&lt;/span></p>
+              </section>
+          </li>
+          <li>
+            Sauvegarder le fichier (<kbd>Ctrl / command (⌘)</kbd> + <kbd>S</kbd>) puis consultez votre dernière mise à jour dans votre navigateur
+
+          </li>
+        </ol>
+        <p class="note-importante">
+            Pensez bien à actualiser votre page (touche <kbd>F5</kbd> ou l'icone <kbd>⟳</kbd>) après chaque modification de code.
+        </p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">
+            Partie 3 (cliquer pour afficher / cacher)
+          </p>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Rajoutez plusieurs balises &lt;p&gt; avec le texte de votre choix à la suite de balise &lt;p&gt; écrite précédemment
+            <p class="note-information">
+                Sous VS Code, vous pouvez dupliquer la ligne courante vers le haut ou bas avec le raccourci <kbd>shift</kbd> + <kbd>alt / option</kbd> + <kbd>↑</kbd> ou <kbd>↓</kbd>
+            </p>
+        </li>
+          <li>
+            Sauvegardez le fichier (<kbd>Ctrl / command (⌘)</kbd> + <kbd>S</kbd>) puis consultez votre dernière mise à jour dans votre navigateur
+          </li>
+        </ol>
+                    <p class="note-importante">
+            Pensez bien à actualiser votre page (touche <kbd>F5</kbd> ou l'icone <kbd>⟳</kbd>) après chaque modification de code.
+        </p>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">
+            Partie 4 (cliquer pour afficher / cacher)
+          </p>
+        </summary>
+        <ol class="liste-consignes">
+          <li>
+            Rajoutez plusieurs balises consécutives &lt;span&gt;&lt;/span&gt; avec le texte de votre choix au bon endroit
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/span" target="_blank" rel="noopener noreferrer">Documentation de la balise &lt;span> - Ouverture dans un nouvel onglet</a></li>
+            </ul>
+        </li>
+          <li>
+            Sauvegardez le fichier (<kbd>Ctrl / command (⌘)</kbd> + <kbd>S</kbd>) puis consultez votre dernière mise à jour dans votre navigateur
+          </li>
+        </ol>
+                    <p class="note-importante">
+            Pensez bien à actualiser votre page (touche <kbd>F5</kbd> ou l'icone <kbd>⟳</kbd>) après chaque modification de code.
+        </p>
+      </details>
+
+    </header>
+        <script type="text/json" data-json-id="htmlBase">
+        {
+            "1": "DOCTYPE, indique au navigateur quelle version de HTML nous utilisons. Ici la version 5",
+            "8-10": "Tout le contenu visuel (images, textes...) de votre site doit être dedans. Aucune balise de contenu ne doit être en dehors de &lt;body>",
+            "6": "Définit le titre de la page, s'affiche dans l'onglet du navigateur. Il est préférable que le titre de chaque page soit unique sur un site. Pour le référencement ainsi que permettre à l'utilisateur se repérer rapidement dans ses onglets",
+            "2-11": "Représente la racine d'un document HTML. A l'exception du DOCTYPE, toutes les balises doivent être à l'intérieur de la balise &lt;html>. L'attribut \"lang\" permet d'indiquer la langue du site, c'est utile pour le lecteur d'écran ainsi que pour les moteurs de recherche"
+        }
+        </script>
+  </body>
+</html>

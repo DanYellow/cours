@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cascade et héritage TP</title>
+    <link
+      rel="stylesheet"
+      href="https://danyellow.net/cours-mmi/consignes.css"
+    />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+    <link
+    rel="icon"
+    type="image/png"
+    href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+  />
+  </head>
+
+  <body class="consignes-en-tete">
+    <header>
+        <p class="note-information">L'ensemble des parties de ces consignes concernent le site contenu dans le dossier "exercice/" (récupéré avec les consignes)</p>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Consignes de la pratique - Cascade (cliquer pour afficher /
+            cacher)</p>
+        </summary>
+        <ul class="liste-consignes">
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#la_cascade"
+            >
+              Voir documentation de la cascade
+            </a>
+          </li>
+        </ul>
+        <ol class="liste-consignes">
+          <li>
+            A la fin du fichier "style.css", ajoutez des classes identiques à
+            celles déjà présentent dans le fichier
+          </li>
+          <li>
+            Ajoutez aux classes que vous venez d'ajouter avec les mêmes
+            déclarations CSS (que celles déjà présentent dans le fichier) avec
+            des valeurs différentes
+          </li>
+          <li>
+            Sauvegardez et regardez dans votre navigateur
+            <ul>
+              <li>Qu'observez-vous ?</li>
+            </ul>
+          </li>
+          <li>
+            Déplacez les classes que vous avez ajouté (et leur contenu) au début
+            du fichier "style.css" (donc au-dessus des classes initialement
+            présentes dans le fichier)
+          </li>
+          <li>
+            Sauvegardez et regardez dans votre navigateur
+            <ul>
+              <li>Qu'observez-vous ?</li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Consignes de la pratique - Héritage (cliquer pour afficher /
+            cacher)</p>
+        </summary>
+        <ul class="liste-consignes">
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#h%C3%A9ritage"
+            >
+              Voir documentation de la héritage
+            </a>
+          </li>
+        </ul>
+        <ol class="liste-consignes">
+          <li>
+            Ajoutez la déclaration CSS "font-weight: bold" sur la classe
+            "liens-utiles"
+            <ul>
+              <li>
+                Ajoutez le sélecteur pour la classe "liens-utiles" si elle n'est
+                pas présente dans le fichier "style.css"
+              </li>
+            </ul>
+          </li>
+          <li>
+            Sauvegardez et regardez dans le navigateur
+            <ul>
+              <li>Qu'observez-vous ?</li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+
+      <details class="consignes-conteneur">
+        <summary>
+          <p class="h1">Consignes de la pratique - Spécificité (cliquer pour afficher /
+            cacher)</p>
+        </summary>
+        <ul class="liste-consignes">
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/fr/docs/Web/CSS/Descendant_combinator"
+            >
+              Voir documentation de la héritage
+            </a>
+          </li>
+        </ul>
+        <ol class="liste-consignes">
+          <li>
+            Appliquez des déclarations CSS à tout élément ayant la classe
+            "titre-principal" contenu dans un élément ayant la classe "en-tete"
+            <ul>
+              <li>
+                Liste de propriétés CSS que vous pouvez appliquer :
+                <ul>
+                  <li>
+                    background-color:
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://developer.mozilla.org/fr/docs/Web/CSS/background-color"
+                    >
+                      Voir documentation de la propriété background-color
+                      (ouverture dans un nouvel onglet)
+                    </a>
+                  </li>
+                  <li>
+                    padding:
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://developer.mozilla.org/fr/docs/Web/CSS/padding"
+                    >
+                      Voir documentation de la propriété padding (ouverture dans
+                      un nouvel onglet)
+                    </a>
+                  </li>
+                  <li>
+                    margin:
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://developer.mozilla.org/fr/docs/Web/CSS/margin"
+                    >
+                      Voir documentation de la propriété margin (ouverture dans
+                      un nouvel onglet)
+                    </a>
+                  </li>
+                  <li>
+                    Vous pouvez bien évidemment utiliser celles qu'on a vu
+                    auparavant comme : font-size, color, text-decoration...
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>
+                  Note : le contenu de votre sélecteur ne doit en aucun cas
+                  affecter un élément ayant la classe "titre-principal" contenu
+                  dans un élément ayant la classe "nouvelle"
+                </b>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Appliquez des déclarations CSS à tout élément ayant la classe
+            "titre-principal" contenu dans un élément ayant la classe "nouvelle"
+            <ul>
+              <li>
+                Voir plus haut pour voir la liste des propriétés CSS utilisables
+              </li>
+              <li>
+                <b>
+                  Note : le contenu de votre sélecteur ne doit en aucun cas
+                  affecter un élément ayant la classe "titre-principal" contenu
+                  dans un élément ayant la classe "en-tete"
+                </b>
+              </li>
+            </ul>
+          </li>
+          <li>
+            En utilisant des classes, appliquez une couleur spécifique pour
+            chaque lien wikipédia décrivant le contenu d'un BUT.
+            <ul>
+              <li>
+                Note : La classe utilisée doit être la même pour chaque lien, il
+                faudra obligatoirement jouer sur le sélecteur descendant (donc
+                la spécificité) pour réaliser cette tâche
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </details>
+    </header>
+  </body>
+</html>

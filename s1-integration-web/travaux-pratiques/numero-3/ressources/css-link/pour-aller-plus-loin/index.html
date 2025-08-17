@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pour aller plus loin — CSS link</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
+    </head>
+    <body>
+        <main style="max-width: 1280px; margin: 0 auto; font-family: Arial, Helvetica, sans-serif">
+            <h1 class="font-size: 2rem;">Pour aller plus loin</h1>
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem">
+                <img
+                    style="width: 100%"
+                    src="https://www.cyu.fr/medias/photo/pexels-cottonbro-6590920_1738141331203-jpg"
+                    alt=""
+                />
+                <p>
+                    Le service santé de <span style="font-weight: bold">CY Cergy Paris Université,</span> en
+                    partenariat avec trois associations engagées, organise des
+                    distributions alimentaires gratuites sur trois sites
+                    différents. Cette initiative solidaire vise à soutenir les
+                    étudiants en leur offrant une aide dans leur quotidien.
+                </p>
+            </div>
+            <!--
+        Ici on a une classe appelée "conteneur".
+        Vu qu'il n'a pas encore de fichier .css contenant le sélecteur ".conteneur"
+        celui-ci ne fait rien
+      -->
+            <section
+                class="conteneur"
+                style="
+                    background: #ffe7e8;
+                    border: 2px solid #e66465;
+                    font-family: Arial, Helvetica, sans-serif;
+                    border-radius: 0.5rem;
+                "
+            >
+                <p style="margin: 1rem; line-height: 1.5; color: black">
+                    L'attribut universel style contient des déclarations CSS
+                    afin de mettre en forme l'élément.
+                    <span style="font-weight: bold">Attention,</span> il est
+                    recommandé de définir les règles de mise en forme dans un ou
+                    plusieurs fichiers séparés. Cet attribut, ainsi que
+                    l'élément <code>&lt;style&gt;</code>, ont simplement pour
+                    but de permettre une mise en forme rapide, notamment pour
+                    tester <span style="font-style: italic">presto.</span>
+                </p>
+                <p
+                    style="
+                        margin: 1rem;
+                        line-height: 1.5;
+                        text-align: center;
+                        color: red;
+                        font-weight: bold;
+                    "
+                >
+                    Cette méthode n'est pas vraiment recommandée, ainsi
+                    qu'utiliser la balise &lt;style&gt;. On l'a vu en cours mais
+                    on arrêtera après.
+                </p>
+                <p style="margin: 1rem; line-height: 1.5; text-align: center">
+                    <a
+                        href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link"
+                    >
+                        Voir documentation de la balise link
+                    </a>
+                </p>
+            </section>
+        </main>
+    </body>
+</html>

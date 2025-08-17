@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours Magistral - Référencement Naturel / SEO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+</head>
+<body class="max-w-screen-xl mx-auto px-3 my-4">
+    <h1 class="mb-3 text-3xl">Cours Magistral S1 - Référencement Naturel / Search Engine Optimization</h1>
+    <div class="mb-4">
+        <p class="mb-2">Le SEO (Search Engine Optimization) ou Référencement Naturel représente une part importante dans la construction d'un site web à quoi bon de développer le meilleur site du monde si à la fin personne ne le trouve.</p>
+        <p class="mb-2">Dans cette ressource, vous avez deux versions du même site, si l'apparence est la même (et le contenu plus ou moins), la structure du code HTML est, quant à elle, différente. Les balises HTML sont mieux choisies ainsi que les attributs HTML, permettant ainsi d'obtenir un meilleur score par Lighthouse. On l'a vu en cours, le code HTML représente une grande part du référencement naturel d'un site web, un code de mauvaise qualité peut très fortement sanctionner un site web.</p>
+        <p class="mb-2">N'hésitez pas à tester le score Lighthouse des deux sites, ces sites étant gérés sans langage serveur, les différences de score seront relativement minimes. Attention tout de même, Lighthouse ne fonctionne qu'avec le protocole HTTP(S), il faut donc que le site tourne sur un serveur. De même pour Screamingfrog. Pensez à déplacer le contenu des sites dans WAMP/MAMP ou un serveur distant.</p>
+        <p class="mb-2">Au-delà de l'audit sur Screamingfrog ou Lighthouse, pensez bien à comparer les deux codes pour voir les différences. Mais voici une liste non exhaustive des différences : </p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Contenu plus long</li>
+            <li>Valeur d'attribut "alt" pertinente ou vide</li>
+            <li>Non présence de sauts de titre, balise hx</li>
+            <li>[...]</li>
+        </ul>
+    </div>
+    <hr class="mb-4">
+    <ul class="list-disc list-inside mb-4">
+        <li>
+            <a class="underline hover:no-underline" href="mauvais-exemple/index.html" target="_blank" rel="noopener noreferrer">Exemple mauvais SEO - Ouverture dans un nouvel onglet</a>
+        </li>
+        <li>
+            <a class="underline hover:no-underline" href="bon-exemple/index.html" target="_blank" rel="noopener noreferrer">Exemple bon SEO - Ouverture dans un nouvel onglet</a>
+        </li>
+    </ul>
+    <div class="note-information">
+        <p class="mb-2">
+            Les images du "bon-exemple" utilisent le format avif, ce format d'image, très bien géré de nos jours, possède l'avatange de proposer une compression sans perte, de ce fait, les images sont légères et de bonne qualité. De plus, il permet même la gestion de la transparence, comme pour le format png. Ainsi, si vous souhaitez diminuer drastiquement la taille de vos images, pensez au format avif. Il existe des convertisseurs en ligne pour vos images, comme le site squoosh.app.
+        </p>
+        <ul class="list-disc list-inside mb-4">
+            <li>
+                <a href="https://squoosh.app/" target="_blank" class="underline hover:no-underline">Accéder au site squoosh.app - ouverture dans un nouvel onglet</a>
+            </li>
+        </ul>
+        <p class="mb-2">
+            Pensez au format avif, votre site se chargera plus vite et vos ferez faire des économies de bande passante à vos utilisateurs.
+        </p>
+    </div>
+
+    <p class="mt-4 mb-2">Ces deux exemples utilisent des technologies / notions que nous aurons l'occasion de voir plus tard dans le cursus. Mais si ceci vous intéresse rien ne vous empêche de vous informer sur tailwindcss (abordé en S2) ou encore le responsive web design (abordé en S3).</p>
+    <ul class="list-disc list-inside mb-4">
+        <li>
+            <a href="https://github.com/DanYellow/cours/blob/main/integration-web-s2/travaux-pratiques/numero-4/presentation.pdf" target="_blank" class="underline hover:no-underline">Accéder au cours sur tailwindcss - S2 - ouverture dans un nouvel onglet</a>
+        </li>
+        <li>
+            <a href="https://github.com/DanYellow/cours/blob/main/integration-web-s3/travaux-pratiques/numero-2/presentation.pdf" target="_blank" class="underline hover:no-underline">Accéder au cours sur le responsive design - S3 - ouverture dans un nouvel onglet</a>
+        </li>
+    </ul>
+
+    <footer class="mt-5">
+        <p class="text-center">
+            Cours Magistral SEO / Référencement Naturel
+        </p>
+      </footer>
+</body>
+</html>

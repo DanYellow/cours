@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formulaire basique - Consignes TP</title>
+        <link rel="icon" type="image/png" href="https://danyellow.net/cours-mmi/favicon.png" />
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+    </head>
+
+    <body>
+        <header class="consignes-en-tete">
+            <div class="note-information">
+                <p>
+                    Le but de cette pratique est de construire notre premier
+                    formulaire en y ajoutant au fur et à mesure des éléments
+                    tels que la balise &lt;label /> ou encore &lt;select>. Les
+                    formulaires sont des éléments clés du web 2.0 et 3.0, grâce
+                    à eux, et aux serveurs, l'utilisateur peut communiquer avec
+                    le site ou même d'autres internautes. Ainsi, il est
+                    primordial d'apporter beaucoup de soin à la construction des
+                    formulaires pour éviter de nuire à l'expérience de vos
+                    internautes. Sur un bon site, un internaute prend toujours
+                    du plaisir à y revenir.
+                </p>
+                <p>
+                    A noter que la gestion des formulaires va de pair avec le
+                    cours "R1.12 - Développement Web" où vous apprendrez à gérer les
+                    données en provenance d'un formulaire.
+                </p>
+            </div>
+
+            <p class="note-attention">
+                Quand vous travaillez avec VSCode. Pensez toujours à
+                glisser-déposer votre dossier de travail dans VS Code. Ceci vous
+                permettra d'accéder très facilement à tous les fichiers de votre
+                projet.
+            </p>
+
+            <h1 class="titre-consignes">Formulaire basique — Consignes TP</h1>
+
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <p class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <p class="note-information">
+                    Sauf indication contraire, l'ensemble des champs crées doivent être dans un seul et unique formulaire (balise &lt;form>).
+                </p>
+                <ol class="liste-consignes">
+                    <li>
+                        Créez une nouvelle page html avec un formulaire (balise
+                        &lt;form>)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Form"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;form>
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ajoutez l'attribut "action" avec la valeur "" pour la
+                        balise &lt;form>
+                    </li>
+                    <li>
+                        Ajoutez une balise &lt;input> de type "text"
+                        <ul>
+                            <li>
+                                Ne pas oublier de rendre le champ accessible
+                                <ul>
+                                    <li>Mettre une balise &lt;label>
+                                        <ul>
+                                            <li>
+                                                <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    >Voir documentation de la balise &lt;label>
+                                                    (ouverture dans un nouvel onglet)</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Associer le champ à sa balise label grâce aux attributs "for" et "id"
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;input
+                                    type="text"> (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Ajoutez une autre balise &lt;input> de type "text" avec une valeur par défaut en utilisant l'attribut "value"</li>
+                    <li>
+                        Ajoutez dans le même formulaire une autre balise
+                        &lt;input> d'un type different de "text", vous pourrez
+                        trouver la liste des types dans la documentation. Tout en prenant soin de rendre le champ accessible
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation des types possibles pour la
+                                    balise &lt;input> (ouverture dans un nouvel
+                                    onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Rajoutez l'attribut "method" avec la valeur "GET" au formulaire
+                        <p class="note-information">
+                            Même si la valeur "GET" est la valeur par défaut de l'attribut "method", il est préférable de toujours préciser la valeur de l'attribut "GET".
+                        </p>
+                    </li>
+                    <li>
+                        Rajoutez un élément de formulaire permettant sa
+                        soumission
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;button>
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                                <p class="note-information">
+                                    Pensez bien à changer la valeur de
+                                    l'attribut "type" du bouton en
+                                    "submit". Sinon, vous ne pourrez pas
+                                    soumettre votre formulaire.
+                                </p>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation de la balise &lt;input>
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Soumettez le formulaire et observez l'url de la page
+                        dans votre navigateur
+                    </li>
+                </ol>
+            </details>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Rajouter une balise &lt;textarea> avec le label associé
+                        et les bons attributs
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Voir documentation &lt;textarea> (ouverture
+                                    dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Rajouter des inputs type radio (min. 2)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Learn/Forms/Basic_native_form_controls#bouton_radio"
+                                    target="_blank"
+                                    >Voir documentation des boutons radio
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Rajouter des inputs type checkbox
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Les_blocs_de_formulaires_natifs#%C3%89l%C3%A9ments_%C3%A0_cocher"
+                                    target="_blank"
+                                    >Voir documentation des cases à cocher
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Soumettez le formulaire et observez l'url de la page
+                        dans votre navigateur
+                        <p class="note-information">Note : Si l'url devient trop longue, n'hésitez
+                                pas à la copier et la coller dans VS Code pour
+                                l'observer plus facilement.</p>
+                    </li>
+                </ol>
+            </details>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 4 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Rajouter une liste déroulante (balise &lt;select>)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    >Voir documentation de la liste déroulante
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://accessify.com/tools-and-wizards/developer-tools/insta-select/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Outil pour générer une liste rapidement
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Partie 5 (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Rajoutez l'attribut "required" sur l'un des champs
+                        ajouté précédemment (plusieurs si vous le souhaitez)
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/required"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    >Voir documentation de l'attribut "required"
+                                    (ouverture dans un nouvel onglet)</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Soumettez le formulaire sans remplir les champs que vous
+                        avez défini comme requis
+                    </li>
+                </ol>
+
+            </details>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Pour aller plus loin (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ul class="liste-consignes">
+                    <li>
+                        Appliquez ce que vous venez d’apprendre en ajoutant de
+                        nouveaux champs à votre formulaire
+                    </li>
+                    <li>
+                        Créez un &lt;select> personnalisé permettant d'afficher des images
+                        <ul>
+                            <li>
+                                <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select" target="_blank" rel="noopener noreferrer">
+                                    Voir documentation du &lt;select> personnalisé - anglais
+                                    (ouverture dans un nouvel onglet)
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="note-attention">
+                            Les &lt;select> personnalisés ne sont gérés que par Chrome et Edge présentement
+                        </p>
+                        <div class="note-attention">
+                            <p>
+                                Les &lt;select> personnalisés nécessitent du CSS, notion que nous verrons dans le prochain TP, néanmoins, vous pouvez vous aider du code suivant et effectuer quelques modifications au niveau du code HTML.
+                            </p>
+                            <div class="tab-wrapper" role="tablist">
+                                <ul class="list-tabs">
+                                    <li>
+                                        <button class="select-tab" data-tab-name="html">HTML</button>
+                                    </li>
+                                    <li>
+                                        <button class="select-tab" data-tab-name="css">CSS</button>
+                                    </li>
+                                </ul>
+                                <ul class="list-tab-content">
+                                    <li class="tab-content" data-tab-content="html">
+                                        <pre data-code-sample='{"allowCopy": true, "title": "Structure HTML <select> personnalisé"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">form</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">label</span> <span style="color:rgb(156, 220, 254); font-weight:400;">for</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;pet-select&quot;</span>&gt;</span>Select pet:<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">label</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">select</span> <span style="color:rgb(156, 220, 254); font-weight:400;">id</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;pet-select&quot;</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">button</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">selectedcontent</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">selectedcontent</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">button</span>&gt;</span>
+
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span>&gt;</span>Please select a pet<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;cat&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐱&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Cat<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;dog&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐶&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Dog<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;hamster&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐹&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Hamster<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;chicken&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐔&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Chicken<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;fish&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐟&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Fish<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">option</span> <span style="color:rgb(156, 220, 254); font-weight:400;">value</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;snake&quot;</span>&gt;</span>
+        <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;icon&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">aria-hidden</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;true&quot;</span>&gt;</span>🐍&lt;/span
+        &gt;<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;option-label&quot;</span>&gt;</span>Snake<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span>
+      <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">option</span>&gt;</span>
+    <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">select</span>&gt;</span>
+<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">form</span>&gt;</span></pre>
+                                    </li>
+                                    <li class="tab-content" data-tab-content="css">
+                                        <p>Le code CSS est à copier dans une balise &lt;style> que vous mettrez dans la balise &lt;head>.</p>
+<pre data-code-sample='{"allowCopy": true, "title": "Code CSS"}' style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;">select,
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  appearance: base-select;
+}
+
+select {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">flex</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+}
+
+select<span style="color:rgb(215, 186, 125); font-weight:400;">:hover</span>,
+select<span style="color:rgb(215, 186, 125); font-weight:400;">:focus</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+}
+
+select::picker-icon {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">color</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#999</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">transition</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0.4s</span> rotate;
+}
+
+select:open::picker-icon {
+  rotate: <span style="color:rgb(184, 215, 163); font-weight:400;">180deg</span>;
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: none;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">top</span>: <span style="color:rgb(78, 201, 176); font-weight:400;">calc</span>(<span style="color:rgb(78, 201, 176); font-weight:400;">anchor</span>(bottom) + <span style="color:rgb(184, 215, 163); font-weight:400;">1px</span>);
+}
+
+option {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">display</span>: flex;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">justify-content</span>: flex-start;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">gap</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">20px</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">2px</span> solid <span style="color:rgb(184, 215, 163); font-weight:400;">#ddd</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#eee</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">padding</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">10px</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:first</span>-of-type {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-radius</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-radius</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">0</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span> <span style="color:rgb(184, 215, 163); font-weight:400;">8px</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:not</span>(option<span style="color:rgb(215, 186, 125); font-weight:400;">:last-of-type</span>) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">border-bottom</span>: none;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:nth-of-type</span>(odd) {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">#fff</span>;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:hover</span>,
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:focus</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">background</span>: plum;
+}
+
+option <span style="color:rgb(215, 186, 125); font-weight:400;">.icon</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">font-size</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1.6rem</span>;
+  text-box: trim-both cap alphabetic;
+}
+
+selectedcontent <span style="color:rgb(215, 186, 125); font-weight:400;">.icon</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">display</span>: none;
+}
+
+option<span style="color:rgb(215, 186, 125); font-weight:400;">:checked</span> {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">font-weight</span>: bold;
+}
+
+option::checkmark {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">order</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">margin-left</span>: auto;
+  <span style="color:rgb(156, 220, 254); font-weight:400;">content</span>: <span style="color:rgb(214, 157, 133); font-weight:400;">&quot;☑️&quot;</span>;
+}
+
+::<span style="color:rgb(78, 201, 176); font-weight:400;">picker</span>(select):popover-open {
+  <span style="color:rgb(156, 220, 254); font-weight:400;">opacity</span>: <span style="color:rgb(184, 215, 163); font-weight:400;">1</span>;
+}
+</pre>                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </details>
+        </header>
+    </body>
+</html>

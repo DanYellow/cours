@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox — Consignes TP</title>
+    <link rel="icon" type="image/png" href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png" />
+
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+</head>
+
+<body>
+    <header class="consignes-en-tete">
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Flexbox — Consignes TP</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>
+                    Complétez le fichier index.html pour qu'il ressemble <b>au plus proche</b> au fichier
+                    "maquette-flexbox.jpg/.psd" fourni
+                    <ul>
+                        <li>
+                            Pour le texte en bas de page (après la grande image), il vous faudra également rajouter la
+                            structure HTML. Les textes ne sont pas soulignés pour rien, utilisez la balise appropriée
+                        </li>
+                        <li>
+                            La grande image en bas de la maquette représente une vidéo youtube. A implémenter quand vous
+                            aurez fini la mise en
+                            page des parties du haut (voire partie "pour aller plus loin" pour plus d'infos)
+                        </li>
+                        <li>
+                            Votre travail concernera principalement l'édition du fichier CSS
+                            ("ressources/css/style.css") à propos de flexbox.
+                            <ul>
+                                <li>
+                                    Avant de développer. Pensez bien à utiliser la console du navigateur pour mieux comprendre
+                                    le code fourni
+                                </li>
+                                <li>
+                                    Les images sont déjà dimensionnées correctement. Les problèmes se situent
+                                    principalement au niveau de la structure de flexbox. Propriétés CSS manquantes
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+        <section class="note-information">
+            <p>Le projet contient un fichier reset.css, le but de ce fichier est de réinitialiser les styles par défaut des navigateurs. Ainsi toutes les balises ont un style "nul". Par exemple, toutes les balises de texte ont la même taille.</p>
+            <p>Ce fichier de reset doit être le premier à être chargé dans votre fichier HTML. Ici, nous avons utilisé le reset d'Eric Meyer, c'est le plus populaire.</p>
+            <p>Pensez toujours à l'implémenter dans vos projets. A noter qu'il sera toujours présent dans les projets que nous vous remettrons.</p>
+            <ul>
+                <li>
+                    <a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener noreferrer">Accéder au reset.css d'Eric Meyer - Ouverture dans un nouvel onglet</a>
+                </li>
+            </ul>
+        </section>
+        <details class="consignes-conteneur">
+            <summary>
+                <h1 class="h1">Pour aller plus loin</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>Ajoutez un favicon au site avec l'image de votre choix
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Glossary/Favicon" target="_blank"
+                                rel="noopener noreferrer">
+                                Qu'est-ce qu'un favicon ? (ouverture dans un nouvel onglet)
+                            </a></li>
+                        <li>
+                            <a href="https://favicon.io/" target="_blank" rel="noopener noreferrer">Générateur de
+                                favicon (ouverture dans un nouvel onglet)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                            Ajoutez une vidéo (de votre choix) en provenance de Youtube
+                            <ul>
+                                <li>
+                                    <b>Ne pas télécharger la vidéo,</b> la vidéo doit être embarquée (cherchez sur le
+                                    web comment faire)
+                                </li>
+                            </ul>
+                        </li>
+                <li>Appropriez-vous le site, mettez en place de nouveaux blocs ou stylisez les parties du texte</li>
+                <li>Ajoutez une version sombre du site (pensez bien aux contrastes). Il existe deux façons de faire, les deux nécessitent du CSS, nul besoin de javascript :
+                    <ul>
+                        <li>
+                            <p>Méthode 1 : Utilisation de règle-at "prefers-color-scheme"</p>
+                            <p class="note-information">
+                                Avec cette méthode, il est préférable d'utiliser des propriétés personnalisées.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="https://developer.mozilla.org/fr/docs/Web/CSS/@media/prefers-color-scheme"
+                                        target="_blank" rel="noopener noreferrer">
+                                        Documentation de la règle at "prefers-color-scheme"
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.jannaud.fr/guide-pour-passer-facilement-son-site-web-en-mode-sombre-dark-mode-css
+                                    " target="_blank" rel="noopener noreferrer">
+                                        Exemple de la règle at "prefers-color-scheme"
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Méthode 2 : Utilisation de la fonction CSS light-dark()</p>
+                            <ul>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark"
+                                        target="_blank" rel="noopener noreferrer">
+                                        Documentation de la fonction light-dark() - anglais
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Pour tester le mode sombre (ou clair) du navigateur, il faudra passer par le navigateur :</p>
+                    <details>
+                        <summary>Activer le mode sombre - Chrome / Brave / Opera</summary>
+                        <img src="dark-mode-chrome.gif" alt="">
+                    </details>
+                    <details>
+                        <summary>Activer le mode sombre - Firefox</summary>
+                        <img src="dark-mode-firefox.gif" alt="">
+                    </details>
+                    <details>
+                        <summary>Activer le mode sombre - Safari</summary>
+                    </details>
+                    <p class="note-information">L'activation du mode sombre se fait au global sur le site.</p>
+                </li>
+            </ul>
+        </details>
+        <details class="consignes-conteneur" open>
+            <summary>
+                <h1 class="h1">Conseils / Aides</h1>
+            </summary>
+            <ul class="liste-consignes">
+                <li>
+                    Prenez bien le temps d'observer le site avec la console du navigateur.
+                </li>
+                <li>
+                    Utilisez le panneau de droite de la console du navigateur (après avoir sélectionné un élément)
+                    pour tester des choses en CSS rapidement ou comprendre le rôle de certaines propriétés
+                </li>
+                <li>Pensez à la technique du zoning. N'hésitez pas à dessiner sur les fichiers de maquette</li>
+                <li>
+                    Liens qui peuvent vous aider concernant flexbox :
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank"
+                                rel="noopener noreferrer">
+                                Accéder à la documentation de Flexbox (ouverture dans un nouvel onglet)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank"
+                                rel="noopener noreferrer">
+                                Explication des concepts de Flexbox (ouverture dans un nouvel onglet)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://flexboxfroggy.com/#fr" target="_blank" rel="noopener noreferrer">
+                                Rejouer à flexboxfroggy pour revoir le fonctionnement des propriétés (ouverture
+                                dans un nouvel onglet)
+                            </a>
+                        </li>
+                        <li>Vous pouvez également aller voir les liens mis dans la présentation du TP</li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+    </header>
+</body>
+
+</html>

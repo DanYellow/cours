@@ -1,0 +1,41 @@
+body,
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.consignes-conteneur {
+  padding: 0.75rem;
+  border: .125rem solid #d1d1e5;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.consignes-conteneur p {
+  margin: revert;
+}
+
+.consignes-conteneur ul, .consignes-conteneur ol {
+  list-style: revert;
+  margin: revert;
+}
+
+.consignes-conteneur .h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.consignes-conteneur .liste-consignes {
+  margin-left: 30px;
+  margin-top: 1rem;
+}
+
+.consignes-conteneur .liste-consignes .fait {
+  text-decoration: line-through;
+}
+
+.consignes-conteneur .liste-consignes > li p:first-child, 
+.consignes-conteneur .liste-consignes > li::marker {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

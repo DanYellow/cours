@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP — Reverse tabnabbing</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <details class="consignes-conteneur" open>
+        <summary>
+          <h1 class="h1">Reverse tabnabbing</h1>
+          (cliquer pour afficher)
+        </summary>
+        <p class="description">
+          Le reverse tabnabbing est une faille de sécurité (corrigée sauf dans
+          Internet Explorer) qui consiste à réécrire la page web ayant
+          ouvert un nouvel onglet. Cette faille s'explique par la possibilité (en javascript) d'accéder à
+          l'onglet (ou fenêtre) ayant ouvert le lien pointant vers une page
+          malicieuse et la faire exécuter du javascript sans sa volonté. Ce code
+          est souvent une redirection de page dans le but de faire du <a href="https://www.service-public.fr/particuliers/vosdroits/F34800" target="_blank">phishing (appelé aussi hameçonnage)</a>. Si les navigateurs modernes (sauf Internet Explorer, pour rappel) sont protégés par défaut, il est préférable de rajouter l'attribut "rel" avec la valeur "noopener" pour empêcher ce comportement.
+        </p>
+      </details>
+    </header>
+    <main>
+      <!-- 
+        Ajout de l'attribut rel="opener" qui ouvre la faille. 
+        Ce comportement par défaut ne l'était pas avant, il fallait mettre explicitement rel="noopener".
+        Tous les navigateurs SAUF Internet Explorer ont la valeur "noopener" pour l'attribut "rel" implicitement
+       -->
+      <ul>
+        <li>
+          <a href="page-malicieuse.html" target="_blank" rel="opener"
+            >Lien vulnérable (ouverture dans un nouvel onglet)</a
+          >
+        </li>
+        <li>
+          <a href="page-malicieuse.html" target="_blank" rel="noopener"
+            >Lien non-vulnérable (ouverture dans un nouvel onglet)</a
+          >
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

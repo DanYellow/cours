@@ -231,8 +231,8 @@ def generate_zip(list_folders, is_correction_directory = False):
     if len(list_folders) == 0:
         return
 
-    my_file = pathlib.Path(f"{list_folders[0]}/.gitignore")
-    if my_file.exists():
+    gitignore_file = pathlib.Path(f"{list_folders[0]}/.gitignore")
+    if gitignore_file.exists():
         archive_path = get_archive_name(list_folders[0])
         list_zip_files_generated.append(archive_path)
         command = ['git', 'archive', '-o', archive_path, f"HEAD:{list_folders[0]}"]

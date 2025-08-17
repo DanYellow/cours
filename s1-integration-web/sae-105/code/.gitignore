@@ -1,0 +1,13 @@
+tmp_*
+_tmp*
+
+__MACOSX/
+
+.DS_STORE
+
+.~lock.*
+
+*.dist.*
+*.local.*
+*.temp.*
+*.tmp.*

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP2 — Exercice sur les sélecteurs CSS</title>
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+  />
+
+  <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+  <style type="text/css">
+    *, *::after, *::before {
+        box-sizing: border-box;
+    }
+
+    .tg {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+    }
+
+    .tg td {
+      border-color: light-dark(black, white);
+      border-style: solid;
+      border-width: 1px;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      padding: 0.5rem 0.75rem;
+      word-break: normal;
+    }
+
+    .tg th {
+      border-color: light-dark(black, white);
+      border-style: solid;
+      border-width: 1px;
+      font-family: Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: normal;
+      overflow: hidden;
+      padding: 0.5rem 0.75rem;
+      word-break: normal;
+      font-weight: bold;
+    }
+
+    .tg .tg-peb5 {
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .tg .tg-8lnu {
+      font-family: Arial, Helvetica, sans-serif !important;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .tg .tg-0lax {
+      text-align: left;
+      vertical-align: top;
+    }
+
+    textarea {
+      width: 100%;
+      font-size: 1.2rem;
+    }
+
+    td pre {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .reset-button {
+        margin-block: 1rem;
+        width: 100%;
+        padding-block: 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="consignes-en-tete">
+  <header>
+    <details class="consignes-conteneur" open>
+      <summary>
+        <h1 class="h1">
+          Consignes de la pratique (cliquer pour afficher / cacher)
+        </h1>
+      </summary>
+      <ol class="liste-consignes">
+        <li>Remplissons ensemble le tableau suivant</li>
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Selectors" target="_blank"
+              rel="noopener noreferrer">
+              Voir documentation des sélecteurs CSS sur mdn (ouverture dans un
+              nouvel onglet)
+            </a>
+          </li>
+          <li>
+            Note : Les informations que vous avez remplis sont sauvegardées sur ce navigateur
+          </li>
+        </ul>
+      </ol>
+    </details>
+  </header>
+
+  <main>
+  <button data-clear-answers class="reset-button" type="button">Vider les réponses</button>
+  <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-peb5">Sélecteur CSS</th>
+        <th class="tg-8lnu">HTML ciblé<br /></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">p</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">p</span>&gt;</span></code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">.ma-classe</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+            <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em; font-size: 1.2rem;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">div</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span>&gt;</span>[...]<span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">div</span>&gt;</span> <span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">img</span> <span style="color:rgb(156, 220, 254); font-weight:400;">alt</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ma-classe&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;&quot;</span>&gt;</span> </code></pre>      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang]</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">span</span> <span style="color:rgb(156, 220, 254); font-weight:400;">lang</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;en&quot;</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">span</span>&gt;</span></code></pre>        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>        </td>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">body</span>&gt;</span></code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">.mon-selecteur</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">#un-id</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">span.ma_classe.info</span> { }</code></pre>
+        </td>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">div .ma-classe</span> { }</code></pre>
+        </td>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">section.ma-classe</span>,  <span style="color:rgb(215, 186, 125); font-weight:400;">ul </span>{ }</code></pre>
+        </td>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(220, 220, 220); font-weight:400;"><span style="color:rgb(215, 186, 125); font-weight:400;">[lang=<span class="hljs-string">&quot;es&quot;</span>]</span> { }</span></code></pre>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea></td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+        <td class="tg-0lax">
+          <pre><code id="htmlViewer" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">input</span> <span style="color:rgb(156, 220, 254); font-weight:400;">class</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;champ-txt&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">name</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;nom&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">type</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;text&quot;</span>&gt;</span></code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"><pre><code id="htmlViewer-9" style="color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(215, 186, 125); font-weight:400;">*</span> { }</code></pre>
+        </td>
+        <td class="tg-0lax">
+          <textarea data-textarea-answer="" name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button data-clear-answers class="reset-button" type="button">Vider les réponses</button>
+</main>
+
+
+  <script>
+    (() => {
+      /**
+       * Récupère les données dans le localstorage
+       **/
+      const listSavedData = JSON.parse(
+        localStorage.getItem("listAnswers") || "[]"
+      );
+
+      const saveUserData = (e, idx) => {
+        // Stocke les données dans le local storage
+        listSavedData[idx] = e.target.value.trim();
+        localStorage.setItem("listAnswers", JSON.stringify(listSavedData));
+      };
+
+      const listTextarea = document.querySelectorAll("[data-textarea-answer]")
+
+      /**
+       * Sélectionne tous les éléments ayant de le data-attribute "data-textarea-answer"
+       * Et leur met comme valeur par défaut celle trouvée dans le localStorage
+       * Et leur lie un event au "change" pour appeler la fonction "saveUserData"
+       */
+      listTextarea.forEach((element, idx) => {
+        element.value = listSavedData[idx] || "";
+        element.addEventListener("change", (e) => saveUserData(e, idx));
+      });
+
+      document.querySelectorAll("[data-clear-answers]").forEach((button) => {
+        button.addEventListener('click', () => {
+            listTextarea.forEach(function (item) {
+                item.value = ""
+            })
+            localStorage.setItem("listAnswers", "[]");
+        })
+      })
+    })();
+  </script>
+</body>
+
+</html>
