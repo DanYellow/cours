@@ -328,6 +328,29 @@
                 </li>
             </ol>
         </details>
+        <div class="note-information">
+            <p>La console du navigateur (onglet "console") est bien plus qu'un outil affichant de vos erreurs et le contenu de <code>console.log()</code>, elle permet également d'exécuter du code directement depuis la console. Ainsi, <code>console.log()</code> et autres opérations arithmétiques sont exécutables sans passer par un fichier javascript.</p>
+            <p>Encore mieux, la console propose des alias de fonctions javascript liées au signe $ (dollar), appelés "Console utilities". Voici une liste non-exhaustive de ces fonctions :</p>
+            <ul>
+                <li>
+                    <code>$(selecteur)</code> : équivalent de <code>document.querySelector()</code>
+                </li>
+                <li>
+                    <code>$$(selecteur)</code> : équivalent de <code>document.querySelectorAll()</code>
+                </li>
+                <li>
+                    <code>$_</code> : retourne la dernière expression evaluée
+                </li>
+                <li>
+                    <code>$0</code> : retourne le dernier élément sélectionné dans l'onglet "Inspector / Elements" de la console. Note : Chrome permet également de faire $0 à $4, $1 renvoie le deuxième élément le plus récemment sélectionné, et ainsi de suite jusqu'au cinquième.
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://developer.chrome.com/docs/devtools/console/utilities?hl=fr" target="_blank" rel="noopener noreferrer">En savoir plus sur les Console Utilities de Chrome</a>
+                </li>
+            </ul>
+        </div>
         <details class="consignes-conteneur">
             <summary>
                 <p class="h1">Partie 5 (cliquer pour afficher / cacher)</p>
