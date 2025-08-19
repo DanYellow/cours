@@ -53,6 +53,7 @@ parser.add_argument(
     "--folder",
     help="Dossier specifique à zipper",
     required=False,
+    nargs='+',
     type=str
 )
 parser.add_argument(
@@ -195,8 +196,7 @@ else:
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
-
-        list_paths = list(map(transform_str_to_path, args.folder.split(',')))
+        list_paths = list(map(transform_str_to_path, args.folder))
         list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
         list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
 
@@ -224,7 +224,7 @@ def get_archive_name(folder_path, is_correction_directory = False):
         zip_extension = "devoir"
 
     archive_path = f'{head}/{archive_name.replace("_ressources", "").replace("-correction", "")}.{zip_extension}.zip'
-    
+
     return archive_path
 
 def generate_zip(list_folders, is_correction_directory = False):
@@ -241,7 +241,7 @@ def generate_zip(list_folders, is_correction_directory = False):
         return
 
     for folder_path in list_folders:
-        archive_path = get_archive_name(list_folders[0])
+        archive_path = get_archive_name(folder_path)
 
         if is_correction_directory:
             if archive_path not in dict_correction_archive_created:

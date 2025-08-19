@@ -28,7 +28,7 @@ Note : Les archives sont générées au même niveau que le dossier zippé
 
 #### Un dossier (ou plusieurs) en particulier
 ```python
-python generation-archives/zip-ressources.py --folder / -f chemin-depuis-la-racine-1, chemin-depuis-la-racine-2...
+python generation-archives/zip-ressources.py --folder / -f chemin-depuis-la-racine-1 chemin-depuis-la-racine-2 chemin-depuis-la-racine-3...
 ```
 
 Note : Si les dossiers n'existent pas, ils seront ignorés
