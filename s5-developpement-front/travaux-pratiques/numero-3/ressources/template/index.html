@@ -67,14 +67,14 @@
         <ol class="liste-consignes">
             <li>Ajoutez un bouton qui, au clic, effectue les actions suivantes :
                 <ul>
-                    <li>Appelle la fonction "getListNationalHolidays" (contenue dans le fichier api.js)</li>
+                    <li>Appelle la fonction "getListNationalHolidays" (contenue dans le fichier api.js). Elle retourne tous les jours fériés de l'année en cours</li>
                     <li>Affiche les dates grâce à la balise &lt;template>. Ceci peut être via une liste (&lt;ol>) ou un tableau (&lt;table>)</li>
                 </ul>
             </li>
         </ol>
         <div class="note-information">
             <p>
-                L'API retourne un JSON ayant la forme suivante :
+                L'API se base sur le site <a href="https://calendrier.api.gouv.fr/jours-feries/#/paths/~1%7Bzone%7D.json/get" target="_blank" rel="noopener noreferrer">https://calendrier.api.gouv.fr/jours-feries/</a> et retourne un JSON ayant la forme suivante :
             </p>
             <pre data-language="JSON" data-code-sample style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(248, 248, 242); font-weight: 400;">{</span>
   <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-01-01"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"1er janvier"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
@@ -84,6 +84,7 @@
   <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-05-30"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"Ascension"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span>
   <span style="color: rgb(248, 248, 242); font-weight: 400;">"2030-06-10"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"Lundi de Pentecôte"</span>
 <span style="color: rgb(248, 248, 242); font-weight: 400;">}</span></pre>
+<p>Toutefois, la fonction "getListNationalHolidays" formatte ces données. A vous de regarder la réponse formattée.</p>
         </div>
       </details>
       <details class="consignes-conteneur">
