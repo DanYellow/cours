@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Correction partie 3 — Balise &lt;template></title>
+        <script src="api.js" defer></script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <button type="button" data-national-holidays-btn>
+            Afficher jours fériés
+        </button>
+        <h1>Jours fériés</h1>
+        <ol data-list-national-holidays></ol>
+
+        <template data-template-id='national-holiday'>
+            <li>
+                <p>
+                    <span data-day></span>
+                    <span data-day-name></span>
+                </p>
+            </li>
+        </template>
+    </body>
+</html>
