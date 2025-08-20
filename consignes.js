@@ -197,11 +197,20 @@ const generateHighlightedLines = (linesToHighlight, lineHeight, linesLinked, cod
     })
 }
 
+const escapeHtml = unsafe => {
+    return unsafe
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+};
+
 const generateFooterCredits = () => {
     const tpl = `
         <footer class="footer">
             <img width="30" src="https://danyellow.net/cours-mmi/favicon.png" alt="logo CYU" />
-            <p>${document?.title || ""}</p>
+            <p>${escapeHtml(document?.title || "")}</p>
         </footer>
     `;
 
