@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest';
+import { expect, test, it } from 'vitest';
 import { sum, reverseString, createUsers } from "./index";
 
 test("adds 1 + 2 to equal 3 and 6 + 3 to equal 9", () => {

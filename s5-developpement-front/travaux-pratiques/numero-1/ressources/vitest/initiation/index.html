@@ -1,93 +1,195 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tests unitaires - Initiation — Consignes TP</title>
-    <link
-      rel="stylesheet"
-      href="https://danyellow.net/cours-mmi/consignes.css"
-    />
-    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
-    <link
-        rel="icon"
-        type="image/png"
-        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
-    />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tests unitaires - Initiation — Consignes TP</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script
+            src="https://danyellow.net/cours-mmi/consignes.js"
+            defer
+        ></script>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
+    </head>
 
-  <body>
-    <header class="consignes-en-tete">
-      <h1 class="titre-consignes">Tests unitaires - Initiation — Consignes TP</h1>
-      <details class="consignes-conteneur" open>
-        <summary>
-          <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Ouvrez dans le terminal le dossier ressources/jest/initiation et installez les dépendances avec la commande <code>npm install</code>
-          </li>
-          <li>
-            Assurez-vous du bon fonctionnement de l'installation en exécutant la
-            commande <code>npm run test</code> dans la console
-          </li>
-        </ol>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Testez la fonction "reverseString" déjà présente dans le fichier
-            "initiation/index.js" et importée dans le fichier de test associé
-            <ul>
-                <li>
-                    <a href="https://jestjs.io/docs/expect#tobevalue" target="_blank" rel="noopener noreferrer">Documentation du comparateur .toBe() - Ouverture dans un nouvel onglet</a>
-                </li>
-            </ul>
-          </li>
-          <li>
-            Ajoutez les fonctions suivantes au fichier index.js puis testez-les avec jest :
-            <ul>
-              <li>Retourne un booléen testant si l'âge est supérieur ou égal à 18</li>
-              <li>Calcule la TVA à 5.5% d'un produit. La fonction ne doit prendre qu'un seul paramètre en entrée et retourner en sortie le prix entré avec la TVA appliquée avec deux chiffres après la virgule et arrondi à l'entier supérieur. Exemple, si le prix est de 65 euros, la fonction doit retourner 68.58.
-                <ul>
-                  <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed" target="_blank">Documentation de la méthode .toFixed() pour arrondir la valeur</a></li>
-                </ul>
-              </li>
-              <li>Souhaite la salutation à l'utilisateur en fonction de sa langue définie. Le paramètre en entrée doit respecter la norme ISO 639-1
-                <ul>
-                  <li><a href="https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1" target="_blank">Accéder à la documentation de la norme ISO 639-1 - ouverture dans un nouvel onglet</a></li>
-                  <li>
-                    <a href="https://jestjs.io/docs/expect#expectstringcontainingstring" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la méthode expect.stringContaining() - ouverture dans un nouvel onglet</a>
-                  </li>
-                </ul>
-              </li>
-              <li>Accepte un tableau de chaînes de charactères et retourne les mêmes chaînes mais écrites en majuscules
-                <ul>
-                  <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target="_blank">Documentation de la méthode .toUpperCase()</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ol>
-        <p class="note-information">
-          N'oubliez pas qu'une même fonction peut être testée sur plusieurs critères. Essayez de penser aux différents problèmes qu'il peut arriver : Qu'est-ce qui se passe si la valeur peut être absente ? Est-il possible que la valeur soit incorrecte ?... Néanmoins n'allez pas tester les cas saugrenus.
-        </p>
-      </details>
-      <details class="consignes-conteneur">
-        <summary>
-          <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
-        </summary>
-        <ol class="liste-consignes">
-          <li>
-            Grâce à la méthode "describe()", groupez les tests en fonction des fonctions précédemment testées
-          </li>
-          <li>Créez un nouveau fichier javascript (ainsi que son fichier de test associé) et réalisez un jeu de pierre-feuille-ciseaux que vous devrez tester. Pour rendre les choses simples, on partira du principe que les deux joueurs ne peuvent pas proposer une valeur autre que "pierre", "feuille" et "ciseaux".</li>
-        </ol>
-      </details>
-    </header>
-  </body>
+    <body>
+        <header class="consignes-en-tete">
+            <h1 class="titre-consignes">
+                Tests unitaires - Initiation — Consignes TP
+            </h1>
+            <details class="consignes-conteneur" open>
+                <summary>
+                    <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Ouvrez dans le terminal le dossier
+                        ressources/vitest/initiation et installez les
+                        dépendances avec la commande <code>npm install</code>
+                    </li>
+                    <li>
+                        Assurez-vous du bon fonctionnement de l'installation en
+                        exécutant la commande <code>npm run test</code> dans la
+                        console
+                    </li>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Testez la fonction "reverseString" déjà présente dans le
+                        fichier "initiation/index.js" et importée dans le
+                        fichier de test associé
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://vitest.dev/api/expect.html#tobe"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Documentation du comparateur .toBe() -
+                                    Ouverture dans un nouvel onglet</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ajoutez les fonctions suivantes au fichier index.js puis
+                        testez-les avec vitest :
+                        <ul>
+                            <li>
+                                Retourne un booléen testant si l'âge est
+                                supérieur ou égal à 18
+                            </li>
+                            <li>
+                                Calcule la TVA à 5.5% d'un produit. La fonction
+                                ne doit prendre qu'un seul paramètre en entrée
+                                et retourner en sortie le prix entré avec la TVA
+                                appliquée avec deux chiffres après la virgule et
+                                arrondi à l'entier supérieur. Exemple, si le
+                                prix est de 65 euros, la fonction doit retourner
+                                68.58.
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed"
+                                            target="_blank"
+                                            >Documentation de la méthode
+                                            .toFixed() pour arrondir la
+                                            valeur</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Souhaite la salutation à l'utilisateur en
+                                fonction de sa langue définie. Le paramètre en
+                                entrée doit respecter la norme ISO 639-1
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1"
+                                            target="_blank"
+                                            >Accéder à la documentation de la
+                                            norme ISO 639-1 - ouverture dans un
+                                            nouvel onglet</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://vitest.dev/api/expect.html#expect-stringcontaining"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Accéder à la documentation de la
+                                            méthode expect.stringContaining() -
+                                            ouverture dans un nouvel onglet</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Accepte un tableau de chaînes de charactères et
+                                retourne les mêmes chaînes mais écrites en
+                                majuscules
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
+                                            target="_blank"
+                                            >Documentation de la méthode
+                                            .toUpperCase()</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p class="note-information">
+                    N'oubliez pas qu'une même fonction peut être testée sur
+                    plusieurs critères. Essayez de penser aux différents
+                    problèmes qu'il peut arriver : Qu'est-ce qui se passe si la
+                    valeur peut être absente ? Est-il possible que la valeur
+                    soit incorrecte ?... Néanmoins n'allez pas tester les cas
+                    saugrenus.
+                </p>
+            </details>
+            <div class="note-information">
+                <p>
+                    Si jamais vous ne souhaitez pas importer à chaque fois les
+                    fonctions de vitest (<code
+                        >import { expect, test, it } from 'vitest';</code
+                    >) dans vos fichiers de test, il est possible de les définir en global via le fichier
+                    vite.config.js à la racine du projet. Exemple :
+                </p>
+                <pre
+                    style="
+                        font-family: monospace;
+                        color: rgb(248, 248, 242);
+                        background-color: rgb(43, 43, 43);
+                        font-weight: 400;
+                    "
+                    data-code-sample='{"title": "vite.config.js", "allowCopy": true, "language": "JavaScript"}'
+                ><span style="color: rgb(220, 198, 224); font-weight: 400;">import</span> { defineConfig } <span style="color: rgb(220, 198, 224); font-weight: 400;">from</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">'vitest/config'</span>;
+
+<span style="color: rgb(220, 198, 224); font-weight: 400;">export</span> <span style="color: rgb(220, 198, 224); font-weight: 400;">default</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">defineConfig</span>({
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">test</span>: {
+        <span style="color: rgb(248, 248, 242); font-weight: 400;">globals</span>: <span style="color: rgb(245, 171, 53); font-weight: 400;">true</span>,
+    },
+});</pre>
+<p>Plus besoin d'importer les fonctions de vitest maintenant.</p>
+            </div>
+            <details class="consignes-conteneur">
+                <summary>
+                    <p class="h1">
+                        Pour aller plus loin (cliquer pour afficher / cacher)
+                    </p>
+                </summary>
+                <ol class="liste-consignes">
+                    <li>
+                        Grâce à la méthode "describe()", groupez les tests en
+                        fonction des fonctions précédemment testées
+                    </li>
+                    <li>
+                        Créez un nouveau fichier javascript (ainsi que son
+                        fichier de test associé) et réalisez un jeu de
+                        pierre-feuille-ciseaux que vous devrez tester. Pour
+                        rendre les choses simples, on partira du principe que
+                        les deux joueurs ne peuvent pas proposer une valeur
+                        autre que "pierre", "feuille" et "ciseaux".
+                    </li>
+                </ol>
+            </details>
+        </header>
+    </body>
 </html>
