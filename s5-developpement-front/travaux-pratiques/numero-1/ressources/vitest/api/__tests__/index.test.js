@@ -3,8 +3,6 @@ import { vi, describe, it, expect } from "vitest";
 import { getNationalHolidays } from "../src/index";
 import { fetchNationalHolidays } from "../src/api";
 
-vi.mock("../src/api.js");
-
 // Simulate the data expected from backend
 const mockedData = {
     "2028-01-01": "1er janvier",
@@ -16,12 +14,13 @@ const mockedData = {
     "2028-07-14": "14 juillet",
 };
 
-vi.mocked(fetchNationalHolidays).mockResolvedValue(mockedData);
+vi.mock("../src/api.js", () => ({
+    fetchNationalHolidays: vi.fn(() => mockedData),
+}));
 
 describe("List national holidays metropole", () => {
     it("returns an array", async () => {
         const res = await getNationalHolidays();
-
         expect(Array.isArray(res)).toBeTruthy();
     });
 

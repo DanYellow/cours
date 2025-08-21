@@ -13,8 +13,9 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "vitest": "latest",
+        "@vitest/coverage-v8": "^3.2.4",
         "@vitest/ui": "latest",
-        "vite": "latest"
+        "vite": "latest",
+        "vitest": "latest"
     }
 }

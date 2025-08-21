@@ -1,9 +1,9 @@
 const getListNationalHolidays = async (region = "metropole") => {
     try {
-        const response = await fetch(
+        const req = await fetch(
             `https://calendrier.api.gouv.fr/jours-feries/${region}/${new Date().getFullYear()}.json`
         );
-        const jsonRes = await response.json();
+        const jsonRes = await req.json();
 
         const res = [];
         let nextDate = null;
