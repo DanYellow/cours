@@ -2,27 +2,27 @@ import nunjucks from "@vituum/vite-plugin-nunjucks";
 import vituum from "vituum";
 
 export default {
-  base: "./",
-  css: {
-    // Displays the source of sass files in dev
-    devSourcemap: true,
-  },
-  plugins: [
-    vituum({
-      pages: {
-        normalizeBasePath: true
-      }
-    }),
-    nunjucks({
-      // Where the nunjucks files are located
-      root: "./src",
-    }),
-  ],
-  server: {
-    // Port of the server
-    port: 9117,
-    // Expose the server to the network allowing access from ip address
-    host: true,
-    open: true,
-  },
+    base: "./",
+    css: {
+        // Displays the source of sass files in dev
+        devSourcemap: true,
+    },
+    plugins: [
+        vituum({
+            pages: {
+                normalizeBasePath: true,
+            },
+        }),
+        nunjucks({
+            // Where the nunjucks files are located
+            root: "./src",
+        }),
+    ],
+    server: {
+        // Port of the server
+        port: 9117,
+        // Expose the server to the network allowing access from ip address
+        host: true,
+        open: true,
+    },
 };

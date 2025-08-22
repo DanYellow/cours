@@ -33,7 +33,21 @@
                 <li>Ou vous pouvez accéder à votre dossier en le glissant dans VS Code puis en ouvrant le terminal via le menu Terminal > New Terminal</li>
             </ul>
         </li>
-          <li>Lancez le projet via la commande <code>npm run dev</code></li>
+          <li>Lancez le projet via la commande <code>npm run dev</code>
+            <section class="note-information">
+                <p>Il y a trois commandes dans le fichier package.json :</p>
+                <ul>
+                    <li><code>(npm run) dev</code> : lance un serveur qui permet d'accéder au projet + recompile tous les fichiers (sauf ceux dans le dossier public/) à chaque modification </li>
+                    <li><code>(npm run) build</code> : compile le projet dans un dossier "dist/" pour la production
+                        <p class="note-importante">Ce dossier ne doit <span class="texte-gras">jamais</span> être commité. Il doit impérativement être dans votre fichier .gitignore.</p>
+                    </li>
+                    <li><code>(npm run) preview</code> : lance un faux serveur de production à partir d'un build (nécessite d'avoir un build)</li>
+                </ul>
+                <p>
+                    <a href="https://vitejs.dev/guide/cli.html" target="_blank">En savoir plus sur les commandes de vite - ouverture dans un nouvel onglet</a>
+                </p>
+            </section>
+        </li>
           <li>Observez un peu le code
             <ul>
                 <li>Ajoutez et/ou supprimez du code HTML</li>
@@ -44,17 +58,7 @@
             <p class="note-information">N'oubliez pas qu'il ne faut pas mettre "/public/" dans le chemin du fichier juste un slash (/) au début du chemin.</p>
         </li>
         </ol>
-        <section class="note-information">
-            <p>Il y a trois commandes dans le fichier package.json :</p>
-            <ul>
-                <li><code>(npm run) dev</code> : lance un serveur qui permet d'accéder au projet + recompile tous les fichiers (sauf ceux dans le dossier public/) à chaque modification </li>
-                <li><code>(npm run) build</code> : compile le projet pour la production</li>
-                <li><code>(npm run) preview</code> : lance un serveur de production à partir d'un build (nécessite d'avoir lancé la commande <code>npm run build</code> avant)</li>
-            </ul>
-            <p>
-                <a href="https://vitejs.dev/guide/cli.html" target="_blank">En savoir plus sur les commandes vite - ouverture dans un nouvel onglet</a>
-            </p>
-        </section>
+
       </details>
       <details class="consignes-conteneur">
         <summary>
