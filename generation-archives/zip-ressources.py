@@ -28,7 +28,7 @@ with open('.gitignore') as my_file:
     list_ignored_files = list(map(lambda x: x.replace('\n', ''), list_ignored_files))
     list_ignored_files = list(filter(None, list_ignored_files))
 
-    list_ignored_files.extend(["odp", "code", "gestion-ressources"]) # "zip",
+    list_ignored_files.extend(["odp", "gestion-ressources"]) # "zip", "code",
     list_ignored_files.extend(["sae"])
     list_ignored_files = map(lambda x: x.replace("*", "").replace("~", ""), list(list_ignored_files))
     list_ignored_files = list(dict.fromkeys(list_ignored_files))
@@ -120,7 +120,7 @@ def get_list_directories_updated():
         return get_cleared_directory(path)
 
     def get_cleared_directory(path):
-        r = re.search(r"^(.*?)(numero-\d+\/ressources|datasets|exercice)", path)
+        r = re.search(r"^(.*?)((numero-\d+\/ressources|datasets|exercice)|(sae-\d+))", path)
 
         return r.group(0) if r else ""
 
@@ -209,6 +209,7 @@ list_zip_files_generated = []
 
 def get_archive_name(folder_path, is_correction_directory = False):
     head, tail = os.path.split(folder_path)
+
     archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
     archive_name = f'{slugify(head.replace("\\", "_").replace("/", "_"))}{archive_suffix}'
 
@@ -233,10 +234,16 @@ def generate_zip(list_folders, is_correction_directory = False):
 
     gitignore_file = pathlib.Path(f"{list_folders[0]}/.gitignore")
     if gitignore_file.exists():
-        archive_path = get_archive_name(list_folders[0])
-        list_zip_files_generated.append(archive_path)
-        command = ['git', 'archive', '-o', archive_path, f"HEAD:{list_folders[0]}"]
-        subprocess.run(command, stdout=subprocess.PIPE).stdout
+        try:
+            git_project_path = list_folders[0]
+            archive_path = get_archive_name(git_project_path)
+            list_zip_files_generated.append(archive_path)
+
+            # if os.path.sep == '\\':
+            command = ['git', 'archive', '-o', archive_path, f"HEAD:{pathlib.PureWindowsPath(git_project_path).as_posix()}"]
+            subprocess.run(command, stdout=subprocess.PIPE).stdout
+        except:
+            print(f"\033[91mCouldn't zip {git_project_path}\033[0m")
 
         return
 
