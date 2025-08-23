@@ -52,8 +52,7 @@ Comme la SAÉ 105, ceci est un projet de groupe, groupe de 3 à 6 personnes **au
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Ce code sert plus ou moins de correction à la SAE 105. Entre-temps des petits changements ont été opérés par rapport à la maquette originale. N'hésitez pas à regarder le code.
 
-- [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s2%2Fsae-203)
-- [Télécharger le code de départ la SAE - Lien alternatif](https://github.com/DanYellow/cours/raw/refs/heads/main/integration-web-s2/integration-web-s2-sae-203.ressources.zip)
+- [Télécharger le code de la SAE](https://github.com/DanYellow/cours/raw/refs/heads/main/integration-web-s2/integration-web-s2-sae-203.ressources.zip)
 
 Il y a des dossiers `"ne-pas-modifier/"`, **merci de ne pas toucher à leur contenu,** toutefois vous pouvez copier un sélecteur CSS présent dans le code de ces dossiers pour le surcharger dans vos fichiers si besoin est.
 
@@ -391,7 +390,7 @@ Les critères suivants seront évalués. Une ou les deux parties (intégration e
 - **Dans l'administration, certains éléments se déplacent d'une page à l'autre. Pourquoi ?**
 
     C'est dû à l'utilisation de l'API CSS @view-transition, elle permet d'effectuer des transitions entre deux pages web. Ainsi, au lieu d'avoir un changement "brut" de contenu entre deux pages, il est désormais possible une expérience de navigation plus fluide.
-      
+
     - [Voir documentation de l'API CSS @view-transition - anglais](https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition)
 
     D'ailleurs, l'utilisation de cette nouvelle API est une tâche **optionnelle** listée dans le fichier [POUR-ALLER-PLUS-LOIN.md](POUR-ALLER-PLUS-LOIN.md).

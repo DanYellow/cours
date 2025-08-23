@@ -5,7 +5,7 @@ $page_active = "index";
 require_once('./ressources/includes/connexion-bdd.php');
 
 // Code à améliorer
-$id = 10;
+$id = 42;
 $requete_brute = "
     SELECT * FROM article
     WHERE article.id = $id
