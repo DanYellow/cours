@@ -202,13 +202,13 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 
 ### Pré-requis
 - node >= 20.10 (utilisez la commande `node -v` pour voir votre version)
-  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 18.11+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
+  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 20.10+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
     - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
   - Note : Il est fort probable que vous ne puissiez pas utiliser MongoDB sur les ordinateurs de l'IUT. Pour pallier à ce problème, il faudra passer par MongoDB Atlas, un outil freemium permettant d'héberger la base de données
 
 ### Installation
-1. [Récupérer le projet](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
+1. [Récupérer le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 2. Installer les dépendances
    ```sh
    npm install
@@ -241,7 +241,7 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
    ```
 Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez le faire, vous avez les solutions suivantes :
 - [localtunnel](https://localtunnel.github.io/www/) : Outil gratuit permettant d'exposer sur le web votre serveur local temporairement
-- Glitch : Outil freemium permettant de déployer un site node à partir de GitHub. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
+- Glitch : Outil freemium permettant de déployer un site nodejs à partir de GitHub. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
   - [Accéder au didactiel pour déployer avec Glitch - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
   - [Accéder au didactiel pour MongoDB Atlas - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#setting_up_the_mongodb_database)
   - Alwaysdata : Parmi les serveurs proposés, l'hébergeur propose également nodejs. **Toutefois, seule la partie serveur est proposée.** Pour la partie Mongo, le plus simple est de passer par MongoDB Atlas (freemium) (voir plus haut). Néanmoins, il est possible d'installer soi-même MongoDB en SSH à condition d'avoir de la place sur votre espace disque
@@ -252,7 +252,7 @@ Même s'il y a une tâche de production, vous ne serez pas en capacité d'upload
 > Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.
 
 ## Flash messages
-Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur et affiché qu'**une seule fois.** après sa création. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
+Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur, affiché qu'**une seule fois.** et supprimé juste après. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
 
 Ils sont déjà implémentés lors de la création, l'édition et la suppression d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
@@ -301,7 +301,7 @@ Notez qu'eslint possède trois niveaux de contrôle :
 - warn / 1 : lève une alerte en cas de problème
 - off / 0 : désactive la règle
 
-La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js. [Vous pourrez trouver toutes les règles sur le site d'eslint.](https://eslint.org/docs/latest/rules/). Celles avec l'icône ✅ sont actives dans le projet.
+La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js. [Vous pourrez trouver toutes les règles sur le site d'eslint.](https://eslint.org/docs/latest/rules/)
 
 > Il existe l'extension gratuite eslint pour VS Code pour avoir des indications dans le code.
 > - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
