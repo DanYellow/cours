@@ -1,11 +1,11 @@
-Cours assurés par M. Linardi (michele.linardi@u-cergy.fr) et M. Jean-Louis (danielo.jean-louis@cyu.fr). Un groupe de TD et des groupes de TP seront assignés à un enseignant.
+Les cours seront dispensé en CM, TD et TP.
 
 Apprentissages critiques :
 	- AC4101 : Exploiter de manière autonome un environnement de développement efficace et productif
 	- AC4102 : Produire des pages Web statiques et fluides utilisant un balisage sémantique efficace
 
 Apprentissage du cours :
-- Voir les bases de la programmation d’un site web : 
+- Voir les bases de la programmation d’un site web :
 	- Langage HTML
 		Balises : a, hx, div, span...
 		Liens / ancres
@@ -16,7 +16,7 @@ Apprentissage du cours :
 		CSS transition
 		Modèle de boite (propriétés CSS border, margin, padding, outline, width / height)
 		Responsive web design
-		
+
 - Sensibilisation au web : design et programmation
 	- Accessibilité
 	- Bonnes pratiques / sémantique web
