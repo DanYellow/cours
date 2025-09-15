@@ -79,7 +79,11 @@ document.querySelectorAll('[role="tablist"]').forEach((tablist, tabSystemIdx) =>
 
 const url = new URL(window.location);
 
-const accordionIndex = Number(url.searchParams?.get("a") || 0);
+let listAccordionsOpened = url.searchParams.getAll("a").map((item) => Number(item));
+if (!listAccordionsOpened.length) {
+    listAccordionsOpened = [0];
+}
+
 const listInstructionSummary = document.querySelectorAll(".consignes-conteneur > summary");
 
 listInstructionSummary.forEach((item, idx) => {
@@ -87,12 +91,12 @@ listInstructionSummary.forEach((item, idx) => {
         if(listInstructionSummary[idx].closest("details").open) {
             url.searchParams.delete("a", idx);
         } else {
-            url.searchParams.set("a", idx);
+            url.searchParams.append("a", idx);
         }
         history.replaceState(null, "", url);
     });
 
-    listInstructionSummary[idx].closest("details").open = accordionIndex === idx;
+    listInstructionSummary[idx].closest("details").open = listAccordionsOpened.includes(idx);
 });
 
 
