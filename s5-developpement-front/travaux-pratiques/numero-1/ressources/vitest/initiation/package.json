@@ -13,6 +13,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@rollup/rollup-darwin-x64": "latest",
         "vitest": "latest",
         "@vitest/ui": "latest",
         "vite": "latest"
