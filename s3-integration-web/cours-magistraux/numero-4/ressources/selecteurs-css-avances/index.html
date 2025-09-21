@@ -1,24 +1,205 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Magistral — Sélecteurs CSS avancés</title>
-    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
-</head>
-<body>
-    <main>
-        <h1 class="titre">Cours Magistral - Leaflet</h1>
-        <p class="paragraphe">Ce TP est composé de deux parties concernant l'utilisation de Leaflet. Pour rappel, Leaflet est un plugin javascript open source et gratuit permettant d'ajouter des données sur une carte OpenStreetMap. Tout comme le système de cartographie, Leaflet est gratuit. Le but de cette ressource est de vous montrer divers exemples concernant l'outil.</p>
-        <p class="paragraphe">Veillez à vérifier le code source, il est commenté. Et bien évidemment n'hésitez pas à effectuer des modifications pour mieux comprendre comment ça fonctionne.</p>
-        <ul class="liste">
-            <li>
-                <a href="./point/index.html" target="_blank" rel="noopener noreferrer">Exemple points</a>
-            </li>
-            <li>
-                <a href="./geojson/index.html" target="_blank" rel="noopener noreferrer">Exemple GeoJSON</a>
-            </li>
-        </ul>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sélecteurs CSS avancés</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/reset.css"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
+        <link rel="stylesheet" href="assets/fonts/fonts.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        <main class="conteneur">
+            <p class="title">NOS MEILLEURES VENTES</p>
+            <ul class="liste-patisseries">
+                <li class="">
+                    <a href="" class="patisserie">
+                        <img
+                            src="assets/images/babka.jpg"
+                            alt="Babka gianduja"
+                        />
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">BABKA AU GIANDUJA</p>
+                            </header>
+                            <p class="presentation">
+                                Gianduja origine 100% Italie avec noisettes du
+                                Piémont bio
+                            </p>
+                            <p class="description">
+                                Une brioche d’un goût délicat renfermant un
+                                généneux fourrage. La brioche est également
+                                proposée fourée à la canelle, au confit de
+                                fruits rouges (seulement l’été) et pistache /
+                                chocolat blanc.
+                            </p>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>A partir de</p>
+                            <p class="prix">
+                                5,00
+                                <sup>€</sup>
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="patisserie">
+                        <img
+                            src="assets/images/lunettes.jpg"
+                            alt="Lunettes aux figues"
+                        />
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">
+                                    LUNETTES AUX FIGUES ET ABRICOTS
+                                </p>
+                                <p class="de-saison">DE SAISON</p>
+                            </header>
+                            <p class="presentation">
+                                Lunettes inspirée de la spécialité de la ville
+                                de Romans-sur-Isère. Vendus par six : trois à la
+                                figue et trois à l'abricot
+                            </p>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>A partir de</p>
+                            <p class="prix">
+                                5,00
+                                <sup>€</sup>
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="patisserie">
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">Financiers</p>
+                            </header>
+                            <p class="presentation">
+                                Fins gâteaux à la forme d'un lingot d'or avec du
+                                beurre clarifié et de l'amande torréfiée
+                            </p>
+                            <p class="description">
+                                Inspirés par leur origine financière. Ces
+                                délicieux gateaux, vendus par huit, sont riches
+                                en goûts et sont déclinés moults variétés :
+                            </p>
+                            <ul class="liste">
+                                <li>Framboise</li>
+                                <li>Nature</li>
+                                <li>Chocolat</li>
+                                <li>Marbré chocolat</li>
+                                <li>Marbré framboise</li>
+                                <li>Pralin</li>
+                                <li>Gianduja</li>
+                            </ul>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>A partir de</p>
+                            <p class="prix">
+                                5,00
+                                <sup>€</sup>
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="patisserie">
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">FRAISIER</p>
+                                <p class="de-saison">DE SAISON</p>
+                            </header>
+                            <p class="presentation">
+                                Fraises, crème diplomate à la pistache et
+                                biscuit joconde
+                            </p>
+                            <p class="description">
+                                Habituellement cantonné à une crème mousseline
+                                grasse et lourde, nous avons fait le choix de
+                                rendre le fraisier léger comme l'air mais
+                                toujours aussi délicieux.
+                            </p>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>A partir de</p>
+                            <p class="prix">
+                                5,00
+                                <sup>€</sup>
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="patisserie">
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">COOKIES</p>
+                            </header>
+                            <p class="presentation">
+                                Le biscuit culte des États-unis est disponible
+                                dans notre boutique
+                            </p>
+                            <p class="description">
+                                Chocolat noir / chocolat blanc. Chocolat blanc /
+                                canneberge. Chocolat au lait / noisette. Caramel
+                                / noix de cajou. Nos choix sont nombreux mais
+                                toujours délicieux.
+                            </p>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>Les trois</p>
+                            <p class="prix">
+                                5,50
+                                <sup>€</sup>
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="patisserie">
+                        <ul class="multiple-images">
+                            <li>
+                                <img src="assets/images/eclair-1.jpg" alt="" />
+                            </li>
+                            <li>
+                                <img src="assets/images/eclair-2.jpg" alt="" />
+                            </li>
+                        </ul>
+                        <div class="textes">
+                            <header class="en-tete">
+                                <p class="nom">ÉCLAIRS</p>
+                            </header>
+                            <p class="presentation">
+                                Pâte à choux ontueuse, fourrage généreux et nappage au fondant blanc
+                            </p>
+                        </div>
+                        <footer class="prix-conteneur">
+                            <p>L'unité</p>
+                            <p class="prix">
+                                4,20
+                                <sup
+                                    style="
+                                        vertical-align: super;
+                                        font-size: 75%;
+                                    "
+                                    >€</sup
+                                >
+                            </p>
+                        </footer>
+                    </a>
+                </li>
+            </ul>
+        </main>
+    </body>
 </html>

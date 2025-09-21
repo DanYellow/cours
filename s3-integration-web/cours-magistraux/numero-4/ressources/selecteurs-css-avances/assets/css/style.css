@@ -1,0 +1,167 @@
+:root {
+    --black: #212121;
+    --dark-pink: #7d0033;
+    --border-radius: 0.5rem;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: #fff6fc;
+
+    font-family: "Noto Sans", system-ui;
+    font-weight: 400;
+}
+
+.conteneur {
+    margin: auto;
+    max-width: 1280px;
+    padding-top: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-pink);
+    margin-bottom: 1rem;
+}
+
+.liste-patisseries {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-auto-rows: 1fr auto; */
+    gap: 0.85rem;
+}
+
+.patisserie {
+    display: block;
+    padding: 0.75rem 0.75rem 1.5rem;
+    background-color: #ffedfa;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: var(--black);
+    border: var(--dark-pink) 1px solid;
+    height: 100%;
+
+    &:hover,
+    &:focus {
+        background-color: oklch(from #ffedfa calc(l * 0.9) c h);
+
+        .nom {
+            color: white;
+
+            &::after {
+                scale: 105% 100%;
+            }
+        }
+    }
+
+    img {
+        border-radius: 2rem;
+        object-fit: cover;
+        display: block;
+        width: 100%;
+        border: var(--dark-pink) 1px solid;
+    }
+
+    > img {
+        height: 410px;
+        object-position: top;
+        margin-bottom: 1rem;
+    }
+
+    .nom {
+        font-size: 1.6rem;
+        color: var(--dark-pink);
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            z-index: -1;
+            display: block;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: var(--dark-pink);
+            position: absolute;
+            /* scale: 0 100%; */
+            transform-origin: left center;
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+    }
+
+    .presentation {
+        font-weight: 300;
+        font-size: 1.125rem;
+        font-style: italic;
+    }
+
+    .description {
+        margin-top: 1rem;
+        font-weight: 400;
+    }
+
+    .en-tete {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 0.35rem;
+    }
+
+    .de-saison {
+        font-size: 1rem;
+        background-color: var(--dark-pink);
+        color: white;
+        padding: 0.15rem 0.5rem;
+        border-radius: var(--border-radius);
+        flex-shrink: 0;
+    }
+
+    .liste {
+        list-style: inside disc;
+    }
+
+    .prix-conteneur {
+        font-weight: 300;
+        text-align: end;
+        font-size: 1.25rem;
+
+        .prix {
+            font-weight: bold;
+        }
+
+        sup {
+            vertical-align: super;
+            font-size: 75%;
+        }
+    }
+
+    .multiple-images {
+        height: 410px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 205px 205px;
+        /* grid-template-rows: 1fr 1fr; */
+        gap: 0.5rem;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+}
