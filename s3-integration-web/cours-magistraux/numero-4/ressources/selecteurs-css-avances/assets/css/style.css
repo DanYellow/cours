@@ -1,7 +1,7 @@
 :root {
     --black: #212121;
     --dark-pink: #7d0033;
-    --border-radius: 0.5rem;
+    --border-radius: 2rem;
 }
 
 *,
@@ -39,6 +39,7 @@ body {
 .subtitle {
     font-style: italic;
     margin-bottom: 1rem;
+    font-size: 1.125rem;
 }
 
 .liste-patisseries {
@@ -46,26 +47,26 @@ body {
     grid-template-columns: 1fr;
     @media screen and (width >= 1024px) {
         grid-template-columns: repeat(3, 1fr);
-
     }
-    /* grid-auto-rows: 1fr auto; */
-    gap: 0.85rem;
-    margin-bottom: 1rem;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
 }
 
 .bloc {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.25rem;
 }
 
 .patisserie {
     display: block;
-    padding: 0.75rem 0.75rem 1.5rem;
+    padding: 0.55rem 0.55rem 1.65rem;
     background-color: #ffedfa;
-    border-radius: 2rem;
+    border-radius: var(--border-radius);
     text-decoration: none;
     color: var(--black);
     border: var(--dark-pink) 1px solid;
     height: 100%;
+    position: relative;
+    overflow: hidden;
 
     &:hover,
     &:focus {
@@ -75,13 +76,13 @@ body {
             color: white;
 
             &::after {
-                scale: 105% 100%;
+                scale: 115% 125%;
             }
         }
     }
 
     img {
-        border-radius: 2rem;
+        border-radius: var(--border-radius);
         object-fit: cover;
         display: block;
         width: 100%;
@@ -104,13 +105,13 @@ body {
             content: "";
             z-index: -1;
             display: block;
-            left: 0;
+            left: -1rem;
             top: 0;
             bottom: 0;
             right: 0;
             background-color: var(--dark-pink);
             position: absolute;
-            scale: 0 100%;
+            scale: 0 110%;
             transform-origin: left center;
             border-top-right-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
@@ -137,13 +138,25 @@ body {
         margin-bottom: 0.35rem;
     }
 
-    .de-saison {
-        font-size: 1rem;
-        background-color: var(--dark-pink);
-        color: white;
+    .badge {
         padding: 0.15rem 0.5rem;
         border-radius: var(--border-radius);
+        font-size: 1rem;
+    }
+
+    .de-saison {
+        background-color: var(--dark-pink);
+        color: white;
         flex-shrink: 0;
+    }
+
+    .nouveau {
+        background-color: #ffc000;
+        color: var(--black);
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .liste {
@@ -154,9 +167,11 @@ body {
         font-weight: 300;
         text-align: end;
         font-size: 1.25rem;
+        margin-top: 0.75rem;
 
         .prix {
             font-weight: bold;
+            font-size: 1.5rem;
         }
 
         sup {
@@ -168,15 +183,19 @@ body {
     .multiple-images {
         height: 410px;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(1fr, 2);
         /* grid-template-rows: 205px 205px; */
-        grid-template-rows: 1fr 1fr;
         gap: 0.5rem;
         margin-bottom: 1rem;
+        /* grid-auto-rows: 1fr; */
+
+        li {
+            overflow: hidden;
+        }
 
         img {
             height: 100%;
-            object-fit: cover;
             object-position: bottom;
         }
     }
@@ -184,7 +203,7 @@ body {
 
 .table-origines {
     width: 100%;
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) * 0.75);
     overflow: hidden;
 
     :is(thead, tfoot) th {
@@ -193,10 +212,33 @@ body {
         color: white;
         text-align: start;
         font-weight: 400;
+         position: relative;
+
+        /* &:hover::after {
+            content: "";
+            position: absolute;
+            background-color: oklch(from var(--dark-pink) calc(l * 1.5) c h);
+            left: 0;
+            top: -5000px;
+            height: 10000px;
+            width: 100%;
+            z-index: -1;
+        } */
     }
 
-    tbody td {
-        padding: 0.75rem 1rem;
+    tbody {
+        td {
+            padding: 0.75rem 1rem;
+        }
+
+        tr:hover {
+            color: #fff6fc;
+            background-color: oklch(from var(--dark-pink) calc(l * 1.5) c h);
+
+            td::before {
+                color: #fff6fc;
+            }
+        }
     }
 }
 
@@ -204,7 +246,8 @@ body {
     table {
         border: 0;
 
-        thead, tfoot {
+        thead,
+        tfoot {
             border: none;
             clip: rect(0 0 0 0);
             height: 1px;
@@ -239,12 +282,15 @@ body {
 }
 
 .link {
-    text-align: center;
-    display: block;
     text-decoration: underline;
     font-size: 1.25rem;
     color: var(--black);
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
         color: var(--dark-pink);
     }
+}
+
+.paragraphe:has(+ .paragraphe) {
+    margin-bottom: 0.85rem;
 }

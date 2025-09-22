@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sélecteurs CSS avancés</title>
+        <title>Pratique — Sélecteurs CSS avancés</title>
         <link
             rel="stylesheet"
             href="https://danyellow.net/cours-mmi/reset.css"
@@ -19,10 +19,11 @@
     <body>
         <main class="conteneur">
             <div class="bloc">
-                <p class="title">NOS MEILLEURES VENTES</p>
+                <p class="title">NOS PÂTISSERIES</p>
                 <ul class="liste-patisseries">
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <img
                                 src="assets/images/babka.jpg"
                                 alt="Babka gianduja"
@@ -36,7 +37,7 @@
                                     du Piémont bio
                                 </p>
                                 <p class="description">
-                                    Une brioche d’un goût délicat renfermant un
+                                    Une brioche de 25 cm riche en beurre renfermant un
                                     généneux fourrage. La brioche est également
                                     proposée fourée à la canelle, au confit de
                                     fruits rouges (seulement l’été) et pistache
@@ -46,14 +47,15 @@
                             <footer class="prix-conteneur">
                                 <p>A partir de</p>
                                 <p class="prix">
-                                    5,00
+                                    6,75
                                     <sup>€</sup>
                                 </p>
                             </footer>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <img
                                 src="assets/images/lunettes.jpg"
                                 alt="Lunettes aux figues"
@@ -63,28 +65,35 @@
                                     <p class="nom">
                                         LUNETTES AUX FIGUES ET ABRICOTS
                                     </p>
-                                    <p class="de-saison">DE SAISON</p>
+                                    <p class="de-saison badge">DE SAISON</p>
                                 </header>
                                 <p class="presentation">
+                                    Vendus par six : trois à la figue et trois à
+                                    l'abricot
+                                </p>
+                                <p class="description">
                                     Lunettes inspirée de la spécialité de la
-                                    ville de Romans-sur-Isère. Vendus par six :
-                                    trois à la figue et trois à l'abricot
+                                    ville de Romans-sur-Isère. Deux biscuits
+                                    sablés à la vanille entourant un délicat
+                                    confit d'abricots ou de figues et saupoudré
+                                    d'un généreux voile de sucre glace.
                                 </p>
                             </div>
                             <footer class="prix-conteneur">
-                                <p>A partir de</p>
+                                <p>Les six</p>
                                 <p class="prix">
-                                    5,00
+                                    7,50
                                     <sup>€</sup>
                                 </p>
                             </footer>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <div class="textes">
                                 <header class="en-tete">
-                                    <p class="nom">Financiers</p>
+                                    <p class="nom">FINANCIERS</p>
                                 </header>
                                 <p class="presentation">
                                     Fins gâteaux à la forme d'un lingot d'or
@@ -92,9 +101,8 @@
                                     torréfiée
                                 </p>
                                 <p class="description">
-                                    Inspirés par leur origine financière. Ces
-                                    délicieux gateaux, vendus par huit, sont
-                                    riches en goûts et sont déclinés moults
+                                    Ces gateaux raffinés, vendus par huit, sont
+                                    riches en goût et sont déclinés en moults
                                     variétés :
                                 </p>
                                 <ul class="liste">
@@ -108,20 +116,21 @@
                                 </ul>
                             </div>
                             <footer class="prix-conteneur">
-                                <p>A partir de</p>
+                                <p>Les huit</p>
                                 <p class="prix">
-                                    5,00
+                                    11,20
                                     <sup>€</sup>
                                 </p>
                             </footer>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <div class="textes">
                                 <header class="en-tete">
                                     <p class="nom">FRAISIER</p>
-                                    <p class="de-saison">DE SAISON</p>
+                                    <p class="de-saison badge">DE SAISON</p>
                                 </header>
                                 <p class="presentation">
                                     Fraises, crème diplomate à la pistache et
@@ -137,14 +146,15 @@
                             <footer class="prix-conteneur">
                                 <p>A partir de</p>
                                 <p class="prix">
-                                    5,00
+                                    35,00
                                     <sup>€</sup>
                                 </p>
                             </footer>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <div class="textes">
                                 <header class="en-tete">
                                     <p class="nom">COOKIES</p>
@@ -169,10 +179,11 @@
                             </footer>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="patisserie-conteneur">
                         <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
                             <ul class="multiple-images">
-                                <!-- <li>
+                                <li>
                                     <img
                                         src="assets/images/eclair-1.jpg"
                                         alt=""
@@ -183,11 +194,11 @@
                                         src="assets/images/eclair-2.jpg"
                                         alt=""
                                     />
-                                </li> -->
+                                </li>
                             </ul>
                             <div class="textes">
                                 <header class="en-tete">
-                                    <p class="nom">ÉCLAIRS</p>
+                                    <p class="nom">ÉCLAIR</p>
                                 </header>
                                 <p class="presentation">
                                     Pâte à choux ontueuse, fourrage généreux et
@@ -203,9 +214,59 @@
                             </footer>
                         </a>
                     </li>
+                    <li class="patisserie-conteneur">
+                        <a href="" class="patisserie">
+                            <p class="nouveau badge">NOUVEAU</p>
+                            <img
+                                    src="assets/images/entremets-chocovanille.jpg"
+                                    alt="Entremet chocovanille"
+                                />
+                            <div class="textes">
+
+                                <header class="en-tete">
+                                    <p class="nom">ENTREMET CHOCO-VANILLE</p>
+                                </header>
+                                <p class="presentation">
+                                    Délicat crémeux vanille, insert à la mousse de chocolat noir
+                                </p>
+                            </div>
+                            <footer class="prix-conteneur">
+                                <p>L'unité</p>
+                                <p class="prix">
+                                    40,30
+                                    <sup>€</sup>
+                                </p>
+                            </footer>
+                        </a>
+                    </li>
                 </ul>
-                <a href="" class="link">VOIR TOUT</a>
+                <p style="text-align: center">
+                    <a href="" class="link">VOIR TOUT</a>
+                </p>
             </div>
+            <div class="bloc">
+                <p class="title">NOTRE PHILOSOPHIE</p>
+                <p class="paragraphe">
+                    Depuis ses débuts, notre pâtisseries s’efforce d’appliquer
+                    une éthique aussi bien dans notre façon de travailler, le
+                    choix de nos fournisseurs ainsi que dans l’accueil de vous :
+                    nos clients. Ouverte depuis 2020, nos locaux proposent
+                    désormais un espace salon de thé qui permettent de déguster
+                    vos achats sur place ainsi que de bénéficier d’eau, de café,
+                    de chocolat chaud et de thé gratuitement.
+                </p>
+                <p class="paragraphe">
+                    Au-delà de tout ça, nous croyons à la prochaine génération
+                    de pâtissiers et de pâtissières, c’est pour cela que nous
+                    avons signé récemment un partenariat avec le lycée
+                    professionnel de la ville, dans le but de prendre en
+                    alternance, chaque année deux apprentis en CAP Pâtisserie qui auront
+                    l’occasion d’apprendre de notre savoir-faire et ainsi
+                    proposer les meilleures prestations possibles, une fois
+                    insérés dans le monde du travail.
+                </p>
+            </div>
+
             <div class="bloc">
                 <p class="title">ORIGINE DE NOS PRODUITS*</p>
                 <p class="subtitle">*Liste non exhaustive</p>
@@ -224,44 +285,80 @@
                         <tr>
                             <td data-label="NOM">Pistache</td>
                             <td data-label="PAYS">Iran</td>
-                            <td data-label="Issu de l'agriculture biologique">Non</td>
+                            <td data-label="Issu de l'agriculture biologique">
+                                Non
+                            </td>
                             <td data-label="FOURNISSEUR">Oui</td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Cacao</td>
-                            <td data-label="PAYS">Vénézuela</td>
-                            <td data-label="Issu de l'agriculture biologique">Oui</td>
+                            <td data-label="PAYS">Venezuela</td>
+                            <td data-label="Issu de l'agriculture biologique">
+                                Oui
+                            </td>
                             <td data-label="FOURNISSEUR">Rhonoea</td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Noisettes</td>
                             <td data-label="PAYS">Italie</td>
-                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">Oui</td>
-                            <td data-label="FOURNISSEUR">Piémont Import SARL</td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Oui
+                            </td>
+                            <td data-label="FOURNISSEUR">
+                                Piémont Import SARL
+                            </td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Noix</td>
                             <td data-label="PAYS">France (Dordogne)</td>
-                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">Oui</td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Oui
+                            </td>
                             <td data-label="FOURNISSEUR">Noix France Gros</td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Lait (entier)</td>
                             <td data-label="PAYS">France (Normandie)</td>
-                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">Oui</td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Oui
+                            </td>
+                            <td data-label="FOURNISSEUR">Gros lactier</td>
+                        </tr>
+                        <tr>
+                            <td data-label="NOM">Beurre</td>
+                            <td data-label="PAYS">France (Bretagne)</td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Oui
+                            </td>
                             <td data-label="FOURNISSEUR">Gros lactier</td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Pommes (variété Jonagold)</td>
                             <td data-label="PAYS">France (Ile-de-France)</td>
-                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">Non</td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Non
+                            </td>
                             <td data-label="FOURNISSEUR">Verpommes</td>
                         </tr>
                         <tr>
                             <td data-label="NOM">Noix de pécan</td>
-                            <td data-label="PAYS">États-Unis d'Amérique (Californie)</td>
-                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">Non</td>
+                            <td data-label="PAYS">
+                                États-Unis d'Amérique (Californie)
+                            </td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Non
+                            </td>
                             <td data-label="FOURNISSEUR">Deez Nuts</td>
+                        </tr>
+                        <tr>
+                            <td data-label="NOM">Citron / Cédrat</td>
+                            <td data-label="PAYS">
+                                Italie (Sicile ou Sardaigne)
+                            </td>
+                            <td data-label="ISSU DE L'AGRICULTURE BIOLOGIQUE">
+                                Non
+                            </td>
+                            <td data-label="FOURNISSEUR">Lima Import</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -277,5 +374,8 @@
                 </table>
             </div>
         </main>
+        <footer class="conteneur bloc">
+            <p style="text-align: center;">Cours Magistral #4 — Sélecteurs CSS avancés</p>
+        </footer>
     </body>
 </html>
