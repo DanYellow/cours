@@ -276,7 +276,13 @@
                     <li>
                         Affichez le contenu de l'API qui se trouve à "http://localhost:3000/api" sur le site de façon asynchrone. Elle retourne la liste des projets jours fériés
                         <ul>
-                            <li>Préférez l'utilisation de la balise &lt;template></li>
+                            <li>Préférez l'utilisation de la balise &lt;template>
+                                <ul>
+                                    <li>
+                                        <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/template" target="_blank" rel="noopener noreferrer">Voir documentation de la balise &lt;template></a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -284,6 +290,12 @@
                         <ul>
                             <li>
                                 Vous devez mocker/simuler la réponse d'API
+                                <ul>
+                                    <li>
+                                        <a href="https://playwright.dev/docs/mock" target="_blank" rel="noopener noreferrer">Voir documentation de la simulation d'API</a>
+                                        <p class="note-attention">Le mock de vos API doit être avant le chargement de votre page, c'est la première instruction de votre test</p>
+                                    </li>
+                                </ul>
                                 <section class="note-information">
                                     <p>L'API est lente. Il faudra penser à utiliser la méthode waitForResponse.</p>
                                     <ul>
