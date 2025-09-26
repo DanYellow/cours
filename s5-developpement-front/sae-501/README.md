@@ -318,7 +318,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 
 ## Tâches à effectuer
 - [x] Lire les consignes
-- [ ] [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
+- [ ] [Télécharger le code de départ la SAE](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 - [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
 - [ ] S'approprier le code, faire des tests comme ajouter de nouvelles routes et pages...
 - [ ] Initialiser le projet sur GitHub [(voir partie "utilisation de git")](#utilisation-de-git)
