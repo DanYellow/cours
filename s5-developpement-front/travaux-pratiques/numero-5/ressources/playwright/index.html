@@ -330,7 +330,7 @@
                     </li>
                     <li>
                         Prenez une capture d'écran mobile, tablette et PC du
-                        site de l'université (https://www.cyu.fr/). Si vous le
+                        site de l'université (<a href="https://www.cyu.fr/" target="_blank" rel="noopener noreferrer">https://www.cyu.fr/</a>). Si vous le
                         souhaitez, vous pouvez également gérer l'orientation de
                         l'écran
                         <ul>
@@ -345,7 +345,7 @@
                     </li>
                     <li>
                         Faites une capture d'écran durant un test sur le site de
-                        l'université (https://www.cyu.fr/)
+                        l'université (<a href="https://www.cyu.fr/" target="_blank" rel="noopener noreferrer">https://www.cyu.fr/</a>)
                         <span class="texte-gras"
                             >sans que l'encart des
                             cookies n'apparaisse</span
@@ -359,6 +359,15 @@
                                 >
                             </li>
                         </ul>
+                        <div class="note-information">
+                    <p>
+                        Voici un exemple d'utilisation de la méthode
+                        <code>evaluate()</code> :
+                    </p>
+                    <pre data-code-sample='{"allowCopy": true, "title": "Exemple dissimulation élément"}' style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">await</span> page.<span style="color: rgb(210, 168, 255); font-weight: 400;">locator</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"input"</span>).<span style="color: rgb(210, 168, 255); font-weight: 400;">nth</span>(<span style="color: rgb(121, 192, 255); font-weight: 400;">0</span>).evaluate(<span style="color: rgb(201, 209, 217); font-weight: 400;">(<span style="color: rgb(201, 209, 217); font-weight: 400;">item</span>) =&gt;</span> {
+    item.<span style="color: rgb(201, 209, 217); font-weight: 400;">style</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">display</span> = <span style="color: rgb(165, 214, 255); font-weight: 400;">"none"</span>;
+});</pre>
+                </div>
                     </li>
                     <li>
                         Réutilisez le site qui tourne sur le port 3000 et créez un cookie en javascript lorsque le formulaire est validé et
@@ -370,10 +379,10 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >Voir documentation de cookies dans
-                                    playwright (ouveture dans un nouvel onglet)</a
+                                    playwright (ouverture dans un nouvel onglet)</a
                                 >
                                 <p class="note-information">
-                                    Notez bien que la méthode cookies() retourne un tableau d'objets, pour évaluer un cookie, il faudra filtrer ce tableau. Exemple : <code>listCookies.find(item => item.name === "my_cookie").value</code>. Par ailleurs les cookies sont contenus dans l'objet "context".
+                                    Notez bien que la méthode cookies() retourne un tableau d'objets, pour évaluer un cookie, il faudra filtrer ce tableau. Exemple : <code>listCookies.find(item => item.name === "my_cookie").value</code>. Par ailleurs, les cookies sont contenus dans l'objet "context" ou la méthode <code>context().cookies()</code> de l'objet page.
                                 </p>
                             </li>
                             <li>
@@ -382,23 +391,14 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >Voir documentation de document.cookie en
-                                    javascript (ouveture dans un nouvel
+                                    javascript (ouverture dans un nouvel
                                     onglet)</a
                                 >
                             </li>
                         </ul>
                     </li>
                 </ol>
-                <section class="note-information">
-                    <p>
-                        Pour modifier le CSS, il faudra passer par la méthode
-                        <code>evaluate()</code>. Par exemple :
-                    </p>
-                    <pre>
-<code id="htmlViewer" style="color:rgb(248, 248, 248); font-weight:400;background-color:rgb(0, 0, 0);background:rgb(0, 0, 0);display:block;padding: .5em;"><span style="color:rgb(226, 137, 100); font-weight:400;">await</span> page.<span class="hljs-title function_">locator</span>(<span style="color:rgb(101, 176, 66); font-weight:400;">&quot;input&quot;</span>).<span class="hljs-title function_">nth</span>(<span style="color:rgb(51, 135, 204); font-weight:400;">0</span>).evaluate(<span style="color:rgb(248, 248, 248); font-weight:400;">(<span style="color:rgb(62, 135, 227); font-weight:400;">item</span>) =&gt;</span> {
-        item.<span style="color:rgb(248, 248, 248); font-weight:400;">style</span>.<span style="color:rgb(248, 248, 248); font-weight:400;">display</span> = <span style="color:rgb(101, 176, 66); font-weight:400;">&quot;none&quot;</span>;
-    });</code></pre>
-                </section>
+
             </details>
             <details class="consignes-conteneur">
                 <summary>
@@ -446,16 +446,11 @@
                 </summary>
                 <div>
                     <ul>
-                        <li>Générez un fichier JSON à partir des résultats (plusieurs pages) du site <a href="www.boulanger.com" target="_blank" rel="noopener noreferrer">www.boulanger.com</a>. Chaque entrée du fichier JSON doit contenir :
-                            <ul>
-                                <li>Nom</li>
-                                <li>Prix</li>
-                                <li>Lien fiche produit</li>
-                                <li>Nombre de notes</li>
-                                <li>Note sur 5</li>
-                            </ul>
+                        <li>Générez un fichier JSON à partir des résultats (plusieurs pages) d'un site de votre choix. Chaque entrée du fichier JSON doit contenir plusieurs clés dépendamment du site choisi
                             <div class="note-attention">
-                                <p>Vous pouvez utiliser un autre site si vous le souhaitez. A noter que pour éviter d'être banni du site, il est conseillé de temporiser ses actions. Effectuer un délai entre chaque changement de page.</p>
+                                <p>A noter que pour éviter d'être banni du site scrapé, il est conseillé de temporiser ses actions enrte chaque page. Effectuez un délai entre chaque changement de page via un sleep comme le code suivant :
+                                    <code style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(0, 0, 0); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">await</span> <span style="color: rgb(220, 198, 224); font-weight: 400;">new</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">Promise</span>(<span style="color: rgb(248, 248, 242); font-weight: 400;"><span style="color: rgb(245, 171, 53); font-weight: 400;">r</span> =&gt;</span> <span style="color: rgb(245, 171, 53); font-weight: 400;">setTimeout</span>(r, <span style="color: rgb(0, 224, 224); font-weight: 400;">Math</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">floor</span>(<span style="color: rgb(0, 224, 224); font-weight: 400;">Math</span>.<span style="color: rgb(0, 224, 224); font-weight: 400;">random</span>() * <span style="color: rgb(245, 171, 53); font-weight: 400;">3500</span>) + <span style="color: rgb(245, 171, 53); font-weight: 400;">2000</span>));</code>
+                                    </p>
                             </div>
                         </li>
                     </ul>
@@ -463,7 +458,7 @@
                         <p>Pour créer votre fichier JSON, il faudra utiliser l'API fs de nodejs et sa fonction writeFile().</p>
                         <ul>
                             <li>
-                                <a href="https://www.youtube.com/watch?v=kD34sd8xlSM" target="_blank" rel="noopener noreferrer">Accéder à la documentation de fs - ouverture dans un nouvel onglet</a>
+                                <a href="https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs" target="_blank" rel="noopener noreferrer">Accéder à la documentation de fs — ouverture dans un nouvel onglet</a>
                             </li>
                         </ul>
                     </div>

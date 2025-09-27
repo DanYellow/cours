@@ -51,10 +51,11 @@ app.get("/api/:region?", async (req, res) => {
             delete item.rawDate;
             return item;
         });
-    
+
     res.status(200).json(resOrdered);
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });

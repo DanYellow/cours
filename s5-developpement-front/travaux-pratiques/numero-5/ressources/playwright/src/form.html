@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP#5 - S5</title>
+    <title>TP Tests end-to-end — Formulaire choix de parcours de deuxième année BUT MMI</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <style>
         *:where([inert], [inert] *) {
@@ -12,7 +12,7 @@
             background-color: rgb(148 163 184)!important;
         }
     </style>
-    <script src="script.js" type="module"></script>
+    <script src="form.js" defer></script>
 </head>
 <body class="p-4">
     <section class="hidden p-4 bg-green-100 banner mb-4 rounded-xl">
@@ -30,11 +30,11 @@
 
     <section class="mb-3">
         <h1 class="text-3xl font-bold">
-            Formulaire de sélection de parcours de deuxième année BUT MMI
+            Formulaire de sélection de parcours de deuxième année BUT MMI — IUT de Sarcelles
         </h1>
         <p><span class="text-red-500">*</span> Champ requis</p>
     </section>
-    
+
     <form action="" method="get" class="max-w-screen-lg" data-form>
         <section class="mb-3">
             <label for="lastname" class="block">Nom <span class="text-red-500">*</span> :</label>
@@ -72,7 +72,7 @@
                 <option value="">Veuillez sélectionner un parcours</option>
                 <option value="dev">Parcours développement web et dispositifs interactifs</option>
                 <option value="crea">Parcours création numérique</option>
-                <option value="strat">Parcours stratégie de communication numérique et design d’expérience</option>
+                <option value="strat" disabled>Parcours stratégie de communication numérique et design d’expérience</option>
             </select>
         </section>
         <section class="mb-3">
