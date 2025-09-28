@@ -1,0 +1,57 @@
+.patisserie-conteneur {
+    &:has(.de-saison):has(.patisserie > img) {
+        grid-column: 2 / 4;
+    }
+
+    &:has(img) .description {
+        display: none;
+    }
+
+    &:not(:has(img)) .patisserie {
+        padding-top: 2rem;
+    }
+
+    &:nth-last-child(n + 3) .nouveau {
+        display: none;
+    }
+}
+
+.table-origines {
+    tbody {
+        tr {
+            transition: background-color 350ms;
+
+            &:nth-child(even) {
+                background-color: white;
+            }
+
+            &:nth-child(odd) {
+                background-color: #fbe7ec;
+            }
+        }
+    }
+}
+
+.multiple-images {
+    li:first-child {
+        img {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    li:last-child {
+        img {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+}
+
+.patisserie {
+    transition: background-color 350ms;
+
+    .nom::after {
+        transition: scale 350ms;
+    }
+}
