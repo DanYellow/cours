@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modales et popover — Travaux pratiques</title>
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/reset.css" />
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+    />
+    <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
+    <script src="https://danyellow.net/cours-mmi/consignes.js" defer></script>
+</head>
+<body>
+    <header class="consignes-en-tete">
+        <h1 class="titre-consignes">Modales et popover — Consignes TP</h1>
+
+        <details class="consignes-conteneur" open>
+            <div class="note-information">
+                <p>Les consignes ci-dessous sont à adapter sur le site inclus avec la consigne. Site qui a été réalisé avec <a href="https://tailwindcss.com/docs/installation/using-vite" target="_blank">tailwindcss</a>. Vous pouvez donc utiliser l'ensemble des classes proposés par l'outil.</p>
+            </div>
+            <summary>
+                <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
+            </summary>
+
+            <ol class="liste-consignes">
+                <li>Au chargement de la page, affichez une balise &lt;dialog> avec, au minimum, le contenu suivant :
+                    <ul>
+                        <li>Le nom et le numéro du Pokémon</li>
+                        <li>Ses types</li>
+                        <li>Son sprite</li>
+                        <li>Un bouton pour fermer la balise &lt;dialog></li>
+                    </ul>
+                </li>
+                <li>
+                    Affichez une balise &lt;dialog> avec les mêmes informations que précédemment, mais cette fois-ci en cliquant sur un des Pokémon. La balise doit apparaitre en mode "modale" (avec un arrière-plan)
+                    <div class="note-attention">
+                        Etant donné que vous découvrez le javascript, ce n'est pas grave si vous affichez la même information sur chaque Pokémon cliqué.
+                    </div>
+                </li>
+                <li>
+                    Jouez sur le pseudo-element ::backdrop en changeant son apparence. Testez les trois versions suivantes :
+                    <ul>
+                        <li>Changez la couleur</li>
+                        <li>Affichez une image</li>
+                        <li>Flouttez l'arrière-plan
+                            <p class="note-information">Pour flouter l'arrière-plan, il faudra utiliser la propriété <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter" target="_blank" rel="noopener noreferrer">backdrop-filter (ouvrir documentation dans un nouvel onglet</a>)</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop" target="_blank" rel="noopener noreferrer">Voir documentation du pseudo-élément ::backdrop</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog" target="_blank" rel="noopener noreferrer">Voir documentation sur la balise &lt;dialog></a>
+                </li>
+            </ul>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Partie 2 (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Affichez la modale affichée précédemment, cette fois-ci sous forme de popover
+                    <p class="note-information">Si vous le souhaitez, vous pouvez ouvrir la popover au survol, en utilisant la valeur "hint" pour l'attribut "popover" (ne fonctionne pas sous Safari).</p>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Popover_API" target="_blank" rel="noopener noreferrer">Voir documentation de l'attribut popover</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>Effectuez une transition lors de l'ouverture d'un &lt;dialog> ou d'un popover
+                    <ul>
+                        <li>
+                            <a href="https://web.dev/blog/baseline-entry-animations?hl=fr" target="_blank" rel="noopener noreferrer">Voir documentation transition &lt;dialog></a>
+                        </li>
+                        <li>
+                            <a href="https://web.dev/blog/baseline-entry-animations?hl=fr" target="_blank" rel="noopener noreferrer">Voir documentation transition popover</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+        <details class="consignes-conteneur">
+            <summary>
+                <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
+            </summary>
+            <ol class="liste-consignes">
+                <li>En vous aidant du data-attribute "data-pokemon-data", affichez de façon dynamique le contenu du popover/&lt;dialog>
+                    <p class="note-information">
+                        Les données sont encodées sous forme de chaîne de caractères qui répond au standard du format JSON. Pour transformer, cette chaîne de caractères en vrai JSON, il faut utiliser la fonction <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener noreferrer"><code>JSON.parse()</code> — ouvrir documentation dans un nouvel onglet</a>
+                    </p>
+                </li>
+            </ol>
+        </details>
+    </header>
+</body>
+</html>
