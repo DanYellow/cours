@@ -19,7 +19,7 @@
 
         <details class="consignes-conteneur" open>
             <div class="note-information">
-                <p>Les consignes ci-dessous sont à adapter sur le site inclus avec la consigne. Site qui a été réalisé avec <a href="https://tailwindcss.com/docs/installation/using-vite" target="_blank">tailwindcss</a>. Vous pouvez donc utiliser l'ensemble des classes proposés par l'outil.</p>
+                <p>Les consignes ci-dessous sont à adapter sur le site inclus avec la consigne. Site qui a été réalisé avec <a href="https://tailwindcss.com/docs/installation/using-vite" target="_blank">tailwindcss</a>. Vous pouvez donc utiliser l'ensemble des classes proposés par l'outil pour produire un design de qualité rapidement.</p>
             </div>
             <summary>
                 <p class="h1">Partie 1 (cliquer pour afficher / cacher)</p>
@@ -33,12 +33,38 @@
                         <li>Son sprite</li>
                         <li>Un bouton pour fermer la balise &lt;dialog></li>
                     </ul>
+                    <br>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog" target="_blank" rel="noopener noreferrer">Voir documentation sur la balise &lt;dialog></a>
+                        </li>
+                    </ul>
+                    <p class="note-information">
+                        La mise en page du &lt;dialog> est à votre discrétion.
+                    </p>
                 </li>
                 <li>
-                    Affichez une balise &lt;dialog> avec les mêmes informations que précédemment, mais cette fois-ci en cliquant sur un des Pokémon. La balise doit apparaitre en mode "modale" (avec un arrière-plan)
+                    Affichez une balise &lt;dialog> avec les mêmes informations que précédemment, mais cette fois-ci en cliquant sur un des Pokémon (contenus chacun dans une balise &lt;button>). La balise doit apparaitre en mode "modale" (avec un arrière-plan)
                     <div class="note-attention">
                         Etant donné que vous découvrez le javascript, ce n'est pas grave si vous affichez la même information sur chaque Pokémon cliqué.
                     </div>
+                    Pour ce faire, vous aurez besoin des documentations suivantes — ouverture dans un nouvel onglet :
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">addEventListener() pour gérer l'évènement du clic</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/dialog#javascript" target="_blank" rel="noopener noreferrer">Les méthodes <code>.showModal()</code> et <code>.close()</code></a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelectorAll" target="_blank" rel="noopener noreferrer">querySelectorAll() pour sélectionner tous les boutons</a>
+                            <p class="note-information">Il faudra combiner <code>querySelectorAll()</code> avec une boucle (for ou forEach) pour appliquer l'évènement de clic sur chaque élément</p>
+                        </li>
+                    </ul>
+                    Pour rappel, voici la syntaxe d'une fonction :
+                    <pre data-code-sample="" style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">const</span> <span style="color: rgb(0, 224, 224); font-weight: 400;">myFunction</span> = (<span style="color: rgb(245, 171, 53); font-weight: 400;"><span style="color: rgb(212, 208, 171); font-weight: 400;">/* argument1, argument2... */</span></span>) =&gt; {
+    <span style="color: rgb(212, 208, 171); font-weight: 400;">/* instructions */</span>
+}</pre>
                 </li>
                 <li>
                     Jouez sur le pseudo-element ::backdrop en changeant son apparence. Testez les trois versions suivantes :
@@ -56,11 +82,6 @@
                     </ul>
                 </li>
             </ol>
-            <ul>
-                <li>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog" target="_blank" rel="noopener noreferrer">Voir documentation sur la balise &lt;dialog></a>
-                </li>
-            </ul>
         </details>
         <details class="consignes-conteneur">
             <summary>
@@ -82,13 +103,13 @@
                 <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
             </summary>
             <ol class="liste-consignes">
-                <li>Effectuez une transition lors de l'ouverture d'un &lt;dialog> ou d'un popover
+                <li>Effectuez une transition lors de l'ouverture et la fermeture d'un &lt;dialog> ou d'un popover
                     <ul>
                         <li>
                             <a href="https://web.dev/blog/baseline-entry-animations?hl=fr" target="_blank" rel="noopener noreferrer">Voir documentation transition &lt;dialog></a>
                         </li>
                         <li>
-                            <a href="https://web.dev/blog/baseline-entry-animations?hl=fr" target="_blank" rel="noopener noreferrer">Voir documentation transition popover</a>
+                            <a href="https://nerdy.dev/using-starting-style-and-transition-behavior-for-enter-and-exit-stage-effects#dialog-and-popover" target="_blank" rel="noopener noreferrer">Voir exemples de transition sur popover et &lt;dialog></a>
                         </li>
                     </ul>
                 </li>
@@ -99,11 +120,21 @@
                 <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
             </summary>
             <ol class="liste-consignes">
-                <li>En vous aidant du data-attribute "data-pokemon-data", affichez de façon dynamique le contenu du popover/&lt;dialog>
-                    <p class="note-information">
-                        Les données sont encodées sous forme de chaîne de caractères qui répond au standard du format JSON. Pour transformer, cette chaîne de caractères en vrai JSON, il faut utiliser la fonction <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener noreferrer"><code>JSON.parse()</code> — ouvrir documentation dans un nouvel onglet</a>
-                    </p>
+                <li>En vous aidant du data-attribute "data-pokemon-data", affichez de façon dynamique le contenu du popover/&lt;dialog>. Le sprite doit également être affiché
+                    <div class="note-information">
+                        <p>
+                            Les données sont encodées sous forme de chaîne de caractères qui répond au standard du format JSON. Pour transformer, cette chaîne de caractères en vrai JSON, il faut utiliser la fonction <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener noreferrer"><code>JSON.parse()</code> — ouvrir documentation dans un nouvel onglet</a>
+                        </p>
+                        <p>Le JSON est de la forme suivante : </p>
+                        <pre data-code-sample="" style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(248, 248, 242); font-weight: 400;">{</span><span style="color: rgb(248, 248, 242); font-weight: 400;">"id"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span><span style="color: rgb(245, 171, 53); font-weight: 400;">1</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span><span style="color: rgb(248, 248, 242); font-weight: 400;">"nom"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span><span style="color: rgb(171, 227, 56); font-weight: 400;">"Bulbizarre"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span> <span style="color: rgb(248, 248, 242); font-weight: 400;">"types"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">:</span><span style="color: rgb(248, 248, 242); font-weight: 400;">[</span><span style="color: rgb(171, 227, 56); font-weight: 400;">"plante"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">,</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"poison"</span><span style="color: rgb(248, 248, 242); font-weight: 400;">]</span><span style="color: rgb(248, 248, 242); font-weight: 400;">}</span></pre>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/dataset" target="_blank" rel="noopener noreferrer">Voir documentation des data-attributes</a>
+                        </li>
+                    </ul>
                 </li>
+                <li>Indiquer le Pokémon qui a été sélectionné</li>
             </ol>
         </details>
     </header>
