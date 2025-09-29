@@ -1,0 +1,24 @@
+body {
+    font-family: "Noto Sans", system-ui;
+}
+
+.type-label {
+    font-weight: 700;
+    color: #f8fafc;
+    text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
+}
+
+.pkmn-modal.color::backdrop {
+    background-color: rgba(0, 139, 139, 0.212);
+}
+
+.pkmn-modal.flou::backdrop {
+    backdrop-filter: blur(10px);
+}
+
+.pkmn-modal.image::backdrop {
+    --image-url: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
+    background-image: var(--image-url);
+    background-size: 200px;
+    background-color: rgba(169, 169, 169, 0.589);
+}
