@@ -1,0 +1,30 @@
+body {
+    font-family: "Noto Sans", system-ui;
+}
+
+.type-label {
+    font-weight: 700;
+    color: #f8fafc;
+    text-shadow: 1px 1px 2px black, 0 0 15em black, 0 0 0.1em black;
+}
+
+.pkmn-modal.flou::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+.pkmn-modal {
+    transition: opacity 0.5s, display 0.5s allow-discrete;
+    opacity: 0;
+}
+
+.pkmn-modal[open] {
+    opacity: 1;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.pkmn-modal {
+    transition: opacity 0.5s, display 0.5s allow-discrete;
+}
