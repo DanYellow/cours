@@ -24,7 +24,3 @@ body {
         opacity: 0;
     }
 }
-
-.pkmn-modal {
-    transition: opacity 0.5s, display 0.5s allow-discrete;
-}

@@ -13,6 +13,7 @@ const openModal = (e) => {
     const pkmnData = JSON.parse(e.currentTarget.dataset.pokemonData);
 
     pkmnImageModal.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pkmnData.id}.png`;
+    pkmnImageModal.alt = `Artwork de ${pkmnData.name}`;
     pkmnNameModal.textContent = pkmnData.nom;
 
     // On vide le contenu de la liste
@@ -24,7 +25,16 @@ const openModal = (e) => {
         li.classList.add("px-2", "py-0.25", "rounded-md", "type-label", `bg-${item.toLowerCase()}`);
 
         pkmnTypesModal.append(li);
-    })
+    });
+
+    const classeActive = "bg-slate-200";
+    // On retire la classe sur le dernier élément sélectionné
+    if (document.querySelector(`.${classeActive}`)) {
+        document.querySelector(`.${classeActive}`).classList.remove(classeActive)
+
+    }
+    // On applique une classe sur l'élément sélectionné
+    e.currentTarget.classList.add(classeActive);
 
     // Ouverture du <dialog> en mode "modale" pour ainsi avoir l'arrière-plan
     pkmnModal.showModal();
