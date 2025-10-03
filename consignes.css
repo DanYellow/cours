@@ -923,3 +923,24 @@ code {
         display: none;
     }
 }
+
+.img-legende {
+    border-radius: 0.75rem;
+    border: 1px solid light-dark(var(--black), var(--white));
+    width: fit-content;
+    overflow: hidden;
+    margin-inline: 0;
+
+    img {
+        padding: 0.5rem;
+        border-radius: 0.75rem;
+    }
+
+    figcaption {
+        padding: 0.35rem 0.5rem;
+        background-color: light-dark(var(--black), var(--white));
+        color: light-dark(var(--white), var(--black));
+        text-align: center;
+        font-style: italic;
+    }
+}
