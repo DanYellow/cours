@@ -49,6 +49,7 @@
     box-sizing: border-box;
     overflow: hidden;
     max-width: 1280px;
+    line-height: normal;
 
     *, *::before, *::after {
         box-sizing: border-box;
