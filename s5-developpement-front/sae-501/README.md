@@ -208,6 +208,8 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
   - Note : Il est fort probable que vous ne puissiez pas utiliser MongoDB sur les ordinateurs de l'IUT. Pour pallier à ce problème, il faudra passer par MongoDB Atlas, un outil freemium permettant d'héberger la base de données
 
 ### Installation
+> N'utilisez pas le terminal "Powershell" (Windows uniquement), il est très fort probable que les commandes liées à nodejs (node ou npm) ne fonctionnent pas. Utilisez l'invite de commandes (cmd) ou mieux gitbash.
+
 1. [Récupérer le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 2. Installer les dépendances
    ```sh
