@@ -210,6 +210,14 @@
         <ol class="liste-consignes">
           <li>Créez un fichier .env et ajoutez une variable d'environnement qui sera affichée dans une de vos pages .njk
             <p class="note-information">Pour rappel, si votre variable d'environnement ne commence pas par "VITE_", elle ne sera pas prise en compte par vite</p>
+            <div class="note-attention">
+                <p>Par défaut, macOS cache les fichiers commençant par .env, vous ne les verrez pas dans le Finder. Pour y remédier, vous devez entrer les commandes suivantes dans le Terminal (n'importe où dans l'ordinateur) :</p>
+                <ol>
+                    <li><code>defaults write com.apple.finder AppleShowAllFiles YES</code></li>
+                    <li><code>killall Finder</code></li>
+                </ol>
+                <p>Note : vous pouvez tout faire en une ligne en séparant les commandes par un point-virgule (;). Ex : <code>defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder</code></p>
+            </div>
           </li>
           <li>Avec une variable d'environnement, gérez le port du serveur de développement (clé "server.port" dans le fichier vite.config.js)
             <div class="note-information">
@@ -222,7 +230,7 @@
                     </ul>
                     </li>
                     <li>L'utilisation de la fonction "defineConfig()" comme présenté dans la documentation est facultatif</li>
-                    <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la caster en number pour le port du serveur</li>
+                    <li>Les valeurs des variables d'environnement sont castées en chaîne de caractères, il faudra la convertir en nombre pour le port du serveur</li>
                 </ul>
             </div>
         </li>

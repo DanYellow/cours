@@ -163,6 +163,13 @@ Dans la partie "administration", c'est la police "DMSans" qui est utilisée. Imp
 
 # Fichiers .env
 A la racine du projet, vous trouverez deux fichiers commençant par ".env", un de développement (.env.dev) et un autre de production (.env.prod). Ils vous permettront de manipuler sans trop de problèmes certaines configurations concernant la base de données et votre dossier de travail. Les deux fichiers possèdent les mêmes variables, leurs valeurs changeront en fonction de l'environnement. Voici une description des différentes variables de ces fichiers .env.
+
+> Par défaut, macOS cache les fichiers commençant par .env, vous ne les verrez pas dans le Finder. Pour y remédier, vous devez entrer les commandes suivantes dans le Terminal (n'importe où dans l'ordinateur) :
+> - `defaults write com.apple.finder AppleShowAllFiles YES`
+> - `killall Finder`
+>
+> Note : vous pouvez tout faire en une ligne en séparant les commandes par un point-virgule (;). Ex : `defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder`
+
 ```bash
 # Contient le dossier qui contient votre projet. Par exemple si votre projet (le contenu du dossier code) est dans un dossier nommé "toto", il faudra mettre comme valeur "toto/".
 # Dans le fichier .env.prod, la valeur est inexistante car on part du principe que le contenu du dossier "code/" sera à la racine du serveur. Mais si c'est dans un autre dossier, il faudra mettre une valeur. Pensez bien à mettre la barre oblique à la fin (/) ceci est très important.
