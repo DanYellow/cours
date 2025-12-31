@@ -299,6 +299,7 @@
 .consignes-conteneur li {
     padding: revert;
     list-style: revert;
+    padding-bottom: 2px;
 }
 
 .note-importante {
