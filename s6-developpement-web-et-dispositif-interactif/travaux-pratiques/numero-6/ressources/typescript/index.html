@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://cyiut.cyu.fr/uas/iut/FAVICON/favicon-iut-cergypontoise_400x400px.png"
+        />
+        <title>Typscript — Consignes TP</title>
+        <link
+            rel="stylesheet"
+            href="https://danyellow.net/cours-mmi/consignes.css"
+        />
+        <script
+            src="https://danyellow.net/cours-mmi/consignes.js"
+            defer
+        ></script>
+
+        <!-- <style>
+            code {
+                background-color: rgb(29, 31, 33);
+                padding: 0 0.35rem; color: white;
+                border: 1px solid #b4b4b4;
+                border-radius: 0.25rem;
+            }
+        </style> -->
+    </head>
+
+    <body>
+        <header class="entete-consignes">
+            <h1 class="titre-consignes">Consignes de la pratique - Typscript</h1>
+
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 1 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Créez un projet nodejs avec la commande <code>npm init --y</code> et installez typescript avec la commande
+                            <code>npm install -D typescript</code>
+                    </li>
+                    <li>Créez votre premier fichier typescript (extension .ts) avec les variables typées suivantes :
+                        <ul>
+                            <li>Une chaîne de caractères</li>
+                            <li>Un entier et un nombre décimal</li>
+                            <li>Un entier ou un tableau d'entiers</li>
+                            <li>Un tableau du type que vous souhaitez</li>
+                            <li>Un objet avec plusieurs clés et différents types</li>
+                        </ul>
+                        <p>Chaque variable doit être affichée dans un <code>console.log()</code></p>
+                        <div class="note-information">
+                            <p>
+                                <a href="https://www.typescriptlang.org/fr/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">
+                                    Voir documentation des types en typescript - Ouverture dans un nouvel onglet
+                                </a>
+                            </p>
+                            <p class="note-information">
+                                Vous pouvez ajouter l'option <code>--watch</code> à la commande <code>tsc</code> si vous souhaitez transpiler automatiquement votre code à chaque modification.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        Transpilez votre fichier typescript en javascript avec la commande <code>tsc {nom-du-fichier}.ts</code>
+                        <p class="note-information">
+                            <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener noreferrer">
+                                Voir documentation de la ligne de commande tsc - Ouverture dans un nouvel onglet
+                            </a>
+                        </p>
+                    </li>
+                    <li>Consultez le contenu de vos variables dans la console du navigateur en chargeant votre fichier dans une page html</li>
+                    <li>Éditez votre fichier Typescript en introduisant l'erreur suivante : Créez un objet avec une structure définie et oubliez de définir une de ces clés. Que ce passe-t-il ? </li>
+                </ol>
+            </details>
+            <div class="note-information">
+                <p>Il existe une aire de jeu vous permettant de tester rapidement du code Typescript.</p>
+                <ul>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://www.typescriptlang.org/play/">Accéder à l'ère de jeu Typescript - Ouverture dans un nouvel onglet</a></li>
+                </ul>
+            </div>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 2 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        fff
+                    </li>
+                </ol>
+                <p class="note-attention">
+                    La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner une instance de la classe "Response".
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://symfony.com/doc/current/routing.html" target="_blank" rel="noopener noreferrer">Voir documentation du routing - Ouverture dans un nouvel onglet</a>
+                    </li>
+                </ul>
+            </details>
+        </header>
+    </body>
+</html>
