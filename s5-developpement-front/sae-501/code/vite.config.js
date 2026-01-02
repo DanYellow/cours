@@ -9,5 +9,14 @@ export default {
         host: true,
         hmr: true,
         middlewareMode: true,
+        fs: {
+            strict: true,
+            allow: [
+                // Only these folders can be accessed by the dev server
+                'public',
+                'src',
+                'node_modules',
+            ]
+        }
     },
 };
