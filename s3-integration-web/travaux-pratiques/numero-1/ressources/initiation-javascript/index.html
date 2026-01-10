@@ -28,7 +28,7 @@
                     &lt;head>
                     <pre data-code-sample='{"title": "Exemple d&#39;importation de fichier javascript", "allowCopy": true, "language": "HTML"}' style="font-family:monospace;color:rgb(220, 220, 220); font-weight:400;background-color:rgb(30, 30, 30);background:rgb(30, 30, 30);display:block;padding: .5em;"><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;<span style="color:rgb(86, 156, 214); font-weight:400;">script</span> <span style="color:rgb(156, 220, 254); font-weight:400;">src</span>=<span style="color:rgb(214, 157, 133); font-weight:400;">&quot;ressources/scripts.js&quot;</span> <span style="color:rgb(156, 220, 254); font-weight:400;">defer</span>&gt;</span><span style="color:rgb(155, 155, 155); font-weight:400;">&lt;/<span style="color:rgb(86, 156, 214); font-weight:400;">script</span>&gt;</span></pre>
                     <p class="note-information">L'attribut 'defer' permet de charger notre fichier javascript après que
-                        la partie HTML a été chargée.</p>
+                        la partie HTML a été chargée. Il est préférable de faire ceci pour éviter des erreurs lorsqu'on manipule des éléments de la page avec le javascript.</p>
 
                 </li>
                 <li>Créez deux variables, une contenant un entier et l'autre une chaîne de caractères
@@ -53,6 +53,7 @@
                     </ul>
                 </li>
                 <li>Constatez la bonne réussite en ouvrant la console du navigateur, onglet "Console"</li>
+                <li>Échangez le contenu de ces variables (la valeur de variable A doit être égale à la valeur de la variable B et vice-versa). Puis constatez la bonne réussite en ouvrant la console du navigateur, onglet "Console"</li>
             </ol>
         </details>
         <details class="consignes-conteneur">
