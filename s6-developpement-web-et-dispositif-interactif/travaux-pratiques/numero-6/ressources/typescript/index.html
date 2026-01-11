@@ -43,8 +43,11 @@
                     <li>
                         Créez un projet nodejs avec la commande <code>npm init --y</code> et installez typescript avec la commande
                             <code>npm install -D typescript</code>
+                            <p class="note-information">
+                                Pour rappel, la commande <code>npm init --y</code> permet de créer rapidement un projet nodejs en acceptant tous les paramètres par défaut. Si vous souhaitez définir vous-même ces paramètres, il vous suffit de retirer <code>--y</code> de la commande.
+                            </p>
                     </li>
-                    <li>Créez votre premier fichier typescript (extension .ts) avec les variables typées suivantes :
+                    <li>Créez votre premier fichier Typescript (extension .ts) avec les variables typées suivantes :
                         <ul>
                             <li>Une chaîne de caractères</li>
                             <li>Un entier et un nombre décimal</li>
@@ -65,7 +68,10 @@
                         </div>
                     </li>
                     <li>
-                        Transpilez votre fichier typescript en javascript avec la commande <code>tsc {nom-du-fichier}.ts</code>
+                        Transpilez votre fichier Typescript en javascript avec la commande <code>tsc {nom-du-fichier}.ts</code>
+                        <p class="note-attention">
+                            A moins que vous ayez installé Typescript au global (à éviter), la commande <code>tsc {nom-du-fichier}.ts</code> ne fonctionnera pas, car la commande <code>tsc</code> ne sera pas reconnue. Pour qu'elle fonctionne, il faudra rajouter <code>tsc {nom-du-fichier}.ts</code> parmi les commandes de la clé "scripts" du fichier <code>package.json</code>.
+                        </p>
                         <p class="note-information">
                             <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener noreferrer">
                                 Voir documentation de la ligne de commande tsc - Ouverture dans un nouvel onglet
@@ -73,7 +79,7 @@
                         </p>
                     </li>
                     <li>Consultez le contenu de vos variables dans la console du navigateur en chargeant votre fichier dans une page html</li>
-                    <li>Éditez votre fichier Typescript en introduisant l'erreur suivante : Créez un objet avec une structure définie et oubliez de définir une de ces clés. Que ce passe-t-il ? </li>
+                    <li>Éditez votre fichier Typescript en introduisant l'erreur suivante : Créez un objet avec une structure définie et oubliez de définir une de ces clés. Que se passe-t-il ? </li>
                 </ol>
             </details>
             <div class="note-information">
@@ -81,6 +87,12 @@
                 <ul>
                     <li><a target="_blank" rel="noopener noreferrer" href="https://www.typescriptlang.org/play/">Accéder à l'ère de jeu Typescript - Ouverture dans un nouvel onglet</a></li>
                 </ul>
+                <p>Si vous avez besoin d'un rappel concernant les fonctionnalités de Typescript, vous avez un ensemble de feuillets de rappels disponibles sur le site officiel.</p>
+                    <ul>
+                        <li>
+                            <a href="https://www.typescriptlang.org/cheatsheets/" target="_blank" rel="noopener noreferrer">Accéder aux TypeScript Cheat Sheets</a>
+                        </li>
+                    </ul>
             </div>
             <details class="consignes-conteneur">
                 <summary>
@@ -90,8 +102,12 @@
                 </summary>
                 <ol>
                     <li>
-                        fff
+                        Créez un type ou une interface permettant de stocker plusieurs clés. Et réutilisez-là
+                        <p class="note-attention">
+                            N'oubliez pas d'indiquer le mot-clé "type" quand vous importez votre interface/type, ça fonctionne sans, mais Typescript vous l'indiquera.
+                        </p>
                     </li>
+                    <li>Étendez le type / interface précédemment crée en lui ajoutant de nouvelles propriétés</li>
                 </ol>
                 <p class="note-attention">
                     La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner une instance de la classe "Response".

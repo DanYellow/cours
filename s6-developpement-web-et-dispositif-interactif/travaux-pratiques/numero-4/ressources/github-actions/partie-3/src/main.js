@@ -108,7 +108,7 @@ export const rippleEffect = (e, color = "#fff") => {
 
         const rect = $el.getBoundingClientRect();
 
-        const [x, y] = [parseInt(e.clientX - rect.left), parseInt(e.clientY - rect.top)];
+        const [x, y] = [Number(e.clientX - rect.left), Number(e.clientY - rect.top)];
         const start = performance.now();
 
         requestAnimationFrame(function raf(now) {
