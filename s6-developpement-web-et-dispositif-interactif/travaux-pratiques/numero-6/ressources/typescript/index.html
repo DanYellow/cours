@@ -46,6 +46,9 @@
                             <p class="note-information">
                                 Pour rappel, la commande <code>npm init --y</code> permet de créer rapidement un projet nodejs en acceptant tous les paramètres par défaut. Si vous souhaitez définir vous-même ces paramètres, il vous suffit de retirer <code>--y</code> de la commande.
                             </p>
+                            <p class="note-attention">
+                                Une fois le fichier package.json généré, pensez à rajouter l'attribut <code>"type": "module"</code> à la racine. Ceci permet d'indiquer que nous allons utiliser les modules javascript.
+                            </p>
                     </li>
                     <li>Créez votre premier fichier Typescript (extension .ts) avec les variables typées suivantes :
                         <ul>
@@ -54,6 +57,23 @@
                             <li>Un entier ou un tableau d'entiers</li>
                             <li>Un tableau du type que vous souhaitez</li>
                             <li>Un objet avec plusieurs clés et différents types</li>
+                            <li>Associez un type à la variable suivante :
+                                <pre data-code-sample="" style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(129, 162, 190); font-weight: 400;">const</span> listPokemon = [
+  {
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">"Pikachu"</span>,
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">id</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">"25"</span>,
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">list_types</span>: [<span style="color: rgb(181, 189, 104); font-weight: 400;">"electric"</span>],
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">sprite</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">""</span>,
+  },
+  {
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">name</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">"Gengar "</span>,
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">id</span>: <span style="color: rgb(181, 189, 104); font-weight: 400;">"94"</span>,
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">list_types</span>: [<span style="color: rgb(181, 189, 104); font-weight: 400;">"ghost"</span>, <span style="color: rgb(181, 189, 104); font-weight: 400;">"poison"</span>],
+  },
+];
+</pre>
+
+                            </li>
                         </ul>
                         <p>Chaque variable doit être affichée dans un <code>console.log()</code></p>
                         <div class="note-information">
@@ -80,6 +100,7 @@
                     </li>
                     <li>Consultez le contenu de vos variables dans la console du navigateur en chargeant votre fichier dans une page html</li>
                     <li>Éditez votre fichier Typescript en introduisant l'erreur suivante : Créez un objet avec une structure définie et oubliez de définir une de ces clés. Que se passe-t-il ? </li>
+                    <li>Supprimez le type d'une ou plusieurs variables que vous avez défini. Puis survolez le nom de la variable. Que constatez-vous ?</li>
                 </ol>
             </details>
             <div class="note-information">
@@ -108,15 +129,65 @@
                         </p>
                     </li>
                     <li>Étendez le type / interface précédemment crée en lui ajoutant de nouvelles propriétés</li>
-                </ol>
-                <p class="note-attention">
-                    La méthode d'un contrôleur associé à une route <span class="texte-gras">doit toujours</span> retourner une instance de la classe "Response".
-                </p>
-                <ul>
                     <li>
-                        <a href="https://symfony.com/doc/current/routing.html" target="_blank" rel="noopener noreferrer">Voir documentation du routing - Ouverture dans un nouvel onglet</a>
+                        Ajoutez une fonction de votre choix à l'objet global <code>Window</code> (avec un W majuscule) et définissez sa signature dans un fichier <code>declare.d.ts</code>. Que se passe-t-il ?
+                        <p class="note-information">
+                            Ce fichier de déclaration est appelé <code>declare.d.ts</code> par convention. Il est parfois appelé <code>environment.d.ts</code> ou encore le <code>nom-de-biblothèque.d.ts</code>
+                        </p>
                     </li>
-                </ul>
+                </ol>
+            </details>
+            <details class="consignes-conteneur">
+                <summary>
+                    <h2 class="h1">
+                        Partie 3 (cliquer pour afficher / cacher)
+                    </h2>
+                </summary>
+                <ol>
+                    <li>
+                        Rajoutez un fichier <code>tsconfig.json</code> à la racine du fichier à partir de l'exemple suivant et complétez-le :
+<pre data-code-sample='{"title":"tsconfig.json","displayLineCode":true,"allowCopy":true, "language":"json","id":"tsconfig"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(156, 220, 254); font-weight:400;">{</span>
+  <span style="color:rgb(156, 220, 254); font-weight:400;">"compilerOptions"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color:rgb(156, 220, 254); font-weight:400;">{</span>
+    <span style="color:rgb(156, 220, 254); font-weight:400;">"target"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"ES2023"</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+    <span style="color:rgb(156, 220, 254); font-weight:400;">"module"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"ESNext"</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+    <span style="color:rgb(156, 220, 254); font-weight:400;">"lib"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color:rgb(156, 220, 254); font-weight:400;">[</span><span style="color: rgb(171, 227, 56); font-weight: 400;">"ES2022"</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"DOM"</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"DOM.Iterable"</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span> <span style="color: rgb(171, 227, 56); font-weight: 400;">"es2024"</span><span style="color:rgb(156, 220, 254); font-weight:400;">]</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+    <span style="color:rgb(156, 220, 254); font-weight:400;">"strict"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color: rgb(245, 171, 53); font-weight: 400;"><span style="color: rgb(220, 198, 224); font-weight: 400;">true</span></span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+  <span style="color:rgb(156, 220, 254); font-weight:400;">}</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+  <span style="color:rgb(156, 220, 254); font-weight:400;">"include"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color:rgb(156, 220, 254); font-weight:400;">[</span><span style="color:rgb(156, 220, 254); font-weight:400;">]</span><span style="color:rgb(156, 220, 254); font-weight:400;">,</span>
+  <span style="color:rgb(156, 220, 254); font-weight:400;">"exclude"</span><span style="color:rgb(156, 220, 254); font-weight:400;">:</span> <span style="color:rgb(156, 220, 254); font-weight:400;">[</span><span style="color: rgb(156, 220, 254); font-weight:400;">]</span>
+<span style="color: rgb(156, 220, 254); font-weight:400;">}</span></pre>
+<p class="note-information">
+    Si vous vous le souhaitez, vous pouvez compiler votre code dans un autre dossier grâce à la clé <code>compilerOptions.outDir</code>. Si le dossier n'existe pas, typescript le créera. Notez bien que le chemin commence à la racine du projet.
+</p>
+<ul>
+    <li>
+        <a href="https://www.typescriptlang.org/tsconfig" target="_blank" rel="noopener noreferrer">Voir détails des clés du fichier tsconfig.json (ouverture dans un nouvel onglet)</a>
+    </li>
+</ul>
+
+        <script type="text/json" data-code-sample-id="tsconfig">
+        {
+            "4": "Demande à typescript de désactiver un ensemble de régles de vérification (affinable, règle par règle). Mettre cet attribut à true ne désactive pas la transpilation s'il y a une erreur, le fichier sera quand même généré. Si vous souhaitez désactiver la transpilation s'il y a une erreur, il faudra rajouter la clé \"noEmitOnError\" avec la valeur true ",
+            "8": "Liste des fichiers / dossiers à transpiler. Évitez un sélecteur trop large comme \"**/*.ts\", la transpilation sera plus longue et un sélecteur pareil est incorrect car on omet les fichiers \"d.ts\". Il est préférable d'indiquer un dossier, par exemple le dossier src (que vous aurez crée)",
+            "9": "Fichiers / dossiers à ignorer. Cette clé est facultative si la valeur de la clé \"include\" est suffisamment restreinte. Mais généralement, on y trouvera le dossier node_modules ainsi que les fichiers de test",
+            "3": "{{template:tsconfig_target}}",
+            "5": "{{template:tsconfig_lib}}"
+        }
+        </script>
+        <template data-template-id="tsconfig_target">
+            Indique la version de javascript qu'on cible lors de la compilation, plus la version sera élevée, moins de navigateurs seront gérés
+        </template>
+
+        <template data-template-id="tsconfig_lib">
+            Indique les bibliothèques javascript à lister parmi les types. Cette clé peut être utile si jamais vous comptez utiliser des fonctionnalités de javascript sorties après la version de javascript que vous avez définis dans la clé "target"
+        <!-- En tous les cas, Typescript gère pour vous cette contrainte. Ainsi si vous utilisez une fonctionnalité avancée mais que votre cible (target) est plus basse. Il essayera de générer l'équivalent. -->
+        </template>
+
+                    </li>
+                <li>
+                    Modifiez ou ajoutez une commande à votre fichier <code>package.json</code> pour transpiler votre projet typescript au global en retirant le fichier ciblé
+                </li>
+                </ol>
             </details>
         </header>
     </body>
