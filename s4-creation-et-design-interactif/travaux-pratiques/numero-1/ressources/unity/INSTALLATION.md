@@ -10,7 +10,7 @@ Une fois Unity Hub installé et lancé. Allez dans la rubrique "Installs" et cli
 |:--:|
 | *Dans cette capture, nous avons déjà des versions d'Unity d'installées (3). Il est possible d'avoir plusieurs versions d'Unity sur son ordinateur* |
 
-Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" de la dernière version d'Unity proposée...
+Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" de la dernière version d'Unity **LTS** proposée...
 ![](printscreens/installation-2.png)
 
 ...et une autre fenêtre va s'ouvrir. Elle demande ce que vous souhaitez installer en plus de la version d'Unity sélectionnée à l'étape précédente.
@@ -21,7 +21,7 @@ Une fenêtre va s'ouvrir dans Unity, sélectionnez le bouton "Install" de la der
 
 # Unity à l'IUT
 
-Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs de l'IUT. Il n'est pas utile de l'installer vous-même. Néanmoins, Unity Hub n'est pas forcément conscient qu'Unity est là, vous devrez le faire manuellement depuis Unity Hub. Suivez les étapes.
+Unity ainsi que Unity Hub sont déjà installés sur la plupart des ordinateurs de l'IUT. Il n'est pas utile de l'installer vous-même (vous ne pourrez pas de toute façon). Néanmoins, Unity Hub n'est pas forcément conscient qu'Unity est là, vous devrez le faire manuellement depuis Unity Hub. Suivez les étapes.
 
 | ![](printscreens/locate-unity-1.png) |
 |:--:|
@@ -59,7 +59,7 @@ Pour définir VS Code comme IDE par défaut pour Unity. Suivez les étapes suiva
 
 | ![](printscreens/external-tools.png) |
 |:--:|
-| Exemple |
+| |
 
 [Plus d'informations ici](https://learn.unity.com/tutorial/set-your-default-script-editor-ide#)
 
@@ -79,7 +79,7 @@ Il faudra également installer des extensions pour VS Code gratuites :
 - [Unity Code Snippets](https://marketplace.visualstudio.com/items?itemName=kleber-swf.unity-code-snippets)
 <br>
 
-Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter". Deplus, vous devriez avoir la coloration syntaxique.
+Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity commencez à écrire "OnColli", votre logiciel devrait vous faire des propositions dont "OnCollisionExit2D" ou "OnCollisionEnter". De plus, vous devriez avoir la coloration syntaxique.
 
 | ![](printscreens/installation-4.png) |
 |:--:|
@@ -88,12 +88,15 @@ Et pour vous assurer que vous avez bien l'auto-complétion des méthodes d'Unity
 - [En savoir plus - vidéo en anglais moins de 5 minutes](https://www.youtube.com/watch?v=Du0UMIw_EE8)
 
 # Utilisation de git
-Pour entretenir vos connaissances de git, vous **devrez mettre l'avancée des cours sur github,** et ce, dès le premier cours. L'avancement de chaque TP devra être enregistré sur GitHub. Par conséquent, créez dès maintenant un nouveau projet sur github en public. Et après avoir cloné ce dépôt sur votre ordinateur, vous créerez votre projet Unity dedans.
+Pour entretenir vos connaissances de git, vous **devrez mettre l'avancée des cours sur github,** et ce, dès le premier cours. L'avancement de chaque TP **devra être enregistré sur GitHub.** Par conséquent, créez dès maintenant un nouveau projet sur GitHub en public. Et après avoir cloné ce dépôt sur votre ordinateur, vous créerez votre projet Unity dedans.
 
 Une note sera donnée à la fin des TP concernant votre gestion de git.
 
-Pensez à commiter régulièrement, c'est gratuit. Un commit vous permet d'avoir un point de sauvegarde, vous permettant ainsi de revenir en arrière aisément en cas de problème. Faites-le à chaque étape clé : ajout de ressource / script / changement de structure de niveau...
+> Pensez à commiter régulièrement, c'est gratuit. Un commit vous permet d'avoir un point de sauvegarde, vous permettant ainsi de revenir en arrière aisément en cas de problème. Faites-le à chaque étape clé : ajout de ressource / script / changement de structure de niveau, correction de bug...
 
 N'oubliez pas de mettre à la racine de votre projet Unity, un fichier .gitignore, ceci vous évitera de mettre sur git des fichiers de dépendences qui n'ont rien à faire sur votre dépôt. Vous pouvez le récupérer sur le dépôt git [gitignore](https://github.com/github/gitignore).
 
 Prenez celui dédié à Unity (Unity.gitignore) et **pensez bien à renommer le fichier en ".gitignore"**
+
+- [Télécharger le fichier .gitignore pour Unity](https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Unity.gitignore)
+
