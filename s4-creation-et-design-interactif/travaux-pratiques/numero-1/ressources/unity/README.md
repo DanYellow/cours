@@ -166,6 +166,12 @@ void Update()
     }
 }
 ```
+
+La méthode `Update()` sert également aux choses suivantes (liste non exhaustive) :
+- Lire la vélocité d'un objet
+- Envoyer des informations au composant "Animation" d'un `GameObject`
+- Mettre à jour le canvas et les effets spéciaux
+
 > ** **Attention** **
 >
 > Ne mettez **jamais, jamais** une boucle infinie comme `while(true) {}` dans la méthode `Update()`, Unity plantera à coup sûr car vous faites une imbrication de boucles infinies. Ceci vous forcera également à redémarrer le logiciel et perdre votre travail si vous n'aviez pas sauvegardé.
