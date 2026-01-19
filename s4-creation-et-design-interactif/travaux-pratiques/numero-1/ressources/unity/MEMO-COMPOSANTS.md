@@ -271,14 +271,13 @@ L'`Animator Controller` contrôle l'enchaînement des animations. Par défaut, i
 - Entry : Point d'entrée de votre `Animator Controller`, elle va lancer la première animation
 - Default AnimatorState (en orange) : C'est l'animation qui va être jouée juste après que votre GameObject est instancié
     - Il est obligatoire
-- Any State : AnimatorState permettant de transitionner à tout moment vers un autre `AnimatorState`
-    - Par exemple, si vous souhaitez à tout moment que votre joueur puisse sauter, effectuez un lien depuis "Any State" vers le ou les `AnimatorStates` voulu(s)
+- Any State : AnimatorState permettant de transitionner à tout moment vers un autre `AnimatorState`. Any state est à réserver pour les animations ayant une priorité maximale : Mort, dégâts, étourdissement ou encore recul
 - Exit : AnimatorState réinitialisant votre `Animator Controller` permet de revenir au point d'entrée
 
-### Points à retenir 
+### Points à retenir
 - Vous pouvez pas créer d'`AnimatorStateTransition` vers "Entry" et "Any State"
 - Si vous souhaitez changer d'`AnimatorState` par défaut, faites un `clic droit (sur le AnimatorState voulu) > Set As Layer Default State`
-- Lorsque vous faites un `AnimatorStateTransition` depuis "Any State" assurez-vous que "Has exit time" est coché, sinon vous aurez un comportement étrange 
+- Lorsque vous faites un `AnimatorStateTransition` depuis "Any State" assurez-vous que "Has exit time" est coché, sinon vous aurez un comportement étrange
 
 ## AnimatorState
 Bloc représentant un état de l'`Animator Controller`, une animation à jouer lorsque les conditions sont remplies. Quand vous sélectionnez un `AnimatorState`, vous pouvez définir l'`AnimationClip` ou `BlendTree` qui va être joué. En plus de ça, il vous pouvez en définir la vitesse. La propriété `speed` est notamment utile pour jouer une animation à l'envers, la propriété est une valeur normalisée, la valeur 1.0 est la valeur de base. Et plus elle s'approche de 0, plus l'animation sera jouée lentement. Si la valeur est négative l'animation sera jouée à l'envers.
@@ -344,7 +343,7 @@ Sauf cas spéciaux, les valeurs par défaut des composants Grid, Tilemap et Tile
 Une Tile Palette fonctionne comme la palette d'un peindre, la fenêtre est accessible depuis `Window > 2D > Tile Palette`
 
 |![](./printscreens/tilemap-2.jpg)|
-|:--:| 
+|:--:|
 | Notre palette est vide, remplissons-la. Pensez bien à la nommer de façon explicite |
 
 Après avoir cliqué sur "Create New Palette", sélectionnez le dossier qui va recevoir votre palette. Pour des questions d'organisations, il est préférable de créer un dossier "TilePalettes" à la racine du dossier "Assets".
@@ -361,7 +360,7 @@ Une fois l'image importée, il faut prévenir Unity que cette image est découp�
 
 - Cliquez sur le bouton "Sprite Editor". Ceci va ouvrir une nouvelle fenêtre
 - Cliquez sur "Slice" :
-  - Si vous connaissez la taille des tuiles : Choississez "Grid by Cell Size" 
+  - Si vous connaissez la taille des tuiles : Choississez "Grid by Cell Size"
   - Si vous connaissez le nombre de tuiles par colonne et ligne : Choississez "Grid by Cell Count"
 
   ![](./printscreens/tilemap-4.jpg)
@@ -388,7 +387,7 @@ La gestion des collisions pour un tilemap nécessite les trois composants suivan
 - Composite Collider 2D
 - Rigidbody 2D (crée automatiquement après avoir ajouté le composant `Composite Collider 2D`)
   - bodyType : Static
-  
+
 L'utilisation des composants vous assure d'avoir un grand Collider qui regroupera toutes vos tiles, évitant ainsi aux Colliders qui se déplaceront sur vos Tiles de se bloquer entre deux Tiles. On n'oubliera pas d'appliquer un Layer à notre Tilemap.
 
 > Il est également possible d'appliquer le composant `Platform Effector 2D` sur un Tilemap. Permettant ainsi de traverser les Tiles en fonction de votre position.
@@ -408,7 +407,7 @@ Un Canvas peut s'afficher plusieurs façons, propriété "Render Mode" :
 
 > Attention : Le composant Canvas est très gourmand en ressources, il est préférable de ne pas utiliser le composant Animator dans un Canvas. Si vous souhaitez animer un élément dans un Canvas préférez l'utilisation de code. Il existe le plugin freemium [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) qui permet les animations plus aisées en code.
 
-Pour des questions de performances du GPU, on appliquera les optimisations suivantes : 
+Pour des questions de performances du GPU, on appliquera les optimisations suivantes :
 - Ayez un Canvas par rôle, car même si vous cachez les éléments dont vous n'avez pas besoin, ils sont quand même calculés par Unity. Le mieux est de désactiver le Canvas
   > Il est possible d'avoir un Canvas dans un autre Canvas
 - Désactivez la propriété "Raycast Target" si votre image n'est pas interactive
@@ -419,7 +418,7 @@ Pour des questions de performances du GPU, on appliquera les optimisations suiva
 # <a name="scene"></a>Scène
 - [Voir documentation des scènes](https://docs.unity3d.com/Manual/CreatingScenes.html)
 
-Composant indispensable une scène représente un écran de jeu. Un écran de jeu peut être un niveau ou encore votre menu principal. L'idée des scènes est de découper votre jeu pour le charger progressivement. Si votre scène a trop de contenus, donc trop lourde, elle risque de prendre du temps à être chargée ou pire faire crasher votre jeu si vous essayez de mettre trop de choses dans la mémoire vidéo (GPU RAM). Il est possible de faire un jeu avec une seule scène et charger / décharger les GameObject à la demande, ça fonctionne mais c'est assez fastidieux et nécessite une certaine organisation. 
+Composant indispensable une scène représente un écran de jeu. Un écran de jeu peut être un niveau ou encore votre menu principal. L'idée des scènes est de découper votre jeu pour le charger progressivement. Si votre scène a trop de contenus, donc trop lourde, elle risque de prendre du temps à être chargée ou pire faire crasher votre jeu si vous essayez de mettre trop de choses dans la mémoire vidéo (GPU RAM). Il est possible de faire un jeu avec une seule scène et charger / décharger les GameObject à la demande, ça fonctionne mais c'est assez fastidieux et nécessite une certaine organisation.
 
 > Tout projet Unity possède une scène par défaut nommée "SampleScene". Un projet Unity ne pouvant pas fonctionner sans scène. Il est préférable de nommer ses scènes avec un nom explicite dans un dossier "Scenes".
 
@@ -436,7 +435,7 @@ Il n'y a pas vraiment de limite définie de GameObject dans une scène. Il faut 
 # <a name="prefab"></a>Prefab
 - [Voir documentation des Prefabs](https://docs.unity3d.com/Manual/Prefabs.html)
 
-Une Prefab est un type spécial de composant, c'est un GameObject qui a été sauvegardé dans le but d'être réutilisé à l'envie. Un exemple très simple ça serait un ennemi, une fois défini (Scripts, Sprites...), on aimerait en avoir plusieurs dans nos scènes. Au lieu de copier cet ennemi et s'exposer à de multiples modifications si on doit changer certaines parties de notre ennemi, on en fait une Prefab. 
+Une Prefab est un type spécial de composant, c'est un GameObject qui a été sauvegardé dans le but d'être réutilisé à l'envie. Un exemple très simple ça serait un ennemi, une fois défini (Scripts, Sprites...), on aimerait en avoir plusieurs dans nos scènes. Au lieu de copier cet ennemi et s'exposer à de multiples modifications si on doit changer certaines parties de notre ennemi, on en fait une Prefab.
 
 Avec une Prefab, le GameObject est "centralisé" et toute modification sur le GameObject original est répercutée sur ses copies. Il est tout de même possible de surcharger les propriétés d'un GameObject (sauf supprimer un composant).
 

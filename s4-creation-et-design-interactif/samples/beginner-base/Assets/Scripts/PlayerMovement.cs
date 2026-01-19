@@ -22,16 +22,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     bool isGrounded;
 
-    bool isFalling;
+    bool wasGrounded;
 
+    public bool jumpRequested = false;
+
+    public int nbMaxJumpsAllowed = 3;
     [SerializeField]
-    private int jumpCount;
-    public int maxJumpCount;
+    private int jumpCount = 0;
+
+    public bool enabledShortJump = true;
+
+    bool jumpHeld;
 
     private void Start()
     {
         jumpCount = 0;
-// https://www.youtube.com/watch?v=EyKmLj2ICFw
+        // https://www.youtube.com/watch?v=EyKmLj2ICFw
         // FloatVariable val = ScriptableObject.CreateInstance(type(FloatVariable));
         // FloatVariable val = ScriptableObject.CreateInstance("FloatVariable") as FloatVariable;
         // val.CurrentValue = 41;
@@ -43,36 +49,16 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
 
-        if (isGrounded && !Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            jumpCount = 0;
+            jumpRequested = true;
         }
 
-        if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
-        {
-            Jump(false);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-        {
-            Jump(true);
-        }
-
-        if (rb.linearVelocity.y < fallingThreshold)
-        {
-            isFalling = true;
-        }
-
-        if (isFalling && isGrounded)
-        {
-            Debug.Log("rb.velocity.y : " + rb.linearVelocity.y);
-            isFalling = false;
-        }
+        jumpHeld = Input.GetButton("Jump");
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            Debug.Log("fezfezfz");
-             transform.Translate(VectorFromAngle (45));
+            transform.Translate(VectorFromAngle(45));
             // AddForceAtAngle(15f, 45);
         }
 
@@ -92,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 VectorFromAngle(float theta)
     {
         return new Vector2(
-            Mathf.Cos(theta), 
+            Mathf.Cos(theta),
             Mathf.Sin(theta)
         ); // Trig is fun
     }
@@ -101,11 +87,26 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         isGrounded = IsGrounded();
+
+        if (isGrounded && !wasGrounded)
+        {
+            jumpCount = 0;
+        }
+        Jump();
+
+        wasGrounded = isGrounded;
     }
 
     private void Move()
     {
-        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
+        // rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
+
+        float control = isGrounded ? 1f : 0.5f; // airControl
+
+        if (Mathf.Abs(moveDirectionX) > 0.01f)
+        {
+            rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed * control, rb.linearVelocity.y);
+        }
     }
 
     private void Flip()
@@ -117,13 +118,33 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump(bool shortJump = false)
+    private void Jump()
     {
-        float jumpPower = (shortJump ? rb.linearVelocity.y * 0.5f : jumpForce);
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
-        if (!shortJump)
+        if (jumpRequested)
         {
-            jumpCount = jumpCount + 1;
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            }
+            jumpRequested = false;
+        }
+
+        // if (jumpRequested && jumpCount < nbMaxJumpsAllowed)
+        // {
+        //     jumpCount++;
+        //     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        //     jumpRequested = false;
+        // }
+
+        if (!enabledShortJump) return;
+
+        if (!jumpHeld && rb.linearVelocity.y > 0f && rb.linearVelocity.y <= jumpForce + 0.1f)
+        // if (!jumpHeld && rb.linearVelocity.y > 0f)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                rb.linearVelocity.y * 0.5f
+            );
         }
     }
 

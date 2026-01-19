@@ -12,8 +12,8 @@ public class CameraFollow : MonoBehaviour
 
     void Start() {
         nextPosition = target.position + new Vector3(
-            (offset.x * (target.localEulerAngles.y > 90 ? -1 : 1)),
-            offset.y, 
+            offset.x * target.localEulerAngles.y > 90 ? -1 : 1,
+            offset.y,
             transform.position.z
         );
 
@@ -23,10 +23,27 @@ public class CameraFollow : MonoBehaviour
     private void LateUpdate()
     {
         nextPosition = target.position + new Vector3(
-            (offset.x * (target.localEulerAngles.y > 90 ? -1 : 1)),
-            offset.y, 
-            offset.z
+            offset.x * (target.localEulerAngles.y > 90 ? -1 : 1),
+            offset.y,
+            transform.position.z
         );
         transform.position = Vector3.SmoothDamp(transform.position, nextPosition, ref velocity, smoothTime);
     }
+
+    // void OnDrawGizmos()
+    // {
+    //     if (!target) return;
+
+    //     float direction = target.localEulerAngles.y > 90 ? -1 : 1;
+
+    //     Vector3 previewPosition = target.position + new Vector3(
+    //         offset.x * direction,
+    //         offset.y,
+    //         transform.position.z
+    //     );
+
+    //     // Draw offset line
+    //     Gizmos.color = Color.yellow;
+    //     Gizmos.DrawLine(target.position, previewPosition);
+    // }
 }

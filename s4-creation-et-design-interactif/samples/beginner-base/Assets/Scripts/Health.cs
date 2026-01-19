@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
     {
         // currentHealth = maxHealth;
         currentHealth.CurrentValue = maxHealth.CurrentValue;
-        
     }
 
     private void Update()
