@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class EnemyHead : MonoBehaviour
 {
-    public float bounceForce = 12f;
     private bool isHit = false;
+
+    [SerializeField] private FloatVariable bounceForce;
 
     [SerializeField] Collider2D headCollider;
 
@@ -20,7 +21,7 @@ public class EnemyHead : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             other.GetComponent<PlayerMovement>().ResetCoyoteTime();
-            rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * bounceForce.CurrentValue, ForceMode2D.Impulse);
 
             IHurtable[] listHurtables = GetComponentsInParent<IHurtable>();
 
@@ -34,13 +35,12 @@ public class EnemyHead : MonoBehaviour
                 StartCoroutine(HitCooldown());
             }
         }
-
     }
 
     private IEnumerator HitCooldown()
     {
         isHit = true;
-        yield return new WaitForSeconds(0.1f); // 1-2 frames
+        yield return new WaitForSeconds(0.1f);
         isHit = false;
     }
 }

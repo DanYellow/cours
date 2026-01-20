@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7a857dad5759843b3e26301213ccd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bounceForce: 12
+  bounceForce: {fileID: 11400000, guid: 17c9980a24c1e9b4e8160459a458b811, type: 2}
   headCollider: {fileID: 208977113449752254}
 --- !u!61 &208977113449752254
 BoxCollider2D:
