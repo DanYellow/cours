@@ -28882,7 +28882,8 @@ MonoBehaviour:
   jumpCount: 0
   nbMaxJumpsAllowed: 2
   jumpForce: 13
-  isJumping: 0
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   onLandingFastSO: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
   landingFastShakeInfo: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
   onTogglePauseEvent: {fileID: 11400000, guid: b7a6509538354b74cbca707412cc0d24, type: 2}
@@ -59147,63 +59148,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6722714434073853348, guid: 3a535e80d5f7cab42aa945a6a87c152f, type: 3}
   m_PrefabInstance: {fileID: 135615759}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1513926165
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.373
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.585
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862029129180164272, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139880303022733065, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
-      propertyPath: m_Name
-      value: SnailShell
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
 --- !u!1001 &1515862849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65290,4 +65234,3 @@ SceneRoots:
   - {fileID: 585256500}
   - {fileID: 1682116831}
   - {fileID: 103490839}
-  - {fileID: 1513926165}

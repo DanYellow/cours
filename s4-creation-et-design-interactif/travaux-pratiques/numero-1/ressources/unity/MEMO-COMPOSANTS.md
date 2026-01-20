@@ -303,6 +303,8 @@ Une transition définit les conditions pour lesquelles l'Animator va jouer une a
 ### Trigger ou booléen ?
 
 > Pour savoir si votre transition doit être de type "trigger" ou "booléen", il faut vous poser la question suivante : Est-ce que mon action peut être arrêtée par la volonté du joueur ? Si la réponse est oui alors utilisez un booléen.
+>
+> A noter également qu'une animation type trigger doit **toujours** être déclenchée par un évènement et non par la méthode `Update()`.
 
 Après avoir crée votre transition : clic droit depuis un `AnimationState` vers un autre. Cliquez sur `AnimationStateTransition` (représenté par une flèche) pour la voir en détails.
 

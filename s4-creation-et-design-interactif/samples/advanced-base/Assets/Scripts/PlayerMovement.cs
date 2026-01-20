@@ -22,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 10;
     public bool isStunned = false;
 
-    [Header("Position")]
-    public bool isGrounded = false;
+    [Header("Position"), SerializeField]
+    private bool isGrounded = false;
     public bool isFloatingGrounded = false;
+
+    private bool wasGrounded;
+
 
     public bool isOnFallingPlatform = false;
 
@@ -49,7 +52,15 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
-    public bool isJumping = false;
+    private bool isJumping = false;
+
+    private bool jumpRequested = false;
+    private bool jumpHeld = false;
+
+    [SerializeField]
+    private float fallMultiplier = 2.5f;
+    [SerializeField]
+    private float lowJumpMultiplier = 2f;
 
     private bool isLandingFast = false;
 
@@ -58,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
+
+    private float groundAccel;
+    private float airAccel;
 
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
@@ -68,6 +82,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug"), SerializeField]
     private VectorEventChannel onDebugTeleportEvent;
+
+    void Awake()
+    {
+        groundAccel = moveSpeed / 0.5f;
+        airAccel = groundAccel * 0.25f;
+    }
 
     private void OnEnable()
     {
@@ -97,16 +117,6 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
-        if (isGrounded && !isJumping)
-        {
-            coyoteTimeCounter = coyoteTime;
-            jumpCount = 0;
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
-
         Flip();
         Animations();
     }
@@ -118,28 +128,31 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
+            jumpRequested = true;
         }
         else
         {
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (isJumping && rb.linearVelocity.y < 0)
-        {
-            isJumping = false;
-        }
+        jumpHeld = Input.GetButton("Jump");
+
+        // if (isJumping && rb.linearVelocity.y < 0)
+        // {
+        //     isJumping = false;
+        // }
 
         if (
             jumpBufferCounter > 0f && jumpCount < nbMaxJumpsAllowed && (coyoteTimeCounter > 0f || jumpCount >= 1)
         )
         {
             jumpBufferCounter = 0f;
-            Jump(false);
+            // Jump(false);
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
-            Jump(true);
+            // Jump(true);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -160,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetCoyoteTime()
     {
         jumpCount = 0;
-        isJumping = false;
+        jumpRequested = false;
         coyoteTimeCounter = coyoteTime;
         jumpBufferCounter = jumpBufferTime;
     }
@@ -183,16 +196,70 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
+
+        if (isGrounded && !wasGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+            jumpCount = 0;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (jumpRequested && jumpCount < nbMaxJumpsAllowed)
+        {
+            Jump();
+
+            jumpRequested = false;
+        }
+
+        if (!jumpHeld && rb.linearVelocity.y > 0f && jumpCount > 0)
+        {
+            Jump(true);
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+        }
+        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+        }
+
+        wasGrounded = isGrounded;
     }
 
     private void Move()
     {
-        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
+        // rb.linearVelocity = new Vector2(
+        //         moveDirectionX * moveSpeed,
+        //         rb.linearVelocity.y
+        //     );
+
+        // if (isGrounded)
+        // {
+            float accel = Mathf.Abs(moveDirectionX) > 0.01f ? groundAccel : 30f;
+
+            rb.linearVelocity = new Vector2(
+                Mathf.MoveTowards(rb.linearVelocity.x, moveDirectionX * moveSpeed, accel * Time.fixedDeltaTime)
+                , rb.linearVelocity.y);
+
+        // }
+        // else if (Mathf.Abs(moveDirectionX) > 0.01f)
+        // {
+        //     rb.linearVelocity = new Vector2(
+        //         Mathf.MoveTowards(rb.linearVelocity.x, moveDirectionX * moveSpeed, airAccel * Time.fixedDeltaTime),
+        //         rb.linearVelocity.y
+        //     );
+
+        // }
     }
 
     private void Animations()
     {
-        animator.SetFloat("VelocityX", Mathf.Abs(moveDirectionX));
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocity.x));
         animator.SetFloat("VelocityY", rb.linearVelocity.y);
         animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
         animator.SetBool("IsGrounded", isGrounded);
@@ -209,22 +276,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(bool shortJump = false)
     {
-        float jumpPower = shortJump ? rb.linearVelocity.y * 0.5f : jumpForce;
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
-
-        if (!shortJump)
+        if (shortJump)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                rb.linearVelocity.y * 0.5f
+            );
+        } else
         {
             jumpCount++;
-            isJumping = true;
-
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             if (jumpCount > 1)
             {
                 animator.SetTrigger("DoubleJump");
             }
-        }
-        else
-        {
-            coyoteTimeCounter = 0f;
         }
     }
 
