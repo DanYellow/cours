@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySplitting : MonoBehaviour
+public class EnemySplitting : MonoBehaviour, IHurtable
 {
     public Animator animator;
 

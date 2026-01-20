@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
-    private bool isJumping = false;
+    public bool isJumping = false;
 
     private bool isLandingFast = false;
 
@@ -155,6 +155,14 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
             }
         }
+    }
+
+    public void ResetCoyoteTime()
+    {
+        jumpCount = 0;
+        isJumping = false;
+        coyoteTimeCounter = coyoteTime;
+        jumpBufferCounter = jumpBufferTime;
     }
 
     private IEnumerator CrossFloatingPlatforms()

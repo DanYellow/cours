@@ -5,7 +5,6 @@ public class Shell : MonoBehaviour
     public BoxCollider2D bc;
     public Rigidbody2D rb;
     public Animator animator;
-    public Enemy enemy;
 
     public float speed = 0.3f;
 
@@ -56,7 +55,7 @@ public class Shell : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Knockback>().Apply(Vector2.zero, 0);
-            enemy.Hurt();
+            // GetComponent<IHurtable>().Hurt();
         }
     }
 

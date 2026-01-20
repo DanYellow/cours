@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IHurtable
 {
     public FloatVariable maxHealth;
 
@@ -36,12 +36,11 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0) return;
 
-        other.GetContacts(listContacts);
+        // other.GetContacts(listContacts);
 
         if (
-            other.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth) &&
-            other.gameObject.CompareTag("Player") &&
-            listContacts[0].normal.y > -0.5f
+            other.gameObject.TryGetComponent(out PlayerHealth playerHealth) &&
+            other.gameObject.CompareTag("Player")
             )
         {
             playerHealth.TakeDamage(1f);
@@ -110,7 +109,7 @@ public class Enemy : MonoBehaviour
         while(current <= 1) {
             // https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/
             float angle = Mathf.LerpAngle(startZAngle, 180, Mathf.Sin(current * Mathf.PI * 0.5f));
-    
+
             transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle);
 
             current += Time.fixedDeltaTime / duration;

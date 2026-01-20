@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyUnshelled : MonoBehaviour
+public class EnemyUnshelled : MonoBehaviour, IHurtable
 {
     public Animator animator;
 
