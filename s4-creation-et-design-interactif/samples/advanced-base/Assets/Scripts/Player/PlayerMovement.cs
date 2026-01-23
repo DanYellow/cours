@@ -157,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isOnOneWayPlatform && !isGrounded)
             {
+                GetComponent<SpriteRenderer>().color = Color.orangeRed;
                 isLandingFast = true;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
             }
@@ -352,6 +353,7 @@ public class PlayerMovement : MonoBehaviour
         isLandingFast = false;
         GetComponent<Knockback>().Apply(Vector2.zero, 0);
         onLandingFastSO.Raise(landingFastShakeInfo);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnDebugTeleport(Vector3 newPos)
