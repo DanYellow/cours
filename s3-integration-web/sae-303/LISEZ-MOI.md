@@ -91,7 +91,7 @@ N'oubliez pas l'accessibilité sur ce site et l'utilisation de bonnes balises HT
 L'infographie devra respecter les règles suivantes :
 - La présence des sources
   - Carton final si en vidéo motion design (possible à chaque "plan" de la vidéo)
-- Mettre les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation
+- Mettre **les auteurs de l'infographie, le logo de l'université ainsi que l'année de réalisation**
 - Formats print et instagram :
   - Print : A3 minimum (29,7cm x 42cm) - Portrait ou Paysage. Le format peut être plus long que large ou l'inverse. L'idée, c'est d'avoir un grand document print
   - Instagram : Format carré (possibilité d'avoir plusieurs images)
