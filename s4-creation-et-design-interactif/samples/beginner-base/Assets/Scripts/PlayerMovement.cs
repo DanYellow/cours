@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
+        if (isGrounded && !wasGrounded)
+        {
+            jumpCount = 0;
+        }
+
         // float force = Input.GetButton("Jump") ? stompBounceForce * 1.2f : stompBounceForce;
 
         if (Input.GetButtonDown("Jump"))
@@ -68,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Flip();
+
+        wasGrounded = isGrounded;
     }
 
     public void AddForceAtAngle(float force, float angle)
@@ -93,26 +100,29 @@ public class PlayerMovement : MonoBehaviour
         Move();
         isGrounded = IsGrounded();
 
-        // if (isGrounded)
-        // {
-        //     coyoteTimeCounter = coyoteTime;
-        // }
-        // else
-        // {
-        //     coyoteTimeCounter -= Time.fixedDeltaTime;
-        // }
-
-        if (isGrounded && !wasGrounded)
+        if (jumpRequested)
         {
-            jumpCount = 0;
+            // if (coyoteTimeCounter > 0f)
+            // {
+            //     Jump();
+            //     coyoteTimeCounter = 0f;
+            // }
+            // else if (!isGrounded && jumpCount < nbMaxJumpsAllowed)
+            // {
+            //     Jump();
+            // }
+
+            if (isGrounded || jumpCount < nbMaxJumpsAllowed)
+            {
+                Jump();
+            }
         }
 
-        if (jumpRequested && (coyoteTimeCounter > 0f || jumpCount < nbMaxJumpsAllowed))
-        // if (jumpRequested && isGrounded && jumpCount < nbMaxJumpsAllowed)
-        {
-
-            Jump();
-        }
+        // if (jumpRequested && (coyoteTimeCounter > 0f || jumpCount < nbMaxJumpsAllowed))
+        // if (jumpRequested && (isGrounded || (jumpCount < nbMaxJumpsAllowed && rb.li)))
+        // {
+        //     Jump();
+        // }
 
         if (jumpReleased && rb.linearVelocityY > 0f)
         {
@@ -133,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2f - 1) * Time.fixedDeltaTime;
         }
 
-        wasGrounded = isGrounded;
+
     }
 
     private void Move()

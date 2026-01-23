@@ -373,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5747771450769680692, guid: aefbf5d20e2de3141aabe6d214988543, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.44
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 5747771450769680692, guid: aefbf5d20e2de3141aabe6d214988543, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2588,7 +2588,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2616,7 +2616,6 @@ MonoBehaviour:
   rb: {fileID: 1748196182}
   moveSpeed: 10
   jumpForce: 12
-  fallingThreshold: -20
   listCollisionLayers:
     serializedVersion: 2
     m_Bits: 72
@@ -2624,9 +2623,9 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   isGrounded: 0
   jumpRequested: 0
+  jumpReleased: 0
   nbMaxJumpsAllowed: 3
   jumpCount: 0
-  enabledShortJump: 0
 --- !u!212 &1748196184
 SpriteRenderer:
   serializedVersion: 2
@@ -2695,7 +2694,7 @@ Transform:
   m_GameObject: {fileID: 1748196180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.886, y: -4.136, z: 0}
+  m_LocalPosition: {x: -10.99, y: -4.136, z: 0}
   m_LocalScale: {x: 0.5947, y: 0.624, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3652,8 +3651,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_AngularDamping: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3661,7 +3660,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0

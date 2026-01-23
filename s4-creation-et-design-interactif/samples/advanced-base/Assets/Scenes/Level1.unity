@@ -28866,6 +28866,9 @@ MonoBehaviour:
   bc: {fileID: 814072432}
   animator: {fileID: 814072434}
   moveSpeed: 11
+  accel: 80
+  decel: 70
+  turnAccel: 120
   isStunned: 0
   isGrounded: 0
   isFloatingGrounded: 0

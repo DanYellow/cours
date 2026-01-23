@@ -18,16 +18,20 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
 
-    [Tooltip("Running system"), SerializeField]
+    [Tooltip("Running system"), SerializeField, Range(5, 30)]
     private float moveSpeed = 10;
+    [SerializeField] private float accel = 80f;
+    [SerializeField] private float decel = 70f;
+    [SerializeField] private float turnAccel = 120f;
+
+    private float velocityX;
     public bool isStunned = false;
 
     [Header("Position"), SerializeField]
     private bool isGrounded = false;
-    public bool isFloatingGrounded = false;
+    public bool isOnOneWayPlatform = false;
 
     private bool wasGrounded;
-
 
     public bool isOnFallingPlatform = false;
 
@@ -52,10 +56,8 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius = 0.95f;
     [SerializeField, Tooltip("How high the player will jump")]
     private float jumpForce;
-    private bool isJumping = false;
 
-    private bool jumpRequested = false;
-    private bool jumpHeld = false;
+    private bool jumpReleased = false;
 
     [SerializeField]
     private float fallMultiplier = 2.5f;
@@ -70,9 +72,6 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
-    private float groundAccel;
-    private float airAccel;
-
     [Header("Broadcast event channels"), SerializeField]
     private CameraShakeEventChannel onLandingFastSO;
     [SerializeField]
@@ -82,12 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug"), SerializeField]
     private VectorEventChannel onDebugTeleportEvent;
-
-    void Awake()
-    {
-        groundAccel = moveSpeed / 0.5f;
-        airAccel = groundAccel * 0.25f;
-    }
 
     private void OnEnable()
     {
@@ -117,8 +110,24 @@ public class PlayerMovement : MonoBehaviour
             LandingImpact();
         }
 
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
         Flip();
         Animations();
+
+        if (isGrounded && !wasGrounded)
+        {
+            jumpCount = 0;
+        }
+
+        wasGrounded = isGrounded;
     }
 
     private void Controls()
@@ -128,41 +137,25 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
-            jumpRequested = true;
         }
         else
         {
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        jumpHeld = Input.GetButton("Jump");
-
-        // if (isJumping && rb.linearVelocity.y < 0)
-        // {
-        //     isJumping = false;
-        // }
-
-        if (
-            jumpBufferCounter > 0f && jumpCount < nbMaxJumpsAllowed && (coyoteTimeCounter > 0f || jumpCount >= 1)
-        )
+        if (Input.GetButtonUp("Jump"))
         {
-            jumpBufferCounter = 0f;
-            // Jump(false);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-        {
-            // Jump(true);
+            jumpReleased = true;
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            if (isFloatingGrounded && !hasCrossedFloatingPlatforms)
+            if (isOnOneWayPlatform && !hasCrossedFloatingPlatforms)
             {
                 StartCoroutine(CrossFloatingPlatforms());
             }
 
-            if (!isFloatingGrounded && !isGrounded)
+            if (!isOnOneWayPlatform && !isGrounded)
             {
                 isLandingFast = true;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
@@ -173,7 +166,6 @@ public class PlayerMovement : MonoBehaviour
     public void ResetCoyoteTime()
     {
         jumpCount = 0;
-        jumpRequested = false;
         coyoteTimeCounter = coyoteTime;
         jumpBufferCounter = jumpBufferTime;
     }
@@ -189,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
-        isFloatingGrounded = IsFloatingGrounded();
+        isOnOneWayPlatform = IsOnOneWayPlatform();
         hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
 
         if (!isStunned)
@@ -197,64 +189,64 @@ public class PlayerMovement : MonoBehaviour
             Move();
         }
 
-        if (isGrounded && !wasGrounded)
+        if (jumpBufferCounter > 0f)
         {
-            coyoteTimeCounter = coyoteTime;
-            jumpCount = 0;
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
-
-        if (jumpRequested && jumpCount < nbMaxJumpsAllowed)
-        {
-            Jump();
-
-            jumpRequested = false;
+            if (coyoteTimeCounter > 0f)
+            {
+                Jump();
+                coyoteTimeCounter = 0f;
+            }
+            else if (jumpCount < nbMaxJumpsAllowed)
+            {
+                Jump();
+            }
         }
 
-        if (!jumpHeld && rb.linearVelocity.y > 0f && jumpCount > 0)
+        if (jumpReleased && rb.linearVelocityY > 0f)
         {
             Jump(true);
         }
 
-        if (rb.linearVelocity.y < 0)
+        jumpReleased = false;
+
+        if (rb.linearVelocityY < 0)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        else if (rb.linearVelocityY > 0 && !Input.GetButton("Jump"))
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
-
-        wasGrounded = isGrounded;
     }
 
     private void Move()
     {
-        // rb.linearVelocity = new Vector2(
-        //         moveDirectionX * moveSpeed,
-        //         rb.linearVelocity.y
-        //     );
+        float input = moveDirectionX;
 
-        // if (isGrounded)
-        // {
-            float accel = Mathf.Abs(moveDirectionX) > 0.01f ? groundAccel : 30f;
+        if (input != 0)
+        {
+            // Accélération rapide si on change de direction
+            float currentAccel = Mathf.Sign(velocityX) != Mathf.Sign(moveDirectionX)
+                ? turnAccel
+                : accel;
 
-            rb.linearVelocity = new Vector2(
-                Mathf.MoveTowards(rb.linearVelocity.x, moveDirectionX * moveSpeed, accel * Time.fixedDeltaTime)
-                , rb.linearVelocity.y);
+            velocityX = Mathf.MoveTowards(
+                velocityX,
+                moveDirectionX * moveSpeed,
+                currentAccel * Time.fixedDeltaTime
+            );
+        }
+        else
+        {
+            // Décéleration rapide
+            velocityX = Mathf.MoveTowards(
+                velocityX,
+                0,
+                decel * Time.fixedDeltaTime
+            );
+        }
 
-        // }
-        // else if (Mathf.Abs(moveDirectionX) > 0.01f)
-        // {
-        //     rb.linearVelocity = new Vector2(
-        //         Mathf.MoveTowards(rb.linearVelocity.x, moveDirectionX * moveSpeed, airAccel * Time.fixedDeltaTime),
-        //         rb.linearVelocity.y
-        //     );
-
-        // }
+        rb.linearVelocity = new Vector2(velocityX, rb.linearVelocityY);
     }
 
     private void Animations()
@@ -276,16 +268,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(bool shortJump = false)
     {
+
         if (shortJump)
         {
             rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                rb.linearVelocity.y * 0.5f
+                rb.linearVelocityX,
+                rb.linearVelocityY * 0.25f
             );
-        } else
+            coyoteTimeCounter = 0f;
+        }
+        else
         {
             jumpCount++;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
+            jumpBufferCounter = 0f;
             if (jumpCount > 1)
             {
                 animator.SetTrigger("DoubleJump");
@@ -302,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
-    private bool IsFloatingGrounded()
+    private bool IsOnOneWayPlatform()
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
