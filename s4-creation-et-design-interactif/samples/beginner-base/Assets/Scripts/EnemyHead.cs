@@ -13,17 +13,16 @@ public class EnemyHead : MonoBehaviour
         if (isHit) return;
 
         // GetComponent<Rigidbody2D>() : You know the Rigidbody is on the same object
-        Rigidbody2D rb = other.attachedRigidbody; //Better in physics callbacks
+        Rigidbody2D rb = other.attachedRigidbody; // Better in physics callbacks
 
         if (rb.linearVelocityY <= 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, 0f);
             rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
             GetComponentInParent<EnemyAdvanced>().TakeDamage();
 
-             StartCoroutine(HitCooldown());
+            StartCoroutine(HitCooldown());
         }
-
     }
 
     private IEnumerator HitCooldown()

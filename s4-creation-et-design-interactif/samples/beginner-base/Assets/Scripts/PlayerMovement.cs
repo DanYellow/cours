@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,37 +8,30 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     public float moveSpeed;
     public float jumpForce;
-    private bool isJumping = false;
-    private bool isShortJump = false;
-
-    [SerializeField]
-    private float fallingThreshold = -20f;
 
     public LayerMask listCollisionLayers;
     public Transform groundCheck;
     public float groundCheckRadius;
 
     [SerializeField]
-    bool isGrounded;
+    private bool isGrounded;
 
-    bool wasGrounded;
+    private bool wasGrounded;
 
     public bool jumpRequested = false;
+    public bool jumpReleased = false;
 
     public int nbMaxJumpsAllowed = 3;
     [SerializeField]
     private int jumpCount = 0;
 
-    public bool enabledShortJump = true;
-
-    bool jumpHeld;
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
 
     private void Start()
     {
         jumpCount = 0;
         // https://www.youtube.com/watch?v=EyKmLj2ICFw
-        // FloatVariable val = ScriptableObject.CreateInstance(type(FloatVariable));
-        // FloatVariable val = ScriptableObject.CreateInstance("FloatVariable") as FloatVariable;
         // val.CurrentValue = 41;
     }
 
@@ -49,12 +41,25 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
 
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        // float force = Input.GetButton("Jump") ? stompBounceForce * 1.2f : stompBounceForce;
+
         if (Input.GetButtonDown("Jump"))
         {
             jumpRequested = true;
         }
-
-        jumpHeld = Input.GetButton("Jump");
+        if (Input.GetButtonUp("Jump"))
+        {
+            jumpReleased = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -88,25 +93,52 @@ public class PlayerMovement : MonoBehaviour
         Move();
         isGrounded = IsGrounded();
 
+        // if (isGrounded)
+        // {
+        //     coyoteTimeCounter = coyoteTime;
+        // }
+        // else
+        // {
+        //     coyoteTimeCounter -= Time.fixedDeltaTime;
+        // }
+
         if (isGrounded && !wasGrounded)
         {
             jumpCount = 0;
         }
-        Jump();
+
+        if (jumpRequested && (coyoteTimeCounter > 0f || jumpCount < nbMaxJumpsAllowed))
+        // if (jumpRequested && isGrounded && jumpCount < nbMaxJumpsAllowed)
+        {
+
+            Jump();
+        }
+
+        if (jumpReleased && rb.linearVelocityY > 0f)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+               rb.linearVelocity.y * 0.5f
+            );
+        }
+
+        jumpReleased = false;
+        jumpRequested = false;
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2.5f - 1) * Time.fixedDeltaTime;
+        }
+        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2f - 1) * Time.fixedDeltaTime;
+        }
 
         wasGrounded = isGrounded;
     }
 
     private void Move()
     {
-        // rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
-
-        float control = isGrounded ? 1f : 0.5f; // airControl
-
-        if (Mathf.Abs(moveDirectionX) > 0.01f)
-        {
-            rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed * control, rb.linearVelocity.y);
-        }
+        rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Flip()
@@ -120,32 +152,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (jumpRequested)
-        {
-            if (isGrounded)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            }
-            jumpRequested = false;
-        }
-
-        // if (jumpRequested && jumpCount < nbMaxJumpsAllowed)
-        // {
-        //     jumpCount++;
-        //     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        //     jumpRequested = false;
-        // }
-
-        if (!enabledShortJump) return;
-
-        if (!jumpHeld && rb.linearVelocity.y > 0f && rb.linearVelocity.y <= jumpForce + 0.1f)
-        // if (!jumpHeld && rb.linearVelocity.y > 0f)
-        {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                rb.linearVelocity.y * 0.5f
-            );
-        }
+        jumpCount++;
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
     }
 
     public bool IsGrounded()

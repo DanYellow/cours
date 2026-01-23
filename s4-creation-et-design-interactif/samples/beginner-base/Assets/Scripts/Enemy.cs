@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             }
         }
         else
-        {      
+        {
             if (
                 other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
                 other.gameObject.CompareTag("Player") &&
