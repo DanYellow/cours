@@ -111,7 +111,7 @@ Dans ce document, nous n'allons pas voir les `if/else` ou encore boucles `for` o
 
 > Contrairement aux noms de variables, plusieurs fonctions peuvent avoir le même noms, en programmation, ce concept s'appelle la surcharge de méthode. Pour faire simple, plus d'un fonction peuvent avoir le même nom à partir du moment où leur signature est différente.
 
-# Script Unity de base
+## Script Unity de base
 
 ```cs
 using UnityEngine;
@@ -126,12 +126,13 @@ public class MyClass : MonoBehaviour
     }
 
     // Appelée une fois par frame (ou image affichée)
+    // Ex : Si le jeu tourne à 60 FPS (60 frames par seconde), Update sera appelé 60 fois durant la seconde. Attention aux calculs effectués dans cette méthode
     void Update()
     {
     }
 }
 ```
-Ci-dessus vous avez une classe de base, de type MonoBehaviour, à chaque fois que vous allez créer un nouveau script depuis Unity, vous aurez au minimum le code ci-dessus (sans les commentaires en français). Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins.
+La classe `MonoBehaviour` est la classe de base dans un projet Unity. Dans un projet Unity, la quasi-totalité de vos classes hériteront de `MonoBehaviour`. Le code ci-dessous est le gabarit crée par Unity à chaque fois que vous créerez un script. Vous pouvez bien évidemment supprimer ou ajouter des lignes en fonction de vos besoins.
 
 > Dans notre cas, la classe MyClass est contenue dans un fichier appelé MyClass.cs. On s'assurera qu'une classe a le même nom que le fichier.
 >
@@ -145,12 +146,14 @@ Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous perm
 ### Méthode : `Start() {}`
 La méthode `Start()` est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non). Par exemple, dans un jeu vous pourriez y définir les points de vie de départ d'un personnage. **Cette méthode n'est appelée qu'une seule fois,** par cycle de vie du `GameObject` (de la création à la destruction du `GameObject`).
 
-> `GameObject`, quézako ?
+> **`GameObject`, quézako ?**
 >
-> Un `GameObject` est un élément présent sur la scène, donc qui peut être visible à l'écran : personnages, décors, boutons, barre de vie... Il sert de conteneur pour vos scripts et composants. **A noter qu'un script doit impérativement être attaché à un `GameObject`, sinon il ne sera jamais exécuté.**
+> Un `GameObject` est un élément présent sur la scène, donc qui peut être visible à l'écran : personnages, décors, boutons, barre de vie... Ce sont des `GameObject`. Il sert de conteneur pour vos scripts et composants. **A noter qu'un script doit impérativement être attaché à un `GameObject`, sinon il ne sera jamais exécuté.**
 
 ### Méthode : `Update() {}`
-La méthode `Update` est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode `Update()` sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. Notez tout de même que dépendamment de la puissance de l'appareil qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde, ça peut être plus ou moins.
+La méthode `Update` est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode `Update()` sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. De ce fait, il faudra faire attention à ne pas faire de calculs gourmands en ressources dans la méthode.
+
+Notez tout de même que dépendamment de la puissance de l'appareil qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde, ça peut être plus ou moins. Mais il est possible de bloquer la valeur via la propriété `Application.targetFrameRate`.
 Parallèlement, c'est dans cette méthode que vous vérifierez les touches appuyées. Par exemple :
 
 ```cs
@@ -168,9 +171,9 @@ void Update()
 ```
 
 La méthode `Update()` sert également aux choses suivantes (liste non exhaustive) :
-- Lire la vélocité d'un objet
+- Gèrer un compte à rebours ou un minuteur
 - Envoyer des informations au composant "Animation" d'un `GameObject`
-- Mettre à jour le canvas et les effets spéciaux
+- Transition de mouvements
 
 > ** **Attention** **
 >
@@ -290,7 +293,7 @@ public class MyClass : MonoBehaviour
 }
 ```
 Il existe d'autres conventions de programmation liée à Unity / C#, vous n'avez pas forcément besoin de les suivre à la lettre mais de rester cohérent dans votre projet.
-- [Ensemble de conventions de programmation en C# / Unity - anglais](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity)
+- [Ensemble de conventions de programmation en C# / Unity - français](https://unity.com/fr/how-to/naming-and-code-style-tips-c-scripting-unity)
 
 > Le formattage de texte est possible avec des balises ressemblant à du HTML. Ainsi en écrivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
 
@@ -316,9 +319,9 @@ Voici des liens liés aux raccourcis d'Unity, ils pourront vous être utiles :
 
 > Point important : Pour vous éviter des déconvenues lors de la réouverture de votre travail. Nous vous conseillons très fortement de fermer (et sauvegarder) Unity avant d'éteindre votre ordinateur. Car Unity ne sauvegarde pas automatiquement votre projet (pas officiellement) et vous pourriez perdre quelques heures de travail précieuses.
 
-# Notes
+## Notes
 
-Vous serez noté(e) sur votre utilisation de git lors de nos TP. A la fin, vous devrez envoyer le lien de votre dépôt git. Pour éviter d'avoir une mauvaise note, nous vous invitons à commiter régulièrement, un commit, c'est gratuit.
+Vous serez noté(e) sur votre utilisation de git durant ce cycle de cours. A la fin des TP de découverte, vous devrez envoyer le lien de votre dépôt git. Pour éviter d'avoir une mauvaise note, nous vous invitons à commiter régulièrement, un commit, c'est gratuit. **Ne commitez pas tout à la fin.**
 
 De plus, seuls les dossiers suivants doivent être poussés :
 

@@ -55953,63 +55953,6 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4635978963782031069, guid: 7a61305c4ee62b943838072feaa015a2, type: 3}
   m_PrefabInstance: {fileID: 147230460}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1365172833
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.497
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.67295563
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949730, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851825537408949759, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
-      propertyPath: m_Name
-      value: LittleRockEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a45d17794661be4ca543e6ba487d855, type: 3}
 --- !u!4 &1365845557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5600367782922950188, guid: c6b3e4f7870f2cd40aa2376b65ab375b, type: 3}
@@ -65314,4 +65257,3 @@ SceneRoots:
   - {fileID: 585256500}
   - {fileID: 1682116831}
   - {fileID: 103490839}
-  - {fileID: 1365172833}

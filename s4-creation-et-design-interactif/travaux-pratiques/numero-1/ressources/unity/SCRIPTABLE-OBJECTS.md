@@ -46,7 +46,7 @@ Voici un exemple de ScriptableObject
 ```cs
 using UnityEngine;
 
-public class BoatWeaponData : ScriptableObject
+public class EnemyDataSO : ScriptableObject
 {
 
 }
@@ -63,37 +63,41 @@ Sinon, si on reprend le cas de nos bateaux en ScriptableObject, nous voulons avo
 ```cs
 using UnityEngine;
 
-public class BoatWeaponData : ScriptableObject
+public class EnemyDataSO : ScriptableObject
 {
-    public int damage;
+    public int health;
 
     // L'attribut [Range(Min, Max)] permet d'avoir, à la place d'un champ, un slider permettant de faire varier une valeur entre les deux bornes précisées incluses. Ceci équivaut en HTML à "<input type="range" min="0" max="1500" />"
     // A noter que cet attribut fonctionne également avec les float
-    [Range(0, 1500)]
-    public int cost;
-    public string name;
+    [Range(0, 500)]
+    public int damage;
+    public Color color;
 
     // L'attribut [Multiline] permet d'afficher une zone de texte multiligne dans l'inspecteur Unity, un peu comme <textarea> en HTML
     [Multiline]
     public string description;
-    public Sprite sprite;
+    public int speed;
 }
 ```
 
-Une fois notre ScriptableObject définit, vous pouvez créer autant d'armes que vous le souhaitez. Attention tout de même, le code ci-dessous ne vous permettra pas de créer un ScriptableObject pour le moment car il nous manque l'attribut `CreateAssetMenu()` avant la définition de notre classe. Ce qui nous donne, au final, le code suivant :
+> Pourquoi "SO" ?
+>
+> Par convention, on ajoute comme suffixe à nos ScriptableObjects "SO" pour indiquer clairement que le script en est un.
+
+Une fois notre ScriptableObject définit, vous pouvez créer autant de données d'ennemis que vous le souhaitez. Attention tout de même, le code ci-dessous ne vous permettra pas de créer un ScriptableObject pour le moment car il nous manque l'attribut `CreateAssetMenu()` avant la définition de notre classe. Ce qui nous donne, au final, le code suivant :
 ```cs
 [CreateAssetMenu(fileName = "New EnemyData", menuName = "ScriptableObjects/EnemyData")]
 using UnityEngine;
 
-public class EnemyData : ScriptableObject
+public class EnemyDataSO : ScriptableObject
 {
+    public int health;
+    [Range(0, 300)]
     public int damage;
-    [Range(0, 1500)]
-    public int cost;
-    public string name;
+    public Color color;
     [Multiline]
     public string description;
-    public Sprite sprite;
+    public int speed;
 }
 ```
 Rapide explication sur la ligne de code que nous venons d'ajouter :
