@@ -201,15 +201,15 @@ On a vu qu'il est possible de créer deux types de ScriptableObjects, ils ne son
 |       | Variable | Évènement |
 |-----------------|----------|------------|
 | **Quelque chose s'est passé / A besoin de réagir à un évènement**        | ❌     | ✅       |
-| **Besoin de lire une valeur régulièrement (méthode `Update()`)**      | ✅       | ⚠️(1)        |
+| **Besoin de lire une valeur régulièrement<br/> (méthode `Update() et assimilés`)**      | ⚠️(1)       | ❌       |
 | **A besoin d'être transféré dans une autre scène (ou la même)** | ✅      | ❌        |
 | **État global (ex: Difficulté, score)** | ✅       | ❌        |
 
-1. Si possible, utilisez un évènement notamment si c'est pour mettre à jour un Canvas
+1. Si possible, utilisez un évènement notamment si c'est pour mettre à jour un Canvas. Toutefois certaines valeurs ont besoin d'être lues en permanence comme l'endurance, dans ce cas, il faudra passer par la méthode `Update()`
 
 Tout ça peut se résumer en deux questions :
-- Qu'est-ce qui en train de se passer ? -> Variable
-- Est que j'ai fait quelque chose -> Evènement
+- Qu'est-ce qui en train de se passer en ce moment ? -> Variable
+- Est que j'ai fait quelque chose ? -> Evènement
 
 On peut également utiliser les deux en même temps. On pourrait très bien avoir notre barre de vie qui lit à la fois le nombre de points de vie du joueur et écoute un évènement à chaque fois que le joueur est touché.
 
