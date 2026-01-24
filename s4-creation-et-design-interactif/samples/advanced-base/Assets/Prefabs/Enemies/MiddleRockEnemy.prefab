@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4906354661234205442}
-  - component: {fileID: 6089011528692849738}
   - component: {fileID: 208977113449752254}
   m_Layer: 0
   m_Name: EnemyHead
@@ -33,20 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4317209785469998157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6089011528692849738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132080640739344380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7a857dad5759843b3e26301213ccd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  bounceForce: {fileID: 11400000, guid: 17c9980a24c1e9b4e8160459a458b811, type: 2}
-  headCollider: {fileID: 208977113449752254}
 --- !u!61 &208977113449752254
 BoxCollider2D:
   m_ObjectHideFlags: 0
