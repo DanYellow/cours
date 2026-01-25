@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,8 +11,6 @@ public class Enemy : MonoBehaviour
 
     public VoidEventChannelSO onEnemyDeath;
 
-    ContactPoint2D[] contacts = new ContactPoint2D[1];
-
     public bool isBadExample = true;
 
     private void Start()
@@ -23,41 +20,61 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        other.GetContacts(contacts);
 
-        if (isBadExample)
+        if (!other.gameObject.CompareTag("Player")) return;
+
+        ContactPoint2D contact = other.GetContact(0);
+        // if (isBadExample)
+        // {
+        //     if (other.gameObject.TryGetComponent(out HealthBadExample badPlayerHealth) &&
+        //     contact.normal.y > -0.5f
+        //     )
+        //     {
+        //         badPlayerHealth.TakeDamage(1f);
+        //     }
+        // }
+        // else
+        // {
+        //     if (
+        //         other.gameObject.TryGetComponent(out Health playerHealth) &&
+        //             contact.normal.y > -0.5f
+        //     )
+        //     {
+        //         playerHealth.TakeDamage(1f);
+        //     }
+        // }
+
+        if (contact.normal.y < -0.5f)
         {
-            if (other.gameObject.TryGetComponent<HealthBadExample>(out HealthBadExample badPlayerHealth) &&
-            other.gameObject.CompareTag("Player") &&
-            contacts[0].normal.y > -0.5f
-            )
+            currentHealth -= 1f;
+            Vector2 bounceForce = Vector2.up * bounce;
+            other.rigidbody.linearVelocityY = 0;
+            other.rigidbody.AddForce(bounceForce, ForceMode2D.Impulse);
+
+            if (currentHealth <= 0)
             {
-                badPlayerHealth.TakeDamage(1f);
+                // StartCoroutine(SlowTime());
+                Die();
             }
         }
         else
         {
-            if (
-                other.gameObject.TryGetComponent<Health>(out Health playerHealth) &&
-                other.gameObject.CompareTag("Player") &&
-                contacts[0].normal.y > -0.5f
-            )
+            if (isBadExample)
             {
-                playerHealth.TakeDamage(1f);
+                if (other.gameObject.TryGetComponent(out HealthBadExample badPlayerHealth)
+                )
+                {
+                    badPlayerHealth.TakeDamage(1f);
+                }
             }
-        }
-
-        if (contacts[0].normal.y < -0.5f)
-        {
-            currentHealth -= 1f;
-            Vector2 bounceForce = Vector2.up * bounce;
-
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
-
-            if (currentHealth <= 0)
+            else
             {
-                StartCoroutine(SlowTime());
-                Die();
+                if (
+                    other.gameObject.TryGetComponent(out Health playerHealth)
+                )
+                {
+                    playerHealth.TakeDamage(1f);
+                }
             }
         }
     }
@@ -70,8 +87,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        this.gameObject.transform.Rotate(0f, 0f, 45f);
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.transform.Rotate(0f, 0f, 45f);
+        GetComponent<BoxCollider2D>().enabled = false;
         onEnemyDeath.Raise();
 
     }

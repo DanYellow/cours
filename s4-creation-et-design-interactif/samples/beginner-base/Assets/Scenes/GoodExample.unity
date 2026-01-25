@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 123.7, y: -47.3}
+  m_AnchoredPosition: {x: 123.69995, y: -47.30005}
   m_SizeDelta: {x: 175.2954, y: 30.3396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63497454
@@ -2032,7 +2032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5747771450769680696, guid: aefbf5d20e2de3141aabe6d214988543, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2311,10 +2311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3407,7 +3407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5747771450769680696, guid: aefbf5d20e2de3141aabe6d214988543, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3612,14 +3612,13 @@ GameObject:
   - component: {fileID: 6902314831480504761}
   - component: {fileID: 6902314831480504764}
   - component: {fileID: 6902314831480504765}
-  - component: {fileID: 6902314831480504766}
   m_Layer: 6
   m_Name: EnemyAdvanced
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6902314831480504764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3664,28 +3663,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6902314831480504766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6902314831480504763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ec378abf6798449a7a3e9ff628b103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  rb: {fileID: 6902314831480504765}
-  speed: 0.5
-  moveDuration: 5
-  canWait: 1
-  obstacleLayersMask:
-    serializedVersion: 2
-    m_Bits: 8
-  obstacleDetectionLength: 0.15
-  bc: {fileID: 6902314831480504761}
-  obstacleCheckRadius: 0.13
 --- !u!114 &8671651771354112439
 MonoBehaviour:
   m_ObjectHideFlags: 0

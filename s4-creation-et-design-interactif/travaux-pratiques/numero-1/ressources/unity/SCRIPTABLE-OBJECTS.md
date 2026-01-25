@@ -196,7 +196,9 @@ public class Player : MonoBehaviour
 
 Brève explication :
 - OnEnable : Permet d'écouter un évènement et l'associer à une méthode qui sera appelée à chaque fois que l'évènement "onPausePlay" sera appelé
-- OnDisable : Permet de ne plus écouter l'évènement lors que le GameObject est désactivé ou supprimé. Il est indispensable de le faire sinon vous aurez une fuite mémoire
+- OnDisable : Permet de ne plus écouter l'évènement lors que le GameObject est désactivé ou supprimé. **Il est indispensable de le faire sinon vous aurez une fuite mémoire et donc un crash**
+
+> Il existe d'autres méthodes pour écouter un évènement, mais pour aller au plus simple nous utiliserons celle-ci. Une autre façon de faire serait de passer par des UnityEvent, UnityEvent que nous aborderons lorsque nous verrons la gestion de l'interface.
 
 ## Evènements vs Variables
 
@@ -229,7 +231,7 @@ On peut également utiliser les deux en même temps. On pourrait très bien avoi
 
 Dans le cas de notre projet d'initiation, nous avons déjà défini des ScriptableObjects, ils sont dans la ressource que vous avez récupéré dans le dossier "ScriptableObjects". A noter que le dossier contient également des scripts d'édition vous permettant notamment d'émettre un évènement depuis l'éditeur, c'est plus pratique.
 
-Désarchivez le tout puis glissez le dossier dans le dossier `Assets/Scripts/` de votre projet.
+Désarchivez le tout puis glissez le dossier dans le dossier `Assets/` de votre projet.
 
 ## Exercice
 Une fois tout ceci fait, effectuez les tâches suivantes :
