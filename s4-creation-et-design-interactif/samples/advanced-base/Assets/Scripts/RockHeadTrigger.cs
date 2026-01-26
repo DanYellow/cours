@@ -15,23 +15,27 @@ public class RockHeadTrigger : MonoBehaviour
         Bottom,
     }
 
-    public Corner corner;
+    [SerializeField]
+    private Corner corner;
 
-    public BoxCollider2D bc;
+    [SerializeField]
+    private BoxCollider2D bc;
 
     [HideInInspector]
     public GameObject rockHead = null;
 
     // Allow to call external methods when an action occurs within this script
-    public UnityEvent onTrigger;
+    [SerializeField]
+    private UnityEvent onTrigger;
 
-    public LayerMask rockHeadLayer;
+    [SerializeField]
+    private LayerMask rockHeadLayer;
 
     private float checkRadius = 0.1f;
 
     private Vector2 checkPosition;
 
-    private void Start()
+    private void Awake()
     {
         checkPosition = GetCheckPosition();
     }

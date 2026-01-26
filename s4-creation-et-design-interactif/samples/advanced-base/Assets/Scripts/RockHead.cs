@@ -4,16 +4,18 @@ using System.Linq;
 
 public class RockHead : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public BoxCollider2D bc;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private BoxCollider2D bc;
 
     private Vector3 destination;
 
     public RockHeadTrigger[] listTriggers;
 
     private int currentIndex = 0;
-
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
     private string lastAnimationPlayed = "";
 
@@ -37,14 +39,15 @@ public class RockHead : MonoBehaviour
 
     public bool isReversed;
 
-    [Header("ScriptableObjects")]
-    public RockHeadData rockHeadData;
+    [Header("ScriptableObjects"), SerializeField]
+    private RockHeadData rockHeadData;
 
-    [Header("Broadcast event channels")]
-    public CameraShakeEventChannel cameraShake;
-    public ShakeTypeVariable shakeInfo;
+    [Header("Broadcast event channels"), SerializeField]
+    private CameraShakeEventChannel cameraShake;
+    [SerializeField]
+    private ShakeTypeVariable shakeInfo;
 
-    void Start()
+    void Awake()
     {
         rb.mass = rockHeadData.mass;
 
@@ -273,47 +276,55 @@ public class RockHead : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (bc == null) return;
+
         if (listTriggers[currentIndex])
         {
-            Vector3 nextTriggerPosition = new Vector3(
+            var v = (transform.position - listTriggers[currentIndex].transform.position).normalized;
+            var isNextMoveHorizontal = Mathf.Abs(v.x) > Mathf.Abs(v.y);
+
+            var nextTriggerPosition = new Vector2(
                 listTriggers[currentIndex].transform.position.x,
-                listTriggers[currentIndex].transform.position.y,
-                transform.position.z
+                listTriggers[currentIndex].transform.position.y
             );
-            Debug.DrawLine(transform.position, nextTriggerPosition, Color.green);
+            Debug.DrawLine(
+                bc.bounds.center,
+                new Vector2(
+                    isNextMoveHorizontal ? nextTriggerPosition.x : bc.bounds.center.x,
+                    isNextMoveHorizontal ? bc.bounds.center.y : nextTriggerPosition.y
+                ),
+                Color.green
+            );
         }
 
-        if (bc != null)
-        {
-            Gizmos.color = Color.red;
+        Gizmos.color = Color.red;
 
-            switch (currentMovement)
-            {
-                case Movement.HorizontalNegative:
-                    Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.min.x - rockHeadData.crushDistance / 2, bc.bounds.center.y),
+        switch (currentMovement)
+        {
+            case Movement.HorizontalNegative:
+                Gizmos.DrawWireCube(
+                    new Vector2(bc.bounds.min.x - rockHeadData.crushDistance / 2, bc.bounds.center.y),
+                    new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale)
+                );
+                break;
+            case Movement.HorizontalPositive:
+                Gizmos.DrawWireCube(
+                        new Vector2(bc.bounds.max.x + rockHeadData.crushDistance / 2, bc.bounds.center.y),
                         new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale)
                     );
-                    break;
-                case Movement.HorizontalPositive:
-                    Gizmos.DrawWireCube(
-                            new Vector2(bc.bounds.max.x + rockHeadData.crushDistance / 2, bc.bounds.center.y),
-                            new Vector2(rockHeadData.crushDistance, bc.size.y * detectScale)
-                        );
-                    break;
-                case Movement.VerticalNegative:
-                    Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.center.x, bc.bounds.min.y - rockHeadData.crushDistance / 2),
-                        new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
-                    );
-                    break;
-                case Movement.VerticalPositive:
-                    Gizmos.DrawWireCube(
-                        new Vector2(bc.bounds.center.x, bc.bounds.max.y + rockHeadData.crushDistance / 2),
-                        new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
-                    );
-                    break;
-            }
+                break;
+            case Movement.VerticalNegative:
+                Gizmos.DrawWireCube(
+                    new Vector2(bc.bounds.center.x, bc.bounds.min.y - rockHeadData.crushDistance / 2),
+                    new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
+                );
+                break;
+            case Movement.VerticalPositive:
+                Gizmos.DrawWireCube(
+                    new Vector2(bc.bounds.center.x, bc.bounds.max.y + rockHeadData.crushDistance / 2),
+                    new Vector2(bc.size.x * detectScale, rockHeadData.crushDistance)
+                );
+                break;
         }
     }
 }

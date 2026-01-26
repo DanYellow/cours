@@ -8,6 +8,7 @@
   - [Script Unity de base](#script-unity-de-base)
     - [Déclaration de classe : `public class MyClass : MonoBehaviour`](#déclaration-de-classe--public-class-myclass--monobehaviour)
     - [Méthode : `Start() {}`](#méthode--start-)
+      - [Méthode Awake](#méthode-awake)
     - [Méthode : `Update() {}`](#méthode--update-)
   - [Exercice](#exercice)
   - [Propriétés de classes](#propriétés-de-classes)
@@ -168,11 +169,15 @@ La classe `MonoBehaviour` est la classe de base dans un projet Unity. Dans un pr
 Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous permet d'accéder à notre classe partout dans notre projet. Nous verrons plus loin dans le document que le terme "public" peut être remplacé par d'autres mot-clés. Ensuite nous avons le type, ici `class`, nous définissons donc une classe qui a pour nom "MyClass". La synaxe `: MonoBehaviour` désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`. Car la classe `MonoBehaviour` contient déjà ces méthodes avec leur comportement.
 
 ### Méthode : `Start() {}`
-La méthode `Start()` est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non). Par exemple, dans un jeu vous pourriez y définir les points de vie de départ d'un personnage. **Cette méthode n'est appelée qu'une seule fois,** par cycle de vie du `GameObject` (de la création à la destruction du `GameObject`).
+La méthode `Start()` est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non). **Cette méthode n'est appelée qu'une seule fois,** par cycle de vie du `GameObject` (de la création à la destruction du `GameObject`).
 
 > **`GameObject`, quézako ?**
 >
 > Un `GameObject` est un élément présent sur la scène, donc qui peut être visible à l'écran : personnages, décors, boutons, barre de vie... Ce sont des `GameObject`. Il sert de conteneur pour vos scripts et composants. **A noter qu'un script doit impérativement être attaché à un `GameObject`, sinon il ne sera jamais exécuté.**
+
+
+#### Méthode Awake
+La méthode `Awake()` est la première méthode appelée par un `GameObject` lorsqu'il est initialisé. Elle est toujours appélée avant la méthode `Start()` conséquemment. Si elle sert également à initiailiser les variables d'un `GameObject`, on l'utilisera précisemment pour initialiser l'état interne d'un `GameObject` comme les points de vie d'un personnage. Si une variable de votre `GameObject` dépend d'un autre, il faudra passer par la méthode `Start()`.
 
 ### Méthode : `Update() {}`
 La méthode `Update` est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode `Update()` sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. De ce fait, il faudra faire attention à ne pas faire de calculs gourmands en ressources dans la méthode.
@@ -246,11 +251,11 @@ Avant d'écrire vos premières lignes de C#, pensez bien à installer toutes les
 
 **Réalisez les tâches suivantes (n'oubliez pas de retourner le résultat - dans le cas d'une méthode / fonction - et l'afficher avec la méthode `Debug.Log()`) :**
 - Un nombre décimal
-    - A définir dans la fonction `Start()`
+    - A définir dans la fonction `Start()` ou `Awake()`
 - Une chaîne de caractères
-    - A définir dans la fonction `Start()`
+    - A définir dans la fonction `Start()` ou `Awake()`
 - Un tableau contenant des nombres
-    - A définir dans la fonction `Start()`
+    - A définir dans la fonction `Start()` ou `Awake()`
 - Une fonction qui **retourne** "Bonjour" + la chaine de caractères passée en paramètre
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même

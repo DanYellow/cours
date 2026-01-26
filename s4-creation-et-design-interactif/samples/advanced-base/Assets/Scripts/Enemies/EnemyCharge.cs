@@ -45,6 +45,8 @@ public class EnemyCharge : MonoBehaviour
     [SerializeField]
     private bool isSpriteFacingRight = true;
 
+    private WaitForFixedUpdate waitInterval = new WaitForFixedUpdate();
+
     // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
     private float facingDirection
     {
@@ -183,17 +185,15 @@ public class EnemyCharge : MonoBehaviour
 
         spriteRenderer.color = Color.red;
 
-        float dirX = (target - transform.position).normalized.x;
         float current = 0;
         float moveBackDuration = 0.85f;
 
-        WaitForFixedUpdate waitInterval = new WaitForFixedUpdate();
 
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
 
-            var dir = (transform.position * (dirX * facingDirection)).normalized;
+            var dir = (transform.position * facingDirection * -1).normalized;
             rb.linearVelocity = new Vector2(dir.x, rb.linearVelocity.y);
 
             yield return waitInterval;
@@ -205,7 +205,7 @@ public class EnemyCharge : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        rb.AddForce(new Vector2(speed * dirX, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(speed * facingDirection, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     void Stop(Collider2D collider)
