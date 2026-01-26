@@ -1,13 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
-public enum ShootDirection
-{
-    Left,
-    Right,
-}
-
 public class EnemyShooting : MonoBehaviour
 {
     public Animator animator;
@@ -24,8 +17,17 @@ public class EnemyShooting : MonoBehaviour
     public float delayBetweenShotsCycles;
     public int nbOfConsecutiveShots;
 
-    [Tooltip("Based on right axis and sprite design")]
-    public ShootDirection shootDirection;
+    [SerializeField]
+    private bool isSpriteFacingRight = true;
+
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
+    private float facingDirection
+    {
+        get
+        {
+            return Mathf.Sign(transform.localScale.x) * (isSpriteFacingRight ? 1 : -1);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -70,8 +72,10 @@ public class EnemyShooting : MonoBehaviour
         {
             return;
         }
+
         Bullet bullet = bulletProjectile.GetComponent<Bullet>();
-        bulletProjectile.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
-        bullet.ResetThyself(shootDirection);
+        bulletProjectile.transform.SetPositionAndRotation(firePoint.position, Quaternion.identity);
+
+        bullet.ResetThyself(facingDirection);
     }
 }

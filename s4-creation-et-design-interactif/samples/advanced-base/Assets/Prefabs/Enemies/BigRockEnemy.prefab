@@ -294,6 +294,7 @@ MonoBehaviour:
   obstacleDetectionLength: 0.2
   bc: {fileID: 5600367782922950187}
   obstacleCheckRadius: 0.25
+  isFacingRight: 1
 --- !u!114 &5600367782922950189
 MonoBehaviour:
   m_ObjectHideFlags: 0

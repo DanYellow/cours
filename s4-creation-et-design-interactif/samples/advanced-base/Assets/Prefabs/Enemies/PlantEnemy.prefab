@@ -273,7 +273,7 @@ MonoBehaviour:
   bulletPooling: {fileID: 7278734117026508341}
   delayBetweenShotsCycles: 0
   nbOfConsecutiveShots: 5
-  shootDirection: 0
+  isSpriteFacingRight: 0
 --- !u!114 &107261412584399401
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,18 +6,18 @@ public class Bullet : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
 
-    public float delayBeforeAutodestruction = 2.5f;
+    [SerializeField]
+    private float delayBeforeAutodestruction = 2.5f;
 
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
     public float damage = 1f;
 
     private Coroutine autoDestroyCoroutine;
 
-    public ObjectPooled objectPooled;
-
-    [Tooltip("Based on right axis and sprite design")]
-    public ShootDirection shootDirection;
+    [SerializeField]
+    private ObjectPooled objectPooled;
 
     IEnumerator AutoDestroy(float duration = 0)
     {
@@ -67,14 +67,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void ResetThyself(ShootDirection shooterDirection = ShootDirection.Left)
+    public void ResetThyself(float shooterDirection)
     {
-        int factor = 1;
-        if (shootDirection != shooterDirection)
-        {
-            factor = -1;
-        }
-        rb.linearVelocity = factor * moveSpeed * transform.right.normalized;
+        rb.linearVelocity = shooterDirection * moveSpeed * transform.right.normalized;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         autoDestroyCoroutine = StartCoroutine(AutoDestroy(delayBeforeAutodestruction));
     }

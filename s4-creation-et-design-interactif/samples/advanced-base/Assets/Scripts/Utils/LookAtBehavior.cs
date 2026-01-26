@@ -12,17 +12,20 @@ public class LookAtBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == null)
+        if (target == null)
             return;
 
-        if(Vector2.Distance(target.position, transform.position) > thresholdDistanceBeforeLookAt) {
+        if (Vector2.Distance(target.position, transform.position) > thresholdDistanceBeforeLookAt)
+        {
             return;
         }
 
         if (target.position.x > transform.position.x && !isFacingRight || target.position.x < transform.position.x && isFacingRight)
         {
             isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 }

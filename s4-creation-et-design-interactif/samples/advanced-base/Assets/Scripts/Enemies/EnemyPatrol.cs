@@ -29,14 +29,14 @@ public class EnemyPatrol : MonoBehaviour
     public float obstacleCheckRadius = 0.25f;
 
     [SerializeField]
-    private bool isFacingRight = true;
+    private bool isSpriteFacingRight = true;
 
     // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
     private float facingDirection
     {
         get
         {
-            return Mathf.Sign(transform.localScale.x) * (isFacingRight ? 1 : -1);
+            return Mathf.Sign(transform.localScale.x) * (isSpriteFacingRight ? 1 : -1);
         }
     }
 

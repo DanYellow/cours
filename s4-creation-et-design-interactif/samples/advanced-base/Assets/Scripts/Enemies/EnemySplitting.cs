@@ -20,7 +20,6 @@ public class EnemySplitting : MonoBehaviour, IHurtable
 
     private void Split()
     {
-        Quaternion angle;
         Vector3 position = transform.position;
         float posXDelta = 1.5f;
         if (!hasSplitted && splitPrefab != null)
@@ -30,15 +29,16 @@ public class EnemySplitting : MonoBehaviour, IHurtable
             {
                 bool willFacingRight = i % 2 != 0;
 
-                angle = willFacingRight ? Quaternion.Euler(0f, -180f, 0f) : Quaternion.Euler(0f, 0f, 0f);
-
                 Vector3 randomPosition = new Vector3(
                     Random.Range(position.x - posXDelta, position.x + posXDelta),
                     position.y,
                     position.z
                 );
 
-                Instantiate(splitPrefab, randomPosition, angle);
+                GameObject go = Instantiate(splitPrefab, randomPosition, Quaternion.Euler(0f, 0f, 0f));
+                Vector3 localScale = go.transform.localScale;
+                localScale.x *= willFacingRight ? -1f : 1f;
+                go.transform.localScale = localScale;
             }
         }
     }
