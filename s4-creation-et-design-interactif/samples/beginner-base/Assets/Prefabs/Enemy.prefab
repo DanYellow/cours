@@ -203,7 +203,7 @@ MonoBehaviour:
   canWait: 1
   obstacleLayersMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   obstacleDetectionLength: 0.15
   bc: {fileID: 5747771450769680698}
   obstacleCheckRadius: 0.13

@@ -33,16 +33,16 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Move()
     {
-        rb.linearVelocity = new Vector2(speed * Mathf.Sign(transform.right.normalized.x), rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(speed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y);
     }
 
     public bool HasCollisionWithObstacle()
     {
         Vector2 startCast = new Vector2(
-            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.center.x + (Mathf.Sign(transform.localScale.x) * bc.bounds.extents.x),
             bc.bounds.center.y
         );
-        Vector2 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
+        Vector2 endCast = new Vector2(startCast.x + Mathf.Sign(transform.localScale.x) * obstacleDetectionLength, startCast.y);
 
         RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
 
@@ -52,7 +52,7 @@ public class EnemyPatrol : MonoBehaviour
     public bool HasNotTouchedGround()
     {
         Vector2 center = new Vector2(
-            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.center.x + (Mathf.Sign(transform.localScale.x) * bc.bounds.extents.x),
             bc.bounds.min.y
         );
 
@@ -66,7 +66,7 @@ public class EnemyPatrol : MonoBehaviour
             Gizmos.color = Color.aquamarine;
             Gizmos.DrawWireSphere(
                 new Vector2(
-                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+                    bc.bounds.center.x + (Mathf.Sign(transform.localScale.x) * bc.bounds.extents.x),
                     bc.bounds.min.y
                 ),
                 obstacleCheckRadius
@@ -74,20 +74,20 @@ public class EnemyPatrol : MonoBehaviour
 
             Gizmos.color = Color.red;
             Vector2 startCast = new Vector2(
-                bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+                bc.bounds.center.x + (Mathf.Sign(transform.localScale.x) * bc.bounds.extents.x),
                 bc.bounds.center.y
             );
             Gizmos.DrawLine(
                 startCast,
-                new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y)
+                new Vector2(startCast.x + Mathf.Sign(transform.localScale.x) * obstacleDetectionLength, startCast.y)
             );
         }
     }
 
     public void Flip()
     {
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
-
-
 }
