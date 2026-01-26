@@ -169,12 +169,13 @@ La classe `MonoBehaviour` est la classe de base dans un projet Unity. Dans un pr
 Cette ligne nous permet de définir notre classe. Le mot-clé `public` nous permet d'accéder à notre classe partout dans notre projet. Nous verrons plus loin dans le document que le terme "public" peut être remplacé par d'autres mot-clés. Ensuite nous avons le type, ici `class`, nous définissons donc une classe qui a pour nom "MyClass". La synaxe `: MonoBehaviour` désigne l'héritage. Autrement dit, notre classe `MyClass` possède les caractéristiques de la classe `MonoBehaviour`, c'est ce qui nous permet d'utiliser les méthodes `Start()` ou `Update()`. Car la classe `MonoBehaviour` contient déjà ces méthodes avec leur comportement.
 
 ### Méthode : `Start() {}`
-La méthode `Start()` est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non). **Cette méthode n'est appelée qu'une seule fois,** par cycle de vie du `GameObject` (de la création à la destruction du `GameObject`).
+La méthode `Start()` est appelée lorsque le script est instancié, autrement dit quand le `GameObject` apparaît dans la scène (visible ou non), et ce, juste avant le premier tour de boucle de la méthode `Update()`. **Cette méthode n'est appelée qu'une seule fois,** par cycle de vie du `GameObject` (de la création à la destruction du `GameObject`).
 
 > **`GameObject`, quézako ?**
 >
 > Un `GameObject` est un élément présent sur la scène, donc qui peut être visible à l'écran : personnages, décors, boutons, barre de vie... Ce sont des `GameObject`. Il sert de conteneur pour vos scripts et composants. **A noter qu'un script doit impérativement être attaché à un `GameObject`, sinon il ne sera jamais exécuté.**
 
+La méthode `Start()` sert notamment à initialiser des éléments d'un GameObject qui sont dépendants d'un autre GameObject, par exemple la barre de vie.
 
 #### Méthode Awake
 La méthode `Awake()` est la première méthode appelée par un `GameObject` lorsqu'il est initialisé. Elle est toujours appélée avant la méthode `Start()` conséquemment. Si elle sert également à initiailiser les variables d'un `GameObject`, on l'utilisera précisemment pour initialiser l'état interne d'un `GameObject` comme les points de vie d'un personnage. Si une variable de votre `GameObject` dépend d'un autre, il faudra passer par la méthode `Start()`.
