@@ -162,9 +162,9 @@ Comme annoncé dans la consigne, vous devez afficher les logos de l'université 
   - [ ] **Mettre vos sources dans le résultat final**
       - **La note finale se verra ôtée d'un tiers si ce n'est pas fait**
       - Les sources des jeux de données proposés sont dans le fichier datasets/_liste-sources.ods
-  - [ ] Générer une archive contenant :
+  - [ ] Générer une archive **préfixée avec le terme "crea-"** contenant :
     - [ ] Votre site et votre réalisation (sujet infographie)
-    - [ ] Lien vers le dépôt sur github (sujet développement)
+    - [ ] Lien vers le dépôt sur GitHub (sujet développement)
 
 ## FAQ - Foire Aux Questions
 - **J'ai utilisé un jeu de données proposé par la SAE, où trouver les sources ?**
@@ -197,7 +197,7 @@ Comme annoncé dans la consigne, vous devez afficher les logos de l'université 
 
 - **Dois-je impérativement utiliser git pour le projet ?**
 
-  Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet.
+  Si vous avez choisi le projet développement, **c'est obligatoire,** ceci fait partie de la notation finale. Quant à son utilisation pour le sujet créa, elle est facultative, mais nous vous conseillons pour garder un historique de votre projet grâce à git.
 
 - **Mon site web doit-il être responsive ?**
 
