@@ -23,6 +23,8 @@ public class CloudGenerator : MonoBehaviour
         GameObject currentCloud;
         float quarter = ScreenUtility.Instance.height * 0.25f;
 
+        var delay = new WaitForSeconds(0.75f);
+
         while (true)
         {
             if (!listCloudsGenerated.All(go => go.activeSelf))
@@ -34,7 +36,7 @@ public class CloudGenerator : MonoBehaviour
                 currentCloud.SetActive(true);
                 currentCloud.GetComponent<Cloud>().endPos = endPos.position;
 
-                yield return new WaitForSeconds(0.75f);
+                yield return delay;
 
                 index = (index + 1) % listCloudsGenerated.Count;
             }

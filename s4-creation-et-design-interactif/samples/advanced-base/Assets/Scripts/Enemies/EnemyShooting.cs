@@ -50,12 +50,14 @@ public class EnemyShooting : MonoBehaviour
     {
         spriteRenderer.color = Color.red;
 
+        var delayBetweenShots = new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
+
         while (nbIterations > 0)
         {
             animator.SetTrigger("IsAttacking");
             nbIterations--;
 
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + timeDelayBetweenShots);
+            yield return delayBetweenShots;
         }
 
         spriteRenderer.color = Color.white;
