@@ -1,5 +1,18 @@
 # Découverte d'Unity (et de C#)
 
+- [Découverte d'Unity (et de C#)](#découverte-dunity-et-de-c)
+  - [Variables](#variables)
+    - [Liste ou tableau ?](#liste-ou-tableau-)
+  - [Fonctions](#fonctions)
+  - [Script Unity de base](#script-unity-de-base)
+    - [Déclaration de classe : `public class MyClass : MonoBehaviour`](#déclaration-de-classe--public-class-myclass--monobehaviour)
+    - [Méthode : `Start() {}`](#méthode--start-)
+    - [Méthode : `Update() {}`](#méthode--update-)
+  - [Exercice](#exercice)
+  - [Propriétés de classes](#propriétés-de-classes)
+  - [Notes](#notes)
+
+
 Nous l'avons vu précédemment, Unity est un logiciel qui a été pensé pour rendre accessible le développement de jeux vidéo pour tout le monde. Il se veut complet et gère une bibliothèque complète qui propose notamment la gestion de la physique ou encore de modèles 3D. Mais si ce n'est pas assez, il est possible d'ajouter de nouvelles fonctionnalités grâce à l'asset store.
 - [Accéder à l'asset store](https://assetstore.unity.com/)
 > L'asset store propose des outils en tout genre qui peuvent se greffer à Unity tels que des outils pour le logiciel ou encore des personnages clés en main pour vos jeux. **Notez bien que tout n'est pas gratuit sur l'asset store.**
@@ -207,7 +220,7 @@ Enfin, notez les choses suivantes sur les classes :
 - `MonoBehaviour` possède d'autres méthodes (nous en utiliserons d'autres), prenez bien en compte que ces méthodes ont un ordre d'appel
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
-# Exercice
+## Exercice
 Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject ou un script lui-même lié à un GameObject.**
 Créez un `GameObject` depuis le panneau "Hierarchy" `Clic droit > Create Empty` ou encore depuis le menu `Game Object > Create Empty`. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`).
 
@@ -254,12 +267,13 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
 - Niveau d’accessibilité : Peut avoir la valeur "protected", "public", "private" et autres. Dans le cadre du cours nous utiliserons principalement :
     - public : On peut la lire (et la modifier) depuis n'importe où dans notre projet. Le fait qu'elle soit publique rend possible sa modification depuis l'onglet "Inspector" d'Unity
     - private : **la propriété n'est accessible qu'au sein de la classe** qui la définit et seule cette dernière peut la modifier et y accéder
-        - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser.
-- Type et nom de variable : On l'a vu précemment
+        - Par défaut, les méthodes et les propriétés sont privées en C#, mais pensez à le préciser
+        - Note : Il est possible de rendre une propriété privée mais accessible dans l'onglet "Inspector" grâce à l'attribut `[SerializeField]` qu'on peut placer au-dessus de la ligne ou à gauche du niveau d'accessibilité
+- Type et nom de variable : [On l'a vu précemment au niveau des variables](#variables)
 - Valeur : Facultatif, une propriété de classe peut ne pas être définie au début et l'être plus tard dans le code. A noter que si vous définissez une valeur par défaut pour une propriété et que vous définissez une valeur pour cette même propriété dans l'`Inspector`, c'est cette dernière qui sera prise en code
 
-> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Rendre tout "public" rend possible à n'importe quelle classe la possibilité d'en modifier une autre. Ce qui peut rendre le debuggage très compliqué. Toutefois pour rendre les choses simples, nous utiliserons le mot-clé "public" dans le cadre du cours. Mais nous vous encourageons très fortement à utiliser "private" quand c'est possible.
-> - [Pour en savoir plus (anglais)](https://www.youtube.com/watch?v=pD27YuJG3L8)
+> Note : Ce n'est pas une bonne pratique de tout mettre en "public". Rendre tout "public" rend possible à n'importe quelle classe la possibilité d'en modifier une autre. Ce qui peut rendre le debuggage très compliqué.
+> - [Why you should NOT make everything PUBLIC! - anglais](https://www.youtube.com/watch?v=pD27YuJG3L8)
 > - [Documentation sur les niveaux d'accessibilité](https://learn.microsoft.com/fr-fr/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers)
 
 > Note 2 : cette notion d’accessibilité est également applicable aux classes et aux fonctions au sein d'une classe (qu'on appelle "méthode")

@@ -28,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+
+    public Transform wallCheck;
+    public LayerMask wallLayer;
+
     private void Start()
     {
         jumpCount = 0;
@@ -99,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         isGrounded = IsGrounded();
+
+        WallSlide();
 
         if (jumpRequested)
         {
@@ -177,6 +185,24 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !isGrounded)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
         }
     }
 
