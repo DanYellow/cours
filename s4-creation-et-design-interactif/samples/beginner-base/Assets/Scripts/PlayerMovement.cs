@@ -150,8 +150,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2f - 1) * Time.fixedDeltaTime;
         }
-
-
     }
 
     private void Move()
@@ -164,7 +162,9 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirectionX > 0 && !isFacingRight || moveDirectionX < 0 && isFacingRight)
         {
             isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 

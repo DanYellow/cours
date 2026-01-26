@@ -28,6 +28,18 @@ public class EnemyPatrol : MonoBehaviour
     [UnityEngine.Serialization.FormerlySerializedAs("groundCheckRadius")]
     public float obstacleCheckRadius = 0.25f;
 
+    [SerializeField]
+    private bool isFacingRight = true;
+
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
+    private float facingDirection
+    {
+        get
+        {
+            return Mathf.Sign(transform.localScale.x) * (isFacingRight ? 1 : -1);
+        }
+    }
+
     private void Awake()
     {
         // We don't want the script to be enabled by default
@@ -90,16 +102,16 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Move()
     {
-        rb.linearVelocity = new Vector2(speed * Mathf.Sign(transform.right.normalized.x), rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(speed * facingDirection, rb.linearVelocity.y);
     }
 
     public bool HasCollisionWithObstacle()
     {
         Vector2 startCast = new Vector2(
-            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
             bc.bounds.center.y
         );
-        Vector2 endCast = new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y);
+        Vector2 endCast = new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y);
 
         RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
 
@@ -109,7 +121,7 @@ public class EnemyPatrol : MonoBehaviour
     public bool HasNotTouchedGround()
     {
         Vector2 center = new Vector2(
-            bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
+            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
             bc.bounds.min.y
         );
 
@@ -118,31 +130,34 @@ public class EnemyPatrol : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (bc != null)
-        {
-            Gizmos.DrawWireSphere(
-                new Vector2(
-                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
-                    bc.bounds.min.y
-                ),
-                obstacleCheckRadius
-            );
+        if (bc == null) return;
 
-            Gizmos.color = Color.green;
-            Vector2 startCast = new Vector2(
-                bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)),
-                bc.bounds.center.y
-            );
-            Gizmos.DrawLine(
-                startCast,
-                new Vector2(startCast.x + (transform.right.normalized.x * obstacleDetectionLength), startCast.y)
-            );
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(
+            new Vector2(
+                bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
+                bc.bounds.min.y
+            ),
+            obstacleCheckRadius
+        );
+
+        Gizmos.color = Color.green;
+        Vector2 startCast = new Vector2(
+            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
+            bc.bounds.center.y
+        );
+        Gizmos.DrawLine(
+            startCast,
+            new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y)
+        );
+
     }
 
     public void Flip()
     {
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     private void OnBecameVisible()

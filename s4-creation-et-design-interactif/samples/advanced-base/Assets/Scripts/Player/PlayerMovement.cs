@@ -263,7 +263,9 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirectionX > 0 && !isFacingRight || moveDirectionX < 0 && isFacingRight)
         {
             isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 
