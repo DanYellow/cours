@@ -2,6 +2,7 @@
 
 - [Découverte d'Unity (et de C#)](#découverte-dunity-et-de-c)
   - [Variables](#variables)
+      - [Mot-clé "var"](#mot-clé-var)
     - [Liste ou tableau ?](#liste-ou-tableau-)
   - [Fonctions](#fonctions)
   - [Script Unity de base](#script-unity-de-base)
@@ -64,6 +65,16 @@ string[] listFormations = {"MMI", "TC", "GE2I", "MT2E"};
 ```
 
 > Si vous souhaitez définir une constante (variable dont la valeur ne peut pas changer au cours du temps), il suffit juste de mettre "const" devant le type de la variable. Exemple : `const string cours = "Unity"`.
+
+
+#### Mot-clé "var"
+Avec les dernières versions de C#, il est possible d'inférer le type d'une variable. Ainsi, il n'est pas obligatoire de typer une variable explicitement, il est possible d'utiliser le mot-clé "var" à la place. Exemple :
+```cs
+// Notre variable est typée en string implictement grâce à l'inférence de type
+var playerName = "player1";
+// La ligne ci-dessus équivaut à celle définie plus haut
+```
+- [Pour en savoir plus sur l'inférence de type en C# - anglais](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/implicitly-typed-local-variables)
 
 ### Liste ou tableau ?
 Petit point : En C# (et d'autres langages de programmation), il existe une différence entre les tableaux et les listes. Si les deux permettent de contenir un ensemble d'éléments **du même type**, il existe une subtile différence : la taille d'un tableau (array) est finie. Une fois défini, il n'est pas possible d'ajouter ou retirer des éléments à un tableau (c'est possible, mais très coûteux en performance). Alors qu'une liste a une dimension dynamique. Ce qui fait qu'une liste occupe plus de place en mémoire (RAM) qu'un tableau, de ce fait, utilisez le bon type pour la bonne situation.

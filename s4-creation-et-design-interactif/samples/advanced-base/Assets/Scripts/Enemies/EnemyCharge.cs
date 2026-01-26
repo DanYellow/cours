@@ -3,26 +3,31 @@ using UnityEngine;
 
 public class EnemyCharge : MonoBehaviour
 {
-    [Header("Distance of sight")]
-    public float sightLength = 4;
-
-    public float knockbackStrength = 5.5f; // old value : 8.5
+    [Header("Distance of sight"), SerializeField]
+    private float sightLength = 4;
+    [SerializeField]
+    private float knockbackStrength = 5.5f; // old value : 8.5
 
     private bool isCharging = false;
     private bool isOnScreen = false;
     private bool isMovingForward = false;
     private float obstacleDetectionLength = 0.2f;
-
-    public SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
     private float checkTimer;
-    public float delayBetweenCharges;
-    public float speed;
+    [SerializeField]
+    private float delayBetweenCharges;
+    [SerializeField]
+    private float speed;
 
-    public Rigidbody2D rb;
-    public Animator animator;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private Animator animator;
 
-    public BoxCollider2D bc;
+    [SerializeField]
+    private BoxCollider2D bc;
 
     private RaycastHit2D contact;
 
@@ -32,10 +37,22 @@ public class EnemyCharge : MonoBehaviour
     public LayerMask obstacleLayers;
     public LayerMask targetLayers;
 
-    [Header("Shake effect")]
-    public CameraShakeEventChannel onCrushSO;
-    public ShakeTypeVariable shakeInfo;
+    [Header("Shake effect"), SerializeField]
+    private CameraShakeEventChannel onCrushSO;
+    [SerializeField]
+    private ShakeTypeVariable shakeInfo;
 
+    [SerializeField]
+    private bool isSpriteFacingRight = true;
+
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
+    private float facingDirection
+    {
+        get
+        {
+            return Mathf.Sign(transform.localScale.x) * (isSpriteFacingRight ? 1 : -1);
+        }
+    }
 
     private void Start()
     {
@@ -75,9 +92,11 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
-        Vector3 startCast = new Vector2(bc.bounds.center.x, bc.bounds.center.y);
-        float offset = (sightLength / 4) + (bc.bounds.size.x / 2);
-        Vector3 endCast = new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y);
+        Vector2 startCast = new Vector2(
+            bc.bounds.center.x - (bc.bounds.extents.x * facingDirection),
+            bc.bounds.center.y
+        );
+        Vector3 endCast = new Vector2(startCast.x - facingDirection * (sightLength / 4), startCast.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
 
@@ -95,7 +114,6 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
-
         if (contact.collider != null && isMovingForward)
         {
             StopAllCoroutines();
@@ -106,7 +124,7 @@ public class EnemyCharge : MonoBehaviour
     private RaycastHit2D GetContact()
     {
         Vector2 originCast = new Vector2(
-                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)) + (transform.right.normalized.x * obstacleDetectionLength / 2),
+                    bc.bounds.center.x + (facingDirection * bc.bounds.extents.x) + (facingDirection * obstacleDetectionLength / 2),
                     bc.bounds.min.y + (bc.bounds.size.y / 4)
                 );
         Vector3 sizeCast = new Vector2(obstacleDetectionLength, bc.bounds.size.y * 1 / 2);
@@ -128,10 +146,8 @@ public class EnemyCharge : MonoBehaviour
             return;
         }
 
-        float offset = sightLength + (bc.bounds.size.x / 2);
-
-        Vector3 startCast = new Vector2(bc.bounds.center.x + (1.15f * transform.right.normalized.x), bc.bounds.center.y);
-        Vector3 endCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * offset), bc.bounds.center.y);
+        Vector3 startCast = new Vector2(bc.bounds.center.x + (bc.bounds.extents.x * facingDirection), bc.bounds.center.y);
+        Vector3 endCast = new Vector2(startCast.x + (facingDirection * sightLength), bc.bounds.center.y);
 
         RaycastHit2D hit = Physics2D.Linecast(startCast, endCast, targetLayers);
 
@@ -176,8 +192,8 @@ public class EnemyCharge : MonoBehaviour
         while (current <= 1)
         {
             current += Time.deltaTime / moveBackDuration;
-            // Minus 1 because the enemy moveback firstAssets/Scripts/Enemies/EnemyCharge.cs
-            var dir = (transform.position * (dirX * -1)).normalized;
+
+            var dir = (transform.position * (dirX * facingDirection)).normalized;
             rb.linearVelocity = new Vector2(dir.x, rb.linearVelocity.y);
 
             yield return waitInterval;
@@ -209,7 +225,7 @@ public class EnemyCharge : MonoBehaviour
         if (knockback != null)
         {
             knockback.Apply(
-                new Vector2(Mathf.Sign(-transform.right.normalized.x) * 0.15f, 0.35f),
+                new Vector2(facingDirection * 0.15f, 0.35f),
                 knockbackStrength * 1.5f
             );
         }
@@ -234,49 +250,54 @@ public class EnemyCharge : MonoBehaviour
 
     private void Flip()
     {
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     void OnDrawGizmos()
     {
-        if (bc != null)
+        if (bc == null) return;
+
+        if (isCharging)
         {
-            if (isCharging)
-            {
-                Gizmos.color = Color.magenta;
-                Vector2 startCast = new Vector2(
-                    bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)) + (transform.right.normalized.x * obstacleDetectionLength / 2),
-                    bc.bounds.min.y + (bc.bounds.size.y / 4)
-                );
-                Gizmos.DrawWireCube(
-                    startCast,
-                    new Vector2(obstacleDetectionLength, bc.bounds.size.y * 1 / 2)
-                );
-            }
-            else
-            {
-                Gizmos.color = Color.blue;
-                float targetSightOffset = sightLength + (bc.bounds.size.x / 2);
-                Gizmos.DrawLine(
-                    new Vector2(bc.bounds.center.x + (1.15f * transform.right.normalized.x), bc.bounds.center.y),
-                    new Vector2(bc.bounds.center.x + (transform.right.normalized.x * targetSightOffset), bc.bounds.center.y)
-                );
-
-                Gizmos.color = Color.magenta;
-                float offset = (sightLength / 4) + (bc.bounds.size.x / 2);
-                Gizmos.DrawLine(
-                    new Vector2(bc.bounds.center.x, bc.bounds.center.y),
-                    new Vector2(bc.bounds.center.x - (transform.right.normalized.x * offset), bc.bounds.center.y)
-                );
-            }
-
-            Gizmos.color = Color.black;
-            float crushOffset = 0.15f / 2;
+            Gizmos.color = Color.magenta;
+            Vector2 startCast = new Vector2(
+                bc.bounds.center.x + (facingDirection * bc.bounds.extents.x) + (facingDirection * obstacleDetectionLength / 2),
+                bc.bounds.min.y + (bc.bounds.size.y / 4)
+            );
             Gizmos.DrawWireCube(
-                new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushOffset),
-                new Vector2(bc.size.x * 0.9f, 0.15f)
+                startCast,
+                new Vector2(obstacleDetectionLength, bc.bounds.size.y * 1 / 2)
             );
         }
+        else
+        {
+            Gizmos.color = Color.blue;
+            float targetSightOffset = sightLength + bc.bounds.extents.x;
+            Gizmos.DrawLine(
+                new Vector2(bc.bounds.center.x + (bc.bounds.extents.x * facingDirection), bc.bounds.center.y),
+                new Vector2(bc.bounds.center.x + (facingDirection * targetSightOffset), bc.bounds.center.y)
+            );
+
+            Gizmos.color = Color.magenta;
+
+            Vector2 startCast = new Vector2(
+                bc.bounds.center.x - (bc.bounds.extents.x * facingDirection),
+                bc.bounds.center.y
+            );
+            Gizmos.DrawLine(
+                startCast,
+                new Vector2(startCast.x - facingDirection * (sightLength / 4), startCast.y)
+            );
+        }
+
+        Gizmos.color = Color.black;
+        float crushOffset = 0.15f / 2;
+        Gizmos.DrawWireCube(
+            new Vector2(bc.bounds.center.x, bc.bounds.min.y - crushOffset),
+            new Vector2(bc.size.x * 0.9f, 0.15f)
+        );
     }
 
     void OnBecameInvisible()
