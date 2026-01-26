@@ -43,13 +43,19 @@ public class PlayerInvulnerable : MonoBehaviour
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         float timeElapsed = 0;
+        float flashTimer = 0f;
+
+        float invincibilityFlashInterval = 0.2f;
+        bool isVisible = true;
+
         while (timeElapsed < invulnerableDuration)
         {
             timeElapsed += Time.deltaTime;
+            flashTimer += Time.deltaTime;
 
-            if (Time.frameCount % 8 == 0)
+            if (flashTimer >= invincibilityFlashInterval)
             {
-                if (spriteRenderer.color.a == 1)
+                if (isVisible)
                 {
                     spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
                 }
@@ -57,6 +63,9 @@ public class PlayerInvulnerable : MonoBehaviour
                 {
                     spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                 }
+
+                flashTimer = 0f;
+                isVisible = !isVisible;
             }
 
             yield return null;

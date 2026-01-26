@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 // https://www.youtube.com/watch?v=cruE--5ML_Q
 public class Health : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class Health : MonoBehaviour
 
     private bool isInvincible = false;
 
-    float invincibilityFlashInterval = 0.2f;
-    float invincibilityTimeAfterHit = 2.5f;
+    public float invincibilityFlashInterval = 0.2f;
+    public float invincibilityDuration = 3f;
 
 
     private void Start()
@@ -41,7 +42,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(isInvincible) {
+        if (isInvincible)
+        {
             return;
         }
         if (currentHealth.CurrentValue <= 0)
@@ -50,11 +52,10 @@ public class Health : MonoBehaviour
         }
         else
         {
-            floatVariableRef.CurrentValue  -= damage;
-        currentHealth.CurrentValue -= damage;
-        onPlayerDamage.Raise();
-        //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
-            StartCoroutine(HandleInvincibilityDelay());
+            floatVariableRef.CurrentValue -= damage;
+            currentHealth.CurrentValue -= damage;
+            onPlayerDamage.Raise();
+            //  currentHealth.CurrentValue = Mathf.Clamp(currentHealth.CurrentValue - damage, 0, maxHealth.CurrentValue);
             StartCoroutine(InvincibilityFlash());
         }
     }
@@ -67,20 +68,41 @@ public class Health : MonoBehaviour
 
     public IEnumerator InvincibilityFlash()
     {
-
-        while (isInvincible)
-        {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return new WaitForSeconds(invincibilityFlashInterval);
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(invincibilityFlashInterval);
-        }
-    }
-
-    public IEnumerator HandleInvincibilityDelay()
-    {
+        float timeElapsed = 0f;
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityTimeAfterHit);
+
+        bool isVisible = true;
+        float flashTimer = 0f;
+        Debug.Log("oookk");
+        var pauseCoroutine = new WaitForSeconds(invincibilityFlashInterval);
+        // DateTime before = DateTime.Now;
+
+        while (timeElapsed < invincibilityDuration)
+        {
+            timeElapsed += Time.deltaTime;
+            flashTimer += Time.deltaTime;
+
+            if (flashTimer >= invincibilityFlashInterval)
+            {
+                if (isVisible)
+                {
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                }
+
+                flashTimer = 0f;
+                isVisible = !isVisible;
+            }
+
+            yield return null;
+        }
+        // DateTime after = DateTime.Now;
+        // TimeSpan duration = after.Subtract(before);
+        // Debug.Log("Duration in milliseconds: " + duration.TotalMilliseconds);
+        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isInvincible = false;
     }
 

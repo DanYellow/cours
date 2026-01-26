@@ -16,7 +16,7 @@ public class HealthBadExample : MonoBehaviour
     bool isInvincible = false;
 
     public float invincibilityFlashInterval = 0.2f;
-    public float invincibilityTimeAfterHit = 2.5f;
+    public float invincibilityDuration = 2.5f;
 
     private void Start()
     {
@@ -50,7 +50,6 @@ public class HealthBadExample : MonoBehaviour
         }
         else
         {
-            StartCoroutine(HandleInvincibilityDelay());
             StartCoroutine(InvincibilityFlash());
         }
     }
@@ -63,20 +62,32 @@ public class HealthBadExample : MonoBehaviour
 
     public IEnumerator InvincibilityFlash()
     {
-
-        while (isInvincible)
-        {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
-            yield return new WaitForSeconds(invincibilityFlashInterval);
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(invincibilityFlashInterval);
-        }
-    }
-    
-    public IEnumerator HandleInvincibilityDelay()
-    {
+        float timeElapsed = 0f;
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityTimeAfterHit);
+
+        bool isVisible = true;
+
+        var pauseCoroutine = new WaitForSeconds(invincibilityFlashInterval);
+
+        while (timeElapsed < invincibilityDuration)
+        {
+            timeElapsed += invincibilityFlashInterval;
+
+            if (isVisible)
+            {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            }
+
+            isVisible = !isVisible;
+
+            yield return pauseCoroutine;
+        }
+
+        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isInvincible = false;
     }
 
