@@ -57,7 +57,7 @@ public class ExampleClass : MonoBehaviour
     public GameObject target;
     public Vector3 destination;
 
-    void Awake()
+    void Start()
     {
         target = GameObject.FindWithTag("MyTag");
         // [...]
@@ -83,8 +83,6 @@ public class ExampleClass : MonoBehaviour
     }
 }
 ```
-
-> Quelque soit la méthode utilisée pour récupérer un élément, si vous en avez besoin dès le lancement d'une scène, il faut utiliser la méthode `Awake` et non `Start`. Car cette dernière n'est pas appelée si votre GameObject est désactivé. [Pour en savoir plus](https://www.youtube.com/watch?v=4QdjoV63wjM).
 
 Par ailleurs, vous comparerez souvent le tag d'un GameObject avec un tag attendu, là encore, pour des questions de performances, il faudra penser à utiliser la méthode `CompareTag()` plutôt qu'une égalité stricte `==`.
 
