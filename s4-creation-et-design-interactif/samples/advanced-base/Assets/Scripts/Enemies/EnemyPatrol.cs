@@ -2,6 +2,12 @@
 using UnityEngine;
 using System.Collections;
 
+enum EnemyState
+{
+    Idle,
+    Moving
+}
+
 public class EnemyPatrol : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -9,7 +15,7 @@ public class EnemyPatrol : MonoBehaviour
 
     [Header("Movement management")]
     public float speed = 0.5f;
-    private bool isIdle = false;
+    private EnemyState currentState;
 
     private float idleTime;
 
@@ -44,10 +50,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         // We don't want the script to be enabled by default
         enabled = false;
-    }
 
-    private void Start()
-    {
         if (canWait)
         {
             idleTime = Mathf.Round(moveDuration / 2.5f);
@@ -71,7 +74,7 @@ public class EnemyPatrol : MonoBehaviour
             Flip();
         }
 
-        if (isIdle)
+        if (currentState == EnemyState.Idle)
         {
             Idle();
         }
@@ -86,11 +89,11 @@ public class EnemyPatrol : MonoBehaviour
         while (true)
         {
             // Enemy will walk during X seconds...
-            isIdle = false;
+            currentState = EnemyState.Idle;
             yield return waitMoveDuration;
 
             // ...then wait during X seconds...
-            isIdle = true;
+            currentState = EnemyState.Moving;
             yield return waitIdleTime;
         }
     }
@@ -150,7 +153,6 @@ public class EnemyPatrol : MonoBehaviour
             startCast,
             new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y)
         );
-
     }
 
     public void Flip()
@@ -171,5 +173,10 @@ public class EnemyPatrol : MonoBehaviour
         // it might continue to run but whoen be able to change direction
         Idle();
         enabled = false;
+    }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

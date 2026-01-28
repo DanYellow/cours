@@ -28,9 +28,10 @@ public class CameraFollow : MonoBehaviour
 
     public Vector3 GetNextPosition()
     {
-        return target.position + new Vector3(
-            offset.x * (target.localEulerAngles.y > 90 ? -1 : 1),
-            offset.y,
+        float targetDirection = Mathf.Sign(target.localScale.x);
+        return new Vector3(
+            (offset.x * targetDirection) + target.position.x,
+            offset.y + target.position.y,
             transform.position.z
         );
     }

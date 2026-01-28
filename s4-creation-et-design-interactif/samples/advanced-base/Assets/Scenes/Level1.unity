@@ -6869,8 +6869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0cab6b631ab594a85dd0abf82a679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 1.5, z: 0}
-  smoothTime: 0.15
+  offset: {x: 0.75, y: 1.5, z: 0}
+  smoothTime: 0.2
   target: {fileID: 814072436}
 --- !u!114 &519420037
 MonoBehaviour:
@@ -6884,7 +6884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf1ee1c7ec4d1141bf376d98034d9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 0
+  height: 59.13
   width: 0
 --- !u!114 &519420038
 MonoBehaviour:
