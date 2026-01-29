@@ -57,8 +57,11 @@ public class EnemyPatrol : MonoBehaviour
 
             waitMoveDuration = new WaitForSeconds(moveDuration);
             waitIdleTime = new WaitForSeconds(idleTime);
-
+            currentState = EnemyState.Idle;
             StartCoroutine(ChangeState());
+        } else
+        {
+            currentState = EnemyState.Moving;
         }
     }
 
@@ -110,13 +113,9 @@ public class EnemyPatrol : MonoBehaviour
 
     public bool HasCollisionWithObstacle()
     {
-        Vector2 startCast = new Vector2(
-            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
-            bc.bounds.center.y
-        );
-        Vector2 endCast = new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y);
+        (Vector2 startCast, Vector2 endCast) segmentLinecast = GetObstacleLineCast();
 
-        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
+        RaycastHit2D hitObstacle = Physics2D.Linecast(segmentLinecast.startCast, segmentLinecast.endCast, obstacleLayersMask);
 
         return hitObstacle.collider != null;
     }
@@ -145,17 +144,28 @@ public class EnemyPatrol : MonoBehaviour
         );
 
         Gizmos.color = Color.green;
+
+        (Vector2 startCast, Vector2 endCast) segmentLinecast = GetObstacleLineCast();
+
+        Gizmos.DrawLine(
+            segmentLinecast.startCast,
+            segmentLinecast.endCast
+        );
+    }
+
+    private (Vector2, Vector2) GetObstacleLineCast()
+    {
         Vector2 startCast = new Vector2(
             bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
             bc.bounds.center.y
         );
-        Gizmos.DrawLine(
-            startCast,
-            new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y)
-        );
+
+        Vector2 endCast = new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y);
+
+        return (startCast, endCast);
     }
 
-    public void Flip()
+    private void Flip()
     {
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
@@ -170,7 +180,7 @@ public class EnemyPatrol : MonoBehaviour
     private void OnBecameInvisible()
     {
         // We stop the enemy when is not visible or else
-        // it might continue to run but whoen be able to change direction
+        // it might continue to run but when be able to change direction
         Idle();
         enabled = false;
     }
