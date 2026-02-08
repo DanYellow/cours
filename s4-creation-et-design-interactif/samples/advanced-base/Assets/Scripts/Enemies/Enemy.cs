@@ -17,9 +17,6 @@ public class Enemy : MonoBehaviour, IHurtable
 
     public Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
 
-    // List of contact points when something collides with that GameObject
-    private ContactPoint2D[] listContacts = new ContactPoint2D[1];
-
     [Header("Components to disable after specific event. E.g. : death")]
     public Behaviour[] listComponents;
 
@@ -36,7 +33,9 @@ public class Enemy : MonoBehaviour, IHurtable
     {
         if (currentHealth <= 0) return;
 
-        // other.GetContacts(listContacts);
+        ContactPoint2D contact = other.GetContact(0);
+
+        if (contact.normal.y < -0.5f) return;
 
         if (
             other.gameObject.TryGetComponent(out PlayerHealth playerHealth) &&
@@ -106,7 +105,8 @@ public class Enemy : MonoBehaviour, IHurtable
         float duration = 0.85f;
 
         yield return null;
-        while(current <= 1) {
+        while (current <= 1)
+        {
             // https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/
             float angle = Mathf.LerpAngle(startZAngle, 180, Mathf.Sin(current * Mathf.PI * 0.5f));
 

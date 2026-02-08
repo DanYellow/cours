@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6881144857675123591}
   - component: {fileID: 8061433396530479097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.026687622, y: 0.4332092}
+  m_Offset: {x: 0.0021743774, y: 0.43939343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0308838, y: 0.13358158}
+  m_Size: {x: 1.1339569, y: 0.14595002}
   m_EdgeRadius: 0
 --- !u!1 &5600367782922950193
 GameObject:
@@ -294,7 +294,7 @@ MonoBehaviour:
   obstacleDetectionLength: 0.2
   bc: {fileID: 5600367782922950187}
   obstacleCheckRadius: 0.25
-  isFacingRight: 1
+  isSpriteFacingRight: 1
 --- !u!114 &5600367782922950189
 MonoBehaviour:
   m_ObjectHideFlags: 0
