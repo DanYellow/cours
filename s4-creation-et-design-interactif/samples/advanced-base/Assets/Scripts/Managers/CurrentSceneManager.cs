@@ -5,11 +5,12 @@ public class CurrentSceneManager : MonoBehaviour
 {
     public bool isDebugConsoleOpened = false;
 
-    [Header("Listen to events")]
-    public StringEventChannel onLevelEnded;
-    public BoolEventChannel onDebugConsoleOpenEvent;
+    [Header("Listen to events"), SerializeField]
+    private StringEventChannel onLevelEnded;
+    [SerializeField]
+    private BoolEventChannel onDebugConsoleOpenEvent;
 
-    private void Start()
+    private void Awake()
     {
         Application.targetFrameRate = 60;
         Time.timeScale = 1f;

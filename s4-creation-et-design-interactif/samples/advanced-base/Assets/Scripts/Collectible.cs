@@ -3,12 +3,17 @@ using UnityEngine.Events;
 
 public class Collectible : MonoBehaviour
 {
-    public CollectibleVariable data;
-    public GameObject collectedEffect;
-    public SpriteRenderer spriteRenderer;
-    public bool canBeDestroyedOnContact = true;
+    [SerializeField]
+    private CollectibleVariable data;
+    [SerializeField]
+    private GameObject collectedEffect;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private bool canBeDestroyedOnContact = true;
 
-    public UnityEvent onPickUp;
+    [SerializeField]
+    private UnityEvent onPickUp;
 
     private Vector3 startAngle;
     private float finalAngle;

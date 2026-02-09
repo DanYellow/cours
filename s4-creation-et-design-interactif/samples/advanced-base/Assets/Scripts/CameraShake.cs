@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
-    [Header("Listen to event channels")]
-    public CameraShakeEventChannel onCameraShake;
+    [Header("Listen to event channels"), SerializeField]
+    private CameraShakeEventChannel onCameraShake;
 
     private void OnEnable() {
         onCameraShake.OnEventRaised += ShakeProxy;
@@ -18,7 +18,7 @@ public class CameraShake : MonoBehaviour
     {
         Vector3 orignalPosition = transform.position;
         float elapsed = 0f;
-        
+
         while (elapsed < duration)
         {
             Vector3 shakeVector = (Random.insideUnitSphere / 2) * magnitude;

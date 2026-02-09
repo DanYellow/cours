@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour, IHurtable
         Vector2 bounceForce = Vector2.up * bounceFactorOnDeath;
         rb.AddForce(bounceForce, ForceMode2D.Impulse);
 
-        float startZAngle = transform.rotation.z;
+        float startZAngle = transform.eulerAngles.z;
         float current = 0;
         float duration = 0.85f;
 
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour, IHurtable
 
             transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle);
 
-            current += Time.fixedDeltaTime / duration;
+            current += Time.deltaTime / duration;
 
             yield return null;
         }

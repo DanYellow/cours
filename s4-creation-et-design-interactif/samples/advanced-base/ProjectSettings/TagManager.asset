@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Saw
   - Enemy
-  - Shell
   layers:
   - Default
   - TransparentFX
@@ -20,7 +19,7 @@ TagManager:
   - Collectibles
   - InvincibleEnemies
   - OneWayPlatforms
-  - 
+  - Shell
   - 
   - 
   - 

@@ -3,17 +3,20 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class EndLevel : MonoBehaviour
 {
-    public ParticleSystem particles;
-    public AudioClip audioClip;
+    [SerializeField]
+    private ParticleSystem particles;
+    [SerializeField]
+    private AudioClip audioClip;
 
     [Space (10)]
-    [Header("Scene's name to load after the collider is triggered")]
-    public string nextLevelName;
+    [Header("Scene's name to load after the collider is triggered"), SerializeField]
+    private string nextLevelName;
     [Space (10)]
 
-    [Header("Broadcast event channels")]
-    public StringEventChannel onLevelEnded;
-    public PlaySoundAtEventChannel sfxAudioChannel;
+    [Header("Broadcast event channels"), SerializeField]
+    private StringEventChannel onLevelEnded;
+    [SerializeField]
+    private PlaySoundAtEventChannel sfxAudioChannel;
 
     private bool hasBeenTriggered = false;
 

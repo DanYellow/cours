@@ -3,19 +3,22 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    [Tooltip("Delay before the platform starts to fall")]
-    public float fallDelay = 1.5f;
+    [Tooltip("Delay before the platform starts to fall"), SerializeField]
+    private float fallDelay = 1.5f;
     private float destroyDelay = 2.25f;
     private Vector2 startPosition = Vector2.zero;
 
-    public Rigidbody2D rb;
+    [SerializeField]
+    private Rigidbody2D rb;
 
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
     private bool isFalling = false;
 
-    public ParticleSystem particleEmitter;
+    [SerializeField]
+    private ParticleSystem particleEmitter;
 
-    private void Start()
+    private void Awake()
     {
         startPosition = transform.position;
     }
@@ -63,8 +66,8 @@ public class FallingPlatform : MonoBehaviour
         {
             rb.MovePosition(
                 Vector2.Lerp(
-                    startPosition, 
-                    startPosition + Vector2.down * 0.3f, 
+                    startPosition,
+                    startPosition + Vector2.down * 0.3f,
                     Mathf.PingPong(current, 0.5f)
                 )
             );

@@ -322,7 +322,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 107261412584399394}
   rb: {fileID: 107261412584399400}
   animator: {fileID: 107261412584399393}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 107261412584399405}

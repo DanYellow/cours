@@ -54578,11 +54578,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1994309686465321911, guid: e1ad21ae97feb784199ba1957e4df733, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8133106
+      value: 16.23
       objectReference: {fileID: 0}
     - target: {fileID: 1994309686465321911, guid: e1ad21ae97feb784199ba1957e4df733, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6035694
+      value: -0.57
       objectReference: {fileID: 0}
     - target: {fileID: 1994309686465321911, guid: e1ad21ae97feb784199ba1957e4df733, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54619,6 +54619,10 @@ PrefabInstance:
     - target: {fileID: 3904770375926592105, guid: e1ad21ae97feb784199ba1957e4df733, type: 3}
       propertyPath: m_Name
       value: Snail
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904770375926592105, guid: e1ad21ae97feb784199ba1957e4df733, type: 3}
+      propertyPath: m_TagString
+      value: EditorOnly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

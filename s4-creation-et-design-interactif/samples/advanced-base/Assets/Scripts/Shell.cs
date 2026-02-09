@@ -72,6 +72,20 @@ public class Shell : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        int enemiesLayer = LayerMask.NameToLayer("Enemies");
+
+        if (enemiesLayer == collision.gameObject.layer)
+        {
+            IHurtable[] listHurtables = collision.GetComponentsInParent<IHurtable>();
+            foreach (var component in listHurtables)
+            {
+                component.Hurt();
+            }
+        }
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
