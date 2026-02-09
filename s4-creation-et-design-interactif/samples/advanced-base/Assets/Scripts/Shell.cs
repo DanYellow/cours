@@ -17,6 +17,18 @@ public class Shell : MonoBehaviour
 
     private RaycastHit2D hit;
 
+    [SerializeField]
+    private bool isSpriteFacingRight = true;
+
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
+    private float facingDirection
+    {
+        get
+        {
+            return Mathf.Sign(transform.localScale.x) * (isSpriteFacingRight ? 1 : -1);
+        }
+    }
+
     private void Start()
     {
         particleEmitter.Stop();
@@ -24,10 +36,10 @@ public class Shell : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
+        Vector3 startCast = new Vector2(bc.bounds.center.x + (facingDirection * (bc.bounds.size.x / 2)), bc.bounds.center.y);
         hit = Physics2D.Linecast(
             startCast,
-            new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y),
+            new Vector2(startCast.x + (facingDirection * 0.1f), startCast.y),
             obstacleLayers
         );
 
@@ -36,7 +48,7 @@ public class Shell : MonoBehaviour
             Flip();
         }
 
-        rb.AddForce(new Vector2(speed * transform.right.normalized.x, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(speed * facingDirection, rb.linearVelocity.y) * rb.mass, ForceMode2D.Impulse);
     }
 
     private void Flip()
@@ -47,7 +59,9 @@ public class Shell : MonoBehaviour
         }
         animator.SetTrigger("IsHit");
 
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -55,18 +69,17 @@ public class Shell : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Knockback>().Apply(Vector2.zero, 0);
-            // GetComponent<IHurtable>().Hurt();
         }
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Vector2 startCast = new Vector2(bc.bounds.center.x + (transform.right.normalized.x * (bc.bounds.size.x / 2)), bc.bounds.center.y);
+        Vector2 startCast = new Vector2(bc.bounds.center.x + (facingDirection * (bc.bounds.size.x / 2)), bc.bounds.center.y);
 
         Gizmos.DrawLine(
             startCast,
-            new Vector2(startCast.x + (transform.right.normalized.x * 0.1f), startCast.y)
+            new Vector2(startCast.x + (facingDirection * 0.1f), startCast.y)
         );
     }
 

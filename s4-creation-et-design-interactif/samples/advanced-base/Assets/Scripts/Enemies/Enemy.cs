@@ -8,21 +8,28 @@ public class Enemy : MonoBehaviour, IHurtable
     [ReadOnlyInspector]
     public float currentHealth = 0f;
 
-    public SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
-    public Rigidbody2D rb;
-    public Animator animator;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private Animator animator;
+
     [ReadOnlyInspector]
-    public Color originalColor;
+    private Color originalColor;
 
-    public Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
+    [SerializeField]
+    private Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
 
-    [Header("Components to disable after specific event. E.g. : death")]
-    public Behaviour[] listComponents;
+    private WaitForSeconds flashHitDelay = new WaitForSeconds(0.25f);
+
+    [Header("Components to disable after specific event. E.g. : death"), SerializeField]
+    private Behaviour[] listComponents;
 
     private float bounceFactorOnDeath = 5.25f;
 
-    private void Start()
+    private void Awake()
     {
         // If no max health is defined then the enemy heath is 1
         currentHealth = maxHealth != null ? maxHealth.CurrentValue : 1f;
@@ -66,7 +73,7 @@ public class Enemy : MonoBehaviour, IHurtable
         else
         {
             spriteRenderer.color = hitColor;
-            yield return new WaitForSeconds(0.25f);
+            yield return flashHitDelay;
             spriteRenderer.color = originalColor;
         }
     }

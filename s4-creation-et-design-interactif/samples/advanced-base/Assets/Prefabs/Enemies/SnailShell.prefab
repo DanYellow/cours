@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4099646708331317103}
   m_Layer: 6
   m_Name: SnailShell
-  m_TagString: Untagged
+  m_TagString: Shelll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6413617920653651346}
   rb: {fileID: 1585011020543414815}
   animator: {fileID: 2836775215001599961}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   listComponents:
   - {fileID: 4099646708331317103}
@@ -312,6 +311,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 8
+  isSpriteFacingRight: 1
 --- !u!1 &9168588625862624570
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,9 +33,9 @@ public class EnemyCharge : MonoBehaviour
 
     public Knockback knockback;
 
-    [Header("Layers")]
-    public LayerMask obstacleLayers;
-    public LayerMask targetLayers;
+    [Header("Layers"), SerializeField]
+    private LayerMask obstacleLayers;
+    private LayerMask targetLayers;
 
     [Header("Shake effect"), SerializeField]
     private CameraShakeEventChannel onCrushSO;
