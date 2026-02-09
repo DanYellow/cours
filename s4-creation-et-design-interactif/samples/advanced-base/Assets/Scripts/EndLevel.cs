@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EndLevel : MonoBehaviour
@@ -10,11 +12,11 @@ public class EndLevel : MonoBehaviour
 
     [Space (10)]
     [Header("Scene's name to load after the collider is triggered"), SerializeField]
-    private string nextLevelName;
+    private SceneAsset sceneToLoad;
     [Space (10)]
 
     [Header("Broadcast event channels"), SerializeField]
-    private StringEventChannel onLevelEnded;
+    private SceneEventChannel onLevelEnded;
     [SerializeField]
     private PlaySoundAtEventChannel sfxAudioChannel;
 
@@ -25,11 +27,11 @@ public class EndLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !hasBeenTriggered)
         {
             hasBeenTriggered = true;
-            if (nextLevelName != null)
+            if (sceneToLoad != null)
             {
                 particles.Play();
                 sfxAudioChannel.Raise(audioClip, transform.position);
-                onLevelEnded.Raise(nextLevelName);
+                onLevelEnded.Raise(sceneToLoad);
             } else {
                 Debug.LogError("Level missing");
             }
