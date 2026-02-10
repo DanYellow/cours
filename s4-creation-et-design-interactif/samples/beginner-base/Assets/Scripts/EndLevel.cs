@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,13 +5,13 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour
 {
     [Header("Scene's name to load after the collider is triggered"), SerializeField]
-    private SceneAsset sceneToLoad;
+    private string sceneToLoad;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !hasBeenTriggered)
+        if (other.gameObject.CompareTag("Player"))
         {
-             SceneManager.LoadScene(sceneToLoad.name);
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }
