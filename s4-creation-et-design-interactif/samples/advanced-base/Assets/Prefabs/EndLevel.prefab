@@ -4862,6 +4862,7 @@ GameObject:
   - component: {fileID: 4327952917441872149}
   - component: {fileID: 4327952917441872139}
   - component: {fileID: 4327952917441872136}
+  - component: {fileID: 160902053850192771}
   m_Layer: 0
   m_Name: EndLevel
   m_TagString: Untagged
@@ -5004,7 +5005,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 4327952917260666791}
   audioClip: {fileID: 8300000, guid: ac0b01adff324ff4588f2023fa77333e, type: 3}
-  nextLevelName: 
+  sceneToLoad: {fileID: 102900000, guid: 7a3a156fd9ebd9a4597a65b167720820, type: 3}
   onLevelEnded: {fileID: 11400000, guid: d8e3a95aa1cd7f048b049de7aec12a0c, type: 2}
   sfxAudioChannel: {fileID: 11400000, guid: cdb31aea211f71549a57205694811885, type: 2}
-  sceneToLoad: {fileID: 102900000, guid: 7a3a156fd9ebd9a4597a65b167720820, type: 3}
+--- !u!114 &160902053850192771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327952917441872150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c22bad1d3ad594a8b30d15ff92a835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  sceneIndex: 2

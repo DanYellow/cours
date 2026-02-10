@@ -65439,6 +65439,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 950755733}
     m_Modifications:
     - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+    - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
       propertyPath: nextLevelName
       value: Debug
       objectReference: {fileID: 0}
