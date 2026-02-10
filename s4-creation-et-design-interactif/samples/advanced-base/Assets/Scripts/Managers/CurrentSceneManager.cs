@@ -7,7 +7,7 @@ public class CurrentSceneManager : MonoBehaviour
     public bool isDebugConsoleOpened = false;
 
     [Header("Listen to events"), SerializeField]
-    private SceneEventChannel onLevelEnded;
+    private IntEventChannel onLevelEnded;
     [SerializeField]
     private BoolEventChannel onDebugConsoleOpenEvent;
 

@@ -1,12 +1,13 @@
 using UnityEditor;
-using UnityEngine;
 
-[CustomEditor(typeof(SceneLoader))]
+[CustomEditor(typeof(LevelExit))]
 public class SceneLoaderEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        var loader = (SceneLoader)target;
+        DrawDefaultInspector();
+
+        var loader = (LevelExit)target;
 
         var scenes = EditorBuildSettings.scenes;
         string[] sceneNames = new string[scenes.Length];
@@ -16,12 +17,18 @@ public class SceneLoaderEditor : Editor
             sceneNames[i] = System.IO.Path.GetFileNameWithoutExtension(scenes[i].path);
         }
 
-        loader.sceneIndex = EditorGUILayout.Popup(
+        EditorGUI.BeginChangeCheck();
+        int newValue = EditorGUILayout.Popup(
             "Scene To Load",
-            loader.sceneIndex,
+            loader.sceneToLoad,
             sceneNames
         );
 
-        EditorUtility.SetDirty(loader);
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(loader, "Change Scene To Load");
+            loader.sceneToLoad = newValue;
+            EditorUtility.SetDirty(loader);
+        }
     }
 }
