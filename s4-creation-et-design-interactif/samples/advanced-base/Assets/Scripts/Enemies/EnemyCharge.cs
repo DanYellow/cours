@@ -35,6 +35,7 @@ public class EnemyCharge : MonoBehaviour
 
     [Header("Layers"), SerializeField]
     private LayerMask obstacleLayers;
+    [SerializeField]
     private LayerMask targetLayers;
 
     [Header("Shake effect"), SerializeField]
