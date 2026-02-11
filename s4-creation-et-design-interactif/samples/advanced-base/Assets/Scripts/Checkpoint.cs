@@ -4,6 +4,7 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField]
     private BoxCollider2D bc2d;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

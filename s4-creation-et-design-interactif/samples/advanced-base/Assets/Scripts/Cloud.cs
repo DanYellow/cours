@@ -6,7 +6,8 @@ public class Cloud : MonoBehaviour
     private float speed;
     [SerializeField]
     private SpriteRenderer sr;
-    public Sprite[] listSprites;
+    [SerializeField]
+    private Sprite[] listSprites;
     private float minSpeed = 0.05f;
     private float maxSpeed = 0.95f;
 
