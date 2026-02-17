@@ -272,6 +272,8 @@ Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il e
 
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
+> Note 2 : Si vous travaillez avec des branches, n'attendez pas la fin du projet pour tout fusionner, c'est la recette idéale pour la catastrophe. Dès qu'une fonctionnalité est terminée, fusionnez votre branche avec la branche principale (vous pourrez toujours garder votre branche).
+
 Si vous avez oublié comment fonctionne git. Vous avez un mémo qui rappelle les commandes de base.
 - [Accéder au mémo sur les commandes de base de git](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-GIT.md)
 
