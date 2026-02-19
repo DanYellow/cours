@@ -15,9 +15,24 @@ git clone _url-recupérée-à-l-etape-1_
 ```
 > **Note :** Le projet sera cloné à l'endroit où vous entrerez la commande dans un dossier. Si vous souhaitez ne cloner **que** le contenu du dépôt (sans créer de dossier racine), il faudra utiliser un point à la fin de la commande comme suit : `git clone _url-recupérée-à-l-etape-1_ .`
 
-_Et voilà_, le projet est maintenant sur votre ordinateur et possède son historique git.
+3. Définir son identifiant GitHub
+
+Étant donné que vous n'avez pas récupéré le projet en indiquant clairement qui vous êtes, il va falloir le préciser les via commandes suivantes (l'ordre n'a pas d'importance).
+- Pseudonyme
+```sh
+git config user.name "Votre Pseudo / Nom prénom"
+```
+
+- Email - De préférence celle utilisée pour votre compte GitHub
+```sh
+git config user.email "votreadresse@email.com"
+```
+
+_Et voilà_, le projet est maintenant sur votre ordinateur, possède son historique git et est prêt à recevoir de nouveaux commits.
 
 **Pensez bien à commiter régulièrement.**
+
+> A noter que lors du push, une fenêtre s'ouvrira, préférez l'authentification via navigateur (browser).
 
 Pour le reste des commandes : `git commit`, `git push`..., vous avez un mémo pour ça :
 - [Accéder au mémo sur les commandes de base de git](https://github.com/DanYellow/cours/blob/main/s2-integration-web/sae-203/LISEZ-MOI-GIT.md)
