@@ -254,7 +254,7 @@ Pour vous aider dans votre productivité, une console de débuggage a été rajo
 ## Utilisation de git
 Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il est donc **obligatoire** de créer un dépôt pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
-1. Créez le projet sur github
+1. Créez le projet sur GitHub
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche)) - Ceci peut se faire plus tard
 1. Clonez votre dépôt sur votre ordinateur avec le lien **ssh**
     - Il ressemble à ceci `git@github.com:mon_pseudo/mon_depot.git`
@@ -263,16 +263,18 @@ Lors du rendu du projet, vous devrez rendre le lien github de votre projet. Il e
 1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
-Note : Il faudra penser à ajouter les membres de votre groupe en collaborateurs du projet. Sinon ils seront dans l'incapacité de pousser leur travail
+**Note :** Il faudra penser à ajouter les membres de votre groupe en collaborateurs du projet. Sinon ils seront dans l'incapacité de pousser leur travail
 
-Note 2 : Vu que vous avez cloné le projet via ssh, il faudra impérativement générer une clef ssh de votre ordinateur pour vous authentifier à git. Cette opération n'est à faire qu'une seule fois par ordinateur. [Voir didacticiel pour générer clé ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+**Note 2 :** Vu que vous avez cloné le projet via ssh, il faudra impérativement générer une clef ssh de votre ordinateur pour vous authentifier à git. Cette opération n'est à faire qu'une seule fois par ordinateur. [Voir didacticiel pour générer clé ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 > Pensez bien à sélectionner l'onglet concernant votre système d'exploitation dans le lien ci-dessus.
 Une fois la clef générée, il faut l'ajouter à votre compte github. [Voir didacticiel pour ajouter clé ssh à github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+**Note 3 :** N'attendez pas la fin du projet pour fusionner toutes vos branches si vous les utilisez. Fusionnez vos branches dès qu'une fonctionnalité est terminée.
 
 Malheureusement git n'est pas trop adapté pour Unity surtout quand on édite à plusieurs la même scène. Toutefois, il existe quelques astuces pour éviter les (gros) conflits lorsqu'on travaille à plusieurs :
 - Créer des Prefabs : L'idée est de séparer sa scène en plusieurs prefabs et chacun édite sa propre prefab
     - Il est possible d'imbriquer des prefabs
-- Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre
+- Utiliser des scènes dites "additives" : Un peu plus compliqué à mettre en place et nécessite du code en plus pour appeler une scène dans une autre.
 Quoiqu'il en soit, vous trouverez des explications sur ces méthodes : [ici](https://gist.github.com/j-mai/4389f587a079cb9f9f07602e4444a6ed#-git-workflow)
     > Nous vous conseillons plutôt d'utiliser la méthode des prefabs, plus simple à mettre en place
 
