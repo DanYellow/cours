@@ -53,12 +53,11 @@ public class EnemyDataSO : ScriptableObject
 ```
 Dans le code ci-dessus, la grande différence avec les classes que nous avons faites jusqu'à présent c'est qu'elle hérite de `ScriptableObject`. Pour le reste, ça fonctionne plus ou moins comme avant, on définit des propriétés publiques ou privées ainsi que des méthodes, elles aussi à niveau de visibilité variable (private / public). Notez tout de même que les méthodes `Update()` ou `Awake()` ne sont pas utilisables avec un ScriptableObject néanmoins vous pouvez utiliser la méthode `Start()` ou encore référencer un ScriptableObject dans un autre ScriptableObject.
 
-Sinon, si on reprend le cas de nos bateaux en ScriptableObject, nous voulons avoir les informations suivantes pour chaque bateau :
+Si on reprend le cas de nos ennemis en ScriptableObject, nous voulons avoir les informations suivantes pour chaque ennemi :
 - damage (int) - dégâts
-- cost (int) - prix
+- color (int) - couleur
 - name (string) - nom
-- description (string) - description
-- sprite (Sprite) - Image
+- speed (int) - vitesse
 
 ```cs
 using UnityEngine;
