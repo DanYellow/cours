@@ -164,7 +164,8 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 > - [En savoir plus sur l'évènement pull_request](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 du TP de CI/CD et adapter en fonction des besoins du devoir.
-  - [Voir correction](https://github.com/DanYellow/cours/blob/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
+  - [Voir correction](https://github.com/DanYellow/cours/blob/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
+> 
 
 ## Migration base de données (MySQL)
 La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données (appelé aussi "dump") puis l'importer.
