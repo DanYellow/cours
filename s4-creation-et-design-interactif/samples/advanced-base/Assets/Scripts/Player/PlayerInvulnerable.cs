@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerInvulnerable : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
     public bool isInvulnerable = false;
-
-    public LayerMask layersToIgnoreAfterHit;
-
-    public Animator animator;
+    [SerializeField]
+    private LayerMask layersToIgnoreAfterHit;
+    [SerializeField]
+    private Animator animator;
 
     [SerializeField]
     private float invulnerableDuration = 2.5f;

@@ -2,23 +2,26 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
-    public SpriteRenderer sr;
+    [SerializeField]
+    private SpriteRenderer sr;
 
-    public PlayerInvulnerable playerInvulnerable;
+    [SerializeField]
+    private PlayerInvulnerable playerInvulnerable;
 
-    [Tooltip("Please uncheck it on production")]
-    public bool needResetHP = true;
+    [Tooltip("Please uncheck it if the health is carry on"), SerializeField]
+    private bool needResetHP = true;
 
-    [Header("ScriptableObjects")]
-    public PlayerData playerData;
+    [Header("ScriptableObjects"), SerializeField]
+    private PlayerData playerData;
 
-    [Header("Debug")]
-    public VoidEventChannel onDebugDeathEvent;
+    [Header("Debug"), SerializeField]
+    private VoidEventChannel onDebugDeathEvent;
 
     [Header("Broadcast event channels")]
-    public VoidEventChannel onPlayerDeath;
+    private VoidEventChannel onPlayerDeath;
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
         transform.Rotate(0f, 0f, 45f);
         animator.SetTrigger("Death");
+        Debug.Log($"<color=#FF0000>GAME OVER</color>");
     }
 
     public void OnPlayerDeathAnimationCallback()

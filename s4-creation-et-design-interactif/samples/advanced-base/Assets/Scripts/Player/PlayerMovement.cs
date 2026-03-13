@@ -271,7 +271,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(bool shortJump = false)
     {
-
         if (shortJump)
         {
             rb.linearVelocity = new Vector2(

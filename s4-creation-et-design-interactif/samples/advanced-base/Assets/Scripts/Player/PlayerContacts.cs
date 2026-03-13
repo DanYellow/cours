@@ -1,15 +1,21 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+// Manage contacts between player and the game's world
+// Detect if the player can cross platform or is being crushed by rock head
 public class PlayerContacts : MonoBehaviour
 {
-    public BoxCollider2D bc;
+    [SerializeField]
+    private BoxCollider2D bc;
 
-    [Header("Crush detection")]
-    public LayerMask listContacts;
-    public float crushLengthDetection = 0.25f;
-    public float boxCastScaleX = 0.95f;
-    public float boxCastScaleY = 0.95f;
+    [Header("Crush detection"), SerializeField]
+    private LayerMask listContacts;
+    [SerializeField]
+    private float crushLengthDetection = 0.25f;
+    [SerializeField]
+    private float boxCastScaleX = 0.95f;
+    [SerializeField]
+    private float boxCastScaleY = 0.95f;
 
     public bool hasLeftContact = false;
     public bool hasTopContact = false;

@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float moveSpeed;
-    public Rigidbody2D rb;
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private Rigidbody2D rb;
 
     [SerializeField]
     private float delayBeforeAutodestruction = 2.5f;
@@ -12,7 +14,8 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    public float damage = 1f;
+    [SerializeField]
+    private float damage = 1f;
 
     private Coroutine autoDestroyCoroutine;
 
