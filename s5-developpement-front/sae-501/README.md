@@ -49,9 +49,9 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
-- **C'est la branche master, main ou develop qui sera évaluée.** Pensez à bien à fusionner toutes vos branches.
+- **C'est la branche principale (par défaut "main") qui sera évaluée.** Pensez à bien à fusionner toutes vos branches vers celle-ci
 
-> Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée.
+> Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée. **Évitez de tout fusionner à la fin, vous pourriez avoir de très mauvaises surprises.**
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des tâches à réaliser.
 
@@ -330,8 +330,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 
 ### Site BUT et administration
 - [ ] Gérer l'erreur 404
-    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de votre fichier, sinon, celles qui suivront ne seront jamais appelées
-    - [Liste inspiration pages 404](https://www.designspells.com/?tag=404)
+    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de l'ensemble de **toutes** vos routes, sinon, celles qui suivront ne seront jamais appelées
+    - [Liste inspiration design pages 404](https://www.designspells.com/?tag=404)
 - [ ] Rendre le site responsive (tailwind est là pour vous aider)
     - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
     - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
@@ -362,7 +362,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     ```
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
     - **La page ne doit pas se recharger lors de la soumission du formulaire**
-    - Il faudra utiliser un outil comme [axios](https://www.npmjs.com/package/axios) (déjà installé) ou fetch, api native de javascript
+    - Il faudra utiliser fetch, api native de javascript qui permet de faire des requêtes asynchrones
 - [ ] Afficher les détails d'un article quand on clique dessus depuis la page d'accueil
     - titre, chapo, contenu, image, video youtube
     - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
