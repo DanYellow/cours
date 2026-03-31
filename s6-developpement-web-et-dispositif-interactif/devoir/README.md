@@ -26,7 +26,7 @@ Suite au projet abordé durant le cours de CI/CD (Continous Integration / Contin
 - DevOps
 
 Le projet se trouve toujours au même endroit :
-- [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
+- [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/developpement-web-et-dispositif-interactif-s6_travaux-pratiques_numero-4.ressources.zip)
 
 > Même si vous avez récupéré le projet durant le TP, il est préférable de récupérer la dernière version, des modifications ont pu avoir lieu entre-temps.
 
