@@ -9,5 +9,6 @@ __MACOSX/
 
 *.dist.*
 *.local.*
+*.local
 *.temp.*
 *.tmp.*
