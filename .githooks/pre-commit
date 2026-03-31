@@ -8,9 +8,9 @@ else
 
     if ! command -v python &> /dev/null; then
         # For linux env
-        python3 zip-ressources.py
+        python3 zip-ressources.proxy.py
     else
-        python zip-ressources.py
+        python zip-ressources.proxy.py
     fi
 fi
 
