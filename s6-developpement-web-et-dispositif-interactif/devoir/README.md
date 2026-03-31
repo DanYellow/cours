@@ -26,7 +26,7 @@ Suite au projet abordé durant le cours de CI/CD (Continous Integration / Contin
 - DevOps
 
 Le projet se trouve toujours au même endroit :
-- [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/s6-developpement-web-et-dispositif-interactif.devoir.zip)
+- [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/s6-developpement-web-et-dispositif-interactif_travaux-pratiques_numero-4.ressources.zip)
 
 > Même si vous avez récupéré le projet durant le TP, il est préférable de récupérer la dernière version, des modifications ont pu avoir lieu entre-temps.
 
@@ -126,7 +126,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
   - Lors de l'upload d'une jaquette, proposez une liste déroulante listant tous les jeux disponibles (src/utils.js) pour sélectionner le jeu dont on veut uploader la jaquette
   - Les images doivent être renommées de façon "sanitized". Les accents et autres espaces doivent être remplacés tout comme la casse doit passer en minuscules
     - Ex : Let's_Go Évoli.jpg -> let-s-go-evoli.jpg (vous pouvez nommer le fichier d'une autre façon, mais le nom doit être _sanitized_)
-    - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/developpement-web-et-dispositif-interactif-s6/developpement-web-et-dispositif-interactif-s6.exercice.zip)
+    - [Télécharger les jaquettes](https://github.com/DanYellow/cours/raw/refs/heads/main/s6-developpement-web-et-dispositif-interactif/s6-developpement-web-et-dispositif-interactif.devoir.zip)
 - [ ] Afficher toutes les jaquettes de jeux dans la modale partie "Apparitions"
     - Note : L'api "pokeapi" retourne la présence d'un Pokémon dans un jeu de la façon suivante :
         ```json
