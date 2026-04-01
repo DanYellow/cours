@@ -115,10 +115,10 @@ Nous ferons ensemble la collection "messages", elle nous permettra de sauvegarde
 > Vous remarquerez que nous n'avons pas fourni un fichier de base de données, c'est normal. Mongoose crée les collections s'il ne les trouve pas. La première requête de chaque collection créera la collection en même temps.
 
 ## Requêtes
-Pour créer ces messages, il faudra créer des routes. Le projet respecte la philosophie du CRUD (Create, Read, Update, Delete), conséquemment, dépendamment des besoins, il y a une route permettant de créer, récupérer, mettre à jour et supprimer un document. La gestion de requêtes des composées de deux parties :
-- API : Réalisée avec [axios](https://www.npmjs.com/package/axios). Appelée par les pages et pour supprimer un document
+Pour créer ces messages, il faudra créer des routes. Le projet respecte la philosophie du CRUD (Create, Read, Update, Delete), conséquemment, dépendamment des besoins, il y a une route permettant de créer (Create), lire (Read), mettre à jour (Update) et supprimer un document (Delete). La gestion de requêtes est composée de deux parties :
+- API : Appelée par les pages et pour supprimer un document
     - Toutes les routes commencent par `/api` suivi du nom de la collection. Ex : `api/saes` concerne tout ce qui est lié aux SAES
-- Backend : Appelle l'API pour afficher son contenu dans les pages
+- Administration / partie publique : Appelle l'API pour afficher son contenu dans les pages
 
 Exemple :
 
@@ -140,15 +140,12 @@ router.get(`/saes`, async (req, res) => {
 
 // backend.js
 router.get(`/saes`, async (req, res) => {
-    const options = {
-        method: "GET",
-        url: `http://localhost:{PORT}/api/saes`,
-    };
-
     let result = null;
     try {
         // Fait une requête vers l'API...
-        result = await axios(options);
+        const req = await fetch(`http://localhost:${PORT}/api/saes`);
+        // On transforme la réponse en JSON
+        result = await req.json();
     } catch (e) {}
     // ...pour ensuite injecter le résultat dans un template nunjucks
     res.render("pages/back-end/saes/list.njk", {

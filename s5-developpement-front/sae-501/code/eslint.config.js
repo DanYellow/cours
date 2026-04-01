@@ -23,13 +23,7 @@ export default [
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
             "no-var": "error",
-            "@stylistic/quotes": [
-                "error",
-                "double",
-                {
-                    avoidEscape: true,
-                },
-            ],
+            "@stylistic/quotes": "off",
             "@stylistic/semi": "warn",
             "@stylistic/no-trailing-spaces": "off",
             "@stylistic/no-multiple-empty-lines": "off",
