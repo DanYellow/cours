@@ -1,5 +1,4 @@
 import express from "express";
-import axios from "axios";
 
 import routeName from "#server/utils/name-route.middleware.js";
 import parseManifest from "#server/utils/parse-manifest.js";
@@ -22,13 +21,9 @@ router.use(async (_req, res, next) => {
 
 router.get("/", routeName("homepage"), async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
-    const options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/articles?${queryParams}&is_active=true`,
-    };
     let result = {};
     try {
-        result = await axios(options);
+        result = await fetch(`${res.locals.base_url}/api/articles?${queryParams}&is_active=true`);
     } catch (_error) {}
 
     res.render("pages/front-end/index.njk", {
@@ -38,14 +33,9 @@ router.get("/", routeName("homepage"), async (req, res) => {
 
 // "(.html)?" makes ".html" optional in the url
 router.get("/a-propos(.html)?", routeName("about"), async (_req, res) => {
-    const options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/saes?per_page=9`,
-    };
-
     let result = {};
     try {
-        result = await axios(options);
+        result = await fetch(`${res.locals.base_url}/api/saes?per_page=9`);
     } catch (_error) {}
 
     res.render("pages/front-end/about.njk", {

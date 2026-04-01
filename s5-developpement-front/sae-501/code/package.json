@@ -1,7 +1,7 @@
 {
   "name": "sae-501",
   "private": true,
-  "version": "2025.0.0",
+  "version": "2026.0.0",
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development node --watch-path=./database --watch-path=./server --watch-path=./env server/index.js",
@@ -28,7 +28,6 @@
     "vite": "^7.0.0"
   },
   "dependencies": {
-    "axios": "^1.7.7",
     "cookie-parser": "^1.4.7",
     "cookie-session": "^2.1.0",
     "cors": "^2.8.5",
@@ -53,9 +52,8 @@
     "#database/index.js": "./database/index.js",
     "#server/utils/*.js": "./server/utils/*.js",
     "#server/*.js": "./server/*.js",
-    "#database/validator.js": "./database/validator.js",
     "#database/*.js": "./database/*.js",
-    "#fe/utils": "./src/scripts/utils.js",
+    "#utils": "./src/scripts/utils/index.js",
     "#generate-list-routes.js": "./generate-list-routes.js"
   },
   "engines": {

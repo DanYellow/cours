@@ -1,29 +1,23 @@
 import express from "express";
 import mongoose from "mongoose";
-import axios from "axios";
-import querystring from "querystring";
+
 import routeName from "#server/utils/name-route.middleware.js";
 import upload from "#server/uploader.js";
 
 import { ressourceNameInApi } from "./utils.js";
+import { buildPayload } from "#server/utils/build-payload.js";
 
 const base = "saes";
 const router = express.Router();
 
 // Get or create SAE
 router.get(`/${base}`, routeName("sae_list"), async (req, res) => {
-    const queryParams = querystring.stringify(req.query);
-
-    let options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}?${queryParams}`,
-    };
-
     let result = {};
     let listErrors = [];
-
+    
     try {
-        result = await axios(options);
+        const queryParams = (new URLSearchParams(req.query)).toString();
+        result = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.saes}?${queryParams}`);
     } catch (error) {
         listErrors = error.response.data.errors;
     }
@@ -43,12 +37,8 @@ router
         let listErrors = [];
 
         if (isEdit) {
-            const options = {
-                method: "GET",
-                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
-            };
             try {
-                result = await axios(options);
+                result = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`);
             } catch (error) {
                 listErrors = error.response.data.errors;
             }
@@ -69,28 +59,27 @@ router
             headers: {
                 "Content-Type": "multipart/form-data",
             },
-            data: {
-                ...req.body,
-                file: req.file,
-            },
+            body: buildPayload(req.body, req.file),
         };
 
+        let url = ""
         if (isEdit) {
             options = {
                 ...options,
                 method: "PUT",
-                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`,
             };
+            url = `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`;
         } else {
             options = {
                 ...options,
                 method: "POST",
-                url: `${res.locals.base_url}/api/${ressourceNameInApi.saes}`,
             };
+            url = `${res.locals.base_url}/api/${ressourceNameInApi.saes}`;
         }
 
         try {
-            const result = await axios(options);
+            const req = await fetch(url, options);
+            const result = await req.json();
             ressource = result.data;
         } catch (error) {
             listErrors = error.response.data.errors;

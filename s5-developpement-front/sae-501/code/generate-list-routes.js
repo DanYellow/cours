@@ -212,7 +212,6 @@ const getNameForRoute = (app, pattern) => {
 
     return {
         ...(_route || { NAME: null }),
-        // QUERY_STRING: Object.fromEntries(new URLSearchParams(queryString))
     };
 }
 

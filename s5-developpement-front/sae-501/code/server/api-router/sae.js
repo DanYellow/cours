@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import fs from "fs";
-import querystring from "querystring";
 
 import SAE from "#models/sae.js";
 import routeName from "#server/utils/name-route.middleware.js";
@@ -90,7 +89,7 @@ router.get(`/${base}`, routeName("sae_api"), async (req, res) => {
             total_pages: Math.ceil(count / perPage),
             count,
             page,
-            query_params: querystring.stringify(queryParam),
+            query_params: (new URLSearchParams(queryParam)).toString(),
         });
     } catch (e) {
         res.status(400).json({

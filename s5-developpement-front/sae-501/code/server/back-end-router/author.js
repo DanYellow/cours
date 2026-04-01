@@ -1,28 +1,24 @@
 import express from "express";
-import axios from "axios";
 import mongoose from "mongoose";
-import querystring from "querystring";
 
 import { ressourceNameInApi } from "./utils.js";
 
 import upload from "#server/uploader.js";
+import { buildPayload } from "#server/utils/build-payload.js";
 
 const base = "auteurs";
 const router = express.Router();
 
 // Get multiple authors
 router.get(`/${base}`, async (req, res) => {
-    const queryParams = querystring.stringify({ per_page: 7, ...req.query });
-    let options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/${ressourceNameInApi.authors}?${queryParams}`,
-    };
+    const queryParams = new URLSearchParams({ per_page: 7, ...req.query });
 
     let result = {};
     let listErrors = [];
 
     try {
-        result = await axios(options);
+        const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}?${queryParams.toString()}`);
+        result = await req.json()
     } catch (error) {
         listErrors = error.response.data.errors;
     }
@@ -35,10 +31,6 @@ router.get(`/${base}`, async (req, res) => {
 
 // Get or create author
 router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
-    const options = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`,
-    };
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
 
     let result = {};
@@ -46,7 +38,8 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
     if (isEdit) {
         try {
-            result = await axios(options);
+            const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`);
+            result = await req.json();
         } catch (e) {
             listErrors = e.response.data.errors;
         }
@@ -61,36 +54,34 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
 
 // Create or update author
 router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req, res) => {
-    let ressource = null;
+    let ressource = {};
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
     let listErrors = [];
     let options = {
         headers: {
             "Content-Type": "multipart/form-data",
         },
-        data: {
-            ...req.body,
-            file: req.file,
-        },
+        body: buildPayload(req.body, req.file),
     };
-
+    
+    let url = '';
     if (isEdit) {
         options = {
             ...options,
             method: "PUT",
-            url: `${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`,
         };
+        url = `${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`;
     } else {
         options = {
             ...options,
             method: "POST",
-            url: `${res.locals.base_url}/api/${ressourceNameInApi.authors}`,
         };
+        url = `${res.locals.base_url}/api/${ressourceNameInApi.authors}`;
     }
 
     try {
-        const result = await axios(options);
-        ressource = result.data;
+        const req = await fetch(url, options);
+        ressource = await req.json().data;
     } catch (e) {
         listErrors = e.response.data.errors;
         ressource = e.response.data.ressource || {};

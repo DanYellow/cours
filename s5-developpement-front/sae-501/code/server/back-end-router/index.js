@@ -1,12 +1,10 @@
 import express from "express";
-import axios from "axios";
-import querystring from "querystring";
 
 import routeName from "#server/utils/name-route.middleware.js";
 import parseManifest from "#server/utils/parse-manifest.js";
 
 // Routers
-import SAERouter from "./sae.js";
+import saeRouter from "./sae.js";
 import articleRouter from "./article.js";
 import authorsRouter from "./author.js";
 
@@ -26,25 +24,20 @@ router.use(async (_req, res, next) => {
     next();
 });
 
-router.use(SAERouter);
+router.use(saeRouter);
 router.use(articleRouter);
 router.use(authorsRouter);
 
 router.get("/", routeName("admin"), async (req, res) => {
-    const queryParamsSAEs = querystring.stringify({ per_page: 5 });
-    const optionsSAEs = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/saes?${queryParamsSAEs}`,
-    };
+    const NB_ITEMS_PER_PAGE = 5;
+    const queryParamsSAEs = new URLSearchParams({ per_page: NB_ITEMS_PER_PAGE });
 
-    const listSAEs = await axios(optionsSAEs);
+    const listSAEsReq = await fetch(`${res.locals.base_url}/api/saes?${queryParamsSAEs.toString()}`);
+    const listSAEs = await listSAEsReq.json();
 
-    const queryParamsArticles = querystring.stringify({ per_page: 5 });
-    const optionsArticles = {
-        method: "GET",
-        url: `${res.locals.base_url}/api/articles?${queryParamsArticles}`,
-    };
-    const listArticles = await axios(optionsArticles);
+    const queryParamsArticles = new URLSearchParams({ per_page: NB_ITEMS_PER_PAGE });
+    const listArticlesReq = await fetch(`${res.locals.base_url}/api/articles?${queryParamsArticles.toString()}`);
+    const listArticles = await listArticlesReq.json();
 
     res.render("pages/back-end/index.njk", {
         list_saes: {

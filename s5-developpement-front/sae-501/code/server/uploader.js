@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import { existsSync } from "node:fs";
 import multer from "multer";
 
-import { imageValidator } from "#database/validator.js";
+import { imageValidator } from "#utils";
 
 const storage = multer.diskStorage({
     filename: function (req, file, cb) {

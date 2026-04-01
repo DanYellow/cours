@@ -1,6 +1,4 @@
-import axios from "axios";
-
-import { delegateEventHandler } from "#fe/utils";
+import { delegateEventHandler } from "#utils";
 
 const modal = document.querySelector("[data-modal]");
 const tplId = "delete-entry";
@@ -28,16 +26,14 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
 
     const errorMessageModal = modal.querySelector("[data-error-modal]");
 
-    await axios
-        .delete(e.target.dataset.deleteItem)
-        .then(() => {
-            window.location.reload();
-        })
-        .catch((error) => {
-            errorMessageModal.textContent = error.response?.data?.error || "Erreur";
-            errorMessageModal.classList.remove("hidden");
-            modal.removeAttribute("inert");
-        });
+    try {
+        await fetch("", { method: "DELETE" });
+        window.location.reload();
+    } catch (error) {
+        errorMessageModal.textContent = error.response?.data?.error || "Erreur";
+        errorMessageModal.classList.remove("hidden");
+        modal.removeAttribute("inert");
+    }
 });
 
 document.querySelectorAll('[data-modal-id="delete-entry"]').forEach((item) => {

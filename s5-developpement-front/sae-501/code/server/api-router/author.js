@@ -1,7 +1,6 @@
 import express from "express";
 import fs from "fs";
 import mongoose from "mongoose";
-import querystring from "querystring";
 
 import Author from "#models/author.js";
 
@@ -98,7 +97,7 @@ router.get(`/${base}`, async (req, res) => {
             total_pages: isFinite(total_pages) ? total_pages : 1,
             count,
             page,
-            query_params: querystring.stringify(queryParam),
+            query_params: (new URLSearchParams(queryParam)).toString(),
         });
     } catch (e) {
         res.status(400).json({
