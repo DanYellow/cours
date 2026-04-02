@@ -28,6 +28,8 @@ Dans le cadre de la SAÉ 501, nous avons fait le choix d'utiliser MongoDB (très
 > - Accéder à la page de [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 > 
 > Une fois le compte crée (vous pouvez laisser tout par défaut), le site génèrera une URL de serveur, il faudra donc utiliser celle-ci pour la variable d'environnement `MONGODB_URL`
+> 
+> Il y a un exemple de schéma d'url dans les fichiers .env du projet
 
 <details>
   <summary>Notes pour les utilisateurs de Windows</summary>

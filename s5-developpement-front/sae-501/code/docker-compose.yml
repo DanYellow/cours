@@ -1,0 +1,31 @@
+services:
+  app:
+    container_name: sae_501_dev
+    build: .
+    # env_file:
+    #   - path: ./env/.env.dev.dist
+    #     required: true # default
+    #   - path: ./env/.env.dev.local
+    #     required: false
+    ports:
+      - "${PORT}:3000"
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    command: npm run start
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    container_name: mongo_db
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo_data:

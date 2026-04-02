@@ -229,6 +229,18 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
 
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
+#### Docker
+Le projet gère également Docker en mode développement. Si vous le souhaitez, vous pouvez l'utiliser avec la commande suivante :
+
+```bash
+docker compose --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local up
+```
+
+Notez quand même les points suivants :
+- Contrairement à l'architecture sans Docker, toute modification des fichiers `.env` nécessitera un redémarrage du container Docker (`ctrl` + `D`)
+- La commande `docker compose` échouera si un des fichiers .env est inexistant
+- Si vous souhaitez utiliser MondoDb Altas au lieu d'une base MongoDb locale, vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml` pour supprimer le téléchargement de l'image MongoDb
+
 ### Utilisation - Mode production
 
 > **Le projet sera testé en mode production. Veillez bien à tester que tout fonctionne dans ce mode avant de rendre le projet.**

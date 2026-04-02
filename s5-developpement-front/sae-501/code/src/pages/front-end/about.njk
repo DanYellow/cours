@@ -19,7 +19,7 @@
 ] %}
 
 {% block main %}
-    <ul class="flex justify-center gap-x-4 bg-neutral-50 mb-9 sm:flex-row flex-col gap-y-3 w-fit sm:mx-auto">
+    <ul class="flex justify-center gap-x-4 bg-neutral-50 mb-9 sm:flex-row flex-col gap-y-3 w-fit sm:mx-auto px-4 rounded-2xl border border-[#005A47] border-solid">
         {% for item in list_anchors %}
             <li>
                 <a href="#{{ item.hash }}" class="text-xl text-[#005A47] hocus:text-black">{{ item.name }}</a>

@@ -27,4 +27,6 @@ dist-ssr
 *.env.*.local
 .eslintcache
 
+docker-compose.override.yml
+
 *.timestamp-*

@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-let envFilePath = "./env/.env.prod.local";
+let envFilePath = `${process.cwd()}/env/.env.prod.local`;
 if (process.env.NODE_ENV === "development") {
-    envFilePath = "./env/.env.dev.local";
+    envFilePath = `${process.cwd()}/env/.env.dev.local`;
 }
+
 const envVars = dotenv.config({ path: envFilePath });
 
 // https://www.mongodb.com/try/download/community-kubernetes-operator

@@ -11,7 +11,7 @@ import listAuthors, { author } from "./swagger-schemas/author.js";
 
 import packageJSON from "../package.json" with { "type": "json" };
 
-const envFilePath = "env/.env.dev.local";
+const envFilePath = `${process.cwd()}/env/.env.dev.local`;
 
 const envVars = dotenv.config({ path: envFilePath });
 const port = envVars?.parsed?.PORT || 3900;

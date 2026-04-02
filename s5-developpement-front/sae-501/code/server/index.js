@@ -213,7 +213,6 @@ if (!hasEnvFile) {
     }
 }
 
-console.log("fff", `/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`)
 app.use(`/admin${envVars.parsed?.ADMIN_SUFFIX || ""}`, breadcrumb, backendRouter);
 app.use("/api", apiRouter);
 app.use(frontendRouter);
