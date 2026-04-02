@@ -237,9 +237,11 @@ docker compose --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local up
 ```
 
 Notez quand même les points suivants :
-- Contrairement à l'architecture sans Docker, toute modification des fichiers `.env` nécessitera un redémarrage du container Docker (`ctrl` + `D`)
-- La commande `docker compose` échouera si un des fichiers .env est inexistant
-- Si vous souhaitez utiliser MondoDb Altas au lieu d'une base MongoDb locale, vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml` pour supprimer le téléchargement de l'image MongoDb
+- Contrairement à l'architecture sans Docker, toute modification des fichiers `.env` nécessitera un redémarrage du container Docker (`ctrl` + `D` pour arrêter)
+- La commande `docker compose` échouera si un des fichiers .env, listé dans la commande, est inexistant
+- Si vous souhaitez utiliser MondoDb Altas au lieu d'une base MongoDb locale, vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml` pour supprimer le téléchargement de l'image MongoDb par Docker
+- Si vous utilisez l'image Docker pour MongoDb, il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env)
+- Les images Docker peuvent être très lourdes, si vous avez un espace disque limité, évitez de l'utiliser. Les images de node + mongodb pèsent ensemble 4 GB
 
 ### Utilisation - Mode production
 
