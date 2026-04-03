@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.InputSystem;
 // https://www.youtube.com/watch?v=cruE--5ML_Q
 public class Health : MonoBehaviour
 {
@@ -27,16 +28,19 @@ public class Health : MonoBehaviour
         currentHealth.CurrentValue = maxHealth.CurrentValue;
     }
 
-    private void Update()
+    public void OnDie(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (context.performed)
         {
             Die();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.H))
+    public void OnHurt(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            TakeDamage(1);
+            TakeDamage(10);
         }
     }
 

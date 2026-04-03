@@ -1,5 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -34,8 +36,33 @@ public class PlayerMovement : MonoBehaviour
     public Transform wallCheck;
     public LayerMask wallLayer;
 
+    public InputAction fireAction;
+
+    private PlayerInput controls;
+
+    private void Awake()
+    {
+        controls = GetComponent<PlayerInput>();
+    }
+
+    private void OnEnable()
+    {
+        controls.onActionTriggered += OnInputRegistered;
+    }
+
+    private void OnInputRegistered(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.action.actionMap.name);
+    }
+
+    private void OnDisable()
+    {
+        controls.onActionTriggered -= OnInputRegistered;
+    }
+
     private void Start()
     {
+        print("ffeeeeee");
         jumpCount = 0;
         // https://www.youtube.com/watch?v=EyKmLj2ICFw
         // val.CurrentValue = 41;
@@ -45,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirectionX = Input.GetAxisRaw("Horizontal");
+        // moveDirectionX = Input.GetAxisRaw("Horizontal");
 
         if (isGrounded)
         {
@@ -63,25 +90,30 @@ public class PlayerMovement : MonoBehaviour
 
         // float force = Input.GetButton("Jump") ? stompBounceForce * 1.2f : stompBounceForce;
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpRequested = true;
-        }
-        if (Input.GetButtonUp("Jump"))
-        {
-            jumpReleased = true;
-        }
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     jumpRequested = true;
+        // }
+        // if (Input.GetButtonUp("Jump"))
+        // {
+        //     jumpReleased = true;
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            transform.Translate(VectorFromAngle(45));
-            // AddForceAtAngle(15f, 45);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha0))
+        // {
+        //     transform.Translate(VectorFromAngle(45));
+        //     // AddForceAtAngle(15f, 45);
+        // }
 
         Flip();
 
         wasGrounded = isGrounded;
     }
+
+    // public void OnMove(InputValue val)
+    // {
+    //     moveDirectionX = val.Get<Vector2>().x;
+    // }
 
     public void AddForceAtAngle(float force, float angle)
     {
@@ -103,34 +135,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
         isGrounded = IsGrounded();
 
         WallSlide();
-
-        if (jumpRequested)
-        {
-            // if (coyoteTimeCounter > 0f)
-            // {
-            //     Jump();
-            //     coyoteTimeCounter = 0f;
-            // }
-            // else if (!isGrounded && jumpCount < nbMaxJumpsAllowed)
-            // {
-            //     Jump();
-            // }
-
-            if (isGrounded || jumpCount < nbMaxJumpsAllowed)
-            {
-                Jump();
-            }
-        }
-
-        // if (jumpRequested && (coyoteTimeCounter > 0f || jumpCount < nbMaxJumpsAllowed))
-        // if (jumpRequested && (isGrounded || (jumpCount < nbMaxJumpsAllowed && rb.li)))
-        // {
-        //     Jump();
-        // }
 
         if (jumpReleased && rb.linearVelocityY > 0f)
         {
@@ -146,15 +153,31 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2.5f - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2f - 1) * Time.fixedDeltaTime;
-        }
+        // else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        // {
+        //     rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2f - 1) * Time.fixedDeltaTime;
+        // }
     }
 
-    private void Move()
+    public void OnMove(InputAction.CallbackContext context)
     {
+        moveDirectionX = context.ReadValue<Vector2>().x;
         rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && (isGrounded || jumpCount < nbMaxJumpsAllowed))
+        {
+            Jump();
+        }
+        else if (context.canceled && rb.linearVelocityY > 0f)
+        {
+            rb.linearVelocity = new Vector2(
+               rb.linearVelocity.x,
+              rb.linearVelocity.y * 0.5f
+           );
+        }
     }
 
     private void Flip()

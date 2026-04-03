@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public abstract class EventChannel : ScriptableObject
 {
-    public UnityAction OnEventRaised;
+    public event UnityAction OnEventRaised;
 
     public void Raise()
     {
@@ -13,7 +13,7 @@ public abstract class EventChannel : ScriptableObject
 
 public abstract class EventChannel<T> : ScriptableObject
 {
-    public UnityAction<T> OnEventRaised;
+    public event UnityAction<T> OnEventRaised;
 
     public void Raise(T value)
     {
