@@ -61,13 +61,10 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
     let listAuthors = [];
 
     let options = {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
         body: buildPayload(req.body, req.file),
     };
 
-    let url = ''
+    let url = '';
 
     if (isEdit) {
         options = {
@@ -80,7 +77,7 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
             ...options,
             method: "POST",
         };
-        url = `${res.locals.base_url}/api/${ressourceNameInApi.articles}`
+        url = `${res.locals.base_url}/api/${ressourceNameInApi.articles}`;
     }
 
     try {

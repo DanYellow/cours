@@ -28,6 +28,7 @@ export default [
             "@stylistic/no-trailing-spaces": "off",
             "@stylistic/no-multiple-empty-lines": "off",
             "@stylistic/arrow-parens": "off",
+            "stylistic/multiline-ternary": "off",
             "@stylistic/brace-style": ["error", "1tbs"],
             "@stylistic/comma-dangle": [
                 "error",
@@ -53,6 +54,7 @@ export default [
             "postcss.config.js",
             "server/swagger.js",
             "server/swagger-schemas/",
+            "**/*.tmp.*",
         ],
     },
 ];

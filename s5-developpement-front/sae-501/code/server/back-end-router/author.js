@@ -18,7 +18,7 @@ router.get(`/${base}`, async (req, res) => {
 
     try {
         const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}?${queryParams.toString()}`);
-        result = await req.json()
+        result = await req.json();
     } catch (error) {
         listErrors = error.response.data.errors;
     }
@@ -58,9 +58,6 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
     const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
     let listErrors = [];
     let options = {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
         body: buildPayload(req.body, req.file),
     };
     

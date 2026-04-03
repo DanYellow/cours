@@ -237,11 +237,11 @@ docker compose --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local up
 ```
 
 Notez quand même les points suivants :
-- Contrairement à l'architecture sans Docker, toute modification des fichiers `.env` nécessitera un redémarrage du container Docker (`ctrl` + `D` pour arrêter)
+
 - La commande `docker compose` échouera si un des fichiers .env, listé dans la commande, est inexistant
-- Si vous souhaitez utiliser MondoDb Altas au lieu d'une base MongoDb locale, vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml` pour supprimer le téléchargement de l'image MongoDb par Docker
-- Si vous utilisez l'image Docker pour MongoDb, il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env)
-- Les images Docker peuvent être très lourdes, si vous avez un espace disque limité, évitez de l'utiliser. Les images de node + mongodb pèsent ensemble 4 GB
+- Si vous souhaitez utiliser Docker pour gérer MondoDb (au lieu d'une base MongoDb locale ou Atlas), vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml`
+- Si vous utilisez l'image Docker pour MongoDb, il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env.dev.local)
+- Les images Docker peuvent être très lourdes, si vous avez un espace disque limité, évitez de l'utiliser. Les images Docker de node + mongodb pèsent ensemble 4 GB
 
 ### Utilisation - Mode production
 
@@ -265,7 +265,7 @@ Même s'il y a une tâche de production, vous ne serez pas en capacité d'upload
     >   - Note : Si vous utilisez la version gratuite d'Alwaysdata, l'espace disque sera trop petit pour héberger votre projet. Les dépendances de node seront trop lourdes. Ainsi, il est préférable d'utiliser la commande `npm install --omit=dev` pour installer uniquement les dépendances dont vous avez besoin en production. Cette astuce s'applique pour n'importe quel serveur node en production.
     >   - Note 2 : Contrairement à ce que laisse penser l'adminstration d'alwaysdata, selectionner une version de node, ne l'applique pas quand vous effectuez des commandes en ssh (vous devrez faire npm install, vous-même). Si vous souhaitez utiliser une version spécifique de node, il faudrait la préfixer avec la variable d'environnement `NODEJS_VERSION`. Par exemple `NODEJS_VERSION=21 npm install` pour utiliser la version 21.X.X de nodejs.
 
-> Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.
+> Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.local qui ne sont pas commités
 
 ## Flash messages
 Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur, affiché qu'**une seule fois.** et supprimé juste après. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.

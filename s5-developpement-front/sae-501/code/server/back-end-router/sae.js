@@ -56,17 +56,14 @@ router
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
         let listErrors = [];
         let options = {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
             body: buildPayload(req.body, req.file),
         };
 
-        let url = ""
+        let url = '';
         if (isEdit) {
             options = {
                 ...options,
-                method: "PUT",
+                method: 'PUT',
             };
             url = `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`;
         } else {
