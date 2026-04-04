@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: sae_501_prod
+    build:
+      context: .
+      target: prod
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - /app/node_modules
+    command: npm run prod:docker
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+

@@ -230,7 +230,7 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
 #### Docker
-Le projet gère également Docker en mode développement. Si vous le souhaitez, vous pouvez l'utiliser avec la commande suivante :
+Le projet gère également Docker en développement. Si vous le souhaitez, vous pouvez l'utiliser avec la commande suivante :
 
 ```bash
 docker compose --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local up
@@ -266,6 +266,19 @@ Même s'il y a une tâche de production, vous ne serez pas en capacité d'upload
     >   - Note 2 : Contrairement à ce que laisse penser l'adminstration d'alwaysdata, selectionner une version de node, ne l'applique pas quand vous effectuez des commandes en ssh (vous devrez faire npm install, vous-même). Si vous souhaitez utiliser une version spécifique de node, il faudrait la préfixer avec la variable d'environnement `NODEJS_VERSION`. Par exemple `NODEJS_VERSION=21 npm install` pour utiliser la version 21.X.X de nodejs.
 
 > Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.local qui ne sont pas commités
+
+#### Docker
+
+Vous pouvez également utiliser Docker en mode production avec une commande qui varie un peu :
+```bash
+docker compose --env-file ./env/.env.prod.dist --env-file ./env/.env.prod.local --file docker-compose.prod.yml up
+```
+
+A noter que si vous avez utilisé Docker précédemment dans un environnement différent de celui que vous allez utiliser (prod vers dev, ou l'inverse). Il faudra arrêter le container et ses volumes pour éviter que Docker s'enmêle les pinceaux entre les dépendances de développement et de production avec la commande suivante (à adapter) :
+
+```bash
+docker-compose -f docker-compose.yml --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local down --volumes --remove-orphans
+```
 
 ## Flash messages
 Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur, affiché qu'**une seule fois.** et supprimé juste après. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.

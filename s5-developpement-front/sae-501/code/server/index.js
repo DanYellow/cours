@@ -22,7 +22,6 @@ import apiRouter from "./api-router/index.js";
 
 import breadcrumb from "./utils/breadcrumb.middleware.js";
 import responseTimeMiddleware from "./utils/responsetime.middleware.js";
-import profilerFakeMiddleware from "./utils/profiler.middleware.js";
 
 import { generateUrl, getNameForRoute } from "#generate-list-routes.js";
 // import packageJSON from "../package.json" with { type: "json" };
@@ -171,7 +170,11 @@ app.use(responseTimeMiddleware, function (req, res, next) {
 
         const duration = new Date() - start;
 
-        profilerFakeMiddleware(req, res);
+        if (process.env.NODE_ENV === "development") {
+            const profilerFakeMiddleware = (await import("./utils/profiler.middleware.js")).default;
+
+            profilerFakeMiddleware(req, res);
+        }
 
         req.app.locals.profiler = {
             ...req.app.locals.profiler,

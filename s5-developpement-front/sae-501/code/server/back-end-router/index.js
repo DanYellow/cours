@@ -35,8 +35,6 @@ router.get("/", routeName("admin"), async (req, res) => {
     const listSAEsReq = await fetch(`${res.locals.base_url}/api/saes?${queryParamsSAEs.toString()}`);
     const listSAEs = await listSAEsReq.json();
 
-    console.log("listSAEs.data", listSAEs.data)
-
     const queryParamsArticles = new URLSearchParams({ per_page: NB_ITEMS_PER_PAGE });
     const listArticlesReq = await fetch(`${res.locals.base_url}/api/articles?${queryParamsArticles.toString()}`);
     const listArticles = await listArticlesReq.json();

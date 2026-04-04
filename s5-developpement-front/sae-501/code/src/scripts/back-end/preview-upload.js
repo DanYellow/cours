@@ -1,5 +1,5 @@
 import mime from "mime";
-import { imageValidator } from "#utils";
+import { imageValidator } from "#utils-shared";
 
 const listUploadFileInput = document.querySelectorAll("[data-upload-file]");
 const listUploadFilePreview = document.querySelectorAll(

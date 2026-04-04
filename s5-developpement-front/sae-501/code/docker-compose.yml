@@ -1,7 +1,9 @@
 services:
   app:
     container_name: sae_501_dev
-    build: .
+    build:
+      context: .
+      target: dev
     ports:
       - "${PORT}:${PORT}"
       - "5173:5173"
@@ -10,5 +12,8 @@ services:
       - /app/node_modules
     command: npm run start
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      - CHOKIDAR_USEPOLLING=true
+      CHOKIDAR_USEPOLLING: true
+      NODE_ENV: development
