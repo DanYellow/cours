@@ -58,7 +58,7 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     );
 
     if (!input) {
-        console.error("Missing checkbox to delete image")
+        console.error("Missing checkbox to delete image");
         return;
     }
 

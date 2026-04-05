@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --no-cache --legacy-peer-deps
+RUN npm ci
 
 COPY . .
 
@@ -25,7 +25,7 @@ FROM node:24 AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install --no-cache
+RUN npm ci
 
 COPY . .
 RUN npm run build
@@ -35,7 +35,7 @@ FROM node:24 AS prod
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --omit=dev --no-cache
+RUN npm ci --omit=dev
 
 COPY ./server ./server
 COPY ./database ./database

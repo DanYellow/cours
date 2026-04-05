@@ -271,13 +271,17 @@ Même s'il y a une tâche de production, vous ne serez pas en capacité d'upload
 
 Vous pouvez également utiliser Docker en mode production avec une commande qui varie un peu :
 ```bash
-docker compose --env-file ./env/.env.prod.dist --env-file ./env/.env.prod.local --file docker-compose.prod.yml up
+docker compose --env-file ./env/.env.prod.local --file docker-compose.prod.yml --file docker-compose.override.yml up
 ```
+
+> `--file docker-compose.override.yml` est à rajouter que si et seulement si vous souhaitez utiliser Docker pour la gestion de MongoDB. 
+> 
+> Le fait d'avoir deux fois le paramètre `--file` permet de fusionner les fichiers docker-compose. Pour le développement, on ne le fait pas car Docker fusionne automatiquement `docker-compose.yml` avec `docker-compose.override.yml`.
 
 A noter que si vous avez utilisé Docker précédemment dans un environnement différent de celui que vous allez utiliser (prod vers dev, ou l'inverse). Il faudra arrêter le container et ses volumes pour éviter que Docker s'enmêle les pinceaux entre les dépendances de développement et de production avec la commande suivante (à adapter) :
 
 ```bash
-docker-compose -f docker-compose.yml --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local down --volumes --remove-orphans
+docker-compose -f docker-compose.yml  --env-file ./env/.env.dev.local down --volumes --remove-orphans
 ```
 
 ## Flash messages

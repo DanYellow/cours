@@ -13,7 +13,7 @@ const respondToVisibility = (element, callback) => {
     }, options);
 
     observer.observe(element);
-}
+};
 
 listFlashMessages.forEach((flashMessage) => {
     respondToVisibility(flashMessage, (isVisible) => {
@@ -22,5 +22,5 @@ listFlashMessages.forEach((flashMessage) => {
                 flashMessage.classList.add("hidden");
             }, DELAY_BEFORE_AUTO_HIDE);
         }
-    })
+    });
 });

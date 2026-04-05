@@ -17,4 +17,4 @@ export const buildPayload = (body = {}, file = null) => {
     });
 
     return form;
-}
+};
