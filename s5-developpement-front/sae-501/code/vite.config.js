@@ -16,6 +16,7 @@ export default {
                 'public',
                 'src',
                 'node_modules',
+                'utils',
             ]
         }
     },

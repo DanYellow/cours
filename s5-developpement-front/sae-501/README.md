@@ -32,16 +32,18 @@ _Les consignes pourront être modifiées._
   - [FAQ - Foire Aux Questions](#faq---foire-aux-questions)
   - [Documentation](#documentation)
 
-
 ## Contexte de la SAÉ
+
 Vu en S1 et S2, le site dédié au BUT Métiers du Multimédia et de l'Internet (MMI) fait son retour. Dans la SAÉ 105, vous aviez pu découvrir le HTML et le CSS, puis en S2 appliquer vos connaissances en PHP/MySQL sur ce même site. Cette fois-ci en S5, vous allez travailler une nouvelle fois sur ce site, mais avec des technologies bien plus modernes : nunjucks, vite, express... Certaines technologies n'ont pas été vues en cours, toutefois, elles sont soient accompagnées d'un mémo, d'une pratique qui sera effectuée en cours pour vous aider à démarrer ou assez simples à prendre en main pour avoir les ressources nécessaires en ligne.
 
 Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants :
 
 **R5.DWeb-DI.06 | Développement back avancé**
+
 - AC34.02 - Développer à l’aide d’un framework de développement côté serveur
 
 **R5.DWeb-DI.05 | Développement front avancé**
+
 - AC34.01 - Développer à l’aide d’un framework de développement côté client
 - AC34.03 - Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
 - AC35.02 - Maîtriser la qualité en projet Web ou multimédia
@@ -49,6 +51,7 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
+
 - **C'est la branche principale (par défaut "main") qui sera évaluée.** Pensez à bien à fusionner toutes vos branches vers celle-ci
 
 > Pour travailler sereinement, nous vous conseillons d'utiliser la branche `main` comme branche principale que vous protégerez, empêchant ainsi de pousser directement dessus. Chacun des membres du groupe fera sa propre branche, et fera des pull requests quand une tâche est terminée. **Évitez de tout fusionner à la fin, vous pourriez avoir de très mauvaises surprises.**
@@ -56,12 +59,12 @@ Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis s
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des tâches à réaliser.
 
 > - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
->
 > - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
 Le projet se structure de la façon suivante (structure non exhaustive) :
 
 ## Structure du projet
+
 ```
 code/
 ├── database/
@@ -98,31 +101,48 @@ La structure est un peu plus complexe que celle avec laquelle vous avez travaill
 > Note : Si la version 5 d'express est disponible, le projet utilise encore la version 4. Vous prendrez soin de vérifier la version de la documentation avant de vous en inspirer.
 
 ### Dossier database/
-Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus d'informations sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation), et pour des questions de confort [MongoDB Compass](https://www.mongodb.com/try/download/compass), les deux outils sont gratuits.
+
+Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus d'informations sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation) (inutile si vous utilisez Docker). Il est également possible d'avoir un équivalent de PhpMyAdmin pour MongoDB avec le logiciel [MongoDB Compass](https://www.mongodb.com/try/download/compass). MongoDB et MongoDB Compass sont gratuits.
+
+> Note : Si vous utilisez les ordinateurs de l'IUT, vous ne pourrez pas installer MongoDB, veuillez vous réferrer au [document explicatif de MongoDB](./MONGODB-NOSQL.md) pour pallier à ce problème grâce à MongoDB Altas.
 
 ### Dossier public/
+
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier CSS que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
+
 > Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/).
+
+```html
+<!-- A ne pas faire. Express va chercher le fichier "/public/public/style.css qui n'existe pas -->
+<link rel="stylesheet" href="/public/style.css" />
+
+<!-- Correct. Express va chercher le fichier "/public/style.css -->
+<link rel="stylesheet" href="/fonts.css" />
+```
 
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
 
 ### Dossier server/
+
 Jusqu'à présent, vous avez travaillé avec des serveurs Apache et la technologie PHP. Dans cette SAÉ, nous avons décidé de remplacer le PHP par javascript et Apache par nodejs. Le serveur utilise express qui est un framework permettant de développer des applications web grâce à nodejs. Express a été pensé pour être minimaliste, ainsi, il possède très peu de fonctionnalités par défaut mais beaucoup de plugins ont été développés par la communauté.
 
 Dans le dossier `server/`, le fichier `index.js` sert de point d'entrée et lance le serveur. Au sein du dossier on trouve le routing du projet.
 
 Autrement dit, ces fichiers définissent comment le serveur doit réagir quand on accède à une url spécifique avec une méthode spécifique, c'est souvent le chargement d'une page web. Par exemple :
+
 ```js
 // front-end-router.js
 router.get(["/hello", "/mon-blog.html"], async (req, res) => {
-  res.render("pages/index.njk", { title: "hello" });
+    res.render("pages/index.njk", { title: "hello" });
 });
 ```
+
 Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide.
 
 > Note : les chemins des templates partent du dossier "src/" du projet. Il est donc inutile de mettre '../' dans vos chemins de template.
 
 Une route peut également prendre également des paramètres, il suffit de préfixer le nom du paramètre par deux-points (:). Exemple :
+
 ```js
 // front-end-router.js
 router.post("/user/:id/:gallery", async (req, res) => {
@@ -132,7 +152,9 @@ router.post("/user/:id/:gallery", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
+
 Dans l'exemple ci-dessus, les deux paramètres sont obligatoires. Il est possible de les rendre facultatifs grâce à un point d'interrogation (?), syntaxe issue des expressions régulières (regexes). Exemple :
+
 ```js
 // front-end-router.js
 // Le paramètre "gallery" est facultatif mais pas "id"
@@ -145,51 +167,65 @@ router.post("/user/:id/:gallery?", async (req, res) => {
     res.render("pages/index.njk", { title: "hello" });
 });
 ```
+
 > Attention tout de même, il n'est pas conseillé de rendre un paramètre optionnel de cette façon. Le mieux est de le placer en chaîne de requête (query string). Les chaînes de requêtes (query string) ne se mettent pas dans la route, il suffit juste qu'ils soient dans l'url pour ensuite être récupéré dans l'objet `req.query`. Si vous souhaitez savoir les informations contenus dans les paramètres "req" et "res", vous avez la documentation d'express.
+>
 > - [Accéder à la documentation d'express](https://expressjs.com/en/4x/api.html#req)
 
 La gestion des paramètres possède d'autres fonctionnalités comme la gestion des expressions régulières (Regex), vous en saurez plus dans la documentation ou les fichiers fournis.
+
 - [Accéder à la documentation du routing avec express](https://expressjs.com/fr/guide/routing.html)
 - [Exemples regex dans routes - anglais](https://www.kevinleary.net/blog/regex-route-express/)
 
 Retenez les points suivants :
+
 - Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez certainement une erreur 404
 - Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
-    - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
-    - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
-    - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
+  - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
+  - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
+  - api : appels permettant de récupérer des données de la base de données. **Toutes les routes commencent par "/api", vous ne devez pas le mettre dans la route vous-même.** Dossier `server/api-router/`
 
 #### server/api-router/
+
 Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonctionne de la façon suivante :
+
 - C - Create : Création d'une ressource. Représenté par la méthode HTTP `POST`
 - R - Read : Lecture d'une ressource. Représenté par la méthode HTTP `GET`
 - U - Update : Mise à jour d'une ressource. Représenté par la méthode HTTP `PUT`
 - D - Delete : Suppression d'une ressource. Représenté par la méthode HTTP `DELETE`
 
 Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées.
+
 - [Accéder à la présentation de Postman](./POSTMAN.md)
 
 ### Dossier src/
+
 C'est dans ce dossier où se trouve toute la partie front-end, la structure ressemble plus ou moins à celle préconisée par vituum, mais, le projet ne l'utilise pas. Il y a donc certaines fonctionnalités vues en TP qui ne seront pas accessibles.
 
 #### src/components/
+
 Il contient vos composants nunjucks réutilisables, pour des questions d'organisation, nous vous conseillons fortement de placer vos composants dans le bon dossier (front ou back-end).
 
 #### src/data/
+
 Ce dossier fonctionne comme ce que vous aviez pu voir en TP, ainsi tout fichier json présent dans le dossier sera automatiquement injecté dans tous les fichiers nunjucks du projet. A l'heure actuelle, il y a un fichier menu.json qui est déjà exploité pour afficher le menu de la partie front-end.
 
 Egalement, il est possible de charger un fichier json propre à un template, il suffit juste qu'il ait le même nom que le template avec l'extension ".json". Exemple : /pages/contact.njk -> /pages/contact.njk.json.
 
 ### src/layouts/
+
 Le dossier `layouts/` est destiné pour les gabarits partagés entre vos pages, il y en a déjà un pour le frontend et backend du site respectivement. Le moteur de template utilisé est nunjucks, les fichiers sont compilés à la volée par le serveur node.
 
 ### src/pages/
+
 Vous placerez ici les pages qui seront affichées à l'utilisateur final, ce dossier peut avoir des sous-dossiers, il faudra juste faire attention au chemin quand vous les appelerez dans vos routes. A noter que quand vous appelerez ces pages dans les routeurs, le chemin ne doit pas contenir "src/". Regardez les routes déjà existantes pour vous aider.
 
 ### scripts/
+
 Contient les points d'entrées de vos bundles vite, ils seront compilés par vite lors de l'exécution de la commande `npm run build`. Le backend possède l'entrée `main.backend.js` et le frontend l'entrée `main.frontend.js`. Si vous pouvez créer des dossiers et des fichiers dedans, vous ne devez pas modifier le nom des fichiers **à la racine** déjà présents. Les fichiers "main.backend.js" et "main.frontend.js" servant de point d'entrée.
 
 ### styles/
+
 Contient le CSS du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss ou de faire `ctrl/cmd + espace` et VSCode fera des propositions. Vous pouvez bien utiliser tailwindcss pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie. Pour vous aider avec la complétion de code, il existe le plugin gratuit VSCode [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), il indique également les incohérences dans le code, les classes CSS antinomiques, par exemple.
 
 Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le fichier tailwind.config.js, ils permettent notamment de cibler des écrans tactiles / non-tactiles.
@@ -201,6 +237,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 ## Mise en place
 
 ### Pré-requis
+
 - node >= 20.10 (utilisez la commande `node -v` pour voir votre version)
   - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 20.10+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
     - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
@@ -208,21 +245,26 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
   - Note : Il est fort probable que vous ne puissiez pas utiliser MongoDB sur les ordinateurs de l'IUT. Pour pallier à ce problème, il faudra passer par MongoDB Atlas, un outil freemium permettant d'héberger la base de données
 
 ### Installation
+
 > N'utilisez pas le terminal "Powershell" (Windows uniquement), il est très fort probable que les commandes liées à nodejs (node ou npm) ne fonctionnent pas. Utilisez l'invite de commandes (cmd) ou mieux gitbash.
 
 1. [Récupérer le projet](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 2. Installer les dépendances
-   ```sh
-   npm install
-   ```
+
+    ```sh
+    npm install
+    ```
 
 ### Utilisation - Mode développement
+
 1. Lancer le serveur
-   ```sh
-   # La commande va lancer les serveurs express et vite
-   npm start
-   ```
-> Note : Le serveur de développement est plus lent que le serveur de production. Il intégère des outils qui ne sont pas présents en production. Si vous n'êtes pas sûr(e) des performances de votre site, n'hésitez pas à passer en production pour tester.
+
+    ```sh
+    # La commande va lancer les serveurs express et vite
+    npm start
+    ```
+
+    > Note : Le serveur de développement est plus lent que le serveur de production. Il intégère des outils qui ne sont pas présents en production. Si vous n'êtes pas sûr(e) des performances de votre site, n'hésitez pas à passer en production pour tester.
 
 Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples).
 Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
@@ -230,6 +272,7 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
 #### Docker
+
 Le projet gère également Docker en développement. Si vous le souhaitez, vous pouvez l'utiliser avec la commande suivante :
 
 ```bash
@@ -246,36 +289,43 @@ Notez quand même les points suivants :
 ### Utilisation - Mode production
 
 > **Le projet sera testé en mode production. Veillez bien à tester que tout fonctionne dans ce mode avant de rendre le projet.**
+
 1. Compiler les assets gérés par vite
-   ```sh
-   # La commande va compiler les assets vite dans le dossier dist/
-   npm build
-   ```
+
+    ```sh
+    # La commande va compiler les assets vite dans le dossier dist/
+    npm build
+    ```
+
 2. Lancer le serveur de production
-   ```sh
-   npm prod
-   ```
-Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez le faire, vous avez les solutions suivantes :
+
+    ```sh
+    npm prod
+    ```
+
+    Même s'il y a une tâche de production, vous ne serez pas en capacité d'uploader votre site chez un hébergeur, par défaut, ils ne gèrent pas nodejs, et le déploiement de projets node nécessite quelques modifications supplémentaires que nous n'aurons pas l'occasion de voir. Cependant, si vous souhaitez le faire, vous avez les solutions suivantes :
+
 - [localtunnel](https://localtunnel.github.io/www/) : Outil gratuit permettant d'exposer sur le web votre serveur local temporairement
 - Glitch : Outil freemium permettant de déployer un site nodejs à partir de GitHub. Le site mdn propose un didacticiel (en anglais) pour déployer votre site avec Glitch et MongoDB Atlas (freemium).
   - [Accéder au didactiel pour déployer avec Glitch - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
   - [Accéder au didactiel pour MongoDB Atlas - anglais](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#setting_up_the_mongodb_database)
   - Alwaysdata : Parmi les serveurs proposés, l'hébergeur propose également nodejs. **Toutefois, seule la partie serveur est proposée.** Pour la partie Mongo, le plus simple est de passer par MongoDB Atlas (freemium) (voir plus haut). Néanmoins, il est possible d'installer soi-même MongoDB en SSH à condition d'avoir de la place sur votre espace disque
     - [Accéder au didacticiel pour installer MongoDB sur AlwaysData](https://help.alwaysdata.com/fr/guides/mongodb/)
-    >   - Note : Si vous utilisez la version gratuite d'Alwaysdata, l'espace disque sera trop petit pour héberger votre projet. Les dépendances de node seront trop lourdes. Ainsi, il est préférable d'utiliser la commande `npm install --omit=dev` pour installer uniquement les dépendances dont vous avez besoin en production. Cette astuce s'applique pour n'importe quel serveur node en production.
-    >   - Note 2 : Contrairement à ce que laisse penser l'adminstration d'alwaysdata, selectionner une version de node, ne l'applique pas quand vous effectuez des commandes en ssh (vous devrez faire npm install, vous-même). Si vous souhaitez utiliser une version spécifique de node, il faudrait la préfixer avec la variable d'environnement `NODEJS_VERSION`. Par exemple `NODEJS_VERSION=21 npm install` pour utiliser la version 21.X.X de nodejs.
+            > - Note : Si vous utilisez la version gratuite d'Alwaysdata, l'espace disque sera trop petit pour héberger votre projet. Les dépendances de node seront trop lourdes. Ainsi, il est préférable d'utiliser la commande `npm install --omit=dev` pour installer uniquement les dépendances dont vous avez besoin en production. Cette astuce s'applique pour n'importe quel serveur node en production.
+            > - Note 2 : Contrairement à ce que laisse penser l'adminstration d'alwaysdata, selectionner une version de node, ne l'applique pas quand vous effectuez des commandes en ssh (vous devrez faire npm install, vous-même). Si vous souhaitez utiliser une version spécifique de node, il faudrait la préfixer avec la variable d'environnement `NODEJS_VERSION`. Par exemple `NODEJS_VERSION=21 npm install` pour utiliser la version 21.X.X de nodejs.
 
 > Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.local qui ne sont pas commités
 
 #### Docker
 
 Vous pouvez également utiliser Docker en mode production avec une commande qui varie un peu :
+
 ```bash
 docker compose --env-file ./env/.env.prod.local --file docker-compose.prod.yml --file docker-compose.override.yml up
 ```
 
-> `--file docker-compose.override.yml` est à rajouter que si et seulement si vous souhaitez utiliser Docker pour la gestion de MongoDB. 
-> 
+> `--file docker-compose.override.yml` est à rajouter que si et seulement si vous souhaitez utiliser Docker pour la gestion de MongoDB.
+>
 > Le fait d'avoir deux fois le paramètre `--file` permet de fusionner les fichiers docker-compose. Pour le développement, on ne le fait pas car Docker fusionne automatiquement `docker-compose.yml` avec `docker-compose.override.yml`.
 
 A noter que si vous avez utilisé Docker précédemment dans un environnement différent de celui que vous allez utiliser (prod vers dev, ou l'inverse). Il faudra arrêter le container et ses volumes pour éviter que Docker s'enmêle les pinceaux entre les dépendances de développement et de production avec la commande suivante (à adapter) :
@@ -285,30 +335,34 @@ docker-compose -f docker-compose.yml  --env-file ./env/.env.dev.local down --vol
 ```
 
 ## Flash messages
+
 Pour améliorer l'expérience du site un système de flash message a été mis en place. Un flash message est un message stocké dans la session de l'utilisateur, affiché qu'**une seule fois.** et supprimé juste après. Ce concept n'est pas propre à express, on le trouve également dans d'autres frameworks côté serveur. Lors de l'édition ou la création d'une SAE avec succès, une bannière s'affiche, c'est un flash message. Nous vous conseillons de les utiliser également pour les autres formulaires.
 
 Ils sont déjà implémentés lors de la création, l'édition et la suppression d'une SAE grâce à l'utilisation des node_modules [express-flash](https://www.npmjs.com/package/express-flash) et express-session. Vous pouvez trouver un exemple [ici](https://peeyushjss.medium.com/guide-to-send-flash-messages-using-nodejs-b4f83d4b0bd7) pour voir comment ça fonctionne dans l'ensemble (script + html).
 
 ## Utilisation de git
+
 Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il est donc **indispensable** de créer un dépôt **public** pour le projet, seul un membre du groupe doit le faire. Pour éviter des problèmes lors des premiers commits, suivez les étapes suivantes :
 
 1. Un membre du groupe crée le projet sur GitHub
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche))
-   - Ceci peut se faire plus tard
-2. Clonez votre dépôt sur votre ordinateur (ssh ou https)
-3. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
+    - Ceci peut se faire plus tard
+1. Clonez votre dépôt sur votre ordinateur (ssh ou https)
+1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
     - Le projet contient déjà un fichier `.gitignore`, inutile d'en créer un de vôtre côté
-4. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
-5. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
+1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
+1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
 
 > Note 2 : Si vous travaillez avec des branches, n'attendez pas la fin du projet pour tout fusionner, c'est la recette idéale pour la catastrophe. Dès qu'une fonctionnalité est terminée, fusionnez votre branche avec la branche principale (vous pourrez toujours garder votre branche).
 
 Si vous avez oublié comment fonctionne git. Vous avez un mémo qui rappelle les commandes de base.
+
 - [Accéder au mémo sur les commandes de base de git](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-GIT.md)
 
 ## eslint
+
 Dans une volonté de produire une code de qualité et constant, le projet intègre un linter. C'est un outil d'analyse de code et lève les différentes erreurs présentes. Dépendemment du langage, différents types d'erreurs seront levées. Dans l'environnement javascript, une variable non utilisée, ou une condition dupliquée peut être notifiée comme problème. Dans le projet, c'est eslint qui a été utilisé, c'est le plus répandu en javascript. Les problèmes sont affichés à chaque sauvegarde d'un fichier javascript (back-end et front-end) dans votre Terminal (pas la console du navigateur).
 
 > Quand une erreur / alerte s'affiche, vous pouvez effectuer un ctrl / cmd + clic sur l'erreur dans le terminal de VS Code pour atterrir à l'endroit du problème dans le fichier.
@@ -320,9 +374,11 @@ eslint permet, via le paramètre "fix", de corriger **certaines** erreurs de cod
 Pour exécuter uniquement le linter, il y a la commande `npm run lint`. La commande `npm run lint:fix`. Vous permet de corriger certaines erreurs.
 
 En plus de la configuration de base d'eslint, le plugin stylistic a également été rajouté, il vérifie le formattage du code (indentation, virgules, etc.).
+
 - [Accéder à la documentation d'esling stylistic](https://eslint.style/)
 
-Le projet possède, parfois, des variables non utilisées, pour éviter de polluer la console avec des alertes inutiles, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (_) soient ignorées. Exemple :
+Le projet possède, parfois, des variables non utilisées, pour éviter de polluer la console avec des alertes inutiles, une modification a été faite dans la configuration d'eslint (fichier eslint.config.js) pour que les variables qui commencent par un underscore (\_) soient ignorées. Exemple :
+
 ```js
 // Sera ignoré par eslint
 const _myIgnoredVar = 42;
@@ -332,6 +388,7 @@ const myIgnoredVar = 42;
 ```
 
 Notez qu'eslint possède trois niveaux de contrôle :
+
 - error / 2 : lève une erreur en cas de problème. Dans certaines configurations, on peut même bloquer la commande `git push` ou la compilation du code
 - warn / 1 : lève une alerte en cas de problème
 - off / 0 : désactive la règle
@@ -339,9 +396,11 @@ Notez qu'eslint possède trois niveaux de contrôle :
 La configuration d'eslint peut être modifiée à l'envie dans le fichier eslint.config.js. [Vous pourrez trouver toutes les règles sur le site d'eslint.](https://eslint.org/docs/latest/rules/)
 
 > Il existe l'extension gratuite eslint pour VS Code pour avoir des indications dans le code.
+>
 > - [Télécharger l'extension eslint pour VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 Enfin dans la partie debug de l'administration, il y a une partie eslint affichant un rapport des problèmes trouvés par l'outil. Ce rapport est partagé en deux parties :
+
 - Server : Représente la partie serveur (api et gestion de mongodb inclus)
 - Front-end : Représente la partie front-office
 
@@ -350,8 +409,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
 > [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
-
 ## Tâches à effectuer
+
 - [x] Lire les consignes
 - [ ] [Télécharger le code de départ la SAE](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 - [ ] Installer les dépendances [(voir partie "mise en place")](#mise-en-place)
@@ -360,53 +419,59 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] **Ne pas modifier la page "a-propos", elle est complète et déjà responsive**
 
 ### Site BUT et administration
+
 - [ ] Gérer l'erreur 404
-    - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de l'ensemble de **toutes** vos routes, sinon, celles qui suivront ne seront jamais appelées
-    - [Liste inspiration design pages 404](https://www.designspells.com/?tag=404)
+  - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de l'ensemble de **toutes** vos routes, sinon, celles qui suivront ne seront jamais appelées
+  - [Liste inspiration design pages 404](https://www.designspells.com/?tag=404)
 - [ ] Rendre le site responsive (tailwind est là pour vous aider)
-    - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
-    - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
+  - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
+  - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
 - [ ] Mettre un favicon
-    - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
-    - Il peut être différent entre le site BUT et l'administration
+  - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
+  - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
   - Quand vous utilisez la pseudo-classe ":hover", pensez toujours à mettre également la pseudo-classe ":focus-visible"
     - Il y a la mixin SCSS ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" qui remplit le même rôle. Il fonctionne également pour les groupes
 - [ ] Ajouter une validation côté client des formulaires
-    - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
+  - Vous pouvez utiliser un outil comme [zod.js](https://zod.dev/) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
 - [ ] Chaque page à une valeur de &lt;title> unique
   - Si la valeur n'est pas présente, il est indiqué "TITRE MANQUANT" dans le navigateur
-  - Il y a un bloc nunjucks ```{% block title %}{% endblock %}``` dédié dans les gabarits de base du dossier `layouts/`. Utilisez-le
+  - Il y a un bloc nunjucks `{% block title %}{% endblock %}` dédié dans les gabarits de base du dossier `layouts/`. Utilisez-le
 
 ### Site BUT
+
 - [ ] Compléter l'intégration à partir de la maquette Adobe XD
-    - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
-    - Vous devez utiliser nunjucks, un gabarit de base (`src/layouts/front-end/base.njk`) est là pour vous aider
-    - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
-    - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier `src/data/menu.json`
-        - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
+  - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
+  - Vous devez utiliser nunjucks, un gabarit de base (`src/layouts/front-end/base.njk`) est là pour vous aider
+  - La page "a-propos" est déjà faite. **Pas besoin de la modifier**
+  - N'oubliez pas d'ajouter les routes pour accéder à vos pages dans le fichier `server/front-end-router.js` et modifier les liens de navigation dans le fichier `src/data/menu.json`
+    - La valeur de l'attribut "href" doit être le premier paramètre du router. Exemple :
+
     ```js
-    router.get("/formation", async (req, res) => {/* [...] */})
+    router.get("/formation", async (req, res) => {
+        /* [...] */
+    });
     // Dans le code ci-dessus, on définit une route ayant pour chemin "/formation".
     // Pour y accéder depuis une balise <a>, il faudra mettre comme valeur "/formation" pour l'attribut "href", et ce, même si le fichier nunjucks s'appelle "training.njk"
     ```
+
 - [ ] Sur la page contact, vous devez gérer de façon asynchrone l'envoi du message depuis le formulaire
-    - **La page ne doit pas se recharger lors de la soumission du formulaire**
-    - Il faudra utiliser fetch, api native de javascript qui permet de faire des requêtes asynchrones
+  - **La page ne doit pas se recharger lors de la soumission du formulaire**
+  - Il faudra utiliser fetch, api native de javascript qui permet de faire des requêtes asynchrones
 - [ ] Afficher les détails d'un article quand on clique dessus depuis la page d'accueil
-    - titre, chapo, contenu, image, video youtube
-    - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
-    - Note : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
-    - Note 2 : N'oubliez pas que Youtube propose également des shorts, on doit également pouvoir les utiliser
+  - titre, chapo, contenu, image, video youtube
+  - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
+  - Note : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
+  - Note 2 : N'oubliez pas que Youtube propose également des shorts, on doit également pouvoir les utiliser
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
-    - Il faudra utiliser une variable nunjucks
-    - Des classes ont déjà été définies dans le fichier `src/styles/hero.css`, libre à vous de les utiliser
-    - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
+  - Il faudra utiliser une variable nunjucks
+  - Des classes ont déjà été définies dans le fichier `src/styles/hero.css`, libre à vous de les utiliser
+  - Note : Une fonctionnalité semblable est déjà présente dans la partie admin, inspirez-vous en
 - [ ] Afficher la liste des articles **actifs** sur la page d'accueil
-    - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
+  - Pour rappel, vous avez déjà le code pour, les articles sont déjà injectés dans la page d'accueil (`src/pages/front-end/index.njk`), il faut juste les afficher
 - [ ] Mettre en place un système de pagination pour les articles sur la page d'accueil
 - [ ] **Sans javascript**, afficher une barre de progression sur les articles au fur et à mesure de la lecture grâce à la propriété CSS [animation-timeline](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline)
   - Google propose un exemple sur son site. [Voir exemple](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr#demo_reading_progress_indicator)
@@ -414,45 +479,46 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     - Ce site contient plein d'exemples concernant cette nouvelle API très pratique
   - Note : A l'heure actuelle, ceci ne fonctionne que sur Chrome, gérez que ce navigateur
 - [ ] Ajouter une page affichant en détails un auteur
-    - Cette page n'existe pas, à vous de faire le design
-    - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
-    - La couleur de la bulle change en fonction de l'auteur (optionnel)
+  - Cette page n'existe pas, à vous de faire le design
+  - Il y a déjà une url pour récupérer ces informations (voir swagger ou postman)
+  - La couleur de la bulle change en fonction de l'auteur (optionnel)
 
 ### Administration
+
 - [ ] Gérer la date des journées portes ouvertes (affichée dans la page d'accueil du site BUT) depuis le backoffice qui lira/modifiera un fichier json
-    - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
-    - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec async / await) :
-        - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
-        - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
-            - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères avant de l'écrire dans le fichier
+  - Le fichier n'existe pas, vous devez le créer dans le dossier src/data pour que son contenu puisse être lu dans les templates
+  - La documentation de Nodejs propose des exemples pour lire/éditer un fichier json (préférez la version avec async / await) :
+    - [Lire un fichier](https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs)
+    - [Ecrire un fichier](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs)
+      - Note : Vous devez impérativement transformer le contenu à écrire en chaîne de caractères avant de l'écrire dans le fichier
 - [ ] Ajouter une section "Messages" (titre indicatif) sur la page d'accueil de l'administration listant les cinq derniers messages envoyés depuis le formulaire de contact
-    - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
+  - Cette route est gérée dans le fichier `server/back-end-router/index.js`, il faudra la compléter
 - [ ] Afficher en "temps réel" le nombre de caractères dans la balise &lt;textarea>
-    - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères restants
+  - Lors de l'édition d'une SAE, il y a une limite de caractères, indiquez à l'utilisateur le nombre de caractères restants
 - [ ] Permettre à l'utilisateur mobile de changer de page grâce à la liste déroulante présente pour la pagination
-    - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
+  - Les listes déroulantes sont déjà présentes, il ne manque plus que l'interactivité avec le javascript
 - [ ] Afficher les messages envoyés depuis le formulaire de contact
-    - Il n'y a pas de schéma pour les messages, nous le réaliserons ensemble
-        - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
-    - Vous devez créer les api pour (POST et GET)
-    - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `./server/back-end-router/`
+  - Il n'y a pas de schéma pour les messages, nous le réaliserons ensemble
+    - L'administration ne doit permettre que de lister les messages (GET) et le site front juste d'envoyer un message (POST)
+  - Vous devez créer les api pour (POST et GET)
+  - N'oubliez pas d'ajouter les routes pour accéder aux messages depuis l'administration dans le dossier `./server/back-end-router/`
 - [ ] Permettre de créer, éditer un article
-    - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
-    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
-    - La suppression et le listage sont déjà gérés
-    - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
-      - Vous devez vérifier que le lien ou l'id de la vidéo est valide
-    - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
-    - La gestion de l'auteur doit être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect (pas installé et à préférer)
-    - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
-      - Vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
+  - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
+  - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
+  - La suppression et le listage sont déjà gérés
+  - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
+    - Vous devez vérifier que le lien ou l'id de la vidéo est valide
+  - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
+  - La gestion de l'auteur doit être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect ou choicesjs (pas installé et à préférer)
+  - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
+    - Vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
-    - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Tout comme le routeur, à vous de le connecter au reste.
-    - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
-    - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
+  - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Tout comme le routeur, à vous de le connecter au reste.
+  - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
+  - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
 - [ ] Ajouter une validation côté client des formulaires (SAE, Auteur et Article)
-    - Vous pouvez utiliser un outil comme [validator.js](https://github.com/validatorjs/validator.js) (déjà installé, voir `code/database/models/author.js`)
-    - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
+  - Vous pouvez utiliser un outil comme [zod.js](https://zod.dev/) (déjà installé, voir `code/database/models/author.js`)
+  - Dépendamment de l'outil, **vous devrez écouter un évènement pour la validation du formulaire**
 - [ ] Afficher le détail d'un message dans une page dédiée
 - [ ] Terminer les fonctionnalités implicites. Exemple : corriger les liens qui vont vers des 404, etc.
 - [ ] Mettre les membres du groupe dans le pied de page (fichier `src/layouts/back-end/base.njk`)
@@ -465,9 +531,11 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 > Tous les formulaires doivent afficher une alerte si l'utilisateur change de page s'il n'a pas sauvegardé les données. Pour ce faire, il faut utiliser l'évènement `beforeunload` qui permet de prévenir l'utilisateur lorsque le changement de page intervient.
 
 ## Notes et astuces
+
 - [Accéder au document dédié aux astuces](./ASTUCES.md)
 
 ## FAQ - Foire Aux Questions
+
 - **Est-ce que les dépendences du projet sont à jour ?**
 
     Pas forcément, ce projet est mis à jour chaque année mais pas forcément juste avant le début de cette SAÉ. Si vous souhaitez avoir vos dépendences à jour, vous pouvez utiliser la commande `npm update --save`. Elle se chargera de mettre toutes les dépendances dans leur dernière version mineure. Vous pouvez également lister les dépendences qui ne sont pas à jour avec la commande `npm outdated`.
@@ -497,23 +565,24 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
     Non, mais il reste préférable de faire l'un ou l'autre, ceci va permettre aux membres de votre groupe de comprendre comment tout ceci fonctionne dans une moindre mesure mais aussi de tester rapidement vos requêtes. Par ailleurs, si vos points d'accès (endpoints) n'apparaissent pas dans swagger, c'est qu'il y a une erreur dans vos annotations swagger.
 
 - **Comment gérer l'affichage des dates côté navigateur ?**
-Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
+  Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-  Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
-  ```
-    {{ my_date_from_db | date("dd/LL/yyyy à HH:mm:ss") }}
-  ```
-  Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon.
-    - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
+    Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
+
+    ```
+      {{ my_date_from_db | date("dd/LL/yyyy à HH:mm:ss") }}
+    ```
+
+    Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon. - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
-    Vous n'avez pas installé ou lancé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
+  Vous n'avez pas installé ou lancé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
 
 - **Mon serveur node s'arrête sans arrêt alors qu'il n'y a pas d'erreurs dans mon code, pourquoi ?**
 
     Il est possible, si vous êtes sous MacOS, que le Centre de contrôles (Control Center) écoute des ports que vous utilisez et bloque parfois votre serveur node. Pour résoudre ce problème, il faut aller dans l'application "Préférences Système" puis dans le menu "Récepteur AirPlay" et désactiver "Récepteur AirPlay".
     ![](captures/airreceiver.png)
-    - [En savoir plus - anglais](https://developer.apple.com/forums/thread/682332)
+  - [En savoir plus - anglais](https://developer.apple.com/forums/thread/682332)
 
 - **Le navigateur affiche l'erreur `Error: Failed to lookup view "" in views directory "undefined"`**
 
@@ -540,18 +609,20 @@ Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au
     Le caractère "@" est un mot-clé désignant un "container query", une nouveauté du langage CSS. Dans les grandes lignes, c'est l'équivalent des media queries mais pour un conteneur (une balise). Ils permettent d'appliquer un style différent quand un conteneur a atteint une taille spécifique. Ce qui rend encore plus réutilisable vos structures html.
 
     Vous pourrez trouver des explications et exemples complémentaires en français ici :
-    - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
-    - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
-    - [Les Container Queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-    > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
-    >
-    > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
+  - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
+  - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
+  - [Les Container Queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+        > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
+        >
+        > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
 
 ## Documentation
+
 Voici une liste non exhaustive des documentations des divers technologies utilisées dans le projet :
+
 - [luxon](https://moment.github.io/luxon/)
 - [express v4.x](https://expressjs.com/en/4x/api.html)
 - [mongoose](https://mongoosejs.com/)
 - [nunjucks](https://mozilla.github.io/nunjucks/)
 - [multer](https://expressjs.com/en/resources/middleware/multer.html)
-- [validator](https://www.npmjs.com/package/validator)
+- [zod](https://zod.dev/)

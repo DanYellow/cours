@@ -32,22 +32,23 @@ router.get("/", routeName("admin"), async (req, res) => {
     const NB_ITEMS_PER_PAGE = 5;
     const queryParamsSAEs = new URLSearchParams({ per_page: NB_ITEMS_PER_PAGE });
 
-    const listSAEsReq = await fetch(`${res.locals.base_url}/api/saes?${queryParamsSAEs.toString()}`);
-    const listSAEs = await listSAEsReq.json();
+    let listSaes = [];
+    const saesResponse = await fetch(`${res.locals.base_url}/api/saes?${queryParamsSAEs.toString()}`);
+    const saesData = await saesResponse.json();
 
+    let listArticles = [];
     const queryParamsArticles = new URLSearchParams({ per_page: NB_ITEMS_PER_PAGE });
-    const listArticlesReq = await fetch(`${res.locals.base_url}/api/articles?${queryParamsArticles.toString()}`);
-    const listArticles = await listArticlesReq.json();
+    const articlesResponse = await fetch(`${res.locals.base_url}/api/articles?${queryParamsArticles.toString()}`);
+    const articlesData = await articlesResponse.json();
+    
+    if (saesResponse.ok && articlesResponse.ok) {
+        listSaes = saesData;
+        listArticles = articlesData;
+    }
 
     res.render("pages/back-end/index.njk", {
-        list_saes: {
-            data: listSAEs.data.data,
-            count: listSAEs.data.count,
-        },
-        list_articles: {
-            data: listArticles.data.data,
-            count: listArticles.data.count,
-        },
+        list_saes: listSaes,
+        list_articles: listArticles,
     });
 });
 

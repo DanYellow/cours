@@ -1,10 +1,11 @@
 import express from "express";
 import fs from "fs";
 import mongoose from "mongoose";
+import { ZodError } from "zod";
 
-import Author from "#models/author.js";
-
+import Author, { AuthorZodSchema } from "#models/author.js";
 import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
+import { mapZodErrors } from "#database/error-messages.js";
 
 const router = express.Router();
 
@@ -63,13 +64,17 @@ router.get(`/${base}`, async (req, res) => {
         listIds = [listIds];
     }
 
-    listIds = (listIds || []).filter(mongoose.Types.ObjectId.isValid).map(item => mongoose.Types.ObjectId.createFromHexString(item));
+    listIds = (listIds || [])
+        .filter(mongoose.Types.ObjectId.isValid)
+        .map((item) => mongoose.Types.ObjectId.createFromHexString(item));
 
     try {
         const listRessources = await Author.aggregate([
             ...(listIds.length ? [{ $match: { _id: { $in: listIds } } }] : []),
             { $sort: { lastname: 1 } },
-            ...(perPage ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }] : []),
+            ...(perPage
+                ? [{ $skip: Math.max(page - 1, 0) * Number(perPage) }]
+                : []),
             ...(perPage ? [{ $limit: Number(perPage) }] : []),
             {
                 $project: {
@@ -85,7 +90,7 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await Author.countDocuments(
-            (listIds.length ? { _id: { $in: listIds } } : null)
+            listIds.length ? { _id: { $in: listIds } } : null,
         );
         const total_pages = Math.ceil(count / perPage);
 
@@ -97,14 +102,16 @@ router.get(`/${base}`, async (req, res) => {
             total_pages: isFinite(total_pages) ? total_pages : 1,
             count,
             page,
-            query_params: (new URLSearchParams(queryParam)).toString(),
+            query_params: new URLSearchParams(queryParam).toString(),
         });
     } catch (e) {
         res.status(400).json({
-            errors: [
+            list_errors: [
                 ...Object.values(
-                    e?.errors || [{ message: e?.message || "Il y a eu un problème" }]
-                ).map(val => val.message),
+                    e?.errors || [
+                        { message: e?.message || "Il y a eu un problème" },
+                    ],
+                ).map((val) => val.message),
             ],
         });
     }
@@ -165,7 +172,13 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
 
     try {
         const ressource = await Author.aggregate([
-            { $match: { _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) } },
+            {
+                $match: {
+                    _id: mongoose.Types.ObjectId.createFromHexString(
+                        req.params.id,
+                    ),
+                },
+            },
             {
                 $addFields: {
                     nb_articles: { $size: "$list_articles" },
@@ -190,28 +203,32 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
                     ],
                 },
             },
-            { $addFields: {
-                list_articles: {
-                    $map: {
-                        input: "$list_articles",
-                        as: "article",
-                        in: {
-                            $mergeObjects: [
-                                "$$article",
-                                {
-                                    nb_comments: { $size: "$$article.list_comments" },
-                                },
-                            ],
+            {
+                $addFields: {
+                    list_articles: {
+                        $map: {
+                            input: "$list_articles",
+                            as: "article",
+                            in: {
+                                $mergeObjects: [
+                                    "$$article",
+                                    {
+                                        nb_comments: {
+                                            $size: "$$article.list_comments",
+                                        },
+                                    },
+                                ],
+                            },
                         },
                     },
                 },
-            } },
+            },
             { $unset: ["list_articles.list_comments"] },
         ]);
 
         if (!ressource.length) {
             return res.status(404).json({
-                errors: [`L'auteur "${req.params.id}" n'existe pas`],
+                list_errors: [`L'auteur "${req.params.id}" n'existe pas`],
             });
         }
 
@@ -219,17 +236,17 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
     } catch (err) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
-                errors: [`"${req.params.id}" n'est pas un id valide`],
+                list_errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
 
         return res.status(400).json({
-            errors: [
+            list_errors: [
                 ...Object.values(
                     err?.errors || [
                         { message: "Quelque chose s'est mal passé" },
-                    ]
-                ).map(val => val.message),
+                    ],
+                ).map((val) => val.message),
             ],
         });
     }
@@ -290,7 +307,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         let imageName;
         ({
             image_path: targetPath,
-            errors: listErrors,
+            list_errors: listErrors,
             image_name: imageName,
         } = await uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
@@ -298,31 +315,36 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     if (listErrors.length) {
         return res.status(400).json({
-            errors: listErrors,
+            list_errors: listErrors,
             ressource: req.body,
         });
     }
 
-    let ressource = new Author({ ...req.body, ...imagePayload });
-
-    await ressource
-        .save()
-        .then(() => {
-            res.status(201).json(ressource);
-        })
-        .catch((err) => {
-            res.status(400).json({
-                errors: [
-                    ...listErrors,
-                    ...deleteUpload(targetPath),
-                    ...Object.values(
-                        err?.errors || [
-                            { message: "Quelque chose s'est mal passé" },
-                        ]
-                    ).map(val => val.message),
-                ],
-            });
+    try {
+        const payloadValidated = AuthorZodSchema.parse({
+            ...req.body,
+            ...imagePayload,
         });
+
+        const ressource = new Author(payloadValidated);
+        await ressource.save();
+
+        return res.status(201).json(ressource);
+    } catch (error) {
+        if (error instanceof ZodError) {
+            listErrors.push(...mapZodErrors(error.issues));
+        }
+
+        return res.status(400).json({
+            list_errors: [
+                ...(
+                    listErrors || [{ message: "Quelque chose s'est mal passé" }]
+                ).map((val) => val.message),
+                ...deleteUpload(targetPath),
+            ],
+            error_fields: listErrors.map((val) => val.field),
+        });
+    }
 });
 
 /**
@@ -376,74 +398,78 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
  *            schema:
  *              $ref: '#/components/schemas/Error'
  */
-router.put(`/${base}/:id([a-f0-9]{24})`, upload.single("image"), async (req, res) => {
-    let imagePayload = {};
-    let listErrors = [];
-    let targetPath = undefined;
+router.put(
+    `/${base}/:id([a-f0-9]{24})`,
+    upload.single("image"),
+    async (req, res) => {
+        let imagePayload = {};
+        let listErrors = [];
+        let targetPath = undefined;
 
-    const uploadedImage = req.body.file || req.file;
+        const uploadedImage = req.body.file || req.file;
 
-    if (uploadedImage) {
-        let imageName;
-        ({
-            image_path: targetPath,
-            errors: listErrors,
-            image_name: imageName,
-        } = await uploadImage(uploadedImage, res.locals.upload_path));
-        imagePayload = { image: imageName };
-    }
+        if (uploadedImage) {
+            let imageName;
+            ({
+                image_path: targetPath,
+                list_errors: listErrors,
+                image_name: imageName,
+            } = await uploadImage(uploadedImage, res.locals.upload_path));
+            imagePayload = { image: imageName };
+        }
 
-    let oldRessource = {};
-    try {
-        oldRessource = await Author.findById(req.params.id).lean();
-    } catch (_error) {
-        oldRessource = {};
-    }
+        let oldRessource = {};
+        try {
+            oldRessource = await Author.findById(req.params.id).lean();
+        } catch (_error) {
+            oldRessource = {};
+        }
 
-    if (listErrors.length) {
-        return res.status(400).json({
-            errors: listErrors,
-            ressource: { ...oldRessource, ...req.body },
-        });
-    }
+        if (listErrors.length) {
+            return res.status(400).json({
+                list_errors: listErrors,
+                ressource: { ...oldRessource, ...req.body },
+            });
+        }
 
-    const ressource = await Author.findOneAndUpdate(
-        { _id: req.params.id },
-        { ...req.body, _id: req.params.id, ...imagePayload },
-        { new: true }
-    )
-        .orFail()
-        .catch((err) => {
-            if (err instanceof mongoose.Error.DocumentNotFoundError) {
-                res.status(404).json({
-                    errors: [`L'auteur "${req.params.id}" n'existe pas`],
-                });
-            } else if (err instanceof mongoose.Error.CastError) {
-                res.status(400).json({
-                    errors: [
-                        ...listErrors,
-                        "Élément non trouvé",
-                        ...deleteUpload(targetPath),
-                    ],
+        try {
+            const payloadValidated = AuthorZodSchema.parse({
+                ...req.body,
+                ...imagePayload,
+            });
+            const ressource = await Author.findOneAndUpdate(
+                { _id: req.params.id },
+                payloadValidated,
+                { new: true },
+            );
+            if (!ressource) {
+                throw new mongoose.Error.DocumentNotFoundError();
+            }
+
+            return res.status(200).json(ressource);
+        } catch (error) {
+            if (error instanceof mongoose.Error.DocumentNotFoundError) {
+                return res.status(404).json({
+                    list_errors: [`L'auteur "${req.params.id}" n'existe pas`],
                 });
             } else {
-                res.status(400).json({
-                    errors: [
-                        ...listErrors,
-                        ...Object.values(
-                            err?.errors || [
-                                { message: "Il y a eu un problème" },
-                            ]
-                        ).map(val => val.message),
-                        ...deleteUpload(targetPath),
-                    ],
-                    ressource: { ...oldRessource, ...req.body },
-                });
+                listErrors.push(...deleteUpload(targetPath));
+                if (error instanceof ZodError) {
+                    listErrors.push(...mapZodErrors(error.issues))
+                } else if (error instanceof mongoose.Error.CastError) {
+                    listErrors.push("Élément non trouvé");
+                } else {
+                    listErrors.push("Il y a eu un problème");
+                }
             }
-        });
-
-    return res.status(200).json(ressource);
-});
+            
+            return res.status(400).json({
+                list_errors: listErrors,
+                ressource: { ...oldRessource, ...req.body },
+            });
+        }
+    },
+);
 
 /**
  * @openapi
@@ -496,7 +522,7 @@ router.delete(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`L'auteur "${req.params.id}" n'existe pas`],
+            list_errors: [`L'auteur "${req.params.id}" n'existe pas`],
         });
     } catch (_error) {
         return res.status(400).json({

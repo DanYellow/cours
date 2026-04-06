@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import validator from "validator";
+import * as z from "zod";
 
 import { errorRequiredMessage } from "#database/error-messages.js";
 
@@ -7,39 +8,39 @@ import Article from "./article.js";
 
 const defaultColor = "#ff0000";
 
+export const AuthorZodSchema = z.object({
+    lastname: z
+        .string({
+            error: errorRequiredMessage("un nom de famille"),
+        })
+        .trim()
+        .min(1, { error: errorRequiredMessage("un nom de famille") }),
+    firstname: z
+        .string({ error: errorRequiredMessage("un prénom") })
+        .trim()
+        .min(1, { error: errorRequiredMessage("un prénom") }),
+    email: z.email({ error: "Veuillez mettre un email valide" }).trim(),
+    image: z.string({ error: "Image obligatoire" }).trim().min(1, { error: "Image obligatoire" }),
+    bio: z
+        .string()
+        .max(300, 'Le champ "bio" ne peut pas dépasser 300 caractères'),
+});
+
 const authorSchema = new Schema({
     lastname: {
         type: String,
-        required: [
-            true,
-            errorRequiredMessage("un nom de famille"),
-        ],
-        trim: true,
     },
     firstname: {
         type: String,
-        required: [
-            true,
-            errorRequiredMessage("un prénom"),
-        ],
-        trim: true,
     },
     email: {
         type: String,
-        required: [true, errorRequiredMessage("un email")],
-        validate: [validator.isEmail, "Veuillez mettre un email valide"],
     },
     image: {
         type: String,
-        required: [true, "Image obligatoire"],
     },
     bio: {
         type: String,
-        maxlength: [
-            300,
-            'Le champ "bio" ne peut pas dépasser 300 caractères',
-        ],
-        trim: true,
     },
     color: {
         type: String,
@@ -53,13 +54,10 @@ const authorSchema = new Schema({
     ],
 });
 
-authorSchema
-    .path("email")
-    .validate(validator.isEmail, "Veuillez mettre un email valide");
-
+const HEX_COLOR_REGEX = /^#[0-9a-f]{3-8}$/i;
 authorSchema.pre("save", function (next) {
     this.color = this.color.trim();
-    if (!validator.isHexColor(this.color)) {
+    if (!HEX_COLOR_REGEX.test(this.color)) {
         this.color = defaultColor;
     }
 
@@ -85,12 +83,12 @@ authorSchema.pre(
             // Unset all articles' author
             await Article.updateMany(
                 { author: this.getQuery()._id },
-                { author: null }
+                { author: null },
             );
         } catch {}
 
         next();
-    }
+    },
 );
 
 authorSchema.pre("findOneAndUpdate", function (next) {

@@ -2,10 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 
 import routeName from "#server/utils/name-route.middleware.js";
+import { buildPayload } from "#server/utils/build-payload.js";
 import upload from "#server/uploader.js";
 
 import { ressourceNameInApi } from "./utils.js";
-import { buildPayload } from "#server/utils/build-payload.js";
 
 const base = "saes";
 const router = express.Router();
@@ -14,16 +14,21 @@ const router = express.Router();
 router.get(`/${base}`, routeName("sae_list"), async (req, res) => {
     let result = {};
     let listErrors = [];
-    
-    try {
-        const queryParams = (new URLSearchParams(req.query)).toString();
-        result = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.saes}?${queryParams}`);
-    } catch (error) {
-        listErrors = error.response.data.errors;
+
+    const queryParams = new URLSearchParams(req.query).toString();
+    const response = await fetch(
+        `${res.locals.base_url}/api/${ressourceNameInApi.saes}?${queryParams}`
+    );
+    const data = await response.json();
+
+    if (response.ok) {
+        result = data;
+    } else {
+        listErrors = data.list_errors;
     }
 
     res.render("pages/back-end/saes/list.njk", {
-        list_saes: result.data,
+        list_saes: result,
         list_errors: listErrors,
     });
 });
@@ -37,15 +42,20 @@ router
         let listErrors = [];
 
         if (isEdit) {
-            try {
-                result = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`);
-            } catch (error) {
-                listErrors = error.response.data.errors;
+            const response = await fetch(
+                `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`
+            );
+            const data = await response.json();
+
+            if (response.ok) {
+                result = data;
+            } else {
+                listErrors = data.list_errors;
             }
         }
 
         res.render("pages/back-end/saes/add-edit.njk", {
-            sae: result?.data || {},
+            sae: result,
             list_errors: listErrors,
             is_edit: isEdit,
         });
@@ -55,6 +65,7 @@ router
         let ressource = null;
         const isEdit = mongoose.Types.ObjectId.isValid(req.params.id);
         let listErrors = [];
+
         let options = {
             body: buildPayload(req.body, req.file),
         };
@@ -63,7 +74,7 @@ router
         if (isEdit) {
             options = {
                 ...options,
-                method: 'PUT',
+                method: "PUT",
             };
             url = `${res.locals.base_url}/api/${ressourceNameInApi.saes}/${req.params.id}`;
         } else {
@@ -74,29 +85,28 @@ router
             url = `${res.locals.base_url}/api/${ressourceNameInApi.saes}`;
         }
 
-        try {
-            const req = await fetch(url, options);
-            const result = await req.json();
-            ressource = result.data;
-        } catch (error) {
-            listErrors = error.response.data.errors;
-            ressource = error.response.data.ressource || {};
-        } finally {
-            if (!listErrors.length) {
-                req.flash(
-                    "success",
-                    isEdit ? "Element mis à jour" : "Element crée"
-                );
-            }
-            if (isEdit || listErrors.length) {
-                res.render("pages/back-end/saes/add-edit.njk", {
-                    sae: ressource,
-                    list_errors: listErrors,
-                    is_edit: isEdit,
-                });
-            } else {
-                res.redirect(`${res.locals.admin_url}/${base}`);
-            }
+        const response = await fetch(url, options);
+        const data = await response.json();
+        
+        if (response.ok) {
+            ressource = data;
+            req.flash(
+                "success",
+                isEdit ? "Element mis à jour" : "Element crée",
+            );
+        } else {
+            listErrors = data.list_errors;
+            ressource = data.ressource;
+        }
+
+        if (isEdit || listErrors.length) {
+            res.render("pages/back-end/saes/add-edit.njk", {
+                sae: ressource,
+                list_errors: listErrors,
+                is_edit: isEdit,
+            });
+        } else {
+            res.redirect(`${res.locals.admin_url}/${base}`);
         }
     });
 

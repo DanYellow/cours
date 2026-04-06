@@ -1,11 +1,12 @@
 import express from "express";
 import fs from "fs";
 
-import Article from "#models/article.js";
-import Author from "#models/author.js";
+import Article, { ArticleZodSchema } from "#models/article.js";
+import Author, { AuthorZodSchema } from "#models/author.js";
 
 import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
 import mongoose from "mongoose";
+import { mapZodErrors } from "#database/error-messages.js";
 
 const router = express.Router();
 
@@ -125,7 +126,7 @@ router.get(`/${base}`, async (req, res) => {
         });
     } catch (e) {
         res.status(400).json({
-            errors: [
+            list_errors: [
                 ...Object.values(
                     e?.errors || [{ message: e?.message || "Il y a eu un problème" }]
                 ).map(val => val.message),
@@ -172,17 +173,17 @@ router.get([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`L'article "${id}" n'existe pas`],
+            list_errors: [`L'article "${id}" n'existe pas`],
         });
     } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
-                errors: [`"${req.params.id}" n'est pas un id valide`],
+                list_errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
         return res
             .status(400)
-            .json({ errors: ["Quelque chose s'est mal passé"] });
+            .json({ list_errors: ["Quelque chose s'est mal passé"] });
     }
 });
 
@@ -244,7 +245,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         let imageName;
         ({
             image_path: targetPath,
-            errors: listErrors,
+            list_errors: listErrors,
             image_name: imageName,
         } = await uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
@@ -252,7 +253,7 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
 
     if (listErrors.length) {
         return res.status(400).json({
-            errors: listErrors,
+            list_errors: listErrors,
             ressource: req.body,
         });
     }
@@ -262,8 +263,13 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         delete computedBody.author;
     }
 
-    const ressource = new Article({ ...computedBody, ...imagePayload });
     try {
+        const payloadValidated = ArticleZodSchema.parse({
+            ...computedBody, 
+            ...imagePayload
+        })
+
+        const ressource = new Article(payloadValidated);
         await ressource.save();
         const [ressourceComputed] = await getArticles(ressource._id);
 
@@ -276,14 +282,19 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
         }
         res.status(201).json(ressourceComputed);
     } catch (error) {
+        if (error instanceof ZodError) {
+            listErrors.push(...mapZodErrors(error.issues));
+        }
+
         res.status(400).json({
-            errors: [
-                ...listErrors,
+            list_errors: [
+                ...(
+                    listErrors || [{ message: "Quelque chose s'est mal passé" }]
+                ).map((val) => val.message),
                 ...deleteUpload(targetPath),
-                ...Object.values(
-                    error?.errors || [{ message: "Il y a eu un problème" }]
-                ).map(val => val.message),
             ],
+            ressource: req.body,
+            error_fields: listErrors.map((val) => val.field),
         });
     }
 });
@@ -358,7 +369,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
         let imageName;
         ({
             image_path: targetPath,
-            errors: listErrors,
+            list_errors: listErrors,
             image_name: imageName,
         } = await uploadImage(uploadedImage, res.locals.upload_path));
         imagePayload = { image: imageName };
@@ -373,7 +384,7 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
 
     if (listErrors.length) {
         return res.status(400).json({
-            errors: listErrors,
+            list_errors: listErrors,
             ressource: { ...oldRessource, ...req.body },
         });
     }
@@ -414,15 +425,15 @@ router.put([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f0-9
     } catch (err) {
         if (err instanceof mongoose.Error.DocumentNotFoundError) {
             res.status(404).json({
-                errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
+                list_errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
             });
         } else if (err instanceof mongoose.Error.CastError) {
             res.status(400).json({
-                errors: [`"${req.params.id}" n'est pas un _id valide`],
+                list_errors: [`"${req.params.id}" n'est pas un _id valide`],
             });
         } else {
             res.status(400).json({
-                errors: [
+                list_errors: [
                     ...listErrors,
                     ...Object.values(
                         err?.errors || [{ message: "Il y a eu un problème" }]
@@ -488,17 +499,17 @@ router.delete([`/${base}/:id([a-f0-9]{24})`, `/${base}/:slug([\\w\\d\\-]+\\-[a-f
             return res.status(200).json(ressource);
         }
         return res.status(404).json({
-            errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
+            list_errors: [`L'article "${req.params?.id || req.params.slug}" n'existe pas`],
         });
     } catch (_error) {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
-                errors: [`"${req.params.id}" n'est pas un id valide`],
+                list_errors: [`"${req.params.id}" n'est pas un id valide`],
             });
         }
         return res
             .status(400)
-            .json({ errors: ["Quelque chose s'est mal passé"] });
+            .json({ list_errors: ["Quelque chose s'est mal passé"] });
     }
 });
 

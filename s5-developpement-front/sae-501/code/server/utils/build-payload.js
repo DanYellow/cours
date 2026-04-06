@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 export const buildPayload = (body = {}, file = null) => {
     if (!file) {
-        return body;
+        return JSON.stringify(body);
     }
 
     const form = new FormData();

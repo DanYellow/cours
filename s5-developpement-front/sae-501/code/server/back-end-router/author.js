@@ -16,15 +16,17 @@ router.get(`/${base}`, async (req, res) => {
     let result = {};
     let listErrors = [];
 
-    try {
-        const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}?${queryParams.toString()}`);
-        result = await req.json();
-    } catch (error) {
-        listErrors = error.response.data.errors;
-    }
+    const response = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}?${queryParams.toString()}`);
+    const data = await response.json();
 
-    res.render("pages/back-end/auteurs/list.njk", {
-        list_authors: result.data,
+    if (response.ok) {
+        result = data;
+    } else {
+        listErrors = data.list_errors;
+    }
+ 
+    res.render("pages/back-end/authors/list.njk", {
+        list_authors: result,
         list_errors: listErrors,
     });
 });
@@ -37,16 +39,18 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     let listErrors = [];
 
     if (isEdit) {
-        try {
-            const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`);
-            result = await req.json();
-        } catch (e) {
-            listErrors = e.response.data.errors;
+        const response = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}/${req.params.id}`);
+        const data = await response.json();
+
+        if (response.ok) {
+            result = data; 
+        } else {
+            listErrors = data.list_errors;
         }
     }
 
     res.render("/", {
-        author: result?.data || {},
+        author: result,
         list_errors: listErrors,
         is_edit: isEdit,
     });
@@ -76,22 +80,23 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         url = `${res.locals.base_url}/api/${ressourceNameInApi.authors}`;
     }
 
-    try {
-        const req = await fetch(url, options);
-        ressource = await req.json().data;
-    } catch (e) {
-        listErrors = e.response.data.errors;
-        ressource = e.response.data.ressource || {};
-    } finally {
-        if (listErrors.length || isEdit) {
-            res.render("", {
-                author: ressource,
-                list_errors: listErrors,
-                is_edit: isEdit,
-            });
-        } else {
-            res.redirect(`${res.locals.admin_url}/${base}`);
-        }
+    const response = await fetch(url, options);
+    const data = await response.json();
+
+    if (response.ok) {
+        ressource = data;
+    } else {
+        listErrors = data.list_errors; 
+    }
+
+    if (listErrors.length || isEdit) {
+        res.render("", {
+            author: ressource,
+            list_errors: listErrors,
+            is_edit: isEdit,
+        });
+    } else {
+        res.redirect(`${res.locals.admin_url}/${base}`);
     }
 });
 

@@ -43,7 +43,7 @@ const uploadImage = async (image, dist_dir) => {
     }
     return {
         image_path: targetPath,
-        errors: listErrors,
+        list_errors: listErrors,
         image_name: image.filename,
     };
 };

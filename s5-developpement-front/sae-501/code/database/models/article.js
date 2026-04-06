@@ -1,44 +1,53 @@
 import mongoose, { Schema } from "mongoose";
 import slugify from "slugify";
+import * as z from "zod";
 
+import { listStopWords } from "#database/list-stop-words.js";
+import { errorRequiredMessage } from "#database/error-messages.js";
 import CommentArticle from "./comment-article.js";
 import Author from "./author.js";
-import { listStopWords } from "#database/list-stop-words.js";
+
+export const ArticleZodSchema = z.object({
+    title: z
+        .string({
+            error: errorRequiredMessage("un titre"),
+        })
+        .trim()
+        .min(1, { error: errorRequiredMessage("un titre") }),
+    abstract: z.string().optional(),
+    content: z
+        .string({
+            error: errorRequiredMessage("un corps de texte"),
+        })
+        .trim()
+        .min(1, { error: errorRequiredMessage("un corps de texte") }),
+    image: z.string({ error: "Image obligatoire" }).trim().min(1, { error: "Image obligatoire" }),
+    yt_video_id: z.string().optional(),
+    is_active: z.coerce.boolean().default(false),
+});
 
 const articleSchema = new Schema(
     {
         title: {
             type: String,
-            required: [
-                true,
-                "Veuillez mettre un titre, le champ ne peut pas être nul ou vide",
-            ],
-            trim: true,
+            required: true,
         },
         abstract: String,
         content: {
             type: String,
-            required: [
-                true,
-                "Veuillez mettre un corps de texte, le champ ne peut pas être nul ou vide",
-            ],
-            trim: true,
+            required: true,
         },
         image: {
             type: String,
-            required: [
-                true,
-                "Veuillez mettre une image, le champ ne peut pas être nul ou vide",
-            ],
+            required: true,
         },
         yt_video_id: {
             type: String,
-            default: null,
         },
         is_active: {
             type: Boolean,
             default: false,
-            cast: v => Boolean(v),
+            cast: (v) => Boolean(v),
         },
         list_comments: [
             {
@@ -58,7 +67,7 @@ const articleSchema = new Schema(
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
-    }
+    },
 );
 
 articleSchema.pre(
@@ -70,12 +79,12 @@ articleSchema.pre(
             await CommentArticle.deleteMany({ article: this.getQuery()._id });
             await Author.findOneAndUpdate(
                 { list_articles: this.getQuery()._id },
-                { $pull: { list_articles: this.getQuery()._id } }
+                { $pull: { list_articles: this.getQuery()._id } },
             );
         } catch {}
 
         next();
-    }
+    },
 );
 
 articleSchema.pre("findOneAndUpdate", function (next) {

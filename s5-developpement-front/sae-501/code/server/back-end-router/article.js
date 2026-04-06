@@ -1,29 +1,31 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import { ressourceNameInApi } from "./utils.js";
-
 import upload from "#server/uploader.js";
 import { buildPayload } from "#server/utils/build-payload.js";
+
+import { ressourceNameInApi } from "./utils.js";
 
 const base = "articles";
 const router = express.Router();
 
 // Get multiple articles
 router.get(`/${base}`, async (req, res) => {
-    const queryParams = new URLSearchParams(req.query);
-
     let result = {};
     let listErrors = [];
-
-    try {
-        result = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.articles}?${queryParams.toString()}`);
-    } catch (error) {
-        listErrors = error.response.data.errors;
+    
+    const queryParams = new URLSearchParams(req.query);
+    const response = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.articles}?${queryParams.toString()}`);
+    const data = await response.json();
+    
+    if (response.ok) {
+        result = data;
+    } else {
+        listErrors = data.list_errors;
     }
 
     res.render("pages/back-end/articles/list.njk", {
-        list_articles: result.data,
+        list_articles: result,
         list_errors: listErrors,
     });
 });
@@ -35,17 +37,19 @@ router.get([`/${base}/:id`, `/${base}/add`], async (req, res) => {
     let result = {};
     let listErrors = [];
 
-    try {
-        if (isEdit) {
-            const req = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.articles}/${req.params.id}`);
-            result = await req.json();
+    if (isEdit) {
+        const response = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.articles}/${req.params.id}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+            result = data;
+        } else {
+            listErrors = data.list_errors;
         }
-    } catch (error) {
-        listErrors = error.response.data.errors;
     }
 
     res.render("", {
-        article: result?.data || {},
+        article: result,
         list_errors: listErrors,
         is_edit: isEdit,
     });
@@ -80,28 +84,29 @@ router.post([`/${base}/:id`, `/${base}/add`], upload.single("image"), async (req
         url = `${res.locals.base_url}/api/${ressourceNameInApi.articles}`;
     }
 
-    try {
-        const req = await fetch(url, options);
-        const result = await req.json();
-        ressource = result.data;
+    const response = await fetch(url, options);
+    const data = await response.json();
 
-        const reqAuthors = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}`);
-        const listAuthorsReq = await reqAuthors.json();
-        listAuthors = listAuthorsReq.data.data;
-    } catch (e) {
-        listErrors = e.response.data.errors;
-        ressource = e.response.data.ressource || {};
-    } finally {
-        if (listErrors.length || isEdit) {
-            res.render("", {
-                article: ressource,
-                list_errors: listErrors,
-                list_authors: listAuthors,
-                is_edit: isEdit,
-            });
-        } else {
-            res.redirect(`${res.locals.admin_url}/${base}`);
-        }
+    const responseAuthors = await fetch(`${res.locals.base_url}/api/${ressourceNameInApi.authors}`);
+    const listAuthorsData = await responseAuthors.json();
+
+    if (response.ok && responseAuthors.ok) {
+        ressource = data;
+    } else if (!response.ok) {
+        listErrors = data.list_errors; 
+    } else {
+        listErrors = listAuthorsData.list_errors; 
+    }
+
+    if (listErrors.length || isEdit) {
+        res.render("", {
+            article: ressource,
+            list_errors: listErrors,
+            list_authors: listAuthors,
+            is_edit: isEdit,
+        });
+    } else {
+        res.redirect(`${res.locals.admin_url}/${base}`);
     }
 });
 
