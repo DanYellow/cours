@@ -27,10 +27,16 @@ if not os.path.exists('flag.tmp.txt'):
 def load_gitignore(path = '.gitignore'):
     with open(path) as gitignore_file:
         list_ignored_files = gitignore_file.readlines()
-        list_ignored_files.extend(["*.odp", "gestion-ressources/**", "**/*.zip"]) # "zip", "code",
+        list_ignored_files.extend(["*.odp", "gestion-ressources/**", "*.zip"]) # "zip", "code",
         # list_ignored_files.extend(["sae"])
 
         return pathspec.PathSpec.from_lines("gitwildmatch", list_ignored_files)
+
+def extend_files_pattern_to_ignore(spec, new_patterns):
+    return pathspec.PathSpec.from_lines(
+        "gitwildmatch",
+        [p.pattern for p in spec.patterns] + new_patterns
+    )
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -202,13 +208,9 @@ else:
         list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
 
 dict_correction_archive_created = {}
-
-# list_ignored_files_to_generate_zip = list_ignored_files
-# list_ignored_files_to_generate_zip.append("correction")
-
 list_zip_files_generated = []
 
-def get_archive_name(folder_path, is_correction_directory = False):
+def generate_archive_name(folder_path, is_correction_directory = False):
     head, tail = os.path.split(folder_path)
 
     archive_suffix = f"-{tail}" if "sae" in tail or is_correction_directory else ""
@@ -240,57 +242,59 @@ def generate_zip(list_folders, is_correction_directory = False):
     if len(list_folders) == 0:
         return
 
-    has_gitignore = find_gitignore(list_folders[0])
-
-    if has_gitignore:
-        try:
-            git_project_path = list_folders[0]
-            archive_path = get_archive_name(git_project_path)
-            list_zip_files_generated.append(archive_path)
-
-            command = ['git', 'archive', '-o', archive_path, f"HEAD:{pathlib.PureWindowsPath(git_project_path).as_posix()}"]
-            subprocess.run(command, stdout=subprocess.PIPE).stdout
-        except:
-            print(f"\033[91mCouldn't zip {git_project_path}\033[0m")
-
-        return
-
     for folder_path in list_folders:
-        archive_path = get_archive_name(folder_path)
+        has_gitignore = find_gitignore(folder_path)
+        archive_path = generate_archive_name(folder_path)
 
-        if is_correction_directory:
-            if archive_path not in dict_correction_archive_created:
-                dict_correction_archive_created[archive_path] = True
-            else:
-                continue
+        if has_gitignore:
+            try:
+                git_project_path = folder_path
 
-        list_zip_files_generated.append(archive_path)
-        files_from_gitignore = load_gitignore()
+                command = ['git', 'archive', '-o', archive_path, f"HEAD:{pathlib.PureWindowsPath(git_project_path).as_posix()}"]
+                subprocess.run(command, stdout=subprocess.PIPE).stdout
+                list_zip_files_generated.append(archive_path)
+            except:
+                print(f"\033[91mCouldn't zip {archive_path}\033[0m")
+        else:
+            correction_directory = None
+            files_from_gitignore = load_gitignore()
+            list_correction_directories = []
+        
+            for root, directories, _ in os.walk(folder_path):
+                if "correction" in directories:
+                    list_correction_directories.append(os.path.join(root, "correction"))
 
-        try:
+            if len(list_correction_directories):
+                for correction_directory in list_correction_directories:
+                    correction_archive_path = generate_archive_name(correction_directory, True)
+                    with ZipFile(correction_archive_path, 'w', ZIP_DEFLATED) as zip_object:
+                        for root, _, files in os.walk(correction_directory):
+                            for file in files:
+                                if not files_from_gitignore.match_file(file):
+                                    full_path = os.path.join(root, file)
+                                    rel_path = os.path.relpath(full_path, correction_directory)
+                                    zip_object.write(full_path, rel_path)
+                        zip_object.close()
+                        list_zip_files_generated.append(correction_archive_path)
+
+            files_from_gitignore = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/"])
+
             with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
-                abs_src = os.path.abspath(folder_path)
-                for dirname, _, files in os.walk(folder_path):
-                    for filename in files:
-                        absname = os.path.abspath(os.path.join(dirname, filename))
-                        arcname = absname[len(abs_src) + 1:]
+                for root, dirs, files in os.walk(folder_path):
+                    # dirs[:] = [
+                    #     d for d in dirs
+                    #     if not files_from_gitignore.match_file(os.path.relpath(os.path.join(root, d), folder_path))
+                    # ]
+        
+                    for file in files:
+                        full_path = os.path.join(root, file)
+                        rel_path = os.path.relpath(full_path, folder_path)
 
-                        if not files_from_gitignore.match_file(absname):
-                            # if "package-lock.json" in arcname or "prenoms.csv.zip" in arcname:
-                            #     zip_object.write(absname, arcname)
-                            if bool([ele for ele in list_ignored_files_to_generate_zip if(ele.casefold() in arcname.casefold().encode("unicode_escape").decode("utf-8").replace(os.sep,"/"))]) == False:
-                                zip_object.write(absname, arcname)
-                            if "correction" in arcname.encode("unicode_escape").decode("utf-8"):
-                                if len(arcname.split('\\correction')) > 1:
-                                    generate_zip([os.path.join(folder_path, arcname.split('\\correction')[0], "correction")], True)
-                                else:
-                                    generate_zip([os.path.join(folder_path, "correction")], True)
+                        if not files_from_gitignore.match_file(rel_path):
+                            zip_object.write(full_path, rel_path)
                 zip_object.close()
-
-                if len(zip_object.infolist()) == 0:
-                    os.remove(archive_path)
-        except:
-            print(f"Error with {archive_path} archive")
+            
+            list_zip_files_generated.append(archive_path)
 
 generate_zip(list_ressources_folders_to_zip)
 print("    ")
