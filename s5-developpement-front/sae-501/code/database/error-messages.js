@@ -5,8 +5,8 @@ export const errorRequiredMessage = (title = "un champ") => {
 export const mapZodErrors = (listIssues = []) => {
     const listErrors = [];
     listIssues.forEach((issue) => {
-        listErrors.push({ message: issue.message, field: issue.path[0] })
-    })
+        listErrors.push({ message: issue.message, field: issue.path[0] });
+    });
 
     return listErrors;
-}
+};

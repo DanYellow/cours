@@ -83,12 +83,12 @@ authorSchema.pre(
             // Unset all articles' author
             await Article.updateMany(
                 { author: this.getQuery()._id },
-                { author: null },
+                { author: null }
             );
         } catch {}
 
         next();
-    },
+    }
 );
 
 authorSchema.pre("findOneAndUpdate", function (next) {

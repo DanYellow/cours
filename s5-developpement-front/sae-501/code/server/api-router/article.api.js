@@ -1,11 +1,12 @@
 import express from "express";
 import fs from "fs";
+import mongoose from "mongoose";
+import { ZodError } from "zod";
 
 import Article, { ArticleZodSchema } from "#models/article.js";
-import Author, { AuthorZodSchema } from "#models/author.js";
+import Author from "#models/author.js";
 
 import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
-import mongoose from "mongoose";
 import { mapZodErrors } from "#database/error-messages.js";
 
 const router = express.Router();
@@ -266,8 +267,8 @@ router.post(`/${base}`, upload.single("image"), async (req, res) => {
     try {
         const payloadValidated = ArticleZodSchema.parse({
             ...computedBody, 
-            ...imagePayload
-        })
+            ...imagePayload,
+        });
 
         const ressource = new Article(payloadValidated);
         await ressource.save();

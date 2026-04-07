@@ -90,7 +90,7 @@ router.get(`/${base}`, async (req, res) => {
         ]);
 
         const count = await Author.countDocuments(
-            listIds.length ? { _id: { $in: listIds } } : null,
+            listIds.length ? { _id: { $in: listIds } } : null
         );
         const total_pages = Math.ceil(count / perPage);
 
@@ -110,7 +110,7 @@ router.get(`/${base}`, async (req, res) => {
                 ...Object.values(
                     e?.errors || [
                         { message: e?.message || "Il y a eu un problème" },
-                    ],
+                    ]
                 ).map((val) => val.message),
             ],
         });
@@ -175,7 +175,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
             {
                 $match: {
                     _id: mongoose.Types.ObjectId.createFromHexString(
-                        req.params.id,
+                        req.params.id
                     ),
                 },
             },
@@ -245,7 +245,7 @@ router.get(`/${base}/:id([a-f0-9]{24})`, async (req, res) => {
                 ...Object.values(
                     err?.errors || [
                         { message: "Quelque chose s'est mal passé" },
-                    ],
+                    ]
                 ).map((val) => val.message),
             ],
         });
@@ -440,8 +440,9 @@ router.put(
             const ressource = await Author.findOneAndUpdate(
                 { _id: req.params.id },
                 payloadValidated,
-                { new: true },
+                { new: true }
             );
+
             if (!ressource) {
                 throw new mongoose.Error.DocumentNotFoundError();
             }
@@ -468,7 +469,7 @@ router.put(
                 ressource: { ...oldRessource, ...req.body },
             });
         }
-    },
+    }
 );
 
 /**

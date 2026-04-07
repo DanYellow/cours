@@ -9,6 +9,9 @@ export default {
         host: true,
         hmr: true,
         middlewareMode: true,
+        watch: {
+            usePolling: true,
+        },
         fs: {
             strict: true,
             allow: [

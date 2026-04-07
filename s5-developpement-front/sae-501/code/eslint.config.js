@@ -30,16 +30,7 @@ export default [
             "@stylistic/arrow-parens": "off",
             "stylistic/multiline-ternary": "off",
             "@stylistic/brace-style": ["error", "1tbs"],
-            "@stylistic/comma-dangle": [
-                "error",
-                {
-                    arrays: "always-multiline",
-                    objects: "always-multiline",
-                    imports: "always-multiline",
-                    exports: "always-multiline",
-                    functions: "never",
-                },
-            ],
+            "@stylistic/comma-dangle": "off",
         },
     },
     {
