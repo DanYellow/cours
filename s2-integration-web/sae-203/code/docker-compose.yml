@@ -12,6 +12,15 @@ services:
       - 80:80
     networks:
       - sae_203_network
+    command: >
+      sh -c "
+        apache2-foreground & 
+        until curl -s http://localhost > /dev/null; do
+          sleep 1;
+        done;
+        echo '✅ Server ready on http://localhost';
+        wait
+      "
   mysql:
     image: mysql:latest
     restart: unless-stopped
