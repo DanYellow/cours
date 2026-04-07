@@ -54,14 +54,14 @@ if ($est_env_local) {
 
     // Permet de gérer un fichier env.local.dev
     // pour la configuration s'il existe
-    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.local.dev");
+    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.dev.local");
     if (file_exists($chemin_dist)) {
         $fichier_env_chemin = $chemin_dist;
     }
 } else {
     // Permet de gérer un fichier env.local.prod
     // pour la configuration s'il existe
-    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.local.prod");
+    $chemin_dist = urldecode("{$racine_server_chemin}{$racine_dossier}/.env.prod.local");
     if (file_exists($chemin_dist)) {
         $fichier_env_chemin = $chemin_dist;
     }
@@ -74,7 +74,6 @@ $_ENV['CHEMIN_BASE'] = ltrim($_ENV['CHEMIN_BASE'], '/');
 try {
     $nom_BDD = $_ENV['NOM_BDD'];
     $serveur_BDD = $_ENV['SERVEUR_BDD'];
-
     // On se connecte à notre base de données
     $mysqli_link = mysqli_connect($serveur_BDD, $_ENV['UTILISATEUR_BDD'], $_ENV['MDP_BDD'], $nom_BDD);
 } catch (Exception $e) {

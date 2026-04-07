@@ -184,7 +184,7 @@ UTILISATEUR_BDD=
 MDP_BDD=
 ```
 
-> **Si vous utilisez git, vous ne devez en aucun cas (aucun), éditer les fichiers .env.prod et .env.dev pour mettre de réelles données, c'est une faille de sécurité très grave. Faites bien attention. Editez le fichier .env.local.dev (ou .env.local.prod) en fonction du contexte.**
+> **Si vous utilisez git, vous ne devez en aucun cas (aucun), éditer les fichiers .env.prod et .env.dev pour mettre de réelles données, c'est une faille de sécurité très grave. Faites bien attention. Editez le fichier .env.dev.local (ou .env.prod.local) en fonction du contexte.**
 
 Voici un exemple de fichier .env, on partira du principe que votre base de données est hébergée sur alwaysdata et que votre site est déployé dans le dossier : mmi/2020-2022/sae-203 sur le serveur.
 

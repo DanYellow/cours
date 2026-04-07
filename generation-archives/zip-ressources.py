@@ -32,6 +32,8 @@ def load_gitignore(path = '.gitignore'):
 
         return pathspec.PathSpec.from_lines("gitwildmatch", list_ignored_files)
 
+files_from_gitignore = load_gitignore()
+
 def extend_files_pattern_to_ignore(spec, new_patterns):
     return pathspec.PathSpec.from_lines(
         "gitwildmatch",
@@ -135,10 +137,9 @@ def get_list_directories_updated():
     )
 
     def get_zippable_directories(path):
-        print(path)
         if "datasets" in path:
             return True
-        return any(substring not in path for substring in list_ignored_files)
+        return not files_from_gitignore.match_file(path)
 
     list_directories_ressources = filter(get_zippable_directories, list(list_cleaned_paths))
 
@@ -166,6 +167,7 @@ def slugify(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 def get_all_directories_to_zip():
+    return
     list_ressources_folders_raw = glob.glob("**/ressources*", recursive=True)
     list_ressources_folders_raw.extend(["exercice"])
     list_ressources_folders = [path for path in list_ressources_folders_raw if os.path.isdir(path)]
@@ -257,7 +259,6 @@ def generate_zip(list_folders, is_correction_directory = False):
                 print(f"\033[91mCouldn't zip {archive_path}\033[0m")
         else:
             correction_directory = None
-            files_from_gitignore = load_gitignore()
             list_correction_directories = []
         
             for root, directories, _ in os.walk(folder_path):
