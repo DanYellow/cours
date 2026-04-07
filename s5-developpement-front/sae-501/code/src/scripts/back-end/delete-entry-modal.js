@@ -11,11 +11,16 @@ const displayDeleteItemModal = (e) => {
     }
     modal.dataset.modal = tplId;
     modal.append(modalTemplateContent.cloneNode(true));
-    modal.showModal();
 
-    modal.querySelector("[data-delete-item]").dataset.deleteItem = e.currentTarget.dataset.deleteUrl;
-    modal.querySelector("[data-modal-item-name]").textContent = e.currentTarget.dataset.deleteName;
+    modal.querySelector("[data-delete-item]").dataset.deleteItem = e.source.dataset.deleteUrl;
+    modal.querySelector("[data-modal-item-name]").textContent = e.source.dataset.deleteName;
 };
+
+modal.addEventListener("toggle", (e) => {
+    if (e.newState === "open") {
+        displayDeleteItemModal(e);
+    }
+})
 
 delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     if (!modal.open || e.currentTarget.dataset.modal !== tplId) {
@@ -27,15 +32,12 @@ delegateEventHandler(modal, "click", "[data-delete-item]", async (e) => {
     const errorMessageModal = modal.querySelector("[data-error-modal]");
 
     try {
-        await fetch("", { method: "DELETE" });
+        const deleteUrl = e.target.dataset.deleteItem;
+        await fetch(deleteUrl, { method: "DELETE" });
         window.location.reload();
     } catch (error) {
         errorMessageModal.textContent = error.response?.data?.error || "Erreur";
         errorMessageModal.classList.remove("hidden");
         modal.removeAttribute("inert");
     }
-});
-
-document.querySelectorAll('[data-modal-id="delete-entry"]').forEach((item) => {
-    item.addEventListener("click", displayDeleteItemModal);
 });

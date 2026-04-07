@@ -1,17 +1,23 @@
 import mongoose, { Schema } from "mongoose";
+import * as z from "zod";
 
 import { errorRequiredMessage } from "#database/error-messages.js";
 import Article from "./article.js";
+
+export const CommentArticleSchema = z.object({
+    content: z
+        .string({
+            error: errorRequiredMessage("un nom de famille"),
+        })
+        .trim()
+        .min(1, { error: errorRequiredMessage("un nom de famille") }),
+});
 
 const commentArticleSchema = new Schema(
     {
         content: {
             type: String,
-            required: [
-                true,
-                errorRequiredMessage("un commentaire"),
-            ],
-            trim: true,
+            required: true,
         },
         article: {
             type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +27,7 @@ const commentArticleSchema = new Schema(
     },
     {
         timestamps: { createdAt: "created_at" },
-    }
+    },
 );
 
 commentArticleSchema.methods.getClean = function () {
@@ -42,11 +48,14 @@ commentArticleSchema.pre(
     { document: true, query: true },
     async function (next) {
         try {
-            await Article.findOneAndUpdate({ list_comments: this.getQuery()._id }, { $pull: { list_comments: this.getQuery()._id } });
+            await Article.findOneAndUpdate(
+                { list_comments: this.getQuery()._id },
+                { $pull: { list_comments: this.getQuery()._id } },
+            );
         } catch {}
 
         next();
-    }
+    },
 );
 
 export default mongoose.model("CommentArticle", commentArticleSchema);

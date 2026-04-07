@@ -456,16 +456,17 @@ router.put(
             } else {
                 listErrors.push(...deleteUpload(targetPath));
                 if (error instanceof ZodError) {
-                    listErrors.push(...mapZodErrors(error.issues))
+                    listErrors.push(...mapZodErrors(error.issues));
                 } else if (error instanceof mongoose.Error.CastError) {
-                    listErrors.push("Élément non trouvé");
+                    listErrors.push({ message: "Élément non trouvé" });
                 } else {
-                    listErrors.push("Il y a eu un problème");
+                    listErrors.push({ message: "Il y a eu un problème" });
                 }
             }
             
             return res.status(400).json({
-                list_errors: listErrors,
+                list_errors: listErrors.map((val) => val.message),
+                error_fields: listErrors.map((val) => val.field),
                 ressource: { ...oldRessource, ...req.body },
             });
         }

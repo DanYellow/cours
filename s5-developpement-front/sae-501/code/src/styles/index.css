@@ -20,7 +20,7 @@
         background-size: 160%;
     }
 
-    &:hover, &:focus-within {
+    &:is(:hover, :focus-within) {
         background-size: 140%;
         @media (width >= theme(--breakpoint-lg)) {
             background-size: 190%;
@@ -32,7 +32,7 @@
         }
     }
 
-    &:is(::after, ::before) {
+    &::before, &::after {
         content: "";
         display: block;
         position: absolute;
@@ -40,7 +40,7 @@
 
     &::before {
         border: 3px solid white;
-        z-index: 1;
+        z-index: calc(var(--z-base) + 1);
         inset: -10px;
         opacity: 0;
         transition: inset 0.2s, opacity 0.1s;
@@ -59,20 +59,20 @@
 
     .logo {
         position: relative;
-        z-index: 1;
+        z-index: calc(var(--z-base) + 1);
         align-self: center;
     }
 
     .textes {
         font-weight: bold;
         position: relative;
-        z-index: 1;
+        z-index: calc(var(--z-base) + 1);
         color: white;
         text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.62);
-    }
 
-    .textes .en-savoir-plus {
-        text-align: center;
-        font-weight: 600;
+        .en-savoir-plus {
+            text-align: center;
+            font-weight: 600;
+        }
     }
 }

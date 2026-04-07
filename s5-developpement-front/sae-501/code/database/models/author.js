@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import validator from "validator";
 import * as z from "zod";
 
 import { errorRequiredMessage } from "#database/error-messages.js";
@@ -54,7 +53,7 @@ const authorSchema = new Schema({
     ],
 });
 
-const HEX_COLOR_REGEX = /^#[0-9a-f]{3-8}$/i;
+const HEX_COLOR_REGEX = /^#([0-9]{6}|[0-9]{3}|[0-9]{8}|[0-9]{4})$/i;
 authorSchema.pre("save", function (next) {
     this.color = this.color.trim();
     if (!HEX_COLOR_REGEX.test(this.color)) {
@@ -67,7 +66,7 @@ authorSchema.pre("save", function (next) {
 authorSchema.pre("findOneAndUpdate", function (next) {
     try {
         this._update.color = this._update.color.trim();
-        if (!validator.isHexColor(this._update.color)) {
+        if (!HEX_COLOR_REGEX.test(this.color)) {
             this._update.color = defaultColor;
         }
     } catch {}

@@ -72,7 +72,6 @@
     transform: scale(0.7);
     translate: 0 0;
     top: -87px;
-    /* transition: translate 0.3s, opacity 20s; */
     transition: transform 0.3s, translate 0.3s, opacity 0.2s;
     opacity: 1;
 
@@ -90,23 +89,23 @@
     }
 
     &.rose {
-        background-color: #ef509f;
+        background-color: var(--bubble-pink);
     }
 
     &.rouge {
-        background-color: #eb0706;
+        background-color: var(--bubble-red);
     }
 
     &.vert {
-        background-color: #0ceec0;
+        background-color: var(--bubble-blue-green);
     }
 
     &.orange {
-        background-color: #ee8f00;
+        background-color: var(--bubble-orange);
     }
 
     &.bleu {
-        background-color: #011d37;
+        background-color: var(--bubble-blue);
     }
 }
 
@@ -115,7 +114,7 @@
     transform: scale(0.7);
     top: -101px;
     right: 0;
-    z-index: -1;
+    z-index: calc(var(--z-base) - 1);
     width: 484px;
     height: 360px;
     mask: url("/images/bulle-bordure.svg") no-repeat center / contain;
@@ -137,22 +136,22 @@
     }
 
     &.rose {
-        background-color: #a50253;
+        background-color: oklch(from var(--bubble-pink) calc(l * .55) c h);
     }
 
     &.rouge {
-        background-color: #a50253;
+        background-color: oklch(from var(--bubble-red) calc(l * .55) c h);
     }
 
     &.vert {
-        background-color: #03886d;
+        background-color: oklch(from var(--bubble-blue-green) calc(l * .55) c h);
     }
 
     &.orange {
-        background-color: #d13b00;
+        background-color: oklch(from var(--bubble-orange) calc(l * .55) c h);
     }
 
     &.bleu {
-        background-color: #00a2ff;
+        background-color: oklch(from var(--bubble-blue) calc(l * .55) c h);
     }
 }

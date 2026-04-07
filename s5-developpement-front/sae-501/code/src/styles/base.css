@@ -8,6 +8,14 @@
 
 :root {
     interpolate-size: allow-keywords;
+
+    --z-base: 0;
+
+    --bubble-pink: #ef509f;
+    --bubble-red: #eb0706;
+    --bubble-blue-green: #0ceec0;
+    --bubble-orange: #ee8f00;
+    --bubble-blue: #011d37;
 }
 
 html {
