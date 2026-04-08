@@ -27,8 +27,11 @@ if not os.path.exists('flag.tmp.txt'):
 def load_gitignore(path = '.gitignore'):
     with open(path) as gitignore_file:
         list_ignored_files = gitignore_file.readlines()
-        list_ignored_files.extend(["*.odp", "gestion-ressources/**", "*.zip"]) # "zip", "code",
-        # list_ignored_files.extend(["sae"])
+        list_ignored_files.extend([
+            "*.odp", 
+            "gestion-ressources/**", 
+            "*.zip",
+        ]) # "zip", "code",
 
         return pathspec.PathSpec.from_lines("gitwildmatch", list_ignored_files)
 
@@ -164,7 +167,6 @@ else:
             list_ressources_folders_to_zip = get_all_directories_to_zip()
         else:
             list_ressources_folders_to_zip = get_list_directories_updated()
-            print(list_ressources_folders_to_zip)
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
