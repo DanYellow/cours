@@ -31,7 +31,7 @@ def load_gitignore(path = '.gitignore'):
             "*.odp", 
             "gestion-ressources/**", 
             "*.zip",
-        ]) # "zip", "code",
+        ])
 
         return pathspec.PathSpec.from_lines("gitwildmatch", list_ignored_files)
 
