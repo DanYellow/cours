@@ -85,14 +85,13 @@ def get_list_directories_updated():
         list_directories = sorted({str(pathlib.Path(line).parent) for line in result.stdout.splitlines()})
     # Staged files
     else:
-        if git_status_raw:
-            result = subprocess.run(
-                ["git", "diff", "--cached", "--name-only"],
-                capture_output=True,
-                text=True,
-                check=True
-            )
-            list_directories = sorted({str(pathlib.Path(line).parent) for line in result.stdout.splitlines()})
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        list_directories = sorted({str(pathlib.Path(line).parent) for line in result.stdout.splitlines()})
 
     def get_cleared_directory(path):
         r = re.search(r"^(.*?)((numero-\d+\/ressources|datasets|exercice)|(sae-\d+))", path)
@@ -156,7 +155,7 @@ def get_all_directories_to_zip():
     # list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
 
     return list_ressources_folders_to_zip
-print("hhhe")
+
 if args.debug is True:
     list_ressources_folders_to_zip = [r"s3-integration-web/travaux-pratiques/numero-5/ressources"]
 else:
