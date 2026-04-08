@@ -1,4 +1,5 @@
 # Mémo GIT
+
 Pour certaines commandes, il vous sera proposé une alternative à la ligne de commandes avec VS Code.
 
 - [Mémo GIT](#mémo-git)
@@ -17,19 +18,21 @@ Pour certaines commandes, il vous sera proposé une alternative à la ligne de c
     - [Changer le terminal de VS Code (Windows uniquement)](#changer-le-terminal-de-vs-code-windows-uniquement)
     - [Liens utiles](#liens-utiles)
 
-> **Important : Si vous souhaitez utiliser git pour la SAE, il faut impérativement éditer les fichier .env.local.dev et .env.local.prod et non .env.dev et .env.prod. Ne pas le faire vous expose à des failles de sécurité critiques.**
+> **Important : Si vous souhaitez utiliser git pour la SAE, il faut impérativement éditer les fichier .env.dev.local et .env.prod.local et non .env.dev et .env.prod. Ne pas le faire vous expose à des failles de sécurité critiques.**
 >
 > **Si ça arrive, changez immédiatement le mot de passe de votre base de données chez votre hébergeur.**
 
-Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des version d'un logiciel, fichier ou encore site web.
+Git est un outil qui est un standard dans le milieu du développement. C'est un outil libre et gratuit. Dans les grandes lignes, c'est un logiciel permettant de gérer des versions d'un logiciel, fichier ou encore site web.
 
-Si vous êtes sur macOS, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash.
+Si vous êtes sur macOS / linux, git est installé par défaut, si vous êtes sous Windows, il faudra l'installer via le logiciel gratuit git bash.
+
 - [Télécharger git bash](https://gitforwindows.org/)
 
-## git ou github ?
-Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès maintenant. Pour faire simple, git est la technologie, un outil, github est un site web, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par github, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à [créer votre compte sur github](https://github.com/signup), si ce n'est pas déjà fait.
+## git ou GitHub ?
 
-> Ce document a été pensé autour de git et github, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commandes.
+Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès maintenant. Pour faire simple, git est la technologie, un outil, GitHub est un site web / une plateforme, et certainement le plus populaire pour utiliser git. De ce fait, il est possible d'utiliser git sans passer par GitHub, l'interface sera différente mais l'utilisation de git, elle, ne changera pas. Ne l'oubliez pas. Pensez aussi à [créer votre compte sur GitHub](https://github.com/signup), si ce n'est pas déjà fait.
+
+> Ce document a été pensé autour de git et GitHub, mais comme dit juste en haut, mis à part l'interface, tout outil basé sur git fonctionne plus ou moins de la même façon notamment au niveau des lignes de commandes.
 
 ## Commandes
 > git possède de nombreuses commandes, ce document ne listera que les commandes principales, celles dont vous aurez le plus besoin. Les autres, vous aurez l'occasion de les découvrir durant vos périgrignations avec git.
@@ -40,7 +43,7 @@ Cette confusion a souvent lieu. Il est préférable de clarifier ce point dès m
 Première étape d'un projet git : l'initialisation. **Cette étape n'est à faire qu'une seule fois par projet.** Pour simplifier les choses, il est préférable de faire cette étape depuis github plutôt que la ligne de commandes.
 |![](./captures-ecran/git-1.png)|
 |:--:|
-|*Allez sur le site github, connecté. Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)*|
+|*Allez sur le site GitHub, connecté. Cliquez sur le "+" et sélectionnez "New repository" (dépôt en français)*|
 
 |![](./captures-ecran/git-2.png)|
 |:--:|
@@ -52,12 +55,14 @@ Première étape d'un projet git : l'initialisation. **Cette étape n'est à fai
 
 > Vous avez maintenant initialisé votre projet, toutefois, il n'est pas sur votre ordinateur encore, c'est ce que nous allons voir dans la partie suivante.
 
-### Cloner le dépôt (repository) - git clone
+### Cloner le dépôt (repository) - `git clone`
+
 Dans le vocabulaire de git, l'action de "cloner" consiste à télécharger sur son ordinateur le contenu d'un dépôt. Pour ce faire, il faudra utiliser la commande suivante :
 ```sh
 git clone URL-du-depot.git
 ```
-> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide. :
+> Note : VS Code intègre un terminal, il est accessible via le menu `Terminal > New Terminal`. L'avantage de cette méthode c'est que VS Code ouvre la console directement dans votre projet, c'est plus pratique. Malheureusement quand vous clonez un dépôt, il n'existe pas encore sur votre ordinateur, mais on peut _tricher_ en procédant de la façon suivante créant un dossier vide :
+
 > - Créez un dossier vide sur votre ordinateur
 > - Glisser ce dossier dans VS Code
 > - Ouvrez la console et clonez le dépôt avec la commande `git clone URL-du-depot.git .` (le point est important)
@@ -68,11 +73,12 @@ Appuyez ensuite sur la touche "entrée". Félicitations, vous avez cloné votre 
 
 > **N'effectuez un clonage de dépôt, si et seulement si, le projet n'est pas sur votre ordinateur.**
 
-Note 2 : Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
+Dans le cas où votre dépôt a déjà des fichiers, l'interface change et l'endroit où trouver l'url pour cloner le dépôt change d'emplacement :
 
 ![](./captures-ecran/git-14.png)
 
-### Ajouter des fichiers à l'historique - git add
+### Ajouter des fichiers à l'historique - `git add`
+
 Une fois le projet cloné glissez-déposez tout le contenu du dossier de la SAE dans le dossier récemment où vous avez cloné le projet via la commande `git clone`.
 
 Git permet de garder un historique des fichiers au sens d'un dépôt (ajout, suppression, modification). Toutefois, git crée un registre uniquement des fichiers qu'il connait. Après avoir déplacé tous les fichiers de la SAE 203 dans le dossier, vous avez du remarquer sur la gauche de VS Code une pastille avec un nombre, ce nombre représente le nombre de fichiers ajoutés/modifiés dans votre dépôt. Cliquez dessus.
@@ -112,7 +118,7 @@ Pour ajouter nos fichiers à l'historique, il vous suffit de cliquer sur le sign
 
 Notre fichier `index.html` est ajouté dans l'historique toutefois nous n'avons encore rien enregistré, c'est ce que nous allons voir dans la partie suivante.
 
-### Enregistrer les modifications - git commit
+### Enregistrer les modifications - `git commit`
 
 L'engistrement d'une modification est appelée `commit`, voyez cette action comme étant l'insertion d'une action dans un registre, comme le schéma ci-dessous :
 
@@ -161,7 +167,7 @@ Pour terminer cette partie, rappelez-vous qu'un commit est gratuit, n'hésitez p
 
 Commiter souvent, ça vous permet de plus facilement "retourner" dans le temps en cas d'erreur.
 
-### Mettre à jour le dépôt distant - git push
+### Mettre à jour le dépôt distant - `git push`
 Jusqu'à présent, nous avons ajouté et enregistré nos fichiers dans l'historique de git, néanmoins, ces modifications sont locales, il faut donc mettre à jour l'historique distant. On parlera de "push" dans le vocabulaire de git.
 
 <details open>
@@ -190,7 +196,8 @@ L'action de "Push" va envoyer sur le serveur distant tous les commits effectués
 Lors de votre premier push, il n'est pas improbable que github vous demande des autorisations, elles permettent de manipuler sans restrictions le registre, autorisez-les.
 
 
-## <a name="git-pull"></a>Récupérer l'historique distant - git pull
+## <a name="git-pull"></a>Récupérer l'historique distant - `git pull`
+
 Si vous changez d'ordinateur ou travaillez d'avec d'autres, votre historique local ne sera certainement pas à jour s'il y a eu des modifications entre-temps. Pour les récupérer, rien de plus simple :
 
 <details open>
@@ -198,8 +205,9 @@ Si vous changez d'ordinateur ou travaillez d'avec d'autres, votre historique loc
 Cette action s'effectue via la commande :
 
 ```bash
-git pull origin
+git pull origin __nom_de_branche__
 ```
+> En absence de nom de branche, git va récupérer les données de la branche courante
 
 Et on n'oublie pas de valider l'action en appuyant sur entrée.
 </details>
@@ -256,6 +264,7 @@ Heureusement, VS Code possède une fonctionnalité de recherche globale.
 VS Code liste les fichiers avec des conflits, il vous suffira sélectionner chacun des fichiers en conflit et les résoudre.
 
 ### Changer le terminal de VS Code (Windows uniquement)
+
 On a vu précédemment qu'il était possible d'utiliser le terminal directement depuis l'interface de VS Code (`Terminal > New Terminal`), toutefois, si vous êtes sous Windows, le terminal utilisé est l'invite de commandes. C'est "bien", mais le terminal de git bash est bien meilleur. Pour l'utiliser par défaut dans VS Code suivez la démarche suivante :
 
 |![](./captures-ecran/git-12.png)|
@@ -267,5 +276,6 @@ On a vu précédemment qu'il était possible d'utiliser le terminal directement 
 |*Sélectionnez "Git Bash". Et voilà, git bash est maintenant votre terminal par défaut dans VS Code*|
 
 ### Liens utiles
+
 - [Documentation officielle en français](https://git-scm.com/book/fr/v2)
 - [Anti-sèche git en anglais](./Atlassian-Git-Cheatsheet.pdf)

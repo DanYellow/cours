@@ -73,75 +73,38 @@ parser.add_argument(
 args = parser.parse_args()
 
 def get_list_directories_updated():
-    command = ['git', 'status']
-    if args.last_commit == True:
-        command = ['git', 'log', '--name-status', '-1']
-
-    stdout_git_status = subprocess.run(command, stdout=subprocess.PIPE).stdout
-
-    re_staged = r"(\(.+--staged.+\)[\r\n\t]+)([->\w:.\/\s\n\r\t]*)(?=\n.+staged.+)?"
-    re_last_commit = r"(?:M|A)([\s\n]+.+)"
-
-    git_status_raw = re.search(
-        re_staged,
-        stdout_git_status.decode("utf-8"),
-        re.MULTILINE
-    )
+    list_directories = []
 
     if args.last_commit == True:
-        git_status_raw = re.findall(
-            re_last_commit,
-            stdout_git_status.decode("utf-8"),
-            re.MULTILINE
+        result = subprocess.run(
+            ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=True
         )
-
-    list_staged_files = []
-
-    if args.last_commit == False:
-        if git_status_raw:
-            list_staged_files = re.findall(
-                r"(modified|new file|renamed|deleted):([\w\s./-]+)\.\w{2,8}",
-                git_status_raw.group(),
-                re.MULTILINE
-            )
-            list_staged_files = list(map(lambda x: x[1], list(list_staged_files)))
+        list_directories = sorted({str(pathlib.Path(line).parent) for line in result.stdout.splitlines()})
+    # Staged files
     else:
-        list_staged_files = git_status_raw
-
-    def clean_directory_path(path):
-        cleaned_path = (
-            path
-                .replace("modified:", "")
-                .replace(" -", "")
-                .strip()
-        )
-        cleaned_path = re.sub('\\s+', '', cleaned_path)
-
-        return cleaned_path
-
-    def get_last_commit_path(entry):
-        path = ' '.join(entry.split())
-        path = path.replace("\"", "")
-        path = re.sub('\\s+', '', path)
-
-        return get_cleared_directory(path)
+        if git_status_raw:
+            result = subprocess.run(
+                ["git", "diff", "--cached", "--name-only"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            list_directories = sorted({str(pathlib.Path(line).parent) for line in result.stdout.splitlines()})
 
     def get_cleared_directory(path):
         r = re.search(r"^(.*?)((numero-\d+\/ressources|datasets|exercice)|(sae-\d+))", path)
 
         return r.group(0) if r else ""
 
-    list_cleaned_paths = map(
-        get_last_commit_path if args.last_commit else clean_directory_path,
-        list_staged_files
-    )
-
     def get_zippable_directories(path):
         if "datasets" in path:
             return True
         return not files_from_gitignore.match_file(path)
 
-    list_directories_ressources = filter(get_zippable_directories, list(list_cleaned_paths))
+    list_directories_ressources = filter(get_zippable_directories, list(list_directories))
 
     list_cleared_directories_ressources = map(get_cleared_directory, list(list_directories_ressources))
     list_cleared_directories_ressources = list(filter(None, list_cleared_directories_ressources))
@@ -193,7 +156,7 @@ def get_all_directories_to_zip():
     # list_all_folders = list_ressources_folders_to_zip + list_saes_folders_root_ressources
 
     return list_ressources_folders_to_zip
-
+print("hhhe")
 if args.debug is True:
     list_ressources_folders_to_zip = [r"s3-integration-web/travaux-pratiques/numero-5/ressources"]
 else:
@@ -202,6 +165,7 @@ else:
             list_ressources_folders_to_zip = get_all_directories_to_zip()
         else:
             list_ressources_folders_to_zip = get_list_directories_updated()
+            print(list_ressources_folders_to_zip)
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
