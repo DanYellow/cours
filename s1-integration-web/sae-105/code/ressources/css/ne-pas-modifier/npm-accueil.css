@@ -14,11 +14,11 @@
     background-size: 100% 100%;
 }
 
-.jpo-banniere:hover {
+.jpo-banniere:is(:hover, :focus) {
     background-size: 105% 105%;
 }
 
-.jpo-banniere:before {
+.jpo-banniere::before {
     content: "";
     display: block;
     position: absolute;
@@ -33,12 +33,12 @@
     transition: transform 0.2s, opacity 0.1s;
 }
 
-.jpo-banniere:hover:before {
+.jpo-banniere:is(:hover, :focus)::before {
     opacity: 1;
     transform: translate(-50%, -50%) scale(0.96, 0.98);
 }
 
-.jpo-banniere:after {
+.jpo-banniere::after {
     content: "";
     display: block;
     position: absolute;

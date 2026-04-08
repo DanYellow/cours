@@ -191,7 +191,8 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
     - [ ] **L'unité de la propriété "font-size" est rem**
     - [ ] Chaque page possède une balise &lt;title> avec une valeur appropriée et unique
     - [ ] Je n'utilise pas de balises &lt;br> de façon inappropriée
-    - [...]
+    - [ ] Les liens ont une interaction au survol de la souris et au focus clavier (touche tabulation <kbd>⇥</kbd>)
+    - ...
     - Vous pouvez utiliser le site [accessibilitychecker](https://www.accessibilitychecker.org/) pour tester l'accessibilité, une fois le site en ligne
   - [ ] Traiter les données du formulaire pour envoyer un e-mail
 
@@ -223,7 +224,7 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
 
     Par défaut, VS code ne permet pas ceci. Toutefois, vous pouvez contrevenir à ce problème, grâce à l'extension gratuite [Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php). Vous pouvez l'installer via le lien précédent. Ou en passant par le gestionnaire d'extensions de VS Code qui est représenté par les quatre carrés à gauche de la fenêtre du logiciel. Cliquez dessus et cherchez "Format HTML in PHP", la bonne extension devrait être le premier résultat. Puis cliquez sur le bouton "Install".
 
-    Une fois installé, vous pourrez utiliser le raccourci `Maj + Alt + F` ou clic droit "Format Document".
+    Une fois installé, vous pourrez utiliser le raccourci <kbd>Maj</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> ou clic droit "Format Document".
 
 - **Quand je modifie mes fichiers dans VS Code, il ne se passe rien dans le navigateur**
 
@@ -231,9 +232,9 @@ Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de t
 
     - Vous ne modifiez pas les bons fichiers. Vous avez, par exemple, le projet copié ailleurs sur votre ordinateur ou une clé usb et vous modifiez cette version, version qui n'est pas affichée dans le navigateur
     -  Votre serveur affiche la version en cache de votre site. Pour vider le cache plusieurs solutions :
-        - Raccourci `Ctrl/cmd + maj + suppr` : Vous cochez "cache" et vous validez l'action
+        - Raccourci <kbd>Ctrl/cmd</kbd> + <kbd>Maj</kbd> + <kbd>suppr/retour arrière</kbd> du navigateur : Vous cochez "cache" et vous validez l'action
         - **En ayant la console ouverte**, vous maintenez le clic sur le bouton d'actualisation de page, ça va ouvrir un menu et vous sélectionnez "Actualisation forcée". **Ceci ne fonctionne que sous Chrome**
-        - Raccourci `Ctrl/cmd + F5` ou `Ctrl/cmd + maj + R`
+        - Raccourci <kbd>Ctrl/cmd</kbd> + <kbd>F5</kbd> ou <kbd>Ctrl/cmd</kbd> + <kbd>maj</kbd> + <kbd>R</kbd>
     > Normalement, lorsque la console est ouverte, le cache est désactivé si vous avez coché l'option "Disable cache" dans l'onglet "Network" de la console du navigateur (F12 / Clic droit > Inspecter).
 
 ## Pour aller plus loin

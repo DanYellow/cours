@@ -1,0 +1,38 @@
+services:
+  php:
+    container_name: sae_105_dev
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./code:/var/www/html
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/php.ini
+    ports:
+      - 80:80
+    networks:
+      - sae_105_network
+    command: >
+      sh -c "
+        apache2-foreground & 
+        until curl -s http://localhost > /dev/null; do
+          sleep 1;
+        done;
+        echo '✅ Server ready on http://localhost';
+        wait
+      "
+  mailer:
+    image: axllent/mailpit
+    container_name: sae_105-mailpit
+    ports:
+      - 1025:1025
+      - 8025:8025
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      MAILPIT_RELAY: 127.0.0.1:25
+    networks:
+      - sae_105_network
+
+networks:
+  sae_105_network:
+    driver: bridge
