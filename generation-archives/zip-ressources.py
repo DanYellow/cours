@@ -205,6 +205,7 @@ else:
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
+        
         list_paths = list(map(transform_str_to_path, args.folder))
         list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
         list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
@@ -278,20 +279,20 @@ def generate_zip(list_folders, is_correction_directory = False):
                         zip_object.close()
                         list_zip_files_generated.append(correction_archive_path)
 
-            files_from_gitignore = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/"])
+            files_from_gitignore_updated = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/"])
 
             with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
                 for root, dirs, files in os.walk(folder_path):
                     # dirs[:] = [
                     #     d for d in dirs
-                    #     if not files_from_gitignore.match_file(os.path.relpath(os.path.join(root, d), folder_path))
+                    #     if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
                     # ]
         
                     for file in files:
                         full_path = os.path.join(root, file)
                         rel_path = os.path.relpath(full_path, folder_path)
 
-                        if not files_from_gitignore.match_file(rel_path):
+                        if not files_from_gitignore_updated.match_file(rel_path):
                             zip_object.write(full_path, rel_path)
                 zip_object.close()
             
