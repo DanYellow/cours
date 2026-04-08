@@ -35,7 +35,7 @@ $URL_creation = "{$racine_URL}/creation.php";
 <body>
     <?php require_once('../ressources/includes/menu-principal.php'); ?>
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl py-3 px-4 justify-between flex">
+        <div class="mx-auto max-w-7xl py-3 px-4 justify-between flex flex-col md:flex-row gap-3">
             <div>
                 <p class="text-3xl font-bold text-gray-900">Liste A-REMPLACER</p>
             </div>
@@ -59,7 +59,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                     <tbody>
                         <?php
                             while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
-                                $lien_edition = "{$racine_URL}/edition.php?id={$element["id"]}";
+                                $lien_edition = "{$racine_URL}edition.php?id={$element["id"]}";
 
                                 $date_creation = new DateTime($element["date_creation_article"]);
                                 $auteur_article = $element["auteur"];

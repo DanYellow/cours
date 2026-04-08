@@ -40,3 +40,7 @@ body {
         animation: none !important;
     }
 }
+
+input:user-invalid {
+    border: 2px solid rgb(170, 0, 0);
+}

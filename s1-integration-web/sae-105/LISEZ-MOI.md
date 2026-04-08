@@ -78,9 +78,10 @@ Vous travaillez en groupe, profitez-en, sollicitez vos connaissances et appéten
 
 > Pour rappel, vous ne partez pas d'une page blanche pour le code, nous avons mis en place une base de code pour vous aider.
 >
-> [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
+> [Télécharger le code de la SAE](https://github.com/DanYellow/cours/raw/refs/heads/main/s1-integration-web/s1-integration-web-sae-105.ressources.zip)
 
 ## Police d'écriture
+
 La maquette utilise la police d'écriture "Open Sans", elle n'est pas présente par défaut sur votre ordinateur, de ce fait, le projet utilise la règle @font-face pour charger la police, vous pourrez le voir en détails dans le fichier "ressources/css/npm-fonts.css".
 - [Voir documentation de @font-face](https://developer.mozilla.org/fr/docs/Web/CSS/%40font-face).
 
@@ -95,10 +96,11 @@ Néanmoins, la police étant déjà chargée au global, vous ne devriez pas avoi
 Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
 ## Astuces
+
 - La navigation principale et la bulle du site se trouvent dans le fichier `ressources/includes/header.php`. Nous avons utilisé la puissance de PHP pour partager des morceaux de code, **vous devrez faire de même avec le pied de page**
 - A la racine du projet, il y a un fichier nommé `squelette.php`. A chaque nouvelle page que vous aller créer, **copiez et renommez le fichier.** Ce fichier possède une base saine pour créer une nouvelle page
 - Votre code HTML se répète à travers les pages (ou même la même page) ? Pensez à la fonction php `require_once()`
-- Vous ne pouvez pas être pixel perfect. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
+- Vous ne pouvez pas être _pixel perfect_. N'essayez pas d'être iso avec la maquette lors de votre intégration, le moteur de rendu de votre navigateur et d'Adobe XD sont différents, des différences **mineures** appraîtront, c'est normal et ce n'est pas grave
 - **Vous ne devez en aucun cas modifier les fichiers CSS fournis,** c'est à vous de rajouter de nouveaux fichiers CSS pour compléter l'intégration. Les fichiers CSS dans le dossier "ne-pas-modifier" ou commençant par "npm-" ne doivent pas être modifiés
   - Vous pouvez en revanche copier un sélecteur présent dans le code de base pour le surcharger si besoin est
 - **Évitez de copier tout le code CSS fourni par Adobe XD,** ça peut être tentant, mais il est malheureusement de très mauvaise qualité et va vous poser plus de problèmes qu'autre chose. Néanmoins, vous pouvez récupérer les propriétés CSS suivantes depuis Adobe XD :
@@ -122,6 +124,7 @@ Le choix de la graisse est indiqué dans la maquette Adobe XD.
 
 
 ## Rendus attendus
+
 - **Une archive par groupe** nommée nom-prénom (celui du chef de projet) contenant :
   - Les fichiers permettant le bon fonctionnement de votre site
     - **Nous ne débuggerons pas votre site, assurez-vous qu'il fonctionne avant de l'envoyer**
@@ -137,9 +140,11 @@ Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera d
 > N'oubliez pas qu'une date butoir est plus proche qu'on le croit. N'attendez pas le dernier moment pour vous y mettre.
 
 ### Notation
+
 Les critères suivants seront évalués. Une ou les deux parties **peuvent** être amenées à être évaluée via un oral.
 
 #### Intégration Web (HTML/CSS)
+
 Cette partie sera évaluée par vos enseignants en Intégration Web.
 - Qualité du code :
   - Pas de classes au nom étrange
@@ -162,13 +167,16 @@ Cette partie sera évaluée par vos enseignants en Intégration Web.
 - Présence des fonctionnalités / qualité de l'intégration (voir Adobe XD - lien plus haut -)
 
 #### Développement Web (PHP)
+
 Cette partie (page "contact") sera évaluée par vos enseignants en Développement Web.
 - Qualité du code
   - Utilisation de la fonction `require_once()`
 - Bon fonctionnement du formulaire avec envoi d'e-mail
-  - **Cette fonctionnalité ne peut pas être testée en local.** Il faudra uploader votre site sur un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
+  - Il est possible de tester cette fonctionnalité en local grâce au logiciel gratuit [mailpit](https://mailpit.axllent.org/). Il permet d'avoir un client e-mail local qui interceptera tout email envoyé depuis votre serveur local. L'interface est accessible via `localhost:8025`
+  - Sinon, il faudra uploader votre site sur un hébergeur comme alwaysdata qui est gratuit (déjà vu en TP)
 
 #### Gestion d'équipe
+
 Vous devrez rédiger un document expliquant **une** tâche que vous effectué sur ce projet. Cette explication pourra être agrémentée de captures d'écran, de la documentation ou du code. A noter qu'il est inutile de paraphraser votre code. Essayez de trouver une fonctionnalité que vous avez trouvé difficile à réaliser, quelque chose qui vous a apporté de la satisfaction quand vous l'avez développé.
 
 Quoiqu'il en soit, il est inutile de faire un document de dix pages remplit de textes, une page par membre du groupe est largement suffisant.
