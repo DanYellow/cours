@@ -227,7 +227,7 @@ export const modal_DOM = {
     listTogglePip: modal.querySelectorAll("[data-toggle-picture-in-picture]"),
 };
 
-export * from "./colors";
-export * from "./pokemon-modal.utils";
-export * from "./dataDictionaries";
-export * from "./constants";
+export * from "./colors.js";
+export * from "./pokemon-modal.utils.js";
+export * from "./pokemon-mapping.js";
+export * from "./constants.js";

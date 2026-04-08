@@ -199,6 +199,8 @@ def generate_archive_name(folder_path, is_correction_directory = False):
 
     return archive_path
 
+# This function searches for a .gitignore file inside a directory 
+# and returns the first one it finds.
 def find_gitignore(directory):
     root = pathlib.Path(directory)
     for path in root.rglob('.gitignore'):
@@ -206,18 +208,17 @@ def find_gitignore(directory):
             return path
     return None 
 
-def generate_zip(list_folders, is_correction_directory = False):
+def generate_zip(list_folders):
     if len(list_folders) == 0:
         return
-
+  
     for folder_path in list_folders:
         has_gitignore = find_gitignore(folder_path)
         archive_path = generate_archive_name(folder_path)
 
-        if has_gitignore:
+        if False:
             try:
                 git_project_path = folder_path
-
                 command = ['git', 'archive', '-o', archive_path, f"HEAD:{pathlib.PureWindowsPath(git_project_path).as_posix()}"]
                 subprocess.run(command, stdout=subprocess.PIPE).stdout
                 list_zip_files_generated.append(archive_path)
@@ -244,20 +245,21 @@ def generate_zip(list_folders, is_correction_directory = False):
                         zip_object.close()
                         list_zip_files_generated.append(correction_archive_path)
 
-            files_from_gitignore_updated = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/"])
+            files_from_gitignore_updated = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/**", "**/correction/"])
 
             with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
                 for root, dirs, files in os.walk(folder_path):
-                    # dirs[:] = [
-                    #     d for d in dirs
-                    #     if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
-                    # ]
+                    dirs[:] = [
+                        d for d in dirs
+                        if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
+                    ]
         
                     for file in files:
                         full_path = os.path.join(root, file)
                         rel_path = os.path.relpath(full_path, folder_path)
-
+                        print("rel_path " + rel_path)
                         if not files_from_gitignore_updated.match_file(rel_path):
+                            
                             zip_object.write(full_path, rel_path)
                 zip_object.close()
             

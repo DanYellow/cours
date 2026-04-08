@@ -418,11 +418,12 @@ displayModal = async (pkmnData) => {
 
     clearTagContent(modal_DOM.listEvolutions);
     const listEvolutionConditions = [];
+    const minThresholdEvolutionsForGridLayout = 3;
     if(evolutionLine.length > 1) {
         evolutionLine.forEach((evolution, idx) => {
             const li = document.createElement("li");
             const ol = document.createElement("ol");
-            if(evolution.length > 3) {
+            if(evolution.length > minThresholdEvolutionsForGridLayout) {
                 ol.classList.add(...["grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-y-6"]);
             } else {
                 ol.classList.add(...["flex"]);

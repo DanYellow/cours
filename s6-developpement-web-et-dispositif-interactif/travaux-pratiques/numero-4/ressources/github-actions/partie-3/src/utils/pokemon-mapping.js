@@ -373,6 +373,7 @@ export const POKEDEX = {
     "updated-ulaula": "Ile d'Ula-Ula (USUL)",
     "original-poni": "Ile de Poni",
     "updated-poni": "Ile de Poni (USUL)",
+    "lumiose-city": "Illumis (Pokémon Z-A)",
 }
 
 export const FRENCH_GAMES_NAME = {

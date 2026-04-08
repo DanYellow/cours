@@ -12,7 +12,7 @@ const notifyEndRequests = debounce(() => {
     window.dispatchEvent(endLoadingEvent);
 }, delayBeforeFlagEndRequests);
 
-const listURLToIntercept = ["https://tyradex.vercel.app/api/v1/gen", "https://pokeapi.co/api/v2/", "https://pokeapi.co/api/v2/pokemon/"]
+const listURLToIntercept = ["https://tyradex.app/api/v1/gen", "https://pokeapi.co/api/v2/", "https://pokeapi.co/api/v2/pokemon/"]
 
 axios.interceptors.request.use(async (config) => {
     try {

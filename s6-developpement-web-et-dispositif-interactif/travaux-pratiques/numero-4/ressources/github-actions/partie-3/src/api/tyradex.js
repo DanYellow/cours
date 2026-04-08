@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchPokemonForGeneration = async (generation = 1) => {
     let listPokemon = [];
     try {
-        const req = await axios.get(`https://tyradex.vercel.app/api/v1/gen/${generation}`);
+        const req = await axios.get(`https://tyradex.app/api/v1/gen/${generation}`);
         listPokemon = req.data;
         const serverErrorStartNumber = 400;
         if(req.data?.status >= serverErrorStartNumber) {
@@ -19,7 +19,7 @@ export const fetchPokemonForGeneration = async (generation = 1) => {
 export const fetchPokemon = async (pkmnId, region = null) => {
     try {
         const regionName = region ? `/${region}` : "";
-        const req = await axios.get(`https://tyradex.vercel.app/api/v1/pokemon/${pkmnId}${regionName}`);
+        const req = await axios.get(`https://tyradex.app/api/v1/pokemon/${pkmnId}${regionName}`);
 
         return req.data;
     } catch (error) {
