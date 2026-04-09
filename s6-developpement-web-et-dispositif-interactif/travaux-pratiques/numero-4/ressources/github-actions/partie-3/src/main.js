@@ -2,6 +2,8 @@ import {
     fetchPokemonForGeneration,
     fetchPokemon,
 } from "#api";
+import "#src/window-events.js";
+import "#src/styles/main.css";
 
 import loadPokemonData from "./pokemon-modal";
 import "./picture-in-picture";
@@ -18,15 +20,11 @@ import {
 } from "./utils";
 import { generationScrollingObserver, pokedexItemScrollingObserver, firstVisiblePkmn } from "./scroll-observer";
 
-import ripple from '#src/worklets/ripple.js?url';
 import loadingImageRaw from "/images/loading.svg?raw";
 
-import "#src/window-events.js";
-
-import "#src/styles/main.css";
-
 if ('paintWorklet' in CSS) {
-    CSS.paintWorklet.addModule(ripple);
+    const ripple = await import('#src/worklets/ripple.js?url');
+    CSS.paintWorklet.addModule(ripple.default);
 }
 
 const pkmnTemplateRaw = document.querySelector("[data-tpl-id='pokemon']");

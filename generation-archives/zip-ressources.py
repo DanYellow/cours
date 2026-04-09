@@ -213,57 +213,46 @@ def generate_zip(list_folders):
         return
   
     for folder_path in list_folders:
-        has_gitignore = find_gitignore(folder_path)
         archive_path = generate_archive_name(folder_path)
 
-        if False:
-            try:
-                git_project_path = folder_path
-                command = ['git', 'archive', '-o', archive_path, f"HEAD:{pathlib.PureWindowsPath(git_project_path).as_posix()}"]
-                subprocess.run(command, stdout=subprocess.PIPE).stdout
-                list_zip_files_generated.append(archive_path)
-            except:
-                print(f"\033[91mCouldn't zip {archive_path}\033[0m")
-        else:
-            correction_directory = None
-            list_correction_directories = []
+        correction_directory = None
+        list_correction_directories = []
+    
+        for root, directories, _ in os.walk(folder_path):
+            if "correction" in directories:
+                list_correction_directories.append(os.path.join(root, "correction"))
+
+        if len(list_correction_directories):
+            for correction_directory in list_correction_directories:
+                correction_archive_path = generate_archive_name(correction_directory, True)
+                with ZipFile(correction_archive_path, 'w', ZIP_DEFLATED) as zip_object:
+                    for root, _, files in os.walk(correction_directory):
+                        for file in files:
+                            if not files_from_gitignore.match_file(file):
+                                full_path = os.path.join(root, file)
+                                rel_path = os.path.relpath(full_path, correction_directory)
+                                zip_object.write(full_path, rel_path)
+                    zip_object.close()
+                    list_zip_files_generated.append(correction_archive_path)
+
+        files_from_gitignore_updated = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/**", "**/correction/"])
+
+        with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
+            for root, dirs, files in os.walk(folder_path):
+                dirs[:] = [
+                    d for d in dirs
+                    if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
+                ]
+    
+                for file in files:
+                    full_path = os.path.join(root, file)
+                    rel_path = os.path.relpath(full_path, folder_path)
+                    
+                    if not files_from_gitignore_updated.match_file(rel_path):                        
+                        zip_object.write(full_path, rel_path)
+            zip_object.close()
         
-            for root, directories, _ in os.walk(folder_path):
-                if "correction" in directories:
-                    list_correction_directories.append(os.path.join(root, "correction"))
-
-            if len(list_correction_directories):
-                for correction_directory in list_correction_directories:
-                    correction_archive_path = generate_archive_name(correction_directory, True)
-                    with ZipFile(correction_archive_path, 'w', ZIP_DEFLATED) as zip_object:
-                        for root, _, files in os.walk(correction_directory):
-                            for file in files:
-                                if not files_from_gitignore.match_file(file):
-                                    full_path = os.path.join(root, file)
-                                    rel_path = os.path.relpath(full_path, correction_directory)
-                                    zip_object.write(full_path, rel_path)
-                        zip_object.close()
-                        list_zip_files_generated.append(correction_archive_path)
-
-            files_from_gitignore_updated = extend_files_pattern_to_ignore(files_from_gitignore, ["**/correction/**", "**/correction/"])
-
-            with ZipFile(archive_path, 'w', ZIP_DEFLATED) as zip_object:
-                for root, dirs, files in os.walk(folder_path):
-                    dirs[:] = [
-                        d for d in dirs
-                        if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
-                    ]
-        
-                    for file in files:
-                        full_path = os.path.join(root, file)
-                        rel_path = os.path.relpath(full_path, folder_path)
-                        print("rel_path " + rel_path)
-                        if not files_from_gitignore_updated.match_file(rel_path):
-                            
-                            zip_object.write(full_path, rel_path)
-                zip_object.close()
-            
-            list_zip_files_generated.append(archive_path)
+        list_zip_files_generated.append(archive_path)
 
 generate_zip(list_ressources_folders_to_zip)
 print("    ")

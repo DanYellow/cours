@@ -21,7 +21,7 @@ export default [
                 {
                     ignoreArrayIndexes: true,
                     ignoreDefaultValues: true,
-                    ignore: [0, -1, 1],
+                    ignore: [0, -1, 1, 0.5, -0.5],
                 },
             ],
             "no-empty": ["error", { allowEmptyCatch: true }],
