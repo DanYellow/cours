@@ -6,7 +6,7 @@ import { ZodError } from "zod";
 import Article, { ArticleZodSchema } from "#models/article.js";
 import Author from "#models/author.js";
 
-import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/utils/uploader.js";
 import { mapZodErrors } from "#database/error-messages.js";
 
 const router = express.Router();

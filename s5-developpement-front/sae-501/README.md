@@ -20,10 +20,13 @@ _Les consignes pourront être modifiées._
     - [Pré-requis](#pré-requis)
     - [Installation](#installation)
     - [Utilisation - Mode développement](#utilisation---mode-développement)
+      - [Docker - développement](#docker---développement)
     - [Utilisation - Mode production](#utilisation---mode-production)
+      - [Docker - production](#docker---production)
   - [Flash messages](#flash-messages)
   - [Utilisation de git](#utilisation-de-git)
   - [eslint](#eslint)
+  - [Tâches que nous ferons ensemble](#tâches-que-nous-ferons-ensemble)
   - [Tâches à effectuer](#tâches-à-effectuer)
     - [Site BUT et administration](#site-but-et-administration)
     - [Site BUT](#site-but)
@@ -48,7 +51,9 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 - AC34.03 - Intégrer, produire ou développer des interaction riches ou des dispositifs interactifs
 - AC35.02 - Maîtriser la qualité en projet Web ou multimédia
 
-> N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks). [Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter)
+> N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+> 
+>[Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter).
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
 
@@ -102,7 +107,7 @@ La structure est un peu plus complexe que celle avec laquelle vous avez travaill
 
 ### Dossier database/
 
-Le dossier `database/` gère la gestion de la base de données NoSQL du projet. Vous trouverez plus d'informations sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation) (inutile si vous utilisez Docker). Il est également possible d'avoir un équivalent de PhpMyAdmin pour MongoDB avec le logiciel [MongoDB Compass](https://www.mongodb.com/try/download/compass). MongoDB et MongoDB Compass sont gratuits.
+Le dossier `database/` gère la gestion de la base de données MongoDB du projet, une base de données dite "NoSQL". Vous trouverez plus d'informations sur la technologie NoSQL dans le [fichier MONGODB-NOSQL](./MONGODB-NOSQL.md). Vous aurez besoin de télécharger [MongoDB](./MONGODB-NOSQL.md#installation) (inutile si vous utilisez Docker). Il est également possible d'avoir un équivalent de PhpMyAdmin pour MongoDB avec le logiciel [MongoDB Compass](https://www.mongodb.com/try/download/compass). MongoDB et MongoDB Compass sont gratuits.
 
 > Note : Si vous utilisez les ordinateurs de l'IUT, vous ne pourrez pas installer MongoDB, veuillez vous réferrer au [document explicatif de MongoDB](./MONGODB-NOSQL.md) pour pallier à ce problème grâce à MongoDB Altas.
 
@@ -110,14 +115,14 @@ Le dossier `database/` gère la gestion de la base de données NoSQL du projet. 
 
 Le dossier `public/` contient toutes les ressources qui n'ont pas à être gérées par vite, si vous avez un fichier CSS que vous n'importerez pas dans un fichier javascript, c'est ici qu'il faudra le mettre.
 
-> Lorsqu'un fichier nunjucks ou css charge une ressource du dossier `public/`, il faut partir du principe que le fichier nunjucks ou css est, **virtuellement**, dans le dossier `public/`. Ainsi le chemin ne devra pas contenir `public/` et devra commencer par un slash (/).
+> Lorsqu'un fichier nunjucks ou CSS charge une ressource contenue dans le dossier `public/`, le chemin ne devra pas contenir `public/` et devra commencer par un slash (/).
 
 ```html
 <!-- A ne pas faire. Express va chercher le fichier "/public/public/style.css qui n'existe pas -->
 <link rel="stylesheet" href="/public/style.css" />
 
 <!-- Correct. Express va chercher le fichier "/public/style.css -->
-<link rel="stylesheet" href="/fonts.css" />
+<link rel="stylesheet" href="/style.css" />
 ```
 
 Dans le dossier `public/`, on y trouve également le dossier `uploads/`, là où les fichiers uploadés seront placés, **vous ne devez pas le supprimer**. De plus, ce dossier n'est pas commité, les fichiers que vous uploaderez resteront sur votre ordinateur.
@@ -137,7 +142,7 @@ router.get(["/hello", "/mon-blog.html"], async (req, res) => {
 });
 ```
 
-Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route ait un "res" sinon votre ressource moulinera indéfiniment dans le vide.
+Le code ci-dessus indique que lorsqu'on accède à l'url `/hello` ou `/mon-blog.html` avec la méthode GET, on charge le template `pages/index.njk` en injectant la variable "title". Ici on affiche une page, mais on peut imaginer un appel d'API ou encore la création d'un fichier, tout dépendra de vos besoins. Notez bien qu'il faut que votre route retourne quelque chose (`res` le fait automatiquement) sinon votre ressource moulinera indéfiniment dans le vide.
 
 > Note : les chemins des templates partent du dossier "src/" du projet. Il est donc inutile de mettre '../' dans vos chemins de template.
 
@@ -179,7 +184,7 @@ La gestion des paramètres possède d'autres fonctionnalités comme la gestion d
 
 Retenez les points suivants :
 
-- Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez certainement une erreur 404
+- Si vous faites un lien entre des pages du site, il faudra faire le lien vers la route et non vers le fichier nunjucks, sinon, vous aurez une erreur 404
 - Lorsque vous souhaitez ajouter une nouvelle page, en plus du fichier, il faudra également rajouter la nouvelle route. Aidez-vous des exemples dans les fichiers de routing. Dans le projet, il y a trois types de routes :
   - frontend : partie accessible à tous. Fichier `server/front-end-router.js`
   - backend : partie accessible aux administrateurs. **Toutes les routes commencent par "/admin", vous ne devez pas le mettre dans la route vous-même**. Dossier `server/back-end-router/`
@@ -194,7 +199,7 @@ Le projet tourne autour d'une API respectant le CRUD. Pour rappel, le CRUD fonct
 - U - Update : Mise à jour d'une ressource. Représenté par la méthode HTTP `PUT`
 - D - Delete : Suppression d'une ressource. Représenté par la méthode HTTP `DELETE`
 
-Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` our `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées.
+Vous pourrez trouver tous les détails de l'API dans le swagger du projet via la route `/swagger` ou `/debug/swagger` et également la tester grâce à Postman. Un document de présentation de Postman est présent dans le projet. Cette API CRUD est appelée par le back-end-router en fonction des actions effectuées.
 
 - [Accéder à la présentation de Postman](./POSTMAN.md)
 
@@ -228,10 +233,10 @@ Contient les points d'entrées de vos bundles vite, ils seront compilés par vit
 
 Contient le CSS du projet. Le projet importe déjà [tailwindcss](https://tailwindcss.com/docs/installation), le fait que nous utilisions avec nodejs fait que vous avez accès à l'auto-complétion des classes tailwind. Il vous suffit de commencer à écrire le nom d'une classe tailwindcss ou de faire `ctrl/cmd + espace` et VSCode fera des propositions. Vous pouvez bien utiliser tailwindcss pour l'intégration de la partie front et backend du projet. Pas utile d'être 100% iso avec la maquette fournie. Pour vous aider avec la complétion de code, il existe le plugin gratuit VSCode [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), il indique également les incohérences dans le code, les classes CSS antinomiques, par exemple.
 
-Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le fichier tailwind.config.js, ils permettent notamment de cibler des écrans tactiles / non-tactiles.
+Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le fichier tailwind.css, ils permettent notamment de cibler des écrans tactiles / non-tactiles.
 
-> Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting). Ceci permet d'utiliser l'imbrication de sélecteurs CSS. Toutefois SCSS est installé, vous pouvez l'utiliser si vous souhaitez.
-
+> Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting). Ceci permet d'utiliser l'imbrication de sélecteurs CSS.
+>
 > Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique.
 
 ## Mise en place
@@ -239,7 +244,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 ### Pré-requis
 
 - node >= 20.10 (utilisez la commande `node -v` pour voir votre version)
-  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 20.10+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur
+  - Si jamais, pour diverses raisons, vous ne pouvez pas installer une version 20.10+ de nodejs, utilisez nvm pour pouvoir utiliser plusieurs versions de nodejs sur votre ordinateur ou passez par Docker
     - [Installer nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - mongodb (voir [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour l'installation)
   - Note : Il est fort probable que vous ne puissiez pas utiliser MongoDB sur les ordinateurs de l'IUT. Pour pallier à ce problème, il faudra passer par MongoDB Atlas, un outil freemium permettant d'héberger la base de données
@@ -271,19 +276,19 @@ Le serveur se relance à chaque modification de fichiers et rafraîchit égaleme
 
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
 
-#### Docker
+#### Docker - développement
 
 Le projet gère également Docker en développement. Si vous le souhaitez, vous pouvez l'utiliser avec la commande suivante :
 
 ```bash
-docker compose --env-file ./env/.env.dev.dist --env-file ./env/.env.dev.local up
+docker compose --env-file ./env/.env.dev.local up
 ```
 
 Notez quand même les points suivants :
 
 - La commande `docker compose` échouera si un des fichiers .env, listé dans la commande, est inexistant
 - Si vous souhaitez utiliser Docker pour gérer MondoDb (au lieu d'une base MongoDb locale ou Atlas), vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml`
-- Si vous utilisez l'image Docker pour MongoDb, il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env.dev.local)
+  - Il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env.dev.local)
 - Les images Docker peuvent être très lourdes, si vous avez un espace disque limité, évitez de l'utiliser. Les images Docker de node + mongodb pèsent ensemble 4 GB
 
 ### Utilisation - Mode production
@@ -316,7 +321,7 @@ Notez quand même les points suivants :
 
 > Si vous utilisez MongoDB Altas, vos identifiants de connexion se trouvent dans l'URL. Ex `mongodb+srv://your_user_name:your_password@cluster0.cojoign.mongodb.net/...`. **Vous ne devez en aucun cas mettre "your_user_name" et "your_password" dans votre dépôt, c'est une faille de sécurité grave.** Ces valeurs doivent être dans un fichier .env. Utilisez la valeur `MONGODB_URL` dans les fichiers .env.local qui ne sont pas commités
 
-#### Docker
+#### Docker - production
 
 Vous pouvez également utiliser Docker en mode production avec une commande qui varie un peu :
 
@@ -328,7 +333,7 @@ docker compose --env-file ./env/.env.prod.local --file docker-compose.prod.yml -
 >
 > Le fait d'avoir deux fois le paramètre `--file` permet de fusionner les fichiers docker-compose. Pour le développement, on ne le fait pas car Docker fusionne automatiquement `docker-compose.yml` avec `docker-compose.override.yml`.
 
-A noter que si vous avez utilisé Docker précédemment dans un environnement différent de celui que vous allez utiliser (prod vers dev, ou l'inverse). Il faudra arrêter le container et ses volumes pour éviter que Docker s'enmêle les pinceaux entre les dépendances de développement et de production avec la commande suivante (à adapter) :
+A noter que si vous avez utilisé Docker précédemment dans un environnement différent de celui que vous allez utiliser (prod vers dev, ou l'inverse). Il faudra arrêter les containers et ses volumes pour éviter que Docker s'enmêle les pinceaux entre les dépendances de développement et de production avec la commande suivante (à adapter) :
 
 ```bash
 docker-compose -f docker-compose.yml  --env-file ./env/.env.dev.local down --volumes --remove-orphans
@@ -354,8 +359,10 @@ Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il e
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
 
 > Note : Un commit, c'est gratuit. Pensez à le faire régulièrement (tout en ajoutant les fichiers récemment ajoutés à l'historique de git) ceci vous permet d'avoir plusieurs points de sauvegarde, vous permettant ainsi de revenir en arrière à des points plus précis.
-
+>
 > Note 2 : Si vous travaillez avec des branches, n'attendez pas la fin du projet pour tout fusionner, c'est la recette idéale pour la catastrophe. Dès qu'une fonctionnalité est terminée, fusionnez votre branche avec la branche principale (vous pourrez toujours garder votre branche).
+>
+> Note 3 : Si vous ne savez pas comment nommer vos commits. Essayez de les faire compléter la phrase suivante : `(Ce commit va)` _intitulé_du_commit_.
 
 Si vous avez oublié comment fonctionne git. Vous avez un mémo qui rappelle les commandes de base.
 
@@ -409,6 +416,11 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 > Déconseillé mais sachez qu'il est possible d'exclure certaines lignes d'eslint grâce à des commentaires.
 > [Vous trouverez plus d'informations dans la documentation.](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
+## Tâches que nous ferons ensemble
+
+- Création du modèle "Message". Gère les messages envoyés depuis le formulaire de contact
+- Création de l'API "Message" pour lire et créer un message
+
 ## Tâches à effectuer
 
 - [x] Lire les consignes
@@ -431,7 +443,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - Il peut être différent entre le site BUT et l'administration
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
   - Quand vous utilisez la pseudo-classe ":hover", pensez toujours à mettre également la pseudo-classe ":focus-visible"
-    - Il y a la mixin SCSS ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" qui remplit le même rôle. Il fonctionne également pour les groupes
+    - Il y a le modifier tailwind ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" qui remplit le même rôle. Il fonctionne également pour les groupes
 - [ ] Ajouter une validation côté client des formulaires
   - Vous pouvez utiliser un outil comme [zod.js](https://zod.dev/) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -567,13 +579,14 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - **Comment gérer l'affichage des dates côté navigateur ?**
   Dans le projet, les dates sont enregistrées au format ISO 8601, ce qui donne au final une date qui ressemble à 2023-11-26T08:56:47.344Z, format qui n'est pas très lisible pour un être humain. Pour rendre ceci digeste, vous pouvez utiliser un node_module comme luxon (déjà installé dans le projet) pour formatter les dates.
 
-    Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/bootstrap.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
+    Dans le projet, il y a un filtre nunjucks dédié nommé "date". **Ce filtre n'est pas natif à nunjucks**, il a été ajouté dans le fichier `server/index.js`. Voici un exemple d'utilisation dans un fichier nunjucks.
 
     ```
       {{ my_date_from_db | date("dd/LL/yyyy à HH:mm:ss") }}
     ```
 
-    Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon. - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
+    Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon. 
+    - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**
   Vous n'avez pas installé ou lancé MongoDB, la console indique juste qu'elle n'arrive pas à trouver des données. Allez voir le fichier [MONGODB-NOSQL.md](./MONGODB-NOSQL.md#installation) pour les étapes d'installation.
@@ -588,7 +601,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 
     C'est parce que dans une de vos routes, express n'a pas de template à charger. Autrement dit la méthode "render" a pour premier paramètre, une chaîne de caractères vide.
 
-    A noter qu'une erreur semblable peut apparaître si vous chargez un template inexistant.
+    A noter qu'une erreur semblable apparaîtra, si vous chargez un template inexistant.
 
 - **Le navigateur affiche une erreur 404, je ne comprends pas**
 
@@ -612,7 +625,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - [CSS Containers Queries avec Tailwind](https://www.premieroctet.com/blog/css-container-queries-avec-tailwind)
   - [Les Container Queries en CSS](https://www.alsacreations.com/article/lire/1915-Les-Container-Queries-en-CSS.html)
   - [Les Container Queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-        > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacé par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
+        > Note : Dans le cadre du projet, l'utilisation des containers queries auraient pu être remplacés par de simples media queries, mais ceci vous permet de découvrir le fonctionnement.
         >
         > Note 2 : A l'avenir, il sera même possible d'appliquer des propriétés CSS en fonction des propriétés CSS d'un conteneur défini
 

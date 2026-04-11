@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { ZodError } from "zod";
 
 import Author, { AuthorZodSchema } from "#models/author.js";
-import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/utils/uploader.js";
 import { mapZodErrors } from "#database/error-messages.js";
 
 const router = express.Router();

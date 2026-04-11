@@ -1,13 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
-import fs from "fs";
+import fs from "node:fs";
+import { ZodError } from "zod";
 
 import Sae, { SaeZodSchema } from "#models/sae.js";
 import routeName from "#server/utils/name-route.middleware.js";
 
-import upload, { uploadImage, deleteUpload } from "#server/uploader.js";
+import upload, { uploadImage, deleteUpload } from "#server/utils/uploader.js";
 import { mapZodErrors } from "#database/error-messages.js";
-import { ZodError } from "zod";
 
 const router = express.Router();
 const base = "saes";
