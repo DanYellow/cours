@@ -22,6 +22,7 @@
     "globals": "^15.12.0",
     "launch-editor": "^2.9.1",
     "postcss": "^8.4.48",
+    "postcss-preset-env": "^11.2.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "tailwindcss": "^4.1.11",

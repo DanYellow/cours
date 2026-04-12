@@ -63,7 +63,7 @@ Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis s
 
 Vous partirez du code fourni et contenu dans le dossier `"code/"`. Vous trouverez plus bas la liste des tâches à réaliser.
 
-> - [Télécharger le code de départ la SAE](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fdeveloppement-front-s5%2Fsae-501)
+> - [Télécharger le code de départ la SAE](https://github.com/DanYellow/cours/raw/refs/heads/main/s5-developpement-front/s5-developpement-front-sae-501.ressources.zip)
 > - [Accéder à la maquette Adobe XD](https://xd.adobe.com/view/95c93a87-3bd9-475d-8adf-6d6937baace9-c09a/)
 
 Le projet se structure de la façon suivante (structure non exhaustive) :
@@ -353,7 +353,7 @@ Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il e
 1. Ajoutez les autres membres de votre groupe en tant que collaborateurs (Settings > Collaborators (premier élément dans la liste à gauche))
     - Ceci peut se faire plus tard
 1. Clonez votre dépôt sur votre ordinateur (ssh ou https)
-1. Copiez-collez tous les fichiers du projet de la SAE dans votre dépôt récemment cloné
+1. Copiez-collez tous les fichiers du projet de la SAE (dossier code/ suffit) dans votre dépôt récemment cloné
     - Le projet contient déjà un fichier `.gitignore`, inutile d'en créer un de vôtre côté
 1. Ajoutez tous les fichiers à l'historique de git avec la commande `git add -A`
 1. Commitez puis poussez les modifications `git commit -am "Premier commit"` puis `git push origin`
@@ -472,10 +472,10 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - **La page ne doit pas se recharger lors de la soumission du formulaire**
   - Il faudra utiliser fetch, api native de javascript qui permet de faire des requêtes asynchrones
 - [ ] Afficher les détails d'un article quand on clique dessus depuis la page d'accueil
-  - titre, chapo, contenu, image, video youtube
+  - titre, chapo, contenu, image, video YouTube
   - Afficher le nom de l'auteur (mettre une valeur par défaut si un article n'a pas d'auteur) avec un lien vers le détail de l'auteur listant tous ses articles
-  - Note : Pour la vidéo Youtube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
-  - Note 2 : N'oubliez pas que Youtube propose également des shorts, on doit également pouvoir les utiliser
+  - Note : Pour la vidéo YouTube, elle est facultative, toutefois vous devez permettre à l'utilisateur de mettre l'URL de la vidéo, l'url d'iframe ou juste l'id de la vidéo
+  - Note 2 : N'oubliez pas que YouTube propose également des shorts, on doit également pouvoir les utiliser
 - [ ] Permettre, de façon asynchrone, d'ajouter un commentaire à un article et l'afficher
   - Pour gérer les messages plus facilement, aidez-vous de la balise &lt;template>
 - [ ] Indiquer dans la navigation la page courante et changer la couleur de la bulle en fonction de la page
@@ -518,12 +518,12 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - Toutes les routes d'API sont déjà prêtes pour manipuler la base de données. Il faut créer les pages associées
   - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**
   - La suppression et le listage sont déjà gérés
-  - Lorsqu'un lien youtube est placé, vous devez afficher le lecteur youtube
+  - Lorsqu'un lien YouTube est placé, vous devez afficher le lecteur YouTube
     - Vous devez vérifier que le lien ou l'id de la vidéo est valide
+    - Pour permettre un chargement plus rapide de la page, ajoutez l'attribut `loading="lazy"` à l'iframe. Ainsi le lecteur YouTube s'affichera quand elle sera visible
+      - [En savoir plus sur le lazy loading des &lt;iframe>](https://web.dev/articles/iframe-lazy-loading)
   - Inspirez-vous de ce qui a déjà été fait pour la partie SAE, partie qui est complète
   - La gestion de l'auteur doit être réalisée avec la balise &lt;datalist> ou un plugin comme TomSelect ou choicesjs (pas installé et à préférer)
-  - [Voir page npm de TomSelect](https://www.npmjs.com/package/tom-select)
-    - Vous n'avez pas besoin d'aller dans les méandres de TomSelect, l'exemple de base, avec un peu de modifications, fera l'affaire
 - [ ] Permettre de créer, éditer, supprimer un auteur et lister les auteurs
   - Toutes les routes d'api sont déjà prêtes pour manipuler la base de données. Tout comme le routeur, à vous de le connecter au reste.
   - **Le champ permettant l'upload d'images doit impérativement s'appeller "image" (attribut "name"), sinon ça ne fonctionnera pas**

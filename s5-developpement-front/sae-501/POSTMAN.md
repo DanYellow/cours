@@ -6,15 +6,17 @@ Postman est un logiciel freemium permettant de tester des API. L'avantage premie
 > Même sans droits administrateur, vous pouvez quand même utiliser Postman car vous n'avez pas besoin de l'installer. Par ailleurs, il existe une version web mais qui ne fonctionne pas avec les url localhost.
 
 ## Importer une collection
+
 > Une collection est un ensemble de requêtes d'API, elle est stockée au format JSON. Vous pouvez créer la vôtre, mais dans cette SAE, vous en avez déjà une que vous pourrez éditer en ajoutant vos requêtes.
 
 Pour importer une collection, suivez les étapes suivantes :
 
 1. Sélectionner le fichier de collection
 ![](./captures/postman-1.jpg)
+
 Cliquez sur le bouton import et selectionnez votre fichier de collection : `SAE501.postman_collection.json`. Vous l'avez récupéré en même temps que le code de la SAE.
 
-_Et voilà_
+_Et voilà._
 
 ## Accéder / créer une requête
 
@@ -22,7 +24,8 @@ _Et voilà_
 Sur la gauche, vous avez vos collections, elles peuvent être divisées en sous-dossiers. Pour créer un dossier, il suffit de survoler un dossier ou collection et cliquer sur les trois points qui sont apparus, il y a une option "Add folder". Dans ce même menu sous le nom "Add request", vous pouvez créer une nouvelle requête, une nouvelle façon d'accéder à votre API.
 
 ![](./captures/postman-3.jpg)
-- Bleu : Nom de la requête. Éditable en cliquant dessus ou en faisant `ctrl/cmd + e`
+
+- Bleu : Nom de la requête. Éditable en cliquant dessus ou en faisant <kbd>ctrl/cmd</kbd> + <kbd>e</kbd>
 - Jaune : Méthode de la requête. Éditable en cliquant dessus (où il y a la flèche)
 - Vert : Url de la requête. L'url peut prendre des placeholders. Il suffit de prefixer le paramètre par deux-points (:). Exemple : `http://localhost:7777/api/:id/:gallery_id`. Ceci va créer un nouveau tableau dans l'onglet "Params" permettant de changer de façon plus simple la valeur des paramètres "id" et "gallery_id"
 > En plus des placeholders, l'url peut accepter des variables, elles sont déjà utilisées dans les requêtes de la collection que vous avez récupéré. Ces variables sont accessibles en cliquant sur une collection, onglet "Variables".
@@ -51,5 +54,5 @@ Pour finir, il est possible d'utiliser la bibliothèque faker avec Postman, fake
 > ![](./captures/postman-6.jpg)
 > Ici nous générons un court texte pour la clé "content"
 Faker est déjà utilisé dans le projet, dans le but de créer à coup sûr une nouvelle entité unique.
-
+>
 > **Attention :** Postman est un logiciel très gourmand en ressources, si vous n'en avez pas besoin fermez-le, car il pourrait très bien provoquer une sur-utilisation du processeur de votre ordinateur.
