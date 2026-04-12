@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 import { ressourceNameInApi } from "./utils.js";
 
-import upload from "#server/uploader.js";
+import upload from "#server/utils/uploader.js";
 import { buildPayload } from "#server/utils/build-payload.js";
 
 const base = "auteurs";

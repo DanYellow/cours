@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 import routeName from "#server/utils/name-route.middleware.js";
 import { buildPayload } from "#server/utils/build-payload.js";
-import upload from "#server/uploader.js";
+import upload from "#server/utils/uploader.js";
 
 import { ressourceNameInApi } from "./utils.js";
 

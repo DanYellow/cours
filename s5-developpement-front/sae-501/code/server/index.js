@@ -43,7 +43,13 @@ const hostip = ip.address();
 if (process.env.NODE_ENV === "development") {
     const viteConfig = await import("../vite.config.js");
     const { createServer: createViteServer } = await import("vite");
-    const vite = await createViteServer(viteConfig);
+    const vite = await createViteServer({
+        ...viteConfig,
+        root: process.cwd(),
+        build: {
+            ...viteConfig.build,
+        }
+    });
 
     app.use(vite.middlewares);
 }
