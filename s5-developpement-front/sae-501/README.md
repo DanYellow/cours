@@ -271,7 +271,7 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 
     > Note : Le serveur de développement est plus lent que le serveur de production. Il intégère des outils qui ne sont pas présents en production. Si vous n'êtes pas sûr(e) des performances de votre site, n'hésitez pas à passer en production pour tester.
 
-Par défaut, le site tourne sur le port 3900, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples).
+Par défaut, le site tourne sur le port Hy, mais vous pouvez le changer grâce à un fichier env/.env.dev.local (voir fichier env/.env.dev.dist pour exemples).
 Le serveur se relance à chaque modification de fichiers et rafraîchit également le navigateur. De plus, le serveur est exposé sur le réseau, vous pouvez donc accéder au projet depuis n'importe quel appareil sur le même réseau, ça sera pratique pour tester le mode responsive sur vos terminaux mobiles.
 
 > **N'éditez pas le fichier env/.env.dev.dist, faites-en une copie que vous nommerez .env/.env.dev.local.** Une bannière d'alerte sera affichée si vous ne créez pas de fichier env/.env.dev.local.
@@ -284,12 +284,16 @@ Le projet gère également Docker en développement. Si vous le souhaitez, vous 
 docker compose --env-file ./env/.env.dev.local up
 ```
 
+> Si vous n'aimez pas voir tous les logs de docker compose, vous pouvez ajouter le paramètre `-d`.
+
 Notez quand même les points suivants :
 
 - La commande `docker compose` échouera si un des fichiers .env, listé dans la commande, est inexistant
 - Si vous souhaitez utiliser Docker pour gérer MondoDb (au lieu d'une base MongoDb locale ou Atlas), vous pouvez copier et renommer le fichier `docker-compose.override.example.yml` en `docker-compose.override.yml`
   - Il faudra changer l'url de MongoDb dans le fichier .env (il y a un exemple dans le fichier .env.dev.local)
 - Les images Docker peuvent être très lourdes, si vous avez un espace disque limité, évitez de l'utiliser. Les images Docker de node + mongodb pèsent ensemble 4 GB
+
+> Pour arrêter le processus de docker composer, vous pouvez utiliser <kbd>ctrl</kbd> + <kbd>c</kbd>. En revanche, si vous avez besoin d'un arrêt plus propre ou que vous avez lancé le processus en arrière-plan (paramètre `-d`), il faut utiliser la commande `docker compose down`.
 
 ### Utilisation - Mode production
 
@@ -367,6 +371,8 @@ Lors du rendu du projet, vous devrez rendre le lien GitHub de votre projet. Il e
 Si vous avez oublié comment fonctionne git. Vous avez un mémo qui rappelle les commandes de base.
 
 - [Accéder au mémo sur les commandes de base de git](https://github.com/DanYellow/cours/blob/main/integration-web-s2/sae-203/LISEZ-MOI-GIT.md)
+
+> Note 4 : Si vous êtes sous macOS / linux, nous vous conseillons vivement d'installer [ohmyzsh](https://ohmyz.sh/#install), ceci vous permettra de voir (surtout sur macOS) le nom de la branche courante. Mais ce n'est pas que ça ohmyzsh, c'est aussi des plugins qui ajoutent de nouvelles fonctionnalités au terminal (voir sur le site).
 
 ## eslint
 
