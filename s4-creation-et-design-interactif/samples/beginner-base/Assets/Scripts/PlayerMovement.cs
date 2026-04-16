@@ -1,7 +1,6 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -20,9 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool wasGrounded;
 
-    public bool jumpRequested = false;
-    public bool jumpReleased = false;
-
     public int nbMaxJumpsAllowed = 3;
     [SerializeField]
     private int jumpCount = 0;
@@ -36,33 +32,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform wallCheck;
     public LayerMask wallLayer;
 
-    public InputAction fireAction;
-
-    private PlayerInput controls;
-
-    private void Awake()
-    {
-        controls = GetComponent<PlayerInput>();
-    }
-
-    private void OnEnable()
-    {
-        controls.onActionTriggered += OnInputRegistered;
-    }
-
-    private void OnInputRegistered(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.action.actionMap.name);
-    }
-
-    private void OnDisable()
-    {
-        controls.onActionTriggered -= OnInputRegistered;
-    }
 
     private void Start()
     {
-        print("ffeeeeee");
         jumpCount = 0;
         // https://www.youtube.com/watch?v=EyKmLj2ICFw
         // val.CurrentValue = 41;
@@ -72,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // moveDirectionX = Input.GetAxisRaw("Horizontal");
-
         if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
@@ -87,23 +57,6 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpCount = 0;
         }
-
-        // float force = Input.GetButton("Jump") ? stompBounceForce * 1.2f : stompBounceForce;
-
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     jumpRequested = true;
-        // }
-        // if (Input.GetButtonUp("Jump"))
-        // {
-        //     jumpReleased = true;
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Alpha0))
-        // {
-        //     transform.Translate(VectorFromAngle(45));
-        //     // AddForceAtAngle(15f, 45);
-        // }
 
         Flip();
 
@@ -139,16 +92,6 @@ public class PlayerMovement : MonoBehaviour
 
         WallSlide();
 
-        if (jumpReleased && rb.linearVelocityY > 0f)
-        {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-               rb.linearVelocity.y * 0.5f
-            );
-        }
-
-        jumpReleased = false;
-        jumpRequested = false;
         if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (2.5f - 1) * Time.fixedDeltaTime;
