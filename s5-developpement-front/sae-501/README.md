@@ -238,6 +238,10 @@ Par ailleurs, des modifiers tailwind personnalisés ont été ajoutés dans le f
 > Le projet n'utilise pas SCSS, à la place, nous avons fait le choix d'utiliser le [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting). Ceci permet d'utiliser l'imbrication de sélecteurs CSS.
 >
 > Par sa séparation en trois grandes entités (serveur, templates et données), le projet applique le patron de conception [MVC (Modèle Vue Contrôleur)](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur), standard dans le monde du développement. Ce modèle limite le code spaghetti car chaque partie a un rôle qui lui est propre. Et chacune d'elle est plus ou moins agnostique.
+>
+> De plus, la gestion des données est dite "headless". Autrement dit, aucune des pages ne communique directement avec la base de données, elle passe par une API (`server/api-router`). En utilisant une architecture "headless", on peut réutiliser la consommation des données dans une application mobile ou encore un objet connecté.
+>
+> - [En savoir plus sur l'architecture headless](https://www.lundimatin.fr/definition-site-web-headless)
 
 ## Mise en place
 

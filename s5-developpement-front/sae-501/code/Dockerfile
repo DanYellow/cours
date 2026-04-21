@@ -31,7 +31,7 @@ COPY . .
 RUN npm run build
 
 # ---------- PROD ----------
-FROM node:24 AS prod
+FROM node:24-alpine AS prod
 
 WORKDIR /app
 COPY package*.json ./
