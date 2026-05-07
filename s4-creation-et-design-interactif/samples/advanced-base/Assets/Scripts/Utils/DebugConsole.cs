@@ -154,18 +154,18 @@ public class DebugConsole : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.F12))
-        {
-            showConsole = !showConsole;
-            if (showConsole)
-            {
-                onDebugConsoleOpenEvent.Raise(showConsole);
-            }
-            else
-            {
-                Hide();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.F12))
+        // {
+        //     showConsole = !showConsole;
+        //     if (showConsole)
+        //     {
+        //         onDebugConsoleOpenEvent.Raise(showConsole);
+        //     }
+        //     else
+        //     {
+        //         Hide();
+        //     }
+        // }
 #endif
     }
 

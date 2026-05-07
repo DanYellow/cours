@@ -29156,6 +29156,7 @@ GameObject:
   - component: {fileID: 814072442}
   - component: {fileID: 814072443}
   - component: {fileID: 814072444}
+  - component: {fileID: 814072445}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -29222,7 +29223,6 @@ MonoBehaviour:
   needResetHP: 1
   playerData: {fileID: 11400000, guid: 128a5caa38b25da4b8d554b3e6931d20, type: 2}
   onDebugDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
 --- !u!61 &814072432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29483,6 +29483,44 @@ MonoBehaviour:
     m_Bits: 64
   bounceForce: {fileID: 11400000, guid: 17c9980a24c1e9b4e8160459a458b811, type: 2}
   playerMovement: {fileID: 814072430}
+--- !u!114 &814072445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814072429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 4026f4062015a4b4dbfb778b2775437c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 93bf0e61-39bf-4025-b436-fe179b2c5a8a
+    m_ActionName: 'Player/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/z,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ec0c233e-80a3-4e76-8c7e-7cbb60983845
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &817053435
 PrefabInstance:
   m_ObjectHideFlags: 0

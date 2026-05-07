@@ -25,11 +25,11 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
-        {
-            isGamePaused = !isGamePaused;
-            TogglePause(isGamePaused);
-        }
+        // if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     isGamePaused = !isGamePaused;
+        //     TogglePause(isGamePaused);
+        // }
     }
 
     public void Resume()

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -100,10 +101,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (!isStunned)
-        {
-            Controls();
-        }
 
         if (isLandingFast && isGrounded)
         {
@@ -130,25 +127,18 @@ public class PlayerMovement : MonoBehaviour
         wasGrounded = isGrounded;
     }
 
-    private void Controls()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        moveDirectionX = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump"))
+        if (isStunned)
         {
-            jumpBufferCounter = jumpBufferTime;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
+            return;
         }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            jumpReleased = true;
-        }
+        var moveInput = context.ReadValue<Vector2>();
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        moveDirectionX = moveInput.x;
+
+        if (context.performed && moveInput.y < -0.5)
         {
             if (isOnOneWayPlatform && !hasCrossedFloatingPlatforms)
             {
@@ -161,6 +151,23 @@ public class PlayerMovement : MonoBehaviour
                 isLandingFast = true;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
             }
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            jumpReleased = true;
+        }
+
+        if (context.performed)
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
         }
     }
 
@@ -214,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.linearVelocityY > 0 && !Input.GetButton("Jump"))
+        else if (rb.linearVelocityY > 0 && jumpReleased)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }

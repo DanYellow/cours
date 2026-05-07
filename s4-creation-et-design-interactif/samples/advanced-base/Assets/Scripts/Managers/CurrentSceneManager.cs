@@ -19,10 +19,10 @@ public class CurrentSceneManager : MonoBehaviour
 
     private void Update() {
         #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                RestartLevel();
-            }
+            // if (Input.GetKeyDown(KeyCode.R))
+            // {
+            //     RestartLevel();
+            // }
         #endif
     }
 
