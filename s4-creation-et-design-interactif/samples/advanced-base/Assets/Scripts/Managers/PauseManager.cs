@@ -33,6 +33,15 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void OnTogglePause(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            isGamePaused = !isGamePaused;
+            TogglePause(isGamePaused);
+        }
+    }
+
     public void Resume()
     {
         Time.timeScale = 1f;

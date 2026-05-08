@@ -28,6 +28,16 @@ public class CurrentSceneManager : MonoBehaviour
         #endif
     }
 
+    public void OnRestartLevel(InputAction.CallbackContext ctx)
+    {
+        #if UNITY_EDITOR
+        if (ctx.performed)
+        {
+            RestartLevel();
+        }
+        #endif
+    }
+
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;
