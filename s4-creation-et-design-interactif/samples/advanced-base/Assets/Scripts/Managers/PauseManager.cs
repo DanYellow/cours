@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -30,6 +31,15 @@ public class PauseManager : MonoBehaviour
         //     isGamePaused = !isGamePaused;
         //     TogglePause(isGamePaused);
         // }
+    }
+
+    public void OnTogglePause(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            isGamePaused = !isGamePaused;
+            TogglePause(isGamePaused);
+        }
     }
 
     public void Resume()

@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
@@ -23,6 +24,16 @@ public class CurrentSceneManager : MonoBehaviour
             // {
             //     RestartLevel();
             // }
+        #endif
+    }
+
+    public void OnRestartLevel(InputAction.CallbackContext ctx)
+    {
+        #if UNITY_EDITOR
+        if (ctx.performed)
+        {
+            RestartLevel();
+        }
         #endif
     }
 

@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    private static readonly int VelocityX = Animator.StringToHash("VelocityX");
+    private static readonly int VelocityY = Animator.StringToHash("VelocityY");
+    private static readonly int IsOnFallingPlatform = Animator.StringToHash("IsOnFallingPlatform");
+    private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
+
 
     [Tooltip("Running system"), SerializeField, Range(5, 30)]
     private float moveSpeed = 10;
@@ -116,6 +121,11 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
+        if (jumpBufferCounter > 0)
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
         Flip();
         Animations();
 
@@ -156,18 +166,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (context.started)
+        {
+            jumpBufferCounter = jumpBufferTime;
+            jumpReleased = false;
+        }
+
         if (context.canceled)
         {
             jumpReleased = true;
-        }
-
-        if (context.performed)
-        {
-            jumpBufferCounter = jumpBufferTime;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
         }
     }
 
@@ -188,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = IsGrounded();
+        isGrounded = IsOnTheGround();
         isOnOneWayPlatform = IsOnOneWayPlatform();
         hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
 
@@ -259,10 +266,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animations()
     {
-        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocity.x));
-        animator.SetFloat("VelocityY", rb.linearVelocity.y);
-        animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
-        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat(VelocityX, Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat(VelocityY, rb.linearVelocity.y);
+        animator.SetBool(IsOnFallingPlatform, isOnFallingPlatform);
+        animator.SetBool(IsGrounded, isGrounded);
     }
 
     private void Flip()
@@ -298,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public bool IsOnTheGround()
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,
