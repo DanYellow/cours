@@ -24,15 +24,6 @@ public class PauseManager : MonoBehaviour
         onDebugConsoleOpenEvent.OnEventRaised += TogglePauseDebug;
     }
 
-    void Update()
-    {
-        // if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     isGamePaused = !isGamePaused;
-        //     TogglePause(isGamePaused);
-        // }
-    }
-
     public void OnTogglePause(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)

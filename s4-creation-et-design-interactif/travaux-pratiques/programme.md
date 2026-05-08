@@ -110,3 +110,18 @@ context.started - Triggered when the interaction begins:
 - Dash
 - Single-fire actions
 - Buffering inputs
+
+
+private InputAction moveAction;
+
+private void Update()
+{
+    Vector2 move = moveAction.ReadValue<Vector2>();
+}
+
+
+Input Type	Preferred Callback
+Instant gameplay button	started
+Continuous value	performed
+Interaction-based action	performed
+Button release	canceled

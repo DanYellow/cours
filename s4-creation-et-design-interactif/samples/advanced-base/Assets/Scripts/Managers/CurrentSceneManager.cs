@@ -18,19 +18,10 @@ public class CurrentSceneManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Update() {
-        #if UNITY_EDITOR
-            // if (Input.GetKeyDown(KeyCode.R))
-            // {
-            //     RestartLevel();
-            // }
-        #endif
-    }
-
     public void OnRestartLevel(InputAction.CallbackContext ctx)
     {
         #if UNITY_EDITOR
-        if (ctx.performed)
+        if (ctx.started)
         {
             RestartLevel();
         }

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 enum DisplayType
 {
@@ -150,22 +151,21 @@ public class DebugConsole : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDebug(InputAction.CallbackContext ctx)
     {
 #if UNITY_EDITOR
-        // if (Input.GetKeyDown(KeyCode.F12))
-        // {
-        //     showConsole = !showConsole;
-        //     if (showConsole)
-        //     {
-        //         onDebugConsoleOpenEvent.Raise(showConsole);
-        //     }
-        //     else
-        //     {
-        //         Hide();
-        //     }
-        // }
+        if (ctx.started)
+        {
+            showConsole = !showConsole;
+            if (showConsole)
+            {
+                onDebugConsoleOpenEvent.Raise(showConsole);
+            }
+            else
+            {
+                Hide();
+            }
+        }
 #endif
     }
 
