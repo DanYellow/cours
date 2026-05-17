@@ -52,7 +52,7 @@ Le _but_ de cette SAÉ est de valider les Apprentissages Critiques (AC) suivants
 - AC35.02 - Maîtriser la qualité en projet Web ou multimédia
 
 > N'oubliez pas d'ajouter les fichiers "nunjucks" au plugin Emmet dans les préférences de VSCode (normalement ceci a été fait lors de notre TP sur nunjucks). Pour rappel : `File > Preferences > Settings > Recherchez "Emmet" > Ajoutez "nunjucks" avec la valeur "html" dans la partie "Emmet: Include Languages"`. [Et le plugin Nunjucks ajoutera la coloration syntaxique.](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-> 
+>
 >[Pour le formattage des fichiers .njk, vous pouvez utiliser l'extension Nunjucks Template Formatter](https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter).
 
 Ce projet sera à faire en binôme ou en trinôme. Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe. Des points pourront être retirés ou la note nullifée, si le devoir est rendu en retard. **Le rendu se fera sous la forme d'un lien, le lien de votre dépôt git.**
@@ -288,7 +288,7 @@ Le projet gère également Docker en développement. Si vous le souhaitez, vous 
 docker compose --env-file ./env/.env.dev.local up
 ```
 
-> Si vous n'aimez pas voir tous les logs de docker compose, vous pouvez ajouter le paramètre `-d`.
+> Si vous n'aimez pas voir tous les logs de docker compose dans le Terminal, vous pouvez ajouter le paramètre `-d`.
 
 Notez quand même les points suivants :
 
@@ -446,7 +446,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
   - Il existe moult didacticiels en ligne qui montrent comment gérer ceci avec express. Attention : votre route de 404 doit être la dernière route de l'ensemble de **toutes** vos routes, sinon, celles qui suivront ne seront jamais appelées
   - [Liste inspiration design pages 404](https://www.designspells.com/?tag=404)
 - [ ] Rendre le site responsive (tailwind est là pour vous aider)
-  - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu cours pour proposer la meilleure expérience possible
+  - Il n'y a pas de maquette responsive, à vous de vous adapter. Utilisez votre expérience ainsi ce que vous avez vu en cours pour proposer la meilleure expérience possible
   - [Accéder à la documentation des modifiers responsive de tailwindcss](https://tailwindcss.com/docs/responsive-design)
 - [ ] Mettre un favicon
   - Il n'a pas besoin d'être géré par vite, mettez-le dans le dossier /public
@@ -454,6 +454,8 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
 - [ ] Respecter les normes d'accessibilité web (font-size en rem, contrastes...)
   - Quand vous utilisez la pseudo-classe ":hover", pensez toujours à mettre également la pseudo-classe ":focus-visible"
     - Il y a le modifier tailwind ":hocus" qui réunit les deux, il y a également un modifier tailwindcss "hocus:" qui remplit le même rôle. Il fonctionne également pour les groupes
+  - **Votre score d'accessibilité Lighthouse (navigateur Chromium seulement) doit être supérieur ou égal à 85 en mode production.** Je prendrai deux pages au hasard de la partie front et lancerai un test (mobile et PC).
+    - [Voir utilisation de Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)
 - [ ] Ajouter une validation côté client des formulaires
   - Vous pouvez utiliser un outil comme [zod.js](https://zod.dev/) (déjà installé, voir `code/database/models/author.js`)
 - [ ] Afficher le nom des membres de l'équipe (site BUT et/ou administration)
@@ -595,7 +597,7 @@ D'ailleurs, vous y trouverez quelques problèmes car ils ont été laissés volo
       {{ my_date_from_db | date("dd/LL/yyyy à HH:mm:ss") }}
     ```
 
-    Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon. 
+    Dans l'exemple ci-dessus notre date sera affichée de la façon suivante : 26/11/2023 à 08:56. Les paramètres passés dans le filtre "date" proviennent de la documentation de luxon.
     - [Accéder à la documentation du formattage avec luxon](https://moment.github.io/luxon/#/formatting?id=table-of-tokens)
 
 - **La console affiche une erreur au niveau de "result.data" et le projet ne se lance pas, pourquoi ?**

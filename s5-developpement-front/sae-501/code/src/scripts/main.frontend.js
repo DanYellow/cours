@@ -3,6 +3,7 @@ import "/src/styles/hero.css";
 import "/src/styles/index.css";
 import "/src/styles/tailwind.css";
 import "/src/styles/scroll-shadow.css";
+import "/src/styles/about.css";
 
 import "./store-scroll-position.utils";
 

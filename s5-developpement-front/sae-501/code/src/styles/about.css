@@ -1,0 +1,27 @@
+.sae-item {
+    overflow: clip;
+    position: relative;
+    img {
+        object-fit: cover;
+        object-position: 0% 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+            right: 0;
+
+        @supports (animation-timeline: view()) {
+            animation: parallax-image linear both;
+            animation-timeline: view(x);
+        }
+    }
+}
+
+@keyframes parallax-image {
+    from {
+        object-position: 100% 0;
+    }
+    to {
+        object-position: 0 0;
+    }
+}

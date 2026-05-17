@@ -25,7 +25,7 @@ Partie 3 :
 - https://france.publicisgroupe.com/
 
 Partie 4 (accéder en navigation privée) :
-- https://web.archive.org/web/20180825013901/http://www.coachcyborg.com/
+- https://web.archive.org/web/20180825013901/http://www.coachcyborg.com/ (aidez-vous de la console du navigateur)
 
 Partie 5 :
 - https://twitter.com/universitecergy (si vous n'avez pas de compte twitter, vous ne pourrez pas voir le problème)

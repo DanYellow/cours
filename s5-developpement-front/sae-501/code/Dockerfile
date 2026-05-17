@@ -17,7 +17,7 @@ ENV PORT=$PORT
 
 EXPOSE $PORT 5173
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev:docker"]
 
 # ---------- BUILD ----------
 FROM node:24 AS builder
