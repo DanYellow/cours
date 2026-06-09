@@ -286,6 +286,13 @@ Dans les deux cas, archive ou dépôt git, ceci devra contenir :
     - Les accès de la base de données sur le serveur sont différents des vôtres en local, faites attention. Il faudra changer les valeurs dans le fichier ".env.prod"
     - **Si vous ne remettez pas l'url du site, cinq points seront retirés de votre note finale**
 
+- Un rapport en format PDF que devra contenir :
+    - Qui a fait quoi? (Répartition des taches et du travail au sein du groupe)
+    - Comment nous avons utilisé une IA générative dans le cadre de notre travail (un descriptif sur comment vous avez utilisé l'IA générative et comment elle vous a aidé dans le cadre de votre travail et dans le cadre de votre apprentissage) 
+    - Des problèmes et limitations de votre application.
+    - Un lien d'un entrepôt git (GitHub ou similaire) qui contient le code source (Cela remplace bien sûr l'envoi d'un fichier zip contenant le code).
+
+
 > Pensez bien à tester votre site avant de le rendre. Durant la SAE 105, certains ont rendu leur site avec des bugs facilement repérables avec des simples tests.
 
 Votre rendu devra être mis sur Moodle avant la date butoir, **cette date sera donnée ultérieurement.** Un seul rendu est attendu par groupe, celui du chef d'équipe. **Des points pourront être retirés ou la note nullifée si le devoir est rendu en retard.**
