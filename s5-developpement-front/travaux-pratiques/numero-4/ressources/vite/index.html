@@ -55,7 +55,7 @@
             </ul>
           </li>
           <li>Ajoutez un fichier .css ou .js dans le dossier public et chargez-le dans votre fichier .html qu'observez-vous quand vous mettez à jour le fichier ?
-            <p class="note-information">N'oubliez pas qu'il ne faut pas mettre "/public/" dans le chemin du fichier juste un slash (/) au début du chemin.</p>
+            <p class="note-information">N'oubliez pas qu'il ne faut <span class="texte-gras">pas</span> mettre "/public/" dans le chemin du fichier juste une barre oblique (/) au début du chemin.</p>
         </li>
         </ol>
 
@@ -71,6 +71,23 @@
           </li>
           <li>Exportez votre projet pour la production avec la commande <code>npm run build</code></li>
         </ol>
+        <div class="note-information">
+            <p>Si vous souhaitez rendre votre code CSS compatible avec des anciens navigateurs (mais pas trop. Ex: Safari 15), vous pouvez installer PostCSS et son plugin "postcss-nested" qui permet d'applatir le CSS imbriqué.</p>
+            <ul>
+                <li><a href="https://www.npmjs.com/package/postcss" target="_blank">PostCSS</a></li>
+                <li><a href="https://www.npmjs.com/package/postcss-nested" target="_blank">postcss-nested</a></li>
+                <li><a href="https://github.com/postcss/postcss" target="_blank" rel="noopener noreferrer">Voir la liste des plugins PostCSS</a></li>
+            </ul>
+            <p>Une fois les modules installés, vous pourrez rajouter un fichier postcss.config.js à la racine du projet avec le contenu suivant :</p>
+            <pre data-code-sample style="font-family:monospace;color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); font-weight: 400; "><span style="color: rgb(129, 162, 190); font-weight: 400;">import</span> postcssNested <span style="color: rgb(129, 162, 190); font-weight: 400;">from</span> <span style="color: rgb(181, 189, 104); font-weight: 400;">"postcss-nested"</span>;
+
+<span style="color: rgb(129, 162, 190); font-weight: 400;">export</span> <span style="color: rgb(129, 162, 190); font-weight: 400;">default</span> {
+    <span style="color: rgb(197, 200, 198); font-weight: 400;">plugins</span>: [
+        <span style="color: rgb(240, 198, 116); font-weight: 400;">postcssNested</span>(),
+    ],
+};
+</pre>
+        </div>
       </details>
       <details class="consignes-conteneur">
         <summary>
@@ -131,7 +148,7 @@
           </li>
           <li>Réécrivez le CSS du projet avec le <a href="https://web.dev/learn/css/nesting?hl=fr" target="_blank">CSS Nesting</a> et rendez le site responsive grâce aux media queries
             <div class="note-information">
-              <p>Sachez qu'il est également possible de faire du CSS Nesting avec les media queries, ainsi, vous n'avez plus besoin de dupliquer votre sélecteur. Exemple :</p>
+              <p>Sachez qu'il est également possible de faire du CSS Nesting avec les media queries (ou n'importe quelle règle-at), ainsi, vous n'avez plus besoin de dupliquer votre sélecteur. Exemple :</p>
 
               <div class="tab-wrapper" role="tablist">
                 <ul class="list-tabs">
@@ -211,7 +228,7 @@
           <li>Créez un fichier .env et ajoutez une variable d'environnement qui sera affichée dans une de vos pages .njk
             <p class="note-information">Pour rappel, si votre variable d'environnement ne commence pas par "VITE_", elle ne sera pas prise en compte par vite</p>
             <div class="note-attention">
-                <p>Par défaut, macOS cache les fichiers commençant par .env, vous ne les verrez pas dans le Finder. Pour y remédier, vous devez entrer les commandes suivantes dans le Terminal (n'importe où dans l'ordinateur) :</p>
+                <p>Par défaut, macOS cache les fichiers commençant par un point (.), vous ne les verrez pas dans le Finder. Pour y remédier, vous devez entrer les commandes suivantes dans le Terminal (n'importe où dans l'ordinateur) :</p>
                 <ol>
                     <li><code>defaults write com.apple.finder AppleShowAllFiles YES</code></li>
                     <li><code>killall Finder</code></li>
@@ -249,11 +266,6 @@
           <li>Ajoutez des meta opengraph sur vos pages et gérez les données grâce à un fichier json
             <ul>
               <li>Il existe de multiples générateurs de balises meta pour opengraph. <a href="https://opengraphtools.com/generator.php" target="_blank" rel="noopener noreferrer">Voici un exemple - ouverture dans un nouvel onglet</a></li>
-            </ul>
-          </li>
-          <li>Remplacez SCSS par le CSS Nesting
-            <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank" rel="noopener noreferrer">Documentation du CSS Nesting - ouverture dans un nouvel onglet</a></li>
             </ul>
           </li>
         </ul>
