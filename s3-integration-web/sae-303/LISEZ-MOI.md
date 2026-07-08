@@ -109,6 +109,10 @@ N'hésitez pas à vous inspirer du web pour trouver une mise en page ou un desig
 - [Voir exemples d'infographies réalisées avec tableau.com](https://public.tableau.com/app/discover/viz-of-the-day)
 - [Voir curation d'infographies](http://visdata.mit.edu/explore.html)
 
+Pensez bien à ne pas tomber dans le piège de la manipulation des données. Voici quelques ressources / astuces pour vous éviter ces déconvenues :
+- https://quoidansmonassiette.fr/tromper-avec-graphiques-representations-visuelles-pour-manipuler-opinion-publique-guide/
+- https://libguides.csun.edu/data/doubt - anglais
+
 
 ## Application interactive en javascript
 
@@ -117,7 +121,8 @@ Autre proposition de rendu : l'application interactive en javascript, elle sera 
 Si vous souhaitez réaliser une carte interactive, vous pouvez utiliser Google Maps (freemium) ou encore leaflet + OpenStreetMap (gratuit).
 - [Voir tutoriel sur Google Maps](https://developers.google.com/maps/documentation/javascript/overview)
   - Pensez bien à sélectionner l'onglet "Javascript" pour le code
-- [Voir cours sur Leaflet](../cours-magistraux/numero-3/presentation.pdf)
+- [Voir cours sur Leaflet](https://github.com/DanYellow/cours/raw/refs/heads/main/s3-integration-web/cours-magistraux/numero-3/presentation.pdf)
+
 
 **Votre jeu de données devra impérativement être chargé,** il faudra donc utiliser l'API `fetch` ([Voir documentation de fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)) pour charger votre jeu de données. Si vous avez le temps, indiquez à l'utilisateur que les données chargent via un message ou une icône.
 
