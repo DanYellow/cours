@@ -28,8 +28,8 @@ def load_gitignore(path = '.gitignore'):
     with open(path) as gitignore_file:
         list_ignored_files = gitignore_file.readlines()
         list_ignored_files.extend([
-            "*.odp", 
-            "gestion-ressources/**", 
+            "*.odp",
+            "gestion-ressources/**",
             "*.zip",
         ])
 
@@ -170,7 +170,7 @@ else:
     else:
         def transform_str_to_path(string):
             return pathlib.Path(string)
-        
+
         list_paths = list(map(transform_str_to_path, args.folder))
         list_valid_paths = list(filter(lambda x: x.exists(), list_paths))
         list_ressources_folders_to_zip = list(map(lambda x: str(x), list_valid_paths))
@@ -199,25 +199,25 @@ def generate_archive_name(folder_path, is_correction_directory = False):
 
     return archive_path
 
-# This function searches for a .gitignore file inside a directory 
+# This function searches for a .gitignore file inside a directory
 # and returns the first one it finds.
 def find_gitignore(directory):
     root = pathlib.Path(directory)
     for path in root.rglob('.gitignore'):
         if path.is_file():
             return path
-    return None 
+    return None
 
 def generate_zip(list_folders):
     if len(list_folders) == 0:
         return
-  
+
     for folder_path in list_folders:
         archive_path = generate_archive_name(folder_path)
 
         correction_directory = None
         list_correction_directories = []
-    
+
         for root, directories, _ in os.walk(folder_path):
             if "correction" in directories:
                 list_correction_directories.append(os.path.join(root, "correction"))
@@ -243,15 +243,15 @@ def generate_zip(list_folders):
                     d for d in dirs
                     if not files_from_gitignore_updated.match_file(os.path.relpath(os.path.join(root, d), folder_path))
                 ]
-    
+
                 for file in files:
                     full_path = os.path.join(root, file)
                     rel_path = os.path.relpath(full_path, folder_path)
-                    
-                    if not files_from_gitignore_updated.match_file(rel_path):                        
+
+                    if not files_from_gitignore_updated.match_file(rel_path):
                         zip_object.write(full_path, rel_path)
             zip_object.close()
-        
+
         list_zip_files_generated.append(archive_path)
 
 generate_zip(list_ressources_folders_to_zip)

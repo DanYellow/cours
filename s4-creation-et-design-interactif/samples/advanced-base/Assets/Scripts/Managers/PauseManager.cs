@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -23,9 +24,9 @@ public class PauseManager : MonoBehaviour
         onDebugConsoleOpenEvent.OnEventRaised += TogglePauseDebug;
     }
 
-    void Update()
+    public void OnTogglePause(InputAction.CallbackContext ctx)
     {
-        if (!isDebugConsoleEnabled && Input.GetKeyDown(KeyCode.Escape))
+        if (ctx.performed)
         {
             isGamePaused = !isGamePaused;
             TogglePause(isGamePaused);

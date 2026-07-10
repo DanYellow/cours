@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HealthBadExample : MonoBehaviour
 {
@@ -24,14 +25,17 @@ public class HealthBadExample : MonoBehaviour
         healthBar.SetHealth(currentHealth / maxHealth);
     }
 
-    private void Update()
+    public void OnDie(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (context.performed)
         {
             Die();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.H))
+    public void OnHurt(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             TakeDamage(10);
         }

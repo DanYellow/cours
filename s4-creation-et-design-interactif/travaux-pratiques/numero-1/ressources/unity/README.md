@@ -184,25 +184,27 @@ La méthode `Awake()` est la première méthode appelée par un `GameObject` lor
 La méthode `Update` est appelée toutes les frames/images. Ainsi si votre jeu tourne à 60 images par seconde (ou fps/frames per second), ceci signifie que la méthode `Update()` sera appelée 60 fois durant une seule et unique seconde, et ce, pour chaque script possédant la méthode `Update()`. De ce fait, il faudra faire attention à ne pas faire de calculs gourmands en ressources dans la méthode.
 
 Notez tout de même que dépendamment de la puissance de l'appareil qui exécute votre jeu, la méthode `Update()` ne sera pas forcément appelée 60 fois par seconde, ça peut être plus ou moins. Mais il est possible de bloquer la valeur via la propriété `Application.targetFrameRate`.
-Parallèlement, c'est dans cette méthode que vous vérifierez les touches appuyées. Par exemple :
+Dans cette méthode, vous pouvez, par exemple, réaliser un compte-à-rebours comme suit (ce code peut être bien meilleur) :
 
 ```cs
 /* [...] */
+[SerializeField]
+private float timeRemaining = 10;
 void Update()
 {
-    // Ici on appelle le contenu du "if"
-    // quand la touche V du clavier est appuyée
-    if (Input.GetKeyDown(KeyCode.V))
+    if (timeRemaining > 0)
     {
-        // Mes instructions
-        Debug.Log("J'ai appuyé sur la touche V");
+        timeRemaining -= Time.deltaTime;
+    } else
+    {
+        Debug.Log("Fin du compte à rebours");
     }
 }
 ```
 
 La méthode `Update()` sert également aux choses suivantes (liste non exhaustive) :
 - Gèrer un compte à rebours ou un minuteur
-- Envoyer des informations au composant "Animation" d'un `GameObject`
+- Envoyer des informations au composant "Animator" d'un `GameObject`
 - Transition de mouvements
 
 > ** **Attention** **
@@ -238,8 +240,8 @@ Enfin, notez les choses suivantes sur les classes :
     - [Voir ordre d'exécution des méthodes de `MonoBehaviour` (anglais)](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 ## Exercice
-Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject ou un script lui-même lié à un GameObject.**
-Créez un `GameObject` depuis le panneau "Hierarchy" `Clic droit > Create Empty` ou encore depuis le menu `Game Object > Create Empty`. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`).
+Dans le but de découvrir le C#, vous allez écrire quelques lignes de code. **Retenez bien qu'Unity ne peut exécuter un script que s'il est lié à un GameObject.**
+Créez un `GameObject` depuis le panneau "Hierarchy" `Clic droit > Create Empty` ou encore depuis le menu `Game Object > Create Empty`. Puis dans la fenêtre "Inspector", cliquez sur "Add Component" et écrivez le nom de votre script (au choix, évitez tout de même les caractères spéciaux et espace dans le nom) puis cliquez sur "New script" ensuite "Create and Add" (le script sera automatiquement ajouté au dossier `Assets/`).
 
 ![](./printscreens/add-component.jpg)
 
@@ -261,16 +263,13 @@ Avant d'écrire vos premières lignes de C#, pensez bien à installer toutes les
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
 - Une fonction qui **retourne** un entier passé en paramètre et le multiplie par lui-même
     - N'oubliez pas d'appeler la fonction et d'utiliser le mot-clé "return"
-- Une fonction qui fait ce que vous souhaitez mais qui est appelée quand on appuie sur une touche
-    - L'appel de la fonction devra impérativement être fait au sein de la méthode `Update()`, sinon ça ne fonctionnera pas (voir exemple plus haut)
-    - [Documentation Unity de la liste des touches accessibles - anglais](https://docs.unity3d.com/ScriptReference/KeyCode.html)
 
 > N'oubliez pas de lier votre script à un GameObject. **Sinon, votre code ne sera jamais exécuté.**
 > N'oubliez pas qu'une fonction ne peut pas être appelée en dehors d'une autre fonction.
 
 Cette petite mise en bouche n'est là que pour vous faire prendre la main sur le langage C#. Durant ce cours, nous aurons l'occasion de faire un petit jeu en 2D où nous aborderons les notions suivantes (liste non exhaustive) :
 - Gestion des sprites 2D
-- Déplacement du joueur
+- Le New Input System
 - Gestion du son / physique
 - Animation
 - ScriptableObject
@@ -292,7 +291,7 @@ Au sein d'une classe, les variables définies en dehors d'une fonction ont une p
 > Note : Ce n'est pas une bonne pratique de tout mettre en "public". Rendre tout "public" rend possible à n'importe quelle classe la possibilité d'en modifier une autre. Ce qui peut rendre le debuggage très compliqué.
 > - [Why you should NOT make everything PUBLIC! - anglais](https://www.youtube.com/watch?v=pD27YuJG3L8)
 > - [Documentation sur les niveaux d'accessibilité](https://learn.microsoft.com/fr-fr/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers)
-
+>
 > Note 2 : cette notion d’accessibilité est également applicable aux classes et aux fonctions au sein d'une classe (qu'on appelle "méthode")
 
 Par convention, ces propriétés de classes sont définies au début d'une classe. Exemple :
@@ -323,12 +322,12 @@ public class MyClass : MonoBehaviour
     /* [...] */
 }
 ```
-Il existe d'autres conventions de programmation liée à Unity / C#, vous n'avez pas forcément besoin de les suivre à la lettre mais de rester cohérent dans votre projet.
+Il existe d'autres conventions de programmation liée à Unity / C#, vous n'avez pas forcément besoin de les suivre à la lettre mais d'avoir une cohérence dans vos projets.
 - [Ensemble de conventions de programmation en C# / Unity - français](https://unity.com/fr/how-to/naming-and-code-style-tips-c-scripting-unity)
 
 > Le formattage de texte est possible avec des balises ressemblant à du HTML. Ainsi en écrivant `Debug.Log("<color=red>Message :</color> Texte formatté.")`, une partie du texte sera rouge dans la console.
 
-Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir durant ce cycle de cours. Alors n'hésitez pas à vous renseigner un peu sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
+Enfin, n'oubliez pas qu'Unity est outil très complet, nous n'aurons pas l'occasion de tout voir durant ce cycle de cours. Alors n'hésitez pas à vous renseigner sur le web pour développer le jeu qui vous plait. Utilisez les outils (gratuits) mis à votre disposition pour créer des ressources pour vos créations :
 - [Tiled Map Editor](https://thorbjorn.itch.io/tiled)
 - [libresprite (version gratuite et moins complète d'aesprite)](https://libresprite.github.io/#!/)
 - [Générateur de spritesheets](https://codeshack.io/images-sprite-sheet-generator/)
@@ -352,9 +351,11 @@ Voici des liens liés aux raccourcis d'Unity, ils pourront vous être utiles :
 
 ## Notes
 
-Vous serez noté(e) sur votre utilisation de git durant ce cycle de cours. A la fin des TP de découverte, vous devrez envoyer le lien de votre dépôt git. Pour éviter d'avoir une mauvaise note, nous vous invitons à commiter régulièrement, un commit, c'est gratuit. **Ne commitez pas tout à la fin.**
+Vous serez noté(e) sur votre utilisation de git durant ce cycle de cours. A la fin des TP de découverte, vous devrez envoyer le lien de votre dépôt git. Pour éviter d'avoir une mauvaise note, nous vous invitons à commiter régulièrement **(une à deux fois par cours)**, un commit, c'est gratuit. **Ne commitez pas tout à la fin.**
 
-De plus, seuls les dossiers suivants doivent être poussés :
+**On le saura.**
+
+De plus, seuls les dossiers suivants doivent être commités :
 
 - Assets/
 - Packages/
@@ -368,4 +369,4 @@ Pour éviter de mettre dans votre dépôt des fichiers / dossiers inutiles vous 
 - [Télécharger le fichier .gitignore pour Unity](https://github.com/github/gitignore/blob/main/Unity.gitignore)
   - Il faudra penser à renommer le fichier `Unity.gitignore` en `.gitignore` (avec le point devant)
 
-
+Par ailleurs, si vous utilisez les ordinateurs de l'IUT, quand vous récupérez votre projet sur un autre ordinateur, vous devez cloner le projet, vous ne travaillez pas à partir d'une archive.

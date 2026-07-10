@@ -51,7 +51,7 @@ Exemple :
 
 ```cs
 // [...]
-// Bonne pratique : Le résultat de FindWithTag() est caché dans une variable
+// Bonne pratique : Le résultat de FindWithTag() est mis en cache dans une variable
 public class ExampleClass : MonoBehaviour
 {
     public GameObject target;
@@ -121,7 +121,7 @@ Les layers définissent les interactions entre les GameObjects de votre scène. 
 
 Les interactions peuvent être de plusieurs ordres. Par exemple, durant nos cours, nous avons défini ce qui est ou non grâce aux layers.
 
-De plus, ils permettent de finir des "groupes" physique de GameObjects. Par exemple, si vous ne souhaitez pas que des ennemis ne puissent pas se gêner en se déplacement, il faudra les mettre dans le même layer puis indiquer à Unity qu'au sein de ce layer les éléments peuvent se traverser. Ceci se fait grâce à la matrice de collision qui se trouve dans le menu `Edit > Project Settings` puis onglet `Physics 2D` et onglet `Layer collision matrix`.
+De plus, ils permettent de finir des "groupes" physique de GameObjects. Par exemple, si vous ne souhaitez pas que des ennemis ne puissent pas se gêner en se déplaçant, il faudra les mettre dans le même layer puis indiquer à Unity qu'au sein de ce layer les éléments peuvent se traverser. Ceci se fait grâce à la matrice de collision qui se trouve dans le menu `Edit > Project Settings` puis onglet `Physics 2D` et onglet `Layer collision matrix`.
 
 ![](./printscreens/memo-layer-collision-matrix.jpg)
 
@@ -323,7 +323,7 @@ Dans l'onglet "Inspector" qui s'est ouvert, vous pouvez afficher le comportement
   - Les paramètres de conditions sont sensibles à la casse, ainsi écrire "jump" n'a pas la même signification que "Jump"
 - Can Transition To Self (uniquement avec Any State) : Indique à Unity si l'animation ne doit être jouée qu'une seule fois. Si la case n'est pas décochée, il est possible que votre animation se bloque lorsque les conditions sont remplies
 ---
-- [Accéder à la documetation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
+- [Accéder à la documentation `AnimationStateTransition`](https://docs.unity3d.com/Manual/class-Transition.html)
 
 # <a name="tilemap"></a>Tilemap
 - [Voir documentation des Tilemaps](https://learn.unity.com/tutorial/introduction-to-tilemaps)

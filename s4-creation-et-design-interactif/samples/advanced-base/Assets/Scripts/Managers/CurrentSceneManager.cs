@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CurrentSceneManager : MonoBehaviour
@@ -17,12 +18,13 @@ public class CurrentSceneManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Update() {
+    public void OnRestartLevel(InputAction.CallbackContext ctx)
+    {
         #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                RestartLevel();
-            }
+        if (ctx.started)
+        {
+            RestartLevel();
+        }
         #endif
     }
 

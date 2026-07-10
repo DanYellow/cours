@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
+
+    private static readonly int VelocityX = Animator.StringToHash("VelocityX");
+    private static readonly int VelocityY = Animator.StringToHash("VelocityY");
+    private static readonly int IsOnFallingPlatform = Animator.StringToHash("IsOnFallingPlatform");
+    private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
 
 
     [Tooltip("Running system"), SerializeField, Range(5, 30)]
@@ -100,10 +106,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (!isStunned)
-        {
-            Controls();
-        }
 
         if (isLandingFast && isGrounded)
         {
@@ -119,6 +121,11 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
+        if (jumpBufferCounter > 0)
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
         Flip();
         Animations();
 
@@ -130,25 +137,18 @@ public class PlayerMovement : MonoBehaviour
         wasGrounded = isGrounded;
     }
 
-    private void Controls()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        moveDirectionX = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump"))
+        if (isStunned)
         {
-            jumpBufferCounter = jumpBufferTime;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
+            return;
         }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            jumpReleased = true;
-        }
+        var moveInput = context.ReadValue<Vector2>();
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        moveDirectionX = moveInput.x;
+
+        if (context.performed && moveInput.y < -0.5)
         {
             if (isOnOneWayPlatform && !hasCrossedFloatingPlatforms)
             {
@@ -161,6 +161,20 @@ public class PlayerMovement : MonoBehaviour
                 isLandingFast = true;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForce);
             }
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            jumpBufferCounter = jumpBufferTime;
+            jumpReleased = false;
+        }
+
+        if (context.canceled)
+        {
+            jumpReleased = true;
         }
     }
 
@@ -181,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = IsGrounded();
+        isGrounded = IsOnTheGround();
         isOnOneWayPlatform = IsOnOneWayPlatform();
         hasCrossedFloatingPlatforms = HasCrossedFloatingPlatforms();
 
@@ -214,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.linearVelocityY > 0 && !Input.GetButton("Jump"))
+        else if (rb.linearVelocityY > 0 && jumpReleased)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
@@ -252,10 +266,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animations()
     {
-        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocity.x));
-        animator.SetFloat("VelocityY", rb.linearVelocity.y);
-        animator.SetBool("IsOnFallingPlatform", isOnFallingPlatform);
-        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat(VelocityX, Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat(VelocityY, rb.linearVelocity.y);
+        animator.SetBool(IsOnFallingPlatform, isOnFallingPlatform);
+        animator.SetBool(IsGrounded, isGrounded);
     }
 
     private void Flip()
@@ -291,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public bool IsOnTheGround()
     {
         return Physics2D.OverlapCircle(
             groundCheck.position,

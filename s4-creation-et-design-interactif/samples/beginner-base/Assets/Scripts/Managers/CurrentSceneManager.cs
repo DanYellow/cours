@@ -8,22 +8,22 @@ public class CurrentSceneManager : MonoBehaviour
     bool isGamePaused = false;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isGamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     if (isGamePaused)
+        //     {
+        //         Resume();
+        //     }
+        //     else
+        //     {
+        //         Pause();
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartLevel();
-        }
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     RestartLevel();
+        // }
     }
 
     public void Resume()

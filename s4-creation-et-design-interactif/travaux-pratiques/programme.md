@@ -94,3 +94,34 @@ Canvas :
     - Canvas scaler -> Scale with screen size. Pour adapter le canvas à l'écran. Ne pas oublier de mettre une référence
     https://unity.com/how-to/unity-ui-optimization-tips
     - Remove Graphic Raycasters from non-interactive UI Canvases and turn off the Raycast Target for static or non-interactive elements.
+
+
+started -> performed -> canceled
+
+
+context.performed - Triggered when the action is considered successfully completed :
+- Charged attacks
+- Hold interactions
+- Tap interactions
+- Confirmed actions
+
+context.started - Triggered when the interaction begins:
+- Jump
+- Dash
+- Single-fire actions
+- Buffering inputs
+
+
+private InputAction moveAction;
+
+private void Update()
+{
+    Vector2 move = moveAction.ReadValue<Vector2>();
+}
+
+
+Input Type	Preferred Callback
+Instant gameplay button	started
+Continuous value	performed
+Interaction-based action	performed
+Button release	canceled

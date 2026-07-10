@@ -5,7 +5,7 @@ using System.Collections;
 enum EnemyState
 {
     Idle,
-    Moving
+    Moving,
 }
 
 public class EnemyPatrol : MonoBehaviour
@@ -37,8 +37,10 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private bool isSpriteFacingRight = true;
 
+    private static readonly int VelocityX = Animator.StringToHash("VelocityX");
+
     // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
-    private float facingDirection
+    private float FacingDirection
     {
         get
         {
@@ -67,7 +69,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat(VelocityX, Mathf.Abs(rb.linearVelocity.x));
     }
 
     private void FixedUpdate()
@@ -108,14 +110,14 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Move()
     {
-        rb.linearVelocity = new Vector2(speed * facingDirection, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(speed * FacingDirection, rb.linearVelocity.y);
     }
 
     public bool HasCollisionWithObstacle()
     {
-        (Vector2 startCast, Vector2 endCast) segmentLinecast = GetObstacleLineCast();
+        (Vector2 startCast, Vector2 endCast) = GetObstacleLineCast();
 
-        RaycastHit2D hitObstacle = Physics2D.Linecast(segmentLinecast.startCast, segmentLinecast.endCast, obstacleLayersMask);
+        RaycastHit2D hitObstacle = Physics2D.Linecast(startCast, endCast, obstacleLayersMask);
 
         return hitObstacle.collider != null;
     }
@@ -123,7 +125,7 @@ public class EnemyPatrol : MonoBehaviour
     public bool HasNotTouchedGround()
     {
         Vector2 center = new Vector2(
-            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
+            bc.bounds.center.x + (FacingDirection * bc.bounds.extents.x),
             bc.bounds.min.y
         );
 
@@ -137,7 +139,7 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(
             new Vector2(
-                bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
+                bc.bounds.center.x + (FacingDirection * bc.bounds.extents.x),
                 bc.bounds.min.y
             ),
             obstacleCheckRadius
@@ -145,22 +147,16 @@ public class EnemyPatrol : MonoBehaviour
 
         Gizmos.color = Color.green;
 
-        (Vector2 startCast, Vector2 endCast) segmentLinecast = GetObstacleLineCast();
+        (Vector2 startCast, Vector2 endCast) = GetObstacleLineCast();
 
-        Gizmos.DrawLine(
-            segmentLinecast.startCast,
-            segmentLinecast.endCast
-        );
+        Gizmos.DrawLine(startCast, endCast);
     }
 
     private (Vector2, Vector2) GetObstacleLineCast()
     {
-        Vector2 startCast = new Vector2(
-            bc.bounds.center.x + (facingDirection * bc.bounds.extents.x),
-            bc.bounds.center.y
-        );
+        Vector2 startCast = (Vector2)bc.bounds.center + Vector2.right * (FacingDirection * bc.bounds.extents.x);
 
-        Vector2 endCast = new Vector2(startCast.x + facingDirection * obstacleDetectionLength, startCast.y);
+        Vector2 endCast = startCast + Vector2.right * (FacingDirection * obstacleDetectionLength);
 
         return (startCast, endCast);
     }
