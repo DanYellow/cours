@@ -14,6 +14,10 @@ public class DeathZone : MonoBehaviour
             // We "stop" the player on respawn
             other.attachedRigidbody.linearVelocity = Vector2.zero;
         }
+        else if (other.gameObject.TryGetComponent(out Enemy animator))
+        {
+            animator.Hurt();
+        }
         else if (other.gameObject.GetComponent<FallingPlatform>() == null)
         {
             Destroy(other.gameObject);

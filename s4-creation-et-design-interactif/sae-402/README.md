@@ -360,7 +360,7 @@ Lorsque vous générerez l'archive, pensez bien à mettre tous les fichiers dans
 
 - **Est-il possible de réaliser ce travail seul(e) ?**
 
-    **Il est possible réaliser cette SAE en solitaire.** Cependant, nous vous déconseillons de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
+    **Il est possible réaliser cette SAE en solitaire.** Cependant, nous vous déconseillons **grandement** de le faire car la charge de travail est assez conséquente et en cas d'imprévus qui vous empêchent de travailler dans de saines conditions, il sera très compliqué pour nous de vous noter correctement. De plus, le travail collaboratif vous incitera plus à utiliser git et mieux vous organiser dans votre code.
 - **Est-il possible de rendre mon jeu jouable avec une manette de jeu ?**
 
     **Ce n'est pas demandé, mais vous pouvez le faire.** Après, si vous le faites, pensez bien à adapter votre UI si jamais vous affichez des touches de manettes. Si vous souhaitez gérer une manette, nous vous conseillons très fortement d'utiliser l'Input System d'Unity, il permet de gérer plus facilement les entrées manettes (et clavier).

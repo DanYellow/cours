@@ -28,6 +28,7 @@ public class CurrentSceneManager : MonoBehaviour
         #endif
     }
 
+
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;

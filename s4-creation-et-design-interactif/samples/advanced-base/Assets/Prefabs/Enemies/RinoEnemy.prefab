@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4000432134071860589}
   - component: {fileID: 2380668662454079122}
   - component: {fileID: 2194512245989078259}
+  - component: {fileID: 3199735830157407149}
   m_Layer: 10
   m_Name: RinoEnemy
   m_TagString: Untagged
@@ -235,3 +236,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4000432134071860589}
   effect: {fileID: 0}
+--- !u!114 &3199735830157407149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000432134071860576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e74ac6451659847a4db480975f8bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  maxHealth: {fileID: 0}
+  currentHealth: 0
+  spriteRenderer: {fileID: 4000432134071860591}
+  rb: {fileID: 4000432134071860589}
+  animator: {fileID: 4000432134071860590}
+  hitColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  listComponents:
+  - {fileID: 2194512245989078259}
+  - {fileID: 2380668662454079122}
