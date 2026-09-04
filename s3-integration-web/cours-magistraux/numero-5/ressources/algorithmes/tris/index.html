@@ -9,9 +9,10 @@
         <script src="tri-fusion.js" defer></script>
         <script src="tri-a-bulles.js" defer></script>
         <script src="scripts.js" defer></script>
+        <link rel="stylesheet" href="https://danyellow.net/cours-mmi/consignes.css" />
     </head>
     <body>
-        <main class="mx-auto max-w-4xl">
+        <main class="mx-auto max-w-4xl px-1.5">
             <h1 class="font-bold text-4xl mb-3">Comparaison des performances des algorithmes de tri</h1>
             <p>
                 Dans ce site, vous pouvez faire la comparaison de performances
@@ -20,20 +21,33 @@
             <ul class="list-disc list-inside">
                 <li>
                     Le tri natif du navigateur. Utilisation de la méthode
-                    <code>sort</code>
+                    <code>.sort()</code>
+                    <p class="note-information">Dépendamment du navigateur, l'algorithme de tri de la méthode <code>.sort()</code>, bien que très performant, diffère.</p>
+                    <ul class="list-disc list-inside ms-6">
+                        <li>
+                            <a 
+                                href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="underline hover:no-underline"
+                            >
+                               Accéder à la documentation de la méthode <code>.sort()</code> - Ouvrir dans un nouvel onglet
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li>Le tri à bulles</li>
+                <li>Le tri à bulles. Pas très performant, mais reste respectable pour une petit tableau</li>
                 <li>
                     Le tri fusion. Un des algorithmes les plus performants
                 </li>
             </ul>
-            <p>
+            <p class="mt-6">
                 Avec le slider ci-dessous, vous pouvez générer un tableau
-                d'entier contenant entre 10 et 100 000 d'éléments à trier en
-                appuyant sur le bouton "Trier".
+                d'entier contenant entre 10 et 100 000 d'éléments à trier de façon croissante en
+                appuyant sur le bouton "Trier". Pour comparer le temps d'exécution de chaque algorithme.
             </p>
 
-            <form action="" class="mt-6 mb-4 inert:opacity-65" data-tri-form>
+            <form action="" class="mt-3 mb-4 inert:opacity-65" data-tri-form>
                 <div class="flex flex-col">
                     <label for="nb_elements" class="font-bold"
                         >Nombre d'éléments à générer</label
@@ -53,25 +67,25 @@
 
                 <button
                     type="submit"
-                    class="mt-3 px-3 py-2 block text-center w-full text-xl bg-gray-300"
+                    class="mt-3 px-3 py-2 block text-center w-full text-xl bg-gray-300 text-black hover:bg-gray-200 dark:hover:bg-white rounded-md"
                 >
                     Trier
                 </button>
             </form>
-            <ul class="grid grid-cols-3 gap-3.5">
-                <li class="p-2 border border-black rounded-md" data-tri="natif">
-                    <p>Tri natif</p>
+            <ul class="grid grid-cols-2 md:grid-cols-3 gap-3.5">
+                <li class="p-2 border dark:border-white border-black rounded-md" data-tri="natif">
+                    <p>Tri natif (méthode <code>.sort()</code>)</p>
                     <p class="text-3xl" data-duree="natif">/</p>
                 </li>
                 <li
-                    class="p-2 border border-black rounded-md"
+                    class="p-2 border dark:border-white border-black rounded-md"
                     data-tri="bulles"
                 >
                     <p>Tri à bulles</p>
                     <p class="text-3xl" data-duree="bulles">/</p>
                 </li>
                 <li
-                    class="p-2 border border-black rounded-md"
+                    class="p-2 border dark:border-white border-black rounded-md"
                     data-tri="quicksort"
                 >
                     <p>Tri fusion</p>

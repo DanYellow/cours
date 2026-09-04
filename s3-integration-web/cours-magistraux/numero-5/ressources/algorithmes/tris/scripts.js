@@ -54,7 +54,7 @@ const triFusionPerf = (tableau) => {
 const tri = async (e) => {
     e.preventDefault();
 
-    e.currentTarget.inert = true;
+    form.inert = true;
     document.body.style.cursor = "wait";
 
     await new Promise(resolve => setTimeout(resolve, 750));
@@ -67,9 +67,9 @@ const tri = async (e) => {
     dureeTriNatif.textContent = `${triNatif(tableauValAleatoires).toLocaleString("fr-FR")} ms`;
     dureeTriBulles.textContent = `${triABullesPerf(tableauValAleatoires).toLocaleString("fr-FR")} ms`;
     dureeTriQuickSort.textContent = `${triFusionPerf(tableauValAleatoires).toLocaleString("fr-FR")} ms`;
-
+    
     document.body.style.cursor = "default";
-    e.currentTarget.inert = false;
+    form.inert = false;
 };
 
 form.addEventListener("submit", tri);
