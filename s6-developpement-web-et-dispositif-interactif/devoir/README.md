@@ -25,6 +25,12 @@ Suite au projet abordé durant le cours de CI/CD (Continous Integration / Contin
 - Back-end
 - DevOps
 
+<!-- Dans le but de ciber les apprentissages critiques suivants :
+- AC34.01 | Développer à l'aide d'un framework de développement côté client
+- AC34.02 | Développer à l'aide d'un framework de développement côté serveur
+- AC34.03 | Développer des dispositifs interactifs sophistiqués
+- AC34.03 | Concevoir et développer des composantns logiciels, plugins ou extensions  -->
+
 Le projet se trouve toujours au même endroit :
 - [Télécharger le projet (dossier partie 3)](https://github.com/DanYellow/cours/raw/refs/heads/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/s6-developpement-web-et-dispositif-interactif_travaux-pratiques_numero-4.ressources.zip)
 
@@ -36,6 +42,16 @@ Le projet se trouve toujours au même endroit :
 > Note : **La version finale de votre projet doit être tagguée.** Le plus simple est de la tagguer en version 1.0.0 pour respecter la norme semantic version, le fichier CHANGELOG.md n'est pas obligatoire. Néanmoins rien ne vous empêche d'ajouter des fonctionnalités et corriger des bugs après cette version 1.0.0. Pour rappel, vous avez le node module "release-it", ou vous pouvez faire le tag manuellement grâce à la commande <code>git tag</code>. Exemple : <code>git tag 1.0.10</code>. Par ailleurs, n'oubliez pas le paramètre <code>fetch-depth: 0</code> à l'action "actions/checkout@v4", si vous souhaitez générer proprement un CHANGELOG.md (voir les instructions du TP sur la CI/CD).
 >
 > **C'est la version la plus haute de votre projet qui sera testée, pas une branche.**
+
+> Note 2 : Pensez à mettre les fichiers contenus à la racine du dossier github-actions/partie-3 à la racine du votre dépôt git. Il est inutile d'avoir une arborescence complexe pour rien. Ainsi, vous devriez avoir à la racine (plus ou moins) :
+> ```
+> .
+> ├── .github
+> ├── README.md
+> └── contenu-du-dossier-github-actions-à-la-racine/partie-3
+> ```
+
+
 
 - [Voir documentation git tag](https://git-scm.com/docs/git-tag/fr)
 - [Voir node module release-it](https://www.npmjs.com/package/release-it)
@@ -165,7 +181,7 @@ _Le langage de programmation est à votre convenance et ce n'est pas obligatoire
 
 Pour la pipeline, vous pouvez utiliser la correction de la partie 3 du TP de CI/CD et adapter en fonction des besoins du devoir.
   - [Voir correction](https://github.com/DanYellow/cours/blob/main/s6-developpement-web-et-dispositif-interactif/travaux-pratiques/numero-4/ressources/github-actions/correction/partie-3/.github/workflows/release.yml)
-> 
+>
 
 ## Migration base de données (MySQL)
 La migration de base de données peut également se faire via la pipeline CI/CD. Si vous utilisez MySQL, il faudra faire un export de la base de données (appelé aussi "dump") puis l'importer.
