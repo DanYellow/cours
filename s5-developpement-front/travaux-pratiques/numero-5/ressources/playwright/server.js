@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/src/form.html");
 });
 
+app.get("/jours-feries", (req, res) => {
+    res.sendFile(__dirname + "/src/jours-feries/index.html");
+});
+
 const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
