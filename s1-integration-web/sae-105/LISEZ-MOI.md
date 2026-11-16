@@ -37,7 +37,7 @@ L'objectif primaire du site sera de présenter de façon détaillée les aspects
 > Vos groupes doivent impérativement être communiqué au maximum deux semaines après la communication des consignes. **Au-delà de ce délai, les membres rajoutés verront leur note divisée par 2 comparé au reste du groupe.**
 
 Vous avez donc très peu de choses à faire niveau design, l'université vous le fournissant. Niveau code, vous êtes également aidé, nous vous fournissons une base d'intégration.
-- [Télécharger le code de base](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FDanYellow%2Fcours%2Ftree%2Fmain%2Fintegration-web-s1%2Fsae-105%2Fcode)
+- [Télécharger le code de base](https://github.com/DanYellow/cours/raw/refs/heads/main/s1-integration-web/s1-integration-web-sae-105.ressources.zip)
 
 ## Contenu du site à réaliser
 
