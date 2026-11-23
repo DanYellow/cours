@@ -58,6 +58,17 @@
           ancre (la balise que vous venez de définir) et l'url de la navigateur changera
         </li>
       </ol>
+      <div class="note-information">
+        <p>Vous pouvez ajouter une animation au défilement de la page grâce à la déclaration CSS <code>scroll-behavior: smooth;</code> à placer sur le sélecteur de la balise html.</p>
+        <p>Notez tout de même que pour des questions d'accessibilité, on désactivera l'animation pour les personnes qui ne souhaitent pas l'avoir via le code suivant que vous n'oublierez pas de mettre :</p>
+        <pre data-code-sample='{"displayLineCode":true,"allowCopy":true,"language":"CSS"}' style="font-family:monospace;color: rgb(248, 248, 242); background-color: rgb(43, 43, 43); font-weight: 400; "><span style="color: rgb(220, 198, 224); font-weight: 400;">@media</span> (<span style="color: rgb(255, 215, 0); font-weight: 400;">prefers-reduced-motion</span>: reduce) {
+    *,
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">::before</span>,
+    <span style="color: rgb(248, 248, 242); font-weight: 400;">::after</span> {
+        scroll-behavior: auto <span style="color: rgb(245, 171, 53); font-weight: 400;">!important</span>;
+    }
+}</pre>
+      </div>
     </details>
     <details class="consignes-conteneur">
         <summary>
@@ -91,6 +102,8 @@
       <summary>
         <p class="h1">Partie 3 (cliquer pour afficher / cacher)</p>
       </summary>
+            <p class="note-attention">Pensez à mettre un libellé clair pour vos liens. N'écrivez pas "cliquez ici" car on ne sait pas où on va atterrir.</p>
+
       <ul class="liste-consignes">
         <li>Partie A
             <ol>
@@ -110,8 +123,28 @@
                 </li>
             </ol>
         </li>
+        <li>Partie C
+            <ol>
+                <li>Dans la page crée dans la partie A, ajoutez un lien qui pointe vers un lien (externe ou interne) <span class="texte-gras">avec une ancre</span></li>
+            </ol>
+        </li>
       </ul>
       <p class="note-information">N'oubliez pas qu'un lien doit être facilement repérable surtout dans un bloc de texte. Pensez aux propriétés CSS "color", "text-decoration" ou encore "background-color" pour rendre les liens distincts.</p>
+    </details>
+    <details class="consignes-conteneur">
+      <summary>
+        <p class="h1">Pour aller plus loin (cliquer pour afficher / cacher)</p>
+      </summary>
+      <ul class="liste-consignes">
+        <li>
+          Utilisez la pseudo-classe <code>:target</code> pour indiquer quel élément est actuellement ciblé par une ancre
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Selectors/:target" target="_blank" rel="noopener noreferrer">Accéder à la documentation de la pseudo-classe :target</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </details>
   </header>
 </body>
